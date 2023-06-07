@@ -1,0 +1,15 @@
+{
+  "name": "volcengine/volcengine-php-sdk",
+  "require": {
+    "php": ">=5.5",
+    "ext-curl": "*",
+    "ext-json": "*",
+    "ext-mbstring": "*",
+    "guzzlehttp/guzzle": "^6.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "Volcengine\\": "src/"
+    }
+  }
+}
