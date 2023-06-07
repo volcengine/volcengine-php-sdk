@@ -11,5 +11,12 @@
     "psr-4": {
       "Volcengine\\": "src/"
     }
-  }
+  },
+  "type": "library",
+  "license": "Apache-2.0",
+  "authors": [
+    {
+      "name": "bytedance"
+    }
+  ]
 }
