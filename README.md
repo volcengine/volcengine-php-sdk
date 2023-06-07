@@ -11,14 +11,8 @@ To install the bindings via [Composer](http://getcomposer.org/), add the followi
 
 ```
 {
-  "repositories": [
-    {
-      "type": "git",
-      "url": "https://github.com/volcengine/volcengine-php-sdk.git"
-    }
-  ],
   "require": {
-    "volcengine/volcengine-php-sdk": "*@dev"
+    "volcengine/volcengine-php-sdk": "v1.0.0"
   }
 }
 ```
