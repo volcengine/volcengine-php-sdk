@@ -28,7 +28,7 @@ class VolumeForRunInstancesInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'delete_with_instance' => 'bool',
+        'delete_with_instance' => 'string',
         'size' => 'int',
         'volume_type' => 'string'
     ];
@@ -190,7 +190,7 @@ class VolumeForRunInstancesInput implements ModelInterface, ArrayAccess
     /**
      * Gets delete_with_instance
      *
-     * @return bool
+     * @return string
      */
     public function getDeleteWithInstance()
     {
@@ -200,7 +200,7 @@ class VolumeForRunInstancesInput implements ModelInterface, ArrayAccess
     /**
      * Sets delete_with_instance
      *
-     * @param bool $delete_with_instance delete_with_instance
+     * @param string $delete_with_instance delete_with_instance
      *
      * @return $this
      */
