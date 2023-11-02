@@ -28,6 +28,7 @@ class AssociateHaVipRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'client_token' => 'string',
         'ha_vip_id' => 'string',
         'instance_id' => 'string',
         'instance_type' => 'string'
@@ -39,6 +40,7 @@ class AssociateHaVipRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'client_token' => null,
         'ha_vip_id' => null,
         'instance_id' => null,
         'instance_type' => null
@@ -71,6 +73,7 @@ class AssociateHaVipRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'client_token' => 'ClientToken',
         'ha_vip_id' => 'HaVipId',
         'instance_id' => 'InstanceId',
         'instance_type' => 'InstanceType'
@@ -82,6 +85,7 @@ class AssociateHaVipRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'client_token' => 'setClientToken',
         'ha_vip_id' => 'setHaVipId',
         'instance_id' => 'setInstanceId',
         'instance_type' => 'setInstanceType'
@@ -93,6 +97,7 @@ class AssociateHaVipRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'client_token' => 'getClientToken',
         'ha_vip_id' => 'getHaVipId',
         'instance_id' => 'getInstanceId',
         'instance_type' => 'getInstanceType'
@@ -173,6 +178,7 @@ class AssociateHaVipRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
         $this->container['ha_vip_id'] = isset($data['ha_vip_id']) ? $data['ha_vip_id'] : null;
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
         $this->container['instance_type'] = isset($data['instance_type']) ? $data['instance_type'] : null;
@@ -215,6 +221,30 @@ class AssociateHaVipRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets client_token
+     *
+     * @return string
+     */
+    public function getClientToken()
+    {
+        return $this->container['client_token'];
+    }
+
+    /**
+     * Sets client_token
+     *
+     * @param string $client_token client_token
+     *
+     * @return $this
+     */
+    public function setClientToken($client_token)
+    {
+        $this->container['client_token'] = $client_token;
+
+        return $this;
+    }
 
     /**
      * Gets ha_vip_id

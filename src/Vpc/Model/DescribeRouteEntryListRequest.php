@@ -29,6 +29,7 @@ class DescribeRouteEntryListRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'destination_cidr_block' => 'string',
+        'destination_prefix_list_id' => 'string',
         'next_hop_id' => 'string',
         'next_hop_type' => 'string',
         'page_number' => 'int',
@@ -46,6 +47,7 @@ class DescribeRouteEntryListRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'destination_cidr_block' => null,
+        'destination_prefix_list_id' => null,
         'next_hop_id' => null,
         'next_hop_type' => null,
         'page_number' => null,
@@ -84,6 +86,7 @@ class DescribeRouteEntryListRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'destination_cidr_block' => 'DestinationCidrBlock',
+        'destination_prefix_list_id' => 'DestinationPrefixListId',
         'next_hop_id' => 'NextHopId',
         'next_hop_type' => 'NextHopType',
         'page_number' => 'PageNumber',
@@ -101,6 +104,7 @@ class DescribeRouteEntryListRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'destination_cidr_block' => 'setDestinationCidrBlock',
+        'destination_prefix_list_id' => 'setDestinationPrefixListId',
         'next_hop_id' => 'setNextHopId',
         'next_hop_type' => 'setNextHopType',
         'page_number' => 'setPageNumber',
@@ -118,6 +122,7 @@ class DescribeRouteEntryListRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'destination_cidr_block' => 'getDestinationCidrBlock',
+        'destination_prefix_list_id' => 'getDestinationPrefixListId',
         'next_hop_id' => 'getNextHopId',
         'next_hop_type' => 'getNextHopType',
         'page_number' => 'getPageNumber',
@@ -189,6 +194,7 @@ class DescribeRouteEntryListRequest implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['destination_cidr_block'] = isset($data['destination_cidr_block']) ? $data['destination_cidr_block'] : null;
+        $this->container['destination_prefix_list_id'] = isset($data['destination_prefix_list_id']) ? $data['destination_prefix_list_id'] : null;
         $this->container['next_hop_id'] = isset($data['next_hop_id']) ? $data['next_hop_id'] : null;
         $this->container['next_hop_type'] = isset($data['next_hop_type']) ? $data['next_hop_type'] : null;
         $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
@@ -246,6 +252,30 @@ class DescribeRouteEntryListRequest implements ModelInterface, ArrayAccess
     public function setDestinationCidrBlock($destination_cidr_block)
     {
         $this->container['destination_cidr_block'] = $destination_cidr_block;
+
+        return $this;
+    }
+
+    /**
+     * Gets destination_prefix_list_id
+     *
+     * @return string
+     */
+    public function getDestinationPrefixListId()
+    {
+        return $this->container['destination_prefix_list_id'];
+    }
+
+    /**
+     * Sets destination_prefix_list_id
+     *
+     * @param string $destination_prefix_list_id destination_prefix_list_id
+     *
+     * @return $this
+     */
+    public function setDestinationPrefixListId($destination_prefix_list_id)
+    {
+        $this->container['destination_prefix_list_id'] = $destination_prefix_list_id;
 
         return $this;
     }

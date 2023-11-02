@@ -29,6 +29,7 @@ class DescribeNetworkInterfacesRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'instance_id' => 'string',
+        'ipv6_addresses' => 'string[]',
         'network_interface_ids' => 'string[]',
         'network_interface_name' => 'string',
         'page_number' => 'int',
@@ -52,6 +53,7 @@ class DescribeNetworkInterfacesRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'instance_id' => null,
+        'ipv6_addresses' => null,
         'network_interface_ids' => null,
         'network_interface_name' => null,
         'page_number' => null,
@@ -96,6 +98,7 @@ class DescribeNetworkInterfacesRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'instance_id' => 'InstanceId',
+        'ipv6_addresses' => 'Ipv6Addresses',
         'network_interface_ids' => 'NetworkInterfaceIds',
         'network_interface_name' => 'NetworkInterfaceName',
         'page_number' => 'PageNumber',
@@ -119,6 +122,7 @@ class DescribeNetworkInterfacesRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'instance_id' => 'setInstanceId',
+        'ipv6_addresses' => 'setIpv6Addresses',
         'network_interface_ids' => 'setNetworkInterfaceIds',
         'network_interface_name' => 'setNetworkInterfaceName',
         'page_number' => 'setPageNumber',
@@ -142,6 +146,7 @@ class DescribeNetworkInterfacesRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'instance_id' => 'getInstanceId',
+        'ipv6_addresses' => 'getIpv6Addresses',
         'network_interface_ids' => 'getNetworkInterfaceIds',
         'network_interface_name' => 'getNetworkInterfaceName',
         'page_number' => 'getPageNumber',
@@ -219,6 +224,7 @@ class DescribeNetworkInterfacesRequest implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
+        $this->container['ipv6_addresses'] = isset($data['ipv6_addresses']) ? $data['ipv6_addresses'] : null;
         $this->container['network_interface_ids'] = isset($data['network_interface_ids']) ? $data['network_interface_ids'] : null;
         $this->container['network_interface_name'] = isset($data['network_interface_name']) ? $data['network_interface_name'] : null;
         $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
@@ -279,6 +285,30 @@ class DescribeNetworkInterfacesRequest implements ModelInterface, ArrayAccess
     public function setInstanceId($instance_id)
     {
         $this->container['instance_id'] = $instance_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets ipv6_addresses
+     *
+     * @return string[]
+     */
+    public function getIpv6Addresses()
+    {
+        return $this->container['ipv6_addresses'];
+    }
+
+    /**
+     * Sets ipv6_addresses
+     *
+     * @param string[] $ipv6_addresses ipv6_addresses
+     *
+     * @return $this
+     */
+    public function setIpv6Addresses($ipv6_addresses)
+    {
+        $this->container['ipv6_addresses'] = $ipv6_addresses;
 
         return $this;
     }

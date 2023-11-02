@@ -38,6 +38,8 @@ class AllocateEipAddressRequest implements ModelInterface, ArrayAccess
         'period' => 'int',
         'period_unit' => 'int',
         'project_name' => 'string',
+        'renew_period_times' => 'int',
+        'renew_type' => 'int',
         'security_protection_types' => 'string[]',
         'tags' => '\Volcengine\Vpc\Model\TagForAllocateEipAddressInput[]'
     ];
@@ -58,6 +60,8 @@ class AllocateEipAddressRequest implements ModelInterface, ArrayAccess
         'period' => null,
         'period_unit' => null,
         'project_name' => null,
+        'renew_period_times' => null,
+        'renew_type' => null,
         'security_protection_types' => null,
         'tags' => null
     ];
@@ -99,6 +103,8 @@ class AllocateEipAddressRequest implements ModelInterface, ArrayAccess
         'period' => 'Period',
         'period_unit' => 'PeriodUnit',
         'project_name' => 'ProjectName',
+        'renew_period_times' => 'RenewPeriodTimes',
+        'renew_type' => 'RenewType',
         'security_protection_types' => 'SecurityProtectionTypes',
         'tags' => 'Tags'
     ];
@@ -119,6 +125,8 @@ class AllocateEipAddressRequest implements ModelInterface, ArrayAccess
         'period' => 'setPeriod',
         'period_unit' => 'setPeriodUnit',
         'project_name' => 'setProjectName',
+        'renew_period_times' => 'setRenewPeriodTimes',
+        'renew_type' => 'setRenewType',
         'security_protection_types' => 'setSecurityProtectionTypes',
         'tags' => 'setTags'
     ];
@@ -139,6 +147,8 @@ class AllocateEipAddressRequest implements ModelInterface, ArrayAccess
         'period' => 'getPeriod',
         'period_unit' => 'getPeriodUnit',
         'project_name' => 'getProjectName',
+        'renew_period_times' => 'getRenewPeriodTimes',
+        'renew_type' => 'getRenewType',
         'security_protection_types' => 'getSecurityProtectionTypes',
         'tags' => 'getTags'
     ];
@@ -185,9 +195,14 @@ class AllocateEipAddressRequest implements ModelInterface, ArrayAccess
     }
 
     const ISP_BGP = 'BGP';
+    const ISP_SINGLE_LINE_BGP = 'SingleLine_BGP';
+    const ISP_FUSION_BGP = 'Fusion_BGP';
     const ISP_CHINA_MOBILE = 'ChinaMobile';
     const ISP_CHINA_UNICOM = 'ChinaUnicom';
     const ISP_CHINA_TELECOM = 'ChinaTelecom';
+    const ISP_CHINA_MOBILE_VALUE = 'ChinaMobile_Value';
+    const ISP_CHINA_UNICOM_VALUE = 'ChinaUnicom_Value';
+    const ISP_CHINA_TELECOM_VALUE = 'ChinaTelecom_Value';
     
 
     
@@ -200,9 +215,14 @@ class AllocateEipAddressRequest implements ModelInterface, ArrayAccess
     {
         return [
             self::ISP_BGP,
+            self::ISP_SINGLE_LINE_BGP,
+            self::ISP_FUSION_BGP,
             self::ISP_CHINA_MOBILE,
             self::ISP_CHINA_UNICOM,
             self::ISP_CHINA_TELECOM,
+            self::ISP_CHINA_MOBILE_VALUE,
+            self::ISP_CHINA_UNICOM_VALUE,
+            self::ISP_CHINA_TELECOM_VALUE,
         ];
     }
     
@@ -232,6 +252,8 @@ class AllocateEipAddressRequest implements ModelInterface, ArrayAccess
         $this->container['period'] = isset($data['period']) ? $data['period'] : null;
         $this->container['period_unit'] = isset($data['period_unit']) ? $data['period_unit'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['renew_period_times'] = isset($data['renew_period_times']) ? $data['renew_period_times'] : null;
+        $this->container['renew_type'] = isset($data['renew_type']) ? $data['renew_type'] : null;
         $this->container['security_protection_types'] = isset($data['security_protection_types']) ? $data['security_protection_types'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
     }
@@ -513,6 +535,54 @@ class AllocateEipAddressRequest implements ModelInterface, ArrayAccess
     public function setProjectName($project_name)
     {
         $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets renew_period_times
+     *
+     * @return int
+     */
+    public function getRenewPeriodTimes()
+    {
+        return $this->container['renew_period_times'];
+    }
+
+    /**
+     * Sets renew_period_times
+     *
+     * @param int $renew_period_times renew_period_times
+     *
+     * @return $this
+     */
+    public function setRenewPeriodTimes($renew_period_times)
+    {
+        $this->container['renew_period_times'] = $renew_period_times;
+
+        return $this;
+    }
+
+    /**
+     * Gets renew_type
+     *
+     * @return int
+     */
+    public function getRenewType()
+    {
+        return $this->container['renew_type'];
+    }
+
+    /**
+     * Sets renew_type
+     *
+     * @param int $renew_type renew_type
+     *
+     * @return $this
+     */
+    public function setRenewType($renew_type)
+    {
+        $this->container['renew_type'] = $renew_type;
 
         return $this;
     }

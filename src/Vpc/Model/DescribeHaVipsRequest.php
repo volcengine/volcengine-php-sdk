@@ -33,6 +33,7 @@ class DescribeHaVipsRequest implements ModelInterface, ArrayAccess
         'ip_address' => 'string',
         'page_number' => 'int',
         'page_size' => 'int',
+        'project_name' => 'string',
         'status' => 'string',
         'subnet_id' => 'string',
         'vpc_id' => 'string'
@@ -49,6 +50,7 @@ class DescribeHaVipsRequest implements ModelInterface, ArrayAccess
         'ip_address' => null,
         'page_number' => null,
         'page_size' => null,
+        'project_name' => null,
         'status' => null,
         'subnet_id' => null,
         'vpc_id' => null
@@ -86,6 +88,7 @@ class DescribeHaVipsRequest implements ModelInterface, ArrayAccess
         'ip_address' => 'IpAddress',
         'page_number' => 'PageNumber',
         'page_size' => 'PageSize',
+        'project_name' => 'ProjectName',
         'status' => 'Status',
         'subnet_id' => 'SubnetId',
         'vpc_id' => 'VpcId'
@@ -102,6 +105,7 @@ class DescribeHaVipsRequest implements ModelInterface, ArrayAccess
         'ip_address' => 'setIpAddress',
         'page_number' => 'setPageNumber',
         'page_size' => 'setPageSize',
+        'project_name' => 'setProjectName',
         'status' => 'setStatus',
         'subnet_id' => 'setSubnetId',
         'vpc_id' => 'setVpcId'
@@ -118,6 +122,7 @@ class DescribeHaVipsRequest implements ModelInterface, ArrayAccess
         'ip_address' => 'getIpAddress',
         'page_number' => 'getPageNumber',
         'page_size' => 'getPageSize',
+        'project_name' => 'getProjectName',
         'status' => 'getStatus',
         'subnet_id' => 'getSubnetId',
         'vpc_id' => 'getVpcId'
@@ -188,6 +193,7 @@ class DescribeHaVipsRequest implements ModelInterface, ArrayAccess
         $this->container['ip_address'] = isset($data['ip_address']) ? $data['ip_address'] : null;
         $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['subnet_id'] = isset($data['subnet_id']) ? $data['subnet_id'] : null;
         $this->container['vpc_id'] = isset($data['vpc_id']) ? $data['vpc_id'] : null;
@@ -333,6 +339,30 @@ class DescribeHaVipsRequest implements ModelInterface, ArrayAccess
     public function setPageSize($page_size)
     {
         $this->container['page_size'] = $page_size;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }

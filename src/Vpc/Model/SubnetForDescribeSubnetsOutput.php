@@ -33,6 +33,7 @@ class SubnetForDescribeSubnetsOutput implements ModelInterface, ArrayAccess
         'cidr_block' => 'string',
         'creation_time' => 'string',
         'description' => 'string',
+        'ipv6_cidr_block' => 'string',
         'is_default' => 'bool',
         'network_acl_id' => 'string',
         'project_name' => 'string',
@@ -57,6 +58,7 @@ class SubnetForDescribeSubnetsOutput implements ModelInterface, ArrayAccess
         'cidr_block' => null,
         'creation_time' => null,
         'description' => null,
+        'ipv6_cidr_block' => null,
         'is_default' => null,
         'network_acl_id' => null,
         'project_name' => null,
@@ -102,6 +104,7 @@ class SubnetForDescribeSubnetsOutput implements ModelInterface, ArrayAccess
         'cidr_block' => 'CidrBlock',
         'creation_time' => 'CreationTime',
         'description' => 'Description',
+        'ipv6_cidr_block' => 'Ipv6CidrBlock',
         'is_default' => 'IsDefault',
         'network_acl_id' => 'NetworkAclId',
         'project_name' => 'ProjectName',
@@ -126,6 +129,7 @@ class SubnetForDescribeSubnetsOutput implements ModelInterface, ArrayAccess
         'cidr_block' => 'setCidrBlock',
         'creation_time' => 'setCreationTime',
         'description' => 'setDescription',
+        'ipv6_cidr_block' => 'setIpv6CidrBlock',
         'is_default' => 'setIsDefault',
         'network_acl_id' => 'setNetworkAclId',
         'project_name' => 'setProjectName',
@@ -150,6 +154,7 @@ class SubnetForDescribeSubnetsOutput implements ModelInterface, ArrayAccess
         'cidr_block' => 'getCidrBlock',
         'creation_time' => 'getCreationTime',
         'description' => 'getDescription',
+        'ipv6_cidr_block' => 'getIpv6CidrBlock',
         'is_default' => 'getIsDefault',
         'network_acl_id' => 'getNetworkAclId',
         'project_name' => 'getProjectName',
@@ -228,6 +233,7 @@ class SubnetForDescribeSubnetsOutput implements ModelInterface, ArrayAccess
         $this->container['cidr_block'] = isset($data['cidr_block']) ? $data['cidr_block'] : null;
         $this->container['creation_time'] = isset($data['creation_time']) ? $data['creation_time'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['ipv6_cidr_block'] = isset($data['ipv6_cidr_block']) ? $data['ipv6_cidr_block'] : null;
         $this->container['is_default'] = isset($data['is_default']) ? $data['is_default'] : null;
         $this->container['network_acl_id'] = isset($data['network_acl_id']) ? $data['network_acl_id'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
@@ -381,6 +387,30 @@ class SubnetForDescribeSubnetsOutput implements ModelInterface, ArrayAccess
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets ipv6_cidr_block
+     *
+     * @return string
+     */
+    public function getIpv6CidrBlock()
+    {
+        return $this->container['ipv6_cidr_block'];
+    }
+
+    /**
+     * Sets ipv6_cidr_block
+     *
+     * @param string $ipv6_cidr_block ipv6_cidr_block
+     *
+     * @return $this
+     */
+    public function setIpv6CidrBlock($ipv6_cidr_block)
+    {
+        $this->container['ipv6_cidr_block'] = $ipv6_cidr_block;
 
         return $this;
     }

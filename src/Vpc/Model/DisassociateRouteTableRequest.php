@@ -28,6 +28,7 @@ class DisassociateRouteTableRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'client_token' => 'string',
         'route_table_id' => 'string',
         'subnet_id' => 'string'
     ];
@@ -38,6 +39,7 @@ class DisassociateRouteTableRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'client_token' => null,
         'route_table_id' => null,
         'subnet_id' => null
     ];
@@ -69,6 +71,7 @@ class DisassociateRouteTableRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'client_token' => 'ClientToken',
         'route_table_id' => 'RouteTableId',
         'subnet_id' => 'SubnetId'
     ];
@@ -79,6 +82,7 @@ class DisassociateRouteTableRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'client_token' => 'setClientToken',
         'route_table_id' => 'setRouteTableId',
         'subnet_id' => 'setSubnetId'
     ];
@@ -89,6 +93,7 @@ class DisassociateRouteTableRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'client_token' => 'getClientToken',
         'route_table_id' => 'getRouteTableId',
         'subnet_id' => 'getSubnetId'
     ];
@@ -153,6 +158,7 @@ class DisassociateRouteTableRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
         $this->container['route_table_id'] = isset($data['route_table_id']) ? $data['route_table_id'] : null;
         $this->container['subnet_id'] = isset($data['subnet_id']) ? $data['subnet_id'] : null;
     }
@@ -186,6 +192,30 @@ class DisassociateRouteTableRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets client_token
+     *
+     * @return string
+     */
+    public function getClientToken()
+    {
+        return $this->container['client_token'];
+    }
+
+    /**
+     * Sets client_token
+     *
+     * @param string $client_token client_token
+     *
+     * @return $this
+     */
+    public function setClientToken($client_token)
+    {
+        $this->container['client_token'] = $client_token;
+
+        return $this;
+    }
 
     /**
      * Gets route_table_id

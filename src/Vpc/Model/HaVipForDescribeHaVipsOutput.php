@@ -39,6 +39,7 @@ class HaVipForDescribeHaVipsOutput implements ModelInterface, ArrayAccess
         'ha_vip_name' => 'string',
         'ip_address' => 'string',
         'master_instance_id' => 'string',
+        'project_name' => 'string',
         'status' => 'string',
         'subnet_id' => 'string',
         'updated_at' => 'string',
@@ -62,6 +63,7 @@ class HaVipForDescribeHaVipsOutput implements ModelInterface, ArrayAccess
         'ha_vip_name' => null,
         'ip_address' => null,
         'master_instance_id' => null,
+        'project_name' => null,
         'status' => null,
         'subnet_id' => null,
         'updated_at' => null,
@@ -106,6 +108,7 @@ class HaVipForDescribeHaVipsOutput implements ModelInterface, ArrayAccess
         'ha_vip_name' => 'HaVipName',
         'ip_address' => 'IpAddress',
         'master_instance_id' => 'MasterInstanceId',
+        'project_name' => 'ProjectName',
         'status' => 'Status',
         'subnet_id' => 'SubnetId',
         'updated_at' => 'UpdatedAt',
@@ -129,6 +132,7 @@ class HaVipForDescribeHaVipsOutput implements ModelInterface, ArrayAccess
         'ha_vip_name' => 'setHaVipName',
         'ip_address' => 'setIpAddress',
         'master_instance_id' => 'setMasterInstanceId',
+        'project_name' => 'setProjectName',
         'status' => 'setStatus',
         'subnet_id' => 'setSubnetId',
         'updated_at' => 'setUpdatedAt',
@@ -152,6 +156,7 @@ class HaVipForDescribeHaVipsOutput implements ModelInterface, ArrayAccess
         'ha_vip_name' => 'getHaVipName',
         'ip_address' => 'getIpAddress',
         'master_instance_id' => 'getMasterInstanceId',
+        'project_name' => 'getProjectName',
         'status' => 'getStatus',
         'subnet_id' => 'getSubnetId',
         'updated_at' => 'getUpdatedAt',
@@ -229,6 +234,7 @@ class HaVipForDescribeHaVipsOutput implements ModelInterface, ArrayAccess
         $this->container['ha_vip_name'] = isset($data['ha_vip_name']) ? $data['ha_vip_name'] : null;
         $this->container['ip_address'] = isset($data['ip_address']) ? $data['ip_address'] : null;
         $this->container['master_instance_id'] = isset($data['master_instance_id']) ? $data['master_instance_id'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['subnet_id'] = isset($data['subnet_id']) ? $data['subnet_id'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
@@ -519,6 +525,30 @@ class HaVipForDescribeHaVipsOutput implements ModelInterface, ArrayAccess
     public function setMasterInstanceId($master_instance_id)
     {
         $this->container['master_instance_id'] = $master_instance_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }

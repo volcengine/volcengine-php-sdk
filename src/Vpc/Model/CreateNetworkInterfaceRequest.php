@@ -30,6 +30,8 @@ class CreateNetworkInterfaceRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'client_token' => 'string',
         'description' => 'string',
+        'ipv6_address' => 'string[]',
+        'ipv6_address_count' => 'int',
         'network_interface_name' => 'string',
         'port_security_enabled' => 'bool',
         'primary_ip_address' => 'string',
@@ -49,6 +51,8 @@ class CreateNetworkInterfaceRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'client_token' => null,
         'description' => null,
+        'ipv6_address' => null,
+        'ipv6_address_count' => null,
         'network_interface_name' => null,
         'port_security_enabled' => null,
         'primary_ip_address' => null,
@@ -89,6 +93,8 @@ class CreateNetworkInterfaceRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'client_token' => 'ClientToken',
         'description' => 'Description',
+        'ipv6_address' => 'Ipv6Address',
+        'ipv6_address_count' => 'Ipv6AddressCount',
         'network_interface_name' => 'NetworkInterfaceName',
         'port_security_enabled' => 'PortSecurityEnabled',
         'primary_ip_address' => 'PrimaryIpAddress',
@@ -108,6 +114,8 @@ class CreateNetworkInterfaceRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'client_token' => 'setClientToken',
         'description' => 'setDescription',
+        'ipv6_address' => 'setIpv6Address',
+        'ipv6_address_count' => 'setIpv6AddressCount',
         'network_interface_name' => 'setNetworkInterfaceName',
         'port_security_enabled' => 'setPortSecurityEnabled',
         'primary_ip_address' => 'setPrimaryIpAddress',
@@ -127,6 +135,8 @@ class CreateNetworkInterfaceRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'client_token' => 'getClientToken',
         'description' => 'getDescription',
+        'ipv6_address' => 'getIpv6Address',
+        'ipv6_address_count' => 'getIpv6AddressCount',
         'network_interface_name' => 'getNetworkInterfaceName',
         'port_security_enabled' => 'getPortSecurityEnabled',
         'primary_ip_address' => 'getPrimaryIpAddress',
@@ -200,6 +210,8 @@ class CreateNetworkInterfaceRequest implements ModelInterface, ArrayAccess
     {
         $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['ipv6_address'] = isset($data['ipv6_address']) ? $data['ipv6_address'] : null;
+        $this->container['ipv6_address_count'] = isset($data['ipv6_address_count']) ? $data['ipv6_address_count'] : null;
         $this->container['network_interface_name'] = isset($data['network_interface_name']) ? $data['network_interface_name'] : null;
         $this->container['port_security_enabled'] = isset($data['port_security_enabled']) ? $data['port_security_enabled'] : null;
         $this->container['primary_ip_address'] = isset($data['primary_ip_address']) ? $data['primary_ip_address'] : null;
@@ -282,6 +294,54 @@ class CreateNetworkInterfaceRequest implements ModelInterface, ArrayAccess
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets ipv6_address
+     *
+     * @return string[]
+     */
+    public function getIpv6Address()
+    {
+        return $this->container['ipv6_address'];
+    }
+
+    /**
+     * Sets ipv6_address
+     *
+     * @param string[] $ipv6_address ipv6_address
+     *
+     * @return $this
+     */
+    public function setIpv6Address($ipv6_address)
+    {
+        $this->container['ipv6_address'] = $ipv6_address;
+
+        return $this;
+    }
+
+    /**
+     * Gets ipv6_address_count
+     *
+     * @return int
+     */
+    public function getIpv6AddressCount()
+    {
+        return $this->container['ipv6_address_count'];
+    }
+
+    /**
+     * Sets ipv6_address_count
+     *
+     * @param int $ipv6_address_count ipv6_address_count
+     *
+     * @return $this
+     */
+    public function setIpv6AddressCount($ipv6_address_count)
+    {
+        $this->container['ipv6_address_count'] = $ipv6_address_count;
 
         return $this;
     }

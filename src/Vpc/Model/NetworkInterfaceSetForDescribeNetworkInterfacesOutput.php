@@ -33,6 +33,7 @@ class NetworkInterfaceSetForDescribeNetworkInterfacesOutput implements ModelInte
         'created_at' => 'string',
         'description' => 'string',
         'device_id' => 'string',
+        'i_pv6_sets' => 'string[]',
         'mac_address' => 'string',
         'network_interface_id' => 'string',
         'network_interface_name' => 'string',
@@ -63,6 +64,7 @@ class NetworkInterfaceSetForDescribeNetworkInterfacesOutput implements ModelInte
         'created_at' => null,
         'description' => null,
         'device_id' => null,
+        'i_pv6_sets' => null,
         'mac_address' => null,
         'network_interface_id' => null,
         'network_interface_name' => null,
@@ -114,6 +116,7 @@ class NetworkInterfaceSetForDescribeNetworkInterfacesOutput implements ModelInte
         'created_at' => 'CreatedAt',
         'description' => 'Description',
         'device_id' => 'DeviceId',
+        'i_pv6_sets' => 'IPv6Sets',
         'mac_address' => 'MacAddress',
         'network_interface_id' => 'NetworkInterfaceId',
         'network_interface_name' => 'NetworkInterfaceName',
@@ -144,6 +147,7 @@ class NetworkInterfaceSetForDescribeNetworkInterfacesOutput implements ModelInte
         'created_at' => 'setCreatedAt',
         'description' => 'setDescription',
         'device_id' => 'setDeviceId',
+        'i_pv6_sets' => 'setIPv6Sets',
         'mac_address' => 'setMacAddress',
         'network_interface_id' => 'setNetworkInterfaceId',
         'network_interface_name' => 'setNetworkInterfaceName',
@@ -174,6 +178,7 @@ class NetworkInterfaceSetForDescribeNetworkInterfacesOutput implements ModelInte
         'created_at' => 'getCreatedAt',
         'description' => 'getDescription',
         'device_id' => 'getDeviceId',
+        'i_pv6_sets' => 'getIPv6Sets',
         'mac_address' => 'getMacAddress',
         'network_interface_id' => 'getNetworkInterfaceId',
         'network_interface_name' => 'getNetworkInterfaceName',
@@ -258,6 +263,7 @@ class NetworkInterfaceSetForDescribeNetworkInterfacesOutput implements ModelInte
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['device_id'] = isset($data['device_id']) ? $data['device_id'] : null;
+        $this->container['i_pv6_sets'] = isset($data['i_pv6_sets']) ? $data['i_pv6_sets'] : null;
         $this->container['mac_address'] = isset($data['mac_address']) ? $data['mac_address'] : null;
         $this->container['network_interface_id'] = isset($data['network_interface_id']) ? $data['network_interface_id'] : null;
         $this->container['network_interface_name'] = isset($data['network_interface_name']) ? $data['network_interface_name'] : null;
@@ -417,6 +423,30 @@ class NetworkInterfaceSetForDescribeNetworkInterfacesOutput implements ModelInte
     public function setDeviceId($device_id)
     {
         $this->container['device_id'] = $device_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets i_pv6_sets
+     *
+     * @return string[]
+     */
+    public function getIPv6Sets()
+    {
+        return $this->container['i_pv6_sets'];
+    }
+
+    /**
+     * Sets i_pv6_sets
+     *
+     * @param string[] $i_pv6_sets i_pv6_sets
+     *
+     * @return $this
+     */
+    public function setIPv6Sets($i_pv6_sets)
+    {
+        $this->container['i_pv6_sets'] = $i_pv6_sets;
 
         return $this;
     }

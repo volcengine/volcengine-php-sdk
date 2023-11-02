@@ -34,12 +34,14 @@ class DescribeVpcAttributesResponse implements ModelInterface, ArrayAccess
         'creation_time' => 'string',
         'description' => 'string',
         'dns_servers' => 'string[]',
+        'ipv6_cidr_block' => 'string',
         'is_default' => 'bool',
         'nat_gateway_ids' => 'string[]',
         'network_acl_num' => 'string',
         'project_name' => 'string',
         'request_id' => 'string',
         'route_table_ids' => 'string[]',
+        'secondary_cidr_blocks' => 'string[]',
         'security_group_ids' => 'string[]',
         'status' => 'string',
         'subnet_ids' => 'string[]',
@@ -62,12 +64,14 @@ class DescribeVpcAttributesResponse implements ModelInterface, ArrayAccess
         'creation_time' => null,
         'description' => null,
         'dns_servers' => null,
+        'ipv6_cidr_block' => null,
         'is_default' => null,
         'nat_gateway_ids' => null,
         'network_acl_num' => null,
         'project_name' => null,
         'request_id' => null,
         'route_table_ids' => null,
+        'secondary_cidr_blocks' => null,
         'security_group_ids' => null,
         'status' => null,
         'subnet_ids' => null,
@@ -111,12 +115,14 @@ class DescribeVpcAttributesResponse implements ModelInterface, ArrayAccess
         'creation_time' => 'CreationTime',
         'description' => 'Description',
         'dns_servers' => 'DnsServers',
+        'ipv6_cidr_block' => 'Ipv6CidrBlock',
         'is_default' => 'IsDefault',
         'nat_gateway_ids' => 'NatGatewayIds',
         'network_acl_num' => 'NetworkAclNum',
         'project_name' => 'ProjectName',
         'request_id' => 'RequestId',
         'route_table_ids' => 'RouteTableIds',
+        'secondary_cidr_blocks' => 'SecondaryCidrBlocks',
         'security_group_ids' => 'SecurityGroupIds',
         'status' => 'Status',
         'subnet_ids' => 'SubnetIds',
@@ -139,12 +145,14 @@ class DescribeVpcAttributesResponse implements ModelInterface, ArrayAccess
         'creation_time' => 'setCreationTime',
         'description' => 'setDescription',
         'dns_servers' => 'setDnsServers',
+        'ipv6_cidr_block' => 'setIpv6CidrBlock',
         'is_default' => 'setIsDefault',
         'nat_gateway_ids' => 'setNatGatewayIds',
         'network_acl_num' => 'setNetworkAclNum',
         'project_name' => 'setProjectName',
         'request_id' => 'setRequestId',
         'route_table_ids' => 'setRouteTableIds',
+        'secondary_cidr_blocks' => 'setSecondaryCidrBlocks',
         'security_group_ids' => 'setSecurityGroupIds',
         'status' => 'setStatus',
         'subnet_ids' => 'setSubnetIds',
@@ -167,12 +175,14 @@ class DescribeVpcAttributesResponse implements ModelInterface, ArrayAccess
         'creation_time' => 'getCreationTime',
         'description' => 'getDescription',
         'dns_servers' => 'getDnsServers',
+        'ipv6_cidr_block' => 'getIpv6CidrBlock',
         'is_default' => 'getIsDefault',
         'nat_gateway_ids' => 'getNatGatewayIds',
         'network_acl_num' => 'getNetworkAclNum',
         'project_name' => 'getProjectName',
         'request_id' => 'getRequestId',
         'route_table_ids' => 'getRouteTableIds',
+        'secondary_cidr_blocks' => 'getSecondaryCidrBlocks',
         'security_group_ids' => 'getSecurityGroupIds',
         'status' => 'getStatus',
         'subnet_ids' => 'getSubnetIds',
@@ -249,12 +259,14 @@ class DescribeVpcAttributesResponse implements ModelInterface, ArrayAccess
         $this->container['creation_time'] = isset($data['creation_time']) ? $data['creation_time'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['dns_servers'] = isset($data['dns_servers']) ? $data['dns_servers'] : null;
+        $this->container['ipv6_cidr_block'] = isset($data['ipv6_cidr_block']) ? $data['ipv6_cidr_block'] : null;
         $this->container['is_default'] = isset($data['is_default']) ? $data['is_default'] : null;
         $this->container['nat_gateway_ids'] = isset($data['nat_gateway_ids']) ? $data['nat_gateway_ids'] : null;
         $this->container['network_acl_num'] = isset($data['network_acl_num']) ? $data['network_acl_num'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['request_id'] = isset($data['request_id']) ? $data['request_id'] : null;
         $this->container['route_table_ids'] = isset($data['route_table_ids']) ? $data['route_table_ids'] : null;
+        $this->container['secondary_cidr_blocks'] = isset($data['secondary_cidr_blocks']) ? $data['secondary_cidr_blocks'] : null;
         $this->container['security_group_ids'] = isset($data['security_group_ids']) ? $data['security_group_ids'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['subnet_ids'] = isset($data['subnet_ids']) ? $data['subnet_ids'] : null;
@@ -434,6 +446,30 @@ class DescribeVpcAttributesResponse implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets ipv6_cidr_block
+     *
+     * @return string
+     */
+    public function getIpv6CidrBlock()
+    {
+        return $this->container['ipv6_cidr_block'];
+    }
+
+    /**
+     * Sets ipv6_cidr_block
+     *
+     * @param string $ipv6_cidr_block ipv6_cidr_block
+     *
+     * @return $this
+     */
+    public function setIpv6CidrBlock($ipv6_cidr_block)
+    {
+        $this->container['ipv6_cidr_block'] = $ipv6_cidr_block;
+
+        return $this;
+    }
+
+    /**
      * Gets is_default
      *
      * @return bool
@@ -573,6 +609,30 @@ class DescribeVpcAttributesResponse implements ModelInterface, ArrayAccess
     public function setRouteTableIds($route_table_ids)
     {
         $this->container['route_table_ids'] = $route_table_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets secondary_cidr_blocks
+     *
+     * @return string[]
+     */
+    public function getSecondaryCidrBlocks()
+    {
+        return $this->container['secondary_cidr_blocks'];
+    }
+
+    /**
+     * Sets secondary_cidr_blocks
+     *
+     * @param string[] $secondary_cidr_blocks secondary_cidr_blocks
+     *
+     * @return $this
+     */
+    public function setSecondaryCidrBlocks($secondary_cidr_blocks)
+    {
+        $this->container['secondary_cidr_blocks'] = $secondary_cidr_blocks;
 
         return $this;
     }

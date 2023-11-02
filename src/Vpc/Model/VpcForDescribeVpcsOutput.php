@@ -39,6 +39,7 @@ class VpcForDescribeVpcsOutput implements ModelInterface, ArrayAccess
         'network_acl_num' => 'string',
         'project_name' => 'string',
         'route_table_ids' => 'string[]',
+        'secondary_cidr_blocks' => 'string[]',
         'security_group_ids' => 'string[]',
         'status' => 'string',
         'subnet_ids' => 'string[]',
@@ -66,6 +67,7 @@ class VpcForDescribeVpcsOutput implements ModelInterface, ArrayAccess
         'network_acl_num' => null,
         'project_name' => null,
         'route_table_ids' => null,
+        'secondary_cidr_blocks' => null,
         'security_group_ids' => null,
         'status' => null,
         'subnet_ids' => null,
@@ -114,6 +116,7 @@ class VpcForDescribeVpcsOutput implements ModelInterface, ArrayAccess
         'network_acl_num' => 'NetworkAclNum',
         'project_name' => 'ProjectName',
         'route_table_ids' => 'RouteTableIds',
+        'secondary_cidr_blocks' => 'SecondaryCidrBlocks',
         'security_group_ids' => 'SecurityGroupIds',
         'status' => 'Status',
         'subnet_ids' => 'SubnetIds',
@@ -141,6 +144,7 @@ class VpcForDescribeVpcsOutput implements ModelInterface, ArrayAccess
         'network_acl_num' => 'setNetworkAclNum',
         'project_name' => 'setProjectName',
         'route_table_ids' => 'setRouteTableIds',
+        'secondary_cidr_blocks' => 'setSecondaryCidrBlocks',
         'security_group_ids' => 'setSecurityGroupIds',
         'status' => 'setStatus',
         'subnet_ids' => 'setSubnetIds',
@@ -168,6 +172,7 @@ class VpcForDescribeVpcsOutput implements ModelInterface, ArrayAccess
         'network_acl_num' => 'getNetworkAclNum',
         'project_name' => 'getProjectName',
         'route_table_ids' => 'getRouteTableIds',
+        'secondary_cidr_blocks' => 'getSecondaryCidrBlocks',
         'security_group_ids' => 'getSecurityGroupIds',
         'status' => 'getStatus',
         'subnet_ids' => 'getSubnetIds',
@@ -249,6 +254,7 @@ class VpcForDescribeVpcsOutput implements ModelInterface, ArrayAccess
         $this->container['network_acl_num'] = isset($data['network_acl_num']) ? $data['network_acl_num'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['route_table_ids'] = isset($data['route_table_ids']) ? $data['route_table_ids'] : null;
+        $this->container['secondary_cidr_blocks'] = isset($data['secondary_cidr_blocks']) ? $data['secondary_cidr_blocks'] : null;
         $this->container['security_group_ids'] = isset($data['security_group_ids']) ? $data['security_group_ids'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['subnet_ids'] = isset($data['subnet_ids']) ? $data['subnet_ids'] : null;
@@ -543,6 +549,30 @@ class VpcForDescribeVpcsOutput implements ModelInterface, ArrayAccess
     public function setRouteTableIds($route_table_ids)
     {
         $this->container['route_table_ids'] = $route_table_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets secondary_cidr_blocks
+     *
+     * @return string[]
+     */
+    public function getSecondaryCidrBlocks()
+    {
+        return $this->container['secondary_cidr_blocks'];
+    }
+
+    /**
+     * Sets secondary_cidr_blocks
+     *
+     * @param string[] $secondary_cidr_blocks secondary_cidr_blocks
+     *
+     * @return $this
+     */
+    public function setSecondaryCidrBlocks($secondary_cidr_blocks)
+    {
+        $this->container['secondary_cidr_blocks'] = $secondary_cidr_blocks;
 
         return $this;
     }

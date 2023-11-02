@@ -208,9 +208,6 @@ class DescribeSubnetsRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['vpc_id'] === null) {
-            $invalidProperties[] = "'vpc_id' can't be null";
-        }
         return $invalidProperties;
     }
 
