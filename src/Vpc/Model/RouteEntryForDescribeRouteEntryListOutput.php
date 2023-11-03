@@ -33,6 +33,7 @@ class RouteEntryForDescribeRouteEntryListOutput implements ModelInterface, Array
         'next_hop_id' => 'string',
         'next_hop_name' => 'string',
         'next_hop_type' => 'string',
+        'prefix_list_cidr_blocks' => 'string[]',
         'route_entry_id' => 'string',
         'route_entry_name' => 'string',
         'route_table_id' => 'string',
@@ -52,6 +53,7 @@ class RouteEntryForDescribeRouteEntryListOutput implements ModelInterface, Array
         'next_hop_id' => null,
         'next_hop_name' => null,
         'next_hop_type' => null,
+        'prefix_list_cidr_blocks' => null,
         'route_entry_id' => null,
         'route_entry_name' => null,
         'route_table_id' => null,
@@ -92,6 +94,7 @@ class RouteEntryForDescribeRouteEntryListOutput implements ModelInterface, Array
         'next_hop_id' => 'NextHopId',
         'next_hop_name' => 'NextHopName',
         'next_hop_type' => 'NextHopType',
+        'prefix_list_cidr_blocks' => 'PrefixListCidrBlocks',
         'route_entry_id' => 'RouteEntryId',
         'route_entry_name' => 'RouteEntryName',
         'route_table_id' => 'RouteTableId',
@@ -111,6 +114,7 @@ class RouteEntryForDescribeRouteEntryListOutput implements ModelInterface, Array
         'next_hop_id' => 'setNextHopId',
         'next_hop_name' => 'setNextHopName',
         'next_hop_type' => 'setNextHopType',
+        'prefix_list_cidr_blocks' => 'setPrefixListCidrBlocks',
         'route_entry_id' => 'setRouteEntryId',
         'route_entry_name' => 'setRouteEntryName',
         'route_table_id' => 'setRouteTableId',
@@ -130,6 +134,7 @@ class RouteEntryForDescribeRouteEntryListOutput implements ModelInterface, Array
         'next_hop_id' => 'getNextHopId',
         'next_hop_name' => 'getNextHopName',
         'next_hop_type' => 'getNextHopType',
+        'prefix_list_cidr_blocks' => 'getPrefixListCidrBlocks',
         'route_entry_id' => 'getRouteEntryId',
         'route_entry_name' => 'getRouteEntryName',
         'route_table_id' => 'getRouteTableId',
@@ -203,6 +208,7 @@ class RouteEntryForDescribeRouteEntryListOutput implements ModelInterface, Array
         $this->container['next_hop_id'] = isset($data['next_hop_id']) ? $data['next_hop_id'] : null;
         $this->container['next_hop_name'] = isset($data['next_hop_name']) ? $data['next_hop_name'] : null;
         $this->container['next_hop_type'] = isset($data['next_hop_type']) ? $data['next_hop_type'] : null;
+        $this->container['prefix_list_cidr_blocks'] = isset($data['prefix_list_cidr_blocks']) ? $data['prefix_list_cidr_blocks'] : null;
         $this->container['route_entry_id'] = isset($data['route_entry_id']) ? $data['route_entry_id'] : null;
         $this->container['route_entry_name'] = isset($data['route_entry_name']) ? $data['route_entry_name'] : null;
         $this->container['route_table_id'] = isset($data['route_table_id']) ? $data['route_table_id'] : null;
@@ -351,6 +357,30 @@ class RouteEntryForDescribeRouteEntryListOutput implements ModelInterface, Array
     public function setNextHopType($next_hop_type)
     {
         $this->container['next_hop_type'] = $next_hop_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets prefix_list_cidr_blocks
+     *
+     * @return string[]
+     */
+    public function getPrefixListCidrBlocks()
+    {
+        return $this->container['prefix_list_cidr_blocks'];
+    }
+
+    /**
+     * Sets prefix_list_cidr_blocks
+     *
+     * @param string[] $prefix_list_cidr_blocks prefix_list_cidr_blocks
+     *
+     * @return $this
+     */
+    public function setPrefixListCidrBlocks($prefix_list_cidr_blocks)
+    {
+        $this->container['prefix_list_cidr_blocks'] = $prefix_list_cidr_blocks;
 
         return $this;
     }

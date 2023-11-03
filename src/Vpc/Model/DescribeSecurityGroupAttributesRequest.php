@@ -30,6 +30,7 @@ class DescribeSecurityGroupAttributesRequest implements ModelInterface, ArrayAcc
     protected static $swaggerTypes = [
         'cidr_ip' => 'string',
         'direction' => 'string',
+        'prefix_list_id' => 'string',
         'protocol' => 'string',
         'security_group_id' => 'string',
         'source_group_id' => 'string'
@@ -43,6 +44,7 @@ class DescribeSecurityGroupAttributesRequest implements ModelInterface, ArrayAcc
     protected static $swaggerFormats = [
         'cidr_ip' => null,
         'direction' => null,
+        'prefix_list_id' => null,
         'protocol' => null,
         'security_group_id' => null,
         'source_group_id' => null
@@ -77,6 +79,7 @@ class DescribeSecurityGroupAttributesRequest implements ModelInterface, ArrayAcc
     protected static $attributeMap = [
         'cidr_ip' => 'CidrIp',
         'direction' => 'Direction',
+        'prefix_list_id' => 'PrefixListId',
         'protocol' => 'Protocol',
         'security_group_id' => 'SecurityGroupId',
         'source_group_id' => 'SourceGroupId'
@@ -90,6 +93,7 @@ class DescribeSecurityGroupAttributesRequest implements ModelInterface, ArrayAcc
     protected static $setters = [
         'cidr_ip' => 'setCidrIp',
         'direction' => 'setDirection',
+        'prefix_list_id' => 'setPrefixListId',
         'protocol' => 'setProtocol',
         'security_group_id' => 'setSecurityGroupId',
         'source_group_id' => 'setSourceGroupId'
@@ -103,6 +107,7 @@ class DescribeSecurityGroupAttributesRequest implements ModelInterface, ArrayAcc
     protected static $getters = [
         'cidr_ip' => 'getCidrIp',
         'direction' => 'getDirection',
+        'prefix_list_id' => 'getPrefixListId',
         'protocol' => 'getProtocol',
         'security_group_id' => 'getSecurityGroupId',
         'source_group_id' => 'getSourceGroupId'
@@ -170,6 +175,7 @@ class DescribeSecurityGroupAttributesRequest implements ModelInterface, ArrayAcc
     {
         $this->container['cidr_ip'] = isset($data['cidr_ip']) ? $data['cidr_ip'] : null;
         $this->container['direction'] = isset($data['direction']) ? $data['direction'] : null;
+        $this->container['prefix_list_id'] = isset($data['prefix_list_id']) ? $data['prefix_list_id'] : null;
         $this->container['protocol'] = isset($data['protocol']) ? $data['protocol'] : null;
         $this->container['security_group_id'] = isset($data['security_group_id']) ? $data['security_group_id'] : null;
         $this->container['source_group_id'] = isset($data['source_group_id']) ? $data['source_group_id'] : null;
@@ -246,6 +252,30 @@ class DescribeSecurityGroupAttributesRequest implements ModelInterface, ArrayAcc
     public function setDirection($direction)
     {
         $this->container['direction'] = $direction;
+
+        return $this;
+    }
+
+    /**
+     * Gets prefix_list_id
+     *
+     * @return string
+     */
+    public function getPrefixListId()
+    {
+        return $this->container['prefix_list_id'];
+    }
+
+    /**
+     * Sets prefix_list_id
+     *
+     * @param string $prefix_list_id prefix_list_id
+     *
+     * @return $this
+     */
+    public function setPrefixListId($prefix_list_id)
+    {
+        $this->container['prefix_list_id'] = $prefix_list_id;
 
         return $this;
     }

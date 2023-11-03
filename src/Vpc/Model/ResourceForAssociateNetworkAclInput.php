@@ -160,6 +160,9 @@ class ResourceForAssociateNetworkAclInput implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['resource_id'] === null) {
+            $invalidProperties[] = "'resource_id' can't be null";
+        }
         return $invalidProperties;
     }
 

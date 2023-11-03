@@ -34,6 +34,7 @@ class AuthorizeSecurityGroupEgressRequest implements ModelInterface, ArrayAccess
         'policy' => 'string',
         'port_end' => 'int',
         'port_start' => 'int',
+        'prefix_list_id' => 'string',
         'priority' => 'int',
         'protocol' => 'string',
         'security_group_id' => 'string',
@@ -52,6 +53,7 @@ class AuthorizeSecurityGroupEgressRequest implements ModelInterface, ArrayAccess
         'policy' => null,
         'port_end' => null,
         'port_start' => null,
+        'prefix_list_id' => null,
         'priority' => null,
         'protocol' => null,
         'security_group_id' => null,
@@ -91,6 +93,7 @@ class AuthorizeSecurityGroupEgressRequest implements ModelInterface, ArrayAccess
         'policy' => 'Policy',
         'port_end' => 'PortEnd',
         'port_start' => 'PortStart',
+        'prefix_list_id' => 'PrefixListId',
         'priority' => 'Priority',
         'protocol' => 'Protocol',
         'security_group_id' => 'SecurityGroupId',
@@ -109,6 +112,7 @@ class AuthorizeSecurityGroupEgressRequest implements ModelInterface, ArrayAccess
         'policy' => 'setPolicy',
         'port_end' => 'setPortEnd',
         'port_start' => 'setPortStart',
+        'prefix_list_id' => 'setPrefixListId',
         'priority' => 'setPriority',
         'protocol' => 'setProtocol',
         'security_group_id' => 'setSecurityGroupId',
@@ -127,6 +131,7 @@ class AuthorizeSecurityGroupEgressRequest implements ModelInterface, ArrayAccess
         'policy' => 'getPolicy',
         'port_end' => 'getPortEnd',
         'port_start' => 'getPortStart',
+        'prefix_list_id' => 'getPrefixListId',
         'priority' => 'getPriority',
         'protocol' => 'getProtocol',
         'security_group_id' => 'getSecurityGroupId',
@@ -199,6 +204,7 @@ class AuthorizeSecurityGroupEgressRequest implements ModelInterface, ArrayAccess
         $this->container['policy'] = isset($data['policy']) ? $data['policy'] : null;
         $this->container['port_end'] = isset($data['port_end']) ? $data['port_end'] : null;
         $this->container['port_start'] = isset($data['port_start']) ? $data['port_start'] : null;
+        $this->container['prefix_list_id'] = isset($data['prefix_list_id']) ? $data['prefix_list_id'] : null;
         $this->container['priority'] = isset($data['priority']) ? $data['priority'] : null;
         $this->container['protocol'] = isset($data['protocol']) ? $data['protocol'] : null;
         $this->container['security_group_id'] = isset($data['security_group_id']) ? $data['security_group_id'] : null;
@@ -214,9 +220,6 @@ class AuthorizeSecurityGroupEgressRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['cidr_ip'] === null) {
-            $invalidProperties[] = "'cidr_ip' can't be null";
-        }
         if ($this->container['port_end'] === null) {
             $invalidProperties[] = "'port_end' can't be null";
         }
@@ -384,6 +387,30 @@ class AuthorizeSecurityGroupEgressRequest implements ModelInterface, ArrayAccess
     public function setPortStart($port_start)
     {
         $this->container['port_start'] = $port_start;
+
+        return $this;
+    }
+
+    /**
+     * Gets prefix_list_id
+     *
+     * @return string
+     */
+    public function getPrefixListId()
+    {
+        return $this->container['prefix_list_id'];
+    }
+
+    /**
+     * Sets prefix_list_id
+     *
+     * @param string $prefix_list_id prefix_list_id
+     *
+     * @return $this
+     */
+    public function setPrefixListId($prefix_list_id)
+    {
+        $this->container['prefix_list_id'] = $prefix_list_id;
 
         return $this;
     }

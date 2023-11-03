@@ -31,7 +31,10 @@ class DescribeBandwidthPackagesRequest implements ModelInterface, ArrayAccess
         'bandwidth_package_ids' => 'string[]',
         'bandwidth_package_name' => 'string',
         'isp' => 'string',
+        'page_number' => 'int',
+        'page_size' => 'int',
         'project_name' => 'string',
+        'protocol' => 'string',
         'security_protection_enabled' => 'bool',
         'tag_filters' => '\Volcengine\Vpc\Model\TagFilterForDescribeBandwidthPackagesInput[]'
     ];
@@ -45,7 +48,10 @@ class DescribeBandwidthPackagesRequest implements ModelInterface, ArrayAccess
         'bandwidth_package_ids' => null,
         'bandwidth_package_name' => null,
         'isp' => null,
+        'page_number' => null,
+        'page_size' => null,
         'project_name' => null,
+        'protocol' => null,
         'security_protection_enabled' => null,
         'tag_filters' => null
     ];
@@ -80,7 +86,10 @@ class DescribeBandwidthPackagesRequest implements ModelInterface, ArrayAccess
         'bandwidth_package_ids' => 'BandwidthPackageIds',
         'bandwidth_package_name' => 'BandwidthPackageName',
         'isp' => 'ISP',
+        'page_number' => 'PageNumber',
+        'page_size' => 'PageSize',
         'project_name' => 'ProjectName',
+        'protocol' => 'Protocol',
         'security_protection_enabled' => 'SecurityProtectionEnabled',
         'tag_filters' => 'TagFilters'
     ];
@@ -94,7 +103,10 @@ class DescribeBandwidthPackagesRequest implements ModelInterface, ArrayAccess
         'bandwidth_package_ids' => 'setBandwidthPackageIds',
         'bandwidth_package_name' => 'setBandwidthPackageName',
         'isp' => 'setIsp',
+        'page_number' => 'setPageNumber',
+        'page_size' => 'setPageSize',
         'project_name' => 'setProjectName',
+        'protocol' => 'setProtocol',
         'security_protection_enabled' => 'setSecurityProtectionEnabled',
         'tag_filters' => 'setTagFilters'
     ];
@@ -108,7 +120,10 @@ class DescribeBandwidthPackagesRequest implements ModelInterface, ArrayAccess
         'bandwidth_package_ids' => 'getBandwidthPackageIds',
         'bandwidth_package_name' => 'getBandwidthPackageName',
         'isp' => 'getIsp',
+        'page_number' => 'getPageNumber',
+        'page_size' => 'getPageSize',
         'project_name' => 'getProjectName',
+        'protocol' => 'getProtocol',
         'security_protection_enabled' => 'getSecurityProtectionEnabled',
         'tag_filters' => 'getTagFilters'
     ];
@@ -155,9 +170,16 @@ class DescribeBandwidthPackagesRequest implements ModelInterface, ArrayAccess
     }
 
     const ISP_BGP = 'BGP';
+    const ISP_SINGLE_LINE_BGP = 'SingleLine_BGP';
+    const ISP_FUSION_BGP = 'Fusion_BGP';
     const ISP_CHINA_MOBILE = 'ChinaMobile';
     const ISP_CHINA_UNICOM = 'ChinaUnicom';
     const ISP_CHINA_TELECOM = 'ChinaTelecom';
+    const ISP_CHINA_MOBILE_VALUE = 'ChinaMobile_Value';
+    const ISP_CHINA_UNICOM_VALUE = 'ChinaUnicom_Value';
+    const ISP_CHINA_TELECOM_VALUE = 'ChinaTelecom_Value';
+    const PROTOCOL_I_PV4 = 'IPv4';
+    const PROTOCOL_I_PV6 = 'IPv6';
     
 
     
@@ -170,9 +192,27 @@ class DescribeBandwidthPackagesRequest implements ModelInterface, ArrayAccess
     {
         return [
             self::ISP_BGP,
+            self::ISP_SINGLE_LINE_BGP,
+            self::ISP_FUSION_BGP,
             self::ISP_CHINA_MOBILE,
             self::ISP_CHINA_UNICOM,
             self::ISP_CHINA_TELECOM,
+            self::ISP_CHINA_MOBILE_VALUE,
+            self::ISP_CHINA_UNICOM_VALUE,
+            self::ISP_CHINA_TELECOM_VALUE,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getProtocolAllowableValues()
+    {
+        return [
+            self::PROTOCOL_I_PV4,
+            self::PROTOCOL_I_PV6,
         ];
     }
     
@@ -195,7 +235,10 @@ class DescribeBandwidthPackagesRequest implements ModelInterface, ArrayAccess
         $this->container['bandwidth_package_ids'] = isset($data['bandwidth_package_ids']) ? $data['bandwidth_package_ids'] : null;
         $this->container['bandwidth_package_name'] = isset($data['bandwidth_package_name']) ? $data['bandwidth_package_name'] : null;
         $this->container['isp'] = isset($data['isp']) ? $data['isp'] : null;
+        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
+        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['protocol'] = isset($data['protocol']) ? $data['protocol'] : null;
         $this->container['security_protection_enabled'] = isset($data['security_protection_enabled']) ? $data['security_protection_enabled'] : null;
         $this->container['tag_filters'] = isset($data['tag_filters']) ? $data['tag_filters'] : null;
     }
@@ -213,6 +256,14 @@ class DescribeBandwidthPackagesRequest implements ModelInterface, ArrayAccess
         if (!is_null($this->container['isp']) && !in_array($this->container['isp'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
                 "invalid value for 'isp', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getProtocolAllowableValues();
+        if (!is_null($this->container['protocol']) && !in_array($this->container['protocol'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'protocol', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -314,6 +365,54 @@ class DescribeBandwidthPackagesRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets page_number
+     *
+     * @return int
+     */
+    public function getPageNumber()
+    {
+        return $this->container['page_number'];
+    }
+
+    /**
+     * Sets page_number
+     *
+     * @param int $page_number page_number
+     *
+     * @return $this
+     */
+    public function setPageNumber($page_number)
+    {
+        $this->container['page_number'] = $page_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets page_size
+     *
+     * @return int
+     */
+    public function getPageSize()
+    {
+        return $this->container['page_size'];
+    }
+
+    /**
+     * Sets page_size
+     *
+     * @param int $page_size page_size
+     *
+     * @return $this
+     */
+    public function setPageSize($page_size)
+    {
+        $this->container['page_size'] = $page_size;
+
+        return $this;
+    }
+
+    /**
      * Gets project_name
      *
      * @return string
@@ -333,6 +432,39 @@ class DescribeBandwidthPackagesRequest implements ModelInterface, ArrayAccess
     public function setProjectName($project_name)
     {
         $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets protocol
+     *
+     * @return string
+     */
+    public function getProtocol()
+    {
+        return $this->container['protocol'];
+    }
+
+    /**
+     * Sets protocol
+     *
+     * @param string $protocol protocol
+     *
+     * @return $this
+     */
+    public function setProtocol($protocol)
+    {
+        $allowedValues = $this->getProtocolAllowableValues();
+        if (!is_null($protocol) && !in_array($protocol, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'protocol', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['protocol'] = $protocol;
 
         return $this;
     }

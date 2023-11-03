@@ -32,6 +32,8 @@ class CreateVpcRequest implements ModelInterface, ArrayAccess
         'client_token' => 'string',
         'description' => 'string',
         'dns_servers' => 'string[]',
+        'enable_ipv6' => 'bool',
+        'ipv6_cidr_block' => 'string',
         'project_name' => 'string',
         'tags' => '\Volcengine\Vpc\Model\TagForCreateVpcInput[]',
         'vpc_name' => 'string'
@@ -47,6 +49,8 @@ class CreateVpcRequest implements ModelInterface, ArrayAccess
         'client_token' => null,
         'description' => null,
         'dns_servers' => null,
+        'enable_ipv6' => null,
+        'ipv6_cidr_block' => null,
         'project_name' => null,
         'tags' => null,
         'vpc_name' => null
@@ -83,6 +87,8 @@ class CreateVpcRequest implements ModelInterface, ArrayAccess
         'client_token' => 'ClientToken',
         'description' => 'Description',
         'dns_servers' => 'DnsServers',
+        'enable_ipv6' => 'EnableIpv6',
+        'ipv6_cidr_block' => 'Ipv6CidrBlock',
         'project_name' => 'ProjectName',
         'tags' => 'Tags',
         'vpc_name' => 'VpcName'
@@ -98,6 +104,8 @@ class CreateVpcRequest implements ModelInterface, ArrayAccess
         'client_token' => 'setClientToken',
         'description' => 'setDescription',
         'dns_servers' => 'setDnsServers',
+        'enable_ipv6' => 'setEnableIpv6',
+        'ipv6_cidr_block' => 'setIpv6CidrBlock',
         'project_name' => 'setProjectName',
         'tags' => 'setTags',
         'vpc_name' => 'setVpcName'
@@ -113,6 +121,8 @@ class CreateVpcRequest implements ModelInterface, ArrayAccess
         'client_token' => 'getClientToken',
         'description' => 'getDescription',
         'dns_servers' => 'getDnsServers',
+        'enable_ipv6' => 'getEnableIpv6',
+        'ipv6_cidr_block' => 'getIpv6CidrBlock',
         'project_name' => 'getProjectName',
         'tags' => 'getTags',
         'vpc_name' => 'getVpcName'
@@ -182,6 +192,8 @@ class CreateVpcRequest implements ModelInterface, ArrayAccess
         $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['dns_servers'] = isset($data['dns_servers']) ? $data['dns_servers'] : null;
+        $this->container['enable_ipv6'] = isset($data['enable_ipv6']) ? $data['enable_ipv6'] : null;
+        $this->container['ipv6_cidr_block'] = isset($data['ipv6_cidr_block']) ? $data['ipv6_cidr_block'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['vpc_name'] = isset($data['vpc_name']) ? $data['vpc_name'] : null;
@@ -306,6 +318,54 @@ class CreateVpcRequest implements ModelInterface, ArrayAccess
     public function setDnsServers($dns_servers)
     {
         $this->container['dns_servers'] = $dns_servers;
+
+        return $this;
+    }
+
+    /**
+     * Gets enable_ipv6
+     *
+     * @return bool
+     */
+    public function getEnableIpv6()
+    {
+        return $this->container['enable_ipv6'];
+    }
+
+    /**
+     * Sets enable_ipv6
+     *
+     * @param bool $enable_ipv6 enable_ipv6
+     *
+     * @return $this
+     */
+    public function setEnableIpv6($enable_ipv6)
+    {
+        $this->container['enable_ipv6'] = $enable_ipv6;
+
+        return $this;
+    }
+
+    /**
+     * Gets ipv6_cidr_block
+     *
+     * @return string
+     */
+    public function getIpv6CidrBlock()
+    {
+        return $this->container['ipv6_cidr_block'];
+    }
+
+    /**
+     * Sets ipv6_cidr_block
+     *
+     * @param string $ipv6_cidr_block ipv6_cidr_block
+     *
+     * @return $this
+     */
+    public function setIpv6CidrBlock($ipv6_cidr_block)
+    {
+        $this->container['ipv6_cidr_block'] = $ipv6_cidr_block;
 
         return $this;
     }

@@ -28,6 +28,7 @@ class CreateHaVipRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'client_token' => 'string',
         'description' => 'string',
         'ha_vip_name' => 'string',
         'ip_address' => 'string',
@@ -40,6 +41,7 @@ class CreateHaVipRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'client_token' => null,
         'description' => null,
         'ha_vip_name' => null,
         'ip_address' => null,
@@ -73,6 +75,7 @@ class CreateHaVipRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'client_token' => 'ClientToken',
         'description' => 'Description',
         'ha_vip_name' => 'HaVipName',
         'ip_address' => 'IpAddress',
@@ -85,6 +88,7 @@ class CreateHaVipRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'client_token' => 'setClientToken',
         'description' => 'setDescription',
         'ha_vip_name' => 'setHaVipName',
         'ip_address' => 'setIpAddress',
@@ -97,6 +101,7 @@ class CreateHaVipRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'client_token' => 'getClientToken',
         'description' => 'getDescription',
         'ha_vip_name' => 'getHaVipName',
         'ip_address' => 'getIpAddress',
@@ -163,6 +168,7 @@ class CreateHaVipRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['ha_vip_name'] = isset($data['ha_vip_name']) ? $data['ha_vip_name'] : null;
         $this->container['ip_address'] = isset($data['ip_address']) ? $data['ip_address'] : null;
@@ -195,6 +201,30 @@ class CreateHaVipRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets client_token
+     *
+     * @return string
+     */
+    public function getClientToken()
+    {
+        return $this->container['client_token'];
+    }
+
+    /**
+     * Sets client_token
+     *
+     * @param string $client_token client_token
+     *
+     * @return $this
+     */
+    public function setClientToken($client_token)
+    {
+        $this->container['client_token'] = $client_token;
+
+        return $this;
+    }
 
     /**
      * Gets description

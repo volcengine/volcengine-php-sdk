@@ -30,6 +30,8 @@ class ModifyVpcAttributesRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'description' => 'string',
         'dns_servers' => 'string[]',
+        'enable_ipv6' => 'bool',
+        'ipv6_cidr_block' => 'string',
         'vpc_id' => 'string',
         'vpc_name' => 'string'
     ];
@@ -42,6 +44,8 @@ class ModifyVpcAttributesRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'description' => null,
         'dns_servers' => null,
+        'enable_ipv6' => null,
+        'ipv6_cidr_block' => null,
         'vpc_id' => null,
         'vpc_name' => null
     ];
@@ -75,6 +79,8 @@ class ModifyVpcAttributesRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'description' => 'Description',
         'dns_servers' => 'DnsServers',
+        'enable_ipv6' => 'EnableIpv6',
+        'ipv6_cidr_block' => 'Ipv6CidrBlock',
         'vpc_id' => 'VpcId',
         'vpc_name' => 'VpcName'
     ];
@@ -87,6 +93,8 @@ class ModifyVpcAttributesRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'description' => 'setDescription',
         'dns_servers' => 'setDnsServers',
+        'enable_ipv6' => 'setEnableIpv6',
+        'ipv6_cidr_block' => 'setIpv6CidrBlock',
         'vpc_id' => 'setVpcId',
         'vpc_name' => 'setVpcName'
     ];
@@ -99,6 +107,8 @@ class ModifyVpcAttributesRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'description' => 'getDescription',
         'dns_servers' => 'getDnsServers',
+        'enable_ipv6' => 'getEnableIpv6',
+        'ipv6_cidr_block' => 'getIpv6CidrBlock',
         'vpc_id' => 'getVpcId',
         'vpc_name' => 'getVpcName'
     ];
@@ -165,6 +175,8 @@ class ModifyVpcAttributesRequest implements ModelInterface, ArrayAccess
     {
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['dns_servers'] = isset($data['dns_servers']) ? $data['dns_servers'] : null;
+        $this->container['enable_ipv6'] = isset($data['enable_ipv6']) ? $data['enable_ipv6'] : null;
+        $this->container['ipv6_cidr_block'] = isset($data['ipv6_cidr_block']) ? $data['ipv6_cidr_block'] : null;
         $this->container['vpc_id'] = isset($data['vpc_id']) ? $data['vpc_id'] : null;
         $this->container['vpc_name'] = isset($data['vpc_name']) ? $data['vpc_name'] : null;
     }
@@ -240,6 +252,54 @@ class ModifyVpcAttributesRequest implements ModelInterface, ArrayAccess
     public function setDnsServers($dns_servers)
     {
         $this->container['dns_servers'] = $dns_servers;
+
+        return $this;
+    }
+
+    /**
+     * Gets enable_ipv6
+     *
+     * @return bool
+     */
+    public function getEnableIpv6()
+    {
+        return $this->container['enable_ipv6'];
+    }
+
+    /**
+     * Sets enable_ipv6
+     *
+     * @param bool $enable_ipv6 enable_ipv6
+     *
+     * @return $this
+     */
+    public function setEnableIpv6($enable_ipv6)
+    {
+        $this->container['enable_ipv6'] = $enable_ipv6;
+
+        return $this;
+    }
+
+    /**
+     * Gets ipv6_cidr_block
+     *
+     * @return string
+     */
+    public function getIpv6CidrBlock()
+    {
+        return $this->container['ipv6_cidr_block'];
+    }
+
+    /**
+     * Sets ipv6_cidr_block
+     *
+     * @param string $ipv6_cidr_block ipv6_cidr_block
+     *
+     * @return $this
+     */
+    public function setIpv6CidrBlock($ipv6_cidr_block)
+    {
+        $this->container['ipv6_cidr_block'] = $ipv6_cidr_block;
 
         return $this;
     }

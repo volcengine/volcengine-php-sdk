@@ -37,9 +37,11 @@ class BandwidthPackageForDescribeBandwidthPackagesOutput implements ModelInterfa
         'deleted_time' => 'string',
         'description' => 'string',
         'eip_addresses' => '\Volcengine\Vpc\Model\EipAddressForDescribeBandwidthPackagesOutput[]',
+        'expired_time' => 'string',
         'isp' => 'string',
         'overdue_time' => 'string',
         'project_name' => 'string',
+        'protocol' => 'string',
         'security_protection_types' => 'string[]',
         'status' => 'string',
         'tags' => '\Volcengine\Vpc\Model\TagForDescribeBandwidthPackagesOutput[]',
@@ -61,9 +63,11 @@ class BandwidthPackageForDescribeBandwidthPackagesOutput implements ModelInterfa
         'deleted_time' => null,
         'description' => null,
         'eip_addresses' => null,
+        'expired_time' => null,
         'isp' => null,
         'overdue_time' => null,
         'project_name' => null,
+        'protocol' => null,
         'security_protection_types' => null,
         'status' => null,
         'tags' => null,
@@ -106,9 +110,11 @@ class BandwidthPackageForDescribeBandwidthPackagesOutput implements ModelInterfa
         'deleted_time' => 'DeletedTime',
         'description' => 'Description',
         'eip_addresses' => 'EipAddresses',
+        'expired_time' => 'ExpiredTime',
         'isp' => 'ISP',
         'overdue_time' => 'OverdueTime',
         'project_name' => 'ProjectName',
+        'protocol' => 'Protocol',
         'security_protection_types' => 'SecurityProtectionTypes',
         'status' => 'Status',
         'tags' => 'Tags',
@@ -130,9 +136,11 @@ class BandwidthPackageForDescribeBandwidthPackagesOutput implements ModelInterfa
         'deleted_time' => 'setDeletedTime',
         'description' => 'setDescription',
         'eip_addresses' => 'setEipAddresses',
+        'expired_time' => 'setExpiredTime',
         'isp' => 'setIsp',
         'overdue_time' => 'setOverdueTime',
         'project_name' => 'setProjectName',
+        'protocol' => 'setProtocol',
         'security_protection_types' => 'setSecurityProtectionTypes',
         'status' => 'setStatus',
         'tags' => 'setTags',
@@ -154,9 +162,11 @@ class BandwidthPackageForDescribeBandwidthPackagesOutput implements ModelInterfa
         'deleted_time' => 'getDeletedTime',
         'description' => 'getDescription',
         'eip_addresses' => 'getEipAddresses',
+        'expired_time' => 'getExpiredTime',
         'isp' => 'getIsp',
         'overdue_time' => 'getOverdueTime',
         'project_name' => 'getProjectName',
+        'protocol' => 'getProtocol',
         'security_protection_types' => 'getSecurityProtectionTypes',
         'status' => 'getStatus',
         'tags' => 'getTags',
@@ -232,9 +242,11 @@ class BandwidthPackageForDescribeBandwidthPackagesOutput implements ModelInterfa
         $this->container['deleted_time'] = isset($data['deleted_time']) ? $data['deleted_time'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['eip_addresses'] = isset($data['eip_addresses']) ? $data['eip_addresses'] : null;
+        $this->container['expired_time'] = isset($data['expired_time']) ? $data['expired_time'] : null;
         $this->container['isp'] = isset($data['isp']) ? $data['isp'] : null;
         $this->container['overdue_time'] = isset($data['overdue_time']) ? $data['overdue_time'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['protocol'] = isset($data['protocol']) ? $data['protocol'] : null;
         $this->container['security_protection_types'] = isset($data['security_protection_types']) ? $data['security_protection_types'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
@@ -482,6 +494,30 @@ class BandwidthPackageForDescribeBandwidthPackagesOutput implements ModelInterfa
     }
 
     /**
+     * Gets expired_time
+     *
+     * @return string
+     */
+    public function getExpiredTime()
+    {
+        return $this->container['expired_time'];
+    }
+
+    /**
+     * Sets expired_time
+     *
+     * @param string $expired_time expired_time
+     *
+     * @return $this
+     */
+    public function setExpiredTime($expired_time)
+    {
+        $this->container['expired_time'] = $expired_time;
+
+        return $this;
+    }
+
+    /**
      * Gets isp
      *
      * @return string
@@ -549,6 +585,30 @@ class BandwidthPackageForDescribeBandwidthPackagesOutput implements ModelInterfa
     public function setProjectName($project_name)
     {
         $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets protocol
+     *
+     * @return string
+     */
+    public function getProtocol()
+    {
+        return $this->container['protocol'];
+    }
+
+    /**
+     * Sets protocol
+     *
+     * @param string $protocol protocol
+     *
+     * @return $this
+     */
+    public function setProtocol($protocol)
+    {
+        $this->container['protocol'] = $protocol;
 
         return $this;
     }

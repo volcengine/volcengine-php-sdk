@@ -31,6 +31,7 @@ class CreateRouteEntryRequest implements ModelInterface, ArrayAccess
         'client_token' => 'string',
         'description' => 'string',
         'destination_cidr_block' => 'string',
+        'destination_prefix_list_id' => 'string',
         'next_hop_id' => 'string',
         'next_hop_type' => 'string',
         'route_entry_name' => 'string',
@@ -46,6 +47,7 @@ class CreateRouteEntryRequest implements ModelInterface, ArrayAccess
         'client_token' => null,
         'description' => null,
         'destination_cidr_block' => null,
+        'destination_prefix_list_id' => null,
         'next_hop_id' => null,
         'next_hop_type' => null,
         'route_entry_name' => null,
@@ -82,6 +84,7 @@ class CreateRouteEntryRequest implements ModelInterface, ArrayAccess
         'client_token' => 'ClientToken',
         'description' => 'Description',
         'destination_cidr_block' => 'DestinationCidrBlock',
+        'destination_prefix_list_id' => 'DestinationPrefixListId',
         'next_hop_id' => 'NextHopId',
         'next_hop_type' => 'NextHopType',
         'route_entry_name' => 'RouteEntryName',
@@ -97,6 +100,7 @@ class CreateRouteEntryRequest implements ModelInterface, ArrayAccess
         'client_token' => 'setClientToken',
         'description' => 'setDescription',
         'destination_cidr_block' => 'setDestinationCidrBlock',
+        'destination_prefix_list_id' => 'setDestinationPrefixListId',
         'next_hop_id' => 'setNextHopId',
         'next_hop_type' => 'setNextHopType',
         'route_entry_name' => 'setRouteEntryName',
@@ -112,6 +116,7 @@ class CreateRouteEntryRequest implements ModelInterface, ArrayAccess
         'client_token' => 'getClientToken',
         'description' => 'getDescription',
         'destination_cidr_block' => 'getDestinationCidrBlock',
+        'destination_prefix_list_id' => 'getDestinationPrefixListId',
         'next_hop_id' => 'getNextHopId',
         'next_hop_type' => 'getNextHopType',
         'route_entry_name' => 'getRouteEntryName',
@@ -181,6 +186,7 @@ class CreateRouteEntryRequest implements ModelInterface, ArrayAccess
         $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['destination_cidr_block'] = isset($data['destination_cidr_block']) ? $data['destination_cidr_block'] : null;
+        $this->container['destination_prefix_list_id'] = isset($data['destination_prefix_list_id']) ? $data['destination_prefix_list_id'] : null;
         $this->container['next_hop_id'] = isset($data['next_hop_id']) ? $data['next_hop_id'] : null;
         $this->container['next_hop_type'] = isset($data['next_hop_type']) ? $data['next_hop_type'] : null;
         $this->container['route_entry_name'] = isset($data['route_entry_name']) ? $data['route_entry_name'] : null;
@@ -196,9 +202,6 @@ class CreateRouteEntryRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['destination_cidr_block'] === null) {
-            $invalidProperties[] = "'destination_cidr_block' can't be null";
-        }
         if ($this->container['next_hop_id'] === null) {
             $invalidProperties[] = "'next_hop_id' can't be null";
         }
@@ -291,6 +294,30 @@ class CreateRouteEntryRequest implements ModelInterface, ArrayAccess
     public function setDestinationCidrBlock($destination_cidr_block)
     {
         $this->container['destination_cidr_block'] = $destination_cidr_block;
+
+        return $this;
+    }
+
+    /**
+     * Gets destination_prefix_list_id
+     *
+     * @return string
+     */
+    public function getDestinationPrefixListId()
+    {
+        return $this->container['destination_prefix_list_id'];
+    }
+
+    /**
+     * Sets destination_prefix_list_id
+     *
+     * @param string $destination_prefix_list_id destination_prefix_list_id
+     *
+     * @return $this
+     */
+    public function setDestinationPrefixListId($destination_prefix_list_id)
+    {
+        $this->container['destination_prefix_list_id'] = $destination_prefix_list_id;
 
         return $this;
     }

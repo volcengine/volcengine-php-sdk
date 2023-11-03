@@ -35,6 +35,8 @@ class PermissionForDescribeSecurityGroupAttributesOutput implements ModelInterfa
         'policy' => 'string',
         'port_end' => 'int',
         'port_start' => 'int',
+        'prefix_list_cidrs' => 'string[]',
+        'prefix_list_id' => 'string',
         'priority' => 'int',
         'protocol' => 'string',
         'source_group_id' => 'string',
@@ -54,6 +56,8 @@ class PermissionForDescribeSecurityGroupAttributesOutput implements ModelInterfa
         'policy' => null,
         'port_end' => null,
         'port_start' => null,
+        'prefix_list_cidrs' => null,
+        'prefix_list_id' => null,
         'priority' => null,
         'protocol' => null,
         'source_group_id' => null,
@@ -94,6 +98,8 @@ class PermissionForDescribeSecurityGroupAttributesOutput implements ModelInterfa
         'policy' => 'Policy',
         'port_end' => 'PortEnd',
         'port_start' => 'PortStart',
+        'prefix_list_cidrs' => 'PrefixListCidrs',
+        'prefix_list_id' => 'PrefixListId',
         'priority' => 'Priority',
         'protocol' => 'Protocol',
         'source_group_id' => 'SourceGroupId',
@@ -113,6 +119,8 @@ class PermissionForDescribeSecurityGroupAttributesOutput implements ModelInterfa
         'policy' => 'setPolicy',
         'port_end' => 'setPortEnd',
         'port_start' => 'setPortStart',
+        'prefix_list_cidrs' => 'setPrefixListCidrs',
+        'prefix_list_id' => 'setPrefixListId',
         'priority' => 'setPriority',
         'protocol' => 'setProtocol',
         'source_group_id' => 'setSourceGroupId',
@@ -132,6 +140,8 @@ class PermissionForDescribeSecurityGroupAttributesOutput implements ModelInterfa
         'policy' => 'getPolicy',
         'port_end' => 'getPortEnd',
         'port_start' => 'getPortStart',
+        'prefix_list_cidrs' => 'getPrefixListCidrs',
+        'prefix_list_id' => 'getPrefixListId',
         'priority' => 'getPriority',
         'protocol' => 'getProtocol',
         'source_group_id' => 'getSourceGroupId',
@@ -205,6 +215,8 @@ class PermissionForDescribeSecurityGroupAttributesOutput implements ModelInterfa
         $this->container['policy'] = isset($data['policy']) ? $data['policy'] : null;
         $this->container['port_end'] = isset($data['port_end']) ? $data['port_end'] : null;
         $this->container['port_start'] = isset($data['port_start']) ? $data['port_start'] : null;
+        $this->container['prefix_list_cidrs'] = isset($data['prefix_list_cidrs']) ? $data['prefix_list_cidrs'] : null;
+        $this->container['prefix_list_id'] = isset($data['prefix_list_id']) ? $data['prefix_list_id'] : null;
         $this->container['priority'] = isset($data['priority']) ? $data['priority'] : null;
         $this->container['protocol'] = isset($data['protocol']) ? $data['protocol'] : null;
         $this->container['source_group_id'] = isset($data['source_group_id']) ? $data['source_group_id'] : null;
@@ -399,6 +411,54 @@ class PermissionForDescribeSecurityGroupAttributesOutput implements ModelInterfa
     public function setPortStart($port_start)
     {
         $this->container['port_start'] = $port_start;
+
+        return $this;
+    }
+
+    /**
+     * Gets prefix_list_cidrs
+     *
+     * @return string[]
+     */
+    public function getPrefixListCidrs()
+    {
+        return $this->container['prefix_list_cidrs'];
+    }
+
+    /**
+     * Sets prefix_list_cidrs
+     *
+     * @param string[] $prefix_list_cidrs prefix_list_cidrs
+     *
+     * @return $this
+     */
+    public function setPrefixListCidrs($prefix_list_cidrs)
+    {
+        $this->container['prefix_list_cidrs'] = $prefix_list_cidrs;
+
+        return $this;
+    }
+
+    /**
+     * Gets prefix_list_id
+     *
+     * @return string
+     */
+    public function getPrefixListId()
+    {
+        return $this->container['prefix_list_id'];
+    }
+
+    /**
+     * Sets prefix_list_id
+     *
+     * @param string $prefix_list_id prefix_list_id
+     *
+     * @return $this
+     */
+    public function setPrefixListId($prefix_list_id)
+    {
+        $this->container['prefix_list_id'] = $prefix_list_id;
 
         return $this;
     }

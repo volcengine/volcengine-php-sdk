@@ -29,6 +29,7 @@ class AssociateEipAddressRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'allocation_id' => 'string',
+        'client_token' => 'string',
         'instance_id' => 'string',
         'instance_type' => 'string',
         'private_ip_address' => 'string'
@@ -41,6 +42,7 @@ class AssociateEipAddressRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'allocation_id' => null,
+        'client_token' => null,
         'instance_id' => null,
         'instance_type' => null,
         'private_ip_address' => null
@@ -74,6 +76,7 @@ class AssociateEipAddressRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'allocation_id' => 'AllocationId',
+        'client_token' => 'ClientToken',
         'instance_id' => 'InstanceId',
         'instance_type' => 'InstanceType',
         'private_ip_address' => 'PrivateIpAddress'
@@ -86,6 +89,7 @@ class AssociateEipAddressRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'allocation_id' => 'setAllocationId',
+        'client_token' => 'setClientToken',
         'instance_id' => 'setInstanceId',
         'instance_type' => 'setInstanceType',
         'private_ip_address' => 'setPrivateIpAddress'
@@ -98,6 +102,7 @@ class AssociateEipAddressRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'allocation_id' => 'getAllocationId',
+        'client_token' => 'getClientToken',
         'instance_id' => 'getInstanceId',
         'instance_type' => 'getInstanceType',
         'private_ip_address' => 'getPrivateIpAddress'
@@ -185,6 +190,7 @@ class AssociateEipAddressRequest implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['allocation_id'] = isset($data['allocation_id']) ? $data['allocation_id'] : null;
+        $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
         $this->container['instance_type'] = isset($data['instance_type']) ? $data['instance_type'] : null;
         $this->container['private_ip_address'] = isset($data['private_ip_address']) ? $data['private_ip_address'] : null;
@@ -251,6 +257,30 @@ class AssociateEipAddressRequest implements ModelInterface, ArrayAccess
     public function setAllocationId($allocation_id)
     {
         $this->container['allocation_id'] = $allocation_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets client_token
+     *
+     * @return string
+     */
+    public function getClientToken()
+    {
+        return $this->container['client_token'];
+    }
+
+    /**
+     * Sets client_token
+     *
+     * @param string $client_token client_token
+     *
+     * @return $this
+     */
+    public function setClientToken($client_token)
+    {
+        $this->container['client_token'] = $client_token;
 
         return $this;
     }

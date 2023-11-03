@@ -33,7 +33,10 @@ class CreateBandwidthPackageRequest implements ModelInterface, ArrayAccess
         'billing_type' => 'int',
         'description' => 'string',
         'isp' => 'string',
+        'period' => 'int',
+        'period_unit' => 'int',
         'project_name' => 'string',
+        'protocol' => 'string',
         'security_protection_types' => 'string[]',
         'tags' => '\Volcengine\Vpc\Model\TagForCreateBandwidthPackageInput[]'
     ];
@@ -49,7 +52,10 @@ class CreateBandwidthPackageRequest implements ModelInterface, ArrayAccess
         'billing_type' => null,
         'description' => null,
         'isp' => null,
+        'period' => null,
+        'period_unit' => null,
         'project_name' => null,
+        'protocol' => null,
         'security_protection_types' => null,
         'tags' => null
     ];
@@ -86,7 +92,10 @@ class CreateBandwidthPackageRequest implements ModelInterface, ArrayAccess
         'billing_type' => 'BillingType',
         'description' => 'Description',
         'isp' => 'ISP',
+        'period' => 'Period',
+        'period_unit' => 'PeriodUnit',
         'project_name' => 'ProjectName',
+        'protocol' => 'Protocol',
         'security_protection_types' => 'SecurityProtectionTypes',
         'tags' => 'Tags'
     ];
@@ -102,7 +111,10 @@ class CreateBandwidthPackageRequest implements ModelInterface, ArrayAccess
         'billing_type' => 'setBillingType',
         'description' => 'setDescription',
         'isp' => 'setIsp',
+        'period' => 'setPeriod',
+        'period_unit' => 'setPeriodUnit',
         'project_name' => 'setProjectName',
+        'protocol' => 'setProtocol',
         'security_protection_types' => 'setSecurityProtectionTypes',
         'tags' => 'setTags'
     ];
@@ -118,7 +130,10 @@ class CreateBandwidthPackageRequest implements ModelInterface, ArrayAccess
         'billing_type' => 'getBillingType',
         'description' => 'getDescription',
         'isp' => 'getIsp',
+        'period' => 'getPeriod',
+        'period_unit' => 'getPeriodUnit',
         'project_name' => 'getProjectName',
+        'protocol' => 'getProtocol',
         'security_protection_types' => 'getSecurityProtectionTypes',
         'tags' => 'getTags'
     ];
@@ -165,9 +180,16 @@ class CreateBandwidthPackageRequest implements ModelInterface, ArrayAccess
     }
 
     const ISP_BGP = 'BGP';
+    const ISP_SINGLE_LINE_BGP = 'SingleLine_BGP';
+    const ISP_FUSION_BGP = 'Fusion_BGP';
     const ISP_CHINA_MOBILE = 'ChinaMobile';
     const ISP_CHINA_UNICOM = 'ChinaUnicom';
     const ISP_CHINA_TELECOM = 'ChinaTelecom';
+    const ISP_CHINA_MOBILE_VALUE = 'ChinaMobile_Value';
+    const ISP_CHINA_UNICOM_VALUE = 'ChinaUnicom_Value';
+    const ISP_CHINA_TELECOM_VALUE = 'ChinaTelecom_Value';
+    const PROTOCOL_I_PV4 = 'IPv4';
+    const PROTOCOL_I_PV6 = 'IPv6';
     
 
     
@@ -180,9 +202,27 @@ class CreateBandwidthPackageRequest implements ModelInterface, ArrayAccess
     {
         return [
             self::ISP_BGP,
+            self::ISP_SINGLE_LINE_BGP,
+            self::ISP_FUSION_BGP,
             self::ISP_CHINA_MOBILE,
             self::ISP_CHINA_UNICOM,
             self::ISP_CHINA_TELECOM,
+            self::ISP_CHINA_MOBILE_VALUE,
+            self::ISP_CHINA_UNICOM_VALUE,
+            self::ISP_CHINA_TELECOM_VALUE,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getProtocolAllowableValues()
+    {
+        return [
+            self::PROTOCOL_I_PV4,
+            self::PROTOCOL_I_PV6,
         ];
     }
     
@@ -207,7 +247,10 @@ class CreateBandwidthPackageRequest implements ModelInterface, ArrayAccess
         $this->container['billing_type'] = isset($data['billing_type']) ? $data['billing_type'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['isp'] = isset($data['isp']) ? $data['isp'] : null;
+        $this->container['period'] = isset($data['period']) ? $data['period'] : null;
+        $this->container['period_unit'] = isset($data['period_unit']) ? $data['period_unit'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['protocol'] = isset($data['protocol']) ? $data['protocol'] : null;
         $this->container['security_protection_types'] = isset($data['security_protection_types']) ? $data['security_protection_types'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
     }
@@ -228,6 +271,14 @@ class CreateBandwidthPackageRequest implements ModelInterface, ArrayAccess
         if (!is_null($this->container['isp']) && !in_array($this->container['isp'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
                 "invalid value for 'isp', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getProtocolAllowableValues();
+        if (!is_null($this->container['protocol']) && !in_array($this->container['protocol'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'protocol', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -377,6 +428,54 @@ class CreateBandwidthPackageRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets period
+     *
+     * @return int
+     */
+    public function getPeriod()
+    {
+        return $this->container['period'];
+    }
+
+    /**
+     * Sets period
+     *
+     * @param int $period period
+     *
+     * @return $this
+     */
+    public function setPeriod($period)
+    {
+        $this->container['period'] = $period;
+
+        return $this;
+    }
+
+    /**
+     * Gets period_unit
+     *
+     * @return int
+     */
+    public function getPeriodUnit()
+    {
+        return $this->container['period_unit'];
+    }
+
+    /**
+     * Sets period_unit
+     *
+     * @param int $period_unit period_unit
+     *
+     * @return $this
+     */
+    public function setPeriodUnit($period_unit)
+    {
+        $this->container['period_unit'] = $period_unit;
+
+        return $this;
+    }
+
+    /**
      * Gets project_name
      *
      * @return string
@@ -396,6 +495,39 @@ class CreateBandwidthPackageRequest implements ModelInterface, ArrayAccess
     public function setProjectName($project_name)
     {
         $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets protocol
+     *
+     * @return string
+     */
+    public function getProtocol()
+    {
+        return $this->container['protocol'];
+    }
+
+    /**
+     * Sets protocol
+     *
+     * @param string $protocol protocol
+     *
+     * @return $this
+     */
+    public function setProtocol($protocol)
+    {
+        $allowedValues = $this->getProtocolAllowableValues();
+        if (!is_null($protocol) && !in_array($protocol, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'protocol', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['protocol'] = $protocol;
 
         return $this;
     }

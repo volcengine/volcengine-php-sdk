@@ -31,6 +31,7 @@ class CreateSubnetRequest implements ModelInterface, ArrayAccess
         'cidr_block' => 'string',
         'client_token' => 'string',
         'description' => 'string',
+        'ipv6_cidr_block' => 'int',
         'subnet_name' => 'string',
         'vpc_id' => 'string',
         'zone_id' => 'string'
@@ -45,6 +46,7 @@ class CreateSubnetRequest implements ModelInterface, ArrayAccess
         'cidr_block' => null,
         'client_token' => null,
         'description' => null,
+        'ipv6_cidr_block' => null,
         'subnet_name' => null,
         'vpc_id' => null,
         'zone_id' => null
@@ -80,6 +82,7 @@ class CreateSubnetRequest implements ModelInterface, ArrayAccess
         'cidr_block' => 'CidrBlock',
         'client_token' => 'ClientToken',
         'description' => 'Description',
+        'ipv6_cidr_block' => 'Ipv6CidrBlock',
         'subnet_name' => 'SubnetName',
         'vpc_id' => 'VpcId',
         'zone_id' => 'ZoneId'
@@ -94,6 +97,7 @@ class CreateSubnetRequest implements ModelInterface, ArrayAccess
         'cidr_block' => 'setCidrBlock',
         'client_token' => 'setClientToken',
         'description' => 'setDescription',
+        'ipv6_cidr_block' => 'setIpv6CidrBlock',
         'subnet_name' => 'setSubnetName',
         'vpc_id' => 'setVpcId',
         'zone_id' => 'setZoneId'
@@ -108,6 +112,7 @@ class CreateSubnetRequest implements ModelInterface, ArrayAccess
         'cidr_block' => 'getCidrBlock',
         'client_token' => 'getClientToken',
         'description' => 'getDescription',
+        'ipv6_cidr_block' => 'getIpv6CidrBlock',
         'subnet_name' => 'getSubnetName',
         'vpc_id' => 'getVpcId',
         'zone_id' => 'getZoneId'
@@ -176,6 +181,7 @@ class CreateSubnetRequest implements ModelInterface, ArrayAccess
         $this->container['cidr_block'] = isset($data['cidr_block']) ? $data['cidr_block'] : null;
         $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['ipv6_cidr_block'] = isset($data['ipv6_cidr_block']) ? $data['ipv6_cidr_block'] : null;
         $this->container['subnet_name'] = isset($data['subnet_name']) ? $data['subnet_name'] : null;
         $this->container['vpc_id'] = isset($data['vpc_id']) ? $data['vpc_id'] : null;
         $this->container['zone_id'] = isset($data['zone_id']) ? $data['zone_id'] : null;
@@ -282,6 +288,30 @@ class CreateSubnetRequest implements ModelInterface, ArrayAccess
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets ipv6_cidr_block
+     *
+     * @return int
+     */
+    public function getIpv6CidrBlock()
+    {
+        return $this->container['ipv6_cidr_block'];
+    }
+
+    /**
+     * Sets ipv6_cidr_block
+     *
+     * @param int $ipv6_cidr_block ipv6_cidr_block
+     *
+     * @return $this
+     */
+    public function setIpv6CidrBlock($ipv6_cidr_block)
+    {
+        $this->container['ipv6_cidr_block'] = $ipv6_cidr_block;
 
         return $this;
     }
