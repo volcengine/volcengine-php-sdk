@@ -196,6 +196,7 @@ class AllocateEipAddressRequest implements ModelInterface, ArrayAccess
 
     const ISP_BGP = 'BGP';
     const ISP_SINGLE_LINE_BGP = 'SingleLine_BGP';
+    const ISP_STATIC_BGP = 'Static_BGP';
     const ISP_FUSION_BGP = 'Fusion_BGP';
     const ISP_CHINA_MOBILE = 'ChinaMobile';
     const ISP_CHINA_UNICOM = 'ChinaUnicom';
@@ -216,6 +217,7 @@ class AllocateEipAddressRequest implements ModelInterface, ArrayAccess
         return [
             self::ISP_BGP,
             self::ISP_SINGLE_LINE_BGP,
+            self::ISP_STATIC_BGP,
             self::ISP_FUSION_BGP,
             self::ISP_CHINA_MOBILE,
             self::ISP_CHINA_UNICOM,
