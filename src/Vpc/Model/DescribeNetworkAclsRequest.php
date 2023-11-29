@@ -28,8 +28,10 @@ class DescribeNetworkAclsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'max_results' => 'int',
         'network_acl_ids' => 'string[]',
         'network_acl_name' => 'string',
+        'next_token' => 'string',
         'page_number' => 'int',
         'page_size' => 'int',
         'project_name' => 'string',
@@ -43,8 +45,10 @@ class DescribeNetworkAclsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'max_results' => null,
         'network_acl_ids' => null,
         'network_acl_name' => null,
+        'next_token' => null,
         'page_number' => null,
         'page_size' => null,
         'project_name' => null,
@@ -79,8 +83,10 @@ class DescribeNetworkAclsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'max_results' => 'MaxResults',
         'network_acl_ids' => 'NetworkAclIds',
         'network_acl_name' => 'NetworkAclName',
+        'next_token' => 'NextToken',
         'page_number' => 'PageNumber',
         'page_size' => 'PageSize',
         'project_name' => 'ProjectName',
@@ -94,8 +100,10 @@ class DescribeNetworkAclsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'max_results' => 'setMaxResults',
         'network_acl_ids' => 'setNetworkAclIds',
         'network_acl_name' => 'setNetworkAclName',
+        'next_token' => 'setNextToken',
         'page_number' => 'setPageNumber',
         'page_size' => 'setPageSize',
         'project_name' => 'setProjectName',
@@ -109,8 +117,10 @@ class DescribeNetworkAclsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'max_results' => 'getMaxResults',
         'network_acl_ids' => 'getNetworkAclIds',
         'network_acl_name' => 'getNetworkAclName',
+        'next_token' => 'getNextToken',
         'page_number' => 'getPageNumber',
         'page_size' => 'getPageSize',
         'project_name' => 'getProjectName',
@@ -178,8 +188,10 @@ class DescribeNetworkAclsRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['max_results'] = isset($data['max_results']) ? $data['max_results'] : null;
         $this->container['network_acl_ids'] = isset($data['network_acl_ids']) ? $data['network_acl_ids'] : null;
         $this->container['network_acl_name'] = isset($data['network_acl_name']) ? $data['network_acl_name'] : null;
+        $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
         $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
@@ -210,6 +222,30 @@ class DescribeNetworkAclsRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets max_results
+     *
+     * @return int
+     */
+    public function getMaxResults()
+    {
+        return $this->container['max_results'];
+    }
+
+    /**
+     * Sets max_results
+     *
+     * @param int $max_results max_results
+     *
+     * @return $this
+     */
+    public function setMaxResults($max_results)
+    {
+        $this->container['max_results'] = $max_results;
+
+        return $this;
+    }
 
     /**
      * Gets network_acl_ids
@@ -255,6 +291,30 @@ class DescribeNetworkAclsRequest implements ModelInterface, ArrayAccess
     public function setNetworkAclName($network_acl_name)
     {
         $this->container['network_acl_name'] = $network_acl_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets next_token
+     *
+     * @return string
+     */
+    public function getNextToken()
+    {
+        return $this->container['next_token'];
+    }
+
+    /**
+     * Sets next_token
+     *
+     * @param string $next_token next_token
+     *
+     * @return $this
+     */
+    public function setNextToken($next_token)
+    {
+        $this->container['next_token'] = $next_token;
 
         return $this;
     }

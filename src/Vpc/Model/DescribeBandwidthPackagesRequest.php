@@ -31,6 +31,8 @@ class DescribeBandwidthPackagesRequest implements ModelInterface, ArrayAccess
         'bandwidth_package_ids' => 'string[]',
         'bandwidth_package_name' => 'string',
         'isp' => 'string',
+        'max_results' => 'int',
+        'next_token' => 'string',
         'page_number' => 'int',
         'page_size' => 'int',
         'project_name' => 'string',
@@ -48,6 +50,8 @@ class DescribeBandwidthPackagesRequest implements ModelInterface, ArrayAccess
         'bandwidth_package_ids' => null,
         'bandwidth_package_name' => null,
         'isp' => null,
+        'max_results' => null,
+        'next_token' => null,
         'page_number' => null,
         'page_size' => null,
         'project_name' => null,
@@ -86,6 +90,8 @@ class DescribeBandwidthPackagesRequest implements ModelInterface, ArrayAccess
         'bandwidth_package_ids' => 'BandwidthPackageIds',
         'bandwidth_package_name' => 'BandwidthPackageName',
         'isp' => 'ISP',
+        'max_results' => 'MaxResults',
+        'next_token' => 'NextToken',
         'page_number' => 'PageNumber',
         'page_size' => 'PageSize',
         'project_name' => 'ProjectName',
@@ -103,6 +109,8 @@ class DescribeBandwidthPackagesRequest implements ModelInterface, ArrayAccess
         'bandwidth_package_ids' => 'setBandwidthPackageIds',
         'bandwidth_package_name' => 'setBandwidthPackageName',
         'isp' => 'setIsp',
+        'max_results' => 'setMaxResults',
+        'next_token' => 'setNextToken',
         'page_number' => 'setPageNumber',
         'page_size' => 'setPageSize',
         'project_name' => 'setProjectName',
@@ -120,6 +128,8 @@ class DescribeBandwidthPackagesRequest implements ModelInterface, ArrayAccess
         'bandwidth_package_ids' => 'getBandwidthPackageIds',
         'bandwidth_package_name' => 'getBandwidthPackageName',
         'isp' => 'getIsp',
+        'max_results' => 'getMaxResults',
+        'next_token' => 'getNextToken',
         'page_number' => 'getPageNumber',
         'page_size' => 'getPageSize',
         'project_name' => 'getProjectName',
@@ -237,6 +247,8 @@ class DescribeBandwidthPackagesRequest implements ModelInterface, ArrayAccess
         $this->container['bandwidth_package_ids'] = isset($data['bandwidth_package_ids']) ? $data['bandwidth_package_ids'] : null;
         $this->container['bandwidth_package_name'] = isset($data['bandwidth_package_name']) ? $data['bandwidth_package_name'] : null;
         $this->container['isp'] = isset($data['isp']) ? $data['isp'] : null;
+        $this->container['max_results'] = isset($data['max_results']) ? $data['max_results'] : null;
+        $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
         $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
@@ -362,6 +374,54 @@ class DescribeBandwidthPackagesRequest implements ModelInterface, ArrayAccess
             );
         }
         $this->container['isp'] = $isp;
+
+        return $this;
+    }
+
+    /**
+     * Gets max_results
+     *
+     * @return int
+     */
+    public function getMaxResults()
+    {
+        return $this->container['max_results'];
+    }
+
+    /**
+     * Sets max_results
+     *
+     * @param int $max_results max_results
+     *
+     * @return $this
+     */
+    public function setMaxResults($max_results)
+    {
+        $this->container['max_results'] = $max_results;
+
+        return $this;
+    }
+
+    /**
+     * Gets next_token
+     *
+     * @return string
+     */
+    public function getNextToken()
+    {
+        return $this->container['next_token'];
+    }
+
+    /**
+     * Sets next_token
+     *
+     * @param string $next_token next_token
+     *
+     * @return $this
+     */
+    public function setNextToken($next_token)
+    {
+        $this->container['next_token'] = $next_token;
 
         return $this;
     }

@@ -34,7 +34,9 @@ class DescribeEipAddressesRequest implements ModelInterface, ArrayAccess
         'billing_type' => 'int',
         'eip_addresses' => 'string[]',
         'isp' => 'string',
+        'max_results' => 'int',
         'name' => 'string',
+        'next_token' => 'string',
         'page_number' => 'int',
         'page_size' => 'int',
         'project_name' => 'string',
@@ -55,7 +57,9 @@ class DescribeEipAddressesRequest implements ModelInterface, ArrayAccess
         'billing_type' => null,
         'eip_addresses' => null,
         'isp' => null,
+        'max_results' => null,
         'name' => null,
+        'next_token' => null,
         'page_number' => null,
         'page_size' => null,
         'project_name' => null,
@@ -97,7 +101,9 @@ class DescribeEipAddressesRequest implements ModelInterface, ArrayAccess
         'billing_type' => 'BillingType',
         'eip_addresses' => 'EipAddresses',
         'isp' => 'ISP',
+        'max_results' => 'MaxResults',
         'name' => 'Name',
+        'next_token' => 'NextToken',
         'page_number' => 'PageNumber',
         'page_size' => 'PageSize',
         'project_name' => 'ProjectName',
@@ -118,7 +124,9 @@ class DescribeEipAddressesRequest implements ModelInterface, ArrayAccess
         'billing_type' => 'setBillingType',
         'eip_addresses' => 'setEipAddresses',
         'isp' => 'setIsp',
+        'max_results' => 'setMaxResults',
         'name' => 'setName',
+        'next_token' => 'setNextToken',
         'page_number' => 'setPageNumber',
         'page_size' => 'setPageSize',
         'project_name' => 'setProjectName',
@@ -139,7 +147,9 @@ class DescribeEipAddressesRequest implements ModelInterface, ArrayAccess
         'billing_type' => 'getBillingType',
         'eip_addresses' => 'getEipAddresses',
         'isp' => 'getIsp',
+        'max_results' => 'getMaxResults',
         'name' => 'getName',
+        'next_token' => 'getNextToken',
         'page_number' => 'getPageNumber',
         'page_size' => 'getPageSize',
         'project_name' => 'getProjectName',
@@ -285,7 +295,9 @@ class DescribeEipAddressesRequest implements ModelInterface, ArrayAccess
         $this->container['billing_type'] = isset($data['billing_type']) ? $data['billing_type'] : null;
         $this->container['eip_addresses'] = isset($data['eip_addresses']) ? $data['eip_addresses'] : null;
         $this->container['isp'] = isset($data['isp']) ? $data['isp'] : null;
+        $this->container['max_results'] = isset($data['max_results']) ? $data['max_results'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
         $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
@@ -505,6 +517,30 @@ class DescribeEipAddressesRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets max_results
+     *
+     * @return int
+     */
+    public function getMaxResults()
+    {
+        return $this->container['max_results'];
+    }
+
+    /**
+     * Sets max_results
+     *
+     * @param int $max_results max_results
+     *
+     * @return $this
+     */
+    public function setMaxResults($max_results)
+    {
+        $this->container['max_results'] = $max_results;
+
+        return $this;
+    }
+
+    /**
      * Gets name
      *
      * @return string
@@ -524,6 +560,30 @@ class DescribeEipAddressesRequest implements ModelInterface, ArrayAccess
     public function setName($name)
     {
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets next_token
+     *
+     * @return string
+     */
+    public function getNextToken()
+    {
+        return $this->container['next_token'];
+    }
+
+    /**
+     * Sets next_token
+     *
+     * @param string $next_token next_token
+     *
+     * @return $this
+     */
+    public function setNextToken($next_token)
+    {
+        $this->container['next_token'] = $next_token;
 
         return $this;
     }

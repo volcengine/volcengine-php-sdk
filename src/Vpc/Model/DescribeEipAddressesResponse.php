@@ -29,6 +29,7 @@ class DescribeEipAddressesResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'eip_addresses' => '\Volcengine\Vpc\Model\EipAddressForDescribeEipAddressesOutput[]',
+        'next_token' => 'string',
         'page_number' => 'int',
         'page_size' => 'int',
         'request_id' => 'string',
@@ -42,6 +43,7 @@ class DescribeEipAddressesResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'eip_addresses' => null,
+        'next_token' => null,
         'page_number' => null,
         'page_size' => null,
         'request_id' => null,
@@ -76,6 +78,7 @@ class DescribeEipAddressesResponse implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'eip_addresses' => 'EipAddresses',
+        'next_token' => 'NextToken',
         'page_number' => 'PageNumber',
         'page_size' => 'PageSize',
         'request_id' => 'RequestId',
@@ -89,6 +92,7 @@ class DescribeEipAddressesResponse implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'eip_addresses' => 'setEipAddresses',
+        'next_token' => 'setNextToken',
         'page_number' => 'setPageNumber',
         'page_size' => 'setPageSize',
         'request_id' => 'setRequestId',
@@ -102,6 +106,7 @@ class DescribeEipAddressesResponse implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'eip_addresses' => 'getEipAddresses',
+        'next_token' => 'getNextToken',
         'page_number' => 'getPageNumber',
         'page_size' => 'getPageSize',
         'request_id' => 'getRequestId',
@@ -169,6 +174,7 @@ class DescribeEipAddressesResponse implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['eip_addresses'] = isset($data['eip_addresses']) ? $data['eip_addresses'] : null;
+        $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
         $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
         $this->container['request_id'] = isset($data['request_id']) ? $data['request_id'] : null;
@@ -219,6 +225,30 @@ class DescribeEipAddressesResponse implements ModelInterface, ArrayAccess
     public function setEipAddresses($eip_addresses)
     {
         $this->container['eip_addresses'] = $eip_addresses;
+
+        return $this;
+    }
+
+    /**
+     * Gets next_token
+     *
+     * @return string
+     */
+    public function getNextToken()
+    {
+        return $this->container['next_token'];
+    }
+
+    /**
+     * Sets next_token
+     *
+     * @param string $next_token next_token
+     *
+     * @return $this
+     */
+    public function setNextToken($next_token)
+    {
+        $this->container['next_token'] = $next_token;
 
         return $this;
     }

@@ -29,6 +29,7 @@ class DescribeBandwidthPackagesResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'bandwidth_packages' => '\Volcengine\Vpc\Model\BandwidthPackageForDescribeBandwidthPackagesOutput[]',
+        'next_token' => 'string',
         'page_number' => 'int',
         'page_size' => 'int',
         'request_id' => 'string',
@@ -42,6 +43,7 @@ class DescribeBandwidthPackagesResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'bandwidth_packages' => null,
+        'next_token' => null,
         'page_number' => null,
         'page_size' => null,
         'request_id' => null,
@@ -76,6 +78,7 @@ class DescribeBandwidthPackagesResponse implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'bandwidth_packages' => 'BandwidthPackages',
+        'next_token' => 'NextToken',
         'page_number' => 'PageNumber',
         'page_size' => 'PageSize',
         'request_id' => 'RequestId',
@@ -89,6 +92,7 @@ class DescribeBandwidthPackagesResponse implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'bandwidth_packages' => 'setBandwidthPackages',
+        'next_token' => 'setNextToken',
         'page_number' => 'setPageNumber',
         'page_size' => 'setPageSize',
         'request_id' => 'setRequestId',
@@ -102,6 +106,7 @@ class DescribeBandwidthPackagesResponse implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'bandwidth_packages' => 'getBandwidthPackages',
+        'next_token' => 'getNextToken',
         'page_number' => 'getPageNumber',
         'page_size' => 'getPageSize',
         'request_id' => 'getRequestId',
@@ -169,6 +174,7 @@ class DescribeBandwidthPackagesResponse implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['bandwidth_packages'] = isset($data['bandwidth_packages']) ? $data['bandwidth_packages'] : null;
+        $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
         $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
         $this->container['request_id'] = isset($data['request_id']) ? $data['request_id'] : null;
@@ -219,6 +225,30 @@ class DescribeBandwidthPackagesResponse implements ModelInterface, ArrayAccess
     public function setBandwidthPackages($bandwidth_packages)
     {
         $this->container['bandwidth_packages'] = $bandwidth_packages;
+
+        return $this;
+    }
+
+    /**
+     * Gets next_token
+     *
+     * @return string
+     */
+    public function getNextToken()
+    {
+        return $this->container['next_token'];
+    }
+
+    /**
+     * Sets next_token
+     *
+     * @param string $next_token next_token
+     *
+     * @return $this
+     */
+    public function setNextToken($next_token)
+    {
+        $this->container['next_token'] = $next_token;
 
         return $this;
     }
