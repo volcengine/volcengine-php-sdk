@@ -29,6 +29,8 @@ class DescribeSubnetsRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'is_default' => 'bool',
+        'max_results' => 'int',
+        'next_token' => 'string',
         'page_number' => 'int',
         'page_size' => 'int',
         'project_name' => 'string',
@@ -46,6 +48,8 @@ class DescribeSubnetsRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'is_default' => null,
+        'max_results' => null,
+        'next_token' => null,
         'page_number' => null,
         'page_size' => null,
         'project_name' => null,
@@ -84,6 +88,8 @@ class DescribeSubnetsRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'is_default' => 'IsDefault',
+        'max_results' => 'MaxResults',
+        'next_token' => 'NextToken',
         'page_number' => 'PageNumber',
         'page_size' => 'PageSize',
         'project_name' => 'ProjectName',
@@ -101,6 +107,8 @@ class DescribeSubnetsRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'is_default' => 'setIsDefault',
+        'max_results' => 'setMaxResults',
+        'next_token' => 'setNextToken',
         'page_number' => 'setPageNumber',
         'page_size' => 'setPageSize',
         'project_name' => 'setProjectName',
@@ -118,6 +126,8 @@ class DescribeSubnetsRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'is_default' => 'getIsDefault',
+        'max_results' => 'getMaxResults',
+        'next_token' => 'getNextToken',
         'page_number' => 'getPageNumber',
         'page_size' => 'getPageSize',
         'project_name' => 'getProjectName',
@@ -189,6 +199,8 @@ class DescribeSubnetsRequest implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['is_default'] = isset($data['is_default']) ? $data['is_default'] : null;
+        $this->container['max_results'] = isset($data['max_results']) ? $data['max_results'] : null;
+        $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
         $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
@@ -243,6 +255,54 @@ class DescribeSubnetsRequest implements ModelInterface, ArrayAccess
     public function setIsDefault($is_default)
     {
         $this->container['is_default'] = $is_default;
+
+        return $this;
+    }
+
+    /**
+     * Gets max_results
+     *
+     * @return int
+     */
+    public function getMaxResults()
+    {
+        return $this->container['max_results'];
+    }
+
+    /**
+     * Sets max_results
+     *
+     * @param int $max_results max_results
+     *
+     * @return $this
+     */
+    public function setMaxResults($max_results)
+    {
+        $this->container['max_results'] = $max_results;
+
+        return $this;
+    }
+
+    /**
+     * Gets next_token
+     *
+     * @return string
+     */
+    public function getNextToken()
+    {
+        return $this->container['next_token'];
+    }
+
+    /**
+     * Sets next_token
+     *
+     * @param string $next_token next_token
+     *
+     * @return $this
+     */
+    public function setNextToken($next_token)
+    {
+        $this->container['next_token'] = $next_token;
 
         return $this;
     }

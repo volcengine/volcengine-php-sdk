@@ -30,8 +30,10 @@ class DescribeRouteEntryListRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'destination_cidr_block' => 'string',
         'destination_prefix_list_id' => 'string',
+        'max_results' => 'int',
         'next_hop_id' => 'string',
         'next_hop_type' => 'string',
+        'next_token' => 'string',
         'page_number' => 'int',
         'page_size' => 'int',
         'route_entry_id' => 'string',
@@ -48,8 +50,10 @@ class DescribeRouteEntryListRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'destination_cidr_block' => null,
         'destination_prefix_list_id' => null,
+        'max_results' => null,
         'next_hop_id' => null,
         'next_hop_type' => null,
+        'next_token' => null,
         'page_number' => null,
         'page_size' => null,
         'route_entry_id' => null,
@@ -87,8 +91,10 @@ class DescribeRouteEntryListRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'destination_cidr_block' => 'DestinationCidrBlock',
         'destination_prefix_list_id' => 'DestinationPrefixListId',
+        'max_results' => 'MaxResults',
         'next_hop_id' => 'NextHopId',
         'next_hop_type' => 'NextHopType',
+        'next_token' => 'NextToken',
         'page_number' => 'PageNumber',
         'page_size' => 'PageSize',
         'route_entry_id' => 'RouteEntryId',
@@ -105,8 +111,10 @@ class DescribeRouteEntryListRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'destination_cidr_block' => 'setDestinationCidrBlock',
         'destination_prefix_list_id' => 'setDestinationPrefixListId',
+        'max_results' => 'setMaxResults',
         'next_hop_id' => 'setNextHopId',
         'next_hop_type' => 'setNextHopType',
+        'next_token' => 'setNextToken',
         'page_number' => 'setPageNumber',
         'page_size' => 'setPageSize',
         'route_entry_id' => 'setRouteEntryId',
@@ -123,8 +131,10 @@ class DescribeRouteEntryListRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'destination_cidr_block' => 'getDestinationCidrBlock',
         'destination_prefix_list_id' => 'getDestinationPrefixListId',
+        'max_results' => 'getMaxResults',
         'next_hop_id' => 'getNextHopId',
         'next_hop_type' => 'getNextHopType',
+        'next_token' => 'getNextToken',
         'page_number' => 'getPageNumber',
         'page_size' => 'getPageSize',
         'route_entry_id' => 'getRouteEntryId',
@@ -195,8 +205,10 @@ class DescribeRouteEntryListRequest implements ModelInterface, ArrayAccess
     {
         $this->container['destination_cidr_block'] = isset($data['destination_cidr_block']) ? $data['destination_cidr_block'] : null;
         $this->container['destination_prefix_list_id'] = isset($data['destination_prefix_list_id']) ? $data['destination_prefix_list_id'] : null;
+        $this->container['max_results'] = isset($data['max_results']) ? $data['max_results'] : null;
         $this->container['next_hop_id'] = isset($data['next_hop_id']) ? $data['next_hop_id'] : null;
         $this->container['next_hop_type'] = isset($data['next_hop_type']) ? $data['next_hop_type'] : null;
+        $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
         $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
         $this->container['route_entry_id'] = isset($data['route_entry_id']) ? $data['route_entry_id'] : null;
@@ -281,6 +293,30 @@ class DescribeRouteEntryListRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets max_results
+     *
+     * @return int
+     */
+    public function getMaxResults()
+    {
+        return $this->container['max_results'];
+    }
+
+    /**
+     * Sets max_results
+     *
+     * @param int $max_results max_results
+     *
+     * @return $this
+     */
+    public function setMaxResults($max_results)
+    {
+        $this->container['max_results'] = $max_results;
+
+        return $this;
+    }
+
+    /**
      * Gets next_hop_id
      *
      * @return string
@@ -324,6 +360,30 @@ class DescribeRouteEntryListRequest implements ModelInterface, ArrayAccess
     public function setNextHopType($next_hop_type)
     {
         $this->container['next_hop_type'] = $next_hop_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets next_token
+     *
+     * @return string
+     */
+    public function getNextToken()
+    {
+        return $this->container['next_token'];
+    }
+
+    /**
+     * Sets next_token
+     *
+     * @param string $next_token next_token
+     *
+     * @return $this
+     */
+    public function setNextToken($next_token)
+    {
+        $this->container['next_token'] = $next_token;
 
         return $this;
     }

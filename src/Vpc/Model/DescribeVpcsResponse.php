@@ -28,6 +28,7 @@ class DescribeVpcsResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'next_token' => 'string',
         'page_number' => 'int',
         'page_size' => 'int',
         'request_id' => 'string',
@@ -41,6 +42,7 @@ class DescribeVpcsResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'next_token' => null,
         'page_number' => null,
         'page_size' => null,
         'request_id' => null,
@@ -75,6 +77,7 @@ class DescribeVpcsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'next_token' => 'NextToken',
         'page_number' => 'PageNumber',
         'page_size' => 'PageSize',
         'request_id' => 'RequestId',
@@ -88,6 +91,7 @@ class DescribeVpcsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'next_token' => 'setNextToken',
         'page_number' => 'setPageNumber',
         'page_size' => 'setPageSize',
         'request_id' => 'setRequestId',
@@ -101,6 +105,7 @@ class DescribeVpcsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'next_token' => 'getNextToken',
         'page_number' => 'getPageNumber',
         'page_size' => 'getPageSize',
         'request_id' => 'getRequestId',
@@ -168,6 +173,7 @@ class DescribeVpcsResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
         $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
         $this->container['request_id'] = isset($data['request_id']) ? $data['request_id'] : null;
@@ -198,6 +204,30 @@ class DescribeVpcsResponse implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets next_token
+     *
+     * @return string
+     */
+    public function getNextToken()
+    {
+        return $this->container['next_token'];
+    }
+
+    /**
+     * Sets next_token
+     *
+     * @param string $next_token next_token
+     *
+     * @return $this
+     */
+    public function setNextToken($next_token)
+    {
+        $this->container['next_token'] = $next_token;
+
+        return $this;
+    }
 
     /**
      * Gets page_number

@@ -31,7 +31,7 @@ class ModifyPrefixListRequest implements ModelInterface, ArrayAccess
         'add_prefix_list_entries' => '\Volcengine\Vpc\Model\AddPrefixListEntryForModifyPrefixListInput[]',
         'client_token' => 'string',
         'description' => 'string',
-        'dry_run' => 'string',
+        'dry_run' => 'bool',
         'max_entries' => 'int',
         'prefix_list_id' => 'string',
         'prefix_list_name' => 'string',
@@ -295,7 +295,7 @@ class ModifyPrefixListRequest implements ModelInterface, ArrayAccess
     /**
      * Gets dry_run
      *
-     * @return string
+     * @return bool
      */
     public function getDryRun()
     {
@@ -305,7 +305,7 @@ class ModifyPrefixListRequest implements ModelInterface, ArrayAccess
     /**
      * Sets dry_run
      *
-     * @param string $dry_run dry_run
+     * @param bool $dry_run dry_run
      *
      * @return $this
      */

@@ -29,6 +29,7 @@ class DescribeHaVipsResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'ha_vips' => '\Volcengine\Vpc\Model\HaVipForDescribeHaVipsOutput[]',
+        'next_token' => 'string',
         'page_number' => 'int',
         'page_size' => 'int',
         'request_id' => 'string',
@@ -42,6 +43,7 @@ class DescribeHaVipsResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'ha_vips' => null,
+        'next_token' => null,
         'page_number' => null,
         'page_size' => null,
         'request_id' => null,
@@ -76,6 +78,7 @@ class DescribeHaVipsResponse implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'ha_vips' => 'HaVips',
+        'next_token' => 'NextToken',
         'page_number' => 'PageNumber',
         'page_size' => 'PageSize',
         'request_id' => 'RequestId',
@@ -89,6 +92,7 @@ class DescribeHaVipsResponse implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'ha_vips' => 'setHaVips',
+        'next_token' => 'setNextToken',
         'page_number' => 'setPageNumber',
         'page_size' => 'setPageSize',
         'request_id' => 'setRequestId',
@@ -102,6 +106,7 @@ class DescribeHaVipsResponse implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'ha_vips' => 'getHaVips',
+        'next_token' => 'getNextToken',
         'page_number' => 'getPageNumber',
         'page_size' => 'getPageSize',
         'request_id' => 'getRequestId',
@@ -169,6 +174,7 @@ class DescribeHaVipsResponse implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['ha_vips'] = isset($data['ha_vips']) ? $data['ha_vips'] : null;
+        $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
         $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
         $this->container['request_id'] = isset($data['request_id']) ? $data['request_id'] : null;
@@ -219,6 +225,30 @@ class DescribeHaVipsResponse implements ModelInterface, ArrayAccess
     public function setHaVips($ha_vips)
     {
         $this->container['ha_vips'] = $ha_vips;
+
+        return $this;
+    }
+
+    /**
+     * Gets next_token
+     *
+     * @return string
+     */
+    public function getNextToken()
+    {
+        return $this->container['next_token'];
+    }
+
+    /**
+     * Sets next_token
+     *
+     * @param string $next_token next_token
+     *
+     * @return $this
+     */
+    public function setNextToken($next_token)
+    {
+        $this->container['next_token'] = $next_token;
 
         return $this;
     }

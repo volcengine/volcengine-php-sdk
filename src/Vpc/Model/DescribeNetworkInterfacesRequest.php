@@ -30,8 +30,10 @@ class DescribeNetworkInterfacesRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'instance_id' => 'string',
         'ipv6_addresses' => 'string[]',
+        'max_results' => 'int',
         'network_interface_ids' => 'string[]',
         'network_interface_name' => 'string',
+        'next_token' => 'string',
         'page_number' => 'int',
         'page_size' => 'int',
         'primary_ip_addresses' => 'string[]',
@@ -54,8 +56,10 @@ class DescribeNetworkInterfacesRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'instance_id' => null,
         'ipv6_addresses' => null,
+        'max_results' => null,
         'network_interface_ids' => null,
         'network_interface_name' => null,
+        'next_token' => null,
         'page_number' => null,
         'page_size' => null,
         'primary_ip_addresses' => null,
@@ -99,8 +103,10 @@ class DescribeNetworkInterfacesRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'instance_id' => 'InstanceId',
         'ipv6_addresses' => 'Ipv6Addresses',
+        'max_results' => 'MaxResults',
         'network_interface_ids' => 'NetworkInterfaceIds',
         'network_interface_name' => 'NetworkInterfaceName',
+        'next_token' => 'NextToken',
         'page_number' => 'PageNumber',
         'page_size' => 'PageSize',
         'primary_ip_addresses' => 'PrimaryIpAddresses',
@@ -123,8 +129,10 @@ class DescribeNetworkInterfacesRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'instance_id' => 'setInstanceId',
         'ipv6_addresses' => 'setIpv6Addresses',
+        'max_results' => 'setMaxResults',
         'network_interface_ids' => 'setNetworkInterfaceIds',
         'network_interface_name' => 'setNetworkInterfaceName',
+        'next_token' => 'setNextToken',
         'page_number' => 'setPageNumber',
         'page_size' => 'setPageSize',
         'primary_ip_addresses' => 'setPrimaryIpAddresses',
@@ -147,8 +155,10 @@ class DescribeNetworkInterfacesRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'instance_id' => 'getInstanceId',
         'ipv6_addresses' => 'getIpv6Addresses',
+        'max_results' => 'getMaxResults',
         'network_interface_ids' => 'getNetworkInterfaceIds',
         'network_interface_name' => 'getNetworkInterfaceName',
+        'next_token' => 'getNextToken',
         'page_number' => 'getPageNumber',
         'page_size' => 'getPageSize',
         'primary_ip_addresses' => 'getPrimaryIpAddresses',
@@ -225,8 +235,10 @@ class DescribeNetworkInterfacesRequest implements ModelInterface, ArrayAccess
     {
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
         $this->container['ipv6_addresses'] = isset($data['ipv6_addresses']) ? $data['ipv6_addresses'] : null;
+        $this->container['max_results'] = isset($data['max_results']) ? $data['max_results'] : null;
         $this->container['network_interface_ids'] = isset($data['network_interface_ids']) ? $data['network_interface_ids'] : null;
         $this->container['network_interface_name'] = isset($data['network_interface_name']) ? $data['network_interface_name'] : null;
+        $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
         $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
         $this->container['primary_ip_addresses'] = isset($data['primary_ip_addresses']) ? $data['primary_ip_addresses'] : null;
@@ -314,6 +326,30 @@ class DescribeNetworkInterfacesRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets max_results
+     *
+     * @return int
+     */
+    public function getMaxResults()
+    {
+        return $this->container['max_results'];
+    }
+
+    /**
+     * Sets max_results
+     *
+     * @param int $max_results max_results
+     *
+     * @return $this
+     */
+    public function setMaxResults($max_results)
+    {
+        $this->container['max_results'] = $max_results;
+
+        return $this;
+    }
+
+    /**
      * Gets network_interface_ids
      *
      * @return string[]
@@ -357,6 +393,30 @@ class DescribeNetworkInterfacesRequest implements ModelInterface, ArrayAccess
     public function setNetworkInterfaceName($network_interface_name)
     {
         $this->container['network_interface_name'] = $network_interface_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets next_token
+     *
+     * @return string
+     */
+    public function getNextToken()
+    {
+        return $this->container['next_token'];
+    }
+
+    /**
+     * Sets next_token
+     *
+     * @param string $next_token next_token
+     *
+     * @return $this
+     */
+    public function setNextToken($next_token)
+    {
+        $this->container['next_token'] = $next_token;
 
         return $this;
     }

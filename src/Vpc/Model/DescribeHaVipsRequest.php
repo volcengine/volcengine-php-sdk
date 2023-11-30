@@ -31,6 +31,8 @@ class DescribeHaVipsRequest implements ModelInterface, ArrayAccess
         'ha_vip_ids' => 'string[]',
         'ha_vip_name' => 'string',
         'ip_address' => 'string',
+        'max_results' => 'int',
+        'next_token' => 'string',
         'page_number' => 'int',
         'page_size' => 'int',
         'project_name' => 'string',
@@ -48,6 +50,8 @@ class DescribeHaVipsRequest implements ModelInterface, ArrayAccess
         'ha_vip_ids' => null,
         'ha_vip_name' => null,
         'ip_address' => null,
+        'max_results' => null,
+        'next_token' => null,
         'page_number' => null,
         'page_size' => null,
         'project_name' => null,
@@ -86,6 +90,8 @@ class DescribeHaVipsRequest implements ModelInterface, ArrayAccess
         'ha_vip_ids' => 'HaVipIds',
         'ha_vip_name' => 'HaVipName',
         'ip_address' => 'IpAddress',
+        'max_results' => 'MaxResults',
+        'next_token' => 'NextToken',
         'page_number' => 'PageNumber',
         'page_size' => 'PageSize',
         'project_name' => 'ProjectName',
@@ -103,6 +109,8 @@ class DescribeHaVipsRequest implements ModelInterface, ArrayAccess
         'ha_vip_ids' => 'setHaVipIds',
         'ha_vip_name' => 'setHaVipName',
         'ip_address' => 'setIpAddress',
+        'max_results' => 'setMaxResults',
+        'next_token' => 'setNextToken',
         'page_number' => 'setPageNumber',
         'page_size' => 'setPageSize',
         'project_name' => 'setProjectName',
@@ -120,6 +128,8 @@ class DescribeHaVipsRequest implements ModelInterface, ArrayAccess
         'ha_vip_ids' => 'getHaVipIds',
         'ha_vip_name' => 'getHaVipName',
         'ip_address' => 'getIpAddress',
+        'max_results' => 'getMaxResults',
+        'next_token' => 'getNextToken',
         'page_number' => 'getPageNumber',
         'page_size' => 'getPageSize',
         'project_name' => 'getProjectName',
@@ -191,6 +201,8 @@ class DescribeHaVipsRequest implements ModelInterface, ArrayAccess
         $this->container['ha_vip_ids'] = isset($data['ha_vip_ids']) ? $data['ha_vip_ids'] : null;
         $this->container['ha_vip_name'] = isset($data['ha_vip_name']) ? $data['ha_vip_name'] : null;
         $this->container['ip_address'] = isset($data['ip_address']) ? $data['ip_address'] : null;
+        $this->container['max_results'] = isset($data['max_results']) ? $data['max_results'] : null;
+        $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
         $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
@@ -291,6 +303,54 @@ class DescribeHaVipsRequest implements ModelInterface, ArrayAccess
     public function setIpAddress($ip_address)
     {
         $this->container['ip_address'] = $ip_address;
+
+        return $this;
+    }
+
+    /**
+     * Gets max_results
+     *
+     * @return int
+     */
+    public function getMaxResults()
+    {
+        return $this->container['max_results'];
+    }
+
+    /**
+     * Sets max_results
+     *
+     * @param int $max_results max_results
+     *
+     * @return $this
+     */
+    public function setMaxResults($max_results)
+    {
+        $this->container['max_results'] = $max_results;
+
+        return $this;
+    }
+
+    /**
+     * Gets next_token
+     *
+     * @return string
+     */
+    public function getNextToken()
+    {
+        return $this->container['next_token'];
+    }
+
+    /**
+     * Sets next_token
+     *
+     * @param string $next_token next_token
+     *
+     * @return $this
+     */
+    public function setNextToken($next_token)
+    {
+        $this->container['next_token'] = $next_token;
 
         return $this;
     }
