@@ -31,6 +31,7 @@ class ListBillDetailRequest implements ModelInterface, ArrayAccess
         'bill_category' => 'string[]',
         'bill_period' => 'string',
         'billing_mode' => 'string[]',
+        'expense_date' => 'string',
         'group_period' => 'int',
         'group_term' => 'int',
         'ignore_zero' => 'int',
@@ -50,6 +51,7 @@ class ListBillDetailRequest implements ModelInterface, ArrayAccess
         'bill_category' => null,
         'bill_period' => null,
         'billing_mode' => null,
+        'expense_date' => null,
         'group_period' => 'int32',
         'group_term' => 'int32',
         'ignore_zero' => 'int32',
@@ -90,6 +92,7 @@ class ListBillDetailRequest implements ModelInterface, ArrayAccess
         'bill_category' => 'BillCategory',
         'bill_period' => 'BillPeriod',
         'billing_mode' => 'BillingMode',
+        'expense_date' => 'ExpenseDate',
         'group_period' => 'GroupPeriod',
         'group_term' => 'GroupTerm',
         'ignore_zero' => 'IgnoreZero',
@@ -109,6 +112,7 @@ class ListBillDetailRequest implements ModelInterface, ArrayAccess
         'bill_category' => 'setBillCategory',
         'bill_period' => 'setBillPeriod',
         'billing_mode' => 'setBillingMode',
+        'expense_date' => 'setExpenseDate',
         'group_period' => 'setGroupPeriod',
         'group_term' => 'setGroupTerm',
         'ignore_zero' => 'setIgnoreZero',
@@ -128,6 +132,7 @@ class ListBillDetailRequest implements ModelInterface, ArrayAccess
         'bill_category' => 'getBillCategory',
         'bill_period' => 'getBillPeriod',
         'billing_mode' => 'getBillingMode',
+        'expense_date' => 'getExpenseDate',
         'group_period' => 'getGroupPeriod',
         'group_term' => 'getGroupTerm',
         'ignore_zero' => 'getIgnoreZero',
@@ -201,6 +206,7 @@ class ListBillDetailRequest implements ModelInterface, ArrayAccess
         $this->container['bill_category'] = isset($data['bill_category']) ? $data['bill_category'] : null;
         $this->container['bill_period'] = isset($data['bill_period']) ? $data['bill_period'] : null;
         $this->container['billing_mode'] = isset($data['billing_mode']) ? $data['billing_mode'] : null;
+        $this->container['expense_date'] = isset($data['expense_date']) ? $data['expense_date'] : null;
         $this->container['group_period'] = isset($data['group_period']) ? $data['group_period'] : null;
         $this->container['group_term'] = isset($data['group_term']) ? $data['group_term'] : null;
         $this->container['ignore_zero'] = isset($data['ignore_zero']) ? $data['ignore_zero'] : null;
@@ -309,6 +315,30 @@ class ListBillDetailRequest implements ModelInterface, ArrayAccess
     public function setBillingMode($billing_mode)
     {
         $this->container['billing_mode'] = $billing_mode;
+
+        return $this;
+    }
+
+    /**
+     * Gets expense_date
+     *
+     * @return string
+     */
+    public function getExpenseDate()
+    {
+        return $this->container['expense_date'];
+    }
+
+    /**
+     * Sets expense_date
+     *
+     * @param string $expense_date expense_date
+     *
+     * @return $this
+     */
+    public function setExpenseDate($expense_date)
+    {
+        $this->container['expense_date'] = $expense_date;
 
         return $this;
     }
