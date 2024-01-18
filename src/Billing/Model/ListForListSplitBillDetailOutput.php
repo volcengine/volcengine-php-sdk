@@ -31,6 +31,8 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'bill_category' => 'string',
         'bill_id' => 'string',
         'bill_period' => 'string',
+        'billing_function' => 'string',
+        'billing_method_code' => 'string',
         'billing_mode' => 'string',
         'business_mode' => 'string',
         'config_name' => 'string',
@@ -40,6 +42,11 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'currency' => 'string',
         'deduction_count' => 'string',
         'discount_bill_amount' => 'string',
+        'discount_biz_billing_function' => 'string',
+        'discount_biz_measure_interval' => 'string',
+        'discount_biz_unit_price' => 'string',
+        'discount_biz_unit_price_interval' => 'string',
+        'effective_factor' => 'string',
         'element' => 'string',
         'element_code' => 'string',
         'expand_field' => 'string',
@@ -48,6 +55,8 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'factor_code' => 'string',
         'instance_name' => 'string',
         'instance_no' => 'string',
+        'market_price' => 'string',
+        'measure_interval' => 'string',
         'original_bill_amount' => 'string',
         'owner_user_name' => 'string',
         'paid_amount' => 'string',
@@ -55,6 +64,7 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'payer_user_name' => 'string',
         'preferential_bill_amount' => 'string',
         'price' => 'string',
+        'price_interval' => 'string',
         'price_unit' => 'string',
         'product' => 'string',
         'product_zh' => 'string',
@@ -91,6 +101,8 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'bill_category' => null,
         'bill_id' => null,
         'bill_period' => null,
+        'billing_function' => null,
+        'billing_method_code' => null,
         'billing_mode' => null,
         'business_mode' => null,
         'config_name' => null,
@@ -100,6 +112,11 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'currency' => null,
         'deduction_count' => null,
         'discount_bill_amount' => null,
+        'discount_biz_billing_function' => null,
+        'discount_biz_measure_interval' => null,
+        'discount_biz_unit_price' => null,
+        'discount_biz_unit_price_interval' => null,
+        'effective_factor' => null,
         'element' => null,
         'element_code' => null,
         'expand_field' => null,
@@ -108,6 +125,8 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'factor_code' => null,
         'instance_name' => null,
         'instance_no' => null,
+        'market_price' => null,
+        'measure_interval' => null,
         'original_bill_amount' => null,
         'owner_user_name' => null,
         'paid_amount' => null,
@@ -115,6 +134,7 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'payer_user_name' => null,
         'preferential_bill_amount' => null,
         'price' => null,
+        'price_interval' => null,
         'price_unit' => null,
         'product' => null,
         'product_zh' => null,
@@ -172,6 +192,8 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'bill_category' => 'BillCategory',
         'bill_id' => 'BillID',
         'bill_period' => 'BillPeriod',
+        'billing_function' => 'BillingFunction',
+        'billing_method_code' => 'BillingMethodCode',
         'billing_mode' => 'BillingMode',
         'business_mode' => 'BusinessMode',
         'config_name' => 'ConfigName',
@@ -181,6 +203,11 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'currency' => 'Currency',
         'deduction_count' => 'DeductionCount',
         'discount_bill_amount' => 'DiscountBillAmount',
+        'discount_biz_billing_function' => 'DiscountBizBillingFunction',
+        'discount_biz_measure_interval' => 'DiscountBizMeasureInterval',
+        'discount_biz_unit_price' => 'DiscountBizUnitPrice',
+        'discount_biz_unit_price_interval' => 'DiscountBizUnitPriceInterval',
+        'effective_factor' => 'EffectiveFactor',
         'element' => 'Element',
         'element_code' => 'ElementCode',
         'expand_field' => 'ExpandField',
@@ -189,6 +216,8 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'factor_code' => 'FactorCode',
         'instance_name' => 'InstanceName',
         'instance_no' => 'InstanceNo',
+        'market_price' => 'MarketPrice',
+        'measure_interval' => 'MeasureInterval',
         'original_bill_amount' => 'OriginalBillAmount',
         'owner_user_name' => 'OwnerUserName',
         'paid_amount' => 'PaidAmount',
@@ -196,6 +225,7 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'payer_user_name' => 'PayerUserName',
         'preferential_bill_amount' => 'PreferentialBillAmount',
         'price' => 'Price',
+        'price_interval' => 'PriceInterval',
         'price_unit' => 'PriceUnit',
         'product' => 'Product',
         'product_zh' => 'ProductZh',
@@ -232,6 +262,8 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'bill_category' => 'setBillCategory',
         'bill_id' => 'setBillId',
         'bill_period' => 'setBillPeriod',
+        'billing_function' => 'setBillingFunction',
+        'billing_method_code' => 'setBillingMethodCode',
         'billing_mode' => 'setBillingMode',
         'business_mode' => 'setBusinessMode',
         'config_name' => 'setConfigName',
@@ -241,6 +273,11 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'currency' => 'setCurrency',
         'deduction_count' => 'setDeductionCount',
         'discount_bill_amount' => 'setDiscountBillAmount',
+        'discount_biz_billing_function' => 'setDiscountBizBillingFunction',
+        'discount_biz_measure_interval' => 'setDiscountBizMeasureInterval',
+        'discount_biz_unit_price' => 'setDiscountBizUnitPrice',
+        'discount_biz_unit_price_interval' => 'setDiscountBizUnitPriceInterval',
+        'effective_factor' => 'setEffectiveFactor',
         'element' => 'setElement',
         'element_code' => 'setElementCode',
         'expand_field' => 'setExpandField',
@@ -249,6 +286,8 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'factor_code' => 'setFactorCode',
         'instance_name' => 'setInstanceName',
         'instance_no' => 'setInstanceNo',
+        'market_price' => 'setMarketPrice',
+        'measure_interval' => 'setMeasureInterval',
         'original_bill_amount' => 'setOriginalBillAmount',
         'owner_user_name' => 'setOwnerUserName',
         'paid_amount' => 'setPaidAmount',
@@ -256,6 +295,7 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'payer_user_name' => 'setPayerUserName',
         'preferential_bill_amount' => 'setPreferentialBillAmount',
         'price' => 'setPrice',
+        'price_interval' => 'setPriceInterval',
         'price_unit' => 'setPriceUnit',
         'product' => 'setProduct',
         'product_zh' => 'setProductZh',
@@ -292,6 +332,8 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'bill_category' => 'getBillCategory',
         'bill_id' => 'getBillId',
         'bill_period' => 'getBillPeriod',
+        'billing_function' => 'getBillingFunction',
+        'billing_method_code' => 'getBillingMethodCode',
         'billing_mode' => 'getBillingMode',
         'business_mode' => 'getBusinessMode',
         'config_name' => 'getConfigName',
@@ -301,6 +343,11 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'currency' => 'getCurrency',
         'deduction_count' => 'getDeductionCount',
         'discount_bill_amount' => 'getDiscountBillAmount',
+        'discount_biz_billing_function' => 'getDiscountBizBillingFunction',
+        'discount_biz_measure_interval' => 'getDiscountBizMeasureInterval',
+        'discount_biz_unit_price' => 'getDiscountBizUnitPrice',
+        'discount_biz_unit_price_interval' => 'getDiscountBizUnitPriceInterval',
+        'effective_factor' => 'getEffectiveFactor',
         'element' => 'getElement',
         'element_code' => 'getElementCode',
         'expand_field' => 'getExpandField',
@@ -309,6 +356,8 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'factor_code' => 'getFactorCode',
         'instance_name' => 'getInstanceName',
         'instance_no' => 'getInstanceNo',
+        'market_price' => 'getMarketPrice',
+        'measure_interval' => 'getMeasureInterval',
         'original_bill_amount' => 'getOriginalBillAmount',
         'owner_user_name' => 'getOwnerUserName',
         'paid_amount' => 'getPaidAmount',
@@ -316,6 +365,7 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'payer_user_name' => 'getPayerUserName',
         'preferential_bill_amount' => 'getPreferentialBillAmount',
         'price' => 'getPrice',
+        'price_interval' => 'getPriceInterval',
         'price_unit' => 'getPriceUnit',
         'product' => 'getProduct',
         'product_zh' => 'getProductZh',
@@ -406,6 +456,8 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         $this->container['bill_category'] = isset($data['bill_category']) ? $data['bill_category'] : null;
         $this->container['bill_id'] = isset($data['bill_id']) ? $data['bill_id'] : null;
         $this->container['bill_period'] = isset($data['bill_period']) ? $data['bill_period'] : null;
+        $this->container['billing_function'] = isset($data['billing_function']) ? $data['billing_function'] : null;
+        $this->container['billing_method_code'] = isset($data['billing_method_code']) ? $data['billing_method_code'] : null;
         $this->container['billing_mode'] = isset($data['billing_mode']) ? $data['billing_mode'] : null;
         $this->container['business_mode'] = isset($data['business_mode']) ? $data['business_mode'] : null;
         $this->container['config_name'] = isset($data['config_name']) ? $data['config_name'] : null;
@@ -415,6 +467,11 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
         $this->container['deduction_count'] = isset($data['deduction_count']) ? $data['deduction_count'] : null;
         $this->container['discount_bill_amount'] = isset($data['discount_bill_amount']) ? $data['discount_bill_amount'] : null;
+        $this->container['discount_biz_billing_function'] = isset($data['discount_biz_billing_function']) ? $data['discount_biz_billing_function'] : null;
+        $this->container['discount_biz_measure_interval'] = isset($data['discount_biz_measure_interval']) ? $data['discount_biz_measure_interval'] : null;
+        $this->container['discount_biz_unit_price'] = isset($data['discount_biz_unit_price']) ? $data['discount_biz_unit_price'] : null;
+        $this->container['discount_biz_unit_price_interval'] = isset($data['discount_biz_unit_price_interval']) ? $data['discount_biz_unit_price_interval'] : null;
+        $this->container['effective_factor'] = isset($data['effective_factor']) ? $data['effective_factor'] : null;
         $this->container['element'] = isset($data['element']) ? $data['element'] : null;
         $this->container['element_code'] = isset($data['element_code']) ? $data['element_code'] : null;
         $this->container['expand_field'] = isset($data['expand_field']) ? $data['expand_field'] : null;
@@ -423,6 +480,8 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         $this->container['factor_code'] = isset($data['factor_code']) ? $data['factor_code'] : null;
         $this->container['instance_name'] = isset($data['instance_name']) ? $data['instance_name'] : null;
         $this->container['instance_no'] = isset($data['instance_no']) ? $data['instance_no'] : null;
+        $this->container['market_price'] = isset($data['market_price']) ? $data['market_price'] : null;
+        $this->container['measure_interval'] = isset($data['measure_interval']) ? $data['measure_interval'] : null;
         $this->container['original_bill_amount'] = isset($data['original_bill_amount']) ? $data['original_bill_amount'] : null;
         $this->container['owner_user_name'] = isset($data['owner_user_name']) ? $data['owner_user_name'] : null;
         $this->container['paid_amount'] = isset($data['paid_amount']) ? $data['paid_amount'] : null;
@@ -430,6 +489,7 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         $this->container['payer_user_name'] = isset($data['payer_user_name']) ? $data['payer_user_name'] : null;
         $this->container['preferential_bill_amount'] = isset($data['preferential_bill_amount']) ? $data['preferential_bill_amount'] : null;
         $this->container['price'] = isset($data['price']) ? $data['price'] : null;
+        $this->container['price_interval'] = isset($data['price_interval']) ? $data['price_interval'] : null;
         $this->container['price_unit'] = isset($data['price_unit']) ? $data['price_unit'] : null;
         $this->container['product'] = isset($data['product']) ? $data['product'] : null;
         $this->container['product_zh'] = isset($data['product_zh']) ? $data['product_zh'] : null;
@@ -549,6 +609,54 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
     public function setBillPeriod($bill_period)
     {
         $this->container['bill_period'] = $bill_period;
+
+        return $this;
+    }
+
+    /**
+     * Gets billing_function
+     *
+     * @return string
+     */
+    public function getBillingFunction()
+    {
+        return $this->container['billing_function'];
+    }
+
+    /**
+     * Sets billing_function
+     *
+     * @param string $billing_function billing_function
+     *
+     * @return $this
+     */
+    public function setBillingFunction($billing_function)
+    {
+        $this->container['billing_function'] = $billing_function;
+
+        return $this;
+    }
+
+    /**
+     * Gets billing_method_code
+     *
+     * @return string
+     */
+    public function getBillingMethodCode()
+    {
+        return $this->container['billing_method_code'];
+    }
+
+    /**
+     * Sets billing_method_code
+     *
+     * @param string $billing_method_code billing_method_code
+     *
+     * @return $this
+     */
+    public function setBillingMethodCode($billing_method_code)
+    {
+        $this->container['billing_method_code'] = $billing_method_code;
 
         return $this;
     }
@@ -770,6 +878,126 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets discount_biz_billing_function
+     *
+     * @return string
+     */
+    public function getDiscountBizBillingFunction()
+    {
+        return $this->container['discount_biz_billing_function'];
+    }
+
+    /**
+     * Sets discount_biz_billing_function
+     *
+     * @param string $discount_biz_billing_function discount_biz_billing_function
+     *
+     * @return $this
+     */
+    public function setDiscountBizBillingFunction($discount_biz_billing_function)
+    {
+        $this->container['discount_biz_billing_function'] = $discount_biz_billing_function;
+
+        return $this;
+    }
+
+    /**
+     * Gets discount_biz_measure_interval
+     *
+     * @return string
+     */
+    public function getDiscountBizMeasureInterval()
+    {
+        return $this->container['discount_biz_measure_interval'];
+    }
+
+    /**
+     * Sets discount_biz_measure_interval
+     *
+     * @param string $discount_biz_measure_interval discount_biz_measure_interval
+     *
+     * @return $this
+     */
+    public function setDiscountBizMeasureInterval($discount_biz_measure_interval)
+    {
+        $this->container['discount_biz_measure_interval'] = $discount_biz_measure_interval;
+
+        return $this;
+    }
+
+    /**
+     * Gets discount_biz_unit_price
+     *
+     * @return string
+     */
+    public function getDiscountBizUnitPrice()
+    {
+        return $this->container['discount_biz_unit_price'];
+    }
+
+    /**
+     * Sets discount_biz_unit_price
+     *
+     * @param string $discount_biz_unit_price discount_biz_unit_price
+     *
+     * @return $this
+     */
+    public function setDiscountBizUnitPrice($discount_biz_unit_price)
+    {
+        $this->container['discount_biz_unit_price'] = $discount_biz_unit_price;
+
+        return $this;
+    }
+
+    /**
+     * Gets discount_biz_unit_price_interval
+     *
+     * @return string
+     */
+    public function getDiscountBizUnitPriceInterval()
+    {
+        return $this->container['discount_biz_unit_price_interval'];
+    }
+
+    /**
+     * Sets discount_biz_unit_price_interval
+     *
+     * @param string $discount_biz_unit_price_interval discount_biz_unit_price_interval
+     *
+     * @return $this
+     */
+    public function setDiscountBizUnitPriceInterval($discount_biz_unit_price_interval)
+    {
+        $this->container['discount_biz_unit_price_interval'] = $discount_biz_unit_price_interval;
+
+        return $this;
+    }
+
+    /**
+     * Gets effective_factor
+     *
+     * @return string
+     */
+    public function getEffectiveFactor()
+    {
+        return $this->container['effective_factor'];
+    }
+
+    /**
+     * Sets effective_factor
+     *
+     * @param string $effective_factor effective_factor
+     *
+     * @return $this
+     */
+    public function setEffectiveFactor($effective_factor)
+    {
+        $this->container['effective_factor'] = $effective_factor;
+
+        return $this;
+    }
+
+    /**
      * Gets element
      *
      * @return string
@@ -962,6 +1190,54 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets market_price
+     *
+     * @return string
+     */
+    public function getMarketPrice()
+    {
+        return $this->container['market_price'];
+    }
+
+    /**
+     * Sets market_price
+     *
+     * @param string $market_price market_price
+     *
+     * @return $this
+     */
+    public function setMarketPrice($market_price)
+    {
+        $this->container['market_price'] = $market_price;
+
+        return $this;
+    }
+
+    /**
+     * Gets measure_interval
+     *
+     * @return string
+     */
+    public function getMeasureInterval()
+    {
+        return $this->container['measure_interval'];
+    }
+
+    /**
+     * Sets measure_interval
+     *
+     * @param string $measure_interval measure_interval
+     *
+     * @return $this
+     */
+    public function setMeasureInterval($measure_interval)
+    {
+        $this->container['measure_interval'] = $measure_interval;
+
+        return $this;
+    }
+
+    /**
      * Gets original_bill_amount
      *
      * @return string
@@ -1125,6 +1401,30 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
     public function setPrice($price)
     {
         $this->container['price'] = $price;
+
+        return $this;
+    }
+
+    /**
+     * Gets price_interval
+     *
+     * @return string
+     */
+    public function getPriceInterval()
+    {
+        return $this->container['price_interval'];
+    }
+
+    /**
+     * Sets price_interval
+     *
+     * @param string $price_interval price_interval
+     *
+     * @return $this
+     */
+    public function setPriceInterval($price_interval)
+    {
+        $this->container['price_interval'] = $price_interval;
 
         return $this;
     }
