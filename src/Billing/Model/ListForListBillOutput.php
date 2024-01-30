@@ -29,6 +29,7 @@ class ListForListBillOutput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'bill_category_parent' => 'string',
+        'bill_detail_num' => 'string',
         'bill_id' => 'string',
         'bill_period' => 'string',
         'billing_mode' => 'string',
@@ -70,6 +71,7 @@ class ListForListBillOutput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'bill_category_parent' => null,
+        'bill_detail_num' => null,
         'bill_id' => null,
         'bill_period' => null,
         'billing_mode' => null,
@@ -132,6 +134,7 @@ class ListForListBillOutput implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'bill_category_parent' => 'BillCategoryParent',
+        'bill_detail_num' => 'BillDetailNum',
         'bill_id' => 'BillID',
         'bill_period' => 'BillPeriod',
         'billing_mode' => 'BillingMode',
@@ -173,6 +176,7 @@ class ListForListBillOutput implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'bill_category_parent' => 'setBillCategoryParent',
+        'bill_detail_num' => 'setBillDetailNum',
         'bill_id' => 'setBillId',
         'bill_period' => 'setBillPeriod',
         'billing_mode' => 'setBillingMode',
@@ -214,6 +218,7 @@ class ListForListBillOutput implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'bill_category_parent' => 'getBillCategoryParent',
+        'bill_detail_num' => 'getBillDetailNum',
         'bill_id' => 'getBillId',
         'bill_period' => 'getBillPeriod',
         'billing_mode' => 'getBillingMode',
@@ -309,6 +314,7 @@ class ListForListBillOutput implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['bill_category_parent'] = isset($data['bill_category_parent']) ? $data['bill_category_parent'] : null;
+        $this->container['bill_detail_num'] = isset($data['bill_detail_num']) ? $data['bill_detail_num'] : null;
         $this->container['bill_id'] = isset($data['bill_id']) ? $data['bill_id'] : null;
         $this->container['bill_period'] = isset($data['bill_period']) ? $data['bill_period'] : null;
         $this->container['billing_mode'] = isset($data['billing_mode']) ? $data['billing_mode'] : null;
@@ -387,6 +393,30 @@ class ListForListBillOutput implements ModelInterface, ArrayAccess
     public function setBillCategoryParent($bill_category_parent)
     {
         $this->container['bill_category_parent'] = $bill_category_parent;
+
+        return $this;
+    }
+
+    /**
+     * Gets bill_detail_num
+     *
+     * @return string
+     */
+    public function getBillDetailNum()
+    {
+        return $this->container['bill_detail_num'];
+    }
+
+    /**
+     * Sets bill_detail_num
+     *
+     * @param string $bill_detail_num bill_detail_num
+     *
+     * @return $this
+     */
+    public function setBillDetailNum($bill_detail_num)
+    {
+        $this->container['bill_detail_num'] = $bill_detail_num;
 
         return $this;
     }
