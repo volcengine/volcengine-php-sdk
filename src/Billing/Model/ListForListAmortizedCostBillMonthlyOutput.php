@@ -96,6 +96,7 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         'product' => 'string',
         'product_zh' => 'string',
         'project' => 'string',
+        'project_display_name' => 'string',
         'region' => 'string',
         'round_amount' => 'string',
         'seller_customer_name' => 'string',
@@ -190,6 +191,7 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         'product' => null,
         'product_zh' => null,
         'project' => null,
+        'project_display_name' => null,
         'region' => null,
         'round_amount' => null,
         'seller_customer_name' => null,
@@ -305,6 +307,7 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         'product' => 'Product',
         'product_zh' => 'ProductZh',
         'project' => 'Project',
+        'project_display_name' => 'ProjectDisplayName',
         'region' => 'Region',
         'round_amount' => 'RoundAmount',
         'seller_customer_name' => 'SellerCustomerName',
@@ -399,6 +402,7 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         'product' => 'setProduct',
         'product_zh' => 'setProductZh',
         'project' => 'setProject',
+        'project_display_name' => 'setProjectDisplayName',
         'region' => 'setRegion',
         'round_amount' => 'setRoundAmount',
         'seller_customer_name' => 'setSellerCustomerName',
@@ -493,6 +497,7 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         'product' => 'getProduct',
         'product_zh' => 'getProductZh',
         'project' => 'getProject',
+        'project_display_name' => 'getProjectDisplayName',
         'region' => 'getRegion',
         'round_amount' => 'getRoundAmount',
         'seller_customer_name' => 'getSellerCustomerName',
@@ -641,6 +646,7 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         $this->container['product'] = isset($data['product']) ? $data['product'] : null;
         $this->container['product_zh'] = isset($data['product_zh']) ? $data['product_zh'] : null;
         $this->container['project'] = isset($data['project']) ? $data['project'] : null;
+        $this->container['project_display_name'] = isset($data['project_display_name']) ? $data['project_display_name'] : null;
         $this->container['region'] = isset($data['region']) ? $data['region'] : null;
         $this->container['round_amount'] = isset($data['round_amount']) ? $data['round_amount'] : null;
         $this->container['seller_customer_name'] = isset($data['seller_customer_name']) ? $data['seller_customer_name'] : null;
@@ -2313,6 +2319,30 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
     public function setProject($project)
     {
         $this->container['project'] = $project;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_display_name
+     *
+     * @return string
+     */
+    public function getProjectDisplayName()
+    {
+        return $this->container['project_display_name'];
+    }
+
+    /**
+     * Sets project_display_name
+     *
+     * @param string $project_display_name project_display_name
+     *
+     * @return $this
+     */
+    public function setProjectDisplayName($project_display_name)
+    {
+        $this->container['project_display_name'] = $project_display_name;
 
         return $this;
     }

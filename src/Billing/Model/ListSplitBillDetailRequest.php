@@ -31,6 +31,7 @@ class ListSplitBillDetailRequest implements ModelInterface, ArrayAccess
         'bill_category' => 'string[]',
         'bill_period' => 'string',
         'billing_mode' => 'string[]',
+        'expense_date' => 'string',
         'group_period' => 'int',
         'ignore_zero' => 'int',
         'instance_no' => 'string',
@@ -50,6 +51,7 @@ class ListSplitBillDetailRequest implements ModelInterface, ArrayAccess
         'bill_category' => null,
         'bill_period' => null,
         'billing_mode' => null,
+        'expense_date' => null,
         'group_period' => 'int32',
         'ignore_zero' => 'int32',
         'instance_no' => null,
@@ -90,6 +92,7 @@ class ListSplitBillDetailRequest implements ModelInterface, ArrayAccess
         'bill_category' => 'BillCategory',
         'bill_period' => 'BillPeriod',
         'billing_mode' => 'BillingMode',
+        'expense_date' => 'ExpenseDate',
         'group_period' => 'GroupPeriod',
         'ignore_zero' => 'IgnoreZero',
         'instance_no' => 'InstanceNo',
@@ -109,6 +112,7 @@ class ListSplitBillDetailRequest implements ModelInterface, ArrayAccess
         'bill_category' => 'setBillCategory',
         'bill_period' => 'setBillPeriod',
         'billing_mode' => 'setBillingMode',
+        'expense_date' => 'setExpenseDate',
         'group_period' => 'setGroupPeriod',
         'ignore_zero' => 'setIgnoreZero',
         'instance_no' => 'setInstanceNo',
@@ -128,6 +132,7 @@ class ListSplitBillDetailRequest implements ModelInterface, ArrayAccess
         'bill_category' => 'getBillCategory',
         'bill_period' => 'getBillPeriod',
         'billing_mode' => 'getBillingMode',
+        'expense_date' => 'getExpenseDate',
         'group_period' => 'getGroupPeriod',
         'ignore_zero' => 'getIgnoreZero',
         'instance_no' => 'getInstanceNo',
@@ -201,6 +206,7 @@ class ListSplitBillDetailRequest implements ModelInterface, ArrayAccess
         $this->container['bill_category'] = isset($data['bill_category']) ? $data['bill_category'] : null;
         $this->container['bill_period'] = isset($data['bill_period']) ? $data['bill_period'] : null;
         $this->container['billing_mode'] = isset($data['billing_mode']) ? $data['billing_mode'] : null;
+        $this->container['expense_date'] = isset($data['expense_date']) ? $data['expense_date'] : null;
         $this->container['group_period'] = isset($data['group_period']) ? $data['group_period'] : null;
         $this->container['ignore_zero'] = isset($data['ignore_zero']) ? $data['ignore_zero'] : null;
         $this->container['instance_no'] = isset($data['instance_no']) ? $data['instance_no'] : null;
@@ -309,6 +315,30 @@ class ListSplitBillDetailRequest implements ModelInterface, ArrayAccess
     public function setBillingMode($billing_mode)
     {
         $this->container['billing_mode'] = $billing_mode;
+
+        return $this;
+    }
+
+    /**
+     * Gets expense_date
+     *
+     * @return string
+     */
+    public function getExpenseDate()
+    {
+        return $this->container['expense_date'];
+    }
+
+    /**
+     * Sets expense_date
+     *
+     * @param string $expense_date expense_date
+     *
+     * @return $this
+     */
+    public function setExpenseDate($expense_date)
+    {
+        $this->container['expense_date'] = $expense_date;
 
         return $this;
     }
