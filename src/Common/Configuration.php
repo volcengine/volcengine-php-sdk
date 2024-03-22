@@ -14,7 +14,7 @@ class Configuration
 
     protected $host = 'open.volcengineapi.com';
 
-    protected $userAgent = 'volcstack-php-sdk/1.0.13';
+    protected $userAgent = 'volcstack-php-sdk/1.0.14';
 
     /**
      * Debug switch (default set to false)
