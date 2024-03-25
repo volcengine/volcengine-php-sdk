@@ -29,7 +29,7 @@ class CreateSNInOneStepRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'auto_renew' => 'bool',
-        'count_of_month' => 'string',
+        'count_of_month' => 'int',
         'type' => 'int'
     ];
 
@@ -40,7 +40,7 @@ class CreateSNInOneStepRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'auto_renew' => null,
-        'count_of_month' => null,
+        'count_of_month' => 'int32',
         'type' => 'int32'
     ];
 
@@ -220,7 +220,7 @@ class CreateSNInOneStepRequest implements ModelInterface, ArrayAccess
     /**
      * Gets count_of_month
      *
-     * @return string
+     * @return int
      */
     public function getCountOfMonth()
     {
@@ -230,7 +230,7 @@ class CreateSNInOneStepRequest implements ModelInterface, ArrayAccess
     /**
      * Sets count_of_month
      *
-     * @param string $count_of_month count_of_month
+     * @param int $count_of_month count_of_month
      *
      * @return $this
      */
