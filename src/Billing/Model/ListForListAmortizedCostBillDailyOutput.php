@@ -83,6 +83,7 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
         'product' => 'string',
         'product_zh' => 'string',
         'project' => 'string',
+        'project_display_name' => 'string',
         'region' => 'string',
         'region_code' => 'string',
         'round_amount' => 'string',
@@ -159,6 +160,7 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
         'product' => null,
         'product_zh' => null,
         'project' => null,
+        'project_display_name' => null,
         'region' => null,
         'region_code' => null,
         'round_amount' => null,
@@ -256,6 +258,7 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
         'product' => 'Product',
         'product_zh' => 'ProductZh',
         'project' => 'Project',
+        'project_display_name' => 'ProjectDisplayName',
         'region' => 'Region',
         'region_code' => 'RegionCode',
         'round_amount' => 'RoundAmount',
@@ -332,6 +335,7 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
         'product' => 'setProduct',
         'product_zh' => 'setProductZh',
         'project' => 'setProject',
+        'project_display_name' => 'setProjectDisplayName',
         'region' => 'setRegion',
         'region_code' => 'setRegionCode',
         'round_amount' => 'setRoundAmount',
@@ -408,6 +412,7 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
         'product' => 'getProduct',
         'product_zh' => 'getProductZh',
         'project' => 'getProject',
+        'project_display_name' => 'getProjectDisplayName',
         'region' => 'getRegion',
         'region_code' => 'getRegionCode',
         'round_amount' => 'getRoundAmount',
@@ -538,6 +543,7 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
         $this->container['product'] = isset($data['product']) ? $data['product'] : null;
         $this->container['product_zh'] = isset($data['product_zh']) ? $data['product_zh'] : null;
         $this->container['project'] = isset($data['project']) ? $data['project'] : null;
+        $this->container['project_display_name'] = isset($data['project_display_name']) ? $data['project_display_name'] : null;
         $this->container['region'] = isset($data['region']) ? $data['region'] : null;
         $this->container['region_code'] = isset($data['region_code']) ? $data['region_code'] : null;
         $this->container['round_amount'] = isset($data['round_amount']) ? $data['round_amount'] : null;
@@ -1893,6 +1899,30 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
     public function setProject($project)
     {
         $this->container['project'] = $project;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_display_name
+     *
+     * @return string
+     */
+    public function getProjectDisplayName()
+    {
+        return $this->container['project_display_name'];
+    }
+
+    /**
+     * Sets project_display_name
+     *
+     * @param string $project_display_name project_display_name
+     *
+     * @return $this
+     */
+    public function setProjectDisplayName($project_display_name)
+    {
+        $this->container['project_display_name'] = $project_display_name;
 
         return $this;
     }

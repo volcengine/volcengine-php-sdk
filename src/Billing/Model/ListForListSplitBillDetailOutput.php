@@ -69,6 +69,7 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'product' => 'string',
         'product_zh' => 'string',
         'project' => 'string',
+        'project_display_name' => 'string',
         'region' => 'string',
         'region_code' => 'string',
         'reservation_instance' => 'string',
@@ -139,6 +140,7 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'product' => null,
         'product_zh' => null,
         'project' => null,
+        'project_display_name' => null,
         'region' => null,
         'region_code' => null,
         'reservation_instance' => null,
@@ -230,6 +232,7 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'product' => 'Product',
         'product_zh' => 'ProductZh',
         'project' => 'Project',
+        'project_display_name' => 'ProjectDisplayName',
         'region' => 'Region',
         'region_code' => 'RegionCode',
         'reservation_instance' => 'ReservationInstance',
@@ -300,6 +303,7 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'product' => 'setProduct',
         'product_zh' => 'setProductZh',
         'project' => 'setProject',
+        'project_display_name' => 'setProjectDisplayName',
         'region' => 'setRegion',
         'region_code' => 'setRegionCode',
         'reservation_instance' => 'setReservationInstance',
@@ -370,6 +374,7 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'product' => 'getProduct',
         'product_zh' => 'getProductZh',
         'project' => 'getProject',
+        'project_display_name' => 'getProjectDisplayName',
         'region' => 'getRegion',
         'region_code' => 'getRegionCode',
         'reservation_instance' => 'getReservationInstance',
@@ -494,6 +499,7 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         $this->container['product'] = isset($data['product']) ? $data['product'] : null;
         $this->container['product_zh'] = isset($data['product_zh']) ? $data['product_zh'] : null;
         $this->container['project'] = isset($data['project']) ? $data['project'] : null;
+        $this->container['project_display_name'] = isset($data['project_display_name']) ? $data['project_display_name'] : null;
         $this->container['region'] = isset($data['region']) ? $data['region'] : null;
         $this->container['region_code'] = isset($data['region_code']) ? $data['region_code'] : null;
         $this->container['reservation_instance'] = isset($data['reservation_instance']) ? $data['reservation_instance'] : null;
@@ -1521,6 +1527,30 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
     public function setProject($project)
     {
         $this->container['project'] = $project;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_display_name
+     *
+     * @return string
+     */
+    public function getProjectDisplayName()
+    {
+        return $this->container['project_display_name'];
+    }
+
+    /**
+     * Sets project_display_name
+     *
+     * @param string $project_display_name project_display_name
+     *
+     * @return $this
+     */
+    public function setProjectDisplayName($project_display_name)
+    {
+        $this->container['project_display_name'] = $project_display_name;
 
         return $this;
     }
