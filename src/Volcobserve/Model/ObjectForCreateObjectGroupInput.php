@@ -29,7 +29,6 @@ class ObjectForCreateObjectGroupInput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'dimensions' => 'map[string,string[]]',
-        'id' => 'string',
         'namespace' => 'string',
         'region' => 'string'
     ];
@@ -41,7 +40,6 @@ class ObjectForCreateObjectGroupInput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'dimensions' => null,
-        'id' => null,
         'namespace' => null,
         'region' => null
     ];
@@ -74,7 +72,6 @@ class ObjectForCreateObjectGroupInput implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'dimensions' => 'Dimensions',
-        'id' => 'Id',
         'namespace' => 'Namespace',
         'region' => 'Region'
     ];
@@ -86,7 +83,6 @@ class ObjectForCreateObjectGroupInput implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'dimensions' => 'setDimensions',
-        'id' => 'setId',
         'namespace' => 'setNamespace',
         'region' => 'setRegion'
     ];
@@ -98,7 +94,6 @@ class ObjectForCreateObjectGroupInput implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'dimensions' => 'getDimensions',
-        'id' => 'getId',
         'namespace' => 'getNamespace',
         'region' => 'getRegion'
     ];
@@ -164,7 +159,6 @@ class ObjectForCreateObjectGroupInput implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['dimensions'] = isset($data['dimensions']) ? $data['dimensions'] : null;
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['namespace'] = isset($data['namespace']) ? $data['namespace'] : null;
         $this->container['region'] = isset($data['region']) ? $data['region'] : null;
     }
@@ -213,30 +207,6 @@ class ObjectForCreateObjectGroupInput implements ModelInterface, ArrayAccess
     public function setDimensions($dimensions)
     {
         $this->container['dimensions'] = $dimensions;
-
-        return $this;
-    }
-
-    /**
-     * Gets id
-     *
-     * @return string
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string $id id
-     *
-     * @return $this
-     */
-    public function setId($id)
-    {
-        $this->container['id'] = $id;
 
         return $this;
     }
