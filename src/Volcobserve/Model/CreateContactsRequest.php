@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ObjectForUpdateObjectGroupInput implements ModelInterface, ArrayAccess
+class CreateContactsRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ObjectForUpdateObjectGroupInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ObjectForUpdateObjectGroupInput';
+    protected static $swaggerModelName = 'CreateContactsRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,9 @@ class ObjectForUpdateObjectGroupInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'dimensions' => 'map[string,string[]]',
-        'namespace' => 'string',
-        'region' => 'string'
+        'email' => 'string',
+        'name' => 'string',
+        'phone' => 'string'
     ];
 
     /**
@@ -39,9 +39,9 @@ class ObjectForUpdateObjectGroupInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'dimensions' => null,
-        'namespace' => null,
-        'region' => null
+        'email' => null,
+        'name' => null,
+        'phone' => null
     ];
 
     /**
@@ -71,9 +71,9 @@ class ObjectForUpdateObjectGroupInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'dimensions' => 'Dimensions',
-        'namespace' => 'Namespace',
-        'region' => 'Region'
+        'email' => 'Email',
+        'name' => 'Name',
+        'phone' => 'Phone'
     ];
 
     /**
@@ -82,9 +82,9 @@ class ObjectForUpdateObjectGroupInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'dimensions' => 'setDimensions',
-        'namespace' => 'setNamespace',
-        'region' => 'setRegion'
+        'email' => 'setEmail',
+        'name' => 'setName',
+        'phone' => 'setPhone'
     ];
 
     /**
@@ -93,9 +93,9 @@ class ObjectForUpdateObjectGroupInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'dimensions' => 'getDimensions',
-        'namespace' => 'getNamespace',
-        'region' => 'getRegion'
+        'email' => 'getEmail',
+        'name' => 'getName',
+        'phone' => 'getPhone'
     ];
 
     /**
@@ -158,9 +158,9 @@ class ObjectForUpdateObjectGroupInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['dimensions'] = isset($data['dimensions']) ? $data['dimensions'] : null;
-        $this->container['namespace'] = isset($data['namespace']) ? $data['namespace'] : null;
-        $this->container['region'] = isset($data['region']) ? $data['region'] : null;
+        $this->container['email'] = isset($data['email']) ? $data['email'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['phone'] = isset($data['phone']) ? $data['phone'] : null;
     }
 
     /**
@@ -172,6 +172,12 @@ class ObjectForUpdateObjectGroupInput implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['email'] === null) {
+            $invalidProperties[] = "'email' can't be null";
+        }
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -188,73 +194,73 @@ class ObjectForUpdateObjectGroupInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets dimensions
+     * Gets email
      *
-     * @return map[string,string[]]
+     * @return string
      */
-    public function getDimensions()
+    public function getEmail()
     {
-        return $this->container['dimensions'];
+        return $this->container['email'];
     }
 
     /**
-     * Sets dimensions
+     * Sets email
      *
-     * @param map[string,string[]] $dimensions dimensions
+     * @param string $email email
      *
      * @return $this
      */
-    public function setDimensions($dimensions)
+    public function setEmail($email)
     {
-        $this->container['dimensions'] = $dimensions;
+        $this->container['email'] = $email;
 
         return $this;
     }
 
     /**
-     * Gets namespace
+     * Gets name
      *
      * @return string
      */
-    public function getNamespace()
+    public function getName()
     {
-        return $this->container['namespace'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets namespace
+     * Sets name
      *
-     * @param string $namespace namespace
+     * @param string $name name
      *
      * @return $this
      */
-    public function setNamespace($namespace)
+    public function setName($name)
     {
-        $this->container['namespace'] = $namespace;
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets region
+     * Gets phone
      *
      * @return string
      */
-    public function getRegion()
+    public function getPhone()
     {
-        return $this->container['region'];
+        return $this->container['phone'];
     }
 
     /**
-     * Sets region
+     * Sets phone
      *
-     * @param string $region region
+     * @param string $phone phone
      *
      * @return $this
      */
-    public function setRegion($region)
+    public function setPhone($phone)
     {
-        $this->container['region'] = $region;
+        $this->container['phone'] = $phone;
 
         return $this;
     }
