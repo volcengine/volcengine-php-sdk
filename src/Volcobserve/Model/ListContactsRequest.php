@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ObjectForUpdateObjectGroupInput implements ModelInterface, ArrayAccess
+class ListContactsRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ObjectForUpdateObjectGroupInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ObjectForUpdateObjectGroupInput';
+    protected static $swaggerModelName = 'ListContactsRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,11 @@ class ObjectForUpdateObjectGroupInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'dimensions' => 'map[string,string[]]',
-        'namespace' => 'string',
-        'region' => 'string'
+        'email' => 'string',
+        'name' => 'string',
+        'page_number' => 'int',
+        'page_size' => 'int',
+        'phone' => 'string'
     ];
 
     /**
@@ -39,9 +41,11 @@ class ObjectForUpdateObjectGroupInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'dimensions' => null,
-        'namespace' => null,
-        'region' => null
+        'email' => null,
+        'name' => null,
+        'page_number' => null,
+        'page_size' => null,
+        'phone' => null
     ];
 
     /**
@@ -71,9 +75,11 @@ class ObjectForUpdateObjectGroupInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'dimensions' => 'Dimensions',
-        'namespace' => 'Namespace',
-        'region' => 'Region'
+        'email' => 'Email',
+        'name' => 'Name',
+        'page_number' => 'PageNumber',
+        'page_size' => 'PageSize',
+        'phone' => 'Phone'
     ];
 
     /**
@@ -82,9 +88,11 @@ class ObjectForUpdateObjectGroupInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'dimensions' => 'setDimensions',
-        'namespace' => 'setNamespace',
-        'region' => 'setRegion'
+        'email' => 'setEmail',
+        'name' => 'setName',
+        'page_number' => 'setPageNumber',
+        'page_size' => 'setPageSize',
+        'phone' => 'setPhone'
     ];
 
     /**
@@ -93,9 +101,11 @@ class ObjectForUpdateObjectGroupInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'dimensions' => 'getDimensions',
-        'namespace' => 'getNamespace',
-        'region' => 'getRegion'
+        'email' => 'getEmail',
+        'name' => 'getName',
+        'page_number' => 'getPageNumber',
+        'page_size' => 'getPageSize',
+        'phone' => 'getPhone'
     ];
 
     /**
@@ -158,9 +168,11 @@ class ObjectForUpdateObjectGroupInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['dimensions'] = isset($data['dimensions']) ? $data['dimensions'] : null;
-        $this->container['namespace'] = isset($data['namespace']) ? $data['namespace'] : null;
-        $this->container['region'] = isset($data['region']) ? $data['region'] : null;
+        $this->container['email'] = isset($data['email']) ? $data['email'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
+        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
+        $this->container['phone'] = isset($data['phone']) ? $data['phone'] : null;
     }
 
     /**
@@ -188,73 +200,121 @@ class ObjectForUpdateObjectGroupInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets dimensions
+     * Gets email
      *
-     * @return map[string,string[]]
+     * @return string
      */
-    public function getDimensions()
+    public function getEmail()
     {
-        return $this->container['dimensions'];
+        return $this->container['email'];
     }
 
     /**
-     * Sets dimensions
+     * Sets email
      *
-     * @param map[string,string[]] $dimensions dimensions
+     * @param string $email email
      *
      * @return $this
      */
-    public function setDimensions($dimensions)
+    public function setEmail($email)
     {
-        $this->container['dimensions'] = $dimensions;
+        $this->container['email'] = $email;
 
         return $this;
     }
 
     /**
-     * Gets namespace
+     * Gets name
      *
      * @return string
      */
-    public function getNamespace()
+    public function getName()
     {
-        return $this->container['namespace'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets namespace
+     * Sets name
      *
-     * @param string $namespace namespace
+     * @param string $name name
      *
      * @return $this
      */
-    public function setNamespace($namespace)
+    public function setName($name)
     {
-        $this->container['namespace'] = $namespace;
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets region
+     * Gets page_number
      *
-     * @return string
+     * @return int
      */
-    public function getRegion()
+    public function getPageNumber()
     {
-        return $this->container['region'];
+        return $this->container['page_number'];
     }
 
     /**
-     * Sets region
+     * Sets page_number
      *
-     * @param string $region region
+     * @param int $page_number page_number
      *
      * @return $this
      */
-    public function setRegion($region)
+    public function setPageNumber($page_number)
     {
-        $this->container['region'] = $region;
+        $this->container['page_number'] = $page_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets page_size
+     *
+     * @return int
+     */
+    public function getPageSize()
+    {
+        return $this->container['page_size'];
+    }
+
+    /**
+     * Sets page_size
+     *
+     * @param int $page_size page_size
+     *
+     * @return $this
+     */
+    public function setPageSize($page_size)
+    {
+        $this->container['page_size'] = $page_size;
+
+        return $this;
+    }
+
+    /**
+     * Gets phone
+     *
+     * @return string
+     */
+    public function getPhone()
+    {
+        return $this->container['phone'];
+    }
+
+    /**
+     * Sets phone
+     *
+     * @param string $phone phone
+     *
+     * @return $this
+     */
+    public function setPhone($phone)
+    {
+        $this->container['phone'] = $phone;
 
         return $this;
     }

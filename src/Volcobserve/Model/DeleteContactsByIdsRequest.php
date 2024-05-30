@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ObjectForUpdateObjectGroupInput implements ModelInterface, ArrayAccess
+class DeleteContactsByIdsRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ObjectForUpdateObjectGroupInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ObjectForUpdateObjectGroupInput';
+    protected static $swaggerModelName = 'DeleteContactsByIdsRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,7 @@ class ObjectForUpdateObjectGroupInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'dimensions' => 'map[string,string[]]',
-        'namespace' => 'string',
-        'region' => 'string'
+        'ids' => 'string[]'
     ];
 
     /**
@@ -39,9 +37,7 @@ class ObjectForUpdateObjectGroupInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'dimensions' => null,
-        'namespace' => null,
-        'region' => null
+        'ids' => null
     ];
 
     /**
@@ -71,9 +67,7 @@ class ObjectForUpdateObjectGroupInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'dimensions' => 'Dimensions',
-        'namespace' => 'Namespace',
-        'region' => 'Region'
+        'ids' => 'Ids'
     ];
 
     /**
@@ -82,9 +76,7 @@ class ObjectForUpdateObjectGroupInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'dimensions' => 'setDimensions',
-        'namespace' => 'setNamespace',
-        'region' => 'setRegion'
+        'ids' => 'setIds'
     ];
 
     /**
@@ -93,9 +85,7 @@ class ObjectForUpdateObjectGroupInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'dimensions' => 'getDimensions',
-        'namespace' => 'getNamespace',
-        'region' => 'getRegion'
+        'ids' => 'getIds'
     ];
 
     /**
@@ -158,9 +148,7 @@ class ObjectForUpdateObjectGroupInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['dimensions'] = isset($data['dimensions']) ? $data['dimensions'] : null;
-        $this->container['namespace'] = isset($data['namespace']) ? $data['namespace'] : null;
-        $this->container['region'] = isset($data['region']) ? $data['region'] : null;
+        $this->container['ids'] = isset($data['ids']) ? $data['ids'] : null;
     }
 
     /**
@@ -188,73 +176,25 @@ class ObjectForUpdateObjectGroupInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets dimensions
+     * Gets ids
      *
-     * @return map[string,string[]]
+     * @return string[]
      */
-    public function getDimensions()
+    public function getIds()
     {
-        return $this->container['dimensions'];
+        return $this->container['ids'];
     }
 
     /**
-     * Sets dimensions
+     * Sets ids
      *
-     * @param map[string,string[]] $dimensions dimensions
+     * @param string[] $ids ids
      *
      * @return $this
      */
-    public function setDimensions($dimensions)
+    public function setIds($ids)
     {
-        $this->container['dimensions'] = $dimensions;
-
-        return $this;
-    }
-
-    /**
-     * Gets namespace
-     *
-     * @return string
-     */
-    public function getNamespace()
-    {
-        return $this->container['namespace'];
-    }
-
-    /**
-     * Sets namespace
-     *
-     * @param string $namespace namespace
-     *
-     * @return $this
-     */
-    public function setNamespace($namespace)
-    {
-        $this->container['namespace'] = $namespace;
-
-        return $this;
-    }
-
-    /**
-     * Gets region
-     *
-     * @return string
-     */
-    public function getRegion()
-    {
-        return $this->container['region'];
-    }
-
-    /**
-     * Sets region
-     *
-     * @param string $region region
-     *
-     * @return $this
-     */
-    public function setRegion($region)
-    {
-        $this->container['region'] = $region;
+        $this->container['ids'] = $ids;
 
         return $this;
     }

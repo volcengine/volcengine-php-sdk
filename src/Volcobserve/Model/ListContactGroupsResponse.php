@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ObjectForUpdateObjectGroupInput implements ModelInterface, ArrayAccess
+class ListContactGroupsResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ObjectForUpdateObjectGroupInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ObjectForUpdateObjectGroupInput';
+    protected static $swaggerModelName = 'ListContactGroupsResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,10 @@ class ObjectForUpdateObjectGroupInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'dimensions' => 'map[string,string[]]',
-        'namespace' => 'string',
-        'region' => 'string'
+        'data' => '\Volcengine\Volcobserve\Model\DataForListContactGroupsOutput[]',
+        'page_number' => 'int',
+        'page_size' => 'int',
+        'total_count' => 'int'
     ];
 
     /**
@@ -39,9 +40,10 @@ class ObjectForUpdateObjectGroupInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'dimensions' => null,
-        'namespace' => null,
-        'region' => null
+        'data' => null,
+        'page_number' => null,
+        'page_size' => null,
+        'total_count' => null
     ];
 
     /**
@@ -71,9 +73,10 @@ class ObjectForUpdateObjectGroupInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'dimensions' => 'Dimensions',
-        'namespace' => 'Namespace',
-        'region' => 'Region'
+        'data' => 'Data',
+        'page_number' => 'PageNumber',
+        'page_size' => 'PageSize',
+        'total_count' => 'TotalCount'
     ];
 
     /**
@@ -82,9 +85,10 @@ class ObjectForUpdateObjectGroupInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'dimensions' => 'setDimensions',
-        'namespace' => 'setNamespace',
-        'region' => 'setRegion'
+        'data' => 'setData',
+        'page_number' => 'setPageNumber',
+        'page_size' => 'setPageSize',
+        'total_count' => 'setTotalCount'
     ];
 
     /**
@@ -93,9 +97,10 @@ class ObjectForUpdateObjectGroupInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'dimensions' => 'getDimensions',
-        'namespace' => 'getNamespace',
-        'region' => 'getRegion'
+        'data' => 'getData',
+        'page_number' => 'getPageNumber',
+        'page_size' => 'getPageSize',
+        'total_count' => 'getTotalCount'
     ];
 
     /**
@@ -158,9 +163,10 @@ class ObjectForUpdateObjectGroupInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['dimensions'] = isset($data['dimensions']) ? $data['dimensions'] : null;
-        $this->container['namespace'] = isset($data['namespace']) ? $data['namespace'] : null;
-        $this->container['region'] = isset($data['region']) ? $data['region'] : null;
+        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
+        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
+        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
+        $this->container['total_count'] = isset($data['total_count']) ? $data['total_count'] : null;
     }
 
     /**
@@ -188,73 +194,97 @@ class ObjectForUpdateObjectGroupInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets dimensions
+     * Gets data
      *
-     * @return map[string,string[]]
+     * @return \Volcengine\Volcobserve\Model\DataForListContactGroupsOutput[]
      */
-    public function getDimensions()
+    public function getData()
     {
-        return $this->container['dimensions'];
+        return $this->container['data'];
     }
 
     /**
-     * Sets dimensions
+     * Sets data
      *
-     * @param map[string,string[]] $dimensions dimensions
+     * @param \Volcengine\Volcobserve\Model\DataForListContactGroupsOutput[] $data data
      *
      * @return $this
      */
-    public function setDimensions($dimensions)
+    public function setData($data)
     {
-        $this->container['dimensions'] = $dimensions;
+        $this->container['data'] = $data;
 
         return $this;
     }
 
     /**
-     * Gets namespace
+     * Gets page_number
      *
-     * @return string
+     * @return int
      */
-    public function getNamespace()
+    public function getPageNumber()
     {
-        return $this->container['namespace'];
+        return $this->container['page_number'];
     }
 
     /**
-     * Sets namespace
+     * Sets page_number
      *
-     * @param string $namespace namespace
+     * @param int $page_number page_number
      *
      * @return $this
      */
-    public function setNamespace($namespace)
+    public function setPageNumber($page_number)
     {
-        $this->container['namespace'] = $namespace;
+        $this->container['page_number'] = $page_number;
 
         return $this;
     }
 
     /**
-     * Gets region
+     * Gets page_size
      *
-     * @return string
+     * @return int
      */
-    public function getRegion()
+    public function getPageSize()
     {
-        return $this->container['region'];
+        return $this->container['page_size'];
     }
 
     /**
-     * Sets region
+     * Sets page_size
      *
-     * @param string $region region
+     * @param int $page_size page_size
      *
      * @return $this
      */
-    public function setRegion($region)
+    public function setPageSize($page_size)
     {
-        $this->container['region'] = $region;
+        $this->container['page_size'] = $page_size;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_count
+     *
+     * @return int
+     */
+    public function getTotalCount()
+    {
+        return $this->container['total_count'];
+    }
+
+    /**
+     * Sets total_count
+     *
+     * @param int $total_count total_count
+     *
+     * @return $this
+     */
+    public function setTotalCount($total_count)
+    {
+        $this->container['total_count'] = $total_count;
 
         return $this;
     }

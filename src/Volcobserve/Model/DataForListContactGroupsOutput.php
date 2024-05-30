@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ObjectForUpdateObjectGroupInput implements ModelInterface, ArrayAccess
+class DataForListContactGroupsOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ObjectForUpdateObjectGroupInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ObjectForUpdateObjectGroupInput';
+    protected static $swaggerModelName = 'DataForListContactGroupsOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,12 @@ class ObjectForUpdateObjectGroupInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'dimensions' => 'map[string,string[]]',
-        'namespace' => 'string',
-        'region' => 'string'
+        'account_id' => 'string',
+        'created_at' => 'string',
+        'description' => 'string',
+        'id' => 'string',
+        'name' => 'string',
+        'updated_at' => 'string'
     ];
 
     /**
@@ -39,9 +42,12 @@ class ObjectForUpdateObjectGroupInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'dimensions' => null,
-        'namespace' => null,
-        'region' => null
+        'account_id' => null,
+        'created_at' => null,
+        'description' => null,
+        'id' => null,
+        'name' => null,
+        'updated_at' => null
     ];
 
     /**
@@ -71,9 +77,12 @@ class ObjectForUpdateObjectGroupInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'dimensions' => 'Dimensions',
-        'namespace' => 'Namespace',
-        'region' => 'Region'
+        'account_id' => 'AccountId',
+        'created_at' => 'CreatedAt',
+        'description' => 'Description',
+        'id' => 'Id',
+        'name' => 'Name',
+        'updated_at' => 'UpdatedAt'
     ];
 
     /**
@@ -82,9 +91,12 @@ class ObjectForUpdateObjectGroupInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'dimensions' => 'setDimensions',
-        'namespace' => 'setNamespace',
-        'region' => 'setRegion'
+        'account_id' => 'setAccountId',
+        'created_at' => 'setCreatedAt',
+        'description' => 'setDescription',
+        'id' => 'setId',
+        'name' => 'setName',
+        'updated_at' => 'setUpdatedAt'
     ];
 
     /**
@@ -93,9 +105,12 @@ class ObjectForUpdateObjectGroupInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'dimensions' => 'getDimensions',
-        'namespace' => 'getNamespace',
-        'region' => 'getRegion'
+        'account_id' => 'getAccountId',
+        'created_at' => 'getCreatedAt',
+        'description' => 'getDescription',
+        'id' => 'getId',
+        'name' => 'getName',
+        'updated_at' => 'getUpdatedAt'
     ];
 
     /**
@@ -158,9 +173,12 @@ class ObjectForUpdateObjectGroupInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['dimensions'] = isset($data['dimensions']) ? $data['dimensions'] : null;
-        $this->container['namespace'] = isset($data['namespace']) ? $data['namespace'] : null;
-        $this->container['region'] = isset($data['region']) ? $data['region'] : null;
+        $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
+        $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
     }
 
     /**
@@ -188,73 +206,145 @@ class ObjectForUpdateObjectGroupInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets dimensions
+     * Gets account_id
      *
-     * @return map[string,string[]]
+     * @return string
      */
-    public function getDimensions()
+    public function getAccountId()
     {
-        return $this->container['dimensions'];
+        return $this->container['account_id'];
     }
 
     /**
-     * Sets dimensions
+     * Sets account_id
      *
-     * @param map[string,string[]] $dimensions dimensions
+     * @param string $account_id account_id
      *
      * @return $this
      */
-    public function setDimensions($dimensions)
+    public function setAccountId($account_id)
     {
-        $this->container['dimensions'] = $dimensions;
+        $this->container['account_id'] = $account_id;
 
         return $this;
     }
 
     /**
-     * Gets namespace
+     * Gets created_at
      *
      * @return string
      */
-    public function getNamespace()
+    public function getCreatedAt()
     {
-        return $this->container['namespace'];
+        return $this->container['created_at'];
     }
 
     /**
-     * Sets namespace
+     * Sets created_at
      *
-     * @param string $namespace namespace
+     * @param string $created_at created_at
      *
      * @return $this
      */
-    public function setNamespace($namespace)
+    public function setCreatedAt($created_at)
     {
-        $this->container['namespace'] = $namespace;
+        $this->container['created_at'] = $created_at;
 
         return $this;
     }
 
     /**
-     * Gets region
+     * Gets description
      *
      * @return string
      */
-    public function getRegion()
+    public function getDescription()
     {
-        return $this->container['region'];
+        return $this->container['description'];
     }
 
     /**
-     * Sets region
+     * Sets description
      *
-     * @param string $region region
+     * @param string $description description
      *
      * @return $this
      */
-    public function setRegion($region)
+    public function setDescription($description)
     {
-        $this->container['region'] = $region;
+        $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string $id id
+     *
+     * @return $this
+     */
+    public function setId($id)
+    {
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name name
+     *
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets updated_at
+     *
+     * @return string
+     */
+    public function getUpdatedAt()
+    {
+        return $this->container['updated_at'];
+    }
+
+    /**
+     * Sets updated_at
+     *
+     * @param string $updated_at updated_at
+     *
+     * @return $this
+     */
+    public function setUpdatedAt($updated_at)
+    {
+        $this->container['updated_at'] = $updated_at;
 
         return $this;
     }

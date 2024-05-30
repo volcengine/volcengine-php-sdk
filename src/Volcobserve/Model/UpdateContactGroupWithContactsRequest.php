@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ObjectForUpdateObjectGroupInput implements ModelInterface, ArrayAccess
+class UpdateContactGroupWithContactsRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ObjectForUpdateObjectGroupInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ObjectForUpdateObjectGroupInput';
+    protected static $swaggerModelName = 'UpdateContactGroupWithContactsRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,8 @@ class ObjectForUpdateObjectGroupInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'dimensions' => 'map[string,string[]]',
-        'namespace' => 'string',
-        'region' => 'string'
+        'contacts_id_list' => 'string[]',
+        'id' => 'string'
     ];
 
     /**
@@ -39,9 +38,8 @@ class ObjectForUpdateObjectGroupInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'dimensions' => null,
-        'namespace' => null,
-        'region' => null
+        'contacts_id_list' => null,
+        'id' => null
     ];
 
     /**
@@ -71,9 +69,8 @@ class ObjectForUpdateObjectGroupInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'dimensions' => 'Dimensions',
-        'namespace' => 'Namespace',
-        'region' => 'Region'
+        'contacts_id_list' => 'ContactsIdList',
+        'id' => 'Id'
     ];
 
     /**
@@ -82,9 +79,8 @@ class ObjectForUpdateObjectGroupInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'dimensions' => 'setDimensions',
-        'namespace' => 'setNamespace',
-        'region' => 'setRegion'
+        'contacts_id_list' => 'setContactsIdList',
+        'id' => 'setId'
     ];
 
     /**
@@ -93,9 +89,8 @@ class ObjectForUpdateObjectGroupInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'dimensions' => 'getDimensions',
-        'namespace' => 'getNamespace',
-        'region' => 'getRegion'
+        'contacts_id_list' => 'getContactsIdList',
+        'id' => 'getId'
     ];
 
     /**
@@ -158,9 +153,8 @@ class ObjectForUpdateObjectGroupInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['dimensions'] = isset($data['dimensions']) ? $data['dimensions'] : null;
-        $this->container['namespace'] = isset($data['namespace']) ? $data['namespace'] : null;
-        $this->container['region'] = isset($data['region']) ? $data['region'] : null;
+        $this->container['contacts_id_list'] = isset($data['contacts_id_list']) ? $data['contacts_id_list'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
     }
 
     /**
@@ -172,6 +166,9 @@ class ObjectForUpdateObjectGroupInput implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -188,73 +185,49 @@ class ObjectForUpdateObjectGroupInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets dimensions
+     * Gets contacts_id_list
      *
-     * @return map[string,string[]]
+     * @return string[]
      */
-    public function getDimensions()
+    public function getContactsIdList()
     {
-        return $this->container['dimensions'];
+        return $this->container['contacts_id_list'];
     }
 
     /**
-     * Sets dimensions
+     * Sets contacts_id_list
      *
-     * @param map[string,string[]] $dimensions dimensions
+     * @param string[] $contacts_id_list contacts_id_list
      *
      * @return $this
      */
-    public function setDimensions($dimensions)
+    public function setContactsIdList($contacts_id_list)
     {
-        $this->container['dimensions'] = $dimensions;
+        $this->container['contacts_id_list'] = $contacts_id_list;
 
         return $this;
     }
 
     /**
-     * Gets namespace
+     * Gets id
      *
      * @return string
      */
-    public function getNamespace()
+    public function getId()
     {
-        return $this->container['namespace'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets namespace
+     * Sets id
      *
-     * @param string $namespace namespace
+     * @param string $id id
      *
      * @return $this
      */
-    public function setNamespace($namespace)
+    public function setId($id)
     {
-        $this->container['namespace'] = $namespace;
-
-        return $this;
-    }
-
-    /**
-     * Gets region
-     *
-     * @return string
-     */
-    public function getRegion()
-    {
-        return $this->container['region'];
-    }
-
-    /**
-     * Sets region
-     *
-     * @param string $region region
-     *
-     * @return $this
-     */
-    public function setRegion($region)
-    {
-        $this->container['region'] = $region;
+        $this->container['id'] = $id;
 
         return $this;
     }

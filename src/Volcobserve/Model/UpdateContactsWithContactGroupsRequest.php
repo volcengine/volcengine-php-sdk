@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ObjectForUpdateObjectGroupInput implements ModelInterface, ArrayAccess
+class UpdateContactsWithContactGroupsRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ObjectForUpdateObjectGroupInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ObjectForUpdateObjectGroupInput';
+    protected static $swaggerModelName = 'UpdateContactsWithContactGroupsRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,8 @@ class ObjectForUpdateObjectGroupInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'dimensions' => 'map[string,string[]]',
-        'namespace' => 'string',
-        'region' => 'string'
+        'contact_group_ids' => 'string[]',
+        'id' => 'string'
     ];
 
     /**
@@ -39,9 +38,8 @@ class ObjectForUpdateObjectGroupInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'dimensions' => null,
-        'namespace' => null,
-        'region' => null
+        'contact_group_ids' => null,
+        'id' => null
     ];
 
     /**
@@ -71,9 +69,8 @@ class ObjectForUpdateObjectGroupInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'dimensions' => 'Dimensions',
-        'namespace' => 'Namespace',
-        'region' => 'Region'
+        'contact_group_ids' => 'ContactGroupIds',
+        'id' => 'Id'
     ];
 
     /**
@@ -82,9 +79,8 @@ class ObjectForUpdateObjectGroupInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'dimensions' => 'setDimensions',
-        'namespace' => 'setNamespace',
-        'region' => 'setRegion'
+        'contact_group_ids' => 'setContactGroupIds',
+        'id' => 'setId'
     ];
 
     /**
@@ -93,9 +89,8 @@ class ObjectForUpdateObjectGroupInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'dimensions' => 'getDimensions',
-        'namespace' => 'getNamespace',
-        'region' => 'getRegion'
+        'contact_group_ids' => 'getContactGroupIds',
+        'id' => 'getId'
     ];
 
     /**
@@ -158,9 +153,8 @@ class ObjectForUpdateObjectGroupInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['dimensions'] = isset($data['dimensions']) ? $data['dimensions'] : null;
-        $this->container['namespace'] = isset($data['namespace']) ? $data['namespace'] : null;
-        $this->container['region'] = isset($data['region']) ? $data['region'] : null;
+        $this->container['contact_group_ids'] = isset($data['contact_group_ids']) ? $data['contact_group_ids'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
     }
 
     /**
@@ -172,6 +166,9 @@ class ObjectForUpdateObjectGroupInput implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -188,73 +185,49 @@ class ObjectForUpdateObjectGroupInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets dimensions
+     * Gets contact_group_ids
      *
-     * @return map[string,string[]]
+     * @return string[]
      */
-    public function getDimensions()
+    public function getContactGroupIds()
     {
-        return $this->container['dimensions'];
+        return $this->container['contact_group_ids'];
     }
 
     /**
-     * Sets dimensions
+     * Sets contact_group_ids
      *
-     * @param map[string,string[]] $dimensions dimensions
+     * @param string[] $contact_group_ids contact_group_ids
      *
      * @return $this
      */
-    public function setDimensions($dimensions)
+    public function setContactGroupIds($contact_group_ids)
     {
-        $this->container['dimensions'] = $dimensions;
+        $this->container['contact_group_ids'] = $contact_group_ids;
 
         return $this;
     }
 
     /**
-     * Gets namespace
+     * Gets id
      *
      * @return string
      */
-    public function getNamespace()
+    public function getId()
     {
-        return $this->container['namespace'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets namespace
+     * Sets id
      *
-     * @param string $namespace namespace
+     * @param string $id id
      *
      * @return $this
      */
-    public function setNamespace($namespace)
+    public function setId($id)
     {
-        $this->container['namespace'] = $namespace;
-
-        return $this;
-    }
-
-    /**
-     * Gets region
-     *
-     * @return string
-     */
-    public function getRegion()
-    {
-        return $this->container['region'];
-    }
-
-    /**
-     * Sets region
-     *
-     * @param string $region region
-     *
-     * @return $this
-     */
-    public function setRegion($region)
-    {
-        $this->container['region'] = $region;
+        $this->container['id'] = $id;
 
         return $this;
     }
