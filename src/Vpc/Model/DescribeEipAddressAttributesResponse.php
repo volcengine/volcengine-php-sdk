@@ -45,6 +45,7 @@ class DescribeEipAddressAttributesResponse implements ModelInterface, ArrayAcces
         'name' => 'string',
         'overdue_time' => 'string',
         'project_name' => 'string',
+        'release_with_instance' => 'bool',
         'request_id' => 'string',
         'security_protection_types' => 'string[]',
         'status' => 'string',
@@ -75,6 +76,7 @@ class DescribeEipAddressAttributesResponse implements ModelInterface, ArrayAcces
         'name' => null,
         'overdue_time' => null,
         'project_name' => null,
+        'release_with_instance' => null,
         'request_id' => null,
         'security_protection_types' => null,
         'status' => null,
@@ -126,6 +128,7 @@ class DescribeEipAddressAttributesResponse implements ModelInterface, ArrayAcces
         'name' => 'Name',
         'overdue_time' => 'OverdueTime',
         'project_name' => 'ProjectName',
+        'release_with_instance' => 'ReleaseWithInstance',
         'request_id' => 'RequestId',
         'security_protection_types' => 'SecurityProtectionTypes',
         'status' => 'Status',
@@ -156,6 +159,7 @@ class DescribeEipAddressAttributesResponse implements ModelInterface, ArrayAcces
         'name' => 'setName',
         'overdue_time' => 'setOverdueTime',
         'project_name' => 'setProjectName',
+        'release_with_instance' => 'setReleaseWithInstance',
         'request_id' => 'setRequestId',
         'security_protection_types' => 'setSecurityProtectionTypes',
         'status' => 'setStatus',
@@ -186,6 +190,7 @@ class DescribeEipAddressAttributesResponse implements ModelInterface, ArrayAcces
         'name' => 'getName',
         'overdue_time' => 'getOverdueTime',
         'project_name' => 'getProjectName',
+        'release_with_instance' => 'getReleaseWithInstance',
         'request_id' => 'getRequestId',
         'security_protection_types' => 'getSecurityProtectionTypes',
         'status' => 'getStatus',
@@ -270,6 +275,7 @@ class DescribeEipAddressAttributesResponse implements ModelInterface, ArrayAcces
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['overdue_time'] = isset($data['overdue_time']) ? $data['overdue_time'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['release_with_instance'] = isset($data['release_with_instance']) ? $data['release_with_instance'] : null;
         $this->container['request_id'] = isset($data['request_id']) ? $data['request_id'] : null;
         $this->container['security_protection_types'] = isset($data['security_protection_types']) ? $data['security_protection_types'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
@@ -705,6 +711,30 @@ class DescribeEipAddressAttributesResponse implements ModelInterface, ArrayAcces
     public function setProjectName($project_name)
     {
         $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets release_with_instance
+     *
+     * @return bool
+     */
+    public function getReleaseWithInstance()
+    {
+        return $this->container['release_with_instance'];
+    }
+
+    /**
+     * Sets release_with_instance
+     *
+     * @param bool $release_with_instance release_with_instance
+     *
+     * @return $this
+     */
+    public function setReleaseWithInstance($release_with_instance)
+    {
+        $this->container['release_with_instance'] = $release_with_instance;
 
         return $this;
     }
