@@ -30,7 +30,9 @@ class ListBillOverviewByCategoryRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'bill_category_parent' => 'string[]',
         'bill_period' => 'string',
-        'billing_mode' => 'string[]'
+        'billing_mode' => 'string[]',
+        'owner_id' => 'int[]',
+        'payer_id' => 'int[]'
     ];
 
     /**
@@ -41,7 +43,9 @@ class ListBillOverviewByCategoryRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'bill_category_parent' => null,
         'bill_period' => null,
-        'billing_mode' => null
+        'billing_mode' => null,
+        'owner_id' => 'int64',
+        'payer_id' => 'int64'
     ];
 
     /**
@@ -73,7 +77,9 @@ class ListBillOverviewByCategoryRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'bill_category_parent' => 'BillCategoryParent',
         'bill_period' => 'BillPeriod',
-        'billing_mode' => 'BillingMode'
+        'billing_mode' => 'BillingMode',
+        'owner_id' => 'OwnerID',
+        'payer_id' => 'PayerID'
     ];
 
     /**
@@ -84,7 +90,9 @@ class ListBillOverviewByCategoryRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'bill_category_parent' => 'setBillCategoryParent',
         'bill_period' => 'setBillPeriod',
-        'billing_mode' => 'setBillingMode'
+        'billing_mode' => 'setBillingMode',
+        'owner_id' => 'setOwnerId',
+        'payer_id' => 'setPayerId'
     ];
 
     /**
@@ -95,7 +103,9 @@ class ListBillOverviewByCategoryRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'bill_category_parent' => 'getBillCategoryParent',
         'bill_period' => 'getBillPeriod',
-        'billing_mode' => 'getBillingMode'
+        'billing_mode' => 'getBillingMode',
+        'owner_id' => 'getOwnerId',
+        'payer_id' => 'getPayerId'
     ];
 
     /**
@@ -161,6 +171,8 @@ class ListBillOverviewByCategoryRequest implements ModelInterface, ArrayAccess
         $this->container['bill_category_parent'] = isset($data['bill_category_parent']) ? $data['bill_category_parent'] : null;
         $this->container['bill_period'] = isset($data['bill_period']) ? $data['bill_period'] : null;
         $this->container['billing_mode'] = isset($data['billing_mode']) ? $data['billing_mode'] : null;
+        $this->container['owner_id'] = isset($data['owner_id']) ? $data['owner_id'] : null;
+        $this->container['payer_id'] = isset($data['payer_id']) ? $data['payer_id'] : null;
     }
 
     /**
@@ -258,6 +270,54 @@ class ListBillOverviewByCategoryRequest implements ModelInterface, ArrayAccess
     public function setBillingMode($billing_mode)
     {
         $this->container['billing_mode'] = $billing_mode;
+
+        return $this;
+    }
+
+    /**
+     * Gets owner_id
+     *
+     * @return int[]
+     */
+    public function getOwnerId()
+    {
+        return $this->container['owner_id'];
+    }
+
+    /**
+     * Sets owner_id
+     *
+     * @param int[] $owner_id owner_id
+     *
+     * @return $this
+     */
+    public function setOwnerId($owner_id)
+    {
+        $this->container['owner_id'] = $owner_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets payer_id
+     *
+     * @return int[]
+     */
+    public function getPayerId()
+    {
+        return $this->container['payer_id'];
+    }
+
+    /**
+     * Sets payer_id
+     *
+     * @param int[] $payer_id payer_id
+     *
+     * @return $this
+     */
+    public function setPayerId($payer_id)
+    {
+        $this->container['payer_id'] = $payer_id;
 
         return $this;
     }
