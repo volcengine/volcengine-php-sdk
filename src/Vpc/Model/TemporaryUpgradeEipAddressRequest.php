@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ModifyEipAddressAttributesRequest implements ModelInterface, ArrayAccess
+class TemporaryUpgradeEipAddressRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ModifyEipAddressAttributesRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ModifyEipAddressAttributesRequest';
+    protected static $swaggerModelName = 'TemporaryUpgradeEipAddressRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -30,9 +30,7 @@ class ModifyEipAddressAttributesRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'allocation_id' => 'string',
         'bandwidth' => 'int',
-        'description' => 'string',
-        'name' => 'string',
-        'release_with_instance' => 'bool'
+        'period' => 'int'
     ];
 
     /**
@@ -43,9 +41,7 @@ class ModifyEipAddressAttributesRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'allocation_id' => null,
         'bandwidth' => null,
-        'description' => null,
-        'name' => null,
-        'release_with_instance' => null
+        'period' => null
     ];
 
     /**
@@ -77,9 +73,7 @@ class ModifyEipAddressAttributesRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'allocation_id' => 'AllocationId',
         'bandwidth' => 'Bandwidth',
-        'description' => 'Description',
-        'name' => 'Name',
-        'release_with_instance' => 'ReleaseWithInstance'
+        'period' => 'Period'
     ];
 
     /**
@@ -90,9 +84,7 @@ class ModifyEipAddressAttributesRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'allocation_id' => 'setAllocationId',
         'bandwidth' => 'setBandwidth',
-        'description' => 'setDescription',
-        'name' => 'setName',
-        'release_with_instance' => 'setReleaseWithInstance'
+        'period' => 'setPeriod'
     ];
 
     /**
@@ -103,9 +95,7 @@ class ModifyEipAddressAttributesRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'allocation_id' => 'getAllocationId',
         'bandwidth' => 'getBandwidth',
-        'description' => 'getDescription',
-        'name' => 'getName',
-        'release_with_instance' => 'getReleaseWithInstance'
+        'period' => 'getPeriod'
     ];
 
     /**
@@ -170,9 +160,7 @@ class ModifyEipAddressAttributesRequest implements ModelInterface, ArrayAccess
     {
         $this->container['allocation_id'] = isset($data['allocation_id']) ? $data['allocation_id'] : null;
         $this->container['bandwidth'] = isset($data['bandwidth']) ? $data['bandwidth'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['release_with_instance'] = isset($data['release_with_instance']) ? $data['release_with_instance'] : null;
+        $this->container['period'] = isset($data['period']) ? $data['period'] : null;
     }
 
     /**
@@ -186,6 +174,12 @@ class ModifyEipAddressAttributesRequest implements ModelInterface, ArrayAccess
 
         if ($this->container['allocation_id'] === null) {
             $invalidProperties[] = "'allocation_id' can't be null";
+        }
+        if ($this->container['bandwidth'] === null) {
+            $invalidProperties[] = "'bandwidth' can't be null";
+        }
+        if ($this->container['period'] === null) {
+            $invalidProperties[] = "'period' can't be null";
         }
         return $invalidProperties;
     }
@@ -251,73 +245,25 @@ class ModifyEipAddressAttributesRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets description
+     * Gets period
      *
-     * @return string
+     * @return int
      */
-    public function getDescription()
+    public function getPeriod()
     {
-        return $this->container['description'];
+        return $this->container['period'];
     }
 
     /**
-     * Sets description
+     * Sets period
      *
-     * @param string $description description
+     * @param int $period period
      *
      * @return $this
      */
-    public function setDescription($description)
+    public function setPeriod($period)
     {
-        $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string $name name
-     *
-     * @return $this
-     */
-    public function setName($name)
-    {
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets release_with_instance
-     *
-     * @return bool
-     */
-    public function getReleaseWithInstance()
-    {
-        return $this->container['release_with_instance'];
-    }
-
-    /**
-     * Sets release_with_instance
-     *
-     * @param bool $release_with_instance release_with_instance
-     *
-     * @return $this
-     */
-    public function setReleaseWithInstance($release_with_instance)
-    {
-        $this->container['release_with_instance'] = $release_with_instance;
+        $this->container['period'] = $period;
 
         return $this;
     }

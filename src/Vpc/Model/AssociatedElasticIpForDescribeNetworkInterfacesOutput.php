@@ -29,7 +29,8 @@ class AssociatedElasticIpForDescribeNetworkInterfacesOutput implements ModelInte
       */
     protected static $swaggerTypes = [
         'allocation_id' => 'string',
-        'eip_address' => 'string'
+        'eip_address' => 'string',
+        'release_with_instance' => 'bool'
     ];
 
     /**
@@ -39,7 +40,8 @@ class AssociatedElasticIpForDescribeNetworkInterfacesOutput implements ModelInte
       */
     protected static $swaggerFormats = [
         'allocation_id' => null,
-        'eip_address' => null
+        'eip_address' => null,
+        'release_with_instance' => null
     ];
 
     /**
@@ -70,7 +72,8 @@ class AssociatedElasticIpForDescribeNetworkInterfacesOutput implements ModelInte
      */
     protected static $attributeMap = [
         'allocation_id' => 'AllocationId',
-        'eip_address' => 'EipAddress'
+        'eip_address' => 'EipAddress',
+        'release_with_instance' => 'ReleaseWithInstance'
     ];
 
     /**
@@ -80,7 +83,8 @@ class AssociatedElasticIpForDescribeNetworkInterfacesOutput implements ModelInte
      */
     protected static $setters = [
         'allocation_id' => 'setAllocationId',
-        'eip_address' => 'setEipAddress'
+        'eip_address' => 'setEipAddress',
+        'release_with_instance' => 'setReleaseWithInstance'
     ];
 
     /**
@@ -90,7 +94,8 @@ class AssociatedElasticIpForDescribeNetworkInterfacesOutput implements ModelInte
      */
     protected static $getters = [
         'allocation_id' => 'getAllocationId',
-        'eip_address' => 'getEipAddress'
+        'eip_address' => 'getEipAddress',
+        'release_with_instance' => 'getReleaseWithInstance'
     ];
 
     /**
@@ -155,6 +160,7 @@ class AssociatedElasticIpForDescribeNetworkInterfacesOutput implements ModelInte
     {
         $this->container['allocation_id'] = isset($data['allocation_id']) ? $data['allocation_id'] : null;
         $this->container['eip_address'] = isset($data['eip_address']) ? $data['eip_address'] : null;
+        $this->container['release_with_instance'] = isset($data['release_with_instance']) ? $data['release_with_instance'] : null;
     }
 
     /**
@@ -225,6 +231,30 @@ class AssociatedElasticIpForDescribeNetworkInterfacesOutput implements ModelInte
     public function setEipAddress($eip_address)
     {
         $this->container['eip_address'] = $eip_address;
+
+        return $this;
+    }
+
+    /**
+     * Gets release_with_instance
+     *
+     * @return bool
+     */
+    public function getReleaseWithInstance()
+    {
+        return $this->container['release_with_instance'];
+    }
+
+    /**
+     * Sets release_with_instance
+     *
+     * @param bool $release_with_instance release_with_instance
+     *
+     * @return $this
+     */
+    public function setReleaseWithInstance($release_with_instance)
+    {
+        $this->container['release_with_instance'] = $release_with_instance;
 
         return $this;
     }

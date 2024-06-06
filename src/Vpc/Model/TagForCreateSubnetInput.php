@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ModifyEipAddressAttributesRequest implements ModelInterface, ArrayAccess
+class TagForCreateSubnetInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ModifyEipAddressAttributesRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ModifyEipAddressAttributesRequest';
+    protected static $swaggerModelName = 'TagForCreateSubnetInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,11 +28,8 @@ class ModifyEipAddressAttributesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'allocation_id' => 'string',
-        'bandwidth' => 'int',
-        'description' => 'string',
-        'name' => 'string',
-        'release_with_instance' => 'bool'
+        'key' => 'string',
+        'value' => 'string'
     ];
 
     /**
@@ -41,11 +38,8 @@ class ModifyEipAddressAttributesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'allocation_id' => null,
-        'bandwidth' => null,
-        'description' => null,
-        'name' => null,
-        'release_with_instance' => null
+        'key' => null,
+        'value' => null
     ];
 
     /**
@@ -75,11 +69,8 @@ class ModifyEipAddressAttributesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'allocation_id' => 'AllocationId',
-        'bandwidth' => 'Bandwidth',
-        'description' => 'Description',
-        'name' => 'Name',
-        'release_with_instance' => 'ReleaseWithInstance'
+        'key' => 'Key',
+        'value' => 'Value'
     ];
 
     /**
@@ -88,11 +79,8 @@ class ModifyEipAddressAttributesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'allocation_id' => 'setAllocationId',
-        'bandwidth' => 'setBandwidth',
-        'description' => 'setDescription',
-        'name' => 'setName',
-        'release_with_instance' => 'setReleaseWithInstance'
+        'key' => 'setKey',
+        'value' => 'setValue'
     ];
 
     /**
@@ -101,11 +89,8 @@ class ModifyEipAddressAttributesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'allocation_id' => 'getAllocationId',
-        'bandwidth' => 'getBandwidth',
-        'description' => 'getDescription',
-        'name' => 'getName',
-        'release_with_instance' => 'getReleaseWithInstance'
+        'key' => 'getKey',
+        'value' => 'getValue'
     ];
 
     /**
@@ -168,11 +153,8 @@ class ModifyEipAddressAttributesRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['allocation_id'] = isset($data['allocation_id']) ? $data['allocation_id'] : null;
-        $this->container['bandwidth'] = isset($data['bandwidth']) ? $data['bandwidth'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['release_with_instance'] = isset($data['release_with_instance']) ? $data['release_with_instance'] : null;
+        $this->container['key'] = isset($data['key']) ? $data['key'] : null;
+        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 
     /**
@@ -184,9 +166,6 @@ class ModifyEipAddressAttributesRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['allocation_id'] === null) {
-            $invalidProperties[] = "'allocation_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -203,121 +182,49 @@ class ModifyEipAddressAttributesRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets allocation_id
+     * Gets key
      *
      * @return string
      */
-    public function getAllocationId()
+    public function getKey()
     {
-        return $this->container['allocation_id'];
+        return $this->container['key'];
     }
 
     /**
-     * Sets allocation_id
+     * Sets key
      *
-     * @param string $allocation_id allocation_id
+     * @param string $key key
      *
      * @return $this
      */
-    public function setAllocationId($allocation_id)
+    public function setKey($key)
     {
-        $this->container['allocation_id'] = $allocation_id;
+        $this->container['key'] = $key;
 
         return $this;
     }
 
     /**
-     * Gets bandwidth
-     *
-     * @return int
-     */
-    public function getBandwidth()
-    {
-        return $this->container['bandwidth'];
-    }
-
-    /**
-     * Sets bandwidth
-     *
-     * @param int $bandwidth bandwidth
-     *
-     * @return $this
-     */
-    public function setBandwidth($bandwidth)
-    {
-        $this->container['bandwidth'] = $bandwidth;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
+     * Gets value
      *
      * @return string
      */
-    public function getDescription()
+    public function getValue()
     {
-        return $this->container['description'];
+        return $this->container['value'];
     }
 
     /**
-     * Sets description
+     * Sets value
      *
-     * @param string $description description
+     * @param string $value value
      *
      * @return $this
      */
-    public function setDescription($description)
+    public function setValue($value)
     {
-        $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string $name name
-     *
-     * @return $this
-     */
-    public function setName($name)
-    {
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets release_with_instance
-     *
-     * @return bool
-     */
-    public function getReleaseWithInstance()
-    {
-        return $this->container['release_with_instance'];
-    }
-
-    /**
-     * Sets release_with_instance
-     *
-     * @param bool $release_with_instance release_with_instance
-     *
-     * @return $this
-     */
-    public function setReleaseWithInstance($release_with_instance)
-    {
-        $this->container['release_with_instance'] = $release_with_instance;
+        $this->container['value'] = $value;
 
         return $this;
     }

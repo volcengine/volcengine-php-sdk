@@ -28,12 +28,14 @@ class DescribePrefixListsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'ip_version' => 'string',
         'max_results' => 'int',
         'next_token' => 'string',
         'page_number' => 'int',
         'page_size' => 'int',
         'prefix_list_ids' => 'string[]',
         'prefix_list_name' => 'string',
+        'project_name' => 'string',
         'tag_filters' => '\Volcengine\Vpc\Model\TagFilterForDescribePrefixListsInput[]'
     ];
 
@@ -43,12 +45,14 @@ class DescribePrefixListsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'ip_version' => null,
         'max_results' => null,
         'next_token' => null,
         'page_number' => null,
         'page_size' => null,
         'prefix_list_ids' => null,
         'prefix_list_name' => null,
+        'project_name' => null,
         'tag_filters' => null
     ];
 
@@ -79,12 +83,14 @@ class DescribePrefixListsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'ip_version' => 'IpVersion',
         'max_results' => 'MaxResults',
         'next_token' => 'NextToken',
         'page_number' => 'PageNumber',
         'page_size' => 'PageSize',
         'prefix_list_ids' => 'PrefixListIds',
         'prefix_list_name' => 'PrefixListName',
+        'project_name' => 'ProjectName',
         'tag_filters' => 'TagFilters'
     ];
 
@@ -94,12 +100,14 @@ class DescribePrefixListsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'ip_version' => 'setIpVersion',
         'max_results' => 'setMaxResults',
         'next_token' => 'setNextToken',
         'page_number' => 'setPageNumber',
         'page_size' => 'setPageSize',
         'prefix_list_ids' => 'setPrefixListIds',
         'prefix_list_name' => 'setPrefixListName',
+        'project_name' => 'setProjectName',
         'tag_filters' => 'setTagFilters'
     ];
 
@@ -109,12 +117,14 @@ class DescribePrefixListsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'ip_version' => 'getIpVersion',
         'max_results' => 'getMaxResults',
         'next_token' => 'getNextToken',
         'page_number' => 'getPageNumber',
         'page_size' => 'getPageSize',
         'prefix_list_ids' => 'getPrefixListIds',
         'prefix_list_name' => 'getPrefixListName',
+        'project_name' => 'getProjectName',
         'tag_filters' => 'getTagFilters'
     ];
 
@@ -178,12 +188,14 @@ class DescribePrefixListsRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['ip_version'] = isset($data['ip_version']) ? $data['ip_version'] : null;
         $this->container['max_results'] = isset($data['max_results']) ? $data['max_results'] : null;
         $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
         $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
         $this->container['prefix_list_ids'] = isset($data['prefix_list_ids']) ? $data['prefix_list_ids'] : null;
         $this->container['prefix_list_name'] = isset($data['prefix_list_name']) ? $data['prefix_list_name'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['tag_filters'] = isset($data['tag_filters']) ? $data['tag_filters'] : null;
     }
 
@@ -210,6 +222,30 @@ class DescribePrefixListsRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets ip_version
+     *
+     * @return string
+     */
+    public function getIpVersion()
+    {
+        return $this->container['ip_version'];
+    }
+
+    /**
+     * Sets ip_version
+     *
+     * @param string $ip_version ip_version
+     *
+     * @return $this
+     */
+    public function setIpVersion($ip_version)
+    {
+        $this->container['ip_version'] = $ip_version;
+
+        return $this;
+    }
 
     /**
      * Gets max_results
@@ -351,6 +387,30 @@ class DescribePrefixListsRequest implements ModelInterface, ArrayAccess
     public function setPrefixListName($prefix_list_name)
     {
         $this->container['prefix_list_name'] = $prefix_list_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }
