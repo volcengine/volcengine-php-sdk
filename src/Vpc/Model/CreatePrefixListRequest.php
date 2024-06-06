@@ -35,6 +35,7 @@ class CreatePrefixListRequest implements ModelInterface, ArrayAccess
         'max_entries' => 'int',
         'prefix_list_entries' => '\Volcengine\Vpc\Model\PrefixListEntryForCreatePrefixListInput[]',
         'prefix_list_name' => 'string',
+        'project_name' => 'string',
         'tags' => '\Volcengine\Vpc\Model\TagForCreatePrefixListInput[]'
     ];
 
@@ -51,6 +52,7 @@ class CreatePrefixListRequest implements ModelInterface, ArrayAccess
         'max_entries' => null,
         'prefix_list_entries' => null,
         'prefix_list_name' => null,
+        'project_name' => null,
         'tags' => null
     ];
 
@@ -88,6 +90,7 @@ class CreatePrefixListRequest implements ModelInterface, ArrayAccess
         'max_entries' => 'MaxEntries',
         'prefix_list_entries' => 'PrefixListEntries',
         'prefix_list_name' => 'PrefixListName',
+        'project_name' => 'ProjectName',
         'tags' => 'Tags'
     ];
 
@@ -104,6 +107,7 @@ class CreatePrefixListRequest implements ModelInterface, ArrayAccess
         'max_entries' => 'setMaxEntries',
         'prefix_list_entries' => 'setPrefixListEntries',
         'prefix_list_name' => 'setPrefixListName',
+        'project_name' => 'setProjectName',
         'tags' => 'setTags'
     ];
 
@@ -120,6 +124,7 @@ class CreatePrefixListRequest implements ModelInterface, ArrayAccess
         'max_entries' => 'getMaxEntries',
         'prefix_list_entries' => 'getPrefixListEntries',
         'prefix_list_name' => 'getPrefixListName',
+        'project_name' => 'getProjectName',
         'tags' => 'getTags'
     ];
 
@@ -205,6 +210,7 @@ class CreatePrefixListRequest implements ModelInterface, ArrayAccess
         $this->container['max_entries'] = isset($data['max_entries']) ? $data['max_entries'] : null;
         $this->container['prefix_list_entries'] = isset($data['prefix_list_entries']) ? $data['prefix_list_entries'] : null;
         $this->container['prefix_list_name'] = isset($data['prefix_list_name']) ? $data['prefix_list_name'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
     }
 
@@ -416,6 +422,30 @@ class CreatePrefixListRequest implements ModelInterface, ArrayAccess
     public function setPrefixListName($prefix_list_name)
     {
         $this->container['prefix_list_name'] = $prefix_list_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }

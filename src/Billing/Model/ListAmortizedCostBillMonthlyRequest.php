@@ -38,6 +38,8 @@ class ListAmortizedCostBillMonthlyRequest implements ModelInterface, ArrayAccess
         'limit' => 'int',
         'need_record_num' => 'int',
         'offset' => 'int',
+        'owner_id' => 'int[]',
+        'payer_id' => 'int[]',
         'product' => 'string[]'
     ];
 
@@ -57,6 +59,8 @@ class ListAmortizedCostBillMonthlyRequest implements ModelInterface, ArrayAccess
         'limit' => 'int32',
         'need_record_num' => 'int32',
         'offset' => 'int32',
+        'owner_id' => 'int64',
+        'payer_id' => 'int64',
         'product' => null
     ];
 
@@ -97,6 +101,8 @@ class ListAmortizedCostBillMonthlyRequest implements ModelInterface, ArrayAccess
         'limit' => 'Limit',
         'need_record_num' => 'NeedRecordNum',
         'offset' => 'Offset',
+        'owner_id' => 'OwnerID',
+        'payer_id' => 'PayerID',
         'product' => 'Product'
     ];
 
@@ -116,6 +122,8 @@ class ListAmortizedCostBillMonthlyRequest implements ModelInterface, ArrayAccess
         'limit' => 'setLimit',
         'need_record_num' => 'setNeedRecordNum',
         'offset' => 'setOffset',
+        'owner_id' => 'setOwnerId',
+        'payer_id' => 'setPayerId',
         'product' => 'setProduct'
     ];
 
@@ -135,6 +143,8 @@ class ListAmortizedCostBillMonthlyRequest implements ModelInterface, ArrayAccess
         'limit' => 'getLimit',
         'need_record_num' => 'getNeedRecordNum',
         'offset' => 'getOffset',
+        'owner_id' => 'getOwnerId',
+        'payer_id' => 'getPayerId',
         'product' => 'getProduct'
     ];
 
@@ -208,6 +218,8 @@ class ListAmortizedCostBillMonthlyRequest implements ModelInterface, ArrayAccess
         $this->container['limit'] = isset($data['limit']) ? $data['limit'] : null;
         $this->container['need_record_num'] = isset($data['need_record_num']) ? $data['need_record_num'] : null;
         $this->container['offset'] = isset($data['offset']) ? $data['offset'] : null;
+        $this->container['owner_id'] = isset($data['owner_id']) ? $data['owner_id'] : null;
+        $this->container['payer_id'] = isset($data['payer_id']) ? $data['payer_id'] : null;
         $this->container['product'] = isset($data['product']) ? $data['product'] : null;
     }
 
@@ -477,6 +489,54 @@ class ListAmortizedCostBillMonthlyRequest implements ModelInterface, ArrayAccess
     public function setOffset($offset)
     {
         $this->container['offset'] = $offset;
+
+        return $this;
+    }
+
+    /**
+     * Gets owner_id
+     *
+     * @return int[]
+     */
+    public function getOwnerId()
+    {
+        return $this->container['owner_id'];
+    }
+
+    /**
+     * Sets owner_id
+     *
+     * @param int[] $owner_id owner_id
+     *
+     * @return $this
+     */
+    public function setOwnerId($owner_id)
+    {
+        $this->container['owner_id'] = $owner_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets payer_id
+     *
+     * @return int[]
+     */
+    public function getPayerId()
+    {
+        return $this->container['payer_id'];
+    }
+
+    /**
+     * Sets payer_id
+     *
+     * @param int[] $payer_id payer_id
+     *
+     * @return $this
+     */
+    public function setPayerId($payer_id)
+    {
+        $this->container['payer_id'] = $payer_id;
 
         return $this;
     }
