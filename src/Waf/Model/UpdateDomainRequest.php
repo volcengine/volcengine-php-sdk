@@ -30,7 +30,13 @@ class UpdateDomainRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'access_mode' => 'int',
         'backend_groups' => '\Volcengine\Waf\Model\BackendGroupForUpdateDomainInput[]',
+        'bot_dytoken_enable' => 'int',
+        'bot_frequency_enable' => 'int',
+        'bot_repeat_enable' => 'int',
+        'bot_sequence_default_action' => 'int',
+        'bot_sequence_enable' => 'int',
         'certificate_id' => 'int',
+        'certificate_platform' => 'string',
         'client_ip_location' => 'int',
         'client_max_body_size' => 'int',
         'cloud_access_config' => '\Volcengine\Waf\Model\CloudAccessConfigForUpdateDomainInput[]',
@@ -52,10 +58,12 @@ class UpdateDomainRequest implements ModelInterface, ArrayAccess
         'proxy_retry' => 'int',
         'proxy_write_time_out' => 'int',
         'public_real_server' => 'int',
+        'redirect_https' => 'bool',
         'region' => 'string',
         'ssl_ciphers' => 'string[]',
         'ssl_protocols' => 'string[]',
         'tls_enable' => 'int',
+        'volc_certificate_id' => 'string',
         'vpc_id' => 'string'
     ];
 
@@ -67,7 +75,13 @@ class UpdateDomainRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'access_mode' => 'int32',
         'backend_groups' => null,
+        'bot_dytoken_enable' => 'int32',
+        'bot_frequency_enable' => 'int32',
+        'bot_repeat_enable' => 'int32',
+        'bot_sequence_default_action' => 'int32',
+        'bot_sequence_enable' => 'int32',
         'certificate_id' => 'int32',
+        'certificate_platform' => null,
         'client_ip_location' => 'int32',
         'client_max_body_size' => 'int32',
         'cloud_access_config' => null,
@@ -89,10 +103,12 @@ class UpdateDomainRequest implements ModelInterface, ArrayAccess
         'proxy_retry' => 'int32',
         'proxy_write_time_out' => 'int32',
         'public_real_server' => 'int32',
+        'redirect_https' => null,
         'region' => null,
         'ssl_ciphers' => null,
         'ssl_protocols' => null,
         'tls_enable' => 'int32',
+        'volc_certificate_id' => null,
         'vpc_id' => null
     ];
 
@@ -125,7 +141,13 @@ class UpdateDomainRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'access_mode' => 'AccessMode',
         'backend_groups' => 'BackendGroups',
+        'bot_dytoken_enable' => 'BotDytokenEnable',
+        'bot_frequency_enable' => 'BotFrequencyEnable',
+        'bot_repeat_enable' => 'BotRepeatEnable',
+        'bot_sequence_default_action' => 'BotSequenceDefaultAction',
+        'bot_sequence_enable' => 'BotSequenceEnable',
         'certificate_id' => 'CertificateID',
+        'certificate_platform' => 'CertificatePlatform',
         'client_ip_location' => 'ClientIPLocation',
         'client_max_body_size' => 'ClientMaxBodySize',
         'cloud_access_config' => 'CloudAccessConfig',
@@ -147,10 +169,12 @@ class UpdateDomainRequest implements ModelInterface, ArrayAccess
         'proxy_retry' => 'ProxyRetry',
         'proxy_write_time_out' => 'ProxyWriteTimeOut',
         'public_real_server' => 'PublicRealServer',
+        'redirect_https' => 'RedirectHTTPS',
         'region' => 'Region',
         'ssl_ciphers' => 'SSLCiphers',
         'ssl_protocols' => 'SSLProtocols',
         'tls_enable' => 'TLSEnable',
+        'volc_certificate_id' => 'VolcCertificateID',
         'vpc_id' => 'VpcID'
     ];
 
@@ -162,7 +186,13 @@ class UpdateDomainRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'access_mode' => 'setAccessMode',
         'backend_groups' => 'setBackendGroups',
+        'bot_dytoken_enable' => 'setBotDytokenEnable',
+        'bot_frequency_enable' => 'setBotFrequencyEnable',
+        'bot_repeat_enable' => 'setBotRepeatEnable',
+        'bot_sequence_default_action' => 'setBotSequenceDefaultAction',
+        'bot_sequence_enable' => 'setBotSequenceEnable',
         'certificate_id' => 'setCertificateId',
+        'certificate_platform' => 'setCertificatePlatform',
         'client_ip_location' => 'setClientIpLocation',
         'client_max_body_size' => 'setClientMaxBodySize',
         'cloud_access_config' => 'setCloudAccessConfig',
@@ -184,10 +214,12 @@ class UpdateDomainRequest implements ModelInterface, ArrayAccess
         'proxy_retry' => 'setProxyRetry',
         'proxy_write_time_out' => 'setProxyWriteTimeOut',
         'public_real_server' => 'setPublicRealServer',
+        'redirect_https' => 'setRedirectHttps',
         'region' => 'setRegion',
         'ssl_ciphers' => 'setSslCiphers',
         'ssl_protocols' => 'setSslProtocols',
         'tls_enable' => 'setTlsEnable',
+        'volc_certificate_id' => 'setVolcCertificateId',
         'vpc_id' => 'setVpcId'
     ];
 
@@ -199,7 +231,13 @@ class UpdateDomainRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'access_mode' => 'getAccessMode',
         'backend_groups' => 'getBackendGroups',
+        'bot_dytoken_enable' => 'getBotDytokenEnable',
+        'bot_frequency_enable' => 'getBotFrequencyEnable',
+        'bot_repeat_enable' => 'getBotRepeatEnable',
+        'bot_sequence_default_action' => 'getBotSequenceDefaultAction',
+        'bot_sequence_enable' => 'getBotSequenceEnable',
         'certificate_id' => 'getCertificateId',
+        'certificate_platform' => 'getCertificatePlatform',
         'client_ip_location' => 'getClientIpLocation',
         'client_max_body_size' => 'getClientMaxBodySize',
         'cloud_access_config' => 'getCloudAccessConfig',
@@ -221,10 +259,12 @@ class UpdateDomainRequest implements ModelInterface, ArrayAccess
         'proxy_retry' => 'getProxyRetry',
         'proxy_write_time_out' => 'getProxyWriteTimeOut',
         'public_real_server' => 'getPublicRealServer',
+        'redirect_https' => 'getRedirectHttps',
         'region' => 'getRegion',
         'ssl_ciphers' => 'getSslCiphers',
         'ssl_protocols' => 'getSslProtocols',
         'tls_enable' => 'getTlsEnable',
+        'volc_certificate_id' => 'getVolcCertificateId',
         'vpc_id' => 'getVpcId'
     ];
 
@@ -290,7 +330,13 @@ class UpdateDomainRequest implements ModelInterface, ArrayAccess
     {
         $this->container['access_mode'] = isset($data['access_mode']) ? $data['access_mode'] : null;
         $this->container['backend_groups'] = isset($data['backend_groups']) ? $data['backend_groups'] : null;
+        $this->container['bot_dytoken_enable'] = isset($data['bot_dytoken_enable']) ? $data['bot_dytoken_enable'] : null;
+        $this->container['bot_frequency_enable'] = isset($data['bot_frequency_enable']) ? $data['bot_frequency_enable'] : null;
+        $this->container['bot_repeat_enable'] = isset($data['bot_repeat_enable']) ? $data['bot_repeat_enable'] : null;
+        $this->container['bot_sequence_default_action'] = isset($data['bot_sequence_default_action']) ? $data['bot_sequence_default_action'] : null;
+        $this->container['bot_sequence_enable'] = isset($data['bot_sequence_enable']) ? $data['bot_sequence_enable'] : null;
         $this->container['certificate_id'] = isset($data['certificate_id']) ? $data['certificate_id'] : null;
+        $this->container['certificate_platform'] = isset($data['certificate_platform']) ? $data['certificate_platform'] : null;
         $this->container['client_ip_location'] = isset($data['client_ip_location']) ? $data['client_ip_location'] : null;
         $this->container['client_max_body_size'] = isset($data['client_max_body_size']) ? $data['client_max_body_size'] : null;
         $this->container['cloud_access_config'] = isset($data['cloud_access_config']) ? $data['cloud_access_config'] : null;
@@ -312,10 +358,12 @@ class UpdateDomainRequest implements ModelInterface, ArrayAccess
         $this->container['proxy_retry'] = isset($data['proxy_retry']) ? $data['proxy_retry'] : null;
         $this->container['proxy_write_time_out'] = isset($data['proxy_write_time_out']) ? $data['proxy_write_time_out'] : null;
         $this->container['public_real_server'] = isset($data['public_real_server']) ? $data['public_real_server'] : null;
+        $this->container['redirect_https'] = isset($data['redirect_https']) ? $data['redirect_https'] : null;
         $this->container['region'] = isset($data['region']) ? $data['region'] : null;
         $this->container['ssl_ciphers'] = isset($data['ssl_ciphers']) ? $data['ssl_ciphers'] : null;
         $this->container['ssl_protocols'] = isset($data['ssl_protocols']) ? $data['ssl_protocols'] : null;
         $this->container['tls_enable'] = isset($data['tls_enable']) ? $data['tls_enable'] : null;
+        $this->container['volc_certificate_id'] = isset($data['volc_certificate_id']) ? $data['volc_certificate_id'] : null;
         $this->container['vpc_id'] = isset($data['vpc_id']) ? $data['vpc_id'] : null;
     }
 
@@ -401,6 +449,126 @@ class UpdateDomainRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets bot_dytoken_enable
+     *
+     * @return int
+     */
+    public function getBotDytokenEnable()
+    {
+        return $this->container['bot_dytoken_enable'];
+    }
+
+    /**
+     * Sets bot_dytoken_enable
+     *
+     * @param int $bot_dytoken_enable bot_dytoken_enable
+     *
+     * @return $this
+     */
+    public function setBotDytokenEnable($bot_dytoken_enable)
+    {
+        $this->container['bot_dytoken_enable'] = $bot_dytoken_enable;
+
+        return $this;
+    }
+
+    /**
+     * Gets bot_frequency_enable
+     *
+     * @return int
+     */
+    public function getBotFrequencyEnable()
+    {
+        return $this->container['bot_frequency_enable'];
+    }
+
+    /**
+     * Sets bot_frequency_enable
+     *
+     * @param int $bot_frequency_enable bot_frequency_enable
+     *
+     * @return $this
+     */
+    public function setBotFrequencyEnable($bot_frequency_enable)
+    {
+        $this->container['bot_frequency_enable'] = $bot_frequency_enable;
+
+        return $this;
+    }
+
+    /**
+     * Gets bot_repeat_enable
+     *
+     * @return int
+     */
+    public function getBotRepeatEnable()
+    {
+        return $this->container['bot_repeat_enable'];
+    }
+
+    /**
+     * Sets bot_repeat_enable
+     *
+     * @param int $bot_repeat_enable bot_repeat_enable
+     *
+     * @return $this
+     */
+    public function setBotRepeatEnable($bot_repeat_enable)
+    {
+        $this->container['bot_repeat_enable'] = $bot_repeat_enable;
+
+        return $this;
+    }
+
+    /**
+     * Gets bot_sequence_default_action
+     *
+     * @return int
+     */
+    public function getBotSequenceDefaultAction()
+    {
+        return $this->container['bot_sequence_default_action'];
+    }
+
+    /**
+     * Sets bot_sequence_default_action
+     *
+     * @param int $bot_sequence_default_action bot_sequence_default_action
+     *
+     * @return $this
+     */
+    public function setBotSequenceDefaultAction($bot_sequence_default_action)
+    {
+        $this->container['bot_sequence_default_action'] = $bot_sequence_default_action;
+
+        return $this;
+    }
+
+    /**
+     * Gets bot_sequence_enable
+     *
+     * @return int
+     */
+    public function getBotSequenceEnable()
+    {
+        return $this->container['bot_sequence_enable'];
+    }
+
+    /**
+     * Sets bot_sequence_enable
+     *
+     * @param int $bot_sequence_enable bot_sequence_enable
+     *
+     * @return $this
+     */
+    public function setBotSequenceEnable($bot_sequence_enable)
+    {
+        $this->container['bot_sequence_enable'] = $bot_sequence_enable;
+
+        return $this;
+    }
+
+    /**
      * Gets certificate_id
      *
      * @return int
@@ -420,6 +588,30 @@ class UpdateDomainRequest implements ModelInterface, ArrayAccess
     public function setCertificateId($certificate_id)
     {
         $this->container['certificate_id'] = $certificate_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets certificate_platform
+     *
+     * @return string
+     */
+    public function getCertificatePlatform()
+    {
+        return $this->container['certificate_platform'];
+    }
+
+    /**
+     * Sets certificate_platform
+     *
+     * @param string $certificate_platform certificate_platform
+     *
+     * @return $this
+     */
+    public function setCertificatePlatform($certificate_platform)
+    {
+        $this->container['certificate_platform'] = $certificate_platform;
 
         return $this;
     }
@@ -929,6 +1121,30 @@ class UpdateDomainRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets redirect_https
+     *
+     * @return bool
+     */
+    public function getRedirectHttps()
+    {
+        return $this->container['redirect_https'];
+    }
+
+    /**
+     * Sets redirect_https
+     *
+     * @param bool $redirect_https redirect_https
+     *
+     * @return $this
+     */
+    public function setRedirectHttps($redirect_https)
+    {
+        $this->container['redirect_https'] = $redirect_https;
+
+        return $this;
+    }
+
+    /**
      * Gets region
      *
      * @return string
@@ -1020,6 +1236,30 @@ class UpdateDomainRequest implements ModelInterface, ArrayAccess
     public function setTlsEnable($tls_enable)
     {
         $this->container['tls_enable'] = $tls_enable;
+
+        return $this;
+    }
+
+    /**
+     * Gets volc_certificate_id
+     *
+     * @return string
+     */
+    public function getVolcCertificateId()
+    {
+        return $this->container['volc_certificate_id'];
+    }
+
+    /**
+     * Sets volc_certificate_id
+     *
+     * @param string $volc_certificate_id volc_certificate_id
+     *
+     * @return $this
+     */
+    public function setVolcCertificateId($volc_certificate_id)
+    {
+        $this->container['volc_certificate_id'] = $volc_certificate_id;
 
         return $this;
     }

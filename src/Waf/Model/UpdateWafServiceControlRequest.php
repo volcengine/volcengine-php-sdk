@@ -29,8 +29,14 @@ class UpdateWafServiceControlRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'api_enable' => 'int',
+        'auto_cc_enable' => 'int',
         'black_ip_enable' => 'int',
         'black_lct_enable' => 'int',
+        'bot_dytoken_enable' => 'string',
+        'bot_frequency_enable' => 'int',
+        'bot_repeat_enable' => 'int',
+        'bot_sequence_default_action' => 'int',
+        'bot_sequence_enable' => 'int',
         'cc_enable' => 'int',
         'custom_bot_enable' => 'int',
         'custom_rsp_enable' => 'int',
@@ -52,8 +58,14 @@ class UpdateWafServiceControlRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'api_enable' => 'int32',
+        'auto_cc_enable' => 'int32',
         'black_ip_enable' => 'int32',
         'black_lct_enable' => 'int32',
+        'bot_dytoken_enable' => null,
+        'bot_frequency_enable' => 'int32',
+        'bot_repeat_enable' => 'int32',
+        'bot_sequence_default_action' => 'int32',
+        'bot_sequence_enable' => 'int32',
         'cc_enable' => 'int32',
         'custom_bot_enable' => 'int32',
         'custom_rsp_enable' => 'int32',
@@ -96,8 +108,14 @@ class UpdateWafServiceControlRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'api_enable' => 'ApiEnable',
+        'auto_cc_enable' => 'AutoCCEnable',
         'black_ip_enable' => 'BlackIpEnable',
         'black_lct_enable' => 'BlackLctEnable',
+        'bot_dytoken_enable' => 'BotDytokenEnable',
+        'bot_frequency_enable' => 'BotFrequencyEnable',
+        'bot_repeat_enable' => 'BotRepeatEnable',
+        'bot_sequence_default_action' => 'BotSequenceDefaultAction',
+        'bot_sequence_enable' => 'BotSequenceEnable',
         'cc_enable' => 'CcEnable',
         'custom_bot_enable' => 'CustomBotEnable',
         'custom_rsp_enable' => 'CustomRspEnable',
@@ -119,8 +137,14 @@ class UpdateWafServiceControlRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'api_enable' => 'setApiEnable',
+        'auto_cc_enable' => 'setAutoCcEnable',
         'black_ip_enable' => 'setBlackIpEnable',
         'black_lct_enable' => 'setBlackLctEnable',
+        'bot_dytoken_enable' => 'setBotDytokenEnable',
+        'bot_frequency_enable' => 'setBotFrequencyEnable',
+        'bot_repeat_enable' => 'setBotRepeatEnable',
+        'bot_sequence_default_action' => 'setBotSequenceDefaultAction',
+        'bot_sequence_enable' => 'setBotSequenceEnable',
         'cc_enable' => 'setCcEnable',
         'custom_bot_enable' => 'setCustomBotEnable',
         'custom_rsp_enable' => 'setCustomRspEnable',
@@ -142,8 +166,14 @@ class UpdateWafServiceControlRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'api_enable' => 'getApiEnable',
+        'auto_cc_enable' => 'getAutoCcEnable',
         'black_ip_enable' => 'getBlackIpEnable',
         'black_lct_enable' => 'getBlackLctEnable',
+        'bot_dytoken_enable' => 'getBotDytokenEnable',
+        'bot_frequency_enable' => 'getBotFrequencyEnable',
+        'bot_repeat_enable' => 'getBotRepeatEnable',
+        'bot_sequence_default_action' => 'getBotSequenceDefaultAction',
+        'bot_sequence_enable' => 'getBotSequenceEnable',
         'cc_enable' => 'getCcEnable',
         'custom_bot_enable' => 'getCustomBotEnable',
         'custom_rsp_enable' => 'getCustomRspEnable',
@@ -219,8 +249,14 @@ class UpdateWafServiceControlRequest implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['api_enable'] = isset($data['api_enable']) ? $data['api_enable'] : null;
+        $this->container['auto_cc_enable'] = isset($data['auto_cc_enable']) ? $data['auto_cc_enable'] : null;
         $this->container['black_ip_enable'] = isset($data['black_ip_enable']) ? $data['black_ip_enable'] : null;
         $this->container['black_lct_enable'] = isset($data['black_lct_enable']) ? $data['black_lct_enable'] : null;
+        $this->container['bot_dytoken_enable'] = isset($data['bot_dytoken_enable']) ? $data['bot_dytoken_enable'] : null;
+        $this->container['bot_frequency_enable'] = isset($data['bot_frequency_enable']) ? $data['bot_frequency_enable'] : null;
+        $this->container['bot_repeat_enable'] = isset($data['bot_repeat_enable']) ? $data['bot_repeat_enable'] : null;
+        $this->container['bot_sequence_default_action'] = isset($data['bot_sequence_default_action']) ? $data['bot_sequence_default_action'] : null;
+        $this->container['bot_sequence_enable'] = isset($data['bot_sequence_enable']) ? $data['bot_sequence_enable'] : null;
         $this->container['cc_enable'] = isset($data['cc_enable']) ? $data['cc_enable'] : null;
         $this->container['custom_bot_enable'] = isset($data['custom_bot_enable']) ? $data['custom_bot_enable'] : null;
         $this->container['custom_rsp_enable'] = isset($data['custom_rsp_enable']) ? $data['custom_rsp_enable'] : null;
@@ -287,6 +323,30 @@ class UpdateWafServiceControlRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets auto_cc_enable
+     *
+     * @return int
+     */
+    public function getAutoCcEnable()
+    {
+        return $this->container['auto_cc_enable'];
+    }
+
+    /**
+     * Sets auto_cc_enable
+     *
+     * @param int $auto_cc_enable auto_cc_enable
+     *
+     * @return $this
+     */
+    public function setAutoCcEnable($auto_cc_enable)
+    {
+        $this->container['auto_cc_enable'] = $auto_cc_enable;
+
+        return $this;
+    }
+
+    /**
      * Gets black_ip_enable
      *
      * @return int
@@ -330,6 +390,126 @@ class UpdateWafServiceControlRequest implements ModelInterface, ArrayAccess
     public function setBlackLctEnable($black_lct_enable)
     {
         $this->container['black_lct_enable'] = $black_lct_enable;
+
+        return $this;
+    }
+
+    /**
+     * Gets bot_dytoken_enable
+     *
+     * @return string
+     */
+    public function getBotDytokenEnable()
+    {
+        return $this->container['bot_dytoken_enable'];
+    }
+
+    /**
+     * Sets bot_dytoken_enable
+     *
+     * @param string $bot_dytoken_enable bot_dytoken_enable
+     *
+     * @return $this
+     */
+    public function setBotDytokenEnable($bot_dytoken_enable)
+    {
+        $this->container['bot_dytoken_enable'] = $bot_dytoken_enable;
+
+        return $this;
+    }
+
+    /**
+     * Gets bot_frequency_enable
+     *
+     * @return int
+     */
+    public function getBotFrequencyEnable()
+    {
+        return $this->container['bot_frequency_enable'];
+    }
+
+    /**
+     * Sets bot_frequency_enable
+     *
+     * @param int $bot_frequency_enable bot_frequency_enable
+     *
+     * @return $this
+     */
+    public function setBotFrequencyEnable($bot_frequency_enable)
+    {
+        $this->container['bot_frequency_enable'] = $bot_frequency_enable;
+
+        return $this;
+    }
+
+    /**
+     * Gets bot_repeat_enable
+     *
+     * @return int
+     */
+    public function getBotRepeatEnable()
+    {
+        return $this->container['bot_repeat_enable'];
+    }
+
+    /**
+     * Sets bot_repeat_enable
+     *
+     * @param int $bot_repeat_enable bot_repeat_enable
+     *
+     * @return $this
+     */
+    public function setBotRepeatEnable($bot_repeat_enable)
+    {
+        $this->container['bot_repeat_enable'] = $bot_repeat_enable;
+
+        return $this;
+    }
+
+    /**
+     * Gets bot_sequence_default_action
+     *
+     * @return int
+     */
+    public function getBotSequenceDefaultAction()
+    {
+        return $this->container['bot_sequence_default_action'];
+    }
+
+    /**
+     * Sets bot_sequence_default_action
+     *
+     * @param int $bot_sequence_default_action bot_sequence_default_action
+     *
+     * @return $this
+     */
+    public function setBotSequenceDefaultAction($bot_sequence_default_action)
+    {
+        $this->container['bot_sequence_default_action'] = $bot_sequence_default_action;
+
+        return $this;
+    }
+
+    /**
+     * Gets bot_sequence_enable
+     *
+     * @return int
+     */
+    public function getBotSequenceEnable()
+    {
+        return $this->container['bot_sequence_enable'];
+    }
+
+    /**
+     * Sets bot_sequence_enable
+     *
+     * @param int $bot_sequence_enable bot_sequence_enable
+     *
+     * @return $this
+     */
+    public function setBotSequenceEnable($bot_sequence_enable)
+    {
+        $this->container['bot_sequence_enable'] = $bot_sequence_enable;
 
         return $this;
     }
