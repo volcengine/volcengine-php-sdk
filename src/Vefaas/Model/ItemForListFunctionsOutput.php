@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class UpdateFunctionRequest implements ModelInterface, ArrayAccess
+class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'UpdateFunctionRequest';
+    protected static $swaggerModelName = 'ItemForListFunctionsOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,22 +28,29 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'code_size' => 'int',
+        'code_size_limit' => 'int',
+        'creation_time' => 'string',
         'description' => 'string',
-        'envs' => '\Volcengine\Vefaas\Model\EnvForUpdateFunctionInput[]',
+        'envs' => '\Volcengine\Vefaas\Model\EnvForListFunctionsOutput[]',
         'exclusive_mode' => 'bool',
         'id' => 'string',
         'initializer_sec' => 'int',
+        'instance_type' => 'string',
+        'last_update_time' => 'string',
         'max_concurrency' => 'int',
         'memory_mb' => 'int',
-        'nas_storage' => '\Volcengine\Vefaas\Model\NasStorageForUpdateFunctionInput',
+        'name' => 'string',
+        'nas_storage' => '\Volcengine\Vefaas\Model\NasStorageForListFunctionsOutput',
+        'owner' => 'string',
         'request_timeout' => 'int',
         'runtime' => 'string',
-        'source' => 'string',
-        'source_access_config' => '\Volcengine\Vefaas\Model\SourceAccessConfigForUpdateFunctionInput',
+        'source_location' => 'string',
         'source_type' => 'string',
-        'tls_config' => '\Volcengine\Vefaas\Model\TlsConfigForUpdateFunctionInput',
-        'tos_mount_config' => '\Volcengine\Vefaas\Model\TosMountConfigForUpdateFunctionInput',
-        'vpc_config' => '\Volcengine\Vefaas\Model\VpcConfigForUpdateFunctionInput'
+        'tls_config' => '\Volcengine\Vefaas\Model\TlsConfigForListFunctionsOutput',
+        'tos_mount_config' => '\Volcengine\Vefaas\Model\TosMountConfigForListFunctionsOutput',
+        'triggers_count' => 'int',
+        'vpc_config' => '\Volcengine\Vefaas\Model\VpcConfigForListFunctionsOutput'
     ];
 
     /**
@@ -52,21 +59,28 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'code_size' => 'int32',
+        'code_size_limit' => 'int32',
+        'creation_time' => null,
         'description' => null,
         'envs' => null,
         'exclusive_mode' => null,
         'id' => null,
         'initializer_sec' => 'int32',
+        'instance_type' => null,
+        'last_update_time' => null,
         'max_concurrency' => 'int32',
         'memory_mb' => 'int32',
+        'name' => null,
         'nas_storage' => null,
+        'owner' => null,
         'request_timeout' => 'int32',
         'runtime' => null,
-        'source' => null,
-        'source_access_config' => null,
+        'source_location' => null,
         'source_type' => null,
         'tls_config' => null,
         'tos_mount_config' => null,
+        'triggers_count' => 'int32',
         'vpc_config' => null
     ];
 
@@ -97,21 +111,28 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'code_size' => 'CodeSize',
+        'code_size_limit' => 'CodeSizeLimit',
+        'creation_time' => 'CreationTime',
         'description' => 'Description',
         'envs' => 'Envs',
         'exclusive_mode' => 'ExclusiveMode',
         'id' => 'Id',
         'initializer_sec' => 'InitializerSec',
+        'instance_type' => 'InstanceType',
+        'last_update_time' => 'LastUpdateTime',
         'max_concurrency' => 'MaxConcurrency',
         'memory_mb' => 'MemoryMB',
+        'name' => 'Name',
         'nas_storage' => 'NasStorage',
+        'owner' => 'Owner',
         'request_timeout' => 'RequestTimeout',
         'runtime' => 'Runtime',
-        'source' => 'Source',
-        'source_access_config' => 'SourceAccessConfig',
+        'source_location' => 'SourceLocation',
         'source_type' => 'SourceType',
         'tls_config' => 'TlsConfig',
         'tos_mount_config' => 'TosMountConfig',
+        'triggers_count' => 'TriggersCount',
         'vpc_config' => 'VpcConfig'
     ];
 
@@ -121,21 +142,28 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'code_size' => 'setCodeSize',
+        'code_size_limit' => 'setCodeSizeLimit',
+        'creation_time' => 'setCreationTime',
         'description' => 'setDescription',
         'envs' => 'setEnvs',
         'exclusive_mode' => 'setExclusiveMode',
         'id' => 'setId',
         'initializer_sec' => 'setInitializerSec',
+        'instance_type' => 'setInstanceType',
+        'last_update_time' => 'setLastUpdateTime',
         'max_concurrency' => 'setMaxConcurrency',
         'memory_mb' => 'setMemoryMb',
+        'name' => 'setName',
         'nas_storage' => 'setNasStorage',
+        'owner' => 'setOwner',
         'request_timeout' => 'setRequestTimeout',
         'runtime' => 'setRuntime',
-        'source' => 'setSource',
-        'source_access_config' => 'setSourceAccessConfig',
+        'source_location' => 'setSourceLocation',
         'source_type' => 'setSourceType',
         'tls_config' => 'setTlsConfig',
         'tos_mount_config' => 'setTosMountConfig',
+        'triggers_count' => 'setTriggersCount',
         'vpc_config' => 'setVpcConfig'
     ];
 
@@ -145,21 +173,28 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'code_size' => 'getCodeSize',
+        'code_size_limit' => 'getCodeSizeLimit',
+        'creation_time' => 'getCreationTime',
         'description' => 'getDescription',
         'envs' => 'getEnvs',
         'exclusive_mode' => 'getExclusiveMode',
         'id' => 'getId',
         'initializer_sec' => 'getInitializerSec',
+        'instance_type' => 'getInstanceType',
+        'last_update_time' => 'getLastUpdateTime',
         'max_concurrency' => 'getMaxConcurrency',
         'memory_mb' => 'getMemoryMb',
+        'name' => 'getName',
         'nas_storage' => 'getNasStorage',
+        'owner' => 'getOwner',
         'request_timeout' => 'getRequestTimeout',
         'runtime' => 'getRuntime',
-        'source' => 'getSource',
-        'source_access_config' => 'getSourceAccessConfig',
+        'source_location' => 'getSourceLocation',
         'source_type' => 'getSourceType',
         'tls_config' => 'getTlsConfig',
         'tos_mount_config' => 'getTosMountConfig',
+        'triggers_count' => 'getTriggersCount',
         'vpc_config' => 'getVpcConfig'
     ];
 
@@ -223,21 +258,28 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['code_size'] = isset($data['code_size']) ? $data['code_size'] : null;
+        $this->container['code_size_limit'] = isset($data['code_size_limit']) ? $data['code_size_limit'] : null;
+        $this->container['creation_time'] = isset($data['creation_time']) ? $data['creation_time'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['envs'] = isset($data['envs']) ? $data['envs'] : null;
         $this->container['exclusive_mode'] = isset($data['exclusive_mode']) ? $data['exclusive_mode'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['initializer_sec'] = isset($data['initializer_sec']) ? $data['initializer_sec'] : null;
+        $this->container['instance_type'] = isset($data['instance_type']) ? $data['instance_type'] : null;
+        $this->container['last_update_time'] = isset($data['last_update_time']) ? $data['last_update_time'] : null;
         $this->container['max_concurrency'] = isset($data['max_concurrency']) ? $data['max_concurrency'] : null;
         $this->container['memory_mb'] = isset($data['memory_mb']) ? $data['memory_mb'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['nas_storage'] = isset($data['nas_storage']) ? $data['nas_storage'] : null;
+        $this->container['owner'] = isset($data['owner']) ? $data['owner'] : null;
         $this->container['request_timeout'] = isset($data['request_timeout']) ? $data['request_timeout'] : null;
         $this->container['runtime'] = isset($data['runtime']) ? $data['runtime'] : null;
-        $this->container['source'] = isset($data['source']) ? $data['source'] : null;
-        $this->container['source_access_config'] = isset($data['source_access_config']) ? $data['source_access_config'] : null;
+        $this->container['source_location'] = isset($data['source_location']) ? $data['source_location'] : null;
         $this->container['source_type'] = isset($data['source_type']) ? $data['source_type'] : null;
         $this->container['tls_config'] = isset($data['tls_config']) ? $data['tls_config'] : null;
         $this->container['tos_mount_config'] = isset($data['tos_mount_config']) ? $data['tos_mount_config'] : null;
+        $this->container['triggers_count'] = isset($data['triggers_count']) ? $data['triggers_count'] : null;
         $this->container['vpc_config'] = isset($data['vpc_config']) ? $data['vpc_config'] : null;
     }
 
@@ -250,9 +292,6 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -267,6 +306,78 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets code_size
+     *
+     * @return int
+     */
+    public function getCodeSize()
+    {
+        return $this->container['code_size'];
+    }
+
+    /**
+     * Sets code_size
+     *
+     * @param int $code_size code_size
+     *
+     * @return $this
+     */
+    public function setCodeSize($code_size)
+    {
+        $this->container['code_size'] = $code_size;
+
+        return $this;
+    }
+
+    /**
+     * Gets code_size_limit
+     *
+     * @return int
+     */
+    public function getCodeSizeLimit()
+    {
+        return $this->container['code_size_limit'];
+    }
+
+    /**
+     * Sets code_size_limit
+     *
+     * @param int $code_size_limit code_size_limit
+     *
+     * @return $this
+     */
+    public function setCodeSizeLimit($code_size_limit)
+    {
+        $this->container['code_size_limit'] = $code_size_limit;
+
+        return $this;
+    }
+
+    /**
+     * Gets creation_time
+     *
+     * @return string
+     */
+    public function getCreationTime()
+    {
+        return $this->container['creation_time'];
+    }
+
+    /**
+     * Sets creation_time
+     *
+     * @param string $creation_time creation_time
+     *
+     * @return $this
+     */
+    public function setCreationTime($creation_time)
+    {
+        $this->container['creation_time'] = $creation_time;
+
+        return $this;
+    }
 
     /**
      * Gets description
@@ -295,7 +406,7 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
     /**
      * Gets envs
      *
-     * @return \Volcengine\Vefaas\Model\EnvForUpdateFunctionInput[]
+     * @return \Volcengine\Vefaas\Model\EnvForListFunctionsOutput[]
      */
     public function getEnvs()
     {
@@ -305,7 +416,7 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
     /**
      * Sets envs
      *
-     * @param \Volcengine\Vefaas\Model\EnvForUpdateFunctionInput[] $envs envs
+     * @param \Volcengine\Vefaas\Model\EnvForListFunctionsOutput[] $envs envs
      *
      * @return $this
      */
@@ -389,6 +500,54 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets instance_type
+     *
+     * @return string
+     */
+    public function getInstanceType()
+    {
+        return $this->container['instance_type'];
+    }
+
+    /**
+     * Sets instance_type
+     *
+     * @param string $instance_type instance_type
+     *
+     * @return $this
+     */
+    public function setInstanceType($instance_type)
+    {
+        $this->container['instance_type'] = $instance_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets last_update_time
+     *
+     * @return string
+     */
+    public function getLastUpdateTime()
+    {
+        return $this->container['last_update_time'];
+    }
+
+    /**
+     * Sets last_update_time
+     *
+     * @param string $last_update_time last_update_time
+     *
+     * @return $this
+     */
+    public function setLastUpdateTime($last_update_time)
+    {
+        $this->container['last_update_time'] = $last_update_time;
+
+        return $this;
+    }
+
+    /**
      * Gets max_concurrency
      *
      * @return int
@@ -437,9 +596,33 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name name
+     *
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
      * Gets nas_storage
      *
-     * @return \Volcengine\Vefaas\Model\NasStorageForUpdateFunctionInput
+     * @return \Volcengine\Vefaas\Model\NasStorageForListFunctionsOutput
      */
     public function getNasStorage()
     {
@@ -449,13 +632,37 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
     /**
      * Sets nas_storage
      *
-     * @param \Volcengine\Vefaas\Model\NasStorageForUpdateFunctionInput $nas_storage nas_storage
+     * @param \Volcengine\Vefaas\Model\NasStorageForListFunctionsOutput $nas_storage nas_storage
      *
      * @return $this
      */
     public function setNasStorage($nas_storage)
     {
         $this->container['nas_storage'] = $nas_storage;
+
+        return $this;
+    }
+
+    /**
+     * Gets owner
+     *
+     * @return string
+     */
+    public function getOwner()
+    {
+        return $this->container['owner'];
+    }
+
+    /**
+     * Sets owner
+     *
+     * @param string $owner owner
+     *
+     * @return $this
+     */
+    public function setOwner($owner)
+    {
+        $this->container['owner'] = $owner;
 
         return $this;
     }
@@ -509,49 +716,25 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets source
+     * Gets source_location
      *
      * @return string
      */
-    public function getSource()
+    public function getSourceLocation()
     {
-        return $this->container['source'];
+        return $this->container['source_location'];
     }
 
     /**
-     * Sets source
+     * Sets source_location
      *
-     * @param string $source source
+     * @param string $source_location source_location
      *
      * @return $this
      */
-    public function setSource($source)
+    public function setSourceLocation($source_location)
     {
-        $this->container['source'] = $source;
-
-        return $this;
-    }
-
-    /**
-     * Gets source_access_config
-     *
-     * @return \Volcengine\Vefaas\Model\SourceAccessConfigForUpdateFunctionInput
-     */
-    public function getSourceAccessConfig()
-    {
-        return $this->container['source_access_config'];
-    }
-
-    /**
-     * Sets source_access_config
-     *
-     * @param \Volcengine\Vefaas\Model\SourceAccessConfigForUpdateFunctionInput $source_access_config source_access_config
-     *
-     * @return $this
-     */
-    public function setSourceAccessConfig($source_access_config)
-    {
-        $this->container['source_access_config'] = $source_access_config;
+        $this->container['source_location'] = $source_location;
 
         return $this;
     }
@@ -583,7 +766,7 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
     /**
      * Gets tls_config
      *
-     * @return \Volcengine\Vefaas\Model\TlsConfigForUpdateFunctionInput
+     * @return \Volcengine\Vefaas\Model\TlsConfigForListFunctionsOutput
      */
     public function getTlsConfig()
     {
@@ -593,7 +776,7 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
     /**
      * Sets tls_config
      *
-     * @param \Volcengine\Vefaas\Model\TlsConfigForUpdateFunctionInput $tls_config tls_config
+     * @param \Volcengine\Vefaas\Model\TlsConfigForListFunctionsOutput $tls_config tls_config
      *
      * @return $this
      */
@@ -607,7 +790,7 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
     /**
      * Gets tos_mount_config
      *
-     * @return \Volcengine\Vefaas\Model\TosMountConfigForUpdateFunctionInput
+     * @return \Volcengine\Vefaas\Model\TosMountConfigForListFunctionsOutput
      */
     public function getTosMountConfig()
     {
@@ -617,7 +800,7 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
     /**
      * Sets tos_mount_config
      *
-     * @param \Volcengine\Vefaas\Model\TosMountConfigForUpdateFunctionInput $tos_mount_config tos_mount_config
+     * @param \Volcengine\Vefaas\Model\TosMountConfigForListFunctionsOutput $tos_mount_config tos_mount_config
      *
      * @return $this
      */
@@ -629,9 +812,33 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets triggers_count
+     *
+     * @return int
+     */
+    public function getTriggersCount()
+    {
+        return $this->container['triggers_count'];
+    }
+
+    /**
+     * Sets triggers_count
+     *
+     * @param int $triggers_count triggers_count
+     *
+     * @return $this
+     */
+    public function setTriggersCount($triggers_count)
+    {
+        $this->container['triggers_count'] = $triggers_count;
+
+        return $this;
+    }
+
+    /**
      * Gets vpc_config
      *
-     * @return \Volcengine\Vefaas\Model\VpcConfigForUpdateFunctionInput
+     * @return \Volcengine\Vefaas\Model\VpcConfigForListFunctionsOutput
      */
     public function getVpcConfig()
     {
@@ -641,7 +848,7 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
     /**
      * Sets vpc_config
      *
-     * @param \Volcengine\Vefaas\Model\VpcConfigForUpdateFunctionInput $vpc_config vpc_config
+     * @param \Volcengine\Vefaas\Model\VpcConfigForListFunctionsOutput $vpc_config vpc_config
      *
      * @return $this
      */

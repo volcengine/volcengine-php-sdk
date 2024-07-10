@@ -42,7 +42,6 @@ class CreateFunctionRequest implements ModelInterface, ArrayAccess
         'source_access_config' => '\Volcengine\Vefaas\Model\SourceAccessConfigForCreateFunctionInput',
         'source_type' => 'string',
         'tls_config' => '\Volcengine\Vefaas\Model\TlsConfigForCreateFunctionInput',
-        'top_param' => '\Volcengine\Vefaas\Model\TopParamForCreateFunctionInput',
         'tos_mount_config' => '\Volcengine\Vefaas\Model\TosMountConfigForCreateFunctionInput',
         'vpc_config' => '\Volcengine\Vefaas\Model\VpcConfigForCreateFunctionInput'
     ];
@@ -67,7 +66,6 @@ class CreateFunctionRequest implements ModelInterface, ArrayAccess
         'source_access_config' => null,
         'source_type' => null,
         'tls_config' => null,
-        'top_param' => null,
         'tos_mount_config' => null,
         'vpc_config' => null
     ];
@@ -113,7 +111,6 @@ class CreateFunctionRequest implements ModelInterface, ArrayAccess
         'source_access_config' => 'SourceAccessConfig',
         'source_type' => 'SourceType',
         'tls_config' => 'TlsConfig',
-        'top_param' => 'TopParam',
         'tos_mount_config' => 'TosMountConfig',
         'vpc_config' => 'VpcConfig'
     ];
@@ -138,7 +135,6 @@ class CreateFunctionRequest implements ModelInterface, ArrayAccess
         'source_access_config' => 'setSourceAccessConfig',
         'source_type' => 'setSourceType',
         'tls_config' => 'setTlsConfig',
-        'top_param' => 'setTopParam',
         'tos_mount_config' => 'setTosMountConfig',
         'vpc_config' => 'setVpcConfig'
     ];
@@ -163,7 +159,6 @@ class CreateFunctionRequest implements ModelInterface, ArrayAccess
         'source_access_config' => 'getSourceAccessConfig',
         'source_type' => 'getSourceType',
         'tls_config' => 'getTlsConfig',
-        'top_param' => 'getTopParam',
         'tos_mount_config' => 'getTosMountConfig',
         'vpc_config' => 'getVpcConfig'
     ];
@@ -242,7 +237,6 @@ class CreateFunctionRequest implements ModelInterface, ArrayAccess
         $this->container['source_access_config'] = isset($data['source_access_config']) ? $data['source_access_config'] : null;
         $this->container['source_type'] = isset($data['source_type']) ? $data['source_type'] : null;
         $this->container['tls_config'] = isset($data['tls_config']) ? $data['tls_config'] : null;
-        $this->container['top_param'] = isset($data['top_param']) ? $data['top_param'] : null;
         $this->container['tos_mount_config'] = isset($data['tos_mount_config']) ? $data['tos_mount_config'] : null;
         $this->container['vpc_config'] = isset($data['vpc_config']) ? $data['vpc_config'] : null;
     }
@@ -609,30 +603,6 @@ class CreateFunctionRequest implements ModelInterface, ArrayAccess
     public function setTlsConfig($tls_config)
     {
         $this->container['tls_config'] = $tls_config;
-
-        return $this;
-    }
-
-    /**
-     * Gets top_param
-     *
-     * @return \Volcengine\Vefaas\Model\TopParamForCreateFunctionInput
-     */
-    public function getTopParam()
-    {
-        return $this->container['top_param'];
-    }
-
-    /**
-     * Sets top_param
-     *
-     * @param \Volcengine\Vefaas\Model\TopParamForCreateFunctionInput $top_param top_param
-     *
-     * @return $this
-     */
-    public function setTopParam($top_param)
-    {
-        $this->container['top_param'] = $top_param;
 
         return $this;
     }

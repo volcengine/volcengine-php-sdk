@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class GetFunctionRequest implements ModelInterface, ArrayAccess
+class TosMountConfigForGetRevisionOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetFunctionRequest';
+    protected static $swaggerModelName = 'TosMountConfigForGetRevisionOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,9 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'string'
+        'credentials' => '\Volcengine\Vefaas\Model\CredentialsForGetRevisionOutput',
+        'enable_tos' => 'bool',
+        'mount_points' => '\Volcengine\Vefaas\Model\MountPointForGetRevisionOutput[]'
     ];
 
     /**
@@ -37,7 +39,9 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => null
+        'credentials' => null,
+        'enable_tos' => null,
+        'mount_points' => null
     ];
 
     /**
@@ -67,7 +71,9 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'Id'
+        'credentials' => 'Credentials',
+        'enable_tos' => 'EnableTos',
+        'mount_points' => 'MountPoints'
     ];
 
     /**
@@ -76,7 +82,9 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId'
+        'credentials' => 'setCredentials',
+        'enable_tos' => 'setEnableTos',
+        'mount_points' => 'setMountPoints'
     ];
 
     /**
@@ -85,7 +93,9 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId'
+        'credentials' => 'getCredentials',
+        'enable_tos' => 'getEnableTos',
+        'mount_points' => 'getMountPoints'
     ];
 
     /**
@@ -148,7 +158,9 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['credentials'] = isset($data['credentials']) ? $data['credentials'] : null;
+        $this->container['enable_tos'] = isset($data['enable_tos']) ? $data['enable_tos'] : null;
+        $this->container['mount_points'] = isset($data['mount_points']) ? $data['mount_points'] : null;
     }
 
     /**
@@ -160,9 +172,6 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -179,25 +188,73 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets id
+     * Gets credentials
      *
-     * @return string
+     * @return \Volcengine\Vefaas\Model\CredentialsForGetRevisionOutput
      */
-    public function getId()
+    public function getCredentials()
     {
-        return $this->container['id'];
+        return $this->container['credentials'];
     }
 
     /**
-     * Sets id
+     * Sets credentials
      *
-     * @param string $id id
+     * @param \Volcengine\Vefaas\Model\CredentialsForGetRevisionOutput $credentials credentials
      *
      * @return $this
      */
-    public function setId($id)
+    public function setCredentials($credentials)
     {
-        $this->container['id'] = $id;
+        $this->container['credentials'] = $credentials;
+
+        return $this;
+    }
+
+    /**
+     * Gets enable_tos
+     *
+     * @return bool
+     */
+    public function getEnableTos()
+    {
+        return $this->container['enable_tos'];
+    }
+
+    /**
+     * Sets enable_tos
+     *
+     * @param bool $enable_tos enable_tos
+     *
+     * @return $this
+     */
+    public function setEnableTos($enable_tos)
+    {
+        $this->container['enable_tos'] = $enable_tos;
+
+        return $this;
+    }
+
+    /**
+     * Gets mount_points
+     *
+     * @return \Volcengine\Vefaas\Model\MountPointForGetRevisionOutput[]
+     */
+    public function getMountPoints()
+    {
+        return $this->container['mount_points'];
+    }
+
+    /**
+     * Sets mount_points
+     *
+     * @param \Volcengine\Vefaas\Model\MountPointForGetRevisionOutput[] $mount_points mount_points
+     *
+     * @return $this
+     */
+    public function setMountPoints($mount_points)
+    {
+        $this->container['mount_points'] = $mount_points;
 
         return $this;
     }

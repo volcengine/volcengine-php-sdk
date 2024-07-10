@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class GetFunctionRequest implements ModelInterface, ArrayAccess
+class GetFunctionInstanceLogsResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetFunctionRequest';
+    protected static $swaggerModelName = 'GetFunctionInstanceLogsResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,7 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'string'
+        'logs' => 'string'
     ];
 
     /**
@@ -37,7 +37,7 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => null
+        'logs' => null
     ];
 
     /**
@@ -67,7 +67,7 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'Id'
+        'logs' => 'Logs'
     ];
 
     /**
@@ -76,7 +76,7 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId'
+        'logs' => 'setLogs'
     ];
 
     /**
@@ -85,7 +85,7 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId'
+        'logs' => 'getLogs'
     ];
 
     /**
@@ -148,7 +148,7 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['logs'] = isset($data['logs']) ? $data['logs'] : null;
     }
 
     /**
@@ -160,9 +160,6 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -179,25 +176,25 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets id
+     * Gets logs
      *
      * @return string
      */
-    public function getId()
+    public function getLogs()
     {
-        return $this->container['id'];
+        return $this->container['logs'];
     }
 
     /**
-     * Sets id
+     * Sets logs
      *
-     * @param string $id id
+     * @param string $logs logs
      *
      * @return $this
      */
-    public function setId($id)
+    public function setLogs($logs)
     {
-        $this->container['id'] = $id;
+        $this->container['logs'] = $logs;
 
         return $this;
     }

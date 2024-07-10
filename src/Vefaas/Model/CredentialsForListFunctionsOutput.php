@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class GetFunctionRequest implements ModelInterface, ArrayAccess
+class CredentialsForListFunctionsOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetFunctionRequest';
+    protected static $swaggerModelName = 'CredentialsForListFunctionsOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,8 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'string'
+        'access_key_id' => 'string',
+        'secret_access_key' => 'string'
     ];
 
     /**
@@ -37,7 +38,8 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => null
+        'access_key_id' => null,
+        'secret_access_key' => null
     ];
 
     /**
@@ -67,7 +69,8 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'Id'
+        'access_key_id' => 'AccessKeyId',
+        'secret_access_key' => 'SecretAccessKey'
     ];
 
     /**
@@ -76,7 +79,8 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId'
+        'access_key_id' => 'setAccessKeyId',
+        'secret_access_key' => 'setSecretAccessKey'
     ];
 
     /**
@@ -85,7 +89,8 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId'
+        'access_key_id' => 'getAccessKeyId',
+        'secret_access_key' => 'getSecretAccessKey'
     ];
 
     /**
@@ -148,7 +153,8 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['access_key_id'] = isset($data['access_key_id']) ? $data['access_key_id'] : null;
+        $this->container['secret_access_key'] = isset($data['secret_access_key']) ? $data['secret_access_key'] : null;
     }
 
     /**
@@ -160,9 +166,6 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -179,25 +182,49 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets id
+     * Gets access_key_id
      *
      * @return string
      */
-    public function getId()
+    public function getAccessKeyId()
     {
-        return $this->container['id'];
+        return $this->container['access_key_id'];
     }
 
     /**
-     * Sets id
+     * Sets access_key_id
      *
-     * @param string $id id
+     * @param string $access_key_id access_key_id
      *
      * @return $this
      */
-    public function setId($id)
+    public function setAccessKeyId($access_key_id)
     {
-        $this->container['id'] = $id;
+        $this->container['access_key_id'] = $access_key_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets secret_access_key
+     *
+     * @return string
+     */
+    public function getSecretAccessKey()
+    {
+        return $this->container['secret_access_key'];
+    }
+
+    /**
+     * Sets secret_access_key
+     *
+     * @param string $secret_access_key secret_access_key
+     *
+     * @return $this
+     */
+    public function setSecretAccessKey($secret_access_key)
+    {
+        $this->container['secret_access_key'] = $secret_access_key;
 
         return $this;
     }

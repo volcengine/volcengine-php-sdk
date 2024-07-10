@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class GetFunctionRequest implements ModelInterface, ArrayAccess
+class VpcConfigForListFunctionsOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetFunctionRequest';
+    protected static $swaggerModelName = 'VpcConfigForListFunctionsOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,11 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'string'
+        'enable_shared_internet_access' => 'bool',
+        'enable_vpc' => 'bool',
+        'security_group_ids' => 'string[]',
+        'subnet_ids' => 'string[]',
+        'vpc_id' => 'string'
     ];
 
     /**
@@ -37,7 +41,11 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => null
+        'enable_shared_internet_access' => null,
+        'enable_vpc' => null,
+        'security_group_ids' => null,
+        'subnet_ids' => null,
+        'vpc_id' => null
     ];
 
     /**
@@ -67,7 +75,11 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'Id'
+        'enable_shared_internet_access' => 'EnableSharedInternetAccess',
+        'enable_vpc' => 'EnableVpc',
+        'security_group_ids' => 'SecurityGroupIds',
+        'subnet_ids' => 'SubnetIds',
+        'vpc_id' => 'VpcId'
     ];
 
     /**
@@ -76,7 +88,11 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId'
+        'enable_shared_internet_access' => 'setEnableSharedInternetAccess',
+        'enable_vpc' => 'setEnableVpc',
+        'security_group_ids' => 'setSecurityGroupIds',
+        'subnet_ids' => 'setSubnetIds',
+        'vpc_id' => 'setVpcId'
     ];
 
     /**
@@ -85,7 +101,11 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId'
+        'enable_shared_internet_access' => 'getEnableSharedInternetAccess',
+        'enable_vpc' => 'getEnableVpc',
+        'security_group_ids' => 'getSecurityGroupIds',
+        'subnet_ids' => 'getSubnetIds',
+        'vpc_id' => 'getVpcId'
     ];
 
     /**
@@ -148,7 +168,11 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['enable_shared_internet_access'] = isset($data['enable_shared_internet_access']) ? $data['enable_shared_internet_access'] : null;
+        $this->container['enable_vpc'] = isset($data['enable_vpc']) ? $data['enable_vpc'] : null;
+        $this->container['security_group_ids'] = isset($data['security_group_ids']) ? $data['security_group_ids'] : null;
+        $this->container['subnet_ids'] = isset($data['subnet_ids']) ? $data['subnet_ids'] : null;
+        $this->container['vpc_id'] = isset($data['vpc_id']) ? $data['vpc_id'] : null;
     }
 
     /**
@@ -160,9 +184,6 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -179,25 +200,121 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets id
+     * Gets enable_shared_internet_access
      *
-     * @return string
+     * @return bool
      */
-    public function getId()
+    public function getEnableSharedInternetAccess()
     {
-        return $this->container['id'];
+        return $this->container['enable_shared_internet_access'];
     }
 
     /**
-     * Sets id
+     * Sets enable_shared_internet_access
      *
-     * @param string $id id
+     * @param bool $enable_shared_internet_access enable_shared_internet_access
      *
      * @return $this
      */
-    public function setId($id)
+    public function setEnableSharedInternetAccess($enable_shared_internet_access)
     {
-        $this->container['id'] = $id;
+        $this->container['enable_shared_internet_access'] = $enable_shared_internet_access;
+
+        return $this;
+    }
+
+    /**
+     * Gets enable_vpc
+     *
+     * @return bool
+     */
+    public function getEnableVpc()
+    {
+        return $this->container['enable_vpc'];
+    }
+
+    /**
+     * Sets enable_vpc
+     *
+     * @param bool $enable_vpc enable_vpc
+     *
+     * @return $this
+     */
+    public function setEnableVpc($enable_vpc)
+    {
+        $this->container['enable_vpc'] = $enable_vpc;
+
+        return $this;
+    }
+
+    /**
+     * Gets security_group_ids
+     *
+     * @return string[]
+     */
+    public function getSecurityGroupIds()
+    {
+        return $this->container['security_group_ids'];
+    }
+
+    /**
+     * Sets security_group_ids
+     *
+     * @param string[] $security_group_ids security_group_ids
+     *
+     * @return $this
+     */
+    public function setSecurityGroupIds($security_group_ids)
+    {
+        $this->container['security_group_ids'] = $security_group_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets subnet_ids
+     *
+     * @return string[]
+     */
+    public function getSubnetIds()
+    {
+        return $this->container['subnet_ids'];
+    }
+
+    /**
+     * Sets subnet_ids
+     *
+     * @param string[] $subnet_ids subnet_ids
+     *
+     * @return $this
+     */
+    public function setSubnetIds($subnet_ids)
+    {
+        $this->container['subnet_ids'] = $subnet_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets vpc_id
+     *
+     * @return string
+     */
+    public function getVpcId()
+    {
+        return $this->container['vpc_id'];
+    }
+
+    /**
+     * Sets vpc_id
+     *
+     * @param string $vpc_id vpc_id
+     *
+     * @return $this
+     */
+    public function setVpcId($vpc_id)
+    {
+        $this->container['vpc_id'] = $vpc_id;
 
         return $this;
     }
