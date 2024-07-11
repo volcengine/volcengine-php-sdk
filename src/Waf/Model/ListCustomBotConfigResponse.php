@@ -29,9 +29,8 @@ class ListCustomBotConfigResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'count' => 'int',
+        'current_page' => 'int',
         'data' => '\Volcengine\Waf\Model\DataForListCustomBotConfigOutput[]',
-        'page' => 'int',
-        'page_number' => 'int',
         'page_size' => 'int',
         'total_count' => 'int'
     ];
@@ -43,9 +42,8 @@ class ListCustomBotConfigResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'count' => 'int32',
+        'current_page' => 'int32',
         'data' => null,
-        'page' => 'int32',
-        'page_number' => 'int32',
         'page_size' => 'int32',
         'total_count' => 'int32'
     ];
@@ -78,9 +76,8 @@ class ListCustomBotConfigResponse implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'count' => 'Count',
+        'current_page' => 'CurrentPage',
         'data' => 'Data',
-        'page' => 'Page',
-        'page_number' => 'PageNumber',
         'page_size' => 'PageSize',
         'total_count' => 'TotalCount'
     ];
@@ -92,9 +89,8 @@ class ListCustomBotConfigResponse implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'count' => 'setCount',
+        'current_page' => 'setCurrentPage',
         'data' => 'setData',
-        'page' => 'setPage',
-        'page_number' => 'setPageNumber',
         'page_size' => 'setPageSize',
         'total_count' => 'setTotalCount'
     ];
@@ -106,9 +102,8 @@ class ListCustomBotConfigResponse implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'count' => 'getCount',
+        'current_page' => 'getCurrentPage',
         'data' => 'getData',
-        'page' => 'getPage',
-        'page_number' => 'getPageNumber',
         'page_size' => 'getPageSize',
         'total_count' => 'getTotalCount'
     ];
@@ -174,9 +169,8 @@ class ListCustomBotConfigResponse implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['count'] = isset($data['count']) ? $data['count'] : null;
+        $this->container['current_page'] = isset($data['current_page']) ? $data['current_page'] : null;
         $this->container['data'] = isset($data['data']) ? $data['data'] : null;
-        $this->container['page'] = isset($data['page']) ? $data['page'] : null;
-        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
         $this->container['total_count'] = isset($data['total_count']) ? $data['total_count'] : null;
     }
@@ -230,6 +224,30 @@ class ListCustomBotConfigResponse implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets current_page
+     *
+     * @return int
+     */
+    public function getCurrentPage()
+    {
+        return $this->container['current_page'];
+    }
+
+    /**
+     * Sets current_page
+     *
+     * @param int $current_page current_page
+     *
+     * @return $this
+     */
+    public function setCurrentPage($current_page)
+    {
+        $this->container['current_page'] = $current_page;
+
+        return $this;
+    }
+
+    /**
      * Gets data
      *
      * @return \Volcengine\Waf\Model\DataForListCustomBotConfigOutput[]
@@ -249,54 +267,6 @@ class ListCustomBotConfigResponse implements ModelInterface, ArrayAccess
     public function setData($data)
     {
         $this->container['data'] = $data;
-
-        return $this;
-    }
-
-    /**
-     * Gets page
-     *
-     * @return int
-     */
-    public function getPage()
-    {
-        return $this->container['page'];
-    }
-
-    /**
-     * Sets page
-     *
-     * @param int $page page
-     *
-     * @return $this
-     */
-    public function setPage($page)
-    {
-        $this->container['page'] = $page;
-
-        return $this;
-    }
-
-    /**
-     * Gets page_number
-     *
-     * @return int
-     */
-    public function getPageNumber()
-    {
-        return $this->container['page_number'];
-    }
-
-    /**
-     * Sets page_number
-     *
-     * @param int $page_number page_number
-     *
-     * @return $this
-     */
-    public function setPageNumber($page_number)
-    {
-        $this->container['page_number'] = $page_number;
 
         return $this;
     }
