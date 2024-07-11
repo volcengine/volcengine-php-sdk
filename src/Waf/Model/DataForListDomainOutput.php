@@ -38,9 +38,15 @@ class DataForListDomainOutput implements ModelInterface, ArrayAccess
         'backend_groups' => '\Volcengine\Waf\Model\BackendGroupForListDomainOutput[]',
         'black_ip_enable' => 'int',
         'black_lct_enable' => 'int',
+        'bot_dytoken_enable' => 'int',
+        'bot_frequency_enable' => 'int',
+        'bot_repeat_enable' => 'int',
+        'bot_sequence_default_action' => 'int',
+        'bot_sequence_enable' => 'int',
         'cc_enable' => 'int',
         'certificate_id' => 'int',
         'certificate_name' => 'string',
+        'certificate_platform' => 'string',
         'clb_instance_ids' => 'string',
         'clb_listener_id' => 'string',
         'clb_pool_id' => 'string',
@@ -86,6 +92,7 @@ class DataForListDomainOutput implements ModelInterface, ArrayAccess
         'tls_enable' => 'int',
         'tamper_proof_enable' => 'int',
         'update_time' => 'string',
+        'volc_certificate_id' => 'string',
         'vpc_id' => 'string',
         'waf_enable' => 'int',
         'waf_white_req_enable' => 'int',
@@ -109,9 +116,15 @@ class DataForListDomainOutput implements ModelInterface, ArrayAccess
         'backend_groups' => null,
         'black_ip_enable' => 'int32',
         'black_lct_enable' => 'int32',
+        'bot_dytoken_enable' => 'int32',
+        'bot_frequency_enable' => 'int32',
+        'bot_repeat_enable' => 'int32',
+        'bot_sequence_default_action' => 'int32',
+        'bot_sequence_enable' => 'int32',
         'cc_enable' => 'int32',
         'certificate_id' => 'int32',
         'certificate_name' => null,
+        'certificate_platform' => null,
         'clb_instance_ids' => null,
         'clb_listener_id' => null,
         'clb_pool_id' => null,
@@ -157,6 +170,7 @@ class DataForListDomainOutput implements ModelInterface, ArrayAccess
         'tls_enable' => 'int32',
         'tamper_proof_enable' => 'int32',
         'update_time' => null,
+        'volc_certificate_id' => null,
         'vpc_id' => null,
         'waf_enable' => 'int32',
         'waf_white_req_enable' => 'int32',
@@ -201,9 +215,15 @@ class DataForListDomainOutput implements ModelInterface, ArrayAccess
         'backend_groups' => 'BackendGroups',
         'black_ip_enable' => 'BlackIpEnable',
         'black_lct_enable' => 'BlackLctEnable',
+        'bot_dytoken_enable' => 'BotDytokenEnable',
+        'bot_frequency_enable' => 'BotFrequencyEnable',
+        'bot_repeat_enable' => 'BotRepeatEnable',
+        'bot_sequence_default_action' => 'BotSequenceDefaultAction',
+        'bot_sequence_enable' => 'BotSequenceEnable',
         'cc_enable' => 'CcEnable',
         'certificate_id' => 'CertificateID',
         'certificate_name' => 'CertificateName',
+        'certificate_platform' => 'CertificatePlatform',
         'clb_instance_ids' => 'ClbInstanceIDs',
         'clb_listener_id' => 'ClbListenerId',
         'clb_pool_id' => 'ClbPoolId',
@@ -249,6 +269,7 @@ class DataForListDomainOutput implements ModelInterface, ArrayAccess
         'tls_enable' => 'TLSEnable',
         'tamper_proof_enable' => 'TamperProofEnable',
         'update_time' => 'UpdateTime',
+        'volc_certificate_id' => 'VolcCertificateID',
         'vpc_id' => 'VpcID',
         'waf_enable' => 'WafEnable',
         'waf_white_req_enable' => 'WafWhiteReqEnable',
@@ -272,9 +293,15 @@ class DataForListDomainOutput implements ModelInterface, ArrayAccess
         'backend_groups' => 'setBackendGroups',
         'black_ip_enable' => 'setBlackIpEnable',
         'black_lct_enable' => 'setBlackLctEnable',
+        'bot_dytoken_enable' => 'setBotDytokenEnable',
+        'bot_frequency_enable' => 'setBotFrequencyEnable',
+        'bot_repeat_enable' => 'setBotRepeatEnable',
+        'bot_sequence_default_action' => 'setBotSequenceDefaultAction',
+        'bot_sequence_enable' => 'setBotSequenceEnable',
         'cc_enable' => 'setCcEnable',
         'certificate_id' => 'setCertificateId',
         'certificate_name' => 'setCertificateName',
+        'certificate_platform' => 'setCertificatePlatform',
         'clb_instance_ids' => 'setClbInstanceIds',
         'clb_listener_id' => 'setClbListenerId',
         'clb_pool_id' => 'setClbPoolId',
@@ -320,6 +347,7 @@ class DataForListDomainOutput implements ModelInterface, ArrayAccess
         'tls_enable' => 'setTlsEnable',
         'tamper_proof_enable' => 'setTamperProofEnable',
         'update_time' => 'setUpdateTime',
+        'volc_certificate_id' => 'setVolcCertificateId',
         'vpc_id' => 'setVpcId',
         'waf_enable' => 'setWafEnable',
         'waf_white_req_enable' => 'setWafWhiteReqEnable',
@@ -343,9 +371,15 @@ class DataForListDomainOutput implements ModelInterface, ArrayAccess
         'backend_groups' => 'getBackendGroups',
         'black_ip_enable' => 'getBlackIpEnable',
         'black_lct_enable' => 'getBlackLctEnable',
+        'bot_dytoken_enable' => 'getBotDytokenEnable',
+        'bot_frequency_enable' => 'getBotFrequencyEnable',
+        'bot_repeat_enable' => 'getBotRepeatEnable',
+        'bot_sequence_default_action' => 'getBotSequenceDefaultAction',
+        'bot_sequence_enable' => 'getBotSequenceEnable',
         'cc_enable' => 'getCcEnable',
         'certificate_id' => 'getCertificateId',
         'certificate_name' => 'getCertificateName',
+        'certificate_platform' => 'getCertificatePlatform',
         'clb_instance_ids' => 'getClbInstanceIds',
         'clb_listener_id' => 'getClbListenerId',
         'clb_pool_id' => 'getClbPoolId',
@@ -391,6 +425,7 @@ class DataForListDomainOutput implements ModelInterface, ArrayAccess
         'tls_enable' => 'getTlsEnable',
         'tamper_proof_enable' => 'getTamperProofEnable',
         'update_time' => 'getUpdateTime',
+        'volc_certificate_id' => 'getVolcCertificateId',
         'vpc_id' => 'getVpcId',
         'waf_enable' => 'getWafEnable',
         'waf_white_req_enable' => 'getWafWhiteReqEnable',
@@ -468,9 +503,15 @@ class DataForListDomainOutput implements ModelInterface, ArrayAccess
         $this->container['backend_groups'] = isset($data['backend_groups']) ? $data['backend_groups'] : null;
         $this->container['black_ip_enable'] = isset($data['black_ip_enable']) ? $data['black_ip_enable'] : null;
         $this->container['black_lct_enable'] = isset($data['black_lct_enable']) ? $data['black_lct_enable'] : null;
+        $this->container['bot_dytoken_enable'] = isset($data['bot_dytoken_enable']) ? $data['bot_dytoken_enable'] : null;
+        $this->container['bot_frequency_enable'] = isset($data['bot_frequency_enable']) ? $data['bot_frequency_enable'] : null;
+        $this->container['bot_repeat_enable'] = isset($data['bot_repeat_enable']) ? $data['bot_repeat_enable'] : null;
+        $this->container['bot_sequence_default_action'] = isset($data['bot_sequence_default_action']) ? $data['bot_sequence_default_action'] : null;
+        $this->container['bot_sequence_enable'] = isset($data['bot_sequence_enable']) ? $data['bot_sequence_enable'] : null;
         $this->container['cc_enable'] = isset($data['cc_enable']) ? $data['cc_enable'] : null;
         $this->container['certificate_id'] = isset($data['certificate_id']) ? $data['certificate_id'] : null;
         $this->container['certificate_name'] = isset($data['certificate_name']) ? $data['certificate_name'] : null;
+        $this->container['certificate_platform'] = isset($data['certificate_platform']) ? $data['certificate_platform'] : null;
         $this->container['clb_instance_ids'] = isset($data['clb_instance_ids']) ? $data['clb_instance_ids'] : null;
         $this->container['clb_listener_id'] = isset($data['clb_listener_id']) ? $data['clb_listener_id'] : null;
         $this->container['clb_pool_id'] = isset($data['clb_pool_id']) ? $data['clb_pool_id'] : null;
@@ -516,6 +557,7 @@ class DataForListDomainOutput implements ModelInterface, ArrayAccess
         $this->container['tls_enable'] = isset($data['tls_enable']) ? $data['tls_enable'] : null;
         $this->container['tamper_proof_enable'] = isset($data['tamper_proof_enable']) ? $data['tamper_proof_enable'] : null;
         $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
+        $this->container['volc_certificate_id'] = isset($data['volc_certificate_id']) ? $data['volc_certificate_id'] : null;
         $this->container['vpc_id'] = isset($data['vpc_id']) ? $data['vpc_id'] : null;
         $this->container['waf_enable'] = isset($data['waf_enable']) ? $data['waf_enable'] : null;
         $this->container['waf_white_req_enable'] = isset($data['waf_white_req_enable']) ? $data['waf_white_req_enable'] : null;
@@ -788,6 +830,126 @@ class DataForListDomainOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets bot_dytoken_enable
+     *
+     * @return int
+     */
+    public function getBotDytokenEnable()
+    {
+        return $this->container['bot_dytoken_enable'];
+    }
+
+    /**
+     * Sets bot_dytoken_enable
+     *
+     * @param int $bot_dytoken_enable bot_dytoken_enable
+     *
+     * @return $this
+     */
+    public function setBotDytokenEnable($bot_dytoken_enable)
+    {
+        $this->container['bot_dytoken_enable'] = $bot_dytoken_enable;
+
+        return $this;
+    }
+
+    /**
+     * Gets bot_frequency_enable
+     *
+     * @return int
+     */
+    public function getBotFrequencyEnable()
+    {
+        return $this->container['bot_frequency_enable'];
+    }
+
+    /**
+     * Sets bot_frequency_enable
+     *
+     * @param int $bot_frequency_enable bot_frequency_enable
+     *
+     * @return $this
+     */
+    public function setBotFrequencyEnable($bot_frequency_enable)
+    {
+        $this->container['bot_frequency_enable'] = $bot_frequency_enable;
+
+        return $this;
+    }
+
+    /**
+     * Gets bot_repeat_enable
+     *
+     * @return int
+     */
+    public function getBotRepeatEnable()
+    {
+        return $this->container['bot_repeat_enable'];
+    }
+
+    /**
+     * Sets bot_repeat_enable
+     *
+     * @param int $bot_repeat_enable bot_repeat_enable
+     *
+     * @return $this
+     */
+    public function setBotRepeatEnable($bot_repeat_enable)
+    {
+        $this->container['bot_repeat_enable'] = $bot_repeat_enable;
+
+        return $this;
+    }
+
+    /**
+     * Gets bot_sequence_default_action
+     *
+     * @return int
+     */
+    public function getBotSequenceDefaultAction()
+    {
+        return $this->container['bot_sequence_default_action'];
+    }
+
+    /**
+     * Sets bot_sequence_default_action
+     *
+     * @param int $bot_sequence_default_action bot_sequence_default_action
+     *
+     * @return $this
+     */
+    public function setBotSequenceDefaultAction($bot_sequence_default_action)
+    {
+        $this->container['bot_sequence_default_action'] = $bot_sequence_default_action;
+
+        return $this;
+    }
+
+    /**
+     * Gets bot_sequence_enable
+     *
+     * @return int
+     */
+    public function getBotSequenceEnable()
+    {
+        return $this->container['bot_sequence_enable'];
+    }
+
+    /**
+     * Sets bot_sequence_enable
+     *
+     * @param int $bot_sequence_enable bot_sequence_enable
+     *
+     * @return $this
+     */
+    public function setBotSequenceEnable($bot_sequence_enable)
+    {
+        $this->container['bot_sequence_enable'] = $bot_sequence_enable;
+
+        return $this;
+    }
+
+    /**
      * Gets cc_enable
      *
      * @return int
@@ -855,6 +1017,30 @@ class DataForListDomainOutput implements ModelInterface, ArrayAccess
     public function setCertificateName($certificate_name)
     {
         $this->container['certificate_name'] = $certificate_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets certificate_platform
+     *
+     * @return string
+     */
+    public function getCertificatePlatform()
+    {
+        return $this->container['certificate_platform'];
+    }
+
+    /**
+     * Sets certificate_platform
+     *
+     * @param string $certificate_platform certificate_platform
+     *
+     * @return $this
+     */
+    public function setCertificatePlatform($certificate_platform)
+    {
+        $this->container['certificate_platform'] = $certificate_platform;
 
         return $this;
     }
@@ -1935,6 +2121,30 @@ class DataForListDomainOutput implements ModelInterface, ArrayAccess
     public function setUpdateTime($update_time)
     {
         $this->container['update_time'] = $update_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets volc_certificate_id
+     *
+     * @return string
+     */
+    public function getVolcCertificateId()
+    {
+        return $this->container['volc_certificate_id'];
+    }
+
+    /**
+     * Sets volc_certificate_id
+     *
+     * @param string $volc_certificate_id volc_certificate_id
+     *
+     * @return $this
+     */
+    public function setVolcCertificateId($volc_certificate_id)
+    {
+        $this->container['volc_certificate_id'] = $volc_certificate_id;
 
         return $this;
     }

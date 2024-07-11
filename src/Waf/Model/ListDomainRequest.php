@@ -28,6 +28,7 @@ class ListDomainRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'alb_instance_id' => 'string',
         'accurate_query' => 'int',
         'domain' => 'string',
         'page' => 'int',
@@ -41,6 +42,7 @@ class ListDomainRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'alb_instance_id' => null,
         'accurate_query' => 'int32',
         'domain' => null,
         'page' => 'int32',
@@ -75,6 +77,7 @@ class ListDomainRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'alb_instance_id' => 'ALBInstanceID',
         'accurate_query' => 'AccurateQuery',
         'domain' => 'Domain',
         'page' => 'Page',
@@ -88,6 +91,7 @@ class ListDomainRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'alb_instance_id' => 'setAlbInstanceId',
         'accurate_query' => 'setAccurateQuery',
         'domain' => 'setDomain',
         'page' => 'setPage',
@@ -101,6 +105,7 @@ class ListDomainRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'alb_instance_id' => 'getAlbInstanceId',
         'accurate_query' => 'getAccurateQuery',
         'domain' => 'getDomain',
         'page' => 'getPage',
@@ -168,6 +173,7 @@ class ListDomainRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['alb_instance_id'] = isset($data['alb_instance_id']) ? $data['alb_instance_id'] : null;
         $this->container['accurate_query'] = isset($data['accurate_query']) ? $data['accurate_query'] : null;
         $this->container['domain'] = isset($data['domain']) ? $data['domain'] : null;
         $this->container['page'] = isset($data['page']) ? $data['page'] : null;
@@ -210,6 +216,30 @@ class ListDomainRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets alb_instance_id
+     *
+     * @return string
+     */
+    public function getAlbInstanceId()
+    {
+        return $this->container['alb_instance_id'];
+    }
+
+    /**
+     * Sets alb_instance_id
+     *
+     * @param string $alb_instance_id alb_instance_id
+     *
+     * @return $this
+     */
+    public function setAlbInstanceId($alb_instance_id)
+    {
+        $this->container['alb_instance_id'] = $alb_instance_id;
+
+        return $this;
+    }
 
     /**
      * Gets accurate_query
