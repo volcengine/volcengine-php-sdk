@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class GetFunctionRequest implements ModelInterface, ArrayAccess
+class ListReleaseRecordsResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetFunctionRequest';
+    protected static $swaggerModelName = 'ListReleaseRecordsResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,8 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'string'
+        'items' => '\Volcengine\Vefaas\Model\ItemForListReleaseRecordsOutput[]',
+        'total' => 'int'
     ];
 
     /**
@@ -37,7 +38,8 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => null
+        'items' => null,
+        'total' => 'int32'
     ];
 
     /**
@@ -67,7 +69,8 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'Id'
+        'items' => 'Items',
+        'total' => 'Total'
     ];
 
     /**
@@ -76,7 +79,8 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId'
+        'items' => 'setItems',
+        'total' => 'setTotal'
     ];
 
     /**
@@ -85,7 +89,8 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId'
+        'items' => 'getItems',
+        'total' => 'getTotal'
     ];
 
     /**
@@ -148,7 +153,8 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['items'] = isset($data['items']) ? $data['items'] : null;
+        $this->container['total'] = isset($data['total']) ? $data['total'] : null;
     }
 
     /**
@@ -160,9 +166,6 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -179,25 +182,49 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets id
+     * Gets items
      *
-     * @return string
+     * @return \Volcengine\Vefaas\Model\ItemForListReleaseRecordsOutput[]
      */
-    public function getId()
+    public function getItems()
     {
-        return $this->container['id'];
+        return $this->container['items'];
     }
 
     /**
-     * Sets id
+     * Sets items
      *
-     * @param string $id id
+     * @param \Volcengine\Vefaas\Model\ItemForListReleaseRecordsOutput[] $items items
      *
      * @return $this
      */
-    public function setId($id)
+    public function setItems($items)
     {
-        $this->container['id'] = $id;
+        $this->container['items'] = $items;
+
+        return $this;
+    }
+
+    /**
+     * Gets total
+     *
+     * @return int
+     */
+    public function getTotal()
+    {
+        return $this->container['total'];
+    }
+
+    /**
+     * Sets total
+     *
+     * @param int $total total
+     *
+     * @return $this
+     */
+    public function setTotal($total)
+    {
+        $this->container['total'] = $total;
 
         return $this;
     }

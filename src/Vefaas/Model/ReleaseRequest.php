@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class GetFunctionRequest implements ModelInterface, ArrayAccess
+class ReleaseRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetFunctionRequest';
+    protected static $swaggerModelName = 'ReleaseRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,12 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'string'
+        'description' => 'string',
+        'function_id' => 'string',
+        'max_instance' => 'int',
+        'revision_number' => 'int',
+        'rolling_step' => 'int',
+        'target_traffic_weight' => 'int'
     ];
 
     /**
@@ -37,7 +42,12 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => null
+        'description' => null,
+        'function_id' => null,
+        'max_instance' => 'int32',
+        'revision_number' => 'int32',
+        'rolling_step' => 'int32',
+        'target_traffic_weight' => 'int32'
     ];
 
     /**
@@ -67,7 +77,12 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'Id'
+        'description' => 'Description',
+        'function_id' => 'FunctionId',
+        'max_instance' => 'MaxInstance',
+        'revision_number' => 'RevisionNumber',
+        'rolling_step' => 'RollingStep',
+        'target_traffic_weight' => 'TargetTrafficWeight'
     ];
 
     /**
@@ -76,7 +91,12 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId'
+        'description' => 'setDescription',
+        'function_id' => 'setFunctionId',
+        'max_instance' => 'setMaxInstance',
+        'revision_number' => 'setRevisionNumber',
+        'rolling_step' => 'setRollingStep',
+        'target_traffic_weight' => 'setTargetTrafficWeight'
     ];
 
     /**
@@ -85,7 +105,12 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId'
+        'description' => 'getDescription',
+        'function_id' => 'getFunctionId',
+        'max_instance' => 'getMaxInstance',
+        'revision_number' => 'getRevisionNumber',
+        'rolling_step' => 'getRollingStep',
+        'target_traffic_weight' => 'getTargetTrafficWeight'
     ];
 
     /**
@@ -148,7 +173,12 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['function_id'] = isset($data['function_id']) ? $data['function_id'] : null;
+        $this->container['max_instance'] = isset($data['max_instance']) ? $data['max_instance'] : null;
+        $this->container['revision_number'] = isset($data['revision_number']) ? $data['revision_number'] : null;
+        $this->container['rolling_step'] = isset($data['rolling_step']) ? $data['rolling_step'] : null;
+        $this->container['target_traffic_weight'] = isset($data['target_traffic_weight']) ? $data['target_traffic_weight'] : null;
     }
 
     /**
@@ -160,8 +190,11 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
+        if ($this->container['function_id'] === null) {
+            $invalidProperties[] = "'function_id' can't be null";
+        }
+        if ($this->container['revision_number'] === null) {
+            $invalidProperties[] = "'revision_number' can't be null";
         }
         return $invalidProperties;
     }
@@ -179,25 +212,145 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets id
+     * Gets description
      *
      * @return string
      */
-    public function getId()
+    public function getDescription()
     {
-        return $this->container['id'];
+        return $this->container['description'];
     }
 
     /**
-     * Sets id
+     * Sets description
      *
-     * @param string $id id
+     * @param string $description description
      *
      * @return $this
      */
-    public function setId($id)
+    public function setDescription($description)
     {
-        $this->container['id'] = $id;
+        $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets function_id
+     *
+     * @return string
+     */
+    public function getFunctionId()
+    {
+        return $this->container['function_id'];
+    }
+
+    /**
+     * Sets function_id
+     *
+     * @param string $function_id function_id
+     *
+     * @return $this
+     */
+    public function setFunctionId($function_id)
+    {
+        $this->container['function_id'] = $function_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets max_instance
+     *
+     * @return int
+     */
+    public function getMaxInstance()
+    {
+        return $this->container['max_instance'];
+    }
+
+    /**
+     * Sets max_instance
+     *
+     * @param int $max_instance max_instance
+     *
+     * @return $this
+     */
+    public function setMaxInstance($max_instance)
+    {
+        $this->container['max_instance'] = $max_instance;
+
+        return $this;
+    }
+
+    /**
+     * Gets revision_number
+     *
+     * @return int
+     */
+    public function getRevisionNumber()
+    {
+        return $this->container['revision_number'];
+    }
+
+    /**
+     * Sets revision_number
+     *
+     * @param int $revision_number revision_number
+     *
+     * @return $this
+     */
+    public function setRevisionNumber($revision_number)
+    {
+        $this->container['revision_number'] = $revision_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets rolling_step
+     *
+     * @return int
+     */
+    public function getRollingStep()
+    {
+        return $this->container['rolling_step'];
+    }
+
+    /**
+     * Sets rolling_step
+     *
+     * @param int $rolling_step rolling_step
+     *
+     * @return $this
+     */
+    public function setRollingStep($rolling_step)
+    {
+        $this->container['rolling_step'] = $rolling_step;
+
+        return $this;
+    }
+
+    /**
+     * Gets target_traffic_weight
+     *
+     * @return int
+     */
+    public function getTargetTrafficWeight()
+    {
+        return $this->container['target_traffic_weight'];
+    }
+
+    /**
+     * Sets target_traffic_weight
+     *
+     * @param int $target_traffic_weight target_traffic_weight
+     *
+     * @return $this
+     */
+    public function setTargetTrafficWeight($target_traffic_weight)
+    {
+        $this->container['target_traffic_weight'] = $target_traffic_weight;
 
         return $this;
     }

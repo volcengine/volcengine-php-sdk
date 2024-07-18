@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class GetFunctionRequest implements ModelInterface, ArrayAccess
+class NasStorageForListFunctionsOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetFunctionRequest';
+    protected static $swaggerModelName = 'NasStorageForListFunctionsOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,8 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'string'
+        'enable_nas' => 'bool',
+        'nas_configs' => '\Volcengine\Vefaas\Model\NasConfigForListFunctionsOutput[]'
     ];
 
     /**
@@ -37,7 +38,8 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => null
+        'enable_nas' => null,
+        'nas_configs' => null
     ];
 
     /**
@@ -67,7 +69,8 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'Id'
+        'enable_nas' => 'EnableNas',
+        'nas_configs' => 'NasConfigs'
     ];
 
     /**
@@ -76,7 +79,8 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId'
+        'enable_nas' => 'setEnableNas',
+        'nas_configs' => 'setNasConfigs'
     ];
 
     /**
@@ -85,7 +89,8 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId'
+        'enable_nas' => 'getEnableNas',
+        'nas_configs' => 'getNasConfigs'
     ];
 
     /**
@@ -148,7 +153,8 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['enable_nas'] = isset($data['enable_nas']) ? $data['enable_nas'] : null;
+        $this->container['nas_configs'] = isset($data['nas_configs']) ? $data['nas_configs'] : null;
     }
 
     /**
@@ -160,9 +166,6 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -179,25 +182,49 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets id
+     * Gets enable_nas
      *
-     * @return string
+     * @return bool
      */
-    public function getId()
+    public function getEnableNas()
     {
-        return $this->container['id'];
+        return $this->container['enable_nas'];
     }
 
     /**
-     * Sets id
+     * Sets enable_nas
      *
-     * @param string $id id
+     * @param bool $enable_nas enable_nas
      *
      * @return $this
      */
-    public function setId($id)
+    public function setEnableNas($enable_nas)
     {
-        $this->container['id'] = $id;
+        $this->container['enable_nas'] = $enable_nas;
+
+        return $this;
+    }
+
+    /**
+     * Gets nas_configs
+     *
+     * @return \Volcengine\Vefaas\Model\NasConfigForListFunctionsOutput[]
+     */
+    public function getNasConfigs()
+    {
+        return $this->container['nas_configs'];
+    }
+
+    /**
+     * Sets nas_configs
+     *
+     * @param \Volcengine\Vefaas\Model\NasConfigForListFunctionsOutput[] $nas_configs nas_configs
+     *
+     * @return $this
+     */
+    public function setNasConfigs($nas_configs)
+    {
+        $this->container['nas_configs'] = $nas_configs;
 
         return $this;
     }

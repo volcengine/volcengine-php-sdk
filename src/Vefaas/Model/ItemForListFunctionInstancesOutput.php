@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class GetFunctionRequest implements ModelInterface, ArrayAccess
+class ItemForListFunctionInstancesOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetFunctionRequest';
+    protected static $swaggerModelName = 'ItemForListFunctionInstancesOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,11 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'string'
+        'creation_time' => 'string',
+        'id' => 'string',
+        'instance_name' => 'string',
+        'instance_status' => 'string',
+        'revision_number' => 'int'
     ];
 
     /**
@@ -37,7 +41,11 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => null
+        'creation_time' => null,
+        'id' => null,
+        'instance_name' => null,
+        'instance_status' => null,
+        'revision_number' => 'int32'
     ];
 
     /**
@@ -67,7 +75,11 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'Id'
+        'creation_time' => 'CreationTime',
+        'id' => 'Id',
+        'instance_name' => 'InstanceName',
+        'instance_status' => 'InstanceStatus',
+        'revision_number' => 'RevisionNumber'
     ];
 
     /**
@@ -76,7 +88,11 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId'
+        'creation_time' => 'setCreationTime',
+        'id' => 'setId',
+        'instance_name' => 'setInstanceName',
+        'instance_status' => 'setInstanceStatus',
+        'revision_number' => 'setRevisionNumber'
     ];
 
     /**
@@ -85,7 +101,11 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId'
+        'creation_time' => 'getCreationTime',
+        'id' => 'getId',
+        'instance_name' => 'getInstanceName',
+        'instance_status' => 'getInstanceStatus',
+        'revision_number' => 'getRevisionNumber'
     ];
 
     /**
@@ -148,7 +168,11 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['creation_time'] = isset($data['creation_time']) ? $data['creation_time'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['instance_name'] = isset($data['instance_name']) ? $data['instance_name'] : null;
+        $this->container['instance_status'] = isset($data['instance_status']) ? $data['instance_status'] : null;
+        $this->container['revision_number'] = isset($data['revision_number']) ? $data['revision_number'] : null;
     }
 
     /**
@@ -160,9 +184,6 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -177,6 +198,30 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets creation_time
+     *
+     * @return string
+     */
+    public function getCreationTime()
+    {
+        return $this->container['creation_time'];
+    }
+
+    /**
+     * Sets creation_time
+     *
+     * @param string $creation_time creation_time
+     *
+     * @return $this
+     */
+    public function setCreationTime($creation_time)
+    {
+        $this->container['creation_time'] = $creation_time;
+
+        return $this;
+    }
 
     /**
      * Gets id
@@ -198,6 +243,78 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
     public function setId($id)
     {
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets instance_name
+     *
+     * @return string
+     */
+    public function getInstanceName()
+    {
+        return $this->container['instance_name'];
+    }
+
+    /**
+     * Sets instance_name
+     *
+     * @param string $instance_name instance_name
+     *
+     * @return $this
+     */
+    public function setInstanceName($instance_name)
+    {
+        $this->container['instance_name'] = $instance_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets instance_status
+     *
+     * @return string
+     */
+    public function getInstanceStatus()
+    {
+        return $this->container['instance_status'];
+    }
+
+    /**
+     * Sets instance_status
+     *
+     * @param string $instance_status instance_status
+     *
+     * @return $this
+     */
+    public function setInstanceStatus($instance_status)
+    {
+        $this->container['instance_status'] = $instance_status;
+
+        return $this;
+    }
+
+    /**
+     * Gets revision_number
+     *
+     * @return int
+     */
+    public function getRevisionNumber()
+    {
+        return $this->container['revision_number'];
+    }
+
+    /**
+     * Sets revision_number
+     *
+     * @param int $revision_number revision_number
+     *
+     * @return $this
+     */
+    public function setRevisionNumber($revision_number)
+    {
+        $this->container['revision_number'] = $revision_number;
 
         return $this;
     }

@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class TopParamForDeleteFunctionInput implements ModelInterface, ArrayAccess
+class ItemForListReleaseRecordsOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class TopParamForDeleteFunctionInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'TopParamForDeleteFunctionInput';
+    protected static $swaggerModelName = 'ItemForListReleaseRecordsOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,17 +28,15 @@ class TopParamForDeleteFunctionInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'account_id' => 'int',
-        'dest_service' => 'string',
-        'is_internal' => 'string',
-        'psm' => 'string',
-        'real_ip' => 'string',
-        'region' => 'string',
-        'request_id' => 'string',
-        'role_id' => 'int',
-        'site' => 'string',
-        'source_service' => 'string',
-        'user_id' => 'int'
+        'creation_time' => 'string',
+        'description' => 'string',
+        'finish_time' => 'string',
+        'function_id' => 'string',
+        'id' => 'string',
+        'last_update_time' => 'string',
+        'source_revision_number' => 'int',
+        'status' => 'string',
+        'target_revision_number' => 'int'
     ];
 
     /**
@@ -47,17 +45,15 @@ class TopParamForDeleteFunctionInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'account_id' => 'int64',
-        'dest_service' => null,
-        'is_internal' => null,
-        'psm' => null,
-        'real_ip' => null,
-        'region' => null,
-        'request_id' => null,
-        'role_id' => 'int64',
-        'site' => null,
-        'source_service' => null,
-        'user_id' => 'int64'
+        'creation_time' => null,
+        'description' => null,
+        'finish_time' => null,
+        'function_id' => null,
+        'id' => null,
+        'last_update_time' => null,
+        'source_revision_number' => 'int32',
+        'status' => null,
+        'target_revision_number' => 'int32'
     ];
 
     /**
@@ -87,17 +83,15 @@ class TopParamForDeleteFunctionInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'account_id' => 'AccountId',
-        'dest_service' => 'DestService',
-        'is_internal' => 'IsInternal',
-        'psm' => 'Psm',
-        'real_ip' => 'RealIp',
-        'region' => 'Region',
-        'request_id' => 'RequestId',
-        'role_id' => 'RoleId',
-        'site' => 'Site',
-        'source_service' => 'SourceService',
-        'user_id' => 'UserId'
+        'creation_time' => 'CreationTime',
+        'description' => 'Description',
+        'finish_time' => 'FinishTime',
+        'function_id' => 'FunctionId',
+        'id' => 'Id',
+        'last_update_time' => 'LastUpdateTime',
+        'source_revision_number' => 'SourceRevisionNumber',
+        'status' => 'Status',
+        'target_revision_number' => 'TargetRevisionNumber'
     ];
 
     /**
@@ -106,17 +100,15 @@ class TopParamForDeleteFunctionInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'account_id' => 'setAccountId',
-        'dest_service' => 'setDestService',
-        'is_internal' => 'setIsInternal',
-        'psm' => 'setPsm',
-        'real_ip' => 'setRealIp',
-        'region' => 'setRegion',
-        'request_id' => 'setRequestId',
-        'role_id' => 'setRoleId',
-        'site' => 'setSite',
-        'source_service' => 'setSourceService',
-        'user_id' => 'setUserId'
+        'creation_time' => 'setCreationTime',
+        'description' => 'setDescription',
+        'finish_time' => 'setFinishTime',
+        'function_id' => 'setFunctionId',
+        'id' => 'setId',
+        'last_update_time' => 'setLastUpdateTime',
+        'source_revision_number' => 'setSourceRevisionNumber',
+        'status' => 'setStatus',
+        'target_revision_number' => 'setTargetRevisionNumber'
     ];
 
     /**
@@ -125,17 +117,15 @@ class TopParamForDeleteFunctionInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'account_id' => 'getAccountId',
-        'dest_service' => 'getDestService',
-        'is_internal' => 'getIsInternal',
-        'psm' => 'getPsm',
-        'real_ip' => 'getRealIp',
-        'region' => 'getRegion',
-        'request_id' => 'getRequestId',
-        'role_id' => 'getRoleId',
-        'site' => 'getSite',
-        'source_service' => 'getSourceService',
-        'user_id' => 'getUserId'
+        'creation_time' => 'getCreationTime',
+        'description' => 'getDescription',
+        'finish_time' => 'getFinishTime',
+        'function_id' => 'getFunctionId',
+        'id' => 'getId',
+        'last_update_time' => 'getLastUpdateTime',
+        'source_revision_number' => 'getSourceRevisionNumber',
+        'status' => 'getStatus',
+        'target_revision_number' => 'getTargetRevisionNumber'
     ];
 
     /**
@@ -198,17 +188,15 @@ class TopParamForDeleteFunctionInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
-        $this->container['dest_service'] = isset($data['dest_service']) ? $data['dest_service'] : null;
-        $this->container['is_internal'] = isset($data['is_internal']) ? $data['is_internal'] : null;
-        $this->container['psm'] = isset($data['psm']) ? $data['psm'] : null;
-        $this->container['real_ip'] = isset($data['real_ip']) ? $data['real_ip'] : null;
-        $this->container['region'] = isset($data['region']) ? $data['region'] : null;
-        $this->container['request_id'] = isset($data['request_id']) ? $data['request_id'] : null;
-        $this->container['role_id'] = isset($data['role_id']) ? $data['role_id'] : null;
-        $this->container['site'] = isset($data['site']) ? $data['site'] : null;
-        $this->container['source_service'] = isset($data['source_service']) ? $data['source_service'] : null;
-        $this->container['user_id'] = isset($data['user_id']) ? $data['user_id'] : null;
+        $this->container['creation_time'] = isset($data['creation_time']) ? $data['creation_time'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['finish_time'] = isset($data['finish_time']) ? $data['finish_time'] : null;
+        $this->container['function_id'] = isset($data['function_id']) ? $data['function_id'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['last_update_time'] = isset($data['last_update_time']) ? $data['last_update_time'] : null;
+        $this->container['source_revision_number'] = isset($data['source_revision_number']) ? $data['source_revision_number'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['target_revision_number'] = isset($data['target_revision_number']) ? $data['target_revision_number'] : null;
     }
 
     /**
@@ -236,265 +224,217 @@ class TopParamForDeleteFunctionInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets account_id
+     * Gets creation_time
+     *
+     * @return string
+     */
+    public function getCreationTime()
+    {
+        return $this->container['creation_time'];
+    }
+
+    /**
+     * Sets creation_time
+     *
+     * @param string $creation_time creation_time
+     *
+     * @return $this
+     */
+    public function setCreationTime($creation_time)
+    {
+        $this->container['creation_time'] = $creation_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string $description description
+     *
+     * @return $this
+     */
+    public function setDescription($description)
+    {
+        $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets finish_time
+     *
+     * @return string
+     */
+    public function getFinishTime()
+    {
+        return $this->container['finish_time'];
+    }
+
+    /**
+     * Sets finish_time
+     *
+     * @param string $finish_time finish_time
+     *
+     * @return $this
+     */
+    public function setFinishTime($finish_time)
+    {
+        $this->container['finish_time'] = $finish_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets function_id
+     *
+     * @return string
+     */
+    public function getFunctionId()
+    {
+        return $this->container['function_id'];
+    }
+
+    /**
+     * Sets function_id
+     *
+     * @param string $function_id function_id
+     *
+     * @return $this
+     */
+    public function setFunctionId($function_id)
+    {
+        $this->container['function_id'] = $function_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string $id id
+     *
+     * @return $this
+     */
+    public function setId($id)
+    {
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets last_update_time
+     *
+     * @return string
+     */
+    public function getLastUpdateTime()
+    {
+        return $this->container['last_update_time'];
+    }
+
+    /**
+     * Sets last_update_time
+     *
+     * @param string $last_update_time last_update_time
+     *
+     * @return $this
+     */
+    public function setLastUpdateTime($last_update_time)
+    {
+        $this->container['last_update_time'] = $last_update_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets source_revision_number
      *
      * @return int
      */
-    public function getAccountId()
+    public function getSourceRevisionNumber()
     {
-        return $this->container['account_id'];
+        return $this->container['source_revision_number'];
     }
 
     /**
-     * Sets account_id
+     * Sets source_revision_number
      *
-     * @param int $account_id account_id
+     * @param int $source_revision_number source_revision_number
      *
      * @return $this
      */
-    public function setAccountId($account_id)
+    public function setSourceRevisionNumber($source_revision_number)
     {
-        $this->container['account_id'] = $account_id;
+        $this->container['source_revision_number'] = $source_revision_number;
 
         return $this;
     }
 
     /**
-     * Gets dest_service
+     * Gets status
      *
      * @return string
      */
-    public function getDestService()
+    public function getStatus()
     {
-        return $this->container['dest_service'];
+        return $this->container['status'];
     }
 
     /**
-     * Sets dest_service
+     * Sets status
      *
-     * @param string $dest_service dest_service
+     * @param string $status status
      *
      * @return $this
      */
-    public function setDestService($dest_service)
+    public function setStatus($status)
     {
-        $this->container['dest_service'] = $dest_service;
+        $this->container['status'] = $status;
 
         return $this;
     }
 
     /**
-     * Gets is_internal
-     *
-     * @return string
-     */
-    public function getIsInternal()
-    {
-        return $this->container['is_internal'];
-    }
-
-    /**
-     * Sets is_internal
-     *
-     * @param string $is_internal is_internal
-     *
-     * @return $this
-     */
-    public function setIsInternal($is_internal)
-    {
-        $this->container['is_internal'] = $is_internal;
-
-        return $this;
-    }
-
-    /**
-     * Gets psm
-     *
-     * @return string
-     */
-    public function getPsm()
-    {
-        return $this->container['psm'];
-    }
-
-    /**
-     * Sets psm
-     *
-     * @param string $psm psm
-     *
-     * @return $this
-     */
-    public function setPsm($psm)
-    {
-        $this->container['psm'] = $psm;
-
-        return $this;
-    }
-
-    /**
-     * Gets real_ip
-     *
-     * @return string
-     */
-    public function getRealIp()
-    {
-        return $this->container['real_ip'];
-    }
-
-    /**
-     * Sets real_ip
-     *
-     * @param string $real_ip real_ip
-     *
-     * @return $this
-     */
-    public function setRealIp($real_ip)
-    {
-        $this->container['real_ip'] = $real_ip;
-
-        return $this;
-    }
-
-    /**
-     * Gets region
-     *
-     * @return string
-     */
-    public function getRegion()
-    {
-        return $this->container['region'];
-    }
-
-    /**
-     * Sets region
-     *
-     * @param string $region region
-     *
-     * @return $this
-     */
-    public function setRegion($region)
-    {
-        $this->container['region'] = $region;
-
-        return $this;
-    }
-
-    /**
-     * Gets request_id
-     *
-     * @return string
-     */
-    public function getRequestId()
-    {
-        return $this->container['request_id'];
-    }
-
-    /**
-     * Sets request_id
-     *
-     * @param string $request_id request_id
-     *
-     * @return $this
-     */
-    public function setRequestId($request_id)
-    {
-        $this->container['request_id'] = $request_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets role_id
+     * Gets target_revision_number
      *
      * @return int
      */
-    public function getRoleId()
+    public function getTargetRevisionNumber()
     {
-        return $this->container['role_id'];
+        return $this->container['target_revision_number'];
     }
 
     /**
-     * Sets role_id
+     * Sets target_revision_number
      *
-     * @param int $role_id role_id
+     * @param int $target_revision_number target_revision_number
      *
      * @return $this
      */
-    public function setRoleId($role_id)
+    public function setTargetRevisionNumber($target_revision_number)
     {
-        $this->container['role_id'] = $role_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets site
-     *
-     * @return string
-     */
-    public function getSite()
-    {
-        return $this->container['site'];
-    }
-
-    /**
-     * Sets site
-     *
-     * @param string $site site
-     *
-     * @return $this
-     */
-    public function setSite($site)
-    {
-        $this->container['site'] = $site;
-
-        return $this;
-    }
-
-    /**
-     * Gets source_service
-     *
-     * @return string
-     */
-    public function getSourceService()
-    {
-        return $this->container['source_service'];
-    }
-
-    /**
-     * Sets source_service
-     *
-     * @param string $source_service source_service
-     *
-     * @return $this
-     */
-    public function setSourceService($source_service)
-    {
-        $this->container['source_service'] = $source_service;
-
-        return $this;
-    }
-
-    /**
-     * Gets user_id
-     *
-     * @return int
-     */
-    public function getUserId()
-    {
-        return $this->container['user_id'];
-    }
-
-    /**
-     * Sets user_id
-     *
-     * @param int $user_id user_id
-     *
-     * @return $this
-     */
-    public function setUserId($user_id)
-    {
-        $this->container['user_id'] = $user_id;
+        $this->container['target_revision_number'] = $target_revision_number;
 
         return $this;
     }

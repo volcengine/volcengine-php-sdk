@@ -28,8 +28,7 @@ class DeleteFunctionRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'string',
-        'top_param' => '\Volcengine\Vefaas\Model\TopParamForDeleteFunctionInput'
+        'id' => 'string'
     ];
 
     /**
@@ -38,8 +37,7 @@ class DeleteFunctionRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => null,
-        'top_param' => null
+        'id' => null
     ];
 
     /**
@@ -69,8 +67,7 @@ class DeleteFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'Id',
-        'top_param' => 'TopParam'
+        'id' => 'Id'
     ];
 
     /**
@@ -79,8 +76,7 @@ class DeleteFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'top_param' => 'setTopParam'
+        'id' => 'setId'
     ];
 
     /**
@@ -89,8 +85,7 @@ class DeleteFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'top_param' => 'getTopParam'
+        'id' => 'getId'
     ];
 
     /**
@@ -154,7 +149,6 @@ class DeleteFunctionRequest implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['top_param'] = isset($data['top_param']) ? $data['top_param'] : null;
     }
 
     /**
@@ -204,30 +198,6 @@ class DeleteFunctionRequest implements ModelInterface, ArrayAccess
     public function setId($id)
     {
         $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets top_param
-     *
-     * @return \Volcengine\Vefaas\Model\TopParamForDeleteFunctionInput
-     */
-    public function getTopParam()
-    {
-        return $this->container['top_param'];
-    }
-
-    /**
-     * Sets top_param
-     *
-     * @param \Volcengine\Vefaas\Model\TopParamForDeleteFunctionInput $top_param top_param
-     *
-     * @return $this
-     */
-    public function setTopParam($top_param)
-    {
-        $this->container['top_param'] = $top_param;
 
         return $this;
     }

@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class GetFunctionRequest implements ModelInterface, ArrayAccess
+class ListRevisionsRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetFunctionRequest';
+    protected static $swaggerModelName = 'ListRevisionsRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,11 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'string'
+        'filters' => '\Volcengine\Vefaas\Model\FilterForListRevisionsInput[]',
+        'function_id' => 'string',
+        'page_number' => 'int',
+        'page_size' => 'int',
+        'top_param' => '\Volcengine\Vefaas\Model\TopParamForListRevisionsInput'
     ];
 
     /**
@@ -37,7 +41,11 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => null
+        'filters' => null,
+        'function_id' => null,
+        'page_number' => 'int32',
+        'page_size' => 'int32',
+        'top_param' => null
     ];
 
     /**
@@ -67,7 +75,11 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'Id'
+        'filters' => 'Filters',
+        'function_id' => 'FunctionId',
+        'page_number' => 'PageNumber',
+        'page_size' => 'PageSize',
+        'top_param' => 'TopParam'
     ];
 
     /**
@@ -76,7 +88,11 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId'
+        'filters' => 'setFilters',
+        'function_id' => 'setFunctionId',
+        'page_number' => 'setPageNumber',
+        'page_size' => 'setPageSize',
+        'top_param' => 'setTopParam'
     ];
 
     /**
@@ -85,7 +101,11 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId'
+        'filters' => 'getFilters',
+        'function_id' => 'getFunctionId',
+        'page_number' => 'getPageNumber',
+        'page_size' => 'getPageSize',
+        'top_param' => 'getTopParam'
     ];
 
     /**
@@ -148,7 +168,11 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['filters'] = isset($data['filters']) ? $data['filters'] : null;
+        $this->container['function_id'] = isset($data['function_id']) ? $data['function_id'] : null;
+        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
+        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
+        $this->container['top_param'] = isset($data['top_param']) ? $data['top_param'] : null;
     }
 
     /**
@@ -160,8 +184,8 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
+        if ($this->container['function_id'] === null) {
+            $invalidProperties[] = "'function_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -179,25 +203,121 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets id
+     * Gets filters
      *
-     * @return string
+     * @return \Volcengine\Vefaas\Model\FilterForListRevisionsInput[]
      */
-    public function getId()
+    public function getFilters()
     {
-        return $this->container['id'];
+        return $this->container['filters'];
     }
 
     /**
-     * Sets id
+     * Sets filters
      *
-     * @param string $id id
+     * @param \Volcengine\Vefaas\Model\FilterForListRevisionsInput[] $filters filters
      *
      * @return $this
      */
-    public function setId($id)
+    public function setFilters($filters)
     {
-        $this->container['id'] = $id;
+        $this->container['filters'] = $filters;
+
+        return $this;
+    }
+
+    /**
+     * Gets function_id
+     *
+     * @return string
+     */
+    public function getFunctionId()
+    {
+        return $this->container['function_id'];
+    }
+
+    /**
+     * Sets function_id
+     *
+     * @param string $function_id function_id
+     *
+     * @return $this
+     */
+    public function setFunctionId($function_id)
+    {
+        $this->container['function_id'] = $function_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets page_number
+     *
+     * @return int
+     */
+    public function getPageNumber()
+    {
+        return $this->container['page_number'];
+    }
+
+    /**
+     * Sets page_number
+     *
+     * @param int $page_number page_number
+     *
+     * @return $this
+     */
+    public function setPageNumber($page_number)
+    {
+        $this->container['page_number'] = $page_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets page_size
+     *
+     * @return int
+     */
+    public function getPageSize()
+    {
+        return $this->container['page_size'];
+    }
+
+    /**
+     * Sets page_size
+     *
+     * @param int $page_size page_size
+     *
+     * @return $this
+     */
+    public function setPageSize($page_size)
+    {
+        $this->container['page_size'] = $page_size;
+
+        return $this;
+    }
+
+    /**
+     * Gets top_param
+     *
+     * @return \Volcengine\Vefaas\Model\TopParamForListRevisionsInput
+     */
+    public function getTopParam()
+    {
+        return $this->container['top_param'];
+    }
+
+    /**
+     * Sets top_param
+     *
+     * @param \Volcengine\Vefaas\Model\TopParamForListRevisionsInput $top_param top_param
+     *
+     * @return $this
+     */
+    public function setTopParam($top_param)
+    {
+        $this->container['top_param'] = $top_param;
 
         return $this;
     }

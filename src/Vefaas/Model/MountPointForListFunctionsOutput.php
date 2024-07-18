@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class GetFunctionRequest implements ModelInterface, ArrayAccess
+class MountPointForListFunctionsOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetFunctionRequest';
+    protected static $swaggerModelName = 'MountPointForListFunctionsOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,11 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'string'
+        'bucket_name' => 'string',
+        'bucket_path' => 'string',
+        'endpoint' => 'string',
+        'local_mount_path' => 'string',
+        'read_only' => 'bool'
     ];
 
     /**
@@ -37,7 +41,11 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => null
+        'bucket_name' => null,
+        'bucket_path' => null,
+        'endpoint' => null,
+        'local_mount_path' => null,
+        'read_only' => null
     ];
 
     /**
@@ -67,7 +75,11 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'Id'
+        'bucket_name' => 'BucketName',
+        'bucket_path' => 'BucketPath',
+        'endpoint' => 'Endpoint',
+        'local_mount_path' => 'LocalMountPath',
+        'read_only' => 'ReadOnly'
     ];
 
     /**
@@ -76,7 +88,11 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId'
+        'bucket_name' => 'setBucketName',
+        'bucket_path' => 'setBucketPath',
+        'endpoint' => 'setEndpoint',
+        'local_mount_path' => 'setLocalMountPath',
+        'read_only' => 'setReadOnly'
     ];
 
     /**
@@ -85,7 +101,11 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId'
+        'bucket_name' => 'getBucketName',
+        'bucket_path' => 'getBucketPath',
+        'endpoint' => 'getEndpoint',
+        'local_mount_path' => 'getLocalMountPath',
+        'read_only' => 'getReadOnly'
     ];
 
     /**
@@ -148,7 +168,11 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['bucket_name'] = isset($data['bucket_name']) ? $data['bucket_name'] : null;
+        $this->container['bucket_path'] = isset($data['bucket_path']) ? $data['bucket_path'] : null;
+        $this->container['endpoint'] = isset($data['endpoint']) ? $data['endpoint'] : null;
+        $this->container['local_mount_path'] = isset($data['local_mount_path']) ? $data['local_mount_path'] : null;
+        $this->container['read_only'] = isset($data['read_only']) ? $data['read_only'] : null;
     }
 
     /**
@@ -160,9 +184,6 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -179,25 +200,121 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets id
+     * Gets bucket_name
      *
      * @return string
      */
-    public function getId()
+    public function getBucketName()
     {
-        return $this->container['id'];
+        return $this->container['bucket_name'];
     }
 
     /**
-     * Sets id
+     * Sets bucket_name
      *
-     * @param string $id id
+     * @param string $bucket_name bucket_name
      *
      * @return $this
      */
-    public function setId($id)
+    public function setBucketName($bucket_name)
     {
-        $this->container['id'] = $id;
+        $this->container['bucket_name'] = $bucket_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets bucket_path
+     *
+     * @return string
+     */
+    public function getBucketPath()
+    {
+        return $this->container['bucket_path'];
+    }
+
+    /**
+     * Sets bucket_path
+     *
+     * @param string $bucket_path bucket_path
+     *
+     * @return $this
+     */
+    public function setBucketPath($bucket_path)
+    {
+        $this->container['bucket_path'] = $bucket_path;
+
+        return $this;
+    }
+
+    /**
+     * Gets endpoint
+     *
+     * @return string
+     */
+    public function getEndpoint()
+    {
+        return $this->container['endpoint'];
+    }
+
+    /**
+     * Sets endpoint
+     *
+     * @param string $endpoint endpoint
+     *
+     * @return $this
+     */
+    public function setEndpoint($endpoint)
+    {
+        $this->container['endpoint'] = $endpoint;
+
+        return $this;
+    }
+
+    /**
+     * Gets local_mount_path
+     *
+     * @return string
+     */
+    public function getLocalMountPath()
+    {
+        return $this->container['local_mount_path'];
+    }
+
+    /**
+     * Sets local_mount_path
+     *
+     * @param string $local_mount_path local_mount_path
+     *
+     * @return $this
+     */
+    public function setLocalMountPath($local_mount_path)
+    {
+        $this->container['local_mount_path'] = $local_mount_path;
+
+        return $this;
+    }
+
+    /**
+     * Gets read_only
+     *
+     * @return bool
+     */
+    public function getReadOnly()
+    {
+        return $this->container['read_only'];
+    }
+
+    /**
+     * Sets read_only
+     *
+     * @param bool $read_only read_only
+     *
+     * @return $this
+     */
+    public function setReadOnly($read_only)
+    {
+        $this->container['read_only'] = $read_only;
 
         return $this;
     }

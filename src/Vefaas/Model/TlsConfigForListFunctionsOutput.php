@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class GetFunctionRequest implements ModelInterface, ArrayAccess
+class TlsConfigForListFunctionsOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetFunctionRequest';
+    protected static $swaggerModelName = 'TlsConfigForListFunctionsOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,9 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'string'
+        'enable_log' => 'bool',
+        'tls_project_id' => 'string',
+        'tls_topic_id' => 'string'
     ];
 
     /**
@@ -37,7 +39,9 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => null
+        'enable_log' => null,
+        'tls_project_id' => null,
+        'tls_topic_id' => null
     ];
 
     /**
@@ -67,7 +71,9 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'Id'
+        'enable_log' => 'EnableLog',
+        'tls_project_id' => 'TlsProjectId',
+        'tls_topic_id' => 'TlsTopicId'
     ];
 
     /**
@@ -76,7 +82,9 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId'
+        'enable_log' => 'setEnableLog',
+        'tls_project_id' => 'setTlsProjectId',
+        'tls_topic_id' => 'setTlsTopicId'
     ];
 
     /**
@@ -85,7 +93,9 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId'
+        'enable_log' => 'getEnableLog',
+        'tls_project_id' => 'getTlsProjectId',
+        'tls_topic_id' => 'getTlsTopicId'
     ];
 
     /**
@@ -148,7 +158,9 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['enable_log'] = isset($data['enable_log']) ? $data['enable_log'] : null;
+        $this->container['tls_project_id'] = isset($data['tls_project_id']) ? $data['tls_project_id'] : null;
+        $this->container['tls_topic_id'] = isset($data['tls_topic_id']) ? $data['tls_topic_id'] : null;
     }
 
     /**
@@ -160,9 +172,6 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -179,25 +188,73 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets id
+     * Gets enable_log
      *
-     * @return string
+     * @return bool
      */
-    public function getId()
+    public function getEnableLog()
     {
-        return $this->container['id'];
+        return $this->container['enable_log'];
     }
 
     /**
-     * Sets id
+     * Sets enable_log
      *
-     * @param string $id id
+     * @param bool $enable_log enable_log
      *
      * @return $this
      */
-    public function setId($id)
+    public function setEnableLog($enable_log)
     {
-        $this->container['id'] = $id;
+        $this->container['enable_log'] = $enable_log;
+
+        return $this;
+    }
+
+    /**
+     * Gets tls_project_id
+     *
+     * @return string
+     */
+    public function getTlsProjectId()
+    {
+        return $this->container['tls_project_id'];
+    }
+
+    /**
+     * Sets tls_project_id
+     *
+     * @param string $tls_project_id tls_project_id
+     *
+     * @return $this
+     */
+    public function setTlsProjectId($tls_project_id)
+    {
+        $this->container['tls_project_id'] = $tls_project_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets tls_topic_id
+     *
+     * @return string
+     */
+    public function getTlsTopicId()
+    {
+        return $this->container['tls_topic_id'];
+    }
+
+    /**
+     * Sets tls_topic_id
+     *
+     * @param string $tls_topic_id tls_topic_id
+     *
+     * @return $this
+     */
+    public function setTlsTopicId($tls_topic_id)
+    {
+        $this->container['tls_topic_id'] = $tls_topic_id;
 
         return $this;
     }

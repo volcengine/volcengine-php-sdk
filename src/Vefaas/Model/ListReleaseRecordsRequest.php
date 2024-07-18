@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class GetFunctionRequest implements ModelInterface, ArrayAccess
+class ListReleaseRecordsRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetFunctionRequest';
+    protected static $swaggerModelName = 'ListReleaseRecordsRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,11 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'string'
+        'filters' => '\Volcengine\Vefaas\Model\FilterForListReleaseRecordsInput[]',
+        'function_id' => 'string',
+        'order_by' => '\Volcengine\Vefaas\Model\OrderByForListReleaseRecordsInput',
+        'page_number' => 'int',
+        'page_size' => 'int'
     ];
 
     /**
@@ -37,7 +41,11 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => null
+        'filters' => null,
+        'function_id' => null,
+        'order_by' => null,
+        'page_number' => 'int32',
+        'page_size' => 'int32'
     ];
 
     /**
@@ -67,7 +75,11 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'Id'
+        'filters' => 'Filters',
+        'function_id' => 'FunctionId',
+        'order_by' => 'OrderBy',
+        'page_number' => 'PageNumber',
+        'page_size' => 'PageSize'
     ];
 
     /**
@@ -76,7 +88,11 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId'
+        'filters' => 'setFilters',
+        'function_id' => 'setFunctionId',
+        'order_by' => 'setOrderBy',
+        'page_number' => 'setPageNumber',
+        'page_size' => 'setPageSize'
     ];
 
     /**
@@ -85,7 +101,11 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId'
+        'filters' => 'getFilters',
+        'function_id' => 'getFunctionId',
+        'order_by' => 'getOrderBy',
+        'page_number' => 'getPageNumber',
+        'page_size' => 'getPageSize'
     ];
 
     /**
@@ -148,7 +168,11 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['filters'] = isset($data['filters']) ? $data['filters'] : null;
+        $this->container['function_id'] = isset($data['function_id']) ? $data['function_id'] : null;
+        $this->container['order_by'] = isset($data['order_by']) ? $data['order_by'] : null;
+        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
+        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
     }
 
     /**
@@ -160,8 +184,8 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
+        if ($this->container['function_id'] === null) {
+            $invalidProperties[] = "'function_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -179,25 +203,121 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets id
+     * Gets filters
      *
-     * @return string
+     * @return \Volcengine\Vefaas\Model\FilterForListReleaseRecordsInput[]
      */
-    public function getId()
+    public function getFilters()
     {
-        return $this->container['id'];
+        return $this->container['filters'];
     }
 
     /**
-     * Sets id
+     * Sets filters
      *
-     * @param string $id id
+     * @param \Volcengine\Vefaas\Model\FilterForListReleaseRecordsInput[] $filters filters
      *
      * @return $this
      */
-    public function setId($id)
+    public function setFilters($filters)
     {
-        $this->container['id'] = $id;
+        $this->container['filters'] = $filters;
+
+        return $this;
+    }
+
+    /**
+     * Gets function_id
+     *
+     * @return string
+     */
+    public function getFunctionId()
+    {
+        return $this->container['function_id'];
+    }
+
+    /**
+     * Sets function_id
+     *
+     * @param string $function_id function_id
+     *
+     * @return $this
+     */
+    public function setFunctionId($function_id)
+    {
+        $this->container['function_id'] = $function_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets order_by
+     *
+     * @return \Volcengine\Vefaas\Model\OrderByForListReleaseRecordsInput
+     */
+    public function getOrderBy()
+    {
+        return $this->container['order_by'];
+    }
+
+    /**
+     * Sets order_by
+     *
+     * @param \Volcengine\Vefaas\Model\OrderByForListReleaseRecordsInput $order_by order_by
+     *
+     * @return $this
+     */
+    public function setOrderBy($order_by)
+    {
+        $this->container['order_by'] = $order_by;
+
+        return $this;
+    }
+
+    /**
+     * Gets page_number
+     *
+     * @return int
+     */
+    public function getPageNumber()
+    {
+        return $this->container['page_number'];
+    }
+
+    /**
+     * Sets page_number
+     *
+     * @param int $page_number page_number
+     *
+     * @return $this
+     */
+    public function setPageNumber($page_number)
+    {
+        $this->container['page_number'] = $page_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets page_size
+     *
+     * @return int
+     */
+    public function getPageSize()
+    {
+        return $this->container['page_size'];
+    }
+
+    /**
+     * Sets page_size
+     *
+     * @param int $page_size page_size
+     *
+     * @return $this
+     */
+    public function setPageSize($page_size)
+    {
+        $this->container['page_size'] = $page_size;
 
         return $this;
     }

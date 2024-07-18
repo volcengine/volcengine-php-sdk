@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class GetFunctionRequest implements ModelInterface, ArrayAccess
+class NasConfigForListRevisionsOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetFunctionRequest';
+    protected static $swaggerModelName = 'NasConfigForListRevisionsOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,12 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'string'
+        'file_system_id' => 'string',
+        'gid' => 'int',
+        'local_mount_path' => 'string',
+        'mount_point_id' => 'string',
+        'remote_path' => 'string',
+        'uid' => 'int'
     ];
 
     /**
@@ -37,7 +42,12 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => null
+        'file_system_id' => null,
+        'gid' => 'int64',
+        'local_mount_path' => null,
+        'mount_point_id' => null,
+        'remote_path' => null,
+        'uid' => 'int64'
     ];
 
     /**
@@ -67,7 +77,12 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'Id'
+        'file_system_id' => 'FileSystemId',
+        'gid' => 'Gid',
+        'local_mount_path' => 'LocalMountPath',
+        'mount_point_id' => 'MountPointId',
+        'remote_path' => 'RemotePath',
+        'uid' => 'Uid'
     ];
 
     /**
@@ -76,7 +91,12 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId'
+        'file_system_id' => 'setFileSystemId',
+        'gid' => 'setGid',
+        'local_mount_path' => 'setLocalMountPath',
+        'mount_point_id' => 'setMountPointId',
+        'remote_path' => 'setRemotePath',
+        'uid' => 'setUid'
     ];
 
     /**
@@ -85,7 +105,12 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId'
+        'file_system_id' => 'getFileSystemId',
+        'gid' => 'getGid',
+        'local_mount_path' => 'getLocalMountPath',
+        'mount_point_id' => 'getMountPointId',
+        'remote_path' => 'getRemotePath',
+        'uid' => 'getUid'
     ];
 
     /**
@@ -148,7 +173,12 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['file_system_id'] = isset($data['file_system_id']) ? $data['file_system_id'] : null;
+        $this->container['gid'] = isset($data['gid']) ? $data['gid'] : null;
+        $this->container['local_mount_path'] = isset($data['local_mount_path']) ? $data['local_mount_path'] : null;
+        $this->container['mount_point_id'] = isset($data['mount_point_id']) ? $data['mount_point_id'] : null;
+        $this->container['remote_path'] = isset($data['remote_path']) ? $data['remote_path'] : null;
+        $this->container['uid'] = isset($data['uid']) ? $data['uid'] : null;
     }
 
     /**
@@ -160,9 +190,6 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -179,25 +206,145 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets id
+     * Gets file_system_id
      *
      * @return string
      */
-    public function getId()
+    public function getFileSystemId()
     {
-        return $this->container['id'];
+        return $this->container['file_system_id'];
     }
 
     /**
-     * Sets id
+     * Sets file_system_id
      *
-     * @param string $id id
+     * @param string $file_system_id file_system_id
      *
      * @return $this
      */
-    public function setId($id)
+    public function setFileSystemId($file_system_id)
     {
-        $this->container['id'] = $id;
+        $this->container['file_system_id'] = $file_system_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets gid
+     *
+     * @return int
+     */
+    public function getGid()
+    {
+        return $this->container['gid'];
+    }
+
+    /**
+     * Sets gid
+     *
+     * @param int $gid gid
+     *
+     * @return $this
+     */
+    public function setGid($gid)
+    {
+        $this->container['gid'] = $gid;
+
+        return $this;
+    }
+
+    /**
+     * Gets local_mount_path
+     *
+     * @return string
+     */
+    public function getLocalMountPath()
+    {
+        return $this->container['local_mount_path'];
+    }
+
+    /**
+     * Sets local_mount_path
+     *
+     * @param string $local_mount_path local_mount_path
+     *
+     * @return $this
+     */
+    public function setLocalMountPath($local_mount_path)
+    {
+        $this->container['local_mount_path'] = $local_mount_path;
+
+        return $this;
+    }
+
+    /**
+     * Gets mount_point_id
+     *
+     * @return string
+     */
+    public function getMountPointId()
+    {
+        return $this->container['mount_point_id'];
+    }
+
+    /**
+     * Sets mount_point_id
+     *
+     * @param string $mount_point_id mount_point_id
+     *
+     * @return $this
+     */
+    public function setMountPointId($mount_point_id)
+    {
+        $this->container['mount_point_id'] = $mount_point_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets remote_path
+     *
+     * @return string
+     */
+    public function getRemotePath()
+    {
+        return $this->container['remote_path'];
+    }
+
+    /**
+     * Sets remote_path
+     *
+     * @param string $remote_path remote_path
+     *
+     * @return $this
+     */
+    public function setRemotePath($remote_path)
+    {
+        $this->container['remote_path'] = $remote_path;
+
+        return $this;
+    }
+
+    /**
+     * Gets uid
+     *
+     * @return int
+     */
+    public function getUid()
+    {
+        return $this->container['uid'];
+    }
+
+    /**
+     * Sets uid
+     *
+     * @param int $uid uid
+     *
+     * @return $this
+     */
+    public function setUid($uid)
+    {
+        $this->container['uid'] = $uid;
 
         return $this;
     }
