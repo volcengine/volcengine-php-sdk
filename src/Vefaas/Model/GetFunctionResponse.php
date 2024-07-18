@@ -31,7 +31,6 @@ class GetFunctionResponse implements ModelInterface, ArrayAccess
         'code_size' => 'int',
         'code_size_limit' => 'int',
         'creation_time' => 'string',
-        'debug_instance_enable' => 'bool',
         'description' => 'string',
         'envs' => '\Volcengine\Vefaas\Model\EnvForGetFunctionOutput[]',
         'exclusive_mode' => 'bool',
@@ -45,14 +44,12 @@ class GetFunctionResponse implements ModelInterface, ArrayAccess
         'nas_storage' => '\Volcengine\Vefaas\Model\NasStorageForGetFunctionOutput',
         'owner' => 'string',
         'request_timeout' => 'int',
-        'resource_pool_id' => 'string',
         'runtime' => 'string',
         'source_location' => 'string',
         'source_type' => 'string',
         'tls_config' => '\Volcengine\Vefaas\Model\TlsConfigForGetFunctionOutput',
         'tos_mount_config' => '\Volcengine\Vefaas\Model\TosMountConfigForGetFunctionOutput',
         'triggers_count' => 'int',
-        'use_status' => 'string',
         'vpc_config' => '\Volcengine\Vefaas\Model\VpcConfigForGetFunctionOutput'
     ];
 
@@ -65,7 +62,6 @@ class GetFunctionResponse implements ModelInterface, ArrayAccess
         'code_size' => 'int32',
         'code_size_limit' => 'int32',
         'creation_time' => null,
-        'debug_instance_enable' => null,
         'description' => null,
         'envs' => null,
         'exclusive_mode' => null,
@@ -79,14 +75,12 @@ class GetFunctionResponse implements ModelInterface, ArrayAccess
         'nas_storage' => null,
         'owner' => null,
         'request_timeout' => 'int32',
-        'resource_pool_id' => null,
         'runtime' => null,
         'source_location' => null,
         'source_type' => null,
         'tls_config' => null,
         'tos_mount_config' => null,
         'triggers_count' => 'int32',
-        'use_status' => null,
         'vpc_config' => null
     ];
 
@@ -120,7 +114,6 @@ class GetFunctionResponse implements ModelInterface, ArrayAccess
         'code_size' => 'CodeSize',
         'code_size_limit' => 'CodeSizeLimit',
         'creation_time' => 'CreationTime',
-        'debug_instance_enable' => 'DebugInstanceEnable',
         'description' => 'Description',
         'envs' => 'Envs',
         'exclusive_mode' => 'ExclusiveMode',
@@ -134,14 +127,12 @@ class GetFunctionResponse implements ModelInterface, ArrayAccess
         'nas_storage' => 'NasStorage',
         'owner' => 'Owner',
         'request_timeout' => 'RequestTimeout',
-        'resource_pool_id' => 'ResourcePoolId',
         'runtime' => 'Runtime',
         'source_location' => 'SourceLocation',
         'source_type' => 'SourceType',
         'tls_config' => 'TlsConfig',
         'tos_mount_config' => 'TosMountConfig',
         'triggers_count' => 'TriggersCount',
-        'use_status' => 'UseStatus',
         'vpc_config' => 'VpcConfig'
     ];
 
@@ -154,7 +145,6 @@ class GetFunctionResponse implements ModelInterface, ArrayAccess
         'code_size' => 'setCodeSize',
         'code_size_limit' => 'setCodeSizeLimit',
         'creation_time' => 'setCreationTime',
-        'debug_instance_enable' => 'setDebugInstanceEnable',
         'description' => 'setDescription',
         'envs' => 'setEnvs',
         'exclusive_mode' => 'setExclusiveMode',
@@ -168,14 +158,12 @@ class GetFunctionResponse implements ModelInterface, ArrayAccess
         'nas_storage' => 'setNasStorage',
         'owner' => 'setOwner',
         'request_timeout' => 'setRequestTimeout',
-        'resource_pool_id' => 'setResourcePoolId',
         'runtime' => 'setRuntime',
         'source_location' => 'setSourceLocation',
         'source_type' => 'setSourceType',
         'tls_config' => 'setTlsConfig',
         'tos_mount_config' => 'setTosMountConfig',
         'triggers_count' => 'setTriggersCount',
-        'use_status' => 'setUseStatus',
         'vpc_config' => 'setVpcConfig'
     ];
 
@@ -188,7 +176,6 @@ class GetFunctionResponse implements ModelInterface, ArrayAccess
         'code_size' => 'getCodeSize',
         'code_size_limit' => 'getCodeSizeLimit',
         'creation_time' => 'getCreationTime',
-        'debug_instance_enable' => 'getDebugInstanceEnable',
         'description' => 'getDescription',
         'envs' => 'getEnvs',
         'exclusive_mode' => 'getExclusiveMode',
@@ -202,14 +189,12 @@ class GetFunctionResponse implements ModelInterface, ArrayAccess
         'nas_storage' => 'getNasStorage',
         'owner' => 'getOwner',
         'request_timeout' => 'getRequestTimeout',
-        'resource_pool_id' => 'getResourcePoolId',
         'runtime' => 'getRuntime',
         'source_location' => 'getSourceLocation',
         'source_type' => 'getSourceType',
         'tls_config' => 'getTlsConfig',
         'tos_mount_config' => 'getTosMountConfig',
         'triggers_count' => 'getTriggersCount',
-        'use_status' => 'getUseStatus',
         'vpc_config' => 'getVpcConfig'
     ];
 
@@ -276,7 +261,6 @@ class GetFunctionResponse implements ModelInterface, ArrayAccess
         $this->container['code_size'] = isset($data['code_size']) ? $data['code_size'] : null;
         $this->container['code_size_limit'] = isset($data['code_size_limit']) ? $data['code_size_limit'] : null;
         $this->container['creation_time'] = isset($data['creation_time']) ? $data['creation_time'] : null;
-        $this->container['debug_instance_enable'] = isset($data['debug_instance_enable']) ? $data['debug_instance_enable'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['envs'] = isset($data['envs']) ? $data['envs'] : null;
         $this->container['exclusive_mode'] = isset($data['exclusive_mode']) ? $data['exclusive_mode'] : null;
@@ -290,14 +274,12 @@ class GetFunctionResponse implements ModelInterface, ArrayAccess
         $this->container['nas_storage'] = isset($data['nas_storage']) ? $data['nas_storage'] : null;
         $this->container['owner'] = isset($data['owner']) ? $data['owner'] : null;
         $this->container['request_timeout'] = isset($data['request_timeout']) ? $data['request_timeout'] : null;
-        $this->container['resource_pool_id'] = isset($data['resource_pool_id']) ? $data['resource_pool_id'] : null;
         $this->container['runtime'] = isset($data['runtime']) ? $data['runtime'] : null;
         $this->container['source_location'] = isset($data['source_location']) ? $data['source_location'] : null;
         $this->container['source_type'] = isset($data['source_type']) ? $data['source_type'] : null;
         $this->container['tls_config'] = isset($data['tls_config']) ? $data['tls_config'] : null;
         $this->container['tos_mount_config'] = isset($data['tos_mount_config']) ? $data['tos_mount_config'] : null;
         $this->container['triggers_count'] = isset($data['triggers_count']) ? $data['triggers_count'] : null;
-        $this->container['use_status'] = isset($data['use_status']) ? $data['use_status'] : null;
         $this->container['vpc_config'] = isset($data['vpc_config']) ? $data['vpc_config'] : null;
     }
 
@@ -393,30 +375,6 @@ class GetFunctionResponse implements ModelInterface, ArrayAccess
     public function setCreationTime($creation_time)
     {
         $this->container['creation_time'] = $creation_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets debug_instance_enable
-     *
-     * @return bool
-     */
-    public function getDebugInstanceEnable()
-    {
-        return $this->container['debug_instance_enable'];
-    }
-
-    /**
-     * Sets debug_instance_enable
-     *
-     * @param bool $debug_instance_enable debug_instance_enable
-     *
-     * @return $this
-     */
-    public function setDebugInstanceEnable($debug_instance_enable)
-    {
-        $this->container['debug_instance_enable'] = $debug_instance_enable;
 
         return $this;
     }
@@ -734,30 +692,6 @@ class GetFunctionResponse implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets resource_pool_id
-     *
-     * @return string
-     */
-    public function getResourcePoolId()
-    {
-        return $this->container['resource_pool_id'];
-    }
-
-    /**
-     * Sets resource_pool_id
-     *
-     * @param string $resource_pool_id resource_pool_id
-     *
-     * @return $this
-     */
-    public function setResourcePoolId($resource_pool_id)
-    {
-        $this->container['resource_pool_id'] = $resource_pool_id;
-
-        return $this;
-    }
-
-    /**
      * Gets runtime
      *
      * @return string
@@ -897,30 +831,6 @@ class GetFunctionResponse implements ModelInterface, ArrayAccess
     public function setTriggersCount($triggers_count)
     {
         $this->container['triggers_count'] = $triggers_count;
-
-        return $this;
-    }
-
-    /**
-     * Gets use_status
-     *
-     * @return string
-     */
-    public function getUseStatus()
-    {
-        return $this->container['use_status'];
-    }
-
-    /**
-     * Sets use_status
-     *
-     * @param string $use_status use_status
-     *
-     * @return $this
-     */
-    public function setUseStatus($use_status)
-    {
-        $this->container['use_status'] = $use_status;
 
         return $this;
     }

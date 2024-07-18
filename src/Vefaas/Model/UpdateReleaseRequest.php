@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class GetFunctionRequest implements ModelInterface, ArrayAccess
+class UpdateReleaseRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetFunctionRequest';
+    protected static $swaggerModelName = 'UpdateReleaseRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,8 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'string'
+        'function_id' => 'string',
+        'target_traffic_weight' => 'int'
     ];
 
     /**
@@ -37,7 +38,8 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => null
+        'function_id' => null,
+        'target_traffic_weight' => 'int32'
     ];
 
     /**
@@ -67,7 +69,8 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'Id'
+        'function_id' => 'FunctionId',
+        'target_traffic_weight' => 'TargetTrafficWeight'
     ];
 
     /**
@@ -76,7 +79,8 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId'
+        'function_id' => 'setFunctionId',
+        'target_traffic_weight' => 'setTargetTrafficWeight'
     ];
 
     /**
@@ -85,7 +89,8 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId'
+        'function_id' => 'getFunctionId',
+        'target_traffic_weight' => 'getTargetTrafficWeight'
     ];
 
     /**
@@ -148,7 +153,8 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['function_id'] = isset($data['function_id']) ? $data['function_id'] : null;
+        $this->container['target_traffic_weight'] = isset($data['target_traffic_weight']) ? $data['target_traffic_weight'] : null;
     }
 
     /**
@@ -160,8 +166,11 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
+        if ($this->container['function_id'] === null) {
+            $invalidProperties[] = "'function_id' can't be null";
+        }
+        if ($this->container['target_traffic_weight'] === null) {
+            $invalidProperties[] = "'target_traffic_weight' can't be null";
         }
         return $invalidProperties;
     }
@@ -179,25 +188,49 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets id
+     * Gets function_id
      *
      * @return string
      */
-    public function getId()
+    public function getFunctionId()
     {
-        return $this->container['id'];
+        return $this->container['function_id'];
     }
 
     /**
-     * Sets id
+     * Sets function_id
      *
-     * @param string $id id
+     * @param string $function_id function_id
      *
      * @return $this
      */
-    public function setId($id)
+    public function setFunctionId($function_id)
     {
-        $this->container['id'] = $id;
+        $this->container['function_id'] = $function_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets target_traffic_weight
+     *
+     * @return int
+     */
+    public function getTargetTrafficWeight()
+    {
+        return $this->container['target_traffic_weight'];
+    }
+
+    /**
+     * Sets target_traffic_weight
+     *
+     * @param int $target_traffic_weight target_traffic_weight
+     *
+     * @return $this
+     */
+    public function setTargetTrafficWeight($target_traffic_weight)
+    {
+        $this->container['target_traffic_weight'] = $target_traffic_weight;
 
         return $this;
     }

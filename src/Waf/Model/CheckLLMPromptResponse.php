@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Vefaas\Model;
+namespace Volcengine\Waf\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class GetFunctionRequest implements ModelInterface, ArrayAccess
+class CheckLLMPromptResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetFunctionRequest';
+    protected static $swaggerModelName = 'CheckLLMPromptResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,8 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'string'
+        'decision' => '\Volcengine\Waf\Model\DecisionForCheckLLMPromptOutput',
+        'msg_id' => 'string'
     ];
 
     /**
@@ -37,7 +38,8 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => null
+        'decision' => null,
+        'msg_id' => null
     ];
 
     /**
@@ -67,7 +69,8 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'Id'
+        'decision' => 'Decision',
+        'msg_id' => 'MsgID'
     ];
 
     /**
@@ -76,7 +79,8 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId'
+        'decision' => 'setDecision',
+        'msg_id' => 'setMsgId'
     ];
 
     /**
@@ -85,7 +89,8 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId'
+        'decision' => 'getDecision',
+        'msg_id' => 'getMsgId'
     ];
 
     /**
@@ -148,7 +153,8 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['decision'] = isset($data['decision']) ? $data['decision'] : null;
+        $this->container['msg_id'] = isset($data['msg_id']) ? $data['msg_id'] : null;
     }
 
     /**
@@ -160,9 +166,6 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -179,25 +182,49 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets id
+     * Gets decision
      *
-     * @return string
+     * @return \Volcengine\Waf\Model\DecisionForCheckLLMPromptOutput
      */
-    public function getId()
+    public function getDecision()
     {
-        return $this->container['id'];
+        return $this->container['decision'];
     }
 
     /**
-     * Sets id
+     * Sets decision
      *
-     * @param string $id id
+     * @param \Volcengine\Waf\Model\DecisionForCheckLLMPromptOutput $decision decision
      *
      * @return $this
      */
-    public function setId($id)
+    public function setDecision($decision)
     {
-        $this->container['id'] = $id;
+        $this->container['decision'] = $decision;
+
+        return $this;
+    }
+
+    /**
+     * Gets msg_id
+     *
+     * @return string
+     */
+    public function getMsgId()
+    {
+        return $this->container['msg_id'];
+    }
+
+    /**
+     * Sets msg_id
+     *
+     * @param string $msg_id msg_id
+     *
+     * @return $this
+     */
+    public function setMsgId($msg_id)
+    {
+        $this->container['msg_id'] = $msg_id;
 
         return $this;
     }

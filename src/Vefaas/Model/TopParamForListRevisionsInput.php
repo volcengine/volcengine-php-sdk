@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class TopParamForCreateFunctionInput implements ModelInterface, ArrayAccess
+class TopParamForListRevisionsInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class TopParamForCreateFunctionInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'TopParamForCreateFunctionInput';
+    protected static $swaggerModelName = 'TopParamForListRevisionsInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

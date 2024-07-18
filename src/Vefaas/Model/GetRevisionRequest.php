@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class GetFunctionRequest implements ModelInterface, ArrayAccess
+class GetRevisionRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetFunctionRequest';
+    protected static $swaggerModelName = 'GetRevisionRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,8 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'string'
+        'function_id' => 'string',
+        'revision_number' => 'int'
     ];
 
     /**
@@ -37,7 +38,8 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => null
+        'function_id' => null,
+        'revision_number' => 'int32'
     ];
 
     /**
@@ -67,7 +69,8 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'Id'
+        'function_id' => 'FunctionId',
+        'revision_number' => 'RevisionNumber'
     ];
 
     /**
@@ -76,7 +79,8 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId'
+        'function_id' => 'setFunctionId',
+        'revision_number' => 'setRevisionNumber'
     ];
 
     /**
@@ -85,7 +89,8 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId'
+        'function_id' => 'getFunctionId',
+        'revision_number' => 'getRevisionNumber'
     ];
 
     /**
@@ -148,7 +153,8 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['function_id'] = isset($data['function_id']) ? $data['function_id'] : null;
+        $this->container['revision_number'] = isset($data['revision_number']) ? $data['revision_number'] : null;
     }
 
     /**
@@ -160,8 +166,11 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
+        if ($this->container['function_id'] === null) {
+            $invalidProperties[] = "'function_id' can't be null";
+        }
+        if ($this->container['revision_number'] === null) {
+            $invalidProperties[] = "'revision_number' can't be null";
         }
         return $invalidProperties;
     }
@@ -179,25 +188,49 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets id
+     * Gets function_id
      *
      * @return string
      */
-    public function getId()
+    public function getFunctionId()
     {
-        return $this->container['id'];
+        return $this->container['function_id'];
     }
 
     /**
-     * Sets id
+     * Sets function_id
      *
-     * @param string $id id
+     * @param string $function_id function_id
      *
      * @return $this
      */
-    public function setId($id)
+    public function setFunctionId($function_id)
     {
-        $this->container['id'] = $id;
+        $this->container['function_id'] = $function_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets revision_number
+     *
+     * @return int
+     */
+    public function getRevisionNumber()
+    {
+        return $this->container['revision_number'];
+    }
+
+    /**
+     * Sets revision_number
+     *
+     * @param int $revision_number revision_number
+     *
+     * @return $this
+     */
+    public function setRevisionNumber($revision_number)
+    {
+        $this->container['revision_number'] = $revision_number;
 
         return $this;
     }

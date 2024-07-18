@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Vefaas\Model;
+namespace Volcengine\Waf\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class GetFunctionRequest implements ModelInterface, ArrayAccess
+class CheckLLMPromptRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetFunctionRequest';
+    protected static $swaggerModelName = 'CheckLLMPromptRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,11 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'string'
+        'content' => 'string',
+        'content_type' => 'int',
+        'host' => 'string',
+        'msg_class' => 'int',
+        'region' => 'string'
     ];
 
     /**
@@ -37,7 +41,11 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => null
+        'content' => null,
+        'content_type' => 'int32',
+        'host' => null,
+        'msg_class' => 'int32',
+        'region' => null
     ];
 
     /**
@@ -67,7 +75,11 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'Id'
+        'content' => 'Content',
+        'content_type' => 'ContentType',
+        'host' => 'Host',
+        'msg_class' => 'MsgClass',
+        'region' => 'Region'
     ];
 
     /**
@@ -76,7 +88,11 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId'
+        'content' => 'setContent',
+        'content_type' => 'setContentType',
+        'host' => 'setHost',
+        'msg_class' => 'setMsgClass',
+        'region' => 'setRegion'
     ];
 
     /**
@@ -85,7 +101,11 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId'
+        'content' => 'getContent',
+        'content_type' => 'getContentType',
+        'host' => 'getHost',
+        'msg_class' => 'getMsgClass',
+        'region' => 'getRegion'
     ];
 
     /**
@@ -148,7 +168,11 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['content'] = isset($data['content']) ? $data['content'] : null;
+        $this->container['content_type'] = isset($data['content_type']) ? $data['content_type'] : null;
+        $this->container['host'] = isset($data['host']) ? $data['host'] : null;
+        $this->container['msg_class'] = isset($data['msg_class']) ? $data['msg_class'] : null;
+        $this->container['region'] = isset($data['region']) ? $data['region'] : null;
     }
 
     /**
@@ -160,8 +184,17 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
+        if ($this->container['content'] === null) {
+            $invalidProperties[] = "'content' can't be null";
+        }
+        if ($this->container['content_type'] === null) {
+            $invalidProperties[] = "'content_type' can't be null";
+        }
+        if ($this->container['host'] === null) {
+            $invalidProperties[] = "'host' can't be null";
+        }
+        if ($this->container['region'] === null) {
+            $invalidProperties[] = "'region' can't be null";
         }
         return $invalidProperties;
     }
@@ -179,25 +212,121 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets id
+     * Gets content
      *
      * @return string
      */
-    public function getId()
+    public function getContent()
     {
-        return $this->container['id'];
+        return $this->container['content'];
     }
 
     /**
-     * Sets id
+     * Sets content
      *
-     * @param string $id id
+     * @param string $content content
      *
      * @return $this
      */
-    public function setId($id)
+    public function setContent($content)
     {
-        $this->container['id'] = $id;
+        $this->container['content'] = $content;
+
+        return $this;
+    }
+
+    /**
+     * Gets content_type
+     *
+     * @return int
+     */
+    public function getContentType()
+    {
+        return $this->container['content_type'];
+    }
+
+    /**
+     * Sets content_type
+     *
+     * @param int $content_type content_type
+     *
+     * @return $this
+     */
+    public function setContentType($content_type)
+    {
+        $this->container['content_type'] = $content_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets host
+     *
+     * @return string
+     */
+    public function getHost()
+    {
+        return $this->container['host'];
+    }
+
+    /**
+     * Sets host
+     *
+     * @param string $host host
+     *
+     * @return $this
+     */
+    public function setHost($host)
+    {
+        $this->container['host'] = $host;
+
+        return $this;
+    }
+
+    /**
+     * Gets msg_class
+     *
+     * @return int
+     */
+    public function getMsgClass()
+    {
+        return $this->container['msg_class'];
+    }
+
+    /**
+     * Sets msg_class
+     *
+     * @param int $msg_class msg_class
+     *
+     * @return $this
+     */
+    public function setMsgClass($msg_class)
+    {
+        $this->container['msg_class'] = $msg_class;
+
+        return $this;
+    }
+
+    /**
+     * Gets region
+     *
+     * @return string
+     */
+    public function getRegion()
+    {
+        return $this->container['region'];
+    }
+
+    /**
+     * Sets region
+     *
+     * @param string $region region
+     *
+     * @return $this
+     */
+    public function setRegion($region)
+    {
+        $this->container['region'] = $region;
 
         return $this;
     }

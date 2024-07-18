@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Vefaas\Model;
+namespace Volcengine\Waf\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class GetFunctionRequest implements ModelInterface, ArrayAccess
+class DecisionForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetFunctionRequest';
+    protected static $swaggerModelName = 'DecisionForCheckLLMPromptOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,9 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'string'
+        'err_code' => 'int',
+        'err_msg' => 'string',
+        'labels' => 'string[]'
     ];
 
     /**
@@ -37,7 +39,9 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => null
+        'err_code' => 'int32',
+        'err_msg' => null,
+        'labels' => null
     ];
 
     /**
@@ -67,7 +71,9 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'Id'
+        'err_code' => 'ErrCode',
+        'err_msg' => 'ErrMsg',
+        'labels' => 'Labels'
     ];
 
     /**
@@ -76,7 +82,9 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId'
+        'err_code' => 'setErrCode',
+        'err_msg' => 'setErrMsg',
+        'labels' => 'setLabels'
     ];
 
     /**
@@ -85,7 +93,9 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId'
+        'err_code' => 'getErrCode',
+        'err_msg' => 'getErrMsg',
+        'labels' => 'getLabels'
     ];
 
     /**
@@ -148,7 +158,9 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['err_code'] = isset($data['err_code']) ? $data['err_code'] : null;
+        $this->container['err_msg'] = isset($data['err_msg']) ? $data['err_msg'] : null;
+        $this->container['labels'] = isset($data['labels']) ? $data['labels'] : null;
     }
 
     /**
@@ -160,9 +172,6 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -179,25 +188,73 @@ class GetFunctionRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets id
+     * Gets err_code
      *
-     * @return string
+     * @return int
      */
-    public function getId()
+    public function getErrCode()
     {
-        return $this->container['id'];
+        return $this->container['err_code'];
     }
 
     /**
-     * Sets id
+     * Sets err_code
      *
-     * @param string $id id
+     * @param int $err_code err_code
      *
      * @return $this
      */
-    public function setId($id)
+    public function setErrCode($err_code)
     {
-        $this->container['id'] = $id;
+        $this->container['err_code'] = $err_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets err_msg
+     *
+     * @return string
+     */
+    public function getErrMsg()
+    {
+        return $this->container['err_msg'];
+    }
+
+    /**
+     * Sets err_msg
+     *
+     * @param string $err_msg err_msg
+     *
+     * @return $this
+     */
+    public function setErrMsg($err_msg)
+    {
+        $this->container['err_msg'] = $err_msg;
+
+        return $this;
+    }
+
+    /**
+     * Gets labels
+     *
+     * @return string[]
+     */
+    public function getLabels()
+    {
+        return $this->container['labels'];
+    }
+
+    /**
+     * Sets labels
+     *
+     * @param string[] $labels labels
+     *
+     * @return $this
+     */
+    public function setLabels($labels)
+    {
+        $this->container['labels'] = $labels;
 
         return $this;
     }
