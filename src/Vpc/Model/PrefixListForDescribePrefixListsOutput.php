@@ -36,6 +36,7 @@ class PrefixListForDescribePrefixListsOutput implements ModelInterface, ArrayAcc
         'max_entries' => 'string',
         'prefix_list_id' => 'string',
         'prefix_list_name' => 'string',
+        'project_name' => 'string',
         'status' => 'string',
         'update_time' => 'string'
     ];
@@ -54,6 +55,7 @@ class PrefixListForDescribePrefixListsOutput implements ModelInterface, ArrayAcc
         'max_entries' => null,
         'prefix_list_id' => null,
         'prefix_list_name' => null,
+        'project_name' => null,
         'status' => null,
         'update_time' => null
     ];
@@ -93,6 +95,7 @@ class PrefixListForDescribePrefixListsOutput implements ModelInterface, ArrayAcc
         'max_entries' => 'MaxEntries',
         'prefix_list_id' => 'PrefixListId',
         'prefix_list_name' => 'PrefixListName',
+        'project_name' => 'ProjectName',
         'status' => 'Status',
         'update_time' => 'UpdateTime'
     ];
@@ -111,6 +114,7 @@ class PrefixListForDescribePrefixListsOutput implements ModelInterface, ArrayAcc
         'max_entries' => 'setMaxEntries',
         'prefix_list_id' => 'setPrefixListId',
         'prefix_list_name' => 'setPrefixListName',
+        'project_name' => 'setProjectName',
         'status' => 'setStatus',
         'update_time' => 'setUpdateTime'
     ];
@@ -129,6 +133,7 @@ class PrefixListForDescribePrefixListsOutput implements ModelInterface, ArrayAcc
         'max_entries' => 'getMaxEntries',
         'prefix_list_id' => 'getPrefixListId',
         'prefix_list_name' => 'getPrefixListName',
+        'project_name' => 'getProjectName',
         'status' => 'getStatus',
         'update_time' => 'getUpdateTime'
     ];
@@ -201,6 +206,7 @@ class PrefixListForDescribePrefixListsOutput implements ModelInterface, ArrayAcc
         $this->container['max_entries'] = isset($data['max_entries']) ? $data['max_entries'] : null;
         $this->container['prefix_list_id'] = isset($data['prefix_list_id']) ? $data['prefix_list_id'] : null;
         $this->container['prefix_list_name'] = isset($data['prefix_list_name']) ? $data['prefix_list_name'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
     }
@@ -417,6 +423,30 @@ class PrefixListForDescribePrefixListsOutput implements ModelInterface, ArrayAcc
     public function setPrefixListName($prefix_list_name)
     {
         $this->container['prefix_list_name'] = $prefix_list_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }
