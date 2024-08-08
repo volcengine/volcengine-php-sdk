@@ -37,6 +37,7 @@ class DescribeSubnetsRequest implements ModelInterface, ArrayAccess
         'route_table_id' => 'string',
         'subnet_ids' => 'string[]',
         'subnet_name' => 'string',
+        'tag_filters' => '\Volcengine\Vpc\Model\TagFilterForDescribeSubnetsInput[]',
         'vpc_id' => 'string',
         'zone_id' => 'string'
     ];
@@ -56,6 +57,7 @@ class DescribeSubnetsRequest implements ModelInterface, ArrayAccess
         'route_table_id' => null,
         'subnet_ids' => null,
         'subnet_name' => null,
+        'tag_filters' => null,
         'vpc_id' => null,
         'zone_id' => null
     ];
@@ -96,6 +98,7 @@ class DescribeSubnetsRequest implements ModelInterface, ArrayAccess
         'route_table_id' => 'RouteTableId',
         'subnet_ids' => 'SubnetIds',
         'subnet_name' => 'SubnetName',
+        'tag_filters' => 'TagFilters',
         'vpc_id' => 'VpcId',
         'zone_id' => 'ZoneId'
     ];
@@ -115,6 +118,7 @@ class DescribeSubnetsRequest implements ModelInterface, ArrayAccess
         'route_table_id' => 'setRouteTableId',
         'subnet_ids' => 'setSubnetIds',
         'subnet_name' => 'setSubnetName',
+        'tag_filters' => 'setTagFilters',
         'vpc_id' => 'setVpcId',
         'zone_id' => 'setZoneId'
     ];
@@ -134,6 +138,7 @@ class DescribeSubnetsRequest implements ModelInterface, ArrayAccess
         'route_table_id' => 'getRouteTableId',
         'subnet_ids' => 'getSubnetIds',
         'subnet_name' => 'getSubnetName',
+        'tag_filters' => 'getTagFilters',
         'vpc_id' => 'getVpcId',
         'zone_id' => 'getZoneId'
     ];
@@ -207,6 +212,7 @@ class DescribeSubnetsRequest implements ModelInterface, ArrayAccess
         $this->container['route_table_id'] = isset($data['route_table_id']) ? $data['route_table_id'] : null;
         $this->container['subnet_ids'] = isset($data['subnet_ids']) ? $data['subnet_ids'] : null;
         $this->container['subnet_name'] = isset($data['subnet_name']) ? $data['subnet_name'] : null;
+        $this->container['tag_filters'] = isset($data['tag_filters']) ? $data['tag_filters'] : null;
         $this->container['vpc_id'] = isset($data['vpc_id']) ? $data['vpc_id'] : null;
         $this->container['zone_id'] = isset($data['zone_id']) ? $data['zone_id'] : null;
     }
@@ -447,6 +453,30 @@ class DescribeSubnetsRequest implements ModelInterface, ArrayAccess
     public function setSubnetName($subnet_name)
     {
         $this->container['subnet_name'] = $subnet_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets tag_filters
+     *
+     * @return \Volcengine\Vpc\Model\TagFilterForDescribeSubnetsInput[]
+     */
+    public function getTagFilters()
+    {
+        return $this->container['tag_filters'];
+    }
+
+    /**
+     * Sets tag_filters
+     *
+     * @param \Volcengine\Vpc\Model\TagFilterForDescribeSubnetsInput[] $tag_filters tag_filters
+     *
+     * @return $this
+     */
+    public function setTagFilters($tag_filters)
+    {
+        $this->container['tag_filters'] = $tag_filters;
 
         return $this;
     }
