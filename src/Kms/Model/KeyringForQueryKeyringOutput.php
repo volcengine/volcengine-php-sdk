@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Vpc\Model;
+namespace Volcengine\Kms\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class PrefixListForDescribePrefixListsOutput implements ModelInterface, ArrayAccess
+class KeyringForQueryKeyringOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class PrefixListForDescribePrefixListsOutput implements ModelInterface, ArrayAcc
       *
       * @var string
       */
-    protected static $swaggerModelName = 'PrefixListForDescribePrefixListsOutput';
+    protected static $swaggerModelName = 'KeyringForQueryKeyringOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,17 +28,14 @@ class PrefixListForDescribePrefixListsOutput implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'association_count' => 'int',
-        'cidrs' => 'string[]',
-        'creation_time' => 'string',
+        'creation_date' => 'int',
         'description' => 'string',
-        'ip_version' => 'string',
-        'max_entries' => 'string',
-        'prefix_list_id' => 'string',
-        'prefix_list_name' => 'string',
+        'id' => 'string',
+        'keyring_name' => 'string',
+        'keyring_type' => 'string',
         'project_name' => 'string',
-        'status' => 'string',
-        'update_time' => 'string'
+        'uid' => 'string',
+        'update_date' => 'int'
     ];
 
     /**
@@ -47,17 +44,14 @@ class PrefixListForDescribePrefixListsOutput implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'association_count' => null,
-        'cidrs' => null,
-        'creation_time' => null,
+        'creation_date' => 'int64',
         'description' => null,
-        'ip_version' => null,
-        'max_entries' => null,
-        'prefix_list_id' => null,
-        'prefix_list_name' => null,
+        'id' => null,
+        'keyring_name' => null,
+        'keyring_type' => null,
         'project_name' => null,
-        'status' => null,
-        'update_time' => null
+        'uid' => null,
+        'update_date' => 'int64'
     ];
 
     /**
@@ -87,17 +81,14 @@ class PrefixListForDescribePrefixListsOutput implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $attributeMap = [
-        'association_count' => 'AssociationCount',
-        'cidrs' => 'Cidrs',
-        'creation_time' => 'CreationTime',
+        'creation_date' => 'CreationDate',
         'description' => 'Description',
-        'ip_version' => 'IpVersion',
-        'max_entries' => 'MaxEntries',
-        'prefix_list_id' => 'PrefixListId',
-        'prefix_list_name' => 'PrefixListName',
+        'id' => 'ID',
+        'keyring_name' => 'KeyringName',
+        'keyring_type' => 'KeyringType',
         'project_name' => 'ProjectName',
-        'status' => 'Status',
-        'update_time' => 'UpdateTime'
+        'uid' => 'UID',
+        'update_date' => 'UpdateDate'
     ];
 
     /**
@@ -106,17 +97,14 @@ class PrefixListForDescribePrefixListsOutput implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $setters = [
-        'association_count' => 'setAssociationCount',
-        'cidrs' => 'setCidrs',
-        'creation_time' => 'setCreationTime',
+        'creation_date' => 'setCreationDate',
         'description' => 'setDescription',
-        'ip_version' => 'setIpVersion',
-        'max_entries' => 'setMaxEntries',
-        'prefix_list_id' => 'setPrefixListId',
-        'prefix_list_name' => 'setPrefixListName',
+        'id' => 'setId',
+        'keyring_name' => 'setKeyringName',
+        'keyring_type' => 'setKeyringType',
         'project_name' => 'setProjectName',
-        'status' => 'setStatus',
-        'update_time' => 'setUpdateTime'
+        'uid' => 'setUid',
+        'update_date' => 'setUpdateDate'
     ];
 
     /**
@@ -125,17 +113,14 @@ class PrefixListForDescribePrefixListsOutput implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $getters = [
-        'association_count' => 'getAssociationCount',
-        'cidrs' => 'getCidrs',
-        'creation_time' => 'getCreationTime',
+        'creation_date' => 'getCreationDate',
         'description' => 'getDescription',
-        'ip_version' => 'getIpVersion',
-        'max_entries' => 'getMaxEntries',
-        'prefix_list_id' => 'getPrefixListId',
-        'prefix_list_name' => 'getPrefixListName',
+        'id' => 'getId',
+        'keyring_name' => 'getKeyringName',
+        'keyring_type' => 'getKeyringType',
         'project_name' => 'getProjectName',
-        'status' => 'getStatus',
-        'update_time' => 'getUpdateTime'
+        'uid' => 'getUid',
+        'update_date' => 'getUpdateDate'
     ];
 
     /**
@@ -198,17 +183,14 @@ class PrefixListForDescribePrefixListsOutput implements ModelInterface, ArrayAcc
      */
     public function __construct(array $data = null)
     {
-        $this->container['association_count'] = isset($data['association_count']) ? $data['association_count'] : null;
-        $this->container['cidrs'] = isset($data['cidrs']) ? $data['cidrs'] : null;
-        $this->container['creation_time'] = isset($data['creation_time']) ? $data['creation_time'] : null;
+        $this->container['creation_date'] = isset($data['creation_date']) ? $data['creation_date'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['ip_version'] = isset($data['ip_version']) ? $data['ip_version'] : null;
-        $this->container['max_entries'] = isset($data['max_entries']) ? $data['max_entries'] : null;
-        $this->container['prefix_list_id'] = isset($data['prefix_list_id']) ? $data['prefix_list_id'] : null;
-        $this->container['prefix_list_name'] = isset($data['prefix_list_name']) ? $data['prefix_list_name'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['keyring_name'] = isset($data['keyring_name']) ? $data['keyring_name'] : null;
+        $this->container['keyring_type'] = isset($data['keyring_type']) ? $data['keyring_type'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
+        $this->container['uid'] = isset($data['uid']) ? $data['uid'] : null;
+        $this->container['update_date'] = isset($data['update_date']) ? $data['update_date'] : null;
     }
 
     /**
@@ -236,73 +218,25 @@ class PrefixListForDescribePrefixListsOutput implements ModelInterface, ArrayAcc
 
 
     /**
-     * Gets association_count
+     * Gets creation_date
      *
      * @return int
      */
-    public function getAssociationCount()
+    public function getCreationDate()
     {
-        return $this->container['association_count'];
+        return $this->container['creation_date'];
     }
 
     /**
-     * Sets association_count
+     * Sets creation_date
      *
-     * @param int $association_count association_count
+     * @param int $creation_date creation_date
      *
      * @return $this
      */
-    public function setAssociationCount($association_count)
+    public function setCreationDate($creation_date)
     {
-        $this->container['association_count'] = $association_count;
-
-        return $this;
-    }
-
-    /**
-     * Gets cidrs
-     *
-     * @return string[]
-     */
-    public function getCidrs()
-    {
-        return $this->container['cidrs'];
-    }
-
-    /**
-     * Sets cidrs
-     *
-     * @param string[] $cidrs cidrs
-     *
-     * @return $this
-     */
-    public function setCidrs($cidrs)
-    {
-        $this->container['cidrs'] = $cidrs;
-
-        return $this;
-    }
-
-    /**
-     * Gets creation_time
-     *
-     * @return string
-     */
-    public function getCreationTime()
-    {
-        return $this->container['creation_time'];
-    }
-
-    /**
-     * Sets creation_time
-     *
-     * @param string $creation_time creation_time
-     *
-     * @return $this
-     */
-    public function setCreationTime($creation_time)
-    {
-        $this->container['creation_time'] = $creation_time;
+        $this->container['creation_date'] = $creation_date;
 
         return $this;
     }
@@ -332,97 +266,73 @@ class PrefixListForDescribePrefixListsOutput implements ModelInterface, ArrayAcc
     }
 
     /**
-     * Gets ip_version
+     * Gets id
      *
      * @return string
      */
-    public function getIpVersion()
+    public function getId()
     {
-        return $this->container['ip_version'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets ip_version
+     * Sets id
      *
-     * @param string $ip_version ip_version
+     * @param string $id id
      *
      * @return $this
      */
-    public function setIpVersion($ip_version)
+    public function setId($id)
     {
-        $this->container['ip_version'] = $ip_version;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets max_entries
+     * Gets keyring_name
      *
      * @return string
      */
-    public function getMaxEntries()
+    public function getKeyringName()
     {
-        return $this->container['max_entries'];
+        return $this->container['keyring_name'];
     }
 
     /**
-     * Sets max_entries
+     * Sets keyring_name
      *
-     * @param string $max_entries max_entries
+     * @param string $keyring_name keyring_name
      *
      * @return $this
      */
-    public function setMaxEntries($max_entries)
+    public function setKeyringName($keyring_name)
     {
-        $this->container['max_entries'] = $max_entries;
+        $this->container['keyring_name'] = $keyring_name;
 
         return $this;
     }
 
     /**
-     * Gets prefix_list_id
+     * Gets keyring_type
      *
      * @return string
      */
-    public function getPrefixListId()
+    public function getKeyringType()
     {
-        return $this->container['prefix_list_id'];
+        return $this->container['keyring_type'];
     }
 
     /**
-     * Sets prefix_list_id
+     * Sets keyring_type
      *
-     * @param string $prefix_list_id prefix_list_id
+     * @param string $keyring_type keyring_type
      *
      * @return $this
      */
-    public function setPrefixListId($prefix_list_id)
+    public function setKeyringType($keyring_type)
     {
-        $this->container['prefix_list_id'] = $prefix_list_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets prefix_list_name
-     *
-     * @return string
-     */
-    public function getPrefixListName()
-    {
-        return $this->container['prefix_list_name'];
-    }
-
-    /**
-     * Sets prefix_list_name
-     *
-     * @param string $prefix_list_name prefix_list_name
-     *
-     * @return $this
-     */
-    public function setPrefixListName($prefix_list_name)
-    {
-        $this->container['prefix_list_name'] = $prefix_list_name;
+        $this->container['keyring_type'] = $keyring_type;
 
         return $this;
     }
@@ -452,49 +362,49 @@ class PrefixListForDescribePrefixListsOutput implements ModelInterface, ArrayAcc
     }
 
     /**
-     * Gets status
+     * Gets uid
      *
      * @return string
      */
-    public function getStatus()
+    public function getUid()
     {
-        return $this->container['status'];
+        return $this->container['uid'];
     }
 
     /**
-     * Sets status
+     * Sets uid
      *
-     * @param string $status status
+     * @param string $uid uid
      *
      * @return $this
      */
-    public function setStatus($status)
+    public function setUid($uid)
     {
-        $this->container['status'] = $status;
+        $this->container['uid'] = $uid;
 
         return $this;
     }
 
     /**
-     * Gets update_time
+     * Gets update_date
      *
-     * @return string
+     * @return int
      */
-    public function getUpdateTime()
+    public function getUpdateDate()
     {
-        return $this->container['update_time'];
+        return $this->container['update_date'];
     }
 
     /**
-     * Sets update_time
+     * Sets update_date
      *
-     * @param string $update_time update_time
+     * @param int $update_date update_date
      *
      * @return $this
      */
-    public function setUpdateTime($update_time)
+    public function setUpdateDate($update_date)
     {
-        $this->container['update_time'] = $update_time;
+        $this->container['update_date'] = $update_date;
 
         return $this;
     }

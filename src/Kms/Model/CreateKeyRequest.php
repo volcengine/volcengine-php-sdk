@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Vpc\Model;
+namespace Volcengine\Kms\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class PrefixListForDescribePrefixListsOutput implements ModelInterface, ArrayAccess
+class CreateKeyRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class PrefixListForDescribePrefixListsOutput implements ModelInterface, ArrayAcc
       *
       * @var string
       */
-    protected static $swaggerModelName = 'PrefixListForDescribePrefixListsOutput';
+    protected static $swaggerModelName = 'CreateKeyRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,17 +28,14 @@ class PrefixListForDescribePrefixListsOutput implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'association_count' => 'int',
-        'cidrs' => 'string[]',
-        'creation_time' => 'string',
         'description' => 'string',
-        'ip_version' => 'string',
-        'max_entries' => 'string',
-        'prefix_list_id' => 'string',
-        'prefix_list_name' => 'string',
-        'project_name' => 'string',
-        'status' => 'string',
-        'update_time' => 'string'
+        'key_name' => 'string',
+        'key_spec' => 'string',
+        'key_usage' => 'string',
+        'keyring_name' => 'string',
+        'origin' => 'string',
+        'protection_level' => 'string',
+        'rotate_state' => 'string'
     ];
 
     /**
@@ -47,17 +44,14 @@ class PrefixListForDescribePrefixListsOutput implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'association_count' => null,
-        'cidrs' => null,
-        'creation_time' => null,
         'description' => null,
-        'ip_version' => null,
-        'max_entries' => null,
-        'prefix_list_id' => null,
-        'prefix_list_name' => null,
-        'project_name' => null,
-        'status' => null,
-        'update_time' => null
+        'key_name' => null,
+        'key_spec' => null,
+        'key_usage' => null,
+        'keyring_name' => null,
+        'origin' => null,
+        'protection_level' => null,
+        'rotate_state' => null
     ];
 
     /**
@@ -87,17 +81,14 @@ class PrefixListForDescribePrefixListsOutput implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $attributeMap = [
-        'association_count' => 'AssociationCount',
-        'cidrs' => 'Cidrs',
-        'creation_time' => 'CreationTime',
         'description' => 'Description',
-        'ip_version' => 'IpVersion',
-        'max_entries' => 'MaxEntries',
-        'prefix_list_id' => 'PrefixListId',
-        'prefix_list_name' => 'PrefixListName',
-        'project_name' => 'ProjectName',
-        'status' => 'Status',
-        'update_time' => 'UpdateTime'
+        'key_name' => 'KeyName',
+        'key_spec' => 'KeySpec',
+        'key_usage' => 'KeyUsage',
+        'keyring_name' => 'KeyringName',
+        'origin' => 'Origin',
+        'protection_level' => 'ProtectionLevel',
+        'rotate_state' => 'RotateState'
     ];
 
     /**
@@ -106,17 +97,14 @@ class PrefixListForDescribePrefixListsOutput implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $setters = [
-        'association_count' => 'setAssociationCount',
-        'cidrs' => 'setCidrs',
-        'creation_time' => 'setCreationTime',
         'description' => 'setDescription',
-        'ip_version' => 'setIpVersion',
-        'max_entries' => 'setMaxEntries',
-        'prefix_list_id' => 'setPrefixListId',
-        'prefix_list_name' => 'setPrefixListName',
-        'project_name' => 'setProjectName',
-        'status' => 'setStatus',
-        'update_time' => 'setUpdateTime'
+        'key_name' => 'setKeyName',
+        'key_spec' => 'setKeySpec',
+        'key_usage' => 'setKeyUsage',
+        'keyring_name' => 'setKeyringName',
+        'origin' => 'setOrigin',
+        'protection_level' => 'setProtectionLevel',
+        'rotate_state' => 'setRotateState'
     ];
 
     /**
@@ -125,17 +113,14 @@ class PrefixListForDescribePrefixListsOutput implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $getters = [
-        'association_count' => 'getAssociationCount',
-        'cidrs' => 'getCidrs',
-        'creation_time' => 'getCreationTime',
         'description' => 'getDescription',
-        'ip_version' => 'getIpVersion',
-        'max_entries' => 'getMaxEntries',
-        'prefix_list_id' => 'getPrefixListId',
-        'prefix_list_name' => 'getPrefixListName',
-        'project_name' => 'getProjectName',
-        'status' => 'getStatus',
-        'update_time' => 'getUpdateTime'
+        'key_name' => 'getKeyName',
+        'key_spec' => 'getKeySpec',
+        'key_usage' => 'getKeyUsage',
+        'keyring_name' => 'getKeyringName',
+        'origin' => 'getOrigin',
+        'protection_level' => 'getProtectionLevel',
+        'rotate_state' => 'getRotateState'
     ];
 
     /**
@@ -198,17 +183,14 @@ class PrefixListForDescribePrefixListsOutput implements ModelInterface, ArrayAcc
      */
     public function __construct(array $data = null)
     {
-        $this->container['association_count'] = isset($data['association_count']) ? $data['association_count'] : null;
-        $this->container['cidrs'] = isset($data['cidrs']) ? $data['cidrs'] : null;
-        $this->container['creation_time'] = isset($data['creation_time']) ? $data['creation_time'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['ip_version'] = isset($data['ip_version']) ? $data['ip_version'] : null;
-        $this->container['max_entries'] = isset($data['max_entries']) ? $data['max_entries'] : null;
-        $this->container['prefix_list_id'] = isset($data['prefix_list_id']) ? $data['prefix_list_id'] : null;
-        $this->container['prefix_list_name'] = isset($data['prefix_list_name']) ? $data['prefix_list_name'] : null;
-        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
+        $this->container['key_name'] = isset($data['key_name']) ? $data['key_name'] : null;
+        $this->container['key_spec'] = isset($data['key_spec']) ? $data['key_spec'] : null;
+        $this->container['key_usage'] = isset($data['key_usage']) ? $data['key_usage'] : null;
+        $this->container['keyring_name'] = isset($data['keyring_name']) ? $data['keyring_name'] : null;
+        $this->container['origin'] = isset($data['origin']) ? $data['origin'] : null;
+        $this->container['protection_level'] = isset($data['protection_level']) ? $data['protection_level'] : null;
+        $this->container['rotate_state'] = isset($data['rotate_state']) ? $data['rotate_state'] : null;
     }
 
     /**
@@ -220,6 +202,12 @@ class PrefixListForDescribePrefixListsOutput implements ModelInterface, ArrayAcc
     {
         $invalidProperties = [];
 
+        if ($this->container['key_name'] === null) {
+            $invalidProperties[] = "'key_name' can't be null";
+        }
+        if ($this->container['keyring_name'] === null) {
+            $invalidProperties[] = "'keyring_name' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -234,78 +222,6 @@ class PrefixListForDescribePrefixListsOutput implements ModelInterface, ArrayAcc
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets association_count
-     *
-     * @return int
-     */
-    public function getAssociationCount()
-    {
-        return $this->container['association_count'];
-    }
-
-    /**
-     * Sets association_count
-     *
-     * @param int $association_count association_count
-     *
-     * @return $this
-     */
-    public function setAssociationCount($association_count)
-    {
-        $this->container['association_count'] = $association_count;
-
-        return $this;
-    }
-
-    /**
-     * Gets cidrs
-     *
-     * @return string[]
-     */
-    public function getCidrs()
-    {
-        return $this->container['cidrs'];
-    }
-
-    /**
-     * Sets cidrs
-     *
-     * @param string[] $cidrs cidrs
-     *
-     * @return $this
-     */
-    public function setCidrs($cidrs)
-    {
-        $this->container['cidrs'] = $cidrs;
-
-        return $this;
-    }
-
-    /**
-     * Gets creation_time
-     *
-     * @return string
-     */
-    public function getCreationTime()
-    {
-        return $this->container['creation_time'];
-    }
-
-    /**
-     * Sets creation_time
-     *
-     * @param string $creation_time creation_time
-     *
-     * @return $this
-     */
-    public function setCreationTime($creation_time)
-    {
-        $this->container['creation_time'] = $creation_time;
-
-        return $this;
-    }
 
     /**
      * Gets description
@@ -332,169 +248,169 @@ class PrefixListForDescribePrefixListsOutput implements ModelInterface, ArrayAcc
     }
 
     /**
-     * Gets ip_version
+     * Gets key_name
      *
      * @return string
      */
-    public function getIpVersion()
+    public function getKeyName()
     {
-        return $this->container['ip_version'];
+        return $this->container['key_name'];
     }
 
     /**
-     * Sets ip_version
+     * Sets key_name
      *
-     * @param string $ip_version ip_version
+     * @param string $key_name key_name
      *
      * @return $this
      */
-    public function setIpVersion($ip_version)
+    public function setKeyName($key_name)
     {
-        $this->container['ip_version'] = $ip_version;
+        $this->container['key_name'] = $key_name;
 
         return $this;
     }
 
     /**
-     * Gets max_entries
+     * Gets key_spec
      *
      * @return string
      */
-    public function getMaxEntries()
+    public function getKeySpec()
     {
-        return $this->container['max_entries'];
+        return $this->container['key_spec'];
     }
 
     /**
-     * Sets max_entries
+     * Sets key_spec
      *
-     * @param string $max_entries max_entries
+     * @param string $key_spec key_spec
      *
      * @return $this
      */
-    public function setMaxEntries($max_entries)
+    public function setKeySpec($key_spec)
     {
-        $this->container['max_entries'] = $max_entries;
+        $this->container['key_spec'] = $key_spec;
 
         return $this;
     }
 
     /**
-     * Gets prefix_list_id
+     * Gets key_usage
      *
      * @return string
      */
-    public function getPrefixListId()
+    public function getKeyUsage()
     {
-        return $this->container['prefix_list_id'];
+        return $this->container['key_usage'];
     }
 
     /**
-     * Sets prefix_list_id
+     * Sets key_usage
      *
-     * @param string $prefix_list_id prefix_list_id
+     * @param string $key_usage key_usage
      *
      * @return $this
      */
-    public function setPrefixListId($prefix_list_id)
+    public function setKeyUsage($key_usage)
     {
-        $this->container['prefix_list_id'] = $prefix_list_id;
+        $this->container['key_usage'] = $key_usage;
 
         return $this;
     }
 
     /**
-     * Gets prefix_list_name
+     * Gets keyring_name
      *
      * @return string
      */
-    public function getPrefixListName()
+    public function getKeyringName()
     {
-        return $this->container['prefix_list_name'];
+        return $this->container['keyring_name'];
     }
 
     /**
-     * Sets prefix_list_name
+     * Sets keyring_name
      *
-     * @param string $prefix_list_name prefix_list_name
+     * @param string $keyring_name keyring_name
      *
      * @return $this
      */
-    public function setPrefixListName($prefix_list_name)
+    public function setKeyringName($keyring_name)
     {
-        $this->container['prefix_list_name'] = $prefix_list_name;
+        $this->container['keyring_name'] = $keyring_name;
 
         return $this;
     }
 
     /**
-     * Gets project_name
+     * Gets origin
      *
      * @return string
      */
-    public function getProjectName()
+    public function getOrigin()
     {
-        return $this->container['project_name'];
+        return $this->container['origin'];
     }
 
     /**
-     * Sets project_name
+     * Sets origin
      *
-     * @param string $project_name project_name
+     * @param string $origin origin
      *
      * @return $this
      */
-    public function setProjectName($project_name)
+    public function setOrigin($origin)
     {
-        $this->container['project_name'] = $project_name;
+        $this->container['origin'] = $origin;
 
         return $this;
     }
 
     /**
-     * Gets status
+     * Gets protection_level
      *
      * @return string
      */
-    public function getStatus()
+    public function getProtectionLevel()
     {
-        return $this->container['status'];
+        return $this->container['protection_level'];
     }
 
     /**
-     * Sets status
+     * Sets protection_level
      *
-     * @param string $status status
+     * @param string $protection_level protection_level
      *
      * @return $this
      */
-    public function setStatus($status)
+    public function setProtectionLevel($protection_level)
     {
-        $this->container['status'] = $status;
+        $this->container['protection_level'] = $protection_level;
 
         return $this;
     }
 
     /**
-     * Gets update_time
+     * Gets rotate_state
      *
      * @return string
      */
-    public function getUpdateTime()
+    public function getRotateState()
     {
-        return $this->container['update_time'];
+        return $this->container['rotate_state'];
     }
 
     /**
-     * Sets update_time
+     * Sets rotate_state
      *
-     * @param string $update_time update_time
+     * @param string $rotate_state rotate_state
      *
      * @return $this
      */
-    public function setUpdateTime($update_time)
+    public function setRotateState($rotate_state)
     {
-        $this->container['update_time'] = $update_time;
+        $this->container['rotate_state'] = $rotate_state;
 
         return $this;
     }
