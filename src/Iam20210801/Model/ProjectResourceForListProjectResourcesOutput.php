@@ -28,7 +28,7 @@ class ProjectResourceForListProjectResourcesOutput implements ModelInterface, Ar
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'account_id' => 'string',
+        'account_id' => 'int',
         'create_date' => 'string',
         'project_name' => 'string',
         'resource_id' => 'string',
@@ -45,7 +45,7 @@ class ProjectResourceForListProjectResourcesOutput implements ModelInterface, Ar
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'account_id' => null,
+        'account_id' => 'int64',
         'create_date' => null,
         'project_name' => null,
         'resource_id' => null,
@@ -226,7 +226,7 @@ class ProjectResourceForListProjectResourcesOutput implements ModelInterface, Ar
     /**
      * Gets account_id
      *
-     * @return string
+     * @return int
      */
     public function getAccountId()
     {
@@ -236,7 +236,7 @@ class ProjectResourceForListProjectResourcesOutput implements ModelInterface, Ar
     /**
      * Sets account_id
      *
-     * @param string $account_id account_id
+     * @param int $account_id account_id
      *
      * @return $this
      */

@@ -28,7 +28,7 @@ class ProjectForListProjectsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'account_id' => 'string',
+        'account_id' => 'int',
         'create_date' => 'string',
         'description' => 'string',
         'display_name' => 'string',
@@ -46,7 +46,7 @@ class ProjectForListProjectsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'account_id' => null,
+        'account_id' => 'int64',
         'create_date' => null,
         'description' => null,
         'display_name' => null,
@@ -232,7 +232,7 @@ class ProjectForListProjectsOutput implements ModelInterface, ArrayAccess
     /**
      * Gets account_id
      *
-     * @return string
+     * @return int
      */
     public function getAccountId()
     {
@@ -242,7 +242,7 @@ class ProjectForListProjectsOutput implements ModelInterface, ArrayAccess
     /**
      * Sets account_id
      *
-     * @param string $account_id account_id
+     * @param int $account_id account_id
      *
      * @return $this
      */
