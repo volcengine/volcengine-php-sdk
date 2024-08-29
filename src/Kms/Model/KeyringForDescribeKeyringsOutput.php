@@ -31,8 +31,10 @@ class KeyringForDescribeKeyringsOutput implements ModelInterface, ArrayAccess
         'creation_date' => 'int',
         'description' => 'string',
         'id' => 'string',
+        'key_count' => 'string',
         'keyring_name' => 'string',
         'keyring_type' => 'string',
+        'trn' => 'string',
         'uid' => 'string',
         'update_date' => 'int'
     ];
@@ -46,8 +48,10 @@ class KeyringForDescribeKeyringsOutput implements ModelInterface, ArrayAccess
         'creation_date' => 'int64',
         'description' => null,
         'id' => null,
+        'key_count' => null,
         'keyring_name' => null,
         'keyring_type' => null,
+        'trn' => null,
         'uid' => null,
         'update_date' => 'int64'
     ];
@@ -82,8 +86,10 @@ class KeyringForDescribeKeyringsOutput implements ModelInterface, ArrayAccess
         'creation_date' => 'CreationDate',
         'description' => 'Description',
         'id' => 'ID',
+        'key_count' => 'KeyCount',
         'keyring_name' => 'KeyringName',
         'keyring_type' => 'KeyringType',
+        'trn' => 'TRN',
         'uid' => 'UID',
         'update_date' => 'UpdateDate'
     ];
@@ -97,8 +103,10 @@ class KeyringForDescribeKeyringsOutput implements ModelInterface, ArrayAccess
         'creation_date' => 'setCreationDate',
         'description' => 'setDescription',
         'id' => 'setId',
+        'key_count' => 'setKeyCount',
         'keyring_name' => 'setKeyringName',
         'keyring_type' => 'setKeyringType',
+        'trn' => 'setTrn',
         'uid' => 'setUid',
         'update_date' => 'setUpdateDate'
     ];
@@ -112,8 +120,10 @@ class KeyringForDescribeKeyringsOutput implements ModelInterface, ArrayAccess
         'creation_date' => 'getCreationDate',
         'description' => 'getDescription',
         'id' => 'getId',
+        'key_count' => 'getKeyCount',
         'keyring_name' => 'getKeyringName',
         'keyring_type' => 'getKeyringType',
+        'trn' => 'getTrn',
         'uid' => 'getUid',
         'update_date' => 'getUpdateDate'
     ];
@@ -181,8 +191,10 @@ class KeyringForDescribeKeyringsOutput implements ModelInterface, ArrayAccess
         $this->container['creation_date'] = isset($data['creation_date']) ? $data['creation_date'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['key_count'] = isset($data['key_count']) ? $data['key_count'] : null;
         $this->container['keyring_name'] = isset($data['keyring_name']) ? $data['keyring_name'] : null;
         $this->container['keyring_type'] = isset($data['keyring_type']) ? $data['keyring_type'] : null;
+        $this->container['trn'] = isset($data['trn']) ? $data['trn'] : null;
         $this->container['uid'] = isset($data['uid']) ? $data['uid'] : null;
         $this->container['update_date'] = isset($data['update_date']) ? $data['update_date'] : null;
     }
@@ -284,6 +296,30 @@ class KeyringForDescribeKeyringsOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets key_count
+     *
+     * @return string
+     */
+    public function getKeyCount()
+    {
+        return $this->container['key_count'];
+    }
+
+    /**
+     * Sets key_count
+     *
+     * @param string $key_count key_count
+     *
+     * @return $this
+     */
+    public function setKeyCount($key_count)
+    {
+        $this->container['key_count'] = $key_count;
+
+        return $this;
+    }
+
+    /**
      * Gets keyring_name
      *
      * @return string
@@ -327,6 +363,30 @@ class KeyringForDescribeKeyringsOutput implements ModelInterface, ArrayAccess
     public function setKeyringType($keyring_type)
     {
         $this->container['keyring_type'] = $keyring_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets trn
+     *
+     * @return string
+     */
+    public function getTrn()
+    {
+        return $this->container['trn'];
+    }
+
+    /**
+     * Sets trn
+     *
+     * @param string $trn trn
+     *
+     * @return $this
+     */
+    public function setTrn($trn)
+    {
+        $this->container['trn'] = $trn;
 
         return $this;
     }
