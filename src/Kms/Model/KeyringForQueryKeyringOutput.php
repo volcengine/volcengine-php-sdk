@@ -34,6 +34,7 @@ class KeyringForQueryKeyringOutput implements ModelInterface, ArrayAccess
         'keyring_name' => 'string',
         'keyring_type' => 'string',
         'project_name' => 'string',
+        'trn' => 'string',
         'uid' => 'string',
         'update_date' => 'int'
     ];
@@ -50,6 +51,7 @@ class KeyringForQueryKeyringOutput implements ModelInterface, ArrayAccess
         'keyring_name' => null,
         'keyring_type' => null,
         'project_name' => null,
+        'trn' => null,
         'uid' => null,
         'update_date' => 'int64'
     ];
@@ -87,6 +89,7 @@ class KeyringForQueryKeyringOutput implements ModelInterface, ArrayAccess
         'keyring_name' => 'KeyringName',
         'keyring_type' => 'KeyringType',
         'project_name' => 'ProjectName',
+        'trn' => 'TRN',
         'uid' => 'UID',
         'update_date' => 'UpdateDate'
     ];
@@ -103,6 +106,7 @@ class KeyringForQueryKeyringOutput implements ModelInterface, ArrayAccess
         'keyring_name' => 'setKeyringName',
         'keyring_type' => 'setKeyringType',
         'project_name' => 'setProjectName',
+        'trn' => 'setTrn',
         'uid' => 'setUid',
         'update_date' => 'setUpdateDate'
     ];
@@ -119,6 +123,7 @@ class KeyringForQueryKeyringOutput implements ModelInterface, ArrayAccess
         'keyring_name' => 'getKeyringName',
         'keyring_type' => 'getKeyringType',
         'project_name' => 'getProjectName',
+        'trn' => 'getTrn',
         'uid' => 'getUid',
         'update_date' => 'getUpdateDate'
     ];
@@ -189,6 +194,7 @@ class KeyringForQueryKeyringOutput implements ModelInterface, ArrayAccess
         $this->container['keyring_name'] = isset($data['keyring_name']) ? $data['keyring_name'] : null;
         $this->container['keyring_type'] = isset($data['keyring_type']) ? $data['keyring_type'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['trn'] = isset($data['trn']) ? $data['trn'] : null;
         $this->container['uid'] = isset($data['uid']) ? $data['uid'] : null;
         $this->container['update_date'] = isset($data['update_date']) ? $data['update_date'] : null;
     }
@@ -357,6 +363,30 @@ class KeyringForQueryKeyringOutput implements ModelInterface, ArrayAccess
     public function setProjectName($project_name)
     {
         $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets trn
+     *
+     * @return string
+     */
+    public function getTrn()
+    {
+        return $this->container['trn'];
+    }
+
+    /**
+     * Sets trn
+     *
+     * @param string $trn trn
+     *
+     * @return $this
+     */
+    public function setTrn($trn)
+    {
+        $this->container['trn'] = $trn;
 
         return $this;
     }

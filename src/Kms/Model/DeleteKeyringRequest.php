@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class KeyringForCreateKeyringOutput implements ModelInterface, ArrayAccess
+class DeleteKeyringRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class KeyringForCreateKeyringOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'KeyringForCreateKeyringOutput';
+    protected static $swaggerModelName = 'DeleteKeyringRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,14 +28,7 @@ class KeyringForCreateKeyringOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'creation_date' => 'int',
-        'description' => 'string',
-        'id' => 'string',
-        'keyring_name' => 'string',
-        'keyring_type' => 'string',
-        'trn' => 'string',
-        'uid' => 'string',
-        'update_date' => 'int'
+        'keyring_name' => 'string'
     ];
 
     /**
@@ -44,14 +37,7 @@ class KeyringForCreateKeyringOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'creation_date' => 'int64',
-        'description' => null,
-        'id' => null,
-        'keyring_name' => null,
-        'keyring_type' => null,
-        'trn' => null,
-        'uid' => null,
-        'update_date' => 'int64'
+        'keyring_name' => null
     ];
 
     /**
@@ -81,14 +67,7 @@ class KeyringForCreateKeyringOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'creation_date' => 'CreationDate',
-        'description' => 'Description',
-        'id' => 'ID',
-        'keyring_name' => 'KeyringName',
-        'keyring_type' => 'KeyringType',
-        'trn' => 'TRN',
-        'uid' => 'UID',
-        'update_date' => 'UpdateDate'
+        'keyring_name' => 'KeyringName'
     ];
 
     /**
@@ -97,14 +76,7 @@ class KeyringForCreateKeyringOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'creation_date' => 'setCreationDate',
-        'description' => 'setDescription',
-        'id' => 'setId',
-        'keyring_name' => 'setKeyringName',
-        'keyring_type' => 'setKeyringType',
-        'trn' => 'setTrn',
-        'uid' => 'setUid',
-        'update_date' => 'setUpdateDate'
+        'keyring_name' => 'setKeyringName'
     ];
 
     /**
@@ -113,14 +85,7 @@ class KeyringForCreateKeyringOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'creation_date' => 'getCreationDate',
-        'description' => 'getDescription',
-        'id' => 'getId',
-        'keyring_name' => 'getKeyringName',
-        'keyring_type' => 'getKeyringType',
-        'trn' => 'getTrn',
-        'uid' => 'getUid',
-        'update_date' => 'getUpdateDate'
+        'keyring_name' => 'getKeyringName'
     ];
 
     /**
@@ -183,14 +148,7 @@ class KeyringForCreateKeyringOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['creation_date'] = isset($data['creation_date']) ? $data['creation_date'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['keyring_name'] = isset($data['keyring_name']) ? $data['keyring_name'] : null;
-        $this->container['keyring_type'] = isset($data['keyring_type']) ? $data['keyring_type'] : null;
-        $this->container['trn'] = isset($data['trn']) ? $data['trn'] : null;
-        $this->container['uid'] = isset($data['uid']) ? $data['uid'] : null;
-        $this->container['update_date'] = isset($data['update_date']) ? $data['update_date'] : null;
     }
 
     /**
@@ -202,6 +160,9 @@ class KeyringForCreateKeyringOutput implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['keyring_name'] === null) {
+            $invalidProperties[] = "'keyring_name' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -216,78 +177,6 @@ class KeyringForCreateKeyringOutput implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets creation_date
-     *
-     * @return int
-     */
-    public function getCreationDate()
-    {
-        return $this->container['creation_date'];
-    }
-
-    /**
-     * Sets creation_date
-     *
-     * @param int $creation_date creation_date
-     *
-     * @return $this
-     */
-    public function setCreationDate($creation_date)
-    {
-        $this->container['creation_date'] = $creation_date;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
-     *
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->container['description'];
-    }
-
-    /**
-     * Sets description
-     *
-     * @param string $description description
-     *
-     * @return $this
-     */
-    public function setDescription($description)
-    {
-        $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets id
-     *
-     * @return string
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string $id id
-     *
-     * @return $this
-     */
-    public function setId($id)
-    {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
 
     /**
      * Gets keyring_name
@@ -309,102 +198,6 @@ class KeyringForCreateKeyringOutput implements ModelInterface, ArrayAccess
     public function setKeyringName($keyring_name)
     {
         $this->container['keyring_name'] = $keyring_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets keyring_type
-     *
-     * @return string
-     */
-    public function getKeyringType()
-    {
-        return $this->container['keyring_type'];
-    }
-
-    /**
-     * Sets keyring_type
-     *
-     * @param string $keyring_type keyring_type
-     *
-     * @return $this
-     */
-    public function setKeyringType($keyring_type)
-    {
-        $this->container['keyring_type'] = $keyring_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets trn
-     *
-     * @return string
-     */
-    public function getTrn()
-    {
-        return $this->container['trn'];
-    }
-
-    /**
-     * Sets trn
-     *
-     * @param string $trn trn
-     *
-     * @return $this
-     */
-    public function setTrn($trn)
-    {
-        $this->container['trn'] = $trn;
-
-        return $this;
-    }
-
-    /**
-     * Gets uid
-     *
-     * @return string
-     */
-    public function getUid()
-    {
-        return $this->container['uid'];
-    }
-
-    /**
-     * Sets uid
-     *
-     * @param string $uid uid
-     *
-     * @return $this
-     */
-    public function setUid($uid)
-    {
-        $this->container['uid'] = $uid;
-
-        return $this;
-    }
-
-    /**
-     * Gets update_date
-     *
-     * @return int
-     */
-    public function getUpdateDate()
-    {
-        return $this->container['update_date'];
-    }
-
-    /**
-     * Sets update_date
-     *
-     * @param int $update_date update_date
-     *
-     * @return $this
-     */
-    public function setUpdateDate($update_date)
-    {
-        $this->container['update_date'] = $update_date;
 
         return $this;
     }
