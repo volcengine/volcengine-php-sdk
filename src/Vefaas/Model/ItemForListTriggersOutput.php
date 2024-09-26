@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class TopParamForListRevisionsInput implements ModelInterface, ArrayAccess
+class ItemForListTriggersOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class TopParamForListRevisionsInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'TopParamForListRevisionsInput';
+    protected static $swaggerModelName = 'ItemForListTriggersOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,17 +28,17 @@ class TopParamForListRevisionsInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'account_id' => 'int',
-        'dest_service' => 'string',
-        'is_internal' => 'string',
-        'psm' => 'string',
-        'real_ip' => 'string',
-        'region' => 'string',
-        'request_id' => 'string',
-        'role_id' => 'int',
-        'site' => 'string',
-        'source_service' => 'string',
-        'user_id' => 'int'
+        'account_id' => 'string',
+        'creation_time' => 'string',
+        'description' => 'string',
+        'detailed_config' => 'string',
+        'enabled' => 'bool',
+        'function_id' => 'string',
+        'id' => 'string',
+        'image_version' => 'string',
+        'last_update_time' => 'string',
+        'name' => 'string',
+        'type' => 'string'
     ];
 
     /**
@@ -47,17 +47,17 @@ class TopParamForListRevisionsInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'account_id' => 'int64',
-        'dest_service' => null,
-        'is_internal' => null,
-        'psm' => null,
-        'real_ip' => null,
-        'region' => null,
-        'request_id' => null,
-        'role_id' => 'int64',
-        'site' => null,
-        'source_service' => null,
-        'user_id' => 'int64'
+        'account_id' => null,
+        'creation_time' => null,
+        'description' => null,
+        'detailed_config' => null,
+        'enabled' => null,
+        'function_id' => null,
+        'id' => null,
+        'image_version' => null,
+        'last_update_time' => null,
+        'name' => null,
+        'type' => null
     ];
 
     /**
@@ -87,17 +87,17 @@ class TopParamForListRevisionsInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'account_id' => 'AccountId',
-        'dest_service' => 'DestService',
-        'is_internal' => 'IsInternal',
-        'psm' => 'Psm',
-        'real_ip' => 'RealIp',
-        'region' => 'Region',
-        'request_id' => 'RequestId',
-        'role_id' => 'RoleId',
-        'site' => 'Site',
-        'source_service' => 'SourceService',
-        'user_id' => 'UserId'
+        'account_id' => 'AccountID',
+        'creation_time' => 'CreationTime',
+        'description' => 'Description',
+        'detailed_config' => 'DetailedConfig',
+        'enabled' => 'Enabled',
+        'function_id' => 'FunctionID',
+        'id' => 'Id',
+        'image_version' => 'ImageVersion',
+        'last_update_time' => 'LastUpdateTime',
+        'name' => 'Name',
+        'type' => 'Type'
     ];
 
     /**
@@ -107,16 +107,16 @@ class TopParamForListRevisionsInput implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'account_id' => 'setAccountId',
-        'dest_service' => 'setDestService',
-        'is_internal' => 'setIsInternal',
-        'psm' => 'setPsm',
-        'real_ip' => 'setRealIp',
-        'region' => 'setRegion',
-        'request_id' => 'setRequestId',
-        'role_id' => 'setRoleId',
-        'site' => 'setSite',
-        'source_service' => 'setSourceService',
-        'user_id' => 'setUserId'
+        'creation_time' => 'setCreationTime',
+        'description' => 'setDescription',
+        'detailed_config' => 'setDetailedConfig',
+        'enabled' => 'setEnabled',
+        'function_id' => 'setFunctionId',
+        'id' => 'setId',
+        'image_version' => 'setImageVersion',
+        'last_update_time' => 'setLastUpdateTime',
+        'name' => 'setName',
+        'type' => 'setType'
     ];
 
     /**
@@ -126,16 +126,16 @@ class TopParamForListRevisionsInput implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'account_id' => 'getAccountId',
-        'dest_service' => 'getDestService',
-        'is_internal' => 'getIsInternal',
-        'psm' => 'getPsm',
-        'real_ip' => 'getRealIp',
-        'region' => 'getRegion',
-        'request_id' => 'getRequestId',
-        'role_id' => 'getRoleId',
-        'site' => 'getSite',
-        'source_service' => 'getSourceService',
-        'user_id' => 'getUserId'
+        'creation_time' => 'getCreationTime',
+        'description' => 'getDescription',
+        'detailed_config' => 'getDetailedConfig',
+        'enabled' => 'getEnabled',
+        'function_id' => 'getFunctionId',
+        'id' => 'getId',
+        'image_version' => 'getImageVersion',
+        'last_update_time' => 'getLastUpdateTime',
+        'name' => 'getName',
+        'type' => 'getType'
     ];
 
     /**
@@ -199,16 +199,16 @@ class TopParamForListRevisionsInput implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
-        $this->container['dest_service'] = isset($data['dest_service']) ? $data['dest_service'] : null;
-        $this->container['is_internal'] = isset($data['is_internal']) ? $data['is_internal'] : null;
-        $this->container['psm'] = isset($data['psm']) ? $data['psm'] : null;
-        $this->container['real_ip'] = isset($data['real_ip']) ? $data['real_ip'] : null;
-        $this->container['region'] = isset($data['region']) ? $data['region'] : null;
-        $this->container['request_id'] = isset($data['request_id']) ? $data['request_id'] : null;
-        $this->container['role_id'] = isset($data['role_id']) ? $data['role_id'] : null;
-        $this->container['site'] = isset($data['site']) ? $data['site'] : null;
-        $this->container['source_service'] = isset($data['source_service']) ? $data['source_service'] : null;
-        $this->container['user_id'] = isset($data['user_id']) ? $data['user_id'] : null;
+        $this->container['creation_time'] = isset($data['creation_time']) ? $data['creation_time'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['detailed_config'] = isset($data['detailed_config']) ? $data['detailed_config'] : null;
+        $this->container['enabled'] = isset($data['enabled']) ? $data['enabled'] : null;
+        $this->container['function_id'] = isset($data['function_id']) ? $data['function_id'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['image_version'] = isset($data['image_version']) ? $data['image_version'] : null;
+        $this->container['last_update_time'] = isset($data['last_update_time']) ? $data['last_update_time'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
     /**
@@ -238,7 +238,7 @@ class TopParamForListRevisionsInput implements ModelInterface, ArrayAccess
     /**
      * Gets account_id
      *
-     * @return int
+     * @return string
      */
     public function getAccountId()
     {
@@ -248,7 +248,7 @@ class TopParamForListRevisionsInput implements ModelInterface, ArrayAccess
     /**
      * Sets account_id
      *
-     * @param int $account_id account_id
+     * @param string $account_id account_id
      *
      * @return $this
      */
@@ -260,241 +260,241 @@ class TopParamForListRevisionsInput implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets dest_service
+     * Gets creation_time
      *
      * @return string
      */
-    public function getDestService()
+    public function getCreationTime()
     {
-        return $this->container['dest_service'];
+        return $this->container['creation_time'];
     }
 
     /**
-     * Sets dest_service
+     * Sets creation_time
      *
-     * @param string $dest_service dest_service
+     * @param string $creation_time creation_time
      *
      * @return $this
      */
-    public function setDestService($dest_service)
+    public function setCreationTime($creation_time)
     {
-        $this->container['dest_service'] = $dest_service;
+        $this->container['creation_time'] = $creation_time;
 
         return $this;
     }
 
     /**
-     * Gets is_internal
+     * Gets description
      *
      * @return string
      */
-    public function getIsInternal()
+    public function getDescription()
     {
-        return $this->container['is_internal'];
+        return $this->container['description'];
     }
 
     /**
-     * Sets is_internal
+     * Sets description
      *
-     * @param string $is_internal is_internal
+     * @param string $description description
      *
      * @return $this
      */
-    public function setIsInternal($is_internal)
+    public function setDescription($description)
     {
-        $this->container['is_internal'] = $is_internal;
+        $this->container['description'] = $description;
 
         return $this;
     }
 
     /**
-     * Gets psm
+     * Gets detailed_config
      *
      * @return string
      */
-    public function getPsm()
+    public function getDetailedConfig()
     {
-        return $this->container['psm'];
+        return $this->container['detailed_config'];
     }
 
     /**
-     * Sets psm
+     * Sets detailed_config
      *
-     * @param string $psm psm
+     * @param string $detailed_config detailed_config
      *
      * @return $this
      */
-    public function setPsm($psm)
+    public function setDetailedConfig($detailed_config)
     {
-        $this->container['psm'] = $psm;
+        $this->container['detailed_config'] = $detailed_config;
 
         return $this;
     }
 
     /**
-     * Gets real_ip
+     * Gets enabled
+     *
+     * @return bool
+     */
+    public function getEnabled()
+    {
+        return $this->container['enabled'];
+    }
+
+    /**
+     * Sets enabled
+     *
+     * @param bool $enabled enabled
+     *
+     * @return $this
+     */
+    public function setEnabled($enabled)
+    {
+        $this->container['enabled'] = $enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets function_id
      *
      * @return string
      */
-    public function getRealIp()
+    public function getFunctionId()
     {
-        return $this->container['real_ip'];
+        return $this->container['function_id'];
     }
 
     /**
-     * Sets real_ip
+     * Sets function_id
      *
-     * @param string $real_ip real_ip
+     * @param string $function_id function_id
      *
      * @return $this
      */
-    public function setRealIp($real_ip)
+    public function setFunctionId($function_id)
     {
-        $this->container['real_ip'] = $real_ip;
+        $this->container['function_id'] = $function_id;
 
         return $this;
     }
 
     /**
-     * Gets region
+     * Gets id
      *
      * @return string
      */
-    public function getRegion()
+    public function getId()
     {
-        return $this->container['region'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets region
+     * Sets id
      *
-     * @param string $region region
+     * @param string $id id
      *
      * @return $this
      */
-    public function setRegion($region)
+    public function setId($id)
     {
-        $this->container['region'] = $region;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets request_id
+     * Gets image_version
      *
      * @return string
      */
-    public function getRequestId()
+    public function getImageVersion()
     {
-        return $this->container['request_id'];
+        return $this->container['image_version'];
     }
 
     /**
-     * Sets request_id
+     * Sets image_version
      *
-     * @param string $request_id request_id
+     * @param string $image_version image_version
      *
      * @return $this
      */
-    public function setRequestId($request_id)
+    public function setImageVersion($image_version)
     {
-        $this->container['request_id'] = $request_id;
+        $this->container['image_version'] = $image_version;
 
         return $this;
     }
 
     /**
-     * Gets role_id
-     *
-     * @return int
-     */
-    public function getRoleId()
-    {
-        return $this->container['role_id'];
-    }
-
-    /**
-     * Sets role_id
-     *
-     * @param int $role_id role_id
-     *
-     * @return $this
-     */
-    public function setRoleId($role_id)
-    {
-        $this->container['role_id'] = $role_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets site
+     * Gets last_update_time
      *
      * @return string
      */
-    public function getSite()
+    public function getLastUpdateTime()
     {
-        return $this->container['site'];
+        return $this->container['last_update_time'];
     }
 
     /**
-     * Sets site
+     * Sets last_update_time
      *
-     * @param string $site site
+     * @param string $last_update_time last_update_time
      *
      * @return $this
      */
-    public function setSite($site)
+    public function setLastUpdateTime($last_update_time)
     {
-        $this->container['site'] = $site;
+        $this->container['last_update_time'] = $last_update_time;
 
         return $this;
     }
 
     /**
-     * Gets source_service
+     * Gets name
      *
      * @return string
      */
-    public function getSourceService()
+    public function getName()
     {
-        return $this->container['source_service'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets source_service
+     * Sets name
      *
-     * @param string $source_service source_service
+     * @param string $name name
      *
      * @return $this
      */
-    public function setSourceService($source_service)
+    public function setName($name)
     {
-        $this->container['source_service'] = $source_service;
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets user_id
+     * Gets type
      *
-     * @return int
+     * @return string
      */
-    public function getUserId()
+    public function getType()
     {
-        return $this->container['user_id'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets user_id
+     * Sets type
      *
-     * @param int $user_id user_id
+     * @param string $type type
      *
      * @return $this
      */
-    public function setUserId($user_id)
+    public function setType($type)
     {
-        $this->container['user_id'] = $user_id;
+        $this->container['type'] = $type;
 
         return $this;
     }

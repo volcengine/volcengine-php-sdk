@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ListRevisionsRequest implements ModelInterface, ArrayAccess
+class ListTriggersResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ListRevisionsRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ListRevisionsRequest';
+    protected static $swaggerModelName = 'ListTriggersResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,8 @@ class ListRevisionsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'filters' => '\Volcengine\Vefaas\Model\FilterForListRevisionsInput[]',
-        'function_id' => 'string',
-        'page_number' => 'int',
-        'page_size' => 'int'
+        'items' => '\Volcengine\Vefaas\Model\ItemForListTriggersOutput[]',
+        'total' => 'int'
     ];
 
     /**
@@ -40,10 +38,8 @@ class ListRevisionsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'filters' => null,
-        'function_id' => null,
-        'page_number' => 'int32',
-        'page_size' => 'int32'
+        'items' => null,
+        'total' => 'int32'
     ];
 
     /**
@@ -73,10 +69,8 @@ class ListRevisionsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'filters' => 'Filters',
-        'function_id' => 'FunctionId',
-        'page_number' => 'PageNumber',
-        'page_size' => 'PageSize'
+        'items' => 'Items',
+        'total' => 'Total'
     ];
 
     /**
@@ -85,10 +79,8 @@ class ListRevisionsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'filters' => 'setFilters',
-        'function_id' => 'setFunctionId',
-        'page_number' => 'setPageNumber',
-        'page_size' => 'setPageSize'
+        'items' => 'setItems',
+        'total' => 'setTotal'
     ];
 
     /**
@@ -97,10 +89,8 @@ class ListRevisionsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'filters' => 'getFilters',
-        'function_id' => 'getFunctionId',
-        'page_number' => 'getPageNumber',
-        'page_size' => 'getPageSize'
+        'items' => 'getItems',
+        'total' => 'getTotal'
     ];
 
     /**
@@ -163,10 +153,8 @@ class ListRevisionsRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['filters'] = isset($data['filters']) ? $data['filters'] : null;
-        $this->container['function_id'] = isset($data['function_id']) ? $data['function_id'] : null;
-        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
-        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
+        $this->container['items'] = isset($data['items']) ? $data['items'] : null;
+        $this->container['total'] = isset($data['total']) ? $data['total'] : null;
     }
 
     /**
@@ -178,9 +166,6 @@ class ListRevisionsRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['function_id'] === null) {
-            $invalidProperties[] = "'function_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -197,97 +182,49 @@ class ListRevisionsRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets filters
+     * Gets items
      *
-     * @return \Volcengine\Vefaas\Model\FilterForListRevisionsInput[]
+     * @return \Volcengine\Vefaas\Model\ItemForListTriggersOutput[]
      */
-    public function getFilters()
+    public function getItems()
     {
-        return $this->container['filters'];
+        return $this->container['items'];
     }
 
     /**
-     * Sets filters
+     * Sets items
      *
-     * @param \Volcengine\Vefaas\Model\FilterForListRevisionsInput[] $filters filters
+     * @param \Volcengine\Vefaas\Model\ItemForListTriggersOutput[] $items items
      *
      * @return $this
      */
-    public function setFilters($filters)
+    public function setItems($items)
     {
-        $this->container['filters'] = $filters;
+        $this->container['items'] = $items;
 
         return $this;
     }
 
     /**
-     * Gets function_id
-     *
-     * @return string
-     */
-    public function getFunctionId()
-    {
-        return $this->container['function_id'];
-    }
-
-    /**
-     * Sets function_id
-     *
-     * @param string $function_id function_id
-     *
-     * @return $this
-     */
-    public function setFunctionId($function_id)
-    {
-        $this->container['function_id'] = $function_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets page_number
+     * Gets total
      *
      * @return int
      */
-    public function getPageNumber()
+    public function getTotal()
     {
-        return $this->container['page_number'];
+        return $this->container['total'];
     }
 
     /**
-     * Sets page_number
+     * Sets total
      *
-     * @param int $page_number page_number
+     * @param int $total total
      *
      * @return $this
      */
-    public function setPageNumber($page_number)
+    public function setTotal($total)
     {
-        $this->container['page_number'] = $page_number;
-
-        return $this;
-    }
-
-    /**
-     * Gets page_size
-     *
-     * @return int
-     */
-    public function getPageSize()
-    {
-        return $this->container['page_size'];
-    }
-
-    /**
-     * Sets page_size
-     *
-     * @param int $page_size page_size
-     *
-     * @return $this
-     */
-    public function setPageSize($page_size)
-    {
-        $this->container['page_size'] = $page_size;
+        $this->container['total'] = $total;
 
         return $this;
     }
