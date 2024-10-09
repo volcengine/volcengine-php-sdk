@@ -38,6 +38,7 @@ class DescribeHaVipsRequest implements ModelInterface, ArrayAccess
         'project_name' => 'string',
         'status' => 'string',
         'subnet_id' => 'string',
+        'tag_filters' => '\Volcengine\Vpc\Model\TagFilterForDescribeHaVipsInput[]',
         'vpc_id' => 'string'
     ];
 
@@ -57,6 +58,7 @@ class DescribeHaVipsRequest implements ModelInterface, ArrayAccess
         'project_name' => null,
         'status' => null,
         'subnet_id' => null,
+        'tag_filters' => null,
         'vpc_id' => null
     ];
 
@@ -97,6 +99,7 @@ class DescribeHaVipsRequest implements ModelInterface, ArrayAccess
         'project_name' => 'ProjectName',
         'status' => 'Status',
         'subnet_id' => 'SubnetId',
+        'tag_filters' => 'TagFilters',
         'vpc_id' => 'VpcId'
     ];
 
@@ -116,6 +119,7 @@ class DescribeHaVipsRequest implements ModelInterface, ArrayAccess
         'project_name' => 'setProjectName',
         'status' => 'setStatus',
         'subnet_id' => 'setSubnetId',
+        'tag_filters' => 'setTagFilters',
         'vpc_id' => 'setVpcId'
     ];
 
@@ -135,6 +139,7 @@ class DescribeHaVipsRequest implements ModelInterface, ArrayAccess
         'project_name' => 'getProjectName',
         'status' => 'getStatus',
         'subnet_id' => 'getSubnetId',
+        'tag_filters' => 'getTagFilters',
         'vpc_id' => 'getVpcId'
     ];
 
@@ -208,6 +213,7 @@ class DescribeHaVipsRequest implements ModelInterface, ArrayAccess
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['subnet_id'] = isset($data['subnet_id']) ? $data['subnet_id'] : null;
+        $this->container['tag_filters'] = isset($data['tag_filters']) ? $data['tag_filters'] : null;
         $this->container['vpc_id'] = isset($data['vpc_id']) ? $data['vpc_id'] : null;
     }
 
@@ -471,6 +477,30 @@ class DescribeHaVipsRequest implements ModelInterface, ArrayAccess
     public function setSubnetId($subnet_id)
     {
         $this->container['subnet_id'] = $subnet_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets tag_filters
+     *
+     * @return \Volcengine\Vpc\Model\TagFilterForDescribeHaVipsInput[]
+     */
+    public function getTagFilters()
+    {
+        return $this->container['tag_filters'];
+    }
+
+    /**
+     * Sets tag_filters
+     *
+     * @param \Volcengine\Vpc\Model\TagFilterForDescribeHaVipsInput[] $tag_filters tag_filters
+     *
+     * @return $this
+     */
+    public function setTagFilters($tag_filters)
+    {
+        $this->container['tag_filters'] = $tag_filters;
 
         return $this;
     }

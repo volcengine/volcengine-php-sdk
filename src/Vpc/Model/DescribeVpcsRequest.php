@@ -36,7 +36,8 @@ class DescribeVpcsRequest implements ModelInterface, ArrayAccess
         'project_name' => 'string',
         'tag_filters' => '\Volcengine\Vpc\Model\TagFilterForDescribeVpcsInput[]',
         'vpc_ids' => 'string[]',
-        'vpc_name' => 'string'
+        'vpc_name' => 'string',
+        'vpc_owner_id' => 'int'
     ];
 
     /**
@@ -53,7 +54,8 @@ class DescribeVpcsRequest implements ModelInterface, ArrayAccess
         'project_name' => null,
         'tag_filters' => null,
         'vpc_ids' => null,
-        'vpc_name' => null
+        'vpc_name' => null,
+        'vpc_owner_id' => null
     ];
 
     /**
@@ -91,7 +93,8 @@ class DescribeVpcsRequest implements ModelInterface, ArrayAccess
         'project_name' => 'ProjectName',
         'tag_filters' => 'TagFilters',
         'vpc_ids' => 'VpcIds',
-        'vpc_name' => 'VpcName'
+        'vpc_name' => 'VpcName',
+        'vpc_owner_id' => 'VpcOwnerId'
     ];
 
     /**
@@ -108,7 +111,8 @@ class DescribeVpcsRequest implements ModelInterface, ArrayAccess
         'project_name' => 'setProjectName',
         'tag_filters' => 'setTagFilters',
         'vpc_ids' => 'setVpcIds',
-        'vpc_name' => 'setVpcName'
+        'vpc_name' => 'setVpcName',
+        'vpc_owner_id' => 'setVpcOwnerId'
     ];
 
     /**
@@ -125,7 +129,8 @@ class DescribeVpcsRequest implements ModelInterface, ArrayAccess
         'project_name' => 'getProjectName',
         'tag_filters' => 'getTagFilters',
         'vpc_ids' => 'getVpcIds',
-        'vpc_name' => 'getVpcName'
+        'vpc_name' => 'getVpcName',
+        'vpc_owner_id' => 'getVpcOwnerId'
     ];
 
     /**
@@ -197,6 +202,7 @@ class DescribeVpcsRequest implements ModelInterface, ArrayAccess
         $this->container['tag_filters'] = isset($data['tag_filters']) ? $data['tag_filters'] : null;
         $this->container['vpc_ids'] = isset($data['vpc_ids']) ? $data['vpc_ids'] : null;
         $this->container['vpc_name'] = isset($data['vpc_name']) ? $data['vpc_name'] : null;
+        $this->container['vpc_owner_id'] = isset($data['vpc_owner_id']) ? $data['vpc_owner_id'] : null;
     }
 
     /**
@@ -435,6 +441,30 @@ class DescribeVpcsRequest implements ModelInterface, ArrayAccess
     public function setVpcName($vpc_name)
     {
         $this->container['vpc_name'] = $vpc_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets vpc_owner_id
+     *
+     * @return int
+     */
+    public function getVpcOwnerId()
+    {
+        return $this->container['vpc_owner_id'];
+    }
+
+    /**
+     * Sets vpc_owner_id
+     *
+     * @param int $vpc_owner_id vpc_owner_id
+     *
+     * @return $this
+     */
+    public function setVpcOwnerId($vpc_owner_id)
+    {
+        $this->container['vpc_owner_id'] = $vpc_owner_id;
 
         return $this;
     }

@@ -41,6 +41,7 @@ class EipAddressForDescribeEipAddressesOutput implements ModelInterface, ArrayAc
         'isp' => 'string',
         'instance_id' => 'string',
         'instance_type' => 'string',
+        'ip_address_pool_id' => 'string',
         'lock_reason' => 'string',
         'name' => 'string',
         'overdue_time' => 'string',
@@ -71,6 +72,7 @@ class EipAddressForDescribeEipAddressesOutput implements ModelInterface, ArrayAc
         'isp' => null,
         'instance_id' => null,
         'instance_type' => null,
+        'ip_address_pool_id' => null,
         'lock_reason' => null,
         'name' => null,
         'overdue_time' => null,
@@ -122,6 +124,7 @@ class EipAddressForDescribeEipAddressesOutput implements ModelInterface, ArrayAc
         'isp' => 'ISP',
         'instance_id' => 'InstanceId',
         'instance_type' => 'InstanceType',
+        'ip_address_pool_id' => 'IpAddressPoolId',
         'lock_reason' => 'LockReason',
         'name' => 'Name',
         'overdue_time' => 'OverdueTime',
@@ -152,6 +155,7 @@ class EipAddressForDescribeEipAddressesOutput implements ModelInterface, ArrayAc
         'isp' => 'setIsp',
         'instance_id' => 'setInstanceId',
         'instance_type' => 'setInstanceType',
+        'ip_address_pool_id' => 'setIpAddressPoolId',
         'lock_reason' => 'setLockReason',
         'name' => 'setName',
         'overdue_time' => 'setOverdueTime',
@@ -182,6 +186,7 @@ class EipAddressForDescribeEipAddressesOutput implements ModelInterface, ArrayAc
         'isp' => 'getIsp',
         'instance_id' => 'getInstanceId',
         'instance_type' => 'getInstanceType',
+        'ip_address_pool_id' => 'getIpAddressPoolId',
         'lock_reason' => 'getLockReason',
         'name' => 'getName',
         'overdue_time' => 'getOverdueTime',
@@ -266,6 +271,7 @@ class EipAddressForDescribeEipAddressesOutput implements ModelInterface, ArrayAc
         $this->container['isp'] = isset($data['isp']) ? $data['isp'] : null;
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
         $this->container['instance_type'] = isset($data['instance_type']) ? $data['instance_type'] : null;
+        $this->container['ip_address_pool_id'] = isset($data['ip_address_pool_id']) ? $data['ip_address_pool_id'] : null;
         $this->container['lock_reason'] = isset($data['lock_reason']) ? $data['lock_reason'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['overdue_time'] = isset($data['overdue_time']) ? $data['overdue_time'] : null;
@@ -609,6 +615,30 @@ class EipAddressForDescribeEipAddressesOutput implements ModelInterface, ArrayAc
     public function setInstanceType($instance_type)
     {
         $this->container['instance_type'] = $instance_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets ip_address_pool_id
+     *
+     * @return string
+     */
+    public function getIpAddressPoolId()
+    {
+        return $this->container['ip_address_pool_id'];
+    }
+
+    /**
+     * Sets ip_address_pool_id
+     *
+     * @param string $ip_address_pool_id ip_address_pool_id
+     *
+     * @return $this
+     */
+    public function setIpAddressPoolId($ip_address_pool_id)
+    {
+        $this->container['ip_address_pool_id'] = $ip_address_pool_id;
 
         return $this;
     }

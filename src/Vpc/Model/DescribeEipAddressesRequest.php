@@ -34,6 +34,7 @@ class DescribeEipAddressesRequest implements ModelInterface, ArrayAccess
         'billing_type' => 'int',
         'eip_addresses' => 'string[]',
         'isp' => 'string',
+        'ip_address_pool_id' => 'string',
         'max_results' => 'int',
         'name' => 'string',
         'next_token' => 'string',
@@ -57,6 +58,7 @@ class DescribeEipAddressesRequest implements ModelInterface, ArrayAccess
         'billing_type' => null,
         'eip_addresses' => null,
         'isp' => null,
+        'ip_address_pool_id' => null,
         'max_results' => null,
         'name' => null,
         'next_token' => null,
@@ -101,6 +103,7 @@ class DescribeEipAddressesRequest implements ModelInterface, ArrayAccess
         'billing_type' => 'BillingType',
         'eip_addresses' => 'EipAddresses',
         'isp' => 'ISP',
+        'ip_address_pool_id' => 'IpAddressPoolId',
         'max_results' => 'MaxResults',
         'name' => 'Name',
         'next_token' => 'NextToken',
@@ -124,6 +127,7 @@ class DescribeEipAddressesRequest implements ModelInterface, ArrayAccess
         'billing_type' => 'setBillingType',
         'eip_addresses' => 'setEipAddresses',
         'isp' => 'setIsp',
+        'ip_address_pool_id' => 'setIpAddressPoolId',
         'max_results' => 'setMaxResults',
         'name' => 'setName',
         'next_token' => 'setNextToken',
@@ -147,6 +151,7 @@ class DescribeEipAddressesRequest implements ModelInterface, ArrayAccess
         'billing_type' => 'getBillingType',
         'eip_addresses' => 'getEipAddresses',
         'isp' => 'getIsp',
+        'ip_address_pool_id' => 'getIpAddressPoolId',
         'max_results' => 'getMaxResults',
         'name' => 'getName',
         'next_token' => 'getNextToken',
@@ -295,6 +300,7 @@ class DescribeEipAddressesRequest implements ModelInterface, ArrayAccess
         $this->container['billing_type'] = isset($data['billing_type']) ? $data['billing_type'] : null;
         $this->container['eip_addresses'] = isset($data['eip_addresses']) ? $data['eip_addresses'] : null;
         $this->container['isp'] = isset($data['isp']) ? $data['isp'] : null;
+        $this->container['ip_address_pool_id'] = isset($data['ip_address_pool_id']) ? $data['ip_address_pool_id'] : null;
         $this->container['max_results'] = isset($data['max_results']) ? $data['max_results'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
@@ -512,6 +518,30 @@ class DescribeEipAddressesRequest implements ModelInterface, ArrayAccess
             );
         }
         $this->container['isp'] = $isp;
+
+        return $this;
+    }
+
+    /**
+     * Gets ip_address_pool_id
+     *
+     * @return string
+     */
+    public function getIpAddressPoolId()
+    {
+        return $this->container['ip_address_pool_id'];
+    }
+
+    /**
+     * Sets ip_address_pool_id
+     *
+     * @param string $ip_address_pool_id ip_address_pool_id
+     *
+     * @return $this
+     */
+    public function setIpAddressPoolId($ip_address_pool_id)
+    {
+        $this->container['ip_address_pool_id'] = $ip_address_pool_id;
 
         return $this;
     }

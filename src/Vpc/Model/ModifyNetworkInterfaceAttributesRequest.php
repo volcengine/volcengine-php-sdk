@@ -28,9 +28,11 @@ class ModifyNetworkInterfaceAttributesRequest implements ModelInterface, ArrayAc
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'delete_on_termination' => 'bool',
         'description' => 'string',
         'network_interface_id' => 'string',
         'network_interface_name' => 'string',
+        'port_security_enabled' => 'bool',
         'security_group_ids' => 'string[]'
     ];
 
@@ -40,9 +42,11 @@ class ModifyNetworkInterfaceAttributesRequest implements ModelInterface, ArrayAc
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'delete_on_termination' => null,
         'description' => null,
         'network_interface_id' => null,
         'network_interface_name' => null,
+        'port_security_enabled' => null,
         'security_group_ids' => null
     ];
 
@@ -73,9 +77,11 @@ class ModifyNetworkInterfaceAttributesRequest implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $attributeMap = [
+        'delete_on_termination' => 'DeleteOnTermination',
         'description' => 'Description',
         'network_interface_id' => 'NetworkInterfaceId',
         'network_interface_name' => 'NetworkInterfaceName',
+        'port_security_enabled' => 'PortSecurityEnabled',
         'security_group_ids' => 'SecurityGroupIds'
     ];
 
@@ -85,9 +91,11 @@ class ModifyNetworkInterfaceAttributesRequest implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $setters = [
+        'delete_on_termination' => 'setDeleteOnTermination',
         'description' => 'setDescription',
         'network_interface_id' => 'setNetworkInterfaceId',
         'network_interface_name' => 'setNetworkInterfaceName',
+        'port_security_enabled' => 'setPortSecurityEnabled',
         'security_group_ids' => 'setSecurityGroupIds'
     ];
 
@@ -97,9 +105,11 @@ class ModifyNetworkInterfaceAttributesRequest implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $getters = [
+        'delete_on_termination' => 'getDeleteOnTermination',
         'description' => 'getDescription',
         'network_interface_id' => 'getNetworkInterfaceId',
         'network_interface_name' => 'getNetworkInterfaceName',
+        'port_security_enabled' => 'getPortSecurityEnabled',
         'security_group_ids' => 'getSecurityGroupIds'
     ];
 
@@ -163,9 +173,11 @@ class ModifyNetworkInterfaceAttributesRequest implements ModelInterface, ArrayAc
      */
     public function __construct(array $data = null)
     {
+        $this->container['delete_on_termination'] = isset($data['delete_on_termination']) ? $data['delete_on_termination'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['network_interface_id'] = isset($data['network_interface_id']) ? $data['network_interface_id'] : null;
         $this->container['network_interface_name'] = isset($data['network_interface_name']) ? $data['network_interface_name'] : null;
+        $this->container['port_security_enabled'] = isset($data['port_security_enabled']) ? $data['port_security_enabled'] : null;
         $this->container['security_group_ids'] = isset($data['security_group_ids']) ? $data['security_group_ids'] : null;
     }
 
@@ -195,6 +207,30 @@ class ModifyNetworkInterfaceAttributesRequest implements ModelInterface, ArrayAc
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets delete_on_termination
+     *
+     * @return bool
+     */
+    public function getDeleteOnTermination()
+    {
+        return $this->container['delete_on_termination'];
+    }
+
+    /**
+     * Sets delete_on_termination
+     *
+     * @param bool $delete_on_termination delete_on_termination
+     *
+     * @return $this
+     */
+    public function setDeleteOnTermination($delete_on_termination)
+    {
+        $this->container['delete_on_termination'] = $delete_on_termination;
+
+        return $this;
+    }
 
     /**
      * Gets description
@@ -264,6 +300,30 @@ class ModifyNetworkInterfaceAttributesRequest implements ModelInterface, ArrayAc
     public function setNetworkInterfaceName($network_interface_name)
     {
         $this->container['network_interface_name'] = $network_interface_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets port_security_enabled
+     *
+     * @return bool
+     */
+    public function getPortSecurityEnabled()
+    {
+        return $this->container['port_security_enabled'];
+    }
+
+    /**
+     * Sets port_security_enabled
+     *
+     * @param bool $port_security_enabled port_security_enabled
+     *
+     * @return $this
+     */
+    public function setPortSecurityEnabled($port_security_enabled)
+    {
+        $this->container['port_security_enabled'] = $port_security_enabled;
 
         return $this;
     }

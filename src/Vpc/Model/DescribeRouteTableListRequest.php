@@ -35,6 +35,7 @@ class DescribeRouteTableListRequest implements ModelInterface, ArrayAccess
         'project_name' => 'string',
         'route_table_id' => 'string',
         'route_table_name' => 'string',
+        'tag_filters' => '\Volcengine\Vpc\Model\TagFilterForDescribeRouteTableListInput[]',
         'vpc_id' => 'string'
     ];
 
@@ -51,6 +52,7 @@ class DescribeRouteTableListRequest implements ModelInterface, ArrayAccess
         'project_name' => null,
         'route_table_id' => null,
         'route_table_name' => null,
+        'tag_filters' => null,
         'vpc_id' => null
     ];
 
@@ -88,6 +90,7 @@ class DescribeRouteTableListRequest implements ModelInterface, ArrayAccess
         'project_name' => 'ProjectName',
         'route_table_id' => 'RouteTableId',
         'route_table_name' => 'RouteTableName',
+        'tag_filters' => 'TagFilters',
         'vpc_id' => 'VpcId'
     ];
 
@@ -104,6 +107,7 @@ class DescribeRouteTableListRequest implements ModelInterface, ArrayAccess
         'project_name' => 'setProjectName',
         'route_table_id' => 'setRouteTableId',
         'route_table_name' => 'setRouteTableName',
+        'tag_filters' => 'setTagFilters',
         'vpc_id' => 'setVpcId'
     ];
 
@@ -120,6 +124,7 @@ class DescribeRouteTableListRequest implements ModelInterface, ArrayAccess
         'project_name' => 'getProjectName',
         'route_table_id' => 'getRouteTableId',
         'route_table_name' => 'getRouteTableName',
+        'tag_filters' => 'getTagFilters',
         'vpc_id' => 'getVpcId'
     ];
 
@@ -190,6 +195,7 @@ class DescribeRouteTableListRequest implements ModelInterface, ArrayAccess
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['route_table_id'] = isset($data['route_table_id']) ? $data['route_table_id'] : null;
         $this->container['route_table_name'] = isset($data['route_table_name']) ? $data['route_table_name'] : null;
+        $this->container['tag_filters'] = isset($data['tag_filters']) ? $data['tag_filters'] : null;
         $this->container['vpc_id'] = isset($data['vpc_id']) ? $data['vpc_id'] : null;
     }
 
@@ -381,6 +387,30 @@ class DescribeRouteTableListRequest implements ModelInterface, ArrayAccess
     public function setRouteTableName($route_table_name)
     {
         $this->container['route_table_name'] = $route_table_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets tag_filters
+     *
+     * @return \Volcengine\Vpc\Model\TagFilterForDescribeRouteTableListInput[]
+     */
+    public function getTagFilters()
+    {
+        return $this->container['tag_filters'];
+    }
+
+    /**
+     * Sets tag_filters
+     *
+     * @param \Volcengine\Vpc\Model\TagFilterForDescribeRouteTableListInput[] $tag_filters tag_filters
+     *
+     * @return $this
+     */
+    public function setTagFilters($tag_filters)
+    {
+        $this->container['tag_filters'] = $tag_filters;
 
         return $this;
     }

@@ -32,6 +32,7 @@ class CreateRouteTableRequest implements ModelInterface, ArrayAccess
         'description' => 'string',
         'project_name' => 'string',
         'route_table_name' => 'string',
+        'tags' => '\Volcengine\Vpc\Model\TagForCreateRouteTableInput[]',
         'vpc_id' => 'string'
     ];
 
@@ -45,6 +46,7 @@ class CreateRouteTableRequest implements ModelInterface, ArrayAccess
         'description' => null,
         'project_name' => null,
         'route_table_name' => null,
+        'tags' => null,
         'vpc_id' => null
     ];
 
@@ -79,6 +81,7 @@ class CreateRouteTableRequest implements ModelInterface, ArrayAccess
         'description' => 'Description',
         'project_name' => 'ProjectName',
         'route_table_name' => 'RouteTableName',
+        'tags' => 'Tags',
         'vpc_id' => 'VpcId'
     ];
 
@@ -92,6 +95,7 @@ class CreateRouteTableRequest implements ModelInterface, ArrayAccess
         'description' => 'setDescription',
         'project_name' => 'setProjectName',
         'route_table_name' => 'setRouteTableName',
+        'tags' => 'setTags',
         'vpc_id' => 'setVpcId'
     ];
 
@@ -105,6 +109,7 @@ class CreateRouteTableRequest implements ModelInterface, ArrayAccess
         'description' => 'getDescription',
         'project_name' => 'getProjectName',
         'route_table_name' => 'getRouteTableName',
+        'tags' => 'getTags',
         'vpc_id' => 'getVpcId'
     ];
 
@@ -172,6 +177,7 @@ class CreateRouteTableRequest implements ModelInterface, ArrayAccess
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['route_table_name'] = isset($data['route_table_name']) ? $data['route_table_name'] : null;
+        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['vpc_id'] = isset($data['vpc_id']) ? $data['vpc_id'] : null;
     }
 
@@ -294,6 +300,30 @@ class CreateRouteTableRequest implements ModelInterface, ArrayAccess
     public function setRouteTableName($route_table_name)
     {
         $this->container['route_table_name'] = $route_table_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets tags
+     *
+     * @return \Volcengine\Vpc\Model\TagForCreateRouteTableInput[]
+     */
+    public function getTags()
+    {
+        return $this->container['tags'];
+    }
+
+    /**
+     * Sets tags
+     *
+     * @param \Volcengine\Vpc\Model\TagForCreateRouteTableInput[] $tags tags
+     *
+     * @return $this
+     */
+    public function setTags($tags)
+    {
+        $this->container['tags'] = $tags;
 
         return $this;
     }

@@ -42,6 +42,7 @@ class HaVipForDescribeHaVipsOutput implements ModelInterface, ArrayAccess
         'project_name' => 'string',
         'status' => 'string',
         'subnet_id' => 'string',
+        'tags' => '\Volcengine\Vpc\Model\TagForDescribeHaVipsOutput[]',
         'updated_at' => 'string',
         'vpc_id' => 'string'
     ];
@@ -66,6 +67,7 @@ class HaVipForDescribeHaVipsOutput implements ModelInterface, ArrayAccess
         'project_name' => null,
         'status' => null,
         'subnet_id' => null,
+        'tags' => null,
         'updated_at' => null,
         'vpc_id' => null
     ];
@@ -111,6 +113,7 @@ class HaVipForDescribeHaVipsOutput implements ModelInterface, ArrayAccess
         'project_name' => 'ProjectName',
         'status' => 'Status',
         'subnet_id' => 'SubnetId',
+        'tags' => 'Tags',
         'updated_at' => 'UpdatedAt',
         'vpc_id' => 'VpcId'
     ];
@@ -135,6 +138,7 @@ class HaVipForDescribeHaVipsOutput implements ModelInterface, ArrayAccess
         'project_name' => 'setProjectName',
         'status' => 'setStatus',
         'subnet_id' => 'setSubnetId',
+        'tags' => 'setTags',
         'updated_at' => 'setUpdatedAt',
         'vpc_id' => 'setVpcId'
     ];
@@ -159,6 +163,7 @@ class HaVipForDescribeHaVipsOutput implements ModelInterface, ArrayAccess
         'project_name' => 'getProjectName',
         'status' => 'getStatus',
         'subnet_id' => 'getSubnetId',
+        'tags' => 'getTags',
         'updated_at' => 'getUpdatedAt',
         'vpc_id' => 'getVpcId'
     ];
@@ -237,6 +242,7 @@ class HaVipForDescribeHaVipsOutput implements ModelInterface, ArrayAccess
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['subnet_id'] = isset($data['subnet_id']) ? $data['subnet_id'] : null;
+        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
         $this->container['vpc_id'] = isset($data['vpc_id']) ? $data['vpc_id'] : null;
     }
@@ -597,6 +603,30 @@ class HaVipForDescribeHaVipsOutput implements ModelInterface, ArrayAccess
     public function setSubnetId($subnet_id)
     {
         $this->container['subnet_id'] = $subnet_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets tags
+     *
+     * @return \Volcengine\Vpc\Model\TagForDescribeHaVipsOutput[]
+     */
+    public function getTags()
+    {
+        return $this->container['tags'];
+    }
+
+    /**
+     * Sets tags
+     *
+     * @param \Volcengine\Vpc\Model\TagForDescribeHaVipsOutput[] $tags tags
+     *
+     * @return $this
+     */
+    public function setTags($tags)
+    {
+        $this->container['tags'] = $tags;
 
         return $this;
     }

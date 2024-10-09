@@ -38,6 +38,7 @@ class PrefixListForDescribePrefixListsOutput implements ModelInterface, ArrayAcc
         'prefix_list_name' => 'string',
         'project_name' => 'string',
         'status' => 'string',
+        'tags' => '\Volcengine\Vpc\Model\TagForDescribePrefixListsOutput[]',
         'update_time' => 'string'
     ];
 
@@ -57,6 +58,7 @@ class PrefixListForDescribePrefixListsOutput implements ModelInterface, ArrayAcc
         'prefix_list_name' => null,
         'project_name' => null,
         'status' => null,
+        'tags' => null,
         'update_time' => null
     ];
 
@@ -97,6 +99,7 @@ class PrefixListForDescribePrefixListsOutput implements ModelInterface, ArrayAcc
         'prefix_list_name' => 'PrefixListName',
         'project_name' => 'ProjectName',
         'status' => 'Status',
+        'tags' => 'Tags',
         'update_time' => 'UpdateTime'
     ];
 
@@ -116,6 +119,7 @@ class PrefixListForDescribePrefixListsOutput implements ModelInterface, ArrayAcc
         'prefix_list_name' => 'setPrefixListName',
         'project_name' => 'setProjectName',
         'status' => 'setStatus',
+        'tags' => 'setTags',
         'update_time' => 'setUpdateTime'
     ];
 
@@ -135,6 +139,7 @@ class PrefixListForDescribePrefixListsOutput implements ModelInterface, ArrayAcc
         'prefix_list_name' => 'getPrefixListName',
         'project_name' => 'getProjectName',
         'status' => 'getStatus',
+        'tags' => 'getTags',
         'update_time' => 'getUpdateTime'
     ];
 
@@ -208,6 +213,7 @@ class PrefixListForDescribePrefixListsOutput implements ModelInterface, ArrayAcc
         $this->container['prefix_list_name'] = isset($data['prefix_list_name']) ? $data['prefix_list_name'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
     }
 
@@ -471,6 +477,30 @@ class PrefixListForDescribePrefixListsOutput implements ModelInterface, ArrayAcc
     public function setStatus($status)
     {
         $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets tags
+     *
+     * @return \Volcengine\Vpc\Model\TagForDescribePrefixListsOutput[]
+     */
+    public function getTags()
+    {
+        return $this->container['tags'];
+    }
+
+    /**
+     * Sets tags
+     *
+     * @param \Volcengine\Vpc\Model\TagForDescribePrefixListsOutput[] $tags tags
+     *
+     * @return $this
+     */
+    public function setTags($tags)
+    {
+        $this->container['tags'] = $tags;
 
         return $this;
     }
