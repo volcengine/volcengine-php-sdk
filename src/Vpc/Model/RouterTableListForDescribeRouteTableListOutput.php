@@ -36,6 +36,7 @@ class RouterTableListForDescribeRouteTableListOutput implements ModelInterface, 
         'route_table_name' => 'string',
         'route_table_type' => 'string',
         'subnet_ids' => 'string[]',
+        'tags' => '\Volcengine\Vpc\Model\TagForDescribeRouteTableListOutput[]',
         'update_time' => 'string',
         'vpc_id' => 'string',
         'vpc_name' => 'string'
@@ -55,6 +56,7 @@ class RouterTableListForDescribeRouteTableListOutput implements ModelInterface, 
         'route_table_name' => null,
         'route_table_type' => null,
         'subnet_ids' => null,
+        'tags' => null,
         'update_time' => null,
         'vpc_id' => null,
         'vpc_name' => null
@@ -95,6 +97,7 @@ class RouterTableListForDescribeRouteTableListOutput implements ModelInterface, 
         'route_table_name' => 'RouteTableName',
         'route_table_type' => 'RouteTableType',
         'subnet_ids' => 'SubnetIds',
+        'tags' => 'Tags',
         'update_time' => 'UpdateTime',
         'vpc_id' => 'VpcId',
         'vpc_name' => 'VpcName'
@@ -114,6 +117,7 @@ class RouterTableListForDescribeRouteTableListOutput implements ModelInterface, 
         'route_table_name' => 'setRouteTableName',
         'route_table_type' => 'setRouteTableType',
         'subnet_ids' => 'setSubnetIds',
+        'tags' => 'setTags',
         'update_time' => 'setUpdateTime',
         'vpc_id' => 'setVpcId',
         'vpc_name' => 'setVpcName'
@@ -133,6 +137,7 @@ class RouterTableListForDescribeRouteTableListOutput implements ModelInterface, 
         'route_table_name' => 'getRouteTableName',
         'route_table_type' => 'getRouteTableType',
         'subnet_ids' => 'getSubnetIds',
+        'tags' => 'getTags',
         'update_time' => 'getUpdateTime',
         'vpc_id' => 'getVpcId',
         'vpc_name' => 'getVpcName'
@@ -206,6 +211,7 @@ class RouterTableListForDescribeRouteTableListOutput implements ModelInterface, 
         $this->container['route_table_name'] = isset($data['route_table_name']) ? $data['route_table_name'] : null;
         $this->container['route_table_type'] = isset($data['route_table_type']) ? $data['route_table_type'] : null;
         $this->container['subnet_ids'] = isset($data['subnet_ids']) ? $data['subnet_ids'] : null;
+        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
         $this->container['vpc_id'] = isset($data['vpc_id']) ? $data['vpc_id'] : null;
         $this->container['vpc_name'] = isset($data['vpc_name']) ? $data['vpc_name'] : null;
@@ -423,6 +429,30 @@ class RouterTableListForDescribeRouteTableListOutput implements ModelInterface, 
     public function setSubnetIds($subnet_ids)
     {
         $this->container['subnet_ids'] = $subnet_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets tags
+     *
+     * @return \Volcengine\Vpc\Model\TagForDescribeRouteTableListOutput[]
+     */
+    public function getTags()
+    {
+        return $this->container['tags'];
+    }
+
+    /**
+     * Sets tags
+     *
+     * @param \Volcengine\Vpc\Model\TagForDescribeRouteTableListOutput[] $tags tags
+     *
+     * @return $this
+     */
+    public function setTags($tags)
+    {
+        $this->container['tags'] = $tags;
 
         return $this;
     }

@@ -32,7 +32,8 @@ class CreateHaVipRequest implements ModelInterface, ArrayAccess
         'description' => 'string',
         'ha_vip_name' => 'string',
         'ip_address' => 'string',
-        'subnet_id' => 'string'
+        'subnet_id' => 'string',
+        'tags' => '\Volcengine\Vpc\Model\TagForCreateHaVipInput[]'
     ];
 
     /**
@@ -45,7 +46,8 @@ class CreateHaVipRequest implements ModelInterface, ArrayAccess
         'description' => null,
         'ha_vip_name' => null,
         'ip_address' => null,
-        'subnet_id' => null
+        'subnet_id' => null,
+        'tags' => null
     ];
 
     /**
@@ -79,7 +81,8 @@ class CreateHaVipRequest implements ModelInterface, ArrayAccess
         'description' => 'Description',
         'ha_vip_name' => 'HaVipName',
         'ip_address' => 'IpAddress',
-        'subnet_id' => 'SubnetId'
+        'subnet_id' => 'SubnetId',
+        'tags' => 'Tags'
     ];
 
     /**
@@ -92,7 +95,8 @@ class CreateHaVipRequest implements ModelInterface, ArrayAccess
         'description' => 'setDescription',
         'ha_vip_name' => 'setHaVipName',
         'ip_address' => 'setIpAddress',
-        'subnet_id' => 'setSubnetId'
+        'subnet_id' => 'setSubnetId',
+        'tags' => 'setTags'
     ];
 
     /**
@@ -105,7 +109,8 @@ class CreateHaVipRequest implements ModelInterface, ArrayAccess
         'description' => 'getDescription',
         'ha_vip_name' => 'getHaVipName',
         'ip_address' => 'getIpAddress',
-        'subnet_id' => 'getSubnetId'
+        'subnet_id' => 'getSubnetId',
+        'tags' => 'getTags'
     ];
 
     /**
@@ -173,6 +178,7 @@ class CreateHaVipRequest implements ModelInterface, ArrayAccess
         $this->container['ha_vip_name'] = isset($data['ha_vip_name']) ? $data['ha_vip_name'] : null;
         $this->container['ip_address'] = isset($data['ip_address']) ? $data['ip_address'] : null;
         $this->container['subnet_id'] = isset($data['subnet_id']) ? $data['subnet_id'] : null;
+        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
     }
 
     /**
@@ -318,6 +324,30 @@ class CreateHaVipRequest implements ModelInterface, ArrayAccess
     public function setSubnetId($subnet_id)
     {
         $this->container['subnet_id'] = $subnet_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets tags
+     *
+     * @return \Volcengine\Vpc\Model\TagForCreateHaVipInput[]
+     */
+    public function getTags()
+    {
+        return $this->container['tags'];
+    }
+
+    /**
+     * Sets tags
+     *
+     * @param \Volcengine\Vpc\Model\TagForCreateHaVipInput[] $tags tags
+     *
+     * @return $this
+     */
+    public function setTags($tags)
+    {
+        $this->container['tags'] = $tags;
 
         return $this;
     }

@@ -36,6 +36,7 @@ class DescribeNetworkAclsRequest implements ModelInterface, ArrayAccess
         'page_size' => 'int',
         'project_name' => 'string',
         'subnet_id' => 'string',
+        'tag_filters' => '\Volcengine\Vpc\Model\TagFilterForDescribeNetworkAclsInput[]',
         'vpc_id' => 'string'
     ];
 
@@ -53,6 +54,7 @@ class DescribeNetworkAclsRequest implements ModelInterface, ArrayAccess
         'page_size' => null,
         'project_name' => null,
         'subnet_id' => null,
+        'tag_filters' => null,
         'vpc_id' => null
     ];
 
@@ -91,6 +93,7 @@ class DescribeNetworkAclsRequest implements ModelInterface, ArrayAccess
         'page_size' => 'PageSize',
         'project_name' => 'ProjectName',
         'subnet_id' => 'SubnetId',
+        'tag_filters' => 'TagFilters',
         'vpc_id' => 'VpcId'
     ];
 
@@ -108,6 +111,7 @@ class DescribeNetworkAclsRequest implements ModelInterface, ArrayAccess
         'page_size' => 'setPageSize',
         'project_name' => 'setProjectName',
         'subnet_id' => 'setSubnetId',
+        'tag_filters' => 'setTagFilters',
         'vpc_id' => 'setVpcId'
     ];
 
@@ -125,6 +129,7 @@ class DescribeNetworkAclsRequest implements ModelInterface, ArrayAccess
         'page_size' => 'getPageSize',
         'project_name' => 'getProjectName',
         'subnet_id' => 'getSubnetId',
+        'tag_filters' => 'getTagFilters',
         'vpc_id' => 'getVpcId'
     ];
 
@@ -196,6 +201,7 @@ class DescribeNetworkAclsRequest implements ModelInterface, ArrayAccess
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['subnet_id'] = isset($data['subnet_id']) ? $data['subnet_id'] : null;
+        $this->container['tag_filters'] = isset($data['tag_filters']) ? $data['tag_filters'] : null;
         $this->container['vpc_id'] = isset($data['vpc_id']) ? $data['vpc_id'] : null;
     }
 
@@ -411,6 +417,30 @@ class DescribeNetworkAclsRequest implements ModelInterface, ArrayAccess
     public function setSubnetId($subnet_id)
     {
         $this->container['subnet_id'] = $subnet_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets tag_filters
+     *
+     * @return \Volcengine\Vpc\Model\TagFilterForDescribeNetworkAclsInput[]
+     */
+    public function getTagFilters()
+    {
+        return $this->container['tag_filters'];
+    }
+
+    /**
+     * Sets tag_filters
+     *
+     * @param \Volcengine\Vpc\Model\TagFilterForDescribeNetworkAclsInput[] $tag_filters tag_filters
+     *
+     * @return $this
+     */
+    public function setTagFilters($tag_filters)
+    {
+        $this->container['tag_filters'] = $tag_filters;
 
         return $this;
     }

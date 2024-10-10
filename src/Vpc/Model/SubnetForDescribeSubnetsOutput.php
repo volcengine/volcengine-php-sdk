@@ -41,6 +41,7 @@ class SubnetForDescribeSubnetsOutput implements ModelInterface, ArrayAccess
         'status' => 'string',
         'subnet_id' => 'string',
         'subnet_name' => 'string',
+        'tags' => '\Volcengine\Vpc\Model\TagForDescribeSubnetsOutput[]',
         'total_ipv4_count' => 'int',
         'update_time' => 'string',
         'vpc_id' => 'string',
@@ -66,6 +67,7 @@ class SubnetForDescribeSubnetsOutput implements ModelInterface, ArrayAccess
         'status' => null,
         'subnet_id' => null,
         'subnet_name' => null,
+        'tags' => null,
         'total_ipv4_count' => null,
         'update_time' => null,
         'vpc_id' => null,
@@ -112,6 +114,7 @@ class SubnetForDescribeSubnetsOutput implements ModelInterface, ArrayAccess
         'status' => 'Status',
         'subnet_id' => 'SubnetId',
         'subnet_name' => 'SubnetName',
+        'tags' => 'Tags',
         'total_ipv4_count' => 'TotalIpv4Count',
         'update_time' => 'UpdateTime',
         'vpc_id' => 'VpcId',
@@ -137,6 +140,7 @@ class SubnetForDescribeSubnetsOutput implements ModelInterface, ArrayAccess
         'status' => 'setStatus',
         'subnet_id' => 'setSubnetId',
         'subnet_name' => 'setSubnetName',
+        'tags' => 'setTags',
         'total_ipv4_count' => 'setTotalIpv4Count',
         'update_time' => 'setUpdateTime',
         'vpc_id' => 'setVpcId',
@@ -162,6 +166,7 @@ class SubnetForDescribeSubnetsOutput implements ModelInterface, ArrayAccess
         'status' => 'getStatus',
         'subnet_id' => 'getSubnetId',
         'subnet_name' => 'getSubnetName',
+        'tags' => 'getTags',
         'total_ipv4_count' => 'getTotalIpv4Count',
         'update_time' => 'getUpdateTime',
         'vpc_id' => 'getVpcId',
@@ -241,6 +246,7 @@ class SubnetForDescribeSubnetsOutput implements ModelInterface, ArrayAccess
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['subnet_id'] = isset($data['subnet_id']) ? $data['subnet_id'] : null;
         $this->container['subnet_name'] = isset($data['subnet_name']) ? $data['subnet_name'] : null;
+        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['total_ipv4_count'] = isset($data['total_ipv4_count']) ? $data['total_ipv4_count'] : null;
         $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
         $this->container['vpc_id'] = isset($data['vpc_id']) ? $data['vpc_id'] : null;
@@ -579,6 +585,30 @@ class SubnetForDescribeSubnetsOutput implements ModelInterface, ArrayAccess
     public function setSubnetName($subnet_name)
     {
         $this->container['subnet_name'] = $subnet_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets tags
+     *
+     * @return \Volcengine\Vpc\Model\TagForDescribeSubnetsOutput[]
+     */
+    public function getTags()
+    {
+        return $this->container['tags'];
+    }
+
+    /**
+     * Sets tags
+     *
+     * @param \Volcengine\Vpc\Model\TagForDescribeSubnetsOutput[] $tags tags
+     *
+     * @return $this
+     */
+    public function setTags($tags)
+    {
+        $this->container['tags'] = $tags;
 
         return $this;
     }

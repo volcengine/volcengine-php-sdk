@@ -37,6 +37,7 @@ class NetworkAclForDescribeNetworkAclsOutput implements ModelInterface, ArrayAcc
         'project_name' => 'string',
         'resources' => '\Volcengine\Vpc\Model\ResourceForDescribeNetworkAclsOutput[]',
         'status' => 'string',
+        'tags' => '\Volcengine\Vpc\Model\TagForDescribeNetworkAclsOutput[]',
         'update_time' => 'string',
         'vpc_id' => 'string'
     ];
@@ -56,6 +57,7 @@ class NetworkAclForDescribeNetworkAclsOutput implements ModelInterface, ArrayAcc
         'project_name' => null,
         'resources' => null,
         'status' => null,
+        'tags' => null,
         'update_time' => null,
         'vpc_id' => null
     ];
@@ -96,6 +98,7 @@ class NetworkAclForDescribeNetworkAclsOutput implements ModelInterface, ArrayAcc
         'project_name' => 'ProjectName',
         'resources' => 'Resources',
         'status' => 'Status',
+        'tags' => 'Tags',
         'update_time' => 'UpdateTime',
         'vpc_id' => 'VpcId'
     ];
@@ -115,6 +118,7 @@ class NetworkAclForDescribeNetworkAclsOutput implements ModelInterface, ArrayAcc
         'project_name' => 'setProjectName',
         'resources' => 'setResources',
         'status' => 'setStatus',
+        'tags' => 'setTags',
         'update_time' => 'setUpdateTime',
         'vpc_id' => 'setVpcId'
     ];
@@ -134,6 +138,7 @@ class NetworkAclForDescribeNetworkAclsOutput implements ModelInterface, ArrayAcc
         'project_name' => 'getProjectName',
         'resources' => 'getResources',
         'status' => 'getStatus',
+        'tags' => 'getTags',
         'update_time' => 'getUpdateTime',
         'vpc_id' => 'getVpcId'
     ];
@@ -207,6 +212,7 @@ class NetworkAclForDescribeNetworkAclsOutput implements ModelInterface, ArrayAcc
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['resources'] = isset($data['resources']) ? $data['resources'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
         $this->container['vpc_id'] = isset($data['vpc_id']) ? $data['vpc_id'] : null;
     }
@@ -447,6 +453,30 @@ class NetworkAclForDescribeNetworkAclsOutput implements ModelInterface, ArrayAcc
     public function setStatus($status)
     {
         $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets tags
+     *
+     * @return \Volcengine\Vpc\Model\TagForDescribeNetworkAclsOutput[]
+     */
+    public function getTags()
+    {
+        return $this->container['tags'];
+    }
+
+    /**
+     * Sets tags
+     *
+     * @param \Volcengine\Vpc\Model\TagForDescribeNetworkAclsOutput[] $tags tags
+     *
+     * @return $this
+     */
+    public function setTags($tags)
+    {
+        $this->container['tags'] = $tags;
 
         return $this;
     }

@@ -28,6 +28,7 @@ class DescribeSecurityGroupAttributesResponse implements ModelInterface, ArrayAc
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'account_id' => 'string',
         'creation_time' => 'string',
         'description' => 'string',
         'permissions' => '\Volcengine\Vpc\Model\PermissionForDescribeSecurityGroupAttributesOutput[]',
@@ -49,6 +50,7 @@ class DescribeSecurityGroupAttributesResponse implements ModelInterface, ArrayAc
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'account_id' => null,
         'creation_time' => null,
         'description' => null,
         'permissions' => null,
@@ -91,6 +93,7 @@ class DescribeSecurityGroupAttributesResponse implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $attributeMap = [
+        'account_id' => 'AccountId',
         'creation_time' => 'CreationTime',
         'description' => 'Description',
         'permissions' => 'Permissions',
@@ -112,6 +115,7 @@ class DescribeSecurityGroupAttributesResponse implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $setters = [
+        'account_id' => 'setAccountId',
         'creation_time' => 'setCreationTime',
         'description' => 'setDescription',
         'permissions' => 'setPermissions',
@@ -133,6 +137,7 @@ class DescribeSecurityGroupAttributesResponse implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $getters = [
+        'account_id' => 'getAccountId',
         'creation_time' => 'getCreationTime',
         'description' => 'getDescription',
         'permissions' => 'getPermissions',
@@ -208,6 +213,7 @@ class DescribeSecurityGroupAttributesResponse implements ModelInterface, ArrayAc
      */
     public function __construct(array $data = null)
     {
+        $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
         $this->container['creation_time'] = isset($data['creation_time']) ? $data['creation_time'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['permissions'] = isset($data['permissions']) ? $data['permissions'] : null;
@@ -246,6 +252,30 @@ class DescribeSecurityGroupAttributesResponse implements ModelInterface, ArrayAc
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets account_id
+     *
+     * @return string
+     */
+    public function getAccountId()
+    {
+        return $this->container['account_id'];
+    }
+
+    /**
+     * Sets account_id
+     *
+     * @param string $account_id account_id
+     *
+     * @return $this
+     */
+    public function setAccountId($account_id)
+    {
+        $this->container['account_id'] = $account_id;
+
+        return $this;
+    }
 
     /**
      * Gets creation_time

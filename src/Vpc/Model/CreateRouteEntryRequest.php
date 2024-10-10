@@ -33,6 +33,7 @@ class CreateRouteEntryRequest implements ModelInterface, ArrayAccess
         'destination_cidr_block' => 'string',
         'destination_prefix_list_id' => 'string',
         'next_hop_id' => 'string',
+        'next_hop_name' => 'string',
         'next_hop_type' => 'string',
         'route_entry_name' => 'string',
         'route_table_id' => 'string'
@@ -49,6 +50,7 @@ class CreateRouteEntryRequest implements ModelInterface, ArrayAccess
         'destination_cidr_block' => null,
         'destination_prefix_list_id' => null,
         'next_hop_id' => null,
+        'next_hop_name' => null,
         'next_hop_type' => null,
         'route_entry_name' => null,
         'route_table_id' => null
@@ -86,6 +88,7 @@ class CreateRouteEntryRequest implements ModelInterface, ArrayAccess
         'destination_cidr_block' => 'DestinationCidrBlock',
         'destination_prefix_list_id' => 'DestinationPrefixListId',
         'next_hop_id' => 'NextHopId',
+        'next_hop_name' => 'NextHopName',
         'next_hop_type' => 'NextHopType',
         'route_entry_name' => 'RouteEntryName',
         'route_table_id' => 'RouteTableId'
@@ -102,6 +105,7 @@ class CreateRouteEntryRequest implements ModelInterface, ArrayAccess
         'destination_cidr_block' => 'setDestinationCidrBlock',
         'destination_prefix_list_id' => 'setDestinationPrefixListId',
         'next_hop_id' => 'setNextHopId',
+        'next_hop_name' => 'setNextHopName',
         'next_hop_type' => 'setNextHopType',
         'route_entry_name' => 'setRouteEntryName',
         'route_table_id' => 'setRouteTableId'
@@ -118,6 +122,7 @@ class CreateRouteEntryRequest implements ModelInterface, ArrayAccess
         'destination_cidr_block' => 'getDestinationCidrBlock',
         'destination_prefix_list_id' => 'getDestinationPrefixListId',
         'next_hop_id' => 'getNextHopId',
+        'next_hop_name' => 'getNextHopName',
         'next_hop_type' => 'getNextHopType',
         'route_entry_name' => 'getRouteEntryName',
         'route_table_id' => 'getRouteTableId'
@@ -188,6 +193,7 @@ class CreateRouteEntryRequest implements ModelInterface, ArrayAccess
         $this->container['destination_cidr_block'] = isset($data['destination_cidr_block']) ? $data['destination_cidr_block'] : null;
         $this->container['destination_prefix_list_id'] = isset($data['destination_prefix_list_id']) ? $data['destination_prefix_list_id'] : null;
         $this->container['next_hop_id'] = isset($data['next_hop_id']) ? $data['next_hop_id'] : null;
+        $this->container['next_hop_name'] = isset($data['next_hop_name']) ? $data['next_hop_name'] : null;
         $this->container['next_hop_type'] = isset($data['next_hop_type']) ? $data['next_hop_type'] : null;
         $this->container['route_entry_name'] = isset($data['route_entry_name']) ? $data['route_entry_name'] : null;
         $this->container['route_table_id'] = isset($data['route_table_id']) ? $data['route_table_id'] : null;
@@ -342,6 +348,30 @@ class CreateRouteEntryRequest implements ModelInterface, ArrayAccess
     public function setNextHopId($next_hop_id)
     {
         $this->container['next_hop_id'] = $next_hop_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets next_hop_name
+     *
+     * @return string
+     */
+    public function getNextHopName()
+    {
+        return $this->container['next_hop_name'];
+    }
+
+    /**
+     * Sets next_hop_name
+     *
+     * @param string $next_hop_name next_hop_name
+     *
+     * @return $this
+     */
+    public function setNextHopName($next_hop_name)
+    {
+        $this->container['next_hop_name'] = $next_hop_name;
 
         return $this;
     }
