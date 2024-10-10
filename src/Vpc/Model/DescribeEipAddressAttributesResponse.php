@@ -41,6 +41,8 @@ class DescribeEipAddressAttributesResponse implements ModelInterface, ArrayAcces
         'isp' => 'string',
         'instance_id' => 'string',
         'instance_type' => 'string',
+        'ip_address_pool_id' => 'string',
+        'is_blocked' => 'bool',
         'lock_reason' => 'string',
         'name' => 'string',
         'overdue_time' => 'string',
@@ -48,6 +50,7 @@ class DescribeEipAddressAttributesResponse implements ModelInterface, ArrayAcces
         'release_with_instance' => 'bool',
         'request_id' => 'string',
         'security_protection_types' => 'string[]',
+        'service_managed' => 'bool',
         'status' => 'string',
         'tags' => '\Volcengine\Vpc\Model\TagForDescribeEipAddressAttributesOutput[]',
         'updated_at' => 'string'
@@ -72,6 +75,8 @@ class DescribeEipAddressAttributesResponse implements ModelInterface, ArrayAcces
         'isp' => null,
         'instance_id' => null,
         'instance_type' => null,
+        'ip_address_pool_id' => null,
+        'is_blocked' => null,
         'lock_reason' => null,
         'name' => null,
         'overdue_time' => null,
@@ -79,6 +84,7 @@ class DescribeEipAddressAttributesResponse implements ModelInterface, ArrayAcces
         'release_with_instance' => null,
         'request_id' => null,
         'security_protection_types' => null,
+        'service_managed' => null,
         'status' => null,
         'tags' => null,
         'updated_at' => null
@@ -124,6 +130,8 @@ class DescribeEipAddressAttributesResponse implements ModelInterface, ArrayAcces
         'isp' => 'ISP',
         'instance_id' => 'InstanceId',
         'instance_type' => 'InstanceType',
+        'ip_address_pool_id' => 'IpAddressPoolId',
+        'is_blocked' => 'IsBlocked',
         'lock_reason' => 'LockReason',
         'name' => 'Name',
         'overdue_time' => 'OverdueTime',
@@ -131,6 +139,7 @@ class DescribeEipAddressAttributesResponse implements ModelInterface, ArrayAcces
         'release_with_instance' => 'ReleaseWithInstance',
         'request_id' => 'RequestId',
         'security_protection_types' => 'SecurityProtectionTypes',
+        'service_managed' => 'ServiceManaged',
         'status' => 'Status',
         'tags' => 'Tags',
         'updated_at' => 'UpdatedAt'
@@ -155,6 +164,8 @@ class DescribeEipAddressAttributesResponse implements ModelInterface, ArrayAcces
         'isp' => 'setIsp',
         'instance_id' => 'setInstanceId',
         'instance_type' => 'setInstanceType',
+        'ip_address_pool_id' => 'setIpAddressPoolId',
+        'is_blocked' => 'setIsBlocked',
         'lock_reason' => 'setLockReason',
         'name' => 'setName',
         'overdue_time' => 'setOverdueTime',
@@ -162,6 +173,7 @@ class DescribeEipAddressAttributesResponse implements ModelInterface, ArrayAcces
         'release_with_instance' => 'setReleaseWithInstance',
         'request_id' => 'setRequestId',
         'security_protection_types' => 'setSecurityProtectionTypes',
+        'service_managed' => 'setServiceManaged',
         'status' => 'setStatus',
         'tags' => 'setTags',
         'updated_at' => 'setUpdatedAt'
@@ -186,6 +198,8 @@ class DescribeEipAddressAttributesResponse implements ModelInterface, ArrayAcces
         'isp' => 'getIsp',
         'instance_id' => 'getInstanceId',
         'instance_type' => 'getInstanceType',
+        'ip_address_pool_id' => 'getIpAddressPoolId',
+        'is_blocked' => 'getIsBlocked',
         'lock_reason' => 'getLockReason',
         'name' => 'getName',
         'overdue_time' => 'getOverdueTime',
@@ -193,6 +207,7 @@ class DescribeEipAddressAttributesResponse implements ModelInterface, ArrayAcces
         'release_with_instance' => 'getReleaseWithInstance',
         'request_id' => 'getRequestId',
         'security_protection_types' => 'getSecurityProtectionTypes',
+        'service_managed' => 'getServiceManaged',
         'status' => 'getStatus',
         'tags' => 'getTags',
         'updated_at' => 'getUpdatedAt'
@@ -271,6 +286,8 @@ class DescribeEipAddressAttributesResponse implements ModelInterface, ArrayAcces
         $this->container['isp'] = isset($data['isp']) ? $data['isp'] : null;
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
         $this->container['instance_type'] = isset($data['instance_type']) ? $data['instance_type'] : null;
+        $this->container['ip_address_pool_id'] = isset($data['ip_address_pool_id']) ? $data['ip_address_pool_id'] : null;
+        $this->container['is_blocked'] = isset($data['is_blocked']) ? $data['is_blocked'] : null;
         $this->container['lock_reason'] = isset($data['lock_reason']) ? $data['lock_reason'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['overdue_time'] = isset($data['overdue_time']) ? $data['overdue_time'] : null;
@@ -278,6 +295,7 @@ class DescribeEipAddressAttributesResponse implements ModelInterface, ArrayAcces
         $this->container['release_with_instance'] = isset($data['release_with_instance']) ? $data['release_with_instance'] : null;
         $this->container['request_id'] = isset($data['request_id']) ? $data['request_id'] : null;
         $this->container['security_protection_types'] = isset($data['security_protection_types']) ? $data['security_protection_types'] : null;
+        $this->container['service_managed'] = isset($data['service_managed']) ? $data['service_managed'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
@@ -620,6 +638,54 @@ class DescribeEipAddressAttributesResponse implements ModelInterface, ArrayAcces
     }
 
     /**
+     * Gets ip_address_pool_id
+     *
+     * @return string
+     */
+    public function getIpAddressPoolId()
+    {
+        return $this->container['ip_address_pool_id'];
+    }
+
+    /**
+     * Sets ip_address_pool_id
+     *
+     * @param string $ip_address_pool_id ip_address_pool_id
+     *
+     * @return $this
+     */
+    public function setIpAddressPoolId($ip_address_pool_id)
+    {
+        $this->container['ip_address_pool_id'] = $ip_address_pool_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_blocked
+     *
+     * @return bool
+     */
+    public function getIsBlocked()
+    {
+        return $this->container['is_blocked'];
+    }
+
+    /**
+     * Sets is_blocked
+     *
+     * @param bool $is_blocked is_blocked
+     *
+     * @return $this
+     */
+    public function setIsBlocked($is_blocked)
+    {
+        $this->container['is_blocked'] = $is_blocked;
+
+        return $this;
+    }
+
+    /**
      * Gets lock_reason
      *
      * @return string
@@ -783,6 +849,30 @@ class DescribeEipAddressAttributesResponse implements ModelInterface, ArrayAcces
     public function setSecurityProtectionTypes($security_protection_types)
     {
         $this->container['security_protection_types'] = $security_protection_types;
+
+        return $this;
+    }
+
+    /**
+     * Gets service_managed
+     *
+     * @return bool
+     */
+    public function getServiceManaged()
+    {
+        return $this->container['service_managed'];
+    }
+
+    /**
+     * Sets service_managed
+     *
+     * @param bool $service_managed service_managed
+     *
+     * @return $this
+     */
+    public function setServiceManaged($service_managed)
+    {
+        $this->container['service_managed'] = $service_managed;
 
         return $this;
     }

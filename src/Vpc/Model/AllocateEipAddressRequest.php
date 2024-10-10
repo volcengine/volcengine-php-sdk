@@ -34,12 +34,15 @@ class AllocateEipAddressRequest implements ModelInterface, ArrayAccess
         'client_token' => 'string',
         'description' => 'string',
         'isp' => 'string',
+        'ip_address' => 'string',
+        'ip_address_pool_id' => 'string',
         'name' => 'string',
         'period' => 'int',
         'period_unit' => 'int',
         'project_name' => 'string',
         'renew_period_times' => 'int',
         'renew_type' => 'int',
+        'security_protection_instance_id' => 'int',
         'security_protection_types' => 'string[]',
         'tags' => '\Volcengine\Vpc\Model\TagForAllocateEipAddressInput[]'
     ];
@@ -56,12 +59,15 @@ class AllocateEipAddressRequest implements ModelInterface, ArrayAccess
         'client_token' => null,
         'description' => null,
         'isp' => null,
+        'ip_address' => null,
+        'ip_address_pool_id' => null,
         'name' => null,
         'period' => null,
         'period_unit' => null,
         'project_name' => null,
         'renew_period_times' => null,
         'renew_type' => null,
+        'security_protection_instance_id' => null,
         'security_protection_types' => null,
         'tags' => null
     ];
@@ -99,12 +105,15 @@ class AllocateEipAddressRequest implements ModelInterface, ArrayAccess
         'client_token' => 'ClientToken',
         'description' => 'Description',
         'isp' => 'ISP',
+        'ip_address' => 'IpAddress',
+        'ip_address_pool_id' => 'IpAddressPoolId',
         'name' => 'Name',
         'period' => 'Period',
         'period_unit' => 'PeriodUnit',
         'project_name' => 'ProjectName',
         'renew_period_times' => 'RenewPeriodTimes',
         'renew_type' => 'RenewType',
+        'security_protection_instance_id' => 'SecurityProtectionInstanceId',
         'security_protection_types' => 'SecurityProtectionTypes',
         'tags' => 'Tags'
     ];
@@ -121,12 +130,15 @@ class AllocateEipAddressRequest implements ModelInterface, ArrayAccess
         'client_token' => 'setClientToken',
         'description' => 'setDescription',
         'isp' => 'setIsp',
+        'ip_address' => 'setIpAddress',
+        'ip_address_pool_id' => 'setIpAddressPoolId',
         'name' => 'setName',
         'period' => 'setPeriod',
         'period_unit' => 'setPeriodUnit',
         'project_name' => 'setProjectName',
         'renew_period_times' => 'setRenewPeriodTimes',
         'renew_type' => 'setRenewType',
+        'security_protection_instance_id' => 'setSecurityProtectionInstanceId',
         'security_protection_types' => 'setSecurityProtectionTypes',
         'tags' => 'setTags'
     ];
@@ -143,12 +155,15 @@ class AllocateEipAddressRequest implements ModelInterface, ArrayAccess
         'client_token' => 'getClientToken',
         'description' => 'getDescription',
         'isp' => 'getIsp',
+        'ip_address' => 'getIpAddress',
+        'ip_address_pool_id' => 'getIpAddressPoolId',
         'name' => 'getName',
         'period' => 'getPeriod',
         'period_unit' => 'getPeriodUnit',
         'project_name' => 'getProjectName',
         'renew_period_times' => 'getRenewPeriodTimes',
         'renew_type' => 'getRenewType',
+        'security_protection_instance_id' => 'getSecurityProtectionInstanceId',
         'security_protection_types' => 'getSecurityProtectionTypes',
         'tags' => 'getTags'
     ];
@@ -250,12 +265,15 @@ class AllocateEipAddressRequest implements ModelInterface, ArrayAccess
         $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['isp'] = isset($data['isp']) ? $data['isp'] : null;
+        $this->container['ip_address'] = isset($data['ip_address']) ? $data['ip_address'] : null;
+        $this->container['ip_address_pool_id'] = isset($data['ip_address_pool_id']) ? $data['ip_address_pool_id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['period'] = isset($data['period']) ? $data['period'] : null;
         $this->container['period_unit'] = isset($data['period_unit']) ? $data['period_unit'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['renew_period_times'] = isset($data['renew_period_times']) ? $data['renew_period_times'] : null;
         $this->container['renew_type'] = isset($data['renew_type']) ? $data['renew_type'] : null;
+        $this->container['security_protection_instance_id'] = isset($data['security_protection_instance_id']) ? $data['security_protection_instance_id'] : null;
         $this->container['security_protection_types'] = isset($data['security_protection_types']) ? $data['security_protection_types'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
     }
@@ -446,6 +464,54 @@ class AllocateEipAddressRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets ip_address
+     *
+     * @return string
+     */
+    public function getIpAddress()
+    {
+        return $this->container['ip_address'];
+    }
+
+    /**
+     * Sets ip_address
+     *
+     * @param string $ip_address ip_address
+     *
+     * @return $this
+     */
+    public function setIpAddress($ip_address)
+    {
+        $this->container['ip_address'] = $ip_address;
+
+        return $this;
+    }
+
+    /**
+     * Gets ip_address_pool_id
+     *
+     * @return string
+     */
+    public function getIpAddressPoolId()
+    {
+        return $this->container['ip_address_pool_id'];
+    }
+
+    /**
+     * Sets ip_address_pool_id
+     *
+     * @param string $ip_address_pool_id ip_address_pool_id
+     *
+     * @return $this
+     */
+    public function setIpAddressPoolId($ip_address_pool_id)
+    {
+        $this->container['ip_address_pool_id'] = $ip_address_pool_id;
+
+        return $this;
+    }
+
+    /**
      * Gets name
      *
      * @return string
@@ -585,6 +651,30 @@ class AllocateEipAddressRequest implements ModelInterface, ArrayAccess
     public function setRenewType($renew_type)
     {
         $this->container['renew_type'] = $renew_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets security_protection_instance_id
+     *
+     * @return int
+     */
+    public function getSecurityProtectionInstanceId()
+    {
+        return $this->container['security_protection_instance_id'];
+    }
+
+    /**
+     * Sets security_protection_instance_id
+     *
+     * @param int $security_protection_instance_id security_protection_instance_id
+     *
+     * @return $this
+     */
+    public function setSecurityProtectionInstanceId($security_protection_instance_id)
+    {
+        $this->container['security_protection_instance_id'] = $security_protection_instance_id;
 
         return $this;
     }

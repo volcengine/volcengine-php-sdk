@@ -28,7 +28,8 @@ class ReleaseEipAddressRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'allocation_id' => 'string'
+        'allocation_id' => 'string',
+        'client_token' => 'string'
     ];
 
     /**
@@ -37,7 +38,8 @@ class ReleaseEipAddressRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'allocation_id' => null
+        'allocation_id' => null,
+        'client_token' => null
     ];
 
     /**
@@ -67,7 +69,8 @@ class ReleaseEipAddressRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'allocation_id' => 'AllocationId'
+        'allocation_id' => 'AllocationId',
+        'client_token' => 'ClientToken'
     ];
 
     /**
@@ -76,7 +79,8 @@ class ReleaseEipAddressRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'allocation_id' => 'setAllocationId'
+        'allocation_id' => 'setAllocationId',
+        'client_token' => 'setClientToken'
     ];
 
     /**
@@ -85,7 +89,8 @@ class ReleaseEipAddressRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'allocation_id' => 'getAllocationId'
+        'allocation_id' => 'getAllocationId',
+        'client_token' => 'getClientToken'
     ];
 
     /**
@@ -149,6 +154,7 @@ class ReleaseEipAddressRequest implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['allocation_id'] = isset($data['allocation_id']) ? $data['allocation_id'] : null;
+        $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
     }
 
     /**
@@ -198,6 +204,30 @@ class ReleaseEipAddressRequest implements ModelInterface, ArrayAccess
     public function setAllocationId($allocation_id)
     {
         $this->container['allocation_id'] = $allocation_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets client_token
+     *
+     * @return string
+     */
+    public function getClientToken()
+    {
+        return $this->container['client_token'];
+    }
+
+    /**
+     * Sets client_token
+     *
+     * @param string $client_token client_token
+     *
+     * @return $this
+     */
+    public function setClientToken($client_token)
+    {
+        $this->container['client_token'] = $client_token;
 
         return $this;
     }

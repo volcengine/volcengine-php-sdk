@@ -32,6 +32,7 @@ class CreateNetworkAclRequest implements ModelInterface, ArrayAccess
         'description' => 'string',
         'network_acl_name' => 'string',
         'project_name' => 'string',
+        'tags' => '\Volcengine\Vpc\Model\TagForCreateNetworkAclInput[]',
         'vpc_id' => 'string'
     ];
 
@@ -45,6 +46,7 @@ class CreateNetworkAclRequest implements ModelInterface, ArrayAccess
         'description' => null,
         'network_acl_name' => null,
         'project_name' => null,
+        'tags' => null,
         'vpc_id' => null
     ];
 
@@ -79,6 +81,7 @@ class CreateNetworkAclRequest implements ModelInterface, ArrayAccess
         'description' => 'Description',
         'network_acl_name' => 'NetworkAclName',
         'project_name' => 'ProjectName',
+        'tags' => 'Tags',
         'vpc_id' => 'VpcId'
     ];
 
@@ -92,6 +95,7 @@ class CreateNetworkAclRequest implements ModelInterface, ArrayAccess
         'description' => 'setDescription',
         'network_acl_name' => 'setNetworkAclName',
         'project_name' => 'setProjectName',
+        'tags' => 'setTags',
         'vpc_id' => 'setVpcId'
     ];
 
@@ -105,6 +109,7 @@ class CreateNetworkAclRequest implements ModelInterface, ArrayAccess
         'description' => 'getDescription',
         'network_acl_name' => 'getNetworkAclName',
         'project_name' => 'getProjectName',
+        'tags' => 'getTags',
         'vpc_id' => 'getVpcId'
     ];
 
@@ -172,6 +177,7 @@ class CreateNetworkAclRequest implements ModelInterface, ArrayAccess
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['network_acl_name'] = isset($data['network_acl_name']) ? $data['network_acl_name'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['vpc_id'] = isset($data['vpc_id']) ? $data['vpc_id'] : null;
     }
 
@@ -294,6 +300,30 @@ class CreateNetworkAclRequest implements ModelInterface, ArrayAccess
     public function setProjectName($project_name)
     {
         $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets tags
+     *
+     * @return \Volcengine\Vpc\Model\TagForCreateNetworkAclInput[]
+     */
+    public function getTags()
+    {
+        return $this->container['tags'];
+    }
+
+    /**
+     * Sets tags
+     *
+     * @param \Volcengine\Vpc\Model\TagForCreateNetworkAclInput[] $tags tags
+     *
+     * @return $this
+     */
+    public function setTags($tags)
+    {
+        $this->container['tags'] = $tags;
 
         return $this;
     }
