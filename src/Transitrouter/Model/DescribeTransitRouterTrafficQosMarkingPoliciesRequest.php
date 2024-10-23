@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CreateTransitRouterVpnAttachmentRequest implements ModelInterface, ArrayAccess
+class DescribeTransitRouterTrafficQosMarkingPoliciesRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CreateTransitRouterVpnAttachmentRequest implements ModelInterface, ArrayAc
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CreateTransitRouterVpnAttachmentRequest';
+    protected static $swaggerModelName = 'DescribeTransitRouterTrafficQosMarkingPoliciesRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,14 +28,11 @@ class CreateTransitRouterVpnAttachmentRequest implements ModelInterface, ArrayAc
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'client_token' => 'string',
-        'description' => 'string',
-        'tags' => '\Volcengine\Transitrouter\Model\TagForCreateTransitRouterVpnAttachmentInput[]',
-        'transit_router_attachment_name' => 'string',
+        'page_number' => 'int',
+        'page_size' => 'int',
         'transit_router_id' => 'string',
-        'transit_router_route_table_id' => 'string',
-        'vpn_connection_id' => 'string',
-        'zone_id' => 'string'
+        'transit_router_traffic_qos_marking_policy_ids' => 'string[]',
+        'transit_router_traffic_qos_marking_policy_name' => 'string'
     ];
 
     /**
@@ -44,14 +41,11 @@ class CreateTransitRouterVpnAttachmentRequest implements ModelInterface, ArrayAc
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'client_token' => null,
-        'description' => null,
-        'tags' => null,
-        'transit_router_attachment_name' => null,
+        'page_number' => 'int32',
+        'page_size' => 'int32',
         'transit_router_id' => null,
-        'transit_router_route_table_id' => null,
-        'vpn_connection_id' => null,
-        'zone_id' => null
+        'transit_router_traffic_qos_marking_policy_ids' => null,
+        'transit_router_traffic_qos_marking_policy_name' => null
     ];
 
     /**
@@ -81,14 +75,11 @@ class CreateTransitRouterVpnAttachmentRequest implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $attributeMap = [
-        'client_token' => 'ClientToken',
-        'description' => 'Description',
-        'tags' => 'Tags',
-        'transit_router_attachment_name' => 'TransitRouterAttachmentName',
+        'page_number' => 'PageNumber',
+        'page_size' => 'PageSize',
         'transit_router_id' => 'TransitRouterId',
-        'transit_router_route_table_id' => 'TransitRouterRouteTableId',
-        'vpn_connection_id' => 'VpnConnectionId',
-        'zone_id' => 'ZoneId'
+        'transit_router_traffic_qos_marking_policy_ids' => 'TransitRouterTrafficQosMarkingPolicyIds',
+        'transit_router_traffic_qos_marking_policy_name' => 'TransitRouterTrafficQosMarkingPolicyName'
     ];
 
     /**
@@ -97,14 +88,11 @@ class CreateTransitRouterVpnAttachmentRequest implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $setters = [
-        'client_token' => 'setClientToken',
-        'description' => 'setDescription',
-        'tags' => 'setTags',
-        'transit_router_attachment_name' => 'setTransitRouterAttachmentName',
+        'page_number' => 'setPageNumber',
+        'page_size' => 'setPageSize',
         'transit_router_id' => 'setTransitRouterId',
-        'transit_router_route_table_id' => 'setTransitRouterRouteTableId',
-        'vpn_connection_id' => 'setVpnConnectionId',
-        'zone_id' => 'setZoneId'
+        'transit_router_traffic_qos_marking_policy_ids' => 'setTransitRouterTrafficQosMarkingPolicyIds',
+        'transit_router_traffic_qos_marking_policy_name' => 'setTransitRouterTrafficQosMarkingPolicyName'
     ];
 
     /**
@@ -113,14 +101,11 @@ class CreateTransitRouterVpnAttachmentRequest implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $getters = [
-        'client_token' => 'getClientToken',
-        'description' => 'getDescription',
-        'tags' => 'getTags',
-        'transit_router_attachment_name' => 'getTransitRouterAttachmentName',
+        'page_number' => 'getPageNumber',
+        'page_size' => 'getPageSize',
         'transit_router_id' => 'getTransitRouterId',
-        'transit_router_route_table_id' => 'getTransitRouterRouteTableId',
-        'vpn_connection_id' => 'getVpnConnectionId',
-        'zone_id' => 'getZoneId'
+        'transit_router_traffic_qos_marking_policy_ids' => 'getTransitRouterTrafficQosMarkingPolicyIds',
+        'transit_router_traffic_qos_marking_policy_name' => 'getTransitRouterTrafficQosMarkingPolicyName'
     ];
 
     /**
@@ -183,14 +168,11 @@ class CreateTransitRouterVpnAttachmentRequest implements ModelInterface, ArrayAc
      */
     public function __construct(array $data = null)
     {
-        $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
-        $this->container['transit_router_attachment_name'] = isset($data['transit_router_attachment_name']) ? $data['transit_router_attachment_name'] : null;
+        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
+        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
         $this->container['transit_router_id'] = isset($data['transit_router_id']) ? $data['transit_router_id'] : null;
-        $this->container['transit_router_route_table_id'] = isset($data['transit_router_route_table_id']) ? $data['transit_router_route_table_id'] : null;
-        $this->container['vpn_connection_id'] = isset($data['vpn_connection_id']) ? $data['vpn_connection_id'] : null;
-        $this->container['zone_id'] = isset($data['zone_id']) ? $data['zone_id'] : null;
+        $this->container['transit_router_traffic_qos_marking_policy_ids'] = isset($data['transit_router_traffic_qos_marking_policy_ids']) ? $data['transit_router_traffic_qos_marking_policy_ids'] : null;
+        $this->container['transit_router_traffic_qos_marking_policy_name'] = isset($data['transit_router_traffic_qos_marking_policy_name']) ? $data['transit_router_traffic_qos_marking_policy_name'] : null;
     }
 
     /**
@@ -204,12 +186,6 @@ class CreateTransitRouterVpnAttachmentRequest implements ModelInterface, ArrayAc
 
         if ($this->container['transit_router_id'] === null) {
             $invalidProperties[] = "'transit_router_id' can't be null";
-        }
-        if ($this->container['vpn_connection_id'] === null) {
-            $invalidProperties[] = "'vpn_connection_id' can't be null";
-        }
-        if ($this->container['zone_id'] === null) {
-            $invalidProperties[] = "'zone_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -227,97 +203,49 @@ class CreateTransitRouterVpnAttachmentRequest implements ModelInterface, ArrayAc
 
 
     /**
-     * Gets client_token
+     * Gets page_number
      *
-     * @return string
+     * @return int
      */
-    public function getClientToken()
+    public function getPageNumber()
     {
-        return $this->container['client_token'];
+        return $this->container['page_number'];
     }
 
     /**
-     * Sets client_token
+     * Sets page_number
      *
-     * @param string $client_token client_token
+     * @param int $page_number page_number
      *
      * @return $this
      */
-    public function setClientToken($client_token)
+    public function setPageNumber($page_number)
     {
-        $this->container['client_token'] = $client_token;
+        $this->container['page_number'] = $page_number;
 
         return $this;
     }
 
     /**
-     * Gets description
+     * Gets page_size
      *
-     * @return string
+     * @return int
      */
-    public function getDescription()
+    public function getPageSize()
     {
-        return $this->container['description'];
+        return $this->container['page_size'];
     }
 
     /**
-     * Sets description
+     * Sets page_size
      *
-     * @param string $description description
+     * @param int $page_size page_size
      *
      * @return $this
      */
-    public function setDescription($description)
+    public function setPageSize($page_size)
     {
-        $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets tags
-     *
-     * @return \Volcengine\Transitrouter\Model\TagForCreateTransitRouterVpnAttachmentInput[]
-     */
-    public function getTags()
-    {
-        return $this->container['tags'];
-    }
-
-    /**
-     * Sets tags
-     *
-     * @param \Volcengine\Transitrouter\Model\TagForCreateTransitRouterVpnAttachmentInput[] $tags tags
-     *
-     * @return $this
-     */
-    public function setTags($tags)
-    {
-        $this->container['tags'] = $tags;
-
-        return $this;
-    }
-
-    /**
-     * Gets transit_router_attachment_name
-     *
-     * @return string
-     */
-    public function getTransitRouterAttachmentName()
-    {
-        return $this->container['transit_router_attachment_name'];
-    }
-
-    /**
-     * Sets transit_router_attachment_name
-     *
-     * @param string $transit_router_attachment_name transit_router_attachment_name
-     *
-     * @return $this
-     */
-    public function setTransitRouterAttachmentName($transit_router_attachment_name)
-    {
-        $this->container['transit_router_attachment_name'] = $transit_router_attachment_name;
+        $this->container['page_size'] = $page_size;
 
         return $this;
     }
@@ -347,73 +275,49 @@ class CreateTransitRouterVpnAttachmentRequest implements ModelInterface, ArrayAc
     }
 
     /**
-     * Gets transit_router_route_table_id
+     * Gets transit_router_traffic_qos_marking_policy_ids
      *
-     * @return string
+     * @return string[]
      */
-    public function getTransitRouterRouteTableId()
+    public function getTransitRouterTrafficQosMarkingPolicyIds()
     {
-        return $this->container['transit_router_route_table_id'];
+        return $this->container['transit_router_traffic_qos_marking_policy_ids'];
     }
 
     /**
-     * Sets transit_router_route_table_id
+     * Sets transit_router_traffic_qos_marking_policy_ids
      *
-     * @param string $transit_router_route_table_id transit_router_route_table_id
+     * @param string[] $transit_router_traffic_qos_marking_policy_ids transit_router_traffic_qos_marking_policy_ids
      *
      * @return $this
      */
-    public function setTransitRouterRouteTableId($transit_router_route_table_id)
+    public function setTransitRouterTrafficQosMarkingPolicyIds($transit_router_traffic_qos_marking_policy_ids)
     {
-        $this->container['transit_router_route_table_id'] = $transit_router_route_table_id;
+        $this->container['transit_router_traffic_qos_marking_policy_ids'] = $transit_router_traffic_qos_marking_policy_ids;
 
         return $this;
     }
 
     /**
-     * Gets vpn_connection_id
+     * Gets transit_router_traffic_qos_marking_policy_name
      *
      * @return string
      */
-    public function getVpnConnectionId()
+    public function getTransitRouterTrafficQosMarkingPolicyName()
     {
-        return $this->container['vpn_connection_id'];
+        return $this->container['transit_router_traffic_qos_marking_policy_name'];
     }
 
     /**
-     * Sets vpn_connection_id
+     * Sets transit_router_traffic_qos_marking_policy_name
      *
-     * @param string $vpn_connection_id vpn_connection_id
+     * @param string $transit_router_traffic_qos_marking_policy_name transit_router_traffic_qos_marking_policy_name
      *
      * @return $this
      */
-    public function setVpnConnectionId($vpn_connection_id)
+    public function setTransitRouterTrafficQosMarkingPolicyName($transit_router_traffic_qos_marking_policy_name)
     {
-        $this->container['vpn_connection_id'] = $vpn_connection_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets zone_id
-     *
-     * @return string
-     */
-    public function getZoneId()
-    {
-        return $this->container['zone_id'];
-    }
-
-    /**
-     * Sets zone_id
-     *
-     * @param string $zone_id zone_id
-     *
-     * @return $this
-     */
-    public function setZoneId($zone_id)
-    {
-        $this->container['zone_id'] = $zone_id;
+        $this->container['transit_router_traffic_qos_marking_policy_name'] = $transit_router_traffic_qos_marking_policy_name;
 
         return $this;
     }
