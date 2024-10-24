@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Transitrouter\Model;
+namespace Volcengine\Kms\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ModifyTransitRouterVpcAttachmentAttributesRequest implements ModelInterface, ArrayAccess
+class SecretValueForBatchGetSecretValueOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ModifyTransitRouterVpcAttachmentAttributesRequest implements ModelInterfac
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ModifyTransitRouterVpcAttachmentAttributesRequest';
+    protected static $swaggerModelName = 'SecretValueForBatchGetSecretValueOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,11 @@ class ModifyTransitRouterVpcAttachmentAttributesRequest implements ModelInterfac
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'attach_points' => '\Volcengine\Transitrouter\Model\AttachPointForModifyTransitRouterVpcAttachmentAttributesInput[]',
-        'auto_publish_route_enabled' => 'bool',
-        'description' => 'string',
-        'ipv6_enabled' => 'bool',
-        'transit_router_attachment_id' => 'string',
-        'transit_router_attachment_name' => 'string'
+        'creation_date' => 'int',
+        'secret_name' => 'string',
+        'secret_value' => 'string',
+        'version_id' => 'string',
+        'version_stage' => 'string'
     ];
 
     /**
@@ -42,12 +41,11 @@ class ModifyTransitRouterVpcAttachmentAttributesRequest implements ModelInterfac
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'attach_points' => null,
-        'auto_publish_route_enabled' => null,
-        'description' => null,
-        'ipv6_enabled' => null,
-        'transit_router_attachment_id' => null,
-        'transit_router_attachment_name' => null
+        'creation_date' => 'int64',
+        'secret_name' => null,
+        'secret_value' => null,
+        'version_id' => null,
+        'version_stage' => null
     ];
 
     /**
@@ -77,12 +75,11 @@ class ModifyTransitRouterVpcAttachmentAttributesRequest implements ModelInterfac
      * @var string[]
      */
     protected static $attributeMap = [
-        'attach_points' => 'AttachPoints',
-        'auto_publish_route_enabled' => 'AutoPublishRouteEnabled',
-        'description' => 'Description',
-        'ipv6_enabled' => 'Ipv6Enabled',
-        'transit_router_attachment_id' => 'TransitRouterAttachmentId',
-        'transit_router_attachment_name' => 'TransitRouterAttachmentName'
+        'creation_date' => 'CreationDate',
+        'secret_name' => 'SecretName',
+        'secret_value' => 'SecretValue',
+        'version_id' => 'VersionID',
+        'version_stage' => 'VersionStage'
     ];
 
     /**
@@ -91,12 +88,11 @@ class ModifyTransitRouterVpcAttachmentAttributesRequest implements ModelInterfac
      * @var string[]
      */
     protected static $setters = [
-        'attach_points' => 'setAttachPoints',
-        'auto_publish_route_enabled' => 'setAutoPublishRouteEnabled',
-        'description' => 'setDescription',
-        'ipv6_enabled' => 'setIpv6Enabled',
-        'transit_router_attachment_id' => 'setTransitRouterAttachmentId',
-        'transit_router_attachment_name' => 'setTransitRouterAttachmentName'
+        'creation_date' => 'setCreationDate',
+        'secret_name' => 'setSecretName',
+        'secret_value' => 'setSecretValue',
+        'version_id' => 'setVersionId',
+        'version_stage' => 'setVersionStage'
     ];
 
     /**
@@ -105,12 +101,11 @@ class ModifyTransitRouterVpcAttachmentAttributesRequest implements ModelInterfac
      * @var string[]
      */
     protected static $getters = [
-        'attach_points' => 'getAttachPoints',
-        'auto_publish_route_enabled' => 'getAutoPublishRouteEnabled',
-        'description' => 'getDescription',
-        'ipv6_enabled' => 'getIpv6Enabled',
-        'transit_router_attachment_id' => 'getTransitRouterAttachmentId',
-        'transit_router_attachment_name' => 'getTransitRouterAttachmentName'
+        'creation_date' => 'getCreationDate',
+        'secret_name' => 'getSecretName',
+        'secret_value' => 'getSecretValue',
+        'version_id' => 'getVersionId',
+        'version_stage' => 'getVersionStage'
     ];
 
     /**
@@ -154,8 +149,23 @@ class ModifyTransitRouterVpcAttachmentAttributesRequest implements ModelInterfac
         return self::$swaggerModelName;
     }
 
+    const VERSION_STAGE_CURRENT = 'CURRENT';
+    const VERSION_STAGE_OLDER = 'OLDER';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getVersionStageAllowableValues()
+    {
+        return [
+            self::VERSION_STAGE_CURRENT,
+            self::VERSION_STAGE_OLDER,
+        ];
+    }
     
 
     /**
@@ -173,12 +183,11 @@ class ModifyTransitRouterVpcAttachmentAttributesRequest implements ModelInterfac
      */
     public function __construct(array $data = null)
     {
-        $this->container['attach_points'] = isset($data['attach_points']) ? $data['attach_points'] : null;
-        $this->container['auto_publish_route_enabled'] = isset($data['auto_publish_route_enabled']) ? $data['auto_publish_route_enabled'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['ipv6_enabled'] = isset($data['ipv6_enabled']) ? $data['ipv6_enabled'] : null;
-        $this->container['transit_router_attachment_id'] = isset($data['transit_router_attachment_id']) ? $data['transit_router_attachment_id'] : null;
-        $this->container['transit_router_attachment_name'] = isset($data['transit_router_attachment_name']) ? $data['transit_router_attachment_name'] : null;
+        $this->container['creation_date'] = isset($data['creation_date']) ? $data['creation_date'] : null;
+        $this->container['secret_name'] = isset($data['secret_name']) ? $data['secret_name'] : null;
+        $this->container['secret_value'] = isset($data['secret_value']) ? $data['secret_value'] : null;
+        $this->container['version_id'] = isset($data['version_id']) ? $data['version_id'] : null;
+        $this->container['version_stage'] = isset($data['version_stage']) ? $data['version_stage'] : null;
     }
 
     /**
@@ -190,9 +199,14 @@ class ModifyTransitRouterVpcAttachmentAttributesRequest implements ModelInterfac
     {
         $invalidProperties = [];
 
-        if ($this->container['transit_router_attachment_id'] === null) {
-            $invalidProperties[] = "'transit_router_attachment_id' can't be null";
+        $allowedValues = $this->getVersionStageAllowableValues();
+        if (!is_null($this->container['version_stage']) && !in_array($this->container['version_stage'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'version_stage', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
         }
+
         return $invalidProperties;
     }
 
@@ -209,145 +223,130 @@ class ModifyTransitRouterVpcAttachmentAttributesRequest implements ModelInterfac
 
 
     /**
-     * Gets attach_points
+     * Gets creation_date
      *
-     * @return \Volcengine\Transitrouter\Model\AttachPointForModifyTransitRouterVpcAttachmentAttributesInput[]
+     * @return int
      */
-    public function getAttachPoints()
+    public function getCreationDate()
     {
-        return $this->container['attach_points'];
+        return $this->container['creation_date'];
     }
 
     /**
-     * Sets attach_points
+     * Sets creation_date
      *
-     * @param \Volcengine\Transitrouter\Model\AttachPointForModifyTransitRouterVpcAttachmentAttributesInput[] $attach_points attach_points
+     * @param int $creation_date creation_date
      *
      * @return $this
      */
-    public function setAttachPoints($attach_points)
+    public function setCreationDate($creation_date)
     {
-        $this->container['attach_points'] = $attach_points;
+        $this->container['creation_date'] = $creation_date;
 
         return $this;
     }
 
     /**
-     * Gets auto_publish_route_enabled
-     *
-     * @return bool
-     */
-    public function getAutoPublishRouteEnabled()
-    {
-        return $this->container['auto_publish_route_enabled'];
-    }
-
-    /**
-     * Sets auto_publish_route_enabled
-     *
-     * @param bool $auto_publish_route_enabled auto_publish_route_enabled
-     *
-     * @return $this
-     */
-    public function setAutoPublishRouteEnabled($auto_publish_route_enabled)
-    {
-        $this->container['auto_publish_route_enabled'] = $auto_publish_route_enabled;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
+     * Gets secret_name
      *
      * @return string
      */
-    public function getDescription()
+    public function getSecretName()
     {
-        return $this->container['description'];
+        return $this->container['secret_name'];
     }
 
     /**
-     * Sets description
+     * Sets secret_name
      *
-     * @param string $description description
+     * @param string $secret_name secret_name
      *
      * @return $this
      */
-    public function setDescription($description)
+    public function setSecretName($secret_name)
     {
-        $this->container['description'] = $description;
+        $this->container['secret_name'] = $secret_name;
 
         return $this;
     }
 
     /**
-     * Gets ipv6_enabled
-     *
-     * @return bool
-     */
-    public function getIpv6Enabled()
-    {
-        return $this->container['ipv6_enabled'];
-    }
-
-    /**
-     * Sets ipv6_enabled
-     *
-     * @param bool $ipv6_enabled ipv6_enabled
-     *
-     * @return $this
-     */
-    public function setIpv6Enabled($ipv6_enabled)
-    {
-        $this->container['ipv6_enabled'] = $ipv6_enabled;
-
-        return $this;
-    }
-
-    /**
-     * Gets transit_router_attachment_id
+     * Gets secret_value
      *
      * @return string
      */
-    public function getTransitRouterAttachmentId()
+    public function getSecretValue()
     {
-        return $this->container['transit_router_attachment_id'];
+        return $this->container['secret_value'];
     }
 
     /**
-     * Sets transit_router_attachment_id
+     * Sets secret_value
      *
-     * @param string $transit_router_attachment_id transit_router_attachment_id
+     * @param string $secret_value secret_value
      *
      * @return $this
      */
-    public function setTransitRouterAttachmentId($transit_router_attachment_id)
+    public function setSecretValue($secret_value)
     {
-        $this->container['transit_router_attachment_id'] = $transit_router_attachment_id;
+        $this->container['secret_value'] = $secret_value;
 
         return $this;
     }
 
     /**
-     * Gets transit_router_attachment_name
+     * Gets version_id
      *
      * @return string
      */
-    public function getTransitRouterAttachmentName()
+    public function getVersionId()
     {
-        return $this->container['transit_router_attachment_name'];
+        return $this->container['version_id'];
     }
 
     /**
-     * Sets transit_router_attachment_name
+     * Sets version_id
      *
-     * @param string $transit_router_attachment_name transit_router_attachment_name
+     * @param string $version_id version_id
      *
      * @return $this
      */
-    public function setTransitRouterAttachmentName($transit_router_attachment_name)
+    public function setVersionId($version_id)
     {
-        $this->container['transit_router_attachment_name'] = $transit_router_attachment_name;
+        $this->container['version_id'] = $version_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets version_stage
+     *
+     * @return string
+     */
+    public function getVersionStage()
+    {
+        return $this->container['version_stage'];
+    }
+
+    /**
+     * Sets version_stage
+     *
+     * @param string $version_stage version_stage
+     *
+     * @return $this
+     */
+    public function setVersionStage($version_stage)
+    {
+        $allowedValues = $this->getVersionStageAllowableValues();
+        if (!is_null($version_stage) && !in_array($version_stage, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'version_stage', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['version_stage'] = $version_stage;
 
         return $this;
     }

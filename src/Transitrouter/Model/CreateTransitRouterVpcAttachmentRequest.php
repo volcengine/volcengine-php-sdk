@@ -32,6 +32,7 @@ class CreateTransitRouterVpcAttachmentRequest implements ModelInterface, ArrayAc
         'auto_publish_route_enabled' => 'bool',
         'client_token' => 'string',
         'description' => 'string',
+        'ipv6_enabled' => 'bool',
         'tags' => '\Volcengine\Transitrouter\Model\TagForCreateTransitRouterVpcAttachmentInput[]',
         'transit_router_attachment_name' => 'string',
         'transit_router_id' => 'string',
@@ -48,6 +49,7 @@ class CreateTransitRouterVpcAttachmentRequest implements ModelInterface, ArrayAc
         'auto_publish_route_enabled' => null,
         'client_token' => null,
         'description' => null,
+        'ipv6_enabled' => null,
         'tags' => null,
         'transit_router_attachment_name' => null,
         'transit_router_id' => null,
@@ -85,6 +87,7 @@ class CreateTransitRouterVpcAttachmentRequest implements ModelInterface, ArrayAc
         'auto_publish_route_enabled' => 'AutoPublishRouteEnabled',
         'client_token' => 'ClientToken',
         'description' => 'Description',
+        'ipv6_enabled' => 'Ipv6Enabled',
         'tags' => 'Tags',
         'transit_router_attachment_name' => 'TransitRouterAttachmentName',
         'transit_router_id' => 'TransitRouterId',
@@ -101,6 +104,7 @@ class CreateTransitRouterVpcAttachmentRequest implements ModelInterface, ArrayAc
         'auto_publish_route_enabled' => 'setAutoPublishRouteEnabled',
         'client_token' => 'setClientToken',
         'description' => 'setDescription',
+        'ipv6_enabled' => 'setIpv6Enabled',
         'tags' => 'setTags',
         'transit_router_attachment_name' => 'setTransitRouterAttachmentName',
         'transit_router_id' => 'setTransitRouterId',
@@ -117,6 +121,7 @@ class CreateTransitRouterVpcAttachmentRequest implements ModelInterface, ArrayAc
         'auto_publish_route_enabled' => 'getAutoPublishRouteEnabled',
         'client_token' => 'getClientToken',
         'description' => 'getDescription',
+        'ipv6_enabled' => 'getIpv6Enabled',
         'tags' => 'getTags',
         'transit_router_attachment_name' => 'getTransitRouterAttachmentName',
         'transit_router_id' => 'getTransitRouterId',
@@ -187,6 +192,7 @@ class CreateTransitRouterVpcAttachmentRequest implements ModelInterface, ArrayAc
         $this->container['auto_publish_route_enabled'] = isset($data['auto_publish_route_enabled']) ? $data['auto_publish_route_enabled'] : null;
         $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['ipv6_enabled'] = isset($data['ipv6_enabled']) ? $data['ipv6_enabled'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['transit_router_attachment_name'] = isset($data['transit_router_attachment_name']) ? $data['transit_router_attachment_name'] : null;
         $this->container['transit_router_id'] = isset($data['transit_router_id']) ? $data['transit_router_id'] : null;
@@ -315,6 +321,30 @@ class CreateTransitRouterVpcAttachmentRequest implements ModelInterface, ArrayAc
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets ipv6_enabled
+     *
+     * @return bool
+     */
+    public function getIpv6Enabled()
+    {
+        return $this->container['ipv6_enabled'];
+    }
+
+    /**
+     * Sets ipv6_enabled
+     *
+     * @param bool $ipv6_enabled ipv6_enabled
+     *
+     * @return $this
+     */
+    public function setIpv6Enabled($ipv6_enabled)
+    {
+        $this->container['ipv6_enabled'] = $ipv6_enabled;
 
         return $this;
     }

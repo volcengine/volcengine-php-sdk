@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class DescribeTransitRouterAttachmentsRequest implements ModelInterface, ArrayAccess
+class DescribeTransitRouterTrafficQosQueueEntriesRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class DescribeTransitRouterAttachmentsRequest implements ModelInterface, ArrayAc
       *
       * @var string
       */
-    protected static $swaggerModelName = 'DescribeTransitRouterAttachmentsRequest';
+    protected static $swaggerModelName = 'DescribeTransitRouterTrafficQosQueueEntriesRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -30,13 +30,8 @@ class DescribeTransitRouterAttachmentsRequest implements ModelInterface, ArrayAc
     protected static $swaggerTypes = [
         'page_number' => 'int',
         'page_size' => 'int',
-        'resource_id' => 'string',
-        'resource_type' => 'string',
-        'tag_filters' => '\Volcengine\Transitrouter\Model\TagFilterForDescribeTransitRouterAttachmentsInput[]',
-        'transit_router_attachment_ids' => 'string[]',
-        'transit_router_forward_policy_table_id' => 'string',
-        'transit_router_id' => 'string',
-        'transit_router_traffic_qos_marking_policy_id' => 'string',
+        'transit_router_traffic_qos_queue_entry_ids' => 'string[]',
+        'transit_router_traffic_qos_queue_entry_name' => 'string',
         'transit_router_traffic_qos_queue_policy_id' => 'string'
     ];
 
@@ -48,13 +43,8 @@ class DescribeTransitRouterAttachmentsRequest implements ModelInterface, ArrayAc
     protected static $swaggerFormats = [
         'page_number' => 'int32',
         'page_size' => 'int32',
-        'resource_id' => null,
-        'resource_type' => null,
-        'tag_filters' => null,
-        'transit_router_attachment_ids' => null,
-        'transit_router_forward_policy_table_id' => null,
-        'transit_router_id' => null,
-        'transit_router_traffic_qos_marking_policy_id' => null,
+        'transit_router_traffic_qos_queue_entry_ids' => null,
+        'transit_router_traffic_qos_queue_entry_name' => null,
         'transit_router_traffic_qos_queue_policy_id' => null
     ];
 
@@ -87,13 +77,8 @@ class DescribeTransitRouterAttachmentsRequest implements ModelInterface, ArrayAc
     protected static $attributeMap = [
         'page_number' => 'PageNumber',
         'page_size' => 'PageSize',
-        'resource_id' => 'ResourceId',
-        'resource_type' => 'ResourceType',
-        'tag_filters' => 'TagFilters',
-        'transit_router_attachment_ids' => 'TransitRouterAttachmentIds',
-        'transit_router_forward_policy_table_id' => 'TransitRouterForwardPolicyTableId',
-        'transit_router_id' => 'TransitRouterId',
-        'transit_router_traffic_qos_marking_policy_id' => 'TransitRouterTrafficQosMarkingPolicyId',
+        'transit_router_traffic_qos_queue_entry_ids' => 'TransitRouterTrafficQosQueueEntryIds',
+        'transit_router_traffic_qos_queue_entry_name' => 'TransitRouterTrafficQosQueueEntryName',
         'transit_router_traffic_qos_queue_policy_id' => 'TransitRouterTrafficQosQueuePolicyId'
     ];
 
@@ -105,13 +90,8 @@ class DescribeTransitRouterAttachmentsRequest implements ModelInterface, ArrayAc
     protected static $setters = [
         'page_number' => 'setPageNumber',
         'page_size' => 'setPageSize',
-        'resource_id' => 'setResourceId',
-        'resource_type' => 'setResourceType',
-        'tag_filters' => 'setTagFilters',
-        'transit_router_attachment_ids' => 'setTransitRouterAttachmentIds',
-        'transit_router_forward_policy_table_id' => 'setTransitRouterForwardPolicyTableId',
-        'transit_router_id' => 'setTransitRouterId',
-        'transit_router_traffic_qos_marking_policy_id' => 'setTransitRouterTrafficQosMarkingPolicyId',
+        'transit_router_traffic_qos_queue_entry_ids' => 'setTransitRouterTrafficQosQueueEntryIds',
+        'transit_router_traffic_qos_queue_entry_name' => 'setTransitRouterTrafficQosQueueEntryName',
         'transit_router_traffic_qos_queue_policy_id' => 'setTransitRouterTrafficQosQueuePolicyId'
     ];
 
@@ -123,13 +103,8 @@ class DescribeTransitRouterAttachmentsRequest implements ModelInterface, ArrayAc
     protected static $getters = [
         'page_number' => 'getPageNumber',
         'page_size' => 'getPageSize',
-        'resource_id' => 'getResourceId',
-        'resource_type' => 'getResourceType',
-        'tag_filters' => 'getTagFilters',
-        'transit_router_attachment_ids' => 'getTransitRouterAttachmentIds',
-        'transit_router_forward_policy_table_id' => 'getTransitRouterForwardPolicyTableId',
-        'transit_router_id' => 'getTransitRouterId',
-        'transit_router_traffic_qos_marking_policy_id' => 'getTransitRouterTrafficQosMarkingPolicyId',
+        'transit_router_traffic_qos_queue_entry_ids' => 'getTransitRouterTrafficQosQueueEntryIds',
+        'transit_router_traffic_qos_queue_entry_name' => 'getTransitRouterTrafficQosQueueEntryName',
         'transit_router_traffic_qos_queue_policy_id' => 'getTransitRouterTrafficQosQueuePolicyId'
     ];
 
@@ -195,13 +170,8 @@ class DescribeTransitRouterAttachmentsRequest implements ModelInterface, ArrayAc
     {
         $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
-        $this->container['resource_id'] = isset($data['resource_id']) ? $data['resource_id'] : null;
-        $this->container['resource_type'] = isset($data['resource_type']) ? $data['resource_type'] : null;
-        $this->container['tag_filters'] = isset($data['tag_filters']) ? $data['tag_filters'] : null;
-        $this->container['transit_router_attachment_ids'] = isset($data['transit_router_attachment_ids']) ? $data['transit_router_attachment_ids'] : null;
-        $this->container['transit_router_forward_policy_table_id'] = isset($data['transit_router_forward_policy_table_id']) ? $data['transit_router_forward_policy_table_id'] : null;
-        $this->container['transit_router_id'] = isset($data['transit_router_id']) ? $data['transit_router_id'] : null;
-        $this->container['transit_router_traffic_qos_marking_policy_id'] = isset($data['transit_router_traffic_qos_marking_policy_id']) ? $data['transit_router_traffic_qos_marking_policy_id'] : null;
+        $this->container['transit_router_traffic_qos_queue_entry_ids'] = isset($data['transit_router_traffic_qos_queue_entry_ids']) ? $data['transit_router_traffic_qos_queue_entry_ids'] : null;
+        $this->container['transit_router_traffic_qos_queue_entry_name'] = isset($data['transit_router_traffic_qos_queue_entry_name']) ? $data['transit_router_traffic_qos_queue_entry_name'] : null;
         $this->container['transit_router_traffic_qos_queue_policy_id'] = isset($data['transit_router_traffic_qos_queue_policy_id']) ? $data['transit_router_traffic_qos_queue_policy_id'] : null;
     }
 
@@ -214,6 +184,9 @@ class DescribeTransitRouterAttachmentsRequest implements ModelInterface, ArrayAc
     {
         $invalidProperties = [];
 
+        if ($this->container['transit_router_traffic_qos_queue_policy_id'] === null) {
+            $invalidProperties[] = "'transit_router_traffic_qos_queue_policy_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -278,169 +251,49 @@ class DescribeTransitRouterAttachmentsRequest implements ModelInterface, ArrayAc
     }
 
     /**
-     * Gets resource_id
-     *
-     * @return string
-     */
-    public function getResourceId()
-    {
-        return $this->container['resource_id'];
-    }
-
-    /**
-     * Sets resource_id
-     *
-     * @param string $resource_id resource_id
-     *
-     * @return $this
-     */
-    public function setResourceId($resource_id)
-    {
-        $this->container['resource_id'] = $resource_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets resource_type
-     *
-     * @return string
-     */
-    public function getResourceType()
-    {
-        return $this->container['resource_type'];
-    }
-
-    /**
-     * Sets resource_type
-     *
-     * @param string $resource_type resource_type
-     *
-     * @return $this
-     */
-    public function setResourceType($resource_type)
-    {
-        $this->container['resource_type'] = $resource_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets tag_filters
-     *
-     * @return \Volcengine\Transitrouter\Model\TagFilterForDescribeTransitRouterAttachmentsInput[]
-     */
-    public function getTagFilters()
-    {
-        return $this->container['tag_filters'];
-    }
-
-    /**
-     * Sets tag_filters
-     *
-     * @param \Volcengine\Transitrouter\Model\TagFilterForDescribeTransitRouterAttachmentsInput[] $tag_filters tag_filters
-     *
-     * @return $this
-     */
-    public function setTagFilters($tag_filters)
-    {
-        $this->container['tag_filters'] = $tag_filters;
-
-        return $this;
-    }
-
-    /**
-     * Gets transit_router_attachment_ids
+     * Gets transit_router_traffic_qos_queue_entry_ids
      *
      * @return string[]
      */
-    public function getTransitRouterAttachmentIds()
+    public function getTransitRouterTrafficQosQueueEntryIds()
     {
-        return $this->container['transit_router_attachment_ids'];
+        return $this->container['transit_router_traffic_qos_queue_entry_ids'];
     }
 
     /**
-     * Sets transit_router_attachment_ids
+     * Sets transit_router_traffic_qos_queue_entry_ids
      *
-     * @param string[] $transit_router_attachment_ids transit_router_attachment_ids
+     * @param string[] $transit_router_traffic_qos_queue_entry_ids transit_router_traffic_qos_queue_entry_ids
      *
      * @return $this
      */
-    public function setTransitRouterAttachmentIds($transit_router_attachment_ids)
+    public function setTransitRouterTrafficQosQueueEntryIds($transit_router_traffic_qos_queue_entry_ids)
     {
-        $this->container['transit_router_attachment_ids'] = $transit_router_attachment_ids;
+        $this->container['transit_router_traffic_qos_queue_entry_ids'] = $transit_router_traffic_qos_queue_entry_ids;
 
         return $this;
     }
 
     /**
-     * Gets transit_router_forward_policy_table_id
+     * Gets transit_router_traffic_qos_queue_entry_name
      *
      * @return string
      */
-    public function getTransitRouterForwardPolicyTableId()
+    public function getTransitRouterTrafficQosQueueEntryName()
     {
-        return $this->container['transit_router_forward_policy_table_id'];
+        return $this->container['transit_router_traffic_qos_queue_entry_name'];
     }
 
     /**
-     * Sets transit_router_forward_policy_table_id
+     * Sets transit_router_traffic_qos_queue_entry_name
      *
-     * @param string $transit_router_forward_policy_table_id transit_router_forward_policy_table_id
+     * @param string $transit_router_traffic_qos_queue_entry_name transit_router_traffic_qos_queue_entry_name
      *
      * @return $this
      */
-    public function setTransitRouterForwardPolicyTableId($transit_router_forward_policy_table_id)
+    public function setTransitRouterTrafficQosQueueEntryName($transit_router_traffic_qos_queue_entry_name)
     {
-        $this->container['transit_router_forward_policy_table_id'] = $transit_router_forward_policy_table_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets transit_router_id
-     *
-     * @return string
-     */
-    public function getTransitRouterId()
-    {
-        return $this->container['transit_router_id'];
-    }
-
-    /**
-     * Sets transit_router_id
-     *
-     * @param string $transit_router_id transit_router_id
-     *
-     * @return $this
-     */
-    public function setTransitRouterId($transit_router_id)
-    {
-        $this->container['transit_router_id'] = $transit_router_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets transit_router_traffic_qos_marking_policy_id
-     *
-     * @return string
-     */
-    public function getTransitRouterTrafficQosMarkingPolicyId()
-    {
-        return $this->container['transit_router_traffic_qos_marking_policy_id'];
-    }
-
-    /**
-     * Sets transit_router_traffic_qos_marking_policy_id
-     *
-     * @param string $transit_router_traffic_qos_marking_policy_id transit_router_traffic_qos_marking_policy_id
-     *
-     * @return $this
-     */
-    public function setTransitRouterTrafficQosMarkingPolicyId($transit_router_traffic_qos_marking_policy_id)
-    {
-        $this->container['transit_router_traffic_qos_marking_policy_id'] = $transit_router_traffic_qos_marking_policy_id;
+        $this->container['transit_router_traffic_qos_queue_entry_name'] = $transit_router_traffic_qos_queue_entry_name;
 
         return $this;
     }

@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class TransitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput implements ModelInterface, ArrayAccess
+class TransitRouterTrafficQosQueueEntryForDescribeTransitRouterTrafficQosQueueEntriesOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class TransitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput implem
       *
       * @var string
       */
-    protected static $swaggerModelName = 'TransitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput';
+    protected static $swaggerModelName = 'TransitRouterTrafficQosQueueEntryForDescribeTransitRouterTrafficQosQueueEntriesOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,18 +28,16 @@ class TransitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput implem
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'attach_points' => '\Volcengine\Transitrouter\Model\AttachPointForDescribeTransitRouterVpcAttachmentsOutput[]',
-        'auto_publish_route_enabled' => 'bool',
+        'bandwidth_percent' => 'int',
         'creation_time' => 'string',
         'description' => 'string',
-        'ipv6_enabled' => 'bool',
+        'dscps' => 'int[]',
+        'is_default' => 'bool',
         'status' => 'string',
-        'tags' => '\Volcengine\Transitrouter\Model\TagForDescribeTransitRouterVpcAttachmentsOutput[]',
-        'transit_router_attachment_id' => 'string',
-        'transit_router_attachment_name' => 'string',
-        'transit_router_id' => 'string',
-        'update_time' => 'string',
-        'vpc_id' => 'string'
+        'transit_router_traffic_qos_queue_entry_id' => 'string',
+        'transit_router_traffic_qos_queue_entry_name' => 'string',
+        'transit_router_traffic_qos_queue_policy_id' => 'string',
+        'update_time' => 'string'
     ];
 
     /**
@@ -48,18 +46,16 @@ class TransitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput implem
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'attach_points' => null,
-        'auto_publish_route_enabled' => null,
+        'bandwidth_percent' => 'int32',
         'creation_time' => null,
         'description' => null,
-        'ipv6_enabled' => null,
+        'dscps' => 'int32',
+        'is_default' => null,
         'status' => null,
-        'tags' => null,
-        'transit_router_attachment_id' => null,
-        'transit_router_attachment_name' => null,
-        'transit_router_id' => null,
-        'update_time' => null,
-        'vpc_id' => null
+        'transit_router_traffic_qos_queue_entry_id' => null,
+        'transit_router_traffic_qos_queue_entry_name' => null,
+        'transit_router_traffic_qos_queue_policy_id' => null,
+        'update_time' => null
     ];
 
     /**
@@ -89,18 +85,16 @@ class TransitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput implem
      * @var string[]
      */
     protected static $attributeMap = [
-        'attach_points' => 'AttachPoints',
-        'auto_publish_route_enabled' => 'AutoPublishRouteEnabled',
+        'bandwidth_percent' => 'BandwidthPercent',
         'creation_time' => 'CreationTime',
         'description' => 'Description',
-        'ipv6_enabled' => 'Ipv6Enabled',
+        'dscps' => 'Dscps',
+        'is_default' => 'IsDefault',
         'status' => 'Status',
-        'tags' => 'Tags',
-        'transit_router_attachment_id' => 'TransitRouterAttachmentId',
-        'transit_router_attachment_name' => 'TransitRouterAttachmentName',
-        'transit_router_id' => 'TransitRouterId',
-        'update_time' => 'UpdateTime',
-        'vpc_id' => 'VpcId'
+        'transit_router_traffic_qos_queue_entry_id' => 'TransitRouterTrafficQosQueueEntryId',
+        'transit_router_traffic_qos_queue_entry_name' => 'TransitRouterTrafficQosQueueEntryName',
+        'transit_router_traffic_qos_queue_policy_id' => 'TransitRouterTrafficQosQueuePolicyId',
+        'update_time' => 'UpdateTime'
     ];
 
     /**
@@ -109,18 +103,16 @@ class TransitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput implem
      * @var string[]
      */
     protected static $setters = [
-        'attach_points' => 'setAttachPoints',
-        'auto_publish_route_enabled' => 'setAutoPublishRouteEnabled',
+        'bandwidth_percent' => 'setBandwidthPercent',
         'creation_time' => 'setCreationTime',
         'description' => 'setDescription',
-        'ipv6_enabled' => 'setIpv6Enabled',
+        'dscps' => 'setDscps',
+        'is_default' => 'setIsDefault',
         'status' => 'setStatus',
-        'tags' => 'setTags',
-        'transit_router_attachment_id' => 'setTransitRouterAttachmentId',
-        'transit_router_attachment_name' => 'setTransitRouterAttachmentName',
-        'transit_router_id' => 'setTransitRouterId',
-        'update_time' => 'setUpdateTime',
-        'vpc_id' => 'setVpcId'
+        'transit_router_traffic_qos_queue_entry_id' => 'setTransitRouterTrafficQosQueueEntryId',
+        'transit_router_traffic_qos_queue_entry_name' => 'setTransitRouterTrafficQosQueueEntryName',
+        'transit_router_traffic_qos_queue_policy_id' => 'setTransitRouterTrafficQosQueuePolicyId',
+        'update_time' => 'setUpdateTime'
     ];
 
     /**
@@ -129,18 +121,16 @@ class TransitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput implem
      * @var string[]
      */
     protected static $getters = [
-        'attach_points' => 'getAttachPoints',
-        'auto_publish_route_enabled' => 'getAutoPublishRouteEnabled',
+        'bandwidth_percent' => 'getBandwidthPercent',
         'creation_time' => 'getCreationTime',
         'description' => 'getDescription',
-        'ipv6_enabled' => 'getIpv6Enabled',
+        'dscps' => 'getDscps',
+        'is_default' => 'getIsDefault',
         'status' => 'getStatus',
-        'tags' => 'getTags',
-        'transit_router_attachment_id' => 'getTransitRouterAttachmentId',
-        'transit_router_attachment_name' => 'getTransitRouterAttachmentName',
-        'transit_router_id' => 'getTransitRouterId',
-        'update_time' => 'getUpdateTime',
-        'vpc_id' => 'getVpcId'
+        'transit_router_traffic_qos_queue_entry_id' => 'getTransitRouterTrafficQosQueueEntryId',
+        'transit_router_traffic_qos_queue_entry_name' => 'getTransitRouterTrafficQosQueueEntryName',
+        'transit_router_traffic_qos_queue_policy_id' => 'getTransitRouterTrafficQosQueuePolicyId',
+        'update_time' => 'getUpdateTime'
     ];
 
     /**
@@ -203,18 +193,16 @@ class TransitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput implem
      */
     public function __construct(array $data = null)
     {
-        $this->container['attach_points'] = isset($data['attach_points']) ? $data['attach_points'] : null;
-        $this->container['auto_publish_route_enabled'] = isset($data['auto_publish_route_enabled']) ? $data['auto_publish_route_enabled'] : null;
+        $this->container['bandwidth_percent'] = isset($data['bandwidth_percent']) ? $data['bandwidth_percent'] : null;
         $this->container['creation_time'] = isset($data['creation_time']) ? $data['creation_time'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['ipv6_enabled'] = isset($data['ipv6_enabled']) ? $data['ipv6_enabled'] : null;
+        $this->container['dscps'] = isset($data['dscps']) ? $data['dscps'] : null;
+        $this->container['is_default'] = isset($data['is_default']) ? $data['is_default'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
-        $this->container['transit_router_attachment_id'] = isset($data['transit_router_attachment_id']) ? $data['transit_router_attachment_id'] : null;
-        $this->container['transit_router_attachment_name'] = isset($data['transit_router_attachment_name']) ? $data['transit_router_attachment_name'] : null;
-        $this->container['transit_router_id'] = isset($data['transit_router_id']) ? $data['transit_router_id'] : null;
+        $this->container['transit_router_traffic_qos_queue_entry_id'] = isset($data['transit_router_traffic_qos_queue_entry_id']) ? $data['transit_router_traffic_qos_queue_entry_id'] : null;
+        $this->container['transit_router_traffic_qos_queue_entry_name'] = isset($data['transit_router_traffic_qos_queue_entry_name']) ? $data['transit_router_traffic_qos_queue_entry_name'] : null;
+        $this->container['transit_router_traffic_qos_queue_policy_id'] = isset($data['transit_router_traffic_qos_queue_policy_id']) ? $data['transit_router_traffic_qos_queue_policy_id'] : null;
         $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
-        $this->container['vpc_id'] = isset($data['vpc_id']) ? $data['vpc_id'] : null;
     }
 
     /**
@@ -242,49 +230,25 @@ class TransitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput implem
 
 
     /**
-     * Gets attach_points
+     * Gets bandwidth_percent
      *
-     * @return \Volcengine\Transitrouter\Model\AttachPointForDescribeTransitRouterVpcAttachmentsOutput[]
+     * @return int
      */
-    public function getAttachPoints()
+    public function getBandwidthPercent()
     {
-        return $this->container['attach_points'];
+        return $this->container['bandwidth_percent'];
     }
 
     /**
-     * Sets attach_points
+     * Sets bandwidth_percent
      *
-     * @param \Volcengine\Transitrouter\Model\AttachPointForDescribeTransitRouterVpcAttachmentsOutput[] $attach_points attach_points
+     * @param int $bandwidth_percent bandwidth_percent
      *
      * @return $this
      */
-    public function setAttachPoints($attach_points)
+    public function setBandwidthPercent($bandwidth_percent)
     {
-        $this->container['attach_points'] = $attach_points;
-
-        return $this;
-    }
-
-    /**
-     * Gets auto_publish_route_enabled
-     *
-     * @return bool
-     */
-    public function getAutoPublishRouteEnabled()
-    {
-        return $this->container['auto_publish_route_enabled'];
-    }
-
-    /**
-     * Sets auto_publish_route_enabled
-     *
-     * @param bool $auto_publish_route_enabled auto_publish_route_enabled
-     *
-     * @return $this
-     */
-    public function setAutoPublishRouteEnabled($auto_publish_route_enabled)
-    {
-        $this->container['auto_publish_route_enabled'] = $auto_publish_route_enabled;
+        $this->container['bandwidth_percent'] = $bandwidth_percent;
 
         return $this;
     }
@@ -338,25 +302,49 @@ class TransitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput implem
     }
 
     /**
-     * Gets ipv6_enabled
+     * Gets dscps
      *
-     * @return bool
+     * @return int[]
      */
-    public function getIpv6Enabled()
+    public function getDscps()
     {
-        return $this->container['ipv6_enabled'];
+        return $this->container['dscps'];
     }
 
     /**
-     * Sets ipv6_enabled
+     * Sets dscps
      *
-     * @param bool $ipv6_enabled ipv6_enabled
+     * @param int[] $dscps dscps
      *
      * @return $this
      */
-    public function setIpv6Enabled($ipv6_enabled)
+    public function setDscps($dscps)
     {
-        $this->container['ipv6_enabled'] = $ipv6_enabled;
+        $this->container['dscps'] = $dscps;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_default
+     *
+     * @return bool
+     */
+    public function getIsDefault()
+    {
+        return $this->container['is_default'];
+    }
+
+    /**
+     * Sets is_default
+     *
+     * @param bool $is_default is_default
+     *
+     * @return $this
+     */
+    public function setIsDefault($is_default)
+    {
+        $this->container['is_default'] = $is_default;
 
         return $this;
     }
@@ -386,97 +374,73 @@ class TransitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput implem
     }
 
     /**
-     * Gets tags
+     * Gets transit_router_traffic_qos_queue_entry_id
      *
-     * @return \Volcengine\Transitrouter\Model\TagForDescribeTransitRouterVpcAttachmentsOutput[]
+     * @return string
      */
-    public function getTags()
+    public function getTransitRouterTrafficQosQueueEntryId()
     {
-        return $this->container['tags'];
+        return $this->container['transit_router_traffic_qos_queue_entry_id'];
     }
 
     /**
-     * Sets tags
+     * Sets transit_router_traffic_qos_queue_entry_id
      *
-     * @param \Volcengine\Transitrouter\Model\TagForDescribeTransitRouterVpcAttachmentsOutput[] $tags tags
+     * @param string $transit_router_traffic_qos_queue_entry_id transit_router_traffic_qos_queue_entry_id
      *
      * @return $this
      */
-    public function setTags($tags)
+    public function setTransitRouterTrafficQosQueueEntryId($transit_router_traffic_qos_queue_entry_id)
     {
-        $this->container['tags'] = $tags;
+        $this->container['transit_router_traffic_qos_queue_entry_id'] = $transit_router_traffic_qos_queue_entry_id;
 
         return $this;
     }
 
     /**
-     * Gets transit_router_attachment_id
+     * Gets transit_router_traffic_qos_queue_entry_name
      *
      * @return string
      */
-    public function getTransitRouterAttachmentId()
+    public function getTransitRouterTrafficQosQueueEntryName()
     {
-        return $this->container['transit_router_attachment_id'];
+        return $this->container['transit_router_traffic_qos_queue_entry_name'];
     }
 
     /**
-     * Sets transit_router_attachment_id
+     * Sets transit_router_traffic_qos_queue_entry_name
      *
-     * @param string $transit_router_attachment_id transit_router_attachment_id
+     * @param string $transit_router_traffic_qos_queue_entry_name transit_router_traffic_qos_queue_entry_name
      *
      * @return $this
      */
-    public function setTransitRouterAttachmentId($transit_router_attachment_id)
+    public function setTransitRouterTrafficQosQueueEntryName($transit_router_traffic_qos_queue_entry_name)
     {
-        $this->container['transit_router_attachment_id'] = $transit_router_attachment_id;
+        $this->container['transit_router_traffic_qos_queue_entry_name'] = $transit_router_traffic_qos_queue_entry_name;
 
         return $this;
     }
 
     /**
-     * Gets transit_router_attachment_name
+     * Gets transit_router_traffic_qos_queue_policy_id
      *
      * @return string
      */
-    public function getTransitRouterAttachmentName()
+    public function getTransitRouterTrafficQosQueuePolicyId()
     {
-        return $this->container['transit_router_attachment_name'];
+        return $this->container['transit_router_traffic_qos_queue_policy_id'];
     }
 
     /**
-     * Sets transit_router_attachment_name
+     * Sets transit_router_traffic_qos_queue_policy_id
      *
-     * @param string $transit_router_attachment_name transit_router_attachment_name
+     * @param string $transit_router_traffic_qos_queue_policy_id transit_router_traffic_qos_queue_policy_id
      *
      * @return $this
      */
-    public function setTransitRouterAttachmentName($transit_router_attachment_name)
+    public function setTransitRouterTrafficQosQueuePolicyId($transit_router_traffic_qos_queue_policy_id)
     {
-        $this->container['transit_router_attachment_name'] = $transit_router_attachment_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets transit_router_id
-     *
-     * @return string
-     */
-    public function getTransitRouterId()
-    {
-        return $this->container['transit_router_id'];
-    }
-
-    /**
-     * Sets transit_router_id
-     *
-     * @param string $transit_router_id transit_router_id
-     *
-     * @return $this
-     */
-    public function setTransitRouterId($transit_router_id)
-    {
-        $this->container['transit_router_id'] = $transit_router_id;
+        $this->container['transit_router_traffic_qos_queue_policy_id'] = $transit_router_traffic_qos_queue_policy_id;
 
         return $this;
     }
@@ -501,30 +465,6 @@ class TransitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput implem
     public function setUpdateTime($update_time)
     {
         $this->container['update_time'] = $update_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets vpc_id
-     *
-     * @return string
-     */
-    public function getVpcId()
-    {
-        return $this->container['vpc_id'];
-    }
-
-    /**
-     * Sets vpc_id
-     *
-     * @param string $vpc_id vpc_id
-     *
-     * @return $this
-     */
-    public function setVpcId($vpc_id)
-    {
-        $this->container['vpc_id'] = $vpc_id;
 
         return $this;
     }

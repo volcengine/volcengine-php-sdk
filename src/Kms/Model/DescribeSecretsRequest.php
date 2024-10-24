@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Transitrouter\Model;
+namespace Volcengine\Kms\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ModifyTransitRouterVpcAttachmentAttributesRequest implements ModelInterface, ArrayAccess
+class DescribeSecretsRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ModifyTransitRouterVpcAttachmentAttributesRequest implements ModelInterfac
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ModifyTransitRouterVpcAttachmentAttributesRequest';
+    protected static $swaggerModelName = 'DescribeSecretsRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,10 @@ class ModifyTransitRouterVpcAttachmentAttributesRequest implements ModelInterfac
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'attach_points' => '\Volcengine\Transitrouter\Model\AttachPointForModifyTransitRouterVpcAttachmentAttributesInput[]',
-        'auto_publish_route_enabled' => 'bool',
-        'description' => 'string',
-        'ipv6_enabled' => 'bool',
-        'transit_router_attachment_id' => 'string',
-        'transit_router_attachment_name' => 'string'
+        'current_page' => 'int',
+        'filters' => 'string',
+        'page_size' => 'int',
+        'project_name' => 'string'
     ];
 
     /**
@@ -42,12 +40,10 @@ class ModifyTransitRouterVpcAttachmentAttributesRequest implements ModelInterfac
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'attach_points' => null,
-        'auto_publish_route_enabled' => null,
-        'description' => null,
-        'ipv6_enabled' => null,
-        'transit_router_attachment_id' => null,
-        'transit_router_attachment_name' => null
+        'current_page' => 'int32',
+        'filters' => null,
+        'page_size' => 'int32',
+        'project_name' => null
     ];
 
     /**
@@ -77,12 +73,10 @@ class ModifyTransitRouterVpcAttachmentAttributesRequest implements ModelInterfac
      * @var string[]
      */
     protected static $attributeMap = [
-        'attach_points' => 'AttachPoints',
-        'auto_publish_route_enabled' => 'AutoPublishRouteEnabled',
-        'description' => 'Description',
-        'ipv6_enabled' => 'Ipv6Enabled',
-        'transit_router_attachment_id' => 'TransitRouterAttachmentId',
-        'transit_router_attachment_name' => 'TransitRouterAttachmentName'
+        'current_page' => 'CurrentPage',
+        'filters' => 'Filters',
+        'page_size' => 'PageSize',
+        'project_name' => 'ProjectName'
     ];
 
     /**
@@ -91,12 +85,10 @@ class ModifyTransitRouterVpcAttachmentAttributesRequest implements ModelInterfac
      * @var string[]
      */
     protected static $setters = [
-        'attach_points' => 'setAttachPoints',
-        'auto_publish_route_enabled' => 'setAutoPublishRouteEnabled',
-        'description' => 'setDescription',
-        'ipv6_enabled' => 'setIpv6Enabled',
-        'transit_router_attachment_id' => 'setTransitRouterAttachmentId',
-        'transit_router_attachment_name' => 'setTransitRouterAttachmentName'
+        'current_page' => 'setCurrentPage',
+        'filters' => 'setFilters',
+        'page_size' => 'setPageSize',
+        'project_name' => 'setProjectName'
     ];
 
     /**
@@ -105,12 +97,10 @@ class ModifyTransitRouterVpcAttachmentAttributesRequest implements ModelInterfac
      * @var string[]
      */
     protected static $getters = [
-        'attach_points' => 'getAttachPoints',
-        'auto_publish_route_enabled' => 'getAutoPublishRouteEnabled',
-        'description' => 'getDescription',
-        'ipv6_enabled' => 'getIpv6Enabled',
-        'transit_router_attachment_id' => 'getTransitRouterAttachmentId',
-        'transit_router_attachment_name' => 'getTransitRouterAttachmentName'
+        'current_page' => 'getCurrentPage',
+        'filters' => 'getFilters',
+        'page_size' => 'getPageSize',
+        'project_name' => 'getProjectName'
     ];
 
     /**
@@ -173,12 +163,10 @@ class ModifyTransitRouterVpcAttachmentAttributesRequest implements ModelInterfac
      */
     public function __construct(array $data = null)
     {
-        $this->container['attach_points'] = isset($data['attach_points']) ? $data['attach_points'] : null;
-        $this->container['auto_publish_route_enabled'] = isset($data['auto_publish_route_enabled']) ? $data['auto_publish_route_enabled'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['ipv6_enabled'] = isset($data['ipv6_enabled']) ? $data['ipv6_enabled'] : null;
-        $this->container['transit_router_attachment_id'] = isset($data['transit_router_attachment_id']) ? $data['transit_router_attachment_id'] : null;
-        $this->container['transit_router_attachment_name'] = isset($data['transit_router_attachment_name']) ? $data['transit_router_attachment_name'] : null;
+        $this->container['current_page'] = isset($data['current_page']) ? $data['current_page'] : null;
+        $this->container['filters'] = isset($data['filters']) ? $data['filters'] : null;
+        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
     }
 
     /**
@@ -190,9 +178,6 @@ class ModifyTransitRouterVpcAttachmentAttributesRequest implements ModelInterfac
     {
         $invalidProperties = [];
 
-        if ($this->container['transit_router_attachment_id'] === null) {
-            $invalidProperties[] = "'transit_router_attachment_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -209,145 +194,97 @@ class ModifyTransitRouterVpcAttachmentAttributesRequest implements ModelInterfac
 
 
     /**
-     * Gets attach_points
+     * Gets current_page
      *
-     * @return \Volcengine\Transitrouter\Model\AttachPointForModifyTransitRouterVpcAttachmentAttributesInput[]
+     * @return int
      */
-    public function getAttachPoints()
+    public function getCurrentPage()
     {
-        return $this->container['attach_points'];
+        return $this->container['current_page'];
     }
 
     /**
-     * Sets attach_points
+     * Sets current_page
      *
-     * @param \Volcengine\Transitrouter\Model\AttachPointForModifyTransitRouterVpcAttachmentAttributesInput[] $attach_points attach_points
+     * @param int $current_page current_page
      *
      * @return $this
      */
-    public function setAttachPoints($attach_points)
+    public function setCurrentPage($current_page)
     {
-        $this->container['attach_points'] = $attach_points;
+        $this->container['current_page'] = $current_page;
 
         return $this;
     }
 
     /**
-     * Gets auto_publish_route_enabled
-     *
-     * @return bool
-     */
-    public function getAutoPublishRouteEnabled()
-    {
-        return $this->container['auto_publish_route_enabled'];
-    }
-
-    /**
-     * Sets auto_publish_route_enabled
-     *
-     * @param bool $auto_publish_route_enabled auto_publish_route_enabled
-     *
-     * @return $this
-     */
-    public function setAutoPublishRouteEnabled($auto_publish_route_enabled)
-    {
-        $this->container['auto_publish_route_enabled'] = $auto_publish_route_enabled;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
+     * Gets filters
      *
      * @return string
      */
-    public function getDescription()
+    public function getFilters()
     {
-        return $this->container['description'];
+        return $this->container['filters'];
     }
 
     /**
-     * Sets description
+     * Sets filters
      *
-     * @param string $description description
+     * @param string $filters filters
      *
      * @return $this
      */
-    public function setDescription($description)
+    public function setFilters($filters)
     {
-        $this->container['description'] = $description;
+        $this->container['filters'] = $filters;
 
         return $this;
     }
 
     /**
-     * Gets ipv6_enabled
+     * Gets page_size
      *
-     * @return bool
+     * @return int
      */
-    public function getIpv6Enabled()
+    public function getPageSize()
     {
-        return $this->container['ipv6_enabled'];
+        return $this->container['page_size'];
     }
 
     /**
-     * Sets ipv6_enabled
+     * Sets page_size
      *
-     * @param bool $ipv6_enabled ipv6_enabled
+     * @param int $page_size page_size
      *
      * @return $this
      */
-    public function setIpv6Enabled($ipv6_enabled)
+    public function setPageSize($page_size)
     {
-        $this->container['ipv6_enabled'] = $ipv6_enabled;
+        $this->container['page_size'] = $page_size;
 
         return $this;
     }
 
     /**
-     * Gets transit_router_attachment_id
+     * Gets project_name
      *
      * @return string
      */
-    public function getTransitRouterAttachmentId()
+    public function getProjectName()
     {
-        return $this->container['transit_router_attachment_id'];
+        return $this->container['project_name'];
     }
 
     /**
-     * Sets transit_router_attachment_id
+     * Sets project_name
      *
-     * @param string $transit_router_attachment_id transit_router_attachment_id
+     * @param string $project_name project_name
      *
      * @return $this
      */
-    public function setTransitRouterAttachmentId($transit_router_attachment_id)
+    public function setProjectName($project_name)
     {
-        $this->container['transit_router_attachment_id'] = $transit_router_attachment_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets transit_router_attachment_name
-     *
-     * @return string
-     */
-    public function getTransitRouterAttachmentName()
-    {
-        return $this->container['transit_router_attachment_name'];
-    }
-
-    /**
-     * Sets transit_router_attachment_name
-     *
-     * @param string $transit_router_attachment_name transit_router_attachment_name
-     *
-     * @return $this
-     */
-    public function setTransitRouterAttachmentName($transit_router_attachment_name)
-    {
-        $this->container['transit_router_attachment_name'] = $transit_router_attachment_name;
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }
