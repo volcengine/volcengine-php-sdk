@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CreateTransitRouterVpnAttachmentRequest implements ModelInterface, ArrayAccess
+class TransitRouterTrafficQosMarkingPolicyForDescribeTransitRouterTrafficQosMarkingPoliciesOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CreateTransitRouterVpnAttachmentRequest implements ModelInterface, ArrayAc
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CreateTransitRouterVpnAttachmentRequest';
+    protected static $swaggerModelName = 'TransitRouterTrafficQosMarkingPolicyForDescribeTransitRouterTrafficQosMarkingPoliciesOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,14 +28,12 @@ class CreateTransitRouterVpnAttachmentRequest implements ModelInterface, ArrayAc
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'client_token' => 'string',
+        'creation_time' => 'string',
         'description' => 'string',
-        'tags' => '\Volcengine\Transitrouter\Model\TagForCreateTransitRouterVpnAttachmentInput[]',
-        'transit_router_attachment_name' => 'string',
-        'transit_router_id' => 'string',
-        'transit_router_route_table_id' => 'string',
-        'vpn_connection_id' => 'string',
-        'zone_id' => 'string'
+        'status' => 'string',
+        'transit_router_traffic_qos_marking_policy_id' => 'string',
+        'transit_router_traffic_qos_marking_policy_name' => 'string',
+        'update_time' => 'string'
     ];
 
     /**
@@ -44,14 +42,12 @@ class CreateTransitRouterVpnAttachmentRequest implements ModelInterface, ArrayAc
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'client_token' => null,
+        'creation_time' => null,
         'description' => null,
-        'tags' => null,
-        'transit_router_attachment_name' => null,
-        'transit_router_id' => null,
-        'transit_router_route_table_id' => null,
-        'vpn_connection_id' => null,
-        'zone_id' => null
+        'status' => null,
+        'transit_router_traffic_qos_marking_policy_id' => null,
+        'transit_router_traffic_qos_marking_policy_name' => null,
+        'update_time' => null
     ];
 
     /**
@@ -81,14 +77,12 @@ class CreateTransitRouterVpnAttachmentRequest implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $attributeMap = [
-        'client_token' => 'ClientToken',
+        'creation_time' => 'CreationTime',
         'description' => 'Description',
-        'tags' => 'Tags',
-        'transit_router_attachment_name' => 'TransitRouterAttachmentName',
-        'transit_router_id' => 'TransitRouterId',
-        'transit_router_route_table_id' => 'TransitRouterRouteTableId',
-        'vpn_connection_id' => 'VpnConnectionId',
-        'zone_id' => 'ZoneId'
+        'status' => 'Status',
+        'transit_router_traffic_qos_marking_policy_id' => 'TransitRouterTrafficQosMarkingPolicyId',
+        'transit_router_traffic_qos_marking_policy_name' => 'TransitRouterTrafficQosMarkingPolicyName',
+        'update_time' => 'UpdateTime'
     ];
 
     /**
@@ -97,14 +91,12 @@ class CreateTransitRouterVpnAttachmentRequest implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $setters = [
-        'client_token' => 'setClientToken',
+        'creation_time' => 'setCreationTime',
         'description' => 'setDescription',
-        'tags' => 'setTags',
-        'transit_router_attachment_name' => 'setTransitRouterAttachmentName',
-        'transit_router_id' => 'setTransitRouterId',
-        'transit_router_route_table_id' => 'setTransitRouterRouteTableId',
-        'vpn_connection_id' => 'setVpnConnectionId',
-        'zone_id' => 'setZoneId'
+        'status' => 'setStatus',
+        'transit_router_traffic_qos_marking_policy_id' => 'setTransitRouterTrafficQosMarkingPolicyId',
+        'transit_router_traffic_qos_marking_policy_name' => 'setTransitRouterTrafficQosMarkingPolicyName',
+        'update_time' => 'setUpdateTime'
     ];
 
     /**
@@ -113,14 +105,12 @@ class CreateTransitRouterVpnAttachmentRequest implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $getters = [
-        'client_token' => 'getClientToken',
+        'creation_time' => 'getCreationTime',
         'description' => 'getDescription',
-        'tags' => 'getTags',
-        'transit_router_attachment_name' => 'getTransitRouterAttachmentName',
-        'transit_router_id' => 'getTransitRouterId',
-        'transit_router_route_table_id' => 'getTransitRouterRouteTableId',
-        'vpn_connection_id' => 'getVpnConnectionId',
-        'zone_id' => 'getZoneId'
+        'status' => 'getStatus',
+        'transit_router_traffic_qos_marking_policy_id' => 'getTransitRouterTrafficQosMarkingPolicyId',
+        'transit_router_traffic_qos_marking_policy_name' => 'getTransitRouterTrafficQosMarkingPolicyName',
+        'update_time' => 'getUpdateTime'
     ];
 
     /**
@@ -183,14 +173,12 @@ class CreateTransitRouterVpnAttachmentRequest implements ModelInterface, ArrayAc
      */
     public function __construct(array $data = null)
     {
-        $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
+        $this->container['creation_time'] = isset($data['creation_time']) ? $data['creation_time'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
-        $this->container['transit_router_attachment_name'] = isset($data['transit_router_attachment_name']) ? $data['transit_router_attachment_name'] : null;
-        $this->container['transit_router_id'] = isset($data['transit_router_id']) ? $data['transit_router_id'] : null;
-        $this->container['transit_router_route_table_id'] = isset($data['transit_router_route_table_id']) ? $data['transit_router_route_table_id'] : null;
-        $this->container['vpn_connection_id'] = isset($data['vpn_connection_id']) ? $data['vpn_connection_id'] : null;
-        $this->container['zone_id'] = isset($data['zone_id']) ? $data['zone_id'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['transit_router_traffic_qos_marking_policy_id'] = isset($data['transit_router_traffic_qos_marking_policy_id']) ? $data['transit_router_traffic_qos_marking_policy_id'] : null;
+        $this->container['transit_router_traffic_qos_marking_policy_name'] = isset($data['transit_router_traffic_qos_marking_policy_name']) ? $data['transit_router_traffic_qos_marking_policy_name'] : null;
+        $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
     }
 
     /**
@@ -202,15 +190,6 @@ class CreateTransitRouterVpnAttachmentRequest implements ModelInterface, ArrayAc
     {
         $invalidProperties = [];
 
-        if ($this->container['transit_router_id'] === null) {
-            $invalidProperties[] = "'transit_router_id' can't be null";
-        }
-        if ($this->container['vpn_connection_id'] === null) {
-            $invalidProperties[] = "'vpn_connection_id' can't be null";
-        }
-        if ($this->container['zone_id'] === null) {
-            $invalidProperties[] = "'zone_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -227,25 +206,25 @@ class CreateTransitRouterVpnAttachmentRequest implements ModelInterface, ArrayAc
 
 
     /**
-     * Gets client_token
+     * Gets creation_time
      *
      * @return string
      */
-    public function getClientToken()
+    public function getCreationTime()
     {
-        return $this->container['client_token'];
+        return $this->container['creation_time'];
     }
 
     /**
-     * Sets client_token
+     * Sets creation_time
      *
-     * @param string $client_token client_token
+     * @param string $creation_time creation_time
      *
      * @return $this
      */
-    public function setClientToken($client_token)
+    public function setCreationTime($creation_time)
     {
-        $this->container['client_token'] = $client_token;
+        $this->container['creation_time'] = $creation_time;
 
         return $this;
     }
@@ -275,145 +254,97 @@ class CreateTransitRouterVpnAttachmentRequest implements ModelInterface, ArrayAc
     }
 
     /**
-     * Gets tags
+     * Gets status
      *
-     * @return \Volcengine\Transitrouter\Model\TagForCreateTransitRouterVpnAttachmentInput[]
+     * @return string
      */
-    public function getTags()
+    public function getStatus()
     {
-        return $this->container['tags'];
+        return $this->container['status'];
     }
 
     /**
-     * Sets tags
+     * Sets status
      *
-     * @param \Volcengine\Transitrouter\Model\TagForCreateTransitRouterVpnAttachmentInput[] $tags tags
+     * @param string $status status
      *
      * @return $this
      */
-    public function setTags($tags)
+    public function setStatus($status)
     {
-        $this->container['tags'] = $tags;
+        $this->container['status'] = $status;
 
         return $this;
     }
 
     /**
-     * Gets transit_router_attachment_name
+     * Gets transit_router_traffic_qos_marking_policy_id
      *
      * @return string
      */
-    public function getTransitRouterAttachmentName()
+    public function getTransitRouterTrafficQosMarkingPolicyId()
     {
-        return $this->container['transit_router_attachment_name'];
+        return $this->container['transit_router_traffic_qos_marking_policy_id'];
     }
 
     /**
-     * Sets transit_router_attachment_name
+     * Sets transit_router_traffic_qos_marking_policy_id
      *
-     * @param string $transit_router_attachment_name transit_router_attachment_name
+     * @param string $transit_router_traffic_qos_marking_policy_id transit_router_traffic_qos_marking_policy_id
      *
      * @return $this
      */
-    public function setTransitRouterAttachmentName($transit_router_attachment_name)
+    public function setTransitRouterTrafficQosMarkingPolicyId($transit_router_traffic_qos_marking_policy_id)
     {
-        $this->container['transit_router_attachment_name'] = $transit_router_attachment_name;
+        $this->container['transit_router_traffic_qos_marking_policy_id'] = $transit_router_traffic_qos_marking_policy_id;
 
         return $this;
     }
 
     /**
-     * Gets transit_router_id
+     * Gets transit_router_traffic_qos_marking_policy_name
      *
      * @return string
      */
-    public function getTransitRouterId()
+    public function getTransitRouterTrafficQosMarkingPolicyName()
     {
-        return $this->container['transit_router_id'];
+        return $this->container['transit_router_traffic_qos_marking_policy_name'];
     }
 
     /**
-     * Sets transit_router_id
+     * Sets transit_router_traffic_qos_marking_policy_name
      *
-     * @param string $transit_router_id transit_router_id
+     * @param string $transit_router_traffic_qos_marking_policy_name transit_router_traffic_qos_marking_policy_name
      *
      * @return $this
      */
-    public function setTransitRouterId($transit_router_id)
+    public function setTransitRouterTrafficQosMarkingPolicyName($transit_router_traffic_qos_marking_policy_name)
     {
-        $this->container['transit_router_id'] = $transit_router_id;
+        $this->container['transit_router_traffic_qos_marking_policy_name'] = $transit_router_traffic_qos_marking_policy_name;
 
         return $this;
     }
 
     /**
-     * Gets transit_router_route_table_id
+     * Gets update_time
      *
      * @return string
      */
-    public function getTransitRouterRouteTableId()
+    public function getUpdateTime()
     {
-        return $this->container['transit_router_route_table_id'];
+        return $this->container['update_time'];
     }
 
     /**
-     * Sets transit_router_route_table_id
+     * Sets update_time
      *
-     * @param string $transit_router_route_table_id transit_router_route_table_id
+     * @param string $update_time update_time
      *
      * @return $this
      */
-    public function setTransitRouterRouteTableId($transit_router_route_table_id)
+    public function setUpdateTime($update_time)
     {
-        $this->container['transit_router_route_table_id'] = $transit_router_route_table_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets vpn_connection_id
-     *
-     * @return string
-     */
-    public function getVpnConnectionId()
-    {
-        return $this->container['vpn_connection_id'];
-    }
-
-    /**
-     * Sets vpn_connection_id
-     *
-     * @param string $vpn_connection_id vpn_connection_id
-     *
-     * @return $this
-     */
-    public function setVpnConnectionId($vpn_connection_id)
-    {
-        $this->container['vpn_connection_id'] = $vpn_connection_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets zone_id
-     *
-     * @return string
-     */
-    public function getZoneId()
-    {
-        return $this->container['zone_id'];
-    }
-
-    /**
-     * Sets zone_id
-     *
-     * @param string $zone_id zone_id
-     *
-     * @return $this
-     */
-    public function setZoneId($zone_id)
-    {
-        $this->container['zone_id'] = $zone_id;
+        $this->container['update_time'] = $update_time;
 
         return $this;
     }

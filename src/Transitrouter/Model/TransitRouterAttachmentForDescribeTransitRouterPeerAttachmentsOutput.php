@@ -42,6 +42,8 @@ class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput imple
         'transit_router_forward_policy_table_id' => 'string',
         'transit_router_id' => 'string',
         'transit_router_route_table_id' => 'string',
+        'transit_router_traffic_qos_marking_policy_id' => 'string',
+        'transit_router_traffic_qos_queue_policy_id' => 'string',
         'update_time' => 'string'
     ];
 
@@ -65,6 +67,8 @@ class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput imple
         'transit_router_forward_policy_table_id' => null,
         'transit_router_id' => null,
         'transit_router_route_table_id' => null,
+        'transit_router_traffic_qos_marking_policy_id' => null,
+        'transit_router_traffic_qos_queue_policy_id' => null,
         'update_time' => null
     ];
 
@@ -109,6 +113,8 @@ class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput imple
         'transit_router_forward_policy_table_id' => 'TransitRouterForwardPolicyTableId',
         'transit_router_id' => 'TransitRouterId',
         'transit_router_route_table_id' => 'TransitRouterRouteTableId',
+        'transit_router_traffic_qos_marking_policy_id' => 'TransitRouterTrafficQosMarkingPolicyId',
+        'transit_router_traffic_qos_queue_policy_id' => 'TransitRouterTrafficQosQueuePolicyId',
         'update_time' => 'UpdateTime'
     ];
 
@@ -132,6 +138,8 @@ class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput imple
         'transit_router_forward_policy_table_id' => 'setTransitRouterForwardPolicyTableId',
         'transit_router_id' => 'setTransitRouterId',
         'transit_router_route_table_id' => 'setTransitRouterRouteTableId',
+        'transit_router_traffic_qos_marking_policy_id' => 'setTransitRouterTrafficQosMarkingPolicyId',
+        'transit_router_traffic_qos_queue_policy_id' => 'setTransitRouterTrafficQosQueuePolicyId',
         'update_time' => 'setUpdateTime'
     ];
 
@@ -155,6 +163,8 @@ class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput imple
         'transit_router_forward_policy_table_id' => 'getTransitRouterForwardPolicyTableId',
         'transit_router_id' => 'getTransitRouterId',
         'transit_router_route_table_id' => 'getTransitRouterRouteTableId',
+        'transit_router_traffic_qos_marking_policy_id' => 'getTransitRouterTrafficQosMarkingPolicyId',
+        'transit_router_traffic_qos_queue_policy_id' => 'getTransitRouterTrafficQosQueuePolicyId',
         'update_time' => 'getUpdateTime'
     ];
 
@@ -232,6 +242,8 @@ class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput imple
         $this->container['transit_router_forward_policy_table_id'] = isset($data['transit_router_forward_policy_table_id']) ? $data['transit_router_forward_policy_table_id'] : null;
         $this->container['transit_router_id'] = isset($data['transit_router_id']) ? $data['transit_router_id'] : null;
         $this->container['transit_router_route_table_id'] = isset($data['transit_router_route_table_id']) ? $data['transit_router_route_table_id'] : null;
+        $this->container['transit_router_traffic_qos_marking_policy_id'] = isset($data['transit_router_traffic_qos_marking_policy_id']) ? $data['transit_router_traffic_qos_marking_policy_id'] : null;
+        $this->container['transit_router_traffic_qos_queue_policy_id'] = isset($data['transit_router_traffic_qos_queue_policy_id']) ? $data['transit_router_traffic_qos_queue_policy_id'] : null;
         $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
     }
 
@@ -591,6 +603,54 @@ class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput imple
     public function setTransitRouterRouteTableId($transit_router_route_table_id)
     {
         $this->container['transit_router_route_table_id'] = $transit_router_route_table_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets transit_router_traffic_qos_marking_policy_id
+     *
+     * @return string
+     */
+    public function getTransitRouterTrafficQosMarkingPolicyId()
+    {
+        return $this->container['transit_router_traffic_qos_marking_policy_id'];
+    }
+
+    /**
+     * Sets transit_router_traffic_qos_marking_policy_id
+     *
+     * @param string $transit_router_traffic_qos_marking_policy_id transit_router_traffic_qos_marking_policy_id
+     *
+     * @return $this
+     */
+    public function setTransitRouterTrafficQosMarkingPolicyId($transit_router_traffic_qos_marking_policy_id)
+    {
+        $this->container['transit_router_traffic_qos_marking_policy_id'] = $transit_router_traffic_qos_marking_policy_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets transit_router_traffic_qos_queue_policy_id
+     *
+     * @return string
+     */
+    public function getTransitRouterTrafficQosQueuePolicyId()
+    {
+        return $this->container['transit_router_traffic_qos_queue_policy_id'];
+    }
+
+    /**
+     * Sets transit_router_traffic_qos_queue_policy_id
+     *
+     * @param string $transit_router_traffic_qos_queue_policy_id transit_router_traffic_qos_queue_policy_id
+     *
+     * @return $this
+     */
+    public function setTransitRouterTrafficQosQueuePolicyId($transit_router_traffic_qos_queue_policy_id)
+    {
+        $this->container['transit_router_traffic_qos_queue_policy_id'] = $transit_router_traffic_qos_queue_policy_id;
 
         return $this;
     }

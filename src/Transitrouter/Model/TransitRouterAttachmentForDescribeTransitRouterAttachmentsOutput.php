@@ -34,6 +34,7 @@ class TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput implement
         'creation_time' => 'string',
         'deleted_time' => 'string',
         'description' => 'string',
+        'ipv6_enabled' => 'bool',
         'overdue_time' => 'string',
         'resource_id' => 'string',
         'resource_type' => 'string',
@@ -44,6 +45,8 @@ class TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput implement
         'transit_router_forward_policy_table_id' => 'string',
         'transit_router_id' => 'string',
         'transit_router_route_table_id' => 'string',
+        'transit_router_traffic_qos_marking_policy_id' => 'string',
+        'transit_router_traffic_qos_queue_policy_id' => 'string',
         'update_time' => 'string'
     ];
 
@@ -59,6 +62,7 @@ class TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput implement
         'creation_time' => null,
         'deleted_time' => null,
         'description' => null,
+        'ipv6_enabled' => null,
         'overdue_time' => null,
         'resource_id' => null,
         'resource_type' => null,
@@ -69,6 +73,8 @@ class TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput implement
         'transit_router_forward_policy_table_id' => null,
         'transit_router_id' => null,
         'transit_router_route_table_id' => null,
+        'transit_router_traffic_qos_marking_policy_id' => null,
+        'transit_router_traffic_qos_queue_policy_id' => null,
         'update_time' => null
     ];
 
@@ -105,6 +111,7 @@ class TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput implement
         'creation_time' => 'CreationTime',
         'deleted_time' => 'DeletedTime',
         'description' => 'Description',
+        'ipv6_enabled' => 'Ipv6Enabled',
         'overdue_time' => 'OverdueTime',
         'resource_id' => 'ResourceId',
         'resource_type' => 'ResourceType',
@@ -115,6 +122,8 @@ class TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput implement
         'transit_router_forward_policy_table_id' => 'TransitRouterForwardPolicyTableId',
         'transit_router_id' => 'TransitRouterId',
         'transit_router_route_table_id' => 'TransitRouterRouteTableId',
+        'transit_router_traffic_qos_marking_policy_id' => 'TransitRouterTrafficQosMarkingPolicyId',
+        'transit_router_traffic_qos_queue_policy_id' => 'TransitRouterTrafficQosQueuePolicyId',
         'update_time' => 'UpdateTime'
     ];
 
@@ -130,6 +139,7 @@ class TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput implement
         'creation_time' => 'setCreationTime',
         'deleted_time' => 'setDeletedTime',
         'description' => 'setDescription',
+        'ipv6_enabled' => 'setIpv6Enabled',
         'overdue_time' => 'setOverdueTime',
         'resource_id' => 'setResourceId',
         'resource_type' => 'setResourceType',
@@ -140,6 +150,8 @@ class TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput implement
         'transit_router_forward_policy_table_id' => 'setTransitRouterForwardPolicyTableId',
         'transit_router_id' => 'setTransitRouterId',
         'transit_router_route_table_id' => 'setTransitRouterRouteTableId',
+        'transit_router_traffic_qos_marking_policy_id' => 'setTransitRouterTrafficQosMarkingPolicyId',
+        'transit_router_traffic_qos_queue_policy_id' => 'setTransitRouterTrafficQosQueuePolicyId',
         'update_time' => 'setUpdateTime'
     ];
 
@@ -155,6 +167,7 @@ class TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput implement
         'creation_time' => 'getCreationTime',
         'deleted_time' => 'getDeletedTime',
         'description' => 'getDescription',
+        'ipv6_enabled' => 'getIpv6Enabled',
         'overdue_time' => 'getOverdueTime',
         'resource_id' => 'getResourceId',
         'resource_type' => 'getResourceType',
@@ -165,6 +178,8 @@ class TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput implement
         'transit_router_forward_policy_table_id' => 'getTransitRouterForwardPolicyTableId',
         'transit_router_id' => 'getTransitRouterId',
         'transit_router_route_table_id' => 'getTransitRouterRouteTableId',
+        'transit_router_traffic_qos_marking_policy_id' => 'getTransitRouterTrafficQosMarkingPolicyId',
+        'transit_router_traffic_qos_queue_policy_id' => 'getTransitRouterTrafficQosQueuePolicyId',
         'update_time' => 'getUpdateTime'
     ];
 
@@ -234,6 +249,7 @@ class TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput implement
         $this->container['creation_time'] = isset($data['creation_time']) ? $data['creation_time'] : null;
         $this->container['deleted_time'] = isset($data['deleted_time']) ? $data['deleted_time'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['ipv6_enabled'] = isset($data['ipv6_enabled']) ? $data['ipv6_enabled'] : null;
         $this->container['overdue_time'] = isset($data['overdue_time']) ? $data['overdue_time'] : null;
         $this->container['resource_id'] = isset($data['resource_id']) ? $data['resource_id'] : null;
         $this->container['resource_type'] = isset($data['resource_type']) ? $data['resource_type'] : null;
@@ -244,6 +260,8 @@ class TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput implement
         $this->container['transit_router_forward_policy_table_id'] = isset($data['transit_router_forward_policy_table_id']) ? $data['transit_router_forward_policy_table_id'] : null;
         $this->container['transit_router_id'] = isset($data['transit_router_id']) ? $data['transit_router_id'] : null;
         $this->container['transit_router_route_table_id'] = isset($data['transit_router_route_table_id']) ? $data['transit_router_route_table_id'] : null;
+        $this->container['transit_router_traffic_qos_marking_policy_id'] = isset($data['transit_router_traffic_qos_marking_policy_id']) ? $data['transit_router_traffic_qos_marking_policy_id'] : null;
+        $this->container['transit_router_traffic_qos_queue_policy_id'] = isset($data['transit_router_traffic_qos_queue_policy_id']) ? $data['transit_router_traffic_qos_queue_policy_id'] : null;
         $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
     }
 
@@ -411,6 +429,30 @@ class TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput implement
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets ipv6_enabled
+     *
+     * @return bool
+     */
+    public function getIpv6Enabled()
+    {
+        return $this->container['ipv6_enabled'];
+    }
+
+    /**
+     * Sets ipv6_enabled
+     *
+     * @param bool $ipv6_enabled ipv6_enabled
+     *
+     * @return $this
+     */
+    public function setIpv6Enabled($ipv6_enabled)
+    {
+        $this->container['ipv6_enabled'] = $ipv6_enabled;
 
         return $this;
     }
@@ -651,6 +693,54 @@ class TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput implement
     public function setTransitRouterRouteTableId($transit_router_route_table_id)
     {
         $this->container['transit_router_route_table_id'] = $transit_router_route_table_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets transit_router_traffic_qos_marking_policy_id
+     *
+     * @return string
+     */
+    public function getTransitRouterTrafficQosMarkingPolicyId()
+    {
+        return $this->container['transit_router_traffic_qos_marking_policy_id'];
+    }
+
+    /**
+     * Sets transit_router_traffic_qos_marking_policy_id
+     *
+     * @param string $transit_router_traffic_qos_marking_policy_id transit_router_traffic_qos_marking_policy_id
+     *
+     * @return $this
+     */
+    public function setTransitRouterTrafficQosMarkingPolicyId($transit_router_traffic_qos_marking_policy_id)
+    {
+        $this->container['transit_router_traffic_qos_marking_policy_id'] = $transit_router_traffic_qos_marking_policy_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets transit_router_traffic_qos_queue_policy_id
+     *
+     * @return string
+     */
+    public function getTransitRouterTrafficQosQueuePolicyId()
+    {
+        return $this->container['transit_router_traffic_qos_queue_policy_id'];
+    }
+
+    /**
+     * Sets transit_router_traffic_qos_queue_policy_id
+     *
+     * @param string $transit_router_traffic_qos_queue_policy_id transit_router_traffic_qos_queue_policy_id
+     *
+     * @return $this
+     */
+    public function setTransitRouterTrafficQosQueuePolicyId($transit_router_traffic_qos_queue_policy_id)
+    {
+        $this->container['transit_router_traffic_qos_queue_policy_id'] = $transit_router_traffic_qos_queue_policy_id;
 
         return $this;
     }
