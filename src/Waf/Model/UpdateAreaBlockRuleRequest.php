@@ -31,6 +31,7 @@ class UpdateAreaBlockRuleRequest implements ModelInterface, ArrayAccess
         'action' => 'string',
         'country' => 'string[]',
         'host' => 'string',
+        'project_name' => 'string',
         'sub_region' => 'string[]'
     ];
 
@@ -43,6 +44,7 @@ class UpdateAreaBlockRuleRequest implements ModelInterface, ArrayAccess
         'action' => null,
         'country' => null,
         'host' => null,
+        'project_name' => null,
         'sub_region' => null
     ];
 
@@ -76,6 +78,7 @@ class UpdateAreaBlockRuleRequest implements ModelInterface, ArrayAccess
         'action' => 'Action',
         'country' => 'Country',
         'host' => 'Host',
+        'project_name' => 'ProjectName',
         'sub_region' => 'SubRegion'
     ];
 
@@ -88,6 +91,7 @@ class UpdateAreaBlockRuleRequest implements ModelInterface, ArrayAccess
         'action' => 'setAction',
         'country' => 'setCountry',
         'host' => 'setHost',
+        'project_name' => 'setProjectName',
         'sub_region' => 'setSubRegion'
     ];
 
@@ -100,6 +104,7 @@ class UpdateAreaBlockRuleRequest implements ModelInterface, ArrayAccess
         'action' => 'getAction',
         'country' => 'getCountry',
         'host' => 'getHost',
+        'project_name' => 'getProjectName',
         'sub_region' => 'getSubRegion'
     ];
 
@@ -166,6 +171,7 @@ class UpdateAreaBlockRuleRequest implements ModelInterface, ArrayAccess
         $this->container['action'] = isset($data['action']) ? $data['action'] : null;
         $this->container['country'] = isset($data['country']) ? $data['country'] : null;
         $this->container['host'] = isset($data['host']) ? $data['host'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['sub_region'] = isset($data['sub_region']) ? $data['sub_region'] : null;
     }
 
@@ -267,6 +273,30 @@ class UpdateAreaBlockRuleRequest implements ModelInterface, ArrayAccess
     public function setHost($host)
     {
         $this->container['host'] = $host;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }

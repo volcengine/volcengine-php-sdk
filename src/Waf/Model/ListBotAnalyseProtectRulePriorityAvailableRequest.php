@@ -32,7 +32,8 @@ class ListBotAnalyseProtectRulePriorityAvailableRequest implements ModelInterfac
         'host' => 'string',
         'page' => 'int',
         'page_size' => 'int',
-        'path' => 'string'
+        'path' => 'string',
+        'project_name' => 'string'
     ];
 
     /**
@@ -45,7 +46,8 @@ class ListBotAnalyseProtectRulePriorityAvailableRequest implements ModelInterfac
         'host' => null,
         'page' => 'int32',
         'page_size' => 'int32',
-        'path' => null
+        'path' => null,
+        'project_name' => null
     ];
 
     /**
@@ -79,7 +81,8 @@ class ListBotAnalyseProtectRulePriorityAvailableRequest implements ModelInterfac
         'host' => 'Host',
         'page' => 'Page',
         'page_size' => 'PageSize',
-        'path' => 'Path'
+        'path' => 'Path',
+        'project_name' => 'ProjectName'
     ];
 
     /**
@@ -92,7 +95,8 @@ class ListBotAnalyseProtectRulePriorityAvailableRequest implements ModelInterfac
         'host' => 'setHost',
         'page' => 'setPage',
         'page_size' => 'setPageSize',
-        'path' => 'setPath'
+        'path' => 'setPath',
+        'project_name' => 'setProjectName'
     ];
 
     /**
@@ -105,7 +109,8 @@ class ListBotAnalyseProtectRulePriorityAvailableRequest implements ModelInterfac
         'host' => 'getHost',
         'page' => 'getPage',
         'page_size' => 'getPageSize',
-        'path' => 'getPath'
+        'path' => 'getPath',
+        'project_name' => 'getProjectName'
     ];
 
     /**
@@ -173,6 +178,7 @@ class ListBotAnalyseProtectRulePriorityAvailableRequest implements ModelInterfac
         $this->container['page'] = isset($data['page']) ? $data['page'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
         $this->container['path'] = isset($data['path']) ? $data['path'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
     }
 
     /**
@@ -324,6 +330,30 @@ class ListBotAnalyseProtectRulePriorityAvailableRequest implements ModelInterfac
     public function setPath($path)
     {
         $this->container['path'] = $path;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }

@@ -28,7 +28,8 @@ class ListSystemBotConfigRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'host' => 'string'
+        'host' => 'string',
+        'project_name' => 'string'
     ];
 
     /**
@@ -37,7 +38,8 @@ class ListSystemBotConfigRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'host' => null
+        'host' => null,
+        'project_name' => null
     ];
 
     /**
@@ -67,7 +69,8 @@ class ListSystemBotConfigRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'host' => 'Host'
+        'host' => 'Host',
+        'project_name' => 'ProjectName'
     ];
 
     /**
@@ -76,7 +79,8 @@ class ListSystemBotConfigRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'host' => 'setHost'
+        'host' => 'setHost',
+        'project_name' => 'setProjectName'
     ];
 
     /**
@@ -85,7 +89,8 @@ class ListSystemBotConfigRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'host' => 'getHost'
+        'host' => 'getHost',
+        'project_name' => 'getProjectName'
     ];
 
     /**
@@ -149,6 +154,7 @@ class ListSystemBotConfigRequest implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['host'] = isset($data['host']) ? $data['host'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
     }
 
     /**
@@ -198,6 +204,30 @@ class ListSystemBotConfigRequest implements ModelInterface, ArrayAccess
     public function setHost($host)
     {
         $this->container['host'] = $host;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }

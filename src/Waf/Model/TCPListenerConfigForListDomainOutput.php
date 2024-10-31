@@ -29,8 +29,11 @@ class TCPListenerConfigForListDomainOutput implements ModelInterface, ArrayAcces
       */
     protected static $swaggerTypes = [
         'access_protocol' => 'string',
+        'defence_mode' => 'int',
         'instance_id' => 'string',
+        'instance_name' => 'string',
         'listener_id' => 'string',
+        'lost_association_from_alb' => 'int',
         'port' => 'string',
         'protocol' => 'string'
     ];
@@ -42,8 +45,11 @@ class TCPListenerConfigForListDomainOutput implements ModelInterface, ArrayAcces
       */
     protected static $swaggerFormats = [
         'access_protocol' => null,
+        'defence_mode' => 'int32',
         'instance_id' => null,
+        'instance_name' => null,
         'listener_id' => null,
+        'lost_association_from_alb' => 'int32',
         'port' => null,
         'protocol' => null
     ];
@@ -76,8 +82,11 @@ class TCPListenerConfigForListDomainOutput implements ModelInterface, ArrayAcces
      */
     protected static $attributeMap = [
         'access_protocol' => 'AccessProtocol',
+        'defence_mode' => 'DefenceMode',
         'instance_id' => 'InstanceID',
+        'instance_name' => 'InstanceName',
         'listener_id' => 'ListenerID',
+        'lost_association_from_alb' => 'LostAssociationFromALB',
         'port' => 'Port',
         'protocol' => 'Protocol'
     ];
@@ -89,8 +98,11 @@ class TCPListenerConfigForListDomainOutput implements ModelInterface, ArrayAcces
      */
     protected static $setters = [
         'access_protocol' => 'setAccessProtocol',
+        'defence_mode' => 'setDefenceMode',
         'instance_id' => 'setInstanceId',
+        'instance_name' => 'setInstanceName',
         'listener_id' => 'setListenerId',
+        'lost_association_from_alb' => 'setLostAssociationFromAlb',
         'port' => 'setPort',
         'protocol' => 'setProtocol'
     ];
@@ -102,8 +114,11 @@ class TCPListenerConfigForListDomainOutput implements ModelInterface, ArrayAcces
      */
     protected static $getters = [
         'access_protocol' => 'getAccessProtocol',
+        'defence_mode' => 'getDefenceMode',
         'instance_id' => 'getInstanceId',
+        'instance_name' => 'getInstanceName',
         'listener_id' => 'getListenerId',
+        'lost_association_from_alb' => 'getLostAssociationFromAlb',
         'port' => 'getPort',
         'protocol' => 'getProtocol'
     ];
@@ -169,8 +184,11 @@ class TCPListenerConfigForListDomainOutput implements ModelInterface, ArrayAcces
     public function __construct(array $data = null)
     {
         $this->container['access_protocol'] = isset($data['access_protocol']) ? $data['access_protocol'] : null;
+        $this->container['defence_mode'] = isset($data['defence_mode']) ? $data['defence_mode'] : null;
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
+        $this->container['instance_name'] = isset($data['instance_name']) ? $data['instance_name'] : null;
         $this->container['listener_id'] = isset($data['listener_id']) ? $data['listener_id'] : null;
+        $this->container['lost_association_from_alb'] = isset($data['lost_association_from_alb']) ? $data['lost_association_from_alb'] : null;
         $this->container['port'] = isset($data['port']) ? $data['port'] : null;
         $this->container['protocol'] = isset($data['protocol']) ? $data['protocol'] : null;
     }
@@ -224,6 +242,30 @@ class TCPListenerConfigForListDomainOutput implements ModelInterface, ArrayAcces
     }
 
     /**
+     * Gets defence_mode
+     *
+     * @return int
+     */
+    public function getDefenceMode()
+    {
+        return $this->container['defence_mode'];
+    }
+
+    /**
+     * Sets defence_mode
+     *
+     * @param int $defence_mode defence_mode
+     *
+     * @return $this
+     */
+    public function setDefenceMode($defence_mode)
+    {
+        $this->container['defence_mode'] = $defence_mode;
+
+        return $this;
+    }
+
+    /**
      * Gets instance_id
      *
      * @return string
@@ -248,6 +290,30 @@ class TCPListenerConfigForListDomainOutput implements ModelInterface, ArrayAcces
     }
 
     /**
+     * Gets instance_name
+     *
+     * @return string
+     */
+    public function getInstanceName()
+    {
+        return $this->container['instance_name'];
+    }
+
+    /**
+     * Sets instance_name
+     *
+     * @param string $instance_name instance_name
+     *
+     * @return $this
+     */
+    public function setInstanceName($instance_name)
+    {
+        $this->container['instance_name'] = $instance_name;
+
+        return $this;
+    }
+
+    /**
      * Gets listener_id
      *
      * @return string
@@ -267,6 +333,30 @@ class TCPListenerConfigForListDomainOutput implements ModelInterface, ArrayAcces
     public function setListenerId($listener_id)
     {
         $this->container['listener_id'] = $listener_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets lost_association_from_alb
+     *
+     * @return int
+     */
+    public function getLostAssociationFromAlb()
+    {
+        return $this->container['lost_association_from_alb'];
+    }
+
+    /**
+     * Sets lost_association_from_alb
+     *
+     * @param int $lost_association_from_alb lost_association_from_alb
+     *
+     * @return $this
+     */
+    public function setLostAssociationFromAlb($lost_association_from_alb)
+    {
+        $this->container['lost_association_from_alb'] = $lost_association_from_alb;
 
         return $this;
     }

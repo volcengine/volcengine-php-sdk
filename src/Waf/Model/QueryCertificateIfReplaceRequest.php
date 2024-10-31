@@ -30,6 +30,7 @@ class QueryCertificateIfReplaceRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'certificate_id' => 'int',
         'domain' => 'string',
+        'project_name' => 'string',
         'public_real_server' => 'int'
     ];
 
@@ -41,6 +42,7 @@ class QueryCertificateIfReplaceRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'certificate_id' => 'int32',
         'domain' => null,
+        'project_name' => null,
         'public_real_server' => 'int32'
     ];
 
@@ -73,6 +75,7 @@ class QueryCertificateIfReplaceRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'certificate_id' => 'CertificateID',
         'domain' => 'Domain',
+        'project_name' => 'ProjectName',
         'public_real_server' => 'PublicRealServer'
     ];
 
@@ -84,6 +87,7 @@ class QueryCertificateIfReplaceRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'certificate_id' => 'setCertificateId',
         'domain' => 'setDomain',
+        'project_name' => 'setProjectName',
         'public_real_server' => 'setPublicRealServer'
     ];
 
@@ -95,6 +99,7 @@ class QueryCertificateIfReplaceRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'certificate_id' => 'getCertificateId',
         'domain' => 'getDomain',
+        'project_name' => 'getProjectName',
         'public_real_server' => 'getPublicRealServer'
     ];
 
@@ -160,6 +165,7 @@ class QueryCertificateIfReplaceRequest implements ModelInterface, ArrayAccess
     {
         $this->container['certificate_id'] = isset($data['certificate_id']) ? $data['certificate_id'] : null;
         $this->container['domain'] = isset($data['domain']) ? $data['domain'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['public_real_server'] = isset($data['public_real_server']) ? $data['public_real_server'] : null;
     }
 
@@ -237,6 +243,30 @@ class QueryCertificateIfReplaceRequest implements ModelInterface, ArrayAccess
     public function setDomain($domain)
     {
         $this->container['domain'] = $domain;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }

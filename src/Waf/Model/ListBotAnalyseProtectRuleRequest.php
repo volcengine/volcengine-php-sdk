@@ -34,6 +34,7 @@ class ListBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
         'page' => 'int',
         'page_size' => 'int',
         'path' => 'string',
+        'project_name' => 'string',
         'region' => 'string',
         'rule_tag' => 'string'
     ];
@@ -50,6 +51,7 @@ class ListBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
         'page' => 'int32',
         'page_size' => 'int32',
         'path' => null,
+        'project_name' => null,
         'region' => null,
         'rule_tag' => null
     ];
@@ -87,6 +89,7 @@ class ListBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
         'page' => 'Page',
         'page_size' => 'PageSize',
         'path' => 'Path',
+        'project_name' => 'ProjectName',
         'region' => 'Region',
         'rule_tag' => 'RuleTag'
     ];
@@ -103,6 +106,7 @@ class ListBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
         'page' => 'setPage',
         'page_size' => 'setPageSize',
         'path' => 'setPath',
+        'project_name' => 'setProjectName',
         'region' => 'setRegion',
         'rule_tag' => 'setRuleTag'
     ];
@@ -119,6 +123,7 @@ class ListBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
         'page' => 'getPage',
         'page_size' => 'getPageSize',
         'path' => 'getPath',
+        'project_name' => 'getProjectName',
         'region' => 'getRegion',
         'rule_tag' => 'getRuleTag'
     ];
@@ -189,6 +194,7 @@ class ListBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
         $this->container['page'] = isset($data['page']) ? $data['page'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
         $this->container['path'] = isset($data['path']) ? $data['path'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['region'] = isset($data['region']) ? $data['region'] : null;
         $this->container['rule_tag'] = isset($data['rule_tag']) ? $data['rule_tag'] : null;
     }
@@ -366,6 +372,30 @@ class ListBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
     public function setPath($path)
     {
         $this->container['path'] = $path;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }

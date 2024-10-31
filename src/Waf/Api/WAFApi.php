@@ -58,6 +58,189 @@ class WAFApi
         return $this->config;
     }
 
+    public function addHostGroup($body)
+    {
+        list($response) = $this->addHostGroupWithHttpInfo($body);
+        return $response;
+    }
+
+    public function addHostGroupWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Waf\Model\AddHostGroupResponse';
+        $request = $this->addHostGroupRequest($body);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+            );
+        }
+
+        $statusCode = $response->getStatusCode();
+
+        if ($statusCode < 200 || $statusCode > 299) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Error connecting to the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $response->getBody()
+            );
+        }
+
+        $responseContent = $response->getBody()->getContents();
+        $content = json_decode($responseContent);
+
+        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Return Error From the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $responseContent);
+        }
+        $content = $content->{'Result'};
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    public function addHostGroupAsync($body)
+    {
+        return $this->addHostGroupAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function addHostGroupAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Waf\Model\AddHostGroupResponse';
+        $request = $this->addHostGroupRequest($body);
+        $uri = $request->getUri();
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($uri, $returnType) {
+                    $responseContent = $response->getBody()->getContents();
+                    $content = json_decode($responseContent);
+                    $statusCode = $response->getStatusCode();
+
+                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+                        throw new ApiException(
+                            sprintf(
+                                '[%d] Return Error From the API (%s)',
+                                $statusCode,
+                                $uri
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $responseContent);
+                    }
+                    $content = $content->{'Result'};
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    protected function addHostGroupRequest($body)
+    {
+        // verify the required parameter 'body' is set
+        if ($body === null || (is_array($body) && count($body) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $body when calling addHostGroup'
+            );
+        }
+
+        $resourcePath = '/AddHostGroup/2023-12-25/waf/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        // format request body
+        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
+            $queryParams = Utils::transRequest($httpBody);
+            $httpBody = '';
+        } else {
+            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
+        }
+
+        $queryParams['Action'] = $paths[1];
+        $queryParams['Version'] = $paths[2];
+        $resourcePath = '/';
+
+        $query = '';
+        ksort($queryParams);  // sort query first
+        foreach ($queryParams as $k => $v) {
+            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
+        }
+        $query = substr($query, 0, -1);
+
+        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
+            $httpBody, $query, $method, $resourcePath, $headers);
+
+        return new Request($method,
+            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers, $httpBody);
+    }
+
     public function addIpGroup($body)
     {
         list($response) = $this->addIpGroupWithHttpInfo($body);
@@ -372,6 +555,189 @@ class WAFApi
         }
 
         $resourcePath = '/CheckLLMPrompt/2023-12-25/waf/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        // format request body
+        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
+            $queryParams = Utils::transRequest($httpBody);
+            $httpBody = '';
+        } else {
+            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
+        }
+
+        $queryParams['Action'] = $paths[1];
+        $queryParams['Version'] = $paths[2];
+        $resourcePath = '/';
+
+        $query = '';
+        ksort($queryParams);  // sort query first
+        foreach ($queryParams as $k => $v) {
+            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
+        }
+        $query = substr($query, 0, -1);
+
+        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
+            $httpBody, $query, $method, $resourcePath, $headers);
+
+        return new Request($method,
+            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers, $httpBody);
+    }
+
+    public function createAclRule($body)
+    {
+        list($response) = $this->createAclRuleWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createAclRuleWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Waf\Model\CreateAclRuleResponse';
+        $request = $this->createAclRuleRequest($body);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+            );
+        }
+
+        $statusCode = $response->getStatusCode();
+
+        if ($statusCode < 200 || $statusCode > 299) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Error connecting to the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $response->getBody()
+            );
+        }
+
+        $responseContent = $response->getBody()->getContents();
+        $content = json_decode($responseContent);
+
+        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Return Error From the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $responseContent);
+        }
+        $content = $content->{'Result'};
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    public function createAclRuleAsync($body)
+    {
+        return $this->createAclRuleAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createAclRuleAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Waf\Model\CreateAclRuleResponse';
+        $request = $this->createAclRuleRequest($body);
+        $uri = $request->getUri();
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($uri, $returnType) {
+                    $responseContent = $response->getBody()->getContents();
+                    $content = json_decode($responseContent);
+                    $statusCode = $response->getStatusCode();
+
+                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+                        throw new ApiException(
+                            sprintf(
+                                '[%d] Return Error From the API (%s)',
+                                $statusCode,
+                                $uri
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $responseContent);
+                    }
+                    $content = $content->{'Result'};
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    protected function createAclRuleRequest($body)
+    {
+        // verify the required parameter 'body' is set
+        if ($body === null || (is_array($body) && count($body) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $body when calling createAclRule'
+            );
+        }
+
+        $resourcePath = '/CreateAclRule/2023-12-25/waf/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -1522,6 +1888,372 @@ class WAFApi
             $headers, $httpBody);
     }
 
+    public function createVulWhiteField($body)
+    {
+        list($response) = $this->createVulWhiteFieldWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createVulWhiteFieldWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Waf\Model\CreateVulWhiteFieldResponse';
+        $request = $this->createVulWhiteFieldRequest($body);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+            );
+        }
+
+        $statusCode = $response->getStatusCode();
+
+        if ($statusCode < 200 || $statusCode > 299) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Error connecting to the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $response->getBody()
+            );
+        }
+
+        $responseContent = $response->getBody()->getContents();
+        $content = json_decode($responseContent);
+
+        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Return Error From the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $responseContent);
+        }
+        $content = $content->{'Result'};
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    public function createVulWhiteFieldAsync($body)
+    {
+        return $this->createVulWhiteFieldAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createVulWhiteFieldAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Waf\Model\CreateVulWhiteFieldResponse';
+        $request = $this->createVulWhiteFieldRequest($body);
+        $uri = $request->getUri();
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($uri, $returnType) {
+                    $responseContent = $response->getBody()->getContents();
+                    $content = json_decode($responseContent);
+                    $statusCode = $response->getStatusCode();
+
+                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+                        throw new ApiException(
+                            sprintf(
+                                '[%d] Return Error From the API (%s)',
+                                $statusCode,
+                                $uri
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $responseContent);
+                    }
+                    $content = $content->{'Result'};
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    protected function createVulWhiteFieldRequest($body)
+    {
+        // verify the required parameter 'body' is set
+        if ($body === null || (is_array($body) && count($body) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $body when calling createVulWhiteField'
+            );
+        }
+
+        $resourcePath = '/CreateVulWhiteField/2023-12-25/waf/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        // format request body
+        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
+            $queryParams = Utils::transRequest($httpBody);
+            $httpBody = '';
+        } else {
+            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
+        }
+
+        $queryParams['Action'] = $paths[1];
+        $queryParams['Version'] = $paths[2];
+        $resourcePath = '/';
+
+        $query = '';
+        ksort($queryParams);  // sort query first
+        foreach ($queryParams as $k => $v) {
+            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
+        }
+        $query = substr($query, 0, -1);
+
+        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
+            $httpBody, $query, $method, $resourcePath, $headers);
+
+        return new Request($method,
+            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers, $httpBody);
+    }
+
+    public function deleteAclRule($body)
+    {
+        list($response) = $this->deleteAclRuleWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteAclRuleWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Waf\Model\DeleteAclRuleResponse';
+        $request = $this->deleteAclRuleRequest($body);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+            );
+        }
+
+        $statusCode = $response->getStatusCode();
+
+        if ($statusCode < 200 || $statusCode > 299) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Error connecting to the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $response->getBody()
+            );
+        }
+
+        $responseContent = $response->getBody()->getContents();
+        $content = json_decode($responseContent);
+
+        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Return Error From the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $responseContent);
+        }
+        $content = $content->{'Result'};
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    public function deleteAclRuleAsync($body)
+    {
+        return $this->deleteAclRuleAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteAclRuleAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Waf\Model\DeleteAclRuleResponse';
+        $request = $this->deleteAclRuleRequest($body);
+        $uri = $request->getUri();
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($uri, $returnType) {
+                    $responseContent = $response->getBody()->getContents();
+                    $content = json_decode($responseContent);
+                    $statusCode = $response->getStatusCode();
+
+                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+                        throw new ApiException(
+                            sprintf(
+                                '[%d] Return Error From the API (%s)',
+                                $statusCode,
+                                $uri
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $responseContent);
+                    }
+                    $content = $content->{'Result'};
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    protected function deleteAclRuleRequest($body)
+    {
+        // verify the required parameter 'body' is set
+        if ($body === null || (is_array($body) && count($body) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $body when calling deleteAclRule'
+            );
+        }
+
+        $resourcePath = '/DeleteAclRule/2023-12-25/waf/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        // format request body
+        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
+            $queryParams = Utils::transRequest($httpBody);
+            $httpBody = '';
+        } else {
+            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
+        }
+
+        $queryParams['Action'] = $paths[1];
+        $queryParams['Version'] = $paths[2];
+        $resourcePath = '/';
+
+        $query = '';
+        ksort($queryParams);  // sort query first
+        foreach ($queryParams as $k => $v) {
+            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
+        }
+        $query = substr($query, 0, -1);
+
+        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
+            $httpBody, $query, $method, $resourcePath, $headers);
+
+        return new Request($method,
+            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers, $httpBody);
+    }
+
     public function deleteAllowRule($body)
     {
         list($response) = $this->deleteAllowRuleWithHttpInfo($body);
@@ -2620,6 +3352,189 @@ class WAFApi
             $headers, $httpBody);
     }
 
+    public function deleteHostGroup($body)
+    {
+        list($response) = $this->deleteHostGroupWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteHostGroupWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Waf\Model\DeleteHostGroupResponse';
+        $request = $this->deleteHostGroupRequest($body);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+            );
+        }
+
+        $statusCode = $response->getStatusCode();
+
+        if ($statusCode < 200 || $statusCode > 299) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Error connecting to the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $response->getBody()
+            );
+        }
+
+        $responseContent = $response->getBody()->getContents();
+        $content = json_decode($responseContent);
+
+        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Return Error From the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $responseContent);
+        }
+        $content = $content->{'Result'};
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    public function deleteHostGroupAsync($body)
+    {
+        return $this->deleteHostGroupAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteHostGroupAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Waf\Model\DeleteHostGroupResponse';
+        $request = $this->deleteHostGroupRequest($body);
+        $uri = $request->getUri();
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($uri, $returnType) {
+                    $responseContent = $response->getBody()->getContents();
+                    $content = json_decode($responseContent);
+                    $statusCode = $response->getStatusCode();
+
+                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+                        throw new ApiException(
+                            sprintf(
+                                '[%d] Return Error From the API (%s)',
+                                $statusCode,
+                                $uri
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $responseContent);
+                    }
+                    $content = $content->{'Result'};
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    protected function deleteHostGroupRequest($body)
+    {
+        // verify the required parameter 'body' is set
+        if ($body === null || (is_array($body) && count($body) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $body when calling deleteHostGroup'
+            );
+        }
+
+        $resourcePath = '/DeleteHostGroup/2023-12-25/waf/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        // format request body
+        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
+            $queryParams = Utils::transRequest($httpBody);
+            $httpBody = '';
+        } else {
+            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
+        }
+
+        $queryParams['Action'] = $paths[1];
+        $queryParams['Version'] = $paths[2];
+        $resourcePath = '/';
+
+        $query = '';
+        ksort($queryParams);  // sort query first
+        foreach ($queryParams as $k => $v) {
+            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
+        }
+        $query = substr($query, 0, -1);
+
+        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
+            $httpBody, $query, $method, $resourcePath, $headers);
+
+        return new Request($method,
+            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers, $httpBody);
+    }
+
     public function deleteIpGroup($body)
     {
         list($response) = $this->deleteIpGroupWithHttpInfo($body);
@@ -2751,6 +3666,189 @@ class WAFApi
         }
 
         $resourcePath = '/DeleteIpGroup/2023-12-25/waf/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        // format request body
+        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
+            $queryParams = Utils::transRequest($httpBody);
+            $httpBody = '';
+        } else {
+            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
+        }
+
+        $queryParams['Action'] = $paths[1];
+        $queryParams['Version'] = $paths[2];
+        $resourcePath = '/';
+
+        $query = '';
+        ksort($queryParams);  // sort query first
+        foreach ($queryParams as $k => $v) {
+            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
+        }
+        $query = substr($query, 0, -1);
+
+        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
+            $httpBody, $query, $method, $resourcePath, $headers);
+
+        return new Request($method,
+            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers, $httpBody);
+    }
+
+    public function deleteVulWhiteField($body)
+    {
+        list($response) = $this->deleteVulWhiteFieldWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteVulWhiteFieldWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Waf\Model\DeleteVulWhiteFieldResponse';
+        $request = $this->deleteVulWhiteFieldRequest($body);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+            );
+        }
+
+        $statusCode = $response->getStatusCode();
+
+        if ($statusCode < 200 || $statusCode > 299) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Error connecting to the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $response->getBody()
+            );
+        }
+
+        $responseContent = $response->getBody()->getContents();
+        $content = json_decode($responseContent);
+
+        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Return Error From the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $responseContent);
+        }
+        $content = $content->{'Result'};
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    public function deleteVulWhiteFieldAsync($body)
+    {
+        return $this->deleteVulWhiteFieldAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteVulWhiteFieldAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Waf\Model\DeleteVulWhiteFieldResponse';
+        $request = $this->deleteVulWhiteFieldRequest($body);
+        $uri = $request->getUri();
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($uri, $returnType) {
+                    $responseContent = $response->getBody()->getContents();
+                    $content = json_decode($responseContent);
+                    $statusCode = $response->getStatusCode();
+
+                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+                        throw new ApiException(
+                            sprintf(
+                                '[%d] Return Error From the API (%s)',
+                                $statusCode,
+                                $uri
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $responseContent);
+                    }
+                    $content = $content->{'Result'};
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    protected function deleteVulWhiteFieldRequest($body)
+    {
+        // verify the required parameter 'body' is set
+        if ($body === null || (is_array($body) && count($body) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $body when calling deleteVulWhiteField'
+            );
+        }
+
+        $resourcePath = '/DeleteVulWhiteField/2023-12-25/waf/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -3300,6 +4398,189 @@ class WAFApi
         }
 
         $resourcePath = '/GetVulnerabilityConfig/2023-12-25/waf/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        // format request body
+        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
+            $queryParams = Utils::transRequest($httpBody);
+            $httpBody = '';
+        } else {
+            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
+        }
+
+        $queryParams['Action'] = $paths[1];
+        $queryParams['Version'] = $paths[2];
+        $resourcePath = '/';
+
+        $query = '';
+        ksort($queryParams);  // sort query first
+        foreach ($queryParams as $k => $v) {
+            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
+        }
+        $query = substr($query, 0, -1);
+
+        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
+            $httpBody, $query, $method, $resourcePath, $headers);
+
+        return new Request($method,
+            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers, $httpBody);
+    }
+
+    public function listAclRule($body)
+    {
+        list($response) = $this->listAclRuleWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listAclRuleWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Waf\Model\ListAclRuleResponse';
+        $request = $this->listAclRuleRequest($body);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+            );
+        }
+
+        $statusCode = $response->getStatusCode();
+
+        if ($statusCode < 200 || $statusCode > 299) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Error connecting to the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $response->getBody()
+            );
+        }
+
+        $responseContent = $response->getBody()->getContents();
+        $content = json_decode($responseContent);
+
+        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Return Error From the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $responseContent);
+        }
+        $content = $content->{'Result'};
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    public function listAclRuleAsync($body)
+    {
+        return $this->listAclRuleAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listAclRuleAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Waf\Model\ListAclRuleResponse';
+        $request = $this->listAclRuleRequest($body);
+        $uri = $request->getUri();
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($uri, $returnType) {
+                    $responseContent = $response->getBody()->getContents();
+                    $content = json_decode($responseContent);
+                    $statusCode = $response->getStatusCode();
+
+                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+                        throw new ApiException(
+                            sprintf(
+                                '[%d] Return Error From the API (%s)',
+                                $statusCode,
+                                $uri
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $responseContent);
+                    }
+                    $content = $content->{'Result'};
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    protected function listAclRuleRequest($body)
+    {
+        // verify the required parameter 'body' is set
+        if ($body === null || (is_array($body) && count($body) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $body when calling listAclRule'
+            );
+        }
+
+        $resourcePath = '/ListAclRule/2023-12-25/waf/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -5182,6 +6463,189 @@ class WAFApi
             $headers, $httpBody);
     }
 
+    public function listHostGroup($body)
+    {
+        list($response) = $this->listHostGroupWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listHostGroupWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Waf\Model\ListHostGroupResponse';
+        $request = $this->listHostGroupRequest($body);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+            );
+        }
+
+        $statusCode = $response->getStatusCode();
+
+        if ($statusCode < 200 || $statusCode > 299) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Error connecting to the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $response->getBody()
+            );
+        }
+
+        $responseContent = $response->getBody()->getContents();
+        $content = json_decode($responseContent);
+
+        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Return Error From the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $responseContent);
+        }
+        $content = $content->{'Result'};
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    public function listHostGroupAsync($body)
+    {
+        return $this->listHostGroupAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listHostGroupAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Waf\Model\ListHostGroupResponse';
+        $request = $this->listHostGroupRequest($body);
+        $uri = $request->getUri();
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($uri, $returnType) {
+                    $responseContent = $response->getBody()->getContents();
+                    $content = json_decode($responseContent);
+                    $statusCode = $response->getStatusCode();
+
+                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+                        throw new ApiException(
+                            sprintf(
+                                '[%d] Return Error From the API (%s)',
+                                $statusCode,
+                                $uri
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $responseContent);
+                    }
+                    $content = $content->{'Result'};
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    protected function listHostGroupRequest($body)
+    {
+        // verify the required parameter 'body' is set
+        if ($body === null || (is_array($body) && count($body) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $body when calling listHostGroup'
+            );
+        }
+
+        $resourcePath = '/ListHostGroup/2023-12-25/waf/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        // format request body
+        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
+            $queryParams = Utils::transRequest($httpBody);
+            $httpBody = '';
+        } else {
+            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
+        }
+
+        $queryParams['Action'] = $paths[1];
+        $queryParams['Version'] = $paths[2];
+        $resourcePath = '/';
+
+        $query = '';
+        ksort($queryParams);  // sort query first
+        foreach ($queryParams as $k => $v) {
+            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
+        }
+        $query = substr($query, 0, -1);
+
+        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
+            $httpBody, $query, $method, $resourcePath, $headers);
+
+        return new Request($method,
+            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers, $httpBody);
+    }
+
     public function listIpGroup($body)
     {
         list($response) = $this->listIpGroupWithHttpInfo($body);
@@ -5679,6 +7143,189 @@ class WAFApi
         }
 
         $resourcePath = '/ListSystemBotConfig/2023-12-25/waf/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        // format request body
+        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
+            $queryParams = Utils::transRequest($httpBody);
+            $httpBody = '';
+        } else {
+            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
+        }
+
+        $queryParams['Action'] = $paths[1];
+        $queryParams['Version'] = $paths[2];
+        $resourcePath = '/';
+
+        $query = '';
+        ksort($queryParams);  // sort query first
+        foreach ($queryParams as $k => $v) {
+            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
+        }
+        $query = substr($query, 0, -1);
+
+        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
+            $httpBody, $query, $method, $resourcePath, $headers);
+
+        return new Request($method,
+            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers, $httpBody);
+    }
+
+    public function listVulWhiteField($body)
+    {
+        list($response) = $this->listVulWhiteFieldWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listVulWhiteFieldWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Waf\Model\ListVulWhiteFieldResponse';
+        $request = $this->listVulWhiteFieldRequest($body);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+            );
+        }
+
+        $statusCode = $response->getStatusCode();
+
+        if ($statusCode < 200 || $statusCode > 299) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Error connecting to the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $response->getBody()
+            );
+        }
+
+        $responseContent = $response->getBody()->getContents();
+        $content = json_decode($responseContent);
+
+        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Return Error From the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $responseContent);
+        }
+        $content = $content->{'Result'};
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    public function listVulWhiteFieldAsync($body)
+    {
+        return $this->listVulWhiteFieldAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listVulWhiteFieldAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Waf\Model\ListVulWhiteFieldResponse';
+        $request = $this->listVulWhiteFieldRequest($body);
+        $uri = $request->getUri();
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($uri, $returnType) {
+                    $responseContent = $response->getBody()->getContents();
+                    $content = json_decode($responseContent);
+                    $statusCode = $response->getStatusCode();
+
+                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+                        throw new ApiException(
+                            sprintf(
+                                '[%d] Return Error From the API (%s)',
+                                $statusCode,
+                                $uri
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $responseContent);
+                    }
+                    $content = $content->{'Result'};
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    protected function listVulWhiteFieldRequest($body)
+    {
+        // verify the required parameter 'body' is set
+        if ($body === null || (is_array($body) && count($body) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $body when calling listVulWhiteField'
+            );
+        }
+
+        $resourcePath = '/ListVulWhiteField/2023-12-25/waf/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -6411,6 +8058,189 @@ class WAFApi
         }
 
         $resourcePath = '/QueryLLMGenerate/2023-12-25/waf/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        // format request body
+        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
+            $queryParams = Utils::transRequest($httpBody);
+            $httpBody = '';
+        } else {
+            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
+        }
+
+        $queryParams['Action'] = $paths[1];
+        $queryParams['Version'] = $paths[2];
+        $resourcePath = '/';
+
+        $query = '';
+        ksort($queryParams);  // sort query first
+        foreach ($queryParams as $k => $v) {
+            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
+        }
+        $query = substr($query, 0, -1);
+
+        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
+            $httpBody, $query, $method, $resourcePath, $headers);
+
+        return new Request($method,
+            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers, $httpBody);
+    }
+
+    public function updateAclRule($body)
+    {
+        list($response) = $this->updateAclRuleWithHttpInfo($body);
+        return $response;
+    }
+
+    public function updateAclRuleWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Waf\Model\UpdateAclRuleResponse';
+        $request = $this->updateAclRuleRequest($body);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+            );
+        }
+
+        $statusCode = $response->getStatusCode();
+
+        if ($statusCode < 200 || $statusCode > 299) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Error connecting to the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $response->getBody()
+            );
+        }
+
+        $responseContent = $response->getBody()->getContents();
+        $content = json_decode($responseContent);
+
+        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Return Error From the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $responseContent);
+        }
+        $content = $content->{'Result'};
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    public function updateAclRuleAsync($body)
+    {
+        return $this->updateAclRuleAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function updateAclRuleAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Waf\Model\UpdateAclRuleResponse';
+        $request = $this->updateAclRuleRequest($body);
+        $uri = $request->getUri();
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($uri, $returnType) {
+                    $responseContent = $response->getBody()->getContents();
+                    $content = json_decode($responseContent);
+                    $statusCode = $response->getStatusCode();
+
+                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+                        throw new ApiException(
+                            sprintf(
+                                '[%d] Return Error From the API (%s)',
+                                $statusCode,
+                                $uri
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $responseContent);
+                    }
+                    $content = $content->{'Result'};
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    protected function updateAclRuleRequest($body)
+    {
+        // verify the required parameter 'body' is set
+        if ($body === null || (is_array($body) && count($body) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $body when calling updateAclRule'
+            );
+        }
+
+        $resourcePath = '/UpdateAclRule/2023-12-25/waf/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -7927,6 +9757,189 @@ class WAFApi
             $headers, $httpBody);
     }
 
+    public function updateHostGroup($body)
+    {
+        list($response) = $this->updateHostGroupWithHttpInfo($body);
+        return $response;
+    }
+
+    public function updateHostGroupWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Waf\Model\UpdateHostGroupResponse';
+        $request = $this->updateHostGroupRequest($body);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+            );
+        }
+
+        $statusCode = $response->getStatusCode();
+
+        if ($statusCode < 200 || $statusCode > 299) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Error connecting to the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $response->getBody()
+            );
+        }
+
+        $responseContent = $response->getBody()->getContents();
+        $content = json_decode($responseContent);
+
+        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Return Error From the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $responseContent);
+        }
+        $content = $content->{'Result'};
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    public function updateHostGroupAsync($body)
+    {
+        return $this->updateHostGroupAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function updateHostGroupAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Waf\Model\UpdateHostGroupResponse';
+        $request = $this->updateHostGroupRequest($body);
+        $uri = $request->getUri();
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($uri, $returnType) {
+                    $responseContent = $response->getBody()->getContents();
+                    $content = json_decode($responseContent);
+                    $statusCode = $response->getStatusCode();
+
+                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+                        throw new ApiException(
+                            sprintf(
+                                '[%d] Return Error From the API (%s)',
+                                $statusCode,
+                                $uri
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $responseContent);
+                    }
+                    $content = $content->{'Result'};
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    protected function updateHostGroupRequest($body)
+    {
+        // verify the required parameter 'body' is set
+        if ($body === null || (is_array($body) && count($body) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $body when calling updateHostGroup'
+            );
+        }
+
+        $resourcePath = '/UpdateHostGroup/2023-12-25/waf/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        // format request body
+        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
+            $queryParams = Utils::transRequest($httpBody);
+            $httpBody = '';
+        } else {
+            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
+        }
+
+        $queryParams['Action'] = $paths[1];
+        $queryParams['Version'] = $paths[2];
+        $resourcePath = '/';
+
+        $query = '';
+        ksort($queryParams);  // sort query first
+        foreach ($queryParams as $k => $v) {
+            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
+        }
+        $query = substr($query, 0, -1);
+
+        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
+            $httpBody, $query, $method, $resourcePath, $headers);
+
+        return new Request($method,
+            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers, $httpBody);
+    }
+
     public function updateIpGroup($body)
     {
         list($response) = $this->updateIpGroupWithHttpInfo($body);
@@ -8241,6 +10254,189 @@ class WAFApi
         }
 
         $resourcePath = '/UpdateSystemBotConfig/2023-12-25/waf/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        // format request body
+        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
+            $queryParams = Utils::transRequest($httpBody);
+            $httpBody = '';
+        } else {
+            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
+        }
+
+        $queryParams['Action'] = $paths[1];
+        $queryParams['Version'] = $paths[2];
+        $resourcePath = '/';
+
+        $query = '';
+        ksort($queryParams);  // sort query first
+        foreach ($queryParams as $k => $v) {
+            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
+        }
+        $query = substr($query, 0, -1);
+
+        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
+            $httpBody, $query, $method, $resourcePath, $headers);
+
+        return new Request($method,
+            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers, $httpBody);
+    }
+
+    public function updateVulWhiteField($body)
+    {
+        list($response) = $this->updateVulWhiteFieldWithHttpInfo($body);
+        return $response;
+    }
+
+    public function updateVulWhiteFieldWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Waf\Model\UpdateVulWhiteFieldResponse';
+        $request = $this->updateVulWhiteFieldRequest($body);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+            );
+        }
+
+        $statusCode = $response->getStatusCode();
+
+        if ($statusCode < 200 || $statusCode > 299) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Error connecting to the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $response->getBody()
+            );
+        }
+
+        $responseContent = $response->getBody()->getContents();
+        $content = json_decode($responseContent);
+
+        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Return Error From the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $responseContent);
+        }
+        $content = $content->{'Result'};
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    public function updateVulWhiteFieldAsync($body)
+    {
+        return $this->updateVulWhiteFieldAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function updateVulWhiteFieldAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Waf\Model\UpdateVulWhiteFieldResponse';
+        $request = $this->updateVulWhiteFieldRequest($body);
+        $uri = $request->getUri();
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($uri, $returnType) {
+                    $responseContent = $response->getBody()->getContents();
+                    $content = json_decode($responseContent);
+                    $statusCode = $response->getStatusCode();
+
+                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+                        throw new ApiException(
+                            sprintf(
+                                '[%d] Return Error From the API (%s)',
+                                $statusCode,
+                                $uri
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $responseContent);
+                    }
+                    $content = $content->{'Result'};
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    protected function updateVulWhiteFieldRequest($body)
+    {
+        // verify the required parameter 'body' is set
+        if ($body === null || (is_array($body) && count($body) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $body when calling updateVulWhiteField'
+            );
+        }
+
+        $resourcePath = '/UpdateVulWhiteField/2023-12-25/waf/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 

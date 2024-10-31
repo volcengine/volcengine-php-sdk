@@ -29,6 +29,7 @@ class UpdateCustomSystemVulRuleRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'host' => 'string',
+        'project_name' => 'string',
         'system_rule_switch' => '\Volcengine\Waf\Model\SystemRuleSwitchForUpdateCustomSystemVulRuleInput[]'
     ];
 
@@ -39,6 +40,7 @@ class UpdateCustomSystemVulRuleRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'host' => null,
+        'project_name' => null,
         'system_rule_switch' => null
     ];
 
@@ -70,6 +72,7 @@ class UpdateCustomSystemVulRuleRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'host' => 'Host',
+        'project_name' => 'ProjectName',
         'system_rule_switch' => 'SystemRuleSwitch'
     ];
 
@@ -80,6 +83,7 @@ class UpdateCustomSystemVulRuleRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'host' => 'setHost',
+        'project_name' => 'setProjectName',
         'system_rule_switch' => 'setSystemRuleSwitch'
     ];
 
@@ -90,6 +94,7 @@ class UpdateCustomSystemVulRuleRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'host' => 'getHost',
+        'project_name' => 'getProjectName',
         'system_rule_switch' => 'getSystemRuleSwitch'
     ];
 
@@ -154,6 +159,7 @@ class UpdateCustomSystemVulRuleRequest implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['host'] = isset($data['host']) ? $data['host'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['system_rule_switch'] = isset($data['system_rule_switch']) ? $data['system_rule_switch'] : null;
     }
 
@@ -204,6 +210,30 @@ class UpdateCustomSystemVulRuleRequest implements ModelInterface, ArrayAccess
     public function setHost($host)
     {
         $this->container['host'] = $host;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }

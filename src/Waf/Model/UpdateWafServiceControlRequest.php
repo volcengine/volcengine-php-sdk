@@ -42,6 +42,7 @@ class UpdateWafServiceControlRequest implements ModelInterface, ArrayAccess
         'custom_rsp_enable' => 'int',
         'dlp_enable' => 'int',
         'host' => 'string',
+        'project_name' => 'string',
         'system_bot_enable' => 'int',
         'tls_enable' => 'int',
         'tamper_proof_enable' => 'int',
@@ -71,6 +72,7 @@ class UpdateWafServiceControlRequest implements ModelInterface, ArrayAccess
         'custom_rsp_enable' => 'int32',
         'dlp_enable' => 'int32',
         'host' => null,
+        'project_name' => null,
         'system_bot_enable' => 'int32',
         'tls_enable' => 'int32',
         'tamper_proof_enable' => 'int32',
@@ -121,6 +123,7 @@ class UpdateWafServiceControlRequest implements ModelInterface, ArrayAccess
         'custom_rsp_enable' => 'CustomRspEnable',
         'dlp_enable' => 'DlpEnable',
         'host' => 'Host',
+        'project_name' => 'ProjectName',
         'system_bot_enable' => 'SystemBotEnable',
         'tls_enable' => 'TLSEnable',
         'tamper_proof_enable' => 'TamperProofEnable',
@@ -150,6 +153,7 @@ class UpdateWafServiceControlRequest implements ModelInterface, ArrayAccess
         'custom_rsp_enable' => 'setCustomRspEnable',
         'dlp_enable' => 'setDlpEnable',
         'host' => 'setHost',
+        'project_name' => 'setProjectName',
         'system_bot_enable' => 'setSystemBotEnable',
         'tls_enable' => 'setTlsEnable',
         'tamper_proof_enable' => 'setTamperProofEnable',
@@ -179,6 +183,7 @@ class UpdateWafServiceControlRequest implements ModelInterface, ArrayAccess
         'custom_rsp_enable' => 'getCustomRspEnable',
         'dlp_enable' => 'getDlpEnable',
         'host' => 'getHost',
+        'project_name' => 'getProjectName',
         'system_bot_enable' => 'getSystemBotEnable',
         'tls_enable' => 'getTlsEnable',
         'tamper_proof_enable' => 'getTamperProofEnable',
@@ -262,6 +267,7 @@ class UpdateWafServiceControlRequest implements ModelInterface, ArrayAccess
         $this->container['custom_rsp_enable'] = isset($data['custom_rsp_enable']) ? $data['custom_rsp_enable'] : null;
         $this->container['dlp_enable'] = isset($data['dlp_enable']) ? $data['dlp_enable'] : null;
         $this->container['host'] = isset($data['host']) ? $data['host'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['system_bot_enable'] = isset($data['system_bot_enable']) ? $data['system_bot_enable'] : null;
         $this->container['tls_enable'] = isset($data['tls_enable']) ? $data['tls_enable'] : null;
         $this->container['tamper_proof_enable'] = isset($data['tamper_proof_enable']) ? $data['tamper_proof_enable'] : null;
@@ -630,6 +636,30 @@ class UpdateWafServiceControlRequest implements ModelInterface, ArrayAccess
     public function setHost($host)
     {
         $this->container['host'] = $host;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }
