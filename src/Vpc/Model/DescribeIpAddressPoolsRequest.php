@@ -32,8 +32,6 @@ class DescribeIpAddressPoolsRequest implements ModelInterface, ArrayAccess
         'ip_address_pool_ids' => 'string[]',
         'max_results' => 'int',
         'next_token' => 'string',
-        'page_number' => 'int',
-        'page_size' => 'int',
         'project_name' => 'string',
         'status' => 'string',
         'tag_filters' => '\Volcengine\Vpc\Model\TagFilterForDescribeIpAddressPoolsInput[]'
@@ -49,8 +47,6 @@ class DescribeIpAddressPoolsRequest implements ModelInterface, ArrayAccess
         'ip_address_pool_ids' => null,
         'max_results' => null,
         'next_token' => null,
-        'page_number' => null,
-        'page_size' => null,
         'project_name' => null,
         'status' => null,
         'tag_filters' => null
@@ -87,8 +83,6 @@ class DescribeIpAddressPoolsRequest implements ModelInterface, ArrayAccess
         'ip_address_pool_ids' => 'IpAddressPoolIds',
         'max_results' => 'MaxResults',
         'next_token' => 'NextToken',
-        'page_number' => 'PageNumber',
-        'page_size' => 'PageSize',
         'project_name' => 'ProjectName',
         'status' => 'Status',
         'tag_filters' => 'TagFilters'
@@ -104,8 +98,6 @@ class DescribeIpAddressPoolsRequest implements ModelInterface, ArrayAccess
         'ip_address_pool_ids' => 'setIpAddressPoolIds',
         'max_results' => 'setMaxResults',
         'next_token' => 'setNextToken',
-        'page_number' => 'setPageNumber',
-        'page_size' => 'setPageSize',
         'project_name' => 'setProjectName',
         'status' => 'setStatus',
         'tag_filters' => 'setTagFilters'
@@ -121,8 +113,6 @@ class DescribeIpAddressPoolsRequest implements ModelInterface, ArrayAccess
         'ip_address_pool_ids' => 'getIpAddressPoolIds',
         'max_results' => 'getMaxResults',
         'next_token' => 'getNextToken',
-        'page_number' => 'getPageNumber',
-        'page_size' => 'getPageSize',
         'project_name' => 'getProjectName',
         'status' => 'getStatus',
         'tag_filters' => 'getTagFilters'
@@ -192,8 +182,6 @@ class DescribeIpAddressPoolsRequest implements ModelInterface, ArrayAccess
         $this->container['ip_address_pool_ids'] = isset($data['ip_address_pool_ids']) ? $data['ip_address_pool_ids'] : null;
         $this->container['max_results'] = isset($data['max_results']) ? $data['max_results'] : null;
         $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
-        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
-        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['tag_filters'] = isset($data['tag_filters']) ? $data['tag_filters'] : null;
@@ -315,54 +303,6 @@ class DescribeIpAddressPoolsRequest implements ModelInterface, ArrayAccess
     public function setNextToken($next_token)
     {
         $this->container['next_token'] = $next_token;
-
-        return $this;
-    }
-
-    /**
-     * Gets page_number
-     *
-     * @return int
-     */
-    public function getPageNumber()
-    {
-        return $this->container['page_number'];
-    }
-
-    /**
-     * Sets page_number
-     *
-     * @param int $page_number page_number
-     *
-     * @return $this
-     */
-    public function setPageNumber($page_number)
-    {
-        $this->container['page_number'] = $page_number;
-
-        return $this;
-    }
-
-    /**
-     * Gets page_size
-     *
-     * @return int
-     */
-    public function getPageSize()
-    {
-        return $this->container['page_size'];
-    }
-
-    /**
-     * Sets page_size
-     *
-     * @param int $page_size page_size
-     *
-     * @return $this
-     */
-    public function setPageSize($page_size)
-    {
-        $this->container['page_size'] = $page_size;
 
         return $this;
     }
