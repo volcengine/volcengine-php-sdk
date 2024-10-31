@@ -28,7 +28,7 @@ class ListWafServiceCertificateRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'project_name' => 'string'
     ];
 
     /**
@@ -37,7 +37,7 @@ class ListWafServiceCertificateRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'project_name' => null
     ];
 
     /**
@@ -67,7 +67,7 @@ class ListWafServiceCertificateRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'project_name' => 'ProjectName'
     ];
 
     /**
@@ -76,7 +76,7 @@ class ListWafServiceCertificateRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        
+        'project_name' => 'setProjectName'
     ];
 
     /**
@@ -85,7 +85,7 @@ class ListWafServiceCertificateRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        
+        'project_name' => 'getProjectName'
     ];
 
     /**
@@ -148,6 +148,7 @@ class ListWafServiceCertificateRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
     }
 
     /**
@@ -173,6 +174,30 @@ class ListWafServiceCertificateRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

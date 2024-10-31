@@ -31,7 +31,8 @@ class UpdateIpGroupRequest implements ModelInterface, ArrayAccess
         'add_type' => 'string',
         'ip_group_id' => 'int',
         'ip_list' => 'string[]',
-        'name' => 'string'
+        'name' => 'string',
+        'project_name' => 'string'
     ];
 
     /**
@@ -43,7 +44,8 @@ class UpdateIpGroupRequest implements ModelInterface, ArrayAccess
         'add_type' => null,
         'ip_group_id' => 'int32',
         'ip_list' => null,
-        'name' => null
+        'name' => null,
+        'project_name' => null
     ];
 
     /**
@@ -76,7 +78,8 @@ class UpdateIpGroupRequest implements ModelInterface, ArrayAccess
         'add_type' => 'AddType',
         'ip_group_id' => 'IpGroupId',
         'ip_list' => 'IpList',
-        'name' => 'Name'
+        'name' => 'Name',
+        'project_name' => 'ProjectName'
     ];
 
     /**
@@ -88,7 +91,8 @@ class UpdateIpGroupRequest implements ModelInterface, ArrayAccess
         'add_type' => 'setAddType',
         'ip_group_id' => 'setIpGroupId',
         'ip_list' => 'setIpList',
-        'name' => 'setName'
+        'name' => 'setName',
+        'project_name' => 'setProjectName'
     ];
 
     /**
@@ -100,7 +104,8 @@ class UpdateIpGroupRequest implements ModelInterface, ArrayAccess
         'add_type' => 'getAddType',
         'ip_group_id' => 'getIpGroupId',
         'ip_list' => 'getIpList',
-        'name' => 'getName'
+        'name' => 'getName',
+        'project_name' => 'getProjectName'
     ];
 
     /**
@@ -167,6 +172,7 @@ class UpdateIpGroupRequest implements ModelInterface, ArrayAccess
         $this->container['ip_group_id'] = isset($data['ip_group_id']) ? $data['ip_group_id'] : null;
         $this->container['ip_list'] = isset($data['ip_list']) ? $data['ip_list'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
     }
 
     /**
@@ -294,6 +300,30 @@ class UpdateIpGroupRequest implements ModelInterface, ArrayAccess
     public function setName($name)
     {
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }

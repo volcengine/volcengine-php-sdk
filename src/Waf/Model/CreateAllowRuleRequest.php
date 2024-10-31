@@ -37,6 +37,7 @@ class CreateAllowRuleRequest implements ModelInterface, ArrayAccess
         'ip_add_type' => 'int',
         'ip_group_id' => 'int[]',
         'name' => 'string',
+        'project_name' => 'string',
         'url' => 'string'
     ];
 
@@ -55,6 +56,7 @@ class CreateAllowRuleRequest implements ModelInterface, ArrayAccess
         'ip_add_type' => 'int32',
         'ip_group_id' => 'int32',
         'name' => null,
+        'project_name' => null,
         'url' => null
     ];
 
@@ -94,6 +96,7 @@ class CreateAllowRuleRequest implements ModelInterface, ArrayAccess
         'ip_add_type' => 'IpAddType',
         'ip_group_id' => 'IpGroupId',
         'name' => 'Name',
+        'project_name' => 'ProjectName',
         'url' => 'Url'
     ];
 
@@ -112,6 +115,7 @@ class CreateAllowRuleRequest implements ModelInterface, ArrayAccess
         'ip_add_type' => 'setIpAddType',
         'ip_group_id' => 'setIpGroupId',
         'name' => 'setName',
+        'project_name' => 'setProjectName',
         'url' => 'setUrl'
     ];
 
@@ -130,6 +134,7 @@ class CreateAllowRuleRequest implements ModelInterface, ArrayAccess
         'ip_add_type' => 'getIpAddType',
         'ip_group_id' => 'getIpGroupId',
         'name' => 'getName',
+        'project_name' => 'getProjectName',
         'url' => 'getUrl'
     ];
 
@@ -202,6 +207,7 @@ class CreateAllowRuleRequest implements ModelInterface, ArrayAccess
         $this->container['ip_add_type'] = isset($data['ip_add_type']) ? $data['ip_add_type'] : null;
         $this->container['ip_group_id'] = isset($data['ip_group_id']) ? $data['ip_group_id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['url'] = isset($data['url']) ? $data['url'] : null;
     }
 
@@ -450,6 +456,30 @@ class CreateAllowRuleRequest implements ModelInterface, ArrayAccess
     public function setName($name)
     {
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }

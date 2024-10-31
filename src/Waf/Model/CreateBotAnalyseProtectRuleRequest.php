@@ -39,6 +39,7 @@ class CreateBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
         'name' => 'string',
         'path' => 'string',
         'path_threshold' => 'int',
+        'project_name' => 'string',
         'rule_priority' => 'int',
         'single_proportion' => 'string',
         'single_threshold' => 'int',
@@ -63,6 +64,7 @@ class CreateBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
         'name' => null,
         'path' => null,
         'path_threshold' => 'int32',
+        'project_name' => null,
         'rule_priority' => 'int32',
         'single_proportion' => null,
         'single_threshold' => 'int32',
@@ -108,6 +110,7 @@ class CreateBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
         'name' => 'Name',
         'path' => 'Path',
         'path_threshold' => 'PathThreshold',
+        'project_name' => 'ProjectName',
         'rule_priority' => 'RulePriority',
         'single_proportion' => 'SingleProportion',
         'single_threshold' => 'SingleThreshold',
@@ -132,6 +135,7 @@ class CreateBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
         'name' => 'setName',
         'path' => 'setPath',
         'path_threshold' => 'setPathThreshold',
+        'project_name' => 'setProjectName',
         'rule_priority' => 'setRulePriority',
         'single_proportion' => 'setSingleProportion',
         'single_threshold' => 'setSingleThreshold',
@@ -156,6 +160,7 @@ class CreateBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
         'name' => 'getName',
         'path' => 'getPath',
         'path_threshold' => 'getPathThreshold',
+        'project_name' => 'getProjectName',
         'rule_priority' => 'getRulePriority',
         'single_proportion' => 'getSingleProportion',
         'single_threshold' => 'getSingleThreshold',
@@ -234,6 +239,7 @@ class CreateBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['path'] = isset($data['path']) ? $data['path'] : null;
         $this->container['path_threshold'] = isset($data['path_threshold']) ? $data['path_threshold'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['rule_priority'] = isset($data['rule_priority']) ? $data['rule_priority'] : null;
         $this->container['single_proportion'] = isset($data['single_proportion']) ? $data['single_proportion'] : null;
         $this->container['single_threshold'] = isset($data['single_threshold']) ? $data['single_threshold'] : null;
@@ -558,6 +564,30 @@ class CreateBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
     public function setPathThreshold($path_threshold)
     {
         $this->container['path_threshold'] = $path_threshold;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }

@@ -29,7 +29,8 @@ class DeleteAllowRuleRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'host' => 'string',
-        'id' => 'int'
+        'id' => 'int',
+        'project_name' => 'string'
     ];
 
     /**
@@ -39,7 +40,8 @@ class DeleteAllowRuleRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'host' => null,
-        'id' => 'int32'
+        'id' => 'int32',
+        'project_name' => null
     ];
 
     /**
@@ -70,7 +72,8 @@ class DeleteAllowRuleRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'host' => 'Host',
-        'id' => 'Id'
+        'id' => 'Id',
+        'project_name' => 'ProjectName'
     ];
 
     /**
@@ -80,7 +83,8 @@ class DeleteAllowRuleRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'host' => 'setHost',
-        'id' => 'setId'
+        'id' => 'setId',
+        'project_name' => 'setProjectName'
     ];
 
     /**
@@ -90,7 +94,8 @@ class DeleteAllowRuleRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'host' => 'getHost',
-        'id' => 'getId'
+        'id' => 'getId',
+        'project_name' => 'getProjectName'
     ];
 
     /**
@@ -155,6 +160,7 @@ class DeleteAllowRuleRequest implements ModelInterface, ArrayAccess
     {
         $this->container['host'] = isset($data['host']) ? $data['host'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
     }
 
     /**
@@ -231,6 +237,30 @@ class DeleteAllowRuleRequest implements ModelInterface, ArrayAccess
     public function setId($id)
     {
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }

@@ -41,12 +41,18 @@ class UpdateDomainRequest implements ModelInterface, ArrayAccess
         'client_max_body_size' => 'int',
         'cloud_access_config' => '\Volcengine\Waf\Model\CloudAccessConfigForUpdateDomainInput[]',
         'custom_header' => 'string[]',
+        'custom_sni' => 'string',
         'domain' => 'string',
+        'enable_custom_redirect' => 'int',
         'enable_http2' => 'int',
         'enable_ipv6' => 'int',
+        'enable_sni' => 'int',
         'keep_alive_request' => 'int',
         'keep_alive_time_out' => 'int',
         'lb_algorithm' => 'string',
+        'llm_available' => 'bool',
+        'llm_path_info' => '\Volcengine\Waf\Model\LLMPathInfoForUpdateDomainInput[]',
+        'project_name' => 'string',
         'protocol_follow' => 'int',
         'protocol_ports' => '\Volcengine\Waf\Model\ProtocolPortsForUpdateDomainInput',
         'protocols' => 'string[]',
@@ -63,6 +69,7 @@ class UpdateDomainRequest implements ModelInterface, ArrayAccess
         'ssl_ciphers' => 'string[]',
         'ssl_protocols' => 'string[]',
         'tls_enable' => 'int',
+        'tls_fields_config' => '\Volcengine\Waf\Model\TLSFieldsConfigForUpdateDomainInput',
         'volc_certificate_id' => 'string',
         'vpc_id' => 'string'
     ];
@@ -86,12 +93,18 @@ class UpdateDomainRequest implements ModelInterface, ArrayAccess
         'client_max_body_size' => 'int32',
         'cloud_access_config' => null,
         'custom_header' => null,
+        'custom_sni' => null,
         'domain' => null,
+        'enable_custom_redirect' => 'int32',
         'enable_http2' => 'int32',
         'enable_ipv6' => 'int32',
+        'enable_sni' => 'int32',
         'keep_alive_request' => 'int32',
         'keep_alive_time_out' => 'int32',
         'lb_algorithm' => null,
+        'llm_available' => null,
+        'llm_path_info' => null,
+        'project_name' => null,
         'protocol_follow' => 'int32',
         'protocol_ports' => null,
         'protocols' => null,
@@ -108,6 +121,7 @@ class UpdateDomainRequest implements ModelInterface, ArrayAccess
         'ssl_ciphers' => null,
         'ssl_protocols' => null,
         'tls_enable' => 'int32',
+        'tls_fields_config' => null,
         'volc_certificate_id' => null,
         'vpc_id' => null
     ];
@@ -152,12 +166,18 @@ class UpdateDomainRequest implements ModelInterface, ArrayAccess
         'client_max_body_size' => 'ClientMaxBodySize',
         'cloud_access_config' => 'CloudAccessConfig',
         'custom_header' => 'CustomHeader',
+        'custom_sni' => 'CustomSNI',
         'domain' => 'Domain',
+        'enable_custom_redirect' => 'EnableCustomRedirect',
         'enable_http2' => 'EnableHTTP2',
         'enable_ipv6' => 'EnableIPv6',
+        'enable_sni' => 'EnableSNI',
         'keep_alive_request' => 'KeepAliveRequest',
         'keep_alive_time_out' => 'KeepAliveTimeOut',
         'lb_algorithm' => 'LBAlgorithm',
+        'llm_available' => 'LLMAvailable',
+        'llm_path_info' => 'LLMPathInfo',
+        'project_name' => 'ProjectName',
         'protocol_follow' => 'ProtocolFollow',
         'protocol_ports' => 'ProtocolPorts',
         'protocols' => 'Protocols',
@@ -174,6 +194,7 @@ class UpdateDomainRequest implements ModelInterface, ArrayAccess
         'ssl_ciphers' => 'SSLCiphers',
         'ssl_protocols' => 'SSLProtocols',
         'tls_enable' => 'TLSEnable',
+        'tls_fields_config' => 'TLSFieldsConfig',
         'volc_certificate_id' => 'VolcCertificateID',
         'vpc_id' => 'VpcID'
     ];
@@ -197,12 +218,18 @@ class UpdateDomainRequest implements ModelInterface, ArrayAccess
         'client_max_body_size' => 'setClientMaxBodySize',
         'cloud_access_config' => 'setCloudAccessConfig',
         'custom_header' => 'setCustomHeader',
+        'custom_sni' => 'setCustomSni',
         'domain' => 'setDomain',
+        'enable_custom_redirect' => 'setEnableCustomRedirect',
         'enable_http2' => 'setEnableHttp2',
         'enable_ipv6' => 'setEnableIpv6',
+        'enable_sni' => 'setEnableSni',
         'keep_alive_request' => 'setKeepAliveRequest',
         'keep_alive_time_out' => 'setKeepAliveTimeOut',
         'lb_algorithm' => 'setLbAlgorithm',
+        'llm_available' => 'setLlmAvailable',
+        'llm_path_info' => 'setLlmPathInfo',
+        'project_name' => 'setProjectName',
         'protocol_follow' => 'setProtocolFollow',
         'protocol_ports' => 'setProtocolPorts',
         'protocols' => 'setProtocols',
@@ -219,6 +246,7 @@ class UpdateDomainRequest implements ModelInterface, ArrayAccess
         'ssl_ciphers' => 'setSslCiphers',
         'ssl_protocols' => 'setSslProtocols',
         'tls_enable' => 'setTlsEnable',
+        'tls_fields_config' => 'setTlsFieldsConfig',
         'volc_certificate_id' => 'setVolcCertificateId',
         'vpc_id' => 'setVpcId'
     ];
@@ -242,12 +270,18 @@ class UpdateDomainRequest implements ModelInterface, ArrayAccess
         'client_max_body_size' => 'getClientMaxBodySize',
         'cloud_access_config' => 'getCloudAccessConfig',
         'custom_header' => 'getCustomHeader',
+        'custom_sni' => 'getCustomSni',
         'domain' => 'getDomain',
+        'enable_custom_redirect' => 'getEnableCustomRedirect',
         'enable_http2' => 'getEnableHttp2',
         'enable_ipv6' => 'getEnableIpv6',
+        'enable_sni' => 'getEnableSni',
         'keep_alive_request' => 'getKeepAliveRequest',
         'keep_alive_time_out' => 'getKeepAliveTimeOut',
         'lb_algorithm' => 'getLbAlgorithm',
+        'llm_available' => 'getLlmAvailable',
+        'llm_path_info' => 'getLlmPathInfo',
+        'project_name' => 'getProjectName',
         'protocol_follow' => 'getProtocolFollow',
         'protocol_ports' => 'getProtocolPorts',
         'protocols' => 'getProtocols',
@@ -264,6 +298,7 @@ class UpdateDomainRequest implements ModelInterface, ArrayAccess
         'ssl_ciphers' => 'getSslCiphers',
         'ssl_protocols' => 'getSslProtocols',
         'tls_enable' => 'getTlsEnable',
+        'tls_fields_config' => 'getTlsFieldsConfig',
         'volc_certificate_id' => 'getVolcCertificateId',
         'vpc_id' => 'getVpcId'
     ];
@@ -341,12 +376,18 @@ class UpdateDomainRequest implements ModelInterface, ArrayAccess
         $this->container['client_max_body_size'] = isset($data['client_max_body_size']) ? $data['client_max_body_size'] : null;
         $this->container['cloud_access_config'] = isset($data['cloud_access_config']) ? $data['cloud_access_config'] : null;
         $this->container['custom_header'] = isset($data['custom_header']) ? $data['custom_header'] : null;
+        $this->container['custom_sni'] = isset($data['custom_sni']) ? $data['custom_sni'] : null;
         $this->container['domain'] = isset($data['domain']) ? $data['domain'] : null;
+        $this->container['enable_custom_redirect'] = isset($data['enable_custom_redirect']) ? $data['enable_custom_redirect'] : null;
         $this->container['enable_http2'] = isset($data['enable_http2']) ? $data['enable_http2'] : null;
         $this->container['enable_ipv6'] = isset($data['enable_ipv6']) ? $data['enable_ipv6'] : null;
+        $this->container['enable_sni'] = isset($data['enable_sni']) ? $data['enable_sni'] : null;
         $this->container['keep_alive_request'] = isset($data['keep_alive_request']) ? $data['keep_alive_request'] : null;
         $this->container['keep_alive_time_out'] = isset($data['keep_alive_time_out']) ? $data['keep_alive_time_out'] : null;
         $this->container['lb_algorithm'] = isset($data['lb_algorithm']) ? $data['lb_algorithm'] : null;
+        $this->container['llm_available'] = isset($data['llm_available']) ? $data['llm_available'] : null;
+        $this->container['llm_path_info'] = isset($data['llm_path_info']) ? $data['llm_path_info'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['protocol_follow'] = isset($data['protocol_follow']) ? $data['protocol_follow'] : null;
         $this->container['protocol_ports'] = isset($data['protocol_ports']) ? $data['protocol_ports'] : null;
         $this->container['protocols'] = isset($data['protocols']) ? $data['protocols'] : null;
@@ -363,6 +404,7 @@ class UpdateDomainRequest implements ModelInterface, ArrayAccess
         $this->container['ssl_ciphers'] = isset($data['ssl_ciphers']) ? $data['ssl_ciphers'] : null;
         $this->container['ssl_protocols'] = isset($data['ssl_protocols']) ? $data['ssl_protocols'] : null;
         $this->container['tls_enable'] = isset($data['tls_enable']) ? $data['tls_enable'] : null;
+        $this->container['tls_fields_config'] = isset($data['tls_fields_config']) ? $data['tls_fields_config'] : null;
         $this->container['volc_certificate_id'] = isset($data['volc_certificate_id']) ? $data['volc_certificate_id'] : null;
         $this->container['vpc_id'] = isset($data['vpc_id']) ? $data['vpc_id'] : null;
     }
@@ -713,6 +755,30 @@ class UpdateDomainRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets custom_sni
+     *
+     * @return string
+     */
+    public function getCustomSni()
+    {
+        return $this->container['custom_sni'];
+    }
+
+    /**
+     * Sets custom_sni
+     *
+     * @param string $custom_sni custom_sni
+     *
+     * @return $this
+     */
+    public function setCustomSni($custom_sni)
+    {
+        $this->container['custom_sni'] = $custom_sni;
+
+        return $this;
+    }
+
+    /**
      * Gets domain
      *
      * @return string
@@ -732,6 +798,30 @@ class UpdateDomainRequest implements ModelInterface, ArrayAccess
     public function setDomain($domain)
     {
         $this->container['domain'] = $domain;
+
+        return $this;
+    }
+
+    /**
+     * Gets enable_custom_redirect
+     *
+     * @return int
+     */
+    public function getEnableCustomRedirect()
+    {
+        return $this->container['enable_custom_redirect'];
+    }
+
+    /**
+     * Sets enable_custom_redirect
+     *
+     * @param int $enable_custom_redirect enable_custom_redirect
+     *
+     * @return $this
+     */
+    public function setEnableCustomRedirect($enable_custom_redirect)
+    {
+        $this->container['enable_custom_redirect'] = $enable_custom_redirect;
 
         return $this;
     }
@@ -780,6 +870,30 @@ class UpdateDomainRequest implements ModelInterface, ArrayAccess
     public function setEnableIpv6($enable_ipv6)
     {
         $this->container['enable_ipv6'] = $enable_ipv6;
+
+        return $this;
+    }
+
+    /**
+     * Gets enable_sni
+     *
+     * @return int
+     */
+    public function getEnableSni()
+    {
+        return $this->container['enable_sni'];
+    }
+
+    /**
+     * Sets enable_sni
+     *
+     * @param int $enable_sni enable_sni
+     *
+     * @return $this
+     */
+    public function setEnableSni($enable_sni)
+    {
+        $this->container['enable_sni'] = $enable_sni;
 
         return $this;
     }
@@ -852,6 +966,78 @@ class UpdateDomainRequest implements ModelInterface, ArrayAccess
     public function setLbAlgorithm($lb_algorithm)
     {
         $this->container['lb_algorithm'] = $lb_algorithm;
+
+        return $this;
+    }
+
+    /**
+     * Gets llm_available
+     *
+     * @return bool
+     */
+    public function getLlmAvailable()
+    {
+        return $this->container['llm_available'];
+    }
+
+    /**
+     * Sets llm_available
+     *
+     * @param bool $llm_available llm_available
+     *
+     * @return $this
+     */
+    public function setLlmAvailable($llm_available)
+    {
+        $this->container['llm_available'] = $llm_available;
+
+        return $this;
+    }
+
+    /**
+     * Gets llm_path_info
+     *
+     * @return \Volcengine\Waf\Model\LLMPathInfoForUpdateDomainInput[]
+     */
+    public function getLlmPathInfo()
+    {
+        return $this->container['llm_path_info'];
+    }
+
+    /**
+     * Sets llm_path_info
+     *
+     * @param \Volcengine\Waf\Model\LLMPathInfoForUpdateDomainInput[] $llm_path_info llm_path_info
+     *
+     * @return $this
+     */
+    public function setLlmPathInfo($llm_path_info)
+    {
+        $this->container['llm_path_info'] = $llm_path_info;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }
@@ -1236,6 +1422,30 @@ class UpdateDomainRequest implements ModelInterface, ArrayAccess
     public function setTlsEnable($tls_enable)
     {
         $this->container['tls_enable'] = $tls_enable;
+
+        return $this;
+    }
+
+    /**
+     * Gets tls_fields_config
+     *
+     * @return \Volcengine\Waf\Model\TLSFieldsConfigForUpdateDomainInput
+     */
+    public function getTlsFieldsConfig()
+    {
+        return $this->container['tls_fields_config'];
+    }
+
+    /**
+     * Sets tls_fields_config
+     *
+     * @param \Volcengine\Waf\Model\TLSFieldsConfigForUpdateDomainInput $tls_fields_config tls_fields_config
+     *
+     * @return $this
+     */
+    public function setTlsFieldsConfig($tls_fields_config)
+    {
+        $this->container['tls_fields_config'] = $tls_fields_config;
 
         return $this;
     }

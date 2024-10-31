@@ -31,7 +31,8 @@ class UpdateSystemBotConfigRequest implements ModelInterface, ArrayAccess
         'action' => 'string',
         'bot_type' => 'string',
         'enable' => 'int',
-        'host' => 'string'
+        'host' => 'string',
+        'project_name' => 'string'
     ];
 
     /**
@@ -43,7 +44,8 @@ class UpdateSystemBotConfigRequest implements ModelInterface, ArrayAccess
         'action' => null,
         'bot_type' => null,
         'enable' => 'int32',
-        'host' => null
+        'host' => null,
+        'project_name' => null
     ];
 
     /**
@@ -76,7 +78,8 @@ class UpdateSystemBotConfigRequest implements ModelInterface, ArrayAccess
         'action' => 'Action',
         'bot_type' => 'BotType',
         'enable' => 'Enable',
-        'host' => 'Host'
+        'host' => 'Host',
+        'project_name' => 'ProjectName'
     ];
 
     /**
@@ -88,7 +91,8 @@ class UpdateSystemBotConfigRequest implements ModelInterface, ArrayAccess
         'action' => 'setAction',
         'bot_type' => 'setBotType',
         'enable' => 'setEnable',
-        'host' => 'setHost'
+        'host' => 'setHost',
+        'project_name' => 'setProjectName'
     ];
 
     /**
@@ -100,7 +104,8 @@ class UpdateSystemBotConfigRequest implements ModelInterface, ArrayAccess
         'action' => 'getAction',
         'bot_type' => 'getBotType',
         'enable' => 'getEnable',
-        'host' => 'getHost'
+        'host' => 'getHost',
+        'project_name' => 'getProjectName'
     ];
 
     /**
@@ -167,6 +172,7 @@ class UpdateSystemBotConfigRequest implements ModelInterface, ArrayAccess
         $this->container['bot_type'] = isset($data['bot_type']) ? $data['bot_type'] : null;
         $this->container['enable'] = isset($data['enable']) ? $data['enable'] : null;
         $this->container['host'] = isset($data['host']) ? $data['host'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
     }
 
     /**
@@ -291,6 +297,30 @@ class UpdateSystemBotConfigRequest implements ModelInterface, ArrayAccess
     public function setHost($host)
     {
         $this->container['host'] = $host;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }

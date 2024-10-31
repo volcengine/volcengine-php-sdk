@@ -34,7 +34,8 @@ class UpdateCustomBotConfigRequest implements ModelInterface, ArrayAccess
         'description' => 'string',
         'enable' => 'int',
         'host' => 'string',
-        'id' => 'int'
+        'id' => 'int',
+        'project_name' => 'string'
     ];
 
     /**
@@ -49,7 +50,8 @@ class UpdateCustomBotConfigRequest implements ModelInterface, ArrayAccess
         'description' => null,
         'enable' => 'int32',
         'host' => null,
-        'id' => 'int32'
+        'id' => 'int32',
+        'project_name' => null
     ];
 
     /**
@@ -85,7 +87,8 @@ class UpdateCustomBotConfigRequest implements ModelInterface, ArrayAccess
         'description' => 'Description',
         'enable' => 'Enable',
         'host' => 'Host',
-        'id' => 'Id'
+        'id' => 'Id',
+        'project_name' => 'ProjectName'
     ];
 
     /**
@@ -100,7 +103,8 @@ class UpdateCustomBotConfigRequest implements ModelInterface, ArrayAccess
         'description' => 'setDescription',
         'enable' => 'setEnable',
         'host' => 'setHost',
-        'id' => 'setId'
+        'id' => 'setId',
+        'project_name' => 'setProjectName'
     ];
 
     /**
@@ -115,7 +119,8 @@ class UpdateCustomBotConfigRequest implements ModelInterface, ArrayAccess
         'description' => 'getDescription',
         'enable' => 'getEnable',
         'host' => 'getHost',
-        'id' => 'getId'
+        'id' => 'getId',
+        'project_name' => 'getProjectName'
     ];
 
     /**
@@ -185,6 +190,7 @@ class UpdateCustomBotConfigRequest implements ModelInterface, ArrayAccess
         $this->container['enable'] = isset($data['enable']) ? $data['enable'] : null;
         $this->container['host'] = isset($data['host']) ? $data['host'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
     }
 
     /**
@@ -390,6 +396,30 @@ class UpdateCustomBotConfigRequest implements ModelInterface, ArrayAccess
     public function setId($id)
     {
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }

@@ -30,7 +30,8 @@ class AddIpGroupRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'add_type' => 'string',
         'ip_list' => 'string[]',
-        'name' => 'string'
+        'name' => 'string',
+        'project_name' => 'string'
     ];
 
     /**
@@ -41,7 +42,8 @@ class AddIpGroupRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'add_type' => null,
         'ip_list' => null,
-        'name' => null
+        'name' => null,
+        'project_name' => null
     ];
 
     /**
@@ -73,7 +75,8 @@ class AddIpGroupRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'add_type' => 'AddType',
         'ip_list' => 'IpList',
-        'name' => 'Name'
+        'name' => 'Name',
+        'project_name' => 'ProjectName'
     ];
 
     /**
@@ -84,7 +87,8 @@ class AddIpGroupRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'add_type' => 'setAddType',
         'ip_list' => 'setIpList',
-        'name' => 'setName'
+        'name' => 'setName',
+        'project_name' => 'setProjectName'
     ];
 
     /**
@@ -95,7 +99,8 @@ class AddIpGroupRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'add_type' => 'getAddType',
         'ip_list' => 'getIpList',
-        'name' => 'getName'
+        'name' => 'getName',
+        'project_name' => 'getProjectName'
     ];
 
     /**
@@ -161,6 +166,7 @@ class AddIpGroupRequest implements ModelInterface, ArrayAccess
         $this->container['add_type'] = isset($data['add_type']) ? $data['add_type'] : null;
         $this->container['ip_list'] = isset($data['ip_list']) ? $data['ip_list'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
     }
 
     /**
@@ -261,6 +267,30 @@ class AddIpGroupRequest implements ModelInterface, ArrayAccess
     public function setName($name)
     {
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }

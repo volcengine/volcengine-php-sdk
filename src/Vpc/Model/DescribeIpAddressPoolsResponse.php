@@ -30,9 +30,7 @@ class DescribeIpAddressPoolsResponse implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'ip_address_pools' => '\Volcengine\Vpc\Model\IpAddressPoolForDescribeIpAddressPoolsOutput[]',
         'next_token' => 'string',
-        'page_number' => 'int',
-        'request_id' => 'string',
-        'total_count' => 'int'
+        'request_id' => 'string'
     ];
 
     /**
@@ -43,9 +41,7 @@ class DescribeIpAddressPoolsResponse implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'ip_address_pools' => null,
         'next_token' => null,
-        'page_number' => null,
-        'request_id' => null,
-        'total_count' => null
+        'request_id' => null
     ];
 
     /**
@@ -77,9 +73,7 @@ class DescribeIpAddressPoolsResponse implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'ip_address_pools' => 'IpAddressPools',
         'next_token' => 'NextToken',
-        'page_number' => 'PageNumber',
-        'request_id' => 'RequestId',
-        'total_count' => 'TotalCount'
+        'request_id' => 'RequestId'
     ];
 
     /**
@@ -90,9 +84,7 @@ class DescribeIpAddressPoolsResponse implements ModelInterface, ArrayAccess
     protected static $setters = [
         'ip_address_pools' => 'setIpAddressPools',
         'next_token' => 'setNextToken',
-        'page_number' => 'setPageNumber',
-        'request_id' => 'setRequestId',
-        'total_count' => 'setTotalCount'
+        'request_id' => 'setRequestId'
     ];
 
     /**
@@ -103,9 +95,7 @@ class DescribeIpAddressPoolsResponse implements ModelInterface, ArrayAccess
     protected static $getters = [
         'ip_address_pools' => 'getIpAddressPools',
         'next_token' => 'getNextToken',
-        'page_number' => 'getPageNumber',
-        'request_id' => 'getRequestId',
-        'total_count' => 'getTotalCount'
+        'request_id' => 'getRequestId'
     ];
 
     /**
@@ -170,9 +160,7 @@ class DescribeIpAddressPoolsResponse implements ModelInterface, ArrayAccess
     {
         $this->container['ip_address_pools'] = isset($data['ip_address_pools']) ? $data['ip_address_pools'] : null;
         $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
-        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
         $this->container['request_id'] = isset($data['request_id']) ? $data['request_id'] : null;
-        $this->container['total_count'] = isset($data['total_count']) ? $data['total_count'] : null;
     }
 
     /**
@@ -248,30 +236,6 @@ class DescribeIpAddressPoolsResponse implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets page_number
-     *
-     * @return int
-     */
-    public function getPageNumber()
-    {
-        return $this->container['page_number'];
-    }
-
-    /**
-     * Sets page_number
-     *
-     * @param int $page_number page_number
-     *
-     * @return $this
-     */
-    public function setPageNumber($page_number)
-    {
-        $this->container['page_number'] = $page_number;
-
-        return $this;
-    }
-
-    /**
      * Gets request_id
      *
      * @return string
@@ -291,30 +255,6 @@ class DescribeIpAddressPoolsResponse implements ModelInterface, ArrayAccess
     public function setRequestId($request_id)
     {
         $this->container['request_id'] = $request_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_count
-     *
-     * @return int
-     */
-    public function getTotalCount()
-    {
-        return $this->container['total_count'];
-    }
-
-    /**
-     * Sets total_count
-     *
-     * @param int $total_count total_count
-     *
-     * @return $this
-     */
-    public function setTotalCount($total_count)
-    {
-        $this->container['total_count'] = $total_count;
 
         return $this;
     }

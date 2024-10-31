@@ -33,7 +33,7 @@ class PrefixListForDescribePrefixListsOutput implements ModelInterface, ArrayAcc
         'creation_time' => 'string',
         'description' => 'string',
         'ip_version' => 'string',
-        'max_entries' => 'string',
+        'max_entries' => 'int',
         'prefix_list_id' => 'string',
         'prefix_list_name' => 'string',
         'project_name' => 'string',
@@ -364,7 +364,7 @@ class PrefixListForDescribePrefixListsOutput implements ModelInterface, ArrayAcc
     /**
      * Gets max_entries
      *
-     * @return string
+     * @return int
      */
     public function getMaxEntries()
     {
@@ -374,7 +374,7 @@ class PrefixListForDescribePrefixListsOutput implements ModelInterface, ArrayAcc
     /**
      * Sets max_entries
      *
-     * @param string $max_entries max_entries
+     * @param int $max_entries max_entries
      *
      * @return $this
      */
