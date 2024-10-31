@@ -30,7 +30,8 @@ class ListBlockRuleRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'host' => 'string',
         'page' => 'int',
-        'page_size' => 'int'
+        'page_size' => 'int',
+        'project_name' => 'string'
     ];
 
     /**
@@ -41,7 +42,8 @@ class ListBlockRuleRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'host' => null,
         'page' => 'int32',
-        'page_size' => 'int32'
+        'page_size' => 'int32',
+        'project_name' => null
     ];
 
     /**
@@ -73,7 +75,8 @@ class ListBlockRuleRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'host' => 'Host',
         'page' => 'Page',
-        'page_size' => 'PageSize'
+        'page_size' => 'PageSize',
+        'project_name' => 'ProjectName'
     ];
 
     /**
@@ -84,7 +87,8 @@ class ListBlockRuleRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'host' => 'setHost',
         'page' => 'setPage',
-        'page_size' => 'setPageSize'
+        'page_size' => 'setPageSize',
+        'project_name' => 'setProjectName'
     ];
 
     /**
@@ -95,7 +99,8 @@ class ListBlockRuleRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'host' => 'getHost',
         'page' => 'getPage',
-        'page_size' => 'getPageSize'
+        'page_size' => 'getPageSize',
+        'project_name' => 'getProjectName'
     ];
 
     /**
@@ -161,6 +166,7 @@ class ListBlockRuleRequest implements ModelInterface, ArrayAccess
         $this->container['host'] = isset($data['host']) ? $data['host'] : null;
         $this->container['page'] = isset($data['page']) ? $data['page'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
     }
 
     /**
@@ -258,6 +264,30 @@ class ListBlockRuleRequest implements ModelInterface, ArrayAccess
     public function setPageSize($page_size)
     {
         $this->container['page_size'] = $page_size;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }

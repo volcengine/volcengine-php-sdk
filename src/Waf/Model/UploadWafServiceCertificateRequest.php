@@ -31,6 +31,7 @@ class UploadWafServiceCertificateRequest implements ModelInterface, ArrayAccess
         'description' => 'string',
         'name' => 'string',
         'private_key' => 'string',
+        'project_name' => 'string',
         'public_key' => 'string'
     ];
 
@@ -43,6 +44,7 @@ class UploadWafServiceCertificateRequest implements ModelInterface, ArrayAccess
         'description' => null,
         'name' => null,
         'private_key' => null,
+        'project_name' => null,
         'public_key' => null
     ];
 
@@ -76,6 +78,7 @@ class UploadWafServiceCertificateRequest implements ModelInterface, ArrayAccess
         'description' => 'Description',
         'name' => 'Name',
         'private_key' => 'PrivateKey',
+        'project_name' => 'ProjectName',
         'public_key' => 'PublicKey'
     ];
 
@@ -88,6 +91,7 @@ class UploadWafServiceCertificateRequest implements ModelInterface, ArrayAccess
         'description' => 'setDescription',
         'name' => 'setName',
         'private_key' => 'setPrivateKey',
+        'project_name' => 'setProjectName',
         'public_key' => 'setPublicKey'
     ];
 
@@ -100,6 +104,7 @@ class UploadWafServiceCertificateRequest implements ModelInterface, ArrayAccess
         'description' => 'getDescription',
         'name' => 'getName',
         'private_key' => 'getPrivateKey',
+        'project_name' => 'getProjectName',
         'public_key' => 'getPublicKey'
     ];
 
@@ -166,6 +171,7 @@ class UploadWafServiceCertificateRequest implements ModelInterface, ArrayAccess
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['private_key'] = isset($data['private_key']) ? $data['private_key'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['public_key'] = isset($data['public_key']) ? $data['public_key'] : null;
     }
 
@@ -273,6 +279,30 @@ class UploadWafServiceCertificateRequest implements ModelInterface, ArrayAccess
     public function setPrivateKey($private_key)
     {
         $this->container['private_key'] = $private_key;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }

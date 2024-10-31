@@ -29,8 +29,10 @@ class CreateDomainResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'cname' => 'string',
+        'default_module_quick_conf' => '\Volcengine\Waf\Model\DefaultModuleQuickConfForCreateDomainOutput',
         'domain' => 'string',
-        'server_ips' => 'string'
+        'server_ips' => 'string',
+        'src_ips' => 'string'
     ];
 
     /**
@@ -40,8 +42,10 @@ class CreateDomainResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'cname' => null,
+        'default_module_quick_conf' => null,
         'domain' => null,
-        'server_ips' => null
+        'server_ips' => null,
+        'src_ips' => null
     ];
 
     /**
@@ -72,8 +76,10 @@ class CreateDomainResponse implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'cname' => 'Cname',
+        'default_module_quick_conf' => 'DefaultModuleQuickConf',
         'domain' => 'Domain',
-        'server_ips' => 'ServerIps'
+        'server_ips' => 'ServerIps',
+        'src_ips' => 'SrcIps'
     ];
 
     /**
@@ -83,8 +89,10 @@ class CreateDomainResponse implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'cname' => 'setCname',
+        'default_module_quick_conf' => 'setDefaultModuleQuickConf',
         'domain' => 'setDomain',
-        'server_ips' => 'setServerIps'
+        'server_ips' => 'setServerIps',
+        'src_ips' => 'setSrcIps'
     ];
 
     /**
@@ -94,8 +102,10 @@ class CreateDomainResponse implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'cname' => 'getCname',
+        'default_module_quick_conf' => 'getDefaultModuleQuickConf',
         'domain' => 'getDomain',
-        'server_ips' => 'getServerIps'
+        'server_ips' => 'getServerIps',
+        'src_ips' => 'getSrcIps'
     ];
 
     /**
@@ -159,8 +169,10 @@ class CreateDomainResponse implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['cname'] = isset($data['cname']) ? $data['cname'] : null;
+        $this->container['default_module_quick_conf'] = isset($data['default_module_quick_conf']) ? $data['default_module_quick_conf'] : null;
         $this->container['domain'] = isset($data['domain']) ? $data['domain'] : null;
         $this->container['server_ips'] = isset($data['server_ips']) ? $data['server_ips'] : null;
+        $this->container['src_ips'] = isset($data['src_ips']) ? $data['src_ips'] : null;
     }
 
     /**
@@ -212,6 +224,30 @@ class CreateDomainResponse implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets default_module_quick_conf
+     *
+     * @return \Volcengine\Waf\Model\DefaultModuleQuickConfForCreateDomainOutput
+     */
+    public function getDefaultModuleQuickConf()
+    {
+        return $this->container['default_module_quick_conf'];
+    }
+
+    /**
+     * Sets default_module_quick_conf
+     *
+     * @param \Volcengine\Waf\Model\DefaultModuleQuickConfForCreateDomainOutput $default_module_quick_conf default_module_quick_conf
+     *
+     * @return $this
+     */
+    public function setDefaultModuleQuickConf($default_module_quick_conf)
+    {
+        $this->container['default_module_quick_conf'] = $default_module_quick_conf;
+
+        return $this;
+    }
+
+    /**
      * Gets domain
      *
      * @return string
@@ -255,6 +291,30 @@ class CreateDomainResponse implements ModelInterface, ArrayAccess
     public function setServerIps($server_ips)
     {
         $this->container['server_ips'] = $server_ips;
+
+        return $this;
+    }
+
+    /**
+     * Gets src_ips
+     *
+     * @return string
+     */
+    public function getSrcIps()
+    {
+        return $this->container['src_ips'];
+    }
+
+    /**
+     * Sets src_ips
+     *
+     * @param string $src_ips src_ips
+     *
+     * @return $this
+     */
+    public function setSrcIps($src_ips)
+    {
+        $this->container['src_ips'] = $src_ips;
 
         return $this;
     }

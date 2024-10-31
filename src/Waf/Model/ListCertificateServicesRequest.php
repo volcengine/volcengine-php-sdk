@@ -29,7 +29,8 @@ class ListCertificateServicesRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'clb_certificate_id' => 'string',
-        'id' => 'int'
+        'id' => 'int',
+        'project_name' => 'string'
     ];
 
     /**
@@ -39,7 +40,8 @@ class ListCertificateServicesRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'clb_certificate_id' => null,
-        'id' => 'int32'
+        'id' => 'int32',
+        'project_name' => null
     ];
 
     /**
@@ -70,7 +72,8 @@ class ListCertificateServicesRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'clb_certificate_id' => 'ClbCertificateId',
-        'id' => 'Id'
+        'id' => 'Id',
+        'project_name' => 'ProjectName'
     ];
 
     /**
@@ -80,7 +83,8 @@ class ListCertificateServicesRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'clb_certificate_id' => 'setClbCertificateId',
-        'id' => 'setId'
+        'id' => 'setId',
+        'project_name' => 'setProjectName'
     ];
 
     /**
@@ -90,7 +94,8 @@ class ListCertificateServicesRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'clb_certificate_id' => 'getClbCertificateId',
-        'id' => 'getId'
+        'id' => 'getId',
+        'project_name' => 'getProjectName'
     ];
 
     /**
@@ -155,6 +160,7 @@ class ListCertificateServicesRequest implements ModelInterface, ArrayAccess
     {
         $this->container['clb_certificate_id'] = isset($data['clb_certificate_id']) ? $data['clb_certificate_id'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
     }
 
     /**
@@ -228,6 +234,30 @@ class ListCertificateServicesRequest implements ModelInterface, ArrayAccess
     public function setId($id)
     {
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }

@@ -33,7 +33,8 @@ class CreateCustomBotConfigRequest implements ModelInterface, ArrayAccess
         'bot_type' => 'string',
         'description' => 'string',
         'enable' => 'int',
-        'host' => 'string'
+        'host' => 'string',
+        'project_name' => 'string'
     ];
 
     /**
@@ -47,7 +48,8 @@ class CreateCustomBotConfigRequest implements ModelInterface, ArrayAccess
         'bot_type' => null,
         'description' => null,
         'enable' => 'int32',
-        'host' => null
+        'host' => null,
+        'project_name' => null
     ];
 
     /**
@@ -82,7 +84,8 @@ class CreateCustomBotConfigRequest implements ModelInterface, ArrayAccess
         'bot_type' => 'BotType',
         'description' => 'Description',
         'enable' => 'Enable',
-        'host' => 'Host'
+        'host' => 'Host',
+        'project_name' => 'ProjectName'
     ];
 
     /**
@@ -96,7 +99,8 @@ class CreateCustomBotConfigRequest implements ModelInterface, ArrayAccess
         'bot_type' => 'setBotType',
         'description' => 'setDescription',
         'enable' => 'setEnable',
-        'host' => 'setHost'
+        'host' => 'setHost',
+        'project_name' => 'setProjectName'
     ];
 
     /**
@@ -110,7 +114,8 @@ class CreateCustomBotConfigRequest implements ModelInterface, ArrayAccess
         'bot_type' => 'getBotType',
         'description' => 'getDescription',
         'enable' => 'getEnable',
-        'host' => 'getHost'
+        'host' => 'getHost',
+        'project_name' => 'getProjectName'
     ];
 
     /**
@@ -179,6 +184,7 @@ class CreateCustomBotConfigRequest implements ModelInterface, ArrayAccess
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['enable'] = isset($data['enable']) ? $data['enable'] : null;
         $this->container['host'] = isset($data['host']) ? $data['host'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
     }
 
     /**
@@ -357,6 +363,30 @@ class CreateCustomBotConfigRequest implements ModelInterface, ArrayAccess
     public function setHost($host)
     {
         $this->container['host'] = $host;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }

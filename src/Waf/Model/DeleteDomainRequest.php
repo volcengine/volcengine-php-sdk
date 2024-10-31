@@ -29,6 +29,7 @@ class DeleteDomainRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'domain' => 'string',
+        'project_name' => 'string',
         'region' => 'string'
     ];
 
@@ -39,6 +40,7 @@ class DeleteDomainRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'domain' => null,
+        'project_name' => null,
         'region' => null
     ];
 
@@ -70,6 +72,7 @@ class DeleteDomainRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'domain' => 'Domain',
+        'project_name' => 'ProjectName',
         'region' => 'Region'
     ];
 
@@ -80,6 +83,7 @@ class DeleteDomainRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'domain' => 'setDomain',
+        'project_name' => 'setProjectName',
         'region' => 'setRegion'
     ];
 
@@ -90,6 +94,7 @@ class DeleteDomainRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'domain' => 'getDomain',
+        'project_name' => 'getProjectName',
         'region' => 'getRegion'
     ];
 
@@ -154,6 +159,7 @@ class DeleteDomainRequest implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['domain'] = isset($data['domain']) ? $data['domain'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['region'] = isset($data['region']) ? $data['region'] : null;
     }
 
@@ -207,6 +213,30 @@ class DeleteDomainRequest implements ModelInterface, ArrayAccess
     public function setDomain($domain)
     {
         $this->container['domain'] = $domain;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }

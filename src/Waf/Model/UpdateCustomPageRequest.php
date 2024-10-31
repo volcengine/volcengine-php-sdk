@@ -42,6 +42,7 @@ class UpdateCustomPageRequest implements ModelInterface, ArrayAccess
         'name' => 'string',
         'page_mode' => 'int',
         'policy' => 'int',
+        'project_name' => 'string',
         'redirect_url' => 'string',
         'url' => 'string'
     ];
@@ -66,6 +67,7 @@ class UpdateCustomPageRequest implements ModelInterface, ArrayAccess
         'name' => null,
         'page_mode' => 'int32',
         'policy' => 'int32',
+        'project_name' => null,
         'redirect_url' => null,
         'url' => null
     ];
@@ -111,6 +113,7 @@ class UpdateCustomPageRequest implements ModelInterface, ArrayAccess
         'name' => 'Name',
         'page_mode' => 'PageMode',
         'policy' => 'Policy',
+        'project_name' => 'ProjectName',
         'redirect_url' => 'RedirectUrl',
         'url' => 'Url'
     ];
@@ -135,6 +138,7 @@ class UpdateCustomPageRequest implements ModelInterface, ArrayAccess
         'name' => 'setName',
         'page_mode' => 'setPageMode',
         'policy' => 'setPolicy',
+        'project_name' => 'setProjectName',
         'redirect_url' => 'setRedirectUrl',
         'url' => 'setUrl'
     ];
@@ -159,6 +163,7 @@ class UpdateCustomPageRequest implements ModelInterface, ArrayAccess
         'name' => 'getName',
         'page_mode' => 'getPageMode',
         'policy' => 'getPolicy',
+        'project_name' => 'getProjectName',
         'redirect_url' => 'getRedirectUrl',
         'url' => 'getUrl'
     ];
@@ -237,6 +242,7 @@ class UpdateCustomPageRequest implements ModelInterface, ArrayAccess
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['page_mode'] = isset($data['page_mode']) ? $data['page_mode'] : null;
         $this->container['policy'] = isset($data['policy']) ? $data['policy'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['redirect_url'] = isset($data['redirect_url']) ? $data['redirect_url'] : null;
         $this->container['url'] = isset($data['url']) ? $data['url'] : null;
     }
@@ -624,6 +630,30 @@ class UpdateCustomPageRequest implements ModelInterface, ArrayAccess
     public function setPolicy($policy)
     {
         $this->container['policy'] = $policy;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }

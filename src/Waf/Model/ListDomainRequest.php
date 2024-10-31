@@ -28,12 +28,27 @@ class ListDomainRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'alb_instance_id' => 'string',
+        'access_mode' => 'int[]',
         'accurate_query' => 'int',
+        'attack_status' => 'int[]',
+        'client_ip' => 'string',
+        'defence_mode' => 'int[]',
         'domain' => 'string',
+        'domain_or_path' => 'string',
+        'lb_info' => '\Volcengine\Waf\Model\LBInfoForListDomainInput[]',
         'page' => 'int',
         'page_size' => 'int',
-        'region' => 'string'
+        'public_real_server' => 'int[]',
+        'region' => 'string',
+        'sort_by_create_time' => 'string',
+        'sort_by_domain_name' => 'string',
+        'sort_by_update_time' => 'string',
+        'status' => 'int[]',
+        'tls_enable' => 'int[]',
+        'vpc_id' => 'string',
+        'vpc_name' => 'string',
+        'vpc_owner_id' => 'string',
+        'vpc_owner_name' => 'string'
     ];
 
     /**
@@ -42,12 +57,27 @@ class ListDomainRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'alb_instance_id' => null,
+        'access_mode' => 'int32',
         'accurate_query' => 'int32',
+        'attack_status' => 'int32',
+        'client_ip' => null,
+        'defence_mode' => 'int32',
         'domain' => null,
+        'domain_or_path' => null,
+        'lb_info' => null,
         'page' => 'int32',
         'page_size' => 'int32',
-        'region' => null
+        'public_real_server' => 'int32',
+        'region' => null,
+        'sort_by_create_time' => null,
+        'sort_by_domain_name' => null,
+        'sort_by_update_time' => null,
+        'status' => 'int32',
+        'tls_enable' => 'int32',
+        'vpc_id' => null,
+        'vpc_name' => null,
+        'vpc_owner_id' => null,
+        'vpc_owner_name' => null
     ];
 
     /**
@@ -77,12 +107,27 @@ class ListDomainRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'alb_instance_id' => 'ALBInstanceID',
+        'access_mode' => 'AccessMode',
         'accurate_query' => 'AccurateQuery',
+        'attack_status' => 'AttackStatus',
+        'client_ip' => 'ClientIp',
+        'defence_mode' => 'DefenceMode',
         'domain' => 'Domain',
+        'domain_or_path' => 'DomainOrPath',
+        'lb_info' => 'LBInfo',
         'page' => 'Page',
         'page_size' => 'PageSize',
-        'region' => 'Region'
+        'public_real_server' => 'PublicRealServer',
+        'region' => 'Region',
+        'sort_by_create_time' => 'SortByCreateTime',
+        'sort_by_domain_name' => 'SortByDomainName',
+        'sort_by_update_time' => 'SortByUpdateTime',
+        'status' => 'Status',
+        'tls_enable' => 'TLSEnable',
+        'vpc_id' => 'VpcId',
+        'vpc_name' => 'VpcName',
+        'vpc_owner_id' => 'VpcOwnerId',
+        'vpc_owner_name' => 'VpcOwnerName'
     ];
 
     /**
@@ -91,12 +136,27 @@ class ListDomainRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'alb_instance_id' => 'setAlbInstanceId',
+        'access_mode' => 'setAccessMode',
         'accurate_query' => 'setAccurateQuery',
+        'attack_status' => 'setAttackStatus',
+        'client_ip' => 'setClientIp',
+        'defence_mode' => 'setDefenceMode',
         'domain' => 'setDomain',
+        'domain_or_path' => 'setDomainOrPath',
+        'lb_info' => 'setLbInfo',
         'page' => 'setPage',
         'page_size' => 'setPageSize',
-        'region' => 'setRegion'
+        'public_real_server' => 'setPublicRealServer',
+        'region' => 'setRegion',
+        'sort_by_create_time' => 'setSortByCreateTime',
+        'sort_by_domain_name' => 'setSortByDomainName',
+        'sort_by_update_time' => 'setSortByUpdateTime',
+        'status' => 'setStatus',
+        'tls_enable' => 'setTlsEnable',
+        'vpc_id' => 'setVpcId',
+        'vpc_name' => 'setVpcName',
+        'vpc_owner_id' => 'setVpcOwnerId',
+        'vpc_owner_name' => 'setVpcOwnerName'
     ];
 
     /**
@@ -105,12 +165,27 @@ class ListDomainRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'alb_instance_id' => 'getAlbInstanceId',
+        'access_mode' => 'getAccessMode',
         'accurate_query' => 'getAccurateQuery',
+        'attack_status' => 'getAttackStatus',
+        'client_ip' => 'getClientIp',
+        'defence_mode' => 'getDefenceMode',
         'domain' => 'getDomain',
+        'domain_or_path' => 'getDomainOrPath',
+        'lb_info' => 'getLbInfo',
         'page' => 'getPage',
         'page_size' => 'getPageSize',
-        'region' => 'getRegion'
+        'public_real_server' => 'getPublicRealServer',
+        'region' => 'getRegion',
+        'sort_by_create_time' => 'getSortByCreateTime',
+        'sort_by_domain_name' => 'getSortByDomainName',
+        'sort_by_update_time' => 'getSortByUpdateTime',
+        'status' => 'getStatus',
+        'tls_enable' => 'getTlsEnable',
+        'vpc_id' => 'getVpcId',
+        'vpc_name' => 'getVpcName',
+        'vpc_owner_id' => 'getVpcOwnerId',
+        'vpc_owner_name' => 'getVpcOwnerName'
     ];
 
     /**
@@ -173,12 +248,27 @@ class ListDomainRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['alb_instance_id'] = isset($data['alb_instance_id']) ? $data['alb_instance_id'] : null;
+        $this->container['access_mode'] = isset($data['access_mode']) ? $data['access_mode'] : null;
         $this->container['accurate_query'] = isset($data['accurate_query']) ? $data['accurate_query'] : null;
+        $this->container['attack_status'] = isset($data['attack_status']) ? $data['attack_status'] : null;
+        $this->container['client_ip'] = isset($data['client_ip']) ? $data['client_ip'] : null;
+        $this->container['defence_mode'] = isset($data['defence_mode']) ? $data['defence_mode'] : null;
         $this->container['domain'] = isset($data['domain']) ? $data['domain'] : null;
+        $this->container['domain_or_path'] = isset($data['domain_or_path']) ? $data['domain_or_path'] : null;
+        $this->container['lb_info'] = isset($data['lb_info']) ? $data['lb_info'] : null;
         $this->container['page'] = isset($data['page']) ? $data['page'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
+        $this->container['public_real_server'] = isset($data['public_real_server']) ? $data['public_real_server'] : null;
         $this->container['region'] = isset($data['region']) ? $data['region'] : null;
+        $this->container['sort_by_create_time'] = isset($data['sort_by_create_time']) ? $data['sort_by_create_time'] : null;
+        $this->container['sort_by_domain_name'] = isset($data['sort_by_domain_name']) ? $data['sort_by_domain_name'] : null;
+        $this->container['sort_by_update_time'] = isset($data['sort_by_update_time']) ? $data['sort_by_update_time'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['tls_enable'] = isset($data['tls_enable']) ? $data['tls_enable'] : null;
+        $this->container['vpc_id'] = isset($data['vpc_id']) ? $data['vpc_id'] : null;
+        $this->container['vpc_name'] = isset($data['vpc_name']) ? $data['vpc_name'] : null;
+        $this->container['vpc_owner_id'] = isset($data['vpc_owner_id']) ? $data['vpc_owner_id'] : null;
+        $this->container['vpc_owner_name'] = isset($data['vpc_owner_name']) ? $data['vpc_owner_name'] : null;
     }
 
     /**
@@ -218,25 +308,25 @@ class ListDomainRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets alb_instance_id
+     * Gets access_mode
      *
-     * @return string
+     * @return int[]
      */
-    public function getAlbInstanceId()
+    public function getAccessMode()
     {
-        return $this->container['alb_instance_id'];
+        return $this->container['access_mode'];
     }
 
     /**
-     * Sets alb_instance_id
+     * Sets access_mode
      *
-     * @param string $alb_instance_id alb_instance_id
+     * @param int[] $access_mode access_mode
      *
      * @return $this
      */
-    public function setAlbInstanceId($alb_instance_id)
+    public function setAccessMode($access_mode)
     {
-        $this->container['alb_instance_id'] = $alb_instance_id;
+        $this->container['access_mode'] = $access_mode;
 
         return $this;
     }
@@ -266,6 +356,78 @@ class ListDomainRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets attack_status
+     *
+     * @return int[]
+     */
+    public function getAttackStatus()
+    {
+        return $this->container['attack_status'];
+    }
+
+    /**
+     * Sets attack_status
+     *
+     * @param int[] $attack_status attack_status
+     *
+     * @return $this
+     */
+    public function setAttackStatus($attack_status)
+    {
+        $this->container['attack_status'] = $attack_status;
+
+        return $this;
+    }
+
+    /**
+     * Gets client_ip
+     *
+     * @return string
+     */
+    public function getClientIp()
+    {
+        return $this->container['client_ip'];
+    }
+
+    /**
+     * Sets client_ip
+     *
+     * @param string $client_ip client_ip
+     *
+     * @return $this
+     */
+    public function setClientIp($client_ip)
+    {
+        $this->container['client_ip'] = $client_ip;
+
+        return $this;
+    }
+
+    /**
+     * Gets defence_mode
+     *
+     * @return int[]
+     */
+    public function getDefenceMode()
+    {
+        return $this->container['defence_mode'];
+    }
+
+    /**
+     * Sets defence_mode
+     *
+     * @param int[] $defence_mode defence_mode
+     *
+     * @return $this
+     */
+    public function setDefenceMode($defence_mode)
+    {
+        $this->container['defence_mode'] = $defence_mode;
+
+        return $this;
+    }
+
+    /**
      * Gets domain
      *
      * @return string
@@ -285,6 +447,54 @@ class ListDomainRequest implements ModelInterface, ArrayAccess
     public function setDomain($domain)
     {
         $this->container['domain'] = $domain;
+
+        return $this;
+    }
+
+    /**
+     * Gets domain_or_path
+     *
+     * @return string
+     */
+    public function getDomainOrPath()
+    {
+        return $this->container['domain_or_path'];
+    }
+
+    /**
+     * Sets domain_or_path
+     *
+     * @param string $domain_or_path domain_or_path
+     *
+     * @return $this
+     */
+    public function setDomainOrPath($domain_or_path)
+    {
+        $this->container['domain_or_path'] = $domain_or_path;
+
+        return $this;
+    }
+
+    /**
+     * Gets lb_info
+     *
+     * @return \Volcengine\Waf\Model\LBInfoForListDomainInput[]
+     */
+    public function getLbInfo()
+    {
+        return $this->container['lb_info'];
+    }
+
+    /**
+     * Sets lb_info
+     *
+     * @param \Volcengine\Waf\Model\LBInfoForListDomainInput[] $lb_info lb_info
+     *
+     * @return $this
+     */
+    public function setLbInfo($lb_info)
+    {
+        $this->container['lb_info'] = $lb_info;
 
         return $this;
     }
@@ -338,6 +548,30 @@ class ListDomainRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets public_real_server
+     *
+     * @return int[]
+     */
+    public function getPublicRealServer()
+    {
+        return $this->container['public_real_server'];
+    }
+
+    /**
+     * Sets public_real_server
+     *
+     * @param int[] $public_real_server public_real_server
+     *
+     * @return $this
+     */
+    public function setPublicRealServer($public_real_server)
+    {
+        $this->container['public_real_server'] = $public_real_server;
+
+        return $this;
+    }
+
+    /**
      * Gets region
      *
      * @return string
@@ -357,6 +591,222 @@ class ListDomainRequest implements ModelInterface, ArrayAccess
     public function setRegion($region)
     {
         $this->container['region'] = $region;
+
+        return $this;
+    }
+
+    /**
+     * Gets sort_by_create_time
+     *
+     * @return string
+     */
+    public function getSortByCreateTime()
+    {
+        return $this->container['sort_by_create_time'];
+    }
+
+    /**
+     * Sets sort_by_create_time
+     *
+     * @param string $sort_by_create_time sort_by_create_time
+     *
+     * @return $this
+     */
+    public function setSortByCreateTime($sort_by_create_time)
+    {
+        $this->container['sort_by_create_time'] = $sort_by_create_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets sort_by_domain_name
+     *
+     * @return string
+     */
+    public function getSortByDomainName()
+    {
+        return $this->container['sort_by_domain_name'];
+    }
+
+    /**
+     * Sets sort_by_domain_name
+     *
+     * @param string $sort_by_domain_name sort_by_domain_name
+     *
+     * @return $this
+     */
+    public function setSortByDomainName($sort_by_domain_name)
+    {
+        $this->container['sort_by_domain_name'] = $sort_by_domain_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets sort_by_update_time
+     *
+     * @return string
+     */
+    public function getSortByUpdateTime()
+    {
+        return $this->container['sort_by_update_time'];
+    }
+
+    /**
+     * Sets sort_by_update_time
+     *
+     * @param string $sort_by_update_time sort_by_update_time
+     *
+     * @return $this
+     */
+    public function setSortByUpdateTime($sort_by_update_time)
+    {
+        $this->container['sort_by_update_time'] = $sort_by_update_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return int[]
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param int[] $status status
+     *
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets tls_enable
+     *
+     * @return int[]
+     */
+    public function getTlsEnable()
+    {
+        return $this->container['tls_enable'];
+    }
+
+    /**
+     * Sets tls_enable
+     *
+     * @param int[] $tls_enable tls_enable
+     *
+     * @return $this
+     */
+    public function setTlsEnable($tls_enable)
+    {
+        $this->container['tls_enable'] = $tls_enable;
+
+        return $this;
+    }
+
+    /**
+     * Gets vpc_id
+     *
+     * @return string
+     */
+    public function getVpcId()
+    {
+        return $this->container['vpc_id'];
+    }
+
+    /**
+     * Sets vpc_id
+     *
+     * @param string $vpc_id vpc_id
+     *
+     * @return $this
+     */
+    public function setVpcId($vpc_id)
+    {
+        $this->container['vpc_id'] = $vpc_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets vpc_name
+     *
+     * @return string
+     */
+    public function getVpcName()
+    {
+        return $this->container['vpc_name'];
+    }
+
+    /**
+     * Sets vpc_name
+     *
+     * @param string $vpc_name vpc_name
+     *
+     * @return $this
+     */
+    public function setVpcName($vpc_name)
+    {
+        $this->container['vpc_name'] = $vpc_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets vpc_owner_id
+     *
+     * @return string
+     */
+    public function getVpcOwnerId()
+    {
+        return $this->container['vpc_owner_id'];
+    }
+
+    /**
+     * Sets vpc_owner_id
+     *
+     * @param string $vpc_owner_id vpc_owner_id
+     *
+     * @return $this
+     */
+    public function setVpcOwnerId($vpc_owner_id)
+    {
+        $this->container['vpc_owner_id'] = $vpc_owner_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets vpc_owner_name
+     *
+     * @return string
+     */
+    public function getVpcOwnerName()
+    {
+        return $this->container['vpc_owner_name'];
+    }
+
+    /**
+     * Sets vpc_owner_name
+     *
+     * @param string $vpc_owner_name vpc_owner_name
+     *
+     * @return $this
+     */
+    public function setVpcOwnerName($vpc_owner_name)
+    {
+        $this->container['vpc_owner_name'] = $vpc_owner_name;
 
         return $this;
     }
