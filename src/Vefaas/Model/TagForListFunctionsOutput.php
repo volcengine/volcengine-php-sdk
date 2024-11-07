@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ItemForListFunctionInstancesOutput implements ModelInterface, ArrayAccess
+class TagForListFunctionsOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ItemForListFunctionInstancesOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ItemForListFunctionInstancesOutput';
+    protected static $swaggerModelName = 'TagForListFunctionsOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,8 @@ class ItemForListFunctionInstancesOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'availability_zone' => 'string',
-        'creation_time' => 'string',
-        'id' => 'string',
-        'instance_name' => 'string',
-        'instance_status' => 'string',
-        'revision_number' => 'int'
+        'key' => 'string',
+        'value' => 'string'
     ];
 
     /**
@@ -42,12 +38,8 @@ class ItemForListFunctionInstancesOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'availability_zone' => null,
-        'creation_time' => null,
-        'id' => null,
-        'instance_name' => null,
-        'instance_status' => null,
-        'revision_number' => 'int32'
+        'key' => null,
+        'value' => null
     ];
 
     /**
@@ -77,12 +69,8 @@ class ItemForListFunctionInstancesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'availability_zone' => 'AvailabilityZone',
-        'creation_time' => 'CreationTime',
-        'id' => 'Id',
-        'instance_name' => 'InstanceName',
-        'instance_status' => 'InstanceStatus',
-        'revision_number' => 'RevisionNumber'
+        'key' => 'Key',
+        'value' => 'Value'
     ];
 
     /**
@@ -91,12 +79,8 @@ class ItemForListFunctionInstancesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'availability_zone' => 'setAvailabilityZone',
-        'creation_time' => 'setCreationTime',
-        'id' => 'setId',
-        'instance_name' => 'setInstanceName',
-        'instance_status' => 'setInstanceStatus',
-        'revision_number' => 'setRevisionNumber'
+        'key' => 'setKey',
+        'value' => 'setValue'
     ];
 
     /**
@@ -105,12 +89,8 @@ class ItemForListFunctionInstancesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'availability_zone' => 'getAvailabilityZone',
-        'creation_time' => 'getCreationTime',
-        'id' => 'getId',
-        'instance_name' => 'getInstanceName',
-        'instance_status' => 'getInstanceStatus',
-        'revision_number' => 'getRevisionNumber'
+        'key' => 'getKey',
+        'value' => 'getValue'
     ];
 
     /**
@@ -173,12 +153,8 @@ class ItemForListFunctionInstancesOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['availability_zone'] = isset($data['availability_zone']) ? $data['availability_zone'] : null;
-        $this->container['creation_time'] = isset($data['creation_time']) ? $data['creation_time'] : null;
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['instance_name'] = isset($data['instance_name']) ? $data['instance_name'] : null;
-        $this->container['instance_status'] = isset($data['instance_status']) ? $data['instance_status'] : null;
-        $this->container['revision_number'] = isset($data['revision_number']) ? $data['revision_number'] : null;
+        $this->container['key'] = isset($data['key']) ? $data['key'] : null;
+        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 
     /**
@@ -206,145 +182,49 @@ class ItemForListFunctionInstancesOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets availability_zone
+     * Gets key
      *
      * @return string
      */
-    public function getAvailabilityZone()
+    public function getKey()
     {
-        return $this->container['availability_zone'];
+        return $this->container['key'];
     }
 
     /**
-     * Sets availability_zone
+     * Sets key
      *
-     * @param string $availability_zone availability_zone
+     * @param string $key key
      *
      * @return $this
      */
-    public function setAvailabilityZone($availability_zone)
+    public function setKey($key)
     {
-        $this->container['availability_zone'] = $availability_zone;
+        $this->container['key'] = $key;
 
         return $this;
     }
 
     /**
-     * Gets creation_time
+     * Gets value
      *
      * @return string
      */
-    public function getCreationTime()
+    public function getValue()
     {
-        return $this->container['creation_time'];
+        return $this->container['value'];
     }
 
     /**
-     * Sets creation_time
+     * Sets value
      *
-     * @param string $creation_time creation_time
+     * @param string $value value
      *
      * @return $this
      */
-    public function setCreationTime($creation_time)
+    public function setValue($value)
     {
-        $this->container['creation_time'] = $creation_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets id
-     *
-     * @return string
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string $id id
-     *
-     * @return $this
-     */
-    public function setId($id)
-    {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets instance_name
-     *
-     * @return string
-     */
-    public function getInstanceName()
-    {
-        return $this->container['instance_name'];
-    }
-
-    /**
-     * Sets instance_name
-     *
-     * @param string $instance_name instance_name
-     *
-     * @return $this
-     */
-    public function setInstanceName($instance_name)
-    {
-        $this->container['instance_name'] = $instance_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets instance_status
-     *
-     * @return string
-     */
-    public function getInstanceStatus()
-    {
-        return $this->container['instance_status'];
-    }
-
-    /**
-     * Sets instance_status
-     *
-     * @param string $instance_status instance_status
-     *
-     * @return $this
-     */
-    public function setInstanceStatus($instance_status)
-    {
-        $this->container['instance_status'] = $instance_status;
-
-        return $this;
-    }
-
-    /**
-     * Gets revision_number
-     *
-     * @return int
-     */
-    public function getRevisionNumber()
-    {
-        return $this->container['revision_number'];
-    }
-
-    /**
-     * Sets revision_number
-     *
-     * @param int $revision_number revision_number
-     *
-     * @return $this
-     */
-    public function setRevisionNumber($revision_number)
-    {
-        $this->container['revision_number'] = $revision_number;
+        $this->container['value'] = $value;
 
         return $this;
     }
