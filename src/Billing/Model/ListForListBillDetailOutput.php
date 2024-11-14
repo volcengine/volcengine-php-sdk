@@ -59,6 +59,7 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         'expense_end_time' => 'string',
         'factor' => 'string',
         'factor_code' => 'string',
+        'formula' => 'string',
         'instance_name' => 'string',
         'instance_no' => 'string',
         'market_price' => 'string',
@@ -138,6 +139,7 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         'expense_end_time' => null,
         'factor' => null,
         'factor_code' => null,
+        'formula' => null,
         'instance_name' => null,
         'instance_no' => null,
         'market_price' => null,
@@ -238,6 +240,7 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         'expense_end_time' => 'ExpenseEndTime',
         'factor' => 'Factor',
         'factor_code' => 'FactorCode',
+        'formula' => 'Formula',
         'instance_name' => 'InstanceName',
         'instance_no' => 'InstanceNo',
         'market_price' => 'MarketPrice',
@@ -317,6 +320,7 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         'expense_end_time' => 'setExpenseEndTime',
         'factor' => 'setFactor',
         'factor_code' => 'setFactorCode',
+        'formula' => 'setFormula',
         'instance_name' => 'setInstanceName',
         'instance_no' => 'setInstanceNo',
         'market_price' => 'setMarketPrice',
@@ -396,6 +400,7 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         'expense_end_time' => 'getExpenseEndTime',
         'factor' => 'getFactor',
         'factor_code' => 'getFactorCode',
+        'formula' => 'getFormula',
         'instance_name' => 'getInstanceName',
         'instance_no' => 'getInstanceNo',
         'market_price' => 'getMarketPrice',
@@ -529,6 +534,7 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         $this->container['expense_end_time'] = isset($data['expense_end_time']) ? $data['expense_end_time'] : null;
         $this->container['factor'] = isset($data['factor']) ? $data['factor'] : null;
         $this->container['factor_code'] = isset($data['factor_code']) ? $data['factor_code'] : null;
+        $this->container['formula'] = isset($data['formula']) ? $data['formula'] : null;
         $this->container['instance_name'] = isset($data['instance_name']) ? $data['instance_name'] : null;
         $this->container['instance_no'] = isset($data['instance_no']) ? $data['instance_no'] : null;
         $this->container['market_price'] = isset($data['market_price']) ? $data['market_price'] : null;
@@ -1335,6 +1341,30 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
     public function setFactorCode($factor_code)
     {
         $this->container['factor_code'] = $factor_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets formula
+     *
+     * @return string
+     */
+    public function getFormula()
+    {
+        return $this->container['formula'];
+    }
+
+    /**
+     * Sets formula
+     *
+     * @param string $formula formula
+     *
+     * @return $this
+     */
+    public function setFormula($formula)
+    {
+        $this->container['formula'] = $formula;
 
         return $this;
     }
