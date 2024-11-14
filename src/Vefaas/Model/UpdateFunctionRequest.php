@@ -36,8 +36,8 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
         'max_concurrency' => 'int',
         'memory_mb' => 'int',
         'nas_storage' => '\Volcengine\Vefaas\Model\NasStorageForUpdateFunctionInput',
+        'project_name' => 'string',
         'request_timeout' => 'int',
-        'runtime' => 'string',
         'source' => 'string',
         'source_access_config' => '\Volcengine\Vefaas\Model\SourceAccessConfigForUpdateFunctionInput',
         'source_type' => 'string',
@@ -60,8 +60,8 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
         'max_concurrency' => 'int32',
         'memory_mb' => 'int32',
         'nas_storage' => null,
+        'project_name' => null,
         'request_timeout' => 'int32',
-        'runtime' => null,
         'source' => null,
         'source_access_config' => null,
         'source_type' => null,
@@ -105,8 +105,8 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
         'max_concurrency' => 'MaxConcurrency',
         'memory_mb' => 'MemoryMB',
         'nas_storage' => 'NasStorage',
+        'project_name' => 'ProjectName',
         'request_timeout' => 'RequestTimeout',
-        'runtime' => 'Runtime',
         'source' => 'Source',
         'source_access_config' => 'SourceAccessConfig',
         'source_type' => 'SourceType',
@@ -129,8 +129,8 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
         'max_concurrency' => 'setMaxConcurrency',
         'memory_mb' => 'setMemoryMb',
         'nas_storage' => 'setNasStorage',
+        'project_name' => 'setProjectName',
         'request_timeout' => 'setRequestTimeout',
-        'runtime' => 'setRuntime',
         'source' => 'setSource',
         'source_access_config' => 'setSourceAccessConfig',
         'source_type' => 'setSourceType',
@@ -153,8 +153,8 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
         'max_concurrency' => 'getMaxConcurrency',
         'memory_mb' => 'getMemoryMb',
         'nas_storage' => 'getNasStorage',
+        'project_name' => 'getProjectName',
         'request_timeout' => 'getRequestTimeout',
-        'runtime' => 'getRuntime',
         'source' => 'getSource',
         'source_access_config' => 'getSourceAccessConfig',
         'source_type' => 'getSourceType',
@@ -231,8 +231,8 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
         $this->container['max_concurrency'] = isset($data['max_concurrency']) ? $data['max_concurrency'] : null;
         $this->container['memory_mb'] = isset($data['memory_mb']) ? $data['memory_mb'] : null;
         $this->container['nas_storage'] = isset($data['nas_storage']) ? $data['nas_storage'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['request_timeout'] = isset($data['request_timeout']) ? $data['request_timeout'] : null;
-        $this->container['runtime'] = isset($data['runtime']) ? $data['runtime'] : null;
         $this->container['source'] = isset($data['source']) ? $data['source'] : null;
         $this->container['source_access_config'] = isset($data['source_access_config']) ? $data['source_access_config'] : null;
         $this->container['source_type'] = isset($data['source_type']) ? $data['source_type'] : null;
@@ -461,6 +461,30 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
+
+    /**
      * Gets request_timeout
      *
      * @return int
@@ -480,30 +504,6 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
     public function setRequestTimeout($request_timeout)
     {
         $this->container['request_timeout'] = $request_timeout;
-
-        return $this;
-    }
-
-    /**
-     * Gets runtime
-     *
-     * @return string
-     */
-    public function getRuntime()
-    {
-        return $this->container['runtime'];
-    }
-
-    /**
-     * Sets runtime
-     *
-     * @param string $runtime runtime
-     *
-     * @return $this
-     */
-    public function setRuntime($runtime)
-    {
-        $this->container['runtime'] = $runtime;
 
         return $this;
     }

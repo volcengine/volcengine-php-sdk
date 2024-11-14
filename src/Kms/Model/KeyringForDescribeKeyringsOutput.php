@@ -31,7 +31,7 @@ class KeyringForDescribeKeyringsOutput implements ModelInterface, ArrayAccess
         'creation_date' => 'int',
         'description' => 'string',
         'id' => 'string',
-        'key_count' => 'string',
+        'key_count' => 'int',
         'keyring_name' => 'string',
         'keyring_type' => 'string',
         'trn' => 'string',
@@ -48,7 +48,7 @@ class KeyringForDescribeKeyringsOutput implements ModelInterface, ArrayAccess
         'creation_date' => 'int64',
         'description' => null,
         'id' => null,
-        'key_count' => null,
+        'key_count' => 'int64',
         'keyring_name' => null,
         'keyring_type' => null,
         'trn' => null,
@@ -298,7 +298,7 @@ class KeyringForDescribeKeyringsOutput implements ModelInterface, ArrayAccess
     /**
      * Gets key_count
      *
-     * @return string
+     * @return int
      */
     public function getKeyCount()
     {
@@ -308,7 +308,7 @@ class KeyringForDescribeKeyringsOutput implements ModelInterface, ArrayAccess
     /**
      * Sets key_count
      *
-     * @param string $key_count key_count
+     * @param int $key_count key_count
      *
      * @return $this
      */

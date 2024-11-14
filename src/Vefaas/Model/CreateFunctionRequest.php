@@ -28,14 +28,18 @@ class CreateFunctionRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'command' => 'string',
+        'cpu_strategy' => 'string',
         'description' => 'string',
         'envs' => '\Volcengine\Vefaas\Model\EnvForCreateFunctionInput[]',
         'exclusive_mode' => 'bool',
         'initializer_sec' => 'int',
+        'instance_type' => 'string',
         'max_concurrency' => 'int',
         'memory_mb' => 'int',
         'name' => 'string',
         'nas_storage' => '\Volcengine\Vefaas\Model\NasStorageForCreateFunctionInput',
+        'project_name' => 'string',
         'request_timeout' => 'int',
         'runtime' => 'string',
         'source' => 'string',
@@ -52,14 +56,18 @@ class CreateFunctionRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'command' => null,
+        'cpu_strategy' => null,
         'description' => null,
         'envs' => null,
         'exclusive_mode' => null,
         'initializer_sec' => 'int32',
+        'instance_type' => null,
         'max_concurrency' => 'int32',
         'memory_mb' => 'int32',
         'name' => null,
         'nas_storage' => null,
+        'project_name' => null,
         'request_timeout' => 'int32',
         'runtime' => null,
         'source' => null,
@@ -97,14 +105,18 @@ class CreateFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'command' => 'Command',
+        'cpu_strategy' => 'CpuStrategy',
         'description' => 'Description',
         'envs' => 'Envs',
         'exclusive_mode' => 'ExclusiveMode',
         'initializer_sec' => 'InitializerSec',
+        'instance_type' => 'InstanceType',
         'max_concurrency' => 'MaxConcurrency',
         'memory_mb' => 'MemoryMB',
         'name' => 'Name',
         'nas_storage' => 'NasStorage',
+        'project_name' => 'ProjectName',
         'request_timeout' => 'RequestTimeout',
         'runtime' => 'Runtime',
         'source' => 'Source',
@@ -121,14 +133,18 @@ class CreateFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'command' => 'setCommand',
+        'cpu_strategy' => 'setCpuStrategy',
         'description' => 'setDescription',
         'envs' => 'setEnvs',
         'exclusive_mode' => 'setExclusiveMode',
         'initializer_sec' => 'setInitializerSec',
+        'instance_type' => 'setInstanceType',
         'max_concurrency' => 'setMaxConcurrency',
         'memory_mb' => 'setMemoryMb',
         'name' => 'setName',
         'nas_storage' => 'setNasStorage',
+        'project_name' => 'setProjectName',
         'request_timeout' => 'setRequestTimeout',
         'runtime' => 'setRuntime',
         'source' => 'setSource',
@@ -145,14 +161,18 @@ class CreateFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'command' => 'getCommand',
+        'cpu_strategy' => 'getCpuStrategy',
         'description' => 'getDescription',
         'envs' => 'getEnvs',
         'exclusive_mode' => 'getExclusiveMode',
         'initializer_sec' => 'getInitializerSec',
+        'instance_type' => 'getInstanceType',
         'max_concurrency' => 'getMaxConcurrency',
         'memory_mb' => 'getMemoryMb',
         'name' => 'getName',
         'nas_storage' => 'getNasStorage',
+        'project_name' => 'getProjectName',
         'request_timeout' => 'getRequestTimeout',
         'runtime' => 'getRuntime',
         'source' => 'getSource',
@@ -223,14 +243,18 @@ class CreateFunctionRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['command'] = isset($data['command']) ? $data['command'] : null;
+        $this->container['cpu_strategy'] = isset($data['cpu_strategy']) ? $data['cpu_strategy'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['envs'] = isset($data['envs']) ? $data['envs'] : null;
         $this->container['exclusive_mode'] = isset($data['exclusive_mode']) ? $data['exclusive_mode'] : null;
         $this->container['initializer_sec'] = isset($data['initializer_sec']) ? $data['initializer_sec'] : null;
+        $this->container['instance_type'] = isset($data['instance_type']) ? $data['instance_type'] : null;
         $this->container['max_concurrency'] = isset($data['max_concurrency']) ? $data['max_concurrency'] : null;
         $this->container['memory_mb'] = isset($data['memory_mb']) ? $data['memory_mb'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['nas_storage'] = isset($data['nas_storage']) ? $data['nas_storage'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['request_timeout'] = isset($data['request_timeout']) ? $data['request_timeout'] : null;
         $this->container['runtime'] = isset($data['runtime']) ? $data['runtime'] : null;
         $this->container['source'] = isset($data['source']) ? $data['source'] : null;
@@ -270,6 +294,54 @@ class CreateFunctionRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets command
+     *
+     * @return string
+     */
+    public function getCommand()
+    {
+        return $this->container['command'];
+    }
+
+    /**
+     * Sets command
+     *
+     * @param string $command command
+     *
+     * @return $this
+     */
+    public function setCommand($command)
+    {
+        $this->container['command'] = $command;
+
+        return $this;
+    }
+
+    /**
+     * Gets cpu_strategy
+     *
+     * @return string
+     */
+    public function getCpuStrategy()
+    {
+        return $this->container['cpu_strategy'];
+    }
+
+    /**
+     * Sets cpu_strategy
+     *
+     * @param string $cpu_strategy cpu_strategy
+     *
+     * @return $this
+     */
+    public function setCpuStrategy($cpu_strategy)
+    {
+        $this->container['cpu_strategy'] = $cpu_strategy;
+
+        return $this;
+    }
 
     /**
      * Gets description
@@ -368,6 +440,30 @@ class CreateFunctionRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets instance_type
+     *
+     * @return string
+     */
+    public function getInstanceType()
+    {
+        return $this->container['instance_type'];
+    }
+
+    /**
+     * Sets instance_type
+     *
+     * @param string $instance_type instance_type
+     *
+     * @return $this
+     */
+    public function setInstanceType($instance_type)
+    {
+        $this->container['instance_type'] = $instance_type;
+
+        return $this;
+    }
+
+    /**
      * Gets max_concurrency
      *
      * @return int
@@ -459,6 +555,30 @@ class CreateFunctionRequest implements ModelInterface, ArrayAccess
     public function setNasStorage($nas_storage)
     {
         $this->container['nas_storage'] = $nas_storage;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }

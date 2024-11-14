@@ -28,6 +28,7 @@ class ItemForListFunctionInstancesOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'availability_zone' => 'string',
         'creation_time' => 'string',
         'id' => 'string',
         'instance_name' => 'string',
@@ -41,6 +42,7 @@ class ItemForListFunctionInstancesOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'availability_zone' => null,
         'creation_time' => null,
         'id' => null,
         'instance_name' => null,
@@ -75,6 +77,7 @@ class ItemForListFunctionInstancesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'availability_zone' => 'AvailabilityZone',
         'creation_time' => 'CreationTime',
         'id' => 'Id',
         'instance_name' => 'InstanceName',
@@ -88,6 +91,7 @@ class ItemForListFunctionInstancesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'availability_zone' => 'setAvailabilityZone',
         'creation_time' => 'setCreationTime',
         'id' => 'setId',
         'instance_name' => 'setInstanceName',
@@ -101,6 +105,7 @@ class ItemForListFunctionInstancesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'availability_zone' => 'getAvailabilityZone',
         'creation_time' => 'getCreationTime',
         'id' => 'getId',
         'instance_name' => 'getInstanceName',
@@ -168,6 +173,7 @@ class ItemForListFunctionInstancesOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['availability_zone'] = isset($data['availability_zone']) ? $data['availability_zone'] : null;
         $this->container['creation_time'] = isset($data['creation_time']) ? $data['creation_time'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['instance_name'] = isset($data['instance_name']) ? $data['instance_name'] : null;
@@ -198,6 +204,30 @@ class ItemForListFunctionInstancesOutput implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets availability_zone
+     *
+     * @return string
+     */
+    public function getAvailabilityZone()
+    {
+        return $this->container['availability_zone'];
+    }
+
+    /**
+     * Sets availability_zone
+     *
+     * @param string $availability_zone availability_zone
+     *
+     * @return $this
+     */
+    public function setAvailabilityZone($availability_zone)
+    {
+        $this->container['availability_zone'] = $availability_zone;
+
+        return $this;
+    }
 
     /**
      * Gets creation_time

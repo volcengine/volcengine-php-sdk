@@ -30,6 +30,7 @@ class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'code_size' => 'int',
         'code_size_limit' => 'int',
+        'command' => 'string',
         'creation_time' => 'string',
         'description' => 'string',
         'envs' => '\Volcengine\Vefaas\Model\EnvForListFunctionsOutput[]',
@@ -43,10 +44,12 @@ class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
         'name' => 'string',
         'nas_storage' => '\Volcengine\Vefaas\Model\NasStorageForListFunctionsOutput',
         'owner' => 'string',
+        'project_name' => 'string',
         'request_timeout' => 'int',
         'runtime' => 'string',
         'source_location' => 'string',
         'source_type' => 'string',
+        'tags' => '\Volcengine\Vefaas\Model\TagForListFunctionsOutput[]',
         'tls_config' => '\Volcengine\Vefaas\Model\TlsConfigForListFunctionsOutput',
         'tos_mount_config' => '\Volcengine\Vefaas\Model\TosMountConfigForListFunctionsOutput',
         'triggers_count' => 'int',
@@ -61,6 +64,7 @@ class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'code_size' => 'int32',
         'code_size_limit' => 'int32',
+        'command' => null,
         'creation_time' => null,
         'description' => null,
         'envs' => null,
@@ -74,10 +78,12 @@ class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
         'name' => null,
         'nas_storage' => null,
         'owner' => null,
+        'project_name' => null,
         'request_timeout' => 'int32',
         'runtime' => null,
         'source_location' => null,
         'source_type' => null,
+        'tags' => null,
         'tls_config' => null,
         'tos_mount_config' => null,
         'triggers_count' => 'int32',
@@ -113,6 +119,7 @@ class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'code_size' => 'CodeSize',
         'code_size_limit' => 'CodeSizeLimit',
+        'command' => 'Command',
         'creation_time' => 'CreationTime',
         'description' => 'Description',
         'envs' => 'Envs',
@@ -126,10 +133,12 @@ class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
         'name' => 'Name',
         'nas_storage' => 'NasStorage',
         'owner' => 'Owner',
+        'project_name' => 'ProjectName',
         'request_timeout' => 'RequestTimeout',
         'runtime' => 'Runtime',
         'source_location' => 'SourceLocation',
         'source_type' => 'SourceType',
+        'tags' => 'Tags',
         'tls_config' => 'TlsConfig',
         'tos_mount_config' => 'TosMountConfig',
         'triggers_count' => 'TriggersCount',
@@ -144,6 +153,7 @@ class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
     protected static $setters = [
         'code_size' => 'setCodeSize',
         'code_size_limit' => 'setCodeSizeLimit',
+        'command' => 'setCommand',
         'creation_time' => 'setCreationTime',
         'description' => 'setDescription',
         'envs' => 'setEnvs',
@@ -157,10 +167,12 @@ class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
         'name' => 'setName',
         'nas_storage' => 'setNasStorage',
         'owner' => 'setOwner',
+        'project_name' => 'setProjectName',
         'request_timeout' => 'setRequestTimeout',
         'runtime' => 'setRuntime',
         'source_location' => 'setSourceLocation',
         'source_type' => 'setSourceType',
+        'tags' => 'setTags',
         'tls_config' => 'setTlsConfig',
         'tos_mount_config' => 'setTosMountConfig',
         'triggers_count' => 'setTriggersCount',
@@ -175,6 +187,7 @@ class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
     protected static $getters = [
         'code_size' => 'getCodeSize',
         'code_size_limit' => 'getCodeSizeLimit',
+        'command' => 'getCommand',
         'creation_time' => 'getCreationTime',
         'description' => 'getDescription',
         'envs' => 'getEnvs',
@@ -188,10 +201,12 @@ class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
         'name' => 'getName',
         'nas_storage' => 'getNasStorage',
         'owner' => 'getOwner',
+        'project_name' => 'getProjectName',
         'request_timeout' => 'getRequestTimeout',
         'runtime' => 'getRuntime',
         'source_location' => 'getSourceLocation',
         'source_type' => 'getSourceType',
+        'tags' => 'getTags',
         'tls_config' => 'getTlsConfig',
         'tos_mount_config' => 'getTosMountConfig',
         'triggers_count' => 'getTriggersCount',
@@ -260,6 +275,7 @@ class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
     {
         $this->container['code_size'] = isset($data['code_size']) ? $data['code_size'] : null;
         $this->container['code_size_limit'] = isset($data['code_size_limit']) ? $data['code_size_limit'] : null;
+        $this->container['command'] = isset($data['command']) ? $data['command'] : null;
         $this->container['creation_time'] = isset($data['creation_time']) ? $data['creation_time'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['envs'] = isset($data['envs']) ? $data['envs'] : null;
@@ -273,10 +289,12 @@ class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['nas_storage'] = isset($data['nas_storage']) ? $data['nas_storage'] : null;
         $this->container['owner'] = isset($data['owner']) ? $data['owner'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['request_timeout'] = isset($data['request_timeout']) ? $data['request_timeout'] : null;
         $this->container['runtime'] = isset($data['runtime']) ? $data['runtime'] : null;
         $this->container['source_location'] = isset($data['source_location']) ? $data['source_location'] : null;
         $this->container['source_type'] = isset($data['source_type']) ? $data['source_type'] : null;
+        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['tls_config'] = isset($data['tls_config']) ? $data['tls_config'] : null;
         $this->container['tos_mount_config'] = isset($data['tos_mount_config']) ? $data['tos_mount_config'] : null;
         $this->container['triggers_count'] = isset($data['triggers_count']) ? $data['triggers_count'] : null;
@@ -351,6 +369,30 @@ class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
     public function setCodeSizeLimit($code_size_limit)
     {
         $this->container['code_size_limit'] = $code_size_limit;
+
+        return $this;
+    }
+
+    /**
+     * Gets command
+     *
+     * @return string
+     */
+    public function getCommand()
+    {
+        return $this->container['command'];
+    }
+
+    /**
+     * Sets command
+     *
+     * @param string $command command
+     *
+     * @return $this
+     */
+    public function setCommand($command)
+    {
+        $this->container['command'] = $command;
 
         return $this;
     }
@@ -668,6 +710,30 @@ class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
+
+    /**
      * Gets request_timeout
      *
      * @return int
@@ -759,6 +825,30 @@ class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
     public function setSourceType($source_type)
     {
         $this->container['source_type'] = $source_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets tags
+     *
+     * @return \Volcengine\Vefaas\Model\TagForListFunctionsOutput[]
+     */
+    public function getTags()
+    {
+        return $this->container['tags'];
+    }
+
+    /**
+     * Sets tags
+     *
+     * @param \Volcengine\Vefaas\Model\TagForListFunctionsOutput[] $tags tags
+     *
+     * @return $this
+     */
+    public function setTags($tags)
+    {
+        $this->container['tags'] = $tags;
 
         return $this;
     }
