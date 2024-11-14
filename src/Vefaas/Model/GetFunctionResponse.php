@@ -30,6 +30,7 @@ class GetFunctionResponse implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'code_size' => 'int',
         'code_size_limit' => 'int',
+        'command' => 'string',
         'creation_time' => 'string',
         'description' => 'string',
         'envs' => '\Volcengine\Vefaas\Model\EnvForGetFunctionOutput[]',
@@ -43,6 +44,7 @@ class GetFunctionResponse implements ModelInterface, ArrayAccess
         'name' => 'string',
         'nas_storage' => '\Volcengine\Vefaas\Model\NasStorageForGetFunctionOutput',
         'owner' => 'string',
+        'project_name' => 'string',
         'request_timeout' => 'int',
         'runtime' => 'string',
         'source_location' => 'string',
@@ -61,6 +63,7 @@ class GetFunctionResponse implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'code_size' => 'int32',
         'code_size_limit' => 'int32',
+        'command' => null,
         'creation_time' => null,
         'description' => null,
         'envs' => null,
@@ -74,6 +77,7 @@ class GetFunctionResponse implements ModelInterface, ArrayAccess
         'name' => null,
         'nas_storage' => null,
         'owner' => null,
+        'project_name' => null,
         'request_timeout' => 'int32',
         'runtime' => null,
         'source_location' => null,
@@ -113,6 +117,7 @@ class GetFunctionResponse implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'code_size' => 'CodeSize',
         'code_size_limit' => 'CodeSizeLimit',
+        'command' => 'Command',
         'creation_time' => 'CreationTime',
         'description' => 'Description',
         'envs' => 'Envs',
@@ -126,6 +131,7 @@ class GetFunctionResponse implements ModelInterface, ArrayAccess
         'name' => 'Name',
         'nas_storage' => 'NasStorage',
         'owner' => 'Owner',
+        'project_name' => 'ProjectName',
         'request_timeout' => 'RequestTimeout',
         'runtime' => 'Runtime',
         'source_location' => 'SourceLocation',
@@ -144,6 +150,7 @@ class GetFunctionResponse implements ModelInterface, ArrayAccess
     protected static $setters = [
         'code_size' => 'setCodeSize',
         'code_size_limit' => 'setCodeSizeLimit',
+        'command' => 'setCommand',
         'creation_time' => 'setCreationTime',
         'description' => 'setDescription',
         'envs' => 'setEnvs',
@@ -157,6 +164,7 @@ class GetFunctionResponse implements ModelInterface, ArrayAccess
         'name' => 'setName',
         'nas_storage' => 'setNasStorage',
         'owner' => 'setOwner',
+        'project_name' => 'setProjectName',
         'request_timeout' => 'setRequestTimeout',
         'runtime' => 'setRuntime',
         'source_location' => 'setSourceLocation',
@@ -175,6 +183,7 @@ class GetFunctionResponse implements ModelInterface, ArrayAccess
     protected static $getters = [
         'code_size' => 'getCodeSize',
         'code_size_limit' => 'getCodeSizeLimit',
+        'command' => 'getCommand',
         'creation_time' => 'getCreationTime',
         'description' => 'getDescription',
         'envs' => 'getEnvs',
@@ -188,6 +197,7 @@ class GetFunctionResponse implements ModelInterface, ArrayAccess
         'name' => 'getName',
         'nas_storage' => 'getNasStorage',
         'owner' => 'getOwner',
+        'project_name' => 'getProjectName',
         'request_timeout' => 'getRequestTimeout',
         'runtime' => 'getRuntime',
         'source_location' => 'getSourceLocation',
@@ -260,6 +270,7 @@ class GetFunctionResponse implements ModelInterface, ArrayAccess
     {
         $this->container['code_size'] = isset($data['code_size']) ? $data['code_size'] : null;
         $this->container['code_size_limit'] = isset($data['code_size_limit']) ? $data['code_size_limit'] : null;
+        $this->container['command'] = isset($data['command']) ? $data['command'] : null;
         $this->container['creation_time'] = isset($data['creation_time']) ? $data['creation_time'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['envs'] = isset($data['envs']) ? $data['envs'] : null;
@@ -273,6 +284,7 @@ class GetFunctionResponse implements ModelInterface, ArrayAccess
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['nas_storage'] = isset($data['nas_storage']) ? $data['nas_storage'] : null;
         $this->container['owner'] = isset($data['owner']) ? $data['owner'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['request_timeout'] = isset($data['request_timeout']) ? $data['request_timeout'] : null;
         $this->container['runtime'] = isset($data['runtime']) ? $data['runtime'] : null;
         $this->container['source_location'] = isset($data['source_location']) ? $data['source_location'] : null;
@@ -351,6 +363,30 @@ class GetFunctionResponse implements ModelInterface, ArrayAccess
     public function setCodeSizeLimit($code_size_limit)
     {
         $this->container['code_size_limit'] = $code_size_limit;
+
+        return $this;
+    }
+
+    /**
+     * Gets command
+     *
+     * @return string
+     */
+    public function getCommand()
+    {
+        return $this->container['command'];
+    }
+
+    /**
+     * Sets command
+     *
+     * @param string $command command
+     *
+     * @return $this
+     */
+    public function setCommand($command)
+    {
+        $this->container['command'] = $command;
 
         return $this;
     }
@@ -663,6 +699,30 @@ class GetFunctionResponse implements ModelInterface, ArrayAccess
     public function setOwner($owner)
     {
         $this->container['owner'] = $owner;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }
