@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class KeyringForDescribeKeyringsOutput implements ModelInterface, ArrayAccess
+class VerifyMacRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class KeyringForDescribeKeyringsOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'KeyringForDescribeKeyringsOutput';
+    protected static $swaggerModelName = 'VerifyMacRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,15 +28,10 @@ class KeyringForDescribeKeyringsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'creation_date' => 'int',
-        'description' => 'string',
-        'id' => 'string',
-        'key_count' => 'int',
+        'key_id' => 'string',
+        'key_name' => 'string',
         'keyring_name' => 'string',
-        'keyring_type' => 'string',
-        'trn' => 'string',
-        'uid' => 'string',
-        'update_date' => 'int'
+        'mac_algorithm' => 'string'
     ];
 
     /**
@@ -45,15 +40,10 @@ class KeyringForDescribeKeyringsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'creation_date' => 'int64',
-        'description' => null,
-        'id' => null,
-        'key_count' => 'int64',
+        'key_id' => null,
+        'key_name' => null,
         'keyring_name' => null,
-        'keyring_type' => null,
-        'trn' => null,
-        'uid' => null,
-        'update_date' => 'int64'
+        'mac_algorithm' => null
     ];
 
     /**
@@ -83,15 +73,10 @@ class KeyringForDescribeKeyringsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'creation_date' => 'CreationDate',
-        'description' => 'Description',
-        'id' => 'ID',
-        'key_count' => 'KeyCount',
+        'key_id' => 'KeyID',
+        'key_name' => 'KeyName',
         'keyring_name' => 'KeyringName',
-        'keyring_type' => 'KeyringType',
-        'trn' => 'TRN',
-        'uid' => 'UID',
-        'update_date' => 'UpdateDate'
+        'mac_algorithm' => 'MacAlgorithm'
     ];
 
     /**
@@ -100,15 +85,10 @@ class KeyringForDescribeKeyringsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'creation_date' => 'setCreationDate',
-        'description' => 'setDescription',
-        'id' => 'setId',
-        'key_count' => 'setKeyCount',
+        'key_id' => 'setKeyId',
+        'key_name' => 'setKeyName',
         'keyring_name' => 'setKeyringName',
-        'keyring_type' => 'setKeyringType',
-        'trn' => 'setTrn',
-        'uid' => 'setUid',
-        'update_date' => 'setUpdateDate'
+        'mac_algorithm' => 'setMacAlgorithm'
     ];
 
     /**
@@ -117,15 +97,10 @@ class KeyringForDescribeKeyringsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'creation_date' => 'getCreationDate',
-        'description' => 'getDescription',
-        'id' => 'getId',
-        'key_count' => 'getKeyCount',
+        'key_id' => 'getKeyId',
+        'key_name' => 'getKeyName',
         'keyring_name' => 'getKeyringName',
-        'keyring_type' => 'getKeyringType',
-        'trn' => 'getTrn',
-        'uid' => 'getUid',
-        'update_date' => 'getUpdateDate'
+        'mac_algorithm' => 'getMacAlgorithm'
     ];
 
     /**
@@ -188,15 +163,10 @@ class KeyringForDescribeKeyringsOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['creation_date'] = isset($data['creation_date']) ? $data['creation_date'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['key_count'] = isset($data['key_count']) ? $data['key_count'] : null;
+        $this->container['key_id'] = isset($data['key_id']) ? $data['key_id'] : null;
+        $this->container['key_name'] = isset($data['key_name']) ? $data['key_name'] : null;
         $this->container['keyring_name'] = isset($data['keyring_name']) ? $data['keyring_name'] : null;
-        $this->container['keyring_type'] = isset($data['keyring_type']) ? $data['keyring_type'] : null;
-        $this->container['trn'] = isset($data['trn']) ? $data['trn'] : null;
-        $this->container['uid'] = isset($data['uid']) ? $data['uid'] : null;
-        $this->container['update_date'] = isset($data['update_date']) ? $data['update_date'] : null;
+        $this->container['mac_algorithm'] = isset($data['mac_algorithm']) ? $data['mac_algorithm'] : null;
     }
 
     /**
@@ -208,6 +178,9 @@ class KeyringForDescribeKeyringsOutput implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['mac_algorithm'] === null) {
+            $invalidProperties[] = "'mac_algorithm' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -224,97 +197,49 @@ class KeyringForDescribeKeyringsOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets creation_date
-     *
-     * @return int
-     */
-    public function getCreationDate()
-    {
-        return $this->container['creation_date'];
-    }
-
-    /**
-     * Sets creation_date
-     *
-     * @param int $creation_date creation_date
-     *
-     * @return $this
-     */
-    public function setCreationDate($creation_date)
-    {
-        $this->container['creation_date'] = $creation_date;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
+     * Gets key_id
      *
      * @return string
      */
-    public function getDescription()
+    public function getKeyId()
     {
-        return $this->container['description'];
+        return $this->container['key_id'];
     }
 
     /**
-     * Sets description
+     * Sets key_id
      *
-     * @param string $description description
+     * @param string $key_id key_id
      *
      * @return $this
      */
-    public function setDescription($description)
+    public function setKeyId($key_id)
     {
-        $this->container['description'] = $description;
+        $this->container['key_id'] = $key_id;
 
         return $this;
     }
 
     /**
-     * Gets id
+     * Gets key_name
      *
      * @return string
      */
-    public function getId()
+    public function getKeyName()
     {
-        return $this->container['id'];
+        return $this->container['key_name'];
     }
 
     /**
-     * Sets id
+     * Sets key_name
      *
-     * @param string $id id
+     * @param string $key_name key_name
      *
      * @return $this
      */
-    public function setId($id)
+    public function setKeyName($key_name)
     {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets key_count
-     *
-     * @return int
-     */
-    public function getKeyCount()
-    {
-        return $this->container['key_count'];
-    }
-
-    /**
-     * Sets key_count
-     *
-     * @param int $key_count key_count
-     *
-     * @return $this
-     */
-    public function setKeyCount($key_count)
-    {
-        $this->container['key_count'] = $key_count;
+        $this->container['key_name'] = $key_name;
 
         return $this;
     }
@@ -344,97 +269,25 @@ class KeyringForDescribeKeyringsOutput implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets keyring_type
+     * Gets mac_algorithm
      *
      * @return string
      */
-    public function getKeyringType()
+    public function getMacAlgorithm()
     {
-        return $this->container['keyring_type'];
+        return $this->container['mac_algorithm'];
     }
 
     /**
-     * Sets keyring_type
+     * Sets mac_algorithm
      *
-     * @param string $keyring_type keyring_type
+     * @param string $mac_algorithm mac_algorithm
      *
      * @return $this
      */
-    public function setKeyringType($keyring_type)
+    public function setMacAlgorithm($mac_algorithm)
     {
-        $this->container['keyring_type'] = $keyring_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets trn
-     *
-     * @return string
-     */
-    public function getTrn()
-    {
-        return $this->container['trn'];
-    }
-
-    /**
-     * Sets trn
-     *
-     * @param string $trn trn
-     *
-     * @return $this
-     */
-    public function setTrn($trn)
-    {
-        $this->container['trn'] = $trn;
-
-        return $this;
-    }
-
-    /**
-     * Gets uid
-     *
-     * @return string
-     */
-    public function getUid()
-    {
-        return $this->container['uid'];
-    }
-
-    /**
-     * Sets uid
-     *
-     * @param string $uid uid
-     *
-     * @return $this
-     */
-    public function setUid($uid)
-    {
-        $this->container['uid'] = $uid;
-
-        return $this;
-    }
-
-    /**
-     * Gets update_date
-     *
-     * @return int
-     */
-    public function getUpdateDate()
-    {
-        return $this->container['update_date'];
-    }
-
-    /**
-     * Sets update_date
-     *
-     * @param int $update_date update_date
-     *
-     * @return $this
-     */
-    public function setUpdateDate($update_date)
-    {
-        $this->container['update_date'] = $update_date;
+        $this->container['mac_algorithm'] = $mac_algorithm;
 
         return $this;
     }
