@@ -29,10 +29,10 @@ class ReEncryptRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'ciphertext_blob' => 'string',
-        'new_encryption_context' => 'string',
+        'new_encryption_context' => 'map[string,string]',
         'new_key_name' => 'string',
         'new_keyring_name' => 'string',
-        'old_encryption_context' => 'string'
+        'old_encryption_context' => 'map[string,string]'
     ];
 
     /**
@@ -235,7 +235,7 @@ class ReEncryptRequest implements ModelInterface, ArrayAccess
     /**
      * Gets new_encryption_context
      *
-     * @return string
+     * @return map[string,string]
      */
     public function getNewEncryptionContext()
     {
@@ -245,7 +245,7 @@ class ReEncryptRequest implements ModelInterface, ArrayAccess
     /**
      * Sets new_encryption_context
      *
-     * @param string $new_encryption_context new_encryption_context
+     * @param map[string,string] $new_encryption_context new_encryption_context
      *
      * @return $this
      */
@@ -307,7 +307,7 @@ class ReEncryptRequest implements ModelInterface, ArrayAccess
     /**
      * Gets old_encryption_context
      *
-     * @return string
+     * @return map[string,string]
      */
     public function getOldEncryptionContext()
     {
@@ -317,7 +317,7 @@ class ReEncryptRequest implements ModelInterface, ArrayAccess
     /**
      * Sets old_encryption_context
      *
-     * @param string $old_encryption_context old_encryption_context
+     * @param map[string,string] $old_encryption_context old_encryption_context
      *
      * @return $this
      */
