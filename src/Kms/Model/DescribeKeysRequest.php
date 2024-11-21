@@ -29,6 +29,7 @@ class DescribeKeysRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'current_page' => 'int',
+        'filters' => 'string',
         'keyring_name' => 'string',
         'page_size' => 'int'
     ];
@@ -40,6 +41,7 @@ class DescribeKeysRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'current_page' => 'int32',
+        'filters' => null,
         'keyring_name' => null,
         'page_size' => 'int32'
     ];
@@ -72,6 +74,7 @@ class DescribeKeysRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'current_page' => 'CurrentPage',
+        'filters' => 'Filters',
         'keyring_name' => 'KeyringName',
         'page_size' => 'PageSize'
     ];
@@ -83,6 +86,7 @@ class DescribeKeysRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'current_page' => 'setCurrentPage',
+        'filters' => 'setFilters',
         'keyring_name' => 'setKeyringName',
         'page_size' => 'setPageSize'
     ];
@@ -94,6 +98,7 @@ class DescribeKeysRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'current_page' => 'getCurrentPage',
+        'filters' => 'getFilters',
         'keyring_name' => 'getKeyringName',
         'page_size' => 'getPageSize'
     ];
@@ -159,6 +164,7 @@ class DescribeKeysRequest implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['current_page'] = isset($data['current_page']) ? $data['current_page'] : null;
+        $this->container['filters'] = isset($data['filters']) ? $data['filters'] : null;
         $this->container['keyring_name'] = isset($data['keyring_name']) ? $data['keyring_name'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
     }
@@ -210,6 +216,30 @@ class DescribeKeysRequest implements ModelInterface, ArrayAccess
     public function setCurrentPage($current_page)
     {
         $this->container['current_page'] = $current_page;
+
+        return $this;
+    }
+
+    /**
+     * Gets filters
+     *
+     * @return string
+     */
+    public function getFilters()
+    {
+        return $this->container['filters'];
+    }
+
+    /**
+     * Sets filters
+     *
+     * @param string $filters filters
+     *
+     * @return $this
+     */
+    public function setFilters($filters)
+    {
+        $this->container['filters'] = $filters;
 
         return $this;
     }
