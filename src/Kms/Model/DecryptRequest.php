@@ -29,7 +29,7 @@ class DecryptRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'ciphertext_blob' => 'string',
-        'encryption_context' => 'string'
+        'encryption_context' => 'map[string,string]'
     ];
 
     /**
@@ -211,7 +211,7 @@ class DecryptRequest implements ModelInterface, ArrayAccess
     /**
      * Gets encryption_context
      *
-     * @return string
+     * @return map[string,string]
      */
     public function getEncryptionContext()
     {
@@ -221,7 +221,7 @@ class DecryptRequest implements ModelInterface, ArrayAccess
     /**
      * Sets encryption_context
      *
-     * @param string $encryption_context encryption_context
+     * @param map[string,string] $encryption_context encryption_context
      *
      * @return $this
      */

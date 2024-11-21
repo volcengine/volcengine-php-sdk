@@ -28,7 +28,7 @@ class EncryptRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'encryption_context' => 'string',
+        'encryption_context' => 'map[string,string]',
         'key_id' => 'string',
         'key_name' => 'string',
         'keyring_name' => 'string',
@@ -205,7 +205,7 @@ class EncryptRequest implements ModelInterface, ArrayAccess
     /**
      * Gets encryption_context
      *
-     * @return string
+     * @return map[string,string]
      */
     public function getEncryptionContext()
     {
@@ -215,7 +215,7 @@ class EncryptRequest implements ModelInterface, ArrayAccess
     /**
      * Sets encryption_context
      *
-     * @param string $encryption_context encryption_context
+     * @param map[string,string] $encryption_context encryption_context
      *
      * @return $this
      */

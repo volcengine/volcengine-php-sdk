@@ -29,6 +29,7 @@ class DescribeKeyringsRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'current_page' => 'int',
+        'filters' => 'string',
         'page_size' => 'int',
         'project_name' => 'string'
     ];
@@ -40,6 +41,7 @@ class DescribeKeyringsRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'current_page' => 'int32',
+        'filters' => null,
         'page_size' => 'int32',
         'project_name' => null
     ];
@@ -72,6 +74,7 @@ class DescribeKeyringsRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'current_page' => 'CurrentPage',
+        'filters' => 'Filters',
         'page_size' => 'PageSize',
         'project_name' => 'ProjectName'
     ];
@@ -83,6 +86,7 @@ class DescribeKeyringsRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'current_page' => 'setCurrentPage',
+        'filters' => 'setFilters',
         'page_size' => 'setPageSize',
         'project_name' => 'setProjectName'
     ];
@@ -94,6 +98,7 @@ class DescribeKeyringsRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'current_page' => 'getCurrentPage',
+        'filters' => 'getFilters',
         'page_size' => 'getPageSize',
         'project_name' => 'getProjectName'
     ];
@@ -159,6 +164,7 @@ class DescribeKeyringsRequest implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['current_page'] = isset($data['current_page']) ? $data['current_page'] : null;
+        $this->container['filters'] = isset($data['filters']) ? $data['filters'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
     }
@@ -207,6 +213,30 @@ class DescribeKeyringsRequest implements ModelInterface, ArrayAccess
     public function setCurrentPage($current_page)
     {
         $this->container['current_page'] = $current_page;
+
+        return $this;
+    }
+
+    /**
+     * Gets filters
+     *
+     * @return string
+     */
+    public function getFilters()
+    {
+        return $this->container['filters'];
+    }
+
+    /**
+     * Sets filters
+     *
+     * @param string $filters filters
+     *
+     * @return $this
+     */
+    public function setFilters($filters)
+    {
+        $this->container['filters'] = $filters;
 
         return $this;
     }
