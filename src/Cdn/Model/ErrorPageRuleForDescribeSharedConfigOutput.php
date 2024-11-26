@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CompressionActionForBatchUpdateCdnConfigInput implements ModelInterface, ArrayAccess
+class ErrorPageRuleForDescribeSharedConfigOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CompressionActionForBatchUpdateCdnConfigInput implements ModelInterface, A
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CompressionActionForBatchUpdateCdnConfigInput';
+    protected static $swaggerModelName = 'ErrorPageRuleForDescribeSharedConfigOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,11 +28,7 @@ class CompressionActionForBatchUpdateCdnConfigInput implements ModelInterface, A
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'compression_format' => 'string',
-        'compression_target' => 'string',
-        'compression_type' => 'string[]',
-        'max_file_size_kb' => 'int',
-        'min_file_size_kb' => 'int'
+        'rule_content' => 'string'
     ];
 
     /**
@@ -41,11 +37,7 @@ class CompressionActionForBatchUpdateCdnConfigInput implements ModelInterface, A
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'compression_format' => null,
-        'compression_target' => null,
-        'compression_type' => null,
-        'max_file_size_kb' => 'int64',
-        'min_file_size_kb' => 'int64'
+        'rule_content' => null
     ];
 
     /**
@@ -75,11 +67,7 @@ class CompressionActionForBatchUpdateCdnConfigInput implements ModelInterface, A
      * @var string[]
      */
     protected static $attributeMap = [
-        'compression_format' => 'CompressionFormat',
-        'compression_target' => 'CompressionTarget',
-        'compression_type' => 'CompressionType',
-        'max_file_size_kb' => 'MaxFileSizeKB',
-        'min_file_size_kb' => 'MinFileSizeKB'
+        'rule_content' => 'RuleContent'
     ];
 
     /**
@@ -88,11 +76,7 @@ class CompressionActionForBatchUpdateCdnConfigInput implements ModelInterface, A
      * @var string[]
      */
     protected static $setters = [
-        'compression_format' => 'setCompressionFormat',
-        'compression_target' => 'setCompressionTarget',
-        'compression_type' => 'setCompressionType',
-        'max_file_size_kb' => 'setMaxFileSizeKb',
-        'min_file_size_kb' => 'setMinFileSizeKb'
+        'rule_content' => 'setRuleContent'
     ];
 
     /**
@@ -101,11 +85,7 @@ class CompressionActionForBatchUpdateCdnConfigInput implements ModelInterface, A
      * @var string[]
      */
     protected static $getters = [
-        'compression_format' => 'getCompressionFormat',
-        'compression_target' => 'getCompressionTarget',
-        'compression_type' => 'getCompressionType',
-        'max_file_size_kb' => 'getMaxFileSizeKb',
-        'min_file_size_kb' => 'getMinFileSizeKb'
+        'rule_content' => 'getRuleContent'
     ];
 
     /**
@@ -168,11 +148,7 @@ class CompressionActionForBatchUpdateCdnConfigInput implements ModelInterface, A
      */
     public function __construct(array $data = null)
     {
-        $this->container['compression_format'] = isset($data['compression_format']) ? $data['compression_format'] : null;
-        $this->container['compression_target'] = isset($data['compression_target']) ? $data['compression_target'] : null;
-        $this->container['compression_type'] = isset($data['compression_type']) ? $data['compression_type'] : null;
-        $this->container['max_file_size_kb'] = isset($data['max_file_size_kb']) ? $data['max_file_size_kb'] : null;
-        $this->container['min_file_size_kb'] = isset($data['min_file_size_kb']) ? $data['min_file_size_kb'] : null;
+        $this->container['rule_content'] = isset($data['rule_content']) ? $data['rule_content'] : null;
     }
 
     /**
@@ -200,121 +176,25 @@ class CompressionActionForBatchUpdateCdnConfigInput implements ModelInterface, A
 
 
     /**
-     * Gets compression_format
+     * Gets rule_content
      *
      * @return string
      */
-    public function getCompressionFormat()
+    public function getRuleContent()
     {
-        return $this->container['compression_format'];
+        return $this->container['rule_content'];
     }
 
     /**
-     * Sets compression_format
+     * Sets rule_content
      *
-     * @param string $compression_format compression_format
+     * @param string $rule_content rule_content
      *
      * @return $this
      */
-    public function setCompressionFormat($compression_format)
+    public function setRuleContent($rule_content)
     {
-        $this->container['compression_format'] = $compression_format;
-
-        return $this;
-    }
-
-    /**
-     * Gets compression_target
-     *
-     * @return string
-     */
-    public function getCompressionTarget()
-    {
-        return $this->container['compression_target'];
-    }
-
-    /**
-     * Sets compression_target
-     *
-     * @param string $compression_target compression_target
-     *
-     * @return $this
-     */
-    public function setCompressionTarget($compression_target)
-    {
-        $this->container['compression_target'] = $compression_target;
-
-        return $this;
-    }
-
-    /**
-     * Gets compression_type
-     *
-     * @return string[]
-     */
-    public function getCompressionType()
-    {
-        return $this->container['compression_type'];
-    }
-
-    /**
-     * Sets compression_type
-     *
-     * @param string[] $compression_type compression_type
-     *
-     * @return $this
-     */
-    public function setCompressionType($compression_type)
-    {
-        $this->container['compression_type'] = $compression_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets max_file_size_kb
-     *
-     * @return int
-     */
-    public function getMaxFileSizeKb()
-    {
-        return $this->container['max_file_size_kb'];
-    }
-
-    /**
-     * Sets max_file_size_kb
-     *
-     * @param int $max_file_size_kb max_file_size_kb
-     *
-     * @return $this
-     */
-    public function setMaxFileSizeKb($max_file_size_kb)
-    {
-        $this->container['max_file_size_kb'] = $max_file_size_kb;
-
-        return $this;
-    }
-
-    /**
-     * Gets min_file_size_kb
-     *
-     * @return int
-     */
-    public function getMinFileSizeKb()
-    {
-        return $this->container['min_file_size_kb'];
-    }
-
-    /**
-     * Sets min_file_size_kb
-     *
-     * @param int $min_file_size_kb min_file_size_kb
-     *
-     * @return $this
-     */
-    public function setMinFileSizeKb($min_file_size_kb)
-    {
-        $this->container['min_file_size_kb'] = $min_file_size_kb;
+        $this->container['rule_content'] = $rule_content;
 
         return $this;
     }

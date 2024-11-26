@@ -28,6 +28,7 @@ class ValueForDescribeDistrictDataOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'item' => 'string',
         'time_stamp' => 'int',
         'value' => 'double'
     ];
@@ -38,6 +39,7 @@ class ValueForDescribeDistrictDataOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'item' => null,
         'time_stamp' => 'int64',
         'value' => 'double'
     ];
@@ -69,6 +71,7 @@ class ValueForDescribeDistrictDataOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'item' => 'Item',
         'time_stamp' => 'TimeStamp',
         'value' => 'Value'
     ];
@@ -79,6 +82,7 @@ class ValueForDescribeDistrictDataOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'item' => 'setItem',
         'time_stamp' => 'setTimeStamp',
         'value' => 'setValue'
     ];
@@ -89,6 +93,7 @@ class ValueForDescribeDistrictDataOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'item' => 'getItem',
         'time_stamp' => 'getTimeStamp',
         'value' => 'getValue'
     ];
@@ -153,6 +158,7 @@ class ValueForDescribeDistrictDataOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['item'] = isset($data['item']) ? $data['item'] : null;
         $this->container['time_stamp'] = isset($data['time_stamp']) ? $data['time_stamp'] : null;
         $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
@@ -180,6 +186,30 @@ class ValueForDescribeDistrictDataOutput implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets item
+     *
+     * @return string
+     */
+    public function getItem()
+    {
+        return $this->container['item'];
+    }
+
+    /**
+     * Sets item
+     *
+     * @param string $item item
+     *
+     * @return $this
+     */
+    public function setItem($item)
+    {
+        $this->container['item'] = $item;
+
+        return $this;
+    }
 
     /**
      * Gets time_stamp

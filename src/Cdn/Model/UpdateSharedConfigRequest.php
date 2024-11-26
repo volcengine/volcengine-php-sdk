@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class DescribeCdnEdgeIpRequest implements ModelInterface, ArrayAccess
+class UpdateSharedConfigRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class DescribeCdnEdgeIpRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'DescribeCdnEdgeIpRequest';
+    protected static $swaggerModelName = 'UpdateSharedConfigRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,12 @@ class DescribeCdnEdgeIpRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'domain' => 'string',
-        'ip_version' => 'string',
-        'isp' => 'string',
-        'region' => 'string',
-        'rs_ip' => 'bool',
-        'status' => 'string'
+        'allow_ip_access_rule' => '\Volcengine\Cdn\Model\AllowIpAccessRuleForUpdateSharedConfigInput',
+        'allow_referer_access_rule' => '\Volcengine\Cdn\Model\AllowRefererAccessRuleForUpdateSharedConfigInput',
+        'common_match_list' => '\Volcengine\Cdn\Model\CommonMatchListForUpdateSharedConfigInput',
+        'config_name' => 'string',
+        'deny_ip_access_rule' => '\Volcengine\Cdn\Model\DenyIpAccessRuleForUpdateSharedConfigInput',
+        'deny_referer_access_rule' => '\Volcengine\Cdn\Model\DenyRefererAccessRuleForUpdateSharedConfigInput'
     ];
 
     /**
@@ -42,12 +42,12 @@ class DescribeCdnEdgeIpRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'domain' => null,
-        'ip_version' => null,
-        'isp' => null,
-        'region' => null,
-        'rs_ip' => null,
-        'status' => null
+        'allow_ip_access_rule' => null,
+        'allow_referer_access_rule' => null,
+        'common_match_list' => null,
+        'config_name' => null,
+        'deny_ip_access_rule' => null,
+        'deny_referer_access_rule' => null
     ];
 
     /**
@@ -77,12 +77,12 @@ class DescribeCdnEdgeIpRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'domain' => 'Domain',
-        'ip_version' => 'IpVersion',
-        'isp' => 'Isp',
-        'region' => 'Region',
-        'rs_ip' => 'RsIp',
-        'status' => 'Status'
+        'allow_ip_access_rule' => 'AllowIpAccessRule',
+        'allow_referer_access_rule' => 'AllowRefererAccessRule',
+        'common_match_list' => 'CommonMatchList',
+        'config_name' => 'ConfigName',
+        'deny_ip_access_rule' => 'DenyIpAccessRule',
+        'deny_referer_access_rule' => 'DenyRefererAccessRule'
     ];
 
     /**
@@ -91,12 +91,12 @@ class DescribeCdnEdgeIpRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'domain' => 'setDomain',
-        'ip_version' => 'setIpVersion',
-        'isp' => 'setIsp',
-        'region' => 'setRegion',
-        'rs_ip' => 'setRsIp',
-        'status' => 'setStatus'
+        'allow_ip_access_rule' => 'setAllowIpAccessRule',
+        'allow_referer_access_rule' => 'setAllowRefererAccessRule',
+        'common_match_list' => 'setCommonMatchList',
+        'config_name' => 'setConfigName',
+        'deny_ip_access_rule' => 'setDenyIpAccessRule',
+        'deny_referer_access_rule' => 'setDenyRefererAccessRule'
     ];
 
     /**
@@ -105,12 +105,12 @@ class DescribeCdnEdgeIpRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'domain' => 'getDomain',
-        'ip_version' => 'getIpVersion',
-        'isp' => 'getIsp',
-        'region' => 'getRegion',
-        'rs_ip' => 'getRsIp',
-        'status' => 'getStatus'
+        'allow_ip_access_rule' => 'getAllowIpAccessRule',
+        'allow_referer_access_rule' => 'getAllowRefererAccessRule',
+        'common_match_list' => 'getCommonMatchList',
+        'config_name' => 'getConfigName',
+        'deny_ip_access_rule' => 'getDenyIpAccessRule',
+        'deny_referer_access_rule' => 'getDenyRefererAccessRule'
     ];
 
     /**
@@ -173,12 +173,12 @@ class DescribeCdnEdgeIpRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['domain'] = isset($data['domain']) ? $data['domain'] : null;
-        $this->container['ip_version'] = isset($data['ip_version']) ? $data['ip_version'] : null;
-        $this->container['isp'] = isset($data['isp']) ? $data['isp'] : null;
-        $this->container['region'] = isset($data['region']) ? $data['region'] : null;
-        $this->container['rs_ip'] = isset($data['rs_ip']) ? $data['rs_ip'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['allow_ip_access_rule'] = isset($data['allow_ip_access_rule']) ? $data['allow_ip_access_rule'] : null;
+        $this->container['allow_referer_access_rule'] = isset($data['allow_referer_access_rule']) ? $data['allow_referer_access_rule'] : null;
+        $this->container['common_match_list'] = isset($data['common_match_list']) ? $data['common_match_list'] : null;
+        $this->container['config_name'] = isset($data['config_name']) ? $data['config_name'] : null;
+        $this->container['deny_ip_access_rule'] = isset($data['deny_ip_access_rule']) ? $data['deny_ip_access_rule'] : null;
+        $this->container['deny_referer_access_rule'] = isset($data['deny_referer_access_rule']) ? $data['deny_referer_access_rule'] : null;
     }
 
     /**
@@ -190,8 +190,8 @@ class DescribeCdnEdgeIpRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['domain'] === null) {
-            $invalidProperties[] = "'domain' can't be null";
+        if ($this->container['config_name'] === null) {
+            $invalidProperties[] = "'config_name' can't be null";
         }
         return $invalidProperties;
     }
@@ -209,145 +209,145 @@ class DescribeCdnEdgeIpRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets domain
+     * Gets allow_ip_access_rule
      *
-     * @return string
+     * @return \Volcengine\Cdn\Model\AllowIpAccessRuleForUpdateSharedConfigInput
      */
-    public function getDomain()
+    public function getAllowIpAccessRule()
     {
-        return $this->container['domain'];
+        return $this->container['allow_ip_access_rule'];
     }
 
     /**
-     * Sets domain
+     * Sets allow_ip_access_rule
      *
-     * @param string $domain domain
+     * @param \Volcengine\Cdn\Model\AllowIpAccessRuleForUpdateSharedConfigInput $allow_ip_access_rule allow_ip_access_rule
      *
      * @return $this
      */
-    public function setDomain($domain)
+    public function setAllowIpAccessRule($allow_ip_access_rule)
     {
-        $this->container['domain'] = $domain;
+        $this->container['allow_ip_access_rule'] = $allow_ip_access_rule;
 
         return $this;
     }
 
     /**
-     * Gets ip_version
+     * Gets allow_referer_access_rule
      *
-     * @return string
+     * @return \Volcengine\Cdn\Model\AllowRefererAccessRuleForUpdateSharedConfigInput
      */
-    public function getIpVersion()
+    public function getAllowRefererAccessRule()
     {
-        return $this->container['ip_version'];
+        return $this->container['allow_referer_access_rule'];
     }
 
     /**
-     * Sets ip_version
+     * Sets allow_referer_access_rule
      *
-     * @param string $ip_version ip_version
+     * @param \Volcengine\Cdn\Model\AllowRefererAccessRuleForUpdateSharedConfigInput $allow_referer_access_rule allow_referer_access_rule
      *
      * @return $this
      */
-    public function setIpVersion($ip_version)
+    public function setAllowRefererAccessRule($allow_referer_access_rule)
     {
-        $this->container['ip_version'] = $ip_version;
+        $this->container['allow_referer_access_rule'] = $allow_referer_access_rule;
 
         return $this;
     }
 
     /**
-     * Gets isp
+     * Gets common_match_list
      *
-     * @return string
+     * @return \Volcengine\Cdn\Model\CommonMatchListForUpdateSharedConfigInput
      */
-    public function getIsp()
+    public function getCommonMatchList()
     {
-        return $this->container['isp'];
+        return $this->container['common_match_list'];
     }
 
     /**
-     * Sets isp
+     * Sets common_match_list
      *
-     * @param string $isp isp
+     * @param \Volcengine\Cdn\Model\CommonMatchListForUpdateSharedConfigInput $common_match_list common_match_list
      *
      * @return $this
      */
-    public function setIsp($isp)
+    public function setCommonMatchList($common_match_list)
     {
-        $this->container['isp'] = $isp;
+        $this->container['common_match_list'] = $common_match_list;
 
         return $this;
     }
 
     /**
-     * Gets region
+     * Gets config_name
      *
      * @return string
      */
-    public function getRegion()
+    public function getConfigName()
     {
-        return $this->container['region'];
+        return $this->container['config_name'];
     }
 
     /**
-     * Sets region
+     * Sets config_name
      *
-     * @param string $region region
+     * @param string $config_name config_name
      *
      * @return $this
      */
-    public function setRegion($region)
+    public function setConfigName($config_name)
     {
-        $this->container['region'] = $region;
+        $this->container['config_name'] = $config_name;
 
         return $this;
     }
 
     /**
-     * Gets rs_ip
+     * Gets deny_ip_access_rule
      *
-     * @return bool
+     * @return \Volcengine\Cdn\Model\DenyIpAccessRuleForUpdateSharedConfigInput
      */
-    public function getRsIp()
+    public function getDenyIpAccessRule()
     {
-        return $this->container['rs_ip'];
+        return $this->container['deny_ip_access_rule'];
     }
 
     /**
-     * Sets rs_ip
+     * Sets deny_ip_access_rule
      *
-     * @param bool $rs_ip rs_ip
+     * @param \Volcengine\Cdn\Model\DenyIpAccessRuleForUpdateSharedConfigInput $deny_ip_access_rule deny_ip_access_rule
      *
      * @return $this
      */
-    public function setRsIp($rs_ip)
+    public function setDenyIpAccessRule($deny_ip_access_rule)
     {
-        $this->container['rs_ip'] = $rs_ip;
+        $this->container['deny_ip_access_rule'] = $deny_ip_access_rule;
 
         return $this;
     }
 
     /**
-     * Gets status
+     * Gets deny_referer_access_rule
      *
-     * @return string
+     * @return \Volcengine\Cdn\Model\DenyRefererAccessRuleForUpdateSharedConfigInput
      */
-    public function getStatus()
+    public function getDenyRefererAccessRule()
     {
-        return $this->container['status'];
+        return $this->container['deny_referer_access_rule'];
     }
 
     /**
-     * Sets status
+     * Sets deny_referer_access_rule
      *
-     * @param string $status status
+     * @param \Volcengine\Cdn\Model\DenyRefererAccessRuleForUpdateSharedConfigInput $deny_referer_access_rule deny_referer_access_rule
      *
      * @return $this
      */
-    public function setStatus($status)
+    public function setDenyRefererAccessRule($deny_referer_access_rule)
     {
-        $this->container['status'] = $status;
+        $this->container['deny_referer_access_rule'] = $deny_referer_access_rule;
 
         return $this;
     }
