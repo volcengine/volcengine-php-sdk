@@ -28,6 +28,7 @@ class OriginRewriteActionForAddCdnDomainInput implements ModelInterface, ArrayAc
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'rewrite_type' => 'string',
         'source_path' => 'string',
         'target_path' => 'string'
     ];
@@ -38,6 +39,7 @@ class OriginRewriteActionForAddCdnDomainInput implements ModelInterface, ArrayAc
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'rewrite_type' => null,
         'source_path' => null,
         'target_path' => null
     ];
@@ -69,6 +71,7 @@ class OriginRewriteActionForAddCdnDomainInput implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $attributeMap = [
+        'rewrite_type' => 'RewriteType',
         'source_path' => 'SourcePath',
         'target_path' => 'TargetPath'
     ];
@@ -79,6 +82,7 @@ class OriginRewriteActionForAddCdnDomainInput implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $setters = [
+        'rewrite_type' => 'setRewriteType',
         'source_path' => 'setSourcePath',
         'target_path' => 'setTargetPath'
     ];
@@ -89,6 +93,7 @@ class OriginRewriteActionForAddCdnDomainInput implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $getters = [
+        'rewrite_type' => 'getRewriteType',
         'source_path' => 'getSourcePath',
         'target_path' => 'getTargetPath'
     ];
@@ -153,6 +158,7 @@ class OriginRewriteActionForAddCdnDomainInput implements ModelInterface, ArrayAc
      */
     public function __construct(array $data = null)
     {
+        $this->container['rewrite_type'] = isset($data['rewrite_type']) ? $data['rewrite_type'] : null;
         $this->container['source_path'] = isset($data['source_path']) ? $data['source_path'] : null;
         $this->container['target_path'] = isset($data['target_path']) ? $data['target_path'] : null;
     }
@@ -180,6 +186,30 @@ class OriginRewriteActionForAddCdnDomainInput implements ModelInterface, ArrayAc
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets rewrite_type
+     *
+     * @return string
+     */
+    public function getRewriteType()
+    {
+        return $this->container['rewrite_type'];
+    }
+
+    /**
+     * Sets rewrite_type
+     *
+     * @param string $rewrite_type rewrite_type
+     *
+     * @return $this
+     */
+    public function setRewriteType($rewrite_type)
+    {
+        $this->container['rewrite_type'] = $rewrite_type;
+
+        return $this;
+    }
 
     /**
      * Gets source_path

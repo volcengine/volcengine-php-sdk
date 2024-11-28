@@ -32,6 +32,7 @@ class DescribeCdnEdgeIpRequest implements ModelInterface, ArrayAccess
         'ip_version' => 'string',
         'isp' => 'string',
         'region' => 'string',
+        'rs_ip' => 'bool',
         'status' => 'string'
     ];
 
@@ -45,6 +46,7 @@ class DescribeCdnEdgeIpRequest implements ModelInterface, ArrayAccess
         'ip_version' => null,
         'isp' => null,
         'region' => null,
+        'rs_ip' => null,
         'status' => null
     ];
 
@@ -79,6 +81,7 @@ class DescribeCdnEdgeIpRequest implements ModelInterface, ArrayAccess
         'ip_version' => 'IpVersion',
         'isp' => 'Isp',
         'region' => 'Region',
+        'rs_ip' => 'RsIp',
         'status' => 'Status'
     ];
 
@@ -92,6 +95,7 @@ class DescribeCdnEdgeIpRequest implements ModelInterface, ArrayAccess
         'ip_version' => 'setIpVersion',
         'isp' => 'setIsp',
         'region' => 'setRegion',
+        'rs_ip' => 'setRsIp',
         'status' => 'setStatus'
     ];
 
@@ -105,6 +109,7 @@ class DescribeCdnEdgeIpRequest implements ModelInterface, ArrayAccess
         'ip_version' => 'getIpVersion',
         'isp' => 'getIsp',
         'region' => 'getRegion',
+        'rs_ip' => 'getRsIp',
         'status' => 'getStatus'
     ];
 
@@ -172,6 +177,7 @@ class DescribeCdnEdgeIpRequest implements ModelInterface, ArrayAccess
         $this->container['ip_version'] = isset($data['ip_version']) ? $data['ip_version'] : null;
         $this->container['isp'] = isset($data['isp']) ? $data['isp'] : null;
         $this->container['region'] = isset($data['region']) ? $data['region'] : null;
+        $this->container['rs_ip'] = isset($data['rs_ip']) ? $data['rs_ip'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }
 
@@ -294,6 +300,30 @@ class DescribeCdnEdgeIpRequest implements ModelInterface, ArrayAccess
     public function setRegion($region)
     {
         $this->container['region'] = $region;
+
+        return $this;
+    }
+
+    /**
+     * Gets rs_ip
+     *
+     * @return bool
+     */
+    public function getRsIp()
+    {
+        return $this->container['rs_ip'];
+    }
+
+    /**
+     * Sets rs_ip
+     *
+     * @param bool $rs_ip rs_ip
+     *
+     * @return $this
+     */
+    public function setRsIp($rs_ip)
+    {
+        $this->container['rs_ip'] = $rs_ip;
 
         return $this;
     }

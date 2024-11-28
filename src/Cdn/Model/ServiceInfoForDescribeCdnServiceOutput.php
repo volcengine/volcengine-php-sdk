@@ -35,6 +35,7 @@ class ServiceInfoForDescribeCdnServiceOutput implements ModelInterface, ArrayAcc
         'billing_desc' => 'string',
         'create_time' => 'string',
         'instance_category' => 'string',
+        'instance_no' => 'string',
         'instance_type' => 'string',
         'metric_type' => 'string',
         'service_region' => 'string',
@@ -55,6 +56,7 @@ class ServiceInfoForDescribeCdnServiceOutput implements ModelInterface, ArrayAcc
         'billing_desc' => null,
         'create_time' => null,
         'instance_category' => null,
+        'instance_no' => null,
         'instance_type' => null,
         'metric_type' => null,
         'service_region' => null,
@@ -96,6 +98,7 @@ class ServiceInfoForDescribeCdnServiceOutput implements ModelInterface, ArrayAcc
         'billing_desc' => 'BillingDesc',
         'create_time' => 'CreateTime',
         'instance_category' => 'InstanceCategory',
+        'instance_no' => 'InstanceNo',
         'instance_type' => 'InstanceType',
         'metric_type' => 'MetricType',
         'service_region' => 'ServiceRegion',
@@ -116,6 +119,7 @@ class ServiceInfoForDescribeCdnServiceOutput implements ModelInterface, ArrayAcc
         'billing_desc' => 'setBillingDesc',
         'create_time' => 'setCreateTime',
         'instance_category' => 'setInstanceCategory',
+        'instance_no' => 'setInstanceNo',
         'instance_type' => 'setInstanceType',
         'metric_type' => 'setMetricType',
         'service_region' => 'setServiceRegion',
@@ -136,6 +140,7 @@ class ServiceInfoForDescribeCdnServiceOutput implements ModelInterface, ArrayAcc
         'billing_desc' => 'getBillingDesc',
         'create_time' => 'getCreateTime',
         'instance_category' => 'getInstanceCategory',
+        'instance_no' => 'getInstanceNo',
         'instance_type' => 'getInstanceType',
         'metric_type' => 'getMetricType',
         'service_region' => 'getServiceRegion',
@@ -210,6 +215,7 @@ class ServiceInfoForDescribeCdnServiceOutput implements ModelInterface, ArrayAcc
         $this->container['billing_desc'] = isset($data['billing_desc']) ? $data['billing_desc'] : null;
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
         $this->container['instance_category'] = isset($data['instance_category']) ? $data['instance_category'] : null;
+        $this->container['instance_no'] = isset($data['instance_no']) ? $data['instance_no'] : null;
         $this->container['instance_type'] = isset($data['instance_type']) ? $data['instance_type'] : null;
         $this->container['metric_type'] = isset($data['metric_type']) ? $data['metric_type'] : null;
         $this->container['service_region'] = isset($data['service_region']) ? $data['service_region'] : null;
@@ -405,6 +411,30 @@ class ServiceInfoForDescribeCdnServiceOutput implements ModelInterface, ArrayAcc
     public function setInstanceCategory($instance_category)
     {
         $this->container['instance_category'] = $instance_category;
+
+        return $this;
+    }
+
+    /**
+     * Gets instance_no
+     *
+     * @return string
+     */
+    public function getInstanceNo()
+    {
+        return $this->container['instance_no'];
+    }
+
+    /**
+     * Sets instance_no
+     *
+     * @param string $instance_no instance_no
+     *
+     * @return $this
+     */
+    public function setInstanceNo($instance_no)
+    {
+        $this->container['instance_no'] = $instance_no;
 
         return $this;
     }

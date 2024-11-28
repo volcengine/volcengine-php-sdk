@@ -31,6 +31,7 @@ class CompressionActionForBatchUpdateCdnConfigInput implements ModelInterface, A
         'compression_format' => 'string',
         'compression_target' => 'string',
         'compression_type' => 'string[]',
+        'max_file_size_kb' => 'int',
         'min_file_size_kb' => 'int'
     ];
 
@@ -43,6 +44,7 @@ class CompressionActionForBatchUpdateCdnConfigInput implements ModelInterface, A
         'compression_format' => null,
         'compression_target' => null,
         'compression_type' => null,
+        'max_file_size_kb' => 'int64',
         'min_file_size_kb' => 'int64'
     ];
 
@@ -76,6 +78,7 @@ class CompressionActionForBatchUpdateCdnConfigInput implements ModelInterface, A
         'compression_format' => 'CompressionFormat',
         'compression_target' => 'CompressionTarget',
         'compression_type' => 'CompressionType',
+        'max_file_size_kb' => 'MaxFileSizeKB',
         'min_file_size_kb' => 'MinFileSizeKB'
     ];
 
@@ -88,6 +91,7 @@ class CompressionActionForBatchUpdateCdnConfigInput implements ModelInterface, A
         'compression_format' => 'setCompressionFormat',
         'compression_target' => 'setCompressionTarget',
         'compression_type' => 'setCompressionType',
+        'max_file_size_kb' => 'setMaxFileSizeKb',
         'min_file_size_kb' => 'setMinFileSizeKb'
     ];
 
@@ -100,6 +104,7 @@ class CompressionActionForBatchUpdateCdnConfigInput implements ModelInterface, A
         'compression_format' => 'getCompressionFormat',
         'compression_target' => 'getCompressionTarget',
         'compression_type' => 'getCompressionType',
+        'max_file_size_kb' => 'getMaxFileSizeKb',
         'min_file_size_kb' => 'getMinFileSizeKb'
     ];
 
@@ -166,6 +171,7 @@ class CompressionActionForBatchUpdateCdnConfigInput implements ModelInterface, A
         $this->container['compression_format'] = isset($data['compression_format']) ? $data['compression_format'] : null;
         $this->container['compression_target'] = isset($data['compression_target']) ? $data['compression_target'] : null;
         $this->container['compression_type'] = isset($data['compression_type']) ? $data['compression_type'] : null;
+        $this->container['max_file_size_kb'] = isset($data['max_file_size_kb']) ? $data['max_file_size_kb'] : null;
         $this->container['min_file_size_kb'] = isset($data['min_file_size_kb']) ? $data['min_file_size_kb'] : null;
     }
 
@@ -261,6 +267,30 @@ class CompressionActionForBatchUpdateCdnConfigInput implements ModelInterface, A
     public function setCompressionType($compression_type)
     {
         $this->container['compression_type'] = $compression_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets max_file_size_kb
+     *
+     * @return int
+     */
+    public function getMaxFileSizeKb()
+    {
+        return $this->container['max_file_size_kb'];
+    }
+
+    /**
+     * Sets max_file_size_kb
+     *
+     * @param int $max_file_size_kb max_file_size_kb
+     *
+     * @return $this
+     */
+    public function setMaxFileSizeKb($max_file_size_kb)
+    {
+        $this->container['max_file_size_kb'] = $max_file_size_kb;
 
         return $this;
     }

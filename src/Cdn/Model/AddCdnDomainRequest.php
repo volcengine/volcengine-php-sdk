@@ -47,7 +47,9 @@ class AddCdnDomainRequest implements ModelInterface, ArrayAccess
         'ip_access_rule' => '\Volcengine\Cdn\Model\IpAccessRuleForAddCdnDomainInput',
         'ip_freq_limit' => '\Volcengine\Cdn\Model\IpFreqLimitForAddCdnDomainInput',
         'method_denied_rule' => '\Volcengine\Cdn\Model\MethodDeniedRuleForAddCdnDomainInput',
+        'multi_range' => '\Volcengine\Cdn\Model\MultiRangeForAddCdnDomainInput',
         'negative_cache' => '\Volcengine\Cdn\Model\NegativeCacheForAddCdnDomainInput[]',
+        'offline_cache' => '\Volcengine\Cdn\Model\OfflineCacheForAddCdnDomainInput',
         'origin' => '\Volcengine\Cdn\Model\OriginForAddCdnDomainInput[]',
         'origin_access_rule' => '\Volcengine\Cdn\Model\OriginAccessRuleForAddCdnDomainInput',
         'origin_arg' => '\Volcengine\Cdn\Model\OriginArgForAddCdnDomainInput[]',
@@ -69,6 +71,7 @@ class AddCdnDomainRequest implements ModelInterface, ArrayAccess
         'request_header' => '\Volcengine\Cdn\Model\RequestHeaderForAddCdnDomainInput[]',
         'resource_tags' => '\Volcengine\Cdn\Model\ResourceTagForAddCdnDomainInput[]',
         'response_header' => '\Volcengine\Cdn\Model\ResponseHeaderForAddCdnDomainInput[]',
+        'rewrite_hls' => '\Volcengine\Cdn\Model\RewriteHLSForAddCdnDomainInput',
         'service_region' => 'string',
         'service_type' => 'string',
         'signed_url_auth' => '\Volcengine\Cdn\Model\SignedUrlAuthForAddCdnDomainInput',
@@ -103,7 +106,9 @@ class AddCdnDomainRequest implements ModelInterface, ArrayAccess
         'ip_access_rule' => null,
         'ip_freq_limit' => null,
         'method_denied_rule' => null,
+        'multi_range' => null,
         'negative_cache' => null,
+        'offline_cache' => null,
         'origin' => null,
         'origin_access_rule' => null,
         'origin_arg' => null,
@@ -125,6 +130,7 @@ class AddCdnDomainRequest implements ModelInterface, ArrayAccess
         'request_header' => null,
         'resource_tags' => null,
         'response_header' => null,
+        'rewrite_hls' => null,
         'service_region' => null,
         'service_type' => null,
         'signed_url_auth' => null,
@@ -180,7 +186,9 @@ class AddCdnDomainRequest implements ModelInterface, ArrayAccess
         'ip_access_rule' => 'IpAccessRule',
         'ip_freq_limit' => 'IpFreqLimit',
         'method_denied_rule' => 'MethodDeniedRule',
+        'multi_range' => 'MultiRange',
         'negative_cache' => 'NegativeCache',
+        'offline_cache' => 'OfflineCache',
         'origin' => 'Origin',
         'origin_access_rule' => 'OriginAccessRule',
         'origin_arg' => 'OriginArg',
@@ -202,6 +210,7 @@ class AddCdnDomainRequest implements ModelInterface, ArrayAccess
         'request_header' => 'RequestHeader',
         'resource_tags' => 'ResourceTags',
         'response_header' => 'ResponseHeader',
+        'rewrite_hls' => 'RewriteHLS',
         'service_region' => 'ServiceRegion',
         'service_type' => 'ServiceType',
         'signed_url_auth' => 'SignedUrlAuth',
@@ -236,7 +245,9 @@ class AddCdnDomainRequest implements ModelInterface, ArrayAccess
         'ip_access_rule' => 'setIpAccessRule',
         'ip_freq_limit' => 'setIpFreqLimit',
         'method_denied_rule' => 'setMethodDeniedRule',
+        'multi_range' => 'setMultiRange',
         'negative_cache' => 'setNegativeCache',
+        'offline_cache' => 'setOfflineCache',
         'origin' => 'setOrigin',
         'origin_access_rule' => 'setOriginAccessRule',
         'origin_arg' => 'setOriginArg',
@@ -258,6 +269,7 @@ class AddCdnDomainRequest implements ModelInterface, ArrayAccess
         'request_header' => 'setRequestHeader',
         'resource_tags' => 'setResourceTags',
         'response_header' => 'setResponseHeader',
+        'rewrite_hls' => 'setRewriteHls',
         'service_region' => 'setServiceRegion',
         'service_type' => 'setServiceType',
         'signed_url_auth' => 'setSignedUrlAuth',
@@ -292,7 +304,9 @@ class AddCdnDomainRequest implements ModelInterface, ArrayAccess
         'ip_access_rule' => 'getIpAccessRule',
         'ip_freq_limit' => 'getIpFreqLimit',
         'method_denied_rule' => 'getMethodDeniedRule',
+        'multi_range' => 'getMultiRange',
         'negative_cache' => 'getNegativeCache',
+        'offline_cache' => 'getOfflineCache',
         'origin' => 'getOrigin',
         'origin_access_rule' => 'getOriginAccessRule',
         'origin_arg' => 'getOriginArg',
@@ -314,6 +328,7 @@ class AddCdnDomainRequest implements ModelInterface, ArrayAccess
         'request_header' => 'getRequestHeader',
         'resource_tags' => 'getResourceTags',
         'response_header' => 'getResponseHeader',
+        'rewrite_hls' => 'getRewriteHls',
         'service_region' => 'getServiceRegion',
         'service_type' => 'getServiceType',
         'signed_url_auth' => 'getSignedUrlAuth',
@@ -402,7 +417,9 @@ class AddCdnDomainRequest implements ModelInterface, ArrayAccess
         $this->container['ip_access_rule'] = isset($data['ip_access_rule']) ? $data['ip_access_rule'] : null;
         $this->container['ip_freq_limit'] = isset($data['ip_freq_limit']) ? $data['ip_freq_limit'] : null;
         $this->container['method_denied_rule'] = isset($data['method_denied_rule']) ? $data['method_denied_rule'] : null;
+        $this->container['multi_range'] = isset($data['multi_range']) ? $data['multi_range'] : null;
         $this->container['negative_cache'] = isset($data['negative_cache']) ? $data['negative_cache'] : null;
+        $this->container['offline_cache'] = isset($data['offline_cache']) ? $data['offline_cache'] : null;
         $this->container['origin'] = isset($data['origin']) ? $data['origin'] : null;
         $this->container['origin_access_rule'] = isset($data['origin_access_rule']) ? $data['origin_access_rule'] : null;
         $this->container['origin_arg'] = isset($data['origin_arg']) ? $data['origin_arg'] : null;
@@ -424,6 +441,7 @@ class AddCdnDomainRequest implements ModelInterface, ArrayAccess
         $this->container['request_header'] = isset($data['request_header']) ? $data['request_header'] : null;
         $this->container['resource_tags'] = isset($data['resource_tags']) ? $data['resource_tags'] : null;
         $this->container['response_header'] = isset($data['response_header']) ? $data['response_header'] : null;
+        $this->container['rewrite_hls'] = isset($data['rewrite_hls']) ? $data['rewrite_hls'] : null;
         $this->container['service_region'] = isset($data['service_region']) ? $data['service_region'] : null;
         $this->container['service_type'] = isset($data['service_type']) ? $data['service_type'] : null;
         $this->container['signed_url_auth'] = isset($data['signed_url_auth']) ? $data['signed_url_auth'] : null;
@@ -920,6 +938,30 @@ class AddCdnDomainRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets multi_range
+     *
+     * @return \Volcengine\Cdn\Model\MultiRangeForAddCdnDomainInput
+     */
+    public function getMultiRange()
+    {
+        return $this->container['multi_range'];
+    }
+
+    /**
+     * Sets multi_range
+     *
+     * @param \Volcengine\Cdn\Model\MultiRangeForAddCdnDomainInput $multi_range multi_range
+     *
+     * @return $this
+     */
+    public function setMultiRange($multi_range)
+    {
+        $this->container['multi_range'] = $multi_range;
+
+        return $this;
+    }
+
+    /**
      * Gets negative_cache
      *
      * @return \Volcengine\Cdn\Model\NegativeCacheForAddCdnDomainInput[]
@@ -939,6 +981,30 @@ class AddCdnDomainRequest implements ModelInterface, ArrayAccess
     public function setNegativeCache($negative_cache)
     {
         $this->container['negative_cache'] = $negative_cache;
+
+        return $this;
+    }
+
+    /**
+     * Gets offline_cache
+     *
+     * @return \Volcengine\Cdn\Model\OfflineCacheForAddCdnDomainInput
+     */
+    public function getOfflineCache()
+    {
+        return $this->container['offline_cache'];
+    }
+
+    /**
+     * Sets offline_cache
+     *
+     * @param \Volcengine\Cdn\Model\OfflineCacheForAddCdnDomainInput $offline_cache offline_cache
+     *
+     * @return $this
+     */
+    public function setOfflineCache($offline_cache)
+    {
+        $this->container['offline_cache'] = $offline_cache;
 
         return $this;
     }
@@ -1443,6 +1509,30 @@ class AddCdnDomainRequest implements ModelInterface, ArrayAccess
     public function setResponseHeader($response_header)
     {
         $this->container['response_header'] = $response_header;
+
+        return $this;
+    }
+
+    /**
+     * Gets rewrite_hls
+     *
+     * @return \Volcengine\Cdn\Model\RewriteHLSForAddCdnDomainInput
+     */
+    public function getRewriteHls()
+    {
+        return $this->container['rewrite_hls'];
+    }
+
+    /**
+     * Sets rewrite_hls
+     *
+     * @param \Volcengine\Cdn\Model\RewriteHLSForAddCdnDomainInput $rewrite_hls rewrite_hls
+     *
+     * @return $this
+     */
+    public function setRewriteHls($rewrite_hls)
+    {
+        $this->container['rewrite_hls'] = $rewrite_hls;
 
         return $this;
     }
