@@ -29,7 +29,8 @@ class DescribeCdnUpperIpRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'domain' => 'string',
-        'ip_version' => 'string'
+        'ip_version' => 'string',
+        'rs_ip' => 'bool'
     ];
 
     /**
@@ -39,7 +40,8 @@ class DescribeCdnUpperIpRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'domain' => null,
-        'ip_version' => null
+        'ip_version' => null,
+        'rs_ip' => null
     ];
 
     /**
@@ -70,7 +72,8 @@ class DescribeCdnUpperIpRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'domain' => 'Domain',
-        'ip_version' => 'IpVersion'
+        'ip_version' => 'IpVersion',
+        'rs_ip' => 'RsIp'
     ];
 
     /**
@@ -80,7 +83,8 @@ class DescribeCdnUpperIpRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'domain' => 'setDomain',
-        'ip_version' => 'setIpVersion'
+        'ip_version' => 'setIpVersion',
+        'rs_ip' => 'setRsIp'
     ];
 
     /**
@@ -90,7 +94,8 @@ class DescribeCdnUpperIpRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'domain' => 'getDomain',
-        'ip_version' => 'getIpVersion'
+        'ip_version' => 'getIpVersion',
+        'rs_ip' => 'getRsIp'
     ];
 
     /**
@@ -155,6 +160,7 @@ class DescribeCdnUpperIpRequest implements ModelInterface, ArrayAccess
     {
         $this->container['domain'] = isset($data['domain']) ? $data['domain'] : null;
         $this->container['ip_version'] = isset($data['ip_version']) ? $data['ip_version'] : null;
+        $this->container['rs_ip'] = isset($data['rs_ip']) ? $data['rs_ip'] : null;
     }
 
     /**
@@ -228,6 +234,30 @@ class DescribeCdnUpperIpRequest implements ModelInterface, ArrayAccess
     public function setIpVersion($ip_version)
     {
         $this->container['ip_version'] = $ip_version;
+
+        return $this;
+    }
+
+    /**
+     * Gets rs_ip
+     *
+     * @return bool
+     */
+    public function getRsIp()
+    {
+        return $this->container['rs_ip'];
+    }
+
+    /**
+     * Sets rs_ip
+     *
+     * @param bool $rs_ip rs_ip
+     *
+     * @return $this
+     */
+    public function setRsIp($rs_ip)
+    {
+        $this->container['rs_ip'] = $rs_ip;
 
         return $this;
     }

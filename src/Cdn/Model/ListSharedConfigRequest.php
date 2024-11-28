@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CompressionActionForBatchUpdateCdnConfigInput implements ModelInterface, ArrayAccess
+class ListSharedConfigRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CompressionActionForBatchUpdateCdnConfigInput implements ModelInterface, A
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CompressionActionForBatchUpdateCdnConfigInput';
+    protected static $swaggerModelName = 'ListSharedConfigRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,11 +28,12 @@ class CompressionActionForBatchUpdateCdnConfigInput implements ModelInterface, A
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'compression_format' => 'string',
-        'compression_target' => 'string',
-        'compression_type' => 'string[]',
-        'max_file_size_kb' => 'int',
-        'min_file_size_kb' => 'int'
+        'config_name' => 'string',
+        'config_type' => 'string',
+        'config_type_list' => 'string[]',
+        'page_num' => 'int',
+        'page_size' => 'int',
+        'project' => 'string'
     ];
 
     /**
@@ -41,11 +42,12 @@ class CompressionActionForBatchUpdateCdnConfigInput implements ModelInterface, A
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'compression_format' => null,
-        'compression_target' => null,
-        'compression_type' => null,
-        'max_file_size_kb' => 'int64',
-        'min_file_size_kb' => 'int64'
+        'config_name' => null,
+        'config_type' => null,
+        'config_type_list' => null,
+        'page_num' => 'int64',
+        'page_size' => 'int64',
+        'project' => null
     ];
 
     /**
@@ -75,11 +77,12 @@ class CompressionActionForBatchUpdateCdnConfigInput implements ModelInterface, A
      * @var string[]
      */
     protected static $attributeMap = [
-        'compression_format' => 'CompressionFormat',
-        'compression_target' => 'CompressionTarget',
-        'compression_type' => 'CompressionType',
-        'max_file_size_kb' => 'MaxFileSizeKB',
-        'min_file_size_kb' => 'MinFileSizeKB'
+        'config_name' => 'ConfigName',
+        'config_type' => 'ConfigType',
+        'config_type_list' => 'ConfigTypeList',
+        'page_num' => 'PageNum',
+        'page_size' => 'PageSize',
+        'project' => 'Project'
     ];
 
     /**
@@ -88,11 +91,12 @@ class CompressionActionForBatchUpdateCdnConfigInput implements ModelInterface, A
      * @var string[]
      */
     protected static $setters = [
-        'compression_format' => 'setCompressionFormat',
-        'compression_target' => 'setCompressionTarget',
-        'compression_type' => 'setCompressionType',
-        'max_file_size_kb' => 'setMaxFileSizeKb',
-        'min_file_size_kb' => 'setMinFileSizeKb'
+        'config_name' => 'setConfigName',
+        'config_type' => 'setConfigType',
+        'config_type_list' => 'setConfigTypeList',
+        'page_num' => 'setPageNum',
+        'page_size' => 'setPageSize',
+        'project' => 'setProject'
     ];
 
     /**
@@ -101,11 +105,12 @@ class CompressionActionForBatchUpdateCdnConfigInput implements ModelInterface, A
      * @var string[]
      */
     protected static $getters = [
-        'compression_format' => 'getCompressionFormat',
-        'compression_target' => 'getCompressionTarget',
-        'compression_type' => 'getCompressionType',
-        'max_file_size_kb' => 'getMaxFileSizeKb',
-        'min_file_size_kb' => 'getMinFileSizeKb'
+        'config_name' => 'getConfigName',
+        'config_type' => 'getConfigType',
+        'config_type_list' => 'getConfigTypeList',
+        'page_num' => 'getPageNum',
+        'page_size' => 'getPageSize',
+        'project' => 'getProject'
     ];
 
     /**
@@ -168,11 +173,12 @@ class CompressionActionForBatchUpdateCdnConfigInput implements ModelInterface, A
      */
     public function __construct(array $data = null)
     {
-        $this->container['compression_format'] = isset($data['compression_format']) ? $data['compression_format'] : null;
-        $this->container['compression_target'] = isset($data['compression_target']) ? $data['compression_target'] : null;
-        $this->container['compression_type'] = isset($data['compression_type']) ? $data['compression_type'] : null;
-        $this->container['max_file_size_kb'] = isset($data['max_file_size_kb']) ? $data['max_file_size_kb'] : null;
-        $this->container['min_file_size_kb'] = isset($data['min_file_size_kb']) ? $data['min_file_size_kb'] : null;
+        $this->container['config_name'] = isset($data['config_name']) ? $data['config_name'] : null;
+        $this->container['config_type'] = isset($data['config_type']) ? $data['config_type'] : null;
+        $this->container['config_type_list'] = isset($data['config_type_list']) ? $data['config_type_list'] : null;
+        $this->container['page_num'] = isset($data['page_num']) ? $data['page_num'] : null;
+        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
+        $this->container['project'] = isset($data['project']) ? $data['project'] : null;
     }
 
     /**
@@ -200,121 +206,145 @@ class CompressionActionForBatchUpdateCdnConfigInput implements ModelInterface, A
 
 
     /**
-     * Gets compression_format
+     * Gets config_name
      *
      * @return string
      */
-    public function getCompressionFormat()
+    public function getConfigName()
     {
-        return $this->container['compression_format'];
+        return $this->container['config_name'];
     }
 
     /**
-     * Sets compression_format
+     * Sets config_name
      *
-     * @param string $compression_format compression_format
+     * @param string $config_name config_name
      *
      * @return $this
      */
-    public function setCompressionFormat($compression_format)
+    public function setConfigName($config_name)
     {
-        $this->container['compression_format'] = $compression_format;
+        $this->container['config_name'] = $config_name;
 
         return $this;
     }
 
     /**
-     * Gets compression_target
+     * Gets config_type
      *
      * @return string
      */
-    public function getCompressionTarget()
+    public function getConfigType()
     {
-        return $this->container['compression_target'];
+        return $this->container['config_type'];
     }
 
     /**
-     * Sets compression_target
+     * Sets config_type
      *
-     * @param string $compression_target compression_target
+     * @param string $config_type config_type
      *
      * @return $this
      */
-    public function setCompressionTarget($compression_target)
+    public function setConfigType($config_type)
     {
-        $this->container['compression_target'] = $compression_target;
+        $this->container['config_type'] = $config_type;
 
         return $this;
     }
 
     /**
-     * Gets compression_type
+     * Gets config_type_list
      *
      * @return string[]
      */
-    public function getCompressionType()
+    public function getConfigTypeList()
     {
-        return $this->container['compression_type'];
+        return $this->container['config_type_list'];
     }
 
     /**
-     * Sets compression_type
+     * Sets config_type_list
      *
-     * @param string[] $compression_type compression_type
+     * @param string[] $config_type_list config_type_list
      *
      * @return $this
      */
-    public function setCompressionType($compression_type)
+    public function setConfigTypeList($config_type_list)
     {
-        $this->container['compression_type'] = $compression_type;
+        $this->container['config_type_list'] = $config_type_list;
 
         return $this;
     }
 
     /**
-     * Gets max_file_size_kb
+     * Gets page_num
      *
      * @return int
      */
-    public function getMaxFileSizeKb()
+    public function getPageNum()
     {
-        return $this->container['max_file_size_kb'];
+        return $this->container['page_num'];
     }
 
     /**
-     * Sets max_file_size_kb
+     * Sets page_num
      *
-     * @param int $max_file_size_kb max_file_size_kb
+     * @param int $page_num page_num
      *
      * @return $this
      */
-    public function setMaxFileSizeKb($max_file_size_kb)
+    public function setPageNum($page_num)
     {
-        $this->container['max_file_size_kb'] = $max_file_size_kb;
+        $this->container['page_num'] = $page_num;
 
         return $this;
     }
 
     /**
-     * Gets min_file_size_kb
+     * Gets page_size
      *
      * @return int
      */
-    public function getMinFileSizeKb()
+    public function getPageSize()
     {
-        return $this->container['min_file_size_kb'];
+        return $this->container['page_size'];
     }
 
     /**
-     * Sets min_file_size_kb
+     * Sets page_size
      *
-     * @param int $min_file_size_kb min_file_size_kb
+     * @param int $page_size page_size
      *
      * @return $this
      */
-    public function setMinFileSizeKb($min_file_size_kb)
+    public function setPageSize($page_size)
     {
-        $this->container['min_file_size_kb'] = $min_file_size_kb;
+        $this->container['page_size'] = $page_size;
+
+        return $this;
+    }
+
+    /**
+     * Gets project
+     *
+     * @return string
+     */
+    public function getProject()
+    {
+        return $this->container['project'];
+    }
+
+    /**
+     * Sets project
+     *
+     * @param string $project project
+     *
+     * @return $this
+     */
+    public function setProject($project)
+    {
+        $this->container['project'] = $project;
 
         return $this;
     }

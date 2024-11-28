@@ -38,7 +38,9 @@ class ModuleLockConfigForDescribeCdnConfigOutput implements ModelInterface, Arra
         'ip_access_rule_locked' => 'bool',
         'negative_cache_locked' => 'bool',
         'origin_access_rule_locked' => 'bool',
+        'origin_arg_locked' => 'bool',
         'origin_locked' => 'bool',
+        'origin_response_header_locked' => 'bool',
         'origin_rewrite_locked' => 'bool',
         'quic_locked' => 'bool',
         'redirection_rewrite_locked' => 'bool',
@@ -47,6 +49,7 @@ class ModuleLockConfigForDescribeCdnConfigOutput implements ModelInterface, Arra
         'request_block_rule_locked' => 'bool',
         'request_header_locked' => 'bool',
         'response_header_locked' => 'bool',
+        'rule_engine_locked' => 'bool',
         'share_cache_locked' => 'bool',
         'sign_url_auth_locked' => 'bool',
         'ua_access_rule_locked' => 'bool'
@@ -68,7 +71,9 @@ class ModuleLockConfigForDescribeCdnConfigOutput implements ModelInterface, Arra
         'ip_access_rule_locked' => null,
         'negative_cache_locked' => null,
         'origin_access_rule_locked' => null,
+        'origin_arg_locked' => null,
         'origin_locked' => null,
+        'origin_response_header_locked' => null,
         'origin_rewrite_locked' => null,
         'quic_locked' => null,
         'redirection_rewrite_locked' => null,
@@ -77,6 +82,7 @@ class ModuleLockConfigForDescribeCdnConfigOutput implements ModelInterface, Arra
         'request_block_rule_locked' => null,
         'request_header_locked' => null,
         'response_header_locked' => null,
+        'rule_engine_locked' => null,
         'share_cache_locked' => null,
         'sign_url_auth_locked' => null,
         'ua_access_rule_locked' => null
@@ -119,7 +125,9 @@ class ModuleLockConfigForDescribeCdnConfigOutput implements ModelInterface, Arra
         'ip_access_rule_locked' => 'IpAccessRuleLocked',
         'negative_cache_locked' => 'NegativeCacheLocked',
         'origin_access_rule_locked' => 'OriginAccessRuleLocked',
+        'origin_arg_locked' => 'OriginArgLocked',
         'origin_locked' => 'OriginLocked',
+        'origin_response_header_locked' => 'OriginResponseHeaderLocked',
         'origin_rewrite_locked' => 'OriginRewriteLocked',
         'quic_locked' => 'QuicLocked',
         'redirection_rewrite_locked' => 'RedirectionRewriteLocked',
@@ -128,6 +136,7 @@ class ModuleLockConfigForDescribeCdnConfigOutput implements ModelInterface, Arra
         'request_block_rule_locked' => 'RequestBlockRuleLocked',
         'request_header_locked' => 'RequestHeaderLocked',
         'response_header_locked' => 'ResponseHeaderLocked',
+        'rule_engine_locked' => 'RuleEngineLocked',
         'share_cache_locked' => 'ShareCacheLocked',
         'sign_url_auth_locked' => 'SignUrlAuthLocked',
         'ua_access_rule_locked' => 'UAAccessRuleLocked'
@@ -149,7 +158,9 @@ class ModuleLockConfigForDescribeCdnConfigOutput implements ModelInterface, Arra
         'ip_access_rule_locked' => 'setIpAccessRuleLocked',
         'negative_cache_locked' => 'setNegativeCacheLocked',
         'origin_access_rule_locked' => 'setOriginAccessRuleLocked',
+        'origin_arg_locked' => 'setOriginArgLocked',
         'origin_locked' => 'setOriginLocked',
+        'origin_response_header_locked' => 'setOriginResponseHeaderLocked',
         'origin_rewrite_locked' => 'setOriginRewriteLocked',
         'quic_locked' => 'setQuicLocked',
         'redirection_rewrite_locked' => 'setRedirectionRewriteLocked',
@@ -158,6 +169,7 @@ class ModuleLockConfigForDescribeCdnConfigOutput implements ModelInterface, Arra
         'request_block_rule_locked' => 'setRequestBlockRuleLocked',
         'request_header_locked' => 'setRequestHeaderLocked',
         'response_header_locked' => 'setResponseHeaderLocked',
+        'rule_engine_locked' => 'setRuleEngineLocked',
         'share_cache_locked' => 'setShareCacheLocked',
         'sign_url_auth_locked' => 'setSignUrlAuthLocked',
         'ua_access_rule_locked' => 'setUaAccessRuleLocked'
@@ -179,7 +191,9 @@ class ModuleLockConfigForDescribeCdnConfigOutput implements ModelInterface, Arra
         'ip_access_rule_locked' => 'getIpAccessRuleLocked',
         'negative_cache_locked' => 'getNegativeCacheLocked',
         'origin_access_rule_locked' => 'getOriginAccessRuleLocked',
+        'origin_arg_locked' => 'getOriginArgLocked',
         'origin_locked' => 'getOriginLocked',
+        'origin_response_header_locked' => 'getOriginResponseHeaderLocked',
         'origin_rewrite_locked' => 'getOriginRewriteLocked',
         'quic_locked' => 'getQuicLocked',
         'redirection_rewrite_locked' => 'getRedirectionRewriteLocked',
@@ -188,6 +202,7 @@ class ModuleLockConfigForDescribeCdnConfigOutput implements ModelInterface, Arra
         'request_block_rule_locked' => 'getRequestBlockRuleLocked',
         'request_header_locked' => 'getRequestHeaderLocked',
         'response_header_locked' => 'getResponseHeaderLocked',
+        'rule_engine_locked' => 'getRuleEngineLocked',
         'share_cache_locked' => 'getShareCacheLocked',
         'sign_url_auth_locked' => 'getSignUrlAuthLocked',
         'ua_access_rule_locked' => 'getUaAccessRuleLocked'
@@ -263,7 +278,9 @@ class ModuleLockConfigForDescribeCdnConfigOutput implements ModelInterface, Arra
         $this->container['ip_access_rule_locked'] = isset($data['ip_access_rule_locked']) ? $data['ip_access_rule_locked'] : null;
         $this->container['negative_cache_locked'] = isset($data['negative_cache_locked']) ? $data['negative_cache_locked'] : null;
         $this->container['origin_access_rule_locked'] = isset($data['origin_access_rule_locked']) ? $data['origin_access_rule_locked'] : null;
+        $this->container['origin_arg_locked'] = isset($data['origin_arg_locked']) ? $data['origin_arg_locked'] : null;
         $this->container['origin_locked'] = isset($data['origin_locked']) ? $data['origin_locked'] : null;
+        $this->container['origin_response_header_locked'] = isset($data['origin_response_header_locked']) ? $data['origin_response_header_locked'] : null;
         $this->container['origin_rewrite_locked'] = isset($data['origin_rewrite_locked']) ? $data['origin_rewrite_locked'] : null;
         $this->container['quic_locked'] = isset($data['quic_locked']) ? $data['quic_locked'] : null;
         $this->container['redirection_rewrite_locked'] = isset($data['redirection_rewrite_locked']) ? $data['redirection_rewrite_locked'] : null;
@@ -272,6 +289,7 @@ class ModuleLockConfigForDescribeCdnConfigOutput implements ModelInterface, Arra
         $this->container['request_block_rule_locked'] = isset($data['request_block_rule_locked']) ? $data['request_block_rule_locked'] : null;
         $this->container['request_header_locked'] = isset($data['request_header_locked']) ? $data['request_header_locked'] : null;
         $this->container['response_header_locked'] = isset($data['response_header_locked']) ? $data['response_header_locked'] : null;
+        $this->container['rule_engine_locked'] = isset($data['rule_engine_locked']) ? $data['rule_engine_locked'] : null;
         $this->container['share_cache_locked'] = isset($data['share_cache_locked']) ? $data['share_cache_locked'] : null;
         $this->container['sign_url_auth_locked'] = isset($data['sign_url_auth_locked']) ? $data['sign_url_auth_locked'] : null;
         $this->container['ua_access_rule_locked'] = isset($data['ua_access_rule_locked']) ? $data['ua_access_rule_locked'] : null;
@@ -542,6 +560,30 @@ class ModuleLockConfigForDescribeCdnConfigOutput implements ModelInterface, Arra
     }
 
     /**
+     * Gets origin_arg_locked
+     *
+     * @return bool
+     */
+    public function getOriginArgLocked()
+    {
+        return $this->container['origin_arg_locked'];
+    }
+
+    /**
+     * Sets origin_arg_locked
+     *
+     * @param bool $origin_arg_locked origin_arg_locked
+     *
+     * @return $this
+     */
+    public function setOriginArgLocked($origin_arg_locked)
+    {
+        $this->container['origin_arg_locked'] = $origin_arg_locked;
+
+        return $this;
+    }
+
+    /**
      * Gets origin_locked
      *
      * @return bool
@@ -561,6 +603,30 @@ class ModuleLockConfigForDescribeCdnConfigOutput implements ModelInterface, Arra
     public function setOriginLocked($origin_locked)
     {
         $this->container['origin_locked'] = $origin_locked;
+
+        return $this;
+    }
+
+    /**
+     * Gets origin_response_header_locked
+     *
+     * @return bool
+     */
+    public function getOriginResponseHeaderLocked()
+    {
+        return $this->container['origin_response_header_locked'];
+    }
+
+    /**
+     * Sets origin_response_header_locked
+     *
+     * @param bool $origin_response_header_locked origin_response_header_locked
+     *
+     * @return $this
+     */
+    public function setOriginResponseHeaderLocked($origin_response_header_locked)
+    {
+        $this->container['origin_response_header_locked'] = $origin_response_header_locked;
 
         return $this;
     }
@@ -753,6 +819,30 @@ class ModuleLockConfigForDescribeCdnConfigOutput implements ModelInterface, Arra
     public function setResponseHeaderLocked($response_header_locked)
     {
         $this->container['response_header_locked'] = $response_header_locked;
+
+        return $this;
+    }
+
+    /**
+     * Gets rule_engine_locked
+     *
+     * @return bool
+     */
+    public function getRuleEngineLocked()
+    {
+        return $this->container['rule_engine_locked'];
+    }
+
+    /**
+     * Sets rule_engine_locked
+     *
+     * @param bool $rule_engine_locked rule_engine_locked
+     *
+     * @return $this
+     */
+    public function setRuleEngineLocked($rule_engine_locked)
+    {
+        $this->container['rule_engine_locked'] = $rule_engine_locked;
 
         return $this;
     }

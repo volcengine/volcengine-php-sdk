@@ -48,7 +48,9 @@ class BatchUpdateCdnConfigRequest implements ModelInterface, ArrayAccess
         'ip_access_rule' => '\Volcengine\Cdn\Model\IpAccessRuleForBatchUpdateCdnConfigInput',
         'ip_freq_limit' => '\Volcengine\Cdn\Model\IpFreqLimitForBatchUpdateCdnConfigInput',
         'method_denied_rule' => '\Volcengine\Cdn\Model\MethodDeniedRuleForBatchUpdateCdnConfigInput',
+        'multi_range' => '\Volcengine\Cdn\Model\MultiRangeForBatchUpdateCdnConfigInput',
         'negative_cache' => '\Volcengine\Cdn\Model\NegativeCacheForBatchUpdateCdnConfigInput[]',
+        'offline_cache' => '\Volcengine\Cdn\Model\OfflineCacheForBatchUpdateCdnConfigInput',
         'origin' => '\Volcengine\Cdn\Model\OriginForBatchUpdateCdnConfigInput[]',
         'origin_access_rule' => '\Volcengine\Cdn\Model\OriginAccessRuleForBatchUpdateCdnConfigInput',
         'origin_arg' => '\Volcengine\Cdn\Model\OriginArgForBatchUpdateCdnConfigInput[]',
@@ -68,6 +70,7 @@ class BatchUpdateCdnConfigRequest implements ModelInterface, ArrayAccess
         'request_block_rule' => '\Volcengine\Cdn\Model\RequestBlockRuleForBatchUpdateCdnConfigInput',
         'request_header' => '\Volcengine\Cdn\Model\RequestHeaderForBatchUpdateCdnConfigInput[]',
         'response_header' => '\Volcengine\Cdn\Model\ResponseHeaderForBatchUpdateCdnConfigInput[]',
+        'rewrite_hls' => '\Volcengine\Cdn\Model\RewriteHLSForBatchUpdateCdnConfigInput',
         'service_region' => 'string',
         'signed_url_auth' => '\Volcengine\Cdn\Model\SignedUrlAuthForBatchUpdateCdnConfigInput',
         'timeout' => '\Volcengine\Cdn\Model\TimeoutForBatchUpdateCdnConfigInput',
@@ -102,7 +105,9 @@ class BatchUpdateCdnConfigRequest implements ModelInterface, ArrayAccess
         'ip_access_rule' => null,
         'ip_freq_limit' => null,
         'method_denied_rule' => null,
+        'multi_range' => null,
         'negative_cache' => null,
+        'offline_cache' => null,
         'origin' => null,
         'origin_access_rule' => null,
         'origin_arg' => null,
@@ -122,6 +127,7 @@ class BatchUpdateCdnConfigRequest implements ModelInterface, ArrayAccess
         'request_block_rule' => null,
         'request_header' => null,
         'response_header' => null,
+        'rewrite_hls' => null,
         'service_region' => null,
         'signed_url_auth' => null,
         'timeout' => null,
@@ -177,7 +183,9 @@ class BatchUpdateCdnConfigRequest implements ModelInterface, ArrayAccess
         'ip_access_rule' => 'IpAccessRule',
         'ip_freq_limit' => 'IpFreqLimit',
         'method_denied_rule' => 'MethodDeniedRule',
+        'multi_range' => 'MultiRange',
         'negative_cache' => 'NegativeCache',
+        'offline_cache' => 'OfflineCache',
         'origin' => 'Origin',
         'origin_access_rule' => 'OriginAccessRule',
         'origin_arg' => 'OriginArg',
@@ -197,6 +205,7 @@ class BatchUpdateCdnConfigRequest implements ModelInterface, ArrayAccess
         'request_block_rule' => 'RequestBlockRule',
         'request_header' => 'RequestHeader',
         'response_header' => 'ResponseHeader',
+        'rewrite_hls' => 'RewriteHLS',
         'service_region' => 'ServiceRegion',
         'signed_url_auth' => 'SignedUrlAuth',
         'timeout' => 'Timeout',
@@ -231,7 +240,9 @@ class BatchUpdateCdnConfigRequest implements ModelInterface, ArrayAccess
         'ip_access_rule' => 'setIpAccessRule',
         'ip_freq_limit' => 'setIpFreqLimit',
         'method_denied_rule' => 'setMethodDeniedRule',
+        'multi_range' => 'setMultiRange',
         'negative_cache' => 'setNegativeCache',
+        'offline_cache' => 'setOfflineCache',
         'origin' => 'setOrigin',
         'origin_access_rule' => 'setOriginAccessRule',
         'origin_arg' => 'setOriginArg',
@@ -251,6 +262,7 @@ class BatchUpdateCdnConfigRequest implements ModelInterface, ArrayAccess
         'request_block_rule' => 'setRequestBlockRule',
         'request_header' => 'setRequestHeader',
         'response_header' => 'setResponseHeader',
+        'rewrite_hls' => 'setRewriteHls',
         'service_region' => 'setServiceRegion',
         'signed_url_auth' => 'setSignedUrlAuth',
         'timeout' => 'setTimeout',
@@ -285,7 +297,9 @@ class BatchUpdateCdnConfigRequest implements ModelInterface, ArrayAccess
         'ip_access_rule' => 'getIpAccessRule',
         'ip_freq_limit' => 'getIpFreqLimit',
         'method_denied_rule' => 'getMethodDeniedRule',
+        'multi_range' => 'getMultiRange',
         'negative_cache' => 'getNegativeCache',
+        'offline_cache' => 'getOfflineCache',
         'origin' => 'getOrigin',
         'origin_access_rule' => 'getOriginAccessRule',
         'origin_arg' => 'getOriginArg',
@@ -305,6 +319,7 @@ class BatchUpdateCdnConfigRequest implements ModelInterface, ArrayAccess
         'request_block_rule' => 'getRequestBlockRule',
         'request_header' => 'getRequestHeader',
         'response_header' => 'getResponseHeader',
+        'rewrite_hls' => 'getRewriteHls',
         'service_region' => 'getServiceRegion',
         'signed_url_auth' => 'getSignedUrlAuth',
         'timeout' => 'getTimeout',
@@ -393,7 +408,9 @@ class BatchUpdateCdnConfigRequest implements ModelInterface, ArrayAccess
         $this->container['ip_access_rule'] = isset($data['ip_access_rule']) ? $data['ip_access_rule'] : null;
         $this->container['ip_freq_limit'] = isset($data['ip_freq_limit']) ? $data['ip_freq_limit'] : null;
         $this->container['method_denied_rule'] = isset($data['method_denied_rule']) ? $data['method_denied_rule'] : null;
+        $this->container['multi_range'] = isset($data['multi_range']) ? $data['multi_range'] : null;
         $this->container['negative_cache'] = isset($data['negative_cache']) ? $data['negative_cache'] : null;
+        $this->container['offline_cache'] = isset($data['offline_cache']) ? $data['offline_cache'] : null;
         $this->container['origin'] = isset($data['origin']) ? $data['origin'] : null;
         $this->container['origin_access_rule'] = isset($data['origin_access_rule']) ? $data['origin_access_rule'] : null;
         $this->container['origin_arg'] = isset($data['origin_arg']) ? $data['origin_arg'] : null;
@@ -413,6 +430,7 @@ class BatchUpdateCdnConfigRequest implements ModelInterface, ArrayAccess
         $this->container['request_block_rule'] = isset($data['request_block_rule']) ? $data['request_block_rule'] : null;
         $this->container['request_header'] = isset($data['request_header']) ? $data['request_header'] : null;
         $this->container['response_header'] = isset($data['response_header']) ? $data['response_header'] : null;
+        $this->container['rewrite_hls'] = isset($data['rewrite_hls']) ? $data['rewrite_hls'] : null;
         $this->container['service_region'] = isset($data['service_region']) ? $data['service_region'] : null;
         $this->container['signed_url_auth'] = isset($data['signed_url_auth']) ? $data['signed_url_auth'] : null;
         $this->container['timeout'] = isset($data['timeout']) ? $data['timeout'] : null;
@@ -926,6 +944,30 @@ class BatchUpdateCdnConfigRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets multi_range
+     *
+     * @return \Volcengine\Cdn\Model\MultiRangeForBatchUpdateCdnConfigInput
+     */
+    public function getMultiRange()
+    {
+        return $this->container['multi_range'];
+    }
+
+    /**
+     * Sets multi_range
+     *
+     * @param \Volcengine\Cdn\Model\MultiRangeForBatchUpdateCdnConfigInput $multi_range multi_range
+     *
+     * @return $this
+     */
+    public function setMultiRange($multi_range)
+    {
+        $this->container['multi_range'] = $multi_range;
+
+        return $this;
+    }
+
+    /**
      * Gets negative_cache
      *
      * @return \Volcengine\Cdn\Model\NegativeCacheForBatchUpdateCdnConfigInput[]
@@ -945,6 +987,30 @@ class BatchUpdateCdnConfigRequest implements ModelInterface, ArrayAccess
     public function setNegativeCache($negative_cache)
     {
         $this->container['negative_cache'] = $negative_cache;
+
+        return $this;
+    }
+
+    /**
+     * Gets offline_cache
+     *
+     * @return \Volcengine\Cdn\Model\OfflineCacheForBatchUpdateCdnConfigInput
+     */
+    public function getOfflineCache()
+    {
+        return $this->container['offline_cache'];
+    }
+
+    /**
+     * Sets offline_cache
+     *
+     * @param \Volcengine\Cdn\Model\OfflineCacheForBatchUpdateCdnConfigInput $offline_cache offline_cache
+     *
+     * @return $this
+     */
+    public function setOfflineCache($offline_cache)
+    {
+        $this->container['offline_cache'] = $offline_cache;
 
         return $this;
     }
@@ -1401,6 +1467,30 @@ class BatchUpdateCdnConfigRequest implements ModelInterface, ArrayAccess
     public function setResponseHeader($response_header)
     {
         $this->container['response_header'] = $response_header;
+
+        return $this;
+    }
+
+    /**
+     * Gets rewrite_hls
+     *
+     * @return \Volcengine\Cdn\Model\RewriteHLSForBatchUpdateCdnConfigInput
+     */
+    public function getRewriteHls()
+    {
+        return $this->container['rewrite_hls'];
+    }
+
+    /**
+     * Sets rewrite_hls
+     *
+     * @param \Volcengine\Cdn\Model\RewriteHLSForBatchUpdateCdnConfigInput $rewrite_hls rewrite_hls
+     *
+     * @return $this
+     */
+    public function setRewriteHls($rewrite_hls)
+    {
+        $this->container['rewrite_hls'] = $rewrite_hls;
 
         return $this;
     }

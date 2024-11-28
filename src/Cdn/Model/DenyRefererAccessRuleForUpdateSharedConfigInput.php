@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CompressionActionForBatchUpdateCdnConfigInput implements ModelInterface, ArrayAccess
+class DenyRefererAccessRuleForUpdateSharedConfigInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CompressionActionForBatchUpdateCdnConfigInput implements ModelInterface, A
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CompressionActionForBatchUpdateCdnConfigInput';
+    protected static $swaggerModelName = 'DenyRefererAccessRuleForUpdateSharedConfigInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,11 +28,8 @@ class CompressionActionForBatchUpdateCdnConfigInput implements ModelInterface, A
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'compression_format' => 'string',
-        'compression_target' => 'string',
-        'compression_type' => 'string[]',
-        'max_file_size_kb' => 'int',
-        'min_file_size_kb' => 'int'
+        'allow_empty' => 'bool',
+        'common_type' => '\Volcengine\Cdn\Model\CommonTypeForUpdateSharedConfigInput'
     ];
 
     /**
@@ -41,11 +38,8 @@ class CompressionActionForBatchUpdateCdnConfigInput implements ModelInterface, A
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'compression_format' => null,
-        'compression_target' => null,
-        'compression_type' => null,
-        'max_file_size_kb' => 'int64',
-        'min_file_size_kb' => 'int64'
+        'allow_empty' => null,
+        'common_type' => null
     ];
 
     /**
@@ -75,11 +69,8 @@ class CompressionActionForBatchUpdateCdnConfigInput implements ModelInterface, A
      * @var string[]
      */
     protected static $attributeMap = [
-        'compression_format' => 'CompressionFormat',
-        'compression_target' => 'CompressionTarget',
-        'compression_type' => 'CompressionType',
-        'max_file_size_kb' => 'MaxFileSizeKB',
-        'min_file_size_kb' => 'MinFileSizeKB'
+        'allow_empty' => 'AllowEmpty',
+        'common_type' => 'CommonType'
     ];
 
     /**
@@ -88,11 +79,8 @@ class CompressionActionForBatchUpdateCdnConfigInput implements ModelInterface, A
      * @var string[]
      */
     protected static $setters = [
-        'compression_format' => 'setCompressionFormat',
-        'compression_target' => 'setCompressionTarget',
-        'compression_type' => 'setCompressionType',
-        'max_file_size_kb' => 'setMaxFileSizeKb',
-        'min_file_size_kb' => 'setMinFileSizeKb'
+        'allow_empty' => 'setAllowEmpty',
+        'common_type' => 'setCommonType'
     ];
 
     /**
@@ -101,11 +89,8 @@ class CompressionActionForBatchUpdateCdnConfigInput implements ModelInterface, A
      * @var string[]
      */
     protected static $getters = [
-        'compression_format' => 'getCompressionFormat',
-        'compression_target' => 'getCompressionTarget',
-        'compression_type' => 'getCompressionType',
-        'max_file_size_kb' => 'getMaxFileSizeKb',
-        'min_file_size_kb' => 'getMinFileSizeKb'
+        'allow_empty' => 'getAllowEmpty',
+        'common_type' => 'getCommonType'
     ];
 
     /**
@@ -168,11 +153,8 @@ class CompressionActionForBatchUpdateCdnConfigInput implements ModelInterface, A
      */
     public function __construct(array $data = null)
     {
-        $this->container['compression_format'] = isset($data['compression_format']) ? $data['compression_format'] : null;
-        $this->container['compression_target'] = isset($data['compression_target']) ? $data['compression_target'] : null;
-        $this->container['compression_type'] = isset($data['compression_type']) ? $data['compression_type'] : null;
-        $this->container['max_file_size_kb'] = isset($data['max_file_size_kb']) ? $data['max_file_size_kb'] : null;
-        $this->container['min_file_size_kb'] = isset($data['min_file_size_kb']) ? $data['min_file_size_kb'] : null;
+        $this->container['allow_empty'] = isset($data['allow_empty']) ? $data['allow_empty'] : null;
+        $this->container['common_type'] = isset($data['common_type']) ? $data['common_type'] : null;
     }
 
     /**
@@ -200,121 +182,49 @@ class CompressionActionForBatchUpdateCdnConfigInput implements ModelInterface, A
 
 
     /**
-     * Gets compression_format
+     * Gets allow_empty
      *
-     * @return string
+     * @return bool
      */
-    public function getCompressionFormat()
+    public function getAllowEmpty()
     {
-        return $this->container['compression_format'];
+        return $this->container['allow_empty'];
     }
 
     /**
-     * Sets compression_format
+     * Sets allow_empty
      *
-     * @param string $compression_format compression_format
+     * @param bool $allow_empty allow_empty
      *
      * @return $this
      */
-    public function setCompressionFormat($compression_format)
+    public function setAllowEmpty($allow_empty)
     {
-        $this->container['compression_format'] = $compression_format;
+        $this->container['allow_empty'] = $allow_empty;
 
         return $this;
     }
 
     /**
-     * Gets compression_target
+     * Gets common_type
      *
-     * @return string
+     * @return \Volcengine\Cdn\Model\CommonTypeForUpdateSharedConfigInput
      */
-    public function getCompressionTarget()
+    public function getCommonType()
     {
-        return $this->container['compression_target'];
+        return $this->container['common_type'];
     }
 
     /**
-     * Sets compression_target
+     * Sets common_type
      *
-     * @param string $compression_target compression_target
+     * @param \Volcengine\Cdn\Model\CommonTypeForUpdateSharedConfigInput $common_type common_type
      *
      * @return $this
      */
-    public function setCompressionTarget($compression_target)
+    public function setCommonType($common_type)
     {
-        $this->container['compression_target'] = $compression_target;
-
-        return $this;
-    }
-
-    /**
-     * Gets compression_type
-     *
-     * @return string[]
-     */
-    public function getCompressionType()
-    {
-        return $this->container['compression_type'];
-    }
-
-    /**
-     * Sets compression_type
-     *
-     * @param string[] $compression_type compression_type
-     *
-     * @return $this
-     */
-    public function setCompressionType($compression_type)
-    {
-        $this->container['compression_type'] = $compression_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets max_file_size_kb
-     *
-     * @return int
-     */
-    public function getMaxFileSizeKb()
-    {
-        return $this->container['max_file_size_kb'];
-    }
-
-    /**
-     * Sets max_file_size_kb
-     *
-     * @param int $max_file_size_kb max_file_size_kb
-     *
-     * @return $this
-     */
-    public function setMaxFileSizeKb($max_file_size_kb)
-    {
-        $this->container['max_file_size_kb'] = $max_file_size_kb;
-
-        return $this;
-    }
-
-    /**
-     * Gets min_file_size_kb
-     *
-     * @return int
-     */
-    public function getMinFileSizeKb()
-    {
-        return $this->container['min_file_size_kb'];
-    }
-
-    /**
-     * Sets min_file_size_kb
-     *
-     * @param int $min_file_size_kb min_file_size_kb
-     *
-     * @return $this
-     */
-    public function setMinFileSizeKb($min_file_size_kb)
-    {
-        $this->container['min_file_size_kb'] = $min_file_size_kb;
+        $this->container['common_type'] = $common_type;
 
         return $this;
     }
