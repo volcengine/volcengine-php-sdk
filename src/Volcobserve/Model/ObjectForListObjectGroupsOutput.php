@@ -28,6 +28,7 @@ class ObjectForListObjectGroupsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'dimension_conditions' => 'string',
         'dimensions' => 'map[string,string[]]',
         'id' => 'string',
         'namespace' => 'string',
@@ -41,6 +42,7 @@ class ObjectForListObjectGroupsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'dimension_conditions' => null,
         'dimensions' => null,
         'id' => null,
         'namespace' => null,
@@ -75,6 +77,7 @@ class ObjectForListObjectGroupsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'dimension_conditions' => 'DimensionConditions',
         'dimensions' => 'Dimensions',
         'id' => 'Id',
         'namespace' => 'Namespace',
@@ -88,6 +91,7 @@ class ObjectForListObjectGroupsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'dimension_conditions' => 'setDimensionConditions',
         'dimensions' => 'setDimensions',
         'id' => 'setId',
         'namespace' => 'setNamespace',
@@ -101,6 +105,7 @@ class ObjectForListObjectGroupsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'dimension_conditions' => 'getDimensionConditions',
         'dimensions' => 'getDimensions',
         'id' => 'getId',
         'namespace' => 'getNamespace',
@@ -168,6 +173,7 @@ class ObjectForListObjectGroupsOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['dimension_conditions'] = isset($data['dimension_conditions']) ? $data['dimension_conditions'] : null;
         $this->container['dimensions'] = isset($data['dimensions']) ? $data['dimensions'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['namespace'] = isset($data['namespace']) ? $data['namespace'] : null;
@@ -198,6 +204,30 @@ class ObjectForListObjectGroupsOutput implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets dimension_conditions
+     *
+     * @return string
+     */
+    public function getDimensionConditions()
+    {
+        return $this->container['dimension_conditions'];
+    }
+
+    /**
+     * Sets dimension_conditions
+     *
+     * @param string $dimension_conditions dimension_conditions
+     *
+     * @return $this
+     */
+    public function setDimensionConditions($dimension_conditions)
+    {
+        $this->container['dimension_conditions'] = $dimension_conditions;
+
+        return $this;
+    }
 
     /**
      * Gets dimensions

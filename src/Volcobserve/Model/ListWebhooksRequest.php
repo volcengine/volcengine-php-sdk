@@ -35,7 +35,6 @@ class ListWebhooksRequest implements ModelInterface, ArrayAccess
         'page_number' => 'int',
         'page_size' => 'int',
         'rule_id' => 'string',
-        'total_count' => 'int',
         'type' => 'string',
         'url' => 'string'
     ];
@@ -53,7 +52,6 @@ class ListWebhooksRequest implements ModelInterface, ArrayAccess
         'page_number' => null,
         'page_size' => null,
         'rule_id' => null,
-        'total_count' => null,
         'type' => null,
         'url' => null
     ];
@@ -92,7 +90,6 @@ class ListWebhooksRequest implements ModelInterface, ArrayAccess
         'page_number' => 'PageNumber',
         'page_size' => 'PageSize',
         'rule_id' => 'RuleId',
-        'total_count' => 'TotalCount',
         'type' => 'Type',
         'url' => 'Url'
     ];
@@ -110,7 +107,6 @@ class ListWebhooksRequest implements ModelInterface, ArrayAccess
         'page_number' => 'setPageNumber',
         'page_size' => 'setPageSize',
         'rule_id' => 'setRuleId',
-        'total_count' => 'setTotalCount',
         'type' => 'setType',
         'url' => 'setUrl'
     ];
@@ -128,7 +124,6 @@ class ListWebhooksRequest implements ModelInterface, ArrayAccess
         'page_number' => 'getPageNumber',
         'page_size' => 'getPageSize',
         'rule_id' => 'getRuleId',
-        'total_count' => 'getTotalCount',
         'type' => 'getType',
         'url' => 'getUrl'
     ];
@@ -200,7 +195,6 @@ class ListWebhooksRequest implements ModelInterface, ArrayAccess
         $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
         $this->container['rule_id'] = isset($data['rule_id']) ? $data['rule_id'] : null;
-        $this->container['total_count'] = isset($data['total_count']) ? $data['total_count'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['url'] = isset($data['url']) ? $data['url'] : null;
     }
@@ -393,30 +387,6 @@ class ListWebhooksRequest implements ModelInterface, ArrayAccess
     public function setRuleId($rule_id)
     {
         $this->container['rule_id'] = $rule_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_count
-     *
-     * @return int
-     */
-    public function getTotalCount()
-    {
-        return $this->container['total_count'];
-    }
-
-    /**
-     * Sets total_count
-     *
-     * @param int $total_count total_count
-     *
-     * @return $this
-     */
-    public function setTotalCount($total_count)
-    {
-        $this->container['total_count'] = $total_count;
 
         return $this;
     }
