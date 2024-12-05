@@ -28,9 +28,11 @@ class ObjectForCreateObjectGroupInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'dimension_conditions' => '\Volcengine\Volcobserve\Model\DimensionConditionsForCreateObjectGroupInput',
         'dimensions' => 'map[string,string[]]',
         'namespace' => 'string',
-        'region' => 'string'
+        'region' => 'string',
+        'type' => 'string'
     ];
 
     /**
@@ -39,9 +41,11 @@ class ObjectForCreateObjectGroupInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'dimension_conditions' => null,
         'dimensions' => null,
         'namespace' => null,
-        'region' => null
+        'region' => null,
+        'type' => null
     ];
 
     /**
@@ -71,9 +75,11 @@ class ObjectForCreateObjectGroupInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'dimension_conditions' => 'DimensionConditions',
         'dimensions' => 'Dimensions',
         'namespace' => 'Namespace',
-        'region' => 'Region'
+        'region' => 'Region',
+        'type' => 'Type'
     ];
 
     /**
@@ -82,9 +88,11 @@ class ObjectForCreateObjectGroupInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'dimension_conditions' => 'setDimensionConditions',
         'dimensions' => 'setDimensions',
         'namespace' => 'setNamespace',
-        'region' => 'setRegion'
+        'region' => 'setRegion',
+        'type' => 'setType'
     ];
 
     /**
@@ -93,9 +101,11 @@ class ObjectForCreateObjectGroupInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'dimension_conditions' => 'getDimensionConditions',
         'dimensions' => 'getDimensions',
         'namespace' => 'getNamespace',
-        'region' => 'getRegion'
+        'region' => 'getRegion',
+        'type' => 'getType'
     ];
 
     /**
@@ -158,9 +168,11 @@ class ObjectForCreateObjectGroupInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['dimension_conditions'] = isset($data['dimension_conditions']) ? $data['dimension_conditions'] : null;
         $this->container['dimensions'] = isset($data['dimensions']) ? $data['dimensions'] : null;
         $this->container['namespace'] = isset($data['namespace']) ? $data['namespace'] : null;
         $this->container['region'] = isset($data['region']) ? $data['region'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
     /**
@@ -186,6 +198,30 @@ class ObjectForCreateObjectGroupInput implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets dimension_conditions
+     *
+     * @return \Volcengine\Volcobserve\Model\DimensionConditionsForCreateObjectGroupInput
+     */
+    public function getDimensionConditions()
+    {
+        return $this->container['dimension_conditions'];
+    }
+
+    /**
+     * Sets dimension_conditions
+     *
+     * @param \Volcengine\Volcobserve\Model\DimensionConditionsForCreateObjectGroupInput $dimension_conditions dimension_conditions
+     *
+     * @return $this
+     */
+    public function setDimensionConditions($dimension_conditions)
+    {
+        $this->container['dimension_conditions'] = $dimension_conditions;
+
+        return $this;
+    }
 
     /**
      * Gets dimensions
@@ -255,6 +291,30 @@ class ObjectForCreateObjectGroupInput implements ModelInterface, ArrayAccess
     public function setRegion($region)
     {
         $this->container['region'] = $region;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string $type type
+     *
+     * @return $this
+     */
+    public function setType($type)
+    {
+        $this->container['type'] = $type;
 
         return $this;
     }

@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ResourceTagForListAlertGroupOutput implements ModelInterface, ArrayAccess
+class TagForListRulesByIdsOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ResourceTagForListAlertGroupOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ResourceTagForListAlertGroupOutput';
+    protected static $swaggerModelName = 'TagForListRulesByIdsOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,9 @@ class ResourceTagForListAlertGroupOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'name' => 'string',
-        'value' => 'string'
+        'comparator' => 'string',
+        'key' => 'string',
+        'values' => 'string[]'
     ];
 
     /**
@@ -38,8 +39,9 @@ class ResourceTagForListAlertGroupOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'name' => null,
-        'value' => null
+        'comparator' => null,
+        'key' => null,
+        'values' => null
     ];
 
     /**
@@ -69,8 +71,9 @@ class ResourceTagForListAlertGroupOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'Name',
-        'value' => 'Value'
+        'comparator' => 'Comparator',
+        'key' => 'Key',
+        'values' => 'Values'
     ];
 
     /**
@@ -79,8 +82,9 @@ class ResourceTagForListAlertGroupOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-        'value' => 'setValue'
+        'comparator' => 'setComparator',
+        'key' => 'setKey',
+        'values' => 'setValues'
     ];
 
     /**
@@ -89,8 +93,9 @@ class ResourceTagForListAlertGroupOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-        'value' => 'getValue'
+        'comparator' => 'getComparator',
+        'key' => 'getKey',
+        'values' => 'getValues'
     ];
 
     /**
@@ -153,8 +158,9 @@ class ResourceTagForListAlertGroupOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        $this->container['comparator'] = isset($data['comparator']) ? $data['comparator'] : null;
+        $this->container['key'] = isset($data['key']) ? $data['key'] : null;
+        $this->container['values'] = isset($data['values']) ? $data['values'] : null;
     }
 
     /**
@@ -182,49 +188,73 @@ class ResourceTagForListAlertGroupOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets name
+     * Gets comparator
      *
      * @return string
      */
-    public function getName()
+    public function getComparator()
     {
-        return $this->container['name'];
+        return $this->container['comparator'];
     }
 
     /**
-     * Sets name
+     * Sets comparator
      *
-     * @param string $name name
+     * @param string $comparator comparator
      *
      * @return $this
      */
-    public function setName($name)
+    public function setComparator($comparator)
     {
-        $this->container['name'] = $name;
+        $this->container['comparator'] = $comparator;
 
         return $this;
     }
 
     /**
-     * Gets value
+     * Gets key
      *
      * @return string
      */
-    public function getValue()
+    public function getKey()
     {
-        return $this->container['value'];
+        return $this->container['key'];
     }
 
     /**
-     * Sets value
+     * Sets key
      *
-     * @param string $value value
+     * @param string $key key
      *
      * @return $this
      */
-    public function setValue($value)
+    public function setKey($key)
     {
-        $this->container['value'] = $value;
+        $this->container['key'] = $key;
+
+        return $this;
+    }
+
+    /**
+     * Gets values
+     *
+     * @return string[]
+     */
+    public function getValues()
+    {
+        return $this->container['values'];
+    }
+
+    /**
+     * Sets values
+     *
+     * @param string[] $values values
+     *
+     * @return $this
+     */
+    public function setValues($values)
+    {
+        $this->container['values'] = $values;
 
         return $this;
     }

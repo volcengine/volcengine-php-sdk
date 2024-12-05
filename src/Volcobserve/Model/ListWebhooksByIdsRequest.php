@@ -28,12 +28,7 @@ class ListWebhooksByIdsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'asc' => 'bool',
-        'ids' => 'string[]',
-        'order_by' => 'string',
-        'page_number' => 'int',
-        'page_size' => 'int',
-        'total_count' => 'int'
+        'ids' => 'string[]'
     ];
 
     /**
@@ -42,12 +37,7 @@ class ListWebhooksByIdsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'asc' => null,
-        'ids' => null,
-        'order_by' => null,
-        'page_number' => null,
-        'page_size' => null,
-        'total_count' => null
+        'ids' => null
     ];
 
     /**
@@ -77,12 +67,7 @@ class ListWebhooksByIdsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'asc' => 'Asc',
-        'ids' => 'Ids',
-        'order_by' => 'OrderBy',
-        'page_number' => 'PageNumber',
-        'page_size' => 'PageSize',
-        'total_count' => 'TotalCount'
+        'ids' => 'Ids'
     ];
 
     /**
@@ -91,12 +76,7 @@ class ListWebhooksByIdsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'asc' => 'setAsc',
-        'ids' => 'setIds',
-        'order_by' => 'setOrderBy',
-        'page_number' => 'setPageNumber',
-        'page_size' => 'setPageSize',
-        'total_count' => 'setTotalCount'
+        'ids' => 'setIds'
     ];
 
     /**
@@ -105,12 +85,7 @@ class ListWebhooksByIdsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'asc' => 'getAsc',
-        'ids' => 'getIds',
-        'order_by' => 'getOrderBy',
-        'page_number' => 'getPageNumber',
-        'page_size' => 'getPageSize',
-        'total_count' => 'getTotalCount'
+        'ids' => 'getIds'
     ];
 
     /**
@@ -173,12 +148,7 @@ class ListWebhooksByIdsRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['asc'] = isset($data['asc']) ? $data['asc'] : null;
         $this->container['ids'] = isset($data['ids']) ? $data['ids'] : null;
-        $this->container['order_by'] = isset($data['order_by']) ? $data['order_by'] : null;
-        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
-        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
-        $this->container['total_count'] = isset($data['total_count']) ? $data['total_count'] : null;
     }
 
     /**
@@ -206,30 +176,6 @@ class ListWebhooksByIdsRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets asc
-     *
-     * @return bool
-     */
-    public function getAsc()
-    {
-        return $this->container['asc'];
-    }
-
-    /**
-     * Sets asc
-     *
-     * @param bool $asc asc
-     *
-     * @return $this
-     */
-    public function setAsc($asc)
-    {
-        $this->container['asc'] = $asc;
-
-        return $this;
-    }
-
-    /**
      * Gets ids
      *
      * @return string[]
@@ -249,102 +195,6 @@ class ListWebhooksByIdsRequest implements ModelInterface, ArrayAccess
     public function setIds($ids)
     {
         $this->container['ids'] = $ids;
-
-        return $this;
-    }
-
-    /**
-     * Gets order_by
-     *
-     * @return string
-     */
-    public function getOrderBy()
-    {
-        return $this->container['order_by'];
-    }
-
-    /**
-     * Sets order_by
-     *
-     * @param string $order_by order_by
-     *
-     * @return $this
-     */
-    public function setOrderBy($order_by)
-    {
-        $this->container['order_by'] = $order_by;
-
-        return $this;
-    }
-
-    /**
-     * Gets page_number
-     *
-     * @return int
-     */
-    public function getPageNumber()
-    {
-        return $this->container['page_number'];
-    }
-
-    /**
-     * Sets page_number
-     *
-     * @param int $page_number page_number
-     *
-     * @return $this
-     */
-    public function setPageNumber($page_number)
-    {
-        $this->container['page_number'] = $page_number;
-
-        return $this;
-    }
-
-    /**
-     * Gets page_size
-     *
-     * @return int
-     */
-    public function getPageSize()
-    {
-        return $this->container['page_size'];
-    }
-
-    /**
-     * Sets page_size
-     *
-     * @param int $page_size page_size
-     *
-     * @return $this
-     */
-    public function setPageSize($page_size)
-    {
-        $this->container['page_size'] = $page_size;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_count
-     *
-     * @return int
-     */
-    public function getTotalCount()
-    {
-        return $this->container['total_count'];
-    }
-
-    /**
-     * Sets total_count
-     *
-     * @param int $total_count total_count
-     *
-     * @return $this
-     */
-    public function setTotalCount($total_count)
-    {
-        $this->container['total_count'] = $total_count;
 
         return $this;
     }

@@ -28,26 +28,19 @@ class DataForListAlertGroupOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'alert_count' => 'int',
         'alert_state' => 'string',
+        'alert_type' => 'string',
         'dimension' => 'string',
         'duration' => 'string',
         'end_at' => 'string',
-        'id' => 'string',
         'level' => 'string',
         'namespace' => 'string',
         'region' => 'string',
         'resource_id' => 'string',
         'resource_name' => 'string',
-        'resource_status' => 'string',
-        'resource_status_cn' => 'string',
-        'resource_tags' => '\Volcengine\Volcobserve\Model\ResourceTagForListAlertGroupOutput[]',
         'resource_type' => 'string',
         'rule_id' => 'string',
         'rule_name' => 'string',
-        'rule_status' => 'string',
-        'rule_trigger_condition' => 'string',
-        'send_alert_count' => 'int',
         'start_at' => 'string',
         'sub_namespace' => 'string'
     ];
@@ -58,26 +51,19 @@ class DataForListAlertGroupOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'alert_count' => null,
         'alert_state' => null,
+        'alert_type' => null,
         'dimension' => null,
         'duration' => null,
         'end_at' => null,
-        'id' => null,
         'level' => null,
         'namespace' => null,
         'region' => null,
         'resource_id' => null,
         'resource_name' => null,
-        'resource_status' => null,
-        'resource_status_cn' => null,
-        'resource_tags' => null,
         'resource_type' => null,
         'rule_id' => null,
         'rule_name' => null,
-        'rule_status' => null,
-        'rule_trigger_condition' => null,
-        'send_alert_count' => null,
         'start_at' => null,
         'sub_namespace' => null
     ];
@@ -109,26 +95,19 @@ class DataForListAlertGroupOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'alert_count' => 'AlertCount',
         'alert_state' => 'AlertState',
+        'alert_type' => 'AlertType',
         'dimension' => 'Dimension',
         'duration' => 'Duration',
         'end_at' => 'EndAt',
-        'id' => 'Id',
         'level' => 'Level',
         'namespace' => 'Namespace',
         'region' => 'Region',
         'resource_id' => 'ResourceId',
         'resource_name' => 'ResourceName',
-        'resource_status' => 'ResourceStatus',
-        'resource_status_cn' => 'ResourceStatusCN',
-        'resource_tags' => 'ResourceTags',
         'resource_type' => 'ResourceType',
         'rule_id' => 'RuleId',
         'rule_name' => 'RuleName',
-        'rule_status' => 'RuleStatus',
-        'rule_trigger_condition' => 'RuleTriggerCondition',
-        'send_alert_count' => 'SendAlertCount',
         'start_at' => 'StartAt',
         'sub_namespace' => 'SubNamespace'
     ];
@@ -139,26 +118,19 @@ class DataForListAlertGroupOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'alert_count' => 'setAlertCount',
         'alert_state' => 'setAlertState',
+        'alert_type' => 'setAlertType',
         'dimension' => 'setDimension',
         'duration' => 'setDuration',
         'end_at' => 'setEndAt',
-        'id' => 'setId',
         'level' => 'setLevel',
         'namespace' => 'setNamespace',
         'region' => 'setRegion',
         'resource_id' => 'setResourceId',
         'resource_name' => 'setResourceName',
-        'resource_status' => 'setResourceStatus',
-        'resource_status_cn' => 'setResourceStatusCn',
-        'resource_tags' => 'setResourceTags',
         'resource_type' => 'setResourceType',
         'rule_id' => 'setRuleId',
         'rule_name' => 'setRuleName',
-        'rule_status' => 'setRuleStatus',
-        'rule_trigger_condition' => 'setRuleTriggerCondition',
-        'send_alert_count' => 'setSendAlertCount',
         'start_at' => 'setStartAt',
         'sub_namespace' => 'setSubNamespace'
     ];
@@ -169,26 +141,19 @@ class DataForListAlertGroupOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'alert_count' => 'getAlertCount',
         'alert_state' => 'getAlertState',
+        'alert_type' => 'getAlertType',
         'dimension' => 'getDimension',
         'duration' => 'getDuration',
         'end_at' => 'getEndAt',
-        'id' => 'getId',
         'level' => 'getLevel',
         'namespace' => 'getNamespace',
         'region' => 'getRegion',
         'resource_id' => 'getResourceId',
         'resource_name' => 'getResourceName',
-        'resource_status' => 'getResourceStatus',
-        'resource_status_cn' => 'getResourceStatusCn',
-        'resource_tags' => 'getResourceTags',
         'resource_type' => 'getResourceType',
         'rule_id' => 'getRuleId',
         'rule_name' => 'getRuleName',
-        'rule_status' => 'getRuleStatus',
-        'rule_trigger_condition' => 'getRuleTriggerCondition',
-        'send_alert_count' => 'getSendAlertCount',
         'start_at' => 'getStartAt',
         'sub_namespace' => 'getSubNamespace'
     ];
@@ -253,26 +218,19 @@ class DataForListAlertGroupOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['alert_count'] = isset($data['alert_count']) ? $data['alert_count'] : null;
         $this->container['alert_state'] = isset($data['alert_state']) ? $data['alert_state'] : null;
+        $this->container['alert_type'] = isset($data['alert_type']) ? $data['alert_type'] : null;
         $this->container['dimension'] = isset($data['dimension']) ? $data['dimension'] : null;
         $this->container['duration'] = isset($data['duration']) ? $data['duration'] : null;
         $this->container['end_at'] = isset($data['end_at']) ? $data['end_at'] : null;
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['level'] = isset($data['level']) ? $data['level'] : null;
         $this->container['namespace'] = isset($data['namespace']) ? $data['namespace'] : null;
         $this->container['region'] = isset($data['region']) ? $data['region'] : null;
         $this->container['resource_id'] = isset($data['resource_id']) ? $data['resource_id'] : null;
         $this->container['resource_name'] = isset($data['resource_name']) ? $data['resource_name'] : null;
-        $this->container['resource_status'] = isset($data['resource_status']) ? $data['resource_status'] : null;
-        $this->container['resource_status_cn'] = isset($data['resource_status_cn']) ? $data['resource_status_cn'] : null;
-        $this->container['resource_tags'] = isset($data['resource_tags']) ? $data['resource_tags'] : null;
         $this->container['resource_type'] = isset($data['resource_type']) ? $data['resource_type'] : null;
         $this->container['rule_id'] = isset($data['rule_id']) ? $data['rule_id'] : null;
         $this->container['rule_name'] = isset($data['rule_name']) ? $data['rule_name'] : null;
-        $this->container['rule_status'] = isset($data['rule_status']) ? $data['rule_status'] : null;
-        $this->container['rule_trigger_condition'] = isset($data['rule_trigger_condition']) ? $data['rule_trigger_condition'] : null;
-        $this->container['send_alert_count'] = isset($data['send_alert_count']) ? $data['send_alert_count'] : null;
         $this->container['start_at'] = isset($data['start_at']) ? $data['start_at'] : null;
         $this->container['sub_namespace'] = isset($data['sub_namespace']) ? $data['sub_namespace'] : null;
     }
@@ -302,30 +260,6 @@ class DataForListAlertGroupOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets alert_count
-     *
-     * @return int
-     */
-    public function getAlertCount()
-    {
-        return $this->container['alert_count'];
-    }
-
-    /**
-     * Sets alert_count
-     *
-     * @param int $alert_count alert_count
-     *
-     * @return $this
-     */
-    public function setAlertCount($alert_count)
-    {
-        $this->container['alert_count'] = $alert_count;
-
-        return $this;
-    }
-
-    /**
      * Gets alert_state
      *
      * @return string
@@ -345,6 +279,30 @@ class DataForListAlertGroupOutput implements ModelInterface, ArrayAccess
     public function setAlertState($alert_state)
     {
         $this->container['alert_state'] = $alert_state;
+
+        return $this;
+    }
+
+    /**
+     * Gets alert_type
+     *
+     * @return string
+     */
+    public function getAlertType()
+    {
+        return $this->container['alert_type'];
+    }
+
+    /**
+     * Sets alert_type
+     *
+     * @param string $alert_type alert_type
+     *
+     * @return $this
+     */
+    public function setAlertType($alert_type)
+    {
+        $this->container['alert_type'] = $alert_type;
 
         return $this;
     }
@@ -417,30 +375,6 @@ class DataForListAlertGroupOutput implements ModelInterface, ArrayAccess
     public function setEndAt($end_at)
     {
         $this->container['end_at'] = $end_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets id
-     *
-     * @return string
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string $id id
-     *
-     * @return $this
-     */
-    public function setId($id)
-    {
-        $this->container['id'] = $id;
 
         return $this;
     }
@@ -566,78 +500,6 @@ class DataForListAlertGroupOutput implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets resource_status
-     *
-     * @return string
-     */
-    public function getResourceStatus()
-    {
-        return $this->container['resource_status'];
-    }
-
-    /**
-     * Sets resource_status
-     *
-     * @param string $resource_status resource_status
-     *
-     * @return $this
-     */
-    public function setResourceStatus($resource_status)
-    {
-        $this->container['resource_status'] = $resource_status;
-
-        return $this;
-    }
-
-    /**
-     * Gets resource_status_cn
-     *
-     * @return string
-     */
-    public function getResourceStatusCn()
-    {
-        return $this->container['resource_status_cn'];
-    }
-
-    /**
-     * Sets resource_status_cn
-     *
-     * @param string $resource_status_cn resource_status_cn
-     *
-     * @return $this
-     */
-    public function setResourceStatusCn($resource_status_cn)
-    {
-        $this->container['resource_status_cn'] = $resource_status_cn;
-
-        return $this;
-    }
-
-    /**
-     * Gets resource_tags
-     *
-     * @return \Volcengine\Volcobserve\Model\ResourceTagForListAlertGroupOutput[]
-     */
-    public function getResourceTags()
-    {
-        return $this->container['resource_tags'];
-    }
-
-    /**
-     * Sets resource_tags
-     *
-     * @param \Volcengine\Volcobserve\Model\ResourceTagForListAlertGroupOutput[] $resource_tags resource_tags
-     *
-     * @return $this
-     */
-    public function setResourceTags($resource_tags)
-    {
-        $this->container['resource_tags'] = $resource_tags;
-
-        return $this;
-    }
-
-    /**
      * Gets resource_type
      *
      * @return string
@@ -705,78 +567,6 @@ class DataForListAlertGroupOutput implements ModelInterface, ArrayAccess
     public function setRuleName($rule_name)
     {
         $this->container['rule_name'] = $rule_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets rule_status
-     *
-     * @return string
-     */
-    public function getRuleStatus()
-    {
-        return $this->container['rule_status'];
-    }
-
-    /**
-     * Sets rule_status
-     *
-     * @param string $rule_status rule_status
-     *
-     * @return $this
-     */
-    public function setRuleStatus($rule_status)
-    {
-        $this->container['rule_status'] = $rule_status;
-
-        return $this;
-    }
-
-    /**
-     * Gets rule_trigger_condition
-     *
-     * @return string
-     */
-    public function getRuleTriggerCondition()
-    {
-        return $this->container['rule_trigger_condition'];
-    }
-
-    /**
-     * Sets rule_trigger_condition
-     *
-     * @param string $rule_trigger_condition rule_trigger_condition
-     *
-     * @return $this
-     */
-    public function setRuleTriggerCondition($rule_trigger_condition)
-    {
-        $this->container['rule_trigger_condition'] = $rule_trigger_condition;
-
-        return $this;
-    }
-
-    /**
-     * Gets send_alert_count
-     *
-     * @return int
-     */
-    public function getSendAlertCount()
-    {
-        return $this->container['send_alert_count'];
-    }
-
-    /**
-     * Sets send_alert_count
-     *
-     * @param int $send_alert_count send_alert_count
-     *
-     * @return $this
-     */
-    public function setSendAlertCount($send_alert_count)
-    {
-        $this->container['send_alert_count'] = $send_alert_count;
 
         return $this;
     }

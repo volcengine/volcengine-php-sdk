@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ListWebhooksResponse implements ModelInterface, ArrayAccess
+class TagConditionForUpdateObjectGroupInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ListWebhooksResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ListWebhooksResponse';
+    protected static $swaggerModelName = 'TagConditionForUpdateObjectGroupInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,8 @@ class ListWebhooksResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'asc' => 'bool',
-        'data' => '\Volcengine\Volcobserve\Model\DataForListWebhooksOutput[]',
-        'order_by' => 'string',
-        'page_number' => 'int',
-        'page_size' => 'int',
-        'total_count' => 'int'
+        'condition' => 'string',
+        'tags' => '\Volcengine\Volcobserve\Model\TagForUpdateObjectGroupInput[]'
     ];
 
     /**
@@ -42,12 +38,8 @@ class ListWebhooksResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'asc' => null,
-        'data' => null,
-        'order_by' => null,
-        'page_number' => null,
-        'page_size' => null,
-        'total_count' => null
+        'condition' => null,
+        'tags' => null
     ];
 
     /**
@@ -77,12 +69,8 @@ class ListWebhooksResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'asc' => 'Asc',
-        'data' => 'Data',
-        'order_by' => 'OrderBy',
-        'page_number' => 'PageNumber',
-        'page_size' => 'PageSize',
-        'total_count' => 'TotalCount'
+        'condition' => 'Condition',
+        'tags' => 'Tags'
     ];
 
     /**
@@ -91,12 +79,8 @@ class ListWebhooksResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'asc' => 'setAsc',
-        'data' => 'setData',
-        'order_by' => 'setOrderBy',
-        'page_number' => 'setPageNumber',
-        'page_size' => 'setPageSize',
-        'total_count' => 'setTotalCount'
+        'condition' => 'setCondition',
+        'tags' => 'setTags'
     ];
 
     /**
@@ -105,12 +89,8 @@ class ListWebhooksResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'asc' => 'getAsc',
-        'data' => 'getData',
-        'order_by' => 'getOrderBy',
-        'page_number' => 'getPageNumber',
-        'page_size' => 'getPageSize',
-        'total_count' => 'getTotalCount'
+        'condition' => 'getCondition',
+        'tags' => 'getTags'
     ];
 
     /**
@@ -173,12 +153,8 @@ class ListWebhooksResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['asc'] = isset($data['asc']) ? $data['asc'] : null;
-        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
-        $this->container['order_by'] = isset($data['order_by']) ? $data['order_by'] : null;
-        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
-        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
-        $this->container['total_count'] = isset($data['total_count']) ? $data['total_count'] : null;
+        $this->container['condition'] = isset($data['condition']) ? $data['condition'] : null;
+        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
     }
 
     /**
@@ -206,145 +182,49 @@ class ListWebhooksResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets asc
-     *
-     * @return bool
-     */
-    public function getAsc()
-    {
-        return $this->container['asc'];
-    }
-
-    /**
-     * Sets asc
-     *
-     * @param bool $asc asc
-     *
-     * @return $this
-     */
-    public function setAsc($asc)
-    {
-        $this->container['asc'] = $asc;
-
-        return $this;
-    }
-
-    /**
-     * Gets data
-     *
-     * @return \Volcengine\Volcobserve\Model\DataForListWebhooksOutput[]
-     */
-    public function getData()
-    {
-        return $this->container['data'];
-    }
-
-    /**
-     * Sets data
-     *
-     * @param \Volcengine\Volcobserve\Model\DataForListWebhooksOutput[] $data data
-     *
-     * @return $this
-     */
-    public function setData($data)
-    {
-        $this->container['data'] = $data;
-
-        return $this;
-    }
-
-    /**
-     * Gets order_by
+     * Gets condition
      *
      * @return string
      */
-    public function getOrderBy()
+    public function getCondition()
     {
-        return $this->container['order_by'];
+        return $this->container['condition'];
     }
 
     /**
-     * Sets order_by
+     * Sets condition
      *
-     * @param string $order_by order_by
+     * @param string $condition condition
      *
      * @return $this
      */
-    public function setOrderBy($order_by)
+    public function setCondition($condition)
     {
-        $this->container['order_by'] = $order_by;
+        $this->container['condition'] = $condition;
 
         return $this;
     }
 
     /**
-     * Gets page_number
+     * Gets tags
      *
-     * @return int
+     * @return \Volcengine\Volcobserve\Model\TagForUpdateObjectGroupInput[]
      */
-    public function getPageNumber()
+    public function getTags()
     {
-        return $this->container['page_number'];
+        return $this->container['tags'];
     }
 
     /**
-     * Sets page_number
+     * Sets tags
      *
-     * @param int $page_number page_number
+     * @param \Volcengine\Volcobserve\Model\TagForUpdateObjectGroupInput[] $tags tags
      *
      * @return $this
      */
-    public function setPageNumber($page_number)
+    public function setTags($tags)
     {
-        $this->container['page_number'] = $page_number;
-
-        return $this;
-    }
-
-    /**
-     * Gets page_size
-     *
-     * @return int
-     */
-    public function getPageSize()
-    {
-        return $this->container['page_size'];
-    }
-
-    /**
-     * Sets page_size
-     *
-     * @param int $page_size page_size
-     *
-     * @return $this
-     */
-    public function setPageSize($page_size)
-    {
-        $this->container['page_size'] = $page_size;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_count
-     *
-     * @return int
-     */
-    public function getTotalCount()
-    {
-        return $this->container['total_count'];
-    }
-
-    /**
-     * Sets total_count
-     *
-     * @param int $total_count total_count
-     *
-     * @return $this
-     */
-    public function setTotalCount($total_count)
-    {
-        $this->container['total_count'] = $total_count;
+        $this->container['tags'] = $tags;
 
         return $this;
     }

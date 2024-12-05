@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ListWebhooksResponse implements ModelInterface, ArrayAccess
+class DimensionConditionsForListRulesOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ListWebhooksResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ListWebhooksResponse';
+    protected static $swaggerModelName = 'DimensionConditionsForListRulesOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,10 @@ class ListWebhooksResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'asc' => 'bool',
-        'data' => '\Volcengine\Volcobserve\Model\DataForListWebhooksOutput[]',
-        'order_by' => 'string',
-        'page_number' => 'int',
-        'page_size' => 'int',
-        'total_count' => 'int'
+        'meta_condition' => '\Volcengine\Volcobserve\Model\MetaConditionForListRulesOutput',
+        'project_condition' => '\Volcengine\Volcobserve\Model\ProjectConditionForListRulesOutput',
+        'tag_condition' => '\Volcengine\Volcobserve\Model\TagConditionForListRulesOutput',
+        'type' => 'string'
     ];
 
     /**
@@ -42,12 +40,10 @@ class ListWebhooksResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'asc' => null,
-        'data' => null,
-        'order_by' => null,
-        'page_number' => null,
-        'page_size' => null,
-        'total_count' => null
+        'meta_condition' => null,
+        'project_condition' => null,
+        'tag_condition' => null,
+        'type' => null
     ];
 
     /**
@@ -77,12 +73,10 @@ class ListWebhooksResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'asc' => 'Asc',
-        'data' => 'Data',
-        'order_by' => 'OrderBy',
-        'page_number' => 'PageNumber',
-        'page_size' => 'PageSize',
-        'total_count' => 'TotalCount'
+        'meta_condition' => 'MetaCondition',
+        'project_condition' => 'ProjectCondition',
+        'tag_condition' => 'TagCondition',
+        'type' => 'Type'
     ];
 
     /**
@@ -91,12 +85,10 @@ class ListWebhooksResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'asc' => 'setAsc',
-        'data' => 'setData',
-        'order_by' => 'setOrderBy',
-        'page_number' => 'setPageNumber',
-        'page_size' => 'setPageSize',
-        'total_count' => 'setTotalCount'
+        'meta_condition' => 'setMetaCondition',
+        'project_condition' => 'setProjectCondition',
+        'tag_condition' => 'setTagCondition',
+        'type' => 'setType'
     ];
 
     /**
@@ -105,12 +97,10 @@ class ListWebhooksResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'asc' => 'getAsc',
-        'data' => 'getData',
-        'order_by' => 'getOrderBy',
-        'page_number' => 'getPageNumber',
-        'page_size' => 'getPageSize',
-        'total_count' => 'getTotalCount'
+        'meta_condition' => 'getMetaCondition',
+        'project_condition' => 'getProjectCondition',
+        'tag_condition' => 'getTagCondition',
+        'type' => 'getType'
     ];
 
     /**
@@ -173,12 +163,10 @@ class ListWebhooksResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['asc'] = isset($data['asc']) ? $data['asc'] : null;
-        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
-        $this->container['order_by'] = isset($data['order_by']) ? $data['order_by'] : null;
-        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
-        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
-        $this->container['total_count'] = isset($data['total_count']) ? $data['total_count'] : null;
+        $this->container['meta_condition'] = isset($data['meta_condition']) ? $data['meta_condition'] : null;
+        $this->container['project_condition'] = isset($data['project_condition']) ? $data['project_condition'] : null;
+        $this->container['tag_condition'] = isset($data['tag_condition']) ? $data['tag_condition'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
     /**
@@ -206,145 +194,97 @@ class ListWebhooksResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets asc
+     * Gets meta_condition
      *
-     * @return bool
+     * @return \Volcengine\Volcobserve\Model\MetaConditionForListRulesOutput
      */
-    public function getAsc()
+    public function getMetaCondition()
     {
-        return $this->container['asc'];
+        return $this->container['meta_condition'];
     }
 
     /**
-     * Sets asc
+     * Sets meta_condition
      *
-     * @param bool $asc asc
+     * @param \Volcengine\Volcobserve\Model\MetaConditionForListRulesOutput $meta_condition meta_condition
      *
      * @return $this
      */
-    public function setAsc($asc)
+    public function setMetaCondition($meta_condition)
     {
-        $this->container['asc'] = $asc;
+        $this->container['meta_condition'] = $meta_condition;
 
         return $this;
     }
 
     /**
-     * Gets data
+     * Gets project_condition
      *
-     * @return \Volcengine\Volcobserve\Model\DataForListWebhooksOutput[]
+     * @return \Volcengine\Volcobserve\Model\ProjectConditionForListRulesOutput
      */
-    public function getData()
+    public function getProjectCondition()
     {
-        return $this->container['data'];
+        return $this->container['project_condition'];
     }
 
     /**
-     * Sets data
+     * Sets project_condition
      *
-     * @param \Volcengine\Volcobserve\Model\DataForListWebhooksOutput[] $data data
+     * @param \Volcengine\Volcobserve\Model\ProjectConditionForListRulesOutput $project_condition project_condition
      *
      * @return $this
      */
-    public function setData($data)
+    public function setProjectCondition($project_condition)
     {
-        $this->container['data'] = $data;
+        $this->container['project_condition'] = $project_condition;
 
         return $this;
     }
 
     /**
-     * Gets order_by
+     * Gets tag_condition
+     *
+     * @return \Volcengine\Volcobserve\Model\TagConditionForListRulesOutput
+     */
+    public function getTagCondition()
+    {
+        return $this->container['tag_condition'];
+    }
+
+    /**
+     * Sets tag_condition
+     *
+     * @param \Volcengine\Volcobserve\Model\TagConditionForListRulesOutput $tag_condition tag_condition
+     *
+     * @return $this
+     */
+    public function setTagCondition($tag_condition)
+    {
+        $this->container['tag_condition'] = $tag_condition;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
      *
      * @return string
      */
-    public function getOrderBy()
+    public function getType()
     {
-        return $this->container['order_by'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets order_by
+     * Sets type
      *
-     * @param string $order_by order_by
+     * @param string $type type
      *
      * @return $this
      */
-    public function setOrderBy($order_by)
+    public function setType($type)
     {
-        $this->container['order_by'] = $order_by;
-
-        return $this;
-    }
-
-    /**
-     * Gets page_number
-     *
-     * @return int
-     */
-    public function getPageNumber()
-    {
-        return $this->container['page_number'];
-    }
-
-    /**
-     * Sets page_number
-     *
-     * @param int $page_number page_number
-     *
-     * @return $this
-     */
-    public function setPageNumber($page_number)
-    {
-        $this->container['page_number'] = $page_number;
-
-        return $this;
-    }
-
-    /**
-     * Gets page_size
-     *
-     * @return int
-     */
-    public function getPageSize()
-    {
-        return $this->container['page_size'];
-    }
-
-    /**
-     * Sets page_size
-     *
-     * @param int $page_size page_size
-     *
-     * @return $this
-     */
-    public function setPageSize($page_size)
-    {
-        $this->container['page_size'] = $page_size;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_count
-     *
-     * @return int
-     */
-    public function getTotalCount()
-    {
-        return $this->container['total_count'];
-    }
-
-    /**
-     * Sets total_count
-     *
-     * @param int $total_count total_count
-     *
-     * @return $this
-     */
-    public function setTotalCount($total_count)
-    {
-        $this->container['total_count'] = $total_count;
+        $this->container['type'] = $type;
 
         return $this;
     }
