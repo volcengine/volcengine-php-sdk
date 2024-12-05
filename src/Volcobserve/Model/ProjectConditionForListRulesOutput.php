@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ListWebhooksResponse implements ModelInterface, ArrayAccess
+class ProjectConditionForListRulesOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ListWebhooksResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ListWebhooksResponse';
+    protected static $swaggerModelName = 'ProjectConditionForListRulesOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,7 @@ class ListWebhooksResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'asc' => 'bool',
-        'data' => '\Volcengine\Volcobserve\Model\DataForListWebhooksOutput[]',
-        'order_by' => 'string',
-        'page_number' => 'int',
-        'page_size' => 'int',
-        'total_count' => 'int'
+        'projects' => 'string[]'
     ];
 
     /**
@@ -42,12 +37,7 @@ class ListWebhooksResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'asc' => null,
-        'data' => null,
-        'order_by' => null,
-        'page_number' => null,
-        'page_size' => null,
-        'total_count' => null
+        'projects' => null
     ];
 
     /**
@@ -77,12 +67,7 @@ class ListWebhooksResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'asc' => 'Asc',
-        'data' => 'Data',
-        'order_by' => 'OrderBy',
-        'page_number' => 'PageNumber',
-        'page_size' => 'PageSize',
-        'total_count' => 'TotalCount'
+        'projects' => 'Projects'
     ];
 
     /**
@@ -91,12 +76,7 @@ class ListWebhooksResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'asc' => 'setAsc',
-        'data' => 'setData',
-        'order_by' => 'setOrderBy',
-        'page_number' => 'setPageNumber',
-        'page_size' => 'setPageSize',
-        'total_count' => 'setTotalCount'
+        'projects' => 'setProjects'
     ];
 
     /**
@@ -105,12 +85,7 @@ class ListWebhooksResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'asc' => 'getAsc',
-        'data' => 'getData',
-        'order_by' => 'getOrderBy',
-        'page_number' => 'getPageNumber',
-        'page_size' => 'getPageSize',
-        'total_count' => 'getTotalCount'
+        'projects' => 'getProjects'
     ];
 
     /**
@@ -173,12 +148,7 @@ class ListWebhooksResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['asc'] = isset($data['asc']) ? $data['asc'] : null;
-        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
-        $this->container['order_by'] = isset($data['order_by']) ? $data['order_by'] : null;
-        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
-        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
-        $this->container['total_count'] = isset($data['total_count']) ? $data['total_count'] : null;
+        $this->container['projects'] = isset($data['projects']) ? $data['projects'] : null;
     }
 
     /**
@@ -206,145 +176,25 @@ class ListWebhooksResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets asc
+     * Gets projects
      *
-     * @return bool
+     * @return string[]
      */
-    public function getAsc()
+    public function getProjects()
     {
-        return $this->container['asc'];
+        return $this->container['projects'];
     }
 
     /**
-     * Sets asc
+     * Sets projects
      *
-     * @param bool $asc asc
+     * @param string[] $projects projects
      *
      * @return $this
      */
-    public function setAsc($asc)
+    public function setProjects($projects)
     {
-        $this->container['asc'] = $asc;
-
-        return $this;
-    }
-
-    /**
-     * Gets data
-     *
-     * @return \Volcengine\Volcobserve\Model\DataForListWebhooksOutput[]
-     */
-    public function getData()
-    {
-        return $this->container['data'];
-    }
-
-    /**
-     * Sets data
-     *
-     * @param \Volcengine\Volcobserve\Model\DataForListWebhooksOutput[] $data data
-     *
-     * @return $this
-     */
-    public function setData($data)
-    {
-        $this->container['data'] = $data;
-
-        return $this;
-    }
-
-    /**
-     * Gets order_by
-     *
-     * @return string
-     */
-    public function getOrderBy()
-    {
-        return $this->container['order_by'];
-    }
-
-    /**
-     * Sets order_by
-     *
-     * @param string $order_by order_by
-     *
-     * @return $this
-     */
-    public function setOrderBy($order_by)
-    {
-        $this->container['order_by'] = $order_by;
-
-        return $this;
-    }
-
-    /**
-     * Gets page_number
-     *
-     * @return int
-     */
-    public function getPageNumber()
-    {
-        return $this->container['page_number'];
-    }
-
-    /**
-     * Sets page_number
-     *
-     * @param int $page_number page_number
-     *
-     * @return $this
-     */
-    public function setPageNumber($page_number)
-    {
-        $this->container['page_number'] = $page_number;
-
-        return $this;
-    }
-
-    /**
-     * Gets page_size
-     *
-     * @return int
-     */
-    public function getPageSize()
-    {
-        return $this->container['page_size'];
-    }
-
-    /**
-     * Sets page_size
-     *
-     * @param int $page_size page_size
-     *
-     * @return $this
-     */
-    public function setPageSize($page_size)
-    {
-        $this->container['page_size'] = $page_size;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_count
-     *
-     * @return int
-     */
-    public function getTotalCount()
-    {
-        return $this->container['total_count'];
-    }
-
-    /**
-     * Sets total_count
-     *
-     * @param int $total_count total_count
-     *
-     * @return $this
-     */
-    public function setTotalCount($total_count)
-    {
-        $this->container['total_count'] = $total_count;
+        $this->container['projects'] = $projects;
 
         return $this;
     }

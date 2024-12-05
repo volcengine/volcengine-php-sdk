@@ -35,6 +35,7 @@ class DataForListRulesByIdsOutput implements ModelInterface, ArrayAccess
         'contact_group_ids' => 'string[]',
         'created_at' => 'string',
         'description' => 'string',
+        'dimension_conditions' => '\Volcengine\Volcobserve\Model\DimensionConditionsForListRulesByIdsOutput',
         'effect_end_at' => 'string',
         'effect_start_at' => 'string',
         'enable_state' => 'string',
@@ -47,6 +48,7 @@ class DataForListRulesByIdsOutput implements ModelInterface, ArrayAccess
         'recovery_notify' => '\Volcengine\Volcobserve\Model\RecoveryNotifyForListRulesByIdsOutput',
         'regions' => 'string[]',
         'rule_name' => 'string',
+        'rule_type' => 'string',
         'silence_time' => 'int',
         'sub_namespace' => 'string',
         'updated_at' => 'string',
@@ -67,6 +69,7 @@ class DataForListRulesByIdsOutput implements ModelInterface, ArrayAccess
         'contact_group_ids' => null,
         'created_at' => null,
         'description' => null,
+        'dimension_conditions' => null,
         'effect_end_at' => null,
         'effect_start_at' => null,
         'enable_state' => null,
@@ -79,6 +82,7 @@ class DataForListRulesByIdsOutput implements ModelInterface, ArrayAccess
         'recovery_notify' => null,
         'regions' => null,
         'rule_name' => null,
+        'rule_type' => null,
         'silence_time' => null,
         'sub_namespace' => null,
         'updated_at' => null,
@@ -120,6 +124,7 @@ class DataForListRulesByIdsOutput implements ModelInterface, ArrayAccess
         'contact_group_ids' => 'ContactGroupIds',
         'created_at' => 'CreatedAt',
         'description' => 'Description',
+        'dimension_conditions' => 'DimensionConditions',
         'effect_end_at' => 'EffectEndAt',
         'effect_start_at' => 'EffectStartAt',
         'enable_state' => 'EnableState',
@@ -132,6 +137,7 @@ class DataForListRulesByIdsOutput implements ModelInterface, ArrayAccess
         'recovery_notify' => 'RecoveryNotify',
         'regions' => 'Regions',
         'rule_name' => 'RuleName',
+        'rule_type' => 'RuleType',
         'silence_time' => 'SilenceTime',
         'sub_namespace' => 'SubNamespace',
         'updated_at' => 'UpdatedAt',
@@ -152,6 +158,7 @@ class DataForListRulesByIdsOutput implements ModelInterface, ArrayAccess
         'contact_group_ids' => 'setContactGroupIds',
         'created_at' => 'setCreatedAt',
         'description' => 'setDescription',
+        'dimension_conditions' => 'setDimensionConditions',
         'effect_end_at' => 'setEffectEndAt',
         'effect_start_at' => 'setEffectStartAt',
         'enable_state' => 'setEnableState',
@@ -164,6 +171,7 @@ class DataForListRulesByIdsOutput implements ModelInterface, ArrayAccess
         'recovery_notify' => 'setRecoveryNotify',
         'regions' => 'setRegions',
         'rule_name' => 'setRuleName',
+        'rule_type' => 'setRuleType',
         'silence_time' => 'setSilenceTime',
         'sub_namespace' => 'setSubNamespace',
         'updated_at' => 'setUpdatedAt',
@@ -184,6 +192,7 @@ class DataForListRulesByIdsOutput implements ModelInterface, ArrayAccess
         'contact_group_ids' => 'getContactGroupIds',
         'created_at' => 'getCreatedAt',
         'description' => 'getDescription',
+        'dimension_conditions' => 'getDimensionConditions',
         'effect_end_at' => 'getEffectEndAt',
         'effect_start_at' => 'getEffectStartAt',
         'enable_state' => 'getEnableState',
@@ -196,6 +205,7 @@ class DataForListRulesByIdsOutput implements ModelInterface, ArrayAccess
         'recovery_notify' => 'getRecoveryNotify',
         'regions' => 'getRegions',
         'rule_name' => 'getRuleName',
+        'rule_type' => 'getRuleType',
         'silence_time' => 'getSilenceTime',
         'sub_namespace' => 'getSubNamespace',
         'updated_at' => 'getUpdatedAt',
@@ -270,6 +280,7 @@ class DataForListRulesByIdsOutput implements ModelInterface, ArrayAccess
         $this->container['contact_group_ids'] = isset($data['contact_group_ids']) ? $data['contact_group_ids'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['dimension_conditions'] = isset($data['dimension_conditions']) ? $data['dimension_conditions'] : null;
         $this->container['effect_end_at'] = isset($data['effect_end_at']) ? $data['effect_end_at'] : null;
         $this->container['effect_start_at'] = isset($data['effect_start_at']) ? $data['effect_start_at'] : null;
         $this->container['enable_state'] = isset($data['enable_state']) ? $data['enable_state'] : null;
@@ -282,6 +293,7 @@ class DataForListRulesByIdsOutput implements ModelInterface, ArrayAccess
         $this->container['recovery_notify'] = isset($data['recovery_notify']) ? $data['recovery_notify'] : null;
         $this->container['regions'] = isset($data['regions']) ? $data['regions'] : null;
         $this->container['rule_name'] = isset($data['rule_name']) ? $data['rule_name'] : null;
+        $this->container['rule_type'] = isset($data['rule_type']) ? $data['rule_type'] : null;
         $this->container['silence_time'] = isset($data['silence_time']) ? $data['silence_time'] : null;
         $this->container['sub_namespace'] = isset($data['sub_namespace']) ? $data['sub_namespace'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
@@ -477,6 +489,30 @@ class DataForListRulesByIdsOutput implements ModelInterface, ArrayAccess
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets dimension_conditions
+     *
+     * @return \Volcengine\Volcobserve\Model\DimensionConditionsForListRulesByIdsOutput
+     */
+    public function getDimensionConditions()
+    {
+        return $this->container['dimension_conditions'];
+    }
+
+    /**
+     * Sets dimension_conditions
+     *
+     * @param \Volcengine\Volcobserve\Model\DimensionConditionsForListRulesByIdsOutput $dimension_conditions dimension_conditions
+     *
+     * @return $this
+     */
+    public function setDimensionConditions($dimension_conditions)
+    {
+        $this->container['dimension_conditions'] = $dimension_conditions;
 
         return $this;
     }
@@ -765,6 +801,30 @@ class DataForListRulesByIdsOutput implements ModelInterface, ArrayAccess
     public function setRuleName($rule_name)
     {
         $this->container['rule_name'] = $rule_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets rule_type
+     *
+     * @return string
+     */
+    public function getRuleType()
+    {
+        return $this->container['rule_type'];
+    }
+
+    /**
+     * Sets rule_type
+     *
+     * @param string $rule_type rule_type
+     *
+     * @return $this
+     */
+    public function setRuleType($rule_type)
+    {
+        $this->container['rule_type'] = $rule_type;
 
         return $this;
     }

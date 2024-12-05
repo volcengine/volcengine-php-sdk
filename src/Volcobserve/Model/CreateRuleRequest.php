@@ -33,6 +33,7 @@ class CreateRuleRequest implements ModelInterface, ArrayAccess
         'conditions' => '\Volcengine\Volcobserve\Model\ConditionForCreateRuleInput[]',
         'contact_group_ids' => 'string[]',
         'description' => 'string',
+        'dimension_conditions' => '\Volcengine\Volcobserve\Model\DimensionConditionsForCreateRuleInput',
         'effect_end_at' => 'string',
         'effect_start_at' => 'string',
         'enable_state' => 'string',
@@ -63,6 +64,7 @@ class CreateRuleRequest implements ModelInterface, ArrayAccess
         'conditions' => null,
         'contact_group_ids' => null,
         'description' => null,
+        'dimension_conditions' => null,
         'effect_end_at' => null,
         'effect_start_at' => null,
         'enable_state' => null,
@@ -114,6 +116,7 @@ class CreateRuleRequest implements ModelInterface, ArrayAccess
         'conditions' => 'Conditions',
         'contact_group_ids' => 'ContactGroupIds',
         'description' => 'Description',
+        'dimension_conditions' => 'DimensionConditions',
         'effect_end_at' => 'EffectEndAt',
         'effect_start_at' => 'EffectStartAt',
         'enable_state' => 'EnableState',
@@ -144,6 +147,7 @@ class CreateRuleRequest implements ModelInterface, ArrayAccess
         'conditions' => 'setConditions',
         'contact_group_ids' => 'setContactGroupIds',
         'description' => 'setDescription',
+        'dimension_conditions' => 'setDimensionConditions',
         'effect_end_at' => 'setEffectEndAt',
         'effect_start_at' => 'setEffectStartAt',
         'enable_state' => 'setEnableState',
@@ -174,6 +178,7 @@ class CreateRuleRequest implements ModelInterface, ArrayAccess
         'conditions' => 'getConditions',
         'contact_group_ids' => 'getContactGroupIds',
         'description' => 'getDescription',
+        'dimension_conditions' => 'getDimensionConditions',
         'effect_end_at' => 'getEffectEndAt',
         'effect_start_at' => 'getEffectStartAt',
         'enable_state' => 'getEnableState',
@@ -239,6 +244,7 @@ class CreateRuleRequest implements ModelInterface, ArrayAccess
     const ALERT_METHODS_SMS = 'SMS';
     const ALERT_METHODS_WEBHOOK = 'Webhook';
     const RULE_TYPE__STATIC = 'static';
+    const RULE_TYPE_DYNAMIC = 'dynamic';
     
 
     
@@ -266,6 +272,7 @@ class CreateRuleRequest implements ModelInterface, ArrayAccess
     {
         return [
             self::RULE_TYPE__STATIC,
+            self::RULE_TYPE_DYNAMIC,
         ];
     }
     
@@ -290,6 +297,7 @@ class CreateRuleRequest implements ModelInterface, ArrayAccess
         $this->container['conditions'] = isset($data['conditions']) ? $data['conditions'] : null;
         $this->container['contact_group_ids'] = isset($data['contact_group_ids']) ? $data['contact_group_ids'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['dimension_conditions'] = isset($data['dimension_conditions']) ? $data['dimension_conditions'] : null;
         $this->container['effect_end_at'] = isset($data['effect_end_at']) ? $data['effect_end_at'] : null;
         $this->container['effect_start_at'] = isset($data['effect_start_at']) ? $data['effect_start_at'] : null;
         $this->container['enable_state'] = isset($data['enable_state']) ? $data['enable_state'] : null;
@@ -496,6 +504,30 @@ class CreateRuleRequest implements ModelInterface, ArrayAccess
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets dimension_conditions
+     *
+     * @return \Volcengine\Volcobserve\Model\DimensionConditionsForCreateRuleInput
+     */
+    public function getDimensionConditions()
+    {
+        return $this->container['dimension_conditions'];
+    }
+
+    /**
+     * Sets dimension_conditions
+     *
+     * @param \Volcengine\Volcobserve\Model\DimensionConditionsForCreateRuleInput $dimension_conditions dimension_conditions
+     *
+     * @return $this
+     */
+    public function setDimensionConditions($dimension_conditions)
+    {
+        $this->container['dimension_conditions'] = $dimension_conditions;
 
         return $this;
     }

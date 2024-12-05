@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ListWebhooksResponse implements ModelInterface, ArrayAccess
+class TagForCreateRuleInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ListWebhooksResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ListWebhooksResponse';
+    protected static $swaggerModelName = 'TagForCreateRuleInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,9 @@ class ListWebhooksResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'asc' => 'bool',
-        'data' => '\Volcengine\Volcobserve\Model\DataForListWebhooksOutput[]',
-        'order_by' => 'string',
-        'page_number' => 'int',
-        'page_size' => 'int',
-        'total_count' => 'int'
+        'comparator' => 'string',
+        'key' => 'string',
+        'values' => 'string[]'
     ];
 
     /**
@@ -42,12 +39,9 @@ class ListWebhooksResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'asc' => null,
-        'data' => null,
-        'order_by' => null,
-        'page_number' => null,
-        'page_size' => null,
-        'total_count' => null
+        'comparator' => null,
+        'key' => null,
+        'values' => null
     ];
 
     /**
@@ -77,12 +71,9 @@ class ListWebhooksResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'asc' => 'Asc',
-        'data' => 'Data',
-        'order_by' => 'OrderBy',
-        'page_number' => 'PageNumber',
-        'page_size' => 'PageSize',
-        'total_count' => 'TotalCount'
+        'comparator' => 'Comparator',
+        'key' => 'Key',
+        'values' => 'Values'
     ];
 
     /**
@@ -91,12 +82,9 @@ class ListWebhooksResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'asc' => 'setAsc',
-        'data' => 'setData',
-        'order_by' => 'setOrderBy',
-        'page_number' => 'setPageNumber',
-        'page_size' => 'setPageSize',
-        'total_count' => 'setTotalCount'
+        'comparator' => 'setComparator',
+        'key' => 'setKey',
+        'values' => 'setValues'
     ];
 
     /**
@@ -105,12 +93,9 @@ class ListWebhooksResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'asc' => 'getAsc',
-        'data' => 'getData',
-        'order_by' => 'getOrderBy',
-        'page_number' => 'getPageNumber',
-        'page_size' => 'getPageSize',
-        'total_count' => 'getTotalCount'
+        'comparator' => 'getComparator',
+        'key' => 'getKey',
+        'values' => 'getValues'
     ];
 
     /**
@@ -173,12 +158,9 @@ class ListWebhooksResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['asc'] = isset($data['asc']) ? $data['asc'] : null;
-        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
-        $this->container['order_by'] = isset($data['order_by']) ? $data['order_by'] : null;
-        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
-        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
-        $this->container['total_count'] = isset($data['total_count']) ? $data['total_count'] : null;
+        $this->container['comparator'] = isset($data['comparator']) ? $data['comparator'] : null;
+        $this->container['key'] = isset($data['key']) ? $data['key'] : null;
+        $this->container['values'] = isset($data['values']) ? $data['values'] : null;
     }
 
     /**
@@ -206,145 +188,73 @@ class ListWebhooksResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets asc
-     *
-     * @return bool
-     */
-    public function getAsc()
-    {
-        return $this->container['asc'];
-    }
-
-    /**
-     * Sets asc
-     *
-     * @param bool $asc asc
-     *
-     * @return $this
-     */
-    public function setAsc($asc)
-    {
-        $this->container['asc'] = $asc;
-
-        return $this;
-    }
-
-    /**
-     * Gets data
-     *
-     * @return \Volcengine\Volcobserve\Model\DataForListWebhooksOutput[]
-     */
-    public function getData()
-    {
-        return $this->container['data'];
-    }
-
-    /**
-     * Sets data
-     *
-     * @param \Volcengine\Volcobserve\Model\DataForListWebhooksOutput[] $data data
-     *
-     * @return $this
-     */
-    public function setData($data)
-    {
-        $this->container['data'] = $data;
-
-        return $this;
-    }
-
-    /**
-     * Gets order_by
+     * Gets comparator
      *
      * @return string
      */
-    public function getOrderBy()
+    public function getComparator()
     {
-        return $this->container['order_by'];
+        return $this->container['comparator'];
     }
 
     /**
-     * Sets order_by
+     * Sets comparator
      *
-     * @param string $order_by order_by
+     * @param string $comparator comparator
      *
      * @return $this
      */
-    public function setOrderBy($order_by)
+    public function setComparator($comparator)
     {
-        $this->container['order_by'] = $order_by;
+        $this->container['comparator'] = $comparator;
 
         return $this;
     }
 
     /**
-     * Gets page_number
+     * Gets key
      *
-     * @return int
+     * @return string
      */
-    public function getPageNumber()
+    public function getKey()
     {
-        return $this->container['page_number'];
+        return $this->container['key'];
     }
 
     /**
-     * Sets page_number
+     * Sets key
      *
-     * @param int $page_number page_number
+     * @param string $key key
      *
      * @return $this
      */
-    public function setPageNumber($page_number)
+    public function setKey($key)
     {
-        $this->container['page_number'] = $page_number;
+        $this->container['key'] = $key;
 
         return $this;
     }
 
     /**
-     * Gets page_size
+     * Gets values
      *
-     * @return int
+     * @return string[]
      */
-    public function getPageSize()
+    public function getValues()
     {
-        return $this->container['page_size'];
+        return $this->container['values'];
     }
 
     /**
-     * Sets page_size
+     * Sets values
      *
-     * @param int $page_size page_size
+     * @param string[] $values values
      *
      * @return $this
      */
-    public function setPageSize($page_size)
+    public function setValues($values)
     {
-        $this->container['page_size'] = $page_size;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_count
-     *
-     * @return int
-     */
-    public function getTotalCount()
-    {
-        return $this->container['total_count'];
-    }
-
-    /**
-     * Sets total_count
-     *
-     * @param int $total_count total_count
-     *
-     * @return $this
-     */
-    public function setTotalCount($total_count)
-    {
-        $this->container['total_count'] = $total_count;
+        $this->container['values'] = $values;
 
         return $this;
     }

@@ -202,6 +202,15 @@ class GetMetricDataRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['metric_name'] === null) {
+            $invalidProperties[] = "'metric_name' can't be null";
+        }
+        if ($this->container['namespace'] === null) {
+            $invalidProperties[] = "'namespace' can't be null";
+        }
+        if ($this->container['sub_namespace'] === null) {
+            $invalidProperties[] = "'sub_namespace' can't be null";
+        }
         return $invalidProperties;
     }
 

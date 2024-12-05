@@ -28,9 +28,7 @@ class ListWebhooksByIdsResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'data' => '\Volcengine\Volcobserve\Model\DataForListWebhooksByIdsOutput[]',
-        'page_number' => 'int',
-        'page_size' => 'int'
+        'data' => '\Volcengine\Volcobserve\Model\DataForListWebhooksByIdsOutput[]'
     ];
 
     /**
@@ -39,9 +37,7 @@ class ListWebhooksByIdsResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'data' => null,
-        'page_number' => null,
-        'page_size' => null
+        'data' => null
     ];
 
     /**
@@ -71,9 +67,7 @@ class ListWebhooksByIdsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'data' => 'Data',
-        'page_number' => 'PageNumber',
-        'page_size' => 'PageSize'
+        'data' => 'Data'
     ];
 
     /**
@@ -82,9 +76,7 @@ class ListWebhooksByIdsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'data' => 'setData',
-        'page_number' => 'setPageNumber',
-        'page_size' => 'setPageSize'
+        'data' => 'setData'
     ];
 
     /**
@@ -93,9 +85,7 @@ class ListWebhooksByIdsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'data' => 'getData',
-        'page_number' => 'getPageNumber',
-        'page_size' => 'getPageSize'
+        'data' => 'getData'
     ];
 
     /**
@@ -159,8 +149,6 @@ class ListWebhooksByIdsResponse implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['data'] = isset($data['data']) ? $data['data'] : null;
-        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
-        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
     }
 
     /**
@@ -207,54 +195,6 @@ class ListWebhooksByIdsResponse implements ModelInterface, ArrayAccess
     public function setData($data)
     {
         $this->container['data'] = $data;
-
-        return $this;
-    }
-
-    /**
-     * Gets page_number
-     *
-     * @return int
-     */
-    public function getPageNumber()
-    {
-        return $this->container['page_number'];
-    }
-
-    /**
-     * Sets page_number
-     *
-     * @param int $page_number page_number
-     *
-     * @return $this
-     */
-    public function setPageNumber($page_number)
-    {
-        $this->container['page_number'] = $page_number;
-
-        return $this;
-    }
-
-    /**
-     * Gets page_size
-     *
-     * @return int
-     */
-    public function getPageSize()
-    {
-        return $this->container['page_size'];
-    }
-
-    /**
-     * Sets page_size
-     *
-     * @param int $page_size page_size
-     *
-     * @return $this
-     */
-    public function setPageSize($page_size)
-    {
-        $this->container['page_size'] = $page_size;
 
         return $this;
     }
