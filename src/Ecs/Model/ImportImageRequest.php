@@ -32,6 +32,8 @@ class ImportImageRequest implements ModelInterface, ArrayAccess
         'boot_mode' => 'string',
         'description' => 'string',
         'image_name' => 'string',
+        'license_type' => 'string',
+        'need_detection' => 'bool',
         'os_type' => 'string',
         'platform' => 'string',
         'platform_version' => 'string',
@@ -50,6 +52,8 @@ class ImportImageRequest implements ModelInterface, ArrayAccess
         'boot_mode' => null,
         'description' => null,
         'image_name' => null,
+        'license_type' => null,
+        'need_detection' => null,
         'os_type' => null,
         'platform' => null,
         'platform_version' => null,
@@ -89,6 +93,8 @@ class ImportImageRequest implements ModelInterface, ArrayAccess
         'boot_mode' => 'BootMode',
         'description' => 'Description',
         'image_name' => 'ImageName',
+        'license_type' => 'LicenseType',
+        'need_detection' => 'NeedDetection',
         'os_type' => 'OsType',
         'platform' => 'Platform',
         'platform_version' => 'PlatformVersion',
@@ -107,6 +113,8 @@ class ImportImageRequest implements ModelInterface, ArrayAccess
         'boot_mode' => 'setBootMode',
         'description' => 'setDescription',
         'image_name' => 'setImageName',
+        'license_type' => 'setLicenseType',
+        'need_detection' => 'setNeedDetection',
         'os_type' => 'setOsType',
         'platform' => 'setPlatform',
         'platform_version' => 'setPlatformVersion',
@@ -125,6 +133,8 @@ class ImportImageRequest implements ModelInterface, ArrayAccess
         'boot_mode' => 'getBootMode',
         'description' => 'getDescription',
         'image_name' => 'getImageName',
+        'license_type' => 'getLicenseType',
+        'need_detection' => 'getNeedDetection',
         'os_type' => 'getOsType',
         'platform' => 'getPlatform',
         'platform_version' => 'getPlatformVersion',
@@ -197,6 +207,8 @@ class ImportImageRequest implements ModelInterface, ArrayAccess
         $this->container['boot_mode'] = isset($data['boot_mode']) ? $data['boot_mode'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['image_name'] = isset($data['image_name']) ? $data['image_name'] : null;
+        $this->container['license_type'] = isset($data['license_type']) ? $data['license_type'] : null;
+        $this->container['need_detection'] = isset($data['need_detection']) ? $data['need_detection'] : null;
         $this->container['os_type'] = isset($data['os_type']) ? $data['os_type'] : null;
         $this->container['platform'] = isset($data['platform']) ? $data['platform'] : null;
         $this->container['platform_version'] = isset($data['platform_version']) ? $data['platform_version'] : null;
@@ -214,6 +226,15 @@ class ImportImageRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['image_name'] === null) {
+            $invalidProperties[] = "'image_name' can't be null";
+        }
+        if ($this->container['platform'] === null) {
+            $invalidProperties[] = "'platform' can't be null";
+        }
+        if ($this->container['url'] === null) {
+            $invalidProperties[] = "'url' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -321,6 +342,54 @@ class ImportImageRequest implements ModelInterface, ArrayAccess
     public function setImageName($image_name)
     {
         $this->container['image_name'] = $image_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets license_type
+     *
+     * @return string
+     */
+    public function getLicenseType()
+    {
+        return $this->container['license_type'];
+    }
+
+    /**
+     * Sets license_type
+     *
+     * @param string $license_type license_type
+     *
+     * @return $this
+     */
+    public function setLicenseType($license_type)
+    {
+        $this->container['license_type'] = $license_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets need_detection
+     *
+     * @return bool
+     */
+    public function getNeedDetection()
+    {
+        return $this->container['need_detection'];
+    }
+
+    /**
+     * Sets need_detection
+     *
+     * @param bool $need_detection need_detection
+     *
+     * @return $this
+     */
+    public function setNeedDetection($need_detection)
+    {
+        $this->container['need_detection'] = $need_detection;
 
         return $this;
     }

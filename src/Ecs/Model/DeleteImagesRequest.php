@@ -28,6 +28,7 @@ class DeleteImagesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'delete_binded_snapshots' => 'bool',
         'image_ids' => 'string[]'
     ];
 
@@ -37,6 +38,7 @@ class DeleteImagesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'delete_binded_snapshots' => null,
         'image_ids' => null
     ];
 
@@ -67,6 +69,7 @@ class DeleteImagesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'delete_binded_snapshots' => 'DeleteBindedSnapshots',
         'image_ids' => 'ImageIds'
     ];
 
@@ -76,6 +79,7 @@ class DeleteImagesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'delete_binded_snapshots' => 'setDeleteBindedSnapshots',
         'image_ids' => 'setImageIds'
     ];
 
@@ -85,6 +89,7 @@ class DeleteImagesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'delete_binded_snapshots' => 'getDeleteBindedSnapshots',
         'image_ids' => 'getImageIds'
     ];
 
@@ -148,6 +153,7 @@ class DeleteImagesRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['delete_binded_snapshots'] = isset($data['delete_binded_snapshots']) ? $data['delete_binded_snapshots'] : null;
         $this->container['image_ids'] = isset($data['image_ids']) ? $data['image_ids'] : null;
     }
 
@@ -174,6 +180,30 @@ class DeleteImagesRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets delete_binded_snapshots
+     *
+     * @return bool
+     */
+    public function getDeleteBindedSnapshots()
+    {
+        return $this->container['delete_binded_snapshots'];
+    }
+
+    /**
+     * Sets delete_binded_snapshots
+     *
+     * @param bool $delete_binded_snapshots delete_binded_snapshots
+     *
+     * @return $this
+     */
+    public function setDeleteBindedSnapshots($delete_binded_snapshots)
+    {
+        $this->container['delete_binded_snapshots'] = $delete_binded_snapshots;
+
+        return $this;
+    }
 
     /**
      * Gets image_ids

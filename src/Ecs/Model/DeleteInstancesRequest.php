@@ -28,6 +28,7 @@ class DeleteInstancesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'client_token' => 'string',
         'instance_ids' => 'string[]'
     ];
 
@@ -37,6 +38,7 @@ class DeleteInstancesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'client_token' => null,
         'instance_ids' => null
     ];
 
@@ -67,6 +69,7 @@ class DeleteInstancesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'client_token' => 'ClientToken',
         'instance_ids' => 'InstanceIds'
     ];
 
@@ -76,6 +79,7 @@ class DeleteInstancesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'client_token' => 'setClientToken',
         'instance_ids' => 'setInstanceIds'
     ];
 
@@ -85,6 +89,7 @@ class DeleteInstancesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'client_token' => 'getClientToken',
         'instance_ids' => 'getInstanceIds'
     ];
 
@@ -148,6 +153,7 @@ class DeleteInstancesRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
         $this->container['instance_ids'] = isset($data['instance_ids']) ? $data['instance_ids'] : null;
     }
 
@@ -174,6 +180,30 @@ class DeleteInstancesRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets client_token
+     *
+     * @return string
+     */
+    public function getClientToken()
+    {
+        return $this->container['client_token'];
+    }
+
+    /**
+     * Sets client_token
+     *
+     * @param string $client_token client_token
+     *
+     * @return $this
+     */
+    public function setClientToken($client_token)
+    {
+        $this->container['client_token'] = $client_token;
+
+        return $this;
+    }
 
     /**
      * Gets instance_ids

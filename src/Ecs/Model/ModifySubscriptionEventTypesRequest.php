@@ -166,6 +166,9 @@ class ModifySubscriptionEventTypesRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['subscription_id'] === null) {
+            $invalidProperties[] = "'subscription_id' can't be null";
+        }
         return $invalidProperties;
     }
 

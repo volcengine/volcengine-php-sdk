@@ -29,6 +29,7 @@ class ModifyInstanceDeploymentRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'client_token' => 'string',
+        'deployment_set_group_number' => 'int',
         'deployment_set_id' => 'string',
         'instance_id' => 'string'
     ];
@@ -40,6 +41,7 @@ class ModifyInstanceDeploymentRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'client_token' => null,
+        'deployment_set_group_number' => 'int32',
         'deployment_set_id' => null,
         'instance_id' => null
     ];
@@ -72,6 +74,7 @@ class ModifyInstanceDeploymentRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'client_token' => 'ClientToken',
+        'deployment_set_group_number' => 'DeploymentSetGroupNumber',
         'deployment_set_id' => 'DeploymentSetId',
         'instance_id' => 'InstanceId'
     ];
@@ -83,6 +86,7 @@ class ModifyInstanceDeploymentRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'client_token' => 'setClientToken',
+        'deployment_set_group_number' => 'setDeploymentSetGroupNumber',
         'deployment_set_id' => 'setDeploymentSetId',
         'instance_id' => 'setInstanceId'
     ];
@@ -94,6 +98,7 @@ class ModifyInstanceDeploymentRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'client_token' => 'getClientToken',
+        'deployment_set_group_number' => 'getDeploymentSetGroupNumber',
         'deployment_set_id' => 'getDeploymentSetId',
         'instance_id' => 'getInstanceId'
     ];
@@ -159,6 +164,7 @@ class ModifyInstanceDeploymentRequest implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
+        $this->container['deployment_set_group_number'] = isset($data['deployment_set_group_number']) ? $data['deployment_set_group_number'] : null;
         $this->container['deployment_set_id'] = isset($data['deployment_set_id']) ? $data['deployment_set_id'] : null;
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
     }
@@ -172,6 +178,12 @@ class ModifyInstanceDeploymentRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['deployment_set_id'] === null) {
+            $invalidProperties[] = "'deployment_set_id' can't be null";
+        }
+        if ($this->container['instance_id'] === null) {
+            $invalidProperties[] = "'instance_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -207,6 +219,30 @@ class ModifyInstanceDeploymentRequest implements ModelInterface, ArrayAccess
     public function setClientToken($client_token)
     {
         $this->container['client_token'] = $client_token;
+
+        return $this;
+    }
+
+    /**
+     * Gets deployment_set_group_number
+     *
+     * @return int
+     */
+    public function getDeploymentSetGroupNumber()
+    {
+        return $this->container['deployment_set_group_number'];
+    }
+
+    /**
+     * Sets deployment_set_group_number
+     *
+     * @param int $deployment_set_group_number deployment_set_group_number
+     *
+     * @return $this
+     */
+    public function setDeploymentSetGroupNumber($deployment_set_group_number)
+    {
+        $this->container['deployment_set_group_number'] = $deployment_set_group_number;
 
         return $this;
     }

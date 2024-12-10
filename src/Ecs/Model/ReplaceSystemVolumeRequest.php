@@ -31,6 +31,7 @@ class ReplaceSystemVolumeRequest implements ModelInterface, ArrayAccess
         'client_token' => 'string',
         'dry_run' => 'bool',
         'image_id' => 'string',
+        'image_release_version' => 'string',
         'instance_id' => 'string',
         'keep_image_credential' => 'bool',
         'key_pair_name' => 'string',
@@ -48,6 +49,7 @@ class ReplaceSystemVolumeRequest implements ModelInterface, ArrayAccess
         'client_token' => null,
         'dry_run' => null,
         'image_id' => null,
+        'image_release_version' => null,
         'instance_id' => null,
         'keep_image_credential' => null,
         'key_pair_name' => null,
@@ -86,6 +88,7 @@ class ReplaceSystemVolumeRequest implements ModelInterface, ArrayAccess
         'client_token' => 'ClientToken',
         'dry_run' => 'DryRun',
         'image_id' => 'ImageId',
+        'image_release_version' => 'ImageReleaseVersion',
         'instance_id' => 'InstanceId',
         'keep_image_credential' => 'KeepImageCredential',
         'key_pair_name' => 'KeyPairName',
@@ -103,6 +106,7 @@ class ReplaceSystemVolumeRequest implements ModelInterface, ArrayAccess
         'client_token' => 'setClientToken',
         'dry_run' => 'setDryRun',
         'image_id' => 'setImageId',
+        'image_release_version' => 'setImageReleaseVersion',
         'instance_id' => 'setInstanceId',
         'keep_image_credential' => 'setKeepImageCredential',
         'key_pair_name' => 'setKeyPairName',
@@ -120,6 +124,7 @@ class ReplaceSystemVolumeRequest implements ModelInterface, ArrayAccess
         'client_token' => 'getClientToken',
         'dry_run' => 'getDryRun',
         'image_id' => 'getImageId',
+        'image_release_version' => 'getImageReleaseVersion',
         'instance_id' => 'getInstanceId',
         'keep_image_credential' => 'getKeepImageCredential',
         'key_pair_name' => 'getKeyPairName',
@@ -191,6 +196,7 @@ class ReplaceSystemVolumeRequest implements ModelInterface, ArrayAccess
         $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
         $this->container['dry_run'] = isset($data['dry_run']) ? $data['dry_run'] : null;
         $this->container['image_id'] = isset($data['image_id']) ? $data['image_id'] : null;
+        $this->container['image_release_version'] = isset($data['image_release_version']) ? $data['image_release_version'] : null;
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
         $this->container['keep_image_credential'] = isset($data['keep_image_credential']) ? $data['keep_image_credential'] : null;
         $this->container['key_pair_name'] = isset($data['key_pair_name']) ? $data['key_pair_name'] : null;
@@ -208,6 +214,12 @@ class ReplaceSystemVolumeRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['image_id'] === null) {
+            $invalidProperties[] = "'image_id' can't be null";
+        }
+        if ($this->container['instance_id'] === null) {
+            $invalidProperties[] = "'instance_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -291,6 +303,30 @@ class ReplaceSystemVolumeRequest implements ModelInterface, ArrayAccess
     public function setImageId($image_id)
     {
         $this->container['image_id'] = $image_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets image_release_version
+     *
+     * @return string
+     */
+    public function getImageReleaseVersion()
+    {
+        return $this->container['image_release_version'];
+    }
+
+    /**
+     * Sets image_release_version
+     *
+     * @param string $image_release_version image_release_version
+     *
+     * @return $this
+     */
+    public function setImageReleaseVersion($image_release_version)
+    {
+        $this->container['image_release_version'] = $image_release_version;
 
         return $this;
     }

@@ -28,6 +28,7 @@ class DescribeSystemEventsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'category' => 'string',
         'created_at_end' => 'string',
         'created_at_start' => 'string',
         'event_ids' => 'string[]',
@@ -44,6 +45,7 @@ class DescribeSystemEventsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'category' => null,
         'created_at_end' => null,
         'created_at_start' => null,
         'event_ids' => null,
@@ -81,6 +83,7 @@ class DescribeSystemEventsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'category' => 'Category',
         'created_at_end' => 'CreatedAtEnd',
         'created_at_start' => 'CreatedAtStart',
         'event_ids' => 'EventIds',
@@ -97,6 +100,7 @@ class DescribeSystemEventsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'category' => 'setCategory',
         'created_at_end' => 'setCreatedAtEnd',
         'created_at_start' => 'setCreatedAtStart',
         'event_ids' => 'setEventIds',
@@ -113,6 +117,7 @@ class DescribeSystemEventsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'category' => 'getCategory',
         'created_at_end' => 'getCreatedAtEnd',
         'created_at_start' => 'getCreatedAtStart',
         'event_ids' => 'getEventIds',
@@ -183,6 +188,7 @@ class DescribeSystemEventsRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['category'] = isset($data['category']) ? $data['category'] : null;
         $this->container['created_at_end'] = isset($data['created_at_end']) ? $data['created_at_end'] : null;
         $this->container['created_at_start'] = isset($data['created_at_start']) ? $data['created_at_start'] : null;
         $this->container['event_ids'] = isset($data['event_ids']) ? $data['event_ids'] : null;
@@ -216,6 +222,30 @@ class DescribeSystemEventsRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets category
+     *
+     * @return string
+     */
+    public function getCategory()
+    {
+        return $this->container['category'];
+    }
+
+    /**
+     * Sets category
+     *
+     * @param string $category category
+     *
+     * @return $this
+     */
+    public function setCategory($category)
+    {
+        $this->container['category'] = $category;
+
+        return $this;
+    }
 
     /**
      * Gets created_at_end

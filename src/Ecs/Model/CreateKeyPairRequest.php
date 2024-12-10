@@ -31,7 +31,8 @@ class CreateKeyPairRequest implements ModelInterface, ArrayAccess
         'client_token' => 'string',
         'description' => 'string',
         'key_pair_name' => 'string',
-        'project_name' => 'string'
+        'project_name' => 'string',
+        'tags' => '\Volcengine\Ecs\Model\TagForCreateKeyPairInput[]'
     ];
 
     /**
@@ -43,7 +44,8 @@ class CreateKeyPairRequest implements ModelInterface, ArrayAccess
         'client_token' => null,
         'description' => null,
         'key_pair_name' => null,
-        'project_name' => null
+        'project_name' => null,
+        'tags' => null
     ];
 
     /**
@@ -76,7 +78,8 @@ class CreateKeyPairRequest implements ModelInterface, ArrayAccess
         'client_token' => 'ClientToken',
         'description' => 'Description',
         'key_pair_name' => 'KeyPairName',
-        'project_name' => 'ProjectName'
+        'project_name' => 'ProjectName',
+        'tags' => 'Tags'
     ];
 
     /**
@@ -88,7 +91,8 @@ class CreateKeyPairRequest implements ModelInterface, ArrayAccess
         'client_token' => 'setClientToken',
         'description' => 'setDescription',
         'key_pair_name' => 'setKeyPairName',
-        'project_name' => 'setProjectName'
+        'project_name' => 'setProjectName',
+        'tags' => 'setTags'
     ];
 
     /**
@@ -100,7 +104,8 @@ class CreateKeyPairRequest implements ModelInterface, ArrayAccess
         'client_token' => 'getClientToken',
         'description' => 'getDescription',
         'key_pair_name' => 'getKeyPairName',
-        'project_name' => 'getProjectName'
+        'project_name' => 'getProjectName',
+        'tags' => 'getTags'
     ];
 
     /**
@@ -167,6 +172,7 @@ class CreateKeyPairRequest implements ModelInterface, ArrayAccess
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['key_pair_name'] = isset($data['key_pair_name']) ? $data['key_pair_name'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
     }
 
     /**
@@ -178,6 +184,9 @@ class CreateKeyPairRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['key_pair_name'] === null) {
+            $invalidProperties[] = "'key_pair_name' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -285,6 +294,30 @@ class CreateKeyPairRequest implements ModelInterface, ArrayAccess
     public function setProjectName($project_name)
     {
         $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets tags
+     *
+     * @return \Volcengine\Ecs\Model\TagForCreateKeyPairInput[]
+     */
+    public function getTags()
+    {
+        return $this->container['tags'];
+    }
+
+    /**
+     * Sets tags
+     *
+     * @param \Volcengine\Ecs\Model\TagForCreateKeyPairInput[] $tags tags
+     *
+     * @return $this
+     */
+    public function setTags($tags)
+    {
+        $this->container['tags'] = $tags;
 
         return $this;
     }

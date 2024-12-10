@@ -178,6 +178,9 @@ class CreateTagsRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['resource_type'] === null) {
+            $invalidProperties[] = "'resource_type' can't be null";
+        }
         return $invalidProperties;
     }
 

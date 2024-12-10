@@ -33,6 +33,8 @@ class KeyPairForDescribeKeyPairsOutput implements ModelInterface, ArrayAccess
         'finger_print' => 'string',
         'key_pair_id' => 'string',
         'key_pair_name' => 'string',
+        'project_name' => 'string',
+        'tags' => '\Volcengine\Ecs\Model\TagForDescribeKeyPairsOutput[]',
         'updated_at' => 'string'
     ];
 
@@ -47,6 +49,8 @@ class KeyPairForDescribeKeyPairsOutput implements ModelInterface, ArrayAccess
         'finger_print' => null,
         'key_pair_id' => null,
         'key_pair_name' => null,
+        'project_name' => null,
+        'tags' => null,
         'updated_at' => null
     ];
 
@@ -82,6 +86,8 @@ class KeyPairForDescribeKeyPairsOutput implements ModelInterface, ArrayAccess
         'finger_print' => 'FingerPrint',
         'key_pair_id' => 'KeyPairId',
         'key_pair_name' => 'KeyPairName',
+        'project_name' => 'ProjectName',
+        'tags' => 'Tags',
         'updated_at' => 'UpdatedAt'
     ];
 
@@ -96,6 +102,8 @@ class KeyPairForDescribeKeyPairsOutput implements ModelInterface, ArrayAccess
         'finger_print' => 'setFingerPrint',
         'key_pair_id' => 'setKeyPairId',
         'key_pair_name' => 'setKeyPairName',
+        'project_name' => 'setProjectName',
+        'tags' => 'setTags',
         'updated_at' => 'setUpdatedAt'
     ];
 
@@ -110,6 +118,8 @@ class KeyPairForDescribeKeyPairsOutput implements ModelInterface, ArrayAccess
         'finger_print' => 'getFingerPrint',
         'key_pair_id' => 'getKeyPairId',
         'key_pair_name' => 'getKeyPairName',
+        'project_name' => 'getProjectName',
+        'tags' => 'getTags',
         'updated_at' => 'getUpdatedAt'
     ];
 
@@ -178,6 +188,8 @@ class KeyPairForDescribeKeyPairsOutput implements ModelInterface, ArrayAccess
         $this->container['finger_print'] = isset($data['finger_print']) ? $data['finger_print'] : null;
         $this->container['key_pair_id'] = isset($data['key_pair_id']) ? $data['key_pair_id'] : null;
         $this->container['key_pair_name'] = isset($data['key_pair_name']) ? $data['key_pair_name'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
     }
 
@@ -321,6 +333,54 @@ class KeyPairForDescribeKeyPairsOutput implements ModelInterface, ArrayAccess
     public function setKeyPairName($key_pair_name)
     {
         $this->container['key_pair_name'] = $key_pair_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets tags
+     *
+     * @return \Volcengine\Ecs\Model\TagForDescribeKeyPairsOutput[]
+     */
+    public function getTags()
+    {
+        return $this->container['tags'];
+    }
+
+    /**
+     * Sets tags
+     *
+     * @param \Volcengine\Ecs\Model\TagForDescribeKeyPairsOutput[] $tags tags
+     *
+     * @return $this
+     */
+    public function setTags($tags)
+    {
+        $this->container['tags'] = $tags;
 
         return $this;
     }

@@ -28,6 +28,7 @@ class NetworkInterfaceForDescribeInstancesOutput implements ModelInterface, Arra
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'ipv6_addresses' => 'string[]',
         'mac_address' => 'string',
         'network_interface_id' => 'string',
         'primary_ip_address' => 'string',
@@ -42,6 +43,7 @@ class NetworkInterfaceForDescribeInstancesOutput implements ModelInterface, Arra
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'ipv6_addresses' => null,
         'mac_address' => null,
         'network_interface_id' => null,
         'primary_ip_address' => null,
@@ -77,6 +79,7 @@ class NetworkInterfaceForDescribeInstancesOutput implements ModelInterface, Arra
      * @var string[]
      */
     protected static $attributeMap = [
+        'ipv6_addresses' => 'Ipv6Addresses',
         'mac_address' => 'MacAddress',
         'network_interface_id' => 'NetworkInterfaceId',
         'primary_ip_address' => 'PrimaryIpAddress',
@@ -91,6 +94,7 @@ class NetworkInterfaceForDescribeInstancesOutput implements ModelInterface, Arra
      * @var string[]
      */
     protected static $setters = [
+        'ipv6_addresses' => 'setIpv6Addresses',
         'mac_address' => 'setMacAddress',
         'network_interface_id' => 'setNetworkInterfaceId',
         'primary_ip_address' => 'setPrimaryIpAddress',
@@ -105,6 +109,7 @@ class NetworkInterfaceForDescribeInstancesOutput implements ModelInterface, Arra
      * @var string[]
      */
     protected static $getters = [
+        'ipv6_addresses' => 'getIpv6Addresses',
         'mac_address' => 'getMacAddress',
         'network_interface_id' => 'getNetworkInterfaceId',
         'primary_ip_address' => 'getPrimaryIpAddress',
@@ -173,6 +178,7 @@ class NetworkInterfaceForDescribeInstancesOutput implements ModelInterface, Arra
      */
     public function __construct(array $data = null)
     {
+        $this->container['ipv6_addresses'] = isset($data['ipv6_addresses']) ? $data['ipv6_addresses'] : null;
         $this->container['mac_address'] = isset($data['mac_address']) ? $data['mac_address'] : null;
         $this->container['network_interface_id'] = isset($data['network_interface_id']) ? $data['network_interface_id'] : null;
         $this->container['primary_ip_address'] = isset($data['primary_ip_address']) ? $data['primary_ip_address'] : null;
@@ -204,6 +210,30 @@ class NetworkInterfaceForDescribeInstancesOutput implements ModelInterface, Arra
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets ipv6_addresses
+     *
+     * @return string[]
+     */
+    public function getIpv6Addresses()
+    {
+        return $this->container['ipv6_addresses'];
+    }
+
+    /**
+     * Sets ipv6_addresses
+     *
+     * @param string[] $ipv6_addresses ipv6_addresses
+     *
+     * @return $this
+     */
+    public function setIpv6Addresses($ipv6_addresses)
+    {
+        $this->container['ipv6_addresses'] = $ipv6_addresses;
+
+        return $this;
+    }
 
     /**
      * Gets mac_address

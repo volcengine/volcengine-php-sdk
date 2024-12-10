@@ -29,7 +29,10 @@ class ModifyInstanceChargeTypeRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'auto_pay' => 'bool',
+        'auto_renew' => 'bool',
+        'auto_renew_period' => 'int',
         'client_token' => 'string',
+        'dry_run' => 'bool',
         'include_data_volumes' => 'bool',
         'instance_charge_type' => 'string',
         'instance_ids' => 'string[]',
@@ -44,7 +47,10 @@ class ModifyInstanceChargeTypeRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'auto_pay' => null,
+        'auto_renew' => null,
+        'auto_renew_period' => 'int32',
         'client_token' => null,
+        'dry_run' => null,
         'include_data_volumes' => null,
         'instance_charge_type' => null,
         'instance_ids' => null,
@@ -80,7 +86,10 @@ class ModifyInstanceChargeTypeRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'auto_pay' => 'AutoPay',
+        'auto_renew' => 'AutoRenew',
+        'auto_renew_period' => 'AutoRenewPeriod',
         'client_token' => 'ClientToken',
+        'dry_run' => 'DryRun',
         'include_data_volumes' => 'IncludeDataVolumes',
         'instance_charge_type' => 'InstanceChargeType',
         'instance_ids' => 'InstanceIds',
@@ -95,7 +104,10 @@ class ModifyInstanceChargeTypeRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'auto_pay' => 'setAutoPay',
+        'auto_renew' => 'setAutoRenew',
+        'auto_renew_period' => 'setAutoRenewPeriod',
         'client_token' => 'setClientToken',
+        'dry_run' => 'setDryRun',
         'include_data_volumes' => 'setIncludeDataVolumes',
         'instance_charge_type' => 'setInstanceChargeType',
         'instance_ids' => 'setInstanceIds',
@@ -110,7 +122,10 @@ class ModifyInstanceChargeTypeRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'auto_pay' => 'getAutoPay',
+        'auto_renew' => 'getAutoRenew',
+        'auto_renew_period' => 'getAutoRenewPeriod',
         'client_token' => 'getClientToken',
+        'dry_run' => 'getDryRun',
         'include_data_volumes' => 'getIncludeDataVolumes',
         'instance_charge_type' => 'getInstanceChargeType',
         'instance_ids' => 'getInstanceIds',
@@ -179,7 +194,10 @@ class ModifyInstanceChargeTypeRequest implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['auto_pay'] = isset($data['auto_pay']) ? $data['auto_pay'] : null;
+        $this->container['auto_renew'] = isset($data['auto_renew']) ? $data['auto_renew'] : null;
+        $this->container['auto_renew_period'] = isset($data['auto_renew_period']) ? $data['auto_renew_period'] : null;
         $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
+        $this->container['dry_run'] = isset($data['dry_run']) ? $data['dry_run'] : null;
         $this->container['include_data_volumes'] = isset($data['include_data_volumes']) ? $data['include_data_volumes'] : null;
         $this->container['instance_charge_type'] = isset($data['instance_charge_type']) ? $data['instance_charge_type'] : null;
         $this->container['instance_ids'] = isset($data['instance_ids']) ? $data['instance_ids'] : null;
@@ -236,6 +254,54 @@ class ModifyInstanceChargeTypeRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets auto_renew
+     *
+     * @return bool
+     */
+    public function getAutoRenew()
+    {
+        return $this->container['auto_renew'];
+    }
+
+    /**
+     * Sets auto_renew
+     *
+     * @param bool $auto_renew auto_renew
+     *
+     * @return $this
+     */
+    public function setAutoRenew($auto_renew)
+    {
+        $this->container['auto_renew'] = $auto_renew;
+
+        return $this;
+    }
+
+    /**
+     * Gets auto_renew_period
+     *
+     * @return int
+     */
+    public function getAutoRenewPeriod()
+    {
+        return $this->container['auto_renew_period'];
+    }
+
+    /**
+     * Sets auto_renew_period
+     *
+     * @param int $auto_renew_period auto_renew_period
+     *
+     * @return $this
+     */
+    public function setAutoRenewPeriod($auto_renew_period)
+    {
+        $this->container['auto_renew_period'] = $auto_renew_period;
+
+        return $this;
+    }
+
+    /**
      * Gets client_token
      *
      * @return string
@@ -255,6 +321,30 @@ class ModifyInstanceChargeTypeRequest implements ModelInterface, ArrayAccess
     public function setClientToken($client_token)
     {
         $this->container['client_token'] = $client_token;
+
+        return $this;
+    }
+
+    /**
+     * Gets dry_run
+     *
+     * @return bool
+     */
+    public function getDryRun()
+    {
+        return $this->container['dry_run'];
+    }
+
+    /**
+     * Sets dry_run
+     *
+     * @param bool $dry_run dry_run
+     *
+     * @return $this
+     */
+    public function setDryRun($dry_run)
+    {
+        $this->container['dry_run'] = $dry_run;
 
         return $this;
     }

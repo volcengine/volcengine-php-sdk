@@ -34,7 +34,8 @@ class DescribeKeyPairsRequest implements ModelInterface, ArrayAccess
         'key_pair_names' => 'string[]',
         'max_results' => 'int',
         'next_token' => 'string',
-        'project_name' => 'string'
+        'project_name' => 'string',
+        'tag_filters' => '\Volcengine\Ecs\Model\TagFilterForDescribeKeyPairsInput[]'
     ];
 
     /**
@@ -49,7 +50,8 @@ class DescribeKeyPairsRequest implements ModelInterface, ArrayAccess
         'key_pair_names' => null,
         'max_results' => 'int32',
         'next_token' => null,
-        'project_name' => null
+        'project_name' => null,
+        'tag_filters' => null
     ];
 
     /**
@@ -85,7 +87,8 @@ class DescribeKeyPairsRequest implements ModelInterface, ArrayAccess
         'key_pair_names' => 'KeyPairNames',
         'max_results' => 'MaxResults',
         'next_token' => 'NextToken',
-        'project_name' => 'ProjectName'
+        'project_name' => 'ProjectName',
+        'tag_filters' => 'TagFilters'
     ];
 
     /**
@@ -100,7 +103,8 @@ class DescribeKeyPairsRequest implements ModelInterface, ArrayAccess
         'key_pair_names' => 'setKeyPairNames',
         'max_results' => 'setMaxResults',
         'next_token' => 'setNextToken',
-        'project_name' => 'setProjectName'
+        'project_name' => 'setProjectName',
+        'tag_filters' => 'setTagFilters'
     ];
 
     /**
@@ -115,7 +119,8 @@ class DescribeKeyPairsRequest implements ModelInterface, ArrayAccess
         'key_pair_names' => 'getKeyPairNames',
         'max_results' => 'getMaxResults',
         'next_token' => 'getNextToken',
-        'project_name' => 'getProjectName'
+        'project_name' => 'getProjectName',
+        'tag_filters' => 'getTagFilters'
     ];
 
     /**
@@ -185,6 +190,7 @@ class DescribeKeyPairsRequest implements ModelInterface, ArrayAccess
         $this->container['max_results'] = isset($data['max_results']) ? $data['max_results'] : null;
         $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['tag_filters'] = isset($data['tag_filters']) ? $data['tag_filters'] : null;
     }
 
     /**
@@ -375,6 +381,30 @@ class DescribeKeyPairsRequest implements ModelInterface, ArrayAccess
     public function setProjectName($project_name)
     {
         $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets tag_filters
+     *
+     * @return \Volcengine\Ecs\Model\TagFilterForDescribeKeyPairsInput[]
+     */
+    public function getTagFilters()
+    {
+        return $this->container['tag_filters'];
+    }
+
+    /**
+     * Sets tag_filters
+     *
+     * @param \Volcengine\Ecs\Model\TagFilterForDescribeKeyPairsInput[] $tag_filters tag_filters
+     *
+     * @return $this
+     */
+    public function setTagFilters($tag_filters)
+    {
+        $this->container['tag_filters'] = $tag_filters;
 
         return $this;
     }

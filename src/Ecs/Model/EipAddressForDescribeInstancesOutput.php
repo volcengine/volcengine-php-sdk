@@ -28,7 +28,8 @@ class EipAddressForDescribeInstancesOutput implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'allocation_id' => 'string'
+        'allocation_id' => 'string',
+        'ip_address' => 'string'
     ];
 
     /**
@@ -37,7 +38,8 @@ class EipAddressForDescribeInstancesOutput implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'allocation_id' => null
+        'allocation_id' => null,
+        'ip_address' => null
     ];
 
     /**
@@ -67,7 +69,8 @@ class EipAddressForDescribeInstancesOutput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $attributeMap = [
-        'allocation_id' => 'AllocationId'
+        'allocation_id' => 'AllocationId',
+        'ip_address' => 'IpAddress'
     ];
 
     /**
@@ -76,7 +79,8 @@ class EipAddressForDescribeInstancesOutput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $setters = [
-        'allocation_id' => 'setAllocationId'
+        'allocation_id' => 'setAllocationId',
+        'ip_address' => 'setIpAddress'
     ];
 
     /**
@@ -85,7 +89,8 @@ class EipAddressForDescribeInstancesOutput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $getters = [
-        'allocation_id' => 'getAllocationId'
+        'allocation_id' => 'getAllocationId',
+        'ip_address' => 'getIpAddress'
     ];
 
     /**
@@ -149,6 +154,7 @@ class EipAddressForDescribeInstancesOutput implements ModelInterface, ArrayAcces
     public function __construct(array $data = null)
     {
         $this->container['allocation_id'] = isset($data['allocation_id']) ? $data['allocation_id'] : null;
+        $this->container['ip_address'] = isset($data['ip_address']) ? $data['ip_address'] : null;
     }
 
     /**
@@ -195,6 +201,30 @@ class EipAddressForDescribeInstancesOutput implements ModelInterface, ArrayAcces
     public function setAllocationId($allocation_id)
     {
         $this->container['allocation_id'] = $allocation_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets ip_address
+     *
+     * @return string
+     */
+    public function getIpAddress()
+    {
+        return $this->container['ip_address'];
+    }
+
+    /**
+     * Sets ip_address
+     *
+     * @param string $ip_address ip_address
+     *
+     * @return $this
+     */
+    public function setIpAddress($ip_address)
+    {
+        $this->container['ip_address'] = $ip_address;
 
         return $this;
     }

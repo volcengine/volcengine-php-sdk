@@ -28,6 +28,7 @@ class DescribeInstanceTypesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'image_id' => 'string',
         'instance_type_ids' => 'string[]',
         'instance_types' => 'string[]',
         'max_results' => 'int',
@@ -40,6 +41,7 @@ class DescribeInstanceTypesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'image_id' => null,
         'instance_type_ids' => null,
         'instance_types' => null,
         'max_results' => 'int32',
@@ -73,6 +75,7 @@ class DescribeInstanceTypesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'image_id' => 'ImageId',
         'instance_type_ids' => 'InstanceTypeIds',
         'instance_types' => 'InstanceTypes',
         'max_results' => 'MaxResults',
@@ -85,6 +88,7 @@ class DescribeInstanceTypesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'image_id' => 'setImageId',
         'instance_type_ids' => 'setInstanceTypeIds',
         'instance_types' => 'setInstanceTypes',
         'max_results' => 'setMaxResults',
@@ -97,6 +101,7 @@ class DescribeInstanceTypesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'image_id' => 'getImageId',
         'instance_type_ids' => 'getInstanceTypeIds',
         'instance_types' => 'getInstanceTypes',
         'max_results' => 'getMaxResults',
@@ -163,6 +168,7 @@ class DescribeInstanceTypesRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['image_id'] = isset($data['image_id']) ? $data['image_id'] : null;
         $this->container['instance_type_ids'] = isset($data['instance_type_ids']) ? $data['instance_type_ids'] : null;
         $this->container['instance_types'] = isset($data['instance_types']) ? $data['instance_types'] : null;
         $this->container['max_results'] = isset($data['max_results']) ? $data['max_results'] : null;
@@ -192,6 +198,30 @@ class DescribeInstanceTypesRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets image_id
+     *
+     * @return string
+     */
+    public function getImageId()
+    {
+        return $this->container['image_id'];
+    }
+
+    /**
+     * Sets image_id
+     *
+     * @param string $image_id image_id
+     *
+     * @return $this
+     */
+    public function setImageId($image_id)
+    {
+        $this->container['image_id'] = $image_id;
+
+        return $this;
+    }
 
     /**
      * Gets instance_type_ids
