@@ -28,7 +28,9 @@ class NetworkInterfaceForRunInstancesInput implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'ipv6_address_count' => 'int',
         'primary_ip_address' => 'string',
+        'private_ip_addresses' => 'string[]',
         'security_group_ids' => 'string[]',
         'subnet_id' => 'string'
     ];
@@ -39,7 +41,9 @@ class NetworkInterfaceForRunInstancesInput implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'ipv6_address_count' => 'int32',
         'primary_ip_address' => null,
+        'private_ip_addresses' => null,
         'security_group_ids' => null,
         'subnet_id' => null
     ];
@@ -71,7 +75,9 @@ class NetworkInterfaceForRunInstancesInput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $attributeMap = [
+        'ipv6_address_count' => 'Ipv6AddressCount',
         'primary_ip_address' => 'PrimaryIpAddress',
+        'private_ip_addresses' => 'PrivateIpAddresses',
         'security_group_ids' => 'SecurityGroupIds',
         'subnet_id' => 'SubnetId'
     ];
@@ -82,7 +88,9 @@ class NetworkInterfaceForRunInstancesInput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $setters = [
+        'ipv6_address_count' => 'setIpv6AddressCount',
         'primary_ip_address' => 'setPrimaryIpAddress',
+        'private_ip_addresses' => 'setPrivateIpAddresses',
         'security_group_ids' => 'setSecurityGroupIds',
         'subnet_id' => 'setSubnetId'
     ];
@@ -93,7 +101,9 @@ class NetworkInterfaceForRunInstancesInput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $getters = [
+        'ipv6_address_count' => 'getIpv6AddressCount',
         'primary_ip_address' => 'getPrimaryIpAddress',
+        'private_ip_addresses' => 'getPrivateIpAddresses',
         'security_group_ids' => 'getSecurityGroupIds',
         'subnet_id' => 'getSubnetId'
     ];
@@ -158,7 +168,9 @@ class NetworkInterfaceForRunInstancesInput implements ModelInterface, ArrayAcces
      */
     public function __construct(array $data = null)
     {
+        $this->container['ipv6_address_count'] = isset($data['ipv6_address_count']) ? $data['ipv6_address_count'] : null;
         $this->container['primary_ip_address'] = isset($data['primary_ip_address']) ? $data['primary_ip_address'] : null;
+        $this->container['private_ip_addresses'] = isset($data['private_ip_addresses']) ? $data['private_ip_addresses'] : null;
         $this->container['security_group_ids'] = isset($data['security_group_ids']) ? $data['security_group_ids'] : null;
         $this->container['subnet_id'] = isset($data['subnet_id']) ? $data['subnet_id'] : null;
     }
@@ -172,6 +184,9 @@ class NetworkInterfaceForRunInstancesInput implements ModelInterface, ArrayAcces
     {
         $invalidProperties = [];
 
+        if ($this->container['subnet_id'] === null) {
+            $invalidProperties[] = "'subnet_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -186,6 +201,30 @@ class NetworkInterfaceForRunInstancesInput implements ModelInterface, ArrayAcces
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets ipv6_address_count
+     *
+     * @return int
+     */
+    public function getIpv6AddressCount()
+    {
+        return $this->container['ipv6_address_count'];
+    }
+
+    /**
+     * Sets ipv6_address_count
+     *
+     * @param int $ipv6_address_count ipv6_address_count
+     *
+     * @return $this
+     */
+    public function setIpv6AddressCount($ipv6_address_count)
+    {
+        $this->container['ipv6_address_count'] = $ipv6_address_count;
+
+        return $this;
+    }
 
     /**
      * Gets primary_ip_address
@@ -207,6 +246,30 @@ class NetworkInterfaceForRunInstancesInput implements ModelInterface, ArrayAcces
     public function setPrimaryIpAddress($primary_ip_address)
     {
         $this->container['primary_ip_address'] = $primary_ip_address;
+
+        return $this;
+    }
+
+    /**
+     * Gets private_ip_addresses
+     *
+     * @return string[]
+     */
+    public function getPrivateIpAddresses()
+    {
+        return $this->container['private_ip_addresses'];
+    }
+
+    /**
+     * Sets private_ip_addresses
+     *
+     * @param string[] $private_ip_addresses private_ip_addresses
+     *
+     * @return $this
+     */
+    public function setPrivateIpAddresses($private_ip_addresses)
+    {
+        $this->container['private_ip_addresses'] = $private_ip_addresses;
 
         return $this;
     }

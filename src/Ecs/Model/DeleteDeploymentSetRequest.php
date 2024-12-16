@@ -166,6 +166,9 @@ class DeleteDeploymentSetRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['deployment_set_id'] === null) {
+            $invalidProperties[] = "'deployment_set_id' can't be null";
+        }
         return $invalidProperties;
     }
 

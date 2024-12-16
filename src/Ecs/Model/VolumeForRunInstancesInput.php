@@ -29,7 +29,11 @@ class VolumeForRunInstancesInput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'delete_with_instance' => 'string',
+        'extra_performance_iops' => 'int',
+        'extra_performance_throughput_mb' => 'int',
+        'extra_performance_type_id' => 'string',
         'size' => 'int',
+        'snapshot_id' => 'string',
         'volume_type' => 'string'
     ];
 
@@ -40,7 +44,11 @@ class VolumeForRunInstancesInput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'delete_with_instance' => null,
+        'extra_performance_iops' => 'int32',
+        'extra_performance_throughput_mb' => 'int32',
+        'extra_performance_type_id' => null,
         'size' => 'int32',
+        'snapshot_id' => null,
         'volume_type' => null
     ];
 
@@ -72,7 +80,11 @@ class VolumeForRunInstancesInput implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'delete_with_instance' => 'DeleteWithInstance',
+        'extra_performance_iops' => 'ExtraPerformanceIOPS',
+        'extra_performance_throughput_mb' => 'ExtraPerformanceThroughputMB',
+        'extra_performance_type_id' => 'ExtraPerformanceTypeId',
         'size' => 'Size',
+        'snapshot_id' => 'SnapshotId',
         'volume_type' => 'VolumeType'
     ];
 
@@ -83,7 +95,11 @@ class VolumeForRunInstancesInput implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'delete_with_instance' => 'setDeleteWithInstance',
+        'extra_performance_iops' => 'setExtraPerformanceIops',
+        'extra_performance_throughput_mb' => 'setExtraPerformanceThroughputMb',
+        'extra_performance_type_id' => 'setExtraPerformanceTypeId',
         'size' => 'setSize',
+        'snapshot_id' => 'setSnapshotId',
         'volume_type' => 'setVolumeType'
     ];
 
@@ -94,7 +110,11 @@ class VolumeForRunInstancesInput implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'delete_with_instance' => 'getDeleteWithInstance',
+        'extra_performance_iops' => 'getExtraPerformanceIops',
+        'extra_performance_throughput_mb' => 'getExtraPerformanceThroughputMb',
+        'extra_performance_type_id' => 'getExtraPerformanceTypeId',
         'size' => 'getSize',
+        'snapshot_id' => 'getSnapshotId',
         'volume_type' => 'getVolumeType'
     ];
 
@@ -159,7 +179,11 @@ class VolumeForRunInstancesInput implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['delete_with_instance'] = isset($data['delete_with_instance']) ? $data['delete_with_instance'] : null;
+        $this->container['extra_performance_iops'] = isset($data['extra_performance_iops']) ? $data['extra_performance_iops'] : null;
+        $this->container['extra_performance_throughput_mb'] = isset($data['extra_performance_throughput_mb']) ? $data['extra_performance_throughput_mb'] : null;
+        $this->container['extra_performance_type_id'] = isset($data['extra_performance_type_id']) ? $data['extra_performance_type_id'] : null;
         $this->container['size'] = isset($data['size']) ? $data['size'] : null;
+        $this->container['snapshot_id'] = isset($data['snapshot_id']) ? $data['snapshot_id'] : null;
         $this->container['volume_type'] = isset($data['volume_type']) ? $data['volume_type'] : null;
     }
 
@@ -172,6 +196,9 @@ class VolumeForRunInstancesInput implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['size'] === null) {
+            $invalidProperties[] = "'size' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -212,6 +239,78 @@ class VolumeForRunInstancesInput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets extra_performance_iops
+     *
+     * @return int
+     */
+    public function getExtraPerformanceIops()
+    {
+        return $this->container['extra_performance_iops'];
+    }
+
+    /**
+     * Sets extra_performance_iops
+     *
+     * @param int $extra_performance_iops extra_performance_iops
+     *
+     * @return $this
+     */
+    public function setExtraPerformanceIops($extra_performance_iops)
+    {
+        $this->container['extra_performance_iops'] = $extra_performance_iops;
+
+        return $this;
+    }
+
+    /**
+     * Gets extra_performance_throughput_mb
+     *
+     * @return int
+     */
+    public function getExtraPerformanceThroughputMb()
+    {
+        return $this->container['extra_performance_throughput_mb'];
+    }
+
+    /**
+     * Sets extra_performance_throughput_mb
+     *
+     * @param int $extra_performance_throughput_mb extra_performance_throughput_mb
+     *
+     * @return $this
+     */
+    public function setExtraPerformanceThroughputMb($extra_performance_throughput_mb)
+    {
+        $this->container['extra_performance_throughput_mb'] = $extra_performance_throughput_mb;
+
+        return $this;
+    }
+
+    /**
+     * Gets extra_performance_type_id
+     *
+     * @return string
+     */
+    public function getExtraPerformanceTypeId()
+    {
+        return $this->container['extra_performance_type_id'];
+    }
+
+    /**
+     * Sets extra_performance_type_id
+     *
+     * @param string $extra_performance_type_id extra_performance_type_id
+     *
+     * @return $this
+     */
+    public function setExtraPerformanceTypeId($extra_performance_type_id)
+    {
+        $this->container['extra_performance_type_id'] = $extra_performance_type_id;
+
+        return $this;
+    }
+
+    /**
      * Gets size
      *
      * @return int
@@ -231,6 +330,30 @@ class VolumeForRunInstancesInput implements ModelInterface, ArrayAccess
     public function setSize($size)
     {
         $this->container['size'] = $size;
+
+        return $this;
+    }
+
+    /**
+     * Gets snapshot_id
+     *
+     * @return string
+     */
+    public function getSnapshotId()
+    {
+        return $this->container['snapshot_id'];
+    }
+
+    /**
+     * Sets snapshot_id
+     *
+     * @param string $snapshot_id snapshot_id
+     *
+     * @return $this
+     */
+    public function setSnapshotId($snapshot_id)
+    {
+        $this->container['snapshot_id'] = $snapshot_id;
 
         return $this;
     }

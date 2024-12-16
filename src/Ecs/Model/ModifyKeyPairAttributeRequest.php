@@ -178,6 +178,9 @@ class ModifyKeyPairAttributeRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['description'] === null) {
+            $invalidProperties[] = "'description' can't be null";
+        }
         return $invalidProperties;
     }
 

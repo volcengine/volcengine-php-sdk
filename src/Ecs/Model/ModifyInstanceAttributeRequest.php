@@ -30,6 +30,7 @@ class ModifyInstanceAttributeRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'client_token' => 'string',
         'description' => 'string',
+        'hostname' => 'string',
         'instance_id' => 'string',
         'instance_name' => 'string',
         'password' => 'string',
@@ -44,6 +45,7 @@ class ModifyInstanceAttributeRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'client_token' => null,
         'description' => null,
+        'hostname' => null,
         'instance_id' => null,
         'instance_name' => null,
         'password' => null,
@@ -79,6 +81,7 @@ class ModifyInstanceAttributeRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'client_token' => 'ClientToken',
         'description' => 'Description',
+        'hostname' => 'Hostname',
         'instance_id' => 'InstanceId',
         'instance_name' => 'InstanceName',
         'password' => 'Password',
@@ -93,6 +96,7 @@ class ModifyInstanceAttributeRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'client_token' => 'setClientToken',
         'description' => 'setDescription',
+        'hostname' => 'setHostname',
         'instance_id' => 'setInstanceId',
         'instance_name' => 'setInstanceName',
         'password' => 'setPassword',
@@ -107,6 +111,7 @@ class ModifyInstanceAttributeRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'client_token' => 'getClientToken',
         'description' => 'getDescription',
+        'hostname' => 'getHostname',
         'instance_id' => 'getInstanceId',
         'instance_name' => 'getInstanceName',
         'password' => 'getPassword',
@@ -175,6 +180,7 @@ class ModifyInstanceAttributeRequest implements ModelInterface, ArrayAccess
     {
         $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['hostname'] = isset($data['hostname']) ? $data['hostname'] : null;
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
         $this->container['instance_name'] = isset($data['instance_name']) ? $data['instance_name'] : null;
         $this->container['password'] = isset($data['password']) ? $data['password'] : null;
@@ -190,6 +196,9 @@ class ModifyInstanceAttributeRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['instance_id'] === null) {
+            $invalidProperties[] = "'instance_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -249,6 +258,30 @@ class ModifyInstanceAttributeRequest implements ModelInterface, ArrayAccess
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets hostname
+     *
+     * @return string
+     */
+    public function getHostname()
+    {
+        return $this->container['hostname'];
+    }
+
+    /**
+     * Sets hostname
+     *
+     * @param string $hostname hostname
+     *
+     * @return $this
+     */
+    public function setHostname($hostname)
+    {
+        $this->container['hostname'] = $hostname;
 
         return $this;
     }

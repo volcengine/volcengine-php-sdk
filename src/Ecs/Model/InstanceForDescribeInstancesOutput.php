@@ -31,11 +31,15 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
         'cpu_options' => '\Volcengine\Ecs\Model\CpuOptionsForDescribeInstancesOutput',
         'cpus' => 'int',
         'created_at' => 'string',
+        'deployment_set_group_number' => 'int',
         'deployment_set_id' => 'string',
         'description' => 'string',
         'eip_address' => '\Volcengine\Ecs\Model\EipAddressForDescribeInstancesOutput',
+        'elastic_scheduled_instance_type' => 'string',
         'expired_at' => 'string',
+        'host_name' => 'string',
         'hostname' => 'string',
+        'hpc_cluster_id' => 'string',
         'image_id' => 'string',
         'instance_charge_type' => 'string',
         'instance_id' => 'string',
@@ -48,8 +52,11 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
         'network_interfaces' => '\Volcengine\Ecs\Model\NetworkInterfaceForDescribeInstancesOutput[]',
         'os_name' => 'string',
         'os_type' => 'string',
+        'placement' => '\Volcengine\Ecs\Model\PlacementForDescribeInstancesOutput',
         'project_name' => 'string',
         'rdma_ip_addresses' => 'string[]',
+        'scheduled_instance_id' => 'string',
+        'spot_price_limit' => 'float',
         'spot_strategy' => 'string',
         'status' => 'string',
         'stopped_mode' => 'string',
@@ -69,11 +76,15 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
         'cpu_options' => null,
         'cpus' => 'int32',
         'created_at' => null,
+        'deployment_set_group_number' => 'int32',
         'deployment_set_id' => null,
         'description' => null,
         'eip_address' => null,
+        'elastic_scheduled_instance_type' => null,
         'expired_at' => null,
+        'host_name' => null,
         'hostname' => null,
+        'hpc_cluster_id' => null,
         'image_id' => null,
         'instance_charge_type' => null,
         'instance_id' => null,
@@ -86,8 +97,11 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
         'network_interfaces' => null,
         'os_name' => null,
         'os_type' => null,
+        'placement' => null,
         'project_name' => null,
         'rdma_ip_addresses' => null,
+        'scheduled_instance_id' => null,
+        'spot_price_limit' => 'float',
         'spot_strategy' => null,
         'status' => null,
         'stopped_mode' => null,
@@ -128,11 +142,15 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
         'cpu_options' => 'CpuOptions',
         'cpus' => 'Cpus',
         'created_at' => 'CreatedAt',
+        'deployment_set_group_number' => 'DeploymentSetGroupNumber',
         'deployment_set_id' => 'DeploymentSetId',
         'description' => 'Description',
         'eip_address' => 'EipAddress',
+        'elastic_scheduled_instance_type' => 'ElasticScheduledInstanceType',
         'expired_at' => 'ExpiredAt',
+        'host_name' => 'HostName',
         'hostname' => 'Hostname',
+        'hpc_cluster_id' => 'HpcClusterId',
         'image_id' => 'ImageId',
         'instance_charge_type' => 'InstanceChargeType',
         'instance_id' => 'InstanceId',
@@ -145,8 +163,11 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
         'network_interfaces' => 'NetworkInterfaces',
         'os_name' => 'OsName',
         'os_type' => 'OsType',
+        'placement' => 'Placement',
         'project_name' => 'ProjectName',
         'rdma_ip_addresses' => 'RdmaIpAddresses',
+        'scheduled_instance_id' => 'ScheduledInstanceId',
+        'spot_price_limit' => 'SpotPriceLimit',
         'spot_strategy' => 'SpotStrategy',
         'status' => 'Status',
         'stopped_mode' => 'StoppedMode',
@@ -166,11 +187,15 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
         'cpu_options' => 'setCpuOptions',
         'cpus' => 'setCpus',
         'created_at' => 'setCreatedAt',
+        'deployment_set_group_number' => 'setDeploymentSetGroupNumber',
         'deployment_set_id' => 'setDeploymentSetId',
         'description' => 'setDescription',
         'eip_address' => 'setEipAddress',
+        'elastic_scheduled_instance_type' => 'setElasticScheduledInstanceType',
         'expired_at' => 'setExpiredAt',
+        'host_name' => 'setHostName',
         'hostname' => 'setHostname',
+        'hpc_cluster_id' => 'setHpcClusterId',
         'image_id' => 'setImageId',
         'instance_charge_type' => 'setInstanceChargeType',
         'instance_id' => 'setInstanceId',
@@ -183,8 +208,11 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
         'network_interfaces' => 'setNetworkInterfaces',
         'os_name' => 'setOsName',
         'os_type' => 'setOsType',
+        'placement' => 'setPlacement',
         'project_name' => 'setProjectName',
         'rdma_ip_addresses' => 'setRdmaIpAddresses',
+        'scheduled_instance_id' => 'setScheduledInstanceId',
+        'spot_price_limit' => 'setSpotPriceLimit',
         'spot_strategy' => 'setSpotStrategy',
         'status' => 'setStatus',
         'stopped_mode' => 'setStoppedMode',
@@ -204,11 +232,15 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
         'cpu_options' => 'getCpuOptions',
         'cpus' => 'getCpus',
         'created_at' => 'getCreatedAt',
+        'deployment_set_group_number' => 'getDeploymentSetGroupNumber',
         'deployment_set_id' => 'getDeploymentSetId',
         'description' => 'getDescription',
         'eip_address' => 'getEipAddress',
+        'elastic_scheduled_instance_type' => 'getElasticScheduledInstanceType',
         'expired_at' => 'getExpiredAt',
+        'host_name' => 'getHostName',
         'hostname' => 'getHostname',
+        'hpc_cluster_id' => 'getHpcClusterId',
         'image_id' => 'getImageId',
         'instance_charge_type' => 'getInstanceChargeType',
         'instance_id' => 'getInstanceId',
@@ -221,8 +253,11 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
         'network_interfaces' => 'getNetworkInterfaces',
         'os_name' => 'getOsName',
         'os_type' => 'getOsType',
+        'placement' => 'getPlacement',
         'project_name' => 'getProjectName',
         'rdma_ip_addresses' => 'getRdmaIpAddresses',
+        'scheduled_instance_id' => 'getScheduledInstanceId',
+        'spot_price_limit' => 'getSpotPriceLimit',
         'spot_strategy' => 'getSpotStrategy',
         'status' => 'getStatus',
         'stopped_mode' => 'getStoppedMode',
@@ -296,11 +331,15 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
         $this->container['cpu_options'] = isset($data['cpu_options']) ? $data['cpu_options'] : null;
         $this->container['cpus'] = isset($data['cpus']) ? $data['cpus'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
+        $this->container['deployment_set_group_number'] = isset($data['deployment_set_group_number']) ? $data['deployment_set_group_number'] : null;
         $this->container['deployment_set_id'] = isset($data['deployment_set_id']) ? $data['deployment_set_id'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['eip_address'] = isset($data['eip_address']) ? $data['eip_address'] : null;
+        $this->container['elastic_scheduled_instance_type'] = isset($data['elastic_scheduled_instance_type']) ? $data['elastic_scheduled_instance_type'] : null;
         $this->container['expired_at'] = isset($data['expired_at']) ? $data['expired_at'] : null;
+        $this->container['host_name'] = isset($data['host_name']) ? $data['host_name'] : null;
         $this->container['hostname'] = isset($data['hostname']) ? $data['hostname'] : null;
+        $this->container['hpc_cluster_id'] = isset($data['hpc_cluster_id']) ? $data['hpc_cluster_id'] : null;
         $this->container['image_id'] = isset($data['image_id']) ? $data['image_id'] : null;
         $this->container['instance_charge_type'] = isset($data['instance_charge_type']) ? $data['instance_charge_type'] : null;
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
@@ -313,8 +352,11 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
         $this->container['network_interfaces'] = isset($data['network_interfaces']) ? $data['network_interfaces'] : null;
         $this->container['os_name'] = isset($data['os_name']) ? $data['os_name'] : null;
         $this->container['os_type'] = isset($data['os_type']) ? $data['os_type'] : null;
+        $this->container['placement'] = isset($data['placement']) ? $data['placement'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['rdma_ip_addresses'] = isset($data['rdma_ip_addresses']) ? $data['rdma_ip_addresses'] : null;
+        $this->container['scheduled_instance_id'] = isset($data['scheduled_instance_id']) ? $data['scheduled_instance_id'] : null;
+        $this->container['spot_price_limit'] = isset($data['spot_price_limit']) ? $data['spot_price_limit'] : null;
         $this->container['spot_strategy'] = isset($data['spot_strategy']) ? $data['spot_strategy'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['stopped_mode'] = isset($data['stopped_mode']) ? $data['stopped_mode'] : null;
@@ -422,6 +464,30 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets deployment_set_group_number
+     *
+     * @return int
+     */
+    public function getDeploymentSetGroupNumber()
+    {
+        return $this->container['deployment_set_group_number'];
+    }
+
+    /**
+     * Sets deployment_set_group_number
+     *
+     * @param int $deployment_set_group_number deployment_set_group_number
+     *
+     * @return $this
+     */
+    public function setDeploymentSetGroupNumber($deployment_set_group_number)
+    {
+        $this->container['deployment_set_group_number'] = $deployment_set_group_number;
+
+        return $this;
+    }
+
+    /**
      * Gets deployment_set_id
      *
      * @return string
@@ -494,6 +560,30 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets elastic_scheduled_instance_type
+     *
+     * @return string
+     */
+    public function getElasticScheduledInstanceType()
+    {
+        return $this->container['elastic_scheduled_instance_type'];
+    }
+
+    /**
+     * Sets elastic_scheduled_instance_type
+     *
+     * @param string $elastic_scheduled_instance_type elastic_scheduled_instance_type
+     *
+     * @return $this
+     */
+    public function setElasticScheduledInstanceType($elastic_scheduled_instance_type)
+    {
+        $this->container['elastic_scheduled_instance_type'] = $elastic_scheduled_instance_type;
+
+        return $this;
+    }
+
+    /**
      * Gets expired_at
      *
      * @return string
@@ -518,6 +608,30 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets host_name
+     *
+     * @return string
+     */
+    public function getHostName()
+    {
+        return $this->container['host_name'];
+    }
+
+    /**
+     * Sets host_name
+     *
+     * @param string $host_name host_name
+     *
+     * @return $this
+     */
+    public function setHostName($host_name)
+    {
+        $this->container['host_name'] = $host_name;
+
+        return $this;
+    }
+
+    /**
      * Gets hostname
      *
      * @return string
@@ -537,6 +651,30 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
     public function setHostname($hostname)
     {
         $this->container['hostname'] = $hostname;
+
+        return $this;
+    }
+
+    /**
+     * Gets hpc_cluster_id
+     *
+     * @return string
+     */
+    public function getHpcClusterId()
+    {
+        return $this->container['hpc_cluster_id'];
+    }
+
+    /**
+     * Sets hpc_cluster_id
+     *
+     * @param string $hpc_cluster_id hpc_cluster_id
+     *
+     * @return $this
+     */
+    public function setHpcClusterId($hpc_cluster_id)
+    {
+        $this->container['hpc_cluster_id'] = $hpc_cluster_id;
 
         return $this;
     }
@@ -830,6 +968,30 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets placement
+     *
+     * @return \Volcengine\Ecs\Model\PlacementForDescribeInstancesOutput
+     */
+    public function getPlacement()
+    {
+        return $this->container['placement'];
+    }
+
+    /**
+     * Sets placement
+     *
+     * @param \Volcengine\Ecs\Model\PlacementForDescribeInstancesOutput $placement placement
+     *
+     * @return $this
+     */
+    public function setPlacement($placement)
+    {
+        $this->container['placement'] = $placement;
+
+        return $this;
+    }
+
+    /**
      * Gets project_name
      *
      * @return string
@@ -873,6 +1035,54 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
     public function setRdmaIpAddresses($rdma_ip_addresses)
     {
         $this->container['rdma_ip_addresses'] = $rdma_ip_addresses;
+
+        return $this;
+    }
+
+    /**
+     * Gets scheduled_instance_id
+     *
+     * @return string
+     */
+    public function getScheduledInstanceId()
+    {
+        return $this->container['scheduled_instance_id'];
+    }
+
+    /**
+     * Sets scheduled_instance_id
+     *
+     * @param string $scheduled_instance_id scheduled_instance_id
+     *
+     * @return $this
+     */
+    public function setScheduledInstanceId($scheduled_instance_id)
+    {
+        $this->container['scheduled_instance_id'] = $scheduled_instance_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets spot_price_limit
+     *
+     * @return float
+     */
+    public function getSpotPriceLimit()
+    {
+        return $this->container['spot_price_limit'];
+    }
+
+    /**
+     * Sets spot_price_limit
+     *
+     * @param float $spot_price_limit spot_price_limit
+     *
+     * @return $this
+     */
+    public function setSpotPriceLimit($spot_price_limit)
+    {
+        $this->container['spot_price_limit'] = $spot_price_limit;
 
         return $this;
     }

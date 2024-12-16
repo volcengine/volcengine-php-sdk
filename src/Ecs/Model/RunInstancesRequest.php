@@ -33,12 +33,17 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
         'client_token' => 'string',
         'count' => 'int',
         'credit_specification' => 'string',
+        'deployment_set_group_number' => 'int',
         'deployment_set_id' => 'string',
         'description' => 'string',
         'dry_run' => 'bool',
+        'eip_address' => '\Volcengine\Ecs\Model\EipAddressForRunInstancesInput',
+        'host_name' => 'string',
         'hostname' => 'string',
         'hpc_cluster_id' => 'string',
         'image_id' => 'string',
+        'image_release_version' => 'string',
+        'install_run_command_agent' => 'bool',
         'instance_charge_type' => 'string',
         'instance_name' => 'string',
         'instance_type' => 'string',
@@ -50,8 +55,10 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
         'password' => 'string',
         'period' => 'int',
         'period_unit' => 'string',
+        'placement' => '\Volcengine\Ecs\Model\PlacementForRunInstancesInput',
         'project_name' => 'string',
         'security_enhancement_strategy' => 'string',
+        'spot_price_limit' => 'double',
         'spot_strategy' => 'string',
         'suffix_index' => 'int',
         'tags' => '\Volcengine\Ecs\Model\TagForRunInstancesInput[]',
@@ -72,12 +79,17 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
         'client_token' => null,
         'count' => 'int32',
         'credit_specification' => null,
+        'deployment_set_group_number' => 'int32',
         'deployment_set_id' => null,
         'description' => null,
         'dry_run' => null,
+        'eip_address' => null,
+        'host_name' => null,
         'hostname' => null,
         'hpc_cluster_id' => null,
         'image_id' => null,
+        'image_release_version' => null,
+        'install_run_command_agent' => null,
         'instance_charge_type' => null,
         'instance_name' => null,
         'instance_type' => null,
@@ -89,8 +101,10 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
         'password' => null,
         'period' => 'int32',
         'period_unit' => null,
+        'placement' => null,
         'project_name' => null,
         'security_enhancement_strategy' => null,
+        'spot_price_limit' => 'double',
         'spot_strategy' => null,
         'suffix_index' => 'int32',
         'tags' => null,
@@ -132,12 +146,17 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
         'client_token' => 'ClientToken',
         'count' => 'Count',
         'credit_specification' => 'CreditSpecification',
+        'deployment_set_group_number' => 'DeploymentSetGroupNumber',
         'deployment_set_id' => 'DeploymentSetId',
         'description' => 'Description',
         'dry_run' => 'DryRun',
+        'eip_address' => 'EipAddress',
+        'host_name' => 'HostName',
         'hostname' => 'Hostname',
         'hpc_cluster_id' => 'HpcClusterId',
         'image_id' => 'ImageId',
+        'image_release_version' => 'ImageReleaseVersion',
+        'install_run_command_agent' => 'InstallRunCommandAgent',
         'instance_charge_type' => 'InstanceChargeType',
         'instance_name' => 'InstanceName',
         'instance_type' => 'InstanceType',
@@ -149,8 +168,10 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
         'password' => 'Password',
         'period' => 'Period',
         'period_unit' => 'PeriodUnit',
+        'placement' => 'Placement',
         'project_name' => 'ProjectName',
         'security_enhancement_strategy' => 'SecurityEnhancementStrategy',
+        'spot_price_limit' => 'SpotPriceLimit',
         'spot_strategy' => 'SpotStrategy',
         'suffix_index' => 'SuffixIndex',
         'tags' => 'Tags',
@@ -171,12 +192,17 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
         'client_token' => 'setClientToken',
         'count' => 'setCount',
         'credit_specification' => 'setCreditSpecification',
+        'deployment_set_group_number' => 'setDeploymentSetGroupNumber',
         'deployment_set_id' => 'setDeploymentSetId',
         'description' => 'setDescription',
         'dry_run' => 'setDryRun',
+        'eip_address' => 'setEipAddress',
+        'host_name' => 'setHostName',
         'hostname' => 'setHostname',
         'hpc_cluster_id' => 'setHpcClusterId',
         'image_id' => 'setImageId',
+        'image_release_version' => 'setImageReleaseVersion',
+        'install_run_command_agent' => 'setInstallRunCommandAgent',
         'instance_charge_type' => 'setInstanceChargeType',
         'instance_name' => 'setInstanceName',
         'instance_type' => 'setInstanceType',
@@ -188,8 +214,10 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
         'password' => 'setPassword',
         'period' => 'setPeriod',
         'period_unit' => 'setPeriodUnit',
+        'placement' => 'setPlacement',
         'project_name' => 'setProjectName',
         'security_enhancement_strategy' => 'setSecurityEnhancementStrategy',
+        'spot_price_limit' => 'setSpotPriceLimit',
         'spot_strategy' => 'setSpotStrategy',
         'suffix_index' => 'setSuffixIndex',
         'tags' => 'setTags',
@@ -210,12 +238,17 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
         'client_token' => 'getClientToken',
         'count' => 'getCount',
         'credit_specification' => 'getCreditSpecification',
+        'deployment_set_group_number' => 'getDeploymentSetGroupNumber',
         'deployment_set_id' => 'getDeploymentSetId',
         'description' => 'getDescription',
         'dry_run' => 'getDryRun',
+        'eip_address' => 'getEipAddress',
+        'host_name' => 'getHostName',
         'hostname' => 'getHostname',
         'hpc_cluster_id' => 'getHpcClusterId',
         'image_id' => 'getImageId',
+        'image_release_version' => 'getImageReleaseVersion',
+        'install_run_command_agent' => 'getInstallRunCommandAgent',
         'instance_charge_type' => 'getInstanceChargeType',
         'instance_name' => 'getInstanceName',
         'instance_type' => 'getInstanceType',
@@ -227,8 +260,10 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
         'password' => 'getPassword',
         'period' => 'getPeriod',
         'period_unit' => 'getPeriodUnit',
+        'placement' => 'getPlacement',
         'project_name' => 'getProjectName',
         'security_enhancement_strategy' => 'getSecurityEnhancementStrategy',
+        'spot_price_limit' => 'getSpotPriceLimit',
         'spot_strategy' => 'getSpotStrategy',
         'suffix_index' => 'getSuffixIndex',
         'tags' => 'getTags',
@@ -303,12 +338,17 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
         $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
         $this->container['count'] = isset($data['count']) ? $data['count'] : null;
         $this->container['credit_specification'] = isset($data['credit_specification']) ? $data['credit_specification'] : null;
+        $this->container['deployment_set_group_number'] = isset($data['deployment_set_group_number']) ? $data['deployment_set_group_number'] : null;
         $this->container['deployment_set_id'] = isset($data['deployment_set_id']) ? $data['deployment_set_id'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['dry_run'] = isset($data['dry_run']) ? $data['dry_run'] : null;
+        $this->container['eip_address'] = isset($data['eip_address']) ? $data['eip_address'] : null;
+        $this->container['host_name'] = isset($data['host_name']) ? $data['host_name'] : null;
         $this->container['hostname'] = isset($data['hostname']) ? $data['hostname'] : null;
         $this->container['hpc_cluster_id'] = isset($data['hpc_cluster_id']) ? $data['hpc_cluster_id'] : null;
         $this->container['image_id'] = isset($data['image_id']) ? $data['image_id'] : null;
+        $this->container['image_release_version'] = isset($data['image_release_version']) ? $data['image_release_version'] : null;
+        $this->container['install_run_command_agent'] = isset($data['install_run_command_agent']) ? $data['install_run_command_agent'] : null;
         $this->container['instance_charge_type'] = isset($data['instance_charge_type']) ? $data['instance_charge_type'] : null;
         $this->container['instance_name'] = isset($data['instance_name']) ? $data['instance_name'] : null;
         $this->container['instance_type'] = isset($data['instance_type']) ? $data['instance_type'] : null;
@@ -320,8 +360,10 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
         $this->container['password'] = isset($data['password']) ? $data['password'] : null;
         $this->container['period'] = isset($data['period']) ? $data['period'] : null;
         $this->container['period_unit'] = isset($data['period_unit']) ? $data['period_unit'] : null;
+        $this->container['placement'] = isset($data['placement']) ? $data['placement'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['security_enhancement_strategy'] = isset($data['security_enhancement_strategy']) ? $data['security_enhancement_strategy'] : null;
+        $this->container['spot_price_limit'] = isset($data['spot_price_limit']) ? $data['spot_price_limit'] : null;
         $this->container['spot_strategy'] = isset($data['spot_strategy']) ? $data['spot_strategy'] : null;
         $this->container['suffix_index'] = isset($data['suffix_index']) ? $data['suffix_index'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
@@ -340,6 +382,15 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['image_id'] === null) {
+            $invalidProperties[] = "'image_id' can't be null";
+        }
+        if ($this->container['instance_name'] === null) {
+            $invalidProperties[] = "'instance_name' can't be null";
+        }
+        if ($this->container['zone_id'] === null) {
+            $invalidProperties[] = "'zone_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -476,6 +527,30 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets deployment_set_group_number
+     *
+     * @return int
+     */
+    public function getDeploymentSetGroupNumber()
+    {
+        return $this->container['deployment_set_group_number'];
+    }
+
+    /**
+     * Sets deployment_set_group_number
+     *
+     * @param int $deployment_set_group_number deployment_set_group_number
+     *
+     * @return $this
+     */
+    public function setDeploymentSetGroupNumber($deployment_set_group_number)
+    {
+        $this->container['deployment_set_group_number'] = $deployment_set_group_number;
+
+        return $this;
+    }
+
+    /**
      * Gets deployment_set_id
      *
      * @return string
@@ -548,6 +623,54 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets eip_address
+     *
+     * @return \Volcengine\Ecs\Model\EipAddressForRunInstancesInput
+     */
+    public function getEipAddress()
+    {
+        return $this->container['eip_address'];
+    }
+
+    /**
+     * Sets eip_address
+     *
+     * @param \Volcengine\Ecs\Model\EipAddressForRunInstancesInput $eip_address eip_address
+     *
+     * @return $this
+     */
+    public function setEipAddress($eip_address)
+    {
+        $this->container['eip_address'] = $eip_address;
+
+        return $this;
+    }
+
+    /**
+     * Gets host_name
+     *
+     * @return string
+     */
+    public function getHostName()
+    {
+        return $this->container['host_name'];
+    }
+
+    /**
+     * Sets host_name
+     *
+     * @param string $host_name host_name
+     *
+     * @return $this
+     */
+    public function setHostName($host_name)
+    {
+        $this->container['host_name'] = $host_name;
+
+        return $this;
+    }
+
+    /**
      * Gets hostname
      *
      * @return string
@@ -615,6 +738,54 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
     public function setImageId($image_id)
     {
         $this->container['image_id'] = $image_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets image_release_version
+     *
+     * @return string
+     */
+    public function getImageReleaseVersion()
+    {
+        return $this->container['image_release_version'];
+    }
+
+    /**
+     * Sets image_release_version
+     *
+     * @param string $image_release_version image_release_version
+     *
+     * @return $this
+     */
+    public function setImageReleaseVersion($image_release_version)
+    {
+        $this->container['image_release_version'] = $image_release_version;
+
+        return $this;
+    }
+
+    /**
+     * Gets install_run_command_agent
+     *
+     * @return bool
+     */
+    public function getInstallRunCommandAgent()
+    {
+        return $this->container['install_run_command_agent'];
+    }
+
+    /**
+     * Sets install_run_command_agent
+     *
+     * @param bool $install_run_command_agent install_run_command_agent
+     *
+     * @return $this
+     */
+    public function setInstallRunCommandAgent($install_run_command_agent)
+    {
+        $this->container['install_run_command_agent'] = $install_run_command_agent;
 
         return $this;
     }
@@ -884,6 +1055,30 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets placement
+     *
+     * @return \Volcengine\Ecs\Model\PlacementForRunInstancesInput
+     */
+    public function getPlacement()
+    {
+        return $this->container['placement'];
+    }
+
+    /**
+     * Sets placement
+     *
+     * @param \Volcengine\Ecs\Model\PlacementForRunInstancesInput $placement placement
+     *
+     * @return $this
+     */
+    public function setPlacement($placement)
+    {
+        $this->container['placement'] = $placement;
+
+        return $this;
+    }
+
+    /**
      * Gets project_name
      *
      * @return string
@@ -927,6 +1122,30 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
     public function setSecurityEnhancementStrategy($security_enhancement_strategy)
     {
         $this->container['security_enhancement_strategy'] = $security_enhancement_strategy;
+
+        return $this;
+    }
+
+    /**
+     * Gets spot_price_limit
+     *
+     * @return double
+     */
+    public function getSpotPriceLimit()
+    {
+        return $this->container['spot_price_limit'];
+    }
+
+    /**
+     * Sets spot_price_limit
+     *
+     * @param double $spot_price_limit spot_price_limit
+     *
+     * @return $this
+     */
+    public function setSpotPriceLimit($spot_price_limit)
+    {
+        $this->container['spot_price_limit'] = $spot_price_limit;
 
         return $this;
     }

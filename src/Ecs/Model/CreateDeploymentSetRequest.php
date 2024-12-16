@@ -32,6 +32,7 @@ class CreateDeploymentSetRequest implements ModelInterface, ArrayAccess
         'deployment_set_name' => 'string',
         'description' => 'string',
         'granularity' => 'string',
+        'group_count' => 'int',
         'strategy' => 'string'
     ];
 
@@ -45,6 +46,7 @@ class CreateDeploymentSetRequest implements ModelInterface, ArrayAccess
         'deployment_set_name' => null,
         'description' => null,
         'granularity' => null,
+        'group_count' => 'int32',
         'strategy' => null
     ];
 
@@ -79,6 +81,7 @@ class CreateDeploymentSetRequest implements ModelInterface, ArrayAccess
         'deployment_set_name' => 'DeploymentSetName',
         'description' => 'Description',
         'granularity' => 'Granularity',
+        'group_count' => 'GroupCount',
         'strategy' => 'Strategy'
     ];
 
@@ -92,6 +95,7 @@ class CreateDeploymentSetRequest implements ModelInterface, ArrayAccess
         'deployment_set_name' => 'setDeploymentSetName',
         'description' => 'setDescription',
         'granularity' => 'setGranularity',
+        'group_count' => 'setGroupCount',
         'strategy' => 'setStrategy'
     ];
 
@@ -105,6 +109,7 @@ class CreateDeploymentSetRequest implements ModelInterface, ArrayAccess
         'deployment_set_name' => 'getDeploymentSetName',
         'description' => 'getDescription',
         'granularity' => 'getGranularity',
+        'group_count' => 'getGroupCount',
         'strategy' => 'getStrategy'
     ];
 
@@ -172,6 +177,7 @@ class CreateDeploymentSetRequest implements ModelInterface, ArrayAccess
         $this->container['deployment_set_name'] = isset($data['deployment_set_name']) ? $data['deployment_set_name'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['granularity'] = isset($data['granularity']) ? $data['granularity'] : null;
+        $this->container['group_count'] = isset($data['group_count']) ? $data['group_count'] : null;
         $this->container['strategy'] = isset($data['strategy']) ? $data['strategy'] : null;
     }
 
@@ -184,6 +190,9 @@ class CreateDeploymentSetRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['deployment_set_name'] === null) {
+            $invalidProperties[] = "'deployment_set_name' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -291,6 +300,30 @@ class CreateDeploymentSetRequest implements ModelInterface, ArrayAccess
     public function setGranularity($granularity)
     {
         $this->container['granularity'] = $granularity;
+
+        return $this;
+    }
+
+    /**
+     * Gets group_count
+     *
+     * @return int
+     */
+    public function getGroupCount()
+    {
+        return $this->container['group_count'];
+    }
+
+    /**
+     * Sets group_count
+     *
+     * @param int $group_count group_count
+     *
+     * @return $this
+     */
+    public function setGroupCount($group_count)
+    {
+        $this->container['group_count'] = $group_count;
 
         return $this;
     }

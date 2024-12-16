@@ -31,6 +31,7 @@ class DescribeTasksRequest implements ModelInterface, ArrayAccess
         'max_results' => 'string',
         'next_token' => 'string',
         'resource_id' => 'string',
+        'resource_ids' => 'string[]',
         'task_ids' => 'string[]'
     ];
 
@@ -43,6 +44,7 @@ class DescribeTasksRequest implements ModelInterface, ArrayAccess
         'max_results' => 'json_number',
         'next_token' => null,
         'resource_id' => null,
+        'resource_ids' => null,
         'task_ids' => null
     ];
 
@@ -76,6 +78,7 @@ class DescribeTasksRequest implements ModelInterface, ArrayAccess
         'max_results' => 'MaxResults',
         'next_token' => 'NextToken',
         'resource_id' => 'ResourceId',
+        'resource_ids' => 'ResourceIds',
         'task_ids' => 'TaskIds'
     ];
 
@@ -88,6 +91,7 @@ class DescribeTasksRequest implements ModelInterface, ArrayAccess
         'max_results' => 'setMaxResults',
         'next_token' => 'setNextToken',
         'resource_id' => 'setResourceId',
+        'resource_ids' => 'setResourceIds',
         'task_ids' => 'setTaskIds'
     ];
 
@@ -100,6 +104,7 @@ class DescribeTasksRequest implements ModelInterface, ArrayAccess
         'max_results' => 'getMaxResults',
         'next_token' => 'getNextToken',
         'resource_id' => 'getResourceId',
+        'resource_ids' => 'getResourceIds',
         'task_ids' => 'getTaskIds'
     ];
 
@@ -166,6 +171,7 @@ class DescribeTasksRequest implements ModelInterface, ArrayAccess
         $this->container['max_results'] = isset($data['max_results']) ? $data['max_results'] : null;
         $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
         $this->container['resource_id'] = isset($data['resource_id']) ? $data['resource_id'] : null;
+        $this->container['resource_ids'] = isset($data['resource_ids']) ? $data['resource_ids'] : null;
         $this->container['task_ids'] = isset($data['task_ids']) ? $data['task_ids'] : null;
     }
 
@@ -261,6 +267,30 @@ class DescribeTasksRequest implements ModelInterface, ArrayAccess
     public function setResourceId($resource_id)
     {
         $this->container['resource_id'] = $resource_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets resource_ids
+     *
+     * @return string[]
+     */
+    public function getResourceIds()
+    {
+        return $this->container['resource_ids'];
+    }
+
+    /**
+     * Sets resource_ids
+     *
+     * @param string[] $resource_ids resource_ids
+     *
+     * @return $this
+     */
+    public function setResourceIds($resource_ids)
+    {
+        $this->container['resource_ids'] = $resource_ids;
 
         return $this;
     }

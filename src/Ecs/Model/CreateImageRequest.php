@@ -28,10 +28,14 @@ class CreateImageRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'create_whole_image' => 'bool',
         'description' => 'string',
         'image_name' => 'string',
         'instance_id' => 'string',
+        'need_detection' => 'bool',
         'project_name' => 'string',
+        'snapshot_group_id' => 'string',
+        'snapshot_id' => 'string',
         'tags' => '\Volcengine\Ecs\Model\TagForCreateImageInput[]'
     ];
 
@@ -41,10 +45,14 @@ class CreateImageRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'create_whole_image' => null,
         'description' => null,
         'image_name' => null,
         'instance_id' => null,
+        'need_detection' => null,
         'project_name' => null,
+        'snapshot_group_id' => null,
+        'snapshot_id' => null,
         'tags' => null
     ];
 
@@ -75,10 +83,14 @@ class CreateImageRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'create_whole_image' => 'CreateWholeImage',
         'description' => 'Description',
         'image_name' => 'ImageName',
         'instance_id' => 'InstanceId',
+        'need_detection' => 'NeedDetection',
         'project_name' => 'ProjectName',
+        'snapshot_group_id' => 'SnapshotGroupId',
+        'snapshot_id' => 'SnapshotId',
         'tags' => 'Tags'
     ];
 
@@ -88,10 +100,14 @@ class CreateImageRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'create_whole_image' => 'setCreateWholeImage',
         'description' => 'setDescription',
         'image_name' => 'setImageName',
         'instance_id' => 'setInstanceId',
+        'need_detection' => 'setNeedDetection',
         'project_name' => 'setProjectName',
+        'snapshot_group_id' => 'setSnapshotGroupId',
+        'snapshot_id' => 'setSnapshotId',
         'tags' => 'setTags'
     ];
 
@@ -101,10 +117,14 @@ class CreateImageRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'create_whole_image' => 'getCreateWholeImage',
         'description' => 'getDescription',
         'image_name' => 'getImageName',
         'instance_id' => 'getInstanceId',
+        'need_detection' => 'getNeedDetection',
         'project_name' => 'getProjectName',
+        'snapshot_group_id' => 'getSnapshotGroupId',
+        'snapshot_id' => 'getSnapshotId',
         'tags' => 'getTags'
     ];
 
@@ -168,10 +188,14 @@ class CreateImageRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['create_whole_image'] = isset($data['create_whole_image']) ? $data['create_whole_image'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['image_name'] = isset($data['image_name']) ? $data['image_name'] : null;
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
+        $this->container['need_detection'] = isset($data['need_detection']) ? $data['need_detection'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['snapshot_group_id'] = isset($data['snapshot_group_id']) ? $data['snapshot_group_id'] : null;
+        $this->container['snapshot_id'] = isset($data['snapshot_id']) ? $data['snapshot_id'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
     }
 
@@ -184,6 +208,9 @@ class CreateImageRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['image_name'] === null) {
+            $invalidProperties[] = "'image_name' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -198,6 +225,30 @@ class CreateImageRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets create_whole_image
+     *
+     * @return bool
+     */
+    public function getCreateWholeImage()
+    {
+        return $this->container['create_whole_image'];
+    }
+
+    /**
+     * Sets create_whole_image
+     *
+     * @param bool $create_whole_image create_whole_image
+     *
+     * @return $this
+     */
+    public function setCreateWholeImage($create_whole_image)
+    {
+        $this->container['create_whole_image'] = $create_whole_image;
+
+        return $this;
+    }
 
     /**
      * Gets description
@@ -272,6 +323,30 @@ class CreateImageRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets need_detection
+     *
+     * @return bool
+     */
+    public function getNeedDetection()
+    {
+        return $this->container['need_detection'];
+    }
+
+    /**
+     * Sets need_detection
+     *
+     * @param bool $need_detection need_detection
+     *
+     * @return $this
+     */
+    public function setNeedDetection($need_detection)
+    {
+        $this->container['need_detection'] = $need_detection;
+
+        return $this;
+    }
+
+    /**
      * Gets project_name
      *
      * @return string
@@ -291,6 +366,54 @@ class CreateImageRequest implements ModelInterface, ArrayAccess
     public function setProjectName($project_name)
     {
         $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets snapshot_group_id
+     *
+     * @return string
+     */
+    public function getSnapshotGroupId()
+    {
+        return $this->container['snapshot_group_id'];
+    }
+
+    /**
+     * Sets snapshot_group_id
+     *
+     * @param string $snapshot_group_id snapshot_group_id
+     *
+     * @return $this
+     */
+    public function setSnapshotGroupId($snapshot_group_id)
+    {
+        $this->container['snapshot_group_id'] = $snapshot_group_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets snapshot_id
+     *
+     * @return string
+     */
+    public function getSnapshotId()
+    {
+        return $this->container['snapshot_id'];
+    }
+
+    /**
+     * Sets snapshot_id
+     *
+     * @param string $snapshot_id snapshot_id
+     *
+     * @return $this
+     */
+    public function setSnapshotId($snapshot_id)
+    {
+        $this->container['snapshot_id'] = $snapshot_id;
 
         return $this;
     }

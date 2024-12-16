@@ -172,6 +172,15 @@ class ExportImageRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['image_id'] === null) {
+            $invalidProperties[] = "'image_id' can't be null";
+        }
+        if ($this->container['tos_bucket'] === null) {
+            $invalidProperties[] = "'tos_bucket' can't be null";
+        }
+        if ($this->container['tos_prefix'] === null) {
+            $invalidProperties[] = "'tos_prefix' can't be null";
+        }
         return $invalidProperties;
     }
 

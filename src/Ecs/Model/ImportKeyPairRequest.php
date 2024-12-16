@@ -32,7 +32,8 @@ class ImportKeyPairRequest implements ModelInterface, ArrayAccess
         'description' => 'string',
         'key_pair_name' => 'string',
         'project_name' => 'string',
-        'public_key' => 'string'
+        'public_key' => 'string',
+        'tags' => '\Volcengine\Ecs\Model\TagForImportKeyPairInput[]'
     ];
 
     /**
@@ -45,7 +46,8 @@ class ImportKeyPairRequest implements ModelInterface, ArrayAccess
         'description' => null,
         'key_pair_name' => null,
         'project_name' => null,
-        'public_key' => null
+        'public_key' => null,
+        'tags' => null
     ];
 
     /**
@@ -79,7 +81,8 @@ class ImportKeyPairRequest implements ModelInterface, ArrayAccess
         'description' => 'Description',
         'key_pair_name' => 'KeyPairName',
         'project_name' => 'ProjectName',
-        'public_key' => 'PublicKey'
+        'public_key' => 'PublicKey',
+        'tags' => 'Tags'
     ];
 
     /**
@@ -92,7 +95,8 @@ class ImportKeyPairRequest implements ModelInterface, ArrayAccess
         'description' => 'setDescription',
         'key_pair_name' => 'setKeyPairName',
         'project_name' => 'setProjectName',
-        'public_key' => 'setPublicKey'
+        'public_key' => 'setPublicKey',
+        'tags' => 'setTags'
     ];
 
     /**
@@ -105,7 +109,8 @@ class ImportKeyPairRequest implements ModelInterface, ArrayAccess
         'description' => 'getDescription',
         'key_pair_name' => 'getKeyPairName',
         'project_name' => 'getProjectName',
-        'public_key' => 'getPublicKey'
+        'public_key' => 'getPublicKey',
+        'tags' => 'getTags'
     ];
 
     /**
@@ -173,6 +178,7 @@ class ImportKeyPairRequest implements ModelInterface, ArrayAccess
         $this->container['key_pair_name'] = isset($data['key_pair_name']) ? $data['key_pair_name'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['public_key'] = isset($data['public_key']) ? $data['public_key'] : null;
+        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
     }
 
     /**
@@ -184,6 +190,12 @@ class ImportKeyPairRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['key_pair_name'] === null) {
+            $invalidProperties[] = "'key_pair_name' can't be null";
+        }
+        if ($this->container['public_key'] === null) {
+            $invalidProperties[] = "'public_key' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -315,6 +327,30 @@ class ImportKeyPairRequest implements ModelInterface, ArrayAccess
     public function setPublicKey($public_key)
     {
         $this->container['public_key'] = $public_key;
+
+        return $this;
+    }
+
+    /**
+     * Gets tags
+     *
+     * @return \Volcengine\Ecs\Model\TagForImportKeyPairInput[]
+     */
+    public function getTags()
+    {
+        return $this->container['tags'];
+    }
+
+    /**
+     * Sets tags
+     *
+     * @param \Volcengine\Ecs\Model\TagForImportKeyPairInput[] $tags tags
+     *
+     * @return $this
+     */
+    public function setTags($tags)
+    {
+        $this->container['tags'] = $tags;
 
         return $this;
     }

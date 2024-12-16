@@ -34,6 +34,7 @@ class DeploymentSetForDescribeDeploymentSetsOutput implements ModelInterface, Ar
         'deployment_set_id' => 'string',
         'deployment_set_name' => 'string',
         'granularity' => 'string',
+        'group_count' => 'int',
         'instance_amount' => 'int',
         'instance_ids' => 'string[]',
         'strategy' => 'string'
@@ -51,6 +52,7 @@ class DeploymentSetForDescribeDeploymentSetsOutput implements ModelInterface, Ar
         'deployment_set_id' => null,
         'deployment_set_name' => null,
         'granularity' => null,
+        'group_count' => 'int32',
         'instance_amount' => 'int32',
         'instance_ids' => null,
         'strategy' => null
@@ -89,6 +91,7 @@ class DeploymentSetForDescribeDeploymentSetsOutput implements ModelInterface, Ar
         'deployment_set_id' => 'DeploymentSetId',
         'deployment_set_name' => 'DeploymentSetName',
         'granularity' => 'Granularity',
+        'group_count' => 'GroupCount',
         'instance_amount' => 'InstanceAmount',
         'instance_ids' => 'InstanceIds',
         'strategy' => 'Strategy'
@@ -106,6 +109,7 @@ class DeploymentSetForDescribeDeploymentSetsOutput implements ModelInterface, Ar
         'deployment_set_id' => 'setDeploymentSetId',
         'deployment_set_name' => 'setDeploymentSetName',
         'granularity' => 'setGranularity',
+        'group_count' => 'setGroupCount',
         'instance_amount' => 'setInstanceAmount',
         'instance_ids' => 'setInstanceIds',
         'strategy' => 'setStrategy'
@@ -123,6 +127,7 @@ class DeploymentSetForDescribeDeploymentSetsOutput implements ModelInterface, Ar
         'deployment_set_id' => 'getDeploymentSetId',
         'deployment_set_name' => 'getDeploymentSetName',
         'granularity' => 'getGranularity',
+        'group_count' => 'getGroupCount',
         'instance_amount' => 'getInstanceAmount',
         'instance_ids' => 'getInstanceIds',
         'strategy' => 'getStrategy'
@@ -194,6 +199,7 @@ class DeploymentSetForDescribeDeploymentSetsOutput implements ModelInterface, Ar
         $this->container['deployment_set_id'] = isset($data['deployment_set_id']) ? $data['deployment_set_id'] : null;
         $this->container['deployment_set_name'] = isset($data['deployment_set_name']) ? $data['deployment_set_name'] : null;
         $this->container['granularity'] = isset($data['granularity']) ? $data['granularity'] : null;
+        $this->container['group_count'] = isset($data['group_count']) ? $data['group_count'] : null;
         $this->container['instance_amount'] = isset($data['instance_amount']) ? $data['instance_amount'] : null;
         $this->container['instance_ids'] = isset($data['instance_ids']) ? $data['instance_ids'] : null;
         $this->container['strategy'] = isset($data['strategy']) ? $data['strategy'] : null;
@@ -363,6 +369,30 @@ class DeploymentSetForDescribeDeploymentSetsOutput implements ModelInterface, Ar
     public function setGranularity($granularity)
     {
         $this->container['granularity'] = $granularity;
+
+        return $this;
+    }
+
+    /**
+     * Gets group_count
+     *
+     * @return int
+     */
+    public function getGroupCount()
+    {
+        return $this->container['group_count'];
+    }
+
+    /**
+     * Sets group_count
+     *
+     * @param int $group_count group_count
+     *
+     * @return $this
+     */
+    public function setGroupCount($group_count)
+    {
+        $this->container['group_count'] = $group_count;
 
         return $this;
     }
