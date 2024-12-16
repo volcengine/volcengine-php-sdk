@@ -36,7 +36,8 @@ class DescribeSpotAdviceRequest implements ModelInterface, ArrayAccess
         'memory_size' => 'int',
         'min_cpus' => 'int',
         'min_memory_size' => 'int',
-        'next_token' => 'string'
+        'next_token' => 'string',
+        'zone_id' => 'string'
     ];
 
     /**
@@ -53,7 +54,8 @@ class DescribeSpotAdviceRequest implements ModelInterface, ArrayAccess
         'memory_size' => 'int32',
         'min_cpus' => 'int32',
         'min_memory_size' => 'int32',
-        'next_token' => null
+        'next_token' => null,
+        'zone_id' => null
     ];
 
     /**
@@ -91,7 +93,8 @@ class DescribeSpotAdviceRequest implements ModelInterface, ArrayAccess
         'memory_size' => 'MemorySize',
         'min_cpus' => 'MinCpus',
         'min_memory_size' => 'MinMemorySize',
-        'next_token' => 'NextToken'
+        'next_token' => 'NextToken',
+        'zone_id' => 'ZoneId'
     ];
 
     /**
@@ -108,7 +111,8 @@ class DescribeSpotAdviceRequest implements ModelInterface, ArrayAccess
         'memory_size' => 'setMemorySize',
         'min_cpus' => 'setMinCpus',
         'min_memory_size' => 'setMinMemorySize',
-        'next_token' => 'setNextToken'
+        'next_token' => 'setNextToken',
+        'zone_id' => 'setZoneId'
     ];
 
     /**
@@ -125,7 +129,8 @@ class DescribeSpotAdviceRequest implements ModelInterface, ArrayAccess
         'memory_size' => 'getMemorySize',
         'min_cpus' => 'getMinCpus',
         'min_memory_size' => 'getMinMemorySize',
-        'next_token' => 'getNextToken'
+        'next_token' => 'getNextToken',
+        'zone_id' => 'getZoneId'
     ];
 
     /**
@@ -197,6 +202,7 @@ class DescribeSpotAdviceRequest implements ModelInterface, ArrayAccess
         $this->container['min_cpus'] = isset($data['min_cpus']) ? $data['min_cpus'] : null;
         $this->container['min_memory_size'] = isset($data['min_memory_size']) ? $data['min_memory_size'] : null;
         $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
+        $this->container['zone_id'] = isset($data['zone_id']) ? $data['zone_id'] : null;
     }
 
     /**
@@ -435,6 +441,30 @@ class DescribeSpotAdviceRequest implements ModelInterface, ArrayAccess
     public function setNextToken($next_token)
     {
         $this->container['next_token'] = $next_token;
+
+        return $this;
+    }
+
+    /**
+     * Gets zone_id
+     *
+     * @return string
+     */
+    public function getZoneId()
+    {
+        return $this->container['zone_id'];
+    }
+
+    /**
+     * Sets zone_id
+     *
+     * @param string $zone_id zone_id
+     *
+     * @return $this
+     */
+    public function setZoneId($zone_id)
+    {
+        $this->container['zone_id'] = $zone_id;
 
         return $this;
     }

@@ -28,8 +28,7 @@ class CopyImageResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'image_id' => 'string',
-        'task_id' => 'string'
+        'image_id' => 'string'
     ];
 
     /**
@@ -38,8 +37,7 @@ class CopyImageResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'image_id' => null,
-        'task_id' => null
+        'image_id' => null
     ];
 
     /**
@@ -69,8 +67,7 @@ class CopyImageResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'image_id' => 'ImageId',
-        'task_id' => 'TaskId'
+        'image_id' => 'ImageId'
     ];
 
     /**
@@ -79,8 +76,7 @@ class CopyImageResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'image_id' => 'setImageId',
-        'task_id' => 'setTaskId'
+        'image_id' => 'setImageId'
     ];
 
     /**
@@ -89,8 +85,7 @@ class CopyImageResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'image_id' => 'getImageId',
-        'task_id' => 'getTaskId'
+        'image_id' => 'getImageId'
     ];
 
     /**
@@ -154,7 +149,6 @@ class CopyImageResponse implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['image_id'] = isset($data['image_id']) ? $data['image_id'] : null;
-        $this->container['task_id'] = isset($data['task_id']) ? $data['task_id'] : null;
     }
 
     /**
@@ -201,30 +195,6 @@ class CopyImageResponse implements ModelInterface, ArrayAccess
     public function setImageId($image_id)
     {
         $this->container['image_id'] = $image_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets task_id
-     *
-     * @return string
-     */
-    public function getTaskId()
-    {
-        return $this->container['task_id'];
-    }
-
-    /**
-     * Sets task_id
-     *
-     * @param string $task_id task_id
-     *
-     * @return $this
-     */
-    public function setTaskId($task_id)
-    {
-        $this->container['task_id'] = $task_id;
 
         return $this;
     }

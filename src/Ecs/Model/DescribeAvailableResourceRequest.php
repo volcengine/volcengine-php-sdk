@@ -29,10 +29,12 @@ class DescribeAvailableResourceRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'destination_resource' => 'string',
+        'elastic_scheduled_instance_type' => 'string',
         'instance_charge_type' => 'string',
         'instance_type' => 'string',
         'instance_type_id' => 'string',
         'spot_strategy' => 'string',
+        'volume_type' => 'string',
         'zone_id' => 'string'
     ];
 
@@ -43,10 +45,12 @@ class DescribeAvailableResourceRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'destination_resource' => null,
+        'elastic_scheduled_instance_type' => null,
         'instance_charge_type' => null,
         'instance_type' => null,
         'instance_type_id' => null,
         'spot_strategy' => null,
+        'volume_type' => null,
         'zone_id' => null
     ];
 
@@ -78,10 +82,12 @@ class DescribeAvailableResourceRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'destination_resource' => 'DestinationResource',
+        'elastic_scheduled_instance_type' => 'ElasticScheduledInstanceType',
         'instance_charge_type' => 'InstanceChargeType',
         'instance_type' => 'InstanceType',
         'instance_type_id' => 'InstanceTypeId',
         'spot_strategy' => 'SpotStrategy',
+        'volume_type' => 'VolumeType',
         'zone_id' => 'ZoneId'
     ];
 
@@ -92,10 +98,12 @@ class DescribeAvailableResourceRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'destination_resource' => 'setDestinationResource',
+        'elastic_scheduled_instance_type' => 'setElasticScheduledInstanceType',
         'instance_charge_type' => 'setInstanceChargeType',
         'instance_type' => 'setInstanceType',
         'instance_type_id' => 'setInstanceTypeId',
         'spot_strategy' => 'setSpotStrategy',
+        'volume_type' => 'setVolumeType',
         'zone_id' => 'setZoneId'
     ];
 
@@ -106,10 +114,12 @@ class DescribeAvailableResourceRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'destination_resource' => 'getDestinationResource',
+        'elastic_scheduled_instance_type' => 'getElasticScheduledInstanceType',
         'instance_charge_type' => 'getInstanceChargeType',
         'instance_type' => 'getInstanceType',
         'instance_type_id' => 'getInstanceTypeId',
         'spot_strategy' => 'getSpotStrategy',
+        'volume_type' => 'getVolumeType',
         'zone_id' => 'getZoneId'
     ];
 
@@ -174,10 +184,12 @@ class DescribeAvailableResourceRequest implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['destination_resource'] = isset($data['destination_resource']) ? $data['destination_resource'] : null;
+        $this->container['elastic_scheduled_instance_type'] = isset($data['elastic_scheduled_instance_type']) ? $data['elastic_scheduled_instance_type'] : null;
         $this->container['instance_charge_type'] = isset($data['instance_charge_type']) ? $data['instance_charge_type'] : null;
         $this->container['instance_type'] = isset($data['instance_type']) ? $data['instance_type'] : null;
         $this->container['instance_type_id'] = isset($data['instance_type_id']) ? $data['instance_type_id'] : null;
         $this->container['spot_strategy'] = isset($data['spot_strategy']) ? $data['spot_strategy'] : null;
+        $this->container['volume_type'] = isset($data['volume_type']) ? $data['volume_type'] : null;
         $this->container['zone_id'] = isset($data['zone_id']) ? $data['zone_id'] : null;
     }
 
@@ -190,6 +202,9 @@ class DescribeAvailableResourceRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['destination_resource'] === null) {
+            $invalidProperties[] = "'destination_resource' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -225,6 +240,30 @@ class DescribeAvailableResourceRequest implements ModelInterface, ArrayAccess
     public function setDestinationResource($destination_resource)
     {
         $this->container['destination_resource'] = $destination_resource;
+
+        return $this;
+    }
+
+    /**
+     * Gets elastic_scheduled_instance_type
+     *
+     * @return string
+     */
+    public function getElasticScheduledInstanceType()
+    {
+        return $this->container['elastic_scheduled_instance_type'];
+    }
+
+    /**
+     * Sets elastic_scheduled_instance_type
+     *
+     * @param string $elastic_scheduled_instance_type elastic_scheduled_instance_type
+     *
+     * @return $this
+     */
+    public function setElasticScheduledInstanceType($elastic_scheduled_instance_type)
+    {
+        $this->container['elastic_scheduled_instance_type'] = $elastic_scheduled_instance_type;
 
         return $this;
     }
@@ -321,6 +360,30 @@ class DescribeAvailableResourceRequest implements ModelInterface, ArrayAccess
     public function setSpotStrategy($spot_strategy)
     {
         $this->container['spot_strategy'] = $spot_strategy;
+
+        return $this;
+    }
+
+    /**
+     * Gets volume_type
+     *
+     * @return string
+     */
+    public function getVolumeType()
+    {
+        return $this->container['volume_type'];
+    }
+
+    /**
+     * Sets volume_type
+     *
+     * @param string $volume_type volume_type
+     *
+     * @return $this
+     */
+    public function setVolumeType($volume_type)
+    {
+        $this->container['volume_type'] = $volume_type;
 
         return $this;
     }

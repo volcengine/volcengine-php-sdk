@@ -172,6 +172,9 @@ class AssociateInstancesIamRoleRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['iam_role_name'] === null) {
+            $invalidProperties[] = "'iam_role_name' can't be null";
+        }
         return $invalidProperties;
     }
 

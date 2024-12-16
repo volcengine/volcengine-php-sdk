@@ -32,10 +32,15 @@ class ImageForDescribeImagesOutput implements ModelInterface, ArrayAccess
         'boot_mode' => 'string',
         'created_at' => 'string',
         'description' => 'string',
+        'detection_results' => '\Volcengine\Ecs\Model\DetectionResultsForDescribeImagesOutput',
         'image_id' => 'string',
         'image_name' => 'string',
         'image_owner_id' => 'string',
+        'is_install_run_command_agent' => 'bool',
+        'is_lts' => 'bool',
         'is_support_cloud_init' => 'bool',
+        'kernel' => 'string',
+        'license_type' => 'string',
         'os_name' => 'string',
         'os_type' => 'string',
         'platform' => 'string',
@@ -43,6 +48,7 @@ class ImageForDescribeImagesOutput implements ModelInterface, ArrayAccess
         'project_name' => 'string',
         'share_status' => 'string',
         'size' => 'int',
+        'snapshots' => '\Volcengine\Ecs\Model\SnapshotForDescribeImagesOutput[]',
         'status' => 'string',
         'tags' => '\Volcengine\Ecs\Model\TagForDescribeImagesOutput[]',
         'updated_at' => 'string',
@@ -60,10 +66,15 @@ class ImageForDescribeImagesOutput implements ModelInterface, ArrayAccess
         'boot_mode' => null,
         'created_at' => null,
         'description' => null,
+        'detection_results' => null,
         'image_id' => null,
         'image_name' => null,
         'image_owner_id' => null,
+        'is_install_run_command_agent' => null,
+        'is_lts' => null,
         'is_support_cloud_init' => null,
+        'kernel' => null,
+        'license_type' => null,
         'os_name' => null,
         'os_type' => null,
         'platform' => null,
@@ -71,6 +82,7 @@ class ImageForDescribeImagesOutput implements ModelInterface, ArrayAccess
         'project_name' => null,
         'share_status' => null,
         'size' => 'int32',
+        'snapshots' => null,
         'status' => null,
         'tags' => null,
         'updated_at' => null,
@@ -109,10 +121,15 @@ class ImageForDescribeImagesOutput implements ModelInterface, ArrayAccess
         'boot_mode' => 'BootMode',
         'created_at' => 'CreatedAt',
         'description' => 'Description',
+        'detection_results' => 'DetectionResults',
         'image_id' => 'ImageId',
         'image_name' => 'ImageName',
         'image_owner_id' => 'ImageOwnerId',
+        'is_install_run_command_agent' => 'IsInstallRunCommandAgent',
+        'is_lts' => 'IsLTS',
         'is_support_cloud_init' => 'IsSupportCloudInit',
+        'kernel' => 'Kernel',
+        'license_type' => 'LicenseType',
         'os_name' => 'OsName',
         'os_type' => 'OsType',
         'platform' => 'Platform',
@@ -120,6 +137,7 @@ class ImageForDescribeImagesOutput implements ModelInterface, ArrayAccess
         'project_name' => 'ProjectName',
         'share_status' => 'ShareStatus',
         'size' => 'Size',
+        'snapshots' => 'Snapshots',
         'status' => 'Status',
         'tags' => 'Tags',
         'updated_at' => 'UpdatedAt',
@@ -137,10 +155,15 @@ class ImageForDescribeImagesOutput implements ModelInterface, ArrayAccess
         'boot_mode' => 'setBootMode',
         'created_at' => 'setCreatedAt',
         'description' => 'setDescription',
+        'detection_results' => 'setDetectionResults',
         'image_id' => 'setImageId',
         'image_name' => 'setImageName',
         'image_owner_id' => 'setImageOwnerId',
+        'is_install_run_command_agent' => 'setIsInstallRunCommandAgent',
+        'is_lts' => 'setIsLts',
         'is_support_cloud_init' => 'setIsSupportCloudInit',
+        'kernel' => 'setKernel',
+        'license_type' => 'setLicenseType',
         'os_name' => 'setOsName',
         'os_type' => 'setOsType',
         'platform' => 'setPlatform',
@@ -148,6 +171,7 @@ class ImageForDescribeImagesOutput implements ModelInterface, ArrayAccess
         'project_name' => 'setProjectName',
         'share_status' => 'setShareStatus',
         'size' => 'setSize',
+        'snapshots' => 'setSnapshots',
         'status' => 'setStatus',
         'tags' => 'setTags',
         'updated_at' => 'setUpdatedAt',
@@ -165,10 +189,15 @@ class ImageForDescribeImagesOutput implements ModelInterface, ArrayAccess
         'boot_mode' => 'getBootMode',
         'created_at' => 'getCreatedAt',
         'description' => 'getDescription',
+        'detection_results' => 'getDetectionResults',
         'image_id' => 'getImageId',
         'image_name' => 'getImageName',
         'image_owner_id' => 'getImageOwnerId',
+        'is_install_run_command_agent' => 'getIsInstallRunCommandAgent',
+        'is_lts' => 'getIsLts',
         'is_support_cloud_init' => 'getIsSupportCloudInit',
+        'kernel' => 'getKernel',
+        'license_type' => 'getLicenseType',
         'os_name' => 'getOsName',
         'os_type' => 'getOsType',
         'platform' => 'getPlatform',
@@ -176,6 +205,7 @@ class ImageForDescribeImagesOutput implements ModelInterface, ArrayAccess
         'project_name' => 'getProjectName',
         'share_status' => 'getShareStatus',
         'size' => 'getSize',
+        'snapshots' => 'getSnapshots',
         'status' => 'getStatus',
         'tags' => 'getTags',
         'updated_at' => 'getUpdatedAt',
@@ -247,10 +277,15 @@ class ImageForDescribeImagesOutput implements ModelInterface, ArrayAccess
         $this->container['boot_mode'] = isset($data['boot_mode']) ? $data['boot_mode'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['detection_results'] = isset($data['detection_results']) ? $data['detection_results'] : null;
         $this->container['image_id'] = isset($data['image_id']) ? $data['image_id'] : null;
         $this->container['image_name'] = isset($data['image_name']) ? $data['image_name'] : null;
         $this->container['image_owner_id'] = isset($data['image_owner_id']) ? $data['image_owner_id'] : null;
+        $this->container['is_install_run_command_agent'] = isset($data['is_install_run_command_agent']) ? $data['is_install_run_command_agent'] : null;
+        $this->container['is_lts'] = isset($data['is_lts']) ? $data['is_lts'] : null;
         $this->container['is_support_cloud_init'] = isset($data['is_support_cloud_init']) ? $data['is_support_cloud_init'] : null;
+        $this->container['kernel'] = isset($data['kernel']) ? $data['kernel'] : null;
+        $this->container['license_type'] = isset($data['license_type']) ? $data['license_type'] : null;
         $this->container['os_name'] = isset($data['os_name']) ? $data['os_name'] : null;
         $this->container['os_type'] = isset($data['os_type']) ? $data['os_type'] : null;
         $this->container['platform'] = isset($data['platform']) ? $data['platform'] : null;
@@ -258,6 +293,7 @@ class ImageForDescribeImagesOutput implements ModelInterface, ArrayAccess
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['share_status'] = isset($data['share_status']) ? $data['share_status'] : null;
         $this->container['size'] = isset($data['size']) ? $data['size'] : null;
+        $this->container['snapshots'] = isset($data['snapshots']) ? $data['snapshots'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
@@ -386,6 +422,30 @@ class ImageForDescribeImagesOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets detection_results
+     *
+     * @return \Volcengine\Ecs\Model\DetectionResultsForDescribeImagesOutput
+     */
+    public function getDetectionResults()
+    {
+        return $this->container['detection_results'];
+    }
+
+    /**
+     * Sets detection_results
+     *
+     * @param \Volcengine\Ecs\Model\DetectionResultsForDescribeImagesOutput $detection_results detection_results
+     *
+     * @return $this
+     */
+    public function setDetectionResults($detection_results)
+    {
+        $this->container['detection_results'] = $detection_results;
+
+        return $this;
+    }
+
+    /**
      * Gets image_id
      *
      * @return string
@@ -458,6 +518,54 @@ class ImageForDescribeImagesOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets is_install_run_command_agent
+     *
+     * @return bool
+     */
+    public function getIsInstallRunCommandAgent()
+    {
+        return $this->container['is_install_run_command_agent'];
+    }
+
+    /**
+     * Sets is_install_run_command_agent
+     *
+     * @param bool $is_install_run_command_agent is_install_run_command_agent
+     *
+     * @return $this
+     */
+    public function setIsInstallRunCommandAgent($is_install_run_command_agent)
+    {
+        $this->container['is_install_run_command_agent'] = $is_install_run_command_agent;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_lts
+     *
+     * @return bool
+     */
+    public function getIsLts()
+    {
+        return $this->container['is_lts'];
+    }
+
+    /**
+     * Sets is_lts
+     *
+     * @param bool $is_lts is_lts
+     *
+     * @return $this
+     */
+    public function setIsLts($is_lts)
+    {
+        $this->container['is_lts'] = $is_lts;
+
+        return $this;
+    }
+
+    /**
      * Gets is_support_cloud_init
      *
      * @return bool
@@ -477,6 +585,54 @@ class ImageForDescribeImagesOutput implements ModelInterface, ArrayAccess
     public function setIsSupportCloudInit($is_support_cloud_init)
     {
         $this->container['is_support_cloud_init'] = $is_support_cloud_init;
+
+        return $this;
+    }
+
+    /**
+     * Gets kernel
+     *
+     * @return string
+     */
+    public function getKernel()
+    {
+        return $this->container['kernel'];
+    }
+
+    /**
+     * Sets kernel
+     *
+     * @param string $kernel kernel
+     *
+     * @return $this
+     */
+    public function setKernel($kernel)
+    {
+        $this->container['kernel'] = $kernel;
+
+        return $this;
+    }
+
+    /**
+     * Gets license_type
+     *
+     * @return string
+     */
+    public function getLicenseType()
+    {
+        return $this->container['license_type'];
+    }
+
+    /**
+     * Sets license_type
+     *
+     * @param string $license_type license_type
+     *
+     * @return $this
+     */
+    public function setLicenseType($license_type)
+    {
+        $this->container['license_type'] = $license_type;
 
         return $this;
     }
@@ -645,6 +801,30 @@ class ImageForDescribeImagesOutput implements ModelInterface, ArrayAccess
     public function setSize($size)
     {
         $this->container['size'] = $size;
+
+        return $this;
+    }
+
+    /**
+     * Gets snapshots
+     *
+     * @return \Volcengine\Ecs\Model\SnapshotForDescribeImagesOutput[]
+     */
+    public function getSnapshots()
+    {
+        return $this->container['snapshots'];
+    }
+
+    /**
+     * Sets snapshots
+     *
+     * @param \Volcengine\Ecs\Model\SnapshotForDescribeImagesOutput[] $snapshots snapshots
+     *
+     * @return $this
+     */
+    public function setSnapshots($snapshots)
+    {
+        $this->container['snapshots'] = $snapshots;
 
         return $this;
     }

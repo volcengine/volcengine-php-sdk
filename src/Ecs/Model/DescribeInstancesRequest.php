@@ -28,7 +28,11 @@ class DescribeInstancesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'dedicated_host_cluster_id' => 'string',
+        'dedicated_host_id' => 'string',
+        'deployment_set_group_numbers' => 'int[]',
         'deployment_set_ids' => 'string[]',
+        'eip_addresses' => 'string[]',
         'hpc_cluster_id' => 'string',
         'instance_charge_type' => 'string',
         'instance_ids' => 'string[]',
@@ -36,11 +40,13 @@ class DescribeInstancesRequest implements ModelInterface, ArrayAccess
         'instance_type_families' => 'string[]',
         'instance_type_ids' => 'string[]',
         'instance_types' => 'string[]',
+        'ipv6_addresses' => 'string[]',
         'key_pair_name' => 'string',
         'max_results' => 'int',
         'next_token' => 'string',
         'primary_ip_address' => 'string',
         'project_name' => 'string',
+        'scheduled_instance_id' => 'string',
         'status' => 'string',
         'tag_filters' => '\Volcengine\Ecs\Model\TagFilterForDescribeInstancesInput[]',
         'vpc_id' => 'string',
@@ -53,7 +59,11 @@ class DescribeInstancesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'dedicated_host_cluster_id' => null,
+        'dedicated_host_id' => null,
+        'deployment_set_group_numbers' => 'int32',
         'deployment_set_ids' => null,
+        'eip_addresses' => null,
         'hpc_cluster_id' => null,
         'instance_charge_type' => null,
         'instance_ids' => null,
@@ -61,11 +71,13 @@ class DescribeInstancesRequest implements ModelInterface, ArrayAccess
         'instance_type_families' => null,
         'instance_type_ids' => null,
         'instance_types' => null,
+        'ipv6_addresses' => null,
         'key_pair_name' => null,
         'max_results' => 'int32',
         'next_token' => null,
         'primary_ip_address' => null,
         'project_name' => null,
+        'scheduled_instance_id' => null,
         'status' => null,
         'tag_filters' => null,
         'vpc_id' => null,
@@ -99,7 +111,11 @@ class DescribeInstancesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'dedicated_host_cluster_id' => 'DedicatedHostClusterId',
+        'dedicated_host_id' => 'DedicatedHostId',
+        'deployment_set_group_numbers' => 'DeploymentSetGroupNumbers',
         'deployment_set_ids' => 'DeploymentSetIds',
+        'eip_addresses' => 'EipAddresses',
         'hpc_cluster_id' => 'HpcClusterId',
         'instance_charge_type' => 'InstanceChargeType',
         'instance_ids' => 'InstanceIds',
@@ -107,11 +123,13 @@ class DescribeInstancesRequest implements ModelInterface, ArrayAccess
         'instance_type_families' => 'InstanceTypeFamilies',
         'instance_type_ids' => 'InstanceTypeIds',
         'instance_types' => 'InstanceTypes',
+        'ipv6_addresses' => 'Ipv6Addresses',
         'key_pair_name' => 'KeyPairName',
         'max_results' => 'MaxResults',
         'next_token' => 'NextToken',
         'primary_ip_address' => 'PrimaryIpAddress',
         'project_name' => 'ProjectName',
+        'scheduled_instance_id' => 'ScheduledInstanceId',
         'status' => 'Status',
         'tag_filters' => 'TagFilters',
         'vpc_id' => 'VpcId',
@@ -124,7 +142,11 @@ class DescribeInstancesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'dedicated_host_cluster_id' => 'setDedicatedHostClusterId',
+        'dedicated_host_id' => 'setDedicatedHostId',
+        'deployment_set_group_numbers' => 'setDeploymentSetGroupNumbers',
         'deployment_set_ids' => 'setDeploymentSetIds',
+        'eip_addresses' => 'setEipAddresses',
         'hpc_cluster_id' => 'setHpcClusterId',
         'instance_charge_type' => 'setInstanceChargeType',
         'instance_ids' => 'setInstanceIds',
@@ -132,11 +154,13 @@ class DescribeInstancesRequest implements ModelInterface, ArrayAccess
         'instance_type_families' => 'setInstanceTypeFamilies',
         'instance_type_ids' => 'setInstanceTypeIds',
         'instance_types' => 'setInstanceTypes',
+        'ipv6_addresses' => 'setIpv6Addresses',
         'key_pair_name' => 'setKeyPairName',
         'max_results' => 'setMaxResults',
         'next_token' => 'setNextToken',
         'primary_ip_address' => 'setPrimaryIpAddress',
         'project_name' => 'setProjectName',
+        'scheduled_instance_id' => 'setScheduledInstanceId',
         'status' => 'setStatus',
         'tag_filters' => 'setTagFilters',
         'vpc_id' => 'setVpcId',
@@ -149,7 +173,11 @@ class DescribeInstancesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'dedicated_host_cluster_id' => 'getDedicatedHostClusterId',
+        'dedicated_host_id' => 'getDedicatedHostId',
+        'deployment_set_group_numbers' => 'getDeploymentSetGroupNumbers',
         'deployment_set_ids' => 'getDeploymentSetIds',
+        'eip_addresses' => 'getEipAddresses',
         'hpc_cluster_id' => 'getHpcClusterId',
         'instance_charge_type' => 'getInstanceChargeType',
         'instance_ids' => 'getInstanceIds',
@@ -157,11 +185,13 @@ class DescribeInstancesRequest implements ModelInterface, ArrayAccess
         'instance_type_families' => 'getInstanceTypeFamilies',
         'instance_type_ids' => 'getInstanceTypeIds',
         'instance_types' => 'getInstanceTypes',
+        'ipv6_addresses' => 'getIpv6Addresses',
         'key_pair_name' => 'getKeyPairName',
         'max_results' => 'getMaxResults',
         'next_token' => 'getNextToken',
         'primary_ip_address' => 'getPrimaryIpAddress',
         'project_name' => 'getProjectName',
+        'scheduled_instance_id' => 'getScheduledInstanceId',
         'status' => 'getStatus',
         'tag_filters' => 'getTagFilters',
         'vpc_id' => 'getVpcId',
@@ -228,7 +258,11 @@ class DescribeInstancesRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['dedicated_host_cluster_id'] = isset($data['dedicated_host_cluster_id']) ? $data['dedicated_host_cluster_id'] : null;
+        $this->container['dedicated_host_id'] = isset($data['dedicated_host_id']) ? $data['dedicated_host_id'] : null;
+        $this->container['deployment_set_group_numbers'] = isset($data['deployment_set_group_numbers']) ? $data['deployment_set_group_numbers'] : null;
         $this->container['deployment_set_ids'] = isset($data['deployment_set_ids']) ? $data['deployment_set_ids'] : null;
+        $this->container['eip_addresses'] = isset($data['eip_addresses']) ? $data['eip_addresses'] : null;
         $this->container['hpc_cluster_id'] = isset($data['hpc_cluster_id']) ? $data['hpc_cluster_id'] : null;
         $this->container['instance_charge_type'] = isset($data['instance_charge_type']) ? $data['instance_charge_type'] : null;
         $this->container['instance_ids'] = isset($data['instance_ids']) ? $data['instance_ids'] : null;
@@ -236,11 +270,13 @@ class DescribeInstancesRequest implements ModelInterface, ArrayAccess
         $this->container['instance_type_families'] = isset($data['instance_type_families']) ? $data['instance_type_families'] : null;
         $this->container['instance_type_ids'] = isset($data['instance_type_ids']) ? $data['instance_type_ids'] : null;
         $this->container['instance_types'] = isset($data['instance_types']) ? $data['instance_types'] : null;
+        $this->container['ipv6_addresses'] = isset($data['ipv6_addresses']) ? $data['ipv6_addresses'] : null;
         $this->container['key_pair_name'] = isset($data['key_pair_name']) ? $data['key_pair_name'] : null;
         $this->container['max_results'] = isset($data['max_results']) ? $data['max_results'] : null;
         $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
         $this->container['primary_ip_address'] = isset($data['primary_ip_address']) ? $data['primary_ip_address'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['scheduled_instance_id'] = isset($data['scheduled_instance_id']) ? $data['scheduled_instance_id'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['tag_filters'] = isset($data['tag_filters']) ? $data['tag_filters'] : null;
         $this->container['vpc_id'] = isset($data['vpc_id']) ? $data['vpc_id'] : null;
@@ -272,6 +308,78 @@ class DescribeInstancesRequest implements ModelInterface, ArrayAccess
 
 
     /**
+     * Gets dedicated_host_cluster_id
+     *
+     * @return string
+     */
+    public function getDedicatedHostClusterId()
+    {
+        return $this->container['dedicated_host_cluster_id'];
+    }
+
+    /**
+     * Sets dedicated_host_cluster_id
+     *
+     * @param string $dedicated_host_cluster_id dedicated_host_cluster_id
+     *
+     * @return $this
+     */
+    public function setDedicatedHostClusterId($dedicated_host_cluster_id)
+    {
+        $this->container['dedicated_host_cluster_id'] = $dedicated_host_cluster_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets dedicated_host_id
+     *
+     * @return string
+     */
+    public function getDedicatedHostId()
+    {
+        return $this->container['dedicated_host_id'];
+    }
+
+    /**
+     * Sets dedicated_host_id
+     *
+     * @param string $dedicated_host_id dedicated_host_id
+     *
+     * @return $this
+     */
+    public function setDedicatedHostId($dedicated_host_id)
+    {
+        $this->container['dedicated_host_id'] = $dedicated_host_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets deployment_set_group_numbers
+     *
+     * @return int[]
+     */
+    public function getDeploymentSetGroupNumbers()
+    {
+        return $this->container['deployment_set_group_numbers'];
+    }
+
+    /**
+     * Sets deployment_set_group_numbers
+     *
+     * @param int[] $deployment_set_group_numbers deployment_set_group_numbers
+     *
+     * @return $this
+     */
+    public function setDeploymentSetGroupNumbers($deployment_set_group_numbers)
+    {
+        $this->container['deployment_set_group_numbers'] = $deployment_set_group_numbers;
+
+        return $this;
+    }
+
+    /**
      * Gets deployment_set_ids
      *
      * @return string[]
@@ -291,6 +399,30 @@ class DescribeInstancesRequest implements ModelInterface, ArrayAccess
     public function setDeploymentSetIds($deployment_set_ids)
     {
         $this->container['deployment_set_ids'] = $deployment_set_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets eip_addresses
+     *
+     * @return string[]
+     */
+    public function getEipAddresses()
+    {
+        return $this->container['eip_addresses'];
+    }
+
+    /**
+     * Sets eip_addresses
+     *
+     * @param string[] $eip_addresses eip_addresses
+     *
+     * @return $this
+     */
+    public function setEipAddresses($eip_addresses)
+    {
+        $this->container['eip_addresses'] = $eip_addresses;
 
         return $this;
     }
@@ -464,6 +596,30 @@ class DescribeInstancesRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets ipv6_addresses
+     *
+     * @return string[]
+     */
+    public function getIpv6Addresses()
+    {
+        return $this->container['ipv6_addresses'];
+    }
+
+    /**
+     * Sets ipv6_addresses
+     *
+     * @param string[] $ipv6_addresses ipv6_addresses
+     *
+     * @return $this
+     */
+    public function setIpv6Addresses($ipv6_addresses)
+    {
+        $this->container['ipv6_addresses'] = $ipv6_addresses;
+
+        return $this;
+    }
+
+    /**
      * Gets key_pair_name
      *
      * @return string
@@ -579,6 +735,30 @@ class DescribeInstancesRequest implements ModelInterface, ArrayAccess
     public function setProjectName($project_name)
     {
         $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets scheduled_instance_id
+     *
+     * @return string
+     */
+    public function getScheduledInstanceId()
+    {
+        return $this->container['scheduled_instance_id'];
+    }
+
+    /**
+     * Sets scheduled_instance_id
+     *
+     * @param string $scheduled_instance_id scheduled_instance_id
+     *
+     * @return $this
+     */
+    public function setScheduledInstanceId($scheduled_instance_id)
+    {
+        $this->container['scheduled_instance_id'] = $scheduled_instance_id;
 
         return $this;
     }

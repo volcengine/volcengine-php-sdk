@@ -28,7 +28,9 @@ class SystemEventForDescribeSystemEventsOutput implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'category' => 'string',
         'created_at' => 'string',
+        'extra_info' => 'map[string,string]',
         'id' => 'string',
         'operated_end_at' => 'string',
         'operated_start_at' => 'string',
@@ -44,7 +46,9 @@ class SystemEventForDescribeSystemEventsOutput implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'category' => null,
         'created_at' => null,
+        'extra_info' => null,
         'id' => null,
         'operated_end_at' => null,
         'operated_start_at' => null,
@@ -81,7 +85,9 @@ class SystemEventForDescribeSystemEventsOutput implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $attributeMap = [
+        'category' => 'Category',
         'created_at' => 'CreatedAt',
+        'extra_info' => 'ExtraInfo',
         'id' => 'Id',
         'operated_end_at' => 'OperatedEndAt',
         'operated_start_at' => 'OperatedStartAt',
@@ -97,7 +103,9 @@ class SystemEventForDescribeSystemEventsOutput implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $setters = [
+        'category' => 'setCategory',
         'created_at' => 'setCreatedAt',
+        'extra_info' => 'setExtraInfo',
         'id' => 'setId',
         'operated_end_at' => 'setOperatedEndAt',
         'operated_start_at' => 'setOperatedStartAt',
@@ -113,7 +121,9 @@ class SystemEventForDescribeSystemEventsOutput implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $getters = [
+        'category' => 'getCategory',
         'created_at' => 'getCreatedAt',
+        'extra_info' => 'getExtraInfo',
         'id' => 'getId',
         'operated_end_at' => 'getOperatedEndAt',
         'operated_start_at' => 'getOperatedStartAt',
@@ -172,6 +182,8 @@ class SystemEventForDescribeSystemEventsOutput implements ModelInterface, ArrayA
     const STATUS_SCHEDULED = 'Scheduled';
     const STATUS_REJECTED = 'Rejected';
     const STATUS_CANCELED = 'Canceled';
+    const STATUS_PENDING = 'Pending';
+    const STATUS_RECOVERED = 'Recovered';
     const TYPE_UNKNOWN_TYPE = 'UnknownType';
     const TYPE_SYSTEM_FAILURE_STOP = 'SystemFailure_Stop';
     const TYPE_SYSTEM_FAILURE_REBOOT = 'SystemFailure_Reboot';
@@ -194,6 +206,18 @@ class SystemEventForDescribeSystemEventsOutput implements ModelInterface, ArrayA
     const TYPE_REBOOT_INSTANCE = 'RebootInstance';
     const TYPE_INSTANCE_FAILURE = 'InstanceFailure';
     const TYPE_APPLICATION_FAILURE = 'ApplicationFailure';
+    const TYPE_DEPLOYMENT_SET_MODIFY = 'DeploymentSet_Modify';
+    const TYPE_SERVER_MIGRATION_TASK = 'ServerMigrationTask';
+    const TYPE_SERVER_MIGRATION_FIRST_SYNC = 'ServerMigration_FirstSync';
+    const TYPE_SERVER_MIGRATION_ADDITIONAL_SYNC = 'ServerMigration_AdditionalSync';
+    const TYPE_GPU_RISK_DETECTED = 'GpuRiskDetected';
+    const TYPE_ELASTIC_SCHEDULED_INSTANCE_CREATE = 'ElasticScheduledInstance_Create';
+    const TYPE_ELASTIC_SCHEDULED_INSTANCE_CANCEL = 'ElasticScheduledInstance_Cancel';
+    const TYPE_ELASTIC_SCHEDULED_INSTANCE_DELIVER = 'ElasticScheduledInstance_Deliver';
+    const TYPE_INFRASTRUCTURE_UPGRADE_REDEPLOY = 'InfrastructureUpgrade_Redeploy';
+    const TYPE_DISK_ERROR_DETECTED = 'DiskErrorDetected';
+    const TYPE_DISK_ERROR_REPLACE_DISK = 'DiskError_ReplaceDisk';
+    const TYPE_MEMORY_RISK_DETECTED = 'MemoryRiskDetected';
     
 
     
@@ -213,6 +237,8 @@ class SystemEventForDescribeSystemEventsOutput implements ModelInterface, ArrayA
             self::STATUS_SCHEDULED,
             self::STATUS_REJECTED,
             self::STATUS_CANCELED,
+            self::STATUS_PENDING,
+            self::STATUS_RECOVERED,
         ];
     }
     
@@ -246,6 +272,18 @@ class SystemEventForDescribeSystemEventsOutput implements ModelInterface, ArrayA
             self::TYPE_REBOOT_INSTANCE,
             self::TYPE_INSTANCE_FAILURE,
             self::TYPE_APPLICATION_FAILURE,
+            self::TYPE_DEPLOYMENT_SET_MODIFY,
+            self::TYPE_SERVER_MIGRATION_TASK,
+            self::TYPE_SERVER_MIGRATION_FIRST_SYNC,
+            self::TYPE_SERVER_MIGRATION_ADDITIONAL_SYNC,
+            self::TYPE_GPU_RISK_DETECTED,
+            self::TYPE_ELASTIC_SCHEDULED_INSTANCE_CREATE,
+            self::TYPE_ELASTIC_SCHEDULED_INSTANCE_CANCEL,
+            self::TYPE_ELASTIC_SCHEDULED_INSTANCE_DELIVER,
+            self::TYPE_INFRASTRUCTURE_UPGRADE_REDEPLOY,
+            self::TYPE_DISK_ERROR_DETECTED,
+            self::TYPE_DISK_ERROR_REPLACE_DISK,
+            self::TYPE_MEMORY_RISK_DETECTED,
         ];
     }
     
@@ -265,7 +303,9 @@ class SystemEventForDescribeSystemEventsOutput implements ModelInterface, ArrayA
      */
     public function __construct(array $data = null)
     {
+        $this->container['category'] = isset($data['category']) ? $data['category'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
+        $this->container['extra_info'] = isset($data['extra_info']) ? $data['extra_info'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['operated_end_at'] = isset($data['operated_end_at']) ? $data['operated_end_at'] : null;
         $this->container['operated_start_at'] = isset($data['operated_start_at']) ? $data['operated_start_at'] : null;
@@ -316,6 +356,30 @@ class SystemEventForDescribeSystemEventsOutput implements ModelInterface, ArrayA
 
 
     /**
+     * Gets category
+     *
+     * @return string
+     */
+    public function getCategory()
+    {
+        return $this->container['category'];
+    }
+
+    /**
+     * Sets category
+     *
+     * @param string $category category
+     *
+     * @return $this
+     */
+    public function setCategory($category)
+    {
+        $this->container['category'] = $category;
+
+        return $this;
+    }
+
+    /**
      * Gets created_at
      *
      * @return string
@@ -335,6 +399,30 @@ class SystemEventForDescribeSystemEventsOutput implements ModelInterface, ArrayA
     public function setCreatedAt($created_at)
     {
         $this->container['created_at'] = $created_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets extra_info
+     *
+     * @return map[string,string]
+     */
+    public function getExtraInfo()
+    {
+        return $this->container['extra_info'];
+    }
+
+    /**
+     * Sets extra_info
+     *
+     * @param map[string,string] $extra_info extra_info
+     *
+     * @return $this
+     */
+    public function setExtraInfo($extra_info)
+    {
+        $this->container['extra_info'] = $extra_info;
 
         return $this;
     }

@@ -160,6 +160,9 @@ class DescribeInstanceECSTerminalUrlRequest implements ModelInterface, ArrayAcce
     {
         $invalidProperties = [];
 
+        if ($this->container['instance_id'] === null) {
+            $invalidProperties[] = "'instance_id' can't be null";
+        }
         return $invalidProperties;
     }
 

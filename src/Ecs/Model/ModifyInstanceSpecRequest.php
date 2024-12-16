@@ -31,7 +31,8 @@ class ModifyInstanceSpecRequest implements ModelInterface, ArrayAccess
         'client_token' => 'string',
         'dry_run' => 'bool',
         'instance_id' => 'string',
-        'instance_type' => 'string'
+        'instance_type' => 'string',
+        'instance_type_id' => 'string'
     ];
 
     /**
@@ -43,7 +44,8 @@ class ModifyInstanceSpecRequest implements ModelInterface, ArrayAccess
         'client_token' => null,
         'dry_run' => null,
         'instance_id' => null,
-        'instance_type' => null
+        'instance_type' => null,
+        'instance_type_id' => null
     ];
 
     /**
@@ -76,7 +78,8 @@ class ModifyInstanceSpecRequest implements ModelInterface, ArrayAccess
         'client_token' => 'ClientToken',
         'dry_run' => 'DryRun',
         'instance_id' => 'InstanceId',
-        'instance_type' => 'InstanceType'
+        'instance_type' => 'InstanceType',
+        'instance_type_id' => 'InstanceTypeId'
     ];
 
     /**
@@ -88,7 +91,8 @@ class ModifyInstanceSpecRequest implements ModelInterface, ArrayAccess
         'client_token' => 'setClientToken',
         'dry_run' => 'setDryRun',
         'instance_id' => 'setInstanceId',
-        'instance_type' => 'setInstanceType'
+        'instance_type' => 'setInstanceType',
+        'instance_type_id' => 'setInstanceTypeId'
     ];
 
     /**
@@ -100,7 +104,8 @@ class ModifyInstanceSpecRequest implements ModelInterface, ArrayAccess
         'client_token' => 'getClientToken',
         'dry_run' => 'getDryRun',
         'instance_id' => 'getInstanceId',
-        'instance_type' => 'getInstanceType'
+        'instance_type' => 'getInstanceType',
+        'instance_type_id' => 'getInstanceTypeId'
     ];
 
     /**
@@ -167,6 +172,7 @@ class ModifyInstanceSpecRequest implements ModelInterface, ArrayAccess
         $this->container['dry_run'] = isset($data['dry_run']) ? $data['dry_run'] : null;
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
         $this->container['instance_type'] = isset($data['instance_type']) ? $data['instance_type'] : null;
+        $this->container['instance_type_id'] = isset($data['instance_type_id']) ? $data['instance_type_id'] : null;
     }
 
     /**
@@ -178,6 +184,9 @@ class ModifyInstanceSpecRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['instance_id'] === null) {
+            $invalidProperties[] = "'instance_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -285,6 +294,30 @@ class ModifyInstanceSpecRequest implements ModelInterface, ArrayAccess
     public function setInstanceType($instance_type)
     {
         $this->container['instance_type'] = $instance_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets instance_type_id
+     *
+     * @return string
+     */
+    public function getInstanceTypeId()
+    {
+        return $this->container['instance_type_id'];
+    }
+
+    /**
+     * Sets instance_type_id
+     *
+     * @param string $instance_type_id instance_type_id
+     *
+     * @return $this
+     */
+    public function setInstanceTypeId($instance_type_id)
+    {
+        $this->container['instance_type_id'] = $instance_type_id;
 
         return $this;
     }

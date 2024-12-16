@@ -178,6 +178,15 @@ class RenewInstanceRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['instance_id'] === null) {
+            $invalidProperties[] = "'instance_id' can't be null";
+        }
+        if ($this->container['period'] === null) {
+            $invalidProperties[] = "'period' can't be null";
+        }
+        if ($this->container['period_unit'] === null) {
+            $invalidProperties[] = "'period_unit' can't be null";
+        }
         return $invalidProperties;
     }
 

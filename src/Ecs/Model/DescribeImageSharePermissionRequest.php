@@ -172,6 +172,9 @@ class DescribeImageSharePermissionRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['image_id'] === null) {
+            $invalidProperties[] = "'image_id' can't be null";
+        }
         return $invalidProperties;
     }
 
