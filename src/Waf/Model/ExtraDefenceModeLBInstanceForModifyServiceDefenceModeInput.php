@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
+class ExtraDefenceModeLBInstanceForModifyServiceDefenceModeInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AccurateGroupForCreateAclRuleInput';
+    protected static $swaggerModelName = 'ExtraDefenceModeLBInstanceForModifyServiceDefenceModeInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,8 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'accurate_rules' => '\Volcengine\Waf\Model\AccurateRuleForCreateAclRuleInput[]',
-        'logic' => 'int'
+        'defence_mode' => 'int',
+        'instance_id' => 'string'
     ];
 
     /**
@@ -38,8 +38,8 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'accurate_rules' => null,
-        'logic' => 'int32'
+        'defence_mode' => 'int32',
+        'instance_id' => null
     ];
 
     /**
@@ -69,8 +69,8 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'accurate_rules' => 'AccurateRules',
-        'logic' => 'Logic'
+        'defence_mode' => 'DefenceMode',
+        'instance_id' => 'InstanceID'
     ];
 
     /**
@@ -79,8 +79,8 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'accurate_rules' => 'setAccurateRules',
-        'logic' => 'setLogic'
+        'defence_mode' => 'setDefenceMode',
+        'instance_id' => 'setInstanceId'
     ];
 
     /**
@@ -89,8 +89,8 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'accurate_rules' => 'getAccurateRules',
-        'logic' => 'getLogic'
+        'defence_mode' => 'getDefenceMode',
+        'instance_id' => 'getInstanceId'
     ];
 
     /**
@@ -153,8 +153,8 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['accurate_rules'] = isset($data['accurate_rules']) ? $data['accurate_rules'] : null;
-        $this->container['logic'] = isset($data['logic']) ? $data['logic'] : null;
+        $this->container['defence_mode'] = isset($data['defence_mode']) ? $data['defence_mode'] : null;
+        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
     }
 
     /**
@@ -182,49 +182,49 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets accurate_rules
+     * Gets defence_mode
      *
-     * @return \Volcengine\Waf\Model\AccurateRuleForCreateAclRuleInput[]
+     * @return int
      */
-    public function getAccurateRules()
+    public function getDefenceMode()
     {
-        return $this->container['accurate_rules'];
+        return $this->container['defence_mode'];
     }
 
     /**
-     * Sets accurate_rules
+     * Sets defence_mode
      *
-     * @param \Volcengine\Waf\Model\AccurateRuleForCreateAclRuleInput[] $accurate_rules accurate_rules
+     * @param int $defence_mode defence_mode
      *
      * @return $this
      */
-    public function setAccurateRules($accurate_rules)
+    public function setDefenceMode($defence_mode)
     {
-        $this->container['accurate_rules'] = $accurate_rules;
+        $this->container['defence_mode'] = $defence_mode;
 
         return $this;
     }
 
     /**
-     * Gets logic
+     * Gets instance_id
      *
-     * @return int
+     * @return string
      */
-    public function getLogic()
+    public function getInstanceId()
     {
-        return $this->container['logic'];
+        return $this->container['instance_id'];
     }
 
     /**
-     * Sets logic
+     * Sets instance_id
      *
-     * @param int $logic logic
+     * @param string $instance_id instance_id
      *
      * @return $this
      */
-    public function setLogic($logic)
+    public function setInstanceId($instance_id)
     {
-        $this->container['logic'] = $logic;
+        $this->container['instance_id'] = $instance_id;
 
         return $this;
     }

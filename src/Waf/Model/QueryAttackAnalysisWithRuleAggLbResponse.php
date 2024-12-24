@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
+class QueryAttackAnalysisWithRuleAggLbResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AccurateGroupForCreateAclRuleInput';
+    protected static $swaggerModelName = 'QueryAttackAnalysisWithRuleAggLbResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,8 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'accurate_rules' => '\Volcengine\Waf\Model\AccurateRuleForCreateAclRuleInput[]',
-        'logic' => 'int'
+        'items' => '\Volcengine\Waf\Model\ItemForQueryAttackAnalysisWithRuleAggLbOutput[]',
+        'total' => 'float'
     ];
 
     /**
@@ -38,8 +38,8 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'accurate_rules' => null,
-        'logic' => 'int32'
+        'items' => null,
+        'total' => 'float'
     ];
 
     /**
@@ -69,8 +69,8 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'accurate_rules' => 'AccurateRules',
-        'logic' => 'Logic'
+        'items' => 'Items',
+        'total' => 'Total'
     ];
 
     /**
@@ -79,8 +79,8 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'accurate_rules' => 'setAccurateRules',
-        'logic' => 'setLogic'
+        'items' => 'setItems',
+        'total' => 'setTotal'
     ];
 
     /**
@@ -89,8 +89,8 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'accurate_rules' => 'getAccurateRules',
-        'logic' => 'getLogic'
+        'items' => 'getItems',
+        'total' => 'getTotal'
     ];
 
     /**
@@ -153,8 +153,8 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['accurate_rules'] = isset($data['accurate_rules']) ? $data['accurate_rules'] : null;
-        $this->container['logic'] = isset($data['logic']) ? $data['logic'] : null;
+        $this->container['items'] = isset($data['items']) ? $data['items'] : null;
+        $this->container['total'] = isset($data['total']) ? $data['total'] : null;
     }
 
     /**
@@ -182,49 +182,49 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets accurate_rules
+     * Gets items
      *
-     * @return \Volcengine\Waf\Model\AccurateRuleForCreateAclRuleInput[]
+     * @return \Volcengine\Waf\Model\ItemForQueryAttackAnalysisWithRuleAggLbOutput[]
      */
-    public function getAccurateRules()
+    public function getItems()
     {
-        return $this->container['accurate_rules'];
+        return $this->container['items'];
     }
 
     /**
-     * Sets accurate_rules
+     * Sets items
      *
-     * @param \Volcengine\Waf\Model\AccurateRuleForCreateAclRuleInput[] $accurate_rules accurate_rules
+     * @param \Volcengine\Waf\Model\ItemForQueryAttackAnalysisWithRuleAggLbOutput[] $items items
      *
      * @return $this
      */
-    public function setAccurateRules($accurate_rules)
+    public function setItems($items)
     {
-        $this->container['accurate_rules'] = $accurate_rules;
+        $this->container['items'] = $items;
 
         return $this;
     }
 
     /**
-     * Gets logic
+     * Gets total
      *
-     * @return int
+     * @return float
      */
-    public function getLogic()
+    public function getTotal()
     {
-        return $this->container['logic'];
+        return $this->container['total'];
     }
 
     /**
-     * Sets logic
+     * Sets total
      *
-     * @param int $logic logic
+     * @param float $total total
      *
      * @return $this
      */
-    public function setLogic($logic)
+    public function setTotal($total)
     {
-        $this->container['logic'] = $logic;
+        $this->container['total'] = $total;
 
         return $this;
     }

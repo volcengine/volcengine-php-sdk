@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
+class DeleteCCRuleRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AccurateGroupForCreateAclRuleInput';
+    protected static $swaggerModelName = 'DeleteCCRuleRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,9 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'accurate_rules' => '\Volcengine\Waf\Model\AccurateRuleForCreateAclRuleInput[]',
-        'logic' => 'int'
+        'host' => 'string',
+        'id' => 'int',
+        'project_name' => 'string'
     ];
 
     /**
@@ -38,8 +39,9 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'accurate_rules' => null,
-        'logic' => 'int32'
+        'host' => null,
+        'id' => 'int32',
+        'project_name' => null
     ];
 
     /**
@@ -69,8 +71,9 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'accurate_rules' => 'AccurateRules',
-        'logic' => 'Logic'
+        'host' => 'Host',
+        'id' => 'ID',
+        'project_name' => 'ProjectName'
     ];
 
     /**
@@ -79,8 +82,9 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'accurate_rules' => 'setAccurateRules',
-        'logic' => 'setLogic'
+        'host' => 'setHost',
+        'id' => 'setId',
+        'project_name' => 'setProjectName'
     ];
 
     /**
@@ -89,8 +93,9 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'accurate_rules' => 'getAccurateRules',
-        'logic' => 'getLogic'
+        'host' => 'getHost',
+        'id' => 'getId',
+        'project_name' => 'getProjectName'
     ];
 
     /**
@@ -153,8 +158,9 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['accurate_rules'] = isset($data['accurate_rules']) ? $data['accurate_rules'] : null;
-        $this->container['logic'] = isset($data['logic']) ? $data['logic'] : null;
+        $this->container['host'] = isset($data['host']) ? $data['host'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
     }
 
     /**
@@ -166,6 +172,12 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['host'] === null) {
+            $invalidProperties[] = "'host' can't be null";
+        }
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -182,49 +194,73 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets accurate_rules
+     * Gets host
      *
-     * @return \Volcengine\Waf\Model\AccurateRuleForCreateAclRuleInput[]
+     * @return string
      */
-    public function getAccurateRules()
+    public function getHost()
     {
-        return $this->container['accurate_rules'];
+        return $this->container['host'];
     }
 
     /**
-     * Sets accurate_rules
+     * Sets host
      *
-     * @param \Volcengine\Waf\Model\AccurateRuleForCreateAclRuleInput[] $accurate_rules accurate_rules
+     * @param string $host host
      *
      * @return $this
      */
-    public function setAccurateRules($accurate_rules)
+    public function setHost($host)
     {
-        $this->container['accurate_rules'] = $accurate_rules;
+        $this->container['host'] = $host;
 
         return $this;
     }
 
     /**
-     * Gets logic
+     * Gets id
      *
      * @return int
      */
-    public function getLogic()
+    public function getId()
     {
-        return $this->container['logic'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets logic
+     * Sets id
      *
-     * @param int $logic logic
+     * @param int $id id
      *
      * @return $this
      */
-    public function setLogic($logic)
+    public function setId($id)
     {
-        $this->container['logic'] = $logic;
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }

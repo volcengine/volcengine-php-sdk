@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
+class ItemForQueryAttackAnalysisWithRuleAggLbOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AccurateGroupForCreateAclRuleInput';
+    protected static $swaggerModelName = 'ItemForQueryAttackAnalysisWithRuleAggLbOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,9 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'accurate_rules' => '\Volcengine\Waf\Model\AccurateRuleForCreateAclRuleInput[]',
-        'logic' => 'int'
+        'count' => 'float',
+        'key' => 'string',
+        'rule_tags' => 'string[]'
     ];
 
     /**
@@ -38,8 +39,9 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'accurate_rules' => null,
-        'logic' => 'int32'
+        'count' => 'float',
+        'key' => null,
+        'rule_tags' => null
     ];
 
     /**
@@ -69,8 +71,9 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'accurate_rules' => 'AccurateRules',
-        'logic' => 'Logic'
+        'count' => 'Count',
+        'key' => 'Key',
+        'rule_tags' => 'RuleTags'
     ];
 
     /**
@@ -79,8 +82,9 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'accurate_rules' => 'setAccurateRules',
-        'logic' => 'setLogic'
+        'count' => 'setCount',
+        'key' => 'setKey',
+        'rule_tags' => 'setRuleTags'
     ];
 
     /**
@@ -89,8 +93,9 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'accurate_rules' => 'getAccurateRules',
-        'logic' => 'getLogic'
+        'count' => 'getCount',
+        'key' => 'getKey',
+        'rule_tags' => 'getRuleTags'
     ];
 
     /**
@@ -153,8 +158,9 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['accurate_rules'] = isset($data['accurate_rules']) ? $data['accurate_rules'] : null;
-        $this->container['logic'] = isset($data['logic']) ? $data['logic'] : null;
+        $this->container['count'] = isset($data['count']) ? $data['count'] : null;
+        $this->container['key'] = isset($data['key']) ? $data['key'] : null;
+        $this->container['rule_tags'] = isset($data['rule_tags']) ? $data['rule_tags'] : null;
     }
 
     /**
@@ -182,49 +188,73 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets accurate_rules
+     * Gets count
      *
-     * @return \Volcengine\Waf\Model\AccurateRuleForCreateAclRuleInput[]
+     * @return float
      */
-    public function getAccurateRules()
+    public function getCount()
     {
-        return $this->container['accurate_rules'];
+        return $this->container['count'];
     }
 
     /**
-     * Sets accurate_rules
+     * Sets count
      *
-     * @param \Volcengine\Waf\Model\AccurateRuleForCreateAclRuleInput[] $accurate_rules accurate_rules
+     * @param float $count count
      *
      * @return $this
      */
-    public function setAccurateRules($accurate_rules)
+    public function setCount($count)
     {
-        $this->container['accurate_rules'] = $accurate_rules;
+        $this->container['count'] = $count;
 
         return $this;
     }
 
     /**
-     * Gets logic
+     * Gets key
      *
-     * @return int
+     * @return string
      */
-    public function getLogic()
+    public function getKey()
     {
-        return $this->container['logic'];
+        return $this->container['key'];
     }
 
     /**
-     * Sets logic
+     * Sets key
      *
-     * @param int $logic logic
+     * @param string $key key
      *
      * @return $this
      */
-    public function setLogic($logic)
+    public function setKey($key)
     {
-        $this->container['logic'] = $logic;
+        $this->container['key'] = $key;
+
+        return $this;
+    }
+
+    /**
+     * Gets rule_tags
+     *
+     * @return string[]
+     */
+    public function getRuleTags()
+    {
+        return $this->container['rule_tags'];
+    }
+
+    /**
+     * Sets rule_tags
+     *
+     * @param string[] $rule_tags rule_tags
+     *
+     * @return $this
+     */
+    public function setRuleTags($rule_tags)
+    {
+        $this->container['rule_tags'] = $rule_tags;
 
         return $this;
     }

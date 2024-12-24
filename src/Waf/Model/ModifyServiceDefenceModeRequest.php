@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
+class ModifyServiceDefenceModeRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AccurateGroupForCreateAclRuleInput';
+    protected static $swaggerModelName = 'ModifyServiceDefenceModeRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,10 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'accurate_rules' => '\Volcengine\Waf\Model\AccurateRuleForCreateAclRuleInput[]',
-        'logic' => 'int'
+        'defence_mode' => 'int',
+        'extra_defence_mode_lb_instance' => '\Volcengine\Waf\Model\ExtraDefenceModeLBInstanceForModifyServiceDefenceModeInput[]',
+        'host' => 'string',
+        'project_name' => 'string'
     ];
 
     /**
@@ -38,8 +40,10 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'accurate_rules' => null,
-        'logic' => 'int32'
+        'defence_mode' => 'int32',
+        'extra_defence_mode_lb_instance' => null,
+        'host' => null,
+        'project_name' => null
     ];
 
     /**
@@ -69,8 +73,10 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'accurate_rules' => 'AccurateRules',
-        'logic' => 'Logic'
+        'defence_mode' => 'DefenceMode',
+        'extra_defence_mode_lb_instance' => 'ExtraDefenceModeLBInstance',
+        'host' => 'Host',
+        'project_name' => 'ProjectName'
     ];
 
     /**
@@ -79,8 +85,10 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'accurate_rules' => 'setAccurateRules',
-        'logic' => 'setLogic'
+        'defence_mode' => 'setDefenceMode',
+        'extra_defence_mode_lb_instance' => 'setExtraDefenceModeLbInstance',
+        'host' => 'setHost',
+        'project_name' => 'setProjectName'
     ];
 
     /**
@@ -89,8 +97,10 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'accurate_rules' => 'getAccurateRules',
-        'logic' => 'getLogic'
+        'defence_mode' => 'getDefenceMode',
+        'extra_defence_mode_lb_instance' => 'getExtraDefenceModeLbInstance',
+        'host' => 'getHost',
+        'project_name' => 'getProjectName'
     ];
 
     /**
@@ -153,8 +163,10 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['accurate_rules'] = isset($data['accurate_rules']) ? $data['accurate_rules'] : null;
-        $this->container['logic'] = isset($data['logic']) ? $data['logic'] : null;
+        $this->container['defence_mode'] = isset($data['defence_mode']) ? $data['defence_mode'] : null;
+        $this->container['extra_defence_mode_lb_instance'] = isset($data['extra_defence_mode_lb_instance']) ? $data['extra_defence_mode_lb_instance'] : null;
+        $this->container['host'] = isset($data['host']) ? $data['host'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
     }
 
     /**
@@ -166,6 +178,9 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['host'] === null) {
+            $invalidProperties[] = "'host' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -182,49 +197,97 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets accurate_rules
+     * Gets defence_mode
      *
-     * @return \Volcengine\Waf\Model\AccurateRuleForCreateAclRuleInput[]
+     * @return int
      */
-    public function getAccurateRules()
+    public function getDefenceMode()
     {
-        return $this->container['accurate_rules'];
+        return $this->container['defence_mode'];
     }
 
     /**
-     * Sets accurate_rules
+     * Sets defence_mode
      *
-     * @param \Volcengine\Waf\Model\AccurateRuleForCreateAclRuleInput[] $accurate_rules accurate_rules
+     * @param int $defence_mode defence_mode
      *
      * @return $this
      */
-    public function setAccurateRules($accurate_rules)
+    public function setDefenceMode($defence_mode)
     {
-        $this->container['accurate_rules'] = $accurate_rules;
+        $this->container['defence_mode'] = $defence_mode;
 
         return $this;
     }
 
     /**
-     * Gets logic
+     * Gets extra_defence_mode_lb_instance
      *
-     * @return int
+     * @return \Volcengine\Waf\Model\ExtraDefenceModeLBInstanceForModifyServiceDefenceModeInput[]
      */
-    public function getLogic()
+    public function getExtraDefenceModeLbInstance()
     {
-        return $this->container['logic'];
+        return $this->container['extra_defence_mode_lb_instance'];
     }
 
     /**
-     * Sets logic
+     * Sets extra_defence_mode_lb_instance
      *
-     * @param int $logic logic
+     * @param \Volcengine\Waf\Model\ExtraDefenceModeLBInstanceForModifyServiceDefenceModeInput[] $extra_defence_mode_lb_instance extra_defence_mode_lb_instance
      *
      * @return $this
      */
-    public function setLogic($logic)
+    public function setExtraDefenceModeLbInstance($extra_defence_mode_lb_instance)
     {
-        $this->container['logic'] = $logic;
+        $this->container['extra_defence_mode_lb_instance'] = $extra_defence_mode_lb_instance;
+
+        return $this;
+    }
+
+    /**
+     * Gets host
+     *
+     * @return string
+     */
+    public function getHost()
+    {
+        return $this->container['host'];
+    }
+
+    /**
+     * Sets host
+     *
+     * @param string $host host
+     *
+     * @return $this
+     */
+    public function setHost($host)
+    {
+        $this->container['host'] = $host;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }

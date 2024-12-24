@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
+class AccurateRuleForCreateCCRuleInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AccurateGroupForCreateAclRuleInput';
+    protected static $swaggerModelName = 'AccurateRuleForCreateCCRuleInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,11 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'accurate_rules' => '\Volcengine\Waf\Model\AccurateRuleForCreateAclRuleInput[]',
-        'logic' => 'int'
+        'http_obj' => 'string',
+        'obj_type' => 'int',
+        'opretar' => 'int',
+        'property' => 'int',
+        'value_string' => 'string'
     ];
 
     /**
@@ -38,8 +41,11 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'accurate_rules' => null,
-        'logic' => 'int32'
+        'http_obj' => null,
+        'obj_type' => 'int32',
+        'opretar' => 'int32',
+        'property' => 'int32',
+        'value_string' => null
     ];
 
     /**
@@ -69,8 +75,11 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'accurate_rules' => 'AccurateRules',
-        'logic' => 'Logic'
+        'http_obj' => 'HttpObj',
+        'obj_type' => 'ObjType',
+        'opretar' => 'Opretar',
+        'property' => 'Property',
+        'value_string' => 'ValueString'
     ];
 
     /**
@@ -79,8 +88,11 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'accurate_rules' => 'setAccurateRules',
-        'logic' => 'setLogic'
+        'http_obj' => 'setHttpObj',
+        'obj_type' => 'setObjType',
+        'opretar' => 'setOpretar',
+        'property' => 'setProperty',
+        'value_string' => 'setValueString'
     ];
 
     /**
@@ -89,8 +101,11 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'accurate_rules' => 'getAccurateRules',
-        'logic' => 'getLogic'
+        'http_obj' => 'getHttpObj',
+        'obj_type' => 'getObjType',
+        'opretar' => 'getOpretar',
+        'property' => 'getProperty',
+        'value_string' => 'getValueString'
     ];
 
     /**
@@ -153,8 +168,11 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['accurate_rules'] = isset($data['accurate_rules']) ? $data['accurate_rules'] : null;
-        $this->container['logic'] = isset($data['logic']) ? $data['logic'] : null;
+        $this->container['http_obj'] = isset($data['http_obj']) ? $data['http_obj'] : null;
+        $this->container['obj_type'] = isset($data['obj_type']) ? $data['obj_type'] : null;
+        $this->container['opretar'] = isset($data['opretar']) ? $data['opretar'] : null;
+        $this->container['property'] = isset($data['property']) ? $data['property'] : null;
+        $this->container['value_string'] = isset($data['value_string']) ? $data['value_string'] : null;
     }
 
     /**
@@ -182,49 +200,121 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets accurate_rules
+     * Gets http_obj
      *
-     * @return \Volcengine\Waf\Model\AccurateRuleForCreateAclRuleInput[]
+     * @return string
      */
-    public function getAccurateRules()
+    public function getHttpObj()
     {
-        return $this->container['accurate_rules'];
+        return $this->container['http_obj'];
     }
 
     /**
-     * Sets accurate_rules
+     * Sets http_obj
      *
-     * @param \Volcengine\Waf\Model\AccurateRuleForCreateAclRuleInput[] $accurate_rules accurate_rules
+     * @param string $http_obj http_obj
      *
      * @return $this
      */
-    public function setAccurateRules($accurate_rules)
+    public function setHttpObj($http_obj)
     {
-        $this->container['accurate_rules'] = $accurate_rules;
+        $this->container['http_obj'] = $http_obj;
 
         return $this;
     }
 
     /**
-     * Gets logic
+     * Gets obj_type
      *
      * @return int
      */
-    public function getLogic()
+    public function getObjType()
     {
-        return $this->container['logic'];
+        return $this->container['obj_type'];
     }
 
     /**
-     * Sets logic
+     * Sets obj_type
      *
-     * @param int $logic logic
+     * @param int $obj_type obj_type
      *
      * @return $this
      */
-    public function setLogic($logic)
+    public function setObjType($obj_type)
     {
-        $this->container['logic'] = $logic;
+        $this->container['obj_type'] = $obj_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets opretar
+     *
+     * @return int
+     */
+    public function getOpretar()
+    {
+        return $this->container['opretar'];
+    }
+
+    /**
+     * Sets opretar
+     *
+     * @param int $opretar opretar
+     *
+     * @return $this
+     */
+    public function setOpretar($opretar)
+    {
+        $this->container['opretar'] = $opretar;
+
+        return $this;
+    }
+
+    /**
+     * Gets property
+     *
+     * @return int
+     */
+    public function getProperty()
+    {
+        return $this->container['property'];
+    }
+
+    /**
+     * Sets property
+     *
+     * @param int $property property
+     *
+     * @return $this
+     */
+    public function setProperty($property)
+    {
+        $this->container['property'] = $property;
+
+        return $this;
+    }
+
+    /**
+     * Gets value_string
+     *
+     * @return string
+     */
+    public function getValueString()
+    {
+        return $this->container['value_string'];
+    }
+
+    /**
+     * Sets value_string
+     *
+     * @param string $value_string value_string
+     *
+     * @return $this
+     */
+    public function setValueString($value_string)
+    {
+        $this->container['value_string'] = $value_string;
 
         return $this;
     }

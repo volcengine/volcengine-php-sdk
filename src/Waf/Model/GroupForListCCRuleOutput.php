@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
+class GroupForListCCRuleOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AccurateGroupForCreateAclRuleInput';
+    protected static $swaggerModelName = 'GroupForListCCRuleOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,7 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'accurate_rules' => '\Volcengine\Waf\Model\AccurateRuleForCreateAclRuleInput[]',
+        'accurate_rules' => '\Volcengine\Waf\Model\AccurateRuleForListCCRuleOutput[]',
         'logic' => 'int'
     ];
 
@@ -184,7 +184,7 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
     /**
      * Gets accurate_rules
      *
-     * @return \Volcengine\Waf\Model\AccurateRuleForCreateAclRuleInput[]
+     * @return \Volcengine\Waf\Model\AccurateRuleForListCCRuleOutput[]
      */
     public function getAccurateRules()
     {
@@ -194,7 +194,7 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
     /**
      * Sets accurate_rules
      *
-     * @param \Volcengine\Waf\Model\AccurateRuleForCreateAclRuleInput[] $accurate_rules accurate_rules
+     * @param \Volcengine\Waf\Model\AccurateRuleForListCCRuleOutput[] $accurate_rules accurate_rules
      *
      * @return $this
      */

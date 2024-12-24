@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
+class UpdateInstanceCtlRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AccurateGroupForCreateAclRuleInput';
+    protected static $swaggerModelName = 'UpdateInstanceCtlRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,10 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'accurate_rules' => '\Volcengine\Waf\Model\AccurateRuleForCreateAclRuleInput[]',
-        'logic' => 'int'
+        'allow_enable' => 'int',
+        'block_enable' => 'int',
+        'project_name' => 'string',
+        'region' => 'string'
     ];
 
     /**
@@ -38,8 +40,10 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'accurate_rules' => null,
-        'logic' => 'int32'
+        'allow_enable' => 'int32',
+        'block_enable' => 'int32',
+        'project_name' => null,
+        'region' => null
     ];
 
     /**
@@ -69,8 +73,10 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'accurate_rules' => 'AccurateRules',
-        'logic' => 'Logic'
+        'allow_enable' => 'AllowEnable',
+        'block_enable' => 'BlockEnable',
+        'project_name' => 'ProjectName',
+        'region' => 'Region'
     ];
 
     /**
@@ -79,8 +85,10 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'accurate_rules' => 'setAccurateRules',
-        'logic' => 'setLogic'
+        'allow_enable' => 'setAllowEnable',
+        'block_enable' => 'setBlockEnable',
+        'project_name' => 'setProjectName',
+        'region' => 'setRegion'
     ];
 
     /**
@@ -89,8 +97,10 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'accurate_rules' => 'getAccurateRules',
-        'logic' => 'getLogic'
+        'allow_enable' => 'getAllowEnable',
+        'block_enable' => 'getBlockEnable',
+        'project_name' => 'getProjectName',
+        'region' => 'getRegion'
     ];
 
     /**
@@ -153,8 +163,10 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['accurate_rules'] = isset($data['accurate_rules']) ? $data['accurate_rules'] : null;
-        $this->container['logic'] = isset($data['logic']) ? $data['logic'] : null;
+        $this->container['allow_enable'] = isset($data['allow_enable']) ? $data['allow_enable'] : null;
+        $this->container['block_enable'] = isset($data['block_enable']) ? $data['block_enable'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['region'] = isset($data['region']) ? $data['region'] : null;
     }
 
     /**
@@ -166,6 +178,9 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['region'] === null) {
+            $invalidProperties[] = "'region' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -182,49 +197,97 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets accurate_rules
+     * Gets allow_enable
      *
-     * @return \Volcengine\Waf\Model\AccurateRuleForCreateAclRuleInput[]
+     * @return int
      */
-    public function getAccurateRules()
+    public function getAllowEnable()
     {
-        return $this->container['accurate_rules'];
+        return $this->container['allow_enable'];
     }
 
     /**
-     * Sets accurate_rules
+     * Sets allow_enable
      *
-     * @param \Volcengine\Waf\Model\AccurateRuleForCreateAclRuleInput[] $accurate_rules accurate_rules
+     * @param int $allow_enable allow_enable
      *
      * @return $this
      */
-    public function setAccurateRules($accurate_rules)
+    public function setAllowEnable($allow_enable)
     {
-        $this->container['accurate_rules'] = $accurate_rules;
+        $this->container['allow_enable'] = $allow_enable;
 
         return $this;
     }
 
     /**
-     * Gets logic
+     * Gets block_enable
      *
      * @return int
      */
-    public function getLogic()
+    public function getBlockEnable()
     {
-        return $this->container['logic'];
+        return $this->container['block_enable'];
     }
 
     /**
-     * Sets logic
+     * Sets block_enable
      *
-     * @param int $logic logic
+     * @param int $block_enable block_enable
      *
      * @return $this
      */
-    public function setLogic($logic)
+    public function setBlockEnable($block_enable)
     {
-        $this->container['logic'] = $logic;
+        $this->container['block_enable'] = $block_enable;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets region
+     *
+     * @return string
+     */
+    public function getRegion()
+    {
+        return $this->container['region'];
+    }
+
+    /**
+     * Sets region
+     *
+     * @param string $region region
+     *
+     * @return $this
+     */
+    public function setRegion($region)
+    {
+        $this->container['region'] = $region;
 
         return $this;
     }

@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
+class ListProhibitionResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AccurateGroupForCreateAclRuleInput';
+    protected static $swaggerModelName = 'ListProhibitionResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,11 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'accurate_rules' => '\Volcengine\Waf\Model\AccurateRuleForCreateAclRuleInput[]',
-        'logic' => 'int'
+        'count' => 'int',
+        'ip_agg_group' => '\Volcengine\Waf\Model\IpAggGroupForListProhibitionOutput[]',
+        'page_number' => 'int',
+        'page_size' => 'int',
+        'total_count' => 'int'
     ];
 
     /**
@@ -38,8 +41,11 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'accurate_rules' => null,
-        'logic' => 'int32'
+        'count' => 'int32',
+        'ip_agg_group' => null,
+        'page_number' => 'int32',
+        'page_size' => 'int32',
+        'total_count' => 'int32'
     ];
 
     /**
@@ -69,8 +75,11 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'accurate_rules' => 'AccurateRules',
-        'logic' => 'Logic'
+        'count' => 'Count',
+        'ip_agg_group' => 'IpAggGroup',
+        'page_number' => 'PageNumber',
+        'page_size' => 'PageSize',
+        'total_count' => 'TotalCount'
     ];
 
     /**
@@ -79,8 +88,11 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'accurate_rules' => 'setAccurateRules',
-        'logic' => 'setLogic'
+        'count' => 'setCount',
+        'ip_agg_group' => 'setIpAggGroup',
+        'page_number' => 'setPageNumber',
+        'page_size' => 'setPageSize',
+        'total_count' => 'setTotalCount'
     ];
 
     /**
@@ -89,8 +101,11 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'accurate_rules' => 'getAccurateRules',
-        'logic' => 'getLogic'
+        'count' => 'getCount',
+        'ip_agg_group' => 'getIpAggGroup',
+        'page_number' => 'getPageNumber',
+        'page_size' => 'getPageSize',
+        'total_count' => 'getTotalCount'
     ];
 
     /**
@@ -153,8 +168,11 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['accurate_rules'] = isset($data['accurate_rules']) ? $data['accurate_rules'] : null;
-        $this->container['logic'] = isset($data['logic']) ? $data['logic'] : null;
+        $this->container['count'] = isset($data['count']) ? $data['count'] : null;
+        $this->container['ip_agg_group'] = isset($data['ip_agg_group']) ? $data['ip_agg_group'] : null;
+        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
+        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
+        $this->container['total_count'] = isset($data['total_count']) ? $data['total_count'] : null;
     }
 
     /**
@@ -182,49 +200,121 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets accurate_rules
+     * Gets count
      *
-     * @return \Volcengine\Waf\Model\AccurateRuleForCreateAclRuleInput[]
+     * @return int
      */
-    public function getAccurateRules()
+    public function getCount()
     {
-        return $this->container['accurate_rules'];
+        return $this->container['count'];
     }
 
     /**
-     * Sets accurate_rules
+     * Sets count
      *
-     * @param \Volcengine\Waf\Model\AccurateRuleForCreateAclRuleInput[] $accurate_rules accurate_rules
+     * @param int $count count
      *
      * @return $this
      */
-    public function setAccurateRules($accurate_rules)
+    public function setCount($count)
     {
-        $this->container['accurate_rules'] = $accurate_rules;
+        $this->container['count'] = $count;
 
         return $this;
     }
 
     /**
-     * Gets logic
+     * Gets ip_agg_group
      *
-     * @return int
+     * @return \Volcengine\Waf\Model\IpAggGroupForListProhibitionOutput[]
      */
-    public function getLogic()
+    public function getIpAggGroup()
     {
-        return $this->container['logic'];
+        return $this->container['ip_agg_group'];
     }
 
     /**
-     * Sets logic
+     * Sets ip_agg_group
      *
-     * @param int $logic logic
+     * @param \Volcengine\Waf\Model\IpAggGroupForListProhibitionOutput[] $ip_agg_group ip_agg_group
      *
      * @return $this
      */
-    public function setLogic($logic)
+    public function setIpAggGroup($ip_agg_group)
     {
-        $this->container['logic'] = $logic;
+        $this->container['ip_agg_group'] = $ip_agg_group;
+
+        return $this;
+    }
+
+    /**
+     * Gets page_number
+     *
+     * @return int
+     */
+    public function getPageNumber()
+    {
+        return $this->container['page_number'];
+    }
+
+    /**
+     * Sets page_number
+     *
+     * @param int $page_number page_number
+     *
+     * @return $this
+     */
+    public function setPageNumber($page_number)
+    {
+        $this->container['page_number'] = $page_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets page_size
+     *
+     * @return int
+     */
+    public function getPageSize()
+    {
+        return $this->container['page_size'];
+    }
+
+    /**
+     * Sets page_size
+     *
+     * @param int $page_size page_size
+     *
+     * @return $this
+     */
+    public function setPageSize($page_size)
+    {
+        $this->container['page_size'] = $page_size;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_count
+     *
+     * @return int
+     */
+    public function getTotalCount()
+    {
+        return $this->container['total_count'];
+    }
+
+    /**
+     * Sets total_count
+     *
+     * @param int $total_count total_count
+     *
+     * @return $this
+     */
+    public function setTotalCount($total_count)
+    {
+        $this->container['total_count'] = $total_count;
 
         return $this;
     }

@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
+class QueryAttackAnalysisTermsAggLbRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AccurateGroupForCreateAclRuleInput';
+    protected static $swaggerModelName = 'QueryAttackAnalysisTermsAggLbRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,11 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'accurate_rules' => '\Volcengine\Waf\Model\AccurateRuleForCreateAclRuleInput[]',
-        'logic' => 'int'
+        'analysis_key' => 'string',
+        'end_time' => 'int',
+        'host' => 'string',
+        'plugins' => 'string[]',
+        'start_time' => 'int'
     ];
 
     /**
@@ -38,8 +41,11 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'accurate_rules' => null,
-        'logic' => 'int32'
+        'analysis_key' => null,
+        'end_time' => 'int32',
+        'host' => null,
+        'plugins' => null,
+        'start_time' => 'int32'
     ];
 
     /**
@@ -69,8 +75,11 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'accurate_rules' => 'AccurateRules',
-        'logic' => 'Logic'
+        'analysis_key' => 'AnalysisKey',
+        'end_time' => 'EndTime',
+        'host' => 'Host',
+        'plugins' => 'Plugins',
+        'start_time' => 'StartTime'
     ];
 
     /**
@@ -79,8 +88,11 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'accurate_rules' => 'setAccurateRules',
-        'logic' => 'setLogic'
+        'analysis_key' => 'setAnalysisKey',
+        'end_time' => 'setEndTime',
+        'host' => 'setHost',
+        'plugins' => 'setPlugins',
+        'start_time' => 'setStartTime'
     ];
 
     /**
@@ -89,8 +101,11 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'accurate_rules' => 'getAccurateRules',
-        'logic' => 'getLogic'
+        'analysis_key' => 'getAnalysisKey',
+        'end_time' => 'getEndTime',
+        'host' => 'getHost',
+        'plugins' => 'getPlugins',
+        'start_time' => 'getStartTime'
     ];
 
     /**
@@ -153,8 +168,11 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['accurate_rules'] = isset($data['accurate_rules']) ? $data['accurate_rules'] : null;
-        $this->container['logic'] = isset($data['logic']) ? $data['logic'] : null;
+        $this->container['analysis_key'] = isset($data['analysis_key']) ? $data['analysis_key'] : null;
+        $this->container['end_time'] = isset($data['end_time']) ? $data['end_time'] : null;
+        $this->container['host'] = isset($data['host']) ? $data['host'] : null;
+        $this->container['plugins'] = isset($data['plugins']) ? $data['plugins'] : null;
+        $this->container['start_time'] = isset($data['start_time']) ? $data['start_time'] : null;
     }
 
     /**
@@ -166,6 +184,12 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['end_time'] === null) {
+            $invalidProperties[] = "'end_time' can't be null";
+        }
+        if ($this->container['start_time'] === null) {
+            $invalidProperties[] = "'start_time' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -182,49 +206,121 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets accurate_rules
+     * Gets analysis_key
      *
-     * @return \Volcengine\Waf\Model\AccurateRuleForCreateAclRuleInput[]
+     * @return string
      */
-    public function getAccurateRules()
+    public function getAnalysisKey()
     {
-        return $this->container['accurate_rules'];
+        return $this->container['analysis_key'];
     }
 
     /**
-     * Sets accurate_rules
+     * Sets analysis_key
      *
-     * @param \Volcengine\Waf\Model\AccurateRuleForCreateAclRuleInput[] $accurate_rules accurate_rules
+     * @param string $analysis_key analysis_key
      *
      * @return $this
      */
-    public function setAccurateRules($accurate_rules)
+    public function setAnalysisKey($analysis_key)
     {
-        $this->container['accurate_rules'] = $accurate_rules;
+        $this->container['analysis_key'] = $analysis_key;
 
         return $this;
     }
 
     /**
-     * Gets logic
+     * Gets end_time
      *
      * @return int
      */
-    public function getLogic()
+    public function getEndTime()
     {
-        return $this->container['logic'];
+        return $this->container['end_time'];
     }
 
     /**
-     * Sets logic
+     * Sets end_time
      *
-     * @param int $logic logic
+     * @param int $end_time end_time
      *
      * @return $this
      */
-    public function setLogic($logic)
+    public function setEndTime($end_time)
     {
-        $this->container['logic'] = $logic;
+        $this->container['end_time'] = $end_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets host
+     *
+     * @return string
+     */
+    public function getHost()
+    {
+        return $this->container['host'];
+    }
+
+    /**
+     * Sets host
+     *
+     * @param string $host host
+     *
+     * @return $this
+     */
+    public function setHost($host)
+    {
+        $this->container['host'] = $host;
+
+        return $this;
+    }
+
+    /**
+     * Gets plugins
+     *
+     * @return string[]
+     */
+    public function getPlugins()
+    {
+        return $this->container['plugins'];
+    }
+
+    /**
+     * Sets plugins
+     *
+     * @param string[] $plugins plugins
+     *
+     * @return $this
+     */
+    public function setPlugins($plugins)
+    {
+        $this->container['plugins'] = $plugins;
+
+        return $this;
+    }
+
+    /**
+     * Gets start_time
+     *
+     * @return int
+     */
+    public function getStartTime()
+    {
+        return $this->container['start_time'];
+    }
+
+    /**
+     * Sets start_time
+     *
+     * @param int $start_time start_time
+     *
+     * @return $this
+     */
+    public function setStartTime($start_time)
+    {
+        $this->container['start_time'] = $start_time;
 
         return $this;
     }
