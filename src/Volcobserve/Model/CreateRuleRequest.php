@@ -43,6 +43,7 @@ class CreateRuleRequest implements ModelInterface, ArrayAccess
         'namespace' => 'string',
         'no_data' => '\Volcengine\Volcobserve\Model\NoDataForCreateRuleInput',
         'original_dimensions' => 'map[string,string[]]',
+        'project_name' => 'string',
         'recovery_notify' => '\Volcengine\Volcobserve\Model\RecoveryNotifyForCreateRuleInput',
         'regions' => 'string[]',
         'rule_name' => 'string',
@@ -74,6 +75,7 @@ class CreateRuleRequest implements ModelInterface, ArrayAccess
         'namespace' => null,
         'no_data' => null,
         'original_dimensions' => null,
+        'project_name' => null,
         'recovery_notify' => null,
         'regions' => null,
         'rule_name' => null,
@@ -126,6 +128,7 @@ class CreateRuleRequest implements ModelInterface, ArrayAccess
         'namespace' => 'Namespace',
         'no_data' => 'NoData',
         'original_dimensions' => 'OriginalDimensions',
+        'project_name' => 'ProjectName',
         'recovery_notify' => 'RecoveryNotify',
         'regions' => 'Regions',
         'rule_name' => 'RuleName',
@@ -157,6 +160,7 @@ class CreateRuleRequest implements ModelInterface, ArrayAccess
         'namespace' => 'setNamespace',
         'no_data' => 'setNoData',
         'original_dimensions' => 'setOriginalDimensions',
+        'project_name' => 'setProjectName',
         'recovery_notify' => 'setRecoveryNotify',
         'regions' => 'setRegions',
         'rule_name' => 'setRuleName',
@@ -188,6 +192,7 @@ class CreateRuleRequest implements ModelInterface, ArrayAccess
         'namespace' => 'getNamespace',
         'no_data' => 'getNoData',
         'original_dimensions' => 'getOriginalDimensions',
+        'project_name' => 'getProjectName',
         'recovery_notify' => 'getRecoveryNotify',
         'regions' => 'getRegions',
         'rule_name' => 'getRuleName',
@@ -307,6 +312,7 @@ class CreateRuleRequest implements ModelInterface, ArrayAccess
         $this->container['namespace'] = isset($data['namespace']) ? $data['namespace'] : null;
         $this->container['no_data'] = isset($data['no_data']) ? $data['no_data'] : null;
         $this->container['original_dimensions'] = isset($data['original_dimensions']) ? $data['original_dimensions'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['recovery_notify'] = isset($data['recovery_notify']) ? $data['recovery_notify'] : null;
         $this->container['regions'] = isset($data['regions']) ? $data['regions'] : null;
         $this->container['rule_name'] = isset($data['rule_name']) ? $data['rule_name'] : null;
@@ -744,6 +750,30 @@ class CreateRuleRequest implements ModelInterface, ArrayAccess
     public function setOriginalDimensions($original_dimensions)
     {
         $this->container['original_dimensions'] = $original_dimensions;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }
