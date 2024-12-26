@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Waf\Model;
+namespace Volcengine\Cloudtrail20180101\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class UpdateHostGroupRequest implements ModelInterface, ArrayAccess
+class DescribeTrailsRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class UpdateHostGroupRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'UpdateHostGroupRequest';
+    protected static $swaggerModelName = 'DescribeTrailsRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,8 @@ class UpdateHostGroupRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'action' => 'string',
-        'description' => 'string',
-        'host_group_id' => 'int',
-        'host_list' => 'string[]',
-        'name' => 'string',
-        'project_name' => 'string'
+        'include_organization_trail' => 'int',
+        'trail_names' => 'string[]'
     ];
 
     /**
@@ -42,12 +38,8 @@ class UpdateHostGroupRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'action' => null,
-        'description' => null,
-        'host_group_id' => 'int32',
-        'host_list' => null,
-        'name' => null,
-        'project_name' => null
+        'include_organization_trail' => 'int32',
+        'trail_names' => null
     ];
 
     /**
@@ -77,12 +69,8 @@ class UpdateHostGroupRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'action' => 'Action',
-        'description' => 'Description',
-        'host_group_id' => 'HostGroupID',
-        'host_list' => 'HostList',
-        'name' => 'Name',
-        'project_name' => 'ProjectName'
+        'include_organization_trail' => 'IncludeOrganizationTrail',
+        'trail_names' => 'TrailNames'
     ];
 
     /**
@@ -91,12 +79,8 @@ class UpdateHostGroupRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'action' => 'setAction',
-        'description' => 'setDescription',
-        'host_group_id' => 'setHostGroupId',
-        'host_list' => 'setHostList',
-        'name' => 'setName',
-        'project_name' => 'setProjectName'
+        'include_organization_trail' => 'setIncludeOrganizationTrail',
+        'trail_names' => 'setTrailNames'
     ];
 
     /**
@@ -105,12 +89,8 @@ class UpdateHostGroupRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'action' => 'getAction',
-        'description' => 'getDescription',
-        'host_group_id' => 'getHostGroupId',
-        'host_list' => 'getHostList',
-        'name' => 'getName',
-        'project_name' => 'getProjectName'
+        'include_organization_trail' => 'getIncludeOrganizationTrail',
+        'trail_names' => 'getTrailNames'
     ];
 
     /**
@@ -173,12 +153,8 @@ class UpdateHostGroupRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['action'] = isset($data['action']) ? $data['action'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['host_group_id'] = isset($data['host_group_id']) ? $data['host_group_id'] : null;
-        $this->container['host_list'] = isset($data['host_list']) ? $data['host_list'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['include_organization_trail'] = isset($data['include_organization_trail']) ? $data['include_organization_trail'] : null;
+        $this->container['trail_names'] = isset($data['trail_names']) ? $data['trail_names'] : null;
     }
 
     /**
@@ -190,9 +166,6 @@ class UpdateHostGroupRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['host_group_id'] === null) {
-            $invalidProperties[] = "'host_group_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -209,145 +182,49 @@ class UpdateHostGroupRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets action
-     *
-     * @return string
-     */
-    public function getAction()
-    {
-        return $this->container['action'];
-    }
-
-    /**
-     * Sets action
-     *
-     * @param string $action action
-     *
-     * @return $this
-     */
-    public function setAction($action)
-    {
-        $this->container['action'] = $action;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
-     *
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->container['description'];
-    }
-
-    /**
-     * Sets description
-     *
-     * @param string $description description
-     *
-     * @return $this
-     */
-    public function setDescription($description)
-    {
-        $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets host_group_id
+     * Gets include_organization_trail
      *
      * @return int
      */
-    public function getHostGroupId()
+    public function getIncludeOrganizationTrail()
     {
-        return $this->container['host_group_id'];
+        return $this->container['include_organization_trail'];
     }
 
     /**
-     * Sets host_group_id
+     * Sets include_organization_trail
      *
-     * @param int $host_group_id host_group_id
+     * @param int $include_organization_trail include_organization_trail
      *
      * @return $this
      */
-    public function setHostGroupId($host_group_id)
+    public function setIncludeOrganizationTrail($include_organization_trail)
     {
-        $this->container['host_group_id'] = $host_group_id;
+        $this->container['include_organization_trail'] = $include_organization_trail;
 
         return $this;
     }
 
     /**
-     * Gets host_list
+     * Gets trail_names
      *
      * @return string[]
      */
-    public function getHostList()
+    public function getTrailNames()
     {
-        return $this->container['host_list'];
+        return $this->container['trail_names'];
     }
 
     /**
-     * Sets host_list
+     * Sets trail_names
      *
-     * @param string[] $host_list host_list
+     * @param string[] $trail_names trail_names
      *
      * @return $this
      */
-    public function setHostList($host_list)
+    public function setTrailNames($trail_names)
     {
-        $this->container['host_list'] = $host_list;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string $name name
-     *
-     * @return $this
-     */
-    public function setName($name)
-    {
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets project_name
-     *
-     * @return string
-     */
-    public function getProjectName()
-    {
-        return $this->container['project_name'];
-    }
-
-    /**
-     * Sets project_name
-     *
-     * @param string $project_name project_name
-     *
-     * @return $this
-     */
-    public function setProjectName($project_name)
-    {
-        $this->container['project_name'] = $project_name;
+        $this->container['trail_names'] = $trail_names;
 
         return $this;
     }

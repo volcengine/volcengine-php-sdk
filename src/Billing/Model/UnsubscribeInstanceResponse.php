@@ -29,6 +29,7 @@ class UnsubscribeInstanceResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'order_id' => 'string',
+        'order_id_list' => 'string[]',
         'success_instance_infos' => '\Volcengine\Billing\Model\SuccessInstanceInfoForUnsubscribeInstanceOutput[]'
     ];
 
@@ -39,6 +40,7 @@ class UnsubscribeInstanceResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'order_id' => null,
+        'order_id_list' => null,
         'success_instance_infos' => null
     ];
 
@@ -70,6 +72,7 @@ class UnsubscribeInstanceResponse implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'order_id' => 'OrderID',
+        'order_id_list' => 'OrderIDList',
         'success_instance_infos' => 'SuccessInstanceInfos'
     ];
 
@@ -80,6 +83,7 @@ class UnsubscribeInstanceResponse implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'order_id' => 'setOrderId',
+        'order_id_list' => 'setOrderIdList',
         'success_instance_infos' => 'setSuccessInstanceInfos'
     ];
 
@@ -90,6 +94,7 @@ class UnsubscribeInstanceResponse implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'order_id' => 'getOrderId',
+        'order_id_list' => 'getOrderIdList',
         'success_instance_infos' => 'getSuccessInstanceInfos'
     ];
 
@@ -154,6 +159,7 @@ class UnsubscribeInstanceResponse implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['order_id'] = isset($data['order_id']) ? $data['order_id'] : null;
+        $this->container['order_id_list'] = isset($data['order_id_list']) ? $data['order_id_list'] : null;
         $this->container['success_instance_infos'] = isset($data['success_instance_infos']) ? $data['success_instance_infos'] : null;
     }
 
@@ -201,6 +207,30 @@ class UnsubscribeInstanceResponse implements ModelInterface, ArrayAccess
     public function setOrderId($order_id)
     {
         $this->container['order_id'] = $order_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets order_id_list
+     *
+     * @return string[]
+     */
+    public function getOrderIdList()
+    {
+        return $this->container['order_id_list'];
+    }
+
+    /**
+     * Sets order_id_list
+     *
+     * @param string[] $order_id_list order_id_list
+     *
+     * @return $this
+     */
+    public function setOrderIdList($order_id_list)
+    {
+        $this->container['order_id_list'] = $order_id_list;
 
         return $this;
     }

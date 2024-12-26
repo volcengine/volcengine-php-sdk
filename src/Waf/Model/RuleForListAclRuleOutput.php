@@ -31,10 +31,8 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
         'accurate_group' => '\Volcengine\Waf\Model\AccurateGroupForListAclRuleOutput',
         'action' => 'string',
         'advanced' => 'int',
-        'client_ip' => 'string',
         'description' => 'string',
         'enable' => 'int',
-        'host' => 'string',
         'host_add_type' => 'int',
         'host_group_id' => 'int[]',
         'host_groups' => '\Volcengine\Waf\Model\HostGroupForListAclRuleOutput[]',
@@ -46,7 +44,8 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
         'name' => 'string[]',
         'prefix_switch' => 'string[]',
         'rule_tag' => 'string',
-        'update_time' => 'string'
+        'update_time' => 'string',
+        'url' => 'string'
     ];
 
     /**
@@ -58,10 +57,8 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
         'accurate_group' => null,
         'action' => null,
         'advanced' => 'int32',
-        'client_ip' => null,
         'description' => null,
         'enable' => 'int32',
-        'host' => null,
         'host_add_type' => 'int32',
         'host_group_id' => 'int32',
         'host_groups' => null,
@@ -73,7 +70,8 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
         'name' => null,
         'prefix_switch' => null,
         'rule_tag' => null,
-        'update_time' => null
+        'update_time' => null,
+        'url' => null
     ];
 
     /**
@@ -106,10 +104,8 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
         'accurate_group' => 'AccurateGroup',
         'action' => 'Action',
         'advanced' => 'Advanced',
-        'client_ip' => 'ClientIp',
         'description' => 'Description',
         'enable' => 'Enable',
-        'host' => 'Host',
         'host_add_type' => 'HostAddType',
         'host_group_id' => 'HostGroupId',
         'host_groups' => 'HostGroups',
@@ -121,7 +117,8 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
         'name' => 'Name',
         'prefix_switch' => 'PrefixSwitch',
         'rule_tag' => 'RuleTag',
-        'update_time' => 'UpdateTime'
+        'update_time' => 'UpdateTime',
+        'url' => 'Url'
     ];
 
     /**
@@ -133,10 +130,8 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
         'accurate_group' => 'setAccurateGroup',
         'action' => 'setAction',
         'advanced' => 'setAdvanced',
-        'client_ip' => 'setClientIp',
         'description' => 'setDescription',
         'enable' => 'setEnable',
-        'host' => 'setHost',
         'host_add_type' => 'setHostAddType',
         'host_group_id' => 'setHostGroupId',
         'host_groups' => 'setHostGroups',
@@ -148,7 +143,8 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
         'name' => 'setName',
         'prefix_switch' => 'setPrefixSwitch',
         'rule_tag' => 'setRuleTag',
-        'update_time' => 'setUpdateTime'
+        'update_time' => 'setUpdateTime',
+        'url' => 'setUrl'
     ];
 
     /**
@@ -160,10 +156,8 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
         'accurate_group' => 'getAccurateGroup',
         'action' => 'getAction',
         'advanced' => 'getAdvanced',
-        'client_ip' => 'getClientIp',
         'description' => 'getDescription',
         'enable' => 'getEnable',
-        'host' => 'getHost',
         'host_add_type' => 'getHostAddType',
         'host_group_id' => 'getHostGroupId',
         'host_groups' => 'getHostGroups',
@@ -175,7 +169,8 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
         'name' => 'getName',
         'prefix_switch' => 'getPrefixSwitch',
         'rule_tag' => 'getRuleTag',
-        'update_time' => 'getUpdateTime'
+        'update_time' => 'getUpdateTime',
+        'url' => 'getUrl'
     ];
 
     /**
@@ -241,10 +236,8 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
         $this->container['accurate_group'] = isset($data['accurate_group']) ? $data['accurate_group'] : null;
         $this->container['action'] = isset($data['action']) ? $data['action'] : null;
         $this->container['advanced'] = isset($data['advanced']) ? $data['advanced'] : null;
-        $this->container['client_ip'] = isset($data['client_ip']) ? $data['client_ip'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['enable'] = isset($data['enable']) ? $data['enable'] : null;
-        $this->container['host'] = isset($data['host']) ? $data['host'] : null;
         $this->container['host_add_type'] = isset($data['host_add_type']) ? $data['host_add_type'] : null;
         $this->container['host_group_id'] = isset($data['host_group_id']) ? $data['host_group_id'] : null;
         $this->container['host_groups'] = isset($data['host_groups']) ? $data['host_groups'] : null;
@@ -257,6 +250,7 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
         $this->container['prefix_switch'] = isset($data['prefix_switch']) ? $data['prefix_switch'] : null;
         $this->container['rule_tag'] = isset($data['rule_tag']) ? $data['rule_tag'] : null;
         $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
+        $this->container['url'] = isset($data['url']) ? $data['url'] : null;
     }
 
     /**
@@ -356,30 +350,6 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets client_ip
-     *
-     * @return string
-     */
-    public function getClientIp()
-    {
-        return $this->container['client_ip'];
-    }
-
-    /**
-     * Sets client_ip
-     *
-     * @param string $client_ip client_ip
-     *
-     * @return $this
-     */
-    public function setClientIp($client_ip)
-    {
-        $this->container['client_ip'] = $client_ip;
-
-        return $this;
-    }
-
-    /**
      * Gets description
      *
      * @return string
@@ -423,30 +393,6 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
     public function setEnable($enable)
     {
         $this->container['enable'] = $enable;
-
-        return $this;
-    }
-
-    /**
-     * Gets host
-     *
-     * @return string
-     */
-    public function getHost()
-    {
-        return $this->container['host'];
-    }
-
-    /**
-     * Sets host
-     *
-     * @param string $host host
-     *
-     * @return $this
-     */
-    public function setHost($host)
-    {
-        $this->container['host'] = $host;
 
         return $this;
     }
@@ -735,6 +681,30 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
     public function setUpdateTime($update_time)
     {
         $this->container['update_time'] = $update_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets url
+     *
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->container['url'];
+    }
+
+    /**
+     * Sets url
+     *
+     * @param string $url url
+     *
+     * @return $this
+     */
+    public function setUrl($url)
+    {
+        $this->container['url'] = $url;
 
         return $this;
     }

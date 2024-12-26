@@ -28,7 +28,6 @@ class RelatedRuleForListAllIpGroupsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'host' => 'string',
         'rule_name' => 'string',
         'rule_tag' => 'string',
         'rule_type' => 'string'
@@ -40,7 +39,6 @@ class RelatedRuleForListAllIpGroupsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'host' => null,
         'rule_name' => null,
         'rule_tag' => null,
         'rule_type' => null
@@ -73,7 +71,6 @@ class RelatedRuleForListAllIpGroupsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'host' => 'Host',
         'rule_name' => 'RuleName',
         'rule_tag' => 'RuleTag',
         'rule_type' => 'RuleType'
@@ -85,7 +82,6 @@ class RelatedRuleForListAllIpGroupsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'host' => 'setHost',
         'rule_name' => 'setRuleName',
         'rule_tag' => 'setRuleTag',
         'rule_type' => 'setRuleType'
@@ -97,7 +93,6 @@ class RelatedRuleForListAllIpGroupsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'host' => 'getHost',
         'rule_name' => 'getRuleName',
         'rule_tag' => 'getRuleTag',
         'rule_type' => 'getRuleType'
@@ -163,7 +158,6 @@ class RelatedRuleForListAllIpGroupsOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['host'] = isset($data['host']) ? $data['host'] : null;
         $this->container['rule_name'] = isset($data['rule_name']) ? $data['rule_name'] : null;
         $this->container['rule_tag'] = isset($data['rule_tag']) ? $data['rule_tag'] : null;
         $this->container['rule_type'] = isset($data['rule_type']) ? $data['rule_type'] : null;
@@ -192,30 +186,6 @@ class RelatedRuleForListAllIpGroupsOutput implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets host
-     *
-     * @return string
-     */
-    public function getHost()
-    {
-        return $this->container['host'];
-    }
-
-    /**
-     * Sets host
-     *
-     * @param string $host host
-     *
-     * @return $this
-     */
-    public function setHost($host)
-    {
-        $this->container['host'] = $host;
-
-        return $this;
-    }
 
     /**
      * Gets rule_name

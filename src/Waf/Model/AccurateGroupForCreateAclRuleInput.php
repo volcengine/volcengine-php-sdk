@@ -28,9 +28,7 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'accurate_group_priority' => 'int',
         'accurate_rules' => '\Volcengine\Waf\Model\AccurateRuleForCreateAclRuleInput[]',
-        'id' => 'int',
         'logic' => 'int'
     ];
 
@@ -40,9 +38,7 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'accurate_group_priority' => 'int32',
         'accurate_rules' => null,
-        'id' => 'int32',
         'logic' => 'int32'
     ];
 
@@ -73,9 +69,7 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'accurate_group_priority' => 'AccurateGroupPriority',
         'accurate_rules' => 'AccurateRules',
-        'id' => 'Id',
         'logic' => 'Logic'
     ];
 
@@ -85,9 +79,7 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'accurate_group_priority' => 'setAccurateGroupPriority',
         'accurate_rules' => 'setAccurateRules',
-        'id' => 'setId',
         'logic' => 'setLogic'
     ];
 
@@ -97,9 +89,7 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'accurate_group_priority' => 'getAccurateGroupPriority',
         'accurate_rules' => 'getAccurateRules',
-        'id' => 'getId',
         'logic' => 'getLogic'
     ];
 
@@ -163,9 +153,7 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['accurate_group_priority'] = isset($data['accurate_group_priority']) ? $data['accurate_group_priority'] : null;
         $this->container['accurate_rules'] = isset($data['accurate_rules']) ? $data['accurate_rules'] : null;
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['logic'] = isset($data['logic']) ? $data['logic'] : null;
     }
 
@@ -194,30 +182,6 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets accurate_group_priority
-     *
-     * @return int
-     */
-    public function getAccurateGroupPriority()
-    {
-        return $this->container['accurate_group_priority'];
-    }
-
-    /**
-     * Sets accurate_group_priority
-     *
-     * @param int $accurate_group_priority accurate_group_priority
-     *
-     * @return $this
-     */
-    public function setAccurateGroupPriority($accurate_group_priority)
-    {
-        $this->container['accurate_group_priority'] = $accurate_group_priority;
-
-        return $this;
-    }
-
-    /**
      * Gets accurate_rules
      *
      * @return \Volcengine\Waf\Model\AccurateRuleForCreateAclRuleInput[]
@@ -237,30 +201,6 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
     public function setAccurateRules($accurate_rules)
     {
         $this->container['accurate_rules'] = $accurate_rules;
-
-        return $this;
-    }
-
-    /**
-     * Gets id
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param int $id id
-     *
-     * @return $this
-     */
-    public function setId($id)
-    {
-        $this->container['id'] = $id;
 
         return $this;
     }
