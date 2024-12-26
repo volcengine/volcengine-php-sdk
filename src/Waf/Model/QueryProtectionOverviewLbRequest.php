@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
+class QueryProtectionOverviewLbRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AccurateGroupForCreateAclRuleInput';
+    protected static $swaggerModelName = 'QueryProtectionOverviewLbRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,9 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'accurate_rules' => '\Volcengine\Waf\Model\AccurateRuleForCreateAclRuleInput[]',
-        'logic' => 'int'
+        'end_time' => 'int',
+        'host' => 'string',
+        'start_time' => 'int'
     ];
 
     /**
@@ -38,8 +39,9 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'accurate_rules' => null,
-        'logic' => 'int32'
+        'end_time' => 'int32',
+        'host' => null,
+        'start_time' => 'int32'
     ];
 
     /**
@@ -69,8 +71,9 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'accurate_rules' => 'AccurateRules',
-        'logic' => 'Logic'
+        'end_time' => 'EndTime',
+        'host' => 'Host',
+        'start_time' => 'StartTime'
     ];
 
     /**
@@ -79,8 +82,9 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'accurate_rules' => 'setAccurateRules',
-        'logic' => 'setLogic'
+        'end_time' => 'setEndTime',
+        'host' => 'setHost',
+        'start_time' => 'setStartTime'
     ];
 
     /**
@@ -89,8 +93,9 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'accurate_rules' => 'getAccurateRules',
-        'logic' => 'getLogic'
+        'end_time' => 'getEndTime',
+        'host' => 'getHost',
+        'start_time' => 'getStartTime'
     ];
 
     /**
@@ -153,8 +158,9 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['accurate_rules'] = isset($data['accurate_rules']) ? $data['accurate_rules'] : null;
-        $this->container['logic'] = isset($data['logic']) ? $data['logic'] : null;
+        $this->container['end_time'] = isset($data['end_time']) ? $data['end_time'] : null;
+        $this->container['host'] = isset($data['host']) ? $data['host'] : null;
+        $this->container['start_time'] = isset($data['start_time']) ? $data['start_time'] : null;
     }
 
     /**
@@ -166,6 +172,12 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['end_time'] === null) {
+            $invalidProperties[] = "'end_time' can't be null";
+        }
+        if ($this->container['start_time'] === null) {
+            $invalidProperties[] = "'start_time' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -182,49 +194,73 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets accurate_rules
+     * Gets end_time
      *
-     * @return \Volcengine\Waf\Model\AccurateRuleForCreateAclRuleInput[]
+     * @return int
      */
-    public function getAccurateRules()
+    public function getEndTime()
     {
-        return $this->container['accurate_rules'];
+        return $this->container['end_time'];
     }
 
     /**
-     * Sets accurate_rules
+     * Sets end_time
      *
-     * @param \Volcengine\Waf\Model\AccurateRuleForCreateAclRuleInput[] $accurate_rules accurate_rules
+     * @param int $end_time end_time
      *
      * @return $this
      */
-    public function setAccurateRules($accurate_rules)
+    public function setEndTime($end_time)
     {
-        $this->container['accurate_rules'] = $accurate_rules;
+        $this->container['end_time'] = $end_time;
 
         return $this;
     }
 
     /**
-     * Gets logic
+     * Gets host
      *
-     * @return int
+     * @return string
      */
-    public function getLogic()
+    public function getHost()
     {
-        return $this->container['logic'];
+        return $this->container['host'];
     }
 
     /**
-     * Sets logic
+     * Sets host
      *
-     * @param int $logic logic
+     * @param string $host host
      *
      * @return $this
      */
-    public function setLogic($logic)
+    public function setHost($host)
     {
-        $this->container['logic'] = $logic;
+        $this->container['host'] = $host;
+
+        return $this;
+    }
+
+    /**
+     * Gets start_time
+     *
+     * @return int
+     */
+    public function getStartTime()
+    {
+        return $this->container['start_time'];
+    }
+
+    /**
+     * Sets start_time
+     *
+     * @param int $start_time start_time
+     *
+     * @return $this
+     */
+    public function setStartTime($start_time)
+    {
+        $this->container['start_time'] = $start_time;
 
         return $this;
     }

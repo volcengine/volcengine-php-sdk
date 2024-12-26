@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
+class FieldListForGetTLSConfigOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AccurateGroupForCreateAclRuleInput';
+    protected static $swaggerModelName = 'FieldListForGetTLSConfigOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,10 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'accurate_rules' => '\Volcengine\Waf\Model\AccurateRuleForCreateAclRuleInput[]',
-        'logic' => 'int'
+        'cookie' => 'bool',
+        'request_body' => 'bool',
+        'rule_description' => 'bool',
+        'rule_name' => 'bool'
     ];
 
     /**
@@ -38,8 +40,10 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'accurate_rules' => null,
-        'logic' => 'int32'
+        'cookie' => null,
+        'request_body' => null,
+        'rule_description' => null,
+        'rule_name' => null
     ];
 
     /**
@@ -69,8 +73,10 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'accurate_rules' => 'AccurateRules',
-        'logic' => 'Logic'
+        'cookie' => 'Cookie',
+        'request_body' => 'RequestBody',
+        'rule_description' => 'RuleDescription',
+        'rule_name' => 'RuleName'
     ];
 
     /**
@@ -79,8 +85,10 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'accurate_rules' => 'setAccurateRules',
-        'logic' => 'setLogic'
+        'cookie' => 'setCookie',
+        'request_body' => 'setRequestBody',
+        'rule_description' => 'setRuleDescription',
+        'rule_name' => 'setRuleName'
     ];
 
     /**
@@ -89,8 +97,10 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'accurate_rules' => 'getAccurateRules',
-        'logic' => 'getLogic'
+        'cookie' => 'getCookie',
+        'request_body' => 'getRequestBody',
+        'rule_description' => 'getRuleDescription',
+        'rule_name' => 'getRuleName'
     ];
 
     /**
@@ -153,8 +163,10 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['accurate_rules'] = isset($data['accurate_rules']) ? $data['accurate_rules'] : null;
-        $this->container['logic'] = isset($data['logic']) ? $data['logic'] : null;
+        $this->container['cookie'] = isset($data['cookie']) ? $data['cookie'] : null;
+        $this->container['request_body'] = isset($data['request_body']) ? $data['request_body'] : null;
+        $this->container['rule_description'] = isset($data['rule_description']) ? $data['rule_description'] : null;
+        $this->container['rule_name'] = isset($data['rule_name']) ? $data['rule_name'] : null;
     }
 
     /**
@@ -182,49 +194,97 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets accurate_rules
+     * Gets cookie
      *
-     * @return \Volcengine\Waf\Model\AccurateRuleForCreateAclRuleInput[]
+     * @return bool
      */
-    public function getAccurateRules()
+    public function getCookie()
     {
-        return $this->container['accurate_rules'];
+        return $this->container['cookie'];
     }
 
     /**
-     * Sets accurate_rules
+     * Sets cookie
      *
-     * @param \Volcengine\Waf\Model\AccurateRuleForCreateAclRuleInput[] $accurate_rules accurate_rules
+     * @param bool $cookie cookie
      *
      * @return $this
      */
-    public function setAccurateRules($accurate_rules)
+    public function setCookie($cookie)
     {
-        $this->container['accurate_rules'] = $accurate_rules;
+        $this->container['cookie'] = $cookie;
 
         return $this;
     }
 
     /**
-     * Gets logic
+     * Gets request_body
      *
-     * @return int
+     * @return bool
      */
-    public function getLogic()
+    public function getRequestBody()
     {
-        return $this->container['logic'];
+        return $this->container['request_body'];
     }
 
     /**
-     * Sets logic
+     * Sets request_body
      *
-     * @param int $logic logic
+     * @param bool $request_body request_body
      *
      * @return $this
      */
-    public function setLogic($logic)
+    public function setRequestBody($request_body)
     {
-        $this->container['logic'] = $logic;
+        $this->container['request_body'] = $request_body;
+
+        return $this;
+    }
+
+    /**
+     * Gets rule_description
+     *
+     * @return bool
+     */
+    public function getRuleDescription()
+    {
+        return $this->container['rule_description'];
+    }
+
+    /**
+     * Sets rule_description
+     *
+     * @param bool $rule_description rule_description
+     *
+     * @return $this
+     */
+    public function setRuleDescription($rule_description)
+    {
+        $this->container['rule_description'] = $rule_description;
+
+        return $this;
+    }
+
+    /**
+     * Gets rule_name
+     *
+     * @return bool
+     */
+    public function getRuleName()
+    {
+        return $this->container['rule_name'];
+    }
+
+    /**
+     * Sets rule_name
+     *
+     * @param bool $rule_name rule_name
+     *
+     * @return $this
+     */
+    public function setRuleName($rule_name)
+    {
+        $this->container['rule_name'] = $rule_name;
 
         return $this;
     }

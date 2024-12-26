@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class UpdateHostGroupRequest implements ModelInterface, ArrayAccess
+class IpAggGroupForListProhibitionOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class UpdateHostGroupRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'UpdateHostGroupRequest';
+    protected static $swaggerModelName = 'IpAggGroupForListProhibitionOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,13 @@ class UpdateHostGroupRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'action' => 'string',
-        'description' => 'string',
-        'host_group_id' => 'int',
-        'host_list' => 'string[]',
-        'name' => 'string',
-        'project_name' => 'string'
+        'drop_count' => 'int',
+        'ip' => 'string',
+        'reason' => '\Volcengine\Waf\Model\ReasonForListProhibitionOutput',
+        'rule_name' => 'string',
+        'rule_tag' => 'string',
+        'status' => 'int',
+        'update_time' => 'string'
     ];
 
     /**
@@ -42,12 +43,13 @@ class UpdateHostGroupRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'action' => null,
-        'description' => null,
-        'host_group_id' => 'int32',
-        'host_list' => null,
-        'name' => null,
-        'project_name' => null
+        'drop_count' => 'int32',
+        'ip' => null,
+        'reason' => null,
+        'rule_name' => null,
+        'rule_tag' => null,
+        'status' => 'int32',
+        'update_time' => null
     ];
 
     /**
@@ -77,12 +79,13 @@ class UpdateHostGroupRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'action' => 'Action',
-        'description' => 'Description',
-        'host_group_id' => 'HostGroupID',
-        'host_list' => 'HostList',
-        'name' => 'Name',
-        'project_name' => 'ProjectName'
+        'drop_count' => 'DropCount',
+        'ip' => 'Ip',
+        'reason' => 'Reason',
+        'rule_name' => 'RuleName',
+        'rule_tag' => 'RuleTag',
+        'status' => 'Status',
+        'update_time' => 'UpdateTime'
     ];
 
     /**
@@ -91,12 +94,13 @@ class UpdateHostGroupRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'action' => 'setAction',
-        'description' => 'setDescription',
-        'host_group_id' => 'setHostGroupId',
-        'host_list' => 'setHostList',
-        'name' => 'setName',
-        'project_name' => 'setProjectName'
+        'drop_count' => 'setDropCount',
+        'ip' => 'setIp',
+        'reason' => 'setReason',
+        'rule_name' => 'setRuleName',
+        'rule_tag' => 'setRuleTag',
+        'status' => 'setStatus',
+        'update_time' => 'setUpdateTime'
     ];
 
     /**
@@ -105,12 +109,13 @@ class UpdateHostGroupRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'action' => 'getAction',
-        'description' => 'getDescription',
-        'host_group_id' => 'getHostGroupId',
-        'host_list' => 'getHostList',
-        'name' => 'getName',
-        'project_name' => 'getProjectName'
+        'drop_count' => 'getDropCount',
+        'ip' => 'getIp',
+        'reason' => 'getReason',
+        'rule_name' => 'getRuleName',
+        'rule_tag' => 'getRuleTag',
+        'status' => 'getStatus',
+        'update_time' => 'getUpdateTime'
     ];
 
     /**
@@ -173,12 +178,13 @@ class UpdateHostGroupRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['action'] = isset($data['action']) ? $data['action'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['host_group_id'] = isset($data['host_group_id']) ? $data['host_group_id'] : null;
-        $this->container['host_list'] = isset($data['host_list']) ? $data['host_list'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['drop_count'] = isset($data['drop_count']) ? $data['drop_count'] : null;
+        $this->container['ip'] = isset($data['ip']) ? $data['ip'] : null;
+        $this->container['reason'] = isset($data['reason']) ? $data['reason'] : null;
+        $this->container['rule_name'] = isset($data['rule_name']) ? $data['rule_name'] : null;
+        $this->container['rule_tag'] = isset($data['rule_tag']) ? $data['rule_tag'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
     }
 
     /**
@@ -190,9 +196,6 @@ class UpdateHostGroupRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['host_group_id'] === null) {
-            $invalidProperties[] = "'host_group_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -209,145 +212,169 @@ class UpdateHostGroupRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets action
-     *
-     * @return string
-     */
-    public function getAction()
-    {
-        return $this->container['action'];
-    }
-
-    /**
-     * Sets action
-     *
-     * @param string $action action
-     *
-     * @return $this
-     */
-    public function setAction($action)
-    {
-        $this->container['action'] = $action;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
-     *
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->container['description'];
-    }
-
-    /**
-     * Sets description
-     *
-     * @param string $description description
-     *
-     * @return $this
-     */
-    public function setDescription($description)
-    {
-        $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets host_group_id
+     * Gets drop_count
      *
      * @return int
      */
-    public function getHostGroupId()
+    public function getDropCount()
     {
-        return $this->container['host_group_id'];
+        return $this->container['drop_count'];
     }
 
     /**
-     * Sets host_group_id
+     * Sets drop_count
      *
-     * @param int $host_group_id host_group_id
+     * @param int $drop_count drop_count
      *
      * @return $this
      */
-    public function setHostGroupId($host_group_id)
+    public function setDropCount($drop_count)
     {
-        $this->container['host_group_id'] = $host_group_id;
+        $this->container['drop_count'] = $drop_count;
 
         return $this;
     }
 
     /**
-     * Gets host_list
-     *
-     * @return string[]
-     */
-    public function getHostList()
-    {
-        return $this->container['host_list'];
-    }
-
-    /**
-     * Sets host_list
-     *
-     * @param string[] $host_list host_list
-     *
-     * @return $this
-     */
-    public function setHostList($host_list)
-    {
-        $this->container['host_list'] = $host_list;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
+     * Gets ip
      *
      * @return string
      */
-    public function getName()
+    public function getIp()
     {
-        return $this->container['name'];
+        return $this->container['ip'];
     }
 
     /**
-     * Sets name
+     * Sets ip
      *
-     * @param string $name name
+     * @param string $ip ip
      *
      * @return $this
      */
-    public function setName($name)
+    public function setIp($ip)
     {
-        $this->container['name'] = $name;
+        $this->container['ip'] = $ip;
 
         return $this;
     }
 
     /**
-     * Gets project_name
+     * Gets reason
      *
-     * @return string
+     * @return \Volcengine\Waf\Model\ReasonForListProhibitionOutput
      */
-    public function getProjectName()
+    public function getReason()
     {
-        return $this->container['project_name'];
+        return $this->container['reason'];
     }
 
     /**
-     * Sets project_name
+     * Sets reason
      *
-     * @param string $project_name project_name
+     * @param \Volcengine\Waf\Model\ReasonForListProhibitionOutput $reason reason
      *
      * @return $this
      */
-    public function setProjectName($project_name)
+    public function setReason($reason)
     {
-        $this->container['project_name'] = $project_name;
+        $this->container['reason'] = $reason;
+
+        return $this;
+    }
+
+    /**
+     * Gets rule_name
+     *
+     * @return string
+     */
+    public function getRuleName()
+    {
+        return $this->container['rule_name'];
+    }
+
+    /**
+     * Sets rule_name
+     *
+     * @param string $rule_name rule_name
+     *
+     * @return $this
+     */
+    public function setRuleName($rule_name)
+    {
+        $this->container['rule_name'] = $rule_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets rule_tag
+     *
+     * @return string
+     */
+    public function getRuleTag()
+    {
+        return $this->container['rule_tag'];
+    }
+
+    /**
+     * Sets rule_tag
+     *
+     * @param string $rule_tag rule_tag
+     *
+     * @return $this
+     */
+    public function setRuleTag($rule_tag)
+    {
+        $this->container['rule_tag'] = $rule_tag;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return int
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param int $status status
+     *
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets update_time
+     *
+     * @return string
+     */
+    public function getUpdateTime()
+    {
+        return $this->container['update_time'];
+    }
+
+    /**
+     * Sets update_time
+     *
+     * @param string $update_time update_time
+     *
+     * @return $this
+     */
+    public function setUpdateTime($update_time)
+    {
+        $this->container['update_time'] = $update_time;
 
         return $this;
     }

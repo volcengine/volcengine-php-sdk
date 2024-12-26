@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class UpdateHostGroupResponse implements ModelInterface, ArrayAccess
+class UpdateInstanceCtlResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class UpdateHostGroupResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'UpdateHostGroupResponse';
+    protected static $swaggerModelName = 'UpdateInstanceCtlResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

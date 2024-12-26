@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
+class QueryProtectionOverviewLbResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AccurateGroupForCreateAclRuleInput';
+    protected static $swaggerModelName = 'QueryProtectionOverviewLbResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,9 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'accurate_rules' => '\Volcengine\Waf\Model\AccurateRuleForCreateAclRuleInput[]',
-        'logic' => 'int'
+        'attack_count' => 'int',
+        'attack_ip_count' => 'int',
+        'host_count' => 'int'
     ];
 
     /**
@@ -38,8 +39,9 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'accurate_rules' => null,
-        'logic' => 'int32'
+        'attack_count' => 'int32',
+        'attack_ip_count' => 'int32',
+        'host_count' => 'int32'
     ];
 
     /**
@@ -69,8 +71,9 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'accurate_rules' => 'AccurateRules',
-        'logic' => 'Logic'
+        'attack_count' => 'AttackCount',
+        'attack_ip_count' => 'AttackIPCount',
+        'host_count' => 'HostCount'
     ];
 
     /**
@@ -79,8 +82,9 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'accurate_rules' => 'setAccurateRules',
-        'logic' => 'setLogic'
+        'attack_count' => 'setAttackCount',
+        'attack_ip_count' => 'setAttackIpCount',
+        'host_count' => 'setHostCount'
     ];
 
     /**
@@ -89,8 +93,9 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'accurate_rules' => 'getAccurateRules',
-        'logic' => 'getLogic'
+        'attack_count' => 'getAttackCount',
+        'attack_ip_count' => 'getAttackIpCount',
+        'host_count' => 'getHostCount'
     ];
 
     /**
@@ -153,8 +158,9 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['accurate_rules'] = isset($data['accurate_rules']) ? $data['accurate_rules'] : null;
-        $this->container['logic'] = isset($data['logic']) ? $data['logic'] : null;
+        $this->container['attack_count'] = isset($data['attack_count']) ? $data['attack_count'] : null;
+        $this->container['attack_ip_count'] = isset($data['attack_ip_count']) ? $data['attack_ip_count'] : null;
+        $this->container['host_count'] = isset($data['host_count']) ? $data['host_count'] : null;
     }
 
     /**
@@ -182,49 +188,73 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets accurate_rules
+     * Gets attack_count
      *
-     * @return \Volcengine\Waf\Model\AccurateRuleForCreateAclRuleInput[]
+     * @return int
      */
-    public function getAccurateRules()
+    public function getAttackCount()
     {
-        return $this->container['accurate_rules'];
+        return $this->container['attack_count'];
     }
 
     /**
-     * Sets accurate_rules
+     * Sets attack_count
      *
-     * @param \Volcengine\Waf\Model\AccurateRuleForCreateAclRuleInput[] $accurate_rules accurate_rules
+     * @param int $attack_count attack_count
      *
      * @return $this
      */
-    public function setAccurateRules($accurate_rules)
+    public function setAttackCount($attack_count)
     {
-        $this->container['accurate_rules'] = $accurate_rules;
+        $this->container['attack_count'] = $attack_count;
 
         return $this;
     }
 
     /**
-     * Gets logic
+     * Gets attack_ip_count
      *
      * @return int
      */
-    public function getLogic()
+    public function getAttackIpCount()
     {
-        return $this->container['logic'];
+        return $this->container['attack_ip_count'];
     }
 
     /**
-     * Sets logic
+     * Sets attack_ip_count
      *
-     * @param int $logic logic
+     * @param int $attack_ip_count attack_ip_count
      *
      * @return $this
      */
-    public function setLogic($logic)
+    public function setAttackIpCount($attack_ip_count)
     {
-        $this->container['logic'] = $logic;
+        $this->container['attack_ip_count'] = $attack_ip_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets host_count
+     *
+     * @return int
+     */
+    public function getHostCount()
+    {
+        return $this->container['host_count'];
+    }
+
+    /**
+     * Sets host_count
+     *
+     * @param int $host_count host_count
+     *
+     * @return $this
+     */
+    public function setHostCount($host_count)
+    {
+        $this->container['host_count'] = $host_count;
 
         return $this;
     }

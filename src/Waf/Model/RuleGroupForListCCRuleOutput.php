@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
+class RuleGroupForListCCRuleOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AccurateGroupForCreateAclRuleInput';
+    protected static $swaggerModelName = 'RuleGroupForListCCRuleOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,8 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'accurate_rules' => '\Volcengine\Waf\Model\AccurateRuleForCreateAclRuleInput[]',
-        'logic' => 'int'
+        'group' => '\Volcengine\Waf\Model\GroupForListCCRuleOutput',
+        'rules' => '\Volcengine\Waf\Model\RuleForListCCRuleOutput[]'
     ];
 
     /**
@@ -38,8 +38,8 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'accurate_rules' => null,
-        'logic' => 'int32'
+        'group' => null,
+        'rules' => null
     ];
 
     /**
@@ -69,8 +69,8 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'accurate_rules' => 'AccurateRules',
-        'logic' => 'Logic'
+        'group' => 'Group',
+        'rules' => 'Rules'
     ];
 
     /**
@@ -79,8 +79,8 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'accurate_rules' => 'setAccurateRules',
-        'logic' => 'setLogic'
+        'group' => 'setGroup',
+        'rules' => 'setRules'
     ];
 
     /**
@@ -89,8 +89,8 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'accurate_rules' => 'getAccurateRules',
-        'logic' => 'getLogic'
+        'group' => 'getGroup',
+        'rules' => 'getRules'
     ];
 
     /**
@@ -153,8 +153,8 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['accurate_rules'] = isset($data['accurate_rules']) ? $data['accurate_rules'] : null;
-        $this->container['logic'] = isset($data['logic']) ? $data['logic'] : null;
+        $this->container['group'] = isset($data['group']) ? $data['group'] : null;
+        $this->container['rules'] = isset($data['rules']) ? $data['rules'] : null;
     }
 
     /**
@@ -182,49 +182,49 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets accurate_rules
+     * Gets group
      *
-     * @return \Volcengine\Waf\Model\AccurateRuleForCreateAclRuleInput[]
+     * @return \Volcengine\Waf\Model\GroupForListCCRuleOutput
      */
-    public function getAccurateRules()
+    public function getGroup()
     {
-        return $this->container['accurate_rules'];
+        return $this->container['group'];
     }
 
     /**
-     * Sets accurate_rules
+     * Sets group
      *
-     * @param \Volcengine\Waf\Model\AccurateRuleForCreateAclRuleInput[] $accurate_rules accurate_rules
+     * @param \Volcengine\Waf\Model\GroupForListCCRuleOutput $group group
      *
      * @return $this
      */
-    public function setAccurateRules($accurate_rules)
+    public function setGroup($group)
     {
-        $this->container['accurate_rules'] = $accurate_rules;
+        $this->container['group'] = $group;
 
         return $this;
     }
 
     /**
-     * Gets logic
+     * Gets rules
      *
-     * @return int
+     * @return \Volcengine\Waf\Model\RuleForListCCRuleOutput[]
      */
-    public function getLogic()
+    public function getRules()
     {
-        return $this->container['logic'];
+        return $this->container['rules'];
     }
 
     /**
-     * Sets logic
+     * Sets rules
      *
-     * @param int $logic logic
+     * @param \Volcengine\Waf\Model\RuleForListCCRuleOutput[] $rules rules
      *
      * @return $this
      */
-    public function setLogic($logic)
+    public function setRules($rules)
     {
-        $this->container['logic'] = $logic;
+        $this->container['rules'] = $rules;
 
         return $this;
     }

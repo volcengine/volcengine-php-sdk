@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
+class IpFailedForDeleteProhibitionWhiteOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AccurateGroupForCreateAclRuleInput';
+    protected static $swaggerModelName = 'IpFailedForDeleteProhibitionWhiteOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,10 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'accurate_rules' => '\Volcengine\Waf\Model\AccurateRuleForCreateAclRuleInput[]',
-        'logic' => 'int'
+        'ip' => 'string',
+        'reason' => 'string',
+        'rule_name' => 'string',
+        'rule_tag' => 'string'
     ];
 
     /**
@@ -38,8 +40,10 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'accurate_rules' => null,
-        'logic' => 'int32'
+        'ip' => null,
+        'reason' => null,
+        'rule_name' => null,
+        'rule_tag' => null
     ];
 
     /**
@@ -69,8 +73,10 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'accurate_rules' => 'AccurateRules',
-        'logic' => 'Logic'
+        'ip' => 'Ip',
+        'reason' => 'Reason',
+        'rule_name' => 'RuleName',
+        'rule_tag' => 'RuleTag'
     ];
 
     /**
@@ -79,8 +85,10 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'accurate_rules' => 'setAccurateRules',
-        'logic' => 'setLogic'
+        'ip' => 'setIp',
+        'reason' => 'setReason',
+        'rule_name' => 'setRuleName',
+        'rule_tag' => 'setRuleTag'
     ];
 
     /**
@@ -89,8 +97,10 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'accurate_rules' => 'getAccurateRules',
-        'logic' => 'getLogic'
+        'ip' => 'getIp',
+        'reason' => 'getReason',
+        'rule_name' => 'getRuleName',
+        'rule_tag' => 'getRuleTag'
     ];
 
     /**
@@ -153,8 +163,10 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['accurate_rules'] = isset($data['accurate_rules']) ? $data['accurate_rules'] : null;
-        $this->container['logic'] = isset($data['logic']) ? $data['logic'] : null;
+        $this->container['ip'] = isset($data['ip']) ? $data['ip'] : null;
+        $this->container['reason'] = isset($data['reason']) ? $data['reason'] : null;
+        $this->container['rule_name'] = isset($data['rule_name']) ? $data['rule_name'] : null;
+        $this->container['rule_tag'] = isset($data['rule_tag']) ? $data['rule_tag'] : null;
     }
 
     /**
@@ -182,49 +194,97 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets accurate_rules
+     * Gets ip
      *
-     * @return \Volcengine\Waf\Model\AccurateRuleForCreateAclRuleInput[]
+     * @return string
      */
-    public function getAccurateRules()
+    public function getIp()
     {
-        return $this->container['accurate_rules'];
+        return $this->container['ip'];
     }
 
     /**
-     * Sets accurate_rules
+     * Sets ip
      *
-     * @param \Volcengine\Waf\Model\AccurateRuleForCreateAclRuleInput[] $accurate_rules accurate_rules
+     * @param string $ip ip
      *
      * @return $this
      */
-    public function setAccurateRules($accurate_rules)
+    public function setIp($ip)
     {
-        $this->container['accurate_rules'] = $accurate_rules;
+        $this->container['ip'] = $ip;
 
         return $this;
     }
 
     /**
-     * Gets logic
+     * Gets reason
      *
-     * @return int
+     * @return string
      */
-    public function getLogic()
+    public function getReason()
     {
-        return $this->container['logic'];
+        return $this->container['reason'];
     }
 
     /**
-     * Sets logic
+     * Sets reason
      *
-     * @param int $logic logic
+     * @param string $reason reason
      *
      * @return $this
      */
-    public function setLogic($logic)
+    public function setReason($reason)
     {
-        $this->container['logic'] = $logic;
+        $this->container['reason'] = $reason;
+
+        return $this;
+    }
+
+    /**
+     * Gets rule_name
+     *
+     * @return string
+     */
+    public function getRuleName()
+    {
+        return $this->container['rule_name'];
+    }
+
+    /**
+     * Sets rule_name
+     *
+     * @param string $rule_name rule_name
+     *
+     * @return $this
+     */
+    public function setRuleName($rule_name)
+    {
+        $this->container['rule_name'] = $rule_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets rule_tag
+     *
+     * @return string
+     */
+    public function getRuleTag()
+    {
+        return $this->container['rule_tag'];
+    }
+
+    /**
+     * Sets rule_tag
+     *
+     * @param string $rule_tag rule_tag
+     *
+     * @return $this
+     */
+    public function setRuleTag($rule_tag)
+    {
+        $this->container['rule_tag'] = $rule_tag;
 
         return $this;
     }

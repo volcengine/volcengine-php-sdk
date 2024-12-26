@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class RelatedRuleForListAllIpGroupsOutput implements ModelInterface, ArrayAccess
+class ListCCRuleRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class RelatedRuleForListAllIpGroupsOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'RelatedRuleForListAllIpGroupsOutput';
+    protected static $swaggerModelName = 'ListCCRuleRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,15 @@ class RelatedRuleForListAllIpGroupsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'cc_type' => 'int[]',
+        'host' => 'string',
+        'page' => 'int',
+        'page_size' => 'int',
+        'path_order_by' => 'string',
+        'project_name' => 'string',
         'rule_name' => 'string',
         'rule_tag' => 'string',
-        'rule_type' => 'string'
+        'url' => 'string'
     ];
 
     /**
@@ -39,9 +45,15 @@ class RelatedRuleForListAllIpGroupsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'cc_type' => 'int32',
+        'host' => null,
+        'page' => 'int32',
+        'page_size' => 'int32',
+        'path_order_by' => null,
+        'project_name' => null,
         'rule_name' => null,
         'rule_tag' => null,
-        'rule_type' => null
+        'url' => null
     ];
 
     /**
@@ -71,9 +83,15 @@ class RelatedRuleForListAllIpGroupsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'cc_type' => 'CCType',
+        'host' => 'Host',
+        'page' => 'Page',
+        'page_size' => 'PageSize',
+        'path_order_by' => 'PathOrderBy',
+        'project_name' => 'ProjectName',
         'rule_name' => 'RuleName',
         'rule_tag' => 'RuleTag',
-        'rule_type' => 'RuleType'
+        'url' => 'Url'
     ];
 
     /**
@@ -82,9 +100,15 @@ class RelatedRuleForListAllIpGroupsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'cc_type' => 'setCcType',
+        'host' => 'setHost',
+        'page' => 'setPage',
+        'page_size' => 'setPageSize',
+        'path_order_by' => 'setPathOrderBy',
+        'project_name' => 'setProjectName',
         'rule_name' => 'setRuleName',
         'rule_tag' => 'setRuleTag',
-        'rule_type' => 'setRuleType'
+        'url' => 'setUrl'
     ];
 
     /**
@@ -93,9 +117,15 @@ class RelatedRuleForListAllIpGroupsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'cc_type' => 'getCcType',
+        'host' => 'getHost',
+        'page' => 'getPage',
+        'page_size' => 'getPageSize',
+        'path_order_by' => 'getPathOrderBy',
+        'project_name' => 'getProjectName',
         'rule_name' => 'getRuleName',
         'rule_tag' => 'getRuleTag',
-        'rule_type' => 'getRuleType'
+        'url' => 'getUrl'
     ];
 
     /**
@@ -158,9 +188,15 @@ class RelatedRuleForListAllIpGroupsOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['cc_type'] = isset($data['cc_type']) ? $data['cc_type'] : null;
+        $this->container['host'] = isset($data['host']) ? $data['host'] : null;
+        $this->container['page'] = isset($data['page']) ? $data['page'] : null;
+        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
+        $this->container['path_order_by'] = isset($data['path_order_by']) ? $data['path_order_by'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['rule_name'] = isset($data['rule_name']) ? $data['rule_name'] : null;
         $this->container['rule_tag'] = isset($data['rule_tag']) ? $data['rule_tag'] : null;
-        $this->container['rule_type'] = isset($data['rule_type']) ? $data['rule_type'] : null;
+        $this->container['url'] = isset($data['url']) ? $data['url'] : null;
     }
 
     /**
@@ -172,6 +208,9 @@ class RelatedRuleForListAllIpGroupsOutput implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['host'] === null) {
+            $invalidProperties[] = "'host' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -186,6 +225,150 @@ class RelatedRuleForListAllIpGroupsOutput implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets cc_type
+     *
+     * @return int[]
+     */
+    public function getCcType()
+    {
+        return $this->container['cc_type'];
+    }
+
+    /**
+     * Sets cc_type
+     *
+     * @param int[] $cc_type cc_type
+     *
+     * @return $this
+     */
+    public function setCcType($cc_type)
+    {
+        $this->container['cc_type'] = $cc_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets host
+     *
+     * @return string
+     */
+    public function getHost()
+    {
+        return $this->container['host'];
+    }
+
+    /**
+     * Sets host
+     *
+     * @param string $host host
+     *
+     * @return $this
+     */
+    public function setHost($host)
+    {
+        $this->container['host'] = $host;
+
+        return $this;
+    }
+
+    /**
+     * Gets page
+     *
+     * @return int
+     */
+    public function getPage()
+    {
+        return $this->container['page'];
+    }
+
+    /**
+     * Sets page
+     *
+     * @param int $page page
+     *
+     * @return $this
+     */
+    public function setPage($page)
+    {
+        $this->container['page'] = $page;
+
+        return $this;
+    }
+
+    /**
+     * Gets page_size
+     *
+     * @return int
+     */
+    public function getPageSize()
+    {
+        return $this->container['page_size'];
+    }
+
+    /**
+     * Sets page_size
+     *
+     * @param int $page_size page_size
+     *
+     * @return $this
+     */
+    public function setPageSize($page_size)
+    {
+        $this->container['page_size'] = $page_size;
+
+        return $this;
+    }
+
+    /**
+     * Gets path_order_by
+     *
+     * @return string
+     */
+    public function getPathOrderBy()
+    {
+        return $this->container['path_order_by'];
+    }
+
+    /**
+     * Sets path_order_by
+     *
+     * @param string $path_order_by path_order_by
+     *
+     * @return $this
+     */
+    public function setPathOrderBy($path_order_by)
+    {
+        $this->container['path_order_by'] = $path_order_by;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
 
     /**
      * Gets rule_name
@@ -236,25 +419,25 @@ class RelatedRuleForListAllIpGroupsOutput implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets rule_type
+     * Gets url
      *
      * @return string
      */
-    public function getRuleType()
+    public function getUrl()
     {
-        return $this->container['rule_type'];
+        return $this->container['url'];
     }
 
     /**
-     * Sets rule_type
+     * Sets url
      *
-     * @param string $rule_type rule_type
+     * @param string $url url
      *
      * @return $this
      */
-    public function setRuleType($rule_type)
+    public function setUrl($url)
     {
-        $this->container['rule_type'] = $rule_type;
+        $this->container['url'] = $url;
 
         return $this;
     }

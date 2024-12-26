@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
+class QueryFlowOverviewLbResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AccurateGroupForCreateAclRuleInput';
+    protected static $swaggerModelName = 'QueryFlowOverviewLbResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,11 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'accurate_rules' => '\Volcengine\Waf\Model\AccurateRuleForCreateAclRuleInput[]',
-        'logic' => 'int'
+        'back_source_count_peak' => 'float',
+        'back_source_qps_peak' => 'float',
+        'req_bandwidth_peak' => 'float',
+        'req_count_peak' => 'float',
+        'req_qps_peak' => 'float'
     ];
 
     /**
@@ -38,8 +41,11 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'accurate_rules' => null,
-        'logic' => 'int32'
+        'back_source_count_peak' => 'float',
+        'back_source_qps_peak' => 'float',
+        'req_bandwidth_peak' => 'float',
+        'req_count_peak' => 'float',
+        'req_qps_peak' => 'float'
     ];
 
     /**
@@ -69,8 +75,11 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'accurate_rules' => 'AccurateRules',
-        'logic' => 'Logic'
+        'back_source_count_peak' => 'BackSourceCountPeak',
+        'back_source_qps_peak' => 'BackSourceQPSPeak',
+        'req_bandwidth_peak' => 'ReqBandwidthPeak',
+        'req_count_peak' => 'ReqCountPeak',
+        'req_qps_peak' => 'ReqQPSPeak'
     ];
 
     /**
@@ -79,8 +88,11 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'accurate_rules' => 'setAccurateRules',
-        'logic' => 'setLogic'
+        'back_source_count_peak' => 'setBackSourceCountPeak',
+        'back_source_qps_peak' => 'setBackSourceQpsPeak',
+        'req_bandwidth_peak' => 'setReqBandwidthPeak',
+        'req_count_peak' => 'setReqCountPeak',
+        'req_qps_peak' => 'setReqQpsPeak'
     ];
 
     /**
@@ -89,8 +101,11 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'accurate_rules' => 'getAccurateRules',
-        'logic' => 'getLogic'
+        'back_source_count_peak' => 'getBackSourceCountPeak',
+        'back_source_qps_peak' => 'getBackSourceQpsPeak',
+        'req_bandwidth_peak' => 'getReqBandwidthPeak',
+        'req_count_peak' => 'getReqCountPeak',
+        'req_qps_peak' => 'getReqQpsPeak'
     ];
 
     /**
@@ -153,8 +168,11 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['accurate_rules'] = isset($data['accurate_rules']) ? $data['accurate_rules'] : null;
-        $this->container['logic'] = isset($data['logic']) ? $data['logic'] : null;
+        $this->container['back_source_count_peak'] = isset($data['back_source_count_peak']) ? $data['back_source_count_peak'] : null;
+        $this->container['back_source_qps_peak'] = isset($data['back_source_qps_peak']) ? $data['back_source_qps_peak'] : null;
+        $this->container['req_bandwidth_peak'] = isset($data['req_bandwidth_peak']) ? $data['req_bandwidth_peak'] : null;
+        $this->container['req_count_peak'] = isset($data['req_count_peak']) ? $data['req_count_peak'] : null;
+        $this->container['req_qps_peak'] = isset($data['req_qps_peak']) ? $data['req_qps_peak'] : null;
     }
 
     /**
@@ -182,49 +200,121 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets accurate_rules
+     * Gets back_source_count_peak
      *
-     * @return \Volcengine\Waf\Model\AccurateRuleForCreateAclRuleInput[]
+     * @return float
      */
-    public function getAccurateRules()
+    public function getBackSourceCountPeak()
     {
-        return $this->container['accurate_rules'];
+        return $this->container['back_source_count_peak'];
     }
 
     /**
-     * Sets accurate_rules
+     * Sets back_source_count_peak
      *
-     * @param \Volcengine\Waf\Model\AccurateRuleForCreateAclRuleInput[] $accurate_rules accurate_rules
+     * @param float $back_source_count_peak back_source_count_peak
      *
      * @return $this
      */
-    public function setAccurateRules($accurate_rules)
+    public function setBackSourceCountPeak($back_source_count_peak)
     {
-        $this->container['accurate_rules'] = $accurate_rules;
+        $this->container['back_source_count_peak'] = $back_source_count_peak;
 
         return $this;
     }
 
     /**
-     * Gets logic
+     * Gets back_source_qps_peak
      *
-     * @return int
+     * @return float
      */
-    public function getLogic()
+    public function getBackSourceQpsPeak()
     {
-        return $this->container['logic'];
+        return $this->container['back_source_qps_peak'];
     }
 
     /**
-     * Sets logic
+     * Sets back_source_qps_peak
      *
-     * @param int $logic logic
+     * @param float $back_source_qps_peak back_source_qps_peak
      *
      * @return $this
      */
-    public function setLogic($logic)
+    public function setBackSourceQpsPeak($back_source_qps_peak)
     {
-        $this->container['logic'] = $logic;
+        $this->container['back_source_qps_peak'] = $back_source_qps_peak;
+
+        return $this;
+    }
+
+    /**
+     * Gets req_bandwidth_peak
+     *
+     * @return float
+     */
+    public function getReqBandwidthPeak()
+    {
+        return $this->container['req_bandwidth_peak'];
+    }
+
+    /**
+     * Sets req_bandwidth_peak
+     *
+     * @param float $req_bandwidth_peak req_bandwidth_peak
+     *
+     * @return $this
+     */
+    public function setReqBandwidthPeak($req_bandwidth_peak)
+    {
+        $this->container['req_bandwidth_peak'] = $req_bandwidth_peak;
+
+        return $this;
+    }
+
+    /**
+     * Gets req_count_peak
+     *
+     * @return float
+     */
+    public function getReqCountPeak()
+    {
+        return $this->container['req_count_peak'];
+    }
+
+    /**
+     * Sets req_count_peak
+     *
+     * @param float $req_count_peak req_count_peak
+     *
+     * @return $this
+     */
+    public function setReqCountPeak($req_count_peak)
+    {
+        $this->container['req_count_peak'] = $req_count_peak;
+
+        return $this;
+    }
+
+    /**
+     * Gets req_qps_peak
+     *
+     * @return float
+     */
+    public function getReqQpsPeak()
+    {
+        return $this->container['req_qps_peak'];
+    }
+
+    /**
+     * Sets req_qps_peak
+     *
+     * @param float $req_qps_peak req_qps_peak
+     *
+     * @return $this
+     */
+    public function setReqQpsPeak($req_qps_peak)
+    {
+        $this->container['req_qps_peak'] = $req_qps_peak;
 
         return $this;
     }

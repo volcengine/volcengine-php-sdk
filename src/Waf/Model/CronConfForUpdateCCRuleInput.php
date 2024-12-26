@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
+class CronConfForUpdateCCRuleInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AccurateGroupForCreateAclRuleInput';
+    protected static $swaggerModelName = 'CronConfForUpdateCCRuleInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,9 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'accurate_rules' => '\Volcengine\Waf\Model\AccurateRuleForCreateAclRuleInput[]',
-        'logic' => 'int'
+        'crontab' => 'string',
+        'path_threshold' => 'int',
+        'single_threshold' => 'int'
     ];
 
     /**
@@ -38,8 +39,9 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'accurate_rules' => null,
-        'logic' => 'int32'
+        'crontab' => null,
+        'path_threshold' => 'int32',
+        'single_threshold' => 'int32'
     ];
 
     /**
@@ -69,8 +71,9 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'accurate_rules' => 'AccurateRules',
-        'logic' => 'Logic'
+        'crontab' => 'Crontab',
+        'path_threshold' => 'PathThreshold',
+        'single_threshold' => 'SingleThreshold'
     ];
 
     /**
@@ -79,8 +82,9 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'accurate_rules' => 'setAccurateRules',
-        'logic' => 'setLogic'
+        'crontab' => 'setCrontab',
+        'path_threshold' => 'setPathThreshold',
+        'single_threshold' => 'setSingleThreshold'
     ];
 
     /**
@@ -89,8 +93,9 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'accurate_rules' => 'getAccurateRules',
-        'logic' => 'getLogic'
+        'crontab' => 'getCrontab',
+        'path_threshold' => 'getPathThreshold',
+        'single_threshold' => 'getSingleThreshold'
     ];
 
     /**
@@ -153,8 +158,9 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['accurate_rules'] = isset($data['accurate_rules']) ? $data['accurate_rules'] : null;
-        $this->container['logic'] = isset($data['logic']) ? $data['logic'] : null;
+        $this->container['crontab'] = isset($data['crontab']) ? $data['crontab'] : null;
+        $this->container['path_threshold'] = isset($data['path_threshold']) ? $data['path_threshold'] : null;
+        $this->container['single_threshold'] = isset($data['single_threshold']) ? $data['single_threshold'] : null;
     }
 
     /**
@@ -182,49 +188,73 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets accurate_rules
+     * Gets crontab
      *
-     * @return \Volcengine\Waf\Model\AccurateRuleForCreateAclRuleInput[]
+     * @return string
      */
-    public function getAccurateRules()
+    public function getCrontab()
     {
-        return $this->container['accurate_rules'];
+        return $this->container['crontab'];
     }
 
     /**
-     * Sets accurate_rules
+     * Sets crontab
      *
-     * @param \Volcengine\Waf\Model\AccurateRuleForCreateAclRuleInput[] $accurate_rules accurate_rules
+     * @param string $crontab crontab
      *
      * @return $this
      */
-    public function setAccurateRules($accurate_rules)
+    public function setCrontab($crontab)
     {
-        $this->container['accurate_rules'] = $accurate_rules;
+        $this->container['crontab'] = $crontab;
 
         return $this;
     }
 
     /**
-     * Gets logic
+     * Gets path_threshold
      *
      * @return int
      */
-    public function getLogic()
+    public function getPathThreshold()
     {
-        return $this->container['logic'];
+        return $this->container['path_threshold'];
     }
 
     /**
-     * Sets logic
+     * Sets path_threshold
      *
-     * @param int $logic logic
+     * @param int $path_threshold path_threshold
      *
      * @return $this
      */
-    public function setLogic($logic)
+    public function setPathThreshold($path_threshold)
     {
-        $this->container['logic'] = $logic;
+        $this->container['path_threshold'] = $path_threshold;
+
+        return $this;
+    }
+
+    /**
+     * Gets single_threshold
+     *
+     * @return int
+     */
+    public function getSingleThreshold()
+    {
+        return $this->container['single_threshold'];
+    }
+
+    /**
+     * Sets single_threshold
+     *
+     * @param int $single_threshold single_threshold
+     *
+     * @return $this
+     */
+    public function setSingleThreshold($single_threshold)
+    {
+        $this->container['single_threshold'] = $single_threshold;
 
         return $this;
     }

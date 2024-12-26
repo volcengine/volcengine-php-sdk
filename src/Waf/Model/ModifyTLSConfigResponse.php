@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class DeleteHostGroupRequest implements ModelInterface, ArrayAccess
+class ModifyTLSConfigResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class DeleteHostGroupRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'DeleteHostGroupRequest';
+    protected static $swaggerModelName = 'ModifyTLSConfigResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,7 @@ class DeleteHostGroupRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'host_group_ids' => 'int[]',
-        'project_name' => 'string'
+        
     ];
 
     /**
@@ -38,8 +37,7 @@ class DeleteHostGroupRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'host_group_ids' => 'int32',
-        'project_name' => null
+        
     ];
 
     /**
@@ -69,8 +67,7 @@ class DeleteHostGroupRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'host_group_ids' => 'HostGroupIds',
-        'project_name' => 'ProjectName'
+        
     ];
 
     /**
@@ -79,8 +76,7 @@ class DeleteHostGroupRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'host_group_ids' => 'setHostGroupIds',
-        'project_name' => 'setProjectName'
+        
     ];
 
     /**
@@ -89,8 +85,7 @@ class DeleteHostGroupRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'host_group_ids' => 'getHostGroupIds',
-        'project_name' => 'getProjectName'
+        
     ];
 
     /**
@@ -153,8 +148,6 @@ class DeleteHostGroupRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['host_group_ids'] = isset($data['host_group_ids']) ? $data['host_group_ids'] : null;
-        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
     }
 
     /**
@@ -180,54 +173,6 @@ class DeleteHostGroupRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets host_group_ids
-     *
-     * @return int[]
-     */
-    public function getHostGroupIds()
-    {
-        return $this->container['host_group_ids'];
-    }
-
-    /**
-     * Sets host_group_ids
-     *
-     * @param int[] $host_group_ids host_group_ids
-     *
-     * @return $this
-     */
-    public function setHostGroupIds($host_group_ids)
-    {
-        $this->container['host_group_ids'] = $host_group_ids;
-
-        return $this;
-    }
-
-    /**
-     * Gets project_name
-     *
-     * @return string
-     */
-    public function getProjectName()
-    {
-        return $this->container['project_name'];
-    }
-
-    /**
-     * Sets project_name
-     *
-     * @param string $project_name project_name
-     *
-     * @return $this
-     */
-    public function setProjectName($project_name)
-    {
-        $this->container['project_name'] = $project_name;
-
-        return $this;
-    }
     /**
      * Returns true if offset exists. False otherwise.
      *

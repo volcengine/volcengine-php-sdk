@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
+class ListCCRuleResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AccurateGroupForCreateAclRuleInput';
+    protected static $swaggerModelName = 'ListCCRuleResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,11 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'accurate_rules' => '\Volcengine\Waf\Model\AccurateRuleForCreateAclRuleInput[]',
-        'logic' => 'int'
+        'enable_count' => 'int',
+        'insert_time' => 'string',
+        'rule_group' => '\Volcengine\Waf\Model\RuleGroupForListCCRuleOutput[]',
+        'total_count' => 'int',
+        'url' => 'string'
     ];
 
     /**
@@ -38,8 +41,11 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'accurate_rules' => null,
-        'logic' => 'int32'
+        'enable_count' => 'int32',
+        'insert_time' => null,
+        'rule_group' => null,
+        'total_count' => 'int32',
+        'url' => null
     ];
 
     /**
@@ -69,8 +75,11 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'accurate_rules' => 'AccurateRules',
-        'logic' => 'Logic'
+        'enable_count' => 'EnableCount',
+        'insert_time' => 'InsertTime',
+        'rule_group' => 'RuleGroup',
+        'total_count' => 'TotalCount',
+        'url' => 'Url'
     ];
 
     /**
@@ -79,8 +88,11 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'accurate_rules' => 'setAccurateRules',
-        'logic' => 'setLogic'
+        'enable_count' => 'setEnableCount',
+        'insert_time' => 'setInsertTime',
+        'rule_group' => 'setRuleGroup',
+        'total_count' => 'setTotalCount',
+        'url' => 'setUrl'
     ];
 
     /**
@@ -89,8 +101,11 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'accurate_rules' => 'getAccurateRules',
-        'logic' => 'getLogic'
+        'enable_count' => 'getEnableCount',
+        'insert_time' => 'getInsertTime',
+        'rule_group' => 'getRuleGroup',
+        'total_count' => 'getTotalCount',
+        'url' => 'getUrl'
     ];
 
     /**
@@ -153,8 +168,11 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['accurate_rules'] = isset($data['accurate_rules']) ? $data['accurate_rules'] : null;
-        $this->container['logic'] = isset($data['logic']) ? $data['logic'] : null;
+        $this->container['enable_count'] = isset($data['enable_count']) ? $data['enable_count'] : null;
+        $this->container['insert_time'] = isset($data['insert_time']) ? $data['insert_time'] : null;
+        $this->container['rule_group'] = isset($data['rule_group']) ? $data['rule_group'] : null;
+        $this->container['total_count'] = isset($data['total_count']) ? $data['total_count'] : null;
+        $this->container['url'] = isset($data['url']) ? $data['url'] : null;
     }
 
     /**
@@ -182,49 +200,121 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets accurate_rules
+     * Gets enable_count
      *
-     * @return \Volcengine\Waf\Model\AccurateRuleForCreateAclRuleInput[]
+     * @return int
      */
-    public function getAccurateRules()
+    public function getEnableCount()
     {
-        return $this->container['accurate_rules'];
+        return $this->container['enable_count'];
     }
 
     /**
-     * Sets accurate_rules
+     * Sets enable_count
      *
-     * @param \Volcengine\Waf\Model\AccurateRuleForCreateAclRuleInput[] $accurate_rules accurate_rules
+     * @param int $enable_count enable_count
      *
      * @return $this
      */
-    public function setAccurateRules($accurate_rules)
+    public function setEnableCount($enable_count)
     {
-        $this->container['accurate_rules'] = $accurate_rules;
+        $this->container['enable_count'] = $enable_count;
 
         return $this;
     }
 
     /**
-     * Gets logic
+     * Gets insert_time
      *
-     * @return int
+     * @return string
      */
-    public function getLogic()
+    public function getInsertTime()
     {
-        return $this->container['logic'];
+        return $this->container['insert_time'];
     }
 
     /**
-     * Sets logic
+     * Sets insert_time
      *
-     * @param int $logic logic
+     * @param string $insert_time insert_time
      *
      * @return $this
      */
-    public function setLogic($logic)
+    public function setInsertTime($insert_time)
     {
-        $this->container['logic'] = $logic;
+        $this->container['insert_time'] = $insert_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets rule_group
+     *
+     * @return \Volcengine\Waf\Model\RuleGroupForListCCRuleOutput[]
+     */
+    public function getRuleGroup()
+    {
+        return $this->container['rule_group'];
+    }
+
+    /**
+     * Sets rule_group
+     *
+     * @param \Volcengine\Waf\Model\RuleGroupForListCCRuleOutput[] $rule_group rule_group
+     *
+     * @return $this
+     */
+    public function setRuleGroup($rule_group)
+    {
+        $this->container['rule_group'] = $rule_group;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_count
+     *
+     * @return int
+     */
+    public function getTotalCount()
+    {
+        return $this->container['total_count'];
+    }
+
+    /**
+     * Sets total_count
+     *
+     * @param int $total_count total_count
+     *
+     * @return $this
+     */
+    public function setTotalCount($total_count)
+    {
+        $this->container['total_count'] = $total_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets url
+     *
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->container['url'];
+    }
+
+    /**
+     * Sets url
+     *
+     * @param string $url url
+     *
+     * @return $this
+     */
+    public function setUrl($url)
+    {
+        $this->container['url'] = $url;
 
         return $this;
     }

@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
+class DeleteCCRuleResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AccurateGroupForCreateAclRuleInput';
+    protected static $swaggerModelName = 'DeleteCCRuleResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,7 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'accurate_rules' => '\Volcengine\Waf\Model\AccurateRuleForCreateAclRuleInput[]',
-        'logic' => 'int'
+        
     ];
 
     /**
@@ -38,8 +37,7 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'accurate_rules' => null,
-        'logic' => 'int32'
+        
     ];
 
     /**
@@ -69,8 +67,7 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'accurate_rules' => 'AccurateRules',
-        'logic' => 'Logic'
+        
     ];
 
     /**
@@ -79,8 +76,7 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'accurate_rules' => 'setAccurateRules',
-        'logic' => 'setLogic'
+        
     ];
 
     /**
@@ -89,8 +85,7 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'accurate_rules' => 'getAccurateRules',
-        'logic' => 'getLogic'
+        
     ];
 
     /**
@@ -153,8 +148,6 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['accurate_rules'] = isset($data['accurate_rules']) ? $data['accurate_rules'] : null;
-        $this->container['logic'] = isset($data['logic']) ? $data['logic'] : null;
     }
 
     /**
@@ -180,54 +173,6 @@ class AccurateGroupForCreateAclRuleInput implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets accurate_rules
-     *
-     * @return \Volcengine\Waf\Model\AccurateRuleForCreateAclRuleInput[]
-     */
-    public function getAccurateRules()
-    {
-        return $this->container['accurate_rules'];
-    }
-
-    /**
-     * Sets accurate_rules
-     *
-     * @param \Volcengine\Waf\Model\AccurateRuleForCreateAclRuleInput[] $accurate_rules accurate_rules
-     *
-     * @return $this
-     */
-    public function setAccurateRules($accurate_rules)
-    {
-        $this->container['accurate_rules'] = $accurate_rules;
-
-        return $this;
-    }
-
-    /**
-     * Gets logic
-     *
-     * @return int
-     */
-    public function getLogic()
-    {
-        return $this->container['logic'];
-    }
-
-    /**
-     * Sets logic
-     *
-     * @param int $logic logic
-     *
-     * @return $this
-     */
-    public function setLogic($logic)
-    {
-        $this->container['logic'] = $logic;
-
-        return $this;
-    }
     /**
      * Returns true if offset exists. False otherwise.
      *

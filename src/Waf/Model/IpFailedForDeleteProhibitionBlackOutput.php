@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class DeleteHostGroupResponse implements ModelInterface, ArrayAccess
+class IpFailedForDeleteProhibitionBlackOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class DeleteHostGroupResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'DeleteHostGroupResponse';
+    protected static $swaggerModelName = 'IpFailedForDeleteProhibitionBlackOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,10 @@ class DeleteHostGroupResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'ip' => 'string',
+        'reason' => 'string',
+        'rule_name' => 'string',
+        'rule_tag' => 'string'
     ];
 
     /**
@@ -37,7 +40,10 @@ class DeleteHostGroupResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'ip' => null,
+        'reason' => null,
+        'rule_name' => null,
+        'rule_tag' => null
     ];
 
     /**
@@ -67,7 +73,10 @@ class DeleteHostGroupResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'ip' => 'Ip',
+        'reason' => 'Reason',
+        'rule_name' => 'RuleName',
+        'rule_tag' => 'RuleTag'
     ];
 
     /**
@@ -76,7 +85,10 @@ class DeleteHostGroupResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        
+        'ip' => 'setIp',
+        'reason' => 'setReason',
+        'rule_name' => 'setRuleName',
+        'rule_tag' => 'setRuleTag'
     ];
 
     /**
@@ -85,7 +97,10 @@ class DeleteHostGroupResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        
+        'ip' => 'getIp',
+        'reason' => 'getReason',
+        'rule_name' => 'getRuleName',
+        'rule_tag' => 'getRuleTag'
     ];
 
     /**
@@ -148,6 +163,10 @@ class DeleteHostGroupResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['ip'] = isset($data['ip']) ? $data['ip'] : null;
+        $this->container['reason'] = isset($data['reason']) ? $data['reason'] : null;
+        $this->container['rule_name'] = isset($data['rule_name']) ? $data['rule_name'] : null;
+        $this->container['rule_tag'] = isset($data['rule_tag']) ? $data['rule_tag'] : null;
     }
 
     /**
@@ -173,6 +192,102 @@ class DeleteHostGroupResponse implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets ip
+     *
+     * @return string
+     */
+    public function getIp()
+    {
+        return $this->container['ip'];
+    }
+
+    /**
+     * Sets ip
+     *
+     * @param string $ip ip
+     *
+     * @return $this
+     */
+    public function setIp($ip)
+    {
+        $this->container['ip'] = $ip;
+
+        return $this;
+    }
+
+    /**
+     * Gets reason
+     *
+     * @return string
+     */
+    public function getReason()
+    {
+        return $this->container['reason'];
+    }
+
+    /**
+     * Sets reason
+     *
+     * @param string $reason reason
+     *
+     * @return $this
+     */
+    public function setReason($reason)
+    {
+        $this->container['reason'] = $reason;
+
+        return $this;
+    }
+
+    /**
+     * Gets rule_name
+     *
+     * @return string
+     */
+    public function getRuleName()
+    {
+        return $this->container['rule_name'];
+    }
+
+    /**
+     * Sets rule_name
+     *
+     * @param string $rule_name rule_name
+     *
+     * @return $this
+     */
+    public function setRuleName($rule_name)
+    {
+        $this->container['rule_name'] = $rule_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets rule_tag
+     *
+     * @return string
+     */
+    public function getRuleTag()
+    {
+        return $this->container['rule_tag'];
+    }
+
+    /**
+     * Sets rule_tag
+     *
+     * @param string $rule_tag rule_tag
+     *
+     * @return $this
+     */
+    public function setRuleTag($rule_tag)
+    {
+        $this->container['rule_tag'] = $rule_tag;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

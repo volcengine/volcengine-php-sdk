@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
+class RuleForListCCRuleOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'RuleForListAclRuleOutput';
+    protected static $swaggerModelName = 'RuleForListCCRuleOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,22 +28,23 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'accurate_group' => '\Volcengine\Waf\Model\AccurateGroupForListAclRuleOutput',
-        'action' => 'string',
-        'advanced' => 'int',
-        'description' => 'string',
+        'accurate_group' => '\Volcengine\Waf\Model\GroupForListCCRuleOutput',
+        'accurate_group_priority' => 'int',
+        'cc_type' => 'int',
+        'count_time' => 'int',
+        'cron_confs' => '\Volcengine\Waf\Model\CronConfForListCCRuleOutput[]',
+        'cron_enable' => 'int',
+        'effect_time' => 'int',
         'enable' => 'int',
-        'host_add_type' => 'int',
-        'host_group_id' => 'int[]',
-        'host_groups' => '\Volcengine\Waf\Model\HostGroupForListAclRuleOutput[]',
-        'host_list' => 'string[]',
+        'exemption_time' => 'int',
+        'field' => 'string',
+        'host' => 'string',
         'id' => 'int',
-        'ip_groups' => 'int',
-        'ip_list' => 'string[]',
-        'ip_location_country' => 'string[]',
-        'name' => 'string[]',
-        'prefix_switch' => 'string[]',
+        'name' => 'string',
+        'path_threshold' => 'int',
+        'rule_priority' => 'int',
         'rule_tag' => 'string',
+        'single_threshold' => 'int',
         'update_time' => 'string',
         'url' => 'string'
     ];
@@ -55,21 +56,22 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'accurate_group' => null,
-        'action' => null,
-        'advanced' => 'int32',
-        'description' => null,
+        'accurate_group_priority' => 'int32',
+        'cc_type' => 'int32',
+        'count_time' => 'int32',
+        'cron_confs' => null,
+        'cron_enable' => 'int32',
+        'effect_time' => 'int32',
         'enable' => 'int32',
-        'host_add_type' => 'int32',
-        'host_group_id' => 'int32',
-        'host_groups' => null,
-        'host_list' => null,
+        'exemption_time' => 'int32',
+        'field' => null,
+        'host' => null,
         'id' => 'int32',
-        'ip_groups' => 'int32',
-        'ip_list' => null,
-        'ip_location_country' => null,
         'name' => null,
-        'prefix_switch' => null,
+        'path_threshold' => 'int32',
+        'rule_priority' => 'int32',
         'rule_tag' => null,
+        'single_threshold' => 'int32',
         'update_time' => null,
         'url' => null
     ];
@@ -102,21 +104,22 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'accurate_group' => 'AccurateGroup',
-        'action' => 'Action',
-        'advanced' => 'Advanced',
-        'description' => 'Description',
+        'accurate_group_priority' => 'AccurateGroupPriority',
+        'cc_type' => 'CCType',
+        'count_time' => 'CountTime',
+        'cron_confs' => 'CronConfs',
+        'cron_enable' => 'CronEnable',
+        'effect_time' => 'EffectTime',
         'enable' => 'Enable',
-        'host_add_type' => 'HostAddType',
-        'host_group_id' => 'HostGroupId',
-        'host_groups' => 'HostGroups',
-        'host_list' => 'HostList',
-        'id' => 'ID',
-        'ip_groups' => 'IpGroups',
-        'ip_list' => 'IpList',
-        'ip_location_country' => 'IpLocationCountry',
+        'exemption_time' => 'ExemptionTime',
+        'field' => 'Field',
+        'host' => 'Host',
+        'id' => 'Id',
         'name' => 'Name',
-        'prefix_switch' => 'PrefixSwitch',
+        'path_threshold' => 'PathThreshold',
+        'rule_priority' => 'RulePriority',
         'rule_tag' => 'RuleTag',
+        'single_threshold' => 'SingleThreshold',
         'update_time' => 'UpdateTime',
         'url' => 'Url'
     ];
@@ -128,21 +131,22 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'accurate_group' => 'setAccurateGroup',
-        'action' => 'setAction',
-        'advanced' => 'setAdvanced',
-        'description' => 'setDescription',
+        'accurate_group_priority' => 'setAccurateGroupPriority',
+        'cc_type' => 'setCcType',
+        'count_time' => 'setCountTime',
+        'cron_confs' => 'setCronConfs',
+        'cron_enable' => 'setCronEnable',
+        'effect_time' => 'setEffectTime',
         'enable' => 'setEnable',
-        'host_add_type' => 'setHostAddType',
-        'host_group_id' => 'setHostGroupId',
-        'host_groups' => 'setHostGroups',
-        'host_list' => 'setHostList',
+        'exemption_time' => 'setExemptionTime',
+        'field' => 'setField',
+        'host' => 'setHost',
         'id' => 'setId',
-        'ip_groups' => 'setIpGroups',
-        'ip_list' => 'setIpList',
-        'ip_location_country' => 'setIpLocationCountry',
         'name' => 'setName',
-        'prefix_switch' => 'setPrefixSwitch',
+        'path_threshold' => 'setPathThreshold',
+        'rule_priority' => 'setRulePriority',
         'rule_tag' => 'setRuleTag',
+        'single_threshold' => 'setSingleThreshold',
         'update_time' => 'setUpdateTime',
         'url' => 'setUrl'
     ];
@@ -154,21 +158,22 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'accurate_group' => 'getAccurateGroup',
-        'action' => 'getAction',
-        'advanced' => 'getAdvanced',
-        'description' => 'getDescription',
+        'accurate_group_priority' => 'getAccurateGroupPriority',
+        'cc_type' => 'getCcType',
+        'count_time' => 'getCountTime',
+        'cron_confs' => 'getCronConfs',
+        'cron_enable' => 'getCronEnable',
+        'effect_time' => 'getEffectTime',
         'enable' => 'getEnable',
-        'host_add_type' => 'getHostAddType',
-        'host_group_id' => 'getHostGroupId',
-        'host_groups' => 'getHostGroups',
-        'host_list' => 'getHostList',
+        'exemption_time' => 'getExemptionTime',
+        'field' => 'getField',
+        'host' => 'getHost',
         'id' => 'getId',
-        'ip_groups' => 'getIpGroups',
-        'ip_list' => 'getIpList',
-        'ip_location_country' => 'getIpLocationCountry',
         'name' => 'getName',
-        'prefix_switch' => 'getPrefixSwitch',
+        'path_threshold' => 'getPathThreshold',
+        'rule_priority' => 'getRulePriority',
         'rule_tag' => 'getRuleTag',
+        'single_threshold' => 'getSingleThreshold',
         'update_time' => 'getUpdateTime',
         'url' => 'getUrl'
     ];
@@ -234,21 +239,22 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['accurate_group'] = isset($data['accurate_group']) ? $data['accurate_group'] : null;
-        $this->container['action'] = isset($data['action']) ? $data['action'] : null;
-        $this->container['advanced'] = isset($data['advanced']) ? $data['advanced'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['accurate_group_priority'] = isset($data['accurate_group_priority']) ? $data['accurate_group_priority'] : null;
+        $this->container['cc_type'] = isset($data['cc_type']) ? $data['cc_type'] : null;
+        $this->container['count_time'] = isset($data['count_time']) ? $data['count_time'] : null;
+        $this->container['cron_confs'] = isset($data['cron_confs']) ? $data['cron_confs'] : null;
+        $this->container['cron_enable'] = isset($data['cron_enable']) ? $data['cron_enable'] : null;
+        $this->container['effect_time'] = isset($data['effect_time']) ? $data['effect_time'] : null;
         $this->container['enable'] = isset($data['enable']) ? $data['enable'] : null;
-        $this->container['host_add_type'] = isset($data['host_add_type']) ? $data['host_add_type'] : null;
-        $this->container['host_group_id'] = isset($data['host_group_id']) ? $data['host_group_id'] : null;
-        $this->container['host_groups'] = isset($data['host_groups']) ? $data['host_groups'] : null;
-        $this->container['host_list'] = isset($data['host_list']) ? $data['host_list'] : null;
+        $this->container['exemption_time'] = isset($data['exemption_time']) ? $data['exemption_time'] : null;
+        $this->container['field'] = isset($data['field']) ? $data['field'] : null;
+        $this->container['host'] = isset($data['host']) ? $data['host'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['ip_groups'] = isset($data['ip_groups']) ? $data['ip_groups'] : null;
-        $this->container['ip_list'] = isset($data['ip_list']) ? $data['ip_list'] : null;
-        $this->container['ip_location_country'] = isset($data['ip_location_country']) ? $data['ip_location_country'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['prefix_switch'] = isset($data['prefix_switch']) ? $data['prefix_switch'] : null;
+        $this->container['path_threshold'] = isset($data['path_threshold']) ? $data['path_threshold'] : null;
+        $this->container['rule_priority'] = isset($data['rule_priority']) ? $data['rule_priority'] : null;
         $this->container['rule_tag'] = isset($data['rule_tag']) ? $data['rule_tag'] : null;
+        $this->container['single_threshold'] = isset($data['single_threshold']) ? $data['single_threshold'] : null;
         $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
         $this->container['url'] = isset($data['url']) ? $data['url'] : null;
     }
@@ -280,7 +286,7 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
     /**
      * Gets accurate_group
      *
-     * @return \Volcengine\Waf\Model\AccurateGroupForListAclRuleOutput
+     * @return \Volcengine\Waf\Model\GroupForListCCRuleOutput
      */
     public function getAccurateGroup()
     {
@@ -290,7 +296,7 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
     /**
      * Sets accurate_group
      *
-     * @param \Volcengine\Waf\Model\AccurateGroupForListAclRuleOutput $accurate_group accurate_group
+     * @param \Volcengine\Waf\Model\GroupForListCCRuleOutput $accurate_group accurate_group
      *
      * @return $this
      */
@@ -302,73 +308,145 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets action
-     *
-     * @return string
-     */
-    public function getAction()
-    {
-        return $this->container['action'];
-    }
-
-    /**
-     * Sets action
-     *
-     * @param string $action action
-     *
-     * @return $this
-     */
-    public function setAction($action)
-    {
-        $this->container['action'] = $action;
-
-        return $this;
-    }
-
-    /**
-     * Gets advanced
+     * Gets accurate_group_priority
      *
      * @return int
      */
-    public function getAdvanced()
+    public function getAccurateGroupPriority()
     {
-        return $this->container['advanced'];
+        return $this->container['accurate_group_priority'];
     }
 
     /**
-     * Sets advanced
+     * Sets accurate_group_priority
      *
-     * @param int $advanced advanced
+     * @param int $accurate_group_priority accurate_group_priority
      *
      * @return $this
      */
-    public function setAdvanced($advanced)
+    public function setAccurateGroupPriority($accurate_group_priority)
     {
-        $this->container['advanced'] = $advanced;
+        $this->container['accurate_group_priority'] = $accurate_group_priority;
 
         return $this;
     }
 
     /**
-     * Gets description
+     * Gets cc_type
      *
-     * @return string
+     * @return int
      */
-    public function getDescription()
+    public function getCcType()
     {
-        return $this->container['description'];
+        return $this->container['cc_type'];
     }
 
     /**
-     * Sets description
+     * Sets cc_type
      *
-     * @param string $description description
+     * @param int $cc_type cc_type
      *
      * @return $this
      */
-    public function setDescription($description)
+    public function setCcType($cc_type)
     {
-        $this->container['description'] = $description;
+        $this->container['cc_type'] = $cc_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets count_time
+     *
+     * @return int
+     */
+    public function getCountTime()
+    {
+        return $this->container['count_time'];
+    }
+
+    /**
+     * Sets count_time
+     *
+     * @param int $count_time count_time
+     *
+     * @return $this
+     */
+    public function setCountTime($count_time)
+    {
+        $this->container['count_time'] = $count_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets cron_confs
+     *
+     * @return \Volcengine\Waf\Model\CronConfForListCCRuleOutput[]
+     */
+    public function getCronConfs()
+    {
+        return $this->container['cron_confs'];
+    }
+
+    /**
+     * Sets cron_confs
+     *
+     * @param \Volcengine\Waf\Model\CronConfForListCCRuleOutput[] $cron_confs cron_confs
+     *
+     * @return $this
+     */
+    public function setCronConfs($cron_confs)
+    {
+        $this->container['cron_confs'] = $cron_confs;
+
+        return $this;
+    }
+
+    /**
+     * Gets cron_enable
+     *
+     * @return int
+     */
+    public function getCronEnable()
+    {
+        return $this->container['cron_enable'];
+    }
+
+    /**
+     * Sets cron_enable
+     *
+     * @param int $cron_enable cron_enable
+     *
+     * @return $this
+     */
+    public function setCronEnable($cron_enable)
+    {
+        $this->container['cron_enable'] = $cron_enable;
+
+        return $this;
+    }
+
+    /**
+     * Gets effect_time
+     *
+     * @return int
+     */
+    public function getEffectTime()
+    {
+        return $this->container['effect_time'];
+    }
+
+    /**
+     * Sets effect_time
+     *
+     * @param int $effect_time effect_time
+     *
+     * @return $this
+     */
+    public function setEffectTime($effect_time)
+    {
+        $this->container['effect_time'] = $effect_time;
 
         return $this;
     }
@@ -398,97 +476,73 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets host_add_type
+     * Gets exemption_time
      *
      * @return int
      */
-    public function getHostAddType()
+    public function getExemptionTime()
     {
-        return $this->container['host_add_type'];
+        return $this->container['exemption_time'];
     }
 
     /**
-     * Sets host_add_type
+     * Sets exemption_time
      *
-     * @param int $host_add_type host_add_type
+     * @param int $exemption_time exemption_time
      *
      * @return $this
      */
-    public function setHostAddType($host_add_type)
+    public function setExemptionTime($exemption_time)
     {
-        $this->container['host_add_type'] = $host_add_type;
+        $this->container['exemption_time'] = $exemption_time;
 
         return $this;
     }
 
     /**
-     * Gets host_group_id
+     * Gets field
      *
-     * @return int[]
+     * @return string
      */
-    public function getHostGroupId()
+    public function getField()
     {
-        return $this->container['host_group_id'];
+        return $this->container['field'];
     }
 
     /**
-     * Sets host_group_id
+     * Sets field
      *
-     * @param int[] $host_group_id host_group_id
+     * @param string $field field
      *
      * @return $this
      */
-    public function setHostGroupId($host_group_id)
+    public function setField($field)
     {
-        $this->container['host_group_id'] = $host_group_id;
+        $this->container['field'] = $field;
 
         return $this;
     }
 
     /**
-     * Gets host_groups
+     * Gets host
      *
-     * @return \Volcengine\Waf\Model\HostGroupForListAclRuleOutput[]
+     * @return string
      */
-    public function getHostGroups()
+    public function getHost()
     {
-        return $this->container['host_groups'];
+        return $this->container['host'];
     }
 
     /**
-     * Sets host_groups
+     * Sets host
      *
-     * @param \Volcengine\Waf\Model\HostGroupForListAclRuleOutput[] $host_groups host_groups
+     * @param string $host host
      *
      * @return $this
      */
-    public function setHostGroups($host_groups)
+    public function setHost($host)
     {
-        $this->container['host_groups'] = $host_groups;
-
-        return $this;
-    }
-
-    /**
-     * Gets host_list
-     *
-     * @return string[]
-     */
-    public function getHostList()
-    {
-        return $this->container['host_list'];
-    }
-
-    /**
-     * Sets host_list
-     *
-     * @param string[] $host_list host_list
-     *
-     * @return $this
-     */
-    public function setHostList($host_list)
-    {
-        $this->container['host_list'] = $host_list;
+        $this->container['host'] = $host;
 
         return $this;
     }
@@ -518,81 +572,9 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets ip_groups
-     *
-     * @return int
-     */
-    public function getIpGroups()
-    {
-        return $this->container['ip_groups'];
-    }
-
-    /**
-     * Sets ip_groups
-     *
-     * @param int $ip_groups ip_groups
-     *
-     * @return $this
-     */
-    public function setIpGroups($ip_groups)
-    {
-        $this->container['ip_groups'] = $ip_groups;
-
-        return $this;
-    }
-
-    /**
-     * Gets ip_list
-     *
-     * @return string[]
-     */
-    public function getIpList()
-    {
-        return $this->container['ip_list'];
-    }
-
-    /**
-     * Sets ip_list
-     *
-     * @param string[] $ip_list ip_list
-     *
-     * @return $this
-     */
-    public function setIpList($ip_list)
-    {
-        $this->container['ip_list'] = $ip_list;
-
-        return $this;
-    }
-
-    /**
-     * Gets ip_location_country
-     *
-     * @return string[]
-     */
-    public function getIpLocationCountry()
-    {
-        return $this->container['ip_location_country'];
-    }
-
-    /**
-     * Sets ip_location_country
-     *
-     * @param string[] $ip_location_country ip_location_country
-     *
-     * @return $this
-     */
-    public function setIpLocationCountry($ip_location_country)
-    {
-        $this->container['ip_location_country'] = $ip_location_country;
-
-        return $this;
-    }
-
-    /**
      * Gets name
      *
-     * @return string[]
+     * @return string
      */
     public function getName()
     {
@@ -602,7 +584,7 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string[] $name name
+     * @param string $name name
      *
      * @return $this
      */
@@ -614,25 +596,49 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets prefix_switch
+     * Gets path_threshold
      *
-     * @return string[]
+     * @return int
      */
-    public function getPrefixSwitch()
+    public function getPathThreshold()
     {
-        return $this->container['prefix_switch'];
+        return $this->container['path_threshold'];
     }
 
     /**
-     * Sets prefix_switch
+     * Sets path_threshold
      *
-     * @param string[] $prefix_switch prefix_switch
+     * @param int $path_threshold path_threshold
      *
      * @return $this
      */
-    public function setPrefixSwitch($prefix_switch)
+    public function setPathThreshold($path_threshold)
     {
-        $this->container['prefix_switch'] = $prefix_switch;
+        $this->container['path_threshold'] = $path_threshold;
+
+        return $this;
+    }
+
+    /**
+     * Gets rule_priority
+     *
+     * @return int
+     */
+    public function getRulePriority()
+    {
+        return $this->container['rule_priority'];
+    }
+
+    /**
+     * Sets rule_priority
+     *
+     * @param int $rule_priority rule_priority
+     *
+     * @return $this
+     */
+    public function setRulePriority($rule_priority)
+    {
+        $this->container['rule_priority'] = $rule_priority;
 
         return $this;
     }
@@ -657,6 +663,30 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
     public function setRuleTag($rule_tag)
     {
         $this->container['rule_tag'] = $rule_tag;
+
+        return $this;
+    }
+
+    /**
+     * Gets single_threshold
+     *
+     * @return int
+     */
+    public function getSingleThreshold()
+    {
+        return $this->container['single_threshold'];
+    }
+
+    /**
+     * Sets single_threshold
+     *
+     * @param int $single_threshold single_threshold
+     *
+     * @return $this
+     */
+    public function setSingleThreshold($single_threshold)
+    {
+        $this->container['single_threshold'] = $single_threshold;
 
         return $this;
     }
