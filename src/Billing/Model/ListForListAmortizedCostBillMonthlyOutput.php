@@ -59,6 +59,7 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         'daily_amortized_payable_amount' => 'string',
         'daily_amortized_preferential_bill_amount' => 'string',
         'daily_amortized_round_amount' => 'string',
+        'deduction_use_duration' => 'string',
         'discount_bill_amount' => 'string',
         'discount_biz_billing_function' => 'string',
         'discount_biz_measure_interval' => 'string',
@@ -102,6 +103,8 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         'seller_customer_name' => 'string',
         'seller_id' => 'string',
         'seller_user_name' => 'string',
+        'split_item_id' => 'string',
+        'split_item_name' => 'string',
         'subject_name' => 'string',
         'tag' => 'string',
         'unamortized_coupon_amount' => 'string',
@@ -154,6 +157,7 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         'daily_amortized_payable_amount' => null,
         'daily_amortized_preferential_bill_amount' => null,
         'daily_amortized_round_amount' => null,
+        'deduction_use_duration' => null,
         'discount_bill_amount' => null,
         'discount_biz_billing_function' => null,
         'discount_biz_measure_interval' => null,
@@ -197,6 +201,8 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         'seller_customer_name' => null,
         'seller_id' => null,
         'seller_user_name' => null,
+        'split_item_id' => null,
+        'split_item_name' => null,
         'subject_name' => null,
         'tag' => null,
         'unamortized_coupon_amount' => null,
@@ -270,6 +276,7 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         'daily_amortized_payable_amount' => 'DailyAmortizedPayableAmount',
         'daily_amortized_preferential_bill_amount' => 'DailyAmortizedPreferentialBillAmount',
         'daily_amortized_round_amount' => 'DailyAmortizedRoundAmount',
+        'deduction_use_duration' => 'DeductionUseDuration',
         'discount_bill_amount' => 'DiscountBillAmount',
         'discount_biz_billing_function' => 'DiscountBizBillingFunction',
         'discount_biz_measure_interval' => 'DiscountBizMeasureInterval',
@@ -313,6 +320,8 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         'seller_customer_name' => 'SellerCustomerName',
         'seller_id' => 'SellerID',
         'seller_user_name' => 'SellerUserName',
+        'split_item_id' => 'SplitItemID',
+        'split_item_name' => 'SplitItemName',
         'subject_name' => 'SubjectName',
         'tag' => 'Tag',
         'unamortized_coupon_amount' => 'UnamortizedCouponAmount',
@@ -365,6 +374,7 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         'daily_amortized_payable_amount' => 'setDailyAmortizedPayableAmount',
         'daily_amortized_preferential_bill_amount' => 'setDailyAmortizedPreferentialBillAmount',
         'daily_amortized_round_amount' => 'setDailyAmortizedRoundAmount',
+        'deduction_use_duration' => 'setDeductionUseDuration',
         'discount_bill_amount' => 'setDiscountBillAmount',
         'discount_biz_billing_function' => 'setDiscountBizBillingFunction',
         'discount_biz_measure_interval' => 'setDiscountBizMeasureInterval',
@@ -408,6 +418,8 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         'seller_customer_name' => 'setSellerCustomerName',
         'seller_id' => 'setSellerId',
         'seller_user_name' => 'setSellerUserName',
+        'split_item_id' => 'setSplitItemId',
+        'split_item_name' => 'setSplitItemName',
         'subject_name' => 'setSubjectName',
         'tag' => 'setTag',
         'unamortized_coupon_amount' => 'setUnamortizedCouponAmount',
@@ -460,6 +472,7 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         'daily_amortized_payable_amount' => 'getDailyAmortizedPayableAmount',
         'daily_amortized_preferential_bill_amount' => 'getDailyAmortizedPreferentialBillAmount',
         'daily_amortized_round_amount' => 'getDailyAmortizedRoundAmount',
+        'deduction_use_duration' => 'getDeductionUseDuration',
         'discount_bill_amount' => 'getDiscountBillAmount',
         'discount_biz_billing_function' => 'getDiscountBizBillingFunction',
         'discount_biz_measure_interval' => 'getDiscountBizMeasureInterval',
@@ -503,6 +516,8 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         'seller_customer_name' => 'getSellerCustomerName',
         'seller_id' => 'getSellerId',
         'seller_user_name' => 'getSellerUserName',
+        'split_item_id' => 'getSplitItemId',
+        'split_item_name' => 'getSplitItemName',
         'subject_name' => 'getSubjectName',
         'tag' => 'getTag',
         'unamortized_coupon_amount' => 'getUnamortizedCouponAmount',
@@ -609,6 +624,7 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         $this->container['daily_amortized_payable_amount'] = isset($data['daily_amortized_payable_amount']) ? $data['daily_amortized_payable_amount'] : null;
         $this->container['daily_amortized_preferential_bill_amount'] = isset($data['daily_amortized_preferential_bill_amount']) ? $data['daily_amortized_preferential_bill_amount'] : null;
         $this->container['daily_amortized_round_amount'] = isset($data['daily_amortized_round_amount']) ? $data['daily_amortized_round_amount'] : null;
+        $this->container['deduction_use_duration'] = isset($data['deduction_use_duration']) ? $data['deduction_use_duration'] : null;
         $this->container['discount_bill_amount'] = isset($data['discount_bill_amount']) ? $data['discount_bill_amount'] : null;
         $this->container['discount_biz_billing_function'] = isset($data['discount_biz_billing_function']) ? $data['discount_biz_billing_function'] : null;
         $this->container['discount_biz_measure_interval'] = isset($data['discount_biz_measure_interval']) ? $data['discount_biz_measure_interval'] : null;
@@ -652,6 +668,8 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         $this->container['seller_customer_name'] = isset($data['seller_customer_name']) ? $data['seller_customer_name'] : null;
         $this->container['seller_id'] = isset($data['seller_id']) ? $data['seller_id'] : null;
         $this->container['seller_user_name'] = isset($data['seller_user_name']) ? $data['seller_user_name'] : null;
+        $this->container['split_item_id'] = isset($data['split_item_id']) ? $data['split_item_id'] : null;
+        $this->container['split_item_name'] = isset($data['split_item_name']) ? $data['split_item_name'] : null;
         $this->container['subject_name'] = isset($data['subject_name']) ? $data['subject_name'] : null;
         $this->container['tag'] = isset($data['tag']) ? $data['tag'] : null;
         $this->container['unamortized_coupon_amount'] = isset($data['unamortized_coupon_amount']) ? $data['unamortized_coupon_amount'] : null;
@@ -1431,6 +1449,30 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
     public function setDailyAmortizedRoundAmount($daily_amortized_round_amount)
     {
         $this->container['daily_amortized_round_amount'] = $daily_amortized_round_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets deduction_use_duration
+     *
+     * @return string
+     */
+    public function getDeductionUseDuration()
+    {
+        return $this->container['deduction_use_duration'];
+    }
+
+    /**
+     * Sets deduction_use_duration
+     *
+     * @param string $deduction_use_duration deduction_use_duration
+     *
+     * @return $this
+     */
+    public function setDeductionUseDuration($deduction_use_duration)
+    {
+        $this->container['deduction_use_duration'] = $deduction_use_duration;
 
         return $this;
     }
@@ -2463,6 +2505,54 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
     public function setSellerUserName($seller_user_name)
     {
         $this->container['seller_user_name'] = $seller_user_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets split_item_id
+     *
+     * @return string
+     */
+    public function getSplitItemId()
+    {
+        return $this->container['split_item_id'];
+    }
+
+    /**
+     * Sets split_item_id
+     *
+     * @param string $split_item_id split_item_id
+     *
+     * @return $this
+     */
+    public function setSplitItemId($split_item_id)
+    {
+        $this->container['split_item_id'] = $split_item_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets split_item_name
+     *
+     * @return string
+     */
+    public function getSplitItemName()
+    {
+        return $this->container['split_item_name'];
+    }
+
+    /**
+     * Sets split_item_name
+     *
+     * @param string $split_item_name split_item_name
+     *
+     * @return $this
+     */
+    public function setSplitItemName($split_item_name)
+    {
+        $this->container['split_item_name'] = $split_item_name;
 
         return $this;
     }
