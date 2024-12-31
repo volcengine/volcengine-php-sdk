@@ -45,6 +45,7 @@ class UpdateAclRuleRequest implements ModelInterface, ArrayAccess
         'ip_location_subregion' => 'string[]',
         'name' => 'string',
         'prefix_switch' => 'int',
+        'project_name' => 'string',
         'url' => 'string'
     ];
 
@@ -71,6 +72,7 @@ class UpdateAclRuleRequest implements ModelInterface, ArrayAccess
         'ip_location_subregion' => null,
         'name' => null,
         'prefix_switch' => 'int32',
+        'project_name' => null,
         'url' => null
     ];
 
@@ -118,6 +120,7 @@ class UpdateAclRuleRequest implements ModelInterface, ArrayAccess
         'ip_location_subregion' => 'IpLocationSubregion',
         'name' => 'Name',
         'prefix_switch' => 'PrefixSwitch',
+        'project_name' => 'ProjectName',
         'url' => 'Url'
     ];
 
@@ -144,6 +147,7 @@ class UpdateAclRuleRequest implements ModelInterface, ArrayAccess
         'ip_location_subregion' => 'setIpLocationSubregion',
         'name' => 'setName',
         'prefix_switch' => 'setPrefixSwitch',
+        'project_name' => 'setProjectName',
         'url' => 'setUrl'
     ];
 
@@ -170,6 +174,7 @@ class UpdateAclRuleRequest implements ModelInterface, ArrayAccess
         'ip_location_subregion' => 'getIpLocationSubregion',
         'name' => 'getName',
         'prefix_switch' => 'getPrefixSwitch',
+        'project_name' => 'getProjectName',
         'url' => 'getUrl'
     ];
 
@@ -250,6 +255,7 @@ class UpdateAclRuleRequest implements ModelInterface, ArrayAccess
         $this->container['ip_location_subregion'] = isset($data['ip_location_subregion']) ? $data['ip_location_subregion'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['prefix_switch'] = isset($data['prefix_switch']) ? $data['prefix_switch'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['url'] = isset($data['url']) ? $data['url'] : null;
     }
 
@@ -702,6 +708,30 @@ class UpdateAclRuleRequest implements ModelInterface, ArrayAccess
     public function setPrefixSwitch($prefix_switch)
     {
         $this->container['prefix_switch'] = $prefix_switch;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }

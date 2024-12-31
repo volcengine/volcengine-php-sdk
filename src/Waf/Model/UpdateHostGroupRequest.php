@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ListAclRuleRequest implements ModelInterface, ArrayAccess
+class UpdateHostGroupRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ListAclRuleRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ListAclRuleRequest';
+    protected static $swaggerModelName = 'UpdateHostGroupRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,16 +28,12 @@ class ListAclRuleRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'acl_type' => 'string',
-        'action' => 'string[]',
-        'defence_host' => 'string[]',
-        'enable' => 'int[]',
-        'page' => 'int',
-        'page_size' => 'int',
-        'project_name' => 'string',
-        'rule_name' => 'string',
-        'rule_tag' => 'string',
-        'time_order_by' => 'string'
+        'action' => 'string',
+        'description' => 'string',
+        'host_group_id' => 'int',
+        'host_list' => 'string[]',
+        'name' => 'string',
+        'project_name' => 'string'
     ];
 
     /**
@@ -46,16 +42,12 @@ class ListAclRuleRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'acl_type' => null,
         'action' => null,
-        'defence_host' => null,
-        'enable' => 'int32',
-        'page' => 'int32',
-        'page_size' => 'int32',
-        'project_name' => null,
-        'rule_name' => null,
-        'rule_tag' => null,
-        'time_order_by' => null
+        'description' => null,
+        'host_group_id' => 'int32',
+        'host_list' => null,
+        'name' => null,
+        'project_name' => null
     ];
 
     /**
@@ -85,16 +77,12 @@ class ListAclRuleRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'acl_type' => 'AclType',
         'action' => 'Action',
-        'defence_host' => 'DefenceHost',
-        'enable' => 'Enable',
-        'page' => 'Page',
-        'page_size' => 'PageSize',
-        'project_name' => 'ProjectName',
-        'rule_name' => 'RuleName',
-        'rule_tag' => 'RuleTag',
-        'time_order_by' => 'TimeOrderBy'
+        'description' => 'Description',
+        'host_group_id' => 'HostGroupID',
+        'host_list' => 'HostList',
+        'name' => 'Name',
+        'project_name' => 'ProjectName'
     ];
 
     /**
@@ -103,16 +91,12 @@ class ListAclRuleRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'acl_type' => 'setAclType',
         'action' => 'setAction',
-        'defence_host' => 'setDefenceHost',
-        'enable' => 'setEnable',
-        'page' => 'setPage',
-        'page_size' => 'setPageSize',
-        'project_name' => 'setProjectName',
-        'rule_name' => 'setRuleName',
-        'rule_tag' => 'setRuleTag',
-        'time_order_by' => 'setTimeOrderBy'
+        'description' => 'setDescription',
+        'host_group_id' => 'setHostGroupId',
+        'host_list' => 'setHostList',
+        'name' => 'setName',
+        'project_name' => 'setProjectName'
     ];
 
     /**
@@ -121,16 +105,12 @@ class ListAclRuleRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'acl_type' => 'getAclType',
         'action' => 'getAction',
-        'defence_host' => 'getDefenceHost',
-        'enable' => 'getEnable',
-        'page' => 'getPage',
-        'page_size' => 'getPageSize',
-        'project_name' => 'getProjectName',
-        'rule_name' => 'getRuleName',
-        'rule_tag' => 'getRuleTag',
-        'time_order_by' => 'getTimeOrderBy'
+        'description' => 'getDescription',
+        'host_group_id' => 'getHostGroupId',
+        'host_list' => 'getHostList',
+        'name' => 'getName',
+        'project_name' => 'getProjectName'
     ];
 
     /**
@@ -193,16 +173,12 @@ class ListAclRuleRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['acl_type'] = isset($data['acl_type']) ? $data['acl_type'] : null;
         $this->container['action'] = isset($data['action']) ? $data['action'] : null;
-        $this->container['defence_host'] = isset($data['defence_host']) ? $data['defence_host'] : null;
-        $this->container['enable'] = isset($data['enable']) ? $data['enable'] : null;
-        $this->container['page'] = isset($data['page']) ? $data['page'] : null;
-        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['host_group_id'] = isset($data['host_group_id']) ? $data['host_group_id'] : null;
+        $this->container['host_list'] = isset($data['host_list']) ? $data['host_list'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
-        $this->container['rule_name'] = isset($data['rule_name']) ? $data['rule_name'] : null;
-        $this->container['rule_tag'] = isset($data['rule_tag']) ? $data['rule_tag'] : null;
-        $this->container['time_order_by'] = isset($data['time_order_by']) ? $data['time_order_by'] : null;
     }
 
     /**
@@ -214,8 +190,8 @@ class ListAclRuleRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['acl_type'] === null) {
-            $invalidProperties[] = "'acl_type' can't be null";
+        if ($this->container['host_group_id'] === null) {
+            $invalidProperties[] = "'host_group_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -233,33 +209,9 @@ class ListAclRuleRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets acl_type
-     *
-     * @return string
-     */
-    public function getAclType()
-    {
-        return $this->container['acl_type'];
-    }
-
-    /**
-     * Sets acl_type
-     *
-     * @param string $acl_type acl_type
-     *
-     * @return $this
-     */
-    public function setAclType($acl_type)
-    {
-        $this->container['acl_type'] = $acl_type;
-
-        return $this;
-    }
-
-    /**
      * Gets action
      *
-     * @return string[]
+     * @return string
      */
     public function getAction()
     {
@@ -269,7 +221,7 @@ class ListAclRuleRequest implements ModelInterface, ArrayAccess
     /**
      * Sets action
      *
-     * @param string[] $action action
+     * @param string $action action
      *
      * @return $this
      */
@@ -281,97 +233,97 @@ class ListAclRuleRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets defence_host
+     * Gets description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string $description description
+     *
+     * @return $this
+     */
+    public function setDescription($description)
+    {
+        $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets host_group_id
+     *
+     * @return int
+     */
+    public function getHostGroupId()
+    {
+        return $this->container['host_group_id'];
+    }
+
+    /**
+     * Sets host_group_id
+     *
+     * @param int $host_group_id host_group_id
+     *
+     * @return $this
+     */
+    public function setHostGroupId($host_group_id)
+    {
+        $this->container['host_group_id'] = $host_group_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets host_list
      *
      * @return string[]
      */
-    public function getDefenceHost()
+    public function getHostList()
     {
-        return $this->container['defence_host'];
+        return $this->container['host_list'];
     }
 
     /**
-     * Sets defence_host
+     * Sets host_list
      *
-     * @param string[] $defence_host defence_host
+     * @param string[] $host_list host_list
      *
      * @return $this
      */
-    public function setDefenceHost($defence_host)
+    public function setHostList($host_list)
     {
-        $this->container['defence_host'] = $defence_host;
+        $this->container['host_list'] = $host_list;
 
         return $this;
     }
 
     /**
-     * Gets enable
+     * Gets name
      *
-     * @return int[]
+     * @return string
      */
-    public function getEnable()
+    public function getName()
     {
-        return $this->container['enable'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets enable
+     * Sets name
      *
-     * @param int[] $enable enable
+     * @param string $name name
      *
      * @return $this
      */
-    public function setEnable($enable)
+    public function setName($name)
     {
-        $this->container['enable'] = $enable;
-
-        return $this;
-    }
-
-    /**
-     * Gets page
-     *
-     * @return int
-     */
-    public function getPage()
-    {
-        return $this->container['page'];
-    }
-
-    /**
-     * Sets page
-     *
-     * @param int $page page
-     *
-     * @return $this
-     */
-    public function setPage($page)
-    {
-        $this->container['page'] = $page;
-
-        return $this;
-    }
-
-    /**
-     * Gets page_size
-     *
-     * @return int
-     */
-    public function getPageSize()
-    {
-        return $this->container['page_size'];
-    }
-
-    /**
-     * Sets page_size
-     *
-     * @param int $page_size page_size
-     *
-     * @return $this
-     */
-    public function setPageSize($page_size)
-    {
-        $this->container['page_size'] = $page_size;
+        $this->container['name'] = $name;
 
         return $this;
     }
@@ -396,78 +348,6 @@ class ListAclRuleRequest implements ModelInterface, ArrayAccess
     public function setProjectName($project_name)
     {
         $this->container['project_name'] = $project_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets rule_name
-     *
-     * @return string
-     */
-    public function getRuleName()
-    {
-        return $this->container['rule_name'];
-    }
-
-    /**
-     * Sets rule_name
-     *
-     * @param string $rule_name rule_name
-     *
-     * @return $this
-     */
-    public function setRuleName($rule_name)
-    {
-        $this->container['rule_name'] = $rule_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets rule_tag
-     *
-     * @return string
-     */
-    public function getRuleTag()
-    {
-        return $this->container['rule_tag'];
-    }
-
-    /**
-     * Sets rule_tag
-     *
-     * @param string $rule_tag rule_tag
-     *
-     * @return $this
-     */
-    public function setRuleTag($rule_tag)
-    {
-        $this->container['rule_tag'] = $rule_tag;
-
-        return $this;
-    }
-
-    /**
-     * Gets time_order_by
-     *
-     * @return string
-     */
-    public function getTimeOrderBy()
-    {
-        return $this->container['time_order_by'];
-    }
-
-    /**
-     * Sets time_order_by
-     *
-     * @param string $time_order_by time_order_by
-     *
-     * @return $this
-     */
-    public function setTimeOrderBy($time_order_by)
-    {
-        $this->container['time_order_by'] = $time_order_by;
 
         return $this;
     }

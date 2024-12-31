@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class DeleteAclRuleRequest implements ModelInterface, ArrayAccess
+class IpGroupForListAclRuleOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class DeleteAclRuleRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'DeleteAclRuleRequest';
+    protected static $swaggerModelName = 'IpGroupForListAclRuleOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,8 @@ class DeleteAclRuleRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'acl_type' => 'string',
-        'id' => 'int',
-        'project_name' => 'string'
+        'ip_group_id' => 'int',
+        'name' => 'string'
     ];
 
     /**
@@ -39,9 +38,8 @@ class DeleteAclRuleRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'acl_type' => null,
-        'id' => 'int32',
-        'project_name' => null
+        'ip_group_id' => 'int32',
+        'name' => null
     ];
 
     /**
@@ -71,9 +69,8 @@ class DeleteAclRuleRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'acl_type' => 'AclType',
-        'id' => 'ID',
-        'project_name' => 'ProjectName'
+        'ip_group_id' => 'IpGroupId',
+        'name' => 'Name'
     ];
 
     /**
@@ -82,9 +79,8 @@ class DeleteAclRuleRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'acl_type' => 'setAclType',
-        'id' => 'setId',
-        'project_name' => 'setProjectName'
+        'ip_group_id' => 'setIpGroupId',
+        'name' => 'setName'
     ];
 
     /**
@@ -93,9 +89,8 @@ class DeleteAclRuleRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'acl_type' => 'getAclType',
-        'id' => 'getId',
-        'project_name' => 'getProjectName'
+        'ip_group_id' => 'getIpGroupId',
+        'name' => 'getName'
     ];
 
     /**
@@ -158,9 +153,8 @@ class DeleteAclRuleRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['acl_type'] = isset($data['acl_type']) ? $data['acl_type'] : null;
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['ip_group_id'] = isset($data['ip_group_id']) ? $data['ip_group_id'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
     }
 
     /**
@@ -172,12 +166,6 @@ class DeleteAclRuleRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['acl_type'] === null) {
-            $invalidProperties[] = "'acl_type' can't be null";
-        }
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -194,73 +182,49 @@ class DeleteAclRuleRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets acl_type
-     *
-     * @return string
-     */
-    public function getAclType()
-    {
-        return $this->container['acl_type'];
-    }
-
-    /**
-     * Sets acl_type
-     *
-     * @param string $acl_type acl_type
-     *
-     * @return $this
-     */
-    public function setAclType($acl_type)
-    {
-        $this->container['acl_type'] = $acl_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets id
+     * Gets ip_group_id
      *
      * @return int
      */
-    public function getId()
+    public function getIpGroupId()
     {
-        return $this->container['id'];
+        return $this->container['ip_group_id'];
     }
 
     /**
-     * Sets id
+     * Sets ip_group_id
      *
-     * @param int $id id
+     * @param int $ip_group_id ip_group_id
      *
      * @return $this
      */
-    public function setId($id)
+    public function setIpGroupId($ip_group_id)
     {
-        $this->container['id'] = $id;
+        $this->container['ip_group_id'] = $ip_group_id;
 
         return $this;
     }
 
     /**
-     * Gets project_name
+     * Gets name
      *
      * @return string
      */
-    public function getProjectName()
+    public function getName()
     {
-        return $this->container['project_name'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets project_name
+     * Sets name
      *
-     * @param string $project_name project_name
+     * @param string $name name
      *
      * @return $this
      */
-    public function setProjectName($project_name)
+    public function setName($name)
     {
-        $this->container['project_name'] = $project_name;
+        $this->container['name'] = $name;
 
         return $this;
     }
