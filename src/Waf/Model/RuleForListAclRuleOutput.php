@@ -38,9 +38,12 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
         'host_groups' => '\Volcengine\Waf\Model\HostGroupForListAclRuleOutput[]',
         'host_list' => 'string[]',
         'id' => 'int',
-        'ip_groups' => 'int',
+        'ip_add_type' => 'int',
+        'ip_group_id' => 'int[]',
+        'ip_groups' => '\Volcengine\Waf\Model\IpGroupForListAclRuleOutput[]',
         'ip_list' => 'string[]',
         'ip_location_country' => 'string[]',
+        'ip_location_subregion' => 'string[]',
         'name' => 'string[]',
         'prefix_switch' => 'string[]',
         'rule_tag' => 'string',
@@ -64,9 +67,12 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
         'host_groups' => null,
         'host_list' => null,
         'id' => 'int32',
-        'ip_groups' => 'int32',
+        'ip_add_type' => 'int32',
+        'ip_group_id' => 'int32',
+        'ip_groups' => null,
         'ip_list' => null,
         'ip_location_country' => null,
+        'ip_location_subregion' => null,
         'name' => null,
         'prefix_switch' => null,
         'rule_tag' => null,
@@ -111,9 +117,12 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
         'host_groups' => 'HostGroups',
         'host_list' => 'HostList',
         'id' => 'ID',
+        'ip_add_type' => 'IpAddType',
+        'ip_group_id' => 'IpGroupId',
         'ip_groups' => 'IpGroups',
         'ip_list' => 'IpList',
         'ip_location_country' => 'IpLocationCountry',
+        'ip_location_subregion' => 'IpLocationSubregion',
         'name' => 'Name',
         'prefix_switch' => 'PrefixSwitch',
         'rule_tag' => 'RuleTag',
@@ -137,9 +146,12 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
         'host_groups' => 'setHostGroups',
         'host_list' => 'setHostList',
         'id' => 'setId',
+        'ip_add_type' => 'setIpAddType',
+        'ip_group_id' => 'setIpGroupId',
         'ip_groups' => 'setIpGroups',
         'ip_list' => 'setIpList',
         'ip_location_country' => 'setIpLocationCountry',
+        'ip_location_subregion' => 'setIpLocationSubregion',
         'name' => 'setName',
         'prefix_switch' => 'setPrefixSwitch',
         'rule_tag' => 'setRuleTag',
@@ -163,9 +175,12 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
         'host_groups' => 'getHostGroups',
         'host_list' => 'getHostList',
         'id' => 'getId',
+        'ip_add_type' => 'getIpAddType',
+        'ip_group_id' => 'getIpGroupId',
         'ip_groups' => 'getIpGroups',
         'ip_list' => 'getIpList',
         'ip_location_country' => 'getIpLocationCountry',
+        'ip_location_subregion' => 'getIpLocationSubregion',
         'name' => 'getName',
         'prefix_switch' => 'getPrefixSwitch',
         'rule_tag' => 'getRuleTag',
@@ -243,9 +258,12 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
         $this->container['host_groups'] = isset($data['host_groups']) ? $data['host_groups'] : null;
         $this->container['host_list'] = isset($data['host_list']) ? $data['host_list'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['ip_add_type'] = isset($data['ip_add_type']) ? $data['ip_add_type'] : null;
+        $this->container['ip_group_id'] = isset($data['ip_group_id']) ? $data['ip_group_id'] : null;
         $this->container['ip_groups'] = isset($data['ip_groups']) ? $data['ip_groups'] : null;
         $this->container['ip_list'] = isset($data['ip_list']) ? $data['ip_list'] : null;
         $this->container['ip_location_country'] = isset($data['ip_location_country']) ? $data['ip_location_country'] : null;
+        $this->container['ip_location_subregion'] = isset($data['ip_location_subregion']) ? $data['ip_location_subregion'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['prefix_switch'] = isset($data['prefix_switch']) ? $data['prefix_switch'] : null;
         $this->container['rule_tag'] = isset($data['rule_tag']) ? $data['rule_tag'] : null;
@@ -518,9 +536,57 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets ip_groups
+     * Gets ip_add_type
      *
      * @return int
+     */
+    public function getIpAddType()
+    {
+        return $this->container['ip_add_type'];
+    }
+
+    /**
+     * Sets ip_add_type
+     *
+     * @param int $ip_add_type ip_add_type
+     *
+     * @return $this
+     */
+    public function setIpAddType($ip_add_type)
+    {
+        $this->container['ip_add_type'] = $ip_add_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets ip_group_id
+     *
+     * @return int[]
+     */
+    public function getIpGroupId()
+    {
+        return $this->container['ip_group_id'];
+    }
+
+    /**
+     * Sets ip_group_id
+     *
+     * @param int[] $ip_group_id ip_group_id
+     *
+     * @return $this
+     */
+    public function setIpGroupId($ip_group_id)
+    {
+        $this->container['ip_group_id'] = $ip_group_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets ip_groups
+     *
+     * @return \Volcengine\Waf\Model\IpGroupForListAclRuleOutput[]
      */
     public function getIpGroups()
     {
@@ -530,7 +596,7 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
     /**
      * Sets ip_groups
      *
-     * @param int $ip_groups ip_groups
+     * @param \Volcengine\Waf\Model\IpGroupForListAclRuleOutput[] $ip_groups ip_groups
      *
      * @return $this
      */
@@ -585,6 +651,30 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
     public function setIpLocationCountry($ip_location_country)
     {
         $this->container['ip_location_country'] = $ip_location_country;
+
+        return $this;
+    }
+
+    /**
+     * Gets ip_location_subregion
+     *
+     * @return string[]
+     */
+    public function getIpLocationSubregion()
+    {
+        return $this->container['ip_location_subregion'];
+    }
+
+    /**
+     * Sets ip_location_subregion
+     *
+     * @param string[] $ip_location_subregion ip_location_subregion
+     *
+     * @return $this
+     */
+    public function setIpLocationSubregion($ip_location_subregion)
+    {
+        $this->container['ip_location_subregion'] = $ip_location_subregion;
 
         return $this;
     }

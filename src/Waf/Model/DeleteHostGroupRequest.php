@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class DeleteAclRuleRequest implements ModelInterface, ArrayAccess
+class DeleteHostGroupRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class DeleteAclRuleRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'DeleteAclRuleRequest';
+    protected static $swaggerModelName = 'DeleteHostGroupRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,7 @@ class DeleteAclRuleRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'acl_type' => 'string',
-        'id' => 'int',
+        'host_group_ids' => 'int[]',
         'project_name' => 'string'
     ];
 
@@ -39,8 +38,7 @@ class DeleteAclRuleRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'acl_type' => null,
-        'id' => 'int32',
+        'host_group_ids' => 'int32',
         'project_name' => null
     ];
 
@@ -71,8 +69,7 @@ class DeleteAclRuleRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'acl_type' => 'AclType',
-        'id' => 'ID',
+        'host_group_ids' => 'HostGroupIds',
         'project_name' => 'ProjectName'
     ];
 
@@ -82,8 +79,7 @@ class DeleteAclRuleRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'acl_type' => 'setAclType',
-        'id' => 'setId',
+        'host_group_ids' => 'setHostGroupIds',
         'project_name' => 'setProjectName'
     ];
 
@@ -93,8 +89,7 @@ class DeleteAclRuleRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'acl_type' => 'getAclType',
-        'id' => 'getId',
+        'host_group_ids' => 'getHostGroupIds',
         'project_name' => 'getProjectName'
     ];
 
@@ -158,8 +153,7 @@ class DeleteAclRuleRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['acl_type'] = isset($data['acl_type']) ? $data['acl_type'] : null;
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['host_group_ids'] = isset($data['host_group_ids']) ? $data['host_group_ids'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
     }
 
@@ -172,12 +166,6 @@ class DeleteAclRuleRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['acl_type'] === null) {
-            $invalidProperties[] = "'acl_type' can't be null";
-        }
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -194,49 +182,25 @@ class DeleteAclRuleRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets acl_type
+     * Gets host_group_ids
      *
-     * @return string
+     * @return int[]
      */
-    public function getAclType()
+    public function getHostGroupIds()
     {
-        return $this->container['acl_type'];
+        return $this->container['host_group_ids'];
     }
 
     /**
-     * Sets acl_type
+     * Sets host_group_ids
      *
-     * @param string $acl_type acl_type
+     * @param int[] $host_group_ids host_group_ids
      *
      * @return $this
      */
-    public function setAclType($acl_type)
+    public function setHostGroupIds($host_group_ids)
     {
-        $this->container['acl_type'] = $acl_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets id
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param int $id id
-     *
-     * @return $this
-     */
-    public function setId($id)
-    {
-        $this->container['id'] = $id;
+        $this->container['host_group_ids'] = $host_group_ids;
 
         return $this;
     }
