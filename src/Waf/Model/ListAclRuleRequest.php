@@ -34,6 +34,7 @@ class ListAclRuleRequest implements ModelInterface, ArrayAccess
         'enable' => 'int[]',
         'page' => 'int',
         'page_size' => 'int',
+        'project_name' => 'string',
         'rule_name' => 'string',
         'rule_tag' => 'string',
         'time_order_by' => 'string'
@@ -51,6 +52,7 @@ class ListAclRuleRequest implements ModelInterface, ArrayAccess
         'enable' => 'int32',
         'page' => 'int32',
         'page_size' => 'int32',
+        'project_name' => null,
         'rule_name' => null,
         'rule_tag' => null,
         'time_order_by' => null
@@ -89,6 +91,7 @@ class ListAclRuleRequest implements ModelInterface, ArrayAccess
         'enable' => 'Enable',
         'page' => 'Page',
         'page_size' => 'PageSize',
+        'project_name' => 'ProjectName',
         'rule_name' => 'RuleName',
         'rule_tag' => 'RuleTag',
         'time_order_by' => 'TimeOrderBy'
@@ -106,6 +109,7 @@ class ListAclRuleRequest implements ModelInterface, ArrayAccess
         'enable' => 'setEnable',
         'page' => 'setPage',
         'page_size' => 'setPageSize',
+        'project_name' => 'setProjectName',
         'rule_name' => 'setRuleName',
         'rule_tag' => 'setRuleTag',
         'time_order_by' => 'setTimeOrderBy'
@@ -123,6 +127,7 @@ class ListAclRuleRequest implements ModelInterface, ArrayAccess
         'enable' => 'getEnable',
         'page' => 'getPage',
         'page_size' => 'getPageSize',
+        'project_name' => 'getProjectName',
         'rule_name' => 'getRuleName',
         'rule_tag' => 'getRuleTag',
         'time_order_by' => 'getTimeOrderBy'
@@ -194,6 +199,7 @@ class ListAclRuleRequest implements ModelInterface, ArrayAccess
         $this->container['enable'] = isset($data['enable']) ? $data['enable'] : null;
         $this->container['page'] = isset($data['page']) ? $data['page'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['rule_name'] = isset($data['rule_name']) ? $data['rule_name'] : null;
         $this->container['rule_tag'] = isset($data['rule_tag']) ? $data['rule_tag'] : null;
         $this->container['time_order_by'] = isset($data['time_order_by']) ? $data['time_order_by'] : null;
@@ -366,6 +372,30 @@ class ListAclRuleRequest implements ModelInterface, ArrayAccess
     public function setPageSize($page_size)
     {
         $this->container['page_size'] = $page_size;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }

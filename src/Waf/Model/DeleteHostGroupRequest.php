@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Volcobserve\Model;
+namespace Volcengine\Waf\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ListRulesRequest implements ModelInterface, ArrayAccess
+class DeleteHostGroupRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ListRulesRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ListRulesRequest';
+    protected static $swaggerModelName = 'DeleteHostGroupRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,14 +28,8 @@ class ListRulesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'alert_state' => 'string[]',
-        'enable_state' => 'string[]',
-        'level' => 'string[]',
-        'namespace' => 'string[]',
-        'page_number' => 'int',
-        'page_size' => 'int',
-        'project_name' => 'string',
-        'rule_name' => 'string'
+        'host_group_ids' => 'int[]',
+        'project_name' => 'string'
     ];
 
     /**
@@ -44,14 +38,8 @@ class ListRulesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'alert_state' => null,
-        'enable_state' => null,
-        'level' => null,
-        'namespace' => null,
-        'page_number' => null,
-        'page_size' => null,
-        'project_name' => null,
-        'rule_name' => null
+        'host_group_ids' => 'int32',
+        'project_name' => null
     ];
 
     /**
@@ -81,14 +69,8 @@ class ListRulesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'alert_state' => 'AlertState',
-        'enable_state' => 'EnableState',
-        'level' => 'Level',
-        'namespace' => 'Namespace',
-        'page_number' => 'PageNumber',
-        'page_size' => 'PageSize',
-        'project_name' => 'ProjectName',
-        'rule_name' => 'RuleName'
+        'host_group_ids' => 'HostGroupIds',
+        'project_name' => 'ProjectName'
     ];
 
     /**
@@ -97,14 +79,8 @@ class ListRulesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'alert_state' => 'setAlertState',
-        'enable_state' => 'setEnableState',
-        'level' => 'setLevel',
-        'namespace' => 'setNamespace',
-        'page_number' => 'setPageNumber',
-        'page_size' => 'setPageSize',
-        'project_name' => 'setProjectName',
-        'rule_name' => 'setRuleName'
+        'host_group_ids' => 'setHostGroupIds',
+        'project_name' => 'setProjectName'
     ];
 
     /**
@@ -113,14 +89,8 @@ class ListRulesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'alert_state' => 'getAlertState',
-        'enable_state' => 'getEnableState',
-        'level' => 'getLevel',
-        'namespace' => 'getNamespace',
-        'page_number' => 'getPageNumber',
-        'page_size' => 'getPageSize',
-        'project_name' => 'getProjectName',
-        'rule_name' => 'getRuleName'
+        'host_group_ids' => 'getHostGroupIds',
+        'project_name' => 'getProjectName'
     ];
 
     /**
@@ -183,14 +153,8 @@ class ListRulesRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['alert_state'] = isset($data['alert_state']) ? $data['alert_state'] : null;
-        $this->container['enable_state'] = isset($data['enable_state']) ? $data['enable_state'] : null;
-        $this->container['level'] = isset($data['level']) ? $data['level'] : null;
-        $this->container['namespace'] = isset($data['namespace']) ? $data['namespace'] : null;
-        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
-        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
+        $this->container['host_group_ids'] = isset($data['host_group_ids']) ? $data['host_group_ids'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
-        $this->container['rule_name'] = isset($data['rule_name']) ? $data['rule_name'] : null;
     }
 
     /**
@@ -218,145 +182,25 @@ class ListRulesRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets alert_state
+     * Gets host_group_ids
      *
-     * @return string[]
+     * @return int[]
      */
-    public function getAlertState()
+    public function getHostGroupIds()
     {
-        return $this->container['alert_state'];
+        return $this->container['host_group_ids'];
     }
 
     /**
-     * Sets alert_state
+     * Sets host_group_ids
      *
-     * @param string[] $alert_state alert_state
+     * @param int[] $host_group_ids host_group_ids
      *
      * @return $this
      */
-    public function setAlertState($alert_state)
+    public function setHostGroupIds($host_group_ids)
     {
-        $this->container['alert_state'] = $alert_state;
-
-        return $this;
-    }
-
-    /**
-     * Gets enable_state
-     *
-     * @return string[]
-     */
-    public function getEnableState()
-    {
-        return $this->container['enable_state'];
-    }
-
-    /**
-     * Sets enable_state
-     *
-     * @param string[] $enable_state enable_state
-     *
-     * @return $this
-     */
-    public function setEnableState($enable_state)
-    {
-        $this->container['enable_state'] = $enable_state;
-
-        return $this;
-    }
-
-    /**
-     * Gets level
-     *
-     * @return string[]
-     */
-    public function getLevel()
-    {
-        return $this->container['level'];
-    }
-
-    /**
-     * Sets level
-     *
-     * @param string[] $level level
-     *
-     * @return $this
-     */
-    public function setLevel($level)
-    {
-        $this->container['level'] = $level;
-
-        return $this;
-    }
-
-    /**
-     * Gets namespace
-     *
-     * @return string[]
-     */
-    public function getNamespace()
-    {
-        return $this->container['namespace'];
-    }
-
-    /**
-     * Sets namespace
-     *
-     * @param string[] $namespace namespace
-     *
-     * @return $this
-     */
-    public function setNamespace($namespace)
-    {
-        $this->container['namespace'] = $namespace;
-
-        return $this;
-    }
-
-    /**
-     * Gets page_number
-     *
-     * @return int
-     */
-    public function getPageNumber()
-    {
-        return $this->container['page_number'];
-    }
-
-    /**
-     * Sets page_number
-     *
-     * @param int $page_number page_number
-     *
-     * @return $this
-     */
-    public function setPageNumber($page_number)
-    {
-        $this->container['page_number'] = $page_number;
-
-        return $this;
-    }
-
-    /**
-     * Gets page_size
-     *
-     * @return int
-     */
-    public function getPageSize()
-    {
-        return $this->container['page_size'];
-    }
-
-    /**
-     * Sets page_size
-     *
-     * @param int $page_size page_size
-     *
-     * @return $this
-     */
-    public function setPageSize($page_size)
-    {
-        $this->container['page_size'] = $page_size;
+        $this->container['host_group_ids'] = $host_group_ids;
 
         return $this;
     }
@@ -381,30 +225,6 @@ class ListRulesRequest implements ModelInterface, ArrayAccess
     public function setProjectName($project_name)
     {
         $this->container['project_name'] = $project_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets rule_name
-     *
-     * @return string
-     */
-    public function getRuleName()
-    {
-        return $this->container['rule_name'];
-    }
-
-    /**
-     * Sets rule_name
-     *
-     * @param string $rule_name rule_name
-     *
-     * @return $this
-     */
-    public function setRuleName($rule_name)
-    {
-        $this->container['rule_name'] = $rule_name;
 
         return $this;
     }
