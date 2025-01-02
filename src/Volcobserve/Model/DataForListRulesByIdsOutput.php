@@ -45,6 +45,7 @@ class DataForListRulesByIdsOutput implements ModelInterface, ArrayAccess
         'multiple_conditions' => 'bool',
         'namespace' => 'string',
         'original_dimensions' => 'map[string,string[]]',
+        'project_name' => 'string',
         'recovery_notify' => '\Volcengine\Volcobserve\Model\RecoveryNotifyForListRulesByIdsOutput',
         'regions' => 'string[]',
         'rule_name' => 'string',
@@ -79,6 +80,7 @@ class DataForListRulesByIdsOutput implements ModelInterface, ArrayAccess
         'multiple_conditions' => null,
         'namespace' => null,
         'original_dimensions' => null,
+        'project_name' => null,
         'recovery_notify' => null,
         'regions' => null,
         'rule_name' => null,
@@ -134,6 +136,7 @@ class DataForListRulesByIdsOutput implements ModelInterface, ArrayAccess
         'multiple_conditions' => 'MultipleConditions',
         'namespace' => 'Namespace',
         'original_dimensions' => 'OriginalDimensions',
+        'project_name' => 'ProjectName',
         'recovery_notify' => 'RecoveryNotify',
         'regions' => 'Regions',
         'rule_name' => 'RuleName',
@@ -168,6 +171,7 @@ class DataForListRulesByIdsOutput implements ModelInterface, ArrayAccess
         'multiple_conditions' => 'setMultipleConditions',
         'namespace' => 'setNamespace',
         'original_dimensions' => 'setOriginalDimensions',
+        'project_name' => 'setProjectName',
         'recovery_notify' => 'setRecoveryNotify',
         'regions' => 'setRegions',
         'rule_name' => 'setRuleName',
@@ -202,6 +206,7 @@ class DataForListRulesByIdsOutput implements ModelInterface, ArrayAccess
         'multiple_conditions' => 'getMultipleConditions',
         'namespace' => 'getNamespace',
         'original_dimensions' => 'getOriginalDimensions',
+        'project_name' => 'getProjectName',
         'recovery_notify' => 'getRecoveryNotify',
         'regions' => 'getRegions',
         'rule_name' => 'getRuleName',
@@ -290,6 +295,7 @@ class DataForListRulesByIdsOutput implements ModelInterface, ArrayAccess
         $this->container['multiple_conditions'] = isset($data['multiple_conditions']) ? $data['multiple_conditions'] : null;
         $this->container['namespace'] = isset($data['namespace']) ? $data['namespace'] : null;
         $this->container['original_dimensions'] = isset($data['original_dimensions']) ? $data['original_dimensions'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['recovery_notify'] = isset($data['recovery_notify']) ? $data['recovery_notify'] : null;
         $this->container['regions'] = isset($data['regions']) ? $data['regions'] : null;
         $this->container['rule_name'] = isset($data['rule_name']) ? $data['rule_name'] : null;
@@ -729,6 +735,30 @@ class DataForListRulesByIdsOutput implements ModelInterface, ArrayAccess
     public function setOriginalDimensions($original_dimensions)
     {
         $this->container['original_dimensions'] = $original_dimensions;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }

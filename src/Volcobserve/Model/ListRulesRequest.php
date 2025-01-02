@@ -34,6 +34,7 @@ class ListRulesRequest implements ModelInterface, ArrayAccess
         'namespace' => 'string[]',
         'page_number' => 'int',
         'page_size' => 'int',
+        'project_name' => 'string',
         'rule_name' => 'string'
     ];
 
@@ -49,6 +50,7 @@ class ListRulesRequest implements ModelInterface, ArrayAccess
         'namespace' => null,
         'page_number' => null,
         'page_size' => null,
+        'project_name' => null,
         'rule_name' => null
     ];
 
@@ -85,6 +87,7 @@ class ListRulesRequest implements ModelInterface, ArrayAccess
         'namespace' => 'Namespace',
         'page_number' => 'PageNumber',
         'page_size' => 'PageSize',
+        'project_name' => 'ProjectName',
         'rule_name' => 'RuleName'
     ];
 
@@ -100,6 +103,7 @@ class ListRulesRequest implements ModelInterface, ArrayAccess
         'namespace' => 'setNamespace',
         'page_number' => 'setPageNumber',
         'page_size' => 'setPageSize',
+        'project_name' => 'setProjectName',
         'rule_name' => 'setRuleName'
     ];
 
@@ -115,6 +119,7 @@ class ListRulesRequest implements ModelInterface, ArrayAccess
         'namespace' => 'getNamespace',
         'page_number' => 'getPageNumber',
         'page_size' => 'getPageSize',
+        'project_name' => 'getProjectName',
         'rule_name' => 'getRuleName'
     ];
 
@@ -184,6 +189,7 @@ class ListRulesRequest implements ModelInterface, ArrayAccess
         $this->container['namespace'] = isset($data['namespace']) ? $data['namespace'] : null;
         $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['rule_name'] = isset($data['rule_name']) ? $data['rule_name'] : null;
     }
 
@@ -351,6 +357,30 @@ class ListRulesRequest implements ModelInterface, ArrayAccess
     public function setPageSize($page_size)
     {
         $this->container['page_size'] = $page_size;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }
