@@ -31,6 +31,7 @@ class ImportKeyMaterialRequest implements ModelInterface, ArrayAccess
         'encrypted_key_material' => 'string',
         'expiration_model' => 'string',
         'import_token' => 'string',
+        'key_id' => 'string',
         'key_name' => 'string',
         'keyring_name' => 'string',
         'valid_to' => 'int'
@@ -45,6 +46,7 @@ class ImportKeyMaterialRequest implements ModelInterface, ArrayAccess
         'encrypted_key_material' => null,
         'expiration_model' => null,
         'import_token' => null,
+        'key_id' => null,
         'key_name' => null,
         'keyring_name' => null,
         'valid_to' => 'int64'
@@ -80,6 +82,7 @@ class ImportKeyMaterialRequest implements ModelInterface, ArrayAccess
         'encrypted_key_material' => 'EncryptedKeyMaterial',
         'expiration_model' => 'ExpirationModel',
         'import_token' => 'ImportToken',
+        'key_id' => 'KeyID',
         'key_name' => 'KeyName',
         'keyring_name' => 'KeyringName',
         'valid_to' => 'ValidTo'
@@ -94,6 +97,7 @@ class ImportKeyMaterialRequest implements ModelInterface, ArrayAccess
         'encrypted_key_material' => 'setEncryptedKeyMaterial',
         'expiration_model' => 'setExpirationModel',
         'import_token' => 'setImportToken',
+        'key_id' => 'setKeyId',
         'key_name' => 'setKeyName',
         'keyring_name' => 'setKeyringName',
         'valid_to' => 'setValidTo'
@@ -108,6 +112,7 @@ class ImportKeyMaterialRequest implements ModelInterface, ArrayAccess
         'encrypted_key_material' => 'getEncryptedKeyMaterial',
         'expiration_model' => 'getExpirationModel',
         'import_token' => 'getImportToken',
+        'key_id' => 'getKeyId',
         'key_name' => 'getKeyName',
         'keyring_name' => 'getKeyringName',
         'valid_to' => 'getValidTo'
@@ -176,6 +181,7 @@ class ImportKeyMaterialRequest implements ModelInterface, ArrayAccess
         $this->container['encrypted_key_material'] = isset($data['encrypted_key_material']) ? $data['encrypted_key_material'] : null;
         $this->container['expiration_model'] = isset($data['expiration_model']) ? $data['expiration_model'] : null;
         $this->container['import_token'] = isset($data['import_token']) ? $data['import_token'] : null;
+        $this->container['key_id'] = isset($data['key_id']) ? $data['key_id'] : null;
         $this->container['key_name'] = isset($data['key_name']) ? $data['key_name'] : null;
         $this->container['keyring_name'] = isset($data['keyring_name']) ? $data['keyring_name'] : null;
         $this->container['valid_to'] = isset($data['valid_to']) ? $data['valid_to'] : null;
@@ -195,12 +201,6 @@ class ImportKeyMaterialRequest implements ModelInterface, ArrayAccess
         }
         if ($this->container['import_token'] === null) {
             $invalidProperties[] = "'import_token' can't be null";
-        }
-        if ($this->container['key_name'] === null) {
-            $invalidProperties[] = "'key_name' can't be null";
-        }
-        if ($this->container['keyring_name'] === null) {
-            $invalidProperties[] = "'keyring_name' can't be null";
         }
         return $invalidProperties;
     }
@@ -285,6 +285,30 @@ class ImportKeyMaterialRequest implements ModelInterface, ArrayAccess
     public function setImportToken($import_token)
     {
         $this->container['import_token'] = $import_token;
+
+        return $this;
+    }
+
+    /**
+     * Gets key_id
+     *
+     * @return string
+     */
+    public function getKeyId()
+    {
+        return $this->container['key_id'];
+    }
+
+    /**
+     * Sets key_id
+     *
+     * @param string $key_id key_id
+     *
+     * @return $this
+     */
+    public function setKeyId($key_id)
+    {
+        $this->container['key_id'] = $key_id;
 
         return $this;
     }

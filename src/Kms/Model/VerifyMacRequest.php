@@ -31,7 +31,9 @@ class VerifyMacRequest implements ModelInterface, ArrayAccess
         'key_id' => 'string',
         'key_name' => 'string',
         'keyring_name' => 'string',
-        'mac_algorithm' => 'string'
+        'mac' => 'string',
+        'mac_algorithm' => 'string',
+        'message' => 'string'
     ];
 
     /**
@@ -43,7 +45,9 @@ class VerifyMacRequest implements ModelInterface, ArrayAccess
         'key_id' => null,
         'key_name' => null,
         'keyring_name' => null,
-        'mac_algorithm' => null
+        'mac' => null,
+        'mac_algorithm' => null,
+        'message' => null
     ];
 
     /**
@@ -76,7 +80,9 @@ class VerifyMacRequest implements ModelInterface, ArrayAccess
         'key_id' => 'KeyID',
         'key_name' => 'KeyName',
         'keyring_name' => 'KeyringName',
-        'mac_algorithm' => 'MacAlgorithm'
+        'mac' => 'Mac',
+        'mac_algorithm' => 'MacAlgorithm',
+        'message' => 'Message'
     ];
 
     /**
@@ -88,7 +94,9 @@ class VerifyMacRequest implements ModelInterface, ArrayAccess
         'key_id' => 'setKeyId',
         'key_name' => 'setKeyName',
         'keyring_name' => 'setKeyringName',
-        'mac_algorithm' => 'setMacAlgorithm'
+        'mac' => 'setMac',
+        'mac_algorithm' => 'setMacAlgorithm',
+        'message' => 'setMessage'
     ];
 
     /**
@@ -100,7 +108,9 @@ class VerifyMacRequest implements ModelInterface, ArrayAccess
         'key_id' => 'getKeyId',
         'key_name' => 'getKeyName',
         'keyring_name' => 'getKeyringName',
-        'mac_algorithm' => 'getMacAlgorithm'
+        'mac' => 'getMac',
+        'mac_algorithm' => 'getMacAlgorithm',
+        'message' => 'getMessage'
     ];
 
     /**
@@ -166,7 +176,9 @@ class VerifyMacRequest implements ModelInterface, ArrayAccess
         $this->container['key_id'] = isset($data['key_id']) ? $data['key_id'] : null;
         $this->container['key_name'] = isset($data['key_name']) ? $data['key_name'] : null;
         $this->container['keyring_name'] = isset($data['keyring_name']) ? $data['keyring_name'] : null;
+        $this->container['mac'] = isset($data['mac']) ? $data['mac'] : null;
         $this->container['mac_algorithm'] = isset($data['mac_algorithm']) ? $data['mac_algorithm'] : null;
+        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
     }
 
     /**
@@ -178,8 +190,14 @@ class VerifyMacRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['mac'] === null) {
+            $invalidProperties[] = "'mac' can't be null";
+        }
         if ($this->container['mac_algorithm'] === null) {
             $invalidProperties[] = "'mac_algorithm' can't be null";
+        }
+        if ($this->container['message'] === null) {
+            $invalidProperties[] = "'message' can't be null";
         }
         return $invalidProperties;
     }
@@ -269,6 +287,30 @@ class VerifyMacRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets mac
+     *
+     * @return string
+     */
+    public function getMac()
+    {
+        return $this->container['mac'];
+    }
+
+    /**
+     * Sets mac
+     *
+     * @param string $mac mac
+     *
+     * @return $this
+     */
+    public function setMac($mac)
+    {
+        $this->container['mac'] = $mac;
+
+        return $this;
+    }
+
+    /**
      * Gets mac_algorithm
      *
      * @return string
@@ -288,6 +330,30 @@ class VerifyMacRequest implements ModelInterface, ArrayAccess
     public function setMacAlgorithm($mac_algorithm)
     {
         $this->container['mac_algorithm'] = $mac_algorithm;
+
+        return $this;
+    }
+
+    /**
+     * Gets message
+     *
+     * @return string
+     */
+    public function getMessage()
+    {
+        return $this->container['message'];
+    }
+
+    /**
+     * Sets message
+     *
+     * @param string $message message
+     *
+     * @return $this
+     */
+    public function setMessage($message)
+    {
+        $this->container['message'] = $message;
 
         return $this;
     }

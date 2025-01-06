@@ -28,6 +28,7 @@ class QueryKeyringRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'keyring_id' => 'string',
         'keyring_name' => 'string'
     ];
 
@@ -37,6 +38,7 @@ class QueryKeyringRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'keyring_id' => null,
         'keyring_name' => null
     ];
 
@@ -67,6 +69,7 @@ class QueryKeyringRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'keyring_id' => 'KeyringID',
         'keyring_name' => 'KeyringName'
     ];
 
@@ -76,6 +79,7 @@ class QueryKeyringRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'keyring_id' => 'setKeyringId',
         'keyring_name' => 'setKeyringName'
     ];
 
@@ -85,6 +89,7 @@ class QueryKeyringRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'keyring_id' => 'getKeyringId',
         'keyring_name' => 'getKeyringName'
     ];
 
@@ -148,6 +153,7 @@ class QueryKeyringRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['keyring_id'] = isset($data['keyring_id']) ? $data['keyring_id'] : null;
         $this->container['keyring_name'] = isset($data['keyring_name']) ? $data['keyring_name'] : null;
     }
 
@@ -160,9 +166,6 @@ class QueryKeyringRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['keyring_name'] === null) {
-            $invalidProperties[] = "'keyring_name' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -177,6 +180,30 @@ class QueryKeyringRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets keyring_id
+     *
+     * @return string
+     */
+    public function getKeyringId()
+    {
+        return $this->container['keyring_id'];
+    }
+
+    /**
+     * Sets keyring_id
+     *
+     * @param string $keyring_id keyring_id
+     *
+     * @return $this
+     */
+    public function setKeyringId($keyring_id)
+    {
+        $this->container['keyring_id'] = $keyring_id;
+
+        return $this;
+    }
 
     /**
      * Gets keyring_name

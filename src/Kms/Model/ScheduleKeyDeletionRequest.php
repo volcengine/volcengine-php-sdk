@@ -28,6 +28,7 @@ class ScheduleKeyDeletionRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'key_id' => 'string',
         'key_name' => 'string',
         'keyring_name' => 'string',
         'pending_window_in_days' => 'int'
@@ -39,6 +40,7 @@ class ScheduleKeyDeletionRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'key_id' => null,
         'key_name' => null,
         'keyring_name' => null,
         'pending_window_in_days' => 'int32'
@@ -71,6 +73,7 @@ class ScheduleKeyDeletionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'key_id' => 'KeyID',
         'key_name' => 'KeyName',
         'keyring_name' => 'KeyringName',
         'pending_window_in_days' => 'PendingWindowInDays'
@@ -82,6 +85,7 @@ class ScheduleKeyDeletionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'key_id' => 'setKeyId',
         'key_name' => 'setKeyName',
         'keyring_name' => 'setKeyringName',
         'pending_window_in_days' => 'setPendingWindowInDays'
@@ -93,6 +97,7 @@ class ScheduleKeyDeletionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'key_id' => 'getKeyId',
         'key_name' => 'getKeyName',
         'keyring_name' => 'getKeyringName',
         'pending_window_in_days' => 'getPendingWindowInDays'
@@ -158,6 +163,7 @@ class ScheduleKeyDeletionRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['key_id'] = isset($data['key_id']) ? $data['key_id'] : null;
         $this->container['key_name'] = isset($data['key_name']) ? $data['key_name'] : null;
         $this->container['keyring_name'] = isset($data['keyring_name']) ? $data['keyring_name'] : null;
         $this->container['pending_window_in_days'] = isset($data['pending_window_in_days']) ? $data['pending_window_in_days'] : null;
@@ -172,12 +178,6 @@ class ScheduleKeyDeletionRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['key_name'] === null) {
-            $invalidProperties[] = "'key_name' can't be null";
-        }
-        if ($this->container['keyring_name'] === null) {
-            $invalidProperties[] = "'keyring_name' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -192,6 +192,30 @@ class ScheduleKeyDeletionRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets key_id
+     *
+     * @return string
+     */
+    public function getKeyId()
+    {
+        return $this->container['key_id'];
+    }
+
+    /**
+     * Sets key_id
+     *
+     * @param string $key_id key_id
+     *
+     * @return $this
+     */
+    public function setKeyId($key_id)
+    {
+        $this->container['key_id'] = $key_id;
+
+        return $this;
+    }
 
     /**
      * Gets key_name

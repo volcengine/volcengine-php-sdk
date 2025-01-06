@@ -28,6 +28,7 @@ class DescribeKeyRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'key_id' => 'string',
         'key_name' => 'string',
         'keyring_name' => 'string'
     ];
@@ -38,6 +39,7 @@ class DescribeKeyRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'key_id' => null,
         'key_name' => null,
         'keyring_name' => null
     ];
@@ -69,6 +71,7 @@ class DescribeKeyRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'key_id' => 'KeyID',
         'key_name' => 'KeyName',
         'keyring_name' => 'KeyringName'
     ];
@@ -79,6 +82,7 @@ class DescribeKeyRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'key_id' => 'setKeyId',
         'key_name' => 'setKeyName',
         'keyring_name' => 'setKeyringName'
     ];
@@ -89,6 +93,7 @@ class DescribeKeyRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'key_id' => 'getKeyId',
         'key_name' => 'getKeyName',
         'keyring_name' => 'getKeyringName'
     ];
@@ -153,6 +158,7 @@ class DescribeKeyRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['key_id'] = isset($data['key_id']) ? $data['key_id'] : null;
         $this->container['key_name'] = isset($data['key_name']) ? $data['key_name'] : null;
         $this->container['keyring_name'] = isset($data['keyring_name']) ? $data['keyring_name'] : null;
     }
@@ -166,12 +172,6 @@ class DescribeKeyRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['key_name'] === null) {
-            $invalidProperties[] = "'key_name' can't be null";
-        }
-        if ($this->container['keyring_name'] === null) {
-            $invalidProperties[] = "'keyring_name' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -186,6 +186,30 @@ class DescribeKeyRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets key_id
+     *
+     * @return string
+     */
+    public function getKeyId()
+    {
+        return $this->container['key_id'];
+    }
+
+    /**
+     * Sets key_id
+     *
+     * @param string $key_id key_id
+     *
+     * @return $this
+     */
+    public function setKeyId($key_id)
+    {
+        $this->container['key_id'] = $key_id;
+
+        return $this;
+    }
 
     /**
      * Gets key_name

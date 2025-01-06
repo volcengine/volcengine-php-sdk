@@ -29,6 +29,7 @@ class UpdateKeyringRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'description' => 'string',
+        'keyring_id' => 'string',
         'keyring_name' => 'string'
     ];
 
@@ -39,6 +40,7 @@ class UpdateKeyringRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'description' => null,
+        'keyring_id' => null,
         'keyring_name' => null
     ];
 
@@ -70,6 +72,7 @@ class UpdateKeyringRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'description' => 'Description',
+        'keyring_id' => 'KeyringID',
         'keyring_name' => 'KeyringName'
     ];
 
@@ -80,6 +83,7 @@ class UpdateKeyringRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'description' => 'setDescription',
+        'keyring_id' => 'setKeyringId',
         'keyring_name' => 'setKeyringName'
     ];
 
@@ -90,6 +94,7 @@ class UpdateKeyringRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'description' => 'getDescription',
+        'keyring_id' => 'getKeyringId',
         'keyring_name' => 'getKeyringName'
     ];
 
@@ -154,6 +159,7 @@ class UpdateKeyringRequest implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['keyring_id'] = isset($data['keyring_id']) ? $data['keyring_id'] : null;
         $this->container['keyring_name'] = isset($data['keyring_name']) ? $data['keyring_name'] : null;
     }
 
@@ -166,9 +172,6 @@ class UpdateKeyringRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['keyring_name'] === null) {
-            $invalidProperties[] = "'keyring_name' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -204,6 +207,30 @@ class UpdateKeyringRequest implements ModelInterface, ArrayAccess
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets keyring_id
+     *
+     * @return string
+     */
+    public function getKeyringId()
+    {
+        return $this->container['keyring_id'];
+    }
+
+    /**
+     * Sets keyring_id
+     *
+     * @param string $keyring_id keyring_id
+     *
+     * @return $this
+     */
+    public function setKeyringId($keyring_id)
+    {
+        $this->container['keyring_id'] = $keyring_id;
 
         return $this;
     }
