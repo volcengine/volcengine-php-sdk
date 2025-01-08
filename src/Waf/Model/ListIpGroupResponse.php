@@ -29,6 +29,7 @@ class ListIpGroupResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'count' => 'int',
+        'current_page' => 'int',
         'ip_list' => 'string[]',
         'page_number' => 'int',
         'page_size' => 'int',
@@ -42,6 +43,7 @@ class ListIpGroupResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'count' => 'int32',
+        'current_page' => 'int32',
         'ip_list' => null,
         'page_number' => 'int32',
         'page_size' => 'int32',
@@ -76,6 +78,7 @@ class ListIpGroupResponse implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'count' => 'Count',
+        'current_page' => 'CurrentPage',
         'ip_list' => 'IpList',
         'page_number' => 'PageNumber',
         'page_size' => 'PageSize',
@@ -89,6 +92,7 @@ class ListIpGroupResponse implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'count' => 'setCount',
+        'current_page' => 'setCurrentPage',
         'ip_list' => 'setIpList',
         'page_number' => 'setPageNumber',
         'page_size' => 'setPageSize',
@@ -102,6 +106,7 @@ class ListIpGroupResponse implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'count' => 'getCount',
+        'current_page' => 'getCurrentPage',
         'ip_list' => 'getIpList',
         'page_number' => 'getPageNumber',
         'page_size' => 'getPageSize',
@@ -169,6 +174,7 @@ class ListIpGroupResponse implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['count'] = isset($data['count']) ? $data['count'] : null;
+        $this->container['current_page'] = isset($data['current_page']) ? $data['current_page'] : null;
         $this->container['ip_list'] = isset($data['ip_list']) ? $data['ip_list'] : null;
         $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
@@ -219,6 +225,30 @@ class ListIpGroupResponse implements ModelInterface, ArrayAccess
     public function setCount($count)
     {
         $this->container['count'] = $count;
+
+        return $this;
+    }
+
+    /**
+     * Gets current_page
+     *
+     * @return int
+     */
+    public function getCurrentPage()
+    {
+        return $this->container['current_page'];
+    }
+
+    /**
+     * Sets current_page
+     *
+     * @param int $current_page current_page
+     *
+     * @return $this
+     */
+    public function setCurrentPage($current_page)
+    {
+        $this->container['current_page'] = $current_page;
 
         return $this;
     }

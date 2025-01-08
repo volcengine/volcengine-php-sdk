@@ -31,6 +31,7 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
         'accurate_group' => '\Volcengine\Waf\Model\AccurateGroupForListAclRuleOutput',
         'action' => 'string',
         'advanced' => 'int',
+        'client_ip' => 'string',
         'description' => 'string',
         'enable' => 'int',
         'host_add_type' => 'int',
@@ -60,6 +61,7 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
         'accurate_group' => null,
         'action' => null,
         'advanced' => 'int32',
+        'client_ip' => null,
         'description' => null,
         'enable' => 'int32',
         'host_add_type' => 'int32',
@@ -110,6 +112,7 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
         'accurate_group' => 'AccurateGroup',
         'action' => 'Action',
         'advanced' => 'Advanced',
+        'client_ip' => 'ClientIp',
         'description' => 'Description',
         'enable' => 'Enable',
         'host_add_type' => 'HostAddType',
@@ -139,6 +142,7 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
         'accurate_group' => 'setAccurateGroup',
         'action' => 'setAction',
         'advanced' => 'setAdvanced',
+        'client_ip' => 'setClientIp',
         'description' => 'setDescription',
         'enable' => 'setEnable',
         'host_add_type' => 'setHostAddType',
@@ -168,6 +172,7 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
         'accurate_group' => 'getAccurateGroup',
         'action' => 'getAction',
         'advanced' => 'getAdvanced',
+        'client_ip' => 'getClientIp',
         'description' => 'getDescription',
         'enable' => 'getEnable',
         'host_add_type' => 'getHostAddType',
@@ -251,6 +256,7 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
         $this->container['accurate_group'] = isset($data['accurate_group']) ? $data['accurate_group'] : null;
         $this->container['action'] = isset($data['action']) ? $data['action'] : null;
         $this->container['advanced'] = isset($data['advanced']) ? $data['advanced'] : null;
+        $this->container['client_ip'] = isset($data['client_ip']) ? $data['client_ip'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['enable'] = isset($data['enable']) ? $data['enable'] : null;
         $this->container['host_add_type'] = isset($data['host_add_type']) ? $data['host_add_type'] : null;
@@ -363,6 +369,30 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
     public function setAdvanced($advanced)
     {
         $this->container['advanced'] = $advanced;
+
+        return $this;
+    }
+
+    /**
+     * Gets client_ip
+     *
+     * @return string
+     */
+    public function getClientIp()
+    {
+        return $this->container['client_ip'];
+    }
+
+    /**
+     * Sets client_ip
+     *
+     * @param string $client_ip client_ip
+     *
+     * @return $this
+     */
+    public function setClientIp($client_ip)
+    {
+        $this->container['client_ip'] = $client_ip;
 
         return $this;
     }

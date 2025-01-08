@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class QueryAttackSecurityEventResponse implements ModelInterface, ArrayAccess
+class DataForListTamperProofOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class QueryAttackSecurityEventResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'QueryAttackSecurityEventResponse';
+    protected static $swaggerModelName = 'DataForListTamperProofOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,18 +28,19 @@ class QueryAttackSecurityEventResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'attack_count' => 'int',
-        'count' => 'int',
-        'current_page' => 'int',
-        'event_end_time' => 'int',
-        'event_id' => 'string',
-        'event_start_time' => 'int',
-        'event_type' => 'string',
+        'client_ip' => 'string',
+        'content' => 'string',
+        'content_type' => 'string',
+        'description' => 'string',
+        'enable' => 'int',
         'host' => 'string',
-        'page_number' => 'int',
-        'page_size' => 'int',
-        'security_level' => 'string',
-        'total_count' => 'int'
+        'id' => 'int',
+        'isolation_id' => 'string',
+        'md5' => 'string',
+        'name' => 'string',
+        'policy' => 'int',
+        'update_time' => 'string',
+        'url' => 'string'
     ];
 
     /**
@@ -48,18 +49,19 @@ class QueryAttackSecurityEventResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'attack_count' => 'int32',
-        'count' => 'int32',
-        'current_page' => 'int32',
-        'event_end_time' => 'int32',
-        'event_id' => null,
-        'event_start_time' => 'int32',
-        'event_type' => null,
+        'client_ip' => null,
+        'content' => null,
+        'content_type' => null,
+        'description' => null,
+        'enable' => 'int32',
         'host' => null,
-        'page_number' => 'int32',
-        'page_size' => 'int32',
-        'security_level' => null,
-        'total_count' => 'int32'
+        'id' => 'int32',
+        'isolation_id' => null,
+        'md5' => null,
+        'name' => null,
+        'policy' => 'int32',
+        'update_time' => null,
+        'url' => null
     ];
 
     /**
@@ -89,18 +91,19 @@ class QueryAttackSecurityEventResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'attack_count' => 'AttackCount',
-        'count' => 'Count',
-        'current_page' => 'CurrentPage',
-        'event_end_time' => 'EventEndTime',
-        'event_id' => 'EventId',
-        'event_start_time' => 'EventStartTime',
-        'event_type' => 'EventType',
+        'client_ip' => 'ClientIp',
+        'content' => 'Content',
+        'content_type' => 'ContentType',
+        'description' => 'Description',
+        'enable' => 'Enable',
         'host' => 'Host',
-        'page_number' => 'PageNumber',
-        'page_size' => 'PageSize',
-        'security_level' => 'SecurityLevel',
-        'total_count' => 'TotalCount'
+        'id' => 'Id',
+        'isolation_id' => 'IsolationId',
+        'md5' => 'MD5',
+        'name' => 'Name',
+        'policy' => 'Policy',
+        'update_time' => 'UpdateTime',
+        'url' => 'Url'
     ];
 
     /**
@@ -109,18 +112,19 @@ class QueryAttackSecurityEventResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'attack_count' => 'setAttackCount',
-        'count' => 'setCount',
-        'current_page' => 'setCurrentPage',
-        'event_end_time' => 'setEventEndTime',
-        'event_id' => 'setEventId',
-        'event_start_time' => 'setEventStartTime',
-        'event_type' => 'setEventType',
+        'client_ip' => 'setClientIp',
+        'content' => 'setContent',
+        'content_type' => 'setContentType',
+        'description' => 'setDescription',
+        'enable' => 'setEnable',
         'host' => 'setHost',
-        'page_number' => 'setPageNumber',
-        'page_size' => 'setPageSize',
-        'security_level' => 'setSecurityLevel',
-        'total_count' => 'setTotalCount'
+        'id' => 'setId',
+        'isolation_id' => 'setIsolationId',
+        'md5' => 'setMd5',
+        'name' => 'setName',
+        'policy' => 'setPolicy',
+        'update_time' => 'setUpdateTime',
+        'url' => 'setUrl'
     ];
 
     /**
@@ -129,18 +133,19 @@ class QueryAttackSecurityEventResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'attack_count' => 'getAttackCount',
-        'count' => 'getCount',
-        'current_page' => 'getCurrentPage',
-        'event_end_time' => 'getEventEndTime',
-        'event_id' => 'getEventId',
-        'event_start_time' => 'getEventStartTime',
-        'event_type' => 'getEventType',
+        'client_ip' => 'getClientIp',
+        'content' => 'getContent',
+        'content_type' => 'getContentType',
+        'description' => 'getDescription',
+        'enable' => 'getEnable',
         'host' => 'getHost',
-        'page_number' => 'getPageNumber',
-        'page_size' => 'getPageSize',
-        'security_level' => 'getSecurityLevel',
-        'total_count' => 'getTotalCount'
+        'id' => 'getId',
+        'isolation_id' => 'getIsolationId',
+        'md5' => 'getMd5',
+        'name' => 'getName',
+        'policy' => 'getPolicy',
+        'update_time' => 'getUpdateTime',
+        'url' => 'getUrl'
     ];
 
     /**
@@ -203,18 +208,19 @@ class QueryAttackSecurityEventResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['attack_count'] = isset($data['attack_count']) ? $data['attack_count'] : null;
-        $this->container['count'] = isset($data['count']) ? $data['count'] : null;
-        $this->container['current_page'] = isset($data['current_page']) ? $data['current_page'] : null;
-        $this->container['event_end_time'] = isset($data['event_end_time']) ? $data['event_end_time'] : null;
-        $this->container['event_id'] = isset($data['event_id']) ? $data['event_id'] : null;
-        $this->container['event_start_time'] = isset($data['event_start_time']) ? $data['event_start_time'] : null;
-        $this->container['event_type'] = isset($data['event_type']) ? $data['event_type'] : null;
+        $this->container['client_ip'] = isset($data['client_ip']) ? $data['client_ip'] : null;
+        $this->container['content'] = isset($data['content']) ? $data['content'] : null;
+        $this->container['content_type'] = isset($data['content_type']) ? $data['content_type'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['enable'] = isset($data['enable']) ? $data['enable'] : null;
         $this->container['host'] = isset($data['host']) ? $data['host'] : null;
-        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
-        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
-        $this->container['security_level'] = isset($data['security_level']) ? $data['security_level'] : null;
-        $this->container['total_count'] = isset($data['total_count']) ? $data['total_count'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['isolation_id'] = isset($data['isolation_id']) ? $data['isolation_id'] : null;
+        $this->container['md5'] = isset($data['md5']) ? $data['md5'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['policy'] = isset($data['policy']) ? $data['policy'] : null;
+        $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
+        $this->container['url'] = isset($data['url']) ? $data['url'] : null;
     }
 
     /**
@@ -242,169 +248,121 @@ class QueryAttackSecurityEventResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets attack_count
-     *
-     * @return int
-     */
-    public function getAttackCount()
-    {
-        return $this->container['attack_count'];
-    }
-
-    /**
-     * Sets attack_count
-     *
-     * @param int $attack_count attack_count
-     *
-     * @return $this
-     */
-    public function setAttackCount($attack_count)
-    {
-        $this->container['attack_count'] = $attack_count;
-
-        return $this;
-    }
-
-    /**
-     * Gets count
-     *
-     * @return int
-     */
-    public function getCount()
-    {
-        return $this->container['count'];
-    }
-
-    /**
-     * Sets count
-     *
-     * @param int $count count
-     *
-     * @return $this
-     */
-    public function setCount($count)
-    {
-        $this->container['count'] = $count;
-
-        return $this;
-    }
-
-    /**
-     * Gets current_page
-     *
-     * @return int
-     */
-    public function getCurrentPage()
-    {
-        return $this->container['current_page'];
-    }
-
-    /**
-     * Sets current_page
-     *
-     * @param int $current_page current_page
-     *
-     * @return $this
-     */
-    public function setCurrentPage($current_page)
-    {
-        $this->container['current_page'] = $current_page;
-
-        return $this;
-    }
-
-    /**
-     * Gets event_end_time
-     *
-     * @return int
-     */
-    public function getEventEndTime()
-    {
-        return $this->container['event_end_time'];
-    }
-
-    /**
-     * Sets event_end_time
-     *
-     * @param int $event_end_time event_end_time
-     *
-     * @return $this
-     */
-    public function setEventEndTime($event_end_time)
-    {
-        $this->container['event_end_time'] = $event_end_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets event_id
+     * Gets client_ip
      *
      * @return string
      */
-    public function getEventId()
+    public function getClientIp()
     {
-        return $this->container['event_id'];
+        return $this->container['client_ip'];
     }
 
     /**
-     * Sets event_id
+     * Sets client_ip
      *
-     * @param string $event_id event_id
+     * @param string $client_ip client_ip
      *
      * @return $this
      */
-    public function setEventId($event_id)
+    public function setClientIp($client_ip)
     {
-        $this->container['event_id'] = $event_id;
+        $this->container['client_ip'] = $client_ip;
 
         return $this;
     }
 
     /**
-     * Gets event_start_time
-     *
-     * @return int
-     */
-    public function getEventStartTime()
-    {
-        return $this->container['event_start_time'];
-    }
-
-    /**
-     * Sets event_start_time
-     *
-     * @param int $event_start_time event_start_time
-     *
-     * @return $this
-     */
-    public function setEventStartTime($event_start_time)
-    {
-        $this->container['event_start_time'] = $event_start_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets event_type
+     * Gets content
      *
      * @return string
      */
-    public function getEventType()
+    public function getContent()
     {
-        return $this->container['event_type'];
+        return $this->container['content'];
     }
 
     /**
-     * Sets event_type
+     * Sets content
      *
-     * @param string $event_type event_type
+     * @param string $content content
      *
      * @return $this
      */
-    public function setEventType($event_type)
+    public function setContent($content)
     {
-        $this->container['event_type'] = $event_type;
+        $this->container['content'] = $content;
+
+        return $this;
+    }
+
+    /**
+     * Gets content_type
+     *
+     * @return string
+     */
+    public function getContentType()
+    {
+        return $this->container['content_type'];
+    }
+
+    /**
+     * Sets content_type
+     *
+     * @param string $content_type content_type
+     *
+     * @return $this
+     */
+    public function setContentType($content_type)
+    {
+        $this->container['content_type'] = $content_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string $description description
+     *
+     * @return $this
+     */
+    public function setDescription($description)
+    {
+        $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets enable
+     *
+     * @return int
+     */
+    public function getEnable()
+    {
+        return $this->container['enable'];
+    }
+
+    /**
+     * Sets enable
+     *
+     * @param int $enable enable
+     *
+     * @return $this
+     */
+    public function setEnable($enable)
+    {
+        $this->container['enable'] = $enable;
 
         return $this;
     }
@@ -434,97 +392,169 @@ class QueryAttackSecurityEventResponse implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets page_number
+     * Gets id
      *
      * @return int
      */
-    public function getPageNumber()
+    public function getId()
     {
-        return $this->container['page_number'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets page_number
+     * Sets id
      *
-     * @param int $page_number page_number
+     * @param int $id id
      *
      * @return $this
      */
-    public function setPageNumber($page_number)
+    public function setId($id)
     {
-        $this->container['page_number'] = $page_number;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets page_size
-     *
-     * @return int
-     */
-    public function getPageSize()
-    {
-        return $this->container['page_size'];
-    }
-
-    /**
-     * Sets page_size
-     *
-     * @param int $page_size page_size
-     *
-     * @return $this
-     */
-    public function setPageSize($page_size)
-    {
-        $this->container['page_size'] = $page_size;
-
-        return $this;
-    }
-
-    /**
-     * Gets security_level
+     * Gets isolation_id
      *
      * @return string
      */
-    public function getSecurityLevel()
+    public function getIsolationId()
     {
-        return $this->container['security_level'];
+        return $this->container['isolation_id'];
     }
 
     /**
-     * Sets security_level
+     * Sets isolation_id
      *
-     * @param string $security_level security_level
+     * @param string $isolation_id isolation_id
      *
      * @return $this
      */
-    public function setSecurityLevel($security_level)
+    public function setIsolationId($isolation_id)
     {
-        $this->container['security_level'] = $security_level;
+        $this->container['isolation_id'] = $isolation_id;
 
         return $this;
     }
 
     /**
-     * Gets total_count
+     * Gets md5
      *
-     * @return int
+     * @return string
      */
-    public function getTotalCount()
+    public function getMd5()
     {
-        return $this->container['total_count'];
+        return $this->container['md5'];
     }
 
     /**
-     * Sets total_count
+     * Sets md5
      *
-     * @param int $total_count total_count
+     * @param string $md5 md5
      *
      * @return $this
      */
-    public function setTotalCount($total_count)
+    public function setMd5($md5)
     {
-        $this->container['total_count'] = $total_count;
+        $this->container['md5'] = $md5;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name name
+     *
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets policy
+     *
+     * @return int
+     */
+    public function getPolicy()
+    {
+        return $this->container['policy'];
+    }
+
+    /**
+     * Sets policy
+     *
+     * @param int $policy policy
+     *
+     * @return $this
+     */
+    public function setPolicy($policy)
+    {
+        $this->container['policy'] = $policy;
+
+        return $this;
+    }
+
+    /**
+     * Gets update_time
+     *
+     * @return string
+     */
+    public function getUpdateTime()
+    {
+        return $this->container['update_time'];
+    }
+
+    /**
+     * Sets update_time
+     *
+     * @param string $update_time update_time
+     *
+     * @return $this
+     */
+    public function setUpdateTime($update_time)
+    {
+        $this->container['update_time'] = $update_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets url
+     *
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->container['url'];
+    }
+
+    /**
+     * Sets url
+     *
+     * @param string $url url
+     *
+     * @return $this
+     */
+    public function setUrl($url)
+    {
+        $this->container['url'] = $url;
 
         return $this;
     }
