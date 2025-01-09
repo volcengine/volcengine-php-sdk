@@ -31,7 +31,8 @@ class GenerateMacRequest implements ModelInterface, ArrayAccess
         'key_id' => 'string',
         'key_name' => 'string',
         'keyring_name' => 'string',
-        'mac_algorithm' => 'string'
+        'mac_algorithm' => 'string',
+        'message' => 'string'
     ];
 
     /**
@@ -43,7 +44,8 @@ class GenerateMacRequest implements ModelInterface, ArrayAccess
         'key_id' => null,
         'key_name' => null,
         'keyring_name' => null,
-        'mac_algorithm' => null
+        'mac_algorithm' => null,
+        'message' => null
     ];
 
     /**
@@ -76,7 +78,8 @@ class GenerateMacRequest implements ModelInterface, ArrayAccess
         'key_id' => 'KeyID',
         'key_name' => 'KeyName',
         'keyring_name' => 'KeyringName',
-        'mac_algorithm' => 'MacAlgorithm'
+        'mac_algorithm' => 'MacAlgorithm',
+        'message' => 'Message'
     ];
 
     /**
@@ -88,7 +91,8 @@ class GenerateMacRequest implements ModelInterface, ArrayAccess
         'key_id' => 'setKeyId',
         'key_name' => 'setKeyName',
         'keyring_name' => 'setKeyringName',
-        'mac_algorithm' => 'setMacAlgorithm'
+        'mac_algorithm' => 'setMacAlgorithm',
+        'message' => 'setMessage'
     ];
 
     /**
@@ -100,7 +104,8 @@ class GenerateMacRequest implements ModelInterface, ArrayAccess
         'key_id' => 'getKeyId',
         'key_name' => 'getKeyName',
         'keyring_name' => 'getKeyringName',
-        'mac_algorithm' => 'getMacAlgorithm'
+        'mac_algorithm' => 'getMacAlgorithm',
+        'message' => 'getMessage'
     ];
 
     /**
@@ -167,6 +172,7 @@ class GenerateMacRequest implements ModelInterface, ArrayAccess
         $this->container['key_name'] = isset($data['key_name']) ? $data['key_name'] : null;
         $this->container['keyring_name'] = isset($data['keyring_name']) ? $data['keyring_name'] : null;
         $this->container['mac_algorithm'] = isset($data['mac_algorithm']) ? $data['mac_algorithm'] : null;
+        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
     }
 
     /**
@@ -180,6 +186,9 @@ class GenerateMacRequest implements ModelInterface, ArrayAccess
 
         if ($this->container['mac_algorithm'] === null) {
             $invalidProperties[] = "'mac_algorithm' can't be null";
+        }
+        if ($this->container['message'] === null) {
+            $invalidProperties[] = "'message' can't be null";
         }
         return $invalidProperties;
     }
@@ -288,6 +297,30 @@ class GenerateMacRequest implements ModelInterface, ArrayAccess
     public function setMacAlgorithm($mac_algorithm)
     {
         $this->container['mac_algorithm'] = $mac_algorithm;
+
+        return $this;
+    }
+
+    /**
+     * Gets message
+     *
+     * @return string
+     */
+    public function getMessage()
+    {
+        return $this->container['message'];
+    }
+
+    /**
+     * Sets message
+     *
+     * @param string $message message
+     *
+     * @return $this
+     */
+    public function setMessage($message)
+    {
+        $this->container['message'] = $message;
 
         return $this;
     }

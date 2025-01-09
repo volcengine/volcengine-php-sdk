@@ -30,6 +30,7 @@ class DescribeKeysRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'current_page' => 'int',
         'filters' => 'string',
+        'keyring_id' => 'string',
         'keyring_name' => 'string',
         'page_size' => 'int'
     ];
@@ -42,6 +43,7 @@ class DescribeKeysRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'current_page' => 'int32',
         'filters' => null,
+        'keyring_id' => null,
         'keyring_name' => null,
         'page_size' => 'int32'
     ];
@@ -75,6 +77,7 @@ class DescribeKeysRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'current_page' => 'CurrentPage',
         'filters' => 'Filters',
+        'keyring_id' => 'KeyringID',
         'keyring_name' => 'KeyringName',
         'page_size' => 'PageSize'
     ];
@@ -87,6 +90,7 @@ class DescribeKeysRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'current_page' => 'setCurrentPage',
         'filters' => 'setFilters',
+        'keyring_id' => 'setKeyringId',
         'keyring_name' => 'setKeyringName',
         'page_size' => 'setPageSize'
     ];
@@ -99,6 +103,7 @@ class DescribeKeysRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'current_page' => 'getCurrentPage',
         'filters' => 'getFilters',
+        'keyring_id' => 'getKeyringId',
         'keyring_name' => 'getKeyringName',
         'page_size' => 'getPageSize'
     ];
@@ -165,6 +170,7 @@ class DescribeKeysRequest implements ModelInterface, ArrayAccess
     {
         $this->container['current_page'] = isset($data['current_page']) ? $data['current_page'] : null;
         $this->container['filters'] = isset($data['filters']) ? $data['filters'] : null;
+        $this->container['keyring_id'] = isset($data['keyring_id']) ? $data['keyring_id'] : null;
         $this->container['keyring_name'] = isset($data['keyring_name']) ? $data['keyring_name'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
     }
@@ -178,9 +184,6 @@ class DescribeKeysRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['keyring_name'] === null) {
-            $invalidProperties[] = "'keyring_name' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -240,6 +243,30 @@ class DescribeKeysRequest implements ModelInterface, ArrayAccess
     public function setFilters($filters)
     {
         $this->container['filters'] = $filters;
+
+        return $this;
+    }
+
+    /**
+     * Gets keyring_id
+     *
+     * @return string
+     */
+    public function getKeyringId()
+    {
+        return $this->container['keyring_id'];
+    }
+
+    /**
+     * Sets keyring_id
+     *
+     * @param string $keyring_id keyring_id
+     *
+     * @return $this
+     */
+    public function setKeyringId($keyring_id)
+    {
+        $this->container['keyring_id'] = $keyring_id;
 
         return $this;
     }

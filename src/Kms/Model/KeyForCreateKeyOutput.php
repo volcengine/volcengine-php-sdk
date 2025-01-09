@@ -30,7 +30,6 @@ class KeyForCreateKeyOutput implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'creation_date' => 'int',
         'description' => 'string',
-        'encryption_algorithms' => 'string',
         'id' => 'string',
         'key_material_expire_time' => 'string',
         'key_name' => 'string',
@@ -55,7 +54,6 @@ class KeyForCreateKeyOutput implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'creation_date' => 'int64',
         'description' => null,
-        'encryption_algorithms' => null,
         'id' => null,
         'key_material_expire_time' => null,
         'key_name' => null,
@@ -101,7 +99,6 @@ class KeyForCreateKeyOutput implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'creation_date' => 'CreationDate',
         'description' => 'Description',
-        'encryption_algorithms' => 'EncryptionAlgorithms',
         'id' => 'ID',
         'key_material_expire_time' => 'KeyMaterialExpireTime',
         'key_name' => 'KeyName',
@@ -126,7 +123,6 @@ class KeyForCreateKeyOutput implements ModelInterface, ArrayAccess
     protected static $setters = [
         'creation_date' => 'setCreationDate',
         'description' => 'setDescription',
-        'encryption_algorithms' => 'setEncryptionAlgorithms',
         'id' => 'setId',
         'key_material_expire_time' => 'setKeyMaterialExpireTime',
         'key_name' => 'setKeyName',
@@ -151,7 +147,6 @@ class KeyForCreateKeyOutput implements ModelInterface, ArrayAccess
     protected static $getters = [
         'creation_date' => 'getCreationDate',
         'description' => 'getDescription',
-        'encryption_algorithms' => 'getEncryptionAlgorithms',
         'id' => 'getId',
         'key_material_expire_time' => 'getKeyMaterialExpireTime',
         'key_name' => 'getKeyName',
@@ -230,7 +225,6 @@ class KeyForCreateKeyOutput implements ModelInterface, ArrayAccess
     {
         $this->container['creation_date'] = isset($data['creation_date']) ? $data['creation_date'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['encryption_algorithms'] = isset($data['encryption_algorithms']) ? $data['encryption_algorithms'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['key_material_expire_time'] = isset($data['key_material_expire_time']) ? $data['key_material_expire_time'] : null;
         $this->container['key_name'] = isset($data['key_name']) ? $data['key_name'] : null;
@@ -315,30 +309,6 @@ class KeyForCreateKeyOutput implements ModelInterface, ArrayAccess
     public function setDescription($description)
     {
         $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets encryption_algorithms
-     *
-     * @return string
-     */
-    public function getEncryptionAlgorithms()
-    {
-        return $this->container['encryption_algorithms'];
-    }
-
-    /**
-     * Sets encryption_algorithms
-     *
-     * @param string $encryption_algorithms encryption_algorithms
-     *
-     * @return $this
-     */
-    public function setEncryptionAlgorithms($encryption_algorithms)
-    {
-        $this->container['encryption_algorithms'] = $encryption_algorithms;
 
         return $this;
     }
