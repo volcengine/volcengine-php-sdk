@@ -30,6 +30,7 @@ class QueryAttackSecurityEventResponse implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'attack_count' => 'int',
         'count' => 'int',
+        'current_page' => 'int',
         'event_end_time' => 'int',
         'event_id' => 'string',
         'event_start_time' => 'int',
@@ -49,6 +50,7 @@ class QueryAttackSecurityEventResponse implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'attack_count' => 'int32',
         'count' => 'int32',
+        'current_page' => 'int32',
         'event_end_time' => 'int32',
         'event_id' => null,
         'event_start_time' => 'int32',
@@ -89,6 +91,7 @@ class QueryAttackSecurityEventResponse implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'attack_count' => 'AttackCount',
         'count' => 'Count',
+        'current_page' => 'CurrentPage',
         'event_end_time' => 'EventEndTime',
         'event_id' => 'EventId',
         'event_start_time' => 'EventStartTime',
@@ -108,6 +111,7 @@ class QueryAttackSecurityEventResponse implements ModelInterface, ArrayAccess
     protected static $setters = [
         'attack_count' => 'setAttackCount',
         'count' => 'setCount',
+        'current_page' => 'setCurrentPage',
         'event_end_time' => 'setEventEndTime',
         'event_id' => 'setEventId',
         'event_start_time' => 'setEventStartTime',
@@ -127,6 +131,7 @@ class QueryAttackSecurityEventResponse implements ModelInterface, ArrayAccess
     protected static $getters = [
         'attack_count' => 'getAttackCount',
         'count' => 'getCount',
+        'current_page' => 'getCurrentPage',
         'event_end_time' => 'getEventEndTime',
         'event_id' => 'getEventId',
         'event_start_time' => 'getEventStartTime',
@@ -200,6 +205,7 @@ class QueryAttackSecurityEventResponse implements ModelInterface, ArrayAccess
     {
         $this->container['attack_count'] = isset($data['attack_count']) ? $data['attack_count'] : null;
         $this->container['count'] = isset($data['count']) ? $data['count'] : null;
+        $this->container['current_page'] = isset($data['current_page']) ? $data['current_page'] : null;
         $this->container['event_end_time'] = isset($data['event_end_time']) ? $data['event_end_time'] : null;
         $this->container['event_id'] = isset($data['event_id']) ? $data['event_id'] : null;
         $this->container['event_start_time'] = isset($data['event_start_time']) ? $data['event_start_time'] : null;
@@ -279,6 +285,30 @@ class QueryAttackSecurityEventResponse implements ModelInterface, ArrayAccess
     public function setCount($count)
     {
         $this->container['count'] = $count;
+
+        return $this;
+    }
+
+    /**
+     * Gets current_page
+     *
+     * @return int
+     */
+    public function getCurrentPage()
+    {
+        return $this->container['current_page'];
+    }
+
+    /**
+     * Sets current_page
+     *
+     * @param int $current_page current_page
+     *
+     * @return $this
+     */
+    public function setCurrentPage($current_page)
+    {
+        $this->container['current_page'] = $current_page;
 
         return $this;
     }

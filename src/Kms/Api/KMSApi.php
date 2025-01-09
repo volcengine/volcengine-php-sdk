@@ -188,13 +188,13 @@ class KMSApi
             );
         }
 
-        $resourcePath = '/ArchiveKey/2021-02-18/kms/post/application_json/';
+        $resourcePath = '/ArchiveKey/2021-02-18/kms/get/text_plain/';
         $queryParams = [];
         $httpBody = $body;
 
         $headers = $this->headerSelector->selectHeaders(
             ['application/json'],
-            ['application/json']
+            ['text/plain']
         );
 
         $defaultHeaders = [];
@@ -4580,13 +4580,13 @@ class KMSApi
             );
         }
 
-        $resourcePath = '/DisableKeyRotation/2021-02-18/kms/post/application_json/';
+        $resourcePath = '/DisableKeyRotation/2021-02-18/kms/get/text_plain/';
         $queryParams = [];
         $httpBody = $body;
 
         $headers = $this->headerSelector->selectHeaders(
             ['application/json'],
-            ['application/json']
+            ['text/plain']
         );
 
         $defaultHeaders = [];
@@ -4763,13 +4763,13 @@ class KMSApi
             );
         }
 
-        $resourcePath = '/EnableKey/2021-02-18/kms/post/application_json/';
+        $resourcePath = '/EnableKey/2021-02-18/kms/get/text_plain/';
         $queryParams = [];
         $httpBody = $body;
 
         $headers = $this->headerSelector->selectHeaders(
             ['application/json'],
-            ['application/json']
+            ['text/plain']
         );
 
         $defaultHeaders = [];
@@ -6410,13 +6410,13 @@ class KMSApi
             );
         }
 
-        $resourcePath = '/QueryKeyring/2021-02-18/kms/post/application_json/';
+        $resourcePath = '/QueryKeyring/2021-02-18/kms/get/text_plain/';
         $queryParams = [];
         $httpBody = $body;
 
         $headers = $this->headerSelector->selectHeaders(
             ['application/json'],
-            ['application/json']
+            ['text/plain']
         );
 
         $defaultHeaders = [];
@@ -7874,13 +7874,13 @@ class KMSApi
             );
         }
 
-        $resourcePath = '/UpdateKeyring/2021-02-18/kms/post/application_json/';
+        $resourcePath = '/UpdateKeyring/2021-02-18/kms/get/text_plain/';
         $queryParams = [];
         $httpBody = $body;
 
         $headers = $this->headerSelector->selectHeaders(
             ['application/json'],
-            ['application/json']
+            ['text/plain']
         );
 
         $defaultHeaders = [];

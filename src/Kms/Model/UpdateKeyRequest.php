@@ -29,6 +29,7 @@ class UpdateKeyRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'description' => 'string',
+        'key_id' => 'string',
         'key_name' => 'string',
         'keyring_name' => 'string',
         'new_key_name' => 'string'
@@ -41,6 +42,7 @@ class UpdateKeyRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'description' => null,
+        'key_id' => null,
         'key_name' => null,
         'keyring_name' => null,
         'new_key_name' => null
@@ -74,6 +76,7 @@ class UpdateKeyRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'description' => 'Description',
+        'key_id' => 'KeyID',
         'key_name' => 'KeyName',
         'keyring_name' => 'KeyringName',
         'new_key_name' => 'NewKeyName'
@@ -86,6 +89,7 @@ class UpdateKeyRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'description' => 'setDescription',
+        'key_id' => 'setKeyId',
         'key_name' => 'setKeyName',
         'keyring_name' => 'setKeyringName',
         'new_key_name' => 'setNewKeyName'
@@ -98,6 +102,7 @@ class UpdateKeyRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'description' => 'getDescription',
+        'key_id' => 'getKeyId',
         'key_name' => 'getKeyName',
         'keyring_name' => 'getKeyringName',
         'new_key_name' => 'getNewKeyName'
@@ -164,6 +169,7 @@ class UpdateKeyRequest implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['key_id'] = isset($data['key_id']) ? $data['key_id'] : null;
         $this->container['key_name'] = isset($data['key_name']) ? $data['key_name'] : null;
         $this->container['keyring_name'] = isset($data['keyring_name']) ? $data['keyring_name'] : null;
         $this->container['new_key_name'] = isset($data['new_key_name']) ? $data['new_key_name'] : null;
@@ -178,12 +184,6 @@ class UpdateKeyRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['key_name'] === null) {
-            $invalidProperties[] = "'key_name' can't be null";
-        }
-        if ($this->container['keyring_name'] === null) {
-            $invalidProperties[] = "'keyring_name' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -219,6 +219,30 @@ class UpdateKeyRequest implements ModelInterface, ArrayAccess
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets key_id
+     *
+     * @return string
+     */
+    public function getKeyId()
+    {
+        return $this->container['key_id'];
+    }
+
+    /**
+     * Sets key_id
+     *
+     * @param string $key_id key_id
+     *
+     * @return $this
+     */
+    public function setKeyId($key_id)
+    {
+        $this->container['key_id'] = $key_id;
 
         return $this;
     }

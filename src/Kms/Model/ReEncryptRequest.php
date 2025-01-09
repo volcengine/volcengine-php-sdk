@@ -30,6 +30,7 @@ class ReEncryptRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'ciphertext_blob' => 'string',
         'new_encryption_context' => 'map[string,string]',
+        'new_key_id' => 'string',
         'new_key_name' => 'string',
         'new_keyring_name' => 'string',
         'old_encryption_context' => 'map[string,string]'
@@ -43,6 +44,7 @@ class ReEncryptRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'ciphertext_blob' => null,
         'new_encryption_context' => null,
+        'new_key_id' => null,
         'new_key_name' => null,
         'new_keyring_name' => null,
         'old_encryption_context' => null
@@ -77,6 +79,7 @@ class ReEncryptRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'ciphertext_blob' => 'CiphertextBlob',
         'new_encryption_context' => 'NewEncryptionContext',
+        'new_key_id' => 'NewKeyID',
         'new_key_name' => 'NewKeyName',
         'new_keyring_name' => 'NewKeyringName',
         'old_encryption_context' => 'OldEncryptionContext'
@@ -90,6 +93,7 @@ class ReEncryptRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'ciphertext_blob' => 'setCiphertextBlob',
         'new_encryption_context' => 'setNewEncryptionContext',
+        'new_key_id' => 'setNewKeyId',
         'new_key_name' => 'setNewKeyName',
         'new_keyring_name' => 'setNewKeyringName',
         'old_encryption_context' => 'setOldEncryptionContext'
@@ -103,6 +107,7 @@ class ReEncryptRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'ciphertext_blob' => 'getCiphertextBlob',
         'new_encryption_context' => 'getNewEncryptionContext',
+        'new_key_id' => 'getNewKeyId',
         'new_key_name' => 'getNewKeyName',
         'new_keyring_name' => 'getNewKeyringName',
         'old_encryption_context' => 'getOldEncryptionContext'
@@ -170,6 +175,7 @@ class ReEncryptRequest implements ModelInterface, ArrayAccess
     {
         $this->container['ciphertext_blob'] = isset($data['ciphertext_blob']) ? $data['ciphertext_blob'] : null;
         $this->container['new_encryption_context'] = isset($data['new_encryption_context']) ? $data['new_encryption_context'] : null;
+        $this->container['new_key_id'] = isset($data['new_key_id']) ? $data['new_key_id'] : null;
         $this->container['new_key_name'] = isset($data['new_key_name']) ? $data['new_key_name'] : null;
         $this->container['new_keyring_name'] = isset($data['new_keyring_name']) ? $data['new_keyring_name'] : null;
         $this->container['old_encryption_context'] = isset($data['old_encryption_context']) ? $data['old_encryption_context'] : null;
@@ -186,12 +192,6 @@ class ReEncryptRequest implements ModelInterface, ArrayAccess
 
         if ($this->container['ciphertext_blob'] === null) {
             $invalidProperties[] = "'ciphertext_blob' can't be null";
-        }
-        if ($this->container['new_key_name'] === null) {
-            $invalidProperties[] = "'new_key_name' can't be null";
-        }
-        if ($this->container['new_keyring_name'] === null) {
-            $invalidProperties[] = "'new_keyring_name' can't be null";
         }
         return $invalidProperties;
     }
@@ -252,6 +252,30 @@ class ReEncryptRequest implements ModelInterface, ArrayAccess
     public function setNewEncryptionContext($new_encryption_context)
     {
         $this->container['new_encryption_context'] = $new_encryption_context;
+
+        return $this;
+    }
+
+    /**
+     * Gets new_key_id
+     *
+     * @return string
+     */
+    public function getNewKeyId()
+    {
+        return $this->container['new_key_id'];
+    }
+
+    /**
+     * Sets new_key_id
+     *
+     * @param string $new_key_id new_key_id
+     *
+     * @return $this
+     */
+    public function setNewKeyId($new_key_id)
+    {
+        $this->container['new_key_id'] = $new_key_id;
 
         return $this;
     }

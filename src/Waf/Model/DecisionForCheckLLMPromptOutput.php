@@ -28,9 +28,12 @@ class DecisionForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'action' => 'int',
+        'custom_matches' => '\Volcengine\Waf\Model\CustomMatchForCheckLLMPromptOutput[]',
         'err_code' => 'int',
         'err_msg' => 'string',
-        'labels' => 'string[]'
+        'labels' => 'string[]',
+        'matches' => '\Volcengine\Waf\Model\MatchForCheckLLMPromptOutput[]'
     ];
 
     /**
@@ -39,9 +42,12 @@ class DecisionForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'action' => 'int32',
+        'custom_matches' => null,
         'err_code' => 'int32',
         'err_msg' => null,
-        'labels' => null
+        'labels' => null,
+        'matches' => null
     ];
 
     /**
@@ -71,9 +77,12 @@ class DecisionForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'action' => 'Action',
+        'custom_matches' => 'CustomMatches',
         'err_code' => 'ErrCode',
         'err_msg' => 'ErrMsg',
-        'labels' => 'Labels'
+        'labels' => 'Labels',
+        'matches' => 'Matches'
     ];
 
     /**
@@ -82,9 +91,12 @@ class DecisionForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'action' => 'setAction',
+        'custom_matches' => 'setCustomMatches',
         'err_code' => 'setErrCode',
         'err_msg' => 'setErrMsg',
-        'labels' => 'setLabels'
+        'labels' => 'setLabels',
+        'matches' => 'setMatches'
     ];
 
     /**
@@ -93,9 +105,12 @@ class DecisionForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'action' => 'getAction',
+        'custom_matches' => 'getCustomMatches',
         'err_code' => 'getErrCode',
         'err_msg' => 'getErrMsg',
-        'labels' => 'getLabels'
+        'labels' => 'getLabels',
+        'matches' => 'getMatches'
     ];
 
     /**
@@ -158,9 +173,12 @@ class DecisionForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['action'] = isset($data['action']) ? $data['action'] : null;
+        $this->container['custom_matches'] = isset($data['custom_matches']) ? $data['custom_matches'] : null;
         $this->container['err_code'] = isset($data['err_code']) ? $data['err_code'] : null;
         $this->container['err_msg'] = isset($data['err_msg']) ? $data['err_msg'] : null;
         $this->container['labels'] = isset($data['labels']) ? $data['labels'] : null;
+        $this->container['matches'] = isset($data['matches']) ? $data['matches'] : null;
     }
 
     /**
@@ -186,6 +204,54 @@ class DecisionForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets action
+     *
+     * @return int
+     */
+    public function getAction()
+    {
+        return $this->container['action'];
+    }
+
+    /**
+     * Sets action
+     *
+     * @param int $action action
+     *
+     * @return $this
+     */
+    public function setAction($action)
+    {
+        $this->container['action'] = $action;
+
+        return $this;
+    }
+
+    /**
+     * Gets custom_matches
+     *
+     * @return \Volcengine\Waf\Model\CustomMatchForCheckLLMPromptOutput[]
+     */
+    public function getCustomMatches()
+    {
+        return $this->container['custom_matches'];
+    }
+
+    /**
+     * Sets custom_matches
+     *
+     * @param \Volcengine\Waf\Model\CustomMatchForCheckLLMPromptOutput[] $custom_matches custom_matches
+     *
+     * @return $this
+     */
+    public function setCustomMatches($custom_matches)
+    {
+        $this->container['custom_matches'] = $custom_matches;
+
+        return $this;
+    }
 
     /**
      * Gets err_code
@@ -255,6 +321,30 @@ class DecisionForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
     public function setLabels($labels)
     {
         $this->container['labels'] = $labels;
+
+        return $this;
+    }
+
+    /**
+     * Gets matches
+     *
+     * @return \Volcengine\Waf\Model\MatchForCheckLLMPromptOutput[]
+     */
+    public function getMatches()
+    {
+        return $this->container['matches'];
+    }
+
+    /**
+     * Sets matches
+     *
+     * @param \Volcengine\Waf\Model\MatchForCheckLLMPromptOutput[] $matches matches
+     *
+     * @return $this
+     */
+    public function setMatches($matches)
+    {
+        $this->container['matches'] = $matches;
 
         return $this;
     }

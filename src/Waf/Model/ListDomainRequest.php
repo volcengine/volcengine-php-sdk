@@ -280,9 +280,6 @@ class ListDomainRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['accurate_query'] === null) {
-            $invalidProperties[] = "'accurate_query' can't be null";
-        }
         if ($this->container['page'] === null) {
             $invalidProperties[] = "'page' can't be null";
         }
