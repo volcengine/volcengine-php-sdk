@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class DecisionForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
+class DeleteTamperProofRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class DecisionForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'DecisionForCheckLLMPromptOutput';
+    protected static $swaggerModelName = 'DeleteTamperProofRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,9 @@ class DecisionForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'action' => 'int',
-        'custom_matches' => '\Volcengine\Waf\Model\CustomMatchForCheckLLMPromptOutput[]',
-        'err_code' => 'int',
-        'err_msg' => 'string',
-        'labels' => 'string[]',
-        'matches' => '\Volcengine\Waf\Model\MatchForCheckLLMPromptOutput[]'
+        'host' => 'string',
+        'id' => 'int',
+        'project_name' => 'string'
     ];
 
     /**
@@ -42,12 +39,9 @@ class DecisionForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'action' => 'int32',
-        'custom_matches' => null,
-        'err_code' => 'int32',
-        'err_msg' => null,
-        'labels' => null,
-        'matches' => null
+        'host' => null,
+        'id' => 'int32',
+        'project_name' => null
     ];
 
     /**
@@ -77,12 +71,9 @@ class DecisionForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'action' => 'Action',
-        'custom_matches' => 'CustomMatches',
-        'err_code' => 'ErrCode',
-        'err_msg' => 'ErrMsg',
-        'labels' => 'Labels',
-        'matches' => 'Matches'
+        'host' => 'Host',
+        'id' => 'ID',
+        'project_name' => 'ProjectName'
     ];
 
     /**
@@ -91,12 +82,9 @@ class DecisionForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'action' => 'setAction',
-        'custom_matches' => 'setCustomMatches',
-        'err_code' => 'setErrCode',
-        'err_msg' => 'setErrMsg',
-        'labels' => 'setLabels',
-        'matches' => 'setMatches'
+        'host' => 'setHost',
+        'id' => 'setId',
+        'project_name' => 'setProjectName'
     ];
 
     /**
@@ -105,12 +93,9 @@ class DecisionForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'action' => 'getAction',
-        'custom_matches' => 'getCustomMatches',
-        'err_code' => 'getErrCode',
-        'err_msg' => 'getErrMsg',
-        'labels' => 'getLabels',
-        'matches' => 'getMatches'
+        'host' => 'getHost',
+        'id' => 'getId',
+        'project_name' => 'getProjectName'
     ];
 
     /**
@@ -173,12 +158,9 @@ class DecisionForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['action'] = isset($data['action']) ? $data['action'] : null;
-        $this->container['custom_matches'] = isset($data['custom_matches']) ? $data['custom_matches'] : null;
-        $this->container['err_code'] = isset($data['err_code']) ? $data['err_code'] : null;
-        $this->container['err_msg'] = isset($data['err_msg']) ? $data['err_msg'] : null;
-        $this->container['labels'] = isset($data['labels']) ? $data['labels'] : null;
-        $this->container['matches'] = isset($data['matches']) ? $data['matches'] : null;
+        $this->container['host'] = isset($data['host']) ? $data['host'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
     }
 
     /**
@@ -190,6 +172,12 @@ class DecisionForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['host'] === null) {
+            $invalidProperties[] = "'host' can't be null";
+        }
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -206,145 +194,73 @@ class DecisionForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets action
-     *
-     * @return int
-     */
-    public function getAction()
-    {
-        return $this->container['action'];
-    }
-
-    /**
-     * Sets action
-     *
-     * @param int $action action
-     *
-     * @return $this
-     */
-    public function setAction($action)
-    {
-        $this->container['action'] = $action;
-
-        return $this;
-    }
-
-    /**
-     * Gets custom_matches
-     *
-     * @return \Volcengine\Waf\Model\CustomMatchForCheckLLMPromptOutput[]
-     */
-    public function getCustomMatches()
-    {
-        return $this->container['custom_matches'];
-    }
-
-    /**
-     * Sets custom_matches
-     *
-     * @param \Volcengine\Waf\Model\CustomMatchForCheckLLMPromptOutput[] $custom_matches custom_matches
-     *
-     * @return $this
-     */
-    public function setCustomMatches($custom_matches)
-    {
-        $this->container['custom_matches'] = $custom_matches;
-
-        return $this;
-    }
-
-    /**
-     * Gets err_code
-     *
-     * @return int
-     */
-    public function getErrCode()
-    {
-        return $this->container['err_code'];
-    }
-
-    /**
-     * Sets err_code
-     *
-     * @param int $err_code err_code
-     *
-     * @return $this
-     */
-    public function setErrCode($err_code)
-    {
-        $this->container['err_code'] = $err_code;
-
-        return $this;
-    }
-
-    /**
-     * Gets err_msg
+     * Gets host
      *
      * @return string
      */
-    public function getErrMsg()
+    public function getHost()
     {
-        return $this->container['err_msg'];
+        return $this->container['host'];
     }
 
     /**
-     * Sets err_msg
+     * Sets host
      *
-     * @param string $err_msg err_msg
+     * @param string $host host
      *
      * @return $this
      */
-    public function setErrMsg($err_msg)
+    public function setHost($host)
     {
-        $this->container['err_msg'] = $err_msg;
+        $this->container['host'] = $host;
 
         return $this;
     }
 
     /**
-     * Gets labels
+     * Gets id
      *
-     * @return string[]
+     * @return int
      */
-    public function getLabels()
+    public function getId()
     {
-        return $this->container['labels'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets labels
+     * Sets id
      *
-     * @param string[] $labels labels
+     * @param int $id id
      *
      * @return $this
      */
-    public function setLabels($labels)
+    public function setId($id)
     {
-        $this->container['labels'] = $labels;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets matches
+     * Gets project_name
      *
-     * @return \Volcengine\Waf\Model\MatchForCheckLLMPromptOutput[]
+     * @return string
      */
-    public function getMatches()
+    public function getProjectName()
     {
-        return $this->container['matches'];
+        return $this->container['project_name'];
     }
 
     /**
-     * Sets matches
+     * Sets project_name
      *
-     * @param \Volcengine\Waf\Model\MatchForCheckLLMPromptOutput[] $matches matches
+     * @param string $project_name project_name
      *
      * @return $this
      */
-    public function setMatches($matches)
+    public function setProjectName($project_name)
     {
-        $this->container['matches'] = $matches;
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }

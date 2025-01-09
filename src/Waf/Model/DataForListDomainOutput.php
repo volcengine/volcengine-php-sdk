@@ -69,7 +69,7 @@ class DataForListDomainOutput implements ModelInterface, ArrayAccess
         'port' => 'int',
         'protocol_follow' => 'int',
         'protocol_ports' => '\Volcengine\Waf\Model\ProtocolPortsForListDomainOutput',
-        'protocols' => 'string[]',
+        'protocols' => 'string',
         'proxy_config' => 'int',
         'proxy_connect_time_out' => 'int',
         'proxy_keep_alive' => 'int',
@@ -1576,7 +1576,7 @@ class DataForListDomainOutput implements ModelInterface, ArrayAccess
     /**
      * Gets protocols
      *
-     * @return string[]
+     * @return string
      */
     public function getProtocols()
     {
@@ -1586,7 +1586,7 @@ class DataForListDomainOutput implements ModelInterface, ArrayAccess
     /**
      * Sets protocols
      *
-     * @param string[] $protocols protocols
+     * @param string $protocols protocols
      *
      * @return $this
      */

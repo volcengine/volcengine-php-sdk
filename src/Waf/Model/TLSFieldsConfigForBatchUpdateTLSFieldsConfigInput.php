@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class DecisionForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
+class TLSFieldsConfigForBatchUpdateTLSFieldsConfigInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class DecisionForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'DecisionForCheckLLMPromptOutput';
+    protected static $swaggerModelName = 'TLSFieldsConfigForBatchUpdateTLSFieldsConfigInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,7 @@ class DecisionForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'action' => 'int',
-        'custom_matches' => '\Volcengine\Waf\Model\CustomMatchForCheckLLMPromptOutput[]',
-        'err_code' => 'int',
-        'err_msg' => 'string',
-        'labels' => 'string[]',
-        'matches' => '\Volcengine\Waf\Model\MatchForCheckLLMPromptOutput[]'
+        'headers_config' => '\Volcengine\Waf\Model\HeadersConfigForBatchUpdateTLSFieldsConfigInput'
     ];
 
     /**
@@ -42,12 +37,7 @@ class DecisionForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'action' => 'int32',
-        'custom_matches' => null,
-        'err_code' => 'int32',
-        'err_msg' => null,
-        'labels' => null,
-        'matches' => null
+        'headers_config' => null
     ];
 
     /**
@@ -77,12 +67,7 @@ class DecisionForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'action' => 'Action',
-        'custom_matches' => 'CustomMatches',
-        'err_code' => 'ErrCode',
-        'err_msg' => 'ErrMsg',
-        'labels' => 'Labels',
-        'matches' => 'Matches'
+        'headers_config' => 'HeadersConfig'
     ];
 
     /**
@@ -91,12 +76,7 @@ class DecisionForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'action' => 'setAction',
-        'custom_matches' => 'setCustomMatches',
-        'err_code' => 'setErrCode',
-        'err_msg' => 'setErrMsg',
-        'labels' => 'setLabels',
-        'matches' => 'setMatches'
+        'headers_config' => 'setHeadersConfig'
     ];
 
     /**
@@ -105,12 +85,7 @@ class DecisionForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'action' => 'getAction',
-        'custom_matches' => 'getCustomMatches',
-        'err_code' => 'getErrCode',
-        'err_msg' => 'getErrMsg',
-        'labels' => 'getLabels',
-        'matches' => 'getMatches'
+        'headers_config' => 'getHeadersConfig'
     ];
 
     /**
@@ -173,12 +148,7 @@ class DecisionForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['action'] = isset($data['action']) ? $data['action'] : null;
-        $this->container['custom_matches'] = isset($data['custom_matches']) ? $data['custom_matches'] : null;
-        $this->container['err_code'] = isset($data['err_code']) ? $data['err_code'] : null;
-        $this->container['err_msg'] = isset($data['err_msg']) ? $data['err_msg'] : null;
-        $this->container['labels'] = isset($data['labels']) ? $data['labels'] : null;
-        $this->container['matches'] = isset($data['matches']) ? $data['matches'] : null;
+        $this->container['headers_config'] = isset($data['headers_config']) ? $data['headers_config'] : null;
     }
 
     /**
@@ -206,145 +176,25 @@ class DecisionForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets action
+     * Gets headers_config
      *
-     * @return int
+     * @return \Volcengine\Waf\Model\HeadersConfigForBatchUpdateTLSFieldsConfigInput
      */
-    public function getAction()
+    public function getHeadersConfig()
     {
-        return $this->container['action'];
+        return $this->container['headers_config'];
     }
 
     /**
-     * Sets action
+     * Sets headers_config
      *
-     * @param int $action action
+     * @param \Volcengine\Waf\Model\HeadersConfigForBatchUpdateTLSFieldsConfigInput $headers_config headers_config
      *
      * @return $this
      */
-    public function setAction($action)
+    public function setHeadersConfig($headers_config)
     {
-        $this->container['action'] = $action;
-
-        return $this;
-    }
-
-    /**
-     * Gets custom_matches
-     *
-     * @return \Volcengine\Waf\Model\CustomMatchForCheckLLMPromptOutput[]
-     */
-    public function getCustomMatches()
-    {
-        return $this->container['custom_matches'];
-    }
-
-    /**
-     * Sets custom_matches
-     *
-     * @param \Volcengine\Waf\Model\CustomMatchForCheckLLMPromptOutput[] $custom_matches custom_matches
-     *
-     * @return $this
-     */
-    public function setCustomMatches($custom_matches)
-    {
-        $this->container['custom_matches'] = $custom_matches;
-
-        return $this;
-    }
-
-    /**
-     * Gets err_code
-     *
-     * @return int
-     */
-    public function getErrCode()
-    {
-        return $this->container['err_code'];
-    }
-
-    /**
-     * Sets err_code
-     *
-     * @param int $err_code err_code
-     *
-     * @return $this
-     */
-    public function setErrCode($err_code)
-    {
-        $this->container['err_code'] = $err_code;
-
-        return $this;
-    }
-
-    /**
-     * Gets err_msg
-     *
-     * @return string
-     */
-    public function getErrMsg()
-    {
-        return $this->container['err_msg'];
-    }
-
-    /**
-     * Sets err_msg
-     *
-     * @param string $err_msg err_msg
-     *
-     * @return $this
-     */
-    public function setErrMsg($err_msg)
-    {
-        $this->container['err_msg'] = $err_msg;
-
-        return $this;
-    }
-
-    /**
-     * Gets labels
-     *
-     * @return string[]
-     */
-    public function getLabels()
-    {
-        return $this->container['labels'];
-    }
-
-    /**
-     * Sets labels
-     *
-     * @param string[] $labels labels
-     *
-     * @return $this
-     */
-    public function setLabels($labels)
-    {
-        $this->container['labels'] = $labels;
-
-        return $this;
-    }
-
-    /**
-     * Gets matches
-     *
-     * @return \Volcengine\Waf\Model\MatchForCheckLLMPromptOutput[]
-     */
-    public function getMatches()
-    {
-        return $this->container['matches'];
-    }
-
-    /**
-     * Sets matches
-     *
-     * @param \Volcengine\Waf\Model\MatchForCheckLLMPromptOutput[] $matches matches
-     *
-     * @return $this
-     */
-    public function setMatches($matches)
-    {
-        $this->container['matches'] = $matches;
+        $this->container['headers_config'] = $headers_config;
 
         return $this;
     }

@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class DecisionForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
+class UpdateTamperProofRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class DecisionForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'DecisionForCheckLLMPromptOutput';
+    protected static $swaggerModelName = 'UpdateTamperProofRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,14 @@ class DecisionForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'action' => 'int',
-        'custom_matches' => '\Volcengine\Waf\Model\CustomMatchForCheckLLMPromptOutput[]',
-        'err_code' => 'int',
-        'err_msg' => 'string',
-        'labels' => 'string[]',
-        'matches' => '\Volcengine\Waf\Model\MatchForCheckLLMPromptOutput[]'
+        'client_ip' => 'string',
+        'description' => 'string',
+        'enable' => 'int',
+        'host' => 'string',
+        'id' => 'int',
+        'name' => 'string',
+        'project_name' => 'string',
+        'url' => 'string'
     ];
 
     /**
@@ -42,12 +44,14 @@ class DecisionForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'action' => 'int32',
-        'custom_matches' => null,
-        'err_code' => 'int32',
-        'err_msg' => null,
-        'labels' => null,
-        'matches' => null
+        'client_ip' => null,
+        'description' => null,
+        'enable' => 'int32',
+        'host' => null,
+        'id' => 'int32',
+        'name' => null,
+        'project_name' => null,
+        'url' => null
     ];
 
     /**
@@ -77,12 +81,14 @@ class DecisionForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'action' => 'Action',
-        'custom_matches' => 'CustomMatches',
-        'err_code' => 'ErrCode',
-        'err_msg' => 'ErrMsg',
-        'labels' => 'Labels',
-        'matches' => 'Matches'
+        'client_ip' => 'ClientIp',
+        'description' => 'Description',
+        'enable' => 'Enable',
+        'host' => 'Host',
+        'id' => 'Id',
+        'name' => 'Name',
+        'project_name' => 'ProjectName',
+        'url' => 'Url'
     ];
 
     /**
@@ -91,12 +97,14 @@ class DecisionForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'action' => 'setAction',
-        'custom_matches' => 'setCustomMatches',
-        'err_code' => 'setErrCode',
-        'err_msg' => 'setErrMsg',
-        'labels' => 'setLabels',
-        'matches' => 'setMatches'
+        'client_ip' => 'setClientIp',
+        'description' => 'setDescription',
+        'enable' => 'setEnable',
+        'host' => 'setHost',
+        'id' => 'setId',
+        'name' => 'setName',
+        'project_name' => 'setProjectName',
+        'url' => 'setUrl'
     ];
 
     /**
@@ -105,12 +113,14 @@ class DecisionForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'action' => 'getAction',
-        'custom_matches' => 'getCustomMatches',
-        'err_code' => 'getErrCode',
-        'err_msg' => 'getErrMsg',
-        'labels' => 'getLabels',
-        'matches' => 'getMatches'
+        'client_ip' => 'getClientIp',
+        'description' => 'getDescription',
+        'enable' => 'getEnable',
+        'host' => 'getHost',
+        'id' => 'getId',
+        'name' => 'getName',
+        'project_name' => 'getProjectName',
+        'url' => 'getUrl'
     ];
 
     /**
@@ -173,12 +183,14 @@ class DecisionForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['action'] = isset($data['action']) ? $data['action'] : null;
-        $this->container['custom_matches'] = isset($data['custom_matches']) ? $data['custom_matches'] : null;
-        $this->container['err_code'] = isset($data['err_code']) ? $data['err_code'] : null;
-        $this->container['err_msg'] = isset($data['err_msg']) ? $data['err_msg'] : null;
-        $this->container['labels'] = isset($data['labels']) ? $data['labels'] : null;
-        $this->container['matches'] = isset($data['matches']) ? $data['matches'] : null;
+        $this->container['client_ip'] = isset($data['client_ip']) ? $data['client_ip'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['enable'] = isset($data['enable']) ? $data['enable'] : null;
+        $this->container['host'] = isset($data['host']) ? $data['host'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['url'] = isset($data['url']) ? $data['url'] : null;
     }
 
     /**
@@ -190,6 +202,18 @@ class DecisionForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['enable'] === null) {
+            $invalidProperties[] = "'enable' can't be null";
+        }
+        if ($this->container['host'] === null) {
+            $invalidProperties[] = "'host' can't be null";
+        }
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
+        if ($this->container['url'] === null) {
+            $invalidProperties[] = "'url' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -206,145 +230,193 @@ class DecisionForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets action
-     *
-     * @return int
-     */
-    public function getAction()
-    {
-        return $this->container['action'];
-    }
-
-    /**
-     * Sets action
-     *
-     * @param int $action action
-     *
-     * @return $this
-     */
-    public function setAction($action)
-    {
-        $this->container['action'] = $action;
-
-        return $this;
-    }
-
-    /**
-     * Gets custom_matches
-     *
-     * @return \Volcengine\Waf\Model\CustomMatchForCheckLLMPromptOutput[]
-     */
-    public function getCustomMatches()
-    {
-        return $this->container['custom_matches'];
-    }
-
-    /**
-     * Sets custom_matches
-     *
-     * @param \Volcengine\Waf\Model\CustomMatchForCheckLLMPromptOutput[] $custom_matches custom_matches
-     *
-     * @return $this
-     */
-    public function setCustomMatches($custom_matches)
-    {
-        $this->container['custom_matches'] = $custom_matches;
-
-        return $this;
-    }
-
-    /**
-     * Gets err_code
-     *
-     * @return int
-     */
-    public function getErrCode()
-    {
-        return $this->container['err_code'];
-    }
-
-    /**
-     * Sets err_code
-     *
-     * @param int $err_code err_code
-     *
-     * @return $this
-     */
-    public function setErrCode($err_code)
-    {
-        $this->container['err_code'] = $err_code;
-
-        return $this;
-    }
-
-    /**
-     * Gets err_msg
+     * Gets client_ip
      *
      * @return string
      */
-    public function getErrMsg()
+    public function getClientIp()
     {
-        return $this->container['err_msg'];
+        return $this->container['client_ip'];
     }
 
     /**
-     * Sets err_msg
+     * Sets client_ip
      *
-     * @param string $err_msg err_msg
+     * @param string $client_ip client_ip
      *
      * @return $this
      */
-    public function setErrMsg($err_msg)
+    public function setClientIp($client_ip)
     {
-        $this->container['err_msg'] = $err_msg;
+        $this->container['client_ip'] = $client_ip;
 
         return $this;
     }
 
     /**
-     * Gets labels
+     * Gets description
      *
-     * @return string[]
+     * @return string
      */
-    public function getLabels()
+    public function getDescription()
     {
-        return $this->container['labels'];
+        return $this->container['description'];
     }
 
     /**
-     * Sets labels
+     * Sets description
      *
-     * @param string[] $labels labels
+     * @param string $description description
      *
      * @return $this
      */
-    public function setLabels($labels)
+    public function setDescription($description)
     {
-        $this->container['labels'] = $labels;
+        $this->container['description'] = $description;
 
         return $this;
     }
 
     /**
-     * Gets matches
+     * Gets enable
      *
-     * @return \Volcengine\Waf\Model\MatchForCheckLLMPromptOutput[]
+     * @return int
      */
-    public function getMatches()
+    public function getEnable()
     {
-        return $this->container['matches'];
+        return $this->container['enable'];
     }
 
     /**
-     * Sets matches
+     * Sets enable
      *
-     * @param \Volcengine\Waf\Model\MatchForCheckLLMPromptOutput[] $matches matches
+     * @param int $enable enable
      *
      * @return $this
      */
-    public function setMatches($matches)
+    public function setEnable($enable)
     {
-        $this->container['matches'] = $matches;
+        $this->container['enable'] = $enable;
+
+        return $this;
+    }
+
+    /**
+     * Gets host
+     *
+     * @return string
+     */
+    public function getHost()
+    {
+        return $this->container['host'];
+    }
+
+    /**
+     * Sets host
+     *
+     * @param string $host host
+     *
+     * @return $this
+     */
+    public function setHost($host)
+    {
+        $this->container['host'] = $host;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param int $id id
+     *
+     * @return $this
+     */
+    public function setId($id)
+    {
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name name
+     *
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets url
+     *
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->container['url'];
+    }
+
+    /**
+     * Sets url
+     *
+     * @param string $url url
+     *
+     * @return $this
+     */
+    public function setUrl($url)
+    {
+        $this->container['url'] = $url;
 
         return $this;
     }

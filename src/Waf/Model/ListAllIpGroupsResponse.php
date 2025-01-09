@@ -29,6 +29,7 @@ class ListAllIpGroupsResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'count' => 'int',
+        'current_page' => 'int',
         'ip_group_count' => 'int',
         'ip_group_list' => '\Volcengine\Waf\Model\IpGroupListForListAllIpGroupsOutput[]',
         'ip_group_quota' => 'int',
@@ -45,6 +46,7 @@ class ListAllIpGroupsResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'count' => 'int32',
+        'current_page' => 'int32',
         'ip_group_count' => 'int32',
         'ip_group_list' => null,
         'ip_group_quota' => 'int32',
@@ -82,6 +84,7 @@ class ListAllIpGroupsResponse implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'count' => 'Count',
+        'current_page' => 'CurrentPage',
         'ip_group_count' => 'IpGroupCount',
         'ip_group_list' => 'IpGroupList',
         'ip_group_quota' => 'IpGroupQuota',
@@ -98,6 +101,7 @@ class ListAllIpGroupsResponse implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'count' => 'setCount',
+        'current_page' => 'setCurrentPage',
         'ip_group_count' => 'setIpGroupCount',
         'ip_group_list' => 'setIpGroupList',
         'ip_group_quota' => 'setIpGroupQuota',
@@ -114,6 +118,7 @@ class ListAllIpGroupsResponse implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'count' => 'getCount',
+        'current_page' => 'getCurrentPage',
         'ip_group_count' => 'getIpGroupCount',
         'ip_group_list' => 'getIpGroupList',
         'ip_group_quota' => 'getIpGroupQuota',
@@ -184,6 +189,7 @@ class ListAllIpGroupsResponse implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['count'] = isset($data['count']) ? $data['count'] : null;
+        $this->container['current_page'] = isset($data['current_page']) ? $data['current_page'] : null;
         $this->container['ip_group_count'] = isset($data['ip_group_count']) ? $data['ip_group_count'] : null;
         $this->container['ip_group_list'] = isset($data['ip_group_list']) ? $data['ip_group_list'] : null;
         $this->container['ip_group_quota'] = isset($data['ip_group_quota']) ? $data['ip_group_quota'] : null;
@@ -237,6 +243,30 @@ class ListAllIpGroupsResponse implements ModelInterface, ArrayAccess
     public function setCount($count)
     {
         $this->container['count'] = $count;
+
+        return $this;
+    }
+
+    /**
+     * Gets current_page
+     *
+     * @return int
+     */
+    public function getCurrentPage()
+    {
+        return $this->container['current_page'];
+    }
+
+    /**
+     * Sets current_page
+     *
+     * @param int $current_page current_page
+     *
+     * @return $this
+     */
+    public function setCurrentPage($current_page)
+    {
+        $this->container['current_page'] = $current_page;
 
         return $this;
     }

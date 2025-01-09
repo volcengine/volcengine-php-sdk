@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class QueryAttackSecurityEventResponse implements ModelInterface, ArrayAccess
+class ListTamperProofResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class QueryAttackSecurityEventResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'QueryAttackSecurityEventResponse';
+    protected static $swaggerModelName = 'ListTamperProofResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,17 +28,10 @@ class QueryAttackSecurityEventResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'attack_count' => 'int',
         'count' => 'int',
         'current_page' => 'int',
-        'event_end_time' => 'int',
-        'event_id' => 'string',
-        'event_start_time' => 'int',
-        'event_type' => 'string',
-        'host' => 'string',
-        'page_number' => 'int',
+        'data' => '\Volcengine\Waf\Model\DataForListTamperProofOutput[]',
         'page_size' => 'int',
-        'security_level' => 'string',
         'total_count' => 'int'
     ];
 
@@ -48,17 +41,10 @@ class QueryAttackSecurityEventResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'attack_count' => 'int32',
         'count' => 'int32',
         'current_page' => 'int32',
-        'event_end_time' => 'int32',
-        'event_id' => null,
-        'event_start_time' => 'int32',
-        'event_type' => null,
-        'host' => null,
-        'page_number' => 'int32',
+        'data' => null,
         'page_size' => 'int32',
-        'security_level' => null,
         'total_count' => 'int32'
     ];
 
@@ -89,17 +75,10 @@ class QueryAttackSecurityEventResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'attack_count' => 'AttackCount',
         'count' => 'Count',
         'current_page' => 'CurrentPage',
-        'event_end_time' => 'EventEndTime',
-        'event_id' => 'EventId',
-        'event_start_time' => 'EventStartTime',
-        'event_type' => 'EventType',
-        'host' => 'Host',
-        'page_number' => 'PageNumber',
+        'data' => 'Data',
         'page_size' => 'PageSize',
-        'security_level' => 'SecurityLevel',
         'total_count' => 'TotalCount'
     ];
 
@@ -109,17 +88,10 @@ class QueryAttackSecurityEventResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'attack_count' => 'setAttackCount',
         'count' => 'setCount',
         'current_page' => 'setCurrentPage',
-        'event_end_time' => 'setEventEndTime',
-        'event_id' => 'setEventId',
-        'event_start_time' => 'setEventStartTime',
-        'event_type' => 'setEventType',
-        'host' => 'setHost',
-        'page_number' => 'setPageNumber',
+        'data' => 'setData',
         'page_size' => 'setPageSize',
-        'security_level' => 'setSecurityLevel',
         'total_count' => 'setTotalCount'
     ];
 
@@ -129,17 +101,10 @@ class QueryAttackSecurityEventResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'attack_count' => 'getAttackCount',
         'count' => 'getCount',
         'current_page' => 'getCurrentPage',
-        'event_end_time' => 'getEventEndTime',
-        'event_id' => 'getEventId',
-        'event_start_time' => 'getEventStartTime',
-        'event_type' => 'getEventType',
-        'host' => 'getHost',
-        'page_number' => 'getPageNumber',
+        'data' => 'getData',
         'page_size' => 'getPageSize',
-        'security_level' => 'getSecurityLevel',
         'total_count' => 'getTotalCount'
     ];
 
@@ -203,17 +168,10 @@ class QueryAttackSecurityEventResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['attack_count'] = isset($data['attack_count']) ? $data['attack_count'] : null;
         $this->container['count'] = isset($data['count']) ? $data['count'] : null;
         $this->container['current_page'] = isset($data['current_page']) ? $data['current_page'] : null;
-        $this->container['event_end_time'] = isset($data['event_end_time']) ? $data['event_end_time'] : null;
-        $this->container['event_id'] = isset($data['event_id']) ? $data['event_id'] : null;
-        $this->container['event_start_time'] = isset($data['event_start_time']) ? $data['event_start_time'] : null;
-        $this->container['event_type'] = isset($data['event_type']) ? $data['event_type'] : null;
-        $this->container['host'] = isset($data['host']) ? $data['host'] : null;
-        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
+        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
-        $this->container['security_level'] = isset($data['security_level']) ? $data['security_level'] : null;
         $this->container['total_count'] = isset($data['total_count']) ? $data['total_count'] : null;
     }
 
@@ -240,30 +198,6 @@ class QueryAttackSecurityEventResponse implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets attack_count
-     *
-     * @return int
-     */
-    public function getAttackCount()
-    {
-        return $this->container['attack_count'];
-    }
-
-    /**
-     * Sets attack_count
-     *
-     * @param int $attack_count attack_count
-     *
-     * @return $this
-     */
-    public function setAttackCount($attack_count)
-    {
-        $this->container['attack_count'] = $attack_count;
-
-        return $this;
-    }
 
     /**
      * Gets count
@@ -314,145 +248,25 @@ class QueryAttackSecurityEventResponse implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets event_end_time
+     * Gets data
      *
-     * @return int
+     * @return \Volcengine\Waf\Model\DataForListTamperProofOutput[]
      */
-    public function getEventEndTime()
+    public function getData()
     {
-        return $this->container['event_end_time'];
+        return $this->container['data'];
     }
 
     /**
-     * Sets event_end_time
+     * Sets data
      *
-     * @param int $event_end_time event_end_time
+     * @param \Volcengine\Waf\Model\DataForListTamperProofOutput[] $data data
      *
      * @return $this
      */
-    public function setEventEndTime($event_end_time)
+    public function setData($data)
     {
-        $this->container['event_end_time'] = $event_end_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets event_id
-     *
-     * @return string
-     */
-    public function getEventId()
-    {
-        return $this->container['event_id'];
-    }
-
-    /**
-     * Sets event_id
-     *
-     * @param string $event_id event_id
-     *
-     * @return $this
-     */
-    public function setEventId($event_id)
-    {
-        $this->container['event_id'] = $event_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets event_start_time
-     *
-     * @return int
-     */
-    public function getEventStartTime()
-    {
-        return $this->container['event_start_time'];
-    }
-
-    /**
-     * Sets event_start_time
-     *
-     * @param int $event_start_time event_start_time
-     *
-     * @return $this
-     */
-    public function setEventStartTime($event_start_time)
-    {
-        $this->container['event_start_time'] = $event_start_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets event_type
-     *
-     * @return string
-     */
-    public function getEventType()
-    {
-        return $this->container['event_type'];
-    }
-
-    /**
-     * Sets event_type
-     *
-     * @param string $event_type event_type
-     *
-     * @return $this
-     */
-    public function setEventType($event_type)
-    {
-        $this->container['event_type'] = $event_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets host
-     *
-     * @return string
-     */
-    public function getHost()
-    {
-        return $this->container['host'];
-    }
-
-    /**
-     * Sets host
-     *
-     * @param string $host host
-     *
-     * @return $this
-     */
-    public function setHost($host)
-    {
-        $this->container['host'] = $host;
-
-        return $this;
-    }
-
-    /**
-     * Gets page_number
-     *
-     * @return int
-     */
-    public function getPageNumber()
-    {
-        return $this->container['page_number'];
-    }
-
-    /**
-     * Sets page_number
-     *
-     * @param int $page_number page_number
-     *
-     * @return $this
-     */
-    public function setPageNumber($page_number)
-    {
-        $this->container['page_number'] = $page_number;
+        $this->container['data'] = $data;
 
         return $this;
     }
@@ -477,30 +291,6 @@ class QueryAttackSecurityEventResponse implements ModelInterface, ArrayAccess
     public function setPageSize($page_size)
     {
         $this->container['page_size'] = $page_size;
-
-        return $this;
-    }
-
-    /**
-     * Gets security_level
-     *
-     * @return string
-     */
-    public function getSecurityLevel()
-    {
-        return $this->container['security_level'];
-    }
-
-    /**
-     * Sets security_level
-     *
-     * @param string $security_level security_level
-     *
-     * @return $this
-     */
-    public function setSecurityLevel($security_level)
-    {
-        $this->container['security_level'] = $security_level;
 
         return $this;
     }

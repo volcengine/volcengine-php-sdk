@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class DecisionForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
+class HeadersConfigForBatchUpdateTLSFieldsConfigInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class DecisionForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'DecisionForCheckLLMPromptOutput';
+    protected static $swaggerModelName = 'HeadersConfigForBatchUpdateTLSFieldsConfigInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,9 @@ class DecisionForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'action' => 'int',
-        'custom_matches' => '\Volcengine\Waf\Model\CustomMatchForCheckLLMPromptOutput[]',
-        'err_code' => 'int',
-        'err_msg' => 'string',
-        'labels' => 'string[]',
-        'matches' => '\Volcengine\Waf\Model\MatchForCheckLLMPromptOutput[]'
+        'enable' => 'int',
+        'excluded_key_list' => 'string[]',
+        'statistical_key_list' => 'string[]'
     ];
 
     /**
@@ -42,12 +39,9 @@ class DecisionForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'action' => 'int32',
-        'custom_matches' => null,
-        'err_code' => 'int32',
-        'err_msg' => null,
-        'labels' => null,
-        'matches' => null
+        'enable' => 'int32',
+        'excluded_key_list' => null,
+        'statistical_key_list' => null
     ];
 
     /**
@@ -77,12 +71,9 @@ class DecisionForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'action' => 'Action',
-        'custom_matches' => 'CustomMatches',
-        'err_code' => 'ErrCode',
-        'err_msg' => 'ErrMsg',
-        'labels' => 'Labels',
-        'matches' => 'Matches'
+        'enable' => 'Enable',
+        'excluded_key_list' => 'ExcludedKeyList',
+        'statistical_key_list' => 'StatisticalKeyList'
     ];
 
     /**
@@ -91,12 +82,9 @@ class DecisionForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'action' => 'setAction',
-        'custom_matches' => 'setCustomMatches',
-        'err_code' => 'setErrCode',
-        'err_msg' => 'setErrMsg',
-        'labels' => 'setLabels',
-        'matches' => 'setMatches'
+        'enable' => 'setEnable',
+        'excluded_key_list' => 'setExcludedKeyList',
+        'statistical_key_list' => 'setStatisticalKeyList'
     ];
 
     /**
@@ -105,12 +93,9 @@ class DecisionForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'action' => 'getAction',
-        'custom_matches' => 'getCustomMatches',
-        'err_code' => 'getErrCode',
-        'err_msg' => 'getErrMsg',
-        'labels' => 'getLabels',
-        'matches' => 'getMatches'
+        'enable' => 'getEnable',
+        'excluded_key_list' => 'getExcludedKeyList',
+        'statistical_key_list' => 'getStatisticalKeyList'
     ];
 
     /**
@@ -173,12 +158,9 @@ class DecisionForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['action'] = isset($data['action']) ? $data['action'] : null;
-        $this->container['custom_matches'] = isset($data['custom_matches']) ? $data['custom_matches'] : null;
-        $this->container['err_code'] = isset($data['err_code']) ? $data['err_code'] : null;
-        $this->container['err_msg'] = isset($data['err_msg']) ? $data['err_msg'] : null;
-        $this->container['labels'] = isset($data['labels']) ? $data['labels'] : null;
-        $this->container['matches'] = isset($data['matches']) ? $data['matches'] : null;
+        $this->container['enable'] = isset($data['enable']) ? $data['enable'] : null;
+        $this->container['excluded_key_list'] = isset($data['excluded_key_list']) ? $data['excluded_key_list'] : null;
+        $this->container['statistical_key_list'] = isset($data['statistical_key_list']) ? $data['statistical_key_list'] : null;
     }
 
     /**
@@ -206,145 +188,73 @@ class DecisionForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets action
+     * Gets enable
      *
      * @return int
      */
-    public function getAction()
+    public function getEnable()
     {
-        return $this->container['action'];
+        return $this->container['enable'];
     }
 
     /**
-     * Sets action
+     * Sets enable
      *
-     * @param int $action action
+     * @param int $enable enable
      *
      * @return $this
      */
-    public function setAction($action)
+    public function setEnable($enable)
     {
-        $this->container['action'] = $action;
+        $this->container['enable'] = $enable;
 
         return $this;
     }
 
     /**
-     * Gets custom_matches
-     *
-     * @return \Volcengine\Waf\Model\CustomMatchForCheckLLMPromptOutput[]
-     */
-    public function getCustomMatches()
-    {
-        return $this->container['custom_matches'];
-    }
-
-    /**
-     * Sets custom_matches
-     *
-     * @param \Volcengine\Waf\Model\CustomMatchForCheckLLMPromptOutput[] $custom_matches custom_matches
-     *
-     * @return $this
-     */
-    public function setCustomMatches($custom_matches)
-    {
-        $this->container['custom_matches'] = $custom_matches;
-
-        return $this;
-    }
-
-    /**
-     * Gets err_code
-     *
-     * @return int
-     */
-    public function getErrCode()
-    {
-        return $this->container['err_code'];
-    }
-
-    /**
-     * Sets err_code
-     *
-     * @param int $err_code err_code
-     *
-     * @return $this
-     */
-    public function setErrCode($err_code)
-    {
-        $this->container['err_code'] = $err_code;
-
-        return $this;
-    }
-
-    /**
-     * Gets err_msg
-     *
-     * @return string
-     */
-    public function getErrMsg()
-    {
-        return $this->container['err_msg'];
-    }
-
-    /**
-     * Sets err_msg
-     *
-     * @param string $err_msg err_msg
-     *
-     * @return $this
-     */
-    public function setErrMsg($err_msg)
-    {
-        $this->container['err_msg'] = $err_msg;
-
-        return $this;
-    }
-
-    /**
-     * Gets labels
+     * Gets excluded_key_list
      *
      * @return string[]
      */
-    public function getLabels()
+    public function getExcludedKeyList()
     {
-        return $this->container['labels'];
+        return $this->container['excluded_key_list'];
     }
 
     /**
-     * Sets labels
+     * Sets excluded_key_list
      *
-     * @param string[] $labels labels
+     * @param string[] $excluded_key_list excluded_key_list
      *
      * @return $this
      */
-    public function setLabels($labels)
+    public function setExcludedKeyList($excluded_key_list)
     {
-        $this->container['labels'] = $labels;
+        $this->container['excluded_key_list'] = $excluded_key_list;
 
         return $this;
     }
 
     /**
-     * Gets matches
+     * Gets statistical_key_list
      *
-     * @return \Volcengine\Waf\Model\MatchForCheckLLMPromptOutput[]
+     * @return string[]
      */
-    public function getMatches()
+    public function getStatisticalKeyList()
     {
-        return $this->container['matches'];
+        return $this->container['statistical_key_list'];
     }
 
     /**
-     * Sets matches
+     * Sets statistical_key_list
      *
-     * @param \Volcengine\Waf\Model\MatchForCheckLLMPromptOutput[] $matches matches
+     * @param string[] $statistical_key_list statistical_key_list
      *
      * @return $this
      */
-    public function setMatches($matches)
+    public function setStatisticalKeyList($statistical_key_list)
     {
-        $this->container['matches'] = $matches;
+        $this->container['statistical_key_list'] = $statistical_key_list;
 
         return $this;
     }
