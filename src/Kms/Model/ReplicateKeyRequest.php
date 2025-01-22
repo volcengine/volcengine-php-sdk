@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CreateKeyRequest implements ModelInterface, ArrayAccess
+class ReplicateKeyRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CreateKeyRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CreateKeyRequest';
+    protected static $swaggerModelName = 'ReplicateKeyRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -29,14 +29,10 @@ class CreateKeyRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'description' => 'string',
+        'key_id' => 'string',
         'key_name' => 'string',
-        'key_spec' => 'string',
-        'key_usage' => 'string',
         'keyring_name' => 'string',
-        'multi_region' => 'bool',
-        'origin' => 'string',
-        'protection_level' => 'string',
-        'rotate_state' => 'string'
+        'replica_region' => 'string'
     ];
 
     /**
@@ -46,14 +42,10 @@ class CreateKeyRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'description' => null,
+        'key_id' => null,
         'key_name' => null,
-        'key_spec' => null,
-        'key_usage' => null,
         'keyring_name' => null,
-        'multi_region' => null,
-        'origin' => null,
-        'protection_level' => null,
-        'rotate_state' => null
+        'replica_region' => null
     ];
 
     /**
@@ -84,14 +76,10 @@ class CreateKeyRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'description' => 'Description',
+        'key_id' => 'KeyID',
         'key_name' => 'KeyName',
-        'key_spec' => 'KeySpec',
-        'key_usage' => 'KeyUsage',
         'keyring_name' => 'KeyringName',
-        'multi_region' => 'MultiRegion',
-        'origin' => 'Origin',
-        'protection_level' => 'ProtectionLevel',
-        'rotate_state' => 'RotateState'
+        'replica_region' => 'ReplicaRegion'
     ];
 
     /**
@@ -101,14 +89,10 @@ class CreateKeyRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'description' => 'setDescription',
+        'key_id' => 'setKeyId',
         'key_name' => 'setKeyName',
-        'key_spec' => 'setKeySpec',
-        'key_usage' => 'setKeyUsage',
         'keyring_name' => 'setKeyringName',
-        'multi_region' => 'setMultiRegion',
-        'origin' => 'setOrigin',
-        'protection_level' => 'setProtectionLevel',
-        'rotate_state' => 'setRotateState'
+        'replica_region' => 'setReplicaRegion'
     ];
 
     /**
@@ -118,14 +102,10 @@ class CreateKeyRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'description' => 'getDescription',
+        'key_id' => 'getKeyId',
         'key_name' => 'getKeyName',
-        'key_spec' => 'getKeySpec',
-        'key_usage' => 'getKeyUsage',
         'keyring_name' => 'getKeyringName',
-        'multi_region' => 'getMultiRegion',
-        'origin' => 'getOrigin',
-        'protection_level' => 'getProtectionLevel',
-        'rotate_state' => 'getRotateState'
+        'replica_region' => 'getReplicaRegion'
     ];
 
     /**
@@ -189,14 +169,10 @@ class CreateKeyRequest implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['key_id'] = isset($data['key_id']) ? $data['key_id'] : null;
         $this->container['key_name'] = isset($data['key_name']) ? $data['key_name'] : null;
-        $this->container['key_spec'] = isset($data['key_spec']) ? $data['key_spec'] : null;
-        $this->container['key_usage'] = isset($data['key_usage']) ? $data['key_usage'] : null;
         $this->container['keyring_name'] = isset($data['keyring_name']) ? $data['keyring_name'] : null;
-        $this->container['multi_region'] = isset($data['multi_region']) ? $data['multi_region'] : null;
-        $this->container['origin'] = isset($data['origin']) ? $data['origin'] : null;
-        $this->container['protection_level'] = isset($data['protection_level']) ? $data['protection_level'] : null;
-        $this->container['rotate_state'] = isset($data['rotate_state']) ? $data['rotate_state'] : null;
+        $this->container['replica_region'] = isset($data['replica_region']) ? $data['replica_region'] : null;
     }
 
     /**
@@ -208,11 +184,8 @@ class CreateKeyRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['key_name'] === null) {
-            $invalidProperties[] = "'key_name' can't be null";
-        }
-        if ($this->container['keyring_name'] === null) {
-            $invalidProperties[] = "'keyring_name' can't be null";
+        if ($this->container['replica_region'] === null) {
+            $invalidProperties[] = "'replica_region' can't be null";
         }
         return $invalidProperties;
     }
@@ -254,6 +227,30 @@ class CreateKeyRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets key_id
+     *
+     * @return string
+     */
+    public function getKeyId()
+    {
+        return $this->container['key_id'];
+    }
+
+    /**
+     * Sets key_id
+     *
+     * @param string $key_id key_id
+     *
+     * @return $this
+     */
+    public function setKeyId($key_id)
+    {
+        $this->container['key_id'] = $key_id;
+
+        return $this;
+    }
+
+    /**
      * Gets key_name
      *
      * @return string
@@ -273,54 +270,6 @@ class CreateKeyRequest implements ModelInterface, ArrayAccess
     public function setKeyName($key_name)
     {
         $this->container['key_name'] = $key_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets key_spec
-     *
-     * @return string
-     */
-    public function getKeySpec()
-    {
-        return $this->container['key_spec'];
-    }
-
-    /**
-     * Sets key_spec
-     *
-     * @param string $key_spec key_spec
-     *
-     * @return $this
-     */
-    public function setKeySpec($key_spec)
-    {
-        $this->container['key_spec'] = $key_spec;
-
-        return $this;
-    }
-
-    /**
-     * Gets key_usage
-     *
-     * @return string
-     */
-    public function getKeyUsage()
-    {
-        return $this->container['key_usage'];
-    }
-
-    /**
-     * Sets key_usage
-     *
-     * @param string $key_usage key_usage
-     *
-     * @return $this
-     */
-    public function setKeyUsage($key_usage)
-    {
-        $this->container['key_usage'] = $key_usage;
 
         return $this;
     }
@@ -350,97 +299,25 @@ class CreateKeyRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets multi_region
-     *
-     * @return bool
-     */
-    public function getMultiRegion()
-    {
-        return $this->container['multi_region'];
-    }
-
-    /**
-     * Sets multi_region
-     *
-     * @param bool $multi_region multi_region
-     *
-     * @return $this
-     */
-    public function setMultiRegion($multi_region)
-    {
-        $this->container['multi_region'] = $multi_region;
-
-        return $this;
-    }
-
-    /**
-     * Gets origin
+     * Gets replica_region
      *
      * @return string
      */
-    public function getOrigin()
+    public function getReplicaRegion()
     {
-        return $this->container['origin'];
+        return $this->container['replica_region'];
     }
 
     /**
-     * Sets origin
+     * Sets replica_region
      *
-     * @param string $origin origin
+     * @param string $replica_region replica_region
      *
      * @return $this
      */
-    public function setOrigin($origin)
+    public function setReplicaRegion($replica_region)
     {
-        $this->container['origin'] = $origin;
-
-        return $this;
-    }
-
-    /**
-     * Gets protection_level
-     *
-     * @return string
-     */
-    public function getProtectionLevel()
-    {
-        return $this->container['protection_level'];
-    }
-
-    /**
-     * Sets protection_level
-     *
-     * @param string $protection_level protection_level
-     *
-     * @return $this
-     */
-    public function setProtectionLevel($protection_level)
-    {
-        $this->container['protection_level'] = $protection_level;
-
-        return $this;
-    }
-
-    /**
-     * Gets rotate_state
-     *
-     * @return string
-     */
-    public function getRotateState()
-    {
-        return $this->container['rotate_state'];
-    }
-
-    /**
-     * Sets rotate_state
-     *
-     * @param string $rotate_state rotate_state
-     *
-     * @return $this
-     */
-    public function setRotateState($rotate_state)
-    {
-        $this->container['rotate_state'] = $rotate_state;
+        $this->container['replica_region'] = $replica_region;
 
         return $this;
     }
