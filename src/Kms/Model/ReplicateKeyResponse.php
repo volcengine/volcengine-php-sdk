@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Ark\Model;
+namespace Volcengine\Kms\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class GetApiKeyRequest implements ModelInterface, ArrayAccess
+class ReplicateKeyResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class GetApiKeyRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetApiKeyRequest';
+    protected static $swaggerModelName = 'ReplicateKeyResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,7 @@ class GetApiKeyRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'duration_seconds' => 'int',
-        'resource_ids' => 'string[]',
-        'resource_type' => 'string'
+        'replica_key' => '\Volcengine\Kms\Model\ConvertReplicaKeyForReplicateKeyOutput'
     ];
 
     /**
@@ -39,9 +37,7 @@ class GetApiKeyRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'duration_seconds' => 'int32',
-        'resource_ids' => null,
-        'resource_type' => null
+        'replica_key' => null
     ];
 
     /**
@@ -71,9 +67,7 @@ class GetApiKeyRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'duration_seconds' => 'DurationSeconds',
-        'resource_ids' => 'ResourceIds',
-        'resource_type' => 'ResourceType'
+        'replica_key' => 'ReplicaKey'
     ];
 
     /**
@@ -82,9 +76,7 @@ class GetApiKeyRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'duration_seconds' => 'setDurationSeconds',
-        'resource_ids' => 'setResourceIds',
-        'resource_type' => 'setResourceType'
+        'replica_key' => 'setReplicaKey'
     ];
 
     /**
@@ -93,9 +85,7 @@ class GetApiKeyRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'duration_seconds' => 'getDurationSeconds',
-        'resource_ids' => 'getResourceIds',
-        'resource_type' => 'getResourceType'
+        'replica_key' => 'getReplicaKey'
     ];
 
     /**
@@ -158,9 +148,7 @@ class GetApiKeyRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['duration_seconds'] = isset($data['duration_seconds']) ? $data['duration_seconds'] : null;
-        $this->container['resource_ids'] = isset($data['resource_ids']) ? $data['resource_ids'] : null;
-        $this->container['resource_type'] = isset($data['resource_type']) ? $data['resource_type'] : null;
+        $this->container['replica_key'] = isset($data['replica_key']) ? $data['replica_key'] : null;
     }
 
     /**
@@ -172,12 +160,6 @@ class GetApiKeyRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['duration_seconds'] === null) {
-            $invalidProperties[] = "'duration_seconds' can't be null";
-        }
-        if ($this->container['resource_type'] === null) {
-            $invalidProperties[] = "'resource_type' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -194,73 +176,25 @@ class GetApiKeyRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets duration_seconds
+     * Gets replica_key
      *
-     * @return int
+     * @return \Volcengine\Kms\Model\ConvertReplicaKeyForReplicateKeyOutput
      */
-    public function getDurationSeconds()
+    public function getReplicaKey()
     {
-        return $this->container['duration_seconds'];
+        return $this->container['replica_key'];
     }
 
     /**
-     * Sets duration_seconds
+     * Sets replica_key
      *
-     * @param int $duration_seconds duration_seconds
+     * @param \Volcengine\Kms\Model\ConvertReplicaKeyForReplicateKeyOutput $replica_key replica_key
      *
      * @return $this
      */
-    public function setDurationSeconds($duration_seconds)
+    public function setReplicaKey($replica_key)
     {
-        $this->container['duration_seconds'] = $duration_seconds;
-
-        return $this;
-    }
-
-    /**
-     * Gets resource_ids
-     *
-     * @return string[]
-     */
-    public function getResourceIds()
-    {
-        return $this->container['resource_ids'];
-    }
-
-    /**
-     * Sets resource_ids
-     *
-     * @param string[] $resource_ids resource_ids
-     *
-     * @return $this
-     */
-    public function setResourceIds($resource_ids)
-    {
-        $this->container['resource_ids'] = $resource_ids;
-
-        return $this;
-    }
-
-    /**
-     * Gets resource_type
-     *
-     * @return string
-     */
-    public function getResourceType()
-    {
-        return $this->container['resource_type'];
-    }
-
-    /**
-     * Sets resource_type
-     *
-     * @param string $resource_type resource_type
-     *
-     * @return $this
-     */
-    public function setResourceType($resource_type)
-    {
-        $this->container['resource_type'] = $resource_type;
+        $this->container['replica_key'] = $replica_key;
 
         return $this;
     }

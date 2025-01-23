@@ -37,6 +37,8 @@ class KeyForDescribeKeysOutput implements ModelInterface, ArrayAccess
         'key_state' => 'string',
         'key_usage' => 'string',
         'last_rotation_time' => 'string',
+        'multi_region' => 'string',
+        'multi_region_configuration' => '\Volcengine\Kms\Model\MultiRegionConfigurationForDescribeKeysOutput',
         'origin' => 'string',
         'protection_level' => 'string',
         'rotation_state' => 'string',
@@ -61,6 +63,8 @@ class KeyForDescribeKeysOutput implements ModelInterface, ArrayAccess
         'key_state' => null,
         'key_usage' => null,
         'last_rotation_time' => null,
+        'multi_region' => null,
+        'multi_region_configuration' => null,
         'origin' => null,
         'protection_level' => null,
         'rotation_state' => null,
@@ -106,6 +110,8 @@ class KeyForDescribeKeysOutput implements ModelInterface, ArrayAccess
         'key_state' => 'KeyState',
         'key_usage' => 'KeyUsage',
         'last_rotation_time' => 'LastRotationTime',
+        'multi_region' => 'MultiRegion',
+        'multi_region_configuration' => 'MultiRegionConfiguration',
         'origin' => 'Origin',
         'protection_level' => 'ProtectionLevel',
         'rotation_state' => 'RotationState',
@@ -130,6 +136,8 @@ class KeyForDescribeKeysOutput implements ModelInterface, ArrayAccess
         'key_state' => 'setKeyState',
         'key_usage' => 'setKeyUsage',
         'last_rotation_time' => 'setLastRotationTime',
+        'multi_region' => 'setMultiRegion',
+        'multi_region_configuration' => 'setMultiRegionConfiguration',
         'origin' => 'setOrigin',
         'protection_level' => 'setProtectionLevel',
         'rotation_state' => 'setRotationState',
@@ -154,6 +162,8 @@ class KeyForDescribeKeysOutput implements ModelInterface, ArrayAccess
         'key_state' => 'getKeyState',
         'key_usage' => 'getKeyUsage',
         'last_rotation_time' => 'getLastRotationTime',
+        'multi_region' => 'getMultiRegion',
+        'multi_region_configuration' => 'getMultiRegionConfiguration',
         'origin' => 'getOrigin',
         'protection_level' => 'getProtectionLevel',
         'rotation_state' => 'getRotationState',
@@ -232,6 +242,8 @@ class KeyForDescribeKeysOutput implements ModelInterface, ArrayAccess
         $this->container['key_state'] = isset($data['key_state']) ? $data['key_state'] : null;
         $this->container['key_usage'] = isset($data['key_usage']) ? $data['key_usage'] : null;
         $this->container['last_rotation_time'] = isset($data['last_rotation_time']) ? $data['last_rotation_time'] : null;
+        $this->container['multi_region'] = isset($data['multi_region']) ? $data['multi_region'] : null;
+        $this->container['multi_region_configuration'] = isset($data['multi_region_configuration']) ? $data['multi_region_configuration'] : null;
         $this->container['origin'] = isset($data['origin']) ? $data['origin'] : null;
         $this->container['protection_level'] = isset($data['protection_level']) ? $data['protection_level'] : null;
         $this->container['rotation_state'] = isset($data['rotation_state']) ? $data['rotation_state'] : null;
@@ -477,6 +489,54 @@ class KeyForDescribeKeysOutput implements ModelInterface, ArrayAccess
     public function setLastRotationTime($last_rotation_time)
     {
         $this->container['last_rotation_time'] = $last_rotation_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets multi_region
+     *
+     * @return string
+     */
+    public function getMultiRegion()
+    {
+        return $this->container['multi_region'];
+    }
+
+    /**
+     * Sets multi_region
+     *
+     * @param string $multi_region multi_region
+     *
+     * @return $this
+     */
+    public function setMultiRegion($multi_region)
+    {
+        $this->container['multi_region'] = $multi_region;
+
+        return $this;
+    }
+
+    /**
+     * Gets multi_region_configuration
+     *
+     * @return \Volcengine\Kms\Model\MultiRegionConfigurationForDescribeKeysOutput
+     */
+    public function getMultiRegionConfiguration()
+    {
+        return $this->container['multi_region_configuration'];
+    }
+
+    /**
+     * Sets multi_region_configuration
+     *
+     * @param \Volcengine\Kms\Model\MultiRegionConfigurationForDescribeKeysOutput $multi_region_configuration multi_region_configuration
+     *
+     * @return $this
+     */
+    public function setMultiRegionConfiguration($multi_region_configuration)
+    {
+        $this->container['multi_region_configuration'] = $multi_region_configuration;
 
         return $this;
     }

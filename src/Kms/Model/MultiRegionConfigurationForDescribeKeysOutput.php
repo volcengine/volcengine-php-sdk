@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Ark\Model;
+namespace Volcengine\Kms\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class GetApiKeyRequest implements ModelInterface, ArrayAccess
+class MultiRegionConfigurationForDescribeKeysOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class GetApiKeyRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetApiKeyRequest';
+    protected static $swaggerModelName = 'MultiRegionConfigurationForDescribeKeysOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,9 @@ class GetApiKeyRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'duration_seconds' => 'int',
-        'resource_ids' => 'string[]',
-        'resource_type' => 'string'
+        'multi_region_key_type' => 'string',
+        'primary_key' => '\Volcengine\Kms\Model\PrimaryKeyForDescribeKeysOutput',
+        'replica_keys' => '\Volcengine\Kms\Model\ReplicaKeyForDescribeKeysOutput[]'
     ];
 
     /**
@@ -39,9 +39,9 @@ class GetApiKeyRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'duration_seconds' => 'int32',
-        'resource_ids' => null,
-        'resource_type' => null
+        'multi_region_key_type' => null,
+        'primary_key' => null,
+        'replica_keys' => null
     ];
 
     /**
@@ -71,9 +71,9 @@ class GetApiKeyRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'duration_seconds' => 'DurationSeconds',
-        'resource_ids' => 'ResourceIds',
-        'resource_type' => 'ResourceType'
+        'multi_region_key_type' => 'MultiRegionKeyType',
+        'primary_key' => 'PrimaryKey',
+        'replica_keys' => 'ReplicaKeys'
     ];
 
     /**
@@ -82,9 +82,9 @@ class GetApiKeyRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'duration_seconds' => 'setDurationSeconds',
-        'resource_ids' => 'setResourceIds',
-        'resource_type' => 'setResourceType'
+        'multi_region_key_type' => 'setMultiRegionKeyType',
+        'primary_key' => 'setPrimaryKey',
+        'replica_keys' => 'setReplicaKeys'
     ];
 
     /**
@@ -93,9 +93,9 @@ class GetApiKeyRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'duration_seconds' => 'getDurationSeconds',
-        'resource_ids' => 'getResourceIds',
-        'resource_type' => 'getResourceType'
+        'multi_region_key_type' => 'getMultiRegionKeyType',
+        'primary_key' => 'getPrimaryKey',
+        'replica_keys' => 'getReplicaKeys'
     ];
 
     /**
@@ -139,8 +139,23 @@ class GetApiKeyRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const MULTI_REGION_KEY_TYPE_PRIMARY = 'PRIMARY';
+    const MULTI_REGION_KEY_TYPE_REPLICA = 'REPLICA';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getMultiRegionKeyTypeAllowableValues()
+    {
+        return [
+            self::MULTI_REGION_KEY_TYPE_PRIMARY,
+            self::MULTI_REGION_KEY_TYPE_REPLICA,
+        ];
+    }
     
 
     /**
@@ -158,9 +173,9 @@ class GetApiKeyRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['duration_seconds'] = isset($data['duration_seconds']) ? $data['duration_seconds'] : null;
-        $this->container['resource_ids'] = isset($data['resource_ids']) ? $data['resource_ids'] : null;
-        $this->container['resource_type'] = isset($data['resource_type']) ? $data['resource_type'] : null;
+        $this->container['multi_region_key_type'] = isset($data['multi_region_key_type']) ? $data['multi_region_key_type'] : null;
+        $this->container['primary_key'] = isset($data['primary_key']) ? $data['primary_key'] : null;
+        $this->container['replica_keys'] = isset($data['replica_keys']) ? $data['replica_keys'] : null;
     }
 
     /**
@@ -172,12 +187,14 @@ class GetApiKeyRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['duration_seconds'] === null) {
-            $invalidProperties[] = "'duration_seconds' can't be null";
+        $allowedValues = $this->getMultiRegionKeyTypeAllowableValues();
+        if (!is_null($this->container['multi_region_key_type']) && !in_array($this->container['multi_region_key_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'multi_region_key_type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
         }
-        if ($this->container['resource_type'] === null) {
-            $invalidProperties[] = "'resource_type' can't be null";
-        }
+
         return $invalidProperties;
     }
 
@@ -194,73 +211,82 @@ class GetApiKeyRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets duration_seconds
-     *
-     * @return int
-     */
-    public function getDurationSeconds()
-    {
-        return $this->container['duration_seconds'];
-    }
-
-    /**
-     * Sets duration_seconds
-     *
-     * @param int $duration_seconds duration_seconds
-     *
-     * @return $this
-     */
-    public function setDurationSeconds($duration_seconds)
-    {
-        $this->container['duration_seconds'] = $duration_seconds;
-
-        return $this;
-    }
-
-    /**
-     * Gets resource_ids
-     *
-     * @return string[]
-     */
-    public function getResourceIds()
-    {
-        return $this->container['resource_ids'];
-    }
-
-    /**
-     * Sets resource_ids
-     *
-     * @param string[] $resource_ids resource_ids
-     *
-     * @return $this
-     */
-    public function setResourceIds($resource_ids)
-    {
-        $this->container['resource_ids'] = $resource_ids;
-
-        return $this;
-    }
-
-    /**
-     * Gets resource_type
+     * Gets multi_region_key_type
      *
      * @return string
      */
-    public function getResourceType()
+    public function getMultiRegionKeyType()
     {
-        return $this->container['resource_type'];
+        return $this->container['multi_region_key_type'];
     }
 
     /**
-     * Sets resource_type
+     * Sets multi_region_key_type
      *
-     * @param string $resource_type resource_type
+     * @param string $multi_region_key_type multi_region_key_type
      *
      * @return $this
      */
-    public function setResourceType($resource_type)
+    public function setMultiRegionKeyType($multi_region_key_type)
     {
-        $this->container['resource_type'] = $resource_type;
+        $allowedValues = $this->getMultiRegionKeyTypeAllowableValues();
+        if (!is_null($multi_region_key_type) && !in_array($multi_region_key_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'multi_region_key_type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['multi_region_key_type'] = $multi_region_key_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets primary_key
+     *
+     * @return \Volcengine\Kms\Model\PrimaryKeyForDescribeKeysOutput
+     */
+    public function getPrimaryKey()
+    {
+        return $this->container['primary_key'];
+    }
+
+    /**
+     * Sets primary_key
+     *
+     * @param \Volcengine\Kms\Model\PrimaryKeyForDescribeKeysOutput $primary_key primary_key
+     *
+     * @return $this
+     */
+    public function setPrimaryKey($primary_key)
+    {
+        $this->container['primary_key'] = $primary_key;
+
+        return $this;
+    }
+
+    /**
+     * Gets replica_keys
+     *
+     * @return \Volcengine\Kms\Model\ReplicaKeyForDescribeKeysOutput[]
+     */
+    public function getReplicaKeys()
+    {
+        return $this->container['replica_keys'];
+    }
+
+    /**
+     * Sets replica_keys
+     *
+     * @param \Volcengine\Kms\Model\ReplicaKeyForDescribeKeysOutput[] $replica_keys replica_keys
+     *
+     * @return $this
+     */
+    public function setReplicaKeys($replica_keys)
+    {
+        $this->container['replica_keys'] = $replica_keys;
 
         return $this;
     }

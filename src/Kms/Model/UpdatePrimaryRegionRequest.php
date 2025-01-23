@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Ark\Model;
+namespace Volcengine\Kms\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class GetApiKeyRequest implements ModelInterface, ArrayAccess
+class UpdatePrimaryRegionRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class GetApiKeyRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetApiKeyRequest';
+    protected static $swaggerModelName = 'UpdatePrimaryRegionRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,10 @@ class GetApiKeyRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'duration_seconds' => 'int',
-        'resource_ids' => 'string[]',
-        'resource_type' => 'string'
+        'key_id' => 'string',
+        'key_name' => 'string',
+        'keyring_name' => 'string',
+        'primary_region' => 'string'
     ];
 
     /**
@@ -39,9 +40,10 @@ class GetApiKeyRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'duration_seconds' => 'int32',
-        'resource_ids' => null,
-        'resource_type' => null
+        'key_id' => null,
+        'key_name' => null,
+        'keyring_name' => null,
+        'primary_region' => null
     ];
 
     /**
@@ -71,9 +73,10 @@ class GetApiKeyRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'duration_seconds' => 'DurationSeconds',
-        'resource_ids' => 'ResourceIds',
-        'resource_type' => 'ResourceType'
+        'key_id' => 'KeyID',
+        'key_name' => 'KeyName',
+        'keyring_name' => 'KeyringName',
+        'primary_region' => 'PrimaryRegion'
     ];
 
     /**
@@ -82,9 +85,10 @@ class GetApiKeyRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'duration_seconds' => 'setDurationSeconds',
-        'resource_ids' => 'setResourceIds',
-        'resource_type' => 'setResourceType'
+        'key_id' => 'setKeyId',
+        'key_name' => 'setKeyName',
+        'keyring_name' => 'setKeyringName',
+        'primary_region' => 'setPrimaryRegion'
     ];
 
     /**
@@ -93,9 +97,10 @@ class GetApiKeyRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'duration_seconds' => 'getDurationSeconds',
-        'resource_ids' => 'getResourceIds',
-        'resource_type' => 'getResourceType'
+        'key_id' => 'getKeyId',
+        'key_name' => 'getKeyName',
+        'keyring_name' => 'getKeyringName',
+        'primary_region' => 'getPrimaryRegion'
     ];
 
     /**
@@ -158,9 +163,10 @@ class GetApiKeyRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['duration_seconds'] = isset($data['duration_seconds']) ? $data['duration_seconds'] : null;
-        $this->container['resource_ids'] = isset($data['resource_ids']) ? $data['resource_ids'] : null;
-        $this->container['resource_type'] = isset($data['resource_type']) ? $data['resource_type'] : null;
+        $this->container['key_id'] = isset($data['key_id']) ? $data['key_id'] : null;
+        $this->container['key_name'] = isset($data['key_name']) ? $data['key_name'] : null;
+        $this->container['keyring_name'] = isset($data['keyring_name']) ? $data['keyring_name'] : null;
+        $this->container['primary_region'] = isset($data['primary_region']) ? $data['primary_region'] : null;
     }
 
     /**
@@ -172,11 +178,8 @@ class GetApiKeyRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['duration_seconds'] === null) {
-            $invalidProperties[] = "'duration_seconds' can't be null";
-        }
-        if ($this->container['resource_type'] === null) {
-            $invalidProperties[] = "'resource_type' can't be null";
+        if ($this->container['primary_region'] === null) {
+            $invalidProperties[] = "'primary_region' can't be null";
         }
         return $invalidProperties;
     }
@@ -194,73 +197,97 @@ class GetApiKeyRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets duration_seconds
-     *
-     * @return int
-     */
-    public function getDurationSeconds()
-    {
-        return $this->container['duration_seconds'];
-    }
-
-    /**
-     * Sets duration_seconds
-     *
-     * @param int $duration_seconds duration_seconds
-     *
-     * @return $this
-     */
-    public function setDurationSeconds($duration_seconds)
-    {
-        $this->container['duration_seconds'] = $duration_seconds;
-
-        return $this;
-    }
-
-    /**
-     * Gets resource_ids
-     *
-     * @return string[]
-     */
-    public function getResourceIds()
-    {
-        return $this->container['resource_ids'];
-    }
-
-    /**
-     * Sets resource_ids
-     *
-     * @param string[] $resource_ids resource_ids
-     *
-     * @return $this
-     */
-    public function setResourceIds($resource_ids)
-    {
-        $this->container['resource_ids'] = $resource_ids;
-
-        return $this;
-    }
-
-    /**
-     * Gets resource_type
+     * Gets key_id
      *
      * @return string
      */
-    public function getResourceType()
+    public function getKeyId()
     {
-        return $this->container['resource_type'];
+        return $this->container['key_id'];
     }
 
     /**
-     * Sets resource_type
+     * Sets key_id
      *
-     * @param string $resource_type resource_type
+     * @param string $key_id key_id
      *
      * @return $this
      */
-    public function setResourceType($resource_type)
+    public function setKeyId($key_id)
     {
-        $this->container['resource_type'] = $resource_type;
+        $this->container['key_id'] = $key_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets key_name
+     *
+     * @return string
+     */
+    public function getKeyName()
+    {
+        return $this->container['key_name'];
+    }
+
+    /**
+     * Sets key_name
+     *
+     * @param string $key_name key_name
+     *
+     * @return $this
+     */
+    public function setKeyName($key_name)
+    {
+        $this->container['key_name'] = $key_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets keyring_name
+     *
+     * @return string
+     */
+    public function getKeyringName()
+    {
+        return $this->container['keyring_name'];
+    }
+
+    /**
+     * Sets keyring_name
+     *
+     * @param string $keyring_name keyring_name
+     *
+     * @return $this
+     */
+    public function setKeyringName($keyring_name)
+    {
+        $this->container['keyring_name'] = $keyring_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets primary_region
+     *
+     * @return string
+     */
+    public function getPrimaryRegion()
+    {
+        return $this->container['primary_region'];
+    }
+
+    /**
+     * Sets primary_region
+     *
+     * @param string $primary_region primary_region
+     *
+     * @return $this
+     */
+    public function setPrimaryRegion($primary_region)
+    {
+        $this->container['primary_region'] = $primary_region;
 
         return $this;
     }

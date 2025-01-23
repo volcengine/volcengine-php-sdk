@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Ark\Model;
+namespace Volcengine\Kms\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class GetApiKeyRequest implements ModelInterface, ArrayAccess
+class ReplicateKeyRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class GetApiKeyRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetApiKeyRequest';
+    protected static $swaggerModelName = 'ReplicateKeyRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,11 @@ class GetApiKeyRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'duration_seconds' => 'int',
-        'resource_ids' => 'string[]',
-        'resource_type' => 'string'
+        'description' => 'string',
+        'key_id' => 'string',
+        'key_name' => 'string',
+        'keyring_name' => 'string',
+        'replica_region' => 'string'
     ];
 
     /**
@@ -39,9 +41,11 @@ class GetApiKeyRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'duration_seconds' => 'int32',
-        'resource_ids' => null,
-        'resource_type' => null
+        'description' => null,
+        'key_id' => null,
+        'key_name' => null,
+        'keyring_name' => null,
+        'replica_region' => null
     ];
 
     /**
@@ -71,9 +75,11 @@ class GetApiKeyRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'duration_seconds' => 'DurationSeconds',
-        'resource_ids' => 'ResourceIds',
-        'resource_type' => 'ResourceType'
+        'description' => 'Description',
+        'key_id' => 'KeyID',
+        'key_name' => 'KeyName',
+        'keyring_name' => 'KeyringName',
+        'replica_region' => 'ReplicaRegion'
     ];
 
     /**
@@ -82,9 +88,11 @@ class GetApiKeyRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'duration_seconds' => 'setDurationSeconds',
-        'resource_ids' => 'setResourceIds',
-        'resource_type' => 'setResourceType'
+        'description' => 'setDescription',
+        'key_id' => 'setKeyId',
+        'key_name' => 'setKeyName',
+        'keyring_name' => 'setKeyringName',
+        'replica_region' => 'setReplicaRegion'
     ];
 
     /**
@@ -93,9 +101,11 @@ class GetApiKeyRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'duration_seconds' => 'getDurationSeconds',
-        'resource_ids' => 'getResourceIds',
-        'resource_type' => 'getResourceType'
+        'description' => 'getDescription',
+        'key_id' => 'getKeyId',
+        'key_name' => 'getKeyName',
+        'keyring_name' => 'getKeyringName',
+        'replica_region' => 'getReplicaRegion'
     ];
 
     /**
@@ -158,9 +168,11 @@ class GetApiKeyRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['duration_seconds'] = isset($data['duration_seconds']) ? $data['duration_seconds'] : null;
-        $this->container['resource_ids'] = isset($data['resource_ids']) ? $data['resource_ids'] : null;
-        $this->container['resource_type'] = isset($data['resource_type']) ? $data['resource_type'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['key_id'] = isset($data['key_id']) ? $data['key_id'] : null;
+        $this->container['key_name'] = isset($data['key_name']) ? $data['key_name'] : null;
+        $this->container['keyring_name'] = isset($data['keyring_name']) ? $data['keyring_name'] : null;
+        $this->container['replica_region'] = isset($data['replica_region']) ? $data['replica_region'] : null;
     }
 
     /**
@@ -172,11 +184,8 @@ class GetApiKeyRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['duration_seconds'] === null) {
-            $invalidProperties[] = "'duration_seconds' can't be null";
-        }
-        if ($this->container['resource_type'] === null) {
-            $invalidProperties[] = "'resource_type' can't be null";
+        if ($this->container['replica_region'] === null) {
+            $invalidProperties[] = "'replica_region' can't be null";
         }
         return $invalidProperties;
     }
@@ -194,73 +203,121 @@ class GetApiKeyRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets duration_seconds
-     *
-     * @return int
-     */
-    public function getDurationSeconds()
-    {
-        return $this->container['duration_seconds'];
-    }
-
-    /**
-     * Sets duration_seconds
-     *
-     * @param int $duration_seconds duration_seconds
-     *
-     * @return $this
-     */
-    public function setDurationSeconds($duration_seconds)
-    {
-        $this->container['duration_seconds'] = $duration_seconds;
-
-        return $this;
-    }
-
-    /**
-     * Gets resource_ids
-     *
-     * @return string[]
-     */
-    public function getResourceIds()
-    {
-        return $this->container['resource_ids'];
-    }
-
-    /**
-     * Sets resource_ids
-     *
-     * @param string[] $resource_ids resource_ids
-     *
-     * @return $this
-     */
-    public function setResourceIds($resource_ids)
-    {
-        $this->container['resource_ids'] = $resource_ids;
-
-        return $this;
-    }
-
-    /**
-     * Gets resource_type
+     * Gets description
      *
      * @return string
      */
-    public function getResourceType()
+    public function getDescription()
     {
-        return $this->container['resource_type'];
+        return $this->container['description'];
     }
 
     /**
-     * Sets resource_type
+     * Sets description
      *
-     * @param string $resource_type resource_type
+     * @param string $description description
      *
      * @return $this
      */
-    public function setResourceType($resource_type)
+    public function setDescription($description)
     {
-        $this->container['resource_type'] = $resource_type;
+        $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets key_id
+     *
+     * @return string
+     */
+    public function getKeyId()
+    {
+        return $this->container['key_id'];
+    }
+
+    /**
+     * Sets key_id
+     *
+     * @param string $key_id key_id
+     *
+     * @return $this
+     */
+    public function setKeyId($key_id)
+    {
+        $this->container['key_id'] = $key_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets key_name
+     *
+     * @return string
+     */
+    public function getKeyName()
+    {
+        return $this->container['key_name'];
+    }
+
+    /**
+     * Sets key_name
+     *
+     * @param string $key_name key_name
+     *
+     * @return $this
+     */
+    public function setKeyName($key_name)
+    {
+        $this->container['key_name'] = $key_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets keyring_name
+     *
+     * @return string
+     */
+    public function getKeyringName()
+    {
+        return $this->container['keyring_name'];
+    }
+
+    /**
+     * Sets keyring_name
+     *
+     * @param string $keyring_name keyring_name
+     *
+     * @return $this
+     */
+    public function setKeyringName($keyring_name)
+    {
+        $this->container['keyring_name'] = $keyring_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets replica_region
+     *
+     * @return string
+     */
+    public function getReplicaRegion()
+    {
+        return $this->container['replica_region'];
+    }
+
+    /**
+     * Sets replica_region
+     *
+     * @param string $replica_region replica_region
+     *
+     * @return $this
+     */
+    public function setReplicaRegion($replica_region)
+    {
+        $this->container['replica_region'] = $replica_region;
 
         return $this;
     }

@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Ark\Model;
+namespace Volcengine\Kms\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class GetApiKeyRequest implements ModelInterface, ArrayAccess
+class UpdatePrimaryRegionResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class GetApiKeyRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetApiKeyRequest';
+    protected static $swaggerModelName = 'UpdatePrimaryRegionResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,7 @@ class GetApiKeyRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'duration_seconds' => 'int',
-        'resource_ids' => 'string[]',
-        'resource_type' => 'string'
+        
     ];
 
     /**
@@ -39,9 +37,7 @@ class GetApiKeyRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'duration_seconds' => 'int32',
-        'resource_ids' => null,
-        'resource_type' => null
+        
     ];
 
     /**
@@ -71,9 +67,7 @@ class GetApiKeyRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'duration_seconds' => 'DurationSeconds',
-        'resource_ids' => 'ResourceIds',
-        'resource_type' => 'ResourceType'
+        
     ];
 
     /**
@@ -82,9 +76,7 @@ class GetApiKeyRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'duration_seconds' => 'setDurationSeconds',
-        'resource_ids' => 'setResourceIds',
-        'resource_type' => 'setResourceType'
+        
     ];
 
     /**
@@ -93,9 +85,7 @@ class GetApiKeyRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'duration_seconds' => 'getDurationSeconds',
-        'resource_ids' => 'getResourceIds',
-        'resource_type' => 'getResourceType'
+        
     ];
 
     /**
@@ -158,9 +148,6 @@ class GetApiKeyRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['duration_seconds'] = isset($data['duration_seconds']) ? $data['duration_seconds'] : null;
-        $this->container['resource_ids'] = isset($data['resource_ids']) ? $data['resource_ids'] : null;
-        $this->container['resource_type'] = isset($data['resource_type']) ? $data['resource_type'] : null;
     }
 
     /**
@@ -172,12 +159,6 @@ class GetApiKeyRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['duration_seconds'] === null) {
-            $invalidProperties[] = "'duration_seconds' can't be null";
-        }
-        if ($this->container['resource_type'] === null) {
-            $invalidProperties[] = "'resource_type' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -192,78 +173,6 @@ class GetApiKeyRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets duration_seconds
-     *
-     * @return int
-     */
-    public function getDurationSeconds()
-    {
-        return $this->container['duration_seconds'];
-    }
-
-    /**
-     * Sets duration_seconds
-     *
-     * @param int $duration_seconds duration_seconds
-     *
-     * @return $this
-     */
-    public function setDurationSeconds($duration_seconds)
-    {
-        $this->container['duration_seconds'] = $duration_seconds;
-
-        return $this;
-    }
-
-    /**
-     * Gets resource_ids
-     *
-     * @return string[]
-     */
-    public function getResourceIds()
-    {
-        return $this->container['resource_ids'];
-    }
-
-    /**
-     * Sets resource_ids
-     *
-     * @param string[] $resource_ids resource_ids
-     *
-     * @return $this
-     */
-    public function setResourceIds($resource_ids)
-    {
-        $this->container['resource_ids'] = $resource_ids;
-
-        return $this;
-    }
-
-    /**
-     * Gets resource_type
-     *
-     * @return string
-     */
-    public function getResourceType()
-    {
-        return $this->container['resource_type'];
-    }
-
-    /**
-     * Sets resource_type
-     *
-     * @param string $resource_type resource_type
-     *
-     * @return $this
-     */
-    public function setResourceType($resource_type)
-    {
-        $this->container['resource_type'] = $resource_type;
-
-        return $this;
-    }
     /**
      * Returns true if offset exists. False otherwise.
      *

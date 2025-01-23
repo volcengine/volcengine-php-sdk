@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Ark\Model;
+namespace Volcengine\Kms\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class GetApiKeyRequest implements ModelInterface, ArrayAccess
+class PrimaryKeyForDescribeKeysOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class GetApiKeyRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetApiKeyRequest';
+    protected static $swaggerModelName = 'PrimaryKeyForDescribeKeysOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,8 @@ class GetApiKeyRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'duration_seconds' => 'int',
-        'resource_ids' => 'string[]',
-        'resource_type' => 'string'
+        'region' => 'string',
+        'trn' => 'string'
     ];
 
     /**
@@ -39,9 +38,8 @@ class GetApiKeyRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'duration_seconds' => 'int32',
-        'resource_ids' => null,
-        'resource_type' => null
+        'region' => null,
+        'trn' => null
     ];
 
     /**
@@ -71,9 +69,8 @@ class GetApiKeyRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'duration_seconds' => 'DurationSeconds',
-        'resource_ids' => 'ResourceIds',
-        'resource_type' => 'ResourceType'
+        'region' => 'Region',
+        'trn' => 'Trn'
     ];
 
     /**
@@ -82,9 +79,8 @@ class GetApiKeyRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'duration_seconds' => 'setDurationSeconds',
-        'resource_ids' => 'setResourceIds',
-        'resource_type' => 'setResourceType'
+        'region' => 'setRegion',
+        'trn' => 'setTrn'
     ];
 
     /**
@@ -93,9 +89,8 @@ class GetApiKeyRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'duration_seconds' => 'getDurationSeconds',
-        'resource_ids' => 'getResourceIds',
-        'resource_type' => 'getResourceType'
+        'region' => 'getRegion',
+        'trn' => 'getTrn'
     ];
 
     /**
@@ -158,9 +153,8 @@ class GetApiKeyRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['duration_seconds'] = isset($data['duration_seconds']) ? $data['duration_seconds'] : null;
-        $this->container['resource_ids'] = isset($data['resource_ids']) ? $data['resource_ids'] : null;
-        $this->container['resource_type'] = isset($data['resource_type']) ? $data['resource_type'] : null;
+        $this->container['region'] = isset($data['region']) ? $data['region'] : null;
+        $this->container['trn'] = isset($data['trn']) ? $data['trn'] : null;
     }
 
     /**
@@ -172,12 +166,6 @@ class GetApiKeyRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['duration_seconds'] === null) {
-            $invalidProperties[] = "'duration_seconds' can't be null";
-        }
-        if ($this->container['resource_type'] === null) {
-            $invalidProperties[] = "'resource_type' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -194,73 +182,49 @@ class GetApiKeyRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets duration_seconds
-     *
-     * @return int
-     */
-    public function getDurationSeconds()
-    {
-        return $this->container['duration_seconds'];
-    }
-
-    /**
-     * Sets duration_seconds
-     *
-     * @param int $duration_seconds duration_seconds
-     *
-     * @return $this
-     */
-    public function setDurationSeconds($duration_seconds)
-    {
-        $this->container['duration_seconds'] = $duration_seconds;
-
-        return $this;
-    }
-
-    /**
-     * Gets resource_ids
-     *
-     * @return string[]
-     */
-    public function getResourceIds()
-    {
-        return $this->container['resource_ids'];
-    }
-
-    /**
-     * Sets resource_ids
-     *
-     * @param string[] $resource_ids resource_ids
-     *
-     * @return $this
-     */
-    public function setResourceIds($resource_ids)
-    {
-        $this->container['resource_ids'] = $resource_ids;
-
-        return $this;
-    }
-
-    /**
-     * Gets resource_type
+     * Gets region
      *
      * @return string
      */
-    public function getResourceType()
+    public function getRegion()
     {
-        return $this->container['resource_type'];
+        return $this->container['region'];
     }
 
     /**
-     * Sets resource_type
+     * Sets region
      *
-     * @param string $resource_type resource_type
+     * @param string $region region
      *
      * @return $this
      */
-    public function setResourceType($resource_type)
+    public function setRegion($region)
     {
-        $this->container['resource_type'] = $resource_type;
+        $this->container['region'] = $region;
+
+        return $this;
+    }
+
+    /**
+     * Gets trn
+     *
+     * @return string
+     */
+    public function getTrn()
+    {
+        return $this->container['trn'];
+    }
+
+    /**
+     * Sets trn
+     *
+     * @param string $trn trn
+     *
+     * @return $this
+     */
+    public function setTrn($trn)
+    {
+        $this->container['trn'] = $trn;
 
         return $this;
     }

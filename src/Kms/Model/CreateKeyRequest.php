@@ -33,6 +33,7 @@ class CreateKeyRequest implements ModelInterface, ArrayAccess
         'key_spec' => 'string',
         'key_usage' => 'string',
         'keyring_name' => 'string',
+        'multi_region' => 'bool',
         'origin' => 'string',
         'protection_level' => 'string',
         'rotate_state' => 'string'
@@ -49,6 +50,7 @@ class CreateKeyRequest implements ModelInterface, ArrayAccess
         'key_spec' => null,
         'key_usage' => null,
         'keyring_name' => null,
+        'multi_region' => null,
         'origin' => null,
         'protection_level' => null,
         'rotate_state' => null
@@ -86,6 +88,7 @@ class CreateKeyRequest implements ModelInterface, ArrayAccess
         'key_spec' => 'KeySpec',
         'key_usage' => 'KeyUsage',
         'keyring_name' => 'KeyringName',
+        'multi_region' => 'MultiRegion',
         'origin' => 'Origin',
         'protection_level' => 'ProtectionLevel',
         'rotate_state' => 'RotateState'
@@ -102,6 +105,7 @@ class CreateKeyRequest implements ModelInterface, ArrayAccess
         'key_spec' => 'setKeySpec',
         'key_usage' => 'setKeyUsage',
         'keyring_name' => 'setKeyringName',
+        'multi_region' => 'setMultiRegion',
         'origin' => 'setOrigin',
         'protection_level' => 'setProtectionLevel',
         'rotate_state' => 'setRotateState'
@@ -118,6 +122,7 @@ class CreateKeyRequest implements ModelInterface, ArrayAccess
         'key_spec' => 'getKeySpec',
         'key_usage' => 'getKeyUsage',
         'keyring_name' => 'getKeyringName',
+        'multi_region' => 'getMultiRegion',
         'origin' => 'getOrigin',
         'protection_level' => 'getProtectionLevel',
         'rotate_state' => 'getRotateState'
@@ -188,6 +193,7 @@ class CreateKeyRequest implements ModelInterface, ArrayAccess
         $this->container['key_spec'] = isset($data['key_spec']) ? $data['key_spec'] : null;
         $this->container['key_usage'] = isset($data['key_usage']) ? $data['key_usage'] : null;
         $this->container['keyring_name'] = isset($data['keyring_name']) ? $data['keyring_name'] : null;
+        $this->container['multi_region'] = isset($data['multi_region']) ? $data['multi_region'] : null;
         $this->container['origin'] = isset($data['origin']) ? $data['origin'] : null;
         $this->container['protection_level'] = isset($data['protection_level']) ? $data['protection_level'] : null;
         $this->container['rotate_state'] = isset($data['rotate_state']) ? $data['rotate_state'] : null;
@@ -339,6 +345,30 @@ class CreateKeyRequest implements ModelInterface, ArrayAccess
     public function setKeyringName($keyring_name)
     {
         $this->container['keyring_name'] = $keyring_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets multi_region
+     *
+     * @return bool
+     */
+    public function getMultiRegion()
+    {
+        return $this->container['multi_region'];
+    }
+
+    /**
+     * Sets multi_region
+     *
+     * @param bool $multi_region multi_region
+     *
+     * @return $this
+     */
+    public function setMultiRegion($multi_region)
+    {
+        $this->container['multi_region'] = $multi_region;
 
         return $this;
     }
