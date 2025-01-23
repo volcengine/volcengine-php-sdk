@@ -139,23 +139,8 @@ class GetApiKeyRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const RESOURCE_TYPE_ENDPOINT = 'endpoint';
-    const RESOURCE_TYPE_BOT = 'bot';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getResourceTypeAllowableValues()
-    {
-        return [
-            self::RESOURCE_TYPE_ENDPOINT,
-            self::RESOURCE_TYPE_BOT,
-        ];
-    }
     
 
     /**
@@ -193,14 +178,6 @@ class GetApiKeyRequest implements ModelInterface, ArrayAccess
         if ($this->container['resource_type'] === null) {
             $invalidProperties[] = "'resource_type' can't be null";
         }
-        $allowedValues = $this->getResourceTypeAllowableValues();
-        if (!is_null($this->container['resource_type']) && !in_array($this->container['resource_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'resource_type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -283,15 +260,6 @@ class GetApiKeyRequest implements ModelInterface, ArrayAccess
      */
     public function setResourceType($resource_type)
     {
-        $allowedValues = $this->getResourceTypeAllowableValues();
-        if (!in_array($resource_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'resource_type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['resource_type'] = $resource_type;
 
         return $this;
