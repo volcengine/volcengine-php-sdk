@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class KeyForCreateKeyOutput implements ModelInterface, ArrayAccess
+class ConvertReplicaKeyForReplicateKeyOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class KeyForCreateKeyOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'KeyForCreateKeyOutput';
+    protected static $swaggerModelName = 'ConvertReplicaKeyForReplicateKeyOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -38,7 +38,7 @@ class KeyForCreateKeyOutput implements ModelInterface, ArrayAccess
         'key_usage' => 'string',
         'last_rotation_time' => 'string',
         'multi_region' => 'string',
-        'multi_region_configuration' => '\Volcengine\Kms\Model\MultiRegionConfigurationForCreateKeyOutput',
+        'multi_region_configuration' => '\Volcengine\Kms\Model\MultiRegionConfigurationForReplicateKeyOutput',
         'origin' => 'string',
         'protection_level' => 'string',
         'rotation_state' => 'string',
@@ -520,7 +520,7 @@ class KeyForCreateKeyOutput implements ModelInterface, ArrayAccess
     /**
      * Gets multi_region_configuration
      *
-     * @return \Volcengine\Kms\Model\MultiRegionConfigurationForCreateKeyOutput
+     * @return \Volcengine\Kms\Model\MultiRegionConfigurationForReplicateKeyOutput
      */
     public function getMultiRegionConfiguration()
     {
@@ -530,7 +530,7 @@ class KeyForCreateKeyOutput implements ModelInterface, ArrayAccess
     /**
      * Sets multi_region_configuration
      *
-     * @param \Volcengine\Kms\Model\MultiRegionConfigurationForCreateKeyOutput $multi_region_configuration multi_region_configuration
+     * @param \Volcengine\Kms\Model\MultiRegionConfigurationForReplicateKeyOutput $multi_region_configuration multi_region_configuration
      *
      * @return $this
      */
