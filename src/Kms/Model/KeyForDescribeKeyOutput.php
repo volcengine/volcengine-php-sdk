@@ -37,7 +37,7 @@ class KeyForDescribeKeyOutput implements ModelInterface, ArrayAccess
         'key_state' => 'string',
         'key_usage' => 'string',
         'last_rotation_time' => 'string',
-        'multi_region' => 'string',
+        'multi_region' => 'bool',
         'multi_region_configuration' => '\Volcengine\Kms\Model\MultiRegionConfigurationForDescribeKeyOutput',
         'origin' => 'string',
         'protection_level' => 'string',
@@ -496,7 +496,7 @@ class KeyForDescribeKeyOutput implements ModelInterface, ArrayAccess
     /**
      * Gets multi_region
      *
-     * @return string
+     * @return bool
      */
     public function getMultiRegion()
     {
@@ -506,7 +506,7 @@ class KeyForDescribeKeyOutput implements ModelInterface, ArrayAccess
     /**
      * Sets multi_region
      *
-     * @param string $multi_region multi_region
+     * @param bool $multi_region multi_region
      *
      * @return $this
      */
