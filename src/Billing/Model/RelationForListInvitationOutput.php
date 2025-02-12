@@ -54,14 +54,14 @@ class RelationForListInvitationOutput implements ModelInterface, ArrayAccess
         'auth_info' => null,
         'filiation' => 'int32',
         'filiation_desc' => null,
-        'major_account_id' => 'int32',
+        'major_account_id' => 'int64',
         'major_account_name' => null,
         'relation' => 'int32',
         'relation_desc' => null,
         'relation_id' => null,
         'status' => 'int32',
         'status_desc' => null,
-        'sub_account_id' => 'int32',
+        'sub_account_id' => 'int64',
         'sub_account_name' => null,
         'update_time' => null
     ];
