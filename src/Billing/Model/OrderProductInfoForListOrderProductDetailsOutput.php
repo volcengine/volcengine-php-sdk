@@ -34,6 +34,7 @@ class OrderProductInfoForListOrderProductDetailsOutput implements ModelInterface
         'discount_amount' => 'string',
         'end_time' => 'string',
         'instance_id' => 'string',
+        'order_fail_refund_info' => '\Volcengine\Billing\Model\OrderFailRefundInfoForListOrderProductDetailsOutput',
         'original_amount' => 'string',
         'paid_amount' => 'string',
         'payable_amount' => 'string',
@@ -58,6 +59,7 @@ class OrderProductInfoForListOrderProductDetailsOutput implements ModelInterface
         'discount_amount' => null,
         'end_time' => null,
         'instance_id' => null,
+        'order_fail_refund_info' => null,
         'original_amount' => null,
         'paid_amount' => null,
         'payable_amount' => null,
@@ -103,6 +105,7 @@ class OrderProductInfoForListOrderProductDetailsOutput implements ModelInterface
         'discount_amount' => 'DiscountAmount',
         'end_time' => 'EndTime',
         'instance_id' => 'InstanceID',
+        'order_fail_refund_info' => 'OrderFailRefundInfo',
         'original_amount' => 'OriginalAmount',
         'paid_amount' => 'PaidAmount',
         'payable_amount' => 'PayableAmount',
@@ -127,6 +130,7 @@ class OrderProductInfoForListOrderProductDetailsOutput implements ModelInterface
         'discount_amount' => 'setDiscountAmount',
         'end_time' => 'setEndTime',
         'instance_id' => 'setInstanceId',
+        'order_fail_refund_info' => 'setOrderFailRefundInfo',
         'original_amount' => 'setOriginalAmount',
         'paid_amount' => 'setPaidAmount',
         'payable_amount' => 'setPayableAmount',
@@ -151,6 +155,7 @@ class OrderProductInfoForListOrderProductDetailsOutput implements ModelInterface
         'discount_amount' => 'getDiscountAmount',
         'end_time' => 'getEndTime',
         'instance_id' => 'getInstanceId',
+        'order_fail_refund_info' => 'getOrderFailRefundInfo',
         'original_amount' => 'getOriginalAmount',
         'paid_amount' => 'getPaidAmount',
         'payable_amount' => 'getPayableAmount',
@@ -229,6 +234,7 @@ class OrderProductInfoForListOrderProductDetailsOutput implements ModelInterface
         $this->container['discount_amount'] = isset($data['discount_amount']) ? $data['discount_amount'] : null;
         $this->container['end_time'] = isset($data['end_time']) ? $data['end_time'] : null;
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
+        $this->container['order_fail_refund_info'] = isset($data['order_fail_refund_info']) ? $data['order_fail_refund_info'] : null;
         $this->container['original_amount'] = isset($data['original_amount']) ? $data['original_amount'] : null;
         $this->container['paid_amount'] = isset($data['paid_amount']) ? $data['paid_amount'] : null;
         $this->container['payable_amount'] = isset($data['payable_amount']) ? $data['payable_amount'] : null;
@@ -405,6 +411,30 @@ class OrderProductInfoForListOrderProductDetailsOutput implements ModelInterface
     public function setInstanceId($instance_id)
     {
         $this->container['instance_id'] = $instance_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets order_fail_refund_info
+     *
+     * @return \Volcengine\Billing\Model\OrderFailRefundInfoForListOrderProductDetailsOutput
+     */
+    public function getOrderFailRefundInfo()
+    {
+        return $this->container['order_fail_refund_info'];
+    }
+
+    /**
+     * Sets order_fail_refund_info
+     *
+     * @param \Volcengine\Billing\Model\OrderFailRefundInfoForListOrderProductDetailsOutput $order_fail_refund_info order_fail_refund_info
+     *
+     * @return $this
+     */
+    public function setOrderFailRefundInfo($order_fail_refund_info)
+    {
+        $this->container['order_fail_refund_info'] = $order_fail_refund_info;
 
         return $this;
     }

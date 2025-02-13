@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CancelInvitationRequest implements ModelInterface, ArrayAccess
+class OrderFailRefundInfoForGetOrderOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CancelInvitationRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CancelInvitationRequest';
+    protected static $swaggerModelName = 'OrderFailRefundInfoForGetOrderOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,11 +28,11 @@ class CancelInvitationRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'auth_id' => 'string',
-        'invitation_type' => 'int',
-        'relation' => 'int',
-        'relation_id' => 'string',
-        'sub_account_id' => 'int'
+        'coupon_amount' => 'string',
+        'discount_amount' => 'string',
+        'original_amount' => 'string',
+        'paid_amount' => 'string',
+        'payable_amount' => 'string'
     ];
 
     /**
@@ -41,11 +41,11 @@ class CancelInvitationRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'auth_id' => null,
-        'invitation_type' => 'int32',
-        'relation' => 'int32',
-        'relation_id' => null,
-        'sub_account_id' => 'int64'
+        'coupon_amount' => null,
+        'discount_amount' => null,
+        'original_amount' => null,
+        'paid_amount' => null,
+        'payable_amount' => null
     ];
 
     /**
@@ -75,11 +75,11 @@ class CancelInvitationRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'auth_id' => 'AuthID',
-        'invitation_type' => 'InvitationType',
-        'relation' => 'Relation',
-        'relation_id' => 'RelationID',
-        'sub_account_id' => 'SubAccountID'
+        'coupon_amount' => 'CouponAmount',
+        'discount_amount' => 'DiscountAmount',
+        'original_amount' => 'OriginalAmount',
+        'paid_amount' => 'PaidAmount',
+        'payable_amount' => 'PayableAmount'
     ];
 
     /**
@@ -88,11 +88,11 @@ class CancelInvitationRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'auth_id' => 'setAuthId',
-        'invitation_type' => 'setInvitationType',
-        'relation' => 'setRelation',
-        'relation_id' => 'setRelationId',
-        'sub_account_id' => 'setSubAccountId'
+        'coupon_amount' => 'setCouponAmount',
+        'discount_amount' => 'setDiscountAmount',
+        'original_amount' => 'setOriginalAmount',
+        'paid_amount' => 'setPaidAmount',
+        'payable_amount' => 'setPayableAmount'
     ];
 
     /**
@@ -101,11 +101,11 @@ class CancelInvitationRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'auth_id' => 'getAuthId',
-        'invitation_type' => 'getInvitationType',
-        'relation' => 'getRelation',
-        'relation_id' => 'getRelationId',
-        'sub_account_id' => 'getSubAccountId'
+        'coupon_amount' => 'getCouponAmount',
+        'discount_amount' => 'getDiscountAmount',
+        'original_amount' => 'getOriginalAmount',
+        'paid_amount' => 'getPaidAmount',
+        'payable_amount' => 'getPayableAmount'
     ];
 
     /**
@@ -168,11 +168,11 @@ class CancelInvitationRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['auth_id'] = isset($data['auth_id']) ? $data['auth_id'] : null;
-        $this->container['invitation_type'] = isset($data['invitation_type']) ? $data['invitation_type'] : null;
-        $this->container['relation'] = isset($data['relation']) ? $data['relation'] : null;
-        $this->container['relation_id'] = isset($data['relation_id']) ? $data['relation_id'] : null;
-        $this->container['sub_account_id'] = isset($data['sub_account_id']) ? $data['sub_account_id'] : null;
+        $this->container['coupon_amount'] = isset($data['coupon_amount']) ? $data['coupon_amount'] : null;
+        $this->container['discount_amount'] = isset($data['discount_amount']) ? $data['discount_amount'] : null;
+        $this->container['original_amount'] = isset($data['original_amount']) ? $data['original_amount'] : null;
+        $this->container['paid_amount'] = isset($data['paid_amount']) ? $data['paid_amount'] : null;
+        $this->container['payable_amount'] = isset($data['payable_amount']) ? $data['payable_amount'] : null;
     }
 
     /**
@@ -184,12 +184,6 @@ class CancelInvitationRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['invitation_type'] === null) {
-            $invalidProperties[] = "'invitation_type' can't be null";
-        }
-        if ($this->container['relation_id'] === null) {
-            $invalidProperties[] = "'relation_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -206,121 +200,121 @@ class CancelInvitationRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets auth_id
+     * Gets coupon_amount
      *
      * @return string
      */
-    public function getAuthId()
+    public function getCouponAmount()
     {
-        return $this->container['auth_id'];
+        return $this->container['coupon_amount'];
     }
 
     /**
-     * Sets auth_id
+     * Sets coupon_amount
      *
-     * @param string $auth_id auth_id
+     * @param string $coupon_amount coupon_amount
      *
      * @return $this
      */
-    public function setAuthId($auth_id)
+    public function setCouponAmount($coupon_amount)
     {
-        $this->container['auth_id'] = $auth_id;
+        $this->container['coupon_amount'] = $coupon_amount;
 
         return $this;
     }
 
     /**
-     * Gets invitation_type
-     *
-     * @return int
-     */
-    public function getInvitationType()
-    {
-        return $this->container['invitation_type'];
-    }
-
-    /**
-     * Sets invitation_type
-     *
-     * @param int $invitation_type invitation_type
-     *
-     * @return $this
-     */
-    public function setInvitationType($invitation_type)
-    {
-        $this->container['invitation_type'] = $invitation_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets relation
-     *
-     * @return int
-     */
-    public function getRelation()
-    {
-        return $this->container['relation'];
-    }
-
-    /**
-     * Sets relation
-     *
-     * @param int $relation relation
-     *
-     * @return $this
-     */
-    public function setRelation($relation)
-    {
-        $this->container['relation'] = $relation;
-
-        return $this;
-    }
-
-    /**
-     * Gets relation_id
+     * Gets discount_amount
      *
      * @return string
      */
-    public function getRelationId()
+    public function getDiscountAmount()
     {
-        return $this->container['relation_id'];
+        return $this->container['discount_amount'];
     }
 
     /**
-     * Sets relation_id
+     * Sets discount_amount
      *
-     * @param string $relation_id relation_id
+     * @param string $discount_amount discount_amount
      *
      * @return $this
      */
-    public function setRelationId($relation_id)
+    public function setDiscountAmount($discount_amount)
     {
-        $this->container['relation_id'] = $relation_id;
+        $this->container['discount_amount'] = $discount_amount;
 
         return $this;
     }
 
     /**
-     * Gets sub_account_id
+     * Gets original_amount
      *
-     * @return int
+     * @return string
      */
-    public function getSubAccountId()
+    public function getOriginalAmount()
     {
-        return $this->container['sub_account_id'];
+        return $this->container['original_amount'];
     }
 
     /**
-     * Sets sub_account_id
+     * Sets original_amount
      *
-     * @param int $sub_account_id sub_account_id
+     * @param string $original_amount original_amount
      *
      * @return $this
      */
-    public function setSubAccountId($sub_account_id)
+    public function setOriginalAmount($original_amount)
     {
-        $this->container['sub_account_id'] = $sub_account_id;
+        $this->container['original_amount'] = $original_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets paid_amount
+     *
+     * @return string
+     */
+    public function getPaidAmount()
+    {
+        return $this->container['paid_amount'];
+    }
+
+    /**
+     * Sets paid_amount
+     *
+     * @param string $paid_amount paid_amount
+     *
+     * @return $this
+     */
+    public function setPaidAmount($paid_amount)
+    {
+        $this->container['paid_amount'] = $paid_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets payable_amount
+     *
+     * @return string
+     */
+    public function getPayableAmount()
+    {
+        return $this->container['payable_amount'];
+    }
+
+    /**
+     * Sets payable_amount
+     *
+     * @param string $payable_amount payable_amount
+     *
+     * @return $this
+     */
+    public function setPayableAmount($payable_amount)
+    {
+        $this->container['payable_amount'] = $payable_amount;
 
         return $this;
     }

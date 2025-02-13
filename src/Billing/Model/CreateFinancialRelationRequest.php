@@ -43,7 +43,7 @@ class CreateFinancialRelationRequest implements ModelInterface, ArrayAccess
         'account_alias' => null,
         'auth_list_str' => null,
         'relation' => 'int32',
-        'sub_account_id' => 'int32'
+        'sub_account_id' => 'int64'
     ];
 
     /**

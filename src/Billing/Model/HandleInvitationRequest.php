@@ -45,7 +45,7 @@ class HandleInvitationRequest implements ModelInterface, ArrayAccess
         'action' => 'int32',
         'auth_id' => null,
         'invitation_type' => 'int32',
-        'major_account_id' => 'int32',
+        'major_account_id' => 'int64',
         'relation' => 'int32',
         'relation_id' => null
     ];
