@@ -33,6 +33,7 @@ class OrderInfoForListOrdersOutput implements ModelInterface, ArrayAccess
         'coupon_amount' => 'string',
         'create_time' => 'string',
         'discount_amount' => 'string',
+        'order_fail_refund_info' => '\Volcengine\Billing\Model\OrderFailRefundInfoForListOrdersOutput',
         'order_id' => 'string',
         'order_type' => 'string',
         'original_amount' => 'string',
@@ -57,6 +58,7 @@ class OrderInfoForListOrdersOutput implements ModelInterface, ArrayAccess
         'coupon_amount' => null,
         'create_time' => null,
         'discount_amount' => null,
+        'order_fail_refund_info' => null,
         'order_id' => null,
         'order_type' => null,
         'original_amount' => null,
@@ -102,6 +104,7 @@ class OrderInfoForListOrdersOutput implements ModelInterface, ArrayAccess
         'coupon_amount' => 'CouponAmount',
         'create_time' => 'CreateTime',
         'discount_amount' => 'DiscountAmount',
+        'order_fail_refund_info' => 'OrderFailRefundInfo',
         'order_id' => 'OrderID',
         'order_type' => 'OrderType',
         'original_amount' => 'OriginalAmount',
@@ -126,6 +129,7 @@ class OrderInfoForListOrdersOutput implements ModelInterface, ArrayAccess
         'coupon_amount' => 'setCouponAmount',
         'create_time' => 'setCreateTime',
         'discount_amount' => 'setDiscountAmount',
+        'order_fail_refund_info' => 'setOrderFailRefundInfo',
         'order_id' => 'setOrderId',
         'order_type' => 'setOrderType',
         'original_amount' => 'setOriginalAmount',
@@ -150,6 +154,7 @@ class OrderInfoForListOrdersOutput implements ModelInterface, ArrayAccess
         'coupon_amount' => 'getCouponAmount',
         'create_time' => 'getCreateTime',
         'discount_amount' => 'getDiscountAmount',
+        'order_fail_refund_info' => 'getOrderFailRefundInfo',
         'order_id' => 'getOrderId',
         'order_type' => 'getOrderType',
         'original_amount' => 'getOriginalAmount',
@@ -228,6 +233,7 @@ class OrderInfoForListOrdersOutput implements ModelInterface, ArrayAccess
         $this->container['coupon_amount'] = isset($data['coupon_amount']) ? $data['coupon_amount'] : null;
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
         $this->container['discount_amount'] = isset($data['discount_amount']) ? $data['discount_amount'] : null;
+        $this->container['order_fail_refund_info'] = isset($data['order_fail_refund_info']) ? $data['order_fail_refund_info'] : null;
         $this->container['order_id'] = isset($data['order_id']) ? $data['order_id'] : null;
         $this->container['order_type'] = isset($data['order_type']) ? $data['order_type'] : null;
         $this->container['original_amount'] = isset($data['original_amount']) ? $data['original_amount'] : null;
@@ -381,6 +387,30 @@ class OrderInfoForListOrdersOutput implements ModelInterface, ArrayAccess
     public function setDiscountAmount($discount_amount)
     {
         $this->container['discount_amount'] = $discount_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets order_fail_refund_info
+     *
+     * @return \Volcengine\Billing\Model\OrderFailRefundInfoForListOrdersOutput
+     */
+    public function getOrderFailRefundInfo()
+    {
+        return $this->container['order_fail_refund_info'];
+    }
+
+    /**
+     * Sets order_fail_refund_info
+     *
+     * @param \Volcengine\Billing\Model\OrderFailRefundInfoForListOrdersOutput $order_fail_refund_info order_fail_refund_info
+     *
+     * @return $this
+     */
+    public function setOrderFailRefundInfo($order_fail_refund_info)
+    {
+        $this->container['order_fail_refund_info'] = $order_fail_refund_info;
 
         return $this;
     }

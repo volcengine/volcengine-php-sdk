@@ -41,7 +41,7 @@ class DeleteFinancialRelationRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'relation' => 'int32',
         'relation_id' => null,
-        'sub_account_id' => 'int32'
+        'sub_account_id' => 'int64'
     ];
 
     /**
