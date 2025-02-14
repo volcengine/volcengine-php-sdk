@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AllocateIpv6AddressBandwidthRequest implements ModelInterface, ArrayAccess
+class ModifyInstanceGroupMembersRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AllocateIpv6AddressBandwidthRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AllocateIpv6AddressBandwidthRequest';
+    protected static $swaggerModelName = 'ModifyInstanceGroupMembersRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,9 @@ class AllocateIpv6AddressBandwidthRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'bandwidth' => 'int',
-        'bandwidth_package_id' => 'string',
-        'billing_type' => 'int',
-        'client_token' => 'string',
-        'ipv6_address' => 'string',
-        'project_name' => 'string'
+        'append_members' => '\Volcengine\Vpc\Model\AppendMemberForModifyInstanceGroupMembersInput[]',
+        'instance_group_id' => 'string',
+        'remove_members' => '\Volcengine\Vpc\Model\RemoveMemberForModifyInstanceGroupMembersInput[]'
     ];
 
     /**
@@ -42,12 +39,9 @@ class AllocateIpv6AddressBandwidthRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'bandwidth' => null,
-        'bandwidth_package_id' => null,
-        'billing_type' => null,
-        'client_token' => null,
-        'ipv6_address' => null,
-        'project_name' => null
+        'append_members' => null,
+        'instance_group_id' => null,
+        'remove_members' => null
     ];
 
     /**
@@ -77,12 +71,9 @@ class AllocateIpv6AddressBandwidthRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'bandwidth' => 'Bandwidth',
-        'bandwidth_package_id' => 'BandwidthPackageId',
-        'billing_type' => 'BillingType',
-        'client_token' => 'ClientToken',
-        'ipv6_address' => 'Ipv6Address',
-        'project_name' => 'ProjectName'
+        'append_members' => 'AppendMembers',
+        'instance_group_id' => 'InstanceGroupId',
+        'remove_members' => 'RemoveMembers'
     ];
 
     /**
@@ -91,12 +82,9 @@ class AllocateIpv6AddressBandwidthRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'bandwidth' => 'setBandwidth',
-        'bandwidth_package_id' => 'setBandwidthPackageId',
-        'billing_type' => 'setBillingType',
-        'client_token' => 'setClientToken',
-        'ipv6_address' => 'setIpv6Address',
-        'project_name' => 'setProjectName'
+        'append_members' => 'setAppendMembers',
+        'instance_group_id' => 'setInstanceGroupId',
+        'remove_members' => 'setRemoveMembers'
     ];
 
     /**
@@ -105,12 +93,9 @@ class AllocateIpv6AddressBandwidthRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'bandwidth' => 'getBandwidth',
-        'bandwidth_package_id' => 'getBandwidthPackageId',
-        'billing_type' => 'getBillingType',
-        'client_token' => 'getClientToken',
-        'ipv6_address' => 'getIpv6Address',
-        'project_name' => 'getProjectName'
+        'append_members' => 'getAppendMembers',
+        'instance_group_id' => 'getInstanceGroupId',
+        'remove_members' => 'getRemoveMembers'
     ];
 
     /**
@@ -173,12 +158,9 @@ class AllocateIpv6AddressBandwidthRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['bandwidth'] = isset($data['bandwidth']) ? $data['bandwidth'] : null;
-        $this->container['bandwidth_package_id'] = isset($data['bandwidth_package_id']) ? $data['bandwidth_package_id'] : null;
-        $this->container['billing_type'] = isset($data['billing_type']) ? $data['billing_type'] : null;
-        $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
-        $this->container['ipv6_address'] = isset($data['ipv6_address']) ? $data['ipv6_address'] : null;
-        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['append_members'] = isset($data['append_members']) ? $data['append_members'] : null;
+        $this->container['instance_group_id'] = isset($data['instance_group_id']) ? $data['instance_group_id'] : null;
+        $this->container['remove_members'] = isset($data['remove_members']) ? $data['remove_members'] : null;
     }
 
     /**
@@ -190,11 +172,8 @@ class AllocateIpv6AddressBandwidthRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['billing_type'] === null) {
-            $invalidProperties[] = "'billing_type' can't be null";
-        }
-        if ($this->container['ipv6_address'] === null) {
-            $invalidProperties[] = "'ipv6_address' can't be null";
+        if ($this->container['instance_group_id'] === null) {
+            $invalidProperties[] = "'instance_group_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -212,145 +191,73 @@ class AllocateIpv6AddressBandwidthRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets bandwidth
+     * Gets append_members
      *
-     * @return int
+     * @return \Volcengine\Vpc\Model\AppendMemberForModifyInstanceGroupMembersInput[]
      */
-    public function getBandwidth()
+    public function getAppendMembers()
     {
-        return $this->container['bandwidth'];
+        return $this->container['append_members'];
     }
 
     /**
-     * Sets bandwidth
+     * Sets append_members
      *
-     * @param int $bandwidth bandwidth
+     * @param \Volcengine\Vpc\Model\AppendMemberForModifyInstanceGroupMembersInput[] $append_members append_members
      *
      * @return $this
      */
-    public function setBandwidth($bandwidth)
+    public function setAppendMembers($append_members)
     {
-        $this->container['bandwidth'] = $bandwidth;
+        $this->container['append_members'] = $append_members;
 
         return $this;
     }
 
     /**
-     * Gets bandwidth_package_id
+     * Gets instance_group_id
      *
      * @return string
      */
-    public function getBandwidthPackageId()
+    public function getInstanceGroupId()
     {
-        return $this->container['bandwidth_package_id'];
+        return $this->container['instance_group_id'];
     }
 
     /**
-     * Sets bandwidth_package_id
+     * Sets instance_group_id
      *
-     * @param string $bandwidth_package_id bandwidth_package_id
+     * @param string $instance_group_id instance_group_id
      *
      * @return $this
      */
-    public function setBandwidthPackageId($bandwidth_package_id)
+    public function setInstanceGroupId($instance_group_id)
     {
-        $this->container['bandwidth_package_id'] = $bandwidth_package_id;
+        $this->container['instance_group_id'] = $instance_group_id;
 
         return $this;
     }
 
     /**
-     * Gets billing_type
+     * Gets remove_members
      *
-     * @return int
+     * @return \Volcengine\Vpc\Model\RemoveMemberForModifyInstanceGroupMembersInput[]
      */
-    public function getBillingType()
+    public function getRemoveMembers()
     {
-        return $this->container['billing_type'];
+        return $this->container['remove_members'];
     }
 
     /**
-     * Sets billing_type
+     * Sets remove_members
      *
-     * @param int $billing_type billing_type
+     * @param \Volcengine\Vpc\Model\RemoveMemberForModifyInstanceGroupMembersInput[] $remove_members remove_members
      *
      * @return $this
      */
-    public function setBillingType($billing_type)
+    public function setRemoveMembers($remove_members)
     {
-        $this->container['billing_type'] = $billing_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets client_token
-     *
-     * @return string
-     */
-    public function getClientToken()
-    {
-        return $this->container['client_token'];
-    }
-
-    /**
-     * Sets client_token
-     *
-     * @param string $client_token client_token
-     *
-     * @return $this
-     */
-    public function setClientToken($client_token)
-    {
-        $this->container['client_token'] = $client_token;
-
-        return $this;
-    }
-
-    /**
-     * Gets ipv6_address
-     *
-     * @return string
-     */
-    public function getIpv6Address()
-    {
-        return $this->container['ipv6_address'];
-    }
-
-    /**
-     * Sets ipv6_address
-     *
-     * @param string $ipv6_address ipv6_address
-     *
-     * @return $this
-     */
-    public function setIpv6Address($ipv6_address)
-    {
-        $this->container['ipv6_address'] = $ipv6_address;
-
-        return $this;
-    }
-
-    /**
-     * Gets project_name
-     *
-     * @return string
-     */
-    public function getProjectName()
-    {
-        return $this->container['project_name'];
-    }
-
-    /**
-     * Sets project_name
-     *
-     * @param string $project_name project_name
-     *
-     * @return $this
-     */
-    public function setProjectName($project_name)
-    {
-        $this->container['project_name'] = $project_name;
+        $this->container['remove_members'] = $remove_members;
 
         return $this;
     }

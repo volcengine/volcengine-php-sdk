@@ -32,6 +32,8 @@ class DescribeIpv6GatewaysRequest implements ModelInterface, ArrayAccess
         'max_results' => 'int',
         'name' => 'string',
         'next_token' => 'string',
+        'project_name' => 'string',
+        'tag_filters' => '\Volcengine\Vpc\Model\TagFilterForDescribeIpv6GatewaysInput[]',
         'vpc_ids' => 'string'
     ];
 
@@ -45,6 +47,8 @@ class DescribeIpv6GatewaysRequest implements ModelInterface, ArrayAccess
         'max_results' => null,
         'name' => null,
         'next_token' => null,
+        'project_name' => null,
+        'tag_filters' => null,
         'vpc_ids' => null
     ];
 
@@ -79,6 +83,8 @@ class DescribeIpv6GatewaysRequest implements ModelInterface, ArrayAccess
         'max_results' => 'MaxResults',
         'name' => 'Name',
         'next_token' => 'NextToken',
+        'project_name' => 'ProjectName',
+        'tag_filters' => 'TagFilters',
         'vpc_ids' => 'VpcIds'
     ];
 
@@ -92,6 +98,8 @@ class DescribeIpv6GatewaysRequest implements ModelInterface, ArrayAccess
         'max_results' => 'setMaxResults',
         'name' => 'setName',
         'next_token' => 'setNextToken',
+        'project_name' => 'setProjectName',
+        'tag_filters' => 'setTagFilters',
         'vpc_ids' => 'setVpcIds'
     ];
 
@@ -105,6 +113,8 @@ class DescribeIpv6GatewaysRequest implements ModelInterface, ArrayAccess
         'max_results' => 'getMaxResults',
         'name' => 'getName',
         'next_token' => 'getNextToken',
+        'project_name' => 'getProjectName',
+        'tag_filters' => 'getTagFilters',
         'vpc_ids' => 'getVpcIds'
     ];
 
@@ -172,6 +182,8 @@ class DescribeIpv6GatewaysRequest implements ModelInterface, ArrayAccess
         $this->container['max_results'] = isset($data['max_results']) ? $data['max_results'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['tag_filters'] = isset($data['tag_filters']) ? $data['tag_filters'] : null;
         $this->container['vpc_ids'] = isset($data['vpc_ids']) ? $data['vpc_ids'] : null;
     }
 
@@ -291,6 +303,54 @@ class DescribeIpv6GatewaysRequest implements ModelInterface, ArrayAccess
     public function setNextToken($next_token)
     {
         $this->container['next_token'] = $next_token;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets tag_filters
+     *
+     * @return \Volcengine\Vpc\Model\TagFilterForDescribeIpv6GatewaysInput[]
+     */
+    public function getTagFilters()
+    {
+        return $this->container['tag_filters'];
+    }
+
+    /**
+     * Sets tag_filters
+     *
+     * @param \Volcengine\Vpc\Model\TagFilterForDescribeIpv6GatewaysInput[] $tag_filters tag_filters
+     *
+     * @return $this
+     */
+    public function setTagFilters($tag_filters)
+    {
+        $this->container['tag_filters'] = $tag_filters;
 
         return $this;
     }

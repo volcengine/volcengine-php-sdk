@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AllocateIpv6AddressBandwidthRequest implements ModelInterface, ArrayAccess
+class DescribeInstanceGroupsRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AllocateIpv6AddressBandwidthRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AllocateIpv6AddressBandwidthRequest';
+    protected static $swaggerModelName = 'DescribeInstanceGroupsRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,13 @@ class AllocateIpv6AddressBandwidthRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'bandwidth' => 'int',
-        'bandwidth_package_id' => 'string',
-        'billing_type' => 'int',
-        'client_token' => 'string',
-        'ipv6_address' => 'string',
-        'project_name' => 'string'
+        'instance_group_ids' => 'string[]',
+        'instance_group_name' => 'string',
+        'max_results' => 'int',
+        'next_token' => 'string',
+        'page_number' => 'int',
+        'page_size' => 'int',
+        'vpc_id' => 'string'
     ];
 
     /**
@@ -42,12 +43,13 @@ class AllocateIpv6AddressBandwidthRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'bandwidth' => null,
-        'bandwidth_package_id' => null,
-        'billing_type' => null,
-        'client_token' => null,
-        'ipv6_address' => null,
-        'project_name' => null
+        'instance_group_ids' => null,
+        'instance_group_name' => null,
+        'max_results' => null,
+        'next_token' => null,
+        'page_number' => null,
+        'page_size' => null,
+        'vpc_id' => null
     ];
 
     /**
@@ -77,12 +79,13 @@ class AllocateIpv6AddressBandwidthRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'bandwidth' => 'Bandwidth',
-        'bandwidth_package_id' => 'BandwidthPackageId',
-        'billing_type' => 'BillingType',
-        'client_token' => 'ClientToken',
-        'ipv6_address' => 'Ipv6Address',
-        'project_name' => 'ProjectName'
+        'instance_group_ids' => 'InstanceGroupIds',
+        'instance_group_name' => 'InstanceGroupName',
+        'max_results' => 'MaxResults',
+        'next_token' => 'NextToken',
+        'page_number' => 'PageNumber',
+        'page_size' => 'PageSize',
+        'vpc_id' => 'VpcId'
     ];
 
     /**
@@ -91,12 +94,13 @@ class AllocateIpv6AddressBandwidthRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'bandwidth' => 'setBandwidth',
-        'bandwidth_package_id' => 'setBandwidthPackageId',
-        'billing_type' => 'setBillingType',
-        'client_token' => 'setClientToken',
-        'ipv6_address' => 'setIpv6Address',
-        'project_name' => 'setProjectName'
+        'instance_group_ids' => 'setInstanceGroupIds',
+        'instance_group_name' => 'setInstanceGroupName',
+        'max_results' => 'setMaxResults',
+        'next_token' => 'setNextToken',
+        'page_number' => 'setPageNumber',
+        'page_size' => 'setPageSize',
+        'vpc_id' => 'setVpcId'
     ];
 
     /**
@@ -105,12 +109,13 @@ class AllocateIpv6AddressBandwidthRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'bandwidth' => 'getBandwidth',
-        'bandwidth_package_id' => 'getBandwidthPackageId',
-        'billing_type' => 'getBillingType',
-        'client_token' => 'getClientToken',
-        'ipv6_address' => 'getIpv6Address',
-        'project_name' => 'getProjectName'
+        'instance_group_ids' => 'getInstanceGroupIds',
+        'instance_group_name' => 'getInstanceGroupName',
+        'max_results' => 'getMaxResults',
+        'next_token' => 'getNextToken',
+        'page_number' => 'getPageNumber',
+        'page_size' => 'getPageSize',
+        'vpc_id' => 'getVpcId'
     ];
 
     /**
@@ -173,12 +178,13 @@ class AllocateIpv6AddressBandwidthRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['bandwidth'] = isset($data['bandwidth']) ? $data['bandwidth'] : null;
-        $this->container['bandwidth_package_id'] = isset($data['bandwidth_package_id']) ? $data['bandwidth_package_id'] : null;
-        $this->container['billing_type'] = isset($data['billing_type']) ? $data['billing_type'] : null;
-        $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
-        $this->container['ipv6_address'] = isset($data['ipv6_address']) ? $data['ipv6_address'] : null;
-        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['instance_group_ids'] = isset($data['instance_group_ids']) ? $data['instance_group_ids'] : null;
+        $this->container['instance_group_name'] = isset($data['instance_group_name']) ? $data['instance_group_name'] : null;
+        $this->container['max_results'] = isset($data['max_results']) ? $data['max_results'] : null;
+        $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
+        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
+        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
+        $this->container['vpc_id'] = isset($data['vpc_id']) ? $data['vpc_id'] : null;
     }
 
     /**
@@ -190,12 +196,6 @@ class AllocateIpv6AddressBandwidthRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['billing_type'] === null) {
-            $invalidProperties[] = "'billing_type' can't be null";
-        }
-        if ($this->container['ipv6_address'] === null) {
-            $invalidProperties[] = "'ipv6_address' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -212,145 +212,169 @@ class AllocateIpv6AddressBandwidthRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets bandwidth
+     * Gets instance_group_ids
+     *
+     * @return string[]
+     */
+    public function getInstanceGroupIds()
+    {
+        return $this->container['instance_group_ids'];
+    }
+
+    /**
+     * Sets instance_group_ids
+     *
+     * @param string[] $instance_group_ids instance_group_ids
+     *
+     * @return $this
+     */
+    public function setInstanceGroupIds($instance_group_ids)
+    {
+        $this->container['instance_group_ids'] = $instance_group_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets instance_group_name
+     *
+     * @return string
+     */
+    public function getInstanceGroupName()
+    {
+        return $this->container['instance_group_name'];
+    }
+
+    /**
+     * Sets instance_group_name
+     *
+     * @param string $instance_group_name instance_group_name
+     *
+     * @return $this
+     */
+    public function setInstanceGroupName($instance_group_name)
+    {
+        $this->container['instance_group_name'] = $instance_group_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets max_results
      *
      * @return int
      */
-    public function getBandwidth()
+    public function getMaxResults()
     {
-        return $this->container['bandwidth'];
+        return $this->container['max_results'];
     }
 
     /**
-     * Sets bandwidth
+     * Sets max_results
      *
-     * @param int $bandwidth bandwidth
+     * @param int $max_results max_results
      *
      * @return $this
      */
-    public function setBandwidth($bandwidth)
+    public function setMaxResults($max_results)
     {
-        $this->container['bandwidth'] = $bandwidth;
+        $this->container['max_results'] = $max_results;
 
         return $this;
     }
 
     /**
-     * Gets bandwidth_package_id
+     * Gets next_token
      *
      * @return string
      */
-    public function getBandwidthPackageId()
+    public function getNextToken()
     {
-        return $this->container['bandwidth_package_id'];
+        return $this->container['next_token'];
     }
 
     /**
-     * Sets bandwidth_package_id
+     * Sets next_token
      *
-     * @param string $bandwidth_package_id bandwidth_package_id
+     * @param string $next_token next_token
      *
      * @return $this
      */
-    public function setBandwidthPackageId($bandwidth_package_id)
+    public function setNextToken($next_token)
     {
-        $this->container['bandwidth_package_id'] = $bandwidth_package_id;
+        $this->container['next_token'] = $next_token;
 
         return $this;
     }
 
     /**
-     * Gets billing_type
+     * Gets page_number
      *
      * @return int
      */
-    public function getBillingType()
+    public function getPageNumber()
     {
-        return $this->container['billing_type'];
+        return $this->container['page_number'];
     }
 
     /**
-     * Sets billing_type
+     * Sets page_number
      *
-     * @param int $billing_type billing_type
+     * @param int $page_number page_number
      *
      * @return $this
      */
-    public function setBillingType($billing_type)
+    public function setPageNumber($page_number)
     {
-        $this->container['billing_type'] = $billing_type;
+        $this->container['page_number'] = $page_number;
 
         return $this;
     }
 
     /**
-     * Gets client_token
+     * Gets page_size
      *
-     * @return string
+     * @return int
      */
-    public function getClientToken()
+    public function getPageSize()
     {
-        return $this->container['client_token'];
+        return $this->container['page_size'];
     }
 
     /**
-     * Sets client_token
+     * Sets page_size
      *
-     * @param string $client_token client_token
+     * @param int $page_size page_size
      *
      * @return $this
      */
-    public function setClientToken($client_token)
+    public function setPageSize($page_size)
     {
-        $this->container['client_token'] = $client_token;
+        $this->container['page_size'] = $page_size;
 
         return $this;
     }
 
     /**
-     * Gets ipv6_address
+     * Gets vpc_id
      *
      * @return string
      */
-    public function getIpv6Address()
+    public function getVpcId()
     {
-        return $this->container['ipv6_address'];
+        return $this->container['vpc_id'];
     }
 
     /**
-     * Sets ipv6_address
+     * Sets vpc_id
      *
-     * @param string $ipv6_address ipv6_address
+     * @param string $vpc_id vpc_id
      *
      * @return $this
      */
-    public function setIpv6Address($ipv6_address)
+    public function setVpcId($vpc_id)
     {
-        $this->container['ipv6_address'] = $ipv6_address;
-
-        return $this;
-    }
-
-    /**
-     * Gets project_name
-     *
-     * @return string
-     */
-    public function getProjectName()
-    {
-        return $this->container['project_name'];
-    }
-
-    /**
-     * Sets project_name
-     *
-     * @param string $project_name project_name
-     *
-     * @return $this
-     */
-    public function setProjectName($project_name)
-    {
-        $this->container['project_name'] = $project_name;
+        $this->container['vpc_id'] = $vpc_id;
 
         return $this;
     }

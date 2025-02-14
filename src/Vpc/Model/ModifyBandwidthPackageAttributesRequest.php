@@ -30,7 +30,8 @@ class ModifyBandwidthPackageAttributesRequest implements ModelInterface, ArrayAc
     protected static $swaggerTypes = [
         'bandwidth_package_id' => 'string',
         'bandwidth_package_name' => 'string',
-        'description' => 'string'
+        'description' => 'string',
+        'enable_dual_stack' => 'bool'
     ];
 
     /**
@@ -41,7 +42,8 @@ class ModifyBandwidthPackageAttributesRequest implements ModelInterface, ArrayAc
     protected static $swaggerFormats = [
         'bandwidth_package_id' => null,
         'bandwidth_package_name' => null,
-        'description' => null
+        'description' => null,
+        'enable_dual_stack' => null
     ];
 
     /**
@@ -73,7 +75,8 @@ class ModifyBandwidthPackageAttributesRequest implements ModelInterface, ArrayAc
     protected static $attributeMap = [
         'bandwidth_package_id' => 'BandwidthPackageId',
         'bandwidth_package_name' => 'BandwidthPackageName',
-        'description' => 'Description'
+        'description' => 'Description',
+        'enable_dual_stack' => 'EnableDualStack'
     ];
 
     /**
@@ -84,7 +87,8 @@ class ModifyBandwidthPackageAttributesRequest implements ModelInterface, ArrayAc
     protected static $setters = [
         'bandwidth_package_id' => 'setBandwidthPackageId',
         'bandwidth_package_name' => 'setBandwidthPackageName',
-        'description' => 'setDescription'
+        'description' => 'setDescription',
+        'enable_dual_stack' => 'setEnableDualStack'
     ];
 
     /**
@@ -95,7 +99,8 @@ class ModifyBandwidthPackageAttributesRequest implements ModelInterface, ArrayAc
     protected static $getters = [
         'bandwidth_package_id' => 'getBandwidthPackageId',
         'bandwidth_package_name' => 'getBandwidthPackageName',
-        'description' => 'getDescription'
+        'description' => 'getDescription',
+        'enable_dual_stack' => 'getEnableDualStack'
     ];
 
     /**
@@ -161,6 +166,7 @@ class ModifyBandwidthPackageAttributesRequest implements ModelInterface, ArrayAc
         $this->container['bandwidth_package_id'] = isset($data['bandwidth_package_id']) ? $data['bandwidth_package_id'] : null;
         $this->container['bandwidth_package_name'] = isset($data['bandwidth_package_name']) ? $data['bandwidth_package_name'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['enable_dual_stack'] = isset($data['enable_dual_stack']) ? $data['enable_dual_stack'] : null;
     }
 
     /**
@@ -258,6 +264,30 @@ class ModifyBandwidthPackageAttributesRequest implements ModelInterface, ArrayAc
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets enable_dual_stack
+     *
+     * @return bool
+     */
+    public function getEnableDualStack()
+    {
+        return $this->container['enable_dual_stack'];
+    }
+
+    /**
+     * Sets enable_dual_stack
+     *
+     * @param bool $enable_dual_stack enable_dual_stack
+     *
+     * @return $this
+     */
+    public function setEnableDualStack($enable_dual_stack)
+    {
+        $this->container['enable_dual_stack'] = $enable_dual_stack;
 
         return $this;
     }
