@@ -42,8 +42,10 @@ class DataForListRulesByIdsOutput implements ModelInterface, ArrayAccess
         'evaluation_count' => 'int',
         'id' => 'string',
         'level' => 'string',
+        'level_conditions' => '\Volcengine\Volcobserve\Model\LevelConditionForListRulesByIdsOutput[]',
         'multiple_conditions' => 'bool',
         'namespace' => 'string',
+        'notification_id' => 'string',
         'original_dimensions' => 'map[string,string[]]',
         'project_name' => 'string',
         'recovery_notify' => '\Volcengine\Volcobserve\Model\RecoveryNotifyForListRulesByIdsOutput',
@@ -77,8 +79,10 @@ class DataForListRulesByIdsOutput implements ModelInterface, ArrayAccess
         'evaluation_count' => null,
         'id' => null,
         'level' => null,
+        'level_conditions' => null,
         'multiple_conditions' => null,
         'namespace' => null,
+        'notification_id' => null,
         'original_dimensions' => null,
         'project_name' => null,
         'recovery_notify' => null,
@@ -133,8 +137,10 @@ class DataForListRulesByIdsOutput implements ModelInterface, ArrayAccess
         'evaluation_count' => 'EvaluationCount',
         'id' => 'Id',
         'level' => 'Level',
+        'level_conditions' => 'LevelConditions',
         'multiple_conditions' => 'MultipleConditions',
         'namespace' => 'Namespace',
+        'notification_id' => 'NotificationId',
         'original_dimensions' => 'OriginalDimensions',
         'project_name' => 'ProjectName',
         'recovery_notify' => 'RecoveryNotify',
@@ -168,8 +174,10 @@ class DataForListRulesByIdsOutput implements ModelInterface, ArrayAccess
         'evaluation_count' => 'setEvaluationCount',
         'id' => 'setId',
         'level' => 'setLevel',
+        'level_conditions' => 'setLevelConditions',
         'multiple_conditions' => 'setMultipleConditions',
         'namespace' => 'setNamespace',
+        'notification_id' => 'setNotificationId',
         'original_dimensions' => 'setOriginalDimensions',
         'project_name' => 'setProjectName',
         'recovery_notify' => 'setRecoveryNotify',
@@ -203,8 +211,10 @@ class DataForListRulesByIdsOutput implements ModelInterface, ArrayAccess
         'evaluation_count' => 'getEvaluationCount',
         'id' => 'getId',
         'level' => 'getLevel',
+        'level_conditions' => 'getLevelConditions',
         'multiple_conditions' => 'getMultipleConditions',
         'namespace' => 'getNamespace',
+        'notification_id' => 'getNotificationId',
         'original_dimensions' => 'getOriginalDimensions',
         'project_name' => 'getProjectName',
         'recovery_notify' => 'getRecoveryNotify',
@@ -292,8 +302,10 @@ class DataForListRulesByIdsOutput implements ModelInterface, ArrayAccess
         $this->container['evaluation_count'] = isset($data['evaluation_count']) ? $data['evaluation_count'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['level'] = isset($data['level']) ? $data['level'] : null;
+        $this->container['level_conditions'] = isset($data['level_conditions']) ? $data['level_conditions'] : null;
         $this->container['multiple_conditions'] = isset($data['multiple_conditions']) ? $data['multiple_conditions'] : null;
         $this->container['namespace'] = isset($data['namespace']) ? $data['namespace'] : null;
+        $this->container['notification_id'] = isset($data['notification_id']) ? $data['notification_id'] : null;
         $this->container['original_dimensions'] = isset($data['original_dimensions']) ? $data['original_dimensions'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['recovery_notify'] = isset($data['recovery_notify']) ? $data['recovery_notify'] : null;
@@ -668,6 +680,30 @@ class DataForListRulesByIdsOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets level_conditions
+     *
+     * @return \Volcengine\Volcobserve\Model\LevelConditionForListRulesByIdsOutput[]
+     */
+    public function getLevelConditions()
+    {
+        return $this->container['level_conditions'];
+    }
+
+    /**
+     * Sets level_conditions
+     *
+     * @param \Volcengine\Volcobserve\Model\LevelConditionForListRulesByIdsOutput[] $level_conditions level_conditions
+     *
+     * @return $this
+     */
+    public function setLevelConditions($level_conditions)
+    {
+        $this->container['level_conditions'] = $level_conditions;
+
+        return $this;
+    }
+
+    /**
      * Gets multiple_conditions
      *
      * @return bool
@@ -711,6 +747,30 @@ class DataForListRulesByIdsOutput implements ModelInterface, ArrayAccess
     public function setNamespace($namespace)
     {
         $this->container['namespace'] = $namespace;
+
+        return $this;
+    }
+
+    /**
+     * Gets notification_id
+     *
+     * @return string
+     */
+    public function getNotificationId()
+    {
+        return $this->container['notification_id'];
+    }
+
+    /**
+     * Sets notification_id
+     *
+     * @param string $notification_id notification_id
+     *
+     * @return $this
+     */
+    public function setNotificationId($notification_id)
+    {
+        $this->container['notification_id'] = $notification_id;
 
         return $this;
     }

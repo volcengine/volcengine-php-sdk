@@ -40,9 +40,11 @@ class UpdateRuleRequest implements ModelInterface, ArrayAccess
         'evaluation_count' => 'int',
         'id' => 'string',
         'level' => 'string',
+        'level_conditions' => '\Volcengine\Volcobserve\Model\LevelConditionForUpdateRuleInput[]',
         'multiple_conditions' => 'bool',
         'namespace' => 'string',
         'no_data' => '\Volcengine\Volcobserve\Model\NoDataForUpdateRuleInput',
+        'notification_id' => 'string',
         'original_dimensions' => 'map[string,string[]]',
         'recovery_notify' => '\Volcengine\Volcobserve\Model\RecoveryNotifyForUpdateRuleInput',
         'regions' => 'string[]',
@@ -72,9 +74,11 @@ class UpdateRuleRequest implements ModelInterface, ArrayAccess
         'evaluation_count' => null,
         'id' => null,
         'level' => null,
+        'level_conditions' => null,
         'multiple_conditions' => null,
         'namespace' => null,
         'no_data' => null,
+        'notification_id' => null,
         'original_dimensions' => null,
         'recovery_notify' => null,
         'regions' => null,
@@ -125,9 +129,11 @@ class UpdateRuleRequest implements ModelInterface, ArrayAccess
         'evaluation_count' => 'EvaluationCount',
         'id' => 'Id',
         'level' => 'Level',
+        'level_conditions' => 'LevelConditions',
         'multiple_conditions' => 'MultipleConditions',
         'namespace' => 'Namespace',
         'no_data' => 'NoData',
+        'notification_id' => 'NotificationId',
         'original_dimensions' => 'OriginalDimensions',
         'recovery_notify' => 'RecoveryNotify',
         'regions' => 'Regions',
@@ -157,9 +163,11 @@ class UpdateRuleRequest implements ModelInterface, ArrayAccess
         'evaluation_count' => 'setEvaluationCount',
         'id' => 'setId',
         'level' => 'setLevel',
+        'level_conditions' => 'setLevelConditions',
         'multiple_conditions' => 'setMultipleConditions',
         'namespace' => 'setNamespace',
         'no_data' => 'setNoData',
+        'notification_id' => 'setNotificationId',
         'original_dimensions' => 'setOriginalDimensions',
         'recovery_notify' => 'setRecoveryNotify',
         'regions' => 'setRegions',
@@ -189,9 +197,11 @@ class UpdateRuleRequest implements ModelInterface, ArrayAccess
         'evaluation_count' => 'getEvaluationCount',
         'id' => 'getId',
         'level' => 'getLevel',
+        'level_conditions' => 'getLevelConditions',
         'multiple_conditions' => 'getMultipleConditions',
         'namespace' => 'getNamespace',
         'no_data' => 'getNoData',
+        'notification_id' => 'getNotificationId',
         'original_dimensions' => 'getOriginalDimensions',
         'recovery_notify' => 'getRecoveryNotify',
         'regions' => 'getRegions',
@@ -309,9 +319,11 @@ class UpdateRuleRequest implements ModelInterface, ArrayAccess
         $this->container['evaluation_count'] = isset($data['evaluation_count']) ? $data['evaluation_count'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['level'] = isset($data['level']) ? $data['level'] : null;
+        $this->container['level_conditions'] = isset($data['level_conditions']) ? $data['level_conditions'] : null;
         $this->container['multiple_conditions'] = isset($data['multiple_conditions']) ? $data['multiple_conditions'] : null;
         $this->container['namespace'] = isset($data['namespace']) ? $data['namespace'] : null;
         $this->container['no_data'] = isset($data['no_data']) ? $data['no_data'] : null;
+        $this->container['notification_id'] = isset($data['notification_id']) ? $data['notification_id'] : null;
         $this->container['original_dimensions'] = isset($data['original_dimensions']) ? $data['original_dimensions'] : null;
         $this->container['recovery_notify'] = isset($data['recovery_notify']) ? $data['recovery_notify'] : null;
         $this->container['regions'] = isset($data['regions']) ? $data['regions'] : null;
@@ -686,6 +698,30 @@ class UpdateRuleRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets level_conditions
+     *
+     * @return \Volcengine\Volcobserve\Model\LevelConditionForUpdateRuleInput[]
+     */
+    public function getLevelConditions()
+    {
+        return $this->container['level_conditions'];
+    }
+
+    /**
+     * Sets level_conditions
+     *
+     * @param \Volcengine\Volcobserve\Model\LevelConditionForUpdateRuleInput[] $level_conditions level_conditions
+     *
+     * @return $this
+     */
+    public function setLevelConditions($level_conditions)
+    {
+        $this->container['level_conditions'] = $level_conditions;
+
+        return $this;
+    }
+
+    /**
      * Gets multiple_conditions
      *
      * @return bool
@@ -753,6 +789,30 @@ class UpdateRuleRequest implements ModelInterface, ArrayAccess
     public function setNoData($no_data)
     {
         $this->container['no_data'] = $no_data;
+
+        return $this;
+    }
+
+    /**
+     * Gets notification_id
+     *
+     * @return string
+     */
+    public function getNotificationId()
+    {
+        return $this->container['notification_id'];
+    }
+
+    /**
+     * Sets notification_id
+     *
+     * @param string $notification_id notification_id
+     *
+     * @return $this
+     */
+    public function setNotificationId($notification_id)
+    {
+        $this->container['notification_id'] = $notification_id;
 
         return $this;
     }
