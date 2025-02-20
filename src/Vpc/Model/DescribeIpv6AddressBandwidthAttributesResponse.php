@@ -43,6 +43,7 @@ class DescribeIpv6AddressBandwidthAttributesResponse implements ModelInterface, 
         'lock_reason' => 'string',
         'network_type' => 'string',
         'overdue_time' => 'string',
+        'project_name' => 'string',
         'request_id' => 'string',
         'service_managed' => 'bool',
         'status' => 'string',
@@ -70,6 +71,7 @@ class DescribeIpv6AddressBandwidthAttributesResponse implements ModelInterface, 
         'lock_reason' => null,
         'network_type' => null,
         'overdue_time' => null,
+        'project_name' => null,
         'request_id' => null,
         'service_managed' => null,
         'status' => null,
@@ -118,6 +120,7 @@ class DescribeIpv6AddressBandwidthAttributesResponse implements ModelInterface, 
         'lock_reason' => 'LockReason',
         'network_type' => 'NetworkType',
         'overdue_time' => 'OverdueTime',
+        'project_name' => 'ProjectName',
         'request_id' => 'RequestId',
         'service_managed' => 'ServiceManaged',
         'status' => 'Status',
@@ -145,6 +148,7 @@ class DescribeIpv6AddressBandwidthAttributesResponse implements ModelInterface, 
         'lock_reason' => 'setLockReason',
         'network_type' => 'setNetworkType',
         'overdue_time' => 'setOverdueTime',
+        'project_name' => 'setProjectName',
         'request_id' => 'setRequestId',
         'service_managed' => 'setServiceManaged',
         'status' => 'setStatus',
@@ -172,6 +176,7 @@ class DescribeIpv6AddressBandwidthAttributesResponse implements ModelInterface, 
         'lock_reason' => 'getLockReason',
         'network_type' => 'getNetworkType',
         'overdue_time' => 'getOverdueTime',
+        'project_name' => 'getProjectName',
         'request_id' => 'getRequestId',
         'service_managed' => 'getServiceManaged',
         'status' => 'getStatus',
@@ -253,6 +258,7 @@ class DescribeIpv6AddressBandwidthAttributesResponse implements ModelInterface, 
         $this->container['lock_reason'] = isset($data['lock_reason']) ? $data['lock_reason'] : null;
         $this->container['network_type'] = isset($data['network_type']) ? $data['network_type'] : null;
         $this->container['overdue_time'] = isset($data['overdue_time']) ? $data['overdue_time'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['request_id'] = isset($data['request_id']) ? $data['request_id'] : null;
         $this->container['service_managed'] = isset($data['service_managed']) ? $data['service_managed'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
@@ -639,6 +645,30 @@ class DescribeIpv6AddressBandwidthAttributesResponse implements ModelInterface, 
     public function setOverdueTime($overdue_time)
     {
         $this->container['overdue_time'] = $overdue_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }

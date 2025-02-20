@@ -32,6 +32,7 @@ class DescribeIpv6GatewayAttributeResponse implements ModelInterface, ArrayAcces
         'description' => 'string',
         'ipv6_gateway_id' => 'string',
         'name' => 'string',
+        'project_name' => 'string',
         'request_id' => 'string',
         'status' => 'string',
         'update_time' => 'string',
@@ -48,6 +49,7 @@ class DescribeIpv6GatewayAttributeResponse implements ModelInterface, ArrayAcces
         'description' => null,
         'ipv6_gateway_id' => null,
         'name' => null,
+        'project_name' => null,
         'request_id' => null,
         'status' => null,
         'update_time' => null,
@@ -85,6 +87,7 @@ class DescribeIpv6GatewayAttributeResponse implements ModelInterface, ArrayAcces
         'description' => 'Description',
         'ipv6_gateway_id' => 'Ipv6GatewayId',
         'name' => 'Name',
+        'project_name' => 'ProjectName',
         'request_id' => 'RequestId',
         'status' => 'Status',
         'update_time' => 'UpdateTime',
@@ -101,6 +104,7 @@ class DescribeIpv6GatewayAttributeResponse implements ModelInterface, ArrayAcces
         'description' => 'setDescription',
         'ipv6_gateway_id' => 'setIpv6GatewayId',
         'name' => 'setName',
+        'project_name' => 'setProjectName',
         'request_id' => 'setRequestId',
         'status' => 'setStatus',
         'update_time' => 'setUpdateTime',
@@ -117,6 +121,7 @@ class DescribeIpv6GatewayAttributeResponse implements ModelInterface, ArrayAcces
         'description' => 'getDescription',
         'ipv6_gateway_id' => 'getIpv6GatewayId',
         'name' => 'getName',
+        'project_name' => 'getProjectName',
         'request_id' => 'getRequestId',
         'status' => 'getStatus',
         'update_time' => 'getUpdateTime',
@@ -187,6 +192,7 @@ class DescribeIpv6GatewayAttributeResponse implements ModelInterface, ArrayAcces
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['ipv6_gateway_id'] = isset($data['ipv6_gateway_id']) ? $data['ipv6_gateway_id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['request_id'] = isset($data['request_id']) ? $data['request_id'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
@@ -309,6 +315,30 @@ class DescribeIpv6GatewayAttributeResponse implements ModelInterface, ArrayAcces
     public function setName($name)
     {
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }

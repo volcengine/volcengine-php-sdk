@@ -190,6 +190,7 @@ class CreateBandwidthPackageRequest implements ModelInterface, ArrayAccess
     const ISP_CHINA_UNICOM_VALUE = 'ChinaUnicom_Value';
     const ISP_CHINA_TELECOM_VALUE = 'ChinaTelecom_Value';
     const PROTOCOL_I_PV4 = 'IPv4';
+    const PROTOCOL_DUAL_STACK = 'Dual-stack';
     const PROTOCOL_I_PV6 = 'IPv6';
     
 
@@ -224,6 +225,7 @@ class CreateBandwidthPackageRequest implements ModelInterface, ArrayAccess
     {
         return [
             self::PROTOCOL_I_PV4,
+            self::PROTOCOL_DUAL_STACK,
             self::PROTOCOL_I_PV6,
         ];
     }

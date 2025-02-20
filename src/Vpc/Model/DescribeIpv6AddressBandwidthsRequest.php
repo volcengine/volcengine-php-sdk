@@ -37,6 +37,7 @@ class DescribeIpv6AddressBandwidthsRequest implements ModelInterface, ArrayAcces
         'max_results' => 'int',
         'network_type' => 'string',
         'next_token' => 'string',
+        'project_name' => 'string',
         'vpc_id' => 'string'
     ];
 
@@ -55,6 +56,7 @@ class DescribeIpv6AddressBandwidthsRequest implements ModelInterface, ArrayAcces
         'max_results' => null,
         'network_type' => null,
         'next_token' => null,
+        'project_name' => null,
         'vpc_id' => null
     ];
 
@@ -94,6 +96,7 @@ class DescribeIpv6AddressBandwidthsRequest implements ModelInterface, ArrayAcces
         'max_results' => 'MaxResults',
         'network_type' => 'NetworkType',
         'next_token' => 'NextToken',
+        'project_name' => 'ProjectName',
         'vpc_id' => 'VpcId'
     ];
 
@@ -112,6 +115,7 @@ class DescribeIpv6AddressBandwidthsRequest implements ModelInterface, ArrayAcces
         'max_results' => 'setMaxResults',
         'network_type' => 'setNetworkType',
         'next_token' => 'setNextToken',
+        'project_name' => 'setProjectName',
         'vpc_id' => 'setVpcId'
     ];
 
@@ -130,6 +134,7 @@ class DescribeIpv6AddressBandwidthsRequest implements ModelInterface, ArrayAcces
         'max_results' => 'getMaxResults',
         'network_type' => 'getNetworkType',
         'next_token' => 'getNextToken',
+        'project_name' => 'getProjectName',
         'vpc_id' => 'getVpcId'
     ];
 
@@ -202,6 +207,7 @@ class DescribeIpv6AddressBandwidthsRequest implements ModelInterface, ArrayAcces
         $this->container['max_results'] = isset($data['max_results']) ? $data['max_results'] : null;
         $this->container['network_type'] = isset($data['network_type']) ? $data['network_type'] : null;
         $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['vpc_id'] = isset($data['vpc_id']) ? $data['vpc_id'] : null;
     }
 
@@ -441,6 +447,30 @@ class DescribeIpv6AddressBandwidthsRequest implements ModelInterface, ArrayAcces
     public function setNextToken($next_token)
     {
         $this->container['next_token'] = $next_token;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }

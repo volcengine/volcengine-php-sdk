@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class IpAddressPooCidrBlockForDescribeIpAddressPoolCidrBlocksOutput implements ModelInterface, ArrayAccess
+class IpAddressPoolCidrBlockForDescribeIpAddressPoolCidrBlocksOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class IpAddressPooCidrBlockForDescribeIpAddressPoolCidrBlocksOutput implements M
       *
       * @var string
       */
-    protected static $swaggerModelName = 'IpAddressPooCidrBlockForDescribeIpAddressPoolCidrBlocksOutput';
+    protected static $swaggerModelName = 'IpAddressPoolCidrBlockForDescribeIpAddressPoolCidrBlocksOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

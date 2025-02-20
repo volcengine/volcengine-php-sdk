@@ -31,6 +31,7 @@ class CreateIpv6GatewayRequest implements ModelInterface, ArrayAccess
         'client_token' => 'string',
         'description' => 'string',
         'name' => 'string',
+        'project_name' => 'string',
         'vpc_id' => 'string'
     ];
 
@@ -43,6 +44,7 @@ class CreateIpv6GatewayRequest implements ModelInterface, ArrayAccess
         'client_token' => null,
         'description' => null,
         'name' => null,
+        'project_name' => null,
         'vpc_id' => null
     ];
 
@@ -76,6 +78,7 @@ class CreateIpv6GatewayRequest implements ModelInterface, ArrayAccess
         'client_token' => 'ClientToken',
         'description' => 'Description',
         'name' => 'Name',
+        'project_name' => 'ProjectName',
         'vpc_id' => 'VpcId'
     ];
 
@@ -88,6 +91,7 @@ class CreateIpv6GatewayRequest implements ModelInterface, ArrayAccess
         'client_token' => 'setClientToken',
         'description' => 'setDescription',
         'name' => 'setName',
+        'project_name' => 'setProjectName',
         'vpc_id' => 'setVpcId'
     ];
 
@@ -100,6 +104,7 @@ class CreateIpv6GatewayRequest implements ModelInterface, ArrayAccess
         'client_token' => 'getClientToken',
         'description' => 'getDescription',
         'name' => 'getName',
+        'project_name' => 'getProjectName',
         'vpc_id' => 'getVpcId'
     ];
 
@@ -166,6 +171,7 @@ class CreateIpv6GatewayRequest implements ModelInterface, ArrayAccess
         $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['vpc_id'] = isset($data['vpc_id']) ? $data['vpc_id'] : null;
     }
 
@@ -264,6 +270,30 @@ class CreateIpv6GatewayRequest implements ModelInterface, ArrayAccess
     public function setName($name)
     {
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }
