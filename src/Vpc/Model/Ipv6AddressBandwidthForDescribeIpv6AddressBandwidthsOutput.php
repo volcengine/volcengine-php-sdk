@@ -43,6 +43,7 @@ class Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput implements Mode
         'lock_reason' => 'string',
         'network_type' => 'string',
         'overdue_time' => 'string',
+        'project_name' => 'string',
         'status' => 'string',
         'updated_at' => 'string'
     ];
@@ -68,6 +69,7 @@ class Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput implements Mode
         'lock_reason' => null,
         'network_type' => null,
         'overdue_time' => null,
+        'project_name' => null,
         'status' => null,
         'updated_at' => null
     ];
@@ -114,6 +116,7 @@ class Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput implements Mode
         'lock_reason' => 'LockReason',
         'network_type' => 'NetworkType',
         'overdue_time' => 'OverdueTime',
+        'project_name' => 'ProjectName',
         'status' => 'Status',
         'updated_at' => 'UpdatedAt'
     ];
@@ -139,6 +142,7 @@ class Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput implements Mode
         'lock_reason' => 'setLockReason',
         'network_type' => 'setNetworkType',
         'overdue_time' => 'setOverdueTime',
+        'project_name' => 'setProjectName',
         'status' => 'setStatus',
         'updated_at' => 'setUpdatedAt'
     ];
@@ -164,6 +168,7 @@ class Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput implements Mode
         'lock_reason' => 'getLockReason',
         'network_type' => 'getNetworkType',
         'overdue_time' => 'getOverdueTime',
+        'project_name' => 'getProjectName',
         'status' => 'getStatus',
         'updated_at' => 'getUpdatedAt'
     ];
@@ -243,6 +248,7 @@ class Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput implements Mode
         $this->container['lock_reason'] = isset($data['lock_reason']) ? $data['lock_reason'] : null;
         $this->container['network_type'] = isset($data['network_type']) ? $data['network_type'] : null;
         $this->container['overdue_time'] = isset($data['overdue_time']) ? $data['overdue_time'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
     }
@@ -627,6 +633,30 @@ class Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput implements Mode
     public function setOverdueTime($overdue_time)
     {
         $this->container['overdue_time'] = $overdue_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }

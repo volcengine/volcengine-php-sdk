@@ -28,7 +28,7 @@ class DescribeIpAddressPoolCidrBlocksResponse implements ModelInterface, ArrayAc
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'ip_address_poo_cidr_blocks' => '\Volcengine\Vpc\Model\IpAddressPooCidrBlockForDescribeIpAddressPoolCidrBlocksOutput[]',
+        'ip_address_pool_cidr_blocks' => '\Volcengine\Vpc\Model\IpAddressPoolCidrBlockForDescribeIpAddressPoolCidrBlocksOutput[]',
         'next_token' => 'string',
         'request_id' => 'string'
     ];
@@ -39,7 +39,7 @@ class DescribeIpAddressPoolCidrBlocksResponse implements ModelInterface, ArrayAc
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'ip_address_poo_cidr_blocks' => null,
+        'ip_address_pool_cidr_blocks' => null,
         'next_token' => null,
         'request_id' => null
     ];
@@ -71,7 +71,7 @@ class DescribeIpAddressPoolCidrBlocksResponse implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $attributeMap = [
-        'ip_address_poo_cidr_blocks' => 'IpAddressPooCidrBlocks',
+        'ip_address_pool_cidr_blocks' => 'IpAddressPoolCidrBlocks',
         'next_token' => 'NextToken',
         'request_id' => 'RequestId'
     ];
@@ -82,7 +82,7 @@ class DescribeIpAddressPoolCidrBlocksResponse implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $setters = [
-        'ip_address_poo_cidr_blocks' => 'setIpAddressPooCidrBlocks',
+        'ip_address_pool_cidr_blocks' => 'setIpAddressPoolCidrBlocks',
         'next_token' => 'setNextToken',
         'request_id' => 'setRequestId'
     ];
@@ -93,7 +93,7 @@ class DescribeIpAddressPoolCidrBlocksResponse implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $getters = [
-        'ip_address_poo_cidr_blocks' => 'getIpAddressPooCidrBlocks',
+        'ip_address_pool_cidr_blocks' => 'getIpAddressPoolCidrBlocks',
         'next_token' => 'getNextToken',
         'request_id' => 'getRequestId'
     ];
@@ -158,7 +158,7 @@ class DescribeIpAddressPoolCidrBlocksResponse implements ModelInterface, ArrayAc
      */
     public function __construct(array $data = null)
     {
-        $this->container['ip_address_poo_cidr_blocks'] = isset($data['ip_address_poo_cidr_blocks']) ? $data['ip_address_poo_cidr_blocks'] : null;
+        $this->container['ip_address_pool_cidr_blocks'] = isset($data['ip_address_pool_cidr_blocks']) ? $data['ip_address_pool_cidr_blocks'] : null;
         $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
         $this->container['request_id'] = isset($data['request_id']) ? $data['request_id'] : null;
     }
@@ -188,25 +188,25 @@ class DescribeIpAddressPoolCidrBlocksResponse implements ModelInterface, ArrayAc
 
 
     /**
-     * Gets ip_address_poo_cidr_blocks
+     * Gets ip_address_pool_cidr_blocks
      *
-     * @return \Volcengine\Vpc\Model\IpAddressPooCidrBlockForDescribeIpAddressPoolCidrBlocksOutput[]
+     * @return \Volcengine\Vpc\Model\IpAddressPoolCidrBlockForDescribeIpAddressPoolCidrBlocksOutput[]
      */
-    public function getIpAddressPooCidrBlocks()
+    public function getIpAddressPoolCidrBlocks()
     {
-        return $this->container['ip_address_poo_cidr_blocks'];
+        return $this->container['ip_address_pool_cidr_blocks'];
     }
 
     /**
-     * Sets ip_address_poo_cidr_blocks
+     * Sets ip_address_pool_cidr_blocks
      *
-     * @param \Volcengine\Vpc\Model\IpAddressPooCidrBlockForDescribeIpAddressPoolCidrBlocksOutput[] $ip_address_poo_cidr_blocks ip_address_poo_cidr_blocks
+     * @param \Volcengine\Vpc\Model\IpAddressPoolCidrBlockForDescribeIpAddressPoolCidrBlocksOutput[] $ip_address_pool_cidr_blocks ip_address_pool_cidr_blocks
      *
      * @return $this
      */
-    public function setIpAddressPooCidrBlocks($ip_address_poo_cidr_blocks)
+    public function setIpAddressPoolCidrBlocks($ip_address_pool_cidr_blocks)
     {
-        $this->container['ip_address_poo_cidr_blocks'] = $ip_address_poo_cidr_blocks;
+        $this->container['ip_address_pool_cidr_blocks'] = $ip_address_pool_cidr_blocks;
 
         return $this;
     }

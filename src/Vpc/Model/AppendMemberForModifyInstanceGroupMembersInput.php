@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AllocateIpv6AddressBandwidthRequest implements ModelInterface, ArrayAccess
+class AppendMemberForModifyInstanceGroupMembersInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AllocateIpv6AddressBandwidthRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AllocateIpv6AddressBandwidthRequest';
+    protected static $swaggerModelName = 'AppendMemberForModifyInstanceGroupMembersInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,8 @@ class AllocateIpv6AddressBandwidthRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'bandwidth' => 'int',
-        'bandwidth_package_id' => 'string',
-        'billing_type' => 'int',
-        'client_token' => 'string',
-        'ipv6_address' => 'string',
-        'project_name' => 'string'
+        'id' => 'string',
+        'type' => 'string'
     ];
 
     /**
@@ -42,12 +38,8 @@ class AllocateIpv6AddressBandwidthRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'bandwidth' => null,
-        'bandwidth_package_id' => null,
-        'billing_type' => null,
-        'client_token' => null,
-        'ipv6_address' => null,
-        'project_name' => null
+        'id' => null,
+        'type' => null
     ];
 
     /**
@@ -77,12 +69,8 @@ class AllocateIpv6AddressBandwidthRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'bandwidth' => 'Bandwidth',
-        'bandwidth_package_id' => 'BandwidthPackageId',
-        'billing_type' => 'BillingType',
-        'client_token' => 'ClientToken',
-        'ipv6_address' => 'Ipv6Address',
-        'project_name' => 'ProjectName'
+        'id' => 'Id',
+        'type' => 'Type'
     ];
 
     /**
@@ -91,12 +79,8 @@ class AllocateIpv6AddressBandwidthRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'bandwidth' => 'setBandwidth',
-        'bandwidth_package_id' => 'setBandwidthPackageId',
-        'billing_type' => 'setBillingType',
-        'client_token' => 'setClientToken',
-        'ipv6_address' => 'setIpv6Address',
-        'project_name' => 'setProjectName'
+        'id' => 'setId',
+        'type' => 'setType'
     ];
 
     /**
@@ -105,12 +89,8 @@ class AllocateIpv6AddressBandwidthRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'bandwidth' => 'getBandwidth',
-        'bandwidth_package_id' => 'getBandwidthPackageId',
-        'billing_type' => 'getBillingType',
-        'client_token' => 'getClientToken',
-        'ipv6_address' => 'getIpv6Address',
-        'project_name' => 'getProjectName'
+        'id' => 'getId',
+        'type' => 'getType'
     ];
 
     /**
@@ -173,12 +153,8 @@ class AllocateIpv6AddressBandwidthRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['bandwidth'] = isset($data['bandwidth']) ? $data['bandwidth'] : null;
-        $this->container['bandwidth_package_id'] = isset($data['bandwidth_package_id']) ? $data['bandwidth_package_id'] : null;
-        $this->container['billing_type'] = isset($data['billing_type']) ? $data['billing_type'] : null;
-        $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
-        $this->container['ipv6_address'] = isset($data['ipv6_address']) ? $data['ipv6_address'] : null;
-        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
     /**
@@ -190,12 +166,6 @@ class AllocateIpv6AddressBandwidthRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['billing_type'] === null) {
-            $invalidProperties[] = "'billing_type' can't be null";
-        }
-        if ($this->container['ipv6_address'] === null) {
-            $invalidProperties[] = "'ipv6_address' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -212,145 +182,49 @@ class AllocateIpv6AddressBandwidthRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets bandwidth
-     *
-     * @return int
-     */
-    public function getBandwidth()
-    {
-        return $this->container['bandwidth'];
-    }
-
-    /**
-     * Sets bandwidth
-     *
-     * @param int $bandwidth bandwidth
-     *
-     * @return $this
-     */
-    public function setBandwidth($bandwidth)
-    {
-        $this->container['bandwidth'] = $bandwidth;
-
-        return $this;
-    }
-
-    /**
-     * Gets bandwidth_package_id
+     * Gets id
      *
      * @return string
      */
-    public function getBandwidthPackageId()
+    public function getId()
     {
-        return $this->container['bandwidth_package_id'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets bandwidth_package_id
+     * Sets id
      *
-     * @param string $bandwidth_package_id bandwidth_package_id
+     * @param string $id id
      *
      * @return $this
      */
-    public function setBandwidthPackageId($bandwidth_package_id)
+    public function setId($id)
     {
-        $this->container['bandwidth_package_id'] = $bandwidth_package_id;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets billing_type
-     *
-     * @return int
-     */
-    public function getBillingType()
-    {
-        return $this->container['billing_type'];
-    }
-
-    /**
-     * Sets billing_type
-     *
-     * @param int $billing_type billing_type
-     *
-     * @return $this
-     */
-    public function setBillingType($billing_type)
-    {
-        $this->container['billing_type'] = $billing_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets client_token
+     * Gets type
      *
      * @return string
      */
-    public function getClientToken()
+    public function getType()
     {
-        return $this->container['client_token'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets client_token
+     * Sets type
      *
-     * @param string $client_token client_token
+     * @param string $type type
      *
      * @return $this
      */
-    public function setClientToken($client_token)
+    public function setType($type)
     {
-        $this->container['client_token'] = $client_token;
-
-        return $this;
-    }
-
-    /**
-     * Gets ipv6_address
-     *
-     * @return string
-     */
-    public function getIpv6Address()
-    {
-        return $this->container['ipv6_address'];
-    }
-
-    /**
-     * Sets ipv6_address
-     *
-     * @param string $ipv6_address ipv6_address
-     *
-     * @return $this
-     */
-    public function setIpv6Address($ipv6_address)
-    {
-        $this->container['ipv6_address'] = $ipv6_address;
-
-        return $this;
-    }
-
-    /**
-     * Gets project_name
-     *
-     * @return string
-     */
-    public function getProjectName()
-    {
-        return $this->container['project_name'];
-    }
-
-    /**
-     * Sets project_name
-     *
-     * @param string $project_name project_name
-     *
-     * @return $this
-     */
-    public function setProjectName($project_name)
-    {
-        $this->container['project_name'] = $project_name;
+        $this->container['type'] = $type;
 
         return $this;
     }

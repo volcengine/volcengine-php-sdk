@@ -42,6 +42,7 @@ class BandwidthPackageForDescribeBandwidthPackagesOutput implements ModelInterfa
         'overdue_time' => 'string',
         'project_name' => 'string',
         'protocol' => 'string',
+        'ratio' => 'int',
         'security_protection_types' => 'string[]',
         'status' => 'string',
         'tags' => '\Volcengine\Vpc\Model\TagForDescribeBandwidthPackagesOutput[]',
@@ -68,6 +69,7 @@ class BandwidthPackageForDescribeBandwidthPackagesOutput implements ModelInterfa
         'overdue_time' => null,
         'project_name' => null,
         'protocol' => null,
+        'ratio' => null,
         'security_protection_types' => null,
         'status' => null,
         'tags' => null,
@@ -115,6 +117,7 @@ class BandwidthPackageForDescribeBandwidthPackagesOutput implements ModelInterfa
         'overdue_time' => 'OverdueTime',
         'project_name' => 'ProjectName',
         'protocol' => 'Protocol',
+        'ratio' => 'Ratio',
         'security_protection_types' => 'SecurityProtectionTypes',
         'status' => 'Status',
         'tags' => 'Tags',
@@ -141,6 +144,7 @@ class BandwidthPackageForDescribeBandwidthPackagesOutput implements ModelInterfa
         'overdue_time' => 'setOverdueTime',
         'project_name' => 'setProjectName',
         'protocol' => 'setProtocol',
+        'ratio' => 'setRatio',
         'security_protection_types' => 'setSecurityProtectionTypes',
         'status' => 'setStatus',
         'tags' => 'setTags',
@@ -167,6 +171,7 @@ class BandwidthPackageForDescribeBandwidthPackagesOutput implements ModelInterfa
         'overdue_time' => 'getOverdueTime',
         'project_name' => 'getProjectName',
         'protocol' => 'getProtocol',
+        'ratio' => 'getRatio',
         'security_protection_types' => 'getSecurityProtectionTypes',
         'status' => 'getStatus',
         'tags' => 'getTags',
@@ -247,6 +252,7 @@ class BandwidthPackageForDescribeBandwidthPackagesOutput implements ModelInterfa
         $this->container['overdue_time'] = isset($data['overdue_time']) ? $data['overdue_time'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['protocol'] = isset($data['protocol']) ? $data['protocol'] : null;
+        $this->container['ratio'] = isset($data['ratio']) ? $data['ratio'] : null;
         $this->container['security_protection_types'] = isset($data['security_protection_types']) ? $data['security_protection_types'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
@@ -609,6 +615,30 @@ class BandwidthPackageForDescribeBandwidthPackagesOutput implements ModelInterfa
     public function setProtocol($protocol)
     {
         $this->container['protocol'] = $protocol;
+
+        return $this;
+    }
+
+    /**
+     * Gets ratio
+     *
+     * @return int
+     */
+    public function getRatio()
+    {
+        return $this->container['ratio'];
+    }
+
+    /**
+     * Sets ratio
+     *
+     * @param int $ratio ratio
+     *
+     * @return $this
+     */
+    public function setRatio($ratio)
+    {
+        $this->container['ratio'] = $ratio;
 
         return $this;
     }

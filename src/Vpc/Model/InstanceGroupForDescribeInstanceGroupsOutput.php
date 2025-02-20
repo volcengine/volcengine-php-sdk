@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AllocateIpv6AddressBandwidthRequest implements ModelInterface, ArrayAccess
+class InstanceGroupForDescribeInstanceGroupsOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AllocateIpv6AddressBandwidthRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AllocateIpv6AddressBandwidthRequest';
+    protected static $swaggerModelName = 'InstanceGroupForDescribeInstanceGroupsOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,15 @@ class AllocateIpv6AddressBandwidthRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'bandwidth' => 'int',
-        'bandwidth_package_id' => 'string',
-        'billing_type' => 'int',
-        'client_token' => 'string',
-        'ipv6_address' => 'string',
-        'project_name' => 'string'
+        'account_id' => 'string',
+        'created_at' => 'string',
+        'description' => 'string',
+        'instance_group_id' => 'string',
+        'members' => '\Volcengine\Vpc\Model\MemberForDescribeInstanceGroupsOutput[]',
+        'name' => 'string',
+        'status' => 'string',
+        'updated_at' => 'string',
+        'vpc_id' => 'string'
     ];
 
     /**
@@ -42,12 +45,15 @@ class AllocateIpv6AddressBandwidthRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'bandwidth' => null,
-        'bandwidth_package_id' => null,
-        'billing_type' => null,
-        'client_token' => null,
-        'ipv6_address' => null,
-        'project_name' => null
+        'account_id' => null,
+        'created_at' => null,
+        'description' => null,
+        'instance_group_id' => null,
+        'members' => null,
+        'name' => null,
+        'status' => null,
+        'updated_at' => null,
+        'vpc_id' => null
     ];
 
     /**
@@ -77,12 +83,15 @@ class AllocateIpv6AddressBandwidthRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'bandwidth' => 'Bandwidth',
-        'bandwidth_package_id' => 'BandwidthPackageId',
-        'billing_type' => 'BillingType',
-        'client_token' => 'ClientToken',
-        'ipv6_address' => 'Ipv6Address',
-        'project_name' => 'ProjectName'
+        'account_id' => 'AccountId',
+        'created_at' => 'CreatedAt',
+        'description' => 'Description',
+        'instance_group_id' => 'InstanceGroupId',
+        'members' => 'Members',
+        'name' => 'Name',
+        'status' => 'Status',
+        'updated_at' => 'UpdatedAt',
+        'vpc_id' => 'VpcId'
     ];
 
     /**
@@ -91,12 +100,15 @@ class AllocateIpv6AddressBandwidthRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'bandwidth' => 'setBandwidth',
-        'bandwidth_package_id' => 'setBandwidthPackageId',
-        'billing_type' => 'setBillingType',
-        'client_token' => 'setClientToken',
-        'ipv6_address' => 'setIpv6Address',
-        'project_name' => 'setProjectName'
+        'account_id' => 'setAccountId',
+        'created_at' => 'setCreatedAt',
+        'description' => 'setDescription',
+        'instance_group_id' => 'setInstanceGroupId',
+        'members' => 'setMembers',
+        'name' => 'setName',
+        'status' => 'setStatus',
+        'updated_at' => 'setUpdatedAt',
+        'vpc_id' => 'setVpcId'
     ];
 
     /**
@@ -105,12 +117,15 @@ class AllocateIpv6AddressBandwidthRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'bandwidth' => 'getBandwidth',
-        'bandwidth_package_id' => 'getBandwidthPackageId',
-        'billing_type' => 'getBillingType',
-        'client_token' => 'getClientToken',
-        'ipv6_address' => 'getIpv6Address',
-        'project_name' => 'getProjectName'
+        'account_id' => 'getAccountId',
+        'created_at' => 'getCreatedAt',
+        'description' => 'getDescription',
+        'instance_group_id' => 'getInstanceGroupId',
+        'members' => 'getMembers',
+        'name' => 'getName',
+        'status' => 'getStatus',
+        'updated_at' => 'getUpdatedAt',
+        'vpc_id' => 'getVpcId'
     ];
 
     /**
@@ -173,12 +188,15 @@ class AllocateIpv6AddressBandwidthRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['bandwidth'] = isset($data['bandwidth']) ? $data['bandwidth'] : null;
-        $this->container['bandwidth_package_id'] = isset($data['bandwidth_package_id']) ? $data['bandwidth_package_id'] : null;
-        $this->container['billing_type'] = isset($data['billing_type']) ? $data['billing_type'] : null;
-        $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
-        $this->container['ipv6_address'] = isset($data['ipv6_address']) ? $data['ipv6_address'] : null;
-        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
+        $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['instance_group_id'] = isset($data['instance_group_id']) ? $data['instance_group_id'] : null;
+        $this->container['members'] = isset($data['members']) ? $data['members'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
+        $this->container['vpc_id'] = isset($data['vpc_id']) ? $data['vpc_id'] : null;
     }
 
     /**
@@ -190,12 +208,6 @@ class AllocateIpv6AddressBandwidthRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['billing_type'] === null) {
-            $invalidProperties[] = "'billing_type' can't be null";
-        }
-        if ($this->container['ipv6_address'] === null) {
-            $invalidProperties[] = "'ipv6_address' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -212,145 +224,217 @@ class AllocateIpv6AddressBandwidthRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets bandwidth
-     *
-     * @return int
-     */
-    public function getBandwidth()
-    {
-        return $this->container['bandwidth'];
-    }
-
-    /**
-     * Sets bandwidth
-     *
-     * @param int $bandwidth bandwidth
-     *
-     * @return $this
-     */
-    public function setBandwidth($bandwidth)
-    {
-        $this->container['bandwidth'] = $bandwidth;
-
-        return $this;
-    }
-
-    /**
-     * Gets bandwidth_package_id
+     * Gets account_id
      *
      * @return string
      */
-    public function getBandwidthPackageId()
+    public function getAccountId()
     {
-        return $this->container['bandwidth_package_id'];
+        return $this->container['account_id'];
     }
 
     /**
-     * Sets bandwidth_package_id
+     * Sets account_id
      *
-     * @param string $bandwidth_package_id bandwidth_package_id
+     * @param string $account_id account_id
      *
      * @return $this
      */
-    public function setBandwidthPackageId($bandwidth_package_id)
+    public function setAccountId($account_id)
     {
-        $this->container['bandwidth_package_id'] = $bandwidth_package_id;
+        $this->container['account_id'] = $account_id;
 
         return $this;
     }
 
     /**
-     * Gets billing_type
-     *
-     * @return int
-     */
-    public function getBillingType()
-    {
-        return $this->container['billing_type'];
-    }
-
-    /**
-     * Sets billing_type
-     *
-     * @param int $billing_type billing_type
-     *
-     * @return $this
-     */
-    public function setBillingType($billing_type)
-    {
-        $this->container['billing_type'] = $billing_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets client_token
+     * Gets created_at
      *
      * @return string
      */
-    public function getClientToken()
+    public function getCreatedAt()
     {
-        return $this->container['client_token'];
+        return $this->container['created_at'];
     }
 
     /**
-     * Sets client_token
+     * Sets created_at
      *
-     * @param string $client_token client_token
+     * @param string $created_at created_at
      *
      * @return $this
      */
-    public function setClientToken($client_token)
+    public function setCreatedAt($created_at)
     {
-        $this->container['client_token'] = $client_token;
+        $this->container['created_at'] = $created_at;
 
         return $this;
     }
 
     /**
-     * Gets ipv6_address
+     * Gets description
      *
      * @return string
      */
-    public function getIpv6Address()
+    public function getDescription()
     {
-        return $this->container['ipv6_address'];
+        return $this->container['description'];
     }
 
     /**
-     * Sets ipv6_address
+     * Sets description
      *
-     * @param string $ipv6_address ipv6_address
+     * @param string $description description
      *
      * @return $this
      */
-    public function setIpv6Address($ipv6_address)
+    public function setDescription($description)
     {
-        $this->container['ipv6_address'] = $ipv6_address;
+        $this->container['description'] = $description;
 
         return $this;
     }
 
     /**
-     * Gets project_name
+     * Gets instance_group_id
      *
      * @return string
      */
-    public function getProjectName()
+    public function getInstanceGroupId()
     {
-        return $this->container['project_name'];
+        return $this->container['instance_group_id'];
     }
 
     /**
-     * Sets project_name
+     * Sets instance_group_id
      *
-     * @param string $project_name project_name
+     * @param string $instance_group_id instance_group_id
      *
      * @return $this
      */
-    public function setProjectName($project_name)
+    public function setInstanceGroupId($instance_group_id)
     {
-        $this->container['project_name'] = $project_name;
+        $this->container['instance_group_id'] = $instance_group_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets members
+     *
+     * @return \Volcengine\Vpc\Model\MemberForDescribeInstanceGroupsOutput[]
+     */
+    public function getMembers()
+    {
+        return $this->container['members'];
+    }
+
+    /**
+     * Sets members
+     *
+     * @param \Volcengine\Vpc\Model\MemberForDescribeInstanceGroupsOutput[] $members members
+     *
+     * @return $this
+     */
+    public function setMembers($members)
+    {
+        $this->container['members'] = $members;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name name
+     *
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param string $status status
+     *
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets updated_at
+     *
+     * @return string
+     */
+    public function getUpdatedAt()
+    {
+        return $this->container['updated_at'];
+    }
+
+    /**
+     * Sets updated_at
+     *
+     * @param string $updated_at updated_at
+     *
+     * @return $this
+     */
+    public function setUpdatedAt($updated_at)
+    {
+        $this->container['updated_at'] = $updated_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets vpc_id
+     *
+     * @return string
+     */
+    public function getVpcId()
+    {
+        return $this->container['vpc_id'];
+    }
+
+    /**
+     * Sets vpc_id
+     *
+     * @param string $vpc_id vpc_id
+     *
+     * @return $this
+     */
+    public function setVpcId($vpc_id)
+    {
+        $this->container['vpc_id'] = $vpc_id;
 
         return $this;
     }

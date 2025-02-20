@@ -3718,6 +3718,189 @@ class VPCApi
             $headers, $httpBody);
     }
 
+    public function createInstanceGroup($body)
+    {
+        list($response) = $this->createInstanceGroupWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createInstanceGroupWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vpc\Model\CreateInstanceGroupResponse';
+        $request = $this->createInstanceGroupRequest($body);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+            );
+        }
+
+        $statusCode = $response->getStatusCode();
+
+        if ($statusCode < 200 || $statusCode > 299) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Error connecting to the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $response->getBody()
+            );
+        }
+
+        $responseContent = $response->getBody()->getContents();
+        $content = json_decode($responseContent);
+
+        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Return Error From the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $responseContent);
+        }
+        $content = $content->{'Result'};
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    public function createInstanceGroupAsync($body)
+    {
+        return $this->createInstanceGroupAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createInstanceGroupAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vpc\Model\CreateInstanceGroupResponse';
+        $request = $this->createInstanceGroupRequest($body);
+        $uri = $request->getUri();
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($uri, $returnType) {
+                    $responseContent = $response->getBody()->getContents();
+                    $content = json_decode($responseContent);
+                    $statusCode = $response->getStatusCode();
+
+                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+                        throw new ApiException(
+                            sprintf(
+                                '[%d] Return Error From the API (%s)',
+                                $statusCode,
+                                $uri
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $responseContent);
+                    }
+                    $content = $content->{'Result'};
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    protected function createInstanceGroupRequest($body)
+    {
+        // verify the required parameter 'body' is set
+        if ($body === null || (is_array($body) && count($body) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $body when calling createInstanceGroup'
+            );
+        }
+
+        $resourcePath = '/CreateInstanceGroup/2020-04-01/vpc/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        // format request body
+        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
+            $queryParams = Utils::transRequest($httpBody);
+            $httpBody = '';
+        } else {
+            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
+        }
+
+        $queryParams['Action'] = $paths[1];
+        $queryParams['Version'] = $paths[2];
+        $resourcePath = '/';
+
+        $query = '';
+        ksort($queryParams);  // sort query first
+        foreach ($queryParams as $k => $v) {
+            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
+        }
+        $query = substr($query, 0, -1);
+
+        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
+            $httpBody, $query, $method, $resourcePath, $headers);
+
+        return new Request($method,
+            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers, $httpBody);
+    }
+
     public function createIpAddressPool($body)
     {
         list($response) = $this->createIpAddressPoolWithHttpInfo($body);
@@ -7143,6 +7326,189 @@ class VPCApi
         }
 
         $resourcePath = '/DeleteHaVip/2020-04-01/vpc/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        // format request body
+        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
+            $queryParams = Utils::transRequest($httpBody);
+            $httpBody = '';
+        } else {
+            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
+        }
+
+        $queryParams['Action'] = $paths[1];
+        $queryParams['Version'] = $paths[2];
+        $resourcePath = '/';
+
+        $query = '';
+        ksort($queryParams);  // sort query first
+        foreach ($queryParams as $k => $v) {
+            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
+        }
+        $query = substr($query, 0, -1);
+
+        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
+            $httpBody, $query, $method, $resourcePath, $headers);
+
+        return new Request($method,
+            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers, $httpBody);
+    }
+
+    public function deleteInstanceGroup($body)
+    {
+        list($response) = $this->deleteInstanceGroupWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteInstanceGroupWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vpc\Model\DeleteInstanceGroupResponse';
+        $request = $this->deleteInstanceGroupRequest($body);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+            );
+        }
+
+        $statusCode = $response->getStatusCode();
+
+        if ($statusCode < 200 || $statusCode > 299) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Error connecting to the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $response->getBody()
+            );
+        }
+
+        $responseContent = $response->getBody()->getContents();
+        $content = json_decode($responseContent);
+
+        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Return Error From the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $responseContent);
+        }
+        $content = $content->{'Result'};
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    public function deleteInstanceGroupAsync($body)
+    {
+        return $this->deleteInstanceGroupAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteInstanceGroupAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vpc\Model\DeleteInstanceGroupResponse';
+        $request = $this->deleteInstanceGroupRequest($body);
+        $uri = $request->getUri();
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($uri, $returnType) {
+                    $responseContent = $response->getBody()->getContents();
+                    $content = json_decode($responseContent);
+                    $statusCode = $response->getStatusCode();
+
+                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+                        throw new ApiException(
+                            sprintf(
+                                '[%d] Return Error From the API (%s)',
+                                $statusCode,
+                                $uri
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $responseContent);
+                    }
+                    $content = $content->{'Result'};
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    protected function deleteInstanceGroupRequest($body)
+    {
+        // verify the required parameter 'body' is set
+        if ($body === null || (is_array($body) && count($body) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $body when calling deleteInstanceGroup'
+            );
+        }
+
+        $resourcePath = '/DeleteInstanceGroup/2020-04-01/vpc/get/text_plain/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -10986,6 +11352,189 @@ class VPCApi
         }
 
         $resourcePath = '/DescribeHaVips/2020-04-01/vpc/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        // format request body
+        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
+            $queryParams = Utils::transRequest($httpBody);
+            $httpBody = '';
+        } else {
+            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
+        }
+
+        $queryParams['Action'] = $paths[1];
+        $queryParams['Version'] = $paths[2];
+        $resourcePath = '/';
+
+        $query = '';
+        ksort($queryParams);  // sort query first
+        foreach ($queryParams as $k => $v) {
+            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
+        }
+        $query = substr($query, 0, -1);
+
+        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
+            $httpBody, $query, $method, $resourcePath, $headers);
+
+        return new Request($method,
+            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers, $httpBody);
+    }
+
+    public function describeInstanceGroups($body)
+    {
+        list($response) = $this->describeInstanceGroupsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describeInstanceGroupsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vpc\Model\DescribeInstanceGroupsResponse';
+        $request = $this->describeInstanceGroupsRequest($body);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+            );
+        }
+
+        $statusCode = $response->getStatusCode();
+
+        if ($statusCode < 200 || $statusCode > 299) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Error connecting to the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $response->getBody()
+            );
+        }
+
+        $responseContent = $response->getBody()->getContents();
+        $content = json_decode($responseContent);
+
+        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Return Error From the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $responseContent);
+        }
+        $content = $content->{'Result'};
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    public function describeInstanceGroupsAsync($body)
+    {
+        return $this->describeInstanceGroupsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describeInstanceGroupsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vpc\Model\DescribeInstanceGroupsResponse';
+        $request = $this->describeInstanceGroupsRequest($body);
+        $uri = $request->getUri();
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($uri, $returnType) {
+                    $responseContent = $response->getBody()->getContents();
+                    $content = json_decode($responseContent);
+                    $statusCode = $response->getStatusCode();
+
+                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+                        throw new ApiException(
+                            sprintf(
+                                '[%d] Return Error From the API (%s)',
+                                $statusCode,
+                                $uri
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $responseContent);
+                    }
+                    $content = $content->{'Result'};
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    protected function describeInstanceGroupsRequest($body)
+    {
+        // verify the required parameter 'body' is set
+        if ($body === null || (is_array($body) && count($body) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $body when calling describeInstanceGroups'
+            );
+        }
+
+        $resourcePath = '/DescribeInstanceGroups/2020-04-01/vpc/get/text_plain/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -18123,6 +18672,372 @@ class VPCApi
         }
 
         $resourcePath = '/ModifyHaVipAttributes/2020-04-01/vpc/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        // format request body
+        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
+            $queryParams = Utils::transRequest($httpBody);
+            $httpBody = '';
+        } else {
+            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
+        }
+
+        $queryParams['Action'] = $paths[1];
+        $queryParams['Version'] = $paths[2];
+        $resourcePath = '/';
+
+        $query = '';
+        ksort($queryParams);  // sort query first
+        foreach ($queryParams as $k => $v) {
+            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
+        }
+        $query = substr($query, 0, -1);
+
+        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
+            $httpBody, $query, $method, $resourcePath, $headers);
+
+        return new Request($method,
+            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers, $httpBody);
+    }
+
+    public function modifyInstanceGroupAttributes($body)
+    {
+        list($response) = $this->modifyInstanceGroupAttributesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function modifyInstanceGroupAttributesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vpc\Model\ModifyInstanceGroupAttributesResponse';
+        $request = $this->modifyInstanceGroupAttributesRequest($body);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+            );
+        }
+
+        $statusCode = $response->getStatusCode();
+
+        if ($statusCode < 200 || $statusCode > 299) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Error connecting to the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $response->getBody()
+            );
+        }
+
+        $responseContent = $response->getBody()->getContents();
+        $content = json_decode($responseContent);
+
+        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Return Error From the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $responseContent);
+        }
+        $content = $content->{'Result'};
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    public function modifyInstanceGroupAttributesAsync($body)
+    {
+        return $this->modifyInstanceGroupAttributesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function modifyInstanceGroupAttributesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vpc\Model\ModifyInstanceGroupAttributesResponse';
+        $request = $this->modifyInstanceGroupAttributesRequest($body);
+        $uri = $request->getUri();
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($uri, $returnType) {
+                    $responseContent = $response->getBody()->getContents();
+                    $content = json_decode($responseContent);
+                    $statusCode = $response->getStatusCode();
+
+                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+                        throw new ApiException(
+                            sprintf(
+                                '[%d] Return Error From the API (%s)',
+                                $statusCode,
+                                $uri
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $responseContent);
+                    }
+                    $content = $content->{'Result'};
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    protected function modifyInstanceGroupAttributesRequest($body)
+    {
+        // verify the required parameter 'body' is set
+        if ($body === null || (is_array($body) && count($body) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $body when calling modifyInstanceGroupAttributes'
+            );
+        }
+
+        $resourcePath = '/ModifyInstanceGroupAttributes/2020-04-01/vpc/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        // format request body
+        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
+            $queryParams = Utils::transRequest($httpBody);
+            $httpBody = '';
+        } else {
+            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
+        }
+
+        $queryParams['Action'] = $paths[1];
+        $queryParams['Version'] = $paths[2];
+        $resourcePath = '/';
+
+        $query = '';
+        ksort($queryParams);  // sort query first
+        foreach ($queryParams as $k => $v) {
+            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
+        }
+        $query = substr($query, 0, -1);
+
+        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
+            $httpBody, $query, $method, $resourcePath, $headers);
+
+        return new Request($method,
+            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers, $httpBody);
+    }
+
+    public function modifyInstanceGroupMembers($body)
+    {
+        list($response) = $this->modifyInstanceGroupMembersWithHttpInfo($body);
+        return $response;
+    }
+
+    public function modifyInstanceGroupMembersWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vpc\Model\ModifyInstanceGroupMembersResponse';
+        $request = $this->modifyInstanceGroupMembersRequest($body);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+            );
+        }
+
+        $statusCode = $response->getStatusCode();
+
+        if ($statusCode < 200 || $statusCode > 299) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Error connecting to the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $response->getBody()
+            );
+        }
+
+        $responseContent = $response->getBody()->getContents();
+        $content = json_decode($responseContent);
+
+        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Return Error From the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $responseContent);
+        }
+        $content = $content->{'Result'};
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    public function modifyInstanceGroupMembersAsync($body)
+    {
+        return $this->modifyInstanceGroupMembersAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function modifyInstanceGroupMembersAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vpc\Model\ModifyInstanceGroupMembersResponse';
+        $request = $this->modifyInstanceGroupMembersRequest($body);
+        $uri = $request->getUri();
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($uri, $returnType) {
+                    $responseContent = $response->getBody()->getContents();
+                    $content = json_decode($responseContent);
+                    $statusCode = $response->getStatusCode();
+
+                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+                        throw new ApiException(
+                            sprintf(
+                                '[%d] Return Error From the API (%s)',
+                                $statusCode,
+                                $uri
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $responseContent);
+                    }
+                    $content = $content->{'Result'};
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    protected function modifyInstanceGroupMembersRequest($body)
+    {
+        // verify the required parameter 'body' is set
+        if ($body === null || (is_array($body) && count($body) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $body when calling modifyInstanceGroupMembers'
+            );
+        }
+
+        $resourcePath = '/ModifyInstanceGroupMembers/2020-04-01/vpc/get/text_plain/';
         $queryParams = [];
         $httpBody = $body;
 
