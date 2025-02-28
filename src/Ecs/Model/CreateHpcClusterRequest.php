@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class PurchaseReservedInstancesResponse implements ModelInterface, ArrayAccess
+class CreateHpcClusterRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class PurchaseReservedInstancesResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'PurchaseReservedInstancesResponse';
+    protected static $swaggerModelName = 'CreateHpcClusterRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,10 @@ class PurchaseReservedInstancesResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'reserved_instance_id' => 'string',
-        'reserved_storage_capacity_id' => 'string'
+        'client_token' => 'string',
+        'description' => 'string',
+        'name' => 'string',
+        'zone_id' => 'string'
     ];
 
     /**
@@ -38,8 +40,10 @@ class PurchaseReservedInstancesResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'reserved_instance_id' => null,
-        'reserved_storage_capacity_id' => null
+        'client_token' => null,
+        'description' => null,
+        'name' => null,
+        'zone_id' => null
     ];
 
     /**
@@ -69,8 +73,10 @@ class PurchaseReservedInstancesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'reserved_instance_id' => 'ReservedInstanceId',
-        'reserved_storage_capacity_id' => 'ReservedStorageCapacityId'
+        'client_token' => 'ClientToken',
+        'description' => 'Description',
+        'name' => 'Name',
+        'zone_id' => 'ZoneId'
     ];
 
     /**
@@ -79,8 +85,10 @@ class PurchaseReservedInstancesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'reserved_instance_id' => 'setReservedInstanceId',
-        'reserved_storage_capacity_id' => 'setReservedStorageCapacityId'
+        'client_token' => 'setClientToken',
+        'description' => 'setDescription',
+        'name' => 'setName',
+        'zone_id' => 'setZoneId'
     ];
 
     /**
@@ -89,8 +97,10 @@ class PurchaseReservedInstancesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'reserved_instance_id' => 'getReservedInstanceId',
-        'reserved_storage_capacity_id' => 'getReservedStorageCapacityId'
+        'client_token' => 'getClientToken',
+        'description' => 'getDescription',
+        'name' => 'getName',
+        'zone_id' => 'getZoneId'
     ];
 
     /**
@@ -153,8 +163,10 @@ class PurchaseReservedInstancesResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['reserved_instance_id'] = isset($data['reserved_instance_id']) ? $data['reserved_instance_id'] : null;
-        $this->container['reserved_storage_capacity_id'] = isset($data['reserved_storage_capacity_id']) ? $data['reserved_storage_capacity_id'] : null;
+        $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['zone_id'] = isset($data['zone_id']) ? $data['zone_id'] : null;
     }
 
     /**
@@ -166,6 +178,12 @@ class PurchaseReservedInstancesResponse implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
+        if ($this->container['zone_id'] === null) {
+            $invalidProperties[] = "'zone_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -182,49 +200,97 @@ class PurchaseReservedInstancesResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets reserved_instance_id
+     * Gets client_token
      *
      * @return string
      */
-    public function getReservedInstanceId()
+    public function getClientToken()
     {
-        return $this->container['reserved_instance_id'];
+        return $this->container['client_token'];
     }
 
     /**
-     * Sets reserved_instance_id
+     * Sets client_token
      *
-     * @param string $reserved_instance_id reserved_instance_id
+     * @param string $client_token client_token
      *
      * @return $this
      */
-    public function setReservedInstanceId($reserved_instance_id)
+    public function setClientToken($client_token)
     {
-        $this->container['reserved_instance_id'] = $reserved_instance_id;
+        $this->container['client_token'] = $client_token;
 
         return $this;
     }
 
     /**
-     * Gets reserved_storage_capacity_id
+     * Gets description
      *
      * @return string
      */
-    public function getReservedStorageCapacityId()
+    public function getDescription()
     {
-        return $this->container['reserved_storage_capacity_id'];
+        return $this->container['description'];
     }
 
     /**
-     * Sets reserved_storage_capacity_id
+     * Sets description
      *
-     * @param string $reserved_storage_capacity_id reserved_storage_capacity_id
+     * @param string $description description
      *
      * @return $this
      */
-    public function setReservedStorageCapacityId($reserved_storage_capacity_id)
+    public function setDescription($description)
     {
-        $this->container['reserved_storage_capacity_id'] = $reserved_storage_capacity_id;
+        $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name name
+     *
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets zone_id
+     *
+     * @return string
+     */
+    public function getZoneId()
+    {
+        return $this->container['zone_id'];
+    }
+
+    /**
+     * Sets zone_id
+     *
+     * @param string $zone_id zone_id
+     *
+     * @return $this
+     */
+    public function setZoneId($zone_id)
+    {
+        $this->container['zone_id'] = $zone_id;
 
         return $this;
     }

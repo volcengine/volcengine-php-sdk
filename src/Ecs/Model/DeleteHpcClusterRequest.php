@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class PurchaseReservedInstancesResponse implements ModelInterface, ArrayAccess
+class DeleteHpcClusterRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class PurchaseReservedInstancesResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'PurchaseReservedInstancesResponse';
+    protected static $swaggerModelName = 'DeleteHpcClusterRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,8 @@ class PurchaseReservedInstancesResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'reserved_instance_id' => 'string',
-        'reserved_storage_capacity_id' => 'string'
+        'client_token' => 'string',
+        'hpc_cluster_id' => 'string'
     ];
 
     /**
@@ -38,8 +38,8 @@ class PurchaseReservedInstancesResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'reserved_instance_id' => null,
-        'reserved_storage_capacity_id' => null
+        'client_token' => null,
+        'hpc_cluster_id' => null
     ];
 
     /**
@@ -69,8 +69,8 @@ class PurchaseReservedInstancesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'reserved_instance_id' => 'ReservedInstanceId',
-        'reserved_storage_capacity_id' => 'ReservedStorageCapacityId'
+        'client_token' => 'ClientToken',
+        'hpc_cluster_id' => 'HpcClusterId'
     ];
 
     /**
@@ -79,8 +79,8 @@ class PurchaseReservedInstancesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'reserved_instance_id' => 'setReservedInstanceId',
-        'reserved_storage_capacity_id' => 'setReservedStorageCapacityId'
+        'client_token' => 'setClientToken',
+        'hpc_cluster_id' => 'setHpcClusterId'
     ];
 
     /**
@@ -89,8 +89,8 @@ class PurchaseReservedInstancesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'reserved_instance_id' => 'getReservedInstanceId',
-        'reserved_storage_capacity_id' => 'getReservedStorageCapacityId'
+        'client_token' => 'getClientToken',
+        'hpc_cluster_id' => 'getHpcClusterId'
     ];
 
     /**
@@ -153,8 +153,8 @@ class PurchaseReservedInstancesResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['reserved_instance_id'] = isset($data['reserved_instance_id']) ? $data['reserved_instance_id'] : null;
-        $this->container['reserved_storage_capacity_id'] = isset($data['reserved_storage_capacity_id']) ? $data['reserved_storage_capacity_id'] : null;
+        $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
+        $this->container['hpc_cluster_id'] = isset($data['hpc_cluster_id']) ? $data['hpc_cluster_id'] : null;
     }
 
     /**
@@ -166,6 +166,9 @@ class PurchaseReservedInstancesResponse implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['hpc_cluster_id'] === null) {
+            $invalidProperties[] = "'hpc_cluster_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -182,49 +185,49 @@ class PurchaseReservedInstancesResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets reserved_instance_id
+     * Gets client_token
      *
      * @return string
      */
-    public function getReservedInstanceId()
+    public function getClientToken()
     {
-        return $this->container['reserved_instance_id'];
+        return $this->container['client_token'];
     }
 
     /**
-     * Sets reserved_instance_id
+     * Sets client_token
      *
-     * @param string $reserved_instance_id reserved_instance_id
+     * @param string $client_token client_token
      *
      * @return $this
      */
-    public function setReservedInstanceId($reserved_instance_id)
+    public function setClientToken($client_token)
     {
-        $this->container['reserved_instance_id'] = $reserved_instance_id;
+        $this->container['client_token'] = $client_token;
 
         return $this;
     }
 
     /**
-     * Gets reserved_storage_capacity_id
+     * Gets hpc_cluster_id
      *
      * @return string
      */
-    public function getReservedStorageCapacityId()
+    public function getHpcClusterId()
     {
-        return $this->container['reserved_storage_capacity_id'];
+        return $this->container['hpc_cluster_id'];
     }
 
     /**
-     * Sets reserved_storage_capacity_id
+     * Sets hpc_cluster_id
      *
-     * @param string $reserved_storage_capacity_id reserved_storage_capacity_id
+     * @param string $hpc_cluster_id hpc_cluster_id
      *
      * @return $this
      */
-    public function setReservedStorageCapacityId($reserved_storage_capacity_id)
+    public function setHpcClusterId($hpc_cluster_id)
     {
-        $this->container['reserved_storage_capacity_id'] = $reserved_storage_capacity_id;
+        $this->container['hpc_cluster_id'] = $hpc_cluster_id;
 
         return $this;
     }

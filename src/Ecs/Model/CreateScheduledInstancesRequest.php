@@ -31,6 +31,7 @@ class CreateScheduledInstancesRequest implements ModelInterface, ArrayAccess
         'auto_release_at' => 'string',
         'client_token' => 'string',
         'count' => 'int',
+        'cpu_max_frequency' => 'float',
         'delivery_type' => 'string',
         'description' => 'string',
         'dry_run' => 'bool',
@@ -45,6 +46,7 @@ class CreateScheduledInstancesRequest implements ModelInterface, ArrayAccess
         'instance_type_id' => 'string',
         'keep_image_credential' => 'bool',
         'key_pair_name' => 'string',
+        'min_count' => 'int',
         'network_interfaces' => '\Volcengine\Ecs\Model\NetworkInterfaceForCreateScheduledInstancesInput[]',
         'password' => 'string',
         'project_name' => 'string',
@@ -69,6 +71,7 @@ class CreateScheduledInstancesRequest implements ModelInterface, ArrayAccess
         'auto_release_at' => null,
         'client_token' => null,
         'count' => 'int32',
+        'cpu_max_frequency' => 'float',
         'delivery_type' => null,
         'description' => null,
         'dry_run' => null,
@@ -83,6 +86,7 @@ class CreateScheduledInstancesRequest implements ModelInterface, ArrayAccess
         'instance_type_id' => null,
         'keep_image_credential' => null,
         'key_pair_name' => null,
+        'min_count' => 'int32',
         'network_interfaces' => null,
         'password' => null,
         'project_name' => null,
@@ -128,6 +132,7 @@ class CreateScheduledInstancesRequest implements ModelInterface, ArrayAccess
         'auto_release_at' => 'AutoReleaseAt',
         'client_token' => 'ClientToken',
         'count' => 'Count',
+        'cpu_max_frequency' => 'CpuMaxFrequency',
         'delivery_type' => 'DeliveryType',
         'description' => 'Description',
         'dry_run' => 'DryRun',
@@ -142,6 +147,7 @@ class CreateScheduledInstancesRequest implements ModelInterface, ArrayAccess
         'instance_type_id' => 'InstanceTypeId',
         'keep_image_credential' => 'KeepImageCredential',
         'key_pair_name' => 'KeyPairName',
+        'min_count' => 'MinCount',
         'network_interfaces' => 'NetworkInterfaces',
         'password' => 'Password',
         'project_name' => 'ProjectName',
@@ -166,6 +172,7 @@ class CreateScheduledInstancesRequest implements ModelInterface, ArrayAccess
         'auto_release_at' => 'setAutoReleaseAt',
         'client_token' => 'setClientToken',
         'count' => 'setCount',
+        'cpu_max_frequency' => 'setCpuMaxFrequency',
         'delivery_type' => 'setDeliveryType',
         'description' => 'setDescription',
         'dry_run' => 'setDryRun',
@@ -180,6 +187,7 @@ class CreateScheduledInstancesRequest implements ModelInterface, ArrayAccess
         'instance_type_id' => 'setInstanceTypeId',
         'keep_image_credential' => 'setKeepImageCredential',
         'key_pair_name' => 'setKeyPairName',
+        'min_count' => 'setMinCount',
         'network_interfaces' => 'setNetworkInterfaces',
         'password' => 'setPassword',
         'project_name' => 'setProjectName',
@@ -204,6 +212,7 @@ class CreateScheduledInstancesRequest implements ModelInterface, ArrayAccess
         'auto_release_at' => 'getAutoReleaseAt',
         'client_token' => 'getClientToken',
         'count' => 'getCount',
+        'cpu_max_frequency' => 'getCpuMaxFrequency',
         'delivery_type' => 'getDeliveryType',
         'description' => 'getDescription',
         'dry_run' => 'getDryRun',
@@ -218,6 +227,7 @@ class CreateScheduledInstancesRequest implements ModelInterface, ArrayAccess
         'instance_type_id' => 'getInstanceTypeId',
         'keep_image_credential' => 'getKeepImageCredential',
         'key_pair_name' => 'getKeyPairName',
+        'min_count' => 'getMinCount',
         'network_interfaces' => 'getNetworkInterfaces',
         'password' => 'getPassword',
         'project_name' => 'getProjectName',
@@ -296,6 +306,7 @@ class CreateScheduledInstancesRequest implements ModelInterface, ArrayAccess
         $this->container['auto_release_at'] = isset($data['auto_release_at']) ? $data['auto_release_at'] : null;
         $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
         $this->container['count'] = isset($data['count']) ? $data['count'] : null;
+        $this->container['cpu_max_frequency'] = isset($data['cpu_max_frequency']) ? $data['cpu_max_frequency'] : null;
         $this->container['delivery_type'] = isset($data['delivery_type']) ? $data['delivery_type'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['dry_run'] = isset($data['dry_run']) ? $data['dry_run'] : null;
@@ -310,6 +321,7 @@ class CreateScheduledInstancesRequest implements ModelInterface, ArrayAccess
         $this->container['instance_type_id'] = isset($data['instance_type_id']) ? $data['instance_type_id'] : null;
         $this->container['keep_image_credential'] = isset($data['keep_image_credential']) ? $data['keep_image_credential'] : null;
         $this->container['key_pair_name'] = isset($data['key_pair_name']) ? $data['key_pair_name'] : null;
+        $this->container['min_count'] = isset($data['min_count']) ? $data['min_count'] : null;
         $this->container['network_interfaces'] = isset($data['network_interfaces']) ? $data['network_interfaces'] : null;
         $this->container['password'] = isset($data['password']) ? $data['password'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
@@ -432,6 +444,30 @@ class CreateScheduledInstancesRequest implements ModelInterface, ArrayAccess
     public function setCount($count)
     {
         $this->container['count'] = $count;
+
+        return $this;
+    }
+
+    /**
+     * Gets cpu_max_frequency
+     *
+     * @return float
+     */
+    public function getCpuMaxFrequency()
+    {
+        return $this->container['cpu_max_frequency'];
+    }
+
+    /**
+     * Sets cpu_max_frequency
+     *
+     * @param float $cpu_max_frequency cpu_max_frequency
+     *
+     * @return $this
+     */
+    public function setCpuMaxFrequency($cpu_max_frequency)
+    {
+        $this->container['cpu_max_frequency'] = $cpu_max_frequency;
 
         return $this;
     }
@@ -768,6 +804,30 @@ class CreateScheduledInstancesRequest implements ModelInterface, ArrayAccess
     public function setKeyPairName($key_pair_name)
     {
         $this->container['key_pair_name'] = $key_pair_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets min_count
+     *
+     * @return int
+     */
+    public function getMinCount()
+    {
+        return $this->container['min_count'];
+    }
+
+    /**
+     * Sets min_count
+     *
+     * @param int $min_count min_count
+     *
+     * @return $this
+     */
+    public function setMinCount($min_count)
+    {
+        $this->container['min_count'] = $min_count;
 
         return $this;
     }
