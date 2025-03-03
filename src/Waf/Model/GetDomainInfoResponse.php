@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ListLoadBalancerRequest implements ModelInterface, ArrayAccess
+class GetDomainInfoResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ListLoadBalancerRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ListLoadBalancerRequest';
+    protected static $swaggerModelName = 'GetDomainInfoResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,11 @@ class ListLoadBalancerRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'host' => 'string',
-        'project_name' => 'string',
-        'type' => 'string'
+        'count' => 'int',
+        'current_page' => 'int',
+        'domains' => '\Volcengine\Waf\Model\DomainForGetDomainInfoOutput[]',
+        'page_size' => 'int',
+        'total_count' => 'int'
     ];
 
     /**
@@ -39,9 +41,11 @@ class ListLoadBalancerRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'host' => null,
-        'project_name' => null,
-        'type' => null
+        'count' => 'int32',
+        'current_page' => 'int32',
+        'domains' => null,
+        'page_size' => 'int32',
+        'total_count' => 'int32'
     ];
 
     /**
@@ -71,9 +75,11 @@ class ListLoadBalancerRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'host' => 'Host',
-        'project_name' => 'ProjectName',
-        'type' => 'Type'
+        'count' => 'Count',
+        'current_page' => 'CurrentPage',
+        'domains' => 'Domains',
+        'page_size' => 'PageSize',
+        'total_count' => 'TotalCount'
     ];
 
     /**
@@ -82,9 +88,11 @@ class ListLoadBalancerRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'host' => 'setHost',
-        'project_name' => 'setProjectName',
-        'type' => 'setType'
+        'count' => 'setCount',
+        'current_page' => 'setCurrentPage',
+        'domains' => 'setDomains',
+        'page_size' => 'setPageSize',
+        'total_count' => 'setTotalCount'
     ];
 
     /**
@@ -93,9 +101,11 @@ class ListLoadBalancerRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'host' => 'getHost',
-        'project_name' => 'getProjectName',
-        'type' => 'getType'
+        'count' => 'getCount',
+        'current_page' => 'getCurrentPage',
+        'domains' => 'getDomains',
+        'page_size' => 'getPageSize',
+        'total_count' => 'getTotalCount'
     ];
 
     /**
@@ -139,23 +149,8 @@ class ListLoadBalancerRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const TYPE_ALB = 'alb';
-    const TYPE_CLB = 'clb';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTypeAllowableValues()
-    {
-        return [
-            self::TYPE_ALB,
-            self::TYPE_CLB,
-        ];
-    }
     
 
     /**
@@ -173,9 +168,11 @@ class ListLoadBalancerRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['host'] = isset($data['host']) ? $data['host'] : null;
-        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['count'] = isset($data['count']) ? $data['count'] : null;
+        $this->container['current_page'] = isset($data['current_page']) ? $data['current_page'] : null;
+        $this->container['domains'] = isset($data['domains']) ? $data['domains'] : null;
+        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
+        $this->container['total_count'] = isset($data['total_count']) ? $data['total_count'] : null;
     }
 
     /**
@@ -186,14 +183,6 @@ class ListLoadBalancerRequest implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -211,82 +200,121 @@ class ListLoadBalancerRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets host
+     * Gets count
      *
-     * @return string
+     * @return int
      */
-    public function getHost()
+    public function getCount()
     {
-        return $this->container['host'];
+        return $this->container['count'];
     }
 
     /**
-     * Sets host
+     * Sets count
      *
-     * @param string $host host
+     * @param int $count count
      *
      * @return $this
      */
-    public function setHost($host)
+    public function setCount($count)
     {
-        $this->container['host'] = $host;
+        $this->container['count'] = $count;
 
         return $this;
     }
 
     /**
-     * Gets project_name
+     * Gets current_page
      *
-     * @return string
+     * @return int
      */
-    public function getProjectName()
+    public function getCurrentPage()
     {
-        return $this->container['project_name'];
+        return $this->container['current_page'];
     }
 
     /**
-     * Sets project_name
+     * Sets current_page
      *
-     * @param string $project_name project_name
+     * @param int $current_page current_page
      *
      * @return $this
      */
-    public function setProjectName($project_name)
+    public function setCurrentPage($current_page)
     {
-        $this->container['project_name'] = $project_name;
+        $this->container['current_page'] = $current_page;
 
         return $this;
     }
 
     /**
-     * Gets type
+     * Gets domains
      *
-     * @return string
+     * @return \Volcengine\Waf\Model\DomainForGetDomainInfoOutput[]
      */
-    public function getType()
+    public function getDomains()
     {
-        return $this->container['type'];
+        return $this->container['domains'];
     }
 
     /**
-     * Sets type
+     * Sets domains
      *
-     * @param string $type type
+     * @param \Volcengine\Waf\Model\DomainForGetDomainInfoOutput[] $domains domains
      *
      * @return $this
      */
-    public function setType($type)
+    public function setDomains($domains)
     {
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['type'] = $type;
+        $this->container['domains'] = $domains;
+
+        return $this;
+    }
+
+    /**
+     * Gets page_size
+     *
+     * @return int
+     */
+    public function getPageSize()
+    {
+        return $this->container['page_size'];
+    }
+
+    /**
+     * Sets page_size
+     *
+     * @param int $page_size page_size
+     *
+     * @return $this
+     */
+    public function setPageSize($page_size)
+    {
+        $this->container['page_size'] = $page_size;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_count
+     *
+     * @return int
+     */
+    public function getTotalCount()
+    {
+        return $this->container['total_count'];
+    }
+
+    /**
+     * Sets total_count
+     *
+     * @param int $total_count total_count
+     *
+     * @return $this
+     */
+    public function setTotalCount($total_count)
+    {
+        $this->container['total_count'] = $total_count;
 
         return $this;
     }

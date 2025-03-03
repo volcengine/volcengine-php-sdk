@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ListLoadBalancerRequest implements ModelInterface, ArrayAccess
+class GetInstanceCtlResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ListLoadBalancerRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ListLoadBalancerRequest';
+    protected static $swaggerModelName = 'GetInstanceCtlResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,11 @@ class ListLoadBalancerRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'host' => 'string',
-        'project_name' => 'string',
-        'type' => 'string'
+        'allow_enable' => 'int',
+        'block_enable' => 'int',
+        'prompt_defence_enable' => 'int',
+        'region' => 'string',
+        'token_consume_enable' => 'int'
     ];
 
     /**
@@ -39,9 +41,11 @@ class ListLoadBalancerRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'host' => null,
-        'project_name' => null,
-        'type' => null
+        'allow_enable' => 'int32',
+        'block_enable' => 'int32',
+        'prompt_defence_enable' => 'int32',
+        'region' => null,
+        'token_consume_enable' => 'int32'
     ];
 
     /**
@@ -71,9 +75,11 @@ class ListLoadBalancerRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'host' => 'Host',
-        'project_name' => 'ProjectName',
-        'type' => 'Type'
+        'allow_enable' => 'AllowEnable',
+        'block_enable' => 'BlockEnable',
+        'prompt_defence_enable' => 'PromptDefenceEnable',
+        'region' => 'Region',
+        'token_consume_enable' => 'TokenConsumeEnable'
     ];
 
     /**
@@ -82,9 +88,11 @@ class ListLoadBalancerRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'host' => 'setHost',
-        'project_name' => 'setProjectName',
-        'type' => 'setType'
+        'allow_enable' => 'setAllowEnable',
+        'block_enable' => 'setBlockEnable',
+        'prompt_defence_enable' => 'setPromptDefenceEnable',
+        'region' => 'setRegion',
+        'token_consume_enable' => 'setTokenConsumeEnable'
     ];
 
     /**
@@ -93,9 +101,11 @@ class ListLoadBalancerRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'host' => 'getHost',
-        'project_name' => 'getProjectName',
-        'type' => 'getType'
+        'allow_enable' => 'getAllowEnable',
+        'block_enable' => 'getBlockEnable',
+        'prompt_defence_enable' => 'getPromptDefenceEnable',
+        'region' => 'getRegion',
+        'token_consume_enable' => 'getTokenConsumeEnable'
     ];
 
     /**
@@ -139,23 +149,8 @@ class ListLoadBalancerRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const TYPE_ALB = 'alb';
-    const TYPE_CLB = 'clb';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTypeAllowableValues()
-    {
-        return [
-            self::TYPE_ALB,
-            self::TYPE_CLB,
-        ];
-    }
     
 
     /**
@@ -173,9 +168,11 @@ class ListLoadBalancerRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['host'] = isset($data['host']) ? $data['host'] : null;
-        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['allow_enable'] = isset($data['allow_enable']) ? $data['allow_enable'] : null;
+        $this->container['block_enable'] = isset($data['block_enable']) ? $data['block_enable'] : null;
+        $this->container['prompt_defence_enable'] = isset($data['prompt_defence_enable']) ? $data['prompt_defence_enable'] : null;
+        $this->container['region'] = isset($data['region']) ? $data['region'] : null;
+        $this->container['token_consume_enable'] = isset($data['token_consume_enable']) ? $data['token_consume_enable'] : null;
     }
 
     /**
@@ -186,14 +183,6 @@ class ListLoadBalancerRequest implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -211,82 +200,121 @@ class ListLoadBalancerRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets host
+     * Gets allow_enable
      *
-     * @return string
+     * @return int
      */
-    public function getHost()
+    public function getAllowEnable()
     {
-        return $this->container['host'];
+        return $this->container['allow_enable'];
     }
 
     /**
-     * Sets host
+     * Sets allow_enable
      *
-     * @param string $host host
+     * @param int $allow_enable allow_enable
      *
      * @return $this
      */
-    public function setHost($host)
+    public function setAllowEnable($allow_enable)
     {
-        $this->container['host'] = $host;
+        $this->container['allow_enable'] = $allow_enable;
 
         return $this;
     }
 
     /**
-     * Gets project_name
+     * Gets block_enable
      *
-     * @return string
+     * @return int
      */
-    public function getProjectName()
+    public function getBlockEnable()
     {
-        return $this->container['project_name'];
+        return $this->container['block_enable'];
     }
 
     /**
-     * Sets project_name
+     * Sets block_enable
      *
-     * @param string $project_name project_name
+     * @param int $block_enable block_enable
      *
      * @return $this
      */
-    public function setProjectName($project_name)
+    public function setBlockEnable($block_enable)
     {
-        $this->container['project_name'] = $project_name;
+        $this->container['block_enable'] = $block_enable;
 
         return $this;
     }
 
     /**
-     * Gets type
+     * Gets prompt_defence_enable
      *
-     * @return string
+     * @return int
      */
-    public function getType()
+    public function getPromptDefenceEnable()
     {
-        return $this->container['type'];
+        return $this->container['prompt_defence_enable'];
     }
 
     /**
-     * Sets type
+     * Sets prompt_defence_enable
      *
-     * @param string $type type
+     * @param int $prompt_defence_enable prompt_defence_enable
      *
      * @return $this
      */
-    public function setType($type)
+    public function setPromptDefenceEnable($prompt_defence_enable)
     {
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['type'] = $type;
+        $this->container['prompt_defence_enable'] = $prompt_defence_enable;
+
+        return $this;
+    }
+
+    /**
+     * Gets region
+     *
+     * @return string
+     */
+    public function getRegion()
+    {
+        return $this->container['region'];
+    }
+
+    /**
+     * Sets region
+     *
+     * @param string $region region
+     *
+     * @return $this
+     */
+    public function setRegion($region)
+    {
+        $this->container['region'] = $region;
+
+        return $this;
+    }
+
+    /**
+     * Gets token_consume_enable
+     *
+     * @return int
+     */
+    public function getTokenConsumeEnable()
+    {
+        return $this->container['token_consume_enable'];
+    }
+
+    /**
+     * Sets token_consume_enable
+     *
+     * @param int $token_consume_enable token_consume_enable
+     *
+     * @return $this
+     */
+    public function setTokenConsumeEnable($token_consume_enable)
+    {
+        $this->container['token_consume_enable'] = $token_consume_enable;
 
         return $this;
     }
