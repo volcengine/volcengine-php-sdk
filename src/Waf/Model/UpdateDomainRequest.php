@@ -30,11 +30,6 @@ class UpdateDomainRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'access_mode' => 'int',
         'backend_groups' => '\Volcengine\Waf\Model\BackendGroupForUpdateDomainInput[]',
-        'bot_dytoken_enable' => 'int',
-        'bot_frequency_enable' => 'int',
-        'bot_repeat_enable' => 'int',
-        'bot_sequence_default_action' => 'int',
-        'bot_sequence_enable' => 'int',
         'certificate_id' => 'int',
         'certificate_platform' => 'string',
         'client_ip_location' => 'int',
@@ -82,11 +77,6 @@ class UpdateDomainRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'access_mode' => 'int32',
         'backend_groups' => null,
-        'bot_dytoken_enable' => 'int32',
-        'bot_frequency_enable' => 'int32',
-        'bot_repeat_enable' => 'int32',
-        'bot_sequence_default_action' => 'int32',
-        'bot_sequence_enable' => 'int32',
         'certificate_id' => 'int32',
         'certificate_platform' => null,
         'client_ip_location' => 'int32',
@@ -155,11 +145,6 @@ class UpdateDomainRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'access_mode' => 'AccessMode',
         'backend_groups' => 'BackendGroups',
-        'bot_dytoken_enable' => 'BotDytokenEnable',
-        'bot_frequency_enable' => 'BotFrequencyEnable',
-        'bot_repeat_enable' => 'BotRepeatEnable',
-        'bot_sequence_default_action' => 'BotSequenceDefaultAction',
-        'bot_sequence_enable' => 'BotSequenceEnable',
         'certificate_id' => 'CertificateID',
         'certificate_platform' => 'CertificatePlatform',
         'client_ip_location' => 'ClientIPLocation',
@@ -207,11 +192,6 @@ class UpdateDomainRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'access_mode' => 'setAccessMode',
         'backend_groups' => 'setBackendGroups',
-        'bot_dytoken_enable' => 'setBotDytokenEnable',
-        'bot_frequency_enable' => 'setBotFrequencyEnable',
-        'bot_repeat_enable' => 'setBotRepeatEnable',
-        'bot_sequence_default_action' => 'setBotSequenceDefaultAction',
-        'bot_sequence_enable' => 'setBotSequenceEnable',
         'certificate_id' => 'setCertificateId',
         'certificate_platform' => 'setCertificatePlatform',
         'client_ip_location' => 'setClientIpLocation',
@@ -259,11 +239,6 @@ class UpdateDomainRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'access_mode' => 'getAccessMode',
         'backend_groups' => 'getBackendGroups',
-        'bot_dytoken_enable' => 'getBotDytokenEnable',
-        'bot_frequency_enable' => 'getBotFrequencyEnable',
-        'bot_repeat_enable' => 'getBotRepeatEnable',
-        'bot_sequence_default_action' => 'getBotSequenceDefaultAction',
-        'bot_sequence_enable' => 'getBotSequenceEnable',
         'certificate_id' => 'getCertificateId',
         'certificate_platform' => 'getCertificatePlatform',
         'client_ip_location' => 'getClientIpLocation',
@@ -365,11 +340,6 @@ class UpdateDomainRequest implements ModelInterface, ArrayAccess
     {
         $this->container['access_mode'] = isset($data['access_mode']) ? $data['access_mode'] : null;
         $this->container['backend_groups'] = isset($data['backend_groups']) ? $data['backend_groups'] : null;
-        $this->container['bot_dytoken_enable'] = isset($data['bot_dytoken_enable']) ? $data['bot_dytoken_enable'] : null;
-        $this->container['bot_frequency_enable'] = isset($data['bot_frequency_enable']) ? $data['bot_frequency_enable'] : null;
-        $this->container['bot_repeat_enable'] = isset($data['bot_repeat_enable']) ? $data['bot_repeat_enable'] : null;
-        $this->container['bot_sequence_default_action'] = isset($data['bot_sequence_default_action']) ? $data['bot_sequence_default_action'] : null;
-        $this->container['bot_sequence_enable'] = isset($data['bot_sequence_enable']) ? $data['bot_sequence_enable'] : null;
         $this->container['certificate_id'] = isset($data['certificate_id']) ? $data['certificate_id'] : null;
         $this->container['certificate_platform'] = isset($data['certificate_platform']) ? $data['certificate_platform'] : null;
         $this->container['client_ip_location'] = isset($data['client_ip_location']) ? $data['client_ip_location'] : null;
@@ -486,126 +456,6 @@ class UpdateDomainRequest implements ModelInterface, ArrayAccess
     public function setBackendGroups($backend_groups)
     {
         $this->container['backend_groups'] = $backend_groups;
-
-        return $this;
-    }
-
-    /**
-     * Gets bot_dytoken_enable
-     *
-     * @return int
-     */
-    public function getBotDytokenEnable()
-    {
-        return $this->container['bot_dytoken_enable'];
-    }
-
-    /**
-     * Sets bot_dytoken_enable
-     *
-     * @param int $bot_dytoken_enable bot_dytoken_enable
-     *
-     * @return $this
-     */
-    public function setBotDytokenEnable($bot_dytoken_enable)
-    {
-        $this->container['bot_dytoken_enable'] = $bot_dytoken_enable;
-
-        return $this;
-    }
-
-    /**
-     * Gets bot_frequency_enable
-     *
-     * @return int
-     */
-    public function getBotFrequencyEnable()
-    {
-        return $this->container['bot_frequency_enable'];
-    }
-
-    /**
-     * Sets bot_frequency_enable
-     *
-     * @param int $bot_frequency_enable bot_frequency_enable
-     *
-     * @return $this
-     */
-    public function setBotFrequencyEnable($bot_frequency_enable)
-    {
-        $this->container['bot_frequency_enable'] = $bot_frequency_enable;
-
-        return $this;
-    }
-
-    /**
-     * Gets bot_repeat_enable
-     *
-     * @return int
-     */
-    public function getBotRepeatEnable()
-    {
-        return $this->container['bot_repeat_enable'];
-    }
-
-    /**
-     * Sets bot_repeat_enable
-     *
-     * @param int $bot_repeat_enable bot_repeat_enable
-     *
-     * @return $this
-     */
-    public function setBotRepeatEnable($bot_repeat_enable)
-    {
-        $this->container['bot_repeat_enable'] = $bot_repeat_enable;
-
-        return $this;
-    }
-
-    /**
-     * Gets bot_sequence_default_action
-     *
-     * @return int
-     */
-    public function getBotSequenceDefaultAction()
-    {
-        return $this->container['bot_sequence_default_action'];
-    }
-
-    /**
-     * Sets bot_sequence_default_action
-     *
-     * @param int $bot_sequence_default_action bot_sequence_default_action
-     *
-     * @return $this
-     */
-    public function setBotSequenceDefaultAction($bot_sequence_default_action)
-    {
-        $this->container['bot_sequence_default_action'] = $bot_sequence_default_action;
-
-        return $this;
-    }
-
-    /**
-     * Gets bot_sequence_enable
-     *
-     * @return int
-     */
-    public function getBotSequenceEnable()
-    {
-        return $this->container['bot_sequence_enable'];
-    }
-
-    /**
-     * Sets bot_sequence_enable
-     *
-     * @param int $bot_sequence_enable bot_sequence_enable
-     *
-     * @return $this
-     */
-    public function setBotSequenceEnable($bot_sequence_enable)
-    {
-        $this->container['bot_sequence_enable'] = $bot_sequence_enable;
 
         return $this;
     }

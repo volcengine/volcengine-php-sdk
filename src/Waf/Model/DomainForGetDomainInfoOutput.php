@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Ecs\Model;
+namespace Volcengine\Waf\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class PurchaseReservedInstancesResponse implements ModelInterface, ArrayAccess
+class DomainForGetDomainInfoOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class PurchaseReservedInstancesResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'PurchaseReservedInstancesResponse';
+    protected static $swaggerModelName = 'DomainForGetDomainInfoOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,11 @@ class PurchaseReservedInstancesResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'reserved_instance_id' => 'string',
-        'reserved_storage_capacity_id' => 'string'
+        'api_enable_auto_learning' => 'int',
+        'access_mode' => 'int',
+        'api_enable' => 'int',
+        'bot_sequence_enable' => 'int',
+        'domain' => 'string'
     ];
 
     /**
@@ -38,8 +41,11 @@ class PurchaseReservedInstancesResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'reserved_instance_id' => null,
-        'reserved_storage_capacity_id' => null
+        'api_enable_auto_learning' => 'int32',
+        'access_mode' => 'int32',
+        'api_enable' => 'int32',
+        'bot_sequence_enable' => 'int32',
+        'domain' => null
     ];
 
     /**
@@ -69,8 +75,11 @@ class PurchaseReservedInstancesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'reserved_instance_id' => 'ReservedInstanceId',
-        'reserved_storage_capacity_id' => 'ReservedStorageCapacityId'
+        'api_enable_auto_learning' => 'APIEnableAutoLearning',
+        'access_mode' => 'AccessMode',
+        'api_enable' => 'ApiEnable',
+        'bot_sequence_enable' => 'BotSequenceEnable',
+        'domain' => 'Domain'
     ];
 
     /**
@@ -79,8 +88,11 @@ class PurchaseReservedInstancesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'reserved_instance_id' => 'setReservedInstanceId',
-        'reserved_storage_capacity_id' => 'setReservedStorageCapacityId'
+        'api_enable_auto_learning' => 'setApiEnableAutoLearning',
+        'access_mode' => 'setAccessMode',
+        'api_enable' => 'setApiEnable',
+        'bot_sequence_enable' => 'setBotSequenceEnable',
+        'domain' => 'setDomain'
     ];
 
     /**
@@ -89,8 +101,11 @@ class PurchaseReservedInstancesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'reserved_instance_id' => 'getReservedInstanceId',
-        'reserved_storage_capacity_id' => 'getReservedStorageCapacityId'
+        'api_enable_auto_learning' => 'getApiEnableAutoLearning',
+        'access_mode' => 'getAccessMode',
+        'api_enable' => 'getApiEnable',
+        'bot_sequence_enable' => 'getBotSequenceEnable',
+        'domain' => 'getDomain'
     ];
 
     /**
@@ -153,8 +168,11 @@ class PurchaseReservedInstancesResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['reserved_instance_id'] = isset($data['reserved_instance_id']) ? $data['reserved_instance_id'] : null;
-        $this->container['reserved_storage_capacity_id'] = isset($data['reserved_storage_capacity_id']) ? $data['reserved_storage_capacity_id'] : null;
+        $this->container['api_enable_auto_learning'] = isset($data['api_enable_auto_learning']) ? $data['api_enable_auto_learning'] : null;
+        $this->container['access_mode'] = isset($data['access_mode']) ? $data['access_mode'] : null;
+        $this->container['api_enable'] = isset($data['api_enable']) ? $data['api_enable'] : null;
+        $this->container['bot_sequence_enable'] = isset($data['bot_sequence_enable']) ? $data['bot_sequence_enable'] : null;
+        $this->container['domain'] = isset($data['domain']) ? $data['domain'] : null;
     }
 
     /**
@@ -182,49 +200,121 @@ class PurchaseReservedInstancesResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets reserved_instance_id
+     * Gets api_enable_auto_learning
      *
-     * @return string
+     * @return int
      */
-    public function getReservedInstanceId()
+    public function getApiEnableAutoLearning()
     {
-        return $this->container['reserved_instance_id'];
+        return $this->container['api_enable_auto_learning'];
     }
 
     /**
-     * Sets reserved_instance_id
+     * Sets api_enable_auto_learning
      *
-     * @param string $reserved_instance_id reserved_instance_id
+     * @param int $api_enable_auto_learning api_enable_auto_learning
      *
      * @return $this
      */
-    public function setReservedInstanceId($reserved_instance_id)
+    public function setApiEnableAutoLearning($api_enable_auto_learning)
     {
-        $this->container['reserved_instance_id'] = $reserved_instance_id;
+        $this->container['api_enable_auto_learning'] = $api_enable_auto_learning;
 
         return $this;
     }
 
     /**
-     * Gets reserved_storage_capacity_id
+     * Gets access_mode
      *
-     * @return string
+     * @return int
      */
-    public function getReservedStorageCapacityId()
+    public function getAccessMode()
     {
-        return $this->container['reserved_storage_capacity_id'];
+        return $this->container['access_mode'];
     }
 
     /**
-     * Sets reserved_storage_capacity_id
+     * Sets access_mode
      *
-     * @param string $reserved_storage_capacity_id reserved_storage_capacity_id
+     * @param int $access_mode access_mode
      *
      * @return $this
      */
-    public function setReservedStorageCapacityId($reserved_storage_capacity_id)
+    public function setAccessMode($access_mode)
     {
-        $this->container['reserved_storage_capacity_id'] = $reserved_storage_capacity_id;
+        $this->container['access_mode'] = $access_mode;
+
+        return $this;
+    }
+
+    /**
+     * Gets api_enable
+     *
+     * @return int
+     */
+    public function getApiEnable()
+    {
+        return $this->container['api_enable'];
+    }
+
+    /**
+     * Sets api_enable
+     *
+     * @param int $api_enable api_enable
+     *
+     * @return $this
+     */
+    public function setApiEnable($api_enable)
+    {
+        $this->container['api_enable'] = $api_enable;
+
+        return $this;
+    }
+
+    /**
+     * Gets bot_sequence_enable
+     *
+     * @return int
+     */
+    public function getBotSequenceEnable()
+    {
+        return $this->container['bot_sequence_enable'];
+    }
+
+    /**
+     * Sets bot_sequence_enable
+     *
+     * @param int $bot_sequence_enable bot_sequence_enable
+     *
+     * @return $this
+     */
+    public function setBotSequenceEnable($bot_sequence_enable)
+    {
+        $this->container['bot_sequence_enable'] = $bot_sequence_enable;
+
+        return $this;
+    }
+
+    /**
+     * Gets domain
+     *
+     * @return string
+     */
+    public function getDomain()
+    {
+        return $this->container['domain'];
+    }
+
+    /**
+     * Sets domain
+     *
+     * @param string $domain domain
+     *
+     * @return $this
+     */
+    public function setDomain($domain)
+    {
+        $this->container['domain'] = $domain;
 
         return $this;
     }

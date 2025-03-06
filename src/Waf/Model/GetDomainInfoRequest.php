@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Ecs\Model;
+namespace Volcengine\Waf\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class PurchaseReservedInstancesResponse implements ModelInterface, ArrayAccess
+class GetDomainInfoRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class PurchaseReservedInstancesResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'PurchaseReservedInstancesResponse';
+    protected static $swaggerModelName = 'GetDomainInfoRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,7 @@ class PurchaseReservedInstancesResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'reserved_instance_id' => 'string',
-        'reserved_storage_capacity_id' => 'string'
+        'project_name' => 'string'
     ];
 
     /**
@@ -38,8 +37,7 @@ class PurchaseReservedInstancesResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'reserved_instance_id' => null,
-        'reserved_storage_capacity_id' => null
+        'project_name' => null
     ];
 
     /**
@@ -69,8 +67,7 @@ class PurchaseReservedInstancesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'reserved_instance_id' => 'ReservedInstanceId',
-        'reserved_storage_capacity_id' => 'ReservedStorageCapacityId'
+        'project_name' => 'ProjectName'
     ];
 
     /**
@@ -79,8 +76,7 @@ class PurchaseReservedInstancesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'reserved_instance_id' => 'setReservedInstanceId',
-        'reserved_storage_capacity_id' => 'setReservedStorageCapacityId'
+        'project_name' => 'setProjectName'
     ];
 
     /**
@@ -89,8 +85,7 @@ class PurchaseReservedInstancesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'reserved_instance_id' => 'getReservedInstanceId',
-        'reserved_storage_capacity_id' => 'getReservedStorageCapacityId'
+        'project_name' => 'getProjectName'
     ];
 
     /**
@@ -153,8 +148,7 @@ class PurchaseReservedInstancesResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['reserved_instance_id'] = isset($data['reserved_instance_id']) ? $data['reserved_instance_id'] : null;
-        $this->container['reserved_storage_capacity_id'] = isset($data['reserved_storage_capacity_id']) ? $data['reserved_storage_capacity_id'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
     }
 
     /**
@@ -182,49 +176,25 @@ class PurchaseReservedInstancesResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets reserved_instance_id
+     * Gets project_name
      *
      * @return string
      */
-    public function getReservedInstanceId()
+    public function getProjectName()
     {
-        return $this->container['reserved_instance_id'];
+        return $this->container['project_name'];
     }
 
     /**
-     * Sets reserved_instance_id
+     * Sets project_name
      *
-     * @param string $reserved_instance_id reserved_instance_id
+     * @param string $project_name project_name
      *
      * @return $this
      */
-    public function setReservedInstanceId($reserved_instance_id)
+    public function setProjectName($project_name)
     {
-        $this->container['reserved_instance_id'] = $reserved_instance_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets reserved_storage_capacity_id
-     *
-     * @return string
-     */
-    public function getReservedStorageCapacityId()
-    {
-        return $this->container['reserved_storage_capacity_id'];
-    }
-
-    /**
-     * Sets reserved_storage_capacity_id
-     *
-     * @param string $reserved_storage_capacity_id reserved_storage_capacity_id
-     *
-     * @return $this
-     */
-    public function setReservedStorageCapacityId($reserved_storage_capacity_id)
-    {
-        $this->container['reserved_storage_capacity_id'] = $reserved_storage_capacity_id;
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }

@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class PurchaseReservedInstancesResponse implements ModelInterface, ArrayAccess
+class HpcClusterForDescribeHpcClustersOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class PurchaseReservedInstancesResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'PurchaseReservedInstancesResponse';
+    protected static $swaggerModelName = 'HpcClusterForDescribeHpcClustersOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,13 @@ class PurchaseReservedInstancesResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'reserved_instance_id' => 'string',
-        'reserved_storage_capacity_id' => 'string'
+        'created_at' => 'string',
+        'description' => 'string',
+        'hpc_cluster_id' => 'string',
+        'name' => 'string',
+        'updated_at' => 'string',
+        'vpc_id' => 'string',
+        'zone_id' => 'string'
     ];
 
     /**
@@ -38,8 +43,13 @@ class PurchaseReservedInstancesResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'reserved_instance_id' => null,
-        'reserved_storage_capacity_id' => null
+        'created_at' => null,
+        'description' => null,
+        'hpc_cluster_id' => null,
+        'name' => null,
+        'updated_at' => null,
+        'vpc_id' => null,
+        'zone_id' => null
     ];
 
     /**
@@ -69,8 +79,13 @@ class PurchaseReservedInstancesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'reserved_instance_id' => 'ReservedInstanceId',
-        'reserved_storage_capacity_id' => 'ReservedStorageCapacityId'
+        'created_at' => 'CreatedAt',
+        'description' => 'Description',
+        'hpc_cluster_id' => 'HpcClusterId',
+        'name' => 'Name',
+        'updated_at' => 'UpdatedAt',
+        'vpc_id' => 'VpcId',
+        'zone_id' => 'ZoneId'
     ];
 
     /**
@@ -79,8 +94,13 @@ class PurchaseReservedInstancesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'reserved_instance_id' => 'setReservedInstanceId',
-        'reserved_storage_capacity_id' => 'setReservedStorageCapacityId'
+        'created_at' => 'setCreatedAt',
+        'description' => 'setDescription',
+        'hpc_cluster_id' => 'setHpcClusterId',
+        'name' => 'setName',
+        'updated_at' => 'setUpdatedAt',
+        'vpc_id' => 'setVpcId',
+        'zone_id' => 'setZoneId'
     ];
 
     /**
@@ -89,8 +109,13 @@ class PurchaseReservedInstancesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'reserved_instance_id' => 'getReservedInstanceId',
-        'reserved_storage_capacity_id' => 'getReservedStorageCapacityId'
+        'created_at' => 'getCreatedAt',
+        'description' => 'getDescription',
+        'hpc_cluster_id' => 'getHpcClusterId',
+        'name' => 'getName',
+        'updated_at' => 'getUpdatedAt',
+        'vpc_id' => 'getVpcId',
+        'zone_id' => 'getZoneId'
     ];
 
     /**
@@ -153,8 +178,13 @@ class PurchaseReservedInstancesResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['reserved_instance_id'] = isset($data['reserved_instance_id']) ? $data['reserved_instance_id'] : null;
-        $this->container['reserved_storage_capacity_id'] = isset($data['reserved_storage_capacity_id']) ? $data['reserved_storage_capacity_id'] : null;
+        $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['hpc_cluster_id'] = isset($data['hpc_cluster_id']) ? $data['hpc_cluster_id'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
+        $this->container['vpc_id'] = isset($data['vpc_id']) ? $data['vpc_id'] : null;
+        $this->container['zone_id'] = isset($data['zone_id']) ? $data['zone_id'] : null;
     }
 
     /**
@@ -182,49 +212,169 @@ class PurchaseReservedInstancesResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets reserved_instance_id
+     * Gets created_at
      *
      * @return string
      */
-    public function getReservedInstanceId()
+    public function getCreatedAt()
     {
-        return $this->container['reserved_instance_id'];
+        return $this->container['created_at'];
     }
 
     /**
-     * Sets reserved_instance_id
+     * Sets created_at
      *
-     * @param string $reserved_instance_id reserved_instance_id
+     * @param string $created_at created_at
      *
      * @return $this
      */
-    public function setReservedInstanceId($reserved_instance_id)
+    public function setCreatedAt($created_at)
     {
-        $this->container['reserved_instance_id'] = $reserved_instance_id;
+        $this->container['created_at'] = $created_at;
 
         return $this;
     }
 
     /**
-     * Gets reserved_storage_capacity_id
+     * Gets description
      *
      * @return string
      */
-    public function getReservedStorageCapacityId()
+    public function getDescription()
     {
-        return $this->container['reserved_storage_capacity_id'];
+        return $this->container['description'];
     }
 
     /**
-     * Sets reserved_storage_capacity_id
+     * Sets description
      *
-     * @param string $reserved_storage_capacity_id reserved_storage_capacity_id
+     * @param string $description description
      *
      * @return $this
      */
-    public function setReservedStorageCapacityId($reserved_storage_capacity_id)
+    public function setDescription($description)
     {
-        $this->container['reserved_storage_capacity_id'] = $reserved_storage_capacity_id;
+        $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets hpc_cluster_id
+     *
+     * @return string
+     */
+    public function getHpcClusterId()
+    {
+        return $this->container['hpc_cluster_id'];
+    }
+
+    /**
+     * Sets hpc_cluster_id
+     *
+     * @param string $hpc_cluster_id hpc_cluster_id
+     *
+     * @return $this
+     */
+    public function setHpcClusterId($hpc_cluster_id)
+    {
+        $this->container['hpc_cluster_id'] = $hpc_cluster_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name name
+     *
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets updated_at
+     *
+     * @return string
+     */
+    public function getUpdatedAt()
+    {
+        return $this->container['updated_at'];
+    }
+
+    /**
+     * Sets updated_at
+     *
+     * @param string $updated_at updated_at
+     *
+     * @return $this
+     */
+    public function setUpdatedAt($updated_at)
+    {
+        $this->container['updated_at'] = $updated_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets vpc_id
+     *
+     * @return string
+     */
+    public function getVpcId()
+    {
+        return $this->container['vpc_id'];
+    }
+
+    /**
+     * Sets vpc_id
+     *
+     * @param string $vpc_id vpc_id
+     *
+     * @return $this
+     */
+    public function setVpcId($vpc_id)
+    {
+        $this->container['vpc_id'] = $vpc_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets zone_id
+     *
+     * @return string
+     */
+    public function getZoneId()
+    {
+        return $this->container['zone_id'];
+    }
+
+    /**
+     * Sets zone_id
+     *
+     * @param string $zone_id zone_id
+     *
+     * @return $this
+     */
+    public function setZoneId($zone_id)
+    {
+        $this->container['zone_id'] = $zone_id;
 
         return $this;
     }

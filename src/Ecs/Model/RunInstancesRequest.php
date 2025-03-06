@@ -32,6 +32,7 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
         'auto_renew_period' => 'int',
         'client_token' => 'string',
         'count' => 'int',
+        'cpu_max_frequency' => 'float',
         'credit_specification' => 'string',
         'deployment_set_group_number' => 'int',
         'deployment_set_id' => 'string',
@@ -78,6 +79,7 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
         'auto_renew_period' => 'int32',
         'client_token' => null,
         'count' => 'int32',
+        'cpu_max_frequency' => 'float',
         'credit_specification' => null,
         'deployment_set_group_number' => 'int32',
         'deployment_set_id' => null,
@@ -145,6 +147,7 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
         'auto_renew_period' => 'AutoRenewPeriod',
         'client_token' => 'ClientToken',
         'count' => 'Count',
+        'cpu_max_frequency' => 'CpuMaxFrequency',
         'credit_specification' => 'CreditSpecification',
         'deployment_set_group_number' => 'DeploymentSetGroupNumber',
         'deployment_set_id' => 'DeploymentSetId',
@@ -191,6 +194,7 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
         'auto_renew_period' => 'setAutoRenewPeriod',
         'client_token' => 'setClientToken',
         'count' => 'setCount',
+        'cpu_max_frequency' => 'setCpuMaxFrequency',
         'credit_specification' => 'setCreditSpecification',
         'deployment_set_group_number' => 'setDeploymentSetGroupNumber',
         'deployment_set_id' => 'setDeploymentSetId',
@@ -237,6 +241,7 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
         'auto_renew_period' => 'getAutoRenewPeriod',
         'client_token' => 'getClientToken',
         'count' => 'getCount',
+        'cpu_max_frequency' => 'getCpuMaxFrequency',
         'credit_specification' => 'getCreditSpecification',
         'deployment_set_group_number' => 'getDeploymentSetGroupNumber',
         'deployment_set_id' => 'getDeploymentSetId',
@@ -337,6 +342,7 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
         $this->container['auto_renew_period'] = isset($data['auto_renew_period']) ? $data['auto_renew_period'] : null;
         $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
         $this->container['count'] = isset($data['count']) ? $data['count'] : null;
+        $this->container['cpu_max_frequency'] = isset($data['cpu_max_frequency']) ? $data['cpu_max_frequency'] : null;
         $this->container['credit_specification'] = isset($data['credit_specification']) ? $data['credit_specification'] : null;
         $this->container['deployment_set_group_number'] = isset($data['deployment_set_group_number']) ? $data['deployment_set_group_number'] : null;
         $this->container['deployment_set_id'] = isset($data['deployment_set_id']) ? $data['deployment_set_id'] : null;
@@ -498,6 +504,30 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
     public function setCount($count)
     {
         $this->container['count'] = $count;
+
+        return $this;
+    }
+
+    /**
+     * Gets cpu_max_frequency
+     *
+     * @return float
+     */
+    public function getCpuMaxFrequency()
+    {
+        return $this->container['cpu_max_frequency'];
+    }
+
+    /**
+     * Sets cpu_max_frequency
+     *
+     * @param float $cpu_max_frequency cpu_max_frequency
+     *
+     * @return $this
+     */
+    public function setCpuMaxFrequency($cpu_max_frequency)
+    {
+        $this->container['cpu_max_frequency'] = $cpu_max_frequency;
 
         return $this;
     }
