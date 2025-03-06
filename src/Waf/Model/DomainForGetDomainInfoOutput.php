@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ListLoadBalancerRequest implements ModelInterface, ArrayAccess
+class DomainForGetDomainInfoOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ListLoadBalancerRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ListLoadBalancerRequest';
+    protected static $swaggerModelName = 'DomainForGetDomainInfoOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,11 @@ class ListLoadBalancerRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'host' => 'string',
-        'project_name' => 'string',
-        'type' => 'string'
+        'api_enable_auto_learning' => 'int',
+        'access_mode' => 'int',
+        'api_enable' => 'int',
+        'bot_sequence_enable' => 'int',
+        'domain' => 'string'
     ];
 
     /**
@@ -39,9 +41,11 @@ class ListLoadBalancerRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'host' => null,
-        'project_name' => null,
-        'type' => null
+        'api_enable_auto_learning' => 'int32',
+        'access_mode' => 'int32',
+        'api_enable' => 'int32',
+        'bot_sequence_enable' => 'int32',
+        'domain' => null
     ];
 
     /**
@@ -71,9 +75,11 @@ class ListLoadBalancerRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'host' => 'Host',
-        'project_name' => 'ProjectName',
-        'type' => 'Type'
+        'api_enable_auto_learning' => 'APIEnableAutoLearning',
+        'access_mode' => 'AccessMode',
+        'api_enable' => 'ApiEnable',
+        'bot_sequence_enable' => 'BotSequenceEnable',
+        'domain' => 'Domain'
     ];
 
     /**
@@ -82,9 +88,11 @@ class ListLoadBalancerRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'host' => 'setHost',
-        'project_name' => 'setProjectName',
-        'type' => 'setType'
+        'api_enable_auto_learning' => 'setApiEnableAutoLearning',
+        'access_mode' => 'setAccessMode',
+        'api_enable' => 'setApiEnable',
+        'bot_sequence_enable' => 'setBotSequenceEnable',
+        'domain' => 'setDomain'
     ];
 
     /**
@@ -93,9 +101,11 @@ class ListLoadBalancerRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'host' => 'getHost',
-        'project_name' => 'getProjectName',
-        'type' => 'getType'
+        'api_enable_auto_learning' => 'getApiEnableAutoLearning',
+        'access_mode' => 'getAccessMode',
+        'api_enable' => 'getApiEnable',
+        'bot_sequence_enable' => 'getBotSequenceEnable',
+        'domain' => 'getDomain'
     ];
 
     /**
@@ -139,23 +149,8 @@ class ListLoadBalancerRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const TYPE_ALB = 'alb';
-    const TYPE_CLB = 'clb';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTypeAllowableValues()
-    {
-        return [
-            self::TYPE_ALB,
-            self::TYPE_CLB,
-        ];
-    }
     
 
     /**
@@ -173,9 +168,11 @@ class ListLoadBalancerRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['host'] = isset($data['host']) ? $data['host'] : null;
-        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['api_enable_auto_learning'] = isset($data['api_enable_auto_learning']) ? $data['api_enable_auto_learning'] : null;
+        $this->container['access_mode'] = isset($data['access_mode']) ? $data['access_mode'] : null;
+        $this->container['api_enable'] = isset($data['api_enable']) ? $data['api_enable'] : null;
+        $this->container['bot_sequence_enable'] = isset($data['bot_sequence_enable']) ? $data['bot_sequence_enable'] : null;
+        $this->container['domain'] = isset($data['domain']) ? $data['domain'] : null;
     }
 
     /**
@@ -186,14 +183,6 @@ class ListLoadBalancerRequest implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -211,82 +200,121 @@ class ListLoadBalancerRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets host
+     * Gets api_enable_auto_learning
      *
-     * @return string
+     * @return int
      */
-    public function getHost()
+    public function getApiEnableAutoLearning()
     {
-        return $this->container['host'];
+        return $this->container['api_enable_auto_learning'];
     }
 
     /**
-     * Sets host
+     * Sets api_enable_auto_learning
      *
-     * @param string $host host
+     * @param int $api_enable_auto_learning api_enable_auto_learning
      *
      * @return $this
      */
-    public function setHost($host)
+    public function setApiEnableAutoLearning($api_enable_auto_learning)
     {
-        $this->container['host'] = $host;
+        $this->container['api_enable_auto_learning'] = $api_enable_auto_learning;
 
         return $this;
     }
 
     /**
-     * Gets project_name
+     * Gets access_mode
      *
-     * @return string
+     * @return int
      */
-    public function getProjectName()
+    public function getAccessMode()
     {
-        return $this->container['project_name'];
+        return $this->container['access_mode'];
     }
 
     /**
-     * Sets project_name
+     * Sets access_mode
      *
-     * @param string $project_name project_name
+     * @param int $access_mode access_mode
      *
      * @return $this
      */
-    public function setProjectName($project_name)
+    public function setAccessMode($access_mode)
     {
-        $this->container['project_name'] = $project_name;
+        $this->container['access_mode'] = $access_mode;
 
         return $this;
     }
 
     /**
-     * Gets type
+     * Gets api_enable
      *
-     * @return string
+     * @return int
      */
-    public function getType()
+    public function getApiEnable()
     {
-        return $this->container['type'];
+        return $this->container['api_enable'];
     }
 
     /**
-     * Sets type
+     * Sets api_enable
      *
-     * @param string $type type
+     * @param int $api_enable api_enable
      *
      * @return $this
      */
-    public function setType($type)
+    public function setApiEnable($api_enable)
     {
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['type'] = $type;
+        $this->container['api_enable'] = $api_enable;
+
+        return $this;
+    }
+
+    /**
+     * Gets bot_sequence_enable
+     *
+     * @return int
+     */
+    public function getBotSequenceEnable()
+    {
+        return $this->container['bot_sequence_enable'];
+    }
+
+    /**
+     * Sets bot_sequence_enable
+     *
+     * @param int $bot_sequence_enable bot_sequence_enable
+     *
+     * @return $this
+     */
+    public function setBotSequenceEnable($bot_sequence_enable)
+    {
+        $this->container['bot_sequence_enable'] = $bot_sequence_enable;
+
+        return $this;
+    }
+
+    /**
+     * Gets domain
+     *
+     * @return string
+     */
+    public function getDomain()
+    {
+        return $this->container['domain'];
+    }
+
+    /**
+     * Sets domain
+     *
+     * @param string $domain domain
+     *
+     * @return $this
+     */
+    public function setDomain($domain)
+    {
+        $this->container['domain'] = $domain;
 
         return $this;
     }
