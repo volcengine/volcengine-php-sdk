@@ -32,6 +32,7 @@ class NetworkInterfaceForDescribeInstancesOutput implements ModelInterface, Arra
         'mac_address' => 'string',
         'network_interface_id' => 'string',
         'primary_ip_address' => 'string',
+        'security_group_ids' => 'string[]',
         'subnet_id' => 'string',
         'type' => 'string',
         'vpc_id' => 'string'
@@ -47,6 +48,7 @@ class NetworkInterfaceForDescribeInstancesOutput implements ModelInterface, Arra
         'mac_address' => null,
         'network_interface_id' => null,
         'primary_ip_address' => null,
+        'security_group_ids' => null,
         'subnet_id' => null,
         'type' => null,
         'vpc_id' => null
@@ -83,6 +85,7 @@ class NetworkInterfaceForDescribeInstancesOutput implements ModelInterface, Arra
         'mac_address' => 'MacAddress',
         'network_interface_id' => 'NetworkInterfaceId',
         'primary_ip_address' => 'PrimaryIpAddress',
+        'security_group_ids' => 'SecurityGroupIds',
         'subnet_id' => 'SubnetId',
         'type' => 'Type',
         'vpc_id' => 'VpcId'
@@ -98,6 +101,7 @@ class NetworkInterfaceForDescribeInstancesOutput implements ModelInterface, Arra
         'mac_address' => 'setMacAddress',
         'network_interface_id' => 'setNetworkInterfaceId',
         'primary_ip_address' => 'setPrimaryIpAddress',
+        'security_group_ids' => 'setSecurityGroupIds',
         'subnet_id' => 'setSubnetId',
         'type' => 'setType',
         'vpc_id' => 'setVpcId'
@@ -113,6 +117,7 @@ class NetworkInterfaceForDescribeInstancesOutput implements ModelInterface, Arra
         'mac_address' => 'getMacAddress',
         'network_interface_id' => 'getNetworkInterfaceId',
         'primary_ip_address' => 'getPrimaryIpAddress',
+        'security_group_ids' => 'getSecurityGroupIds',
         'subnet_id' => 'getSubnetId',
         'type' => 'getType',
         'vpc_id' => 'getVpcId'
@@ -182,6 +187,7 @@ class NetworkInterfaceForDescribeInstancesOutput implements ModelInterface, Arra
         $this->container['mac_address'] = isset($data['mac_address']) ? $data['mac_address'] : null;
         $this->container['network_interface_id'] = isset($data['network_interface_id']) ? $data['network_interface_id'] : null;
         $this->container['primary_ip_address'] = isset($data['primary_ip_address']) ? $data['primary_ip_address'] : null;
+        $this->container['security_group_ids'] = isset($data['security_group_ids']) ? $data['security_group_ids'] : null;
         $this->container['subnet_id'] = isset($data['subnet_id']) ? $data['subnet_id'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['vpc_id'] = isset($data['vpc_id']) ? $data['vpc_id'] : null;
@@ -303,6 +309,30 @@ class NetworkInterfaceForDescribeInstancesOutput implements ModelInterface, Arra
     public function setPrimaryIpAddress($primary_ip_address)
     {
         $this->container['primary_ip_address'] = $primary_ip_address;
+
+        return $this;
+    }
+
+    /**
+     * Gets security_group_ids
+     *
+     * @return string[]
+     */
+    public function getSecurityGroupIds()
+    {
+        return $this->container['security_group_ids'];
+    }
+
+    /**
+     * Sets security_group_ids
+     *
+     * @param string[] $security_group_ids security_group_ids
+     *
+     * @return $this
+     */
+    public function setSecurityGroupIds($security_group_ids)
+    {
+        $this->container['security_group_ids'] = $security_group_ids;
 
         return $this;
     }

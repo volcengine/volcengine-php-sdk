@@ -39,9 +39,14 @@ class PurchaseReservedInstancesRequest implements ModelInterface, ArrayAccess
         'period_unit' => 'string',
         'project_name' => 'string',
         'region_id' => 'string',
+        'reserved_capacity' => 'int',
         'reserved_instance_name' => 'string',
+        'reserved_storage_capacity_name' => 'string',
+        'rsc_auto_renew' => 'bool',
+        'rsc_auto_renew_period' => 'int',
         'scope' => 'string',
         'tags' => '\Volcengine\Ecs\Model\TagForPurchaseReservedInstancesInput[]',
+        'volume_type' => 'string',
         'zone_id' => 'string'
     ];
 
@@ -62,9 +67,14 @@ class PurchaseReservedInstancesRequest implements ModelInterface, ArrayAccess
         'period_unit' => null,
         'project_name' => null,
         'region_id' => null,
+        'reserved_capacity' => 'int32',
         'reserved_instance_name' => null,
+        'reserved_storage_capacity_name' => null,
+        'rsc_auto_renew' => null,
+        'rsc_auto_renew_period' => 'int32',
         'scope' => null,
         'tags' => null,
+        'volume_type' => null,
         'zone_id' => null
     ];
 
@@ -106,9 +116,14 @@ class PurchaseReservedInstancesRequest implements ModelInterface, ArrayAccess
         'period_unit' => 'PeriodUnit',
         'project_name' => 'ProjectName',
         'region_id' => 'RegionId',
+        'reserved_capacity' => 'ReservedCapacity',
         'reserved_instance_name' => 'ReservedInstanceName',
+        'reserved_storage_capacity_name' => 'ReservedStorageCapacityName',
+        'rsc_auto_renew' => 'RscAutoRenew',
+        'rsc_auto_renew_period' => 'RscAutoRenewPeriod',
         'scope' => 'Scope',
         'tags' => 'Tags',
+        'volume_type' => 'VolumeType',
         'zone_id' => 'ZoneId'
     ];
 
@@ -129,9 +144,14 @@ class PurchaseReservedInstancesRequest implements ModelInterface, ArrayAccess
         'period_unit' => 'setPeriodUnit',
         'project_name' => 'setProjectName',
         'region_id' => 'setRegionId',
+        'reserved_capacity' => 'setReservedCapacity',
         'reserved_instance_name' => 'setReservedInstanceName',
+        'reserved_storage_capacity_name' => 'setReservedStorageCapacityName',
+        'rsc_auto_renew' => 'setRscAutoRenew',
+        'rsc_auto_renew_period' => 'setRscAutoRenewPeriod',
         'scope' => 'setScope',
         'tags' => 'setTags',
+        'volume_type' => 'setVolumeType',
         'zone_id' => 'setZoneId'
     ];
 
@@ -152,9 +172,14 @@ class PurchaseReservedInstancesRequest implements ModelInterface, ArrayAccess
         'period_unit' => 'getPeriodUnit',
         'project_name' => 'getProjectName',
         'region_id' => 'getRegionId',
+        'reserved_capacity' => 'getReservedCapacity',
         'reserved_instance_name' => 'getReservedInstanceName',
+        'reserved_storage_capacity_name' => 'getReservedStorageCapacityName',
+        'rsc_auto_renew' => 'getRscAutoRenew',
+        'rsc_auto_renew_period' => 'getRscAutoRenewPeriod',
         'scope' => 'getScope',
         'tags' => 'getTags',
+        'volume_type' => 'getVolumeType',
         'zone_id' => 'getZoneId'
     ];
 
@@ -229,9 +254,14 @@ class PurchaseReservedInstancesRequest implements ModelInterface, ArrayAccess
         $this->container['period_unit'] = isset($data['period_unit']) ? $data['period_unit'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['region_id'] = isset($data['region_id']) ? $data['region_id'] : null;
+        $this->container['reserved_capacity'] = isset($data['reserved_capacity']) ? $data['reserved_capacity'] : null;
         $this->container['reserved_instance_name'] = isset($data['reserved_instance_name']) ? $data['reserved_instance_name'] : null;
+        $this->container['reserved_storage_capacity_name'] = isset($data['reserved_storage_capacity_name']) ? $data['reserved_storage_capacity_name'] : null;
+        $this->container['rsc_auto_renew'] = isset($data['rsc_auto_renew']) ? $data['rsc_auto_renew'] : null;
+        $this->container['rsc_auto_renew_period'] = isset($data['rsc_auto_renew_period']) ? $data['rsc_auto_renew_period'] : null;
         $this->container['scope'] = isset($data['scope']) ? $data['scope'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
+        $this->container['volume_type'] = isset($data['volume_type']) ? $data['volume_type'] : null;
         $this->container['zone_id'] = isset($data['zone_id']) ? $data['zone_id'] : null;
     }
 
@@ -530,6 +560,30 @@ class PurchaseReservedInstancesRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets reserved_capacity
+     *
+     * @return int
+     */
+    public function getReservedCapacity()
+    {
+        return $this->container['reserved_capacity'];
+    }
+
+    /**
+     * Sets reserved_capacity
+     *
+     * @param int $reserved_capacity reserved_capacity
+     *
+     * @return $this
+     */
+    public function setReservedCapacity($reserved_capacity)
+    {
+        $this->container['reserved_capacity'] = $reserved_capacity;
+
+        return $this;
+    }
+
+    /**
      * Gets reserved_instance_name
      *
      * @return string
@@ -549,6 +603,78 @@ class PurchaseReservedInstancesRequest implements ModelInterface, ArrayAccess
     public function setReservedInstanceName($reserved_instance_name)
     {
         $this->container['reserved_instance_name'] = $reserved_instance_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets reserved_storage_capacity_name
+     *
+     * @return string
+     */
+    public function getReservedStorageCapacityName()
+    {
+        return $this->container['reserved_storage_capacity_name'];
+    }
+
+    /**
+     * Sets reserved_storage_capacity_name
+     *
+     * @param string $reserved_storage_capacity_name reserved_storage_capacity_name
+     *
+     * @return $this
+     */
+    public function setReservedStorageCapacityName($reserved_storage_capacity_name)
+    {
+        $this->container['reserved_storage_capacity_name'] = $reserved_storage_capacity_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets rsc_auto_renew
+     *
+     * @return bool
+     */
+    public function getRscAutoRenew()
+    {
+        return $this->container['rsc_auto_renew'];
+    }
+
+    /**
+     * Sets rsc_auto_renew
+     *
+     * @param bool $rsc_auto_renew rsc_auto_renew
+     *
+     * @return $this
+     */
+    public function setRscAutoRenew($rsc_auto_renew)
+    {
+        $this->container['rsc_auto_renew'] = $rsc_auto_renew;
+
+        return $this;
+    }
+
+    /**
+     * Gets rsc_auto_renew_period
+     *
+     * @return int
+     */
+    public function getRscAutoRenewPeriod()
+    {
+        return $this->container['rsc_auto_renew_period'];
+    }
+
+    /**
+     * Sets rsc_auto_renew_period
+     *
+     * @param int $rsc_auto_renew_period rsc_auto_renew_period
+     *
+     * @return $this
+     */
+    public function setRscAutoRenewPeriod($rsc_auto_renew_period)
+    {
+        $this->container['rsc_auto_renew_period'] = $rsc_auto_renew_period;
 
         return $this;
     }
@@ -597,6 +723,30 @@ class PurchaseReservedInstancesRequest implements ModelInterface, ArrayAccess
     public function setTags($tags)
     {
         $this->container['tags'] = $tags;
+
+        return $this;
+    }
+
+    /**
+     * Gets volume_type
+     *
+     * @return string
+     */
+    public function getVolumeType()
+    {
+        return $this->container['volume_type'];
+    }
+
+    /**
+     * Sets volume_type
+     *
+     * @param string $volume_type volume_type
+     *
+     * @return $this
+     */
+    public function setVolumeType($volume_type)
+    {
+        $this->container['volume_type'] = $volume_type;
 
         return $this;
     }

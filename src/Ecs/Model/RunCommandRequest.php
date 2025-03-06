@@ -45,6 +45,7 @@ class RunCommandRequest implements ModelInterface, ArrayAccess
         'timeout' => 'int',
         'type' => 'string',
         'username' => 'string',
+        'windows_password' => 'string',
         'working_dir' => 'string'
     ];
 
@@ -71,6 +72,7 @@ class RunCommandRequest implements ModelInterface, ArrayAccess
         'timeout' => 'int32',
         'type' => null,
         'username' => null,
+        'windows_password' => null,
         'working_dir' => null
     ];
 
@@ -118,6 +120,7 @@ class RunCommandRequest implements ModelInterface, ArrayAccess
         'timeout' => 'Timeout',
         'type' => 'Type',
         'username' => 'Username',
+        'windows_password' => 'WindowsPassword',
         'working_dir' => 'WorkingDir'
     ];
 
@@ -144,6 +147,7 @@ class RunCommandRequest implements ModelInterface, ArrayAccess
         'timeout' => 'setTimeout',
         'type' => 'setType',
         'username' => 'setUsername',
+        'windows_password' => 'setWindowsPassword',
         'working_dir' => 'setWorkingDir'
     ];
 
@@ -170,6 +174,7 @@ class RunCommandRequest implements ModelInterface, ArrayAccess
         'timeout' => 'getTimeout',
         'type' => 'getType',
         'username' => 'getUsername',
+        'windows_password' => 'getWindowsPassword',
         'working_dir' => 'getWorkingDir'
     ];
 
@@ -250,6 +255,7 @@ class RunCommandRequest implements ModelInterface, ArrayAccess
         $this->container['timeout'] = isset($data['timeout']) ? $data['timeout'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['username'] = isset($data['username']) ? $data['username'] : null;
+        $this->container['windows_password'] = isset($data['windows_password']) ? $data['windows_password'] : null;
         $this->container['working_dir'] = isset($data['working_dir']) ? $data['working_dir'] : null;
     }
 
@@ -690,6 +696,30 @@ class RunCommandRequest implements ModelInterface, ArrayAccess
     public function setUsername($username)
     {
         $this->container['username'] = $username;
+
+        return $this;
+    }
+
+    /**
+     * Gets windows_password
+     *
+     * @return string
+     */
+    public function getWindowsPassword()
+    {
+        return $this->container['windows_password'];
+    }
+
+    /**
+     * Sets windows_password
+     *
+     * @param string $windows_password windows_password
+     *
+     * @return $this
+     */
+    public function setWindowsPassword($windows_password)
+    {
+        $this->container['windows_password'] = $windows_password;
 
         return $this;
     }

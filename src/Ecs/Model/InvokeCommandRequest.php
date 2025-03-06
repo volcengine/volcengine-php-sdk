@@ -41,6 +41,7 @@ class InvokeCommandRequest implements ModelInterface, ArrayAccess
         'tags' => '\Volcengine\Ecs\Model\TagForInvokeCommandInput[]',
         'timeout' => 'int',
         'username' => 'string',
+        'windows_password' => 'string',
         'working_dir' => 'string'
     ];
 
@@ -63,6 +64,7 @@ class InvokeCommandRequest implements ModelInterface, ArrayAccess
         'tags' => null,
         'timeout' => 'int32',
         'username' => null,
+        'windows_password' => null,
         'working_dir' => null
     ];
 
@@ -106,6 +108,7 @@ class InvokeCommandRequest implements ModelInterface, ArrayAccess
         'tags' => 'Tags',
         'timeout' => 'Timeout',
         'username' => 'Username',
+        'windows_password' => 'WindowsPassword',
         'working_dir' => 'WorkingDir'
     ];
 
@@ -128,6 +131,7 @@ class InvokeCommandRequest implements ModelInterface, ArrayAccess
         'tags' => 'setTags',
         'timeout' => 'setTimeout',
         'username' => 'setUsername',
+        'windows_password' => 'setWindowsPassword',
         'working_dir' => 'setWorkingDir'
     ];
 
@@ -150,6 +154,7 @@ class InvokeCommandRequest implements ModelInterface, ArrayAccess
         'tags' => 'getTags',
         'timeout' => 'getTimeout',
         'username' => 'getUsername',
+        'windows_password' => 'getWindowsPassword',
         'working_dir' => 'getWorkingDir'
     ];
 
@@ -226,6 +231,7 @@ class InvokeCommandRequest implements ModelInterface, ArrayAccess
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['timeout'] = isset($data['timeout']) ? $data['timeout'] : null;
         $this->container['username'] = isset($data['username']) ? $data['username'] : null;
+        $this->container['windows_password'] = isset($data['windows_password']) ? $data['windows_password'] : null;
         $this->container['working_dir'] = isset($data['working_dir']) ? $data['working_dir'] : null;
     }
 
@@ -567,6 +573,30 @@ class InvokeCommandRequest implements ModelInterface, ArrayAccess
     public function setUsername($username)
     {
         $this->container['username'] = $username;
+
+        return $this;
+    }
+
+    /**
+     * Gets windows_password
+     *
+     * @return string
+     */
+    public function getWindowsPassword()
+    {
+        return $this->container['windows_password'];
+    }
+
+    /**
+     * Sets windows_password
+     *
+     * @param string $windows_password windows_password
+     *
+     * @return $this
+     */
+    public function setWindowsPassword($windows_password)
+    {
+        $this->container['windows_password'] = $windows_password;
 
         return $this;
     }
