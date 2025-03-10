@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AddCdnDomainResponse implements ModelInterface, ArrayAccess
+class TimestampPointForDescribeBillingDetailOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AddCdnDomainResponse';
+    protected static $swaggerModelName = 'TimestampPointForDescribeBillingDetailOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,9 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'resource_ids' => 'string[]'
+        'item' => 'string',
+        'time_stamp' => 'int',
+        'value' => 'double'
     ];
 
     /**
@@ -37,7 +39,9 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'resource_ids' => null
+        'item' => null,
+        'time_stamp' => 'int64',
+        'value' => 'double'
     ];
 
     /**
@@ -67,7 +71,9 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'resource_ids' => 'ResourceIds'
+        'item' => 'Item',
+        'time_stamp' => 'TimeStamp',
+        'value' => 'Value'
     ];
 
     /**
@@ -76,7 +82,9 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'resource_ids' => 'setResourceIds'
+        'item' => 'setItem',
+        'time_stamp' => 'setTimeStamp',
+        'value' => 'setValue'
     ];
 
     /**
@@ -85,7 +93,9 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'resource_ids' => 'getResourceIds'
+        'item' => 'getItem',
+        'time_stamp' => 'getTimeStamp',
+        'value' => 'getValue'
     ];
 
     /**
@@ -148,7 +158,9 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['resource_ids'] = isset($data['resource_ids']) ? $data['resource_ids'] : null;
+        $this->container['item'] = isset($data['item']) ? $data['item'] : null;
+        $this->container['time_stamp'] = isset($data['time_stamp']) ? $data['time_stamp'] : null;
+        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 
     /**
@@ -176,25 +188,73 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets resource_ids
+     * Gets item
      *
-     * @return string[]
+     * @return string
      */
-    public function getResourceIds()
+    public function getItem()
     {
-        return $this->container['resource_ids'];
+        return $this->container['item'];
     }
 
     /**
-     * Sets resource_ids
+     * Sets item
      *
-     * @param string[] $resource_ids resource_ids
+     * @param string $item item
      *
      * @return $this
      */
-    public function setResourceIds($resource_ids)
+    public function setItem($item)
     {
-        $this->container['resource_ids'] = $resource_ids;
+        $this->container['item'] = $item;
+
+        return $this;
+    }
+
+    /**
+     * Gets time_stamp
+     *
+     * @return int
+     */
+    public function getTimeStamp()
+    {
+        return $this->container['time_stamp'];
+    }
+
+    /**
+     * Sets time_stamp
+     *
+     * @param int $time_stamp time_stamp
+     *
+     * @return $this
+     */
+    public function setTimeStamp($time_stamp)
+    {
+        $this->container['time_stamp'] = $time_stamp;
+
+        return $this;
+    }
+
+    /**
+     * Gets value
+     *
+     * @return double
+     */
+    public function getValue()
+    {
+        return $this->container['value'];
+    }
+
+    /**
+     * Sets value
+     *
+     * @param double $value value
+     *
+     * @return $this
+     */
+    public function setValue($value)
+    {
+        $this->container['value'] = $value;
 
         return $this;
     }
