@@ -424,6 +424,189 @@ class BILLINGApi
             $headers, $httpBody);
     }
 
+    public function cleanUpFinancialRelation($body)
+    {
+        list($response) = $this->cleanUpFinancialRelationWithHttpInfo($body);
+        return $response;
+    }
+
+    public function cleanUpFinancialRelationWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Billing\Model\CleanUpFinancialRelationResponse';
+        $request = $this->cleanUpFinancialRelationRequest($body);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+            );
+        }
+
+        $statusCode = $response->getStatusCode();
+
+        if ($statusCode < 200 || $statusCode > 299) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Error connecting to the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $response->getBody()
+            );
+        }
+
+        $responseContent = $response->getBody()->getContents();
+        $content = json_decode($responseContent);
+
+        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Return Error From the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $responseContent);
+        }
+        $content = $content->{'Result'};
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    public function cleanUpFinancialRelationAsync($body)
+    {
+        return $this->cleanUpFinancialRelationAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function cleanUpFinancialRelationAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Billing\Model\CleanUpFinancialRelationResponse';
+        $request = $this->cleanUpFinancialRelationRequest($body);
+        $uri = $request->getUri();
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($uri, $returnType) {
+                    $responseContent = $response->getBody()->getContents();
+                    $content = json_decode($responseContent);
+                    $statusCode = $response->getStatusCode();
+
+                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+                        throw new ApiException(
+                            sprintf(
+                                '[%d] Return Error From the API (%s)',
+                                $statusCode,
+                                $uri
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $responseContent);
+                    }
+                    $content = $content->{'Result'};
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    protected function cleanUpFinancialRelationRequest($body)
+    {
+        // verify the required parameter 'body' is set
+        if ($body === null || (is_array($body) && count($body) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $body when calling cleanUpFinancialRelation'
+            );
+        }
+
+        $resourcePath = '/CleanUpFinancialRelation/2022-01-01/billing/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        // format request body
+        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
+            $queryParams = Utils::transRequest($httpBody);
+            $httpBody = '';
+        } else {
+            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
+        }
+
+        $queryParams['Action'] = $paths[1];
+        $queryParams['Version'] = $paths[2];
+        $resourcePath = '/';
+
+        $query = '';
+        ksort($queryParams);  // sort query first
+        foreach ($queryParams as $k => $v) {
+            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
+        }
+        $query = substr($query, 0, -1);
+
+        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
+            $httpBody, $query, $method, $resourcePath, $headers);
+
+        return new Request($method,
+            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers, $httpBody);
+    }
+
     public function createFinancialRelation($body)
     {
         list($response) = $this->createFinancialRelationWithHttpInfo($body);
@@ -4215,6 +4398,921 @@ class BILLINGApi
         }
 
         $resourcePath = '/QueryBalanceAcct/2022-01-01/billing/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        // format request body
+        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
+            $queryParams = Utils::transRequest($httpBody);
+            $httpBody = '';
+        } else {
+            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
+        }
+
+        $queryParams['Action'] = $paths[1];
+        $queryParams['Version'] = $paths[2];
+        $resourcePath = '/';
+
+        $query = '';
+        ksort($queryParams);  // sort query first
+        foreach ($queryParams as $k => $v) {
+            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
+        }
+        $query = substr($query, 0, -1);
+
+        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
+            $httpBody, $query, $method, $resourcePath, $headers);
+
+        return new Request($method,
+            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers, $httpBody);
+    }
+
+    public function queryPriceForPayAsYouGo($body)
+    {
+        list($response) = $this->queryPriceForPayAsYouGoWithHttpInfo($body);
+        return $response;
+    }
+
+    public function queryPriceForPayAsYouGoWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Billing\Model\QueryPriceForPayAsYouGoResponse';
+        $request = $this->queryPriceForPayAsYouGoRequest($body);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+            );
+        }
+
+        $statusCode = $response->getStatusCode();
+
+        if ($statusCode < 200 || $statusCode > 299) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Error connecting to the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $response->getBody()
+            );
+        }
+
+        $responseContent = $response->getBody()->getContents();
+        $content = json_decode($responseContent);
+
+        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Return Error From the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $responseContent);
+        }
+        $content = $content->{'Result'};
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    public function queryPriceForPayAsYouGoAsync($body)
+    {
+        return $this->queryPriceForPayAsYouGoAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function queryPriceForPayAsYouGoAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Billing\Model\QueryPriceForPayAsYouGoResponse';
+        $request = $this->queryPriceForPayAsYouGoRequest($body);
+        $uri = $request->getUri();
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($uri, $returnType) {
+                    $responseContent = $response->getBody()->getContents();
+                    $content = json_decode($responseContent);
+                    $statusCode = $response->getStatusCode();
+
+                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+                        throw new ApiException(
+                            sprintf(
+                                '[%d] Return Error From the API (%s)',
+                                $statusCode,
+                                $uri
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $responseContent);
+                    }
+                    $content = $content->{'Result'};
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    protected function queryPriceForPayAsYouGoRequest($body)
+    {
+        // verify the required parameter 'body' is set
+        if ($body === null || (is_array($body) && count($body) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $body when calling queryPriceForPayAsYouGo'
+            );
+        }
+
+        $resourcePath = '/QueryPriceForPayAsYouGo/2022-01-01/billing/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        // format request body
+        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
+            $queryParams = Utils::transRequest($httpBody);
+            $httpBody = '';
+        } else {
+            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
+        }
+
+        $queryParams['Action'] = $paths[1];
+        $queryParams['Version'] = $paths[2];
+        $resourcePath = '/';
+
+        $query = '';
+        ksort($queryParams);  // sort query first
+        foreach ($queryParams as $k => $v) {
+            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
+        }
+        $query = substr($query, 0, -1);
+
+        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
+            $httpBody, $query, $method, $resourcePath, $headers);
+
+        return new Request($method,
+            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers, $httpBody);
+    }
+
+    public function queryPriceForRenew($body)
+    {
+        list($response) = $this->queryPriceForRenewWithHttpInfo($body);
+        return $response;
+    }
+
+    public function queryPriceForRenewWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Billing\Model\QueryPriceForRenewResponse';
+        $request = $this->queryPriceForRenewRequest($body);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+            );
+        }
+
+        $statusCode = $response->getStatusCode();
+
+        if ($statusCode < 200 || $statusCode > 299) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Error connecting to the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $response->getBody()
+            );
+        }
+
+        $responseContent = $response->getBody()->getContents();
+        $content = json_decode($responseContent);
+
+        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Return Error From the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $responseContent);
+        }
+        $content = $content->{'Result'};
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    public function queryPriceForRenewAsync($body)
+    {
+        return $this->queryPriceForRenewAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function queryPriceForRenewAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Billing\Model\QueryPriceForRenewResponse';
+        $request = $this->queryPriceForRenewRequest($body);
+        $uri = $request->getUri();
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($uri, $returnType) {
+                    $responseContent = $response->getBody()->getContents();
+                    $content = json_decode($responseContent);
+                    $statusCode = $response->getStatusCode();
+
+                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+                        throw new ApiException(
+                            sprintf(
+                                '[%d] Return Error From the API (%s)',
+                                $statusCode,
+                                $uri
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $responseContent);
+                    }
+                    $content = $content->{'Result'};
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    protected function queryPriceForRenewRequest($body)
+    {
+        // verify the required parameter 'body' is set
+        if ($body === null || (is_array($body) && count($body) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $body when calling queryPriceForRenew'
+            );
+        }
+
+        $resourcePath = '/QueryPriceForRenew/2022-01-01/billing/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        // format request body
+        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
+            $queryParams = Utils::transRequest($httpBody);
+            $httpBody = '';
+        } else {
+            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
+        }
+
+        $queryParams['Action'] = $paths[1];
+        $queryParams['Version'] = $paths[2];
+        $resourcePath = '/';
+
+        $query = '';
+        ksort($queryParams);  // sort query first
+        foreach ($queryParams as $k => $v) {
+            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
+        }
+        $query = substr($query, 0, -1);
+
+        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
+            $httpBody, $query, $method, $resourcePath, $headers);
+
+        return new Request($method,
+            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers, $httpBody);
+    }
+
+    public function queryPriceForSubscription($body)
+    {
+        list($response) = $this->queryPriceForSubscriptionWithHttpInfo($body);
+        return $response;
+    }
+
+    public function queryPriceForSubscriptionWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Billing\Model\QueryPriceForSubscriptionResponse';
+        $request = $this->queryPriceForSubscriptionRequest($body);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+            );
+        }
+
+        $statusCode = $response->getStatusCode();
+
+        if ($statusCode < 200 || $statusCode > 299) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Error connecting to the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $response->getBody()
+            );
+        }
+
+        $responseContent = $response->getBody()->getContents();
+        $content = json_decode($responseContent);
+
+        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Return Error From the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $responseContent);
+        }
+        $content = $content->{'Result'};
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    public function queryPriceForSubscriptionAsync($body)
+    {
+        return $this->queryPriceForSubscriptionAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function queryPriceForSubscriptionAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Billing\Model\QueryPriceForSubscriptionResponse';
+        $request = $this->queryPriceForSubscriptionRequest($body);
+        $uri = $request->getUri();
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($uri, $returnType) {
+                    $responseContent = $response->getBody()->getContents();
+                    $content = json_decode($responseContent);
+                    $statusCode = $response->getStatusCode();
+
+                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+                        throw new ApiException(
+                            sprintf(
+                                '[%d] Return Error From the API (%s)',
+                                $statusCode,
+                                $uri
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $responseContent);
+                    }
+                    $content = $content->{'Result'};
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    protected function queryPriceForSubscriptionRequest($body)
+    {
+        // verify the required parameter 'body' is set
+        if ($body === null || (is_array($body) && count($body) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $body when calling queryPriceForSubscription'
+            );
+        }
+
+        $resourcePath = '/QueryPriceForSubscription/2022-01-01/billing/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        // format request body
+        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
+            $queryParams = Utils::transRequest($httpBody);
+            $httpBody = '';
+        } else {
+            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
+        }
+
+        $queryParams['Action'] = $paths[1];
+        $queryParams['Version'] = $paths[2];
+        $resourcePath = '/';
+
+        $query = '';
+        ksort($queryParams);  // sort query first
+        foreach ($queryParams as $k => $v) {
+            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
+        }
+        $query = substr($query, 0, -1);
+
+        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
+            $httpBody, $query, $method, $resourcePath, $headers);
+
+        return new Request($method,
+            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers, $httpBody);
+    }
+
+    public function renewInstance($body)
+    {
+        list($response) = $this->renewInstanceWithHttpInfo($body);
+        return $response;
+    }
+
+    public function renewInstanceWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Billing\Model\RenewInstanceResponse';
+        $request = $this->renewInstanceRequest($body);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+            );
+        }
+
+        $statusCode = $response->getStatusCode();
+
+        if ($statusCode < 200 || $statusCode > 299) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Error connecting to the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $response->getBody()
+            );
+        }
+
+        $responseContent = $response->getBody()->getContents();
+        $content = json_decode($responseContent);
+
+        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Return Error From the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $responseContent);
+        }
+        $content = $content->{'Result'};
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    public function renewInstanceAsync($body)
+    {
+        return $this->renewInstanceAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function renewInstanceAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Billing\Model\RenewInstanceResponse';
+        $request = $this->renewInstanceRequest($body);
+        $uri = $request->getUri();
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($uri, $returnType) {
+                    $responseContent = $response->getBody()->getContents();
+                    $content = json_decode($responseContent);
+                    $statusCode = $response->getStatusCode();
+
+                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+                        throw new ApiException(
+                            sprintf(
+                                '[%d] Return Error From the API (%s)',
+                                $statusCode,
+                                $uri
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $responseContent);
+                    }
+                    $content = $content->{'Result'};
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    protected function renewInstanceRequest($body)
+    {
+        // verify the required parameter 'body' is set
+        if ($body === null || (is_array($body) && count($body) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $body when calling renewInstance'
+            );
+        }
+
+        $resourcePath = '/RenewInstance/2022-01-01/billing/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        // format request body
+        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
+            $queryParams = Utils::transRequest($httpBody);
+            $httpBody = '';
+        } else {
+            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
+        }
+
+        $queryParams['Action'] = $paths[1];
+        $queryParams['Version'] = $paths[2];
+        $resourcePath = '/';
+
+        $query = '';
+        ksort($queryParams);  // sort query first
+        foreach ($queryParams as $k => $v) {
+            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
+        }
+        $query = substr($query, 0, -1);
+
+        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
+            $httpBody, $query, $method, $resourcePath, $headers);
+
+        return new Request($method,
+            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers, $httpBody);
+    }
+
+    public function setRenewalType($body)
+    {
+        list($response) = $this->setRenewalTypeWithHttpInfo($body);
+        return $response;
+    }
+
+    public function setRenewalTypeWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Billing\Model\SetRenewalTypeResponse';
+        $request = $this->setRenewalTypeRequest($body);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+            );
+        }
+
+        $statusCode = $response->getStatusCode();
+
+        if ($statusCode < 200 || $statusCode > 299) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Error connecting to the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $response->getBody()
+            );
+        }
+
+        $responseContent = $response->getBody()->getContents();
+        $content = json_decode($responseContent);
+
+        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Return Error From the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $responseContent);
+        }
+        $content = $content->{'Result'};
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    public function setRenewalTypeAsync($body)
+    {
+        return $this->setRenewalTypeAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function setRenewalTypeAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Billing\Model\SetRenewalTypeResponse';
+        $request = $this->setRenewalTypeRequest($body);
+        $uri = $request->getUri();
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($uri, $returnType) {
+                    $responseContent = $response->getBody()->getContents();
+                    $content = json_decode($responseContent);
+                    $statusCode = $response->getStatusCode();
+
+                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+                        throw new ApiException(
+                            sprintf(
+                                '[%d] Return Error From the API (%s)',
+                                $statusCode,
+                                $uri
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $responseContent);
+                    }
+                    $content = $content->{'Result'};
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    protected function setRenewalTypeRequest($body)
+    {
+        // verify the required parameter 'body' is set
+        if ($body === null || (is_array($body) && count($body) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $body when calling setRenewalType'
+            );
+        }
+
+        $resourcePath = '/SetRenewalType/2022-01-01/billing/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
