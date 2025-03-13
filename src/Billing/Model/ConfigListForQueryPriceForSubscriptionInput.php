@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Cdn\Model;
+namespace Volcengine\Billing\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AddCdnDomainResponse implements ModelInterface, ArrayAccess
+class ConfigListForQueryPriceForSubscriptionInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AddCdnDomainResponse';
+    protected static $swaggerModelName = 'ConfigListForQueryPriceForSubscriptionInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,11 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'resource_ids' => 'string[]'
+        'charge_item_code' => 'string',
+        'configuration_code' => 'string',
+        'count' => 'string',
+        'quantity' => 'int',
+        'use_duration' => 'int'
     ];
 
     /**
@@ -37,7 +41,11 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'resource_ids' => null
+        'charge_item_code' => null,
+        'configuration_code' => null,
+        'count' => null,
+        'quantity' => 'int32',
+        'use_duration' => 'int32'
     ];
 
     /**
@@ -67,7 +75,11 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'resource_ids' => 'ResourceIds'
+        'charge_item_code' => 'ChargeItemCode',
+        'configuration_code' => 'ConfigurationCode',
+        'count' => 'Count',
+        'quantity' => 'Quantity',
+        'use_duration' => 'UseDuration'
     ];
 
     /**
@@ -76,7 +88,11 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'resource_ids' => 'setResourceIds'
+        'charge_item_code' => 'setChargeItemCode',
+        'configuration_code' => 'setConfigurationCode',
+        'count' => 'setCount',
+        'quantity' => 'setQuantity',
+        'use_duration' => 'setUseDuration'
     ];
 
     /**
@@ -85,7 +101,11 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'resource_ids' => 'getResourceIds'
+        'charge_item_code' => 'getChargeItemCode',
+        'configuration_code' => 'getConfigurationCode',
+        'count' => 'getCount',
+        'quantity' => 'getQuantity',
+        'use_duration' => 'getUseDuration'
     ];
 
     /**
@@ -148,7 +168,11 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['resource_ids'] = isset($data['resource_ids']) ? $data['resource_ids'] : null;
+        $this->container['charge_item_code'] = isset($data['charge_item_code']) ? $data['charge_item_code'] : null;
+        $this->container['configuration_code'] = isset($data['configuration_code']) ? $data['configuration_code'] : null;
+        $this->container['count'] = isset($data['count']) ? $data['count'] : null;
+        $this->container['quantity'] = isset($data['quantity']) ? $data['quantity'] : null;
+        $this->container['use_duration'] = isset($data['use_duration']) ? $data['use_duration'] : null;
     }
 
     /**
@@ -176,25 +200,121 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets resource_ids
+     * Gets charge_item_code
      *
-     * @return string[]
+     * @return string
      */
-    public function getResourceIds()
+    public function getChargeItemCode()
     {
-        return $this->container['resource_ids'];
+        return $this->container['charge_item_code'];
     }
 
     /**
-     * Sets resource_ids
+     * Sets charge_item_code
      *
-     * @param string[] $resource_ids resource_ids
+     * @param string $charge_item_code charge_item_code
      *
      * @return $this
      */
-    public function setResourceIds($resource_ids)
+    public function setChargeItemCode($charge_item_code)
     {
-        $this->container['resource_ids'] = $resource_ids;
+        $this->container['charge_item_code'] = $charge_item_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets configuration_code
+     *
+     * @return string
+     */
+    public function getConfigurationCode()
+    {
+        return $this->container['configuration_code'];
+    }
+
+    /**
+     * Sets configuration_code
+     *
+     * @param string $configuration_code configuration_code
+     *
+     * @return $this
+     */
+    public function setConfigurationCode($configuration_code)
+    {
+        $this->container['configuration_code'] = $configuration_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets count
+     *
+     * @return string
+     */
+    public function getCount()
+    {
+        return $this->container['count'];
+    }
+
+    /**
+     * Sets count
+     *
+     * @param string $count count
+     *
+     * @return $this
+     */
+    public function setCount($count)
+    {
+        $this->container['count'] = $count;
+
+        return $this;
+    }
+
+    /**
+     * Gets quantity
+     *
+     * @return int
+     */
+    public function getQuantity()
+    {
+        return $this->container['quantity'];
+    }
+
+    /**
+     * Sets quantity
+     *
+     * @param int $quantity quantity
+     *
+     * @return $this
+     */
+    public function setQuantity($quantity)
+    {
+        $this->container['quantity'] = $quantity;
+
+        return $this;
+    }
+
+    /**
+     * Gets use_duration
+     *
+     * @return int
+     */
+    public function getUseDuration()
+    {
+        return $this->container['use_duration'];
+    }
+
+    /**
+     * Sets use_duration
+     *
+     * @param int $use_duration use_duration
+     *
+     * @return $this
+     */
+    public function setUseDuration($use_duration)
+    {
+        $this->container['use_duration'] = $use_duration;
 
         return $this;
     }

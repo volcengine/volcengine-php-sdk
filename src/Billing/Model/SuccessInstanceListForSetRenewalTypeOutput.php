@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Cdn\Model;
+namespace Volcengine\Billing\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AddCdnDomainResponse implements ModelInterface, ArrayAccess
+class SuccessInstanceListForSetRenewalTypeOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AddCdnDomainResponse';
+    protected static $swaggerModelName = 'SuccessInstanceListForSetRenewalTypeOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,8 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'resource_ids' => 'string[]'
+        'instance_id' => 'string',
+        'product' => 'string'
     ];
 
     /**
@@ -37,7 +38,8 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'resource_ids' => null
+        'instance_id' => null,
+        'product' => null
     ];
 
     /**
@@ -67,7 +69,8 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'resource_ids' => 'ResourceIds'
+        'instance_id' => 'InstanceID',
+        'product' => 'Product'
     ];
 
     /**
@@ -76,7 +79,8 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'resource_ids' => 'setResourceIds'
+        'instance_id' => 'setInstanceId',
+        'product' => 'setProduct'
     ];
 
     /**
@@ -85,7 +89,8 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'resource_ids' => 'getResourceIds'
+        'instance_id' => 'getInstanceId',
+        'product' => 'getProduct'
     ];
 
     /**
@@ -148,7 +153,8 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['resource_ids'] = isset($data['resource_ids']) ? $data['resource_ids'] : null;
+        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
+        $this->container['product'] = isset($data['product']) ? $data['product'] : null;
     }
 
     /**
@@ -176,25 +182,49 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets resource_ids
+     * Gets instance_id
      *
-     * @return string[]
+     * @return string
      */
-    public function getResourceIds()
+    public function getInstanceId()
     {
-        return $this->container['resource_ids'];
+        return $this->container['instance_id'];
     }
 
     /**
-     * Sets resource_ids
+     * Sets instance_id
      *
-     * @param string[] $resource_ids resource_ids
+     * @param string $instance_id instance_id
      *
      * @return $this
      */
-    public function setResourceIds($resource_ids)
+    public function setInstanceId($instance_id)
     {
-        $this->container['resource_ids'] = $resource_ids;
+        $this->container['instance_id'] = $instance_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets product
+     *
+     * @return string
+     */
+    public function getProduct()
+    {
+        return $this->container['product'];
+    }
+
+    /**
+     * Sets product
+     *
+     * @param string $product product
+     *
+     * @return $this
+     */
+    public function setProduct($product)
+    {
+        $this->container['product'] = $product;
 
         return $this;
     }

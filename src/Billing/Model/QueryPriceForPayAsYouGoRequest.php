@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Cdn\Model;
+namespace Volcengine\Billing\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AddCdnDomainResponse implements ModelInterface, ArrayAccess
+class QueryPriceForPayAsYouGoRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AddCdnDomainResponse';
+    protected static $swaggerModelName = 'QueryPriceForPayAsYouGoRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,8 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'resource_ids' => 'string[]'
+        'config_list' => '\Volcengine\Billing\Model\ConfigListForQueryPriceForPayAsYouGoInput[]',
+        'product' => 'string'
     ];
 
     /**
@@ -37,7 +38,8 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'resource_ids' => null
+        'config_list' => null,
+        'product' => null
     ];
 
     /**
@@ -67,7 +69,8 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'resource_ids' => 'ResourceIds'
+        'config_list' => 'ConfigList',
+        'product' => 'Product'
     ];
 
     /**
@@ -76,7 +79,8 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'resource_ids' => 'setResourceIds'
+        'config_list' => 'setConfigList',
+        'product' => 'setProduct'
     ];
 
     /**
@@ -85,7 +89,8 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'resource_ids' => 'getResourceIds'
+        'config_list' => 'getConfigList',
+        'product' => 'getProduct'
     ];
 
     /**
@@ -148,7 +153,8 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['resource_ids'] = isset($data['resource_ids']) ? $data['resource_ids'] : null;
+        $this->container['config_list'] = isset($data['config_list']) ? $data['config_list'] : null;
+        $this->container['product'] = isset($data['product']) ? $data['product'] : null;
     }
 
     /**
@@ -160,6 +166,9 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['product'] === null) {
+            $invalidProperties[] = "'product' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -176,25 +185,49 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets resource_ids
+     * Gets config_list
      *
-     * @return string[]
+     * @return \Volcengine\Billing\Model\ConfigListForQueryPriceForPayAsYouGoInput[]
      */
-    public function getResourceIds()
+    public function getConfigList()
     {
-        return $this->container['resource_ids'];
+        return $this->container['config_list'];
     }
 
     /**
-     * Sets resource_ids
+     * Sets config_list
      *
-     * @param string[] $resource_ids resource_ids
+     * @param \Volcengine\Billing\Model\ConfigListForQueryPriceForPayAsYouGoInput[] $config_list config_list
      *
      * @return $this
      */
-    public function setResourceIds($resource_ids)
+    public function setConfigList($config_list)
     {
-        $this->container['resource_ids'] = $resource_ids;
+        $this->container['config_list'] = $config_list;
+
+        return $this;
+    }
+
+    /**
+     * Gets product
+     *
+     * @return string
+     */
+    public function getProduct()
+    {
+        return $this->container['product'];
+    }
+
+    /**
+     * Sets product
+     *
+     * @param string $product product
+     *
+     * @return $this
+     */
+    public function setProduct($product)
+    {
+        $this->container['product'] = $product;
 
         return $this;
     }

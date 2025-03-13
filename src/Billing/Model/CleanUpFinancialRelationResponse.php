@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Cdn\Model;
+namespace Volcengine\Billing\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AddCdnDomainResponse implements ModelInterface, ArrayAccess
+class CleanUpFinancialRelationResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AddCdnDomainResponse';
+    protected static $swaggerModelName = 'CleanUpFinancialRelationResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,8 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'resource_ids' => 'string[]'
+        'is_idempotent' => 'bool',
+        'is_success' => 'bool'
     ];
 
     /**
@@ -37,7 +38,8 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'resource_ids' => null
+        'is_idempotent' => null,
+        'is_success' => null
     ];
 
     /**
@@ -67,7 +69,8 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'resource_ids' => 'ResourceIds'
+        'is_idempotent' => 'IsIdempotent',
+        'is_success' => 'IsSuccess'
     ];
 
     /**
@@ -76,7 +79,8 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'resource_ids' => 'setResourceIds'
+        'is_idempotent' => 'setIsIdempotent',
+        'is_success' => 'setIsSuccess'
     ];
 
     /**
@@ -85,7 +89,8 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'resource_ids' => 'getResourceIds'
+        'is_idempotent' => 'getIsIdempotent',
+        'is_success' => 'getIsSuccess'
     ];
 
     /**
@@ -148,7 +153,8 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['resource_ids'] = isset($data['resource_ids']) ? $data['resource_ids'] : null;
+        $this->container['is_idempotent'] = isset($data['is_idempotent']) ? $data['is_idempotent'] : null;
+        $this->container['is_success'] = isset($data['is_success']) ? $data['is_success'] : null;
     }
 
     /**
@@ -176,25 +182,49 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets resource_ids
+     * Gets is_idempotent
      *
-     * @return string[]
+     * @return bool
      */
-    public function getResourceIds()
+    public function getIsIdempotent()
     {
-        return $this->container['resource_ids'];
+        return $this->container['is_idempotent'];
     }
 
     /**
-     * Sets resource_ids
+     * Sets is_idempotent
      *
-     * @param string[] $resource_ids resource_ids
+     * @param bool $is_idempotent is_idempotent
      *
      * @return $this
      */
-    public function setResourceIds($resource_ids)
+    public function setIsIdempotent($is_idempotent)
     {
-        $this->container['resource_ids'] = $resource_ids;
+        $this->container['is_idempotent'] = $is_idempotent;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_success
+     *
+     * @return bool
+     */
+    public function getIsSuccess()
+    {
+        return $this->container['is_success'];
+    }
+
+    /**
+     * Sets is_success
+     *
+     * @param bool $is_success is_success
+     *
+     * @return $this
+     */
+    public function setIsSuccess($is_success)
+    {
+        $this->container['is_success'] = $is_success;
 
         return $this;
     }

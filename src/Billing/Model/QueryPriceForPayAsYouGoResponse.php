@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Cdn\Model;
+namespace Volcengine\Billing\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AddCdnDomainResponse implements ModelInterface, ArrayAccess
+class QueryPriceForPayAsYouGoResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AddCdnDomainResponse';
+    protected static $swaggerModelName = 'QueryPriceForPayAsYouGoResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,10 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'resource_ids' => 'string[]'
+        'config_list' => '\Volcengine\Billing\Model\ConfigListForQueryPriceForPayAsYouGoOutput[]',
+        'currency' => 'string',
+        'total_discount_amount' => 'string',
+        'total_original_amount' => 'string'
     ];
 
     /**
@@ -37,7 +40,10 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'resource_ids' => null
+        'config_list' => null,
+        'currency' => null,
+        'total_discount_amount' => null,
+        'total_original_amount' => null
     ];
 
     /**
@@ -67,7 +73,10 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'resource_ids' => 'ResourceIds'
+        'config_list' => 'ConfigList',
+        'currency' => 'Currency',
+        'total_discount_amount' => 'TotalDiscountAmount',
+        'total_original_amount' => 'TotalOriginalAmount'
     ];
 
     /**
@@ -76,7 +85,10 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'resource_ids' => 'setResourceIds'
+        'config_list' => 'setConfigList',
+        'currency' => 'setCurrency',
+        'total_discount_amount' => 'setTotalDiscountAmount',
+        'total_original_amount' => 'setTotalOriginalAmount'
     ];
 
     /**
@@ -85,7 +97,10 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'resource_ids' => 'getResourceIds'
+        'config_list' => 'getConfigList',
+        'currency' => 'getCurrency',
+        'total_discount_amount' => 'getTotalDiscountAmount',
+        'total_original_amount' => 'getTotalOriginalAmount'
     ];
 
     /**
@@ -148,7 +163,10 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['resource_ids'] = isset($data['resource_ids']) ? $data['resource_ids'] : null;
+        $this->container['config_list'] = isset($data['config_list']) ? $data['config_list'] : null;
+        $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
+        $this->container['total_discount_amount'] = isset($data['total_discount_amount']) ? $data['total_discount_amount'] : null;
+        $this->container['total_original_amount'] = isset($data['total_original_amount']) ? $data['total_original_amount'] : null;
     }
 
     /**
@@ -176,25 +194,97 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets resource_ids
+     * Gets config_list
      *
-     * @return string[]
+     * @return \Volcengine\Billing\Model\ConfigListForQueryPriceForPayAsYouGoOutput[]
      */
-    public function getResourceIds()
+    public function getConfigList()
     {
-        return $this->container['resource_ids'];
+        return $this->container['config_list'];
     }
 
     /**
-     * Sets resource_ids
+     * Sets config_list
      *
-     * @param string[] $resource_ids resource_ids
+     * @param \Volcengine\Billing\Model\ConfigListForQueryPriceForPayAsYouGoOutput[] $config_list config_list
      *
      * @return $this
      */
-    public function setResourceIds($resource_ids)
+    public function setConfigList($config_list)
     {
-        $this->container['resource_ids'] = $resource_ids;
+        $this->container['config_list'] = $config_list;
+
+        return $this;
+    }
+
+    /**
+     * Gets currency
+     *
+     * @return string
+     */
+    public function getCurrency()
+    {
+        return $this->container['currency'];
+    }
+
+    /**
+     * Sets currency
+     *
+     * @param string $currency currency
+     *
+     * @return $this
+     */
+    public function setCurrency($currency)
+    {
+        $this->container['currency'] = $currency;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_discount_amount
+     *
+     * @return string
+     */
+    public function getTotalDiscountAmount()
+    {
+        return $this->container['total_discount_amount'];
+    }
+
+    /**
+     * Sets total_discount_amount
+     *
+     * @param string $total_discount_amount total_discount_amount
+     *
+     * @return $this
+     */
+    public function setTotalDiscountAmount($total_discount_amount)
+    {
+        $this->container['total_discount_amount'] = $total_discount_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_original_amount
+     *
+     * @return string
+     */
+    public function getTotalOriginalAmount()
+    {
+        return $this->container['total_original_amount'];
+    }
+
+    /**
+     * Sets total_original_amount
+     *
+     * @param string $total_original_amount total_original_amount
+     *
+     * @return $this
+     */
+    public function setTotalOriginalAmount($total_original_amount)
+    {
+        $this->container['total_original_amount'] = $total_original_amount;
 
         return $this;
     }

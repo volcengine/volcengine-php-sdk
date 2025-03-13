@@ -34,6 +34,7 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'billing_function' => 'string',
         'billing_method_code' => 'string',
         'billing_mode' => 'string',
+        'busi_period' => 'string',
         'business_mode' => 'string',
         'config_name' => 'string',
         'configuration_code' => 'string',
@@ -58,9 +59,13 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'market_price' => 'string',
         'measure_interval' => 'string',
         'original_bill_amount' => 'string',
+        'owner_customer_name' => 'string',
+        'owner_id' => 'string',
         'owner_user_name' => 'string',
         'paid_amount' => 'string',
         'payable_amount' => 'string',
+        'payer_customer_name' => 'string',
+        'payer_id' => 'string',
         'payer_user_name' => 'string',
         'preferential_bill_amount' => 'string',
         'price' => 'string',
@@ -73,6 +78,8 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'region' => 'string',
         'region_code' => 'string',
         'reservation_instance' => 'string',
+        'seller_customer_name' => 'string',
+        'seller_id' => 'string',
         'seller_user_name' => 'string',
         'selling_mode' => 'string',
         'settlement_type' => 'string',
@@ -105,6 +112,7 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'billing_function' => null,
         'billing_method_code' => null,
         'billing_mode' => null,
+        'busi_period' => null,
         'business_mode' => null,
         'config_name' => null,
         'configuration_code' => null,
@@ -129,9 +137,13 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'market_price' => null,
         'measure_interval' => null,
         'original_bill_amount' => null,
+        'owner_customer_name' => null,
+        'owner_id' => null,
         'owner_user_name' => null,
         'paid_amount' => null,
         'payable_amount' => null,
+        'payer_customer_name' => null,
+        'payer_id' => null,
         'payer_user_name' => null,
         'preferential_bill_amount' => null,
         'price' => null,
@@ -144,6 +156,8 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'region' => null,
         'region_code' => null,
         'reservation_instance' => null,
+        'seller_customer_name' => null,
+        'seller_id' => null,
         'seller_user_name' => null,
         'selling_mode' => null,
         'settlement_type' => null,
@@ -197,6 +211,7 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'billing_function' => 'BillingFunction',
         'billing_method_code' => 'BillingMethodCode',
         'billing_mode' => 'BillingMode',
+        'busi_period' => 'BusiPeriod',
         'business_mode' => 'BusinessMode',
         'config_name' => 'ConfigName',
         'configuration_code' => 'ConfigurationCode',
@@ -221,9 +236,13 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'market_price' => 'MarketPrice',
         'measure_interval' => 'MeasureInterval',
         'original_bill_amount' => 'OriginalBillAmount',
+        'owner_customer_name' => 'OwnerCustomerName',
+        'owner_id' => 'OwnerID',
         'owner_user_name' => 'OwnerUserName',
         'paid_amount' => 'PaidAmount',
         'payable_amount' => 'PayableAmount',
+        'payer_customer_name' => 'PayerCustomerName',
+        'payer_id' => 'PayerID',
         'payer_user_name' => 'PayerUserName',
         'preferential_bill_amount' => 'PreferentialBillAmount',
         'price' => 'Price',
@@ -236,6 +255,8 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'region' => 'Region',
         'region_code' => 'RegionCode',
         'reservation_instance' => 'ReservationInstance',
+        'seller_customer_name' => 'SellerCustomerName',
+        'seller_id' => 'SellerID',
         'seller_user_name' => 'SellerUserName',
         'selling_mode' => 'SellingMode',
         'settlement_type' => 'SettlementType',
@@ -268,6 +289,7 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'billing_function' => 'setBillingFunction',
         'billing_method_code' => 'setBillingMethodCode',
         'billing_mode' => 'setBillingMode',
+        'busi_period' => 'setBusiPeriod',
         'business_mode' => 'setBusinessMode',
         'config_name' => 'setConfigName',
         'configuration_code' => 'setConfigurationCode',
@@ -292,9 +314,13 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'market_price' => 'setMarketPrice',
         'measure_interval' => 'setMeasureInterval',
         'original_bill_amount' => 'setOriginalBillAmount',
+        'owner_customer_name' => 'setOwnerCustomerName',
+        'owner_id' => 'setOwnerId',
         'owner_user_name' => 'setOwnerUserName',
         'paid_amount' => 'setPaidAmount',
         'payable_amount' => 'setPayableAmount',
+        'payer_customer_name' => 'setPayerCustomerName',
+        'payer_id' => 'setPayerId',
         'payer_user_name' => 'setPayerUserName',
         'preferential_bill_amount' => 'setPreferentialBillAmount',
         'price' => 'setPrice',
@@ -307,6 +333,8 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'region' => 'setRegion',
         'region_code' => 'setRegionCode',
         'reservation_instance' => 'setReservationInstance',
+        'seller_customer_name' => 'setSellerCustomerName',
+        'seller_id' => 'setSellerId',
         'seller_user_name' => 'setSellerUserName',
         'selling_mode' => 'setSellingMode',
         'settlement_type' => 'setSettlementType',
@@ -339,6 +367,7 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'billing_function' => 'getBillingFunction',
         'billing_method_code' => 'getBillingMethodCode',
         'billing_mode' => 'getBillingMode',
+        'busi_period' => 'getBusiPeriod',
         'business_mode' => 'getBusinessMode',
         'config_name' => 'getConfigName',
         'configuration_code' => 'getConfigurationCode',
@@ -363,9 +392,13 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'market_price' => 'getMarketPrice',
         'measure_interval' => 'getMeasureInterval',
         'original_bill_amount' => 'getOriginalBillAmount',
+        'owner_customer_name' => 'getOwnerCustomerName',
+        'owner_id' => 'getOwnerId',
         'owner_user_name' => 'getOwnerUserName',
         'paid_amount' => 'getPaidAmount',
         'payable_amount' => 'getPayableAmount',
+        'payer_customer_name' => 'getPayerCustomerName',
+        'payer_id' => 'getPayerId',
         'payer_user_name' => 'getPayerUserName',
         'preferential_bill_amount' => 'getPreferentialBillAmount',
         'price' => 'getPrice',
@@ -378,6 +411,8 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'region' => 'getRegion',
         'region_code' => 'getRegionCode',
         'reservation_instance' => 'getReservationInstance',
+        'seller_customer_name' => 'getSellerCustomerName',
+        'seller_id' => 'getSellerId',
         'seller_user_name' => 'getSellerUserName',
         'selling_mode' => 'getSellingMode',
         'settlement_type' => 'getSettlementType',
@@ -464,6 +499,7 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         $this->container['billing_function'] = isset($data['billing_function']) ? $data['billing_function'] : null;
         $this->container['billing_method_code'] = isset($data['billing_method_code']) ? $data['billing_method_code'] : null;
         $this->container['billing_mode'] = isset($data['billing_mode']) ? $data['billing_mode'] : null;
+        $this->container['busi_period'] = isset($data['busi_period']) ? $data['busi_period'] : null;
         $this->container['business_mode'] = isset($data['business_mode']) ? $data['business_mode'] : null;
         $this->container['config_name'] = isset($data['config_name']) ? $data['config_name'] : null;
         $this->container['configuration_code'] = isset($data['configuration_code']) ? $data['configuration_code'] : null;
@@ -488,9 +524,13 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         $this->container['market_price'] = isset($data['market_price']) ? $data['market_price'] : null;
         $this->container['measure_interval'] = isset($data['measure_interval']) ? $data['measure_interval'] : null;
         $this->container['original_bill_amount'] = isset($data['original_bill_amount']) ? $data['original_bill_amount'] : null;
+        $this->container['owner_customer_name'] = isset($data['owner_customer_name']) ? $data['owner_customer_name'] : null;
+        $this->container['owner_id'] = isset($data['owner_id']) ? $data['owner_id'] : null;
         $this->container['owner_user_name'] = isset($data['owner_user_name']) ? $data['owner_user_name'] : null;
         $this->container['paid_amount'] = isset($data['paid_amount']) ? $data['paid_amount'] : null;
         $this->container['payable_amount'] = isset($data['payable_amount']) ? $data['payable_amount'] : null;
+        $this->container['payer_customer_name'] = isset($data['payer_customer_name']) ? $data['payer_customer_name'] : null;
+        $this->container['payer_id'] = isset($data['payer_id']) ? $data['payer_id'] : null;
         $this->container['payer_user_name'] = isset($data['payer_user_name']) ? $data['payer_user_name'] : null;
         $this->container['preferential_bill_amount'] = isset($data['preferential_bill_amount']) ? $data['preferential_bill_amount'] : null;
         $this->container['price'] = isset($data['price']) ? $data['price'] : null;
@@ -503,6 +543,8 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         $this->container['region'] = isset($data['region']) ? $data['region'] : null;
         $this->container['region_code'] = isset($data['region_code']) ? $data['region_code'] : null;
         $this->container['reservation_instance'] = isset($data['reservation_instance']) ? $data['reservation_instance'] : null;
+        $this->container['seller_customer_name'] = isset($data['seller_customer_name']) ? $data['seller_customer_name'] : null;
+        $this->container['seller_id'] = isset($data['seller_id']) ? $data['seller_id'] : null;
         $this->container['seller_user_name'] = isset($data['seller_user_name']) ? $data['seller_user_name'] : null;
         $this->container['selling_mode'] = isset($data['selling_mode']) ? $data['selling_mode'] : null;
         $this->container['settlement_type'] = isset($data['settlement_type']) ? $data['settlement_type'] : null;
@@ -687,6 +729,30 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
     public function setBillingMode($billing_mode)
     {
         $this->container['billing_mode'] = $billing_mode;
+
+        return $this;
+    }
+
+    /**
+     * Gets busi_period
+     *
+     * @return string
+     */
+    public function getBusiPeriod()
+    {
+        return $this->container['busi_period'];
+    }
+
+    /**
+     * Sets busi_period
+     *
+     * @param string $busi_period busi_period
+     *
+     * @return $this
+     */
+    public function setBusiPeriod($busi_period)
+    {
+        $this->container['busi_period'] = $busi_period;
 
         return $this;
     }
@@ -1268,6 +1334,54 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets owner_customer_name
+     *
+     * @return string
+     */
+    public function getOwnerCustomerName()
+    {
+        return $this->container['owner_customer_name'];
+    }
+
+    /**
+     * Sets owner_customer_name
+     *
+     * @param string $owner_customer_name owner_customer_name
+     *
+     * @return $this
+     */
+    public function setOwnerCustomerName($owner_customer_name)
+    {
+        $this->container['owner_customer_name'] = $owner_customer_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets owner_id
+     *
+     * @return string
+     */
+    public function getOwnerId()
+    {
+        return $this->container['owner_id'];
+    }
+
+    /**
+     * Sets owner_id
+     *
+     * @param string $owner_id owner_id
+     *
+     * @return $this
+     */
+    public function setOwnerId($owner_id)
+    {
+        $this->container['owner_id'] = $owner_id;
+
+        return $this;
+    }
+
+    /**
      * Gets owner_user_name
      *
      * @return string
@@ -1335,6 +1449,54 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
     public function setPayableAmount($payable_amount)
     {
         $this->container['payable_amount'] = $payable_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets payer_customer_name
+     *
+     * @return string
+     */
+    public function getPayerCustomerName()
+    {
+        return $this->container['payer_customer_name'];
+    }
+
+    /**
+     * Sets payer_customer_name
+     *
+     * @param string $payer_customer_name payer_customer_name
+     *
+     * @return $this
+     */
+    public function setPayerCustomerName($payer_customer_name)
+    {
+        $this->container['payer_customer_name'] = $payer_customer_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets payer_id
+     *
+     * @return string
+     */
+    public function getPayerId()
+    {
+        return $this->container['payer_id'];
+    }
+
+    /**
+     * Sets payer_id
+     *
+     * @param string $payer_id payer_id
+     *
+     * @return $this
+     */
+    public function setPayerId($payer_id)
+    {
+        $this->container['payer_id'] = $payer_id;
 
         return $this;
     }
@@ -1623,6 +1785,54 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
     public function setReservationInstance($reservation_instance)
     {
         $this->container['reservation_instance'] = $reservation_instance;
+
+        return $this;
+    }
+
+    /**
+     * Gets seller_customer_name
+     *
+     * @return string
+     */
+    public function getSellerCustomerName()
+    {
+        return $this->container['seller_customer_name'];
+    }
+
+    /**
+     * Sets seller_customer_name
+     *
+     * @param string $seller_customer_name seller_customer_name
+     *
+     * @return $this
+     */
+    public function setSellerCustomerName($seller_customer_name)
+    {
+        $this->container['seller_customer_name'] = $seller_customer_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets seller_id
+     *
+     * @return string
+     */
+    public function getSellerId()
+    {
+        return $this->container['seller_id'];
+    }
+
+    /**
+     * Sets seller_id
+     *
+     * @param string $seller_id seller_id
+     *
+     * @return $this
+     */
+    public function setSellerId($seller_id)
+    {
+        $this->container['seller_id'] = $seller_id;
 
         return $this;
     }

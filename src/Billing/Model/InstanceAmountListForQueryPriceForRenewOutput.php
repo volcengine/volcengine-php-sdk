@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Cdn\Model;
+namespace Volcengine\Billing\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AddCdnDomainResponse implements ModelInterface, ArrayAccess
+class InstanceAmountListForQueryPriceForRenewOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AddCdnDomainResponse';
+    protected static $swaggerModelName = 'InstanceAmountListForQueryPriceForRenewOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,11 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'resource_ids' => 'string[]'
+        'configuration_code' => 'string',
+        'discount_amount' => 'string',
+        'instance_id' => 'string',
+        'original_amount' => 'string',
+        'product' => 'string'
     ];
 
     /**
@@ -37,7 +41,11 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'resource_ids' => null
+        'configuration_code' => null,
+        'discount_amount' => null,
+        'instance_id' => null,
+        'original_amount' => null,
+        'product' => null
     ];
 
     /**
@@ -67,7 +75,11 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'resource_ids' => 'ResourceIds'
+        'configuration_code' => 'ConfigurationCode',
+        'discount_amount' => 'DiscountAmount',
+        'instance_id' => 'InstanceID',
+        'original_amount' => 'OriginalAmount',
+        'product' => 'Product'
     ];
 
     /**
@@ -76,7 +88,11 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'resource_ids' => 'setResourceIds'
+        'configuration_code' => 'setConfigurationCode',
+        'discount_amount' => 'setDiscountAmount',
+        'instance_id' => 'setInstanceId',
+        'original_amount' => 'setOriginalAmount',
+        'product' => 'setProduct'
     ];
 
     /**
@@ -85,7 +101,11 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'resource_ids' => 'getResourceIds'
+        'configuration_code' => 'getConfigurationCode',
+        'discount_amount' => 'getDiscountAmount',
+        'instance_id' => 'getInstanceId',
+        'original_amount' => 'getOriginalAmount',
+        'product' => 'getProduct'
     ];
 
     /**
@@ -148,7 +168,11 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['resource_ids'] = isset($data['resource_ids']) ? $data['resource_ids'] : null;
+        $this->container['configuration_code'] = isset($data['configuration_code']) ? $data['configuration_code'] : null;
+        $this->container['discount_amount'] = isset($data['discount_amount']) ? $data['discount_amount'] : null;
+        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
+        $this->container['original_amount'] = isset($data['original_amount']) ? $data['original_amount'] : null;
+        $this->container['product'] = isset($data['product']) ? $data['product'] : null;
     }
 
     /**
@@ -176,25 +200,121 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets resource_ids
+     * Gets configuration_code
      *
-     * @return string[]
+     * @return string
      */
-    public function getResourceIds()
+    public function getConfigurationCode()
     {
-        return $this->container['resource_ids'];
+        return $this->container['configuration_code'];
     }
 
     /**
-     * Sets resource_ids
+     * Sets configuration_code
      *
-     * @param string[] $resource_ids resource_ids
+     * @param string $configuration_code configuration_code
      *
      * @return $this
      */
-    public function setResourceIds($resource_ids)
+    public function setConfigurationCode($configuration_code)
     {
-        $this->container['resource_ids'] = $resource_ids;
+        $this->container['configuration_code'] = $configuration_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets discount_amount
+     *
+     * @return string
+     */
+    public function getDiscountAmount()
+    {
+        return $this->container['discount_amount'];
+    }
+
+    /**
+     * Sets discount_amount
+     *
+     * @param string $discount_amount discount_amount
+     *
+     * @return $this
+     */
+    public function setDiscountAmount($discount_amount)
+    {
+        $this->container['discount_amount'] = $discount_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets instance_id
+     *
+     * @return string
+     */
+    public function getInstanceId()
+    {
+        return $this->container['instance_id'];
+    }
+
+    /**
+     * Sets instance_id
+     *
+     * @param string $instance_id instance_id
+     *
+     * @return $this
+     */
+    public function setInstanceId($instance_id)
+    {
+        $this->container['instance_id'] = $instance_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets original_amount
+     *
+     * @return string
+     */
+    public function getOriginalAmount()
+    {
+        return $this->container['original_amount'];
+    }
+
+    /**
+     * Sets original_amount
+     *
+     * @param string $original_amount original_amount
+     *
+     * @return $this
+     */
+    public function setOriginalAmount($original_amount)
+    {
+        $this->container['original_amount'] = $original_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets product
+     *
+     * @return string
+     */
+    public function getProduct()
+    {
+        return $this->container['product'];
+    }
+
+    /**
+     * Sets product
+     *
+     * @param string $product product
+     *
+     * @return $this
+     */
+    public function setProduct($product)
+    {
+        $this->container['product'] = $product;
 
         return $this;
     }

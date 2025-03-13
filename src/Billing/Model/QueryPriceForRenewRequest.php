@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Cdn\Model;
+namespace Volcengine\Billing\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AddCdnDomainResponse implements ModelInterface, ArrayAccess
+class QueryPriceForRenewRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AddCdnDomainResponse';
+    protected static $swaggerModelName = 'QueryPriceForRenewRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,9 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'resource_ids' => 'string[]'
+        'instance_id_list' => 'string[]',
+        'product' => 'string',
+        'use_duration' => 'int'
     ];
 
     /**
@@ -37,7 +39,9 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'resource_ids' => null
+        'instance_id_list' => null,
+        'product' => null,
+        'use_duration' => 'int32'
     ];
 
     /**
@@ -67,7 +71,9 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'resource_ids' => 'ResourceIds'
+        'instance_id_list' => 'InstanceIDList',
+        'product' => 'Product',
+        'use_duration' => 'UseDuration'
     ];
 
     /**
@@ -76,7 +82,9 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'resource_ids' => 'setResourceIds'
+        'instance_id_list' => 'setInstanceIdList',
+        'product' => 'setProduct',
+        'use_duration' => 'setUseDuration'
     ];
 
     /**
@@ -85,7 +93,9 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'resource_ids' => 'getResourceIds'
+        'instance_id_list' => 'getInstanceIdList',
+        'product' => 'getProduct',
+        'use_duration' => 'getUseDuration'
     ];
 
     /**
@@ -148,7 +158,9 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['resource_ids'] = isset($data['resource_ids']) ? $data['resource_ids'] : null;
+        $this->container['instance_id_list'] = isset($data['instance_id_list']) ? $data['instance_id_list'] : null;
+        $this->container['product'] = isset($data['product']) ? $data['product'] : null;
+        $this->container['use_duration'] = isset($data['use_duration']) ? $data['use_duration'] : null;
     }
 
     /**
@@ -160,6 +172,12 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['product'] === null) {
+            $invalidProperties[] = "'product' can't be null";
+        }
+        if ($this->container['use_duration'] === null) {
+            $invalidProperties[] = "'use_duration' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -176,25 +194,73 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets resource_ids
+     * Gets instance_id_list
      *
      * @return string[]
      */
-    public function getResourceIds()
+    public function getInstanceIdList()
     {
-        return $this->container['resource_ids'];
+        return $this->container['instance_id_list'];
     }
 
     /**
-     * Sets resource_ids
+     * Sets instance_id_list
      *
-     * @param string[] $resource_ids resource_ids
+     * @param string[] $instance_id_list instance_id_list
      *
      * @return $this
      */
-    public function setResourceIds($resource_ids)
+    public function setInstanceIdList($instance_id_list)
     {
-        $this->container['resource_ids'] = $resource_ids;
+        $this->container['instance_id_list'] = $instance_id_list;
+
+        return $this;
+    }
+
+    /**
+     * Gets product
+     *
+     * @return string
+     */
+    public function getProduct()
+    {
+        return $this->container['product'];
+    }
+
+    /**
+     * Sets product
+     *
+     * @param string $product product
+     *
+     * @return $this
+     */
+    public function setProduct($product)
+    {
+        $this->container['product'] = $product;
+
+        return $this;
+    }
+
+    /**
+     * Gets use_duration
+     *
+     * @return int
+     */
+    public function getUseDuration()
+    {
+        return $this->container['use_duration'];
+    }
+
+    /**
+     * Sets use_duration
+     *
+     * @param int $use_duration use_duration
+     *
+     * @return $this
+     */
+    public function setUseDuration($use_duration)
+    {
+        $this->container['use_duration'] = $use_duration;
 
         return $this;
     }

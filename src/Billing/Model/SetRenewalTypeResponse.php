@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Cdn\Model;
+namespace Volcengine\Billing\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AddCdnDomainResponse implements ModelInterface, ArrayAccess
+class SetRenewalTypeResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AddCdnDomainResponse';
+    protected static $swaggerModelName = 'SetRenewalTypeResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,7 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'resource_ids' => 'string[]'
+        'success_instance_list' => '\Volcengine\Billing\Model\SuccessInstanceListForSetRenewalTypeOutput[]'
     ];
 
     /**
@@ -37,7 +37,7 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'resource_ids' => null
+        'success_instance_list' => null
     ];
 
     /**
@@ -67,7 +67,7 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'resource_ids' => 'ResourceIds'
+        'success_instance_list' => 'SuccessInstanceList'
     ];
 
     /**
@@ -76,7 +76,7 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'resource_ids' => 'setResourceIds'
+        'success_instance_list' => 'setSuccessInstanceList'
     ];
 
     /**
@@ -85,7 +85,7 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'resource_ids' => 'getResourceIds'
+        'success_instance_list' => 'getSuccessInstanceList'
     ];
 
     /**
@@ -148,7 +148,7 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['resource_ids'] = isset($data['resource_ids']) ? $data['resource_ids'] : null;
+        $this->container['success_instance_list'] = isset($data['success_instance_list']) ? $data['success_instance_list'] : null;
     }
 
     /**
@@ -176,25 +176,25 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets resource_ids
+     * Gets success_instance_list
      *
-     * @return string[]
+     * @return \Volcengine\Billing\Model\SuccessInstanceListForSetRenewalTypeOutput[]
      */
-    public function getResourceIds()
+    public function getSuccessInstanceList()
     {
-        return $this->container['resource_ids'];
+        return $this->container['success_instance_list'];
     }
 
     /**
-     * Sets resource_ids
+     * Sets success_instance_list
      *
-     * @param string[] $resource_ids resource_ids
+     * @param \Volcengine\Billing\Model\SuccessInstanceListForSetRenewalTypeOutput[] $success_instance_list success_instance_list
      *
      * @return $this
      */
-    public function setResourceIds($resource_ids)
+    public function setSuccessInstanceList($success_instance_list)
     {
-        $this->container['resource_ids'] = $resource_ids;
+        $this->container['success_instance_list'] = $success_instance_list;
 
         return $this;
     }

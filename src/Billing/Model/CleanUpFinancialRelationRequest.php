@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Cdn\Model;
+namespace Volcengine\Billing\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AddCdnDomainResponse implements ModelInterface, ArrayAccess
+class CleanUpFinancialRelationRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AddCdnDomainResponse';
+    protected static $swaggerModelName = 'CleanUpFinancialRelationRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,9 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'resource_ids' => 'string[]'
+        'relation' => 'int',
+        'relation_id' => 'string',
+        'sub_account_id' => 'int'
     ];
 
     /**
@@ -37,7 +39,9 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'resource_ids' => null
+        'relation' => 'int32',
+        'relation_id' => null,
+        'sub_account_id' => 'int64'
     ];
 
     /**
@@ -67,7 +71,9 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'resource_ids' => 'ResourceIds'
+        'relation' => 'Relation',
+        'relation_id' => 'RelationID',
+        'sub_account_id' => 'SubAccountID'
     ];
 
     /**
@@ -76,7 +82,9 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'resource_ids' => 'setResourceIds'
+        'relation' => 'setRelation',
+        'relation_id' => 'setRelationId',
+        'sub_account_id' => 'setSubAccountId'
     ];
 
     /**
@@ -85,7 +93,9 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'resource_ids' => 'getResourceIds'
+        'relation' => 'getRelation',
+        'relation_id' => 'getRelationId',
+        'sub_account_id' => 'getSubAccountId'
     ];
 
     /**
@@ -148,7 +158,9 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['resource_ids'] = isset($data['resource_ids']) ? $data['resource_ids'] : null;
+        $this->container['relation'] = isset($data['relation']) ? $data['relation'] : null;
+        $this->container['relation_id'] = isset($data['relation_id']) ? $data['relation_id'] : null;
+        $this->container['sub_account_id'] = isset($data['sub_account_id']) ? $data['sub_account_id'] : null;
     }
 
     /**
@@ -160,6 +172,15 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['relation'] === null) {
+            $invalidProperties[] = "'relation' can't be null";
+        }
+        if ($this->container['relation_id'] === null) {
+            $invalidProperties[] = "'relation_id' can't be null";
+        }
+        if ($this->container['sub_account_id'] === null) {
+            $invalidProperties[] = "'sub_account_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -176,25 +197,73 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets resource_ids
+     * Gets relation
      *
-     * @return string[]
+     * @return int
      */
-    public function getResourceIds()
+    public function getRelation()
     {
-        return $this->container['resource_ids'];
+        return $this->container['relation'];
     }
 
     /**
-     * Sets resource_ids
+     * Sets relation
      *
-     * @param string[] $resource_ids resource_ids
+     * @param int $relation relation
      *
      * @return $this
      */
-    public function setResourceIds($resource_ids)
+    public function setRelation($relation)
     {
-        $this->container['resource_ids'] = $resource_ids;
+        $this->container['relation'] = $relation;
+
+        return $this;
+    }
+
+    /**
+     * Gets relation_id
+     *
+     * @return string
+     */
+    public function getRelationId()
+    {
+        return $this->container['relation_id'];
+    }
+
+    /**
+     * Sets relation_id
+     *
+     * @param string $relation_id relation_id
+     *
+     * @return $this
+     */
+    public function setRelationId($relation_id)
+    {
+        $this->container['relation_id'] = $relation_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets sub_account_id
+     *
+     * @return int
+     */
+    public function getSubAccountId()
+    {
+        return $this->container['sub_account_id'];
+    }
+
+    /**
+     * Sets sub_account_id
+     *
+     * @param int $sub_account_id sub_account_id
+     *
+     * @return $this
+     */
+    public function setSubAccountId($sub_account_id)
+    {
+        $this->container['sub_account_id'] = $sub_account_id;
 
         return $this;
     }

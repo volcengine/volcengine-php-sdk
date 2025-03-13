@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Cdn\Model;
+namespace Volcengine\Billing\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AddCdnDomainResponse implements ModelInterface, ArrayAccess
+class QueryPriceForRenewResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AddCdnDomainResponse';
+    protected static $swaggerModelName = 'QueryPriceForRenewResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,10 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'resource_ids' => 'string[]'
+        'currency' => 'string',
+        'instance_amount_list' => '\Volcengine\Billing\Model\InstanceAmountListForQueryPriceForRenewOutput[]',
+        'total_discount_amount' => 'string',
+        'total_original_amount' => 'string'
     ];
 
     /**
@@ -37,7 +40,10 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'resource_ids' => null
+        'currency' => null,
+        'instance_amount_list' => null,
+        'total_discount_amount' => null,
+        'total_original_amount' => null
     ];
 
     /**
@@ -67,7 +73,10 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'resource_ids' => 'ResourceIds'
+        'currency' => 'Currency',
+        'instance_amount_list' => 'InstanceAmountList',
+        'total_discount_amount' => 'TotalDiscountAmount',
+        'total_original_amount' => 'TotalOriginalAmount'
     ];
 
     /**
@@ -76,7 +85,10 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'resource_ids' => 'setResourceIds'
+        'currency' => 'setCurrency',
+        'instance_amount_list' => 'setInstanceAmountList',
+        'total_discount_amount' => 'setTotalDiscountAmount',
+        'total_original_amount' => 'setTotalOriginalAmount'
     ];
 
     /**
@@ -85,7 +97,10 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'resource_ids' => 'getResourceIds'
+        'currency' => 'getCurrency',
+        'instance_amount_list' => 'getInstanceAmountList',
+        'total_discount_amount' => 'getTotalDiscountAmount',
+        'total_original_amount' => 'getTotalOriginalAmount'
     ];
 
     /**
@@ -148,7 +163,10 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['resource_ids'] = isset($data['resource_ids']) ? $data['resource_ids'] : null;
+        $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
+        $this->container['instance_amount_list'] = isset($data['instance_amount_list']) ? $data['instance_amount_list'] : null;
+        $this->container['total_discount_amount'] = isset($data['total_discount_amount']) ? $data['total_discount_amount'] : null;
+        $this->container['total_original_amount'] = isset($data['total_original_amount']) ? $data['total_original_amount'] : null;
     }
 
     /**
@@ -176,25 +194,97 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets resource_ids
+     * Gets currency
      *
-     * @return string[]
+     * @return string
      */
-    public function getResourceIds()
+    public function getCurrency()
     {
-        return $this->container['resource_ids'];
+        return $this->container['currency'];
     }
 
     /**
-     * Sets resource_ids
+     * Sets currency
      *
-     * @param string[] $resource_ids resource_ids
+     * @param string $currency currency
      *
      * @return $this
      */
-    public function setResourceIds($resource_ids)
+    public function setCurrency($currency)
     {
-        $this->container['resource_ids'] = $resource_ids;
+        $this->container['currency'] = $currency;
+
+        return $this;
+    }
+
+    /**
+     * Gets instance_amount_list
+     *
+     * @return \Volcengine\Billing\Model\InstanceAmountListForQueryPriceForRenewOutput[]
+     */
+    public function getInstanceAmountList()
+    {
+        return $this->container['instance_amount_list'];
+    }
+
+    /**
+     * Sets instance_amount_list
+     *
+     * @param \Volcengine\Billing\Model\InstanceAmountListForQueryPriceForRenewOutput[] $instance_amount_list instance_amount_list
+     *
+     * @return $this
+     */
+    public function setInstanceAmountList($instance_amount_list)
+    {
+        $this->container['instance_amount_list'] = $instance_amount_list;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_discount_amount
+     *
+     * @return string
+     */
+    public function getTotalDiscountAmount()
+    {
+        return $this->container['total_discount_amount'];
+    }
+
+    /**
+     * Sets total_discount_amount
+     *
+     * @param string $total_discount_amount total_discount_amount
+     *
+     * @return $this
+     */
+    public function setTotalDiscountAmount($total_discount_amount)
+    {
+        $this->container['total_discount_amount'] = $total_discount_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_original_amount
+     *
+     * @return string
+     */
+    public function getTotalOriginalAmount()
+    {
+        return $this->container['total_original_amount'];
+    }
+
+    /**
+     * Sets total_original_amount
+     *
+     * @param string $total_original_amount total_original_amount
+     *
+     * @return $this
+     */
+    public function setTotalOriginalAmount($total_original_amount)
+    {
+        $this->container['total_original_amount'] = $total_original_amount;
 
         return $this;
     }

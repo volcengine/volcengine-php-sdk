@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Cdn\Model;
+namespace Volcengine\Billing\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AddCdnDomainResponse implements ModelInterface, ArrayAccess
+class RenewInstanceResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AddCdnDomainResponse';
+    protected static $swaggerModelName = 'RenewInstanceResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,8 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'resource_ids' => 'string[]'
+        'order_id_list' => 'string[]',
+        'success_instance_list' => '\Volcengine\Billing\Model\SuccessInstanceListForRenewInstanceOutput[]'
     ];
 
     /**
@@ -37,7 +38,8 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'resource_ids' => null
+        'order_id_list' => null,
+        'success_instance_list' => null
     ];
 
     /**
@@ -67,7 +69,8 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'resource_ids' => 'ResourceIds'
+        'order_id_list' => 'OrderIDList',
+        'success_instance_list' => 'SuccessInstanceList'
     ];
 
     /**
@@ -76,7 +79,8 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'resource_ids' => 'setResourceIds'
+        'order_id_list' => 'setOrderIdList',
+        'success_instance_list' => 'setSuccessInstanceList'
     ];
 
     /**
@@ -85,7 +89,8 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'resource_ids' => 'getResourceIds'
+        'order_id_list' => 'getOrderIdList',
+        'success_instance_list' => 'getSuccessInstanceList'
     ];
 
     /**
@@ -148,7 +153,8 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['resource_ids'] = isset($data['resource_ids']) ? $data['resource_ids'] : null;
+        $this->container['order_id_list'] = isset($data['order_id_list']) ? $data['order_id_list'] : null;
+        $this->container['success_instance_list'] = isset($data['success_instance_list']) ? $data['success_instance_list'] : null;
     }
 
     /**
@@ -176,25 +182,49 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets resource_ids
+     * Gets order_id_list
      *
      * @return string[]
      */
-    public function getResourceIds()
+    public function getOrderIdList()
     {
-        return $this->container['resource_ids'];
+        return $this->container['order_id_list'];
     }
 
     /**
-     * Sets resource_ids
+     * Sets order_id_list
      *
-     * @param string[] $resource_ids resource_ids
+     * @param string[] $order_id_list order_id_list
      *
      * @return $this
      */
-    public function setResourceIds($resource_ids)
+    public function setOrderIdList($order_id_list)
     {
-        $this->container['resource_ids'] = $resource_ids;
+        $this->container['order_id_list'] = $order_id_list;
+
+        return $this;
+    }
+
+    /**
+     * Gets success_instance_list
+     *
+     * @return \Volcengine\Billing\Model\SuccessInstanceListForRenewInstanceOutput[]
+     */
+    public function getSuccessInstanceList()
+    {
+        return $this->container['success_instance_list'];
+    }
+
+    /**
+     * Sets success_instance_list
+     *
+     * @param \Volcengine\Billing\Model\SuccessInstanceListForRenewInstanceOutput[] $success_instance_list success_instance_list
+     *
+     * @return $this
+     */
+    public function setSuccessInstanceList($success_instance_list)
+    {
+        $this->container['success_instance_list'] = $success_instance_list;
 
         return $this;
     }
