@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AddCdnDomainResponse implements ModelInterface, ArrayAccess
+class DescribeBillingDetailResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AddCdnDomainResponse';
+    protected static $swaggerModelName = 'DescribeBillingDetailResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,7 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'resource_ids' => 'string[]'
+        'timestamp_point' => '\Volcengine\Cdn\Model\TimestampPointForDescribeBillingDetailOutput[]'
     ];
 
     /**
@@ -37,7 +37,7 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'resource_ids' => null
+        'timestamp_point' => null
     ];
 
     /**
@@ -67,7 +67,7 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'resource_ids' => 'ResourceIds'
+        'timestamp_point' => 'TimestampPoint'
     ];
 
     /**
@@ -76,7 +76,7 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'resource_ids' => 'setResourceIds'
+        'timestamp_point' => 'setTimestampPoint'
     ];
 
     /**
@@ -85,7 +85,7 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'resource_ids' => 'getResourceIds'
+        'timestamp_point' => 'getTimestampPoint'
     ];
 
     /**
@@ -148,7 +148,7 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['resource_ids'] = isset($data['resource_ids']) ? $data['resource_ids'] : null;
+        $this->container['timestamp_point'] = isset($data['timestamp_point']) ? $data['timestamp_point'] : null;
     }
 
     /**
@@ -176,25 +176,25 @@ class AddCdnDomainResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets resource_ids
+     * Gets timestamp_point
      *
-     * @return string[]
+     * @return \Volcengine\Cdn\Model\TimestampPointForDescribeBillingDetailOutput[]
      */
-    public function getResourceIds()
+    public function getTimestampPoint()
     {
-        return $this->container['resource_ids'];
+        return $this->container['timestamp_point'];
     }
 
     /**
-     * Sets resource_ids
+     * Sets timestamp_point
      *
-     * @param string[] $resource_ids resource_ids
+     * @param \Volcengine\Cdn\Model\TimestampPointForDescribeBillingDetailOutput[] $timestamp_point timestamp_point
      *
      * @return $this
      */
-    public function setResourceIds($resource_ids)
+    public function setTimestampPoint($timestamp_point)
     {
-        $this->container['resource_ids'] = $resource_ids;
+        $this->container['timestamp_point'] = $timestamp_point;
 
         return $this;
     }
