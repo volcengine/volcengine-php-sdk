@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ListFunctionsRequest implements ModelInterface, ArrayAccess
+class UpdateFunctionResourceRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ListFunctionsRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ListFunctionsRequest';
+    protected static $swaggerModelName = 'UpdateFunctionResourceRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,10 @@ class ListFunctionsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'filters' => '\Volcengine\Vefaas\Model\FilterForListFunctionsInput[]',
-        'page_number' => 'int',
-        'page_size' => 'int',
-        'tag_filters' => '\Volcengine\Vefaas\Model\TagFilterForListFunctionsInput[]'
+        'function_id' => 'string',
+        'max_instance' => 'int',
+        'min_instance' => 'int',
+        'reserved_frozen_instance' => 'int'
     ];
 
     /**
@@ -40,10 +40,10 @@ class ListFunctionsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'filters' => null,
-        'page_number' => 'int32',
-        'page_size' => 'int32',
-        'tag_filters' => null
+        'function_id' => null,
+        'max_instance' => 'int32',
+        'min_instance' => 'int32',
+        'reserved_frozen_instance' => 'int32'
     ];
 
     /**
@@ -73,10 +73,10 @@ class ListFunctionsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'filters' => 'Filters',
-        'page_number' => 'PageNumber',
-        'page_size' => 'PageSize',
-        'tag_filters' => 'TagFilters'
+        'function_id' => 'FunctionId',
+        'max_instance' => 'MaxInstance',
+        'min_instance' => 'MinInstance',
+        'reserved_frozen_instance' => 'ReservedFrozenInstance'
     ];
 
     /**
@@ -85,10 +85,10 @@ class ListFunctionsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'filters' => 'setFilters',
-        'page_number' => 'setPageNumber',
-        'page_size' => 'setPageSize',
-        'tag_filters' => 'setTagFilters'
+        'function_id' => 'setFunctionId',
+        'max_instance' => 'setMaxInstance',
+        'min_instance' => 'setMinInstance',
+        'reserved_frozen_instance' => 'setReservedFrozenInstance'
     ];
 
     /**
@@ -97,10 +97,10 @@ class ListFunctionsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'filters' => 'getFilters',
-        'page_number' => 'getPageNumber',
-        'page_size' => 'getPageSize',
-        'tag_filters' => 'getTagFilters'
+        'function_id' => 'getFunctionId',
+        'max_instance' => 'getMaxInstance',
+        'min_instance' => 'getMinInstance',
+        'reserved_frozen_instance' => 'getReservedFrozenInstance'
     ];
 
     /**
@@ -163,10 +163,10 @@ class ListFunctionsRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['filters'] = isset($data['filters']) ? $data['filters'] : null;
-        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
-        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
-        $this->container['tag_filters'] = isset($data['tag_filters']) ? $data['tag_filters'] : null;
+        $this->container['function_id'] = isset($data['function_id']) ? $data['function_id'] : null;
+        $this->container['max_instance'] = isset($data['max_instance']) ? $data['max_instance'] : null;
+        $this->container['min_instance'] = isset($data['min_instance']) ? $data['min_instance'] : null;
+        $this->container['reserved_frozen_instance'] = isset($data['reserved_frozen_instance']) ? $data['reserved_frozen_instance'] : null;
     }
 
     /**
@@ -178,6 +178,9 @@ class ListFunctionsRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['function_id'] === null) {
+            $invalidProperties[] = "'function_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -194,97 +197,97 @@ class ListFunctionsRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets filters
+     * Gets function_id
      *
-     * @return \Volcengine\Vefaas\Model\FilterForListFunctionsInput[]
+     * @return string
      */
-    public function getFilters()
+    public function getFunctionId()
     {
-        return $this->container['filters'];
+        return $this->container['function_id'];
     }
 
     /**
-     * Sets filters
+     * Sets function_id
      *
-     * @param \Volcengine\Vefaas\Model\FilterForListFunctionsInput[] $filters filters
+     * @param string $function_id function_id
      *
      * @return $this
      */
-    public function setFilters($filters)
+    public function setFunctionId($function_id)
     {
-        $this->container['filters'] = $filters;
+        $this->container['function_id'] = $function_id;
 
         return $this;
     }
 
     /**
-     * Gets page_number
+     * Gets max_instance
      *
      * @return int
      */
-    public function getPageNumber()
+    public function getMaxInstance()
     {
-        return $this->container['page_number'];
+        return $this->container['max_instance'];
     }
 
     /**
-     * Sets page_number
+     * Sets max_instance
      *
-     * @param int $page_number page_number
+     * @param int $max_instance max_instance
      *
      * @return $this
      */
-    public function setPageNumber($page_number)
+    public function setMaxInstance($max_instance)
     {
-        $this->container['page_number'] = $page_number;
+        $this->container['max_instance'] = $max_instance;
 
         return $this;
     }
 
     /**
-     * Gets page_size
+     * Gets min_instance
      *
      * @return int
      */
-    public function getPageSize()
+    public function getMinInstance()
     {
-        return $this->container['page_size'];
+        return $this->container['min_instance'];
     }
 
     /**
-     * Sets page_size
+     * Sets min_instance
      *
-     * @param int $page_size page_size
+     * @param int $min_instance min_instance
      *
      * @return $this
      */
-    public function setPageSize($page_size)
+    public function setMinInstance($min_instance)
     {
-        $this->container['page_size'] = $page_size;
+        $this->container['min_instance'] = $min_instance;
 
         return $this;
     }
 
     /**
-     * Gets tag_filters
+     * Gets reserved_frozen_instance
      *
-     * @return \Volcengine\Vefaas\Model\TagFilterForListFunctionsInput[]
+     * @return int
      */
-    public function getTagFilters()
+    public function getReservedFrozenInstance()
     {
-        return $this->container['tag_filters'];
+        return $this->container['reserved_frozen_instance'];
     }
 
     /**
-     * Sets tag_filters
+     * Sets reserved_frozen_instance
      *
-     * @param \Volcengine\Vefaas\Model\TagFilterForListFunctionsInput[] $tag_filters tag_filters
+     * @param int $reserved_frozen_instance reserved_frozen_instance
      *
      * @return $this
      */
-    public function setTagFilters($tag_filters)
+    public function setReservedFrozenInstance($reserved_frozen_instance)
     {
-        $this->container['tag_filters'] = $tag_filters;
+        $this->container['reserved_frozen_instance'] = $reserved_frozen_instance;
 
         return $this;
     }

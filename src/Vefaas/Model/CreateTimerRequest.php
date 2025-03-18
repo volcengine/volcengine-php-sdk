@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ListFunctionsRequest implements ModelInterface, ArrayAccess
+class CreateTimerRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ListFunctionsRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ListFunctionsRequest';
+    protected static $swaggerModelName = 'CreateTimerRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,14 @@ class ListFunctionsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'filters' => '\Volcengine\Vefaas\Model\FilterForListFunctionsInput[]',
-        'page_number' => 'int',
-        'page_size' => 'int',
-        'tag_filters' => '\Volcengine\Vefaas\Model\TagFilterForListFunctionsInput[]'
+        'crontab' => 'string',
+        'description' => 'string',
+        'enable_concurrency' => 'bool',
+        'enabled' => 'bool',
+        'function_id' => 'string',
+        'name' => 'string',
+        'payload' => 'string',
+        'retries' => 'int'
     ];
 
     /**
@@ -40,10 +44,14 @@ class ListFunctionsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'filters' => null,
-        'page_number' => 'int32',
-        'page_size' => 'int32',
-        'tag_filters' => null
+        'crontab' => null,
+        'description' => null,
+        'enable_concurrency' => null,
+        'enabled' => null,
+        'function_id' => null,
+        'name' => null,
+        'payload' => null,
+        'retries' => 'int32'
     ];
 
     /**
@@ -73,10 +81,14 @@ class ListFunctionsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'filters' => 'Filters',
-        'page_number' => 'PageNumber',
-        'page_size' => 'PageSize',
-        'tag_filters' => 'TagFilters'
+        'crontab' => 'Crontab',
+        'description' => 'Description',
+        'enable_concurrency' => 'EnableConcurrency',
+        'enabled' => 'Enabled',
+        'function_id' => 'FunctionId',
+        'name' => 'Name',
+        'payload' => 'Payload',
+        'retries' => 'Retries'
     ];
 
     /**
@@ -85,10 +97,14 @@ class ListFunctionsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'filters' => 'setFilters',
-        'page_number' => 'setPageNumber',
-        'page_size' => 'setPageSize',
-        'tag_filters' => 'setTagFilters'
+        'crontab' => 'setCrontab',
+        'description' => 'setDescription',
+        'enable_concurrency' => 'setEnableConcurrency',
+        'enabled' => 'setEnabled',
+        'function_id' => 'setFunctionId',
+        'name' => 'setName',
+        'payload' => 'setPayload',
+        'retries' => 'setRetries'
     ];
 
     /**
@@ -97,10 +113,14 @@ class ListFunctionsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'filters' => 'getFilters',
-        'page_number' => 'getPageNumber',
-        'page_size' => 'getPageSize',
-        'tag_filters' => 'getTagFilters'
+        'crontab' => 'getCrontab',
+        'description' => 'getDescription',
+        'enable_concurrency' => 'getEnableConcurrency',
+        'enabled' => 'getEnabled',
+        'function_id' => 'getFunctionId',
+        'name' => 'getName',
+        'payload' => 'getPayload',
+        'retries' => 'getRetries'
     ];
 
     /**
@@ -163,10 +183,14 @@ class ListFunctionsRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['filters'] = isset($data['filters']) ? $data['filters'] : null;
-        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
-        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
-        $this->container['tag_filters'] = isset($data['tag_filters']) ? $data['tag_filters'] : null;
+        $this->container['crontab'] = isset($data['crontab']) ? $data['crontab'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['enable_concurrency'] = isset($data['enable_concurrency']) ? $data['enable_concurrency'] : null;
+        $this->container['enabled'] = isset($data['enabled']) ? $data['enabled'] : null;
+        $this->container['function_id'] = isset($data['function_id']) ? $data['function_id'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['payload'] = isset($data['payload']) ? $data['payload'] : null;
+        $this->container['retries'] = isset($data['retries']) ? $data['retries'] : null;
     }
 
     /**
@@ -178,6 +202,15 @@ class ListFunctionsRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['crontab'] === null) {
+            $invalidProperties[] = "'crontab' can't be null";
+        }
+        if ($this->container['function_id'] === null) {
+            $invalidProperties[] = "'function_id' can't be null";
+        }
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -194,97 +227,193 @@ class ListFunctionsRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets filters
+     * Gets crontab
      *
-     * @return \Volcengine\Vefaas\Model\FilterForListFunctionsInput[]
+     * @return string
      */
-    public function getFilters()
+    public function getCrontab()
     {
-        return $this->container['filters'];
+        return $this->container['crontab'];
     }
 
     /**
-     * Sets filters
+     * Sets crontab
      *
-     * @param \Volcengine\Vefaas\Model\FilterForListFunctionsInput[] $filters filters
+     * @param string $crontab crontab
      *
      * @return $this
      */
-    public function setFilters($filters)
+    public function setCrontab($crontab)
     {
-        $this->container['filters'] = $filters;
+        $this->container['crontab'] = $crontab;
 
         return $this;
     }
 
     /**
-     * Gets page_number
+     * Gets description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string $description description
+     *
+     * @return $this
+     */
+    public function setDescription($description)
+    {
+        $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets enable_concurrency
+     *
+     * @return bool
+     */
+    public function getEnableConcurrency()
+    {
+        return $this->container['enable_concurrency'];
+    }
+
+    /**
+     * Sets enable_concurrency
+     *
+     * @param bool $enable_concurrency enable_concurrency
+     *
+     * @return $this
+     */
+    public function setEnableConcurrency($enable_concurrency)
+    {
+        $this->container['enable_concurrency'] = $enable_concurrency;
+
+        return $this;
+    }
+
+    /**
+     * Gets enabled
+     *
+     * @return bool
+     */
+    public function getEnabled()
+    {
+        return $this->container['enabled'];
+    }
+
+    /**
+     * Sets enabled
+     *
+     * @param bool $enabled enabled
+     *
+     * @return $this
+     */
+    public function setEnabled($enabled)
+    {
+        $this->container['enabled'] = $enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets function_id
+     *
+     * @return string
+     */
+    public function getFunctionId()
+    {
+        return $this->container['function_id'];
+    }
+
+    /**
+     * Sets function_id
+     *
+     * @param string $function_id function_id
+     *
+     * @return $this
+     */
+    public function setFunctionId($function_id)
+    {
+        $this->container['function_id'] = $function_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name name
+     *
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets payload
+     *
+     * @return string
+     */
+    public function getPayload()
+    {
+        return $this->container['payload'];
+    }
+
+    /**
+     * Sets payload
+     *
+     * @param string $payload payload
+     *
+     * @return $this
+     */
+    public function setPayload($payload)
+    {
+        $this->container['payload'] = $payload;
+
+        return $this;
+    }
+
+    /**
+     * Gets retries
      *
      * @return int
      */
-    public function getPageNumber()
+    public function getRetries()
     {
-        return $this->container['page_number'];
+        return $this->container['retries'];
     }
 
     /**
-     * Sets page_number
+     * Sets retries
      *
-     * @param int $page_number page_number
+     * @param int $retries retries
      *
      * @return $this
      */
-    public function setPageNumber($page_number)
+    public function setRetries($retries)
     {
-        $this->container['page_number'] = $page_number;
-
-        return $this;
-    }
-
-    /**
-     * Gets page_size
-     *
-     * @return int
-     */
-    public function getPageSize()
-    {
-        return $this->container['page_size'];
-    }
-
-    /**
-     * Sets page_size
-     *
-     * @param int $page_size page_size
-     *
-     * @return $this
-     */
-    public function setPageSize($page_size)
-    {
-        $this->container['page_size'] = $page_size;
-
-        return $this;
-    }
-
-    /**
-     * Gets tag_filters
-     *
-     * @return \Volcengine\Vefaas\Model\TagFilterForListFunctionsInput[]
-     */
-    public function getTagFilters()
-    {
-        return $this->container['tag_filters'];
-    }
-
-    /**
-     * Sets tag_filters
-     *
-     * @param \Volcengine\Vefaas\Model\TagFilterForListFunctionsInput[] $tag_filters tag_filters
-     *
-     * @return $this
-     */
-    public function setTagFilters($tag_filters)
-    {
-        $this->container['tag_filters'] = $tag_filters;
+        $this->container['retries'] = $retries;
 
         return $this;
     }

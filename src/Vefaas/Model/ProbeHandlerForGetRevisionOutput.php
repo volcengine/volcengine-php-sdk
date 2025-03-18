@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ListFunctionsRequest implements ModelInterface, ArrayAccess
+class ProbeHandlerForGetRevisionOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ListFunctionsRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ListFunctionsRequest';
+    protected static $swaggerModelName = 'ProbeHandlerForGetRevisionOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,8 @@ class ListFunctionsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'filters' => '\Volcengine\Vefaas\Model\FilterForListFunctionsInput[]',
-        'page_number' => 'int',
-        'page_size' => 'int',
-        'tag_filters' => '\Volcengine\Vefaas\Model\TagFilterForListFunctionsInput[]'
+        'http_get' => '\Volcengine\Vefaas\Model\HTTPGetForGetRevisionOutput',
+        'tcp_socket' => '\Volcengine\Vefaas\Model\TCPSocketForGetRevisionOutput'
     ];
 
     /**
@@ -40,10 +38,8 @@ class ListFunctionsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'filters' => null,
-        'page_number' => 'int32',
-        'page_size' => 'int32',
-        'tag_filters' => null
+        'http_get' => null,
+        'tcp_socket' => null
     ];
 
     /**
@@ -73,10 +69,8 @@ class ListFunctionsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'filters' => 'Filters',
-        'page_number' => 'PageNumber',
-        'page_size' => 'PageSize',
-        'tag_filters' => 'TagFilters'
+        'http_get' => 'HTTPGet',
+        'tcp_socket' => 'TCPSocket'
     ];
 
     /**
@@ -85,10 +79,8 @@ class ListFunctionsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'filters' => 'setFilters',
-        'page_number' => 'setPageNumber',
-        'page_size' => 'setPageSize',
-        'tag_filters' => 'setTagFilters'
+        'http_get' => 'setHttpGet',
+        'tcp_socket' => 'setTcpSocket'
     ];
 
     /**
@@ -97,10 +89,8 @@ class ListFunctionsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'filters' => 'getFilters',
-        'page_number' => 'getPageNumber',
-        'page_size' => 'getPageSize',
-        'tag_filters' => 'getTagFilters'
+        'http_get' => 'getHttpGet',
+        'tcp_socket' => 'getTcpSocket'
     ];
 
     /**
@@ -163,10 +153,8 @@ class ListFunctionsRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['filters'] = isset($data['filters']) ? $data['filters'] : null;
-        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
-        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
-        $this->container['tag_filters'] = isset($data['tag_filters']) ? $data['tag_filters'] : null;
+        $this->container['http_get'] = isset($data['http_get']) ? $data['http_get'] : null;
+        $this->container['tcp_socket'] = isset($data['tcp_socket']) ? $data['tcp_socket'] : null;
     }
 
     /**
@@ -194,97 +182,49 @@ class ListFunctionsRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets filters
+     * Gets http_get
      *
-     * @return \Volcengine\Vefaas\Model\FilterForListFunctionsInput[]
+     * @return \Volcengine\Vefaas\Model\HTTPGetForGetRevisionOutput
      */
-    public function getFilters()
+    public function getHttpGet()
     {
-        return $this->container['filters'];
+        return $this->container['http_get'];
     }
 
     /**
-     * Sets filters
+     * Sets http_get
      *
-     * @param \Volcengine\Vefaas\Model\FilterForListFunctionsInput[] $filters filters
+     * @param \Volcengine\Vefaas\Model\HTTPGetForGetRevisionOutput $http_get http_get
      *
      * @return $this
      */
-    public function setFilters($filters)
+    public function setHttpGet($http_get)
     {
-        $this->container['filters'] = $filters;
+        $this->container['http_get'] = $http_get;
 
         return $this;
     }
 
     /**
-     * Gets page_number
+     * Gets tcp_socket
      *
-     * @return int
+     * @return \Volcengine\Vefaas\Model\TCPSocketForGetRevisionOutput
      */
-    public function getPageNumber()
+    public function getTcpSocket()
     {
-        return $this->container['page_number'];
+        return $this->container['tcp_socket'];
     }
 
     /**
-     * Sets page_number
+     * Sets tcp_socket
      *
-     * @param int $page_number page_number
+     * @param \Volcengine\Vefaas\Model\TCPSocketForGetRevisionOutput $tcp_socket tcp_socket
      *
      * @return $this
      */
-    public function setPageNumber($page_number)
+    public function setTcpSocket($tcp_socket)
     {
-        $this->container['page_number'] = $page_number;
-
-        return $this;
-    }
-
-    /**
-     * Gets page_size
-     *
-     * @return int
-     */
-    public function getPageSize()
-    {
-        return $this->container['page_size'];
-    }
-
-    /**
-     * Sets page_size
-     *
-     * @param int $page_size page_size
-     *
-     * @return $this
-     */
-    public function setPageSize($page_size)
-    {
-        $this->container['page_size'] = $page_size;
-
-        return $this;
-    }
-
-    /**
-     * Gets tag_filters
-     *
-     * @return \Volcengine\Vefaas\Model\TagFilterForListFunctionsInput[]
-     */
-    public function getTagFilters()
-    {
-        return $this->container['tag_filters'];
-    }
-
-    /**
-     * Sets tag_filters
-     *
-     * @param \Volcengine\Vefaas\Model\TagFilterForListFunctionsInput[] $tag_filters tag_filters
-     *
-     * @return $this
-     */
-    public function setTagFilters($tag_filters)
-    {
-        $this->container['tag_filters'] = $tag_filters;
+        $this->container['tcp_socket'] = $tcp_socket;
 
         return $this;
     }

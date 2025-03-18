@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ListFunctionsRequest implements ModelInterface, ArrayAccess
+class UpdateKafkaTriggerRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ListFunctionsRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ListFunctionsRequest';
+    protected static $swaggerModelName = 'UpdateKafkaTriggerRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,11 @@ class ListFunctionsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'filters' => '\Volcengine\Vefaas\Model\FilterForListFunctionsInput[]',
-        'page_number' => 'int',
-        'page_size' => 'int',
-        'tag_filters' => '\Volcengine\Vefaas\Model\TagFilterForListFunctionsInput[]'
+        'description' => 'string',
+        'enabled' => 'bool',
+        'function_id' => 'string',
+        'id' => 'string',
+        'maximum_retry_attempts' => 'int'
     ];
 
     /**
@@ -40,10 +41,11 @@ class ListFunctionsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'filters' => null,
-        'page_number' => 'int32',
-        'page_size' => 'int32',
-        'tag_filters' => null
+        'description' => null,
+        'enabled' => null,
+        'function_id' => null,
+        'id' => null,
+        'maximum_retry_attempts' => 'int32'
     ];
 
     /**
@@ -73,10 +75,11 @@ class ListFunctionsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'filters' => 'Filters',
-        'page_number' => 'PageNumber',
-        'page_size' => 'PageSize',
-        'tag_filters' => 'TagFilters'
+        'description' => 'Description',
+        'enabled' => 'Enabled',
+        'function_id' => 'FunctionId',
+        'id' => 'Id',
+        'maximum_retry_attempts' => 'MaximumRetryAttempts'
     ];
 
     /**
@@ -85,10 +88,11 @@ class ListFunctionsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'filters' => 'setFilters',
-        'page_number' => 'setPageNumber',
-        'page_size' => 'setPageSize',
-        'tag_filters' => 'setTagFilters'
+        'description' => 'setDescription',
+        'enabled' => 'setEnabled',
+        'function_id' => 'setFunctionId',
+        'id' => 'setId',
+        'maximum_retry_attempts' => 'setMaximumRetryAttempts'
     ];
 
     /**
@@ -97,10 +101,11 @@ class ListFunctionsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'filters' => 'getFilters',
-        'page_number' => 'getPageNumber',
-        'page_size' => 'getPageSize',
-        'tag_filters' => 'getTagFilters'
+        'description' => 'getDescription',
+        'enabled' => 'getEnabled',
+        'function_id' => 'getFunctionId',
+        'id' => 'getId',
+        'maximum_retry_attempts' => 'getMaximumRetryAttempts'
     ];
 
     /**
@@ -163,10 +168,11 @@ class ListFunctionsRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['filters'] = isset($data['filters']) ? $data['filters'] : null;
-        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
-        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
-        $this->container['tag_filters'] = isset($data['tag_filters']) ? $data['tag_filters'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['enabled'] = isset($data['enabled']) ? $data['enabled'] : null;
+        $this->container['function_id'] = isset($data['function_id']) ? $data['function_id'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['maximum_retry_attempts'] = isset($data['maximum_retry_attempts']) ? $data['maximum_retry_attempts'] : null;
     }
 
     /**
@@ -178,6 +184,12 @@ class ListFunctionsRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['function_id'] === null) {
+            $invalidProperties[] = "'function_id' can't be null";
+        }
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -194,97 +206,121 @@ class ListFunctionsRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets filters
+     * Gets description
      *
-     * @return \Volcengine\Vefaas\Model\FilterForListFunctionsInput[]
+     * @return string
      */
-    public function getFilters()
+    public function getDescription()
     {
-        return $this->container['filters'];
+        return $this->container['description'];
     }
 
     /**
-     * Sets filters
+     * Sets description
      *
-     * @param \Volcengine\Vefaas\Model\FilterForListFunctionsInput[] $filters filters
+     * @param string $description description
      *
      * @return $this
      */
-    public function setFilters($filters)
+    public function setDescription($description)
     {
-        $this->container['filters'] = $filters;
+        $this->container['description'] = $description;
 
         return $this;
     }
 
     /**
-     * Gets page_number
+     * Gets enabled
+     *
+     * @return bool
+     */
+    public function getEnabled()
+    {
+        return $this->container['enabled'];
+    }
+
+    /**
+     * Sets enabled
+     *
+     * @param bool $enabled enabled
+     *
+     * @return $this
+     */
+    public function setEnabled($enabled)
+    {
+        $this->container['enabled'] = $enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets function_id
+     *
+     * @return string
+     */
+    public function getFunctionId()
+    {
+        return $this->container['function_id'];
+    }
+
+    /**
+     * Sets function_id
+     *
+     * @param string $function_id function_id
+     *
+     * @return $this
+     */
+    public function setFunctionId($function_id)
+    {
+        $this->container['function_id'] = $function_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string $id id
+     *
+     * @return $this
+     */
+    public function setId($id)
+    {
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets maximum_retry_attempts
      *
      * @return int
      */
-    public function getPageNumber()
+    public function getMaximumRetryAttempts()
     {
-        return $this->container['page_number'];
+        return $this->container['maximum_retry_attempts'];
     }
 
     /**
-     * Sets page_number
+     * Sets maximum_retry_attempts
      *
-     * @param int $page_number page_number
+     * @param int $maximum_retry_attempts maximum_retry_attempts
      *
      * @return $this
      */
-    public function setPageNumber($page_number)
+    public function setMaximumRetryAttempts($maximum_retry_attempts)
     {
-        $this->container['page_number'] = $page_number;
-
-        return $this;
-    }
-
-    /**
-     * Gets page_size
-     *
-     * @return int
-     */
-    public function getPageSize()
-    {
-        return $this->container['page_size'];
-    }
-
-    /**
-     * Sets page_size
-     *
-     * @param int $page_size page_size
-     *
-     * @return $this
-     */
-    public function setPageSize($page_size)
-    {
-        $this->container['page_size'] = $page_size;
-
-        return $this;
-    }
-
-    /**
-     * Gets tag_filters
-     *
-     * @return \Volcengine\Vefaas\Model\TagFilterForListFunctionsInput[]
-     */
-    public function getTagFilters()
-    {
-        return $this->container['tag_filters'];
-    }
-
-    /**
-     * Sets tag_filters
-     *
-     * @param \Volcengine\Vefaas\Model\TagFilterForListFunctionsInput[] $tag_filters tag_filters
-     *
-     * @return $this
-     */
-    public function setTagFilters($tag_filters)
-    {
-        $this->container['tag_filters'] = $tag_filters;
+        $this->container['maximum_retry_attempts'] = $maximum_retry_attempts;
 
         return $this;
     }
