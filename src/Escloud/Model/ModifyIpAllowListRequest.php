@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
+class ModifyIpAllowListRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'TagFilterForDescribeInstancesInput';
+    protected static $swaggerModelName = 'ModifyIpAllowListRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,10 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'tags' => '\Volcengine\Escloud\Model\TagForDescribeInstancesInput[]'
+        'component' => 'string',
+        'instance_id' => 'string',
+        'ip_list' => 'string',
+        'type' => 'string'
     ];
 
     /**
@@ -37,7 +40,10 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'tags' => null
+        'component' => null,
+        'instance_id' => null,
+        'ip_list' => null,
+        'type' => null
     ];
 
     /**
@@ -67,7 +73,10 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'tags' => 'Tags'
+        'component' => 'Component',
+        'instance_id' => 'InstanceId',
+        'ip_list' => 'IpList',
+        'type' => 'Type'
     ];
 
     /**
@@ -76,7 +85,10 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'tags' => 'setTags'
+        'component' => 'setComponent',
+        'instance_id' => 'setInstanceId',
+        'ip_list' => 'setIpList',
+        'type' => 'setType'
     ];
 
     /**
@@ -85,7 +97,10 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'tags' => 'getTags'
+        'component' => 'getComponent',
+        'instance_id' => 'getInstanceId',
+        'ip_list' => 'getIpList',
+        'type' => 'getType'
     ];
 
     /**
@@ -148,7 +163,10 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
+        $this->container['component'] = isset($data['component']) ? $data['component'] : null;
+        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
+        $this->container['ip_list'] = isset($data['ip_list']) ? $data['ip_list'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
     /**
@@ -160,6 +178,18 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['component'] === null) {
+            $invalidProperties[] = "'component' can't be null";
+        }
+        if ($this->container['instance_id'] === null) {
+            $invalidProperties[] = "'instance_id' can't be null";
+        }
+        if ($this->container['ip_list'] === null) {
+            $invalidProperties[] = "'ip_list' can't be null";
+        }
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -176,25 +206,97 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets tags
+     * Gets component
      *
-     * @return \Volcengine\Escloud\Model\TagForDescribeInstancesInput[]
+     * @return string
      */
-    public function getTags()
+    public function getComponent()
     {
-        return $this->container['tags'];
+        return $this->container['component'];
     }
 
     /**
-     * Sets tags
+     * Sets component
      *
-     * @param \Volcengine\Escloud\Model\TagForDescribeInstancesInput[] $tags tags
+     * @param string $component component
      *
      * @return $this
      */
-    public function setTags($tags)
+    public function setComponent($component)
     {
-        $this->container['tags'] = $tags;
+        $this->container['component'] = $component;
+
+        return $this;
+    }
+
+    /**
+     * Gets instance_id
+     *
+     * @return string
+     */
+    public function getInstanceId()
+    {
+        return $this->container['instance_id'];
+    }
+
+    /**
+     * Sets instance_id
+     *
+     * @param string $instance_id instance_id
+     *
+     * @return $this
+     */
+    public function setInstanceId($instance_id)
+    {
+        $this->container['instance_id'] = $instance_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets ip_list
+     *
+     * @return string
+     */
+    public function getIpList()
+    {
+        return $this->container['ip_list'];
+    }
+
+    /**
+     * Sets ip_list
+     *
+     * @param string $ip_list ip_list
+     *
+     * @return $this
+     */
+    public function setIpList($ip_list)
+    {
+        $this->container['ip_list'] = $ip_list;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string $type type
+     *
+     * @return $this
+     */
+    public function setType($type)
+    {
+        $this->container['type'] = $type;
 
         return $this;
     }

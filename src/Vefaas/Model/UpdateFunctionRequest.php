@@ -41,6 +41,7 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
         'source' => 'string',
         'source_access_config' => '\Volcengine\Vefaas\Model\SourceAccessConfigForUpdateFunctionInput',
         'source_type' => 'string',
+        'tags' => '\Volcengine\Vefaas\Model\TagForUpdateFunctionInput[]',
         'tls_config' => '\Volcengine\Vefaas\Model\TlsConfigForUpdateFunctionInput',
         'tos_mount_config' => '\Volcengine\Vefaas\Model\TosMountConfigForUpdateFunctionInput',
         'vpc_config' => '\Volcengine\Vefaas\Model\VpcConfigForUpdateFunctionInput'
@@ -65,6 +66,7 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
         'source' => null,
         'source_access_config' => null,
         'source_type' => null,
+        'tags' => null,
         'tls_config' => null,
         'tos_mount_config' => null,
         'vpc_config' => null
@@ -110,6 +112,7 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
         'source' => 'Source',
         'source_access_config' => 'SourceAccessConfig',
         'source_type' => 'SourceType',
+        'tags' => 'Tags',
         'tls_config' => 'TlsConfig',
         'tos_mount_config' => 'TosMountConfig',
         'vpc_config' => 'VpcConfig'
@@ -134,6 +137,7 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
         'source' => 'setSource',
         'source_access_config' => 'setSourceAccessConfig',
         'source_type' => 'setSourceType',
+        'tags' => 'setTags',
         'tls_config' => 'setTlsConfig',
         'tos_mount_config' => 'setTosMountConfig',
         'vpc_config' => 'setVpcConfig'
@@ -158,6 +162,7 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
         'source' => 'getSource',
         'source_access_config' => 'getSourceAccessConfig',
         'source_type' => 'getSourceType',
+        'tags' => 'getTags',
         'tls_config' => 'getTlsConfig',
         'tos_mount_config' => 'getTosMountConfig',
         'vpc_config' => 'getVpcConfig'
@@ -236,6 +241,7 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
         $this->container['source'] = isset($data['source']) ? $data['source'] : null;
         $this->container['source_access_config'] = isset($data['source_access_config']) ? $data['source_access_config'] : null;
         $this->container['source_type'] = isset($data['source_type']) ? $data['source_type'] : null;
+        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['tls_config'] = isset($data['tls_config']) ? $data['tls_config'] : null;
         $this->container['tos_mount_config'] = isset($data['tos_mount_config']) ? $data['tos_mount_config'] : null;
         $this->container['vpc_config'] = isset($data['vpc_config']) ? $data['vpc_config'] : null;
@@ -576,6 +582,30 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
     public function setSourceType($source_type)
     {
         $this->container['source_type'] = $source_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets tags
+     *
+     * @return \Volcengine\Vefaas\Model\TagForUpdateFunctionInput[]
+     */
+    public function getTags()
+    {
+        return $this->container['tags'];
+    }
+
+    /**
+     * Sets tags
+     *
+     * @param \Volcengine\Vefaas\Model\TagForUpdateFunctionInput[] $tags tags
+     *
+     * @return $this
+     */
+    public function setTags($tags)
+    {
+        $this->container['tags'] = $tags;
 
         return $this;
     }

@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Escloud\Model;
+namespace Volcengine\Vefaas\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ModifyIpWhitelistResponse implements ModelInterface, ArrayAccess
+class ScaleStrategyForListFunctionElasticScaleStrategyOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ModifyIpWhitelistResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ModifyIpWhitelistResponse';
+    protected static $swaggerModelName = 'ScaleStrategyForListFunctionElasticScaleStrategyOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,10 @@ class ModifyIpWhitelistResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'message' => 'string',
-        'status' => 'string'
+        'create_time' => 'string',
+        'rules' => '\Volcengine\Vefaas\Model\RuleForListFunctionElasticScaleStrategyOutput[]',
+        'type' => 'string',
+        'update_time' => 'string'
     ];
 
     /**
@@ -38,8 +40,10 @@ class ModifyIpWhitelistResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'message' => null,
-        'status' => null
+        'create_time' => null,
+        'rules' => null,
+        'type' => null,
+        'update_time' => null
     ];
 
     /**
@@ -69,8 +73,10 @@ class ModifyIpWhitelistResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'message' => 'Message',
-        'status' => 'Status'
+        'create_time' => 'CreateTime',
+        'rules' => 'Rules',
+        'type' => 'Type',
+        'update_time' => 'UpdateTime'
     ];
 
     /**
@@ -79,8 +85,10 @@ class ModifyIpWhitelistResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'message' => 'setMessage',
-        'status' => 'setStatus'
+        'create_time' => 'setCreateTime',
+        'rules' => 'setRules',
+        'type' => 'setType',
+        'update_time' => 'setUpdateTime'
     ];
 
     /**
@@ -89,8 +97,10 @@ class ModifyIpWhitelistResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'message' => 'getMessage',
-        'status' => 'getStatus'
+        'create_time' => 'getCreateTime',
+        'rules' => 'getRules',
+        'type' => 'getType',
+        'update_time' => 'getUpdateTime'
     ];
 
     /**
@@ -153,8 +163,10 @@ class ModifyIpWhitelistResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
+        $this->container['rules'] = isset($data['rules']) ? $data['rules'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
     }
 
     /**
@@ -182,49 +194,97 @@ class ModifyIpWhitelistResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets message
+     * Gets create_time
      *
      * @return string
      */
-    public function getMessage()
+    public function getCreateTime()
     {
-        return $this->container['message'];
+        return $this->container['create_time'];
     }
 
     /**
-     * Sets message
+     * Sets create_time
      *
-     * @param string $message message
+     * @param string $create_time create_time
      *
      * @return $this
      */
-    public function setMessage($message)
+    public function setCreateTime($create_time)
     {
-        $this->container['message'] = $message;
+        $this->container['create_time'] = $create_time;
 
         return $this;
     }
 
     /**
-     * Gets status
+     * Gets rules
      *
-     * @return string
+     * @return \Volcengine\Vefaas\Model\RuleForListFunctionElasticScaleStrategyOutput[]
      */
-    public function getStatus()
+    public function getRules()
     {
-        return $this->container['status'];
+        return $this->container['rules'];
     }
 
     /**
-     * Sets status
+     * Sets rules
      *
-     * @param string $status status
+     * @param \Volcengine\Vefaas\Model\RuleForListFunctionElasticScaleStrategyOutput[] $rules rules
      *
      * @return $this
      */
-    public function setStatus($status)
+    public function setRules($rules)
     {
-        $this->container['status'] = $status;
+        $this->container['rules'] = $rules;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string $type type
+     *
+     * @return $this
+     */
+    public function setType($type)
+    {
+        $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets update_time
+     *
+     * @return string
+     */
+    public function getUpdateTime()
+    {
+        return $this->container['update_time'];
+    }
+
+    /**
+     * Sets update_time
+     *
+     * @param string $update_time update_time
+     *
+     * @return $this
+     */
+    public function setUpdateTime($update_time)
+    {
+        $this->container['update_time'] = $update_time;
 
         return $this;
     }

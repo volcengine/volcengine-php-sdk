@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Escloud\Model;
+namespace Volcengine\Vefaas\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
+class GetImageSyncStatusRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'TagFilterForDescribeInstancesInput';
+    protected static $swaggerModelName = 'GetImageSyncStatusRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,8 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'tags' => '\Volcengine\Escloud\Model\TagForDescribeInstancesInput[]'
+        'function_id' => 'string',
+        'source' => 'string'
     ];
 
     /**
@@ -37,7 +38,8 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'tags' => null
+        'function_id' => null,
+        'source' => null
     ];
 
     /**
@@ -67,7 +69,8 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'tags' => 'Tags'
+        'function_id' => 'FunctionId',
+        'source' => 'Source'
     ];
 
     /**
@@ -76,7 +79,8 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'tags' => 'setTags'
+        'function_id' => 'setFunctionId',
+        'source' => 'setSource'
     ];
 
     /**
@@ -85,7 +89,8 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'tags' => 'getTags'
+        'function_id' => 'getFunctionId',
+        'source' => 'getSource'
     ];
 
     /**
@@ -148,7 +153,8 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
+        $this->container['function_id'] = isset($data['function_id']) ? $data['function_id'] : null;
+        $this->container['source'] = isset($data['source']) ? $data['source'] : null;
     }
 
     /**
@@ -160,6 +166,12 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['function_id'] === null) {
+            $invalidProperties[] = "'function_id' can't be null";
+        }
+        if ($this->container['source'] === null) {
+            $invalidProperties[] = "'source' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -176,25 +188,49 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets tags
+     * Gets function_id
      *
-     * @return \Volcengine\Escloud\Model\TagForDescribeInstancesInput[]
+     * @return string
      */
-    public function getTags()
+    public function getFunctionId()
     {
-        return $this->container['tags'];
+        return $this->container['function_id'];
     }
 
     /**
-     * Sets tags
+     * Sets function_id
      *
-     * @param \Volcengine\Escloud\Model\TagForDescribeInstancesInput[] $tags tags
+     * @param string $function_id function_id
      *
      * @return $this
      */
-    public function setTags($tags)
+    public function setFunctionId($function_id)
     {
-        $this->container['tags'] = $tags;
+        $this->container['function_id'] = $function_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets source
+     *
+     * @return string
+     */
+    public function getSource()
+    {
+        return $this->container['source'];
+    }
+
+    /**
+     * Sets source
+     *
+     * @param string $source source
+     *
+     * @return $this
+     */
+    public function setSource($source)
+    {
+        $this->container['source'] = $source;
 
         return $this;
     }

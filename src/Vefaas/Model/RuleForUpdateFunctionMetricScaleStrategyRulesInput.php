@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Escloud\Model;
+namespace Volcengine\Vefaas\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
+class RuleForUpdateFunctionMetricScaleStrategyRulesInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'TagFilterForDescribeInstancesInput';
+    protected static $swaggerModelName = 'RuleForUpdateFunctionMetricScaleStrategyRulesInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,8 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'tags' => '\Volcengine\Escloud\Model\TagForDescribeInstancesInput[]'
+        'metric_type' => 'string',
+        'target' => 'int'
     ];
 
     /**
@@ -37,7 +38,8 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'tags' => null
+        'metric_type' => null,
+        'target' => 'int32'
     ];
 
     /**
@@ -67,7 +69,8 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'tags' => 'Tags'
+        'metric_type' => 'MetricType',
+        'target' => 'Target'
     ];
 
     /**
@@ -76,7 +79,8 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'tags' => 'setTags'
+        'metric_type' => 'setMetricType',
+        'target' => 'setTarget'
     ];
 
     /**
@@ -85,7 +89,8 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'tags' => 'getTags'
+        'metric_type' => 'getMetricType',
+        'target' => 'getTarget'
     ];
 
     /**
@@ -148,7 +153,8 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
+        $this->container['metric_type'] = isset($data['metric_type']) ? $data['metric_type'] : null;
+        $this->container['target'] = isset($data['target']) ? $data['target'] : null;
     }
 
     /**
@@ -176,25 +182,49 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets tags
+     * Gets metric_type
      *
-     * @return \Volcengine\Escloud\Model\TagForDescribeInstancesInput[]
+     * @return string
      */
-    public function getTags()
+    public function getMetricType()
     {
-        return $this->container['tags'];
+        return $this->container['metric_type'];
     }
 
     /**
-     * Sets tags
+     * Sets metric_type
      *
-     * @param \Volcengine\Escloud\Model\TagForDescribeInstancesInput[] $tags tags
+     * @param string $metric_type metric_type
      *
      * @return $this
      */
-    public function setTags($tags)
+    public function setMetricType($metric_type)
     {
-        $this->container['tags'] = $tags;
+        $this->container['metric_type'] = $metric_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets target
+     *
+     * @return int
+     */
+    public function getTarget()
+    {
+        return $this->container['target'];
+    }
+
+    /**
+     * Sets target
+     *
+     * @param int $target target
+     *
+     * @return $this
+     */
+    public function setTarget($target)
+    {
+        $this->container['target'] = $target;
 
         return $this;
     }

@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class GetRocketMQTriggerRequest implements ModelInterface, ArrayAccess
+class TagForUpdateFunctionInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class GetRocketMQTriggerRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetRocketMQTriggerRequest';
+    protected static $swaggerModelName = 'TagForUpdateFunctionInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,8 @@ class GetRocketMQTriggerRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'function_id' => 'string',
-        'id' => 'string'
+        'key' => 'string',
+        'value' => 'string'
     ];
 
     /**
@@ -38,8 +38,8 @@ class GetRocketMQTriggerRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'function_id' => null,
-        'id' => null
+        'key' => null,
+        'value' => null
     ];
 
     /**
@@ -69,8 +69,8 @@ class GetRocketMQTriggerRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'function_id' => 'FunctionId',
-        'id' => 'Id'
+        'key' => 'Key',
+        'value' => 'Value'
     ];
 
     /**
@@ -79,8 +79,8 @@ class GetRocketMQTriggerRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'function_id' => 'setFunctionId',
-        'id' => 'setId'
+        'key' => 'setKey',
+        'value' => 'setValue'
     ];
 
     /**
@@ -89,8 +89,8 @@ class GetRocketMQTriggerRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'function_id' => 'getFunctionId',
-        'id' => 'getId'
+        'key' => 'getKey',
+        'value' => 'getValue'
     ];
 
     /**
@@ -153,8 +153,8 @@ class GetRocketMQTriggerRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['function_id'] = isset($data['function_id']) ? $data['function_id'] : null;
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['key'] = isset($data['key']) ? $data['key'] : null;
+        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 
     /**
@@ -166,12 +166,6 @@ class GetRocketMQTriggerRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['function_id'] === null) {
-            $invalidProperties[] = "'function_id' can't be null";
-        }
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -188,49 +182,49 @@ class GetRocketMQTriggerRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets function_id
+     * Gets key
      *
      * @return string
      */
-    public function getFunctionId()
+    public function getKey()
     {
-        return $this->container['function_id'];
+        return $this->container['key'];
     }
 
     /**
-     * Sets function_id
+     * Sets key
      *
-     * @param string $function_id function_id
+     * @param string $key key
      *
      * @return $this
      */
-    public function setFunctionId($function_id)
+    public function setKey($key)
     {
-        $this->container['function_id'] = $function_id;
+        $this->container['key'] = $key;
 
         return $this;
     }
 
     /**
-     * Gets id
+     * Gets value
      *
      * @return string
      */
-    public function getId()
+    public function getValue()
     {
-        return $this->container['id'];
+        return $this->container['value'];
     }
 
     /**
-     * Sets id
+     * Sets value
      *
-     * @param string $id id
+     * @param string $value value
      *
      * @return $this
      */
-    public function setId($id)
+    public function setValue($value)
     {
-        $this->container['id'] = $id;
+        $this->container['value'] = $value;
 
         return $this;
     }

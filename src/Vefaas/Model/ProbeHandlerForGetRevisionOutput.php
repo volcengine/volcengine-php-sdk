@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Escloud\Model;
+namespace Volcengine\Vefaas\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
+class ProbeHandlerForGetRevisionOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'TagFilterForDescribeInstancesInput';
+    protected static $swaggerModelName = 'ProbeHandlerForGetRevisionOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,8 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'tags' => '\Volcengine\Escloud\Model\TagForDescribeInstancesInput[]'
+        'http_get' => '\Volcengine\Vefaas\Model\HTTPGetForGetRevisionOutput',
+        'tcp_socket' => '\Volcengine\Vefaas\Model\TCPSocketForGetRevisionOutput'
     ];
 
     /**
@@ -37,7 +38,8 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'tags' => null
+        'http_get' => null,
+        'tcp_socket' => null
     ];
 
     /**
@@ -67,7 +69,8 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'tags' => 'Tags'
+        'http_get' => 'HTTPGet',
+        'tcp_socket' => 'TCPSocket'
     ];
 
     /**
@@ -76,7 +79,8 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'tags' => 'setTags'
+        'http_get' => 'setHttpGet',
+        'tcp_socket' => 'setTcpSocket'
     ];
 
     /**
@@ -85,7 +89,8 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'tags' => 'getTags'
+        'http_get' => 'getHttpGet',
+        'tcp_socket' => 'getTcpSocket'
     ];
 
     /**
@@ -148,7 +153,8 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
+        $this->container['http_get'] = isset($data['http_get']) ? $data['http_get'] : null;
+        $this->container['tcp_socket'] = isset($data['tcp_socket']) ? $data['tcp_socket'] : null;
     }
 
     /**
@@ -176,25 +182,49 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets tags
+     * Gets http_get
      *
-     * @return \Volcengine\Escloud\Model\TagForDescribeInstancesInput[]
+     * @return \Volcengine\Vefaas\Model\HTTPGetForGetRevisionOutput
      */
-    public function getTags()
+    public function getHttpGet()
     {
-        return $this->container['tags'];
+        return $this->container['http_get'];
     }
 
     /**
-     * Sets tags
+     * Sets http_get
      *
-     * @param \Volcengine\Escloud\Model\TagForDescribeInstancesInput[] $tags tags
+     * @param \Volcengine\Vefaas\Model\HTTPGetForGetRevisionOutput $http_get http_get
      *
      * @return $this
      */
-    public function setTags($tags)
+    public function setHttpGet($http_get)
     {
-        $this->container['tags'] = $tags;
+        $this->container['http_get'] = $http_get;
+
+        return $this;
+    }
+
+    /**
+     * Gets tcp_socket
+     *
+     * @return \Volcengine\Vefaas\Model\TCPSocketForGetRevisionOutput
+     */
+    public function getTcpSocket()
+    {
+        return $this->container['tcp_socket'];
+    }
+
+    /**
+     * Sets tcp_socket
+     *
+     * @param \Volcengine\Vefaas\Model\TCPSocketForGetRevisionOutput $tcp_socket tcp_socket
+     *
+     * @return $this
+     */
+    public function setTcpSocket($tcp_socket)
+    {
+        $this->container['tcp_socket'] = $tcp_socket;
 
         return $this;
     }

@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Escloud\Model;
+namespace Volcengine\Vefaas\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
+class UpdateFunctionResourceResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'TagFilterForDescribeInstancesInput';
+    protected static $swaggerModelName = 'UpdateFunctionResourceResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,10 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'tags' => '\Volcengine\Escloud\Model\TagForDescribeInstancesInput[]'
+        'id' => 'string',
+        'max_instance' => 'int',
+        'min_instance' => 'int',
+        'reserved_frozen_instance' => 'int'
     ];
 
     /**
@@ -37,7 +40,10 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'tags' => null
+        'id' => null,
+        'max_instance' => 'int32',
+        'min_instance' => 'int32',
+        'reserved_frozen_instance' => 'int32'
     ];
 
     /**
@@ -67,7 +73,10 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'tags' => 'Tags'
+        'id' => 'Id',
+        'max_instance' => 'MaxInstance',
+        'min_instance' => 'MinInstance',
+        'reserved_frozen_instance' => 'ReservedFrozenInstance'
     ];
 
     /**
@@ -76,7 +85,10 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'tags' => 'setTags'
+        'id' => 'setId',
+        'max_instance' => 'setMaxInstance',
+        'min_instance' => 'setMinInstance',
+        'reserved_frozen_instance' => 'setReservedFrozenInstance'
     ];
 
     /**
@@ -85,7 +97,10 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'tags' => 'getTags'
+        'id' => 'getId',
+        'max_instance' => 'getMaxInstance',
+        'min_instance' => 'getMinInstance',
+        'reserved_frozen_instance' => 'getReservedFrozenInstance'
     ];
 
     /**
@@ -148,7 +163,10 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['max_instance'] = isset($data['max_instance']) ? $data['max_instance'] : null;
+        $this->container['min_instance'] = isset($data['min_instance']) ? $data['min_instance'] : null;
+        $this->container['reserved_frozen_instance'] = isset($data['reserved_frozen_instance']) ? $data['reserved_frozen_instance'] : null;
     }
 
     /**
@@ -176,25 +194,97 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets tags
+     * Gets id
      *
-     * @return \Volcengine\Escloud\Model\TagForDescribeInstancesInput[]
+     * @return string
      */
-    public function getTags()
+    public function getId()
     {
-        return $this->container['tags'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets tags
+     * Sets id
      *
-     * @param \Volcengine\Escloud\Model\TagForDescribeInstancesInput[] $tags tags
+     * @param string $id id
      *
      * @return $this
      */
-    public function setTags($tags)
+    public function setId($id)
     {
-        $this->container['tags'] = $tags;
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets max_instance
+     *
+     * @return int
+     */
+    public function getMaxInstance()
+    {
+        return $this->container['max_instance'];
+    }
+
+    /**
+     * Sets max_instance
+     *
+     * @param int $max_instance max_instance
+     *
+     * @return $this
+     */
+    public function setMaxInstance($max_instance)
+    {
+        $this->container['max_instance'] = $max_instance;
+
+        return $this;
+    }
+
+    /**
+     * Gets min_instance
+     *
+     * @return int
+     */
+    public function getMinInstance()
+    {
+        return $this->container['min_instance'];
+    }
+
+    /**
+     * Sets min_instance
+     *
+     * @param int $min_instance min_instance
+     *
+     * @return $this
+     */
+    public function setMinInstance($min_instance)
+    {
+        $this->container['min_instance'] = $min_instance;
+
+        return $this;
+    }
+
+    /**
+     * Gets reserved_frozen_instance
+     *
+     * @return int
+     */
+    public function getReservedFrozenInstance()
+    {
+        return $this->container['reserved_frozen_instance'];
+    }
+
+    /**
+     * Sets reserved_frozen_instance
+     *
+     * @param int $reserved_frozen_instance reserved_frozen_instance
+     *
+     * @return $this
+     */
+    public function setReservedFrozenInstance($reserved_frozen_instance)
+    {
+        $this->container['reserved_frozen_instance'] = $reserved_frozen_instance;
 
         return $this;
     }

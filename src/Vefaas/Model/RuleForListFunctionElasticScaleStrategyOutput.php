@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Escloud\Model;
+namespace Volcengine\Vefaas\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
+class RuleForListFunctionElasticScaleStrategyOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'TagFilterForDescribeInstancesInput';
+    protected static $swaggerModelName = 'RuleForListFunctionElasticScaleStrategyOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,12 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'tags' => '\Volcengine\Escloud\Model\TagForDescribeInstancesInput[]'
+        'aggregate_seconds' => 'int',
+        'aggregate_type' => 'string',
+        'metric_type' => 'string',
+        'scale_down_threshold' => 'int',
+        'scale_up_threshold' => 'int',
+        'target' => 'int'
     ];
 
     /**
@@ -37,7 +42,12 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'tags' => null
+        'aggregate_seconds' => 'int32',
+        'aggregate_type' => null,
+        'metric_type' => null,
+        'scale_down_threshold' => 'int32',
+        'scale_up_threshold' => 'int32',
+        'target' => 'int32'
     ];
 
     /**
@@ -67,7 +77,12 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'tags' => 'Tags'
+        'aggregate_seconds' => 'AggregateSeconds',
+        'aggregate_type' => 'AggregateType',
+        'metric_type' => 'MetricType',
+        'scale_down_threshold' => 'ScaleDownThreshold',
+        'scale_up_threshold' => 'ScaleUpThreshold',
+        'target' => 'Target'
     ];
 
     /**
@@ -76,7 +91,12 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'tags' => 'setTags'
+        'aggregate_seconds' => 'setAggregateSeconds',
+        'aggregate_type' => 'setAggregateType',
+        'metric_type' => 'setMetricType',
+        'scale_down_threshold' => 'setScaleDownThreshold',
+        'scale_up_threshold' => 'setScaleUpThreshold',
+        'target' => 'setTarget'
     ];
 
     /**
@@ -85,7 +105,12 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'tags' => 'getTags'
+        'aggregate_seconds' => 'getAggregateSeconds',
+        'aggregate_type' => 'getAggregateType',
+        'metric_type' => 'getMetricType',
+        'scale_down_threshold' => 'getScaleDownThreshold',
+        'scale_up_threshold' => 'getScaleUpThreshold',
+        'target' => 'getTarget'
     ];
 
     /**
@@ -148,7 +173,12 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
+        $this->container['aggregate_seconds'] = isset($data['aggregate_seconds']) ? $data['aggregate_seconds'] : null;
+        $this->container['aggregate_type'] = isset($data['aggregate_type']) ? $data['aggregate_type'] : null;
+        $this->container['metric_type'] = isset($data['metric_type']) ? $data['metric_type'] : null;
+        $this->container['scale_down_threshold'] = isset($data['scale_down_threshold']) ? $data['scale_down_threshold'] : null;
+        $this->container['scale_up_threshold'] = isset($data['scale_up_threshold']) ? $data['scale_up_threshold'] : null;
+        $this->container['target'] = isset($data['target']) ? $data['target'] : null;
     }
 
     /**
@@ -176,25 +206,145 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets tags
+     * Gets aggregate_seconds
      *
-     * @return \Volcengine\Escloud\Model\TagForDescribeInstancesInput[]
+     * @return int
      */
-    public function getTags()
+    public function getAggregateSeconds()
     {
-        return $this->container['tags'];
+        return $this->container['aggregate_seconds'];
     }
 
     /**
-     * Sets tags
+     * Sets aggregate_seconds
      *
-     * @param \Volcengine\Escloud\Model\TagForDescribeInstancesInput[] $tags tags
+     * @param int $aggregate_seconds aggregate_seconds
      *
      * @return $this
      */
-    public function setTags($tags)
+    public function setAggregateSeconds($aggregate_seconds)
     {
-        $this->container['tags'] = $tags;
+        $this->container['aggregate_seconds'] = $aggregate_seconds;
+
+        return $this;
+    }
+
+    /**
+     * Gets aggregate_type
+     *
+     * @return string
+     */
+    public function getAggregateType()
+    {
+        return $this->container['aggregate_type'];
+    }
+
+    /**
+     * Sets aggregate_type
+     *
+     * @param string $aggregate_type aggregate_type
+     *
+     * @return $this
+     */
+    public function setAggregateType($aggregate_type)
+    {
+        $this->container['aggregate_type'] = $aggregate_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets metric_type
+     *
+     * @return string
+     */
+    public function getMetricType()
+    {
+        return $this->container['metric_type'];
+    }
+
+    /**
+     * Sets metric_type
+     *
+     * @param string $metric_type metric_type
+     *
+     * @return $this
+     */
+    public function setMetricType($metric_type)
+    {
+        $this->container['metric_type'] = $metric_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets scale_down_threshold
+     *
+     * @return int
+     */
+    public function getScaleDownThreshold()
+    {
+        return $this->container['scale_down_threshold'];
+    }
+
+    /**
+     * Sets scale_down_threshold
+     *
+     * @param int $scale_down_threshold scale_down_threshold
+     *
+     * @return $this
+     */
+    public function setScaleDownThreshold($scale_down_threshold)
+    {
+        $this->container['scale_down_threshold'] = $scale_down_threshold;
+
+        return $this;
+    }
+
+    /**
+     * Gets scale_up_threshold
+     *
+     * @return int
+     */
+    public function getScaleUpThreshold()
+    {
+        return $this->container['scale_up_threshold'];
+    }
+
+    /**
+     * Sets scale_up_threshold
+     *
+     * @param int $scale_up_threshold scale_up_threshold
+     *
+     * @return $this
+     */
+    public function setScaleUpThreshold($scale_up_threshold)
+    {
+        $this->container['scale_up_threshold'] = $scale_up_threshold;
+
+        return $this;
+    }
+
+    /**
+     * Gets target
+     *
+     * @return int
+     */
+    public function getTarget()
+    {
+        return $this->container['target'];
+    }
+
+    /**
+     * Sets target
+     *
+     * @param int $target target
+     *
+     * @return $this
+     */
+    public function setTarget($target)
+    {
+        $this->container['target'] = $target;
 
         return $this;
     }

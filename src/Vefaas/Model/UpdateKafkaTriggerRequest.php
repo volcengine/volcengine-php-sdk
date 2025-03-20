@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Escloud\Model;
+namespace Volcengine\Vefaas\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
+class UpdateKafkaTriggerRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'TagFilterForDescribeInstancesInput';
+    protected static $swaggerModelName = 'UpdateKafkaTriggerRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,11 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'tags' => '\Volcengine\Escloud\Model\TagForDescribeInstancesInput[]'
+        'description' => 'string',
+        'enabled' => 'bool',
+        'function_id' => 'string',
+        'id' => 'string',
+        'maximum_retry_attempts' => 'int'
     ];
 
     /**
@@ -37,7 +41,11 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'tags' => null
+        'description' => null,
+        'enabled' => null,
+        'function_id' => null,
+        'id' => null,
+        'maximum_retry_attempts' => 'int32'
     ];
 
     /**
@@ -67,7 +75,11 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'tags' => 'Tags'
+        'description' => 'Description',
+        'enabled' => 'Enabled',
+        'function_id' => 'FunctionId',
+        'id' => 'Id',
+        'maximum_retry_attempts' => 'MaximumRetryAttempts'
     ];
 
     /**
@@ -76,7 +88,11 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'tags' => 'setTags'
+        'description' => 'setDescription',
+        'enabled' => 'setEnabled',
+        'function_id' => 'setFunctionId',
+        'id' => 'setId',
+        'maximum_retry_attempts' => 'setMaximumRetryAttempts'
     ];
 
     /**
@@ -85,7 +101,11 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'tags' => 'getTags'
+        'description' => 'getDescription',
+        'enabled' => 'getEnabled',
+        'function_id' => 'getFunctionId',
+        'id' => 'getId',
+        'maximum_retry_attempts' => 'getMaximumRetryAttempts'
     ];
 
     /**
@@ -148,7 +168,11 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['enabled'] = isset($data['enabled']) ? $data['enabled'] : null;
+        $this->container['function_id'] = isset($data['function_id']) ? $data['function_id'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['maximum_retry_attempts'] = isset($data['maximum_retry_attempts']) ? $data['maximum_retry_attempts'] : null;
     }
 
     /**
@@ -160,6 +184,12 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['function_id'] === null) {
+            $invalidProperties[] = "'function_id' can't be null";
+        }
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -176,25 +206,121 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets tags
+     * Gets description
      *
-     * @return \Volcengine\Escloud\Model\TagForDescribeInstancesInput[]
+     * @return string
      */
-    public function getTags()
+    public function getDescription()
     {
-        return $this->container['tags'];
+        return $this->container['description'];
     }
 
     /**
-     * Sets tags
+     * Sets description
      *
-     * @param \Volcengine\Escloud\Model\TagForDescribeInstancesInput[] $tags tags
+     * @param string $description description
      *
      * @return $this
      */
-    public function setTags($tags)
+    public function setDescription($description)
     {
-        $this->container['tags'] = $tags;
+        $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets enabled
+     *
+     * @return bool
+     */
+    public function getEnabled()
+    {
+        return $this->container['enabled'];
+    }
+
+    /**
+     * Sets enabled
+     *
+     * @param bool $enabled enabled
+     *
+     * @return $this
+     */
+    public function setEnabled($enabled)
+    {
+        $this->container['enabled'] = $enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets function_id
+     *
+     * @return string
+     */
+    public function getFunctionId()
+    {
+        return $this->container['function_id'];
+    }
+
+    /**
+     * Sets function_id
+     *
+     * @param string $function_id function_id
+     *
+     * @return $this
+     */
+    public function setFunctionId($function_id)
+    {
+        $this->container['function_id'] = $function_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string $id id
+     *
+     * @return $this
+     */
+    public function setId($id)
+    {
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets maximum_retry_attempts
+     *
+     * @return int
+     */
+    public function getMaximumRetryAttempts()
+    {
+        return $this->container['maximum_retry_attempts'];
+    }
+
+    /**
+     * Sets maximum_retry_attempts
+     *
+     * @param int $maximum_retry_attempts maximum_retry_attempts
+     *
+     * @return $this
+     */
+    public function setMaximumRetryAttempts($maximum_retry_attempts)
+    {
+        $this->container['maximum_retry_attempts'] = $maximum_retry_attempts;
 
         return $this;
     }

@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Escloud\Model;
+namespace Volcengine\Vefaas\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
+class ListFunctionElasticScaleStrategyResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'TagFilterForDescribeInstancesInput';
+    protected static $swaggerModelName = 'ListFunctionElasticScaleStrategyResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,7 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'tags' => '\Volcengine\Escloud\Model\TagForDescribeInstancesInput[]'
+        'scale_strategies' => '\Volcengine\Vefaas\Model\ScaleStrategyForListFunctionElasticScaleStrategyOutput[]'
     ];
 
     /**
@@ -37,7 +37,7 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'tags' => null
+        'scale_strategies' => null
     ];
 
     /**
@@ -67,7 +67,7 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'tags' => 'Tags'
+        'scale_strategies' => 'ScaleStrategies'
     ];
 
     /**
@@ -76,7 +76,7 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'tags' => 'setTags'
+        'scale_strategies' => 'setScaleStrategies'
     ];
 
     /**
@@ -85,7 +85,7 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'tags' => 'getTags'
+        'scale_strategies' => 'getScaleStrategies'
     ];
 
     /**
@@ -148,7 +148,7 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
+        $this->container['scale_strategies'] = isset($data['scale_strategies']) ? $data['scale_strategies'] : null;
     }
 
     /**
@@ -176,25 +176,25 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets tags
+     * Gets scale_strategies
      *
-     * @return \Volcengine\Escloud\Model\TagForDescribeInstancesInput[]
+     * @return \Volcengine\Vefaas\Model\ScaleStrategyForListFunctionElasticScaleStrategyOutput[]
      */
-    public function getTags()
+    public function getScaleStrategies()
     {
-        return $this->container['tags'];
+        return $this->container['scale_strategies'];
     }
 
     /**
-     * Sets tags
+     * Sets scale_strategies
      *
-     * @param \Volcengine\Escloud\Model\TagForDescribeInstancesInput[] $tags tags
+     * @param \Volcengine\Vefaas\Model\ScaleStrategyForListFunctionElasticScaleStrategyOutput[] $scale_strategies scale_strategies
      *
      * @return $this
      */
-    public function setTags($tags)
+    public function setScaleStrategies($scale_strategies)
     {
-        $this->container['tags'] = $tags;
+        $this->container['scale_strategies'] = $scale_strategies;
 
         return $this;
     }

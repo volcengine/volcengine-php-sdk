@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Escloud\Model;
+namespace Volcengine\Vefaas\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
+class HTTPGetForGetRevisionOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'TagFilterForDescribeInstancesInput';
+    protected static $swaggerModelName = 'HTTPGetForGetRevisionOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,10 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'tags' => '\Volcengine\Escloud\Model\TagForDescribeInstancesInput[]'
+        'http_headers' => '\Volcengine\Vefaas\Model\HTTPHeaderForGetRevisionOutput[]',
+        'path' => 'string',
+        'port' => 'int',
+        'scheme' => 'string'
     ];
 
     /**
@@ -37,7 +40,10 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'tags' => null
+        'http_headers' => null,
+        'path' => null,
+        'port' => 'int32',
+        'scheme' => null
     ];
 
     /**
@@ -67,7 +73,10 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'tags' => 'Tags'
+        'http_headers' => 'HTTPHeaders',
+        'path' => 'Path',
+        'port' => 'Port',
+        'scheme' => 'Scheme'
     ];
 
     /**
@@ -76,7 +85,10 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'tags' => 'setTags'
+        'http_headers' => 'setHttpHeaders',
+        'path' => 'setPath',
+        'port' => 'setPort',
+        'scheme' => 'setScheme'
     ];
 
     /**
@@ -85,7 +97,10 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'tags' => 'getTags'
+        'http_headers' => 'getHttpHeaders',
+        'path' => 'getPath',
+        'port' => 'getPort',
+        'scheme' => 'getScheme'
     ];
 
     /**
@@ -148,7 +163,10 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
+        $this->container['http_headers'] = isset($data['http_headers']) ? $data['http_headers'] : null;
+        $this->container['path'] = isset($data['path']) ? $data['path'] : null;
+        $this->container['port'] = isset($data['port']) ? $data['port'] : null;
+        $this->container['scheme'] = isset($data['scheme']) ? $data['scheme'] : null;
     }
 
     /**
@@ -176,25 +194,97 @@ class TagFilterForDescribeInstancesInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets tags
+     * Gets http_headers
      *
-     * @return \Volcengine\Escloud\Model\TagForDescribeInstancesInput[]
+     * @return \Volcengine\Vefaas\Model\HTTPHeaderForGetRevisionOutput[]
      */
-    public function getTags()
+    public function getHttpHeaders()
     {
-        return $this->container['tags'];
+        return $this->container['http_headers'];
     }
 
     /**
-     * Sets tags
+     * Sets http_headers
      *
-     * @param \Volcengine\Escloud\Model\TagForDescribeInstancesInput[] $tags tags
+     * @param \Volcengine\Vefaas\Model\HTTPHeaderForGetRevisionOutput[] $http_headers http_headers
      *
      * @return $this
      */
-    public function setTags($tags)
+    public function setHttpHeaders($http_headers)
     {
-        $this->container['tags'] = $tags;
+        $this->container['http_headers'] = $http_headers;
+
+        return $this;
+    }
+
+    /**
+     * Gets path
+     *
+     * @return string
+     */
+    public function getPath()
+    {
+        return $this->container['path'];
+    }
+
+    /**
+     * Sets path
+     *
+     * @param string $path path
+     *
+     * @return $this
+     */
+    public function setPath($path)
+    {
+        $this->container['path'] = $path;
+
+        return $this;
+    }
+
+    /**
+     * Gets port
+     *
+     * @return int
+     */
+    public function getPort()
+    {
+        return $this->container['port'];
+    }
+
+    /**
+     * Sets port
+     *
+     * @param int $port port
+     *
+     * @return $this
+     */
+    public function setPort($port)
+    {
+        $this->container['port'] = $port;
+
+        return $this;
+    }
+
+    /**
+     * Gets scheme
+     *
+     * @return string
+     */
+    public function getScheme()
+    {
+        return $this->container['scheme'];
+    }
+
+    /**
+     * Sets scheme
+     *
+     * @param string $scheme scheme
+     *
+     * @return $this
+     */
+    public function setScheme($scheme)
+    {
+        $this->container['scheme'] = $scheme;
 
         return $this;
     }
