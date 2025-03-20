@@ -2071,16 +2071,16 @@ class ESCLOUDApi
             $headers, $httpBody);
     }
 
-    public function modifyIpWhitelist($body)
+    public function modifyIpAllowList($body)
     {
-        list($response) = $this->modifyIpWhitelistWithHttpInfo($body);
+        list($response) = $this->modifyIpAllowListWithHttpInfo($body);
         return $response;
     }
 
-    public function modifyIpWhitelistWithHttpInfo($body)
+    public function modifyIpAllowListWithHttpInfo($body)
     {
-        $returnType = '\Volcengine\Escloud\Model\ModifyIpWhitelistResponse';
-        $request = $this->modifyIpWhitelistRequest($body);
+        $returnType = '\Volcengine\Escloud\Model\ModifyIpAllowListResponse';
+        $request = $this->modifyIpAllowListRequest($body);
 
         $options = $this->createHttpClientOption();
         try {
@@ -2132,9 +2132,9 @@ class ESCLOUDApi
         ];
     }
 
-    public function modifyIpWhitelistAsync($body)
+    public function modifyIpAllowListAsync($body)
     {
-        return $this->modifyIpWhitelistAsyncWithHttpInfo($body)
+        return $this->modifyIpAllowListAsyncWithHttpInfo($body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2142,10 +2142,10 @@ class ESCLOUDApi
             );
     }
 
-    public function modifyIpWhitelistAsyncWithHttpInfo($body)
+    public function modifyIpAllowListAsyncWithHttpInfo($body)
     {
-        $returnType = '\Volcengine\Escloud\Model\ModifyIpWhitelistResponse';
-        $request = $this->modifyIpWhitelistRequest($body);
+        $returnType = '\Volcengine\Escloud\Model\ModifyIpAllowListResponse';
+        $request = $this->modifyIpAllowListRequest($body);
         $uri = $request->getUri();
 
         return $this->client
@@ -2192,16 +2192,16 @@ class ESCLOUDApi
             );
     }
 
-    protected function modifyIpWhitelistRequest($body)
+    protected function modifyIpAllowListRequest($body)
     {
         // verify the required parameter 'body' is set
         if ($body === null || (is_array($body) && count($body) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $body when calling modifyIpWhitelist'
+                'Missing the required parameter $body when calling modifyIpAllowList'
             );
         }
 
-        $resourcePath = '/ModifyIpWhitelist/2023-01-01/escloud/post/application_json/';
+        $resourcePath = '/ModifyIpAllowList/2023-01-01/escloud/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 

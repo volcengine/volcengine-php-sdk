@@ -33,7 +33,6 @@ class InstanceConfigurationForCreateInstanceInOneStepInput implements ModelInter
         'charge_type' => 'string',
         'configuration_code' => 'string',
         'deletion_protection' => 'bool',
-        'enable_cerebro' => 'bool',
         'enable_https' => 'bool',
         'enable_pure_master' => 'bool',
         'instance_name' => 'string',
@@ -59,7 +58,6 @@ class InstanceConfigurationForCreateInstanceInOneStepInput implements ModelInter
         'charge_type' => null,
         'configuration_code' => null,
         'deletion_protection' => null,
-        'enable_cerebro' => null,
         'enable_https' => null,
         'enable_pure_master' => null,
         'instance_name' => null,
@@ -106,7 +104,6 @@ class InstanceConfigurationForCreateInstanceInOneStepInput implements ModelInter
         'charge_type' => 'ChargeType',
         'configuration_code' => 'ConfigurationCode',
         'deletion_protection' => 'DeletionProtection',
-        'enable_cerebro' => 'EnableCerebro',
         'enable_https' => 'EnableHttps',
         'enable_pure_master' => 'EnablePureMaster',
         'instance_name' => 'InstanceName',
@@ -132,7 +129,6 @@ class InstanceConfigurationForCreateInstanceInOneStepInput implements ModelInter
         'charge_type' => 'setChargeType',
         'configuration_code' => 'setConfigurationCode',
         'deletion_protection' => 'setDeletionProtection',
-        'enable_cerebro' => 'setEnableCerebro',
         'enable_https' => 'setEnableHttps',
         'enable_pure_master' => 'setEnablePureMaster',
         'instance_name' => 'setInstanceName',
@@ -158,7 +154,6 @@ class InstanceConfigurationForCreateInstanceInOneStepInput implements ModelInter
         'charge_type' => 'getChargeType',
         'configuration_code' => 'getConfigurationCode',
         'deletion_protection' => 'getDeletionProtection',
-        'enable_cerebro' => 'getEnableCerebro',
         'enable_https' => 'getEnableHttps',
         'enable_pure_master' => 'getEnablePureMaster',
         'instance_name' => 'getInstanceName',
@@ -274,7 +269,6 @@ class InstanceConfigurationForCreateInstanceInOneStepInput implements ModelInter
         $this->container['charge_type'] = isset($data['charge_type']) ? $data['charge_type'] : null;
         $this->container['configuration_code'] = isset($data['configuration_code']) ? $data['configuration_code'] : null;
         $this->container['deletion_protection'] = isset($data['deletion_protection']) ? $data['deletion_protection'] : null;
-        $this->container['enable_cerebro'] = isset($data['enable_cerebro']) ? $data['enable_cerebro'] : null;
         $this->container['enable_https'] = isset($data['enable_https']) ? $data['enable_https'] : null;
         $this->container['enable_pure_master'] = isset($data['enable_pure_master']) ? $data['enable_pure_master'] : null;
         $this->container['instance_name'] = isset($data['instance_name']) ? $data['instance_name'] : null;
@@ -454,30 +448,6 @@ class InstanceConfigurationForCreateInstanceInOneStepInput implements ModelInter
     public function setDeletionProtection($deletion_protection)
     {
         $this->container['deletion_protection'] = $deletion_protection;
-
-        return $this;
-    }
-
-    /**
-     * Gets enable_cerebro
-     *
-     * @return bool
-     */
-    public function getEnableCerebro()
-    {
-        return $this->container['enable_cerebro'];
-    }
-
-    /**
-     * Sets enable_cerebro
-     *
-     * @param bool $enable_cerebro enable_cerebro
-     *
-     * @return $this
-     */
-    public function setEnableCerebro($enable_cerebro)
-    {
-        $this->container['enable_cerebro'] = $enable_cerebro;
 
         return $this;
     }

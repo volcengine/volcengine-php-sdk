@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ModifyIpWhitelistResponse implements ModelInterface, ArrayAccess
+class ModifyIpAllowListRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ModifyIpWhitelistResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ModifyIpWhitelistResponse';
+    protected static $swaggerModelName = 'ModifyIpAllowListRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,10 @@ class ModifyIpWhitelistResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'message' => 'string',
-        'status' => 'string'
+        'component' => 'string',
+        'instance_id' => 'string',
+        'ip_list' => 'string',
+        'type' => 'string'
     ];
 
     /**
@@ -38,8 +40,10 @@ class ModifyIpWhitelistResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'message' => null,
-        'status' => null
+        'component' => null,
+        'instance_id' => null,
+        'ip_list' => null,
+        'type' => null
     ];
 
     /**
@@ -69,8 +73,10 @@ class ModifyIpWhitelistResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'message' => 'Message',
-        'status' => 'Status'
+        'component' => 'Component',
+        'instance_id' => 'InstanceId',
+        'ip_list' => 'IpList',
+        'type' => 'Type'
     ];
 
     /**
@@ -79,8 +85,10 @@ class ModifyIpWhitelistResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'message' => 'setMessage',
-        'status' => 'setStatus'
+        'component' => 'setComponent',
+        'instance_id' => 'setInstanceId',
+        'ip_list' => 'setIpList',
+        'type' => 'setType'
     ];
 
     /**
@@ -89,8 +97,10 @@ class ModifyIpWhitelistResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'message' => 'getMessage',
-        'status' => 'getStatus'
+        'component' => 'getComponent',
+        'instance_id' => 'getInstanceId',
+        'ip_list' => 'getIpList',
+        'type' => 'getType'
     ];
 
     /**
@@ -153,8 +163,10 @@ class ModifyIpWhitelistResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['component'] = isset($data['component']) ? $data['component'] : null;
+        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
+        $this->container['ip_list'] = isset($data['ip_list']) ? $data['ip_list'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
     /**
@@ -166,6 +178,18 @@ class ModifyIpWhitelistResponse implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['component'] === null) {
+            $invalidProperties[] = "'component' can't be null";
+        }
+        if ($this->container['instance_id'] === null) {
+            $invalidProperties[] = "'instance_id' can't be null";
+        }
+        if ($this->container['ip_list'] === null) {
+            $invalidProperties[] = "'ip_list' can't be null";
+        }
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -182,49 +206,97 @@ class ModifyIpWhitelistResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets message
+     * Gets component
      *
      * @return string
      */
-    public function getMessage()
+    public function getComponent()
     {
-        return $this->container['message'];
+        return $this->container['component'];
     }
 
     /**
-     * Sets message
+     * Sets component
      *
-     * @param string $message message
+     * @param string $component component
      *
      * @return $this
      */
-    public function setMessage($message)
+    public function setComponent($component)
     {
-        $this->container['message'] = $message;
+        $this->container['component'] = $component;
 
         return $this;
     }
 
     /**
-     * Gets status
+     * Gets instance_id
      *
      * @return string
      */
-    public function getStatus()
+    public function getInstanceId()
     {
-        return $this->container['status'];
+        return $this->container['instance_id'];
     }
 
     /**
-     * Sets status
+     * Sets instance_id
      *
-     * @param string $status status
+     * @param string $instance_id instance_id
      *
      * @return $this
      */
-    public function setStatus($status)
+    public function setInstanceId($instance_id)
     {
-        $this->container['status'] = $status;
+        $this->container['instance_id'] = $instance_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets ip_list
+     *
+     * @return string
+     */
+    public function getIpList()
+    {
+        return $this->container['ip_list'];
+    }
+
+    /**
+     * Sets ip_list
+     *
+     * @param string $ip_list ip_list
+     *
+     * @return $this
+     */
+    public function setIpList($ip_list)
+    {
+        $this->container['ip_list'] = $ip_list;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string $type type
+     *
+     * @return $this
+     */
+    public function setType($type)
+    {
+        $this->container['type'] = $type;
 
         return $this;
     }
