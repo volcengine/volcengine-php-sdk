@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ListFunctionsRequest implements ModelInterface, ArrayAccess
+class HTTPGetForListRevisionsOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ListFunctionsRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ListFunctionsRequest';
+    protected static $swaggerModelName = 'HTTPGetForListRevisionsOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,10 @@ class ListFunctionsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'filters' => '\Volcengine\Vefaas\Model\FilterForListFunctionsInput[]',
-        'page_number' => 'int',
-        'page_size' => 'int',
-        'tag_filters' => '\Volcengine\Vefaas\Model\TagFilterForListFunctionsInput[]'
+        'http_headers' => '\Volcengine\Vefaas\Model\HTTPHeaderForListRevisionsOutput[]',
+        'path' => 'string',
+        'port' => 'int',
+        'scheme' => 'string'
     ];
 
     /**
@@ -40,10 +40,10 @@ class ListFunctionsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'filters' => null,
-        'page_number' => 'int32',
-        'page_size' => 'int32',
-        'tag_filters' => null
+        'http_headers' => null,
+        'path' => null,
+        'port' => 'int32',
+        'scheme' => null
     ];
 
     /**
@@ -73,10 +73,10 @@ class ListFunctionsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'filters' => 'Filters',
-        'page_number' => 'PageNumber',
-        'page_size' => 'PageSize',
-        'tag_filters' => 'TagFilters'
+        'http_headers' => 'HTTPHeaders',
+        'path' => 'Path',
+        'port' => 'Port',
+        'scheme' => 'Scheme'
     ];
 
     /**
@@ -85,10 +85,10 @@ class ListFunctionsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'filters' => 'setFilters',
-        'page_number' => 'setPageNumber',
-        'page_size' => 'setPageSize',
-        'tag_filters' => 'setTagFilters'
+        'http_headers' => 'setHttpHeaders',
+        'path' => 'setPath',
+        'port' => 'setPort',
+        'scheme' => 'setScheme'
     ];
 
     /**
@@ -97,10 +97,10 @@ class ListFunctionsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'filters' => 'getFilters',
-        'page_number' => 'getPageNumber',
-        'page_size' => 'getPageSize',
-        'tag_filters' => 'getTagFilters'
+        'http_headers' => 'getHttpHeaders',
+        'path' => 'getPath',
+        'port' => 'getPort',
+        'scheme' => 'getScheme'
     ];
 
     /**
@@ -163,10 +163,10 @@ class ListFunctionsRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['filters'] = isset($data['filters']) ? $data['filters'] : null;
-        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
-        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
-        $this->container['tag_filters'] = isset($data['tag_filters']) ? $data['tag_filters'] : null;
+        $this->container['http_headers'] = isset($data['http_headers']) ? $data['http_headers'] : null;
+        $this->container['path'] = isset($data['path']) ? $data['path'] : null;
+        $this->container['port'] = isset($data['port']) ? $data['port'] : null;
+        $this->container['scheme'] = isset($data['scheme']) ? $data['scheme'] : null;
     }
 
     /**
@@ -194,97 +194,97 @@ class ListFunctionsRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets filters
+     * Gets http_headers
      *
-     * @return \Volcengine\Vefaas\Model\FilterForListFunctionsInput[]
+     * @return \Volcengine\Vefaas\Model\HTTPHeaderForListRevisionsOutput[]
      */
-    public function getFilters()
+    public function getHttpHeaders()
     {
-        return $this->container['filters'];
+        return $this->container['http_headers'];
     }
 
     /**
-     * Sets filters
+     * Sets http_headers
      *
-     * @param \Volcengine\Vefaas\Model\FilterForListFunctionsInput[] $filters filters
+     * @param \Volcengine\Vefaas\Model\HTTPHeaderForListRevisionsOutput[] $http_headers http_headers
      *
      * @return $this
      */
-    public function setFilters($filters)
+    public function setHttpHeaders($http_headers)
     {
-        $this->container['filters'] = $filters;
+        $this->container['http_headers'] = $http_headers;
 
         return $this;
     }
 
     /**
-     * Gets page_number
+     * Gets path
+     *
+     * @return string
+     */
+    public function getPath()
+    {
+        return $this->container['path'];
+    }
+
+    /**
+     * Sets path
+     *
+     * @param string $path path
+     *
+     * @return $this
+     */
+    public function setPath($path)
+    {
+        $this->container['path'] = $path;
+
+        return $this;
+    }
+
+    /**
+     * Gets port
      *
      * @return int
      */
-    public function getPageNumber()
+    public function getPort()
     {
-        return $this->container['page_number'];
+        return $this->container['port'];
     }
 
     /**
-     * Sets page_number
+     * Sets port
      *
-     * @param int $page_number page_number
+     * @param int $port port
      *
      * @return $this
      */
-    public function setPageNumber($page_number)
+    public function setPort($port)
     {
-        $this->container['page_number'] = $page_number;
+        $this->container['port'] = $port;
 
         return $this;
     }
 
     /**
-     * Gets page_size
+     * Gets scheme
      *
-     * @return int
+     * @return string
      */
-    public function getPageSize()
+    public function getScheme()
     {
-        return $this->container['page_size'];
+        return $this->container['scheme'];
     }
 
     /**
-     * Sets page_size
+     * Sets scheme
      *
-     * @param int $page_size page_size
+     * @param string $scheme scheme
      *
      * @return $this
      */
-    public function setPageSize($page_size)
+    public function setScheme($scheme)
     {
-        $this->container['page_size'] = $page_size;
-
-        return $this;
-    }
-
-    /**
-     * Gets tag_filters
-     *
-     * @return \Volcengine\Vefaas\Model\TagFilterForListFunctionsInput[]
-     */
-    public function getTagFilters()
-    {
-        return $this->container['tag_filters'];
-    }
-
-    /**
-     * Sets tag_filters
-     *
-     * @param \Volcengine\Vefaas\Model\TagFilterForListFunctionsInput[] $tag_filters tag_filters
-     *
-     * @return $this
-     */
-    public function setTagFilters($tag_filters)
-    {
-        $this->container['tag_filters'] = $tag_filters;
+        $this->container['scheme'] = $scheme;
 
         return $this;
     }

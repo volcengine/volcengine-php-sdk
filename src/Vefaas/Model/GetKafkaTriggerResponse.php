@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ItemForListFunctionInstancesOutput implements ModelInterface, ArrayAccess
+class GetKafkaTriggerResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ItemForListFunctionInstancesOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ItemForListFunctionInstancesOutput';
+    protected static $swaggerModelName = 'GetKafkaTriggerResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,15 +28,19 @@ class ItemForListFunctionInstancesOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'availability_zone' => 'string',
+        'consumer_group' => 'string',
         'creation_time' => 'string',
+        'description' => 'string',
+        'enabled' => 'bool',
+        'function_id' => 'string',
         'id' => 'string',
-        'instance_name' => 'string',
-        'instance_status' => 'string',
-        'instance_type' => 'string',
-        'revision_number' => 'int',
-        'user_vpc_ip' => 'string',
-        'user_vpc_ipv6' => 'string'
+        'last_update_time' => 'string',
+        'maximum_retry_attempts' => 'int',
+        'mq_instance_id' => 'string',
+        'name' => 'string',
+        'starting_position' => 'string',
+        'status' => 'string',
+        'topic_name' => 'string'
     ];
 
     /**
@@ -45,15 +49,19 @@ class ItemForListFunctionInstancesOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'availability_zone' => null,
+        'consumer_group' => null,
         'creation_time' => null,
+        'description' => null,
+        'enabled' => null,
+        'function_id' => null,
         'id' => null,
-        'instance_name' => null,
-        'instance_status' => null,
-        'instance_type' => null,
-        'revision_number' => 'int32',
-        'user_vpc_ip' => null,
-        'user_vpc_ipv6' => null
+        'last_update_time' => null,
+        'maximum_retry_attempts' => 'int32',
+        'mq_instance_id' => null,
+        'name' => null,
+        'starting_position' => null,
+        'status' => null,
+        'topic_name' => null
     ];
 
     /**
@@ -83,15 +91,19 @@ class ItemForListFunctionInstancesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'availability_zone' => 'AvailabilityZone',
+        'consumer_group' => 'ConsumerGroup',
         'creation_time' => 'CreationTime',
+        'description' => 'Description',
+        'enabled' => 'Enabled',
+        'function_id' => 'FunctionId',
         'id' => 'Id',
-        'instance_name' => 'InstanceName',
-        'instance_status' => 'InstanceStatus',
-        'instance_type' => 'InstanceType',
-        'revision_number' => 'RevisionNumber',
-        'user_vpc_ip' => 'UserVpcIP',
-        'user_vpc_ipv6' => 'UserVpcIPv6'
+        'last_update_time' => 'LastUpdateTime',
+        'maximum_retry_attempts' => 'MaximumRetryAttempts',
+        'mq_instance_id' => 'MqInstanceId',
+        'name' => 'Name',
+        'starting_position' => 'StartingPosition',
+        'status' => 'Status',
+        'topic_name' => 'TopicName'
     ];
 
     /**
@@ -100,15 +112,19 @@ class ItemForListFunctionInstancesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'availability_zone' => 'setAvailabilityZone',
+        'consumer_group' => 'setConsumerGroup',
         'creation_time' => 'setCreationTime',
+        'description' => 'setDescription',
+        'enabled' => 'setEnabled',
+        'function_id' => 'setFunctionId',
         'id' => 'setId',
-        'instance_name' => 'setInstanceName',
-        'instance_status' => 'setInstanceStatus',
-        'instance_type' => 'setInstanceType',
-        'revision_number' => 'setRevisionNumber',
-        'user_vpc_ip' => 'setUserVpcIp',
-        'user_vpc_ipv6' => 'setUserVpcIpv6'
+        'last_update_time' => 'setLastUpdateTime',
+        'maximum_retry_attempts' => 'setMaximumRetryAttempts',
+        'mq_instance_id' => 'setMqInstanceId',
+        'name' => 'setName',
+        'starting_position' => 'setStartingPosition',
+        'status' => 'setStatus',
+        'topic_name' => 'setTopicName'
     ];
 
     /**
@@ -117,15 +133,19 @@ class ItemForListFunctionInstancesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'availability_zone' => 'getAvailabilityZone',
+        'consumer_group' => 'getConsumerGroup',
         'creation_time' => 'getCreationTime',
+        'description' => 'getDescription',
+        'enabled' => 'getEnabled',
+        'function_id' => 'getFunctionId',
         'id' => 'getId',
-        'instance_name' => 'getInstanceName',
-        'instance_status' => 'getInstanceStatus',
-        'instance_type' => 'getInstanceType',
-        'revision_number' => 'getRevisionNumber',
-        'user_vpc_ip' => 'getUserVpcIp',
-        'user_vpc_ipv6' => 'getUserVpcIpv6'
+        'last_update_time' => 'getLastUpdateTime',
+        'maximum_retry_attempts' => 'getMaximumRetryAttempts',
+        'mq_instance_id' => 'getMqInstanceId',
+        'name' => 'getName',
+        'starting_position' => 'getStartingPosition',
+        'status' => 'getStatus',
+        'topic_name' => 'getTopicName'
     ];
 
     /**
@@ -188,15 +208,19 @@ class ItemForListFunctionInstancesOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['availability_zone'] = isset($data['availability_zone']) ? $data['availability_zone'] : null;
+        $this->container['consumer_group'] = isset($data['consumer_group']) ? $data['consumer_group'] : null;
         $this->container['creation_time'] = isset($data['creation_time']) ? $data['creation_time'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['enabled'] = isset($data['enabled']) ? $data['enabled'] : null;
+        $this->container['function_id'] = isset($data['function_id']) ? $data['function_id'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['instance_name'] = isset($data['instance_name']) ? $data['instance_name'] : null;
-        $this->container['instance_status'] = isset($data['instance_status']) ? $data['instance_status'] : null;
-        $this->container['instance_type'] = isset($data['instance_type']) ? $data['instance_type'] : null;
-        $this->container['revision_number'] = isset($data['revision_number']) ? $data['revision_number'] : null;
-        $this->container['user_vpc_ip'] = isset($data['user_vpc_ip']) ? $data['user_vpc_ip'] : null;
-        $this->container['user_vpc_ipv6'] = isset($data['user_vpc_ipv6']) ? $data['user_vpc_ipv6'] : null;
+        $this->container['last_update_time'] = isset($data['last_update_time']) ? $data['last_update_time'] : null;
+        $this->container['maximum_retry_attempts'] = isset($data['maximum_retry_attempts']) ? $data['maximum_retry_attempts'] : null;
+        $this->container['mq_instance_id'] = isset($data['mq_instance_id']) ? $data['mq_instance_id'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['starting_position'] = isset($data['starting_position']) ? $data['starting_position'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['topic_name'] = isset($data['topic_name']) ? $data['topic_name'] : null;
     }
 
     /**
@@ -224,25 +248,25 @@ class ItemForListFunctionInstancesOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets availability_zone
+     * Gets consumer_group
      *
      * @return string
      */
-    public function getAvailabilityZone()
+    public function getConsumerGroup()
     {
-        return $this->container['availability_zone'];
+        return $this->container['consumer_group'];
     }
 
     /**
-     * Sets availability_zone
+     * Sets consumer_group
      *
-     * @param string $availability_zone availability_zone
+     * @param string $consumer_group consumer_group
      *
      * @return $this
      */
-    public function setAvailabilityZone($availability_zone)
+    public function setConsumerGroup($consumer_group)
     {
-        $this->container['availability_zone'] = $availability_zone;
+        $this->container['consumer_group'] = $consumer_group;
 
         return $this;
     }
@@ -272,6 +296,78 @@ class ItemForListFunctionInstancesOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string $description description
+     *
+     * @return $this
+     */
+    public function setDescription($description)
+    {
+        $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets enabled
+     *
+     * @return bool
+     */
+    public function getEnabled()
+    {
+        return $this->container['enabled'];
+    }
+
+    /**
+     * Sets enabled
+     *
+     * @param bool $enabled enabled
+     *
+     * @return $this
+     */
+    public function setEnabled($enabled)
+    {
+        $this->container['enabled'] = $enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets function_id
+     *
+     * @return string
+     */
+    public function getFunctionId()
+    {
+        return $this->container['function_id'];
+    }
+
+    /**
+     * Sets function_id
+     *
+     * @param string $function_id function_id
+     *
+     * @return $this
+     */
+    public function setFunctionId($function_id)
+    {
+        $this->container['function_id'] = $function_id;
+
+        return $this;
+    }
+
+    /**
      * Gets id
      *
      * @return string
@@ -296,145 +392,169 @@ class ItemForListFunctionInstancesOutput implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets instance_name
+     * Gets last_update_time
      *
      * @return string
      */
-    public function getInstanceName()
+    public function getLastUpdateTime()
     {
-        return $this->container['instance_name'];
+        return $this->container['last_update_time'];
     }
 
     /**
-     * Sets instance_name
+     * Sets last_update_time
      *
-     * @param string $instance_name instance_name
+     * @param string $last_update_time last_update_time
      *
      * @return $this
      */
-    public function setInstanceName($instance_name)
+    public function setLastUpdateTime($last_update_time)
     {
-        $this->container['instance_name'] = $instance_name;
+        $this->container['last_update_time'] = $last_update_time;
 
         return $this;
     }
 
     /**
-     * Gets instance_status
-     *
-     * @return string
-     */
-    public function getInstanceStatus()
-    {
-        return $this->container['instance_status'];
-    }
-
-    /**
-     * Sets instance_status
-     *
-     * @param string $instance_status instance_status
-     *
-     * @return $this
-     */
-    public function setInstanceStatus($instance_status)
-    {
-        $this->container['instance_status'] = $instance_status;
-
-        return $this;
-    }
-
-    /**
-     * Gets instance_type
-     *
-     * @return string
-     */
-    public function getInstanceType()
-    {
-        return $this->container['instance_type'];
-    }
-
-    /**
-     * Sets instance_type
-     *
-     * @param string $instance_type instance_type
-     *
-     * @return $this
-     */
-    public function setInstanceType($instance_type)
-    {
-        $this->container['instance_type'] = $instance_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets revision_number
+     * Gets maximum_retry_attempts
      *
      * @return int
      */
-    public function getRevisionNumber()
+    public function getMaximumRetryAttempts()
     {
-        return $this->container['revision_number'];
+        return $this->container['maximum_retry_attempts'];
     }
 
     /**
-     * Sets revision_number
+     * Sets maximum_retry_attempts
      *
-     * @param int $revision_number revision_number
+     * @param int $maximum_retry_attempts maximum_retry_attempts
      *
      * @return $this
      */
-    public function setRevisionNumber($revision_number)
+    public function setMaximumRetryAttempts($maximum_retry_attempts)
     {
-        $this->container['revision_number'] = $revision_number;
+        $this->container['maximum_retry_attempts'] = $maximum_retry_attempts;
 
         return $this;
     }
 
     /**
-     * Gets user_vpc_ip
+     * Gets mq_instance_id
      *
      * @return string
      */
-    public function getUserVpcIp()
+    public function getMqInstanceId()
     {
-        return $this->container['user_vpc_ip'];
+        return $this->container['mq_instance_id'];
     }
 
     /**
-     * Sets user_vpc_ip
+     * Sets mq_instance_id
      *
-     * @param string $user_vpc_ip user_vpc_ip
+     * @param string $mq_instance_id mq_instance_id
      *
      * @return $this
      */
-    public function setUserVpcIp($user_vpc_ip)
+    public function setMqInstanceId($mq_instance_id)
     {
-        $this->container['user_vpc_ip'] = $user_vpc_ip;
+        $this->container['mq_instance_id'] = $mq_instance_id;
 
         return $this;
     }
 
     /**
-     * Gets user_vpc_ipv6
+     * Gets name
      *
      * @return string
      */
-    public function getUserVpcIpv6()
+    public function getName()
     {
-        return $this->container['user_vpc_ipv6'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets user_vpc_ipv6
+     * Sets name
      *
-     * @param string $user_vpc_ipv6 user_vpc_ipv6
+     * @param string $name name
      *
      * @return $this
      */
-    public function setUserVpcIpv6($user_vpc_ipv6)
+    public function setName($name)
     {
-        $this->container['user_vpc_ipv6'] = $user_vpc_ipv6;
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets starting_position
+     *
+     * @return string
+     */
+    public function getStartingPosition()
+    {
+        return $this->container['starting_position'];
+    }
+
+    /**
+     * Sets starting_position
+     *
+     * @param string $starting_position starting_position
+     *
+     * @return $this
+     */
+    public function setStartingPosition($starting_position)
+    {
+        $this->container['starting_position'] = $starting_position;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param string $status status
+     *
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets topic_name
+     *
+     * @return string
+     */
+    public function getTopicName()
+    {
+        return $this->container['topic_name'];
+    }
+
+    /**
+     * Sets topic_name
+     *
+     * @param string $topic_name topic_name
+     *
+     * @return $this
+     */
+    public function setTopicName($topic_name)
+    {
+        $this->container['topic_name'] = $topic_name;
 
         return $this;
     }

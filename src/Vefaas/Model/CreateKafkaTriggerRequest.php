@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class GetRocketMQTriggerResponse implements ModelInterface, ArrayAccess
+class CreateKafkaTriggerRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class GetRocketMQTriggerResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetRocketMQTriggerResponse';
+    protected static $swaggerModelName = 'CreateKafkaTriggerRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,21 +28,14 @@ class GetRocketMQTriggerResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'consumer_group' => 'string',
-        'creation_time' => 'string',
         'description' => 'string',
         'enabled' => 'bool',
-        'endpoint' => 'string',
         'function_id' => 'string',
-        'id' => 'string',
-        'last_update_time' => 'string',
+        'kafka_credentials' => '\Volcengine\Vefaas\Model\KafkaCredentialsForCreateKafkaTriggerInput',
         'maximum_retry_attempts' => 'int',
         'mq_instance_id' => 'string',
         'name' => 'string',
-        'orderly' => 'bool',
-        'qps_limit' => 'int',
         'starting_position' => 'string',
-        'status' => 'string',
         'topic_name' => 'string'
     ];
 
@@ -52,21 +45,14 @@ class GetRocketMQTriggerResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'consumer_group' => null,
-        'creation_time' => null,
         'description' => null,
         'enabled' => null,
-        'endpoint' => null,
         'function_id' => null,
-        'id' => null,
-        'last_update_time' => null,
+        'kafka_credentials' => null,
         'maximum_retry_attempts' => 'int32',
         'mq_instance_id' => null,
         'name' => null,
-        'orderly' => null,
-        'qps_limit' => 'int32',
         'starting_position' => null,
-        'status' => null,
         'topic_name' => null
     ];
 
@@ -97,21 +83,14 @@ class GetRocketMQTriggerResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'consumer_group' => 'ConsumerGroup',
-        'creation_time' => 'CreationTime',
         'description' => 'Description',
         'enabled' => 'Enabled',
-        'endpoint' => 'Endpoint',
         'function_id' => 'FunctionId',
-        'id' => 'Id',
-        'last_update_time' => 'LastUpdateTime',
+        'kafka_credentials' => 'KafkaCredentials',
         'maximum_retry_attempts' => 'MaximumRetryAttempts',
         'mq_instance_id' => 'MqInstanceId',
         'name' => 'Name',
-        'orderly' => 'Orderly',
-        'qps_limit' => 'QPSLimit',
         'starting_position' => 'StartingPosition',
-        'status' => 'Status',
         'topic_name' => 'TopicName'
     ];
 
@@ -121,21 +100,14 @@ class GetRocketMQTriggerResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'consumer_group' => 'setConsumerGroup',
-        'creation_time' => 'setCreationTime',
         'description' => 'setDescription',
         'enabled' => 'setEnabled',
-        'endpoint' => 'setEndpoint',
         'function_id' => 'setFunctionId',
-        'id' => 'setId',
-        'last_update_time' => 'setLastUpdateTime',
+        'kafka_credentials' => 'setKafkaCredentials',
         'maximum_retry_attempts' => 'setMaximumRetryAttempts',
         'mq_instance_id' => 'setMqInstanceId',
         'name' => 'setName',
-        'orderly' => 'setOrderly',
-        'qps_limit' => 'setQpsLimit',
         'starting_position' => 'setStartingPosition',
-        'status' => 'setStatus',
         'topic_name' => 'setTopicName'
     ];
 
@@ -145,21 +117,14 @@ class GetRocketMQTriggerResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'consumer_group' => 'getConsumerGroup',
-        'creation_time' => 'getCreationTime',
         'description' => 'getDescription',
         'enabled' => 'getEnabled',
-        'endpoint' => 'getEndpoint',
         'function_id' => 'getFunctionId',
-        'id' => 'getId',
-        'last_update_time' => 'getLastUpdateTime',
+        'kafka_credentials' => 'getKafkaCredentials',
         'maximum_retry_attempts' => 'getMaximumRetryAttempts',
         'mq_instance_id' => 'getMqInstanceId',
         'name' => 'getName',
-        'orderly' => 'getOrderly',
-        'qps_limit' => 'getQpsLimit',
         'starting_position' => 'getStartingPosition',
-        'status' => 'getStatus',
         'topic_name' => 'getTopicName'
     ];
 
@@ -223,21 +188,14 @@ class GetRocketMQTriggerResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['consumer_group'] = isset($data['consumer_group']) ? $data['consumer_group'] : null;
-        $this->container['creation_time'] = isset($data['creation_time']) ? $data['creation_time'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['enabled'] = isset($data['enabled']) ? $data['enabled'] : null;
-        $this->container['endpoint'] = isset($data['endpoint']) ? $data['endpoint'] : null;
         $this->container['function_id'] = isset($data['function_id']) ? $data['function_id'] : null;
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['last_update_time'] = isset($data['last_update_time']) ? $data['last_update_time'] : null;
+        $this->container['kafka_credentials'] = isset($data['kafka_credentials']) ? $data['kafka_credentials'] : null;
         $this->container['maximum_retry_attempts'] = isset($data['maximum_retry_attempts']) ? $data['maximum_retry_attempts'] : null;
         $this->container['mq_instance_id'] = isset($data['mq_instance_id']) ? $data['mq_instance_id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['orderly'] = isset($data['orderly']) ? $data['orderly'] : null;
-        $this->container['qps_limit'] = isset($data['qps_limit']) ? $data['qps_limit'] : null;
         $this->container['starting_position'] = isset($data['starting_position']) ? $data['starting_position'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['topic_name'] = isset($data['topic_name']) ? $data['topic_name'] : null;
     }
 
@@ -250,6 +208,18 @@ class GetRocketMQTriggerResponse implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['function_id'] === null) {
+            $invalidProperties[] = "'function_id' can't be null";
+        }
+        if ($this->container['mq_instance_id'] === null) {
+            $invalidProperties[] = "'mq_instance_id' can't be null";
+        }
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
+        if ($this->container['topic_name'] === null) {
+            $invalidProperties[] = "'topic_name' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -264,54 +234,6 @@ class GetRocketMQTriggerResponse implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets consumer_group
-     *
-     * @return string
-     */
-    public function getConsumerGroup()
-    {
-        return $this->container['consumer_group'];
-    }
-
-    /**
-     * Sets consumer_group
-     *
-     * @param string $consumer_group consumer_group
-     *
-     * @return $this
-     */
-    public function setConsumerGroup($consumer_group)
-    {
-        $this->container['consumer_group'] = $consumer_group;
-
-        return $this;
-    }
-
-    /**
-     * Gets creation_time
-     *
-     * @return string
-     */
-    public function getCreationTime()
-    {
-        return $this->container['creation_time'];
-    }
-
-    /**
-     * Sets creation_time
-     *
-     * @param string $creation_time creation_time
-     *
-     * @return $this
-     */
-    public function setCreationTime($creation_time)
-    {
-        $this->container['creation_time'] = $creation_time;
-
-        return $this;
-    }
 
     /**
      * Gets description
@@ -362,30 +284,6 @@ class GetRocketMQTriggerResponse implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets endpoint
-     *
-     * @return string
-     */
-    public function getEndpoint()
-    {
-        return $this->container['endpoint'];
-    }
-
-    /**
-     * Sets endpoint
-     *
-     * @param string $endpoint endpoint
-     *
-     * @return $this
-     */
-    public function setEndpoint($endpoint)
-    {
-        $this->container['endpoint'] = $endpoint;
-
-        return $this;
-    }
-
-    /**
      * Gets function_id
      *
      * @return string
@@ -410,49 +308,25 @@ class GetRocketMQTriggerResponse implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets id
+     * Gets kafka_credentials
      *
-     * @return string
+     * @return \Volcengine\Vefaas\Model\KafkaCredentialsForCreateKafkaTriggerInput
      */
-    public function getId()
+    public function getKafkaCredentials()
     {
-        return $this->container['id'];
+        return $this->container['kafka_credentials'];
     }
 
     /**
-     * Sets id
+     * Sets kafka_credentials
      *
-     * @param string $id id
+     * @param \Volcengine\Vefaas\Model\KafkaCredentialsForCreateKafkaTriggerInput $kafka_credentials kafka_credentials
      *
      * @return $this
      */
-    public function setId($id)
+    public function setKafkaCredentials($kafka_credentials)
     {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets last_update_time
-     *
-     * @return string
-     */
-    public function getLastUpdateTime()
-    {
-        return $this->container['last_update_time'];
-    }
-
-    /**
-     * Sets last_update_time
-     *
-     * @param string $last_update_time last_update_time
-     *
-     * @return $this
-     */
-    public function setLastUpdateTime($last_update_time)
-    {
-        $this->container['last_update_time'] = $last_update_time;
+        $this->container['kafka_credentials'] = $kafka_credentials;
 
         return $this;
     }
@@ -530,54 +404,6 @@ class GetRocketMQTriggerResponse implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets orderly
-     *
-     * @return bool
-     */
-    public function getOrderly()
-    {
-        return $this->container['orderly'];
-    }
-
-    /**
-     * Sets orderly
-     *
-     * @param bool $orderly orderly
-     *
-     * @return $this
-     */
-    public function setOrderly($orderly)
-    {
-        $this->container['orderly'] = $orderly;
-
-        return $this;
-    }
-
-    /**
-     * Gets qps_limit
-     *
-     * @return int
-     */
-    public function getQpsLimit()
-    {
-        return $this->container['qps_limit'];
-    }
-
-    /**
-     * Sets qps_limit
-     *
-     * @param int $qps_limit qps_limit
-     *
-     * @return $this
-     */
-    public function setQpsLimit($qps_limit)
-    {
-        $this->container['qps_limit'] = $qps_limit;
-
-        return $this;
-    }
-
-    /**
      * Gets starting_position
      *
      * @return string
@@ -597,30 +423,6 @@ class GetRocketMQTriggerResponse implements ModelInterface, ArrayAccess
     public function setStartingPosition($starting_position)
     {
         $this->container['starting_position'] = $starting_position;
-
-        return $this;
-    }
-
-    /**
-     * Gets status
-     *
-     * @return string
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param string $status status
-     *
-     * @return $this
-     */
-    public function setStatus($status)
-    {
-        $this->container['status'] = $status;
 
         return $this;
     }

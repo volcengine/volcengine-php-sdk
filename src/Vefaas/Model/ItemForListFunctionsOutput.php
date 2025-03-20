@@ -31,6 +31,7 @@ class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
         'code_size' => 'int',
         'code_size_limit' => 'int',
         'command' => 'string',
+        'cpu_strategy' => 'string',
         'creation_time' => 'string',
         'description' => 'string',
         'envs' => '\Volcengine\Vefaas\Model\EnvForListFunctionsOutput[]',
@@ -44,6 +45,7 @@ class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
         'name' => 'string',
         'nas_storage' => '\Volcengine\Vefaas\Model\NasStorageForListFunctionsOutput',
         'owner' => 'string',
+        'port' => 'int',
         'project_name' => 'string',
         'request_timeout' => 'int',
         'runtime' => 'string',
@@ -65,6 +67,7 @@ class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
         'code_size' => 'int32',
         'code_size_limit' => 'int32',
         'command' => null,
+        'cpu_strategy' => null,
         'creation_time' => null,
         'description' => null,
         'envs' => null,
@@ -78,6 +81,7 @@ class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
         'name' => null,
         'nas_storage' => null,
         'owner' => null,
+        'port' => 'int32',
         'project_name' => null,
         'request_timeout' => 'int32',
         'runtime' => null,
@@ -120,6 +124,7 @@ class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
         'code_size' => 'CodeSize',
         'code_size_limit' => 'CodeSizeLimit',
         'command' => 'Command',
+        'cpu_strategy' => 'CpuStrategy',
         'creation_time' => 'CreationTime',
         'description' => 'Description',
         'envs' => 'Envs',
@@ -133,6 +138,7 @@ class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
         'name' => 'Name',
         'nas_storage' => 'NasStorage',
         'owner' => 'Owner',
+        'port' => 'Port',
         'project_name' => 'ProjectName',
         'request_timeout' => 'RequestTimeout',
         'runtime' => 'Runtime',
@@ -154,6 +160,7 @@ class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
         'code_size' => 'setCodeSize',
         'code_size_limit' => 'setCodeSizeLimit',
         'command' => 'setCommand',
+        'cpu_strategy' => 'setCpuStrategy',
         'creation_time' => 'setCreationTime',
         'description' => 'setDescription',
         'envs' => 'setEnvs',
@@ -167,6 +174,7 @@ class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
         'name' => 'setName',
         'nas_storage' => 'setNasStorage',
         'owner' => 'setOwner',
+        'port' => 'setPort',
         'project_name' => 'setProjectName',
         'request_timeout' => 'setRequestTimeout',
         'runtime' => 'setRuntime',
@@ -188,6 +196,7 @@ class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
         'code_size' => 'getCodeSize',
         'code_size_limit' => 'getCodeSizeLimit',
         'command' => 'getCommand',
+        'cpu_strategy' => 'getCpuStrategy',
         'creation_time' => 'getCreationTime',
         'description' => 'getDescription',
         'envs' => 'getEnvs',
@@ -201,6 +210,7 @@ class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
         'name' => 'getName',
         'nas_storage' => 'getNasStorage',
         'owner' => 'getOwner',
+        'port' => 'getPort',
         'project_name' => 'getProjectName',
         'request_timeout' => 'getRequestTimeout',
         'runtime' => 'getRuntime',
@@ -276,6 +286,7 @@ class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
         $this->container['code_size'] = isset($data['code_size']) ? $data['code_size'] : null;
         $this->container['code_size_limit'] = isset($data['code_size_limit']) ? $data['code_size_limit'] : null;
         $this->container['command'] = isset($data['command']) ? $data['command'] : null;
+        $this->container['cpu_strategy'] = isset($data['cpu_strategy']) ? $data['cpu_strategy'] : null;
         $this->container['creation_time'] = isset($data['creation_time']) ? $data['creation_time'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['envs'] = isset($data['envs']) ? $data['envs'] : null;
@@ -289,6 +300,7 @@ class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['nas_storage'] = isset($data['nas_storage']) ? $data['nas_storage'] : null;
         $this->container['owner'] = isset($data['owner']) ? $data['owner'] : null;
+        $this->container['port'] = isset($data['port']) ? $data['port'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['request_timeout'] = isset($data['request_timeout']) ? $data['request_timeout'] : null;
         $this->container['runtime'] = isset($data['runtime']) ? $data['runtime'] : null;
@@ -393,6 +405,30 @@ class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
     public function setCommand($command)
     {
         $this->container['command'] = $command;
+
+        return $this;
+    }
+
+    /**
+     * Gets cpu_strategy
+     *
+     * @return string
+     */
+    public function getCpuStrategy()
+    {
+        return $this->container['cpu_strategy'];
+    }
+
+    /**
+     * Sets cpu_strategy
+     *
+     * @param string $cpu_strategy cpu_strategy
+     *
+     * @return $this
+     */
+    public function setCpuStrategy($cpu_strategy)
+    {
+        $this->container['cpu_strategy'] = $cpu_strategy;
 
         return $this;
     }
@@ -705,6 +741,30 @@ class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
     public function setOwner($owner)
     {
         $this->container['owner'] = $owner;
+
+        return $this;
+    }
+
+    /**
+     * Gets port
+     *
+     * @return int
+     */
+    public function getPort()
+    {
+        return $this->container['port'];
+    }
+
+    /**
+     * Sets port
+     *
+     * @param int $port port
+     *
+     * @return $this
+     */
+    public function setPort($port)
+    {
+        $this->container['port'] = $port;
 
         return $this;
     }

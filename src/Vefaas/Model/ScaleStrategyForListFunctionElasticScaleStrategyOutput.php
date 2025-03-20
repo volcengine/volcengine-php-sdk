@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ListFunctionsRequest implements ModelInterface, ArrayAccess
+class ScaleStrategyForListFunctionElasticScaleStrategyOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ListFunctionsRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ListFunctionsRequest';
+    protected static $swaggerModelName = 'ScaleStrategyForListFunctionElasticScaleStrategyOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,10 @@ class ListFunctionsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'filters' => '\Volcengine\Vefaas\Model\FilterForListFunctionsInput[]',
-        'page_number' => 'int',
-        'page_size' => 'int',
-        'tag_filters' => '\Volcengine\Vefaas\Model\TagFilterForListFunctionsInput[]'
+        'create_time' => 'string',
+        'rules' => '\Volcengine\Vefaas\Model\RuleForListFunctionElasticScaleStrategyOutput[]',
+        'type' => 'string',
+        'update_time' => 'string'
     ];
 
     /**
@@ -40,10 +40,10 @@ class ListFunctionsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'filters' => null,
-        'page_number' => 'int32',
-        'page_size' => 'int32',
-        'tag_filters' => null
+        'create_time' => null,
+        'rules' => null,
+        'type' => null,
+        'update_time' => null
     ];
 
     /**
@@ -73,10 +73,10 @@ class ListFunctionsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'filters' => 'Filters',
-        'page_number' => 'PageNumber',
-        'page_size' => 'PageSize',
-        'tag_filters' => 'TagFilters'
+        'create_time' => 'CreateTime',
+        'rules' => 'Rules',
+        'type' => 'Type',
+        'update_time' => 'UpdateTime'
     ];
 
     /**
@@ -85,10 +85,10 @@ class ListFunctionsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'filters' => 'setFilters',
-        'page_number' => 'setPageNumber',
-        'page_size' => 'setPageSize',
-        'tag_filters' => 'setTagFilters'
+        'create_time' => 'setCreateTime',
+        'rules' => 'setRules',
+        'type' => 'setType',
+        'update_time' => 'setUpdateTime'
     ];
 
     /**
@@ -97,10 +97,10 @@ class ListFunctionsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'filters' => 'getFilters',
-        'page_number' => 'getPageNumber',
-        'page_size' => 'getPageSize',
-        'tag_filters' => 'getTagFilters'
+        'create_time' => 'getCreateTime',
+        'rules' => 'getRules',
+        'type' => 'getType',
+        'update_time' => 'getUpdateTime'
     ];
 
     /**
@@ -163,10 +163,10 @@ class ListFunctionsRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['filters'] = isset($data['filters']) ? $data['filters'] : null;
-        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
-        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
-        $this->container['tag_filters'] = isset($data['tag_filters']) ? $data['tag_filters'] : null;
+        $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
+        $this->container['rules'] = isset($data['rules']) ? $data['rules'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
     }
 
     /**
@@ -194,97 +194,97 @@ class ListFunctionsRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets filters
+     * Gets create_time
      *
-     * @return \Volcengine\Vefaas\Model\FilterForListFunctionsInput[]
+     * @return string
      */
-    public function getFilters()
+    public function getCreateTime()
     {
-        return $this->container['filters'];
+        return $this->container['create_time'];
     }
 
     /**
-     * Sets filters
+     * Sets create_time
      *
-     * @param \Volcengine\Vefaas\Model\FilterForListFunctionsInput[] $filters filters
+     * @param string $create_time create_time
      *
      * @return $this
      */
-    public function setFilters($filters)
+    public function setCreateTime($create_time)
     {
-        $this->container['filters'] = $filters;
+        $this->container['create_time'] = $create_time;
 
         return $this;
     }
 
     /**
-     * Gets page_number
+     * Gets rules
      *
-     * @return int
+     * @return \Volcengine\Vefaas\Model\RuleForListFunctionElasticScaleStrategyOutput[]
      */
-    public function getPageNumber()
+    public function getRules()
     {
-        return $this->container['page_number'];
+        return $this->container['rules'];
     }
 
     /**
-     * Sets page_number
+     * Sets rules
      *
-     * @param int $page_number page_number
+     * @param \Volcengine\Vefaas\Model\RuleForListFunctionElasticScaleStrategyOutput[] $rules rules
      *
      * @return $this
      */
-    public function setPageNumber($page_number)
+    public function setRules($rules)
     {
-        $this->container['page_number'] = $page_number;
+        $this->container['rules'] = $rules;
 
         return $this;
     }
 
     /**
-     * Gets page_size
+     * Gets type
      *
-     * @return int
+     * @return string
      */
-    public function getPageSize()
+    public function getType()
     {
-        return $this->container['page_size'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets page_size
+     * Sets type
      *
-     * @param int $page_size page_size
+     * @param string $type type
      *
      * @return $this
      */
-    public function setPageSize($page_size)
+    public function setType($type)
     {
-        $this->container['page_size'] = $page_size;
+        $this->container['type'] = $type;
 
         return $this;
     }
 
     /**
-     * Gets tag_filters
+     * Gets update_time
      *
-     * @return \Volcengine\Vefaas\Model\TagFilterForListFunctionsInput[]
+     * @return string
      */
-    public function getTagFilters()
+    public function getUpdateTime()
     {
-        return $this->container['tag_filters'];
+        return $this->container['update_time'];
     }
 
     /**
-     * Sets tag_filters
+     * Sets update_time
      *
-     * @param \Volcengine\Vefaas\Model\TagFilterForListFunctionsInput[] $tag_filters tag_filters
+     * @param string $update_time update_time
      *
      * @return $this
      */
-    public function setTagFilters($tag_filters)
+    public function setUpdateTime($update_time)
     {
-        $this->container['tag_filters'] = $tag_filters;
+        $this->container['update_time'] = $update_time;
 
         return $this;
     }

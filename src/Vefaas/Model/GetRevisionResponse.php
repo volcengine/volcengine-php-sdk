@@ -34,8 +34,10 @@ class GetRevisionResponse implements ModelInterface, ArrayAccess
         'description' => 'string',
         'envs' => '\Volcengine\Vefaas\Model\EnvForGetRevisionOutput[]',
         'exclusive_mode' => 'bool',
+        'health_check_config' => '\Volcengine\Vefaas\Model\HealthCheckConfigForGetRevisionOutput',
         'id' => 'string',
         'initializer_sec' => 'int',
+        'instance_type' => 'string',
         'max_concurrency' => 'int',
         'max_replicas' => 'int',
         'memory_mb' => 'int',
@@ -66,8 +68,10 @@ class GetRevisionResponse implements ModelInterface, ArrayAccess
         'description' => null,
         'envs' => null,
         'exclusive_mode' => null,
+        'health_check_config' => null,
         'id' => null,
         'initializer_sec' => 'int32',
+        'instance_type' => null,
         'max_concurrency' => 'int32',
         'max_replicas' => 'int32',
         'memory_mb' => 'int32',
@@ -119,8 +123,10 @@ class GetRevisionResponse implements ModelInterface, ArrayAccess
         'description' => 'Description',
         'envs' => 'Envs',
         'exclusive_mode' => 'ExclusiveMode',
+        'health_check_config' => 'HealthCheckConfig',
         'id' => 'Id',
         'initializer_sec' => 'InitializerSec',
+        'instance_type' => 'InstanceType',
         'max_concurrency' => 'MaxConcurrency',
         'max_replicas' => 'MaxReplicas',
         'memory_mb' => 'MemoryMB',
@@ -151,8 +157,10 @@ class GetRevisionResponse implements ModelInterface, ArrayAccess
         'description' => 'setDescription',
         'envs' => 'setEnvs',
         'exclusive_mode' => 'setExclusiveMode',
+        'health_check_config' => 'setHealthCheckConfig',
         'id' => 'setId',
         'initializer_sec' => 'setInitializerSec',
+        'instance_type' => 'setInstanceType',
         'max_concurrency' => 'setMaxConcurrency',
         'max_replicas' => 'setMaxReplicas',
         'memory_mb' => 'setMemoryMb',
@@ -183,8 +191,10 @@ class GetRevisionResponse implements ModelInterface, ArrayAccess
         'description' => 'getDescription',
         'envs' => 'getEnvs',
         'exclusive_mode' => 'getExclusiveMode',
+        'health_check_config' => 'getHealthCheckConfig',
         'id' => 'getId',
         'initializer_sec' => 'getInitializerSec',
+        'instance_type' => 'getInstanceType',
         'max_concurrency' => 'getMaxConcurrency',
         'max_replicas' => 'getMaxReplicas',
         'memory_mb' => 'getMemoryMb',
@@ -269,8 +279,10 @@ class GetRevisionResponse implements ModelInterface, ArrayAccess
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['envs'] = isset($data['envs']) ? $data['envs'] : null;
         $this->container['exclusive_mode'] = isset($data['exclusive_mode']) ? $data['exclusive_mode'] : null;
+        $this->container['health_check_config'] = isset($data['health_check_config']) ? $data['health_check_config'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['initializer_sec'] = isset($data['initializer_sec']) ? $data['initializer_sec'] : null;
+        $this->container['instance_type'] = isset($data['instance_type']) ? $data['instance_type'] : null;
         $this->container['max_concurrency'] = isset($data['max_concurrency']) ? $data['max_concurrency'] : null;
         $this->container['max_replicas'] = isset($data['max_replicas']) ? $data['max_replicas'] : null;
         $this->container['memory_mb'] = isset($data['memory_mb']) ? $data['memory_mb'] : null;
@@ -458,6 +470,30 @@ class GetRevisionResponse implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets health_check_config
+     *
+     * @return \Volcengine\Vefaas\Model\HealthCheckConfigForGetRevisionOutput
+     */
+    public function getHealthCheckConfig()
+    {
+        return $this->container['health_check_config'];
+    }
+
+    /**
+     * Sets health_check_config
+     *
+     * @param \Volcengine\Vefaas\Model\HealthCheckConfigForGetRevisionOutput $health_check_config health_check_config
+     *
+     * @return $this
+     */
+    public function setHealthCheckConfig($health_check_config)
+    {
+        $this->container['health_check_config'] = $health_check_config;
+
+        return $this;
+    }
+
+    /**
      * Gets id
      *
      * @return string
@@ -501,6 +537,30 @@ class GetRevisionResponse implements ModelInterface, ArrayAccess
     public function setInitializerSec($initializer_sec)
     {
         $this->container['initializer_sec'] = $initializer_sec;
+
+        return $this;
+    }
+
+    /**
+     * Gets instance_type
+     *
+     * @return string
+     */
+    public function getInstanceType()
+    {
+        return $this->container['instance_type'];
+    }
+
+    /**
+     * Sets instance_type
+     *
+     * @param string $instance_type instance_type
+     *
+     * @return $this
+     */
+    public function setInstanceType($instance_type)
+    {
+        $this->container['instance_type'] = $instance_type;
 
         return $this;
     }

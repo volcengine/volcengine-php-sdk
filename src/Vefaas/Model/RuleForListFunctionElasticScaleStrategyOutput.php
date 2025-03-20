@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ListFunctionsRequest implements ModelInterface, ArrayAccess
+class RuleForListFunctionElasticScaleStrategyOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ListFunctionsRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ListFunctionsRequest';
+    protected static $swaggerModelName = 'RuleForListFunctionElasticScaleStrategyOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,12 @@ class ListFunctionsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'filters' => '\Volcengine\Vefaas\Model\FilterForListFunctionsInput[]',
-        'page_number' => 'int',
-        'page_size' => 'int',
-        'tag_filters' => '\Volcengine\Vefaas\Model\TagFilterForListFunctionsInput[]'
+        'aggregate_seconds' => 'int',
+        'aggregate_type' => 'string',
+        'metric_type' => 'string',
+        'scale_down_threshold' => 'int',
+        'scale_up_threshold' => 'int',
+        'target' => 'int'
     ];
 
     /**
@@ -40,10 +42,12 @@ class ListFunctionsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'filters' => null,
-        'page_number' => 'int32',
-        'page_size' => 'int32',
-        'tag_filters' => null
+        'aggregate_seconds' => 'int32',
+        'aggregate_type' => null,
+        'metric_type' => null,
+        'scale_down_threshold' => 'int32',
+        'scale_up_threshold' => 'int32',
+        'target' => 'int32'
     ];
 
     /**
@@ -73,10 +77,12 @@ class ListFunctionsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'filters' => 'Filters',
-        'page_number' => 'PageNumber',
-        'page_size' => 'PageSize',
-        'tag_filters' => 'TagFilters'
+        'aggregate_seconds' => 'AggregateSeconds',
+        'aggregate_type' => 'AggregateType',
+        'metric_type' => 'MetricType',
+        'scale_down_threshold' => 'ScaleDownThreshold',
+        'scale_up_threshold' => 'ScaleUpThreshold',
+        'target' => 'Target'
     ];
 
     /**
@@ -85,10 +91,12 @@ class ListFunctionsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'filters' => 'setFilters',
-        'page_number' => 'setPageNumber',
-        'page_size' => 'setPageSize',
-        'tag_filters' => 'setTagFilters'
+        'aggregate_seconds' => 'setAggregateSeconds',
+        'aggregate_type' => 'setAggregateType',
+        'metric_type' => 'setMetricType',
+        'scale_down_threshold' => 'setScaleDownThreshold',
+        'scale_up_threshold' => 'setScaleUpThreshold',
+        'target' => 'setTarget'
     ];
 
     /**
@@ -97,10 +105,12 @@ class ListFunctionsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'filters' => 'getFilters',
-        'page_number' => 'getPageNumber',
-        'page_size' => 'getPageSize',
-        'tag_filters' => 'getTagFilters'
+        'aggregate_seconds' => 'getAggregateSeconds',
+        'aggregate_type' => 'getAggregateType',
+        'metric_type' => 'getMetricType',
+        'scale_down_threshold' => 'getScaleDownThreshold',
+        'scale_up_threshold' => 'getScaleUpThreshold',
+        'target' => 'getTarget'
     ];
 
     /**
@@ -163,10 +173,12 @@ class ListFunctionsRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['filters'] = isset($data['filters']) ? $data['filters'] : null;
-        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
-        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
-        $this->container['tag_filters'] = isset($data['tag_filters']) ? $data['tag_filters'] : null;
+        $this->container['aggregate_seconds'] = isset($data['aggregate_seconds']) ? $data['aggregate_seconds'] : null;
+        $this->container['aggregate_type'] = isset($data['aggregate_type']) ? $data['aggregate_type'] : null;
+        $this->container['metric_type'] = isset($data['metric_type']) ? $data['metric_type'] : null;
+        $this->container['scale_down_threshold'] = isset($data['scale_down_threshold']) ? $data['scale_down_threshold'] : null;
+        $this->container['scale_up_threshold'] = isset($data['scale_up_threshold']) ? $data['scale_up_threshold'] : null;
+        $this->container['target'] = isset($data['target']) ? $data['target'] : null;
     }
 
     /**
@@ -194,97 +206,145 @@ class ListFunctionsRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets filters
-     *
-     * @return \Volcengine\Vefaas\Model\FilterForListFunctionsInput[]
-     */
-    public function getFilters()
-    {
-        return $this->container['filters'];
-    }
-
-    /**
-     * Sets filters
-     *
-     * @param \Volcengine\Vefaas\Model\FilterForListFunctionsInput[] $filters filters
-     *
-     * @return $this
-     */
-    public function setFilters($filters)
-    {
-        $this->container['filters'] = $filters;
-
-        return $this;
-    }
-
-    /**
-     * Gets page_number
+     * Gets aggregate_seconds
      *
      * @return int
      */
-    public function getPageNumber()
+    public function getAggregateSeconds()
     {
-        return $this->container['page_number'];
+        return $this->container['aggregate_seconds'];
     }
 
     /**
-     * Sets page_number
+     * Sets aggregate_seconds
      *
-     * @param int $page_number page_number
+     * @param int $aggregate_seconds aggregate_seconds
      *
      * @return $this
      */
-    public function setPageNumber($page_number)
+    public function setAggregateSeconds($aggregate_seconds)
     {
-        $this->container['page_number'] = $page_number;
+        $this->container['aggregate_seconds'] = $aggregate_seconds;
 
         return $this;
     }
 
     /**
-     * Gets page_size
+     * Gets aggregate_type
+     *
+     * @return string
+     */
+    public function getAggregateType()
+    {
+        return $this->container['aggregate_type'];
+    }
+
+    /**
+     * Sets aggregate_type
+     *
+     * @param string $aggregate_type aggregate_type
+     *
+     * @return $this
+     */
+    public function setAggregateType($aggregate_type)
+    {
+        $this->container['aggregate_type'] = $aggregate_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets metric_type
+     *
+     * @return string
+     */
+    public function getMetricType()
+    {
+        return $this->container['metric_type'];
+    }
+
+    /**
+     * Sets metric_type
+     *
+     * @param string $metric_type metric_type
+     *
+     * @return $this
+     */
+    public function setMetricType($metric_type)
+    {
+        $this->container['metric_type'] = $metric_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets scale_down_threshold
      *
      * @return int
      */
-    public function getPageSize()
+    public function getScaleDownThreshold()
     {
-        return $this->container['page_size'];
+        return $this->container['scale_down_threshold'];
     }
 
     /**
-     * Sets page_size
+     * Sets scale_down_threshold
      *
-     * @param int $page_size page_size
+     * @param int $scale_down_threshold scale_down_threshold
      *
      * @return $this
      */
-    public function setPageSize($page_size)
+    public function setScaleDownThreshold($scale_down_threshold)
     {
-        $this->container['page_size'] = $page_size;
+        $this->container['scale_down_threshold'] = $scale_down_threshold;
 
         return $this;
     }
 
     /**
-     * Gets tag_filters
+     * Gets scale_up_threshold
      *
-     * @return \Volcengine\Vefaas\Model\TagFilterForListFunctionsInput[]
+     * @return int
      */
-    public function getTagFilters()
+    public function getScaleUpThreshold()
     {
-        return $this->container['tag_filters'];
+        return $this->container['scale_up_threshold'];
     }
 
     /**
-     * Sets tag_filters
+     * Sets scale_up_threshold
      *
-     * @param \Volcengine\Vefaas\Model\TagFilterForListFunctionsInput[] $tag_filters tag_filters
+     * @param int $scale_up_threshold scale_up_threshold
      *
      * @return $this
      */
-    public function setTagFilters($tag_filters)
+    public function setScaleUpThreshold($scale_up_threshold)
     {
-        $this->container['tag_filters'] = $tag_filters;
+        $this->container['scale_up_threshold'] = $scale_up_threshold;
+
+        return $this;
+    }
+
+    /**
+     * Gets target
+     *
+     * @return int
+     */
+    public function getTarget()
+    {
+        return $this->container['target'];
+    }
+
+    /**
+     * Sets target
+     *
+     * @param int $target target
+     *
+     * @return $this
+     */
+    public function setTarget($target)
+    {
+        $this->container['target'] = $target;
 
         return $this;
     }
