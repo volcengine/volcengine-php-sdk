@@ -28,6 +28,7 @@ class CreateRouteTableRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'associate_type' => 'string',
         'client_token' => 'string',
         'description' => 'string',
         'project_name' => 'string',
@@ -42,6 +43,7 @@ class CreateRouteTableRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'associate_type' => null,
         'client_token' => null,
         'description' => null,
         'project_name' => null,
@@ -77,6 +79,7 @@ class CreateRouteTableRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'associate_type' => 'AssociateType',
         'client_token' => 'ClientToken',
         'description' => 'Description',
         'project_name' => 'ProjectName',
@@ -91,6 +94,7 @@ class CreateRouteTableRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'associate_type' => 'setAssociateType',
         'client_token' => 'setClientToken',
         'description' => 'setDescription',
         'project_name' => 'setProjectName',
@@ -105,6 +109,7 @@ class CreateRouteTableRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'associate_type' => 'getAssociateType',
         'client_token' => 'getClientToken',
         'description' => 'getDescription',
         'project_name' => 'getProjectName',
@@ -154,8 +159,23 @@ class CreateRouteTableRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const ASSOCIATE_TYPE_SUBNET = 'Subnet';
+    const ASSOCIATE_TYPE_GATEWAY = 'Gateway';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getAssociateTypeAllowableValues()
+    {
+        return [
+            self::ASSOCIATE_TYPE_SUBNET,
+            self::ASSOCIATE_TYPE_GATEWAY,
+        ];
+    }
     
 
     /**
@@ -173,6 +193,7 @@ class CreateRouteTableRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['associate_type'] = isset($data['associate_type']) ? $data['associate_type'] : null;
         $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
@@ -189,6 +210,14 @@ class CreateRouteTableRequest implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getAssociateTypeAllowableValues();
+        if (!is_null($this->container['associate_type']) && !in_array($this->container['associate_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'associate_type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         if ($this->container['vpc_id'] === null) {
             $invalidProperties[] = "'vpc_id' can't be null";
@@ -207,6 +236,39 @@ class CreateRouteTableRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets associate_type
+     *
+     * @return string
+     */
+    public function getAssociateType()
+    {
+        return $this->container['associate_type'];
+    }
+
+    /**
+     * Sets associate_type
+     *
+     * @param string $associate_type associate_type
+     *
+     * @return $this
+     */
+    public function setAssociateType($associate_type)
+    {
+        $allowedValues = $this->getAssociateTypeAllowableValues();
+        if (!is_null($associate_type) && !in_array($associate_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'associate_type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['associate_type'] = $associate_type;
+
+        return $this;
+    }
 
     /**
      * Gets client_token

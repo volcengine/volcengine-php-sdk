@@ -28,6 +28,7 @@ class DescribeRouteTableListRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'associate_type' => 'string',
         'max_results' => 'int',
         'next_token' => 'string',
         'page_number' => 'int',
@@ -45,6 +46,7 @@ class DescribeRouteTableListRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'associate_type' => null,
         'max_results' => null,
         'next_token' => null,
         'page_number' => null,
@@ -83,6 +85,7 @@ class DescribeRouteTableListRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'associate_type' => 'AssociateType',
         'max_results' => 'MaxResults',
         'next_token' => 'NextToken',
         'page_number' => 'PageNumber',
@@ -100,6 +103,7 @@ class DescribeRouteTableListRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'associate_type' => 'setAssociateType',
         'max_results' => 'setMaxResults',
         'next_token' => 'setNextToken',
         'page_number' => 'setPageNumber',
@@ -117,6 +121,7 @@ class DescribeRouteTableListRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'associate_type' => 'getAssociateType',
         'max_results' => 'getMaxResults',
         'next_token' => 'getNextToken',
         'page_number' => 'getPageNumber',
@@ -169,8 +174,23 @@ class DescribeRouteTableListRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const ASSOCIATE_TYPE_SUBNET = 'Subnet';
+    const ASSOCIATE_TYPE_GATEWAY = 'Gateway';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getAssociateTypeAllowableValues()
+    {
+        return [
+            self::ASSOCIATE_TYPE_SUBNET,
+            self::ASSOCIATE_TYPE_GATEWAY,
+        ];
+    }
     
 
     /**
@@ -188,6 +208,7 @@ class DescribeRouteTableListRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['associate_type'] = isset($data['associate_type']) ? $data['associate_type'] : null;
         $this->container['max_results'] = isset($data['max_results']) ? $data['max_results'] : null;
         $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
         $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
@@ -208,6 +229,14 @@ class DescribeRouteTableListRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        $allowedValues = $this->getAssociateTypeAllowableValues();
+        if (!is_null($this->container['associate_type']) && !in_array($this->container['associate_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'associate_type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -222,6 +251,39 @@ class DescribeRouteTableListRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets associate_type
+     *
+     * @return string
+     */
+    public function getAssociateType()
+    {
+        return $this->container['associate_type'];
+    }
+
+    /**
+     * Sets associate_type
+     *
+     * @param string $associate_type associate_type
+     *
+     * @return $this
+     */
+    public function setAssociateType($associate_type)
+    {
+        $allowedValues = $this->getAssociateTypeAllowableValues();
+        if (!is_null($associate_type) && !in_array($associate_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'associate_type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['associate_type'] = $associate_type;
+
+        return $this;
+    }
 
     /**
      * Gets max_results

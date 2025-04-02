@@ -34,6 +34,7 @@ class DescribeIpv6GatewayAttributeResponse implements ModelInterface, ArrayAcces
         'name' => 'string',
         'project_name' => 'string',
         'request_id' => 'string',
+        'route_table_id' => 'string',
         'status' => 'string',
         'update_time' => 'string',
         'vpc_id' => 'string'
@@ -51,6 +52,7 @@ class DescribeIpv6GatewayAttributeResponse implements ModelInterface, ArrayAcces
         'name' => null,
         'project_name' => null,
         'request_id' => null,
+        'route_table_id' => null,
         'status' => null,
         'update_time' => null,
         'vpc_id' => null
@@ -89,6 +91,7 @@ class DescribeIpv6GatewayAttributeResponse implements ModelInterface, ArrayAcces
         'name' => 'Name',
         'project_name' => 'ProjectName',
         'request_id' => 'RequestId',
+        'route_table_id' => 'RouteTableId',
         'status' => 'Status',
         'update_time' => 'UpdateTime',
         'vpc_id' => 'VpcId'
@@ -106,6 +109,7 @@ class DescribeIpv6GatewayAttributeResponse implements ModelInterface, ArrayAcces
         'name' => 'setName',
         'project_name' => 'setProjectName',
         'request_id' => 'setRequestId',
+        'route_table_id' => 'setRouteTableId',
         'status' => 'setStatus',
         'update_time' => 'setUpdateTime',
         'vpc_id' => 'setVpcId'
@@ -123,6 +127,7 @@ class DescribeIpv6GatewayAttributeResponse implements ModelInterface, ArrayAcces
         'name' => 'getName',
         'project_name' => 'getProjectName',
         'request_id' => 'getRequestId',
+        'route_table_id' => 'getRouteTableId',
         'status' => 'getStatus',
         'update_time' => 'getUpdateTime',
         'vpc_id' => 'getVpcId'
@@ -194,6 +199,7 @@ class DescribeIpv6GatewayAttributeResponse implements ModelInterface, ArrayAcces
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['request_id'] = isset($data['request_id']) ? $data['request_id'] : null;
+        $this->container['route_table_id'] = isset($data['route_table_id']) ? $data['route_table_id'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
         $this->container['vpc_id'] = isset($data['vpc_id']) ? $data['vpc_id'] : null;
@@ -363,6 +369,30 @@ class DescribeIpv6GatewayAttributeResponse implements ModelInterface, ArrayAcces
     public function setRequestId($request_id)
     {
         $this->container['request_id'] = $request_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets route_table_id
+     *
+     * @return string
+     */
+    public function getRouteTableId()
+    {
+        return $this->container['route_table_id'];
+    }
+
+    /**
+     * Sets route_table_id
+     *
+     * @param string $route_table_id route_table_id
+     *
+     * @return $this
+     */
+    public function setRouteTableId($route_table_id)
+    {
+        $this->container['route_table_id'] = $route_table_id;
 
         return $this;
     }
