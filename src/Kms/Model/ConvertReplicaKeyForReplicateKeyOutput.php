@@ -44,6 +44,7 @@ class ConvertReplicaKeyForReplicateKeyOutput implements ModelInterface, ArrayAcc
         'rotation_state' => 'string',
         'schedule_delete_time' => 'string',
         'schedule_rotation_time' => 'string',
+        'tags' => '\Volcengine\Kms\Model\TagForReplicateKeyOutput[]',
         'trn' => 'string',
         'update_date' => 'int'
     ];
@@ -70,6 +71,7 @@ class ConvertReplicaKeyForReplicateKeyOutput implements ModelInterface, ArrayAcc
         'rotation_state' => null,
         'schedule_delete_time' => null,
         'schedule_rotation_time' => null,
+        'tags' => null,
         'trn' => null,
         'update_date' => 'int64'
     ];
@@ -117,6 +119,7 @@ class ConvertReplicaKeyForReplicateKeyOutput implements ModelInterface, ArrayAcc
         'rotation_state' => 'RotationState',
         'schedule_delete_time' => 'ScheduleDeleteTime',
         'schedule_rotation_time' => 'ScheduleRotationTime',
+        'tags' => 'Tags',
         'trn' => 'Trn',
         'update_date' => 'UpdateDate'
     ];
@@ -143,6 +146,7 @@ class ConvertReplicaKeyForReplicateKeyOutput implements ModelInterface, ArrayAcc
         'rotation_state' => 'setRotationState',
         'schedule_delete_time' => 'setScheduleDeleteTime',
         'schedule_rotation_time' => 'setScheduleRotationTime',
+        'tags' => 'setTags',
         'trn' => 'setTrn',
         'update_date' => 'setUpdateDate'
     ];
@@ -169,6 +173,7 @@ class ConvertReplicaKeyForReplicateKeyOutput implements ModelInterface, ArrayAcc
         'rotation_state' => 'getRotationState',
         'schedule_delete_time' => 'getScheduleDeleteTime',
         'schedule_rotation_time' => 'getScheduleRotationTime',
+        'tags' => 'getTags',
         'trn' => 'getTrn',
         'update_date' => 'getUpdateDate'
     ];
@@ -249,6 +254,7 @@ class ConvertReplicaKeyForReplicateKeyOutput implements ModelInterface, ArrayAcc
         $this->container['rotation_state'] = isset($data['rotation_state']) ? $data['rotation_state'] : null;
         $this->container['schedule_delete_time'] = isset($data['schedule_delete_time']) ? $data['schedule_delete_time'] : null;
         $this->container['schedule_rotation_time'] = isset($data['schedule_rotation_time']) ? $data['schedule_rotation_time'] : null;
+        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['trn'] = isset($data['trn']) ? $data['trn'] : null;
         $this->container['update_date'] = isset($data['update_date']) ? $data['update_date'] : null;
     }
@@ -657,6 +663,30 @@ class ConvertReplicaKeyForReplicateKeyOutput implements ModelInterface, ArrayAcc
     public function setScheduleRotationTime($schedule_rotation_time)
     {
         $this->container['schedule_rotation_time'] = $schedule_rotation_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets tags
+     *
+     * @return \Volcengine\Kms\Model\TagForReplicateKeyOutput[]
+     */
+    public function getTags()
+    {
+        return $this->container['tags'];
+    }
+
+    /**
+     * Sets tags
+     *
+     * @param \Volcengine\Kms\Model\TagForReplicateKeyOutput[] $tags tags
+     *
+     * @return $this
+     */
+    public function setTags($tags)
+    {
+        $this->container['tags'] = $tags;
 
         return $this;
     }
