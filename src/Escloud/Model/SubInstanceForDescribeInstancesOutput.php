@@ -142,7 +142,7 @@ class SubInstanceForDescribeInstancesOutput implements ModelInterface, ArrayAcce
     const SUB_INSTANCE_STATUS_AVAILABLE = 'AVAILABLE';
     const SUB_INSTANCE_STATUS_RELEASED = 'RELEASED';
     const SUB_INSTANCE_TYPE_SQL = 'Sql';
-    const SUB_INSTANCE_TYPE_KRYPTON = 'Krypton';
+    const SUB_INSTANCE_TYPE_AI = 'AI';
     
 
     
@@ -168,7 +168,7 @@ class SubInstanceForDescribeInstancesOutput implements ModelInterface, ArrayAcce
     {
         return [
             self::SUB_INSTANCE_TYPE_SQL,
-            self::SUB_INSTANCE_TYPE_KRYPTON,
+            self::SUB_INSTANCE_TYPE_AI,
         ];
     }
     
