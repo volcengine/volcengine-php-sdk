@@ -38,8 +38,10 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
         'es_eip' => 'string',
         'es_eip_id' => 'string',
         'es_private_endpoint' => 'string',
+        'es_private_ip_allow_list' => 'string',
         'es_private_ip_whitelist' => 'string',
         'es_public_endpoint' => 'string',
+        'es_public_ip_allow_list' => 'string',
         'es_public_ip_whitelist' => 'string',
         'enable_es_private_domain_public' => 'bool',
         'enable_es_private_network' => 'bool',
@@ -54,14 +56,17 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
         'kibana_eip' => 'string',
         'kibana_eip_id' => 'string',
         'kibana_private_domain' => 'string',
+        'kibana_private_ip_allow_list' => 'string',
         'kibana_private_ip_whitelist' => 'string',
         'kibana_public_domain' => 'string',
+        'kibana_public_ip_allow_list' => 'string',
         'kibana_public_ip_whitelist' => 'string',
         'main_zone_id' => 'string',
         'maintenance_day' => 'string[]',
         'maintenance_time' => 'string',
         'resource_tags' => '\Volcengine\Escloud\Model\ResourceTagForDescribeInstancesOutput[]',
         'status' => 'string',
+        'sub_instance_enable' => 'string',
         'sub_instances' => '\Volcengine\Escloud\Model\SubInstanceForDescribeInstancesOutput[]',
         'support_cold_node' => 'bool',
         'total_nodes' => 'int',
@@ -85,8 +90,10 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
         'es_eip' => null,
         'es_eip_id' => null,
         'es_private_endpoint' => null,
+        'es_private_ip_allow_list' => null,
         'es_private_ip_whitelist' => null,
         'es_public_endpoint' => null,
+        'es_public_ip_allow_list' => null,
         'es_public_ip_whitelist' => null,
         'enable_es_private_domain_public' => null,
         'enable_es_private_network' => null,
@@ -101,14 +108,17 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
         'kibana_eip' => null,
         'kibana_eip_id' => null,
         'kibana_private_domain' => null,
+        'kibana_private_ip_allow_list' => null,
         'kibana_private_ip_whitelist' => null,
         'kibana_public_domain' => null,
+        'kibana_public_ip_allow_list' => null,
         'kibana_public_ip_whitelist' => null,
         'main_zone_id' => null,
         'maintenance_day' => null,
         'maintenance_time' => null,
         'resource_tags' => null,
         'status' => null,
+        'sub_instance_enable' => null,
         'sub_instances' => null,
         'support_cold_node' => null,
         'total_nodes' => 'int32',
@@ -153,8 +163,10 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
         'es_eip' => 'ESEip',
         'es_eip_id' => 'ESEipId',
         'es_private_endpoint' => 'ESPrivateEndpoint',
+        'es_private_ip_allow_list' => 'ESPrivateIpAllowList',
         'es_private_ip_whitelist' => 'ESPrivateIpWhitelist',
         'es_public_endpoint' => 'ESPublicEndpoint',
+        'es_public_ip_allow_list' => 'ESPublicIpAllowList',
         'es_public_ip_whitelist' => 'ESPublicIpWhitelist',
         'enable_es_private_domain_public' => 'EnableESPrivateDomainPublic',
         'enable_es_private_network' => 'EnableESPrivateNetwork',
@@ -169,14 +181,17 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
         'kibana_eip' => 'KibanaEip',
         'kibana_eip_id' => 'KibanaEipId',
         'kibana_private_domain' => 'KibanaPrivateDomain',
+        'kibana_private_ip_allow_list' => 'KibanaPrivateIpAllowList',
         'kibana_private_ip_whitelist' => 'KibanaPrivateIpWhitelist',
         'kibana_public_domain' => 'KibanaPublicDomain',
+        'kibana_public_ip_allow_list' => 'KibanaPublicIpAllowList',
         'kibana_public_ip_whitelist' => 'KibanaPublicIpWhitelist',
         'main_zone_id' => 'MainZoneId',
         'maintenance_day' => 'MaintenanceDay',
         'maintenance_time' => 'MaintenanceTime',
         'resource_tags' => 'ResourceTags',
         'status' => 'Status',
+        'sub_instance_enable' => 'SubInstanceEnable',
         'sub_instances' => 'SubInstances',
         'support_cold_node' => 'SupportColdNode',
         'total_nodes' => 'TotalNodes',
@@ -200,8 +215,10 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
         'es_eip' => 'setEsEip',
         'es_eip_id' => 'setEsEipId',
         'es_private_endpoint' => 'setEsPrivateEndpoint',
+        'es_private_ip_allow_list' => 'setEsPrivateIpAllowList',
         'es_private_ip_whitelist' => 'setEsPrivateIpWhitelist',
         'es_public_endpoint' => 'setEsPublicEndpoint',
+        'es_public_ip_allow_list' => 'setEsPublicIpAllowList',
         'es_public_ip_whitelist' => 'setEsPublicIpWhitelist',
         'enable_es_private_domain_public' => 'setEnableEsPrivateDomainPublic',
         'enable_es_private_network' => 'setEnableEsPrivateNetwork',
@@ -216,14 +233,17 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
         'kibana_eip' => 'setKibanaEip',
         'kibana_eip_id' => 'setKibanaEipId',
         'kibana_private_domain' => 'setKibanaPrivateDomain',
+        'kibana_private_ip_allow_list' => 'setKibanaPrivateIpAllowList',
         'kibana_private_ip_whitelist' => 'setKibanaPrivateIpWhitelist',
         'kibana_public_domain' => 'setKibanaPublicDomain',
+        'kibana_public_ip_allow_list' => 'setKibanaPublicIpAllowList',
         'kibana_public_ip_whitelist' => 'setKibanaPublicIpWhitelist',
         'main_zone_id' => 'setMainZoneId',
         'maintenance_day' => 'setMaintenanceDay',
         'maintenance_time' => 'setMaintenanceTime',
         'resource_tags' => 'setResourceTags',
         'status' => 'setStatus',
+        'sub_instance_enable' => 'setSubInstanceEnable',
         'sub_instances' => 'setSubInstances',
         'support_cold_node' => 'setSupportColdNode',
         'total_nodes' => 'setTotalNodes',
@@ -247,8 +267,10 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
         'es_eip' => 'getEsEip',
         'es_eip_id' => 'getEsEipId',
         'es_private_endpoint' => 'getEsPrivateEndpoint',
+        'es_private_ip_allow_list' => 'getEsPrivateIpAllowList',
         'es_private_ip_whitelist' => 'getEsPrivateIpWhitelist',
         'es_public_endpoint' => 'getEsPublicEndpoint',
+        'es_public_ip_allow_list' => 'getEsPublicIpAllowList',
         'es_public_ip_whitelist' => 'getEsPublicIpWhitelist',
         'enable_es_private_domain_public' => 'getEnableEsPrivateDomainPublic',
         'enable_es_private_network' => 'getEnableEsPrivateNetwork',
@@ -263,14 +285,17 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
         'kibana_eip' => 'getKibanaEip',
         'kibana_eip_id' => 'getKibanaEipId',
         'kibana_private_domain' => 'getKibanaPrivateDomain',
+        'kibana_private_ip_allow_list' => 'getKibanaPrivateIpAllowList',
         'kibana_private_ip_whitelist' => 'getKibanaPrivateIpWhitelist',
         'kibana_public_domain' => 'getKibanaPublicDomain',
+        'kibana_public_ip_allow_list' => 'getKibanaPublicIpAllowList',
         'kibana_public_ip_whitelist' => 'getKibanaPublicIpWhitelist',
         'main_zone_id' => 'getMainZoneId',
         'maintenance_day' => 'getMaintenanceDay',
         'maintenance_time' => 'getMaintenanceTime',
         'resource_tags' => 'getResourceTags',
         'status' => 'getStatus',
+        'sub_instance_enable' => 'getSubInstanceEnable',
         'sub_instances' => 'getSubInstances',
         'support_cold_node' => 'getSupportColdNode',
         'total_nodes' => 'getTotalNodes',
@@ -345,6 +370,10 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
     const STATUS_ERROR = 'Error';
     const STATUS_WARN = 'Warn';
     const STATUS_UNKNOWN = 'Unknown';
+    const SUB_INSTANCE_ENABLE_NONE = 'None';
+    const SUB_INSTANCE_ENABLE_AI = 'AI';
+    const SUB_INSTANCE_ENABLE_SQL = 'Sql';
+    const SUB_INSTANCE_ENABLE_AI_SQL = 'AI_Sql';
     
 
     
@@ -385,6 +414,21 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
         ];
     }
     
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getSubInstanceEnableAllowableValues()
+    {
+        return [
+            self::SUB_INSTANCE_ENABLE_NONE,
+            self::SUB_INSTANCE_ENABLE_AI,
+            self::SUB_INSTANCE_ENABLE_SQL,
+            self::SUB_INSTANCE_ENABLE_AI_SQL,
+        ];
+    }
+    
 
     /**
      * Associative array for storing property values
@@ -411,8 +455,10 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
         $this->container['es_eip'] = isset($data['es_eip']) ? $data['es_eip'] : null;
         $this->container['es_eip_id'] = isset($data['es_eip_id']) ? $data['es_eip_id'] : null;
         $this->container['es_private_endpoint'] = isset($data['es_private_endpoint']) ? $data['es_private_endpoint'] : null;
+        $this->container['es_private_ip_allow_list'] = isset($data['es_private_ip_allow_list']) ? $data['es_private_ip_allow_list'] : null;
         $this->container['es_private_ip_whitelist'] = isset($data['es_private_ip_whitelist']) ? $data['es_private_ip_whitelist'] : null;
         $this->container['es_public_endpoint'] = isset($data['es_public_endpoint']) ? $data['es_public_endpoint'] : null;
+        $this->container['es_public_ip_allow_list'] = isset($data['es_public_ip_allow_list']) ? $data['es_public_ip_allow_list'] : null;
         $this->container['es_public_ip_whitelist'] = isset($data['es_public_ip_whitelist']) ? $data['es_public_ip_whitelist'] : null;
         $this->container['enable_es_private_domain_public'] = isset($data['enable_es_private_domain_public']) ? $data['enable_es_private_domain_public'] : null;
         $this->container['enable_es_private_network'] = isset($data['enable_es_private_network']) ? $data['enable_es_private_network'] : null;
@@ -427,14 +473,17 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
         $this->container['kibana_eip'] = isset($data['kibana_eip']) ? $data['kibana_eip'] : null;
         $this->container['kibana_eip_id'] = isset($data['kibana_eip_id']) ? $data['kibana_eip_id'] : null;
         $this->container['kibana_private_domain'] = isset($data['kibana_private_domain']) ? $data['kibana_private_domain'] : null;
+        $this->container['kibana_private_ip_allow_list'] = isset($data['kibana_private_ip_allow_list']) ? $data['kibana_private_ip_allow_list'] : null;
         $this->container['kibana_private_ip_whitelist'] = isset($data['kibana_private_ip_whitelist']) ? $data['kibana_private_ip_whitelist'] : null;
         $this->container['kibana_public_domain'] = isset($data['kibana_public_domain']) ? $data['kibana_public_domain'] : null;
+        $this->container['kibana_public_ip_allow_list'] = isset($data['kibana_public_ip_allow_list']) ? $data['kibana_public_ip_allow_list'] : null;
         $this->container['kibana_public_ip_whitelist'] = isset($data['kibana_public_ip_whitelist']) ? $data['kibana_public_ip_whitelist'] : null;
         $this->container['main_zone_id'] = isset($data['main_zone_id']) ? $data['main_zone_id'] : null;
         $this->container['maintenance_day'] = isset($data['maintenance_day']) ? $data['maintenance_day'] : null;
         $this->container['maintenance_time'] = isset($data['maintenance_time']) ? $data['maintenance_time'] : null;
         $this->container['resource_tags'] = isset($data['resource_tags']) ? $data['resource_tags'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['sub_instance_enable'] = isset($data['sub_instance_enable']) ? $data['sub_instance_enable'] : null;
         $this->container['sub_instances'] = isset($data['sub_instances']) ? $data['sub_instances'] : null;
         $this->container['support_cold_node'] = isset($data['support_cold_node']) ? $data['support_cold_node'] : null;
         $this->container['total_nodes'] = isset($data['total_nodes']) ? $data['total_nodes'] : null;
@@ -455,6 +504,14 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
         if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
                 "invalid value for 'status', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getSubInstanceEnableAllowableValues();
+        if (!is_null($this->container['sub_instance_enable']) && !in_array($this->container['sub_instance_enable'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'sub_instance_enable', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -715,6 +772,30 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets es_private_ip_allow_list
+     *
+     * @return string
+     */
+    public function getEsPrivateIpAllowList()
+    {
+        return $this->container['es_private_ip_allow_list'];
+    }
+
+    /**
+     * Sets es_private_ip_allow_list
+     *
+     * @param string $es_private_ip_allow_list es_private_ip_allow_list
+     *
+     * @return $this
+     */
+    public function setEsPrivateIpAllowList($es_private_ip_allow_list)
+    {
+        $this->container['es_private_ip_allow_list'] = $es_private_ip_allow_list;
+
+        return $this;
+    }
+
+    /**
      * Gets es_private_ip_whitelist
      *
      * @return string
@@ -758,6 +839,30 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
     public function setEsPublicEndpoint($es_public_endpoint)
     {
         $this->container['es_public_endpoint'] = $es_public_endpoint;
+
+        return $this;
+    }
+
+    /**
+     * Gets es_public_ip_allow_list
+     *
+     * @return string
+     */
+    public function getEsPublicIpAllowList()
+    {
+        return $this->container['es_public_ip_allow_list'];
+    }
+
+    /**
+     * Sets es_public_ip_allow_list
+     *
+     * @param string $es_public_ip_allow_list es_public_ip_allow_list
+     *
+     * @return $this
+     */
+    public function setEsPublicIpAllowList($es_public_ip_allow_list)
+    {
+        $this->container['es_public_ip_allow_list'] = $es_public_ip_allow_list;
 
         return $this;
     }
@@ -1099,6 +1204,30 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets kibana_private_ip_allow_list
+     *
+     * @return string
+     */
+    public function getKibanaPrivateIpAllowList()
+    {
+        return $this->container['kibana_private_ip_allow_list'];
+    }
+
+    /**
+     * Sets kibana_private_ip_allow_list
+     *
+     * @param string $kibana_private_ip_allow_list kibana_private_ip_allow_list
+     *
+     * @return $this
+     */
+    public function setKibanaPrivateIpAllowList($kibana_private_ip_allow_list)
+    {
+        $this->container['kibana_private_ip_allow_list'] = $kibana_private_ip_allow_list;
+
+        return $this;
+    }
+
+    /**
      * Gets kibana_private_ip_whitelist
      *
      * @return string
@@ -1142,6 +1271,30 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
     public function setKibanaPublicDomain($kibana_public_domain)
     {
         $this->container['kibana_public_domain'] = $kibana_public_domain;
+
+        return $this;
+    }
+
+    /**
+     * Gets kibana_public_ip_allow_list
+     *
+     * @return string
+     */
+    public function getKibanaPublicIpAllowList()
+    {
+        return $this->container['kibana_public_ip_allow_list'];
+    }
+
+    /**
+     * Sets kibana_public_ip_allow_list
+     *
+     * @param string $kibana_public_ip_allow_list kibana_public_ip_allow_list
+     *
+     * @return $this
+     */
+    public function setKibanaPublicIpAllowList($kibana_public_ip_allow_list)
+    {
+        $this->container['kibana_public_ip_allow_list'] = $kibana_public_ip_allow_list;
 
         return $this;
     }
@@ -1295,6 +1448,39 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
             );
         }
         $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets sub_instance_enable
+     *
+     * @return string
+     */
+    public function getSubInstanceEnable()
+    {
+        return $this->container['sub_instance_enable'];
+    }
+
+    /**
+     * Sets sub_instance_enable
+     *
+     * @param string $sub_instance_enable sub_instance_enable
+     *
+     * @return $this
+     */
+    public function setSubInstanceEnable($sub_instance_enable)
+    {
+        $allowedValues = $this->getSubInstanceEnableAllowableValues();
+        if (!is_null($sub_instance_enable) && !in_array($sub_instance_enable, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'sub_instance_enable', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['sub_instance_enable'] = $sub_instance_enable;
 
         return $this;
     }
