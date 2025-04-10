@@ -33,7 +33,8 @@ class RenewInstanceRequest implements ModelInterface, ArrayAccess
         'product' => 'string',
         'renew_related_instance' => 'bool',
         'renewal_duration' => 'int',
-        'renewal_duration_unit' => 'string'
+        'renewal_duration_unit' => 'string',
+        'united_expire_day' => 'string'
     ];
 
     /**
@@ -47,7 +48,8 @@ class RenewInstanceRequest implements ModelInterface, ArrayAccess
         'product' => null,
         'renew_related_instance' => null,
         'renewal_duration' => 'int64',
-        'renewal_duration_unit' => null
+        'renewal_duration_unit' => null,
+        'united_expire_day' => null
     ];
 
     /**
@@ -82,7 +84,8 @@ class RenewInstanceRequest implements ModelInterface, ArrayAccess
         'product' => 'Product',
         'renew_related_instance' => 'RenewRelatedInstance',
         'renewal_duration' => 'RenewalDuration',
-        'renewal_duration_unit' => 'RenewalDurationUnit'
+        'renewal_duration_unit' => 'RenewalDurationUnit',
+        'united_expire_day' => 'UnitedExpireDay'
     ];
 
     /**
@@ -96,7 +99,8 @@ class RenewInstanceRequest implements ModelInterface, ArrayAccess
         'product' => 'setProduct',
         'renew_related_instance' => 'setRenewRelatedInstance',
         'renewal_duration' => 'setRenewalDuration',
-        'renewal_duration_unit' => 'setRenewalDurationUnit'
+        'renewal_duration_unit' => 'setRenewalDurationUnit',
+        'united_expire_day' => 'setUnitedExpireDay'
     ];
 
     /**
@@ -110,7 +114,8 @@ class RenewInstanceRequest implements ModelInterface, ArrayAccess
         'product' => 'getProduct',
         'renew_related_instance' => 'getRenewRelatedInstance',
         'renewal_duration' => 'getRenewalDuration',
-        'renewal_duration_unit' => 'getRenewalDurationUnit'
+        'renewal_duration_unit' => 'getRenewalDurationUnit',
+        'united_expire_day' => 'getUnitedExpireDay'
     ];
 
     /**
@@ -179,6 +184,7 @@ class RenewInstanceRequest implements ModelInterface, ArrayAccess
         $this->container['renew_related_instance'] = isset($data['renew_related_instance']) ? $data['renew_related_instance'] : null;
         $this->container['renewal_duration'] = isset($data['renewal_duration']) ? $data['renewal_duration'] : null;
         $this->container['renewal_duration_unit'] = isset($data['renewal_duration_unit']) ? $data['renewal_duration_unit'] : null;
+        $this->container['united_expire_day'] = isset($data['united_expire_day']) ? $data['united_expire_day'] : null;
     }
 
     /**
@@ -354,6 +360,30 @@ class RenewInstanceRequest implements ModelInterface, ArrayAccess
     public function setRenewalDurationUnit($renewal_duration_unit)
     {
         $this->container['renewal_duration_unit'] = $renewal_duration_unit;
+
+        return $this;
+    }
+
+    /**
+     * Gets united_expire_day
+     *
+     * @return string
+     */
+    public function getUnitedExpireDay()
+    {
+        return $this->container['united_expire_day'];
+    }
+
+    /**
+     * Sets united_expire_day
+     *
+     * @param string $united_expire_day united_expire_day
+     *
+     * @return $this
+     */
+    public function setUnitedExpireDay($united_expire_day)
+    {
+        $this->container['united_expire_day'] = $united_expire_day;
 
         return $this;
     }
