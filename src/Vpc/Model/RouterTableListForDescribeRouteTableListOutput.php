@@ -29,8 +29,11 @@ class RouterTableListForDescribeRouteTableListOutput implements ModelInterface, 
       */
     protected static $swaggerTypes = [
         'account_id' => 'string',
+        'associate_type' => 'string',
         'creation_time' => 'string',
         'description' => 'string',
+        'ipv4_gateway_id' => 'string',
+        'ipv6_gateway_id' => 'string',
         'project_name' => 'string',
         'route_table_id' => 'string',
         'route_table_name' => 'string',
@@ -49,8 +52,11 @@ class RouterTableListForDescribeRouteTableListOutput implements ModelInterface, 
       */
     protected static $swaggerFormats = [
         'account_id' => null,
+        'associate_type' => null,
         'creation_time' => null,
         'description' => null,
+        'ipv4_gateway_id' => null,
+        'ipv6_gateway_id' => null,
         'project_name' => null,
         'route_table_id' => null,
         'route_table_name' => null,
@@ -90,8 +96,11 @@ class RouterTableListForDescribeRouteTableListOutput implements ModelInterface, 
      */
     protected static $attributeMap = [
         'account_id' => 'AccountId',
+        'associate_type' => 'AssociateType',
         'creation_time' => 'CreationTime',
         'description' => 'Description',
+        'ipv4_gateway_id' => 'Ipv4GatewayId',
+        'ipv6_gateway_id' => 'Ipv6GatewayId',
         'project_name' => 'ProjectName',
         'route_table_id' => 'RouteTableId',
         'route_table_name' => 'RouteTableName',
@@ -110,8 +119,11 @@ class RouterTableListForDescribeRouteTableListOutput implements ModelInterface, 
      */
     protected static $setters = [
         'account_id' => 'setAccountId',
+        'associate_type' => 'setAssociateType',
         'creation_time' => 'setCreationTime',
         'description' => 'setDescription',
+        'ipv4_gateway_id' => 'setIpv4GatewayId',
+        'ipv6_gateway_id' => 'setIpv6GatewayId',
         'project_name' => 'setProjectName',
         'route_table_id' => 'setRouteTableId',
         'route_table_name' => 'setRouteTableName',
@@ -130,8 +142,11 @@ class RouterTableListForDescribeRouteTableListOutput implements ModelInterface, 
      */
     protected static $getters = [
         'account_id' => 'getAccountId',
+        'associate_type' => 'getAssociateType',
         'creation_time' => 'getCreationTime',
         'description' => 'getDescription',
+        'ipv4_gateway_id' => 'getIpv4GatewayId',
+        'ipv6_gateway_id' => 'getIpv6GatewayId',
         'project_name' => 'getProjectName',
         'route_table_id' => 'getRouteTableId',
         'route_table_name' => 'getRouteTableName',
@@ -184,8 +199,23 @@ class RouterTableListForDescribeRouteTableListOutput implements ModelInterface, 
         return self::$swaggerModelName;
     }
 
+    const ASSOCIATE_TYPE_SUBNET = 'Subnet';
+    const ASSOCIATE_TYPE_GATEWAY = 'Gateway';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getAssociateTypeAllowableValues()
+    {
+        return [
+            self::ASSOCIATE_TYPE_SUBNET,
+            self::ASSOCIATE_TYPE_GATEWAY,
+        ];
+    }
     
 
     /**
@@ -204,8 +234,11 @@ class RouterTableListForDescribeRouteTableListOutput implements ModelInterface, 
     public function __construct(array $data = null)
     {
         $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
+        $this->container['associate_type'] = isset($data['associate_type']) ? $data['associate_type'] : null;
         $this->container['creation_time'] = isset($data['creation_time']) ? $data['creation_time'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['ipv4_gateway_id'] = isset($data['ipv4_gateway_id']) ? $data['ipv4_gateway_id'] : null;
+        $this->container['ipv6_gateway_id'] = isset($data['ipv6_gateway_id']) ? $data['ipv6_gateway_id'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['route_table_id'] = isset($data['route_table_id']) ? $data['route_table_id'] : null;
         $this->container['route_table_name'] = isset($data['route_table_name']) ? $data['route_table_name'] : null;
@@ -225,6 +258,14 @@ class RouterTableListForDescribeRouteTableListOutput implements ModelInterface, 
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getAssociateTypeAllowableValues();
+        if (!is_null($this->container['associate_type']) && !in_array($this->container['associate_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'associate_type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -261,6 +302,39 @@ class RouterTableListForDescribeRouteTableListOutput implements ModelInterface, 
     public function setAccountId($account_id)
     {
         $this->container['account_id'] = $account_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets associate_type
+     *
+     * @return string
+     */
+    public function getAssociateType()
+    {
+        return $this->container['associate_type'];
+    }
+
+    /**
+     * Sets associate_type
+     *
+     * @param string $associate_type associate_type
+     *
+     * @return $this
+     */
+    public function setAssociateType($associate_type)
+    {
+        $allowedValues = $this->getAssociateTypeAllowableValues();
+        if (!is_null($associate_type) && !in_array($associate_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'associate_type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['associate_type'] = $associate_type;
 
         return $this;
     }
@@ -309,6 +383,54 @@ class RouterTableListForDescribeRouteTableListOutput implements ModelInterface, 
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets ipv4_gateway_id
+     *
+     * @return string
+     */
+    public function getIpv4GatewayId()
+    {
+        return $this->container['ipv4_gateway_id'];
+    }
+
+    /**
+     * Sets ipv4_gateway_id
+     *
+     * @param string $ipv4_gateway_id ipv4_gateway_id
+     *
+     * @return $this
+     */
+    public function setIpv4GatewayId($ipv4_gateway_id)
+    {
+        $this->container['ipv4_gateway_id'] = $ipv4_gateway_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets ipv6_gateway_id
+     *
+     * @return string
+     */
+    public function getIpv6GatewayId()
+    {
+        return $this->container['ipv6_gateway_id'];
+    }
+
+    /**
+     * Sets ipv6_gateway_id
+     *
+     * @param string $ipv6_gateway_id ipv6_gateway_id
+     *
+     * @return $this
+     */
+    public function setIpv6GatewayId($ipv6_gateway_id)
+    {
+        $this->container['ipv6_gateway_id'] = $ipv6_gateway_id;
 
         return $this;
     }
