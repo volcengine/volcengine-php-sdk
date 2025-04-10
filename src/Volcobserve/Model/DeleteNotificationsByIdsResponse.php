@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Escloud\Model;
+namespace Volcengine\Volcobserve\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class SubInstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
+class DeleteNotificationsByIdsResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class SubInstanceForDescribeInstancesOutput implements ModelInterface, ArrayAcce
       *
       * @var string
       */
-    protected static $swaggerModelName = 'SubInstanceForDescribeInstancesOutput';
+    protected static $swaggerModelName = 'DeleteNotificationsByIdsResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,7 @@ class SubInstanceForDescribeInstancesOutput implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'sub_instance_id' => 'string',
-        'sub_instance_status' => 'string',
-        'sub_instance_type' => 'string'
+        'data' => 'string[]'
     ];
 
     /**
@@ -39,9 +37,7 @@ class SubInstanceForDescribeInstancesOutput implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'sub_instance_id' => null,
-        'sub_instance_status' => null,
-        'sub_instance_type' => null
+        'data' => null
     ];
 
     /**
@@ -71,9 +67,7 @@ class SubInstanceForDescribeInstancesOutput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $attributeMap = [
-        'sub_instance_id' => 'SubInstanceId',
-        'sub_instance_status' => 'SubInstanceStatus',
-        'sub_instance_type' => 'SubInstanceType'
+        'data' => 'Data'
     ];
 
     /**
@@ -82,9 +76,7 @@ class SubInstanceForDescribeInstancesOutput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $setters = [
-        'sub_instance_id' => 'setSubInstanceId',
-        'sub_instance_status' => 'setSubInstanceStatus',
-        'sub_instance_type' => 'setSubInstanceType'
+        'data' => 'setData'
     ];
 
     /**
@@ -93,9 +85,7 @@ class SubInstanceForDescribeInstancesOutput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $getters = [
-        'sub_instance_id' => 'getSubInstanceId',
-        'sub_instance_status' => 'getSubInstanceStatus',
-        'sub_instance_type' => 'getSubInstanceType'
+        'data' => 'getData'
     ];
 
     /**
@@ -139,38 +129,8 @@ class SubInstanceForDescribeInstancesOutput implements ModelInterface, ArrayAcce
         return self::$swaggerModelName;
     }
 
-    const SUB_INSTANCE_STATUS_AVAILABLE = 'AVAILABLE';
-    const SUB_INSTANCE_STATUS_RELEASED = 'RELEASED';
-    const SUB_INSTANCE_TYPE_SQL = 'Sql';
-    const SUB_INSTANCE_TYPE_AI = 'AI';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getSubInstanceStatusAllowableValues()
-    {
-        return [
-            self::SUB_INSTANCE_STATUS_AVAILABLE,
-            self::SUB_INSTANCE_STATUS_RELEASED,
-        ];
-    }
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getSubInstanceTypeAllowableValues()
-    {
-        return [
-            self::SUB_INSTANCE_TYPE_SQL,
-            self::SUB_INSTANCE_TYPE_AI,
-        ];
-    }
     
 
     /**
@@ -188,9 +148,7 @@ class SubInstanceForDescribeInstancesOutput implements ModelInterface, ArrayAcce
      */
     public function __construct(array $data = null)
     {
-        $this->container['sub_instance_id'] = isset($data['sub_instance_id']) ? $data['sub_instance_id'] : null;
-        $this->container['sub_instance_status'] = isset($data['sub_instance_status']) ? $data['sub_instance_status'] : null;
-        $this->container['sub_instance_type'] = isset($data['sub_instance_type']) ? $data['sub_instance_type'] : null;
+        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
     }
 
     /**
@@ -201,22 +159,6 @@ class SubInstanceForDescribeInstancesOutput implements ModelInterface, ArrayAcce
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getSubInstanceStatusAllowableValues();
-        if (!is_null($this->container['sub_instance_status']) && !in_array($this->container['sub_instance_status'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'sub_instance_status', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        $allowedValues = $this->getSubInstanceTypeAllowableValues();
-        if (!is_null($this->container['sub_instance_type']) && !in_array($this->container['sub_instance_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'sub_instance_type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -234,91 +176,25 @@ class SubInstanceForDescribeInstancesOutput implements ModelInterface, ArrayAcce
 
 
     /**
-     * Gets sub_instance_id
+     * Gets data
      *
-     * @return string
+     * @return string[]
      */
-    public function getSubInstanceId()
+    public function getData()
     {
-        return $this->container['sub_instance_id'];
+        return $this->container['data'];
     }
 
     /**
-     * Sets sub_instance_id
+     * Sets data
      *
-     * @param string $sub_instance_id sub_instance_id
+     * @param string[] $data data
      *
      * @return $this
      */
-    public function setSubInstanceId($sub_instance_id)
+    public function setData($data)
     {
-        $this->container['sub_instance_id'] = $sub_instance_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets sub_instance_status
-     *
-     * @return string
-     */
-    public function getSubInstanceStatus()
-    {
-        return $this->container['sub_instance_status'];
-    }
-
-    /**
-     * Sets sub_instance_status
-     *
-     * @param string $sub_instance_status sub_instance_status
-     *
-     * @return $this
-     */
-    public function setSubInstanceStatus($sub_instance_status)
-    {
-        $allowedValues = $this->getSubInstanceStatusAllowableValues();
-        if (!is_null($sub_instance_status) && !in_array($sub_instance_status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'sub_instance_status', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['sub_instance_status'] = $sub_instance_status;
-
-        return $this;
-    }
-
-    /**
-     * Gets sub_instance_type
-     *
-     * @return string
-     */
-    public function getSubInstanceType()
-    {
-        return $this->container['sub_instance_type'];
-    }
-
-    /**
-     * Sets sub_instance_type
-     *
-     * @param string $sub_instance_type sub_instance_type
-     *
-     * @return $this
-     */
-    public function setSubInstanceType($sub_instance_type)
-    {
-        $allowedValues = $this->getSubInstanceTypeAllowableValues();
-        if (!is_null($sub_instance_type) && !in_array($sub_instance_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'sub_instance_type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['sub_instance_type'] = $sub_instance_type;
+        $this->container['data'] = $data;
 
         return $this;
     }

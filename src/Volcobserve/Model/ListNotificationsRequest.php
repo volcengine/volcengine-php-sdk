@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Vpc\Model;
+namespace Volcengine\Volcobserve\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class DescribeIpv6GatewayAttributeResponse implements ModelInterface, ArrayAccess
+class ListNotificationsRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class DescribeIpv6GatewayAttributeResponse implements ModelInterface, ArrayAcces
       *
       * @var string
       */
-    protected static $swaggerModelName = 'DescribeIpv6GatewayAttributeResponse';
+    protected static $swaggerModelName = 'ListNotificationsRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,16 +28,12 @@ class DescribeIpv6GatewayAttributeResponse implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'creation_time' => 'string',
-        'description' => 'string',
-        'ipv6_gateway_id' => 'string',
+        'ids' => 'string[]',
+        'levels' => 'string[]',
         'name' => 'string',
-        'project_name' => 'string',
-        'request_id' => 'string',
-        'route_table_id' => 'string',
-        'status' => 'string',
-        'update_time' => 'string',
-        'vpc_id' => 'string'
+        'page_number' => 'int',
+        'page_size' => 'int',
+        'rule_ids' => 'string[]'
     ];
 
     /**
@@ -46,16 +42,12 @@ class DescribeIpv6GatewayAttributeResponse implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'creation_time' => null,
-        'description' => null,
-        'ipv6_gateway_id' => null,
+        'ids' => null,
+        'levels' => null,
         'name' => null,
-        'project_name' => null,
-        'request_id' => null,
-        'route_table_id' => null,
-        'status' => null,
-        'update_time' => null,
-        'vpc_id' => null
+        'page_number' => null,
+        'page_size' => null,
+        'rule_ids' => null
     ];
 
     /**
@@ -85,16 +77,12 @@ class DescribeIpv6GatewayAttributeResponse implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $attributeMap = [
-        'creation_time' => 'CreationTime',
-        'description' => 'Description',
-        'ipv6_gateway_id' => 'Ipv6GatewayId',
+        'ids' => 'Ids',
+        'levels' => 'Levels',
         'name' => 'Name',
-        'project_name' => 'ProjectName',
-        'request_id' => 'RequestId',
-        'route_table_id' => 'RouteTableId',
-        'status' => 'Status',
-        'update_time' => 'UpdateTime',
-        'vpc_id' => 'VpcId'
+        'page_number' => 'PageNumber',
+        'page_size' => 'PageSize',
+        'rule_ids' => 'RuleIds'
     ];
 
     /**
@@ -103,16 +91,12 @@ class DescribeIpv6GatewayAttributeResponse implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $setters = [
-        'creation_time' => 'setCreationTime',
-        'description' => 'setDescription',
-        'ipv6_gateway_id' => 'setIpv6GatewayId',
+        'ids' => 'setIds',
+        'levels' => 'setLevels',
         'name' => 'setName',
-        'project_name' => 'setProjectName',
-        'request_id' => 'setRequestId',
-        'route_table_id' => 'setRouteTableId',
-        'status' => 'setStatus',
-        'update_time' => 'setUpdateTime',
-        'vpc_id' => 'setVpcId'
+        'page_number' => 'setPageNumber',
+        'page_size' => 'setPageSize',
+        'rule_ids' => 'setRuleIds'
     ];
 
     /**
@@ -121,16 +105,12 @@ class DescribeIpv6GatewayAttributeResponse implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $getters = [
-        'creation_time' => 'getCreationTime',
-        'description' => 'getDescription',
-        'ipv6_gateway_id' => 'getIpv6GatewayId',
+        'ids' => 'getIds',
+        'levels' => 'getLevels',
         'name' => 'getName',
-        'project_name' => 'getProjectName',
-        'request_id' => 'getRequestId',
-        'route_table_id' => 'getRouteTableId',
-        'status' => 'getStatus',
-        'update_time' => 'getUpdateTime',
-        'vpc_id' => 'getVpcId'
+        'page_number' => 'getPageNumber',
+        'page_size' => 'getPageSize',
+        'rule_ids' => 'getRuleIds'
     ];
 
     /**
@@ -174,8 +154,27 @@ class DescribeIpv6GatewayAttributeResponse implements ModelInterface, ArrayAcces
         return self::$swaggerModelName;
     }
 
+    const LEVELS_NOTICE = 'notice';
+    const LEVELS_WARNING = 'warning';
+    const LEVELS_CRITICAL = 'critical';
+    const LEVELS_RECOVERY = 'recovery';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getLevelsAllowableValues()
+    {
+        return [
+            self::LEVELS_NOTICE,
+            self::LEVELS_WARNING,
+            self::LEVELS_CRITICAL,
+            self::LEVELS_RECOVERY,
+        ];
+    }
     
 
     /**
@@ -193,16 +192,12 @@ class DescribeIpv6GatewayAttributeResponse implements ModelInterface, ArrayAcces
      */
     public function __construct(array $data = null)
     {
-        $this->container['creation_time'] = isset($data['creation_time']) ? $data['creation_time'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['ipv6_gateway_id'] = isset($data['ipv6_gateway_id']) ? $data['ipv6_gateway_id'] : null;
+        $this->container['ids'] = isset($data['ids']) ? $data['ids'] : null;
+        $this->container['levels'] = isset($data['levels']) ? $data['levels'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
-        $this->container['request_id'] = isset($data['request_id']) ? $data['request_id'] : null;
-        $this->container['route_table_id'] = isset($data['route_table_id']) ? $data['route_table_id'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
-        $this->container['vpc_id'] = isset($data['vpc_id']) ? $data['vpc_id'] : null;
+        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
+        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
+        $this->container['rule_ids'] = isset($data['rule_ids']) ? $data['rule_ids'] : null;
     }
 
     /**
@@ -230,73 +225,58 @@ class DescribeIpv6GatewayAttributeResponse implements ModelInterface, ArrayAcces
 
 
     /**
-     * Gets creation_time
+     * Gets ids
      *
-     * @return string
+     * @return string[]
      */
-    public function getCreationTime()
+    public function getIds()
     {
-        return $this->container['creation_time'];
+        return $this->container['ids'];
     }
 
     /**
-     * Sets creation_time
+     * Sets ids
      *
-     * @param string $creation_time creation_time
+     * @param string[] $ids ids
      *
      * @return $this
      */
-    public function setCreationTime($creation_time)
+    public function setIds($ids)
     {
-        $this->container['creation_time'] = $creation_time;
+        $this->container['ids'] = $ids;
 
         return $this;
     }
 
     /**
-     * Gets description
+     * Gets levels
      *
-     * @return string
+     * @return string[]
      */
-    public function getDescription()
+    public function getLevels()
     {
-        return $this->container['description'];
+        return $this->container['levels'];
     }
 
     /**
-     * Sets description
+     * Sets levels
      *
-     * @param string $description description
+     * @param string[] $levels levels
      *
      * @return $this
      */
-    public function setDescription($description)
+    public function setLevels($levels)
     {
-        $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets ipv6_gateway_id
-     *
-     * @return string
-     */
-    public function getIpv6GatewayId()
-    {
-        return $this->container['ipv6_gateway_id'];
-    }
-
-    /**
-     * Sets ipv6_gateway_id
-     *
-     * @param string $ipv6_gateway_id ipv6_gateway_id
-     *
-     * @return $this
-     */
-    public function setIpv6GatewayId($ipv6_gateway_id)
-    {
-        $this->container['ipv6_gateway_id'] = $ipv6_gateway_id;
+        $allowedValues = $this->getLevelsAllowableValues();
+        if (!is_null($levels) && array_diff($levels, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'levels', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['levels'] = $levels;
 
         return $this;
     }
@@ -326,145 +306,73 @@ class DescribeIpv6GatewayAttributeResponse implements ModelInterface, ArrayAcces
     }
 
     /**
-     * Gets project_name
+     * Gets page_number
      *
-     * @return string
+     * @return int
      */
-    public function getProjectName()
+    public function getPageNumber()
     {
-        return $this->container['project_name'];
+        return $this->container['page_number'];
     }
 
     /**
-     * Sets project_name
+     * Sets page_number
      *
-     * @param string $project_name project_name
+     * @param int $page_number page_number
      *
      * @return $this
      */
-    public function setProjectName($project_name)
+    public function setPageNumber($page_number)
     {
-        $this->container['project_name'] = $project_name;
+        $this->container['page_number'] = $page_number;
 
         return $this;
     }
 
     /**
-     * Gets request_id
+     * Gets page_size
      *
-     * @return string
+     * @return int
      */
-    public function getRequestId()
+    public function getPageSize()
     {
-        return $this->container['request_id'];
+        return $this->container['page_size'];
     }
 
     /**
-     * Sets request_id
+     * Sets page_size
      *
-     * @param string $request_id request_id
+     * @param int $page_size page_size
      *
      * @return $this
      */
-    public function setRequestId($request_id)
+    public function setPageSize($page_size)
     {
-        $this->container['request_id'] = $request_id;
+        $this->container['page_size'] = $page_size;
 
         return $this;
     }
 
     /**
-     * Gets route_table_id
+     * Gets rule_ids
      *
-     * @return string
+     * @return string[]
      */
-    public function getRouteTableId()
+    public function getRuleIds()
     {
-        return $this->container['route_table_id'];
+        return $this->container['rule_ids'];
     }
 
     /**
-     * Sets route_table_id
+     * Sets rule_ids
      *
-     * @param string $route_table_id route_table_id
+     * @param string[] $rule_ids rule_ids
      *
      * @return $this
      */
-    public function setRouteTableId($route_table_id)
+    public function setRuleIds($rule_ids)
     {
-        $this->container['route_table_id'] = $route_table_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets status
-     *
-     * @return string
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param string $status status
-     *
-     * @return $this
-     */
-    public function setStatus($status)
-    {
-        $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
-     * Gets update_time
-     *
-     * @return string
-     */
-    public function getUpdateTime()
-    {
-        return $this->container['update_time'];
-    }
-
-    /**
-     * Sets update_time
-     *
-     * @param string $update_time update_time
-     *
-     * @return $this
-     */
-    public function setUpdateTime($update_time)
-    {
-        $this->container['update_time'] = $update_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets vpc_id
-     *
-     * @return string
-     */
-    public function getVpcId()
-    {
-        return $this->container['vpc_id'];
-    }
-
-    /**
-     * Sets vpc_id
-     *
-     * @param string $vpc_id vpc_id
-     *
-     * @return $this
-     */
-    public function setVpcId($vpc_id)
-    {
-        $this->container['vpc_id'] = $vpc_id;
+        $this->container['rule_ids'] = $rule_ids;
 
         return $this;
     }

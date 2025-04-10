@@ -34,6 +34,7 @@ class VpcForDescribeVpcsOutput implements ModelInterface, ArrayAccess
         'creation_time' => 'string',
         'description' => 'string',
         'dns_servers' => 'string[]',
+        'ipv4_gateway_id' => 'string',
         'is_default' => 'bool',
         'nat_gateway_ids' => 'string[]',
         'network_acl_num' => 'string',
@@ -43,6 +44,7 @@ class VpcForDescribeVpcsOutput implements ModelInterface, ArrayAccess
         'security_group_ids' => 'string[]',
         'status' => 'string',
         'subnet_ids' => 'string[]',
+        'support_ipv4_gateway' => 'bool',
         'tags' => '\Volcengine\Vpc\Model\TagForDescribeVpcsOutput[]',
         'update_time' => 'string',
         'user_cidr_blocks' => 'string[]',
@@ -62,6 +64,7 @@ class VpcForDescribeVpcsOutput implements ModelInterface, ArrayAccess
         'creation_time' => null,
         'description' => null,
         'dns_servers' => null,
+        'ipv4_gateway_id' => null,
         'is_default' => null,
         'nat_gateway_ids' => null,
         'network_acl_num' => null,
@@ -71,6 +74,7 @@ class VpcForDescribeVpcsOutput implements ModelInterface, ArrayAccess
         'security_group_ids' => null,
         'status' => null,
         'subnet_ids' => null,
+        'support_ipv4_gateway' => null,
         'tags' => null,
         'update_time' => null,
         'user_cidr_blocks' => null,
@@ -111,6 +115,7 @@ class VpcForDescribeVpcsOutput implements ModelInterface, ArrayAccess
         'creation_time' => 'CreationTime',
         'description' => 'Description',
         'dns_servers' => 'DnsServers',
+        'ipv4_gateway_id' => 'Ipv4GatewayId',
         'is_default' => 'IsDefault',
         'nat_gateway_ids' => 'NatGatewayIds',
         'network_acl_num' => 'NetworkAclNum',
@@ -120,6 +125,7 @@ class VpcForDescribeVpcsOutput implements ModelInterface, ArrayAccess
         'security_group_ids' => 'SecurityGroupIds',
         'status' => 'Status',
         'subnet_ids' => 'SubnetIds',
+        'support_ipv4_gateway' => 'SupportIpv4Gateway',
         'tags' => 'Tags',
         'update_time' => 'UpdateTime',
         'user_cidr_blocks' => 'UserCidrBlocks',
@@ -139,6 +145,7 @@ class VpcForDescribeVpcsOutput implements ModelInterface, ArrayAccess
         'creation_time' => 'setCreationTime',
         'description' => 'setDescription',
         'dns_servers' => 'setDnsServers',
+        'ipv4_gateway_id' => 'setIpv4GatewayId',
         'is_default' => 'setIsDefault',
         'nat_gateway_ids' => 'setNatGatewayIds',
         'network_acl_num' => 'setNetworkAclNum',
@@ -148,6 +155,7 @@ class VpcForDescribeVpcsOutput implements ModelInterface, ArrayAccess
         'security_group_ids' => 'setSecurityGroupIds',
         'status' => 'setStatus',
         'subnet_ids' => 'setSubnetIds',
+        'support_ipv4_gateway' => 'setSupportIpv4Gateway',
         'tags' => 'setTags',
         'update_time' => 'setUpdateTime',
         'user_cidr_blocks' => 'setUserCidrBlocks',
@@ -167,6 +175,7 @@ class VpcForDescribeVpcsOutput implements ModelInterface, ArrayAccess
         'creation_time' => 'getCreationTime',
         'description' => 'getDescription',
         'dns_servers' => 'getDnsServers',
+        'ipv4_gateway_id' => 'getIpv4GatewayId',
         'is_default' => 'getIsDefault',
         'nat_gateway_ids' => 'getNatGatewayIds',
         'network_acl_num' => 'getNetworkAclNum',
@@ -176,6 +185,7 @@ class VpcForDescribeVpcsOutput implements ModelInterface, ArrayAccess
         'security_group_ids' => 'getSecurityGroupIds',
         'status' => 'getStatus',
         'subnet_ids' => 'getSubnetIds',
+        'support_ipv4_gateway' => 'getSupportIpv4Gateway',
         'tags' => 'getTags',
         'update_time' => 'getUpdateTime',
         'user_cidr_blocks' => 'getUserCidrBlocks',
@@ -249,6 +259,7 @@ class VpcForDescribeVpcsOutput implements ModelInterface, ArrayAccess
         $this->container['creation_time'] = isset($data['creation_time']) ? $data['creation_time'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['dns_servers'] = isset($data['dns_servers']) ? $data['dns_servers'] : null;
+        $this->container['ipv4_gateway_id'] = isset($data['ipv4_gateway_id']) ? $data['ipv4_gateway_id'] : null;
         $this->container['is_default'] = isset($data['is_default']) ? $data['is_default'] : null;
         $this->container['nat_gateway_ids'] = isset($data['nat_gateway_ids']) ? $data['nat_gateway_ids'] : null;
         $this->container['network_acl_num'] = isset($data['network_acl_num']) ? $data['network_acl_num'] : null;
@@ -258,6 +269,7 @@ class VpcForDescribeVpcsOutput implements ModelInterface, ArrayAccess
         $this->container['security_group_ids'] = isset($data['security_group_ids']) ? $data['security_group_ids'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['subnet_ids'] = isset($data['subnet_ids']) ? $data['subnet_ids'] : null;
+        $this->container['support_ipv4_gateway'] = isset($data['support_ipv4_gateway']) ? $data['support_ipv4_gateway'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
         $this->container['user_cidr_blocks'] = isset($data['user_cidr_blocks']) ? $data['user_cidr_blocks'] : null;
@@ -429,6 +441,30 @@ class VpcForDescribeVpcsOutput implements ModelInterface, ArrayAccess
     public function setDnsServers($dns_servers)
     {
         $this->container['dns_servers'] = $dns_servers;
+
+        return $this;
+    }
+
+    /**
+     * Gets ipv4_gateway_id
+     *
+     * @return string
+     */
+    public function getIpv4GatewayId()
+    {
+        return $this->container['ipv4_gateway_id'];
+    }
+
+    /**
+     * Sets ipv4_gateway_id
+     *
+     * @param string $ipv4_gateway_id ipv4_gateway_id
+     *
+     * @return $this
+     */
+    public function setIpv4GatewayId($ipv4_gateway_id)
+    {
+        $this->container['ipv4_gateway_id'] = $ipv4_gateway_id;
 
         return $this;
     }
@@ -645,6 +681,30 @@ class VpcForDescribeVpcsOutput implements ModelInterface, ArrayAccess
     public function setSubnetIds($subnet_ids)
     {
         $this->container['subnet_ids'] = $subnet_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets support_ipv4_gateway
+     *
+     * @return bool
+     */
+    public function getSupportIpv4Gateway()
+    {
+        return $this->container['support_ipv4_gateway'];
+    }
+
+    /**
+     * Sets support_ipv4_gateway
+     *
+     * @param bool $support_ipv4_gateway support_ipv4_gateway
+     *
+     * @return $this
+     */
+    public function setSupportIpv4Gateway($support_ipv4_gateway)
+    {
+        $this->container['support_ipv4_gateway'] = $support_ipv4_gateway;
 
         return $this;
     }

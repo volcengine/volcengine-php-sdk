@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Escloud\Model;
+namespace Volcengine\Volcobserve\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class SubInstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
+class ListNotificationsResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class SubInstanceForDescribeInstancesOutput implements ModelInterface, ArrayAcce
       *
       * @var string
       */
-    protected static $swaggerModelName = 'SubInstanceForDescribeInstancesOutput';
+    protected static $swaggerModelName = 'ListNotificationsResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,10 @@ class SubInstanceForDescribeInstancesOutput implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'sub_instance_id' => 'string',
-        'sub_instance_status' => 'string',
-        'sub_instance_type' => 'string'
+        'data' => '\Volcengine\Volcobserve\Model\DataForListNotificationsOutput[]',
+        'page_number' => 'int',
+        'page_size' => 'int',
+        'total_count' => 'int'
     ];
 
     /**
@@ -39,9 +40,10 @@ class SubInstanceForDescribeInstancesOutput implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'sub_instance_id' => null,
-        'sub_instance_status' => null,
-        'sub_instance_type' => null
+        'data' => null,
+        'page_number' => null,
+        'page_size' => null,
+        'total_count' => null
     ];
 
     /**
@@ -71,9 +73,10 @@ class SubInstanceForDescribeInstancesOutput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $attributeMap = [
-        'sub_instance_id' => 'SubInstanceId',
-        'sub_instance_status' => 'SubInstanceStatus',
-        'sub_instance_type' => 'SubInstanceType'
+        'data' => 'Data',
+        'page_number' => 'PageNumber',
+        'page_size' => 'PageSize',
+        'total_count' => 'TotalCount'
     ];
 
     /**
@@ -82,9 +85,10 @@ class SubInstanceForDescribeInstancesOutput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $setters = [
-        'sub_instance_id' => 'setSubInstanceId',
-        'sub_instance_status' => 'setSubInstanceStatus',
-        'sub_instance_type' => 'setSubInstanceType'
+        'data' => 'setData',
+        'page_number' => 'setPageNumber',
+        'page_size' => 'setPageSize',
+        'total_count' => 'setTotalCount'
     ];
 
     /**
@@ -93,9 +97,10 @@ class SubInstanceForDescribeInstancesOutput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $getters = [
-        'sub_instance_id' => 'getSubInstanceId',
-        'sub_instance_status' => 'getSubInstanceStatus',
-        'sub_instance_type' => 'getSubInstanceType'
+        'data' => 'getData',
+        'page_number' => 'getPageNumber',
+        'page_size' => 'getPageSize',
+        'total_count' => 'getTotalCount'
     ];
 
     /**
@@ -139,38 +144,8 @@ class SubInstanceForDescribeInstancesOutput implements ModelInterface, ArrayAcce
         return self::$swaggerModelName;
     }
 
-    const SUB_INSTANCE_STATUS_AVAILABLE = 'AVAILABLE';
-    const SUB_INSTANCE_STATUS_RELEASED = 'RELEASED';
-    const SUB_INSTANCE_TYPE_SQL = 'Sql';
-    const SUB_INSTANCE_TYPE_AI = 'AI';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getSubInstanceStatusAllowableValues()
-    {
-        return [
-            self::SUB_INSTANCE_STATUS_AVAILABLE,
-            self::SUB_INSTANCE_STATUS_RELEASED,
-        ];
-    }
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getSubInstanceTypeAllowableValues()
-    {
-        return [
-            self::SUB_INSTANCE_TYPE_SQL,
-            self::SUB_INSTANCE_TYPE_AI,
-        ];
-    }
     
 
     /**
@@ -188,9 +163,10 @@ class SubInstanceForDescribeInstancesOutput implements ModelInterface, ArrayAcce
      */
     public function __construct(array $data = null)
     {
-        $this->container['sub_instance_id'] = isset($data['sub_instance_id']) ? $data['sub_instance_id'] : null;
-        $this->container['sub_instance_status'] = isset($data['sub_instance_status']) ? $data['sub_instance_status'] : null;
-        $this->container['sub_instance_type'] = isset($data['sub_instance_type']) ? $data['sub_instance_type'] : null;
+        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
+        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
+        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
+        $this->container['total_count'] = isset($data['total_count']) ? $data['total_count'] : null;
     }
 
     /**
@@ -201,22 +177,6 @@ class SubInstanceForDescribeInstancesOutput implements ModelInterface, ArrayAcce
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getSubInstanceStatusAllowableValues();
-        if (!is_null($this->container['sub_instance_status']) && !in_array($this->container['sub_instance_status'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'sub_instance_status', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        $allowedValues = $this->getSubInstanceTypeAllowableValues();
-        if (!is_null($this->container['sub_instance_type']) && !in_array($this->container['sub_instance_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'sub_instance_type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -234,91 +194,97 @@ class SubInstanceForDescribeInstancesOutput implements ModelInterface, ArrayAcce
 
 
     /**
-     * Gets sub_instance_id
+     * Gets data
      *
-     * @return string
+     * @return \Volcengine\Volcobserve\Model\DataForListNotificationsOutput[]
      */
-    public function getSubInstanceId()
+    public function getData()
     {
-        return $this->container['sub_instance_id'];
+        return $this->container['data'];
     }
 
     /**
-     * Sets sub_instance_id
+     * Sets data
      *
-     * @param string $sub_instance_id sub_instance_id
+     * @param \Volcengine\Volcobserve\Model\DataForListNotificationsOutput[] $data data
      *
      * @return $this
      */
-    public function setSubInstanceId($sub_instance_id)
+    public function setData($data)
     {
-        $this->container['sub_instance_id'] = $sub_instance_id;
+        $this->container['data'] = $data;
 
         return $this;
     }
 
     /**
-     * Gets sub_instance_status
+     * Gets page_number
      *
-     * @return string
+     * @return int
      */
-    public function getSubInstanceStatus()
+    public function getPageNumber()
     {
-        return $this->container['sub_instance_status'];
+        return $this->container['page_number'];
     }
 
     /**
-     * Sets sub_instance_status
+     * Sets page_number
      *
-     * @param string $sub_instance_status sub_instance_status
+     * @param int $page_number page_number
      *
      * @return $this
      */
-    public function setSubInstanceStatus($sub_instance_status)
+    public function setPageNumber($page_number)
     {
-        $allowedValues = $this->getSubInstanceStatusAllowableValues();
-        if (!is_null($sub_instance_status) && !in_array($sub_instance_status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'sub_instance_status', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['sub_instance_status'] = $sub_instance_status;
+        $this->container['page_number'] = $page_number;
 
         return $this;
     }
 
     /**
-     * Gets sub_instance_type
+     * Gets page_size
      *
-     * @return string
+     * @return int
      */
-    public function getSubInstanceType()
+    public function getPageSize()
     {
-        return $this->container['sub_instance_type'];
+        return $this->container['page_size'];
     }
 
     /**
-     * Sets sub_instance_type
+     * Sets page_size
      *
-     * @param string $sub_instance_type sub_instance_type
+     * @param int $page_size page_size
      *
      * @return $this
      */
-    public function setSubInstanceType($sub_instance_type)
+    public function setPageSize($page_size)
     {
-        $allowedValues = $this->getSubInstanceTypeAllowableValues();
-        if (!is_null($sub_instance_type) && !in_array($sub_instance_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'sub_instance_type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['sub_instance_type'] = $sub_instance_type;
+        $this->container['page_size'] = $page_size;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_count
+     *
+     * @return int
+     */
+    public function getTotalCount()
+    {
+        return $this->container['total_count'];
+    }
+
+    /**
+     * Sets total_count
+     *
+     * @param int $total_count total_count
+     *
+     * @return $this
+     */
+    public function setTotalCount($total_count)
+    {
+        $this->container['total_count'] = $total_count;
 
         return $this;
     }

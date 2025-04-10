@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Escloud\Model;
+namespace Volcengine\Volcobserve\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class SubInstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
+class NotificationForUpdateNotificationInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class SubInstanceForDescribeInstancesOutput implements ModelInterface, ArrayAcce
       *
       * @var string
       */
-    protected static $swaggerModelName = 'SubInstanceForDescribeInstancesOutput';
+    protected static $swaggerModelName = 'NotificationForUpdateNotificationInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,10 @@ class SubInstanceForDescribeInstancesOutput implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'sub_instance_id' => 'string',
-        'sub_instance_status' => 'string',
-        'sub_instance_type' => 'string'
+        'alert_methods' => 'string[]',
+        'contact_group_ids' => 'string[]',
+        'level' => 'string',
+        'webhook_ids' => 'string[]'
     ];
 
     /**
@@ -39,9 +40,10 @@ class SubInstanceForDescribeInstancesOutput implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'sub_instance_id' => null,
-        'sub_instance_status' => null,
-        'sub_instance_type' => null
+        'alert_methods' => null,
+        'contact_group_ids' => null,
+        'level' => null,
+        'webhook_ids' => null
     ];
 
     /**
@@ -71,9 +73,10 @@ class SubInstanceForDescribeInstancesOutput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $attributeMap = [
-        'sub_instance_id' => 'SubInstanceId',
-        'sub_instance_status' => 'SubInstanceStatus',
-        'sub_instance_type' => 'SubInstanceType'
+        'alert_methods' => 'AlertMethods',
+        'contact_group_ids' => 'ContactGroupIds',
+        'level' => 'Level',
+        'webhook_ids' => 'WebhookIds'
     ];
 
     /**
@@ -82,9 +85,10 @@ class SubInstanceForDescribeInstancesOutput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $setters = [
-        'sub_instance_id' => 'setSubInstanceId',
-        'sub_instance_status' => 'setSubInstanceStatus',
-        'sub_instance_type' => 'setSubInstanceType'
+        'alert_methods' => 'setAlertMethods',
+        'contact_group_ids' => 'setContactGroupIds',
+        'level' => 'setLevel',
+        'webhook_ids' => 'setWebhookIds'
     ];
 
     /**
@@ -93,9 +97,10 @@ class SubInstanceForDescribeInstancesOutput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $getters = [
-        'sub_instance_id' => 'getSubInstanceId',
-        'sub_instance_status' => 'getSubInstanceStatus',
-        'sub_instance_type' => 'getSubInstanceType'
+        'alert_methods' => 'getAlertMethods',
+        'contact_group_ids' => 'getContactGroupIds',
+        'level' => 'getLevel',
+        'webhook_ids' => 'getWebhookIds'
     ];
 
     /**
@@ -139,10 +144,14 @@ class SubInstanceForDescribeInstancesOutput implements ModelInterface, ArrayAcce
         return self::$swaggerModelName;
     }
 
-    const SUB_INSTANCE_STATUS_AVAILABLE = 'AVAILABLE';
-    const SUB_INSTANCE_STATUS_RELEASED = 'RELEASED';
-    const SUB_INSTANCE_TYPE_SQL = 'Sql';
-    const SUB_INSTANCE_TYPE_AI = 'AI';
+    const ALERT_METHODS_EMAIL = 'Email';
+    const ALERT_METHODS_PHONE = 'Phone';
+    const ALERT_METHODS_SMS = 'SMS';
+    const ALERT_METHODS_WEBHOOK = 'Webhook';
+    const LEVEL_NOTICE = 'notice';
+    const LEVEL_WARNING = 'warning';
+    const LEVEL_CRITICAL = 'critical';
+    const LEVEL_RECOVERY = 'recovery';
     
 
     
@@ -151,11 +160,13 @@ class SubInstanceForDescribeInstancesOutput implements ModelInterface, ArrayAcce
      *
      * @return string[]
      */
-    public function getSubInstanceStatusAllowableValues()
+    public function getAlertMethodsAllowableValues()
     {
         return [
-            self::SUB_INSTANCE_STATUS_AVAILABLE,
-            self::SUB_INSTANCE_STATUS_RELEASED,
+            self::ALERT_METHODS_EMAIL,
+            self::ALERT_METHODS_PHONE,
+            self::ALERT_METHODS_SMS,
+            self::ALERT_METHODS_WEBHOOK,
         ];
     }
     
@@ -164,11 +175,13 @@ class SubInstanceForDescribeInstancesOutput implements ModelInterface, ArrayAcce
      *
      * @return string[]
      */
-    public function getSubInstanceTypeAllowableValues()
+    public function getLevelAllowableValues()
     {
         return [
-            self::SUB_INSTANCE_TYPE_SQL,
-            self::SUB_INSTANCE_TYPE_AI,
+            self::LEVEL_NOTICE,
+            self::LEVEL_WARNING,
+            self::LEVEL_CRITICAL,
+            self::LEVEL_RECOVERY,
         ];
     }
     
@@ -188,9 +201,10 @@ class SubInstanceForDescribeInstancesOutput implements ModelInterface, ArrayAcce
      */
     public function __construct(array $data = null)
     {
-        $this->container['sub_instance_id'] = isset($data['sub_instance_id']) ? $data['sub_instance_id'] : null;
-        $this->container['sub_instance_status'] = isset($data['sub_instance_status']) ? $data['sub_instance_status'] : null;
-        $this->container['sub_instance_type'] = isset($data['sub_instance_type']) ? $data['sub_instance_type'] : null;
+        $this->container['alert_methods'] = isset($data['alert_methods']) ? $data['alert_methods'] : null;
+        $this->container['contact_group_ids'] = isset($data['contact_group_ids']) ? $data['contact_group_ids'] : null;
+        $this->container['level'] = isset($data['level']) ? $data['level'] : null;
+        $this->container['webhook_ids'] = isset($data['webhook_ids']) ? $data['webhook_ids'] : null;
     }
 
     /**
@@ -202,18 +216,10 @@ class SubInstanceForDescribeInstancesOutput implements ModelInterface, ArrayAcce
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getSubInstanceStatusAllowableValues();
-        if (!is_null($this->container['sub_instance_status']) && !in_array($this->container['sub_instance_status'], $allowedValues, true)) {
+        $allowedValues = $this->getLevelAllowableValues();
+        if (!is_null($this->container['level']) && !in_array($this->container['level'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'sub_instance_status', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        $allowedValues = $this->getSubInstanceTypeAllowableValues();
-        if (!is_null($this->container['sub_instance_type']) && !in_array($this->container['sub_instance_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'sub_instance_type', must be one of '%s'",
+                "invalid value for 'level', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -234,91 +240,115 @@ class SubInstanceForDescribeInstancesOutput implements ModelInterface, ArrayAcce
 
 
     /**
-     * Gets sub_instance_id
+     * Gets alert_methods
      *
-     * @return string
+     * @return string[]
      */
-    public function getSubInstanceId()
+    public function getAlertMethods()
     {
-        return $this->container['sub_instance_id'];
+        return $this->container['alert_methods'];
     }
 
     /**
-     * Sets sub_instance_id
+     * Sets alert_methods
      *
-     * @param string $sub_instance_id sub_instance_id
+     * @param string[] $alert_methods alert_methods
      *
      * @return $this
      */
-    public function setSubInstanceId($sub_instance_id)
+    public function setAlertMethods($alert_methods)
     {
-        $this->container['sub_instance_id'] = $sub_instance_id;
+        $allowedValues = $this->getAlertMethodsAllowableValues();
+        if (!is_null($alert_methods) && array_diff($alert_methods, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'alert_methods', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['alert_methods'] = $alert_methods;
 
         return $this;
     }
 
     /**
-     * Gets sub_instance_status
+     * Gets contact_group_ids
      *
-     * @return string
+     * @return string[]
      */
-    public function getSubInstanceStatus()
+    public function getContactGroupIds()
     {
-        return $this->container['sub_instance_status'];
+        return $this->container['contact_group_ids'];
     }
 
     /**
-     * Sets sub_instance_status
+     * Sets contact_group_ids
      *
-     * @param string $sub_instance_status sub_instance_status
+     * @param string[] $contact_group_ids contact_group_ids
      *
      * @return $this
      */
-    public function setSubInstanceStatus($sub_instance_status)
+    public function setContactGroupIds($contact_group_ids)
     {
-        $allowedValues = $this->getSubInstanceStatusAllowableValues();
-        if (!is_null($sub_instance_status) && !in_array($sub_instance_status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'sub_instance_status', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['sub_instance_status'] = $sub_instance_status;
+        $this->container['contact_group_ids'] = $contact_group_ids;
 
         return $this;
     }
 
     /**
-     * Gets sub_instance_type
+     * Gets level
      *
      * @return string
      */
-    public function getSubInstanceType()
+    public function getLevel()
     {
-        return $this->container['sub_instance_type'];
+        return $this->container['level'];
     }
 
     /**
-     * Sets sub_instance_type
+     * Sets level
      *
-     * @param string $sub_instance_type sub_instance_type
+     * @param string $level level
      *
      * @return $this
      */
-    public function setSubInstanceType($sub_instance_type)
+    public function setLevel($level)
     {
-        $allowedValues = $this->getSubInstanceTypeAllowableValues();
-        if (!is_null($sub_instance_type) && !in_array($sub_instance_type, $allowedValues, true)) {
+        $allowedValues = $this->getLevelAllowableValues();
+        if (!is_null($level) && !in_array($level, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'sub_instance_type', must be one of '%s'",
+                    "Invalid value for 'level', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['sub_instance_type'] = $sub_instance_type;
+        $this->container['level'] = $level;
+
+        return $this;
+    }
+
+    /**
+     * Gets webhook_ids
+     *
+     * @return string[]
+     */
+    public function getWebhookIds()
+    {
+        return $this->container['webhook_ids'];
+    }
+
+    /**
+     * Sets webhook_ids
+     *
+     * @param string[] $webhook_ids webhook_ids
+     *
+     * @return $this
+     */
+    public function setWebhookIds($webhook_ids)
+    {
+        $this->container['webhook_ids'] = $webhook_ids;
 
         return $this;
     }

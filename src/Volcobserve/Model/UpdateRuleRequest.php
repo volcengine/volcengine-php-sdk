@@ -52,6 +52,7 @@ class UpdateRuleRequest implements ModelInterface, ArrayAccess
         'rule_type' => 'string',
         'silence_time' => 'int',
         'sub_namespace' => 'string',
+        'tags' => '\Volcengine\Volcobserve\Model\ConvertTagForUpdateRuleInput[]',
         'webhook' => 'string',
         'webhook_ids' => 'string[]'
     ];
@@ -86,6 +87,7 @@ class UpdateRuleRequest implements ModelInterface, ArrayAccess
         'rule_type' => null,
         'silence_time' => null,
         'sub_namespace' => null,
+        'tags' => null,
         'webhook' => null,
         'webhook_ids' => null
     ];
@@ -141,6 +143,7 @@ class UpdateRuleRequest implements ModelInterface, ArrayAccess
         'rule_type' => 'RuleType',
         'silence_time' => 'SilenceTime',
         'sub_namespace' => 'SubNamespace',
+        'tags' => 'Tags',
         'webhook' => 'Webhook',
         'webhook_ids' => 'WebhookIds'
     ];
@@ -175,6 +178,7 @@ class UpdateRuleRequest implements ModelInterface, ArrayAccess
         'rule_type' => 'setRuleType',
         'silence_time' => 'setSilenceTime',
         'sub_namespace' => 'setSubNamespace',
+        'tags' => 'setTags',
         'webhook' => 'setWebhook',
         'webhook_ids' => 'setWebhookIds'
     ];
@@ -209,6 +213,7 @@ class UpdateRuleRequest implements ModelInterface, ArrayAccess
         'rule_type' => 'getRuleType',
         'silence_time' => 'getSilenceTime',
         'sub_namespace' => 'getSubNamespace',
+        'tags' => 'getTags',
         'webhook' => 'getWebhook',
         'webhook_ids' => 'getWebhookIds'
     ];
@@ -331,6 +336,7 @@ class UpdateRuleRequest implements ModelInterface, ArrayAccess
         $this->container['rule_type'] = isset($data['rule_type']) ? $data['rule_type'] : null;
         $this->container['silence_time'] = isset($data['silence_time']) ? $data['silence_time'] : null;
         $this->container['sub_namespace'] = isset($data['sub_namespace']) ? $data['sub_namespace'] : null;
+        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['webhook'] = isset($data['webhook']) ? $data['webhook'] : null;
         $this->container['webhook_ids'] = isset($data['webhook_ids']) ? $data['webhook_ids'] : null;
     }
@@ -990,6 +996,30 @@ class UpdateRuleRequest implements ModelInterface, ArrayAccess
     public function setSubNamespace($sub_namespace)
     {
         $this->container['sub_namespace'] = $sub_namespace;
+
+        return $this;
+    }
+
+    /**
+     * Gets tags
+     *
+     * @return \Volcengine\Volcobserve\Model\ConvertTagForUpdateRuleInput[]
+     */
+    public function getTags()
+    {
+        return $this->container['tags'];
+    }
+
+    /**
+     * Sets tags
+     *
+     * @param \Volcengine\Volcobserve\Model\ConvertTagForUpdateRuleInput[] $tags tags
+     *
+     * @return $this
+     */
+    public function setTags($tags)
+    {
+        $this->container['tags'] = $tags;
 
         return $this;
     }
