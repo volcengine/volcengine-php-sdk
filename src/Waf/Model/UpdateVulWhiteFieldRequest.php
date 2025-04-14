@@ -32,7 +32,7 @@ class UpdateVulWhiteFieldRequest implements ModelInterface, ArrayAccess
         'field_area' => 'string',
         'field_list' => 'string',
         'host' => 'string',
-        'id' => 'string',
+        'id' => 'int',
         'name' => 'string',
         'project_name' => 'string'
     ];
@@ -47,7 +47,7 @@ class UpdateVulWhiteFieldRequest implements ModelInterface, ArrayAccess
         'field_area' => null,
         'field_list' => null,
         'host' => null,
-        'id' => null,
+        'id' => 'int32',
         'name' => null,
         'project_name' => null
     ];
@@ -159,29 +159,8 @@ class UpdateVulWhiteFieldRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const FIELD_AREA_ARGS = 'args';
-    const FIELD_AREA_URL = 'url';
-    const FIELD_AREA_COOKIES = 'cookies';
-    const FIELD_AREA_HEADERS = 'headers';
-    const FIELD_AREA_BODYDETAIL = 'bodydetail';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getFieldAreaAllowableValues()
-    {
-        return [
-            self::FIELD_AREA_ARGS,
-            self::FIELD_AREA_URL,
-            self::FIELD_AREA_COOKIES,
-            self::FIELD_AREA_HEADERS,
-            self::FIELD_AREA_BODYDETAIL,
-        ];
-    }
     
 
     /**
@@ -223,14 +202,9 @@ class UpdateVulWhiteFieldRequest implements ModelInterface, ArrayAccess
         if ($this->container['field_area'] === null) {
             $invalidProperties[] = "'field_area' can't be null";
         }
-        $allowedValues = $this->getFieldAreaAllowableValues();
-        if (!is_null($this->container['field_area']) && !in_array($this->container['field_area'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'field_area', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
+        if ($this->container['field_list'] === null) {
+            $invalidProperties[] = "'field_list' can't be null";
         }
-
         if ($this->container['host'] === null) {
             $invalidProperties[] = "'host' can't be null";
         }
@@ -298,15 +272,6 @@ class UpdateVulWhiteFieldRequest implements ModelInterface, ArrayAccess
      */
     public function setFieldArea($field_area)
     {
-        $allowedValues = $this->getFieldAreaAllowableValues();
-        if (!in_array($field_area, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'field_area', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['field_area'] = $field_area;
 
         return $this;
@@ -363,7 +328,7 @@ class UpdateVulWhiteFieldRequest implements ModelInterface, ArrayAccess
     /**
      * Gets id
      *
-     * @return string
+     * @return int
      */
     public function getId()
     {
@@ -373,7 +338,7 @@ class UpdateVulWhiteFieldRequest implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param string $id id
+     * @param int $id id
      *
      * @return $this
      */

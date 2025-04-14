@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ListVulWhiteFieldResponse implements ModelInterface, ArrayAccess
+class CheckLLMResponseStreamRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ListVulWhiteFieldResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ListVulWhiteFieldResponse';
+    protected static $swaggerModelName = 'CheckLLMResponseStreamRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,11 +28,14 @@ class ListVulWhiteFieldResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'count' => 'int',
-        'current_page' => 'int',
-        'data' => '\Volcengine\Waf\Model\DataForListVulWhiteFieldOutput[]',
-        'page_size' => 'int',
-        'total_count' => 'int'
+        'content' => 'string',
+        'content_type' => 'int',
+        'host' => 'string',
+        'msg_class' => 'int',
+        'msg_id' => 'string',
+        'region' => 'string',
+        'timeout' => 'int',
+        'use_stream' => 'int'
     ];
 
     /**
@@ -41,11 +44,14 @@ class ListVulWhiteFieldResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'count' => 'int32',
-        'current_page' => 'int32',
-        'data' => null,
-        'page_size' => 'int32',
-        'total_count' => 'int32'
+        'content' => null,
+        'content_type' => 'int32',
+        'host' => null,
+        'msg_class' => 'int32',
+        'msg_id' => null,
+        'region' => null,
+        'timeout' => 'int32',
+        'use_stream' => 'int32'
     ];
 
     /**
@@ -75,11 +81,14 @@ class ListVulWhiteFieldResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'count' => 'Count',
-        'current_page' => 'CurrentPage',
-        'data' => 'Data',
-        'page_size' => 'PageSize',
-        'total_count' => 'TotalCount'
+        'content' => 'Content',
+        'content_type' => 'ContentType',
+        'host' => 'Host',
+        'msg_class' => 'MsgClass',
+        'msg_id' => 'MsgID',
+        'region' => 'Region',
+        'timeout' => 'Timeout',
+        'use_stream' => 'UseStream'
     ];
 
     /**
@@ -88,11 +97,14 @@ class ListVulWhiteFieldResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'count' => 'setCount',
-        'current_page' => 'setCurrentPage',
-        'data' => 'setData',
-        'page_size' => 'setPageSize',
-        'total_count' => 'setTotalCount'
+        'content' => 'setContent',
+        'content_type' => 'setContentType',
+        'host' => 'setHost',
+        'msg_class' => 'setMsgClass',
+        'msg_id' => 'setMsgId',
+        'region' => 'setRegion',
+        'timeout' => 'setTimeout',
+        'use_stream' => 'setUseStream'
     ];
 
     /**
@@ -101,11 +113,14 @@ class ListVulWhiteFieldResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'count' => 'getCount',
-        'current_page' => 'getCurrentPage',
-        'data' => 'getData',
-        'page_size' => 'getPageSize',
-        'total_count' => 'getTotalCount'
+        'content' => 'getContent',
+        'content_type' => 'getContentType',
+        'host' => 'getHost',
+        'msg_class' => 'getMsgClass',
+        'msg_id' => 'getMsgId',
+        'region' => 'getRegion',
+        'timeout' => 'getTimeout',
+        'use_stream' => 'getUseStream'
     ];
 
     /**
@@ -168,11 +183,14 @@ class ListVulWhiteFieldResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['count'] = isset($data['count']) ? $data['count'] : null;
-        $this->container['current_page'] = isset($data['current_page']) ? $data['current_page'] : null;
-        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
-        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
-        $this->container['total_count'] = isset($data['total_count']) ? $data['total_count'] : null;
+        $this->container['content'] = isset($data['content']) ? $data['content'] : null;
+        $this->container['content_type'] = isset($data['content_type']) ? $data['content_type'] : null;
+        $this->container['host'] = isset($data['host']) ? $data['host'] : null;
+        $this->container['msg_class'] = isset($data['msg_class']) ? $data['msg_class'] : null;
+        $this->container['msg_id'] = isset($data['msg_id']) ? $data['msg_id'] : null;
+        $this->container['region'] = isset($data['region']) ? $data['region'] : null;
+        $this->container['timeout'] = isset($data['timeout']) ? $data['timeout'] : null;
+        $this->container['use_stream'] = isset($data['use_stream']) ? $data['use_stream'] : null;
     }
 
     /**
@@ -184,6 +202,21 @@ class ListVulWhiteFieldResponse implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['content'] === null) {
+            $invalidProperties[] = "'content' can't be null";
+        }
+        if ($this->container['content_type'] === null) {
+            $invalidProperties[] = "'content_type' can't be null";
+        }
+        if ($this->container['host'] === null) {
+            $invalidProperties[] = "'host' can't be null";
+        }
+        if ($this->container['msg_class'] === null) {
+            $invalidProperties[] = "'msg_class' can't be null";
+        }
+        if ($this->container['region'] === null) {
+            $invalidProperties[] = "'region' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -200,121 +233,193 @@ class ListVulWhiteFieldResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets count
+     * Gets content
      *
-     * @return int
+     * @return string
      */
-    public function getCount()
+    public function getContent()
     {
-        return $this->container['count'];
+        return $this->container['content'];
     }
 
     /**
-     * Sets count
+     * Sets content
      *
-     * @param int $count count
+     * @param string $content content
      *
      * @return $this
      */
-    public function setCount($count)
+    public function setContent($content)
     {
-        $this->container['count'] = $count;
+        $this->container['content'] = $content;
 
         return $this;
     }
 
     /**
-     * Gets current_page
+     * Gets content_type
      *
      * @return int
      */
-    public function getCurrentPage()
+    public function getContentType()
     {
-        return $this->container['current_page'];
+        return $this->container['content_type'];
     }
 
     /**
-     * Sets current_page
+     * Sets content_type
      *
-     * @param int $current_page current_page
+     * @param int $content_type content_type
      *
      * @return $this
      */
-    public function setCurrentPage($current_page)
+    public function setContentType($content_type)
     {
-        $this->container['current_page'] = $current_page;
+        $this->container['content_type'] = $content_type;
 
         return $this;
     }
 
     /**
-     * Gets data
+     * Gets host
      *
-     * @return \Volcengine\Waf\Model\DataForListVulWhiteFieldOutput[]
+     * @return string
      */
-    public function getData()
+    public function getHost()
     {
-        return $this->container['data'];
+        return $this->container['host'];
     }
 
     /**
-     * Sets data
+     * Sets host
      *
-     * @param \Volcengine\Waf\Model\DataForListVulWhiteFieldOutput[] $data data
+     * @param string $host host
      *
      * @return $this
      */
-    public function setData($data)
+    public function setHost($host)
     {
-        $this->container['data'] = $data;
+        $this->container['host'] = $host;
 
         return $this;
     }
 
     /**
-     * Gets page_size
+     * Gets msg_class
      *
      * @return int
      */
-    public function getPageSize()
+    public function getMsgClass()
     {
-        return $this->container['page_size'];
+        return $this->container['msg_class'];
     }
 
     /**
-     * Sets page_size
+     * Sets msg_class
      *
-     * @param int $page_size page_size
+     * @param int $msg_class msg_class
      *
      * @return $this
      */
-    public function setPageSize($page_size)
+    public function setMsgClass($msg_class)
     {
-        $this->container['page_size'] = $page_size;
+        $this->container['msg_class'] = $msg_class;
 
         return $this;
     }
 
     /**
-     * Gets total_count
+     * Gets msg_id
      *
-     * @return int
+     * @return string
      */
-    public function getTotalCount()
+    public function getMsgId()
     {
-        return $this->container['total_count'];
+        return $this->container['msg_id'];
     }
 
     /**
-     * Sets total_count
+     * Sets msg_id
      *
-     * @param int $total_count total_count
+     * @param string $msg_id msg_id
      *
      * @return $this
      */
-    public function setTotalCount($total_count)
+    public function setMsgId($msg_id)
     {
-        $this->container['total_count'] = $total_count;
+        $this->container['msg_id'] = $msg_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets region
+     *
+     * @return string
+     */
+    public function getRegion()
+    {
+        return $this->container['region'];
+    }
+
+    /**
+     * Sets region
+     *
+     * @param string $region region
+     *
+     * @return $this
+     */
+    public function setRegion($region)
+    {
+        $this->container['region'] = $region;
+
+        return $this;
+    }
+
+    /**
+     * Gets timeout
+     *
+     * @return int
+     */
+    public function getTimeout()
+    {
+        return $this->container['timeout'];
+    }
+
+    /**
+     * Sets timeout
+     *
+     * @param int $timeout timeout
+     *
+     * @return $this
+     */
+    public function setTimeout($timeout)
+    {
+        $this->container['timeout'] = $timeout;
+
+        return $this;
+    }
+
+    /**
+     * Gets use_stream
+     *
+     * @return int
+     */
+    public function getUseStream()
+    {
+        return $this->container['use_stream'];
+    }
+
+    /**
+     * Sets use_stream
+     *
+     * @param int $use_stream use_stream
+     *
+     * @return $this
+     */
+    public function setUseStream($use_stream)
+    {
+        $this->container['use_stream'] = $use_stream;
 
         return $this;
     }

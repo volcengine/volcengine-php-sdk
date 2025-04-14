@@ -29,7 +29,7 @@ class ListVulWhiteFieldRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'host' => 'string',
-        'page' => 'string',
+        'page' => 'int',
         'page_size' => 'int',
         'project_name' => 'string',
         'rule_tag' => 'string'
@@ -42,7 +42,7 @@ class ListVulWhiteFieldRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'host' => null,
-        'page' => null,
+        'page' => 'int32',
         'page_size' => 'int32',
         'project_name' => null,
         'rule_tag' => null
@@ -187,9 +187,6 @@ class ListVulWhiteFieldRequest implements ModelInterface, ArrayAccess
         if ($this->container['host'] === null) {
             $invalidProperties[] = "'host' can't be null";
         }
-        if ($this->container['page'] === null) {
-            $invalidProperties[] = "'page' can't be null";
-        }
         if ($this->container['page_size'] === null) {
             $invalidProperties[] = "'page_size' can't be null";
         }
@@ -235,7 +232,7 @@ class ListVulWhiteFieldRequest implements ModelInterface, ArrayAccess
     /**
      * Gets page
      *
-     * @return string
+     * @return int
      */
     public function getPage()
     {
@@ -245,7 +242,7 @@ class ListVulWhiteFieldRequest implements ModelInterface, ArrayAccess
     /**
      * Sets page
      *
-     * @param string $page page
+     * @param int $page page
      *
      * @return $this
      */

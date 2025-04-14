@@ -154,29 +154,8 @@ class CreateVulWhiteFieldRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const FIELD_AREA_ARGS = 'args';
-    const FIELD_AREA_URL = 'url';
-    const FIELD_AREA_COOKIES = 'cookies';
-    const FIELD_AREA_HEADERS = 'headers';
-    const FIELD_AREA_BODYDETAIL = 'bodydetail';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getFieldAreaAllowableValues()
-    {
-        return [
-            self::FIELD_AREA_ARGS,
-            self::FIELD_AREA_URL,
-            self::FIELD_AREA_COOKIES,
-            self::FIELD_AREA_HEADERS,
-            self::FIELD_AREA_BODYDETAIL,
-        ];
-    }
     
 
     /**
@@ -211,14 +190,21 @@ class CreateVulWhiteFieldRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getFieldAreaAllowableValues();
-        if (!is_null($this->container['field_area']) && !in_array($this->container['field_area'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'field_area', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
+        if ($this->container['enable'] === null) {
+            $invalidProperties[] = "'enable' can't be null";
         }
-
+        if ($this->container['field_area'] === null) {
+            $invalidProperties[] = "'field_area' can't be null";
+        }
+        if ($this->container['field_list'] === null) {
+            $invalidProperties[] = "'field_list' can't be null";
+        }
+        if ($this->container['host'] === null) {
+            $invalidProperties[] = "'host' can't be null";
+        }
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -277,15 +263,6 @@ class CreateVulWhiteFieldRequest implements ModelInterface, ArrayAccess
      */
     public function setFieldArea($field_area)
     {
-        $allowedValues = $this->getFieldAreaAllowableValues();
-        if (!is_null($field_area) && !in_array($field_area, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'field_area', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['field_area'] = $field_area;
 
         return $this;

@@ -45,7 +45,7 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
         'ip_list' => 'string[]',
         'ip_location_country' => 'string[]',
         'ip_location_subregion' => 'string[]',
-        'name' => 'string[]',
+        'name' => 'string',
         'prefix_switch' => 'string[]',
         'rule_tag' => 'string',
         'update_time' => 'string',
@@ -712,7 +712,7 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
     /**
      * Gets name
      *
-     * @return string[]
+     * @return string
      */
     public function getName()
     {
@@ -722,7 +722,7 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string[] $name name
+     * @param string $name name
      *
      * @return $this
      */
