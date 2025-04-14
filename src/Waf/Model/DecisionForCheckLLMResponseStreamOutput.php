@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
+class DecisionForCheckLLMResponseStreamOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'MatchForCheckLLMPromptOutput';
+    protected static $swaggerModelName = 'DecisionForCheckLLMResponseStreamOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,12 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'label' => 'string',
-        'word' => 'string'
+        'action' => 'int',
+        'custom_matches' => '\Volcengine\Waf\Model\CustomMatchForCheckLLMResponseStreamOutput[]',
+        'err_code' => 'int',
+        'err_msg' => 'string',
+        'labels' => 'string[]',
+        'matches' => '\Volcengine\Waf\Model\MatchForCheckLLMResponseStreamOutput[]'
     ];
 
     /**
@@ -38,8 +42,12 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'label' => null,
-        'word' => null
+        'action' => 'int32',
+        'custom_matches' => null,
+        'err_code' => 'int32',
+        'err_msg' => null,
+        'labels' => null,
+        'matches' => null
     ];
 
     /**
@@ -69,8 +77,12 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'label' => 'Label',
-        'word' => 'Word'
+        'action' => 'Action',
+        'custom_matches' => 'CustomMatches',
+        'err_code' => 'ErrCode',
+        'err_msg' => 'ErrMsg',
+        'labels' => 'Labels',
+        'matches' => 'Matches'
     ];
 
     /**
@@ -79,8 +91,12 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'label' => 'setLabel',
-        'word' => 'setWord'
+        'action' => 'setAction',
+        'custom_matches' => 'setCustomMatches',
+        'err_code' => 'setErrCode',
+        'err_msg' => 'setErrMsg',
+        'labels' => 'setLabels',
+        'matches' => 'setMatches'
     ];
 
     /**
@@ -89,8 +105,12 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'label' => 'getLabel',
-        'word' => 'getWord'
+        'action' => 'getAction',
+        'custom_matches' => 'getCustomMatches',
+        'err_code' => 'getErrCode',
+        'err_msg' => 'getErrMsg',
+        'labels' => 'getLabels',
+        'matches' => 'getMatches'
     ];
 
     /**
@@ -153,8 +173,12 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['label'] = isset($data['label']) ? $data['label'] : null;
-        $this->container['word'] = isset($data['word']) ? $data['word'] : null;
+        $this->container['action'] = isset($data['action']) ? $data['action'] : null;
+        $this->container['custom_matches'] = isset($data['custom_matches']) ? $data['custom_matches'] : null;
+        $this->container['err_code'] = isset($data['err_code']) ? $data['err_code'] : null;
+        $this->container['err_msg'] = isset($data['err_msg']) ? $data['err_msg'] : null;
+        $this->container['labels'] = isset($data['labels']) ? $data['labels'] : null;
+        $this->container['matches'] = isset($data['matches']) ? $data['matches'] : null;
     }
 
     /**
@@ -182,49 +206,145 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets label
+     * Gets action
      *
-     * @return string
+     * @return int
      */
-    public function getLabel()
+    public function getAction()
     {
-        return $this->container['label'];
+        return $this->container['action'];
     }
 
     /**
-     * Sets label
+     * Sets action
      *
-     * @param string $label label
+     * @param int $action action
      *
      * @return $this
      */
-    public function setLabel($label)
+    public function setAction($action)
     {
-        $this->container['label'] = $label;
+        $this->container['action'] = $action;
 
         return $this;
     }
 
     /**
-     * Gets word
+     * Gets custom_matches
      *
-     * @return string
+     * @return \Volcengine\Waf\Model\CustomMatchForCheckLLMResponseStreamOutput[]
      */
-    public function getWord()
+    public function getCustomMatches()
     {
-        return $this->container['word'];
+        return $this->container['custom_matches'];
     }
 
     /**
-     * Sets word
+     * Sets custom_matches
      *
-     * @param string $word word
+     * @param \Volcengine\Waf\Model\CustomMatchForCheckLLMResponseStreamOutput[] $custom_matches custom_matches
      *
      * @return $this
      */
-    public function setWord($word)
+    public function setCustomMatches($custom_matches)
     {
-        $this->container['word'] = $word;
+        $this->container['custom_matches'] = $custom_matches;
+
+        return $this;
+    }
+
+    /**
+     * Gets err_code
+     *
+     * @return int
+     */
+    public function getErrCode()
+    {
+        return $this->container['err_code'];
+    }
+
+    /**
+     * Sets err_code
+     *
+     * @param int $err_code err_code
+     *
+     * @return $this
+     */
+    public function setErrCode($err_code)
+    {
+        $this->container['err_code'] = $err_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets err_msg
+     *
+     * @return string
+     */
+    public function getErrMsg()
+    {
+        return $this->container['err_msg'];
+    }
+
+    /**
+     * Sets err_msg
+     *
+     * @param string $err_msg err_msg
+     *
+     * @return $this
+     */
+    public function setErrMsg($err_msg)
+    {
+        $this->container['err_msg'] = $err_msg;
+
+        return $this;
+    }
+
+    /**
+     * Gets labels
+     *
+     * @return string[]
+     */
+    public function getLabels()
+    {
+        return $this->container['labels'];
+    }
+
+    /**
+     * Sets labels
+     *
+     * @param string[] $labels labels
+     *
+     * @return $this
+     */
+    public function setLabels($labels)
+    {
+        $this->container['labels'] = $labels;
+
+        return $this;
+    }
+
+    /**
+     * Gets matches
+     *
+     * @return \Volcengine\Waf\Model\MatchForCheckLLMResponseStreamOutput[]
+     */
+    public function getMatches()
+    {
+        return $this->container['matches'];
+    }
+
+    /**
+     * Sets matches
+     *
+     * @param \Volcengine\Waf\Model\MatchForCheckLLMResponseStreamOutput[] $matches matches
+     *
+     * @return $this
+     */
+    public function setMatches($matches)
+    {
+        $this->container['matches'] = $matches;
 
         return $this;
     }

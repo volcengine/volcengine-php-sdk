@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
+class CustomMatchForCheckLLMResponseStreamOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'MatchForCheckLLMPromptOutput';
+    protected static $swaggerModelName = 'CustomMatchForCheckLLMResponseStreamOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,6 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'label' => 'string',
         'word' => 'string'
     ];
 
@@ -38,7 +37,6 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'label' => null,
         'word' => null
     ];
 
@@ -69,7 +67,6 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'label' => 'Label',
         'word' => 'Word'
     ];
 
@@ -79,7 +76,6 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'label' => 'setLabel',
         'word' => 'setWord'
     ];
 
@@ -89,7 +85,6 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'label' => 'getLabel',
         'word' => 'getWord'
     ];
 
@@ -153,7 +148,6 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['label'] = isset($data['label']) ? $data['label'] : null;
         $this->container['word'] = isset($data['word']) ? $data['word'] : null;
     }
 
@@ -180,30 +174,6 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets label
-     *
-     * @return string
-     */
-    public function getLabel()
-    {
-        return $this->container['label'];
-    }
-
-    /**
-     * Sets label
-     *
-     * @param string $label label
-     *
-     * @return $this
-     */
-    public function setLabel($label)
-    {
-        $this->container['label'] = $label;
-
-        return $this;
-    }
 
     /**
      * Gets word

@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
+class MatchForCheckLLMResponseStreamOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'MatchForCheckLLMPromptOutput';
+    protected static $swaggerModelName = 'MatchForCheckLLMResponseStreamOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

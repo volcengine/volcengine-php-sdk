@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
+class CheckLLMResponseStreamResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'MatchForCheckLLMPromptOutput';
+    protected static $swaggerModelName = 'CheckLLMResponseStreamResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,8 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'label' => 'string',
-        'word' => 'string'
+        'decision' => '\Volcengine\Waf\Model\DecisionForCheckLLMResponseStreamOutput',
+        'msg_id' => 'string'
     ];
 
     /**
@@ -38,8 +38,8 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'label' => null,
-        'word' => null
+        'decision' => null,
+        'msg_id' => null
     ];
 
     /**
@@ -69,8 +69,8 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'label' => 'Label',
-        'word' => 'Word'
+        'decision' => 'Decision',
+        'msg_id' => 'MsgID'
     ];
 
     /**
@@ -79,8 +79,8 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'label' => 'setLabel',
-        'word' => 'setWord'
+        'decision' => 'setDecision',
+        'msg_id' => 'setMsgId'
     ];
 
     /**
@@ -89,8 +89,8 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'label' => 'getLabel',
-        'word' => 'getWord'
+        'decision' => 'getDecision',
+        'msg_id' => 'getMsgId'
     ];
 
     /**
@@ -153,8 +153,8 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['label'] = isset($data['label']) ? $data['label'] : null;
-        $this->container['word'] = isset($data['word']) ? $data['word'] : null;
+        $this->container['decision'] = isset($data['decision']) ? $data['decision'] : null;
+        $this->container['msg_id'] = isset($data['msg_id']) ? $data['msg_id'] : null;
     }
 
     /**
@@ -182,49 +182,49 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets label
+     * Gets decision
      *
-     * @return string
+     * @return \Volcengine\Waf\Model\DecisionForCheckLLMResponseStreamOutput
      */
-    public function getLabel()
+    public function getDecision()
     {
-        return $this->container['label'];
+        return $this->container['decision'];
     }
 
     /**
-     * Sets label
+     * Sets decision
      *
-     * @param string $label label
+     * @param \Volcengine\Waf\Model\DecisionForCheckLLMResponseStreamOutput $decision decision
      *
      * @return $this
      */
-    public function setLabel($label)
+    public function setDecision($decision)
     {
-        $this->container['label'] = $label;
+        $this->container['decision'] = $decision;
 
         return $this;
     }
 
     /**
-     * Gets word
+     * Gets msg_id
      *
      * @return string
      */
-    public function getWord()
+    public function getMsgId()
     {
-        return $this->container['word'];
+        return $this->container['msg_id'];
     }
 
     /**
-     * Sets word
+     * Sets msg_id
      *
-     * @param string $word word
+     * @param string $msg_id msg_id
      *
      * @return $this
      */
-    public function setWord($word)
+    public function setMsgId($msg_id)
     {
-        $this->container['word'] = $word;
+        $this->container['msg_id'] = $msg_id;
 
         return $this;
     }

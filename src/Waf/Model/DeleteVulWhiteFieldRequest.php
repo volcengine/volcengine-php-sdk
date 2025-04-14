@@ -28,7 +28,7 @@ class DeleteVulWhiteFieldRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'string',
+        'id' => 'int',
         'project_name' => 'string'
     ];
 
@@ -38,7 +38,7 @@ class DeleteVulWhiteFieldRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => null,
+        'id' => 'int32',
         'project_name' => null
     ];
 
@@ -187,7 +187,7 @@ class DeleteVulWhiteFieldRequest implements ModelInterface, ArrayAccess
     /**
      * Gets id
      *
-     * @return string
+     * @return int
      */
     public function getId()
     {
@@ -197,7 +197,7 @@ class DeleteVulWhiteFieldRequest implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param string $id id
+     * @param int $id id
      *
      * @return $this
      */
