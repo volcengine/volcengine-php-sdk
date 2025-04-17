@@ -32,7 +32,8 @@ class DescribeKeysRequest implements ModelInterface, ArrayAccess
         'filters' => 'string',
         'keyring_id' => 'string',
         'keyring_name' => 'string',
-        'page_size' => 'int'
+        'page_size' => 'int',
+        'tag_filters' => '\Volcengine\Kms\Model\TagFilterForDescribeKeysInput[]'
     ];
 
     /**
@@ -45,7 +46,8 @@ class DescribeKeysRequest implements ModelInterface, ArrayAccess
         'filters' => null,
         'keyring_id' => null,
         'keyring_name' => null,
-        'page_size' => 'int32'
+        'page_size' => 'int32',
+        'tag_filters' => null
     ];
 
     /**
@@ -79,7 +81,8 @@ class DescribeKeysRequest implements ModelInterface, ArrayAccess
         'filters' => 'Filters',
         'keyring_id' => 'KeyringID',
         'keyring_name' => 'KeyringName',
-        'page_size' => 'PageSize'
+        'page_size' => 'PageSize',
+        'tag_filters' => 'TagFilters'
     ];
 
     /**
@@ -92,7 +95,8 @@ class DescribeKeysRequest implements ModelInterface, ArrayAccess
         'filters' => 'setFilters',
         'keyring_id' => 'setKeyringId',
         'keyring_name' => 'setKeyringName',
-        'page_size' => 'setPageSize'
+        'page_size' => 'setPageSize',
+        'tag_filters' => 'setTagFilters'
     ];
 
     /**
@@ -105,7 +109,8 @@ class DescribeKeysRequest implements ModelInterface, ArrayAccess
         'filters' => 'getFilters',
         'keyring_id' => 'getKeyringId',
         'keyring_name' => 'getKeyringName',
-        'page_size' => 'getPageSize'
+        'page_size' => 'getPageSize',
+        'tag_filters' => 'getTagFilters'
     ];
 
     /**
@@ -173,6 +178,7 @@ class DescribeKeysRequest implements ModelInterface, ArrayAccess
         $this->container['keyring_id'] = isset($data['keyring_id']) ? $data['keyring_id'] : null;
         $this->container['keyring_name'] = isset($data['keyring_name']) ? $data['keyring_name'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
+        $this->container['tag_filters'] = isset($data['tag_filters']) ? $data['tag_filters'] : null;
     }
 
     /**
@@ -315,6 +321,30 @@ class DescribeKeysRequest implements ModelInterface, ArrayAccess
     public function setPageSize($page_size)
     {
         $this->container['page_size'] = $page_size;
+
+        return $this;
+    }
+
+    /**
+     * Gets tag_filters
+     *
+     * @return \Volcengine\Kms\Model\TagFilterForDescribeKeysInput[]
+     */
+    public function getTagFilters()
+    {
+        return $this->container['tag_filters'];
+    }
+
+    /**
+     * Sets tag_filters
+     *
+     * @param \Volcengine\Kms\Model\TagFilterForDescribeKeysInput[] $tag_filters tag_filters
+     *
+     * @return $this
+     */
+    public function setTagFilters($tag_filters)
+    {
+        $this->container['tag_filters'] = $tag_filters;
 
         return $this;
     }

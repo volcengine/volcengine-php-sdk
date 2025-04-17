@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ReplicateKeyRequest implements ModelInterface, ArrayAccess
+class TagResourcesRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ReplicateKeyRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ReplicateKeyRequest';
+    protected static $swaggerModelName = 'TagResourcesRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,9 @@ class ReplicateKeyRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'description' => 'string',
-        'key_id' => 'string',
-        'key_name' => 'string',
-        'keyring_name' => 'string',
-        'replica_region' => 'string',
-        'tags' => '\Volcengine\Kms\Model\TagForReplicateKeyInput[]'
+        'resource_ids' => 'string[]',
+        'resource_type' => 'string',
+        'tags' => '\Volcengine\Kms\Model\TagForTagResourcesInput[]'
     ];
 
     /**
@@ -42,11 +39,8 @@ class ReplicateKeyRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'description' => null,
-        'key_id' => null,
-        'key_name' => null,
-        'keyring_name' => null,
-        'replica_region' => null,
+        'resource_ids' => null,
+        'resource_type' => null,
         'tags' => null
     ];
 
@@ -77,11 +71,8 @@ class ReplicateKeyRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'description' => 'Description',
-        'key_id' => 'KeyID',
-        'key_name' => 'KeyName',
-        'keyring_name' => 'KeyringName',
-        'replica_region' => 'ReplicaRegion',
+        'resource_ids' => 'ResourceIds',
+        'resource_type' => 'ResourceType',
         'tags' => 'Tags'
     ];
 
@@ -91,11 +82,8 @@ class ReplicateKeyRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'description' => 'setDescription',
-        'key_id' => 'setKeyId',
-        'key_name' => 'setKeyName',
-        'keyring_name' => 'setKeyringName',
-        'replica_region' => 'setReplicaRegion',
+        'resource_ids' => 'setResourceIds',
+        'resource_type' => 'setResourceType',
         'tags' => 'setTags'
     ];
 
@@ -105,11 +93,8 @@ class ReplicateKeyRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'description' => 'getDescription',
-        'key_id' => 'getKeyId',
-        'key_name' => 'getKeyName',
-        'keyring_name' => 'getKeyringName',
-        'replica_region' => 'getReplicaRegion',
+        'resource_ids' => 'getResourceIds',
+        'resource_type' => 'getResourceType',
         'tags' => 'getTags'
     ];
 
@@ -154,8 +139,21 @@ class ReplicateKeyRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const RESOURCE_TYPE_KEYS = 'keys';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getResourceTypeAllowableValues()
+    {
+        return [
+            self::RESOURCE_TYPE_KEYS,
+        ];
+    }
     
 
     /**
@@ -173,11 +171,8 @@ class ReplicateKeyRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['key_id'] = isset($data['key_id']) ? $data['key_id'] : null;
-        $this->container['key_name'] = isset($data['key_name']) ? $data['key_name'] : null;
-        $this->container['keyring_name'] = isset($data['keyring_name']) ? $data['keyring_name'] : null;
-        $this->container['replica_region'] = isset($data['replica_region']) ? $data['replica_region'] : null;
+        $this->container['resource_ids'] = isset($data['resource_ids']) ? $data['resource_ids'] : null;
+        $this->container['resource_type'] = isset($data['resource_type']) ? $data['resource_type'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
     }
 
@@ -190,9 +185,17 @@ class ReplicateKeyRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['replica_region'] === null) {
-            $invalidProperties[] = "'replica_region' can't be null";
+        if ($this->container['resource_type'] === null) {
+            $invalidProperties[] = "'resource_type' can't be null";
         }
+        $allowedValues = $this->getResourceTypeAllowableValues();
+        if (!is_null($this->container['resource_type']) && !in_array($this->container['resource_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'resource_type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -209,121 +212,58 @@ class ReplicateKeyRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets description
+     * Gets resource_ids
      *
-     * @return string
+     * @return string[]
      */
-    public function getDescription()
+    public function getResourceIds()
     {
-        return $this->container['description'];
+        return $this->container['resource_ids'];
     }
 
     /**
-     * Sets description
+     * Sets resource_ids
      *
-     * @param string $description description
+     * @param string[] $resource_ids resource_ids
      *
      * @return $this
      */
-    public function setDescription($description)
+    public function setResourceIds($resource_ids)
     {
-        $this->container['description'] = $description;
+        $this->container['resource_ids'] = $resource_ids;
 
         return $this;
     }
 
     /**
-     * Gets key_id
+     * Gets resource_type
      *
      * @return string
      */
-    public function getKeyId()
+    public function getResourceType()
     {
-        return $this->container['key_id'];
+        return $this->container['resource_type'];
     }
 
     /**
-     * Sets key_id
+     * Sets resource_type
      *
-     * @param string $key_id key_id
+     * @param string $resource_type resource_type
      *
      * @return $this
      */
-    public function setKeyId($key_id)
+    public function setResourceType($resource_type)
     {
-        $this->container['key_id'] = $key_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets key_name
-     *
-     * @return string
-     */
-    public function getKeyName()
-    {
-        return $this->container['key_name'];
-    }
-
-    /**
-     * Sets key_name
-     *
-     * @param string $key_name key_name
-     *
-     * @return $this
-     */
-    public function setKeyName($key_name)
-    {
-        $this->container['key_name'] = $key_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets keyring_name
-     *
-     * @return string
-     */
-    public function getKeyringName()
-    {
-        return $this->container['keyring_name'];
-    }
-
-    /**
-     * Sets keyring_name
-     *
-     * @param string $keyring_name keyring_name
-     *
-     * @return $this
-     */
-    public function setKeyringName($keyring_name)
-    {
-        $this->container['keyring_name'] = $keyring_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets replica_region
-     *
-     * @return string
-     */
-    public function getReplicaRegion()
-    {
-        return $this->container['replica_region'];
-    }
-
-    /**
-     * Sets replica_region
-     *
-     * @param string $replica_region replica_region
-     *
-     * @return $this
-     */
-    public function setReplicaRegion($replica_region)
-    {
-        $this->container['replica_region'] = $replica_region;
+        $allowedValues = $this->getResourceTypeAllowableValues();
+        if (!in_array($resource_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'resource_type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['resource_type'] = $resource_type;
 
         return $this;
     }
@@ -331,7 +271,7 @@ class ReplicateKeyRequest implements ModelInterface, ArrayAccess
     /**
      * Gets tags
      *
-     * @return \Volcengine\Kms\Model\TagForReplicateKeyInput[]
+     * @return \Volcengine\Kms\Model\TagForTagResourcesInput[]
      */
     public function getTags()
     {
@@ -341,7 +281,7 @@ class ReplicateKeyRequest implements ModelInterface, ArrayAccess
     /**
      * Sets tags
      *
-     * @param \Volcengine\Kms\Model\TagForReplicateKeyInput[] $tags tags
+     * @param \Volcengine\Kms\Model\TagForTagResourcesInput[] $tags tags
      *
      * @return $this
      */
