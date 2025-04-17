@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Kms\Model;
+namespace Volcengine\Tis\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ReplicateKeyRequest implements ModelInterface, ArrayAccess
+class QuotaInfoListForGetQuotaInfoOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ReplicateKeyRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ReplicateKeyRequest';
+    protected static $swaggerModelName = 'quotaInfoListForGetQuotaInfoOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,10 @@ class ReplicateKeyRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'description' => 'string',
-        'key_id' => 'string',
-        'key_name' => 'string',
-        'keyring_name' => 'string',
-        'replica_region' => 'string',
-        'tags' => '\Volcengine\Kms\Model\TagForReplicateKeyInput[]'
+        'available_amount' => 'int',
+        'configuration_code' => 'string',
+        'package_name' => 'string',
+        'total_amount' => 'int'
     ];
 
     /**
@@ -42,12 +40,10 @@ class ReplicateKeyRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'description' => null,
-        'key_id' => null,
-        'key_name' => null,
-        'keyring_name' => null,
-        'replica_region' => null,
-        'tags' => null
+        'available_amount' => 'int32',
+        'configuration_code' => null,
+        'package_name' => null,
+        'total_amount' => 'int32'
     ];
 
     /**
@@ -77,12 +73,10 @@ class ReplicateKeyRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'description' => 'Description',
-        'key_id' => 'KeyID',
-        'key_name' => 'KeyName',
-        'keyring_name' => 'KeyringName',
-        'replica_region' => 'ReplicaRegion',
-        'tags' => 'Tags'
+        'available_amount' => 'availableAmount',
+        'configuration_code' => 'configurationCode',
+        'package_name' => 'packageName',
+        'total_amount' => 'totalAmount'
     ];
 
     /**
@@ -91,12 +85,10 @@ class ReplicateKeyRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'description' => 'setDescription',
-        'key_id' => 'setKeyId',
-        'key_name' => 'setKeyName',
-        'keyring_name' => 'setKeyringName',
-        'replica_region' => 'setReplicaRegion',
-        'tags' => 'setTags'
+        'available_amount' => 'setAvailableAmount',
+        'configuration_code' => 'setConfigurationCode',
+        'package_name' => 'setPackageName',
+        'total_amount' => 'setTotalAmount'
     ];
 
     /**
@@ -105,12 +97,10 @@ class ReplicateKeyRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'description' => 'getDescription',
-        'key_id' => 'getKeyId',
-        'key_name' => 'getKeyName',
-        'keyring_name' => 'getKeyringName',
-        'replica_region' => 'getReplicaRegion',
-        'tags' => 'getTags'
+        'available_amount' => 'getAvailableAmount',
+        'configuration_code' => 'getConfigurationCode',
+        'package_name' => 'getPackageName',
+        'total_amount' => 'getTotalAmount'
     ];
 
     /**
@@ -173,12 +163,10 @@ class ReplicateKeyRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['key_id'] = isset($data['key_id']) ? $data['key_id'] : null;
-        $this->container['key_name'] = isset($data['key_name']) ? $data['key_name'] : null;
-        $this->container['keyring_name'] = isset($data['keyring_name']) ? $data['keyring_name'] : null;
-        $this->container['replica_region'] = isset($data['replica_region']) ? $data['replica_region'] : null;
-        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
+        $this->container['available_amount'] = isset($data['available_amount']) ? $data['available_amount'] : null;
+        $this->container['configuration_code'] = isset($data['configuration_code']) ? $data['configuration_code'] : null;
+        $this->container['package_name'] = isset($data['package_name']) ? $data['package_name'] : null;
+        $this->container['total_amount'] = isset($data['total_amount']) ? $data['total_amount'] : null;
     }
 
     /**
@@ -190,9 +178,6 @@ class ReplicateKeyRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['replica_region'] === null) {
-            $invalidProperties[] = "'replica_region' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -209,145 +194,97 @@ class ReplicateKeyRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets description
+     * Gets available_amount
      *
-     * @return string
+     * @return int
      */
-    public function getDescription()
+    public function getAvailableAmount()
     {
-        return $this->container['description'];
+        return $this->container['available_amount'];
     }
 
     /**
-     * Sets description
+     * Sets available_amount
      *
-     * @param string $description description
+     * @param int $available_amount available_amount
      *
      * @return $this
      */
-    public function setDescription($description)
+    public function setAvailableAmount($available_amount)
     {
-        $this->container['description'] = $description;
+        $this->container['available_amount'] = $available_amount;
 
         return $this;
     }
 
     /**
-     * Gets key_id
+     * Gets configuration_code
      *
      * @return string
      */
-    public function getKeyId()
+    public function getConfigurationCode()
     {
-        return $this->container['key_id'];
+        return $this->container['configuration_code'];
     }
 
     /**
-     * Sets key_id
+     * Sets configuration_code
      *
-     * @param string $key_id key_id
+     * @param string $configuration_code configuration_code
      *
      * @return $this
      */
-    public function setKeyId($key_id)
+    public function setConfigurationCode($configuration_code)
     {
-        $this->container['key_id'] = $key_id;
+        $this->container['configuration_code'] = $configuration_code;
 
         return $this;
     }
 
     /**
-     * Gets key_name
+     * Gets package_name
      *
      * @return string
      */
-    public function getKeyName()
+    public function getPackageName()
     {
-        return $this->container['key_name'];
+        return $this->container['package_name'];
     }
 
     /**
-     * Sets key_name
+     * Sets package_name
      *
-     * @param string $key_name key_name
+     * @param string $package_name package_name
      *
      * @return $this
      */
-    public function setKeyName($key_name)
+    public function setPackageName($package_name)
     {
-        $this->container['key_name'] = $key_name;
+        $this->container['package_name'] = $package_name;
 
         return $this;
     }
 
     /**
-     * Gets keyring_name
+     * Gets total_amount
      *
-     * @return string
+     * @return int
      */
-    public function getKeyringName()
+    public function getTotalAmount()
     {
-        return $this->container['keyring_name'];
+        return $this->container['total_amount'];
     }
 
     /**
-     * Sets keyring_name
+     * Sets total_amount
      *
-     * @param string $keyring_name keyring_name
+     * @param int $total_amount total_amount
      *
      * @return $this
      */
-    public function setKeyringName($keyring_name)
+    public function setTotalAmount($total_amount)
     {
-        $this->container['keyring_name'] = $keyring_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets replica_region
-     *
-     * @return string
-     */
-    public function getReplicaRegion()
-    {
-        return $this->container['replica_region'];
-    }
-
-    /**
-     * Sets replica_region
-     *
-     * @param string $replica_region replica_region
-     *
-     * @return $this
-     */
-    public function setReplicaRegion($replica_region)
-    {
-        $this->container['replica_region'] = $replica_region;
-
-        return $this;
-    }
-
-    /**
-     * Gets tags
-     *
-     * @return \Volcengine\Kms\Model\TagForReplicateKeyInput[]
-     */
-    public function getTags()
-    {
-        return $this->container['tags'];
-    }
-
-    /**
-     * Sets tags
-     *
-     * @param \Volcengine\Kms\Model\TagForReplicateKeyInput[] $tags tags
-     *
-     * @return $this
-     */
-    public function setTags($tags)
-    {
-        $this->container['tags'] = $tags;
+        $this->container['total_amount'] = $total_amount;
 
         return $this;
     }

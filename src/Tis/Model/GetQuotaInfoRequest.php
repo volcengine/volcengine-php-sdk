@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Kms\Model;
+namespace Volcengine\Tis\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ReplicateKeyRequest implements ModelInterface, ArrayAccess
+class GetQuotaInfoRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ReplicateKeyRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ReplicateKeyRequest';
+    protected static $swaggerModelName = 'GetQuotaInfoRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,8 @@ class ReplicateKeyRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'description' => 'string',
-        'key_id' => 'string',
-        'key_name' => 'string',
-        'keyring_name' => 'string',
-        'replica_region' => 'string',
-        'tags' => '\Volcengine\Kms\Model\TagForReplicateKeyInput[]'
+        'device_name' => 'string',
+        'product_key' => 'string'
     ];
 
     /**
@@ -42,12 +38,8 @@ class ReplicateKeyRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'description' => null,
-        'key_id' => null,
-        'key_name' => null,
-        'keyring_name' => null,
-        'replica_region' => null,
-        'tags' => null
+        'device_name' => null,
+        'product_key' => null
     ];
 
     /**
@@ -77,12 +69,8 @@ class ReplicateKeyRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'description' => 'Description',
-        'key_id' => 'KeyID',
-        'key_name' => 'KeyName',
-        'keyring_name' => 'KeyringName',
-        'replica_region' => 'ReplicaRegion',
-        'tags' => 'Tags'
+        'device_name' => 'deviceName',
+        'product_key' => 'productKey'
     ];
 
     /**
@@ -91,12 +79,8 @@ class ReplicateKeyRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'description' => 'setDescription',
-        'key_id' => 'setKeyId',
-        'key_name' => 'setKeyName',
-        'keyring_name' => 'setKeyringName',
-        'replica_region' => 'setReplicaRegion',
-        'tags' => 'setTags'
+        'device_name' => 'setDeviceName',
+        'product_key' => 'setProductKey'
     ];
 
     /**
@@ -105,12 +89,8 @@ class ReplicateKeyRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'description' => 'getDescription',
-        'key_id' => 'getKeyId',
-        'key_name' => 'getKeyName',
-        'keyring_name' => 'getKeyringName',
-        'replica_region' => 'getReplicaRegion',
-        'tags' => 'getTags'
+        'device_name' => 'getDeviceName',
+        'product_key' => 'getProductKey'
     ];
 
     /**
@@ -173,12 +153,8 @@ class ReplicateKeyRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['key_id'] = isset($data['key_id']) ? $data['key_id'] : null;
-        $this->container['key_name'] = isset($data['key_name']) ? $data['key_name'] : null;
-        $this->container['keyring_name'] = isset($data['keyring_name']) ? $data['keyring_name'] : null;
-        $this->container['replica_region'] = isset($data['replica_region']) ? $data['replica_region'] : null;
-        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
+        $this->container['device_name'] = isset($data['device_name']) ? $data['device_name'] : null;
+        $this->container['product_key'] = isset($data['product_key']) ? $data['product_key'] : null;
     }
 
     /**
@@ -190,8 +166,11 @@ class ReplicateKeyRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['replica_region'] === null) {
-            $invalidProperties[] = "'replica_region' can't be null";
+        if ($this->container['device_name'] === null) {
+            $invalidProperties[] = "'device_name' can't be null";
+        }
+        if ($this->container['product_key'] === null) {
+            $invalidProperties[] = "'product_key' can't be null";
         }
         return $invalidProperties;
     }
@@ -209,145 +188,49 @@ class ReplicateKeyRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets description
+     * Gets device_name
      *
      * @return string
      */
-    public function getDescription()
+    public function getDeviceName()
     {
-        return $this->container['description'];
+        return $this->container['device_name'];
     }
 
     /**
-     * Sets description
+     * Sets device_name
      *
-     * @param string $description description
+     * @param string $device_name device_name
      *
      * @return $this
      */
-    public function setDescription($description)
+    public function setDeviceName($device_name)
     {
-        $this->container['description'] = $description;
+        $this->container['device_name'] = $device_name;
 
         return $this;
     }
 
     /**
-     * Gets key_id
+     * Gets product_key
      *
      * @return string
      */
-    public function getKeyId()
+    public function getProductKey()
     {
-        return $this->container['key_id'];
+        return $this->container['product_key'];
     }
 
     /**
-     * Sets key_id
+     * Sets product_key
      *
-     * @param string $key_id key_id
+     * @param string $product_key product_key
      *
      * @return $this
      */
-    public function setKeyId($key_id)
+    public function setProductKey($product_key)
     {
-        $this->container['key_id'] = $key_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets key_name
-     *
-     * @return string
-     */
-    public function getKeyName()
-    {
-        return $this->container['key_name'];
-    }
-
-    /**
-     * Sets key_name
-     *
-     * @param string $key_name key_name
-     *
-     * @return $this
-     */
-    public function setKeyName($key_name)
-    {
-        $this->container['key_name'] = $key_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets keyring_name
-     *
-     * @return string
-     */
-    public function getKeyringName()
-    {
-        return $this->container['keyring_name'];
-    }
-
-    /**
-     * Sets keyring_name
-     *
-     * @param string $keyring_name keyring_name
-     *
-     * @return $this
-     */
-    public function setKeyringName($keyring_name)
-    {
-        $this->container['keyring_name'] = $keyring_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets replica_region
-     *
-     * @return string
-     */
-    public function getReplicaRegion()
-    {
-        return $this->container['replica_region'];
-    }
-
-    /**
-     * Sets replica_region
-     *
-     * @param string $replica_region replica_region
-     *
-     * @return $this
-     */
-    public function setReplicaRegion($replica_region)
-    {
-        $this->container['replica_region'] = $replica_region;
-
-        return $this;
-    }
-
-    /**
-     * Gets tags
-     *
-     * @return \Volcengine\Kms\Model\TagForReplicateKeyInput[]
-     */
-    public function getTags()
-    {
-        return $this->container['tags'];
-    }
-
-    /**
-     * Sets tags
-     *
-     * @param \Volcengine\Kms\Model\TagForReplicateKeyInput[] $tags tags
-     *
-     * @return $this
-     */
-    public function setTags($tags)
-    {
-        $this->container['tags'] = $tags;
+        $this->container['product_key'] = $product_key;
 
         return $this;
     }

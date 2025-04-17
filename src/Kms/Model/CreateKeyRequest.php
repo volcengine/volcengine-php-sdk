@@ -36,7 +36,8 @@ class CreateKeyRequest implements ModelInterface, ArrayAccess
         'multi_region' => 'bool',
         'origin' => 'string',
         'protection_level' => 'string',
-        'rotate_state' => 'string'
+        'rotate_state' => 'string',
+        'tags' => '\Volcengine\Kms\Model\TagForCreateKeyInput[]'
     ];
 
     /**
@@ -53,7 +54,8 @@ class CreateKeyRequest implements ModelInterface, ArrayAccess
         'multi_region' => null,
         'origin' => null,
         'protection_level' => null,
-        'rotate_state' => null
+        'rotate_state' => null,
+        'tags' => null
     ];
 
     /**
@@ -91,7 +93,8 @@ class CreateKeyRequest implements ModelInterface, ArrayAccess
         'multi_region' => 'MultiRegion',
         'origin' => 'Origin',
         'protection_level' => 'ProtectionLevel',
-        'rotate_state' => 'RotateState'
+        'rotate_state' => 'RotateState',
+        'tags' => 'Tags'
     ];
 
     /**
@@ -108,7 +111,8 @@ class CreateKeyRequest implements ModelInterface, ArrayAccess
         'multi_region' => 'setMultiRegion',
         'origin' => 'setOrigin',
         'protection_level' => 'setProtectionLevel',
-        'rotate_state' => 'setRotateState'
+        'rotate_state' => 'setRotateState',
+        'tags' => 'setTags'
     ];
 
     /**
@@ -125,7 +129,8 @@ class CreateKeyRequest implements ModelInterface, ArrayAccess
         'multi_region' => 'getMultiRegion',
         'origin' => 'getOrigin',
         'protection_level' => 'getProtectionLevel',
-        'rotate_state' => 'getRotateState'
+        'rotate_state' => 'getRotateState',
+        'tags' => 'getTags'
     ];
 
     /**
@@ -197,6 +202,7 @@ class CreateKeyRequest implements ModelInterface, ArrayAccess
         $this->container['origin'] = isset($data['origin']) ? $data['origin'] : null;
         $this->container['protection_level'] = isset($data['protection_level']) ? $data['protection_level'] : null;
         $this->container['rotate_state'] = isset($data['rotate_state']) ? $data['rotate_state'] : null;
+        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
     }
 
     /**
@@ -441,6 +447,30 @@ class CreateKeyRequest implements ModelInterface, ArrayAccess
     public function setRotateState($rotate_state)
     {
         $this->container['rotate_state'] = $rotate_state;
+
+        return $this;
+    }
+
+    /**
+     * Gets tags
+     *
+     * @return \Volcengine\Kms\Model\TagForCreateKeyInput[]
+     */
+    public function getTags()
+    {
+        return $this->container['tags'];
+    }
+
+    /**
+     * Sets tags
+     *
+     * @param \Volcengine\Kms\Model\TagForCreateKeyInput[] $tags tags
+     *
+     * @return $this
+     */
+    public function setTags($tags)
+    {
+        $this->container['tags'] = $tags;
 
         return $this;
     }
