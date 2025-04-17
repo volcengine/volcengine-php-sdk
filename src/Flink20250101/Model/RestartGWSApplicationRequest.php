@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Waf\Model;
+namespace Volcengine\Flink20250101\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
+class RestartGWSApplicationRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'MatchForCheckLLMPromptOutput';
+    protected static $swaggerModelName = 'RestartGWSApplicationRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,9 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'label' => 'string',
-        'word' => 'string'
+        'id' => 'string',
+        'savepoint_id' => 'string',
+        'type' => 'string'
     ];
 
     /**
@@ -38,8 +39,9 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'label' => null,
-        'word' => null
+        'id' => null,
+        'savepoint_id' => null,
+        'type' => null
     ];
 
     /**
@@ -69,8 +71,9 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'label' => 'Label',
-        'word' => 'Word'
+        'id' => 'Id',
+        'savepoint_id' => 'SavepointId',
+        'type' => 'Type'
     ];
 
     /**
@@ -79,8 +82,9 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'label' => 'setLabel',
-        'word' => 'setWord'
+        'id' => 'setId',
+        'savepoint_id' => 'setSavepointId',
+        'type' => 'setType'
     ];
 
     /**
@@ -89,8 +93,9 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'label' => 'getLabel',
-        'word' => 'getWord'
+        'id' => 'getId',
+        'savepoint_id' => 'getSavepointId',
+        'type' => 'getType'
     ];
 
     /**
@@ -134,8 +139,25 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const TYPE_FROM_NEW = 'FROM_NEW';
+    const TYPE_FROM_LATEST = 'FROM_LATEST';
+    const TYPE_FROM_SAVEPOINT = 'FROM_SAVEPOINT';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_FROM_NEW,
+            self::TYPE_FROM_LATEST,
+            self::TYPE_FROM_SAVEPOINT,
+        ];
+    }
     
 
     /**
@@ -153,8 +175,9 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['label'] = isset($data['label']) ? $data['label'] : null;
-        $this->container['word'] = isset($data['word']) ? $data['word'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['savepoint_id'] = isset($data['savepoint_id']) ? $data['savepoint_id'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
     /**
@@ -165,6 +188,20 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -182,49 +219,82 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets label
+     * Gets id
      *
      * @return string
      */
-    public function getLabel()
+    public function getId()
     {
-        return $this->container['label'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets label
+     * Sets id
      *
-     * @param string $label label
+     * @param string $id id
      *
      * @return $this
      */
-    public function setLabel($label)
+    public function setId($id)
     {
-        $this->container['label'] = $label;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets word
+     * Gets savepoint_id
      *
      * @return string
      */
-    public function getWord()
+    public function getSavepointId()
     {
-        return $this->container['word'];
+        return $this->container['savepoint_id'];
     }
 
     /**
-     * Sets word
+     * Sets savepoint_id
      *
-     * @param string $word word
+     * @param string $savepoint_id savepoint_id
      *
      * @return $this
      */
-    public function setWord($word)
+    public function setSavepointId($savepoint_id)
     {
-        $this->container['word'] = $word;
+        $this->container['savepoint_id'] = $savepoint_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string $type type
+     *
+     * @return $this
+     */
+    public function setType($type)
+    {
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['type'] = $type;
 
         return $this;
     }

@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Waf\Model;
+namespace Volcengine\Volcobserve\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
+class ListNotificationsRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'MatchForCheckLLMPromptOutput';
+    protected static $swaggerModelName = 'ListNotificationsRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,12 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'label' => 'string',
-        'word' => 'string'
+        'ids' => 'string[]',
+        'levels' => 'string[]',
+        'name' => 'string',
+        'page_number' => 'int',
+        'page_size' => 'int',
+        'rule_ids' => 'string[]'
     ];
 
     /**
@@ -38,8 +42,12 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'label' => null,
-        'word' => null
+        'ids' => null,
+        'levels' => null,
+        'name' => null,
+        'page_number' => null,
+        'page_size' => null,
+        'rule_ids' => null
     ];
 
     /**
@@ -69,8 +77,12 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'label' => 'Label',
-        'word' => 'Word'
+        'ids' => 'Ids',
+        'levels' => 'Levels',
+        'name' => 'Name',
+        'page_number' => 'PageNumber',
+        'page_size' => 'PageSize',
+        'rule_ids' => 'RuleIds'
     ];
 
     /**
@@ -79,8 +91,12 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'label' => 'setLabel',
-        'word' => 'setWord'
+        'ids' => 'setIds',
+        'levels' => 'setLevels',
+        'name' => 'setName',
+        'page_number' => 'setPageNumber',
+        'page_size' => 'setPageSize',
+        'rule_ids' => 'setRuleIds'
     ];
 
     /**
@@ -89,8 +105,12 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'label' => 'getLabel',
-        'word' => 'getWord'
+        'ids' => 'getIds',
+        'levels' => 'getLevels',
+        'name' => 'getName',
+        'page_number' => 'getPageNumber',
+        'page_size' => 'getPageSize',
+        'rule_ids' => 'getRuleIds'
     ];
 
     /**
@@ -134,8 +154,27 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const LEVELS_NOTICE = 'notice';
+    const LEVELS_WARNING = 'warning';
+    const LEVELS_CRITICAL = 'critical';
+    const LEVELS_RECOVERY = 'recovery';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getLevelsAllowableValues()
+    {
+        return [
+            self::LEVELS_NOTICE,
+            self::LEVELS_WARNING,
+            self::LEVELS_CRITICAL,
+            self::LEVELS_RECOVERY,
+        ];
+    }
     
 
     /**
@@ -153,8 +192,12 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['label'] = isset($data['label']) ? $data['label'] : null;
-        $this->container['word'] = isset($data['word']) ? $data['word'] : null;
+        $this->container['ids'] = isset($data['ids']) ? $data['ids'] : null;
+        $this->container['levels'] = isset($data['levels']) ? $data['levels'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
+        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
+        $this->container['rule_ids'] = isset($data['rule_ids']) ? $data['rule_ids'] : null;
     }
 
     /**
@@ -182,49 +225,154 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets label
+     * Gets ids
      *
-     * @return string
+     * @return string[]
      */
-    public function getLabel()
+    public function getIds()
     {
-        return $this->container['label'];
+        return $this->container['ids'];
     }
 
     /**
-     * Sets label
+     * Sets ids
      *
-     * @param string $label label
+     * @param string[] $ids ids
      *
      * @return $this
      */
-    public function setLabel($label)
+    public function setIds($ids)
     {
-        $this->container['label'] = $label;
+        $this->container['ids'] = $ids;
 
         return $this;
     }
 
     /**
-     * Gets word
+     * Gets levels
      *
-     * @return string
+     * @return string[]
      */
-    public function getWord()
+    public function getLevels()
     {
-        return $this->container['word'];
+        return $this->container['levels'];
     }
 
     /**
-     * Sets word
+     * Sets levels
      *
-     * @param string $word word
+     * @param string[] $levels levels
      *
      * @return $this
      */
-    public function setWord($word)
+    public function setLevels($levels)
     {
-        $this->container['word'] = $word;
+        $allowedValues = $this->getLevelsAllowableValues();
+        if (!is_null($levels) && array_diff($levels, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'levels', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['levels'] = $levels;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name name
+     *
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets page_number
+     *
+     * @return int
+     */
+    public function getPageNumber()
+    {
+        return $this->container['page_number'];
+    }
+
+    /**
+     * Sets page_number
+     *
+     * @param int $page_number page_number
+     *
+     * @return $this
+     */
+    public function setPageNumber($page_number)
+    {
+        $this->container['page_number'] = $page_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets page_size
+     *
+     * @return int
+     */
+    public function getPageSize()
+    {
+        return $this->container['page_size'];
+    }
+
+    /**
+     * Sets page_size
+     *
+     * @param int $page_size page_size
+     *
+     * @return $this
+     */
+    public function setPageSize($page_size)
+    {
+        $this->container['page_size'] = $page_size;
+
+        return $this;
+    }
+
+    /**
+     * Gets rule_ids
+     *
+     * @return string[]
+     */
+    public function getRuleIds()
+    {
+        return $this->container['rule_ids'];
+    }
+
+    /**
+     * Sets rule_ids
+     *
+     * @param string[] $rule_ids rule_ids
+     *
+     * @return $this
+     */
+    public function setRuleIds($rule_ids)
+    {
+        $this->container['rule_ids'] = $rule_ids;
 
         return $this;
     }

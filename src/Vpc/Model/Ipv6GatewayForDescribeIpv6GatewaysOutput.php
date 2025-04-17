@@ -33,6 +33,7 @@ class Ipv6GatewayForDescribeIpv6GatewaysOutput implements ModelInterface, ArrayA
         'ipv6_gateway_id' => 'string',
         'name' => 'string',
         'project_name' => 'string',
+        'route_table_id' => 'string',
         'status' => 'string',
         'update_time' => 'string',
         'vpc_id' => 'string'
@@ -49,6 +50,7 @@ class Ipv6GatewayForDescribeIpv6GatewaysOutput implements ModelInterface, ArrayA
         'ipv6_gateway_id' => null,
         'name' => null,
         'project_name' => null,
+        'route_table_id' => null,
         'status' => null,
         'update_time' => null,
         'vpc_id' => null
@@ -86,6 +88,7 @@ class Ipv6GatewayForDescribeIpv6GatewaysOutput implements ModelInterface, ArrayA
         'ipv6_gateway_id' => 'Ipv6GatewayId',
         'name' => 'Name',
         'project_name' => 'ProjectName',
+        'route_table_id' => 'RouteTableId',
         'status' => 'Status',
         'update_time' => 'UpdateTime',
         'vpc_id' => 'VpcId'
@@ -102,6 +105,7 @@ class Ipv6GatewayForDescribeIpv6GatewaysOutput implements ModelInterface, ArrayA
         'ipv6_gateway_id' => 'setIpv6GatewayId',
         'name' => 'setName',
         'project_name' => 'setProjectName',
+        'route_table_id' => 'setRouteTableId',
         'status' => 'setStatus',
         'update_time' => 'setUpdateTime',
         'vpc_id' => 'setVpcId'
@@ -118,6 +122,7 @@ class Ipv6GatewayForDescribeIpv6GatewaysOutput implements ModelInterface, ArrayA
         'ipv6_gateway_id' => 'getIpv6GatewayId',
         'name' => 'getName',
         'project_name' => 'getProjectName',
+        'route_table_id' => 'getRouteTableId',
         'status' => 'getStatus',
         'update_time' => 'getUpdateTime',
         'vpc_id' => 'getVpcId'
@@ -188,6 +193,7 @@ class Ipv6GatewayForDescribeIpv6GatewaysOutput implements ModelInterface, ArrayA
         $this->container['ipv6_gateway_id'] = isset($data['ipv6_gateway_id']) ? $data['ipv6_gateway_id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['route_table_id'] = isset($data['route_table_id']) ? $data['route_table_id'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
         $this->container['vpc_id'] = isset($data['vpc_id']) ? $data['vpc_id'] : null;
@@ -333,6 +339,30 @@ class Ipv6GatewayForDescribeIpv6GatewaysOutput implements ModelInterface, ArrayA
     public function setProjectName($project_name)
     {
         $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets route_table_id
+     *
+     * @return string
+     */
+    public function getRouteTableId()
+    {
+        return $this->container['route_table_id'];
+    }
+
+    /**
+     * Sets route_table_id
+     *
+     * @param string $route_table_id route_table_id
+     *
+     * @return $this
+     */
+    public function setRouteTableId($route_table_id)
+    {
+        $this->container['route_table_id'] = $route_table_id;
 
         return $this;
     }

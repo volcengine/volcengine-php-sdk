@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Waf\Model;
+namespace Volcengine\Volcobserve\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
+class CreateNotificationResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'MatchForCheckLLMPromptOutput';
+    protected static $swaggerModelName = 'CreateNotificationResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,7 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'label' => 'string',
-        'word' => 'string'
+        'data' => 'string[]'
     ];
 
     /**
@@ -38,8 +37,7 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'label' => null,
-        'word' => null
+        'data' => null
     ];
 
     /**
@@ -69,8 +67,7 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'label' => 'Label',
-        'word' => 'Word'
+        'data' => 'Data'
     ];
 
     /**
@@ -79,8 +76,7 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'label' => 'setLabel',
-        'word' => 'setWord'
+        'data' => 'setData'
     ];
 
     /**
@@ -89,8 +85,7 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'label' => 'getLabel',
-        'word' => 'getWord'
+        'data' => 'getData'
     ];
 
     /**
@@ -153,8 +148,7 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['label'] = isset($data['label']) ? $data['label'] : null;
-        $this->container['word'] = isset($data['word']) ? $data['word'] : null;
+        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
     }
 
     /**
@@ -182,49 +176,25 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets label
+     * Gets data
      *
-     * @return string
+     * @return string[]
      */
-    public function getLabel()
+    public function getData()
     {
-        return $this->container['label'];
+        return $this->container['data'];
     }
 
     /**
-     * Sets label
+     * Sets data
      *
-     * @param string $label label
+     * @param string[] $data data
      *
      * @return $this
      */
-    public function setLabel($label)
+    public function setData($data)
     {
-        $this->container['label'] = $label;
-
-        return $this;
-    }
-
-    /**
-     * Gets word
-     *
-     * @return string
-     */
-    public function getWord()
-    {
-        return $this->container['word'];
-    }
-
-    /**
-     * Sets word
-     *
-     * @param string $word word
-     *
-     * @return $this
-     */
-    public function setWord($word)
-    {
-        $this->container['word'] = $word;
+        $this->container['data'] = $data;
 
         return $this;
     }

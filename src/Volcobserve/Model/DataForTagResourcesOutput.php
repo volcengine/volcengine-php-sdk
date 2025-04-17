@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Waf\Model;
+namespace Volcengine\Volcobserve\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
+class DataForTagResourcesOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'MatchForCheckLLMPromptOutput';
+    protected static $swaggerModelName = 'DataForTagResourcesOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,8 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'label' => 'string',
-        'word' => 'string'
+        'failed_resources' => 'string[]',
+        'succeed_resources' => 'string[]'
     ];
 
     /**
@@ -38,8 +38,8 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'label' => null,
-        'word' => null
+        'failed_resources' => null,
+        'succeed_resources' => null
     ];
 
     /**
@@ -69,8 +69,8 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'label' => 'Label',
-        'word' => 'Word'
+        'failed_resources' => 'FailedResources',
+        'succeed_resources' => 'SucceedResources'
     ];
 
     /**
@@ -79,8 +79,8 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'label' => 'setLabel',
-        'word' => 'setWord'
+        'failed_resources' => 'setFailedResources',
+        'succeed_resources' => 'setSucceedResources'
     ];
 
     /**
@@ -89,8 +89,8 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'label' => 'getLabel',
-        'word' => 'getWord'
+        'failed_resources' => 'getFailedResources',
+        'succeed_resources' => 'getSucceedResources'
     ];
 
     /**
@@ -153,8 +153,8 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['label'] = isset($data['label']) ? $data['label'] : null;
-        $this->container['word'] = isset($data['word']) ? $data['word'] : null;
+        $this->container['failed_resources'] = isset($data['failed_resources']) ? $data['failed_resources'] : null;
+        $this->container['succeed_resources'] = isset($data['succeed_resources']) ? $data['succeed_resources'] : null;
     }
 
     /**
@@ -182,49 +182,49 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets label
+     * Gets failed_resources
      *
-     * @return string
+     * @return string[]
      */
-    public function getLabel()
+    public function getFailedResources()
     {
-        return $this->container['label'];
+        return $this->container['failed_resources'];
     }
 
     /**
-     * Sets label
+     * Sets failed_resources
      *
-     * @param string $label label
+     * @param string[] $failed_resources failed_resources
      *
      * @return $this
      */
-    public function setLabel($label)
+    public function setFailedResources($failed_resources)
     {
-        $this->container['label'] = $label;
+        $this->container['failed_resources'] = $failed_resources;
 
         return $this;
     }
 
     /**
-     * Gets word
+     * Gets succeed_resources
      *
-     * @return string
+     * @return string[]
      */
-    public function getWord()
+    public function getSucceedResources()
     {
-        return $this->container['word'];
+        return $this->container['succeed_resources'];
     }
 
     /**
-     * Sets word
+     * Sets succeed_resources
      *
-     * @param string $word word
+     * @param string[] $succeed_resources succeed_resources
      *
      * @return $this
      */
-    public function setWord($word)
+    public function setSucceedResources($succeed_resources)
     {
-        $this->container['word'] = $word;
+        $this->container['succeed_resources'] = $succeed_resources;
 
         return $this;
     }

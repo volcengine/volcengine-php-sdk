@@ -54,6 +54,7 @@ class DataForListRulesOutput implements ModelInterface, ArrayAccess
         'rule_type' => 'string',
         'silence_time' => 'int',
         'sub_namespace' => 'string',
+        'tags' => '\Volcengine\Volcobserve\Model\ConvertTagForListRulesOutput[]',
         'updated_at' => 'string',
         'web_hook' => 'string',
         'webhook_ids' => 'string[]'
@@ -91,6 +92,7 @@ class DataForListRulesOutput implements ModelInterface, ArrayAccess
         'rule_type' => null,
         'silence_time' => null,
         'sub_namespace' => null,
+        'tags' => null,
         'updated_at' => null,
         'web_hook' => null,
         'webhook_ids' => null
@@ -149,6 +151,7 @@ class DataForListRulesOutput implements ModelInterface, ArrayAccess
         'rule_type' => 'RuleType',
         'silence_time' => 'SilenceTime',
         'sub_namespace' => 'SubNamespace',
+        'tags' => 'Tags',
         'updated_at' => 'UpdatedAt',
         'web_hook' => 'WebHook',
         'webhook_ids' => 'WebhookIds'
@@ -186,6 +189,7 @@ class DataForListRulesOutput implements ModelInterface, ArrayAccess
         'rule_type' => 'setRuleType',
         'silence_time' => 'setSilenceTime',
         'sub_namespace' => 'setSubNamespace',
+        'tags' => 'setTags',
         'updated_at' => 'setUpdatedAt',
         'web_hook' => 'setWebHook',
         'webhook_ids' => 'setWebhookIds'
@@ -223,6 +227,7 @@ class DataForListRulesOutput implements ModelInterface, ArrayAccess
         'rule_type' => 'getRuleType',
         'silence_time' => 'getSilenceTime',
         'sub_namespace' => 'getSubNamespace',
+        'tags' => 'getTags',
         'updated_at' => 'getUpdatedAt',
         'web_hook' => 'getWebHook',
         'webhook_ids' => 'getWebhookIds'
@@ -314,6 +319,7 @@ class DataForListRulesOutput implements ModelInterface, ArrayAccess
         $this->container['rule_type'] = isset($data['rule_type']) ? $data['rule_type'] : null;
         $this->container['silence_time'] = isset($data['silence_time']) ? $data['silence_time'] : null;
         $this->container['sub_namespace'] = isset($data['sub_namespace']) ? $data['sub_namespace'] : null;
+        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
         $this->container['web_hook'] = isset($data['web_hook']) ? $data['web_hook'] : null;
         $this->container['webhook_ids'] = isset($data['webhook_ids']) ? $data['webhook_ids'] : null;
@@ -963,6 +969,30 @@ class DataForListRulesOutput implements ModelInterface, ArrayAccess
     public function setSubNamespace($sub_namespace)
     {
         $this->container['sub_namespace'] = $sub_namespace;
+
+        return $this;
+    }
+
+    /**
+     * Gets tags
+     *
+     * @return \Volcengine\Volcobserve\Model\ConvertTagForListRulesOutput[]
+     */
+    public function getTags()
+    {
+        return $this->container['tags'];
+    }
+
+    /**
+     * Sets tags
+     *
+     * @param \Volcengine\Volcobserve\Model\ConvertTagForListRulesOutput[] $tags tags
+     *
+     * @return $this
+     */
+    public function setTags($tags)
+    {
+        $this->container['tags'] = $tags;
 
         return $this;
     }

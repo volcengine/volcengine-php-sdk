@@ -154,23 +154,8 @@ class ListAllIpGroupsRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const TIME_ORDER_BY_ASC = 'ASC';
-    const TIME_ORDER_BY_DESC = 'DESC';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTimeOrderByAllowableValues()
-    {
-        return [
-            self::TIME_ORDER_BY_ASC,
-            self::TIME_ORDER_BY_DESC,
-        ];
-    }
     
 
     /**
@@ -208,14 +193,6 @@ class ListAllIpGroupsRequest implements ModelInterface, ArrayAccess
         if ($this->container['time_order_by'] === null) {
             $invalidProperties[] = "'time_order_by' can't be null";
         }
-        $allowedValues = $this->getTimeOrderByAllowableValues();
-        if (!is_null($this->container['time_order_by']) && !in_array($this->container['time_order_by'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'time_order_by', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -370,15 +347,6 @@ class ListAllIpGroupsRequest implements ModelInterface, ArrayAccess
      */
     public function setTimeOrderBy($time_order_by)
     {
-        $allowedValues = $this->getTimeOrderByAllowableValues();
-        if (!in_array($time_order_by, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'time_order_by', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['time_order_by'] = $time_order_by;
 
         return $this;

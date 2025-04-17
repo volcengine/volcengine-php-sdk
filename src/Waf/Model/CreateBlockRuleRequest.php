@@ -184,23 +184,8 @@ class CreateBlockRuleRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const ACTION_OBSERVE = 'observe';
-    const ACTION_BLOCK = 'block';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getActionAllowableValues()
-    {
-        return [
-            self::ACTION_OBSERVE,
-            self::ACTION_BLOCK,
-        ];
-    }
     
 
     /**
@@ -244,14 +229,6 @@ class CreateBlockRuleRequest implements ModelInterface, ArrayAccess
         if ($this->container['action'] === null) {
             $invalidProperties[] = "'action' can't be null";
         }
-        $allowedValues = $this->getActionAllowableValues();
-        if (!is_null($this->container['action']) && !in_array($this->container['action'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'action', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
         if ($this->container['advanced'] === null) {
             $invalidProperties[] = "'advanced' can't be null";
         }
@@ -322,15 +299,6 @@ class CreateBlockRuleRequest implements ModelInterface, ArrayAccess
      */
     public function setAction($action)
     {
-        $allowedValues = $this->getActionAllowableValues();
-        if (!in_array($action, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'action', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['action'] = $action;
 
         return $this;

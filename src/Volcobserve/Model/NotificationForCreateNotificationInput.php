@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Waf\Model;
+namespace Volcengine\Volcobserve\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
+class NotificationForCreateNotificationInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'MatchForCheckLLMPromptOutput';
+    protected static $swaggerModelName = 'NotificationForCreateNotificationInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,10 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'label' => 'string',
-        'word' => 'string'
+        'alert_methods' => 'string[]',
+        'contact_group_ids' => 'string[]',
+        'level' => 'string',
+        'webhook_ids' => 'string[]'
     ];
 
     /**
@@ -38,8 +40,10 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'label' => null,
-        'word' => null
+        'alert_methods' => null,
+        'contact_group_ids' => null,
+        'level' => null,
+        'webhook_ids' => null
     ];
 
     /**
@@ -69,8 +73,10 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'label' => 'Label',
-        'word' => 'Word'
+        'alert_methods' => 'AlertMethods',
+        'contact_group_ids' => 'ContactGroupIds',
+        'level' => 'Level',
+        'webhook_ids' => 'WebhookIds'
     ];
 
     /**
@@ -79,8 +85,10 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'label' => 'setLabel',
-        'word' => 'setWord'
+        'alert_methods' => 'setAlertMethods',
+        'contact_group_ids' => 'setContactGroupIds',
+        'level' => 'setLevel',
+        'webhook_ids' => 'setWebhookIds'
     ];
 
     /**
@@ -89,8 +97,10 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'label' => 'getLabel',
-        'word' => 'getWord'
+        'alert_methods' => 'getAlertMethods',
+        'contact_group_ids' => 'getContactGroupIds',
+        'level' => 'getLevel',
+        'webhook_ids' => 'getWebhookIds'
     ];
 
     /**
@@ -134,8 +144,46 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const ALERT_METHODS_EMAIL = 'Email';
+    const ALERT_METHODS_PHONE = 'Phone';
+    const ALERT_METHODS_SMS = 'SMS';
+    const ALERT_METHODS_WEBHOOK = 'Webhook';
+    const LEVEL_NOTICE = 'notice';
+    const LEVEL_WARNING = 'warning';
+    const LEVEL_CRITICAL = 'critical';
+    const LEVEL_RECOVERY = 'recovery';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getAlertMethodsAllowableValues()
+    {
+        return [
+            self::ALERT_METHODS_EMAIL,
+            self::ALERT_METHODS_PHONE,
+            self::ALERT_METHODS_SMS,
+            self::ALERT_METHODS_WEBHOOK,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getLevelAllowableValues()
+    {
+        return [
+            self::LEVEL_NOTICE,
+            self::LEVEL_WARNING,
+            self::LEVEL_CRITICAL,
+            self::LEVEL_RECOVERY,
+        ];
+    }
     
 
     /**
@@ -153,8 +201,10 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['label'] = isset($data['label']) ? $data['label'] : null;
-        $this->container['word'] = isset($data['word']) ? $data['word'] : null;
+        $this->container['alert_methods'] = isset($data['alert_methods']) ? $data['alert_methods'] : null;
+        $this->container['contact_group_ids'] = isset($data['contact_group_ids']) ? $data['contact_group_ids'] : null;
+        $this->container['level'] = isset($data['level']) ? $data['level'] : null;
+        $this->container['webhook_ids'] = isset($data['webhook_ids']) ? $data['webhook_ids'] : null;
     }
 
     /**
@@ -165,6 +215,14 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getLevelAllowableValues();
+        if (!is_null($this->container['level']) && !in_array($this->container['level'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'level', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -182,49 +240,115 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets label
+     * Gets alert_methods
      *
-     * @return string
+     * @return string[]
      */
-    public function getLabel()
+    public function getAlertMethods()
     {
-        return $this->container['label'];
+        return $this->container['alert_methods'];
     }
 
     /**
-     * Sets label
+     * Sets alert_methods
      *
-     * @param string $label label
+     * @param string[] $alert_methods alert_methods
      *
      * @return $this
      */
-    public function setLabel($label)
+    public function setAlertMethods($alert_methods)
     {
-        $this->container['label'] = $label;
+        $allowedValues = $this->getAlertMethodsAllowableValues();
+        if (!is_null($alert_methods) && array_diff($alert_methods, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'alert_methods', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['alert_methods'] = $alert_methods;
 
         return $this;
     }
 
     /**
-     * Gets word
+     * Gets contact_group_ids
      *
-     * @return string
+     * @return string[]
      */
-    public function getWord()
+    public function getContactGroupIds()
     {
-        return $this->container['word'];
+        return $this->container['contact_group_ids'];
     }
 
     /**
-     * Sets word
+     * Sets contact_group_ids
      *
-     * @param string $word word
+     * @param string[] $contact_group_ids contact_group_ids
      *
      * @return $this
      */
-    public function setWord($word)
+    public function setContactGroupIds($contact_group_ids)
     {
-        $this->container['word'] = $word;
+        $this->container['contact_group_ids'] = $contact_group_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets level
+     *
+     * @return string
+     */
+    public function getLevel()
+    {
+        return $this->container['level'];
+    }
+
+    /**
+     * Sets level
+     *
+     * @param string $level level
+     *
+     * @return $this
+     */
+    public function setLevel($level)
+    {
+        $allowedValues = $this->getLevelAllowableValues();
+        if (!is_null($level) && !in_array($level, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'level', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['level'] = $level;
+
+        return $this;
+    }
+
+    /**
+     * Gets webhook_ids
+     *
+     * @return string[]
+     */
+    public function getWebhookIds()
+    {
+        return $this->container['webhook_ids'];
+    }
+
+    /**
+     * Sets webhook_ids
+     *
+     * @param string[] $webhook_ids webhook_ids
+     *
+     * @return $this
+     */
+    public function setWebhookIds($webhook_ids)
+    {
+        $this->container['webhook_ids'] = $webhook_ids;
 
         return $this;
     }

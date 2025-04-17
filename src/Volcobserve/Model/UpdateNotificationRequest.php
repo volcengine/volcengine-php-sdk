@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Waf\Model;
+namespace Volcengine\Volcobserve\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
+class UpdateNotificationRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'MatchForCheckLLMPromptOutput';
+    protected static $swaggerModelName = 'UpdateNotificationRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,11 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'label' => 'string',
-        'word' => 'string'
+        'effect_end_at' => 'string',
+        'effect_start_at' => 'string',
+        'id' => 'string',
+        'name' => 'string',
+        'notifications' => '\Volcengine\Volcobserve\Model\NotificationForUpdateNotificationInput[]'
     ];
 
     /**
@@ -38,8 +41,11 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'label' => null,
-        'word' => null
+        'effect_end_at' => null,
+        'effect_start_at' => null,
+        'id' => null,
+        'name' => null,
+        'notifications' => null
     ];
 
     /**
@@ -69,8 +75,11 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'label' => 'Label',
-        'word' => 'Word'
+        'effect_end_at' => 'EffectEndAt',
+        'effect_start_at' => 'EffectStartAt',
+        'id' => 'Id',
+        'name' => 'Name',
+        'notifications' => 'Notifications'
     ];
 
     /**
@@ -79,8 +88,11 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'label' => 'setLabel',
-        'word' => 'setWord'
+        'effect_end_at' => 'setEffectEndAt',
+        'effect_start_at' => 'setEffectStartAt',
+        'id' => 'setId',
+        'name' => 'setName',
+        'notifications' => 'setNotifications'
     ];
 
     /**
@@ -89,8 +101,11 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'label' => 'getLabel',
-        'word' => 'getWord'
+        'effect_end_at' => 'getEffectEndAt',
+        'effect_start_at' => 'getEffectStartAt',
+        'id' => 'getId',
+        'name' => 'getName',
+        'notifications' => 'getNotifications'
     ];
 
     /**
@@ -153,8 +168,11 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['label'] = isset($data['label']) ? $data['label'] : null;
-        $this->container['word'] = isset($data['word']) ? $data['word'] : null;
+        $this->container['effect_end_at'] = isset($data['effect_end_at']) ? $data['effect_end_at'] : null;
+        $this->container['effect_start_at'] = isset($data['effect_start_at']) ? $data['effect_start_at'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['notifications'] = isset($data['notifications']) ? $data['notifications'] : null;
     }
 
     /**
@@ -166,6 +184,18 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['effect_end_at'] === null) {
+            $invalidProperties[] = "'effect_end_at' can't be null";
+        }
+        if ($this->container['effect_start_at'] === null) {
+            $invalidProperties[] = "'effect_start_at' can't be null";
+        }
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -182,49 +212,121 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets label
+     * Gets effect_end_at
      *
      * @return string
      */
-    public function getLabel()
+    public function getEffectEndAt()
     {
-        return $this->container['label'];
+        return $this->container['effect_end_at'];
     }
 
     /**
-     * Sets label
+     * Sets effect_end_at
      *
-     * @param string $label label
+     * @param string $effect_end_at effect_end_at
      *
      * @return $this
      */
-    public function setLabel($label)
+    public function setEffectEndAt($effect_end_at)
     {
-        $this->container['label'] = $label;
+        $this->container['effect_end_at'] = $effect_end_at;
 
         return $this;
     }
 
     /**
-     * Gets word
+     * Gets effect_start_at
      *
      * @return string
      */
-    public function getWord()
+    public function getEffectStartAt()
     {
-        return $this->container['word'];
+        return $this->container['effect_start_at'];
     }
 
     /**
-     * Sets word
+     * Sets effect_start_at
      *
-     * @param string $word word
+     * @param string $effect_start_at effect_start_at
      *
      * @return $this
      */
-    public function setWord($word)
+    public function setEffectStartAt($effect_start_at)
     {
-        $this->container['word'] = $word;
+        $this->container['effect_start_at'] = $effect_start_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string $id id
+     *
+     * @return $this
+     */
+    public function setId($id)
+    {
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name name
+     *
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets notifications
+     *
+     * @return \Volcengine\Volcobserve\Model\NotificationForUpdateNotificationInput[]
+     */
+    public function getNotifications()
+    {
+        return $this->container['notifications'];
+    }
+
+    /**
+     * Sets notifications
+     *
+     * @param \Volcengine\Volcobserve\Model\NotificationForUpdateNotificationInput[] $notifications notifications
+     *
+     * @return $this
+     */
+    public function setNotifications($notifications)
+    {
+        $this->container['notifications'] = $notifications;
 
         return $this;
     }

@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Waf\Model;
+namespace Volcengine\Flink20250101\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
+class RestartGWSApplicationResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'MatchForCheckLLMPromptOutput';
+    protected static $swaggerModelName = 'RestartGWSApplicationResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,8 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'label' => 'string',
-        'word' => 'string'
+        'id' => 'string',
+        'success' => 'bool'
     ];
 
     /**
@@ -38,8 +38,8 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'label' => null,
-        'word' => null
+        'id' => null,
+        'success' => null
     ];
 
     /**
@@ -69,8 +69,8 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'label' => 'Label',
-        'word' => 'Word'
+        'id' => 'Id',
+        'success' => 'Success'
     ];
 
     /**
@@ -79,8 +79,8 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'label' => 'setLabel',
-        'word' => 'setWord'
+        'id' => 'setId',
+        'success' => 'setSuccess'
     ];
 
     /**
@@ -89,8 +89,8 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'label' => 'getLabel',
-        'word' => 'getWord'
+        'id' => 'getId',
+        'success' => 'getSuccess'
     ];
 
     /**
@@ -153,8 +153,8 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['label'] = isset($data['label']) ? $data['label'] : null;
-        $this->container['word'] = isset($data['word']) ? $data['word'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['success'] = isset($data['success']) ? $data['success'] : null;
     }
 
     /**
@@ -182,49 +182,49 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets label
+     * Gets id
      *
      * @return string
      */
-    public function getLabel()
+    public function getId()
     {
-        return $this->container['label'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets label
+     * Sets id
      *
-     * @param string $label label
+     * @param string $id id
      *
      * @return $this
      */
-    public function setLabel($label)
+    public function setId($id)
     {
-        $this->container['label'] = $label;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets word
+     * Gets success
      *
-     * @return string
+     * @return bool
      */
-    public function getWord()
+    public function getSuccess()
     {
-        return $this->container['word'];
+        return $this->container['success'];
     }
 
     /**
-     * Sets word
+     * Sets success
      *
-     * @param string $word word
+     * @param bool $success success
      *
      * @return $this
      */
-    public function setWord($word)
+    public function setSuccess($success)
     {
-        $this->container['word'] = $word;
+        $this->container['success'] = $success;
 
         return $this;
     }

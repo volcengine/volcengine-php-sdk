@@ -29,6 +29,8 @@ class DisassociateRouteTableRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'client_token' => 'string',
+        'gateway_id' => 'string',
+        'gateway_type' => 'string',
         'route_table_id' => 'string',
         'subnet_id' => 'string'
     ];
@@ -40,6 +42,8 @@ class DisassociateRouteTableRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'client_token' => null,
+        'gateway_id' => null,
+        'gateway_type' => null,
         'route_table_id' => null,
         'subnet_id' => null
     ];
@@ -72,6 +76,8 @@ class DisassociateRouteTableRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'client_token' => 'ClientToken',
+        'gateway_id' => 'GatewayId',
+        'gateway_type' => 'GatewayType',
         'route_table_id' => 'RouteTableId',
         'subnet_id' => 'SubnetId'
     ];
@@ -83,6 +89,8 @@ class DisassociateRouteTableRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'client_token' => 'setClientToken',
+        'gateway_id' => 'setGatewayId',
+        'gateway_type' => 'setGatewayType',
         'route_table_id' => 'setRouteTableId',
         'subnet_id' => 'setSubnetId'
     ];
@@ -94,6 +102,8 @@ class DisassociateRouteTableRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'client_token' => 'getClientToken',
+        'gateway_id' => 'getGatewayId',
+        'gateway_type' => 'getGatewayType',
         'route_table_id' => 'getRouteTableId',
         'subnet_id' => 'getSubnetId'
     ];
@@ -139,8 +149,23 @@ class DisassociateRouteTableRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const GATEWAY_TYPE_IPV4_GATEWAY = 'Ipv4Gateway';
+    const GATEWAY_TYPE_IPV6_GATEWAY = 'Ipv6Gateway';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getGatewayTypeAllowableValues()
+    {
+        return [
+            self::GATEWAY_TYPE_IPV4_GATEWAY,
+            self::GATEWAY_TYPE_IPV6_GATEWAY,
+        ];
+    }
     
 
     /**
@@ -159,6 +184,8 @@ class DisassociateRouteTableRequest implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
+        $this->container['gateway_id'] = isset($data['gateway_id']) ? $data['gateway_id'] : null;
+        $this->container['gateway_type'] = isset($data['gateway_type']) ? $data['gateway_type'] : null;
         $this->container['route_table_id'] = isset($data['route_table_id']) ? $data['route_table_id'] : null;
         $this->container['subnet_id'] = isset($data['subnet_id']) ? $data['subnet_id'] : null;
     }
@@ -172,11 +199,16 @@ class DisassociateRouteTableRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        $allowedValues = $this->getGatewayTypeAllowableValues();
+        if (!is_null($this->container['gateway_type']) && !in_array($this->container['gateway_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'gateway_type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['route_table_id'] === null) {
             $invalidProperties[] = "'route_table_id' can't be null";
-        }
-        if ($this->container['subnet_id'] === null) {
-            $invalidProperties[] = "'subnet_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -213,6 +245,63 @@ class DisassociateRouteTableRequest implements ModelInterface, ArrayAccess
     public function setClientToken($client_token)
     {
         $this->container['client_token'] = $client_token;
+
+        return $this;
+    }
+
+    /**
+     * Gets gateway_id
+     *
+     * @return string
+     */
+    public function getGatewayId()
+    {
+        return $this->container['gateway_id'];
+    }
+
+    /**
+     * Sets gateway_id
+     *
+     * @param string $gateway_id gateway_id
+     *
+     * @return $this
+     */
+    public function setGatewayId($gateway_id)
+    {
+        $this->container['gateway_id'] = $gateway_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets gateway_type
+     *
+     * @return string
+     */
+    public function getGatewayType()
+    {
+        return $this->container['gateway_type'];
+    }
+
+    /**
+     * Sets gateway_type
+     *
+     * @param string $gateway_type gateway_type
+     *
+     * @return $this
+     */
+    public function setGatewayType($gateway_type)
+    {
+        $allowedValues = $this->getGatewayTypeAllowableValues();
+        if (!is_null($gateway_type) && !in_array($gateway_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'gateway_type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['gateway_type'] = $gateway_type;
 
         return $this;
     }

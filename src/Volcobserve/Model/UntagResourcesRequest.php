@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Waf\Model;
+namespace Volcengine\Volcobserve\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
+class UntagResourcesRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'MatchForCheckLLMPromptOutput';
+    protected static $swaggerModelName = 'UntagResourcesRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,9 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'label' => 'string',
-        'word' => 'string'
+        'resource_ids' => 'string[]',
+        'resource_type' => 'string',
+        'tag_keys' => 'string[]'
     ];
 
     /**
@@ -38,8 +39,9 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'label' => null,
-        'word' => null
+        'resource_ids' => null,
+        'resource_type' => null,
+        'tag_keys' => null
     ];
 
     /**
@@ -69,8 +71,9 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'label' => 'Label',
-        'word' => 'Word'
+        'resource_ids' => 'ResourceIds',
+        'resource_type' => 'ResourceType',
+        'tag_keys' => 'TagKeys'
     ];
 
     /**
@@ -79,8 +82,9 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'label' => 'setLabel',
-        'word' => 'setWord'
+        'resource_ids' => 'setResourceIds',
+        'resource_type' => 'setResourceType',
+        'tag_keys' => 'setTagKeys'
     ];
 
     /**
@@ -89,8 +93,9 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'label' => 'getLabel',
-        'word' => 'getWord'
+        'resource_ids' => 'getResourceIds',
+        'resource_type' => 'getResourceType',
+        'tag_keys' => 'getTagKeys'
     ];
 
     /**
@@ -153,8 +158,9 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['label'] = isset($data['label']) ? $data['label'] : null;
-        $this->container['word'] = isset($data['word']) ? $data['word'] : null;
+        $this->container['resource_ids'] = isset($data['resource_ids']) ? $data['resource_ids'] : null;
+        $this->container['resource_type'] = isset($data['resource_type']) ? $data['resource_type'] : null;
+        $this->container['tag_keys'] = isset($data['tag_keys']) ? $data['tag_keys'] : null;
     }
 
     /**
@@ -166,6 +172,9 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['resource_type'] === null) {
+            $invalidProperties[] = "'resource_type' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -182,49 +191,73 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets label
+     * Gets resource_ids
      *
-     * @return string
+     * @return string[]
      */
-    public function getLabel()
+    public function getResourceIds()
     {
-        return $this->container['label'];
+        return $this->container['resource_ids'];
     }
 
     /**
-     * Sets label
+     * Sets resource_ids
      *
-     * @param string $label label
+     * @param string[] $resource_ids resource_ids
      *
      * @return $this
      */
-    public function setLabel($label)
+    public function setResourceIds($resource_ids)
     {
-        $this->container['label'] = $label;
+        $this->container['resource_ids'] = $resource_ids;
 
         return $this;
     }
 
     /**
-     * Gets word
+     * Gets resource_type
      *
      * @return string
      */
-    public function getWord()
+    public function getResourceType()
     {
-        return $this->container['word'];
+        return $this->container['resource_type'];
     }
 
     /**
-     * Sets word
+     * Sets resource_type
      *
-     * @param string $word word
+     * @param string $resource_type resource_type
      *
      * @return $this
      */
-    public function setWord($word)
+    public function setResourceType($resource_type)
     {
-        $this->container['word'] = $word;
+        $this->container['resource_type'] = $resource_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets tag_keys
+     *
+     * @return string[]
+     */
+    public function getTagKeys()
+    {
+        return $this->container['tag_keys'];
+    }
+
+    /**
+     * Sets tag_keys
+     *
+     * @param string[] $tag_keys tag_keys
+     *
+     * @return $this
+     */
+    public function setTagKeys($tag_keys)
+    {
+        $this->container['tag_keys'] = $tag_keys;
 
         return $this;
     }

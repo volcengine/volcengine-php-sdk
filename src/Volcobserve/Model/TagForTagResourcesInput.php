@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Waf\Model;
+namespace Volcengine\Volcobserve\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
+class TagForTagResourcesInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'MatchForCheckLLMPromptOutput';
+    protected static $swaggerModelName = 'TagForTagResourcesInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,8 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'label' => 'string',
-        'word' => 'string'
+        'key' => 'string',
+        'value' => 'string'
     ];
 
     /**
@@ -38,8 +38,8 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'label' => null,
-        'word' => null
+        'key' => null,
+        'value' => null
     ];
 
     /**
@@ -69,8 +69,8 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'label' => 'Label',
-        'word' => 'Word'
+        'key' => 'Key',
+        'value' => 'Value'
     ];
 
     /**
@@ -79,8 +79,8 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'label' => 'setLabel',
-        'word' => 'setWord'
+        'key' => 'setKey',
+        'value' => 'setValue'
     ];
 
     /**
@@ -89,8 +89,8 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'label' => 'getLabel',
-        'word' => 'getWord'
+        'key' => 'getKey',
+        'value' => 'getValue'
     ];
 
     /**
@@ -153,8 +153,8 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['label'] = isset($data['label']) ? $data['label'] : null;
-        $this->container['word'] = isset($data['word']) ? $data['word'] : null;
+        $this->container['key'] = isset($data['key']) ? $data['key'] : null;
+        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 
     /**
@@ -182,49 +182,49 @@ class MatchForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets label
+     * Gets key
      *
      * @return string
      */
-    public function getLabel()
+    public function getKey()
     {
-        return $this->container['label'];
+        return $this->container['key'];
     }
 
     /**
-     * Sets label
+     * Sets key
      *
-     * @param string $label label
+     * @param string $key key
      *
      * @return $this
      */
-    public function setLabel($label)
+    public function setKey($key)
     {
-        $this->container['label'] = $label;
+        $this->container['key'] = $key;
 
         return $this;
     }
 
     /**
-     * Gets word
+     * Gets value
      *
      * @return string
      */
-    public function getWord()
+    public function getValue()
     {
-        return $this->container['word'];
+        return $this->container['value'];
     }
 
     /**
-     * Sets word
+     * Sets value
      *
-     * @param string $word word
+     * @param string $value value
      *
      * @return $this
      */
-    public function setWord($word)
+    public function setValue($value)
     {
-        $this->container['word'] = $word;
+        $this->container['value'] = $value;
 
         return $this;
     }

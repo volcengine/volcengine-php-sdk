@@ -28,7 +28,7 @@ class DescribeZonesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'region_id' => 'string'
+        
     ];
 
     /**
@@ -37,7 +37,7 @@ class DescribeZonesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'region_id' => null
+        
     ];
 
     /**
@@ -67,7 +67,7 @@ class DescribeZonesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'region_id' => 'RegionId'
+        
     ];
 
     /**
@@ -76,7 +76,7 @@ class DescribeZonesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'region_id' => 'setRegionId'
+        
     ];
 
     /**
@@ -85,7 +85,7 @@ class DescribeZonesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'region_id' => 'getRegionId'
+        
     ];
 
     /**
@@ -129,29 +129,8 @@ class DescribeZonesRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const REGION_ID_CN_BEIJING = 'cn-beijing';
-    const REGION_ID_CN_SHANGHAI = 'cn-shanghai';
-    const REGION_ID_CN_GUANGZHOU = 'cn-guangzhou';
-    const REGION_ID_AP_SOUTHEAST_1 = 'ap-southeast-1';
-    const REGION_ID_CN_BEIJING_SELFDRIVE = 'cn-beijing-selfdrive';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getRegionIdAllowableValues()
-    {
-        return [
-            self::REGION_ID_CN_BEIJING,
-            self::REGION_ID_CN_SHANGHAI,
-            self::REGION_ID_CN_GUANGZHOU,
-            self::REGION_ID_AP_SOUTHEAST_1,
-            self::REGION_ID_CN_BEIJING_SELFDRIVE,
-        ];
-    }
     
 
     /**
@@ -169,7 +148,6 @@ class DescribeZonesRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['region_id'] = isset($data['region_id']) ? $data['region_id'] : null;
     }
 
     /**
@@ -180,17 +158,6 @@ class DescribeZonesRequest implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        if ($this->container['region_id'] === null) {
-            $invalidProperties[] = "'region_id' can't be null";
-        }
-        $allowedValues = $this->getRegionIdAllowableValues();
-        if (!is_null($this->container['region_id']) && !in_array($this->container['region_id'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'region_id', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -206,39 +173,6 @@ class DescribeZonesRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets region_id
-     *
-     * @return string
-     */
-    public function getRegionId()
-    {
-        return $this->container['region_id'];
-    }
-
-    /**
-     * Sets region_id
-     *
-     * @param string $region_id region_id
-     *
-     * @return $this
-     */
-    public function setRegionId($region_id)
-    {
-        $allowedValues = $this->getRegionIdAllowableValues();
-        if (!in_array($region_id, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'region_id', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['region_id'] = $region_id;
-
-        return $this;
-    }
     /**
      * Returns true if offset exists. False otherwise.
      *
