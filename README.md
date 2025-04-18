@@ -22,7 +22,32 @@ Then run `composer install`
 
 ## Getting Started
 
-Please follow the [installation procedure](#installation--usage) and then run the following:
+Please follow the [installation procedure](#installation--usage)
+
+##### Endpoint 设置 #####
+
+如果您要自定义SDK的Endpoint，可以按照以下示例代码设置：
+
+```php
+$config = \Volcengine\Common\Configuration::getDefaultConfiguration()
+    ->setAk("Your AK")
+    ->setSk("Your SK")
+    ->setRegion("cn-beijing")
+    ->setHost("ecs.cn-beijing-autodriving.volcengineapi.com");
+```
+
+火山引擎标准的Endpoint规则说明：
+
+| Regional 服务                                                                                                                            | Global 服务                                                                          |
+|----------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------|
+| `{service}.{region}.volcengineapi.com` <br> 例如：云服务ecs在cn-beijing-autodriving Region域名为： `ecs.cn-beijing-autodriving.volcengineapi.com` | `{service}.volcengineapi.com` <br> 例如：访问控制iam为Global服务，域名为：`iam.volcengineapi.com` |
+
+注：
+
+- Service中存在_符号时，Endpoint时需转为-符号。存在大写字母时需转成小写。
+- 并非所有云产品和Region都支持标准域名，具体请前往您所使用的产品-API参考中查看。
+
+##### SDK 示例 #####
 
 ```php
 <?php
@@ -55,25 +80,3 @@ try {
 ?>
 ```
 
-##### Endpoint 设置 #####
-
-如果您要自定义SDK的Endpoint，可以按照以下示例代码设置：
-
-```php
-$config = \Volcengine\Common\Configuration::getDefaultConfiguration()
-    ->setAk("Your AK")
-    ->setSk("Your SK")
-    ->setRegion("cn-beijing")
-    ->setHost("ecs.cn-beijing-autodriving.volcengineapi.com");
-```
-
-火山引擎标准的Endpoint规则说明：
-
-| Regional 服务                                                                                                                            | Global 服务                                                                          |
-|----------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------|
-| `{service}.{region}.volcengineapi.com` <br> 例如：云服务ecs在cn-beijing-autodriving Region域名为： `ecs.cn-beijing-autodriving.volcengineapi.com` | `{service}.volcengineapi.com` <br> 例如：访问控制iam为Global服务，域名为：`iam.volcengineapi.com` |
-
-注：
-
-- Service中存在_符号时，Endpoint时需转为-符号。存在大写字母时需转成小写。
-- 并非所有云产品和Region都支持标准域名，具体请前往您所使用的产品-API参考中查看。
