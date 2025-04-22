@@ -29,6 +29,7 @@ class GetApiKeyRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'duration_seconds' => 'int',
+        'project_name' => 'string',
         'resource_ids' => 'string[]',
         'resource_type' => 'string'
     ];
@@ -40,6 +41,7 @@ class GetApiKeyRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'duration_seconds' => 'int32',
+        'project_name' => null,
         'resource_ids' => null,
         'resource_type' => null
     ];
@@ -72,6 +74,7 @@ class GetApiKeyRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'duration_seconds' => 'DurationSeconds',
+        'project_name' => 'ProjectName',
         'resource_ids' => 'ResourceIds',
         'resource_type' => 'ResourceType'
     ];
@@ -83,6 +86,7 @@ class GetApiKeyRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'duration_seconds' => 'setDurationSeconds',
+        'project_name' => 'setProjectName',
         'resource_ids' => 'setResourceIds',
         'resource_type' => 'setResourceType'
     ];
@@ -94,6 +98,7 @@ class GetApiKeyRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'duration_seconds' => 'getDurationSeconds',
+        'project_name' => 'getProjectName',
         'resource_ids' => 'getResourceIds',
         'resource_type' => 'getResourceType'
     ];
@@ -159,6 +164,7 @@ class GetApiKeyRequest implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['duration_seconds'] = isset($data['duration_seconds']) ? $data['duration_seconds'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['resource_ids'] = isset($data['resource_ids']) ? $data['resource_ids'] : null;
         $this->container['resource_type'] = isset($data['resource_type']) ? $data['resource_type'] : null;
     }
@@ -213,6 +219,30 @@ class GetApiKeyRequest implements ModelInterface, ArrayAccess
     public function setDurationSeconds($duration_seconds)
     {
         $this->container['duration_seconds'] = $duration_seconds;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }
