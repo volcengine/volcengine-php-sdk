@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class UpdateKafkaTriggerRequest implements ModelInterface, ArrayAccess
+class TerminateAsyncTaskRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class UpdateKafkaTriggerRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'UpdateKafkaTriggerRequest';
+    protected static $swaggerModelName = 'TerminateAsyncTaskRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,13 +28,8 @@ class UpdateKafkaTriggerRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'batch_flush_duration_milliseconds' => 'int',
-        'batch_size' => 'int',
-        'description' => 'string',
-        'enabled' => 'bool',
         'function_id' => 'string',
-        'id' => 'string',
-        'maximum_retry_attempts' => 'int'
+        'request_id' => 'string'
     ];
 
     /**
@@ -43,13 +38,8 @@ class UpdateKafkaTriggerRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'batch_flush_duration_milliseconds' => 'int32',
-        'batch_size' => 'int32',
-        'description' => null,
-        'enabled' => null,
         'function_id' => null,
-        'id' => null,
-        'maximum_retry_attempts' => 'int32'
+        'request_id' => null
     ];
 
     /**
@@ -79,13 +69,8 @@ class UpdateKafkaTriggerRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'batch_flush_duration_milliseconds' => 'BatchFlushDurationMilliseconds',
-        'batch_size' => 'BatchSize',
-        'description' => 'Description',
-        'enabled' => 'Enabled',
         'function_id' => 'FunctionId',
-        'id' => 'Id',
-        'maximum_retry_attempts' => 'MaximumRetryAttempts'
+        'request_id' => 'RequestId'
     ];
 
     /**
@@ -94,13 +79,8 @@ class UpdateKafkaTriggerRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'batch_flush_duration_milliseconds' => 'setBatchFlushDurationMilliseconds',
-        'batch_size' => 'setBatchSize',
-        'description' => 'setDescription',
-        'enabled' => 'setEnabled',
         'function_id' => 'setFunctionId',
-        'id' => 'setId',
-        'maximum_retry_attempts' => 'setMaximumRetryAttempts'
+        'request_id' => 'setRequestId'
     ];
 
     /**
@@ -109,13 +89,8 @@ class UpdateKafkaTriggerRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'batch_flush_duration_milliseconds' => 'getBatchFlushDurationMilliseconds',
-        'batch_size' => 'getBatchSize',
-        'description' => 'getDescription',
-        'enabled' => 'getEnabled',
         'function_id' => 'getFunctionId',
-        'id' => 'getId',
-        'maximum_retry_attempts' => 'getMaximumRetryAttempts'
+        'request_id' => 'getRequestId'
     ];
 
     /**
@@ -178,13 +153,8 @@ class UpdateKafkaTriggerRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['batch_flush_duration_milliseconds'] = isset($data['batch_flush_duration_milliseconds']) ? $data['batch_flush_duration_milliseconds'] : null;
-        $this->container['batch_size'] = isset($data['batch_size']) ? $data['batch_size'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['enabled'] = isset($data['enabled']) ? $data['enabled'] : null;
         $this->container['function_id'] = isset($data['function_id']) ? $data['function_id'] : null;
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['maximum_retry_attempts'] = isset($data['maximum_retry_attempts']) ? $data['maximum_retry_attempts'] : null;
+        $this->container['request_id'] = isset($data['request_id']) ? $data['request_id'] : null;
     }
 
     /**
@@ -199,8 +169,8 @@ class UpdateKafkaTriggerRequest implements ModelInterface, ArrayAccess
         if ($this->container['function_id'] === null) {
             $invalidProperties[] = "'function_id' can't be null";
         }
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
+        if ($this->container['request_id'] === null) {
+            $invalidProperties[] = "'request_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -216,102 +186,6 @@ class UpdateKafkaTriggerRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets batch_flush_duration_milliseconds
-     *
-     * @return int
-     */
-    public function getBatchFlushDurationMilliseconds()
-    {
-        return $this->container['batch_flush_duration_milliseconds'];
-    }
-
-    /**
-     * Sets batch_flush_duration_milliseconds
-     *
-     * @param int $batch_flush_duration_milliseconds batch_flush_duration_milliseconds
-     *
-     * @return $this
-     */
-    public function setBatchFlushDurationMilliseconds($batch_flush_duration_milliseconds)
-    {
-        $this->container['batch_flush_duration_milliseconds'] = $batch_flush_duration_milliseconds;
-
-        return $this;
-    }
-
-    /**
-     * Gets batch_size
-     *
-     * @return int
-     */
-    public function getBatchSize()
-    {
-        return $this->container['batch_size'];
-    }
-
-    /**
-     * Sets batch_size
-     *
-     * @param int $batch_size batch_size
-     *
-     * @return $this
-     */
-    public function setBatchSize($batch_size)
-    {
-        $this->container['batch_size'] = $batch_size;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
-     *
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->container['description'];
-    }
-
-    /**
-     * Sets description
-     *
-     * @param string $description description
-     *
-     * @return $this
-     */
-    public function setDescription($description)
-    {
-        $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets enabled
-     *
-     * @return bool
-     */
-    public function getEnabled()
-    {
-        return $this->container['enabled'];
-    }
-
-    /**
-     * Sets enabled
-     *
-     * @param bool $enabled enabled
-     *
-     * @return $this
-     */
-    public function setEnabled($enabled)
-    {
-        $this->container['enabled'] = $enabled;
-
-        return $this;
-    }
 
     /**
      * Gets function_id
@@ -338,49 +212,25 @@ class UpdateKafkaTriggerRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets id
+     * Gets request_id
      *
      * @return string
      */
-    public function getId()
+    public function getRequestId()
     {
-        return $this->container['id'];
+        return $this->container['request_id'];
     }
 
     /**
-     * Sets id
+     * Sets request_id
      *
-     * @param string $id id
+     * @param string $request_id request_id
      *
      * @return $this
      */
-    public function setId($id)
+    public function setRequestId($request_id)
     {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets maximum_retry_attempts
-     *
-     * @return int
-     */
-    public function getMaximumRetryAttempts()
-    {
-        return $this->container['maximum_retry_attempts'];
-    }
-
-    /**
-     * Sets maximum_retry_attempts
-     *
-     * @param int $maximum_retry_attempts maximum_retry_attempts
-     *
-     * @return $this
-     */
-    public function setMaximumRetryAttempts($maximum_retry_attempts)
-    {
-        $this->container['maximum_retry_attempts'] = $maximum_retry_attempts;
+        $this->container['request_id'] = $request_id;
 
         return $this;
     }
