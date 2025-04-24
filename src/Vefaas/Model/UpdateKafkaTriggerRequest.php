@@ -28,6 +28,8 @@ class UpdateKafkaTriggerRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'batch_flush_duration_milliseconds' => 'int',
+        'batch_size' => 'int',
         'description' => 'string',
         'enabled' => 'bool',
         'function_id' => 'string',
@@ -41,6 +43,8 @@ class UpdateKafkaTriggerRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'batch_flush_duration_milliseconds' => 'int32',
+        'batch_size' => 'int32',
         'description' => null,
         'enabled' => null,
         'function_id' => null,
@@ -75,6 +79,8 @@ class UpdateKafkaTriggerRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'batch_flush_duration_milliseconds' => 'BatchFlushDurationMilliseconds',
+        'batch_size' => 'BatchSize',
         'description' => 'Description',
         'enabled' => 'Enabled',
         'function_id' => 'FunctionId',
@@ -88,6 +94,8 @@ class UpdateKafkaTriggerRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'batch_flush_duration_milliseconds' => 'setBatchFlushDurationMilliseconds',
+        'batch_size' => 'setBatchSize',
         'description' => 'setDescription',
         'enabled' => 'setEnabled',
         'function_id' => 'setFunctionId',
@@ -101,6 +109,8 @@ class UpdateKafkaTriggerRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'batch_flush_duration_milliseconds' => 'getBatchFlushDurationMilliseconds',
+        'batch_size' => 'getBatchSize',
         'description' => 'getDescription',
         'enabled' => 'getEnabled',
         'function_id' => 'getFunctionId',
@@ -168,6 +178,8 @@ class UpdateKafkaTriggerRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['batch_flush_duration_milliseconds'] = isset($data['batch_flush_duration_milliseconds']) ? $data['batch_flush_duration_milliseconds'] : null;
+        $this->container['batch_size'] = isset($data['batch_size']) ? $data['batch_size'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['enabled'] = isset($data['enabled']) ? $data['enabled'] : null;
         $this->container['function_id'] = isset($data['function_id']) ? $data['function_id'] : null;
@@ -204,6 +216,54 @@ class UpdateKafkaTriggerRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets batch_flush_duration_milliseconds
+     *
+     * @return int
+     */
+    public function getBatchFlushDurationMilliseconds()
+    {
+        return $this->container['batch_flush_duration_milliseconds'];
+    }
+
+    /**
+     * Sets batch_flush_duration_milliseconds
+     *
+     * @param int $batch_flush_duration_milliseconds batch_flush_duration_milliseconds
+     *
+     * @return $this
+     */
+    public function setBatchFlushDurationMilliseconds($batch_flush_duration_milliseconds)
+    {
+        $this->container['batch_flush_duration_milliseconds'] = $batch_flush_duration_milliseconds;
+
+        return $this;
+    }
+
+    /**
+     * Gets batch_size
+     *
+     * @return int
+     */
+    public function getBatchSize()
+    {
+        return $this->container['batch_size'];
+    }
+
+    /**
+     * Sets batch_size
+     *
+     * @param int $batch_size batch_size
+     *
+     * @return $this
+     */
+    public function setBatchSize($batch_size)
+    {
+        $this->container['batch_size'] = $batch_size;
+
+        return $this;
+    }
 
     /**
      * Gets description

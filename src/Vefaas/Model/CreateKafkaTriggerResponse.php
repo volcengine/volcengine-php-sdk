@@ -28,6 +28,8 @@ class CreateKafkaTriggerResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'batch_flush_duration_milliseconds' => 'int',
+        'batch_size' => 'int',
         'consumer_group' => 'string',
         'creation_time' => 'string',
         'description' => 'string',
@@ -49,6 +51,8 @@ class CreateKafkaTriggerResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'batch_flush_duration_milliseconds' => 'int32',
+        'batch_size' => 'int32',
         'consumer_group' => null,
         'creation_time' => null,
         'description' => null,
@@ -91,6 +95,8 @@ class CreateKafkaTriggerResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'batch_flush_duration_milliseconds' => 'BatchFlushDurationMilliseconds',
+        'batch_size' => 'BatchSize',
         'consumer_group' => 'ConsumerGroup',
         'creation_time' => 'CreationTime',
         'description' => 'Description',
@@ -112,6 +118,8 @@ class CreateKafkaTriggerResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'batch_flush_duration_milliseconds' => 'setBatchFlushDurationMilliseconds',
+        'batch_size' => 'setBatchSize',
         'consumer_group' => 'setConsumerGroup',
         'creation_time' => 'setCreationTime',
         'description' => 'setDescription',
@@ -133,6 +141,8 @@ class CreateKafkaTriggerResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'batch_flush_duration_milliseconds' => 'getBatchFlushDurationMilliseconds',
+        'batch_size' => 'getBatchSize',
         'consumer_group' => 'getConsumerGroup',
         'creation_time' => 'getCreationTime',
         'description' => 'getDescription',
@@ -208,6 +218,8 @@ class CreateKafkaTriggerResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['batch_flush_duration_milliseconds'] = isset($data['batch_flush_duration_milliseconds']) ? $data['batch_flush_duration_milliseconds'] : null;
+        $this->container['batch_size'] = isset($data['batch_size']) ? $data['batch_size'] : null;
         $this->container['consumer_group'] = isset($data['consumer_group']) ? $data['consumer_group'] : null;
         $this->container['creation_time'] = isset($data['creation_time']) ? $data['creation_time'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
@@ -246,6 +258,54 @@ class CreateKafkaTriggerResponse implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets batch_flush_duration_milliseconds
+     *
+     * @return int
+     */
+    public function getBatchFlushDurationMilliseconds()
+    {
+        return $this->container['batch_flush_duration_milliseconds'];
+    }
+
+    /**
+     * Sets batch_flush_duration_milliseconds
+     *
+     * @param int $batch_flush_duration_milliseconds batch_flush_duration_milliseconds
+     *
+     * @return $this
+     */
+    public function setBatchFlushDurationMilliseconds($batch_flush_duration_milliseconds)
+    {
+        $this->container['batch_flush_duration_milliseconds'] = $batch_flush_duration_milliseconds;
+
+        return $this;
+    }
+
+    /**
+     * Gets batch_size
+     *
+     * @return int
+     */
+    public function getBatchSize()
+    {
+        return $this->container['batch_size'];
+    }
+
+    /**
+     * Sets batch_size
+     *
+     * @param int $batch_size batch_size
+     *
+     * @return $this
+     */
+    public function setBatchSize($batch_size)
+    {
+        $this->container['batch_size'] = $batch_size;
+
+        return $this;
+    }
 
     /**
      * Gets consumer_group
