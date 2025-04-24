@@ -174,8 +174,37 @@ class StatusForGetModelCustomizationJobOutput implements ModelInterface, ArrayAc
         return self::$swaggerModelName;
     }
 
+    const PHASE_PREPROCESSING = 'Preprocessing';
+    const PHASE_QUEUED = 'Queued';
+    const PHASE_DEPLOYING = 'Deploying';
+    const PHASE_RUNNING = 'Running';
+    const PHASE_COMPLETING = 'Completing';
+    const PHASE_COMPLETED = 'Completed';
+    const PHASE_TERMINATING = 'Terminating';
+    const PHASE_TERMINATED = 'Terminated';
+    const PHASE_FAILED = 'Failed';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getPhaseAllowableValues()
+    {
+        return [
+            self::PHASE_PREPROCESSING,
+            self::PHASE_QUEUED,
+            self::PHASE_DEPLOYING,
+            self::PHASE_RUNNING,
+            self::PHASE_COMPLETING,
+            self::PHASE_COMPLETED,
+            self::PHASE_TERMINATING,
+            self::PHASE_TERMINATED,
+            self::PHASE_FAILED,
+        ];
+    }
     
 
     /**
@@ -213,6 +242,14 @@ class StatusForGetModelCustomizationJobOutput implements ModelInterface, ArrayAc
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getPhaseAllowableValues();
+        if (!is_null($this->container['phase']) && !in_array($this->container['phase'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'phase', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -320,6 +357,15 @@ class StatusForGetModelCustomizationJobOutput implements ModelInterface, ArrayAc
      */
     public function setPhase($phase)
     {
+        $allowedValues = $this->getPhaseAllowableValues();
+        if (!is_null($phase) && !in_array($phase, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'phase', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['phase'] = $phase;
 
         return $this;

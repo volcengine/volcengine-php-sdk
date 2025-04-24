@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class FilterForListBatchInferenceJobsInput implements ModelInterface, ArrayAccess
+class TosLocationForCreateEvaluationJobInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class FilterForListBatchInferenceJobsInput implements ModelInterface, ArrayAcces
       *
       * @var string
       */
-    protected static $swaggerModelName = 'FilterForListBatchInferenceJobsInput';
+    protected static $swaggerModelName = 'TosLocationForCreateEvaluationJobInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,11 +28,8 @@ class FilterForListBatchInferenceJobsInput implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'custom_model_ids' => 'string[]',
-        'foundation_models' => '\Volcengine\Ark\Model\FoundationModelForListBatchInferenceJobsInput[]',
-        'ids' => 'string[]',
-        'name' => 'string',
-        'phases' => 'string[]'
+        'bucket_name' => 'string',
+        'object_key' => 'string'
     ];
 
     /**
@@ -41,11 +38,8 @@ class FilterForListBatchInferenceJobsInput implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'custom_model_ids' => null,
-        'foundation_models' => null,
-        'ids' => null,
-        'name' => null,
-        'phases' => null
+        'bucket_name' => null,
+        'object_key' => null
     ];
 
     /**
@@ -75,11 +69,8 @@ class FilterForListBatchInferenceJobsInput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $attributeMap = [
-        'custom_model_ids' => 'CustomModelIds',
-        'foundation_models' => 'FoundationModels',
-        'ids' => 'Ids',
-        'name' => 'Name',
-        'phases' => 'Phases'
+        'bucket_name' => 'BucketName',
+        'object_key' => 'ObjectKey'
     ];
 
     /**
@@ -88,11 +79,8 @@ class FilterForListBatchInferenceJobsInput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $setters = [
-        'custom_model_ids' => 'setCustomModelIds',
-        'foundation_models' => 'setFoundationModels',
-        'ids' => 'setIds',
-        'name' => 'setName',
-        'phases' => 'setPhases'
+        'bucket_name' => 'setBucketName',
+        'object_key' => 'setObjectKey'
     ];
 
     /**
@@ -101,11 +89,8 @@ class FilterForListBatchInferenceJobsInput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $getters = [
-        'custom_model_ids' => 'getCustomModelIds',
-        'foundation_models' => 'getFoundationModels',
-        'ids' => 'getIds',
-        'name' => 'getName',
-        'phases' => 'getPhases'
+        'bucket_name' => 'getBucketName',
+        'object_key' => 'getObjectKey'
     ];
 
     /**
@@ -149,31 +134,8 @@ class FilterForListBatchInferenceJobsInput implements ModelInterface, ArrayAcces
         return self::$swaggerModelName;
     }
 
-    const PHASES_QUEUED = 'Queued';
-    const PHASES_RUNNING = 'Running';
-    const PHASES_COMPLETED = 'Completed';
-    const PHASES_TERMINATING = 'Terminating';
-    const PHASES_TERMINATED = 'Terminated';
-    const PHASES_FAILED = 'Failed';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getPhasesAllowableValues()
-    {
-        return [
-            self::PHASES_QUEUED,
-            self::PHASES_RUNNING,
-            self::PHASES_COMPLETED,
-            self::PHASES_TERMINATING,
-            self::PHASES_TERMINATED,
-            self::PHASES_FAILED,
-        ];
-    }
     
 
     /**
@@ -191,11 +153,8 @@ class FilterForListBatchInferenceJobsInput implements ModelInterface, ArrayAcces
      */
     public function __construct(array $data = null)
     {
-        $this->container['custom_model_ids'] = isset($data['custom_model_ids']) ? $data['custom_model_ids'] : null;
-        $this->container['foundation_models'] = isset($data['foundation_models']) ? $data['foundation_models'] : null;
-        $this->container['ids'] = isset($data['ids']) ? $data['ids'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['phases'] = isset($data['phases']) ? $data['phases'] : null;
+        $this->container['bucket_name'] = isset($data['bucket_name']) ? $data['bucket_name'] : null;
+        $this->container['object_key'] = isset($data['object_key']) ? $data['object_key'] : null;
     }
 
     /**
@@ -223,130 +182,49 @@ class FilterForListBatchInferenceJobsInput implements ModelInterface, ArrayAcces
 
 
     /**
-     * Gets custom_model_ids
-     *
-     * @return string[]
-     */
-    public function getCustomModelIds()
-    {
-        return $this->container['custom_model_ids'];
-    }
-
-    /**
-     * Sets custom_model_ids
-     *
-     * @param string[] $custom_model_ids custom_model_ids
-     *
-     * @return $this
-     */
-    public function setCustomModelIds($custom_model_ids)
-    {
-        $this->container['custom_model_ids'] = $custom_model_ids;
-
-        return $this;
-    }
-
-    /**
-     * Gets foundation_models
-     *
-     * @return \Volcengine\Ark\Model\FoundationModelForListBatchInferenceJobsInput[]
-     */
-    public function getFoundationModels()
-    {
-        return $this->container['foundation_models'];
-    }
-
-    /**
-     * Sets foundation_models
-     *
-     * @param \Volcengine\Ark\Model\FoundationModelForListBatchInferenceJobsInput[] $foundation_models foundation_models
-     *
-     * @return $this
-     */
-    public function setFoundationModels($foundation_models)
-    {
-        $this->container['foundation_models'] = $foundation_models;
-
-        return $this;
-    }
-
-    /**
-     * Gets ids
-     *
-     * @return string[]
-     */
-    public function getIds()
-    {
-        return $this->container['ids'];
-    }
-
-    /**
-     * Sets ids
-     *
-     * @param string[] $ids ids
-     *
-     * @return $this
-     */
-    public function setIds($ids)
-    {
-        $this->container['ids'] = $ids;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
+     * Gets bucket_name
      *
      * @return string
      */
-    public function getName()
+    public function getBucketName()
     {
-        return $this->container['name'];
+        return $this->container['bucket_name'];
     }
 
     /**
-     * Sets name
+     * Sets bucket_name
      *
-     * @param string $name name
+     * @param string $bucket_name bucket_name
      *
      * @return $this
      */
-    public function setName($name)
+    public function setBucketName($bucket_name)
     {
-        $this->container['name'] = $name;
+        $this->container['bucket_name'] = $bucket_name;
 
         return $this;
     }
 
     /**
-     * Gets phases
+     * Gets object_key
      *
-     * @return string[]
+     * @return string
      */
-    public function getPhases()
+    public function getObjectKey()
     {
-        return $this->container['phases'];
+        return $this->container['object_key'];
     }
 
     /**
-     * Sets phases
+     * Sets object_key
      *
-     * @param string[] $phases phases
+     * @param string $object_key object_key
      *
      * @return $this
      */
-    public function setPhases($phases)
+    public function setObjectKey($object_key)
     {
-        $allowedValues = $this->getPhasesAllowableValues();
-        if (!is_null($phases) && array_diff($phases, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'phases', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['phases'] = $phases;
+        $this->container['object_key'] = $object_key;
 
         return $this;
     }

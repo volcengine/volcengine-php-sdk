@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class FilterForListBatchInferenceJobsInput implements ModelInterface, ArrayAccess
+class GetModelCustomizationJobMetricDataRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class FilterForListBatchInferenceJobsInput implements ModelInterface, ArrayAcces
       *
       * @var string
       */
-    protected static $swaggerModelName = 'FilterForListBatchInferenceJobsInput';
+    protected static $swaggerModelName = 'GetModelCustomizationJobMetricDataRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,11 +28,12 @@ class FilterForListBatchInferenceJobsInput implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'custom_model_ids' => 'string[]',
-        'foundation_models' => '\Volcengine\Ark\Model\FoundationModelForListBatchInferenceJobsInput[]',
-        'ids' => 'string[]',
-        'name' => 'string',
-        'phases' => 'string[]'
+        'from_step' => 'int',
+        'max_metric_point' => 'string',
+        'metrics' => 'string[]',
+        'min_sample_step' => 'string',
+        'model_customization_job_id' => 'string',
+        'to_step' => 'int'
     ];
 
     /**
@@ -41,11 +42,12 @@ class FilterForListBatchInferenceJobsInput implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'custom_model_ids' => null,
-        'foundation_models' => null,
-        'ids' => null,
-        'name' => null,
-        'phases' => null
+        'from_step' => 'int32',
+        'max_metric_point' => null,
+        'metrics' => null,
+        'min_sample_step' => null,
+        'model_customization_job_id' => null,
+        'to_step' => 'int32'
     ];
 
     /**
@@ -75,11 +77,12 @@ class FilterForListBatchInferenceJobsInput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $attributeMap = [
-        'custom_model_ids' => 'CustomModelIds',
-        'foundation_models' => 'FoundationModels',
-        'ids' => 'Ids',
-        'name' => 'Name',
-        'phases' => 'Phases'
+        'from_step' => 'FromStep',
+        'max_metric_point' => 'MaxMetricPoint',
+        'metrics' => 'Metrics',
+        'min_sample_step' => 'MinSampleStep',
+        'model_customization_job_id' => 'ModelCustomizationJobId',
+        'to_step' => 'ToStep'
     ];
 
     /**
@@ -88,11 +91,12 @@ class FilterForListBatchInferenceJobsInput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $setters = [
-        'custom_model_ids' => 'setCustomModelIds',
-        'foundation_models' => 'setFoundationModels',
-        'ids' => 'setIds',
-        'name' => 'setName',
-        'phases' => 'setPhases'
+        'from_step' => 'setFromStep',
+        'max_metric_point' => 'setMaxMetricPoint',
+        'metrics' => 'setMetrics',
+        'min_sample_step' => 'setMinSampleStep',
+        'model_customization_job_id' => 'setModelCustomizationJobId',
+        'to_step' => 'setToStep'
     ];
 
     /**
@@ -101,11 +105,12 @@ class FilterForListBatchInferenceJobsInput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $getters = [
-        'custom_model_ids' => 'getCustomModelIds',
-        'foundation_models' => 'getFoundationModels',
-        'ids' => 'getIds',
-        'name' => 'getName',
-        'phases' => 'getPhases'
+        'from_step' => 'getFromStep',
+        'max_metric_point' => 'getMaxMetricPoint',
+        'metrics' => 'getMetrics',
+        'min_sample_step' => 'getMinSampleStep',
+        'model_customization_job_id' => 'getModelCustomizationJobId',
+        'to_step' => 'getToStep'
     ];
 
     /**
@@ -149,31 +154,8 @@ class FilterForListBatchInferenceJobsInput implements ModelInterface, ArrayAcces
         return self::$swaggerModelName;
     }
 
-    const PHASES_QUEUED = 'Queued';
-    const PHASES_RUNNING = 'Running';
-    const PHASES_COMPLETED = 'Completed';
-    const PHASES_TERMINATING = 'Terminating';
-    const PHASES_TERMINATED = 'Terminated';
-    const PHASES_FAILED = 'Failed';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getPhasesAllowableValues()
-    {
-        return [
-            self::PHASES_QUEUED,
-            self::PHASES_RUNNING,
-            self::PHASES_COMPLETED,
-            self::PHASES_TERMINATING,
-            self::PHASES_TERMINATED,
-            self::PHASES_FAILED,
-        ];
-    }
     
 
     /**
@@ -191,11 +173,12 @@ class FilterForListBatchInferenceJobsInput implements ModelInterface, ArrayAcces
      */
     public function __construct(array $data = null)
     {
-        $this->container['custom_model_ids'] = isset($data['custom_model_ids']) ? $data['custom_model_ids'] : null;
-        $this->container['foundation_models'] = isset($data['foundation_models']) ? $data['foundation_models'] : null;
-        $this->container['ids'] = isset($data['ids']) ? $data['ids'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['phases'] = isset($data['phases']) ? $data['phases'] : null;
+        $this->container['from_step'] = isset($data['from_step']) ? $data['from_step'] : null;
+        $this->container['max_metric_point'] = isset($data['max_metric_point']) ? $data['max_metric_point'] : null;
+        $this->container['metrics'] = isset($data['metrics']) ? $data['metrics'] : null;
+        $this->container['min_sample_step'] = isset($data['min_sample_step']) ? $data['min_sample_step'] : null;
+        $this->container['model_customization_job_id'] = isset($data['model_customization_job_id']) ? $data['model_customization_job_id'] : null;
+        $this->container['to_step'] = isset($data['to_step']) ? $data['to_step'] : null;
     }
 
     /**
@@ -207,6 +190,15 @@ class FilterForListBatchInferenceJobsInput implements ModelInterface, ArrayAcces
     {
         $invalidProperties = [];
 
+        if ($this->container['from_step'] === null) {
+            $invalidProperties[] = "'from_step' can't be null";
+        }
+        if ($this->container['model_customization_job_id'] === null) {
+            $invalidProperties[] = "'model_customization_job_id' can't be null";
+        }
+        if ($this->container['to_step'] === null) {
+            $invalidProperties[] = "'to_step' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -223,130 +215,145 @@ class FilterForListBatchInferenceJobsInput implements ModelInterface, ArrayAcces
 
 
     /**
-     * Gets custom_model_ids
+     * Gets from_step
      *
-     * @return string[]
+     * @return int
      */
-    public function getCustomModelIds()
+    public function getFromStep()
     {
-        return $this->container['custom_model_ids'];
+        return $this->container['from_step'];
     }
 
     /**
-     * Sets custom_model_ids
+     * Sets from_step
      *
-     * @param string[] $custom_model_ids custom_model_ids
+     * @param int $from_step from_step
      *
      * @return $this
      */
-    public function setCustomModelIds($custom_model_ids)
+    public function setFromStep($from_step)
     {
-        $this->container['custom_model_ids'] = $custom_model_ids;
+        $this->container['from_step'] = $from_step;
 
         return $this;
     }
 
     /**
-     * Gets foundation_models
-     *
-     * @return \Volcengine\Ark\Model\FoundationModelForListBatchInferenceJobsInput[]
-     */
-    public function getFoundationModels()
-    {
-        return $this->container['foundation_models'];
-    }
-
-    /**
-     * Sets foundation_models
-     *
-     * @param \Volcengine\Ark\Model\FoundationModelForListBatchInferenceJobsInput[] $foundation_models foundation_models
-     *
-     * @return $this
-     */
-    public function setFoundationModels($foundation_models)
-    {
-        $this->container['foundation_models'] = $foundation_models;
-
-        return $this;
-    }
-
-    /**
-     * Gets ids
-     *
-     * @return string[]
-     */
-    public function getIds()
-    {
-        return $this->container['ids'];
-    }
-
-    /**
-     * Sets ids
-     *
-     * @param string[] $ids ids
-     *
-     * @return $this
-     */
-    public function setIds($ids)
-    {
-        $this->container['ids'] = $ids;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
+     * Gets max_metric_point
      *
      * @return string
      */
-    public function getName()
+    public function getMaxMetricPoint()
     {
-        return $this->container['name'];
+        return $this->container['max_metric_point'];
     }
 
     /**
-     * Sets name
+     * Sets max_metric_point
      *
-     * @param string $name name
+     * @param string $max_metric_point max_metric_point
      *
      * @return $this
      */
-    public function setName($name)
+    public function setMaxMetricPoint($max_metric_point)
     {
-        $this->container['name'] = $name;
+        $this->container['max_metric_point'] = $max_metric_point;
 
         return $this;
     }
 
     /**
-     * Gets phases
+     * Gets metrics
      *
      * @return string[]
      */
-    public function getPhases()
+    public function getMetrics()
     {
-        return $this->container['phases'];
+        return $this->container['metrics'];
     }
 
     /**
-     * Sets phases
+     * Sets metrics
      *
-     * @param string[] $phases phases
+     * @param string[] $metrics metrics
      *
      * @return $this
      */
-    public function setPhases($phases)
+    public function setMetrics($metrics)
     {
-        $allowedValues = $this->getPhasesAllowableValues();
-        if (!is_null($phases) && array_diff($phases, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'phases', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['phases'] = $phases;
+        $this->container['metrics'] = $metrics;
+
+        return $this;
+    }
+
+    /**
+     * Gets min_sample_step
+     *
+     * @return string
+     */
+    public function getMinSampleStep()
+    {
+        return $this->container['min_sample_step'];
+    }
+
+    /**
+     * Sets min_sample_step
+     *
+     * @param string $min_sample_step min_sample_step
+     *
+     * @return $this
+     */
+    public function setMinSampleStep($min_sample_step)
+    {
+        $this->container['min_sample_step'] = $min_sample_step;
+
+        return $this;
+    }
+
+    /**
+     * Gets model_customization_job_id
+     *
+     * @return string
+     */
+    public function getModelCustomizationJobId()
+    {
+        return $this->container['model_customization_job_id'];
+    }
+
+    /**
+     * Sets model_customization_job_id
+     *
+     * @param string $model_customization_job_id model_customization_job_id
+     *
+     * @return $this
+     */
+    public function setModelCustomizationJobId($model_customization_job_id)
+    {
+        $this->container['model_customization_job_id'] = $model_customization_job_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets to_step
+     *
+     * @return int
+     */
+    public function getToStep()
+    {
+        return $this->container['to_step'];
+    }
+
+    /**
+     * Sets to_step
+     *
+     * @param int $to_step to_step
+     *
+     * @return $this
+     */
+    public function setToStep($to_step)
+    {
+        $this->container['to_step'] = $to_step;
 
         return $this;
     }

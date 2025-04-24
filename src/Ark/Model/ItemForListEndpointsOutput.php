@@ -38,11 +38,9 @@ class ItemForListEndpointsOutput implements ModelInterface, ArrayAccess
         'project_name' => 'string',
         'rate_limit' => '\Volcengine\Ark\Model\RateLimitForListEndpointsOutput',
         'rolling_id' => 'string',
-        'scale_tier_id' => 'string',
         'status' => 'string',
         'status_reason' => 'string',
         'support_rolling' => 'bool',
-        'support_scale_tier' => 'bool',
         'tags' => '\Volcengine\Ark\Model\TagForListEndpointsOutput[]',
         'update_time' => 'string'
     ];
@@ -63,11 +61,9 @@ class ItemForListEndpointsOutput implements ModelInterface, ArrayAccess
         'project_name' => null,
         'rate_limit' => null,
         'rolling_id' => null,
-        'scale_tier_id' => null,
         'status' => null,
         'status_reason' => null,
         'support_rolling' => null,
-        'support_scale_tier' => null,
         'tags' => null,
         'update_time' => null
     ];
@@ -109,11 +105,9 @@ class ItemForListEndpointsOutput implements ModelInterface, ArrayAccess
         'project_name' => 'ProjectName',
         'rate_limit' => 'RateLimit',
         'rolling_id' => 'RollingId',
-        'scale_tier_id' => 'ScaleTierId',
         'status' => 'Status',
         'status_reason' => 'StatusReason',
         'support_rolling' => 'SupportRolling',
-        'support_scale_tier' => 'SupportScaleTier',
         'tags' => 'Tags',
         'update_time' => 'UpdateTime'
     ];
@@ -134,11 +128,9 @@ class ItemForListEndpointsOutput implements ModelInterface, ArrayAccess
         'project_name' => 'setProjectName',
         'rate_limit' => 'setRateLimit',
         'rolling_id' => 'setRollingId',
-        'scale_tier_id' => 'setScaleTierId',
         'status' => 'setStatus',
         'status_reason' => 'setStatusReason',
         'support_rolling' => 'setSupportRolling',
-        'support_scale_tier' => 'setSupportScaleTier',
         'tags' => 'setTags',
         'update_time' => 'setUpdateTime'
     ];
@@ -159,11 +151,9 @@ class ItemForListEndpointsOutput implements ModelInterface, ArrayAccess
         'project_name' => 'getProjectName',
         'rate_limit' => 'getRateLimit',
         'rolling_id' => 'getRollingId',
-        'scale_tier_id' => 'getScaleTierId',
         'status' => 'getStatus',
         'status_reason' => 'getStatusReason',
         'support_rolling' => 'getSupportRolling',
-        'support_scale_tier' => 'getSupportScaleTier',
         'tags' => 'getTags',
         'update_time' => 'getUpdateTime'
     ];
@@ -209,42 +199,8 @@ class ItemForListEndpointsOutput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const ENDPOINT_MODEL_TYPE_FOUNDATION_MODEL = 'FoundationModel';
-    const ENDPOINT_MODEL_TYPE_CUSTOM_MODEL = 'CustomModel';
-    const STATUS_RUNNING = 'Running';
-    const STATUS_SCHEDULING = 'Scheduling';
-    const STATUS_ABNORMAL = 'Abnormal';
-    const STATUS_STOPPED = 'Stopped';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getEndpointModelTypeAllowableValues()
-    {
-        return [
-            self::ENDPOINT_MODEL_TYPE_FOUNDATION_MODEL,
-            self::ENDPOINT_MODEL_TYPE_CUSTOM_MODEL,
-        ];
-    }
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getStatusAllowableValues()
-    {
-        return [
-            self::STATUS_RUNNING,
-            self::STATUS_SCHEDULING,
-            self::STATUS_ABNORMAL,
-            self::STATUS_STOPPED,
-        ];
-    }
     
 
     /**
@@ -272,11 +228,9 @@ class ItemForListEndpointsOutput implements ModelInterface, ArrayAccess
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['rate_limit'] = isset($data['rate_limit']) ? $data['rate_limit'] : null;
         $this->container['rolling_id'] = isset($data['rolling_id']) ? $data['rolling_id'] : null;
-        $this->container['scale_tier_id'] = isset($data['scale_tier_id']) ? $data['scale_tier_id'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['status_reason'] = isset($data['status_reason']) ? $data['status_reason'] : null;
         $this->container['support_rolling'] = isset($data['support_rolling']) ? $data['support_rolling'] : null;
-        $this->container['support_scale_tier'] = isset($data['support_scale_tier']) ? $data['support_scale_tier'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
     }
@@ -289,22 +243,6 @@ class ItemForListEndpointsOutput implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getEndpointModelTypeAllowableValues();
-        if (!is_null($this->container['endpoint_model_type']) && !in_array($this->container['endpoint_model_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'endpoint_model_type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'status', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -388,15 +326,6 @@ class ItemForListEndpointsOutput implements ModelInterface, ArrayAccess
      */
     public function setEndpointModelType($endpoint_model_type)
     {
-        $allowedValues = $this->getEndpointModelTypeAllowableValues();
-        if (!is_null($endpoint_model_type) && !in_array($endpoint_model_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'endpoint_model_type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['endpoint_model_type'] = $endpoint_model_type;
 
         return $this;
@@ -571,30 +500,6 @@ class ItemForListEndpointsOutput implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets scale_tier_id
-     *
-     * @return string
-     */
-    public function getScaleTierId()
-    {
-        return $this->container['scale_tier_id'];
-    }
-
-    /**
-     * Sets scale_tier_id
-     *
-     * @param string $scale_tier_id scale_tier_id
-     *
-     * @return $this
-     */
-    public function setScaleTierId($scale_tier_id)
-    {
-        $this->container['scale_tier_id'] = $scale_tier_id;
-
-        return $this;
-    }
-
-    /**
      * Gets status
      *
      * @return string
@@ -613,15 +518,6 @@ class ItemForListEndpointsOutput implements ModelInterface, ArrayAccess
      */
     public function setStatus($status)
     {
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!is_null($status) && !in_array($status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'status', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['status'] = $status;
 
         return $this;
@@ -671,30 +567,6 @@ class ItemForListEndpointsOutput implements ModelInterface, ArrayAccess
     public function setSupportRolling($support_rolling)
     {
         $this->container['support_rolling'] = $support_rolling;
-
-        return $this;
-    }
-
-    /**
-     * Gets support_scale_tier
-     *
-     * @return bool
-     */
-    public function getSupportScaleTier()
-    {
-        return $this->container['support_scale_tier'];
-    }
-
-    /**
-     * Sets support_scale_tier
-     *
-     * @param bool $support_scale_tier support_scale_tier
-     *
-     * @return $this
-     */
-    public function setSupportScaleTier($support_scale_tier)
-    {
-        $this->container['support_scale_tier'] = $support_scale_tier;
 
         return $this;
     }
