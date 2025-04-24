@@ -33,6 +33,7 @@ class DataForListAlertGroupOutput implements ModelInterface, ArrayAccess
         'dimension' => 'string',
         'duration' => 'string',
         'end_at' => 'string',
+        'id' => 'string',
         'level' => 'string',
         'namespace' => 'string',
         'region' => 'string',
@@ -56,6 +57,7 @@ class DataForListAlertGroupOutput implements ModelInterface, ArrayAccess
         'dimension' => null,
         'duration' => null,
         'end_at' => null,
+        'id' => null,
         'level' => null,
         'namespace' => null,
         'region' => null,
@@ -100,6 +102,7 @@ class DataForListAlertGroupOutput implements ModelInterface, ArrayAccess
         'dimension' => 'Dimension',
         'duration' => 'Duration',
         'end_at' => 'EndAt',
+        'id' => 'Id',
         'level' => 'Level',
         'namespace' => 'Namespace',
         'region' => 'Region',
@@ -123,6 +126,7 @@ class DataForListAlertGroupOutput implements ModelInterface, ArrayAccess
         'dimension' => 'setDimension',
         'duration' => 'setDuration',
         'end_at' => 'setEndAt',
+        'id' => 'setId',
         'level' => 'setLevel',
         'namespace' => 'setNamespace',
         'region' => 'setRegion',
@@ -146,6 +150,7 @@ class DataForListAlertGroupOutput implements ModelInterface, ArrayAccess
         'dimension' => 'getDimension',
         'duration' => 'getDuration',
         'end_at' => 'getEndAt',
+        'id' => 'getId',
         'level' => 'getLevel',
         'namespace' => 'getNamespace',
         'region' => 'getRegion',
@@ -223,6 +228,7 @@ class DataForListAlertGroupOutput implements ModelInterface, ArrayAccess
         $this->container['dimension'] = isset($data['dimension']) ? $data['dimension'] : null;
         $this->container['duration'] = isset($data['duration']) ? $data['duration'] : null;
         $this->container['end_at'] = isset($data['end_at']) ? $data['end_at'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['level'] = isset($data['level']) ? $data['level'] : null;
         $this->container['namespace'] = isset($data['namespace']) ? $data['namespace'] : null;
         $this->container['region'] = isset($data['region']) ? $data['region'] : null;
@@ -375,6 +381,30 @@ class DataForListAlertGroupOutput implements ModelInterface, ArrayAccess
     public function setEndAt($end_at)
     {
         $this->container['end_at'] = $end_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string $id id
+     *
+     * @return $this
+     */
+    public function setId($id)
+    {
+        $this->container['id'] = $id;
 
         return $this;
     }
