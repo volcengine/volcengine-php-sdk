@@ -159,42 +159,8 @@ class FilterForListEndpointsInput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const ENDPOINT_MODEL_TYPES_FOUNDATION_MODEL = 'FoundationModel';
-    const ENDPOINT_MODEL_TYPES_CUSTOM_MODEL = 'CustomModel';
-    const STATUSES_RUNNING = 'Running';
-    const STATUSES_SCHEDULING = 'Scheduling';
-    const STATUSES_ABNORMAL = 'Abnormal';
-    const STATUSES_STOPPED = 'Stopped';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getEndpointModelTypesAllowableValues()
-    {
-        return [
-            self::ENDPOINT_MODEL_TYPES_FOUNDATION_MODEL,
-            self::ENDPOINT_MODEL_TYPES_CUSTOM_MODEL,
-        ];
-    }
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getStatusesAllowableValues()
-    {
-        return [
-            self::STATUSES_RUNNING,
-            self::STATUSES_SCHEDULING,
-            self::STATUSES_ABNORMAL,
-            self::STATUSES_STOPPED,
-        ];
-    }
     
 
     /**
@@ -288,15 +254,6 @@ class FilterForListEndpointsInput implements ModelInterface, ArrayAccess
      */
     public function setEndpointModelTypes($endpoint_model_types)
     {
-        $allowedValues = $this->getEndpointModelTypesAllowableValues();
-        if (!is_null($endpoint_model_types) && array_diff($endpoint_model_types, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'endpoint_model_types', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['endpoint_model_types'] = $endpoint_model_types;
 
         return $this;
@@ -417,15 +374,6 @@ class FilterForListEndpointsInput implements ModelInterface, ArrayAccess
      */
     public function setStatuses($statuses)
     {
-        $allowedValues = $this->getStatusesAllowableValues();
-        if (!is_null($statuses) && array_diff($statuses, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'statuses', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['statuses'] = $statuses;
 
         return $this;

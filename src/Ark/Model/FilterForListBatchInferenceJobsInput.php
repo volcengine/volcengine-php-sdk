@@ -149,8 +149,31 @@ class FilterForListBatchInferenceJobsInput implements ModelInterface, ArrayAcces
         return self::$swaggerModelName;
     }
 
+    const PHASES_QUEUED = 'Queued';
+    const PHASES_RUNNING = 'Running';
+    const PHASES_COMPLETED = 'Completed';
+    const PHASES_TERMINATING = 'Terminating';
+    const PHASES_TERMINATED = 'Terminated';
+    const PHASES_FAILED = 'Failed';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getPhasesAllowableValues()
+    {
+        return [
+            self::PHASES_QUEUED,
+            self::PHASES_RUNNING,
+            self::PHASES_COMPLETED,
+            self::PHASES_TERMINATING,
+            self::PHASES_TERMINATED,
+            self::PHASES_FAILED,
+        ];
+    }
     
 
     /**
@@ -314,6 +337,15 @@ class FilterForListBatchInferenceJobsInput implements ModelInterface, ArrayAcces
      */
     public function setPhases($phases)
     {
+        $allowedValues = $this->getPhasesAllowableValues();
+        if (!is_null($phases) && array_diff($phases, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'phases', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['phases'] = $phases;
 
         return $this;
