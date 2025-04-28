@@ -32,7 +32,8 @@ class ReplicateKeyRequest implements ModelInterface, ArrayAccess
         'key_id' => 'string',
         'key_name' => 'string',
         'keyring_name' => 'string',
-        'replica_region' => 'string'
+        'replica_region' => 'string',
+        'tags' => '\Volcengine\Kms\Model\TagForReplicateKeyInput[]'
     ];
 
     /**
@@ -45,7 +46,8 @@ class ReplicateKeyRequest implements ModelInterface, ArrayAccess
         'key_id' => null,
         'key_name' => null,
         'keyring_name' => null,
-        'replica_region' => null
+        'replica_region' => null,
+        'tags' => null
     ];
 
     /**
@@ -79,7 +81,8 @@ class ReplicateKeyRequest implements ModelInterface, ArrayAccess
         'key_id' => 'KeyID',
         'key_name' => 'KeyName',
         'keyring_name' => 'KeyringName',
-        'replica_region' => 'ReplicaRegion'
+        'replica_region' => 'ReplicaRegion',
+        'tags' => 'Tags'
     ];
 
     /**
@@ -92,7 +95,8 @@ class ReplicateKeyRequest implements ModelInterface, ArrayAccess
         'key_id' => 'setKeyId',
         'key_name' => 'setKeyName',
         'keyring_name' => 'setKeyringName',
-        'replica_region' => 'setReplicaRegion'
+        'replica_region' => 'setReplicaRegion',
+        'tags' => 'setTags'
     ];
 
     /**
@@ -105,7 +109,8 @@ class ReplicateKeyRequest implements ModelInterface, ArrayAccess
         'key_id' => 'getKeyId',
         'key_name' => 'getKeyName',
         'keyring_name' => 'getKeyringName',
-        'replica_region' => 'getReplicaRegion'
+        'replica_region' => 'getReplicaRegion',
+        'tags' => 'getTags'
     ];
 
     /**
@@ -173,6 +178,7 @@ class ReplicateKeyRequest implements ModelInterface, ArrayAccess
         $this->container['key_name'] = isset($data['key_name']) ? $data['key_name'] : null;
         $this->container['keyring_name'] = isset($data['keyring_name']) ? $data['keyring_name'] : null;
         $this->container['replica_region'] = isset($data['replica_region']) ? $data['replica_region'] : null;
+        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
     }
 
     /**
@@ -318,6 +324,30 @@ class ReplicateKeyRequest implements ModelInterface, ArrayAccess
     public function setReplicaRegion($replica_region)
     {
         $this->container['replica_region'] = $replica_region;
+
+        return $this;
+    }
+
+    /**
+     * Gets tags
+     *
+     * @return \Volcengine\Kms\Model\TagForReplicateKeyInput[]
+     */
+    public function getTags()
+    {
+        return $this->container['tags'];
+    }
+
+    /**
+     * Sets tags
+     *
+     * @param \Volcengine\Kms\Model\TagForReplicateKeyInput[] $tags tags
+     *
+     * @return $this
+     */
+    public function setTags($tags)
+    {
+        $this->container['tags'] = $tags;
 
         return $this;
     }
