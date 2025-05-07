@@ -29,7 +29,7 @@ class ListAllIpGroupsRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'ip' => 'string',
-        'page' => 'string',
+        'page' => 'int',
         'page_size' => 'int',
         'project_name' => 'string',
         'rule_tag' => 'string',
@@ -43,7 +43,7 @@ class ListAllIpGroupsRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'ip' => null,
-        'page' => null,
+        'page' => 'int32',
         'page_size' => 'int32',
         'project_name' => null,
         'rule_tag' => null,
@@ -235,7 +235,7 @@ class ListAllIpGroupsRequest implements ModelInterface, ArrayAccess
     /**
      * Gets page
      *
-     * @return string
+     * @return int
      */
     public function getPage()
     {
@@ -245,7 +245,7 @@ class ListAllIpGroupsRequest implements ModelInterface, ArrayAccess
     /**
      * Sets page
      *
-     * @param string $page page
+     * @param int $page page
      *
      * @return $this
      */

@@ -29,7 +29,7 @@ class ListCustomPageRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'host' => 'string',
-        'page' => 'string',
+        'page' => 'int',
         'page_size' => 'int',
         'project_name' => 'string'
     ];
@@ -41,7 +41,7 @@ class ListCustomPageRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'host' => null,
-        'page' => null,
+        'page' => 'int32',
         'page_size' => 'int32',
         'project_name' => null
     ];
@@ -223,7 +223,7 @@ class ListCustomPageRequest implements ModelInterface, ArrayAccess
     /**
      * Gets page
      *
-     * @return string
+     * @return int
      */
     public function getPage()
     {
@@ -233,7 +233,7 @@ class ListCustomPageRequest implements ModelInterface, ArrayAccess
     /**
      * Sets page
      *
-     * @param string $page page
+     * @param int $page page
      *
      * @return $this
      */
