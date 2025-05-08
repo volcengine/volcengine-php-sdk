@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Waf\Model;
+namespace Volcengine\Tag\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class QueryAttackAnalysisTermsAggLbRequest implements ModelInterface, ArrayAccess
+class GetResourcesRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class QueryAttackAnalysisTermsAggLbRequest implements ModelInterface, ArrayAcces
       *
       * @var string
       */
-    protected static $swaggerModelName = 'QueryAttackAnalysisTermsAggLbRequest';
+    protected static $swaggerModelName = 'GetResourcesRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,11 @@ class QueryAttackAnalysisTermsAggLbRequest implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'analysis_key' => 'string',
-        'end_time' => 'int',
-        'host' => 'string',
-        'plugins' => 'string[]',
-        'project_name' => 'string',
-        'start_time' => 'int'
+        'max_results' => 'int',
+        'next_token' => 'string',
+        'resource_trn_list' => 'string[]',
+        'resource_type_filters' => 'string[]',
+        'tag_filters' => '\Volcengine\Tag\Model\TagFilterForGetResourcesInput[]'
     ];
 
     /**
@@ -42,12 +41,11 @@ class QueryAttackAnalysisTermsAggLbRequest implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'analysis_key' => null,
-        'end_time' => 'int32',
-        'host' => null,
-        'plugins' => null,
-        'project_name' => null,
-        'start_time' => 'int32'
+        'max_results' => 'int32',
+        'next_token' => null,
+        'resource_trn_list' => null,
+        'resource_type_filters' => null,
+        'tag_filters' => null
     ];
 
     /**
@@ -77,12 +75,11 @@ class QueryAttackAnalysisTermsAggLbRequest implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $attributeMap = [
-        'analysis_key' => 'AnalysisKey',
-        'end_time' => 'EndTime',
-        'host' => 'Host',
-        'plugins' => 'Plugins',
-        'project_name' => 'ProjectName',
-        'start_time' => 'StartTime'
+        'max_results' => 'MaxResults',
+        'next_token' => 'NextToken',
+        'resource_trn_list' => 'ResourceTrnList',
+        'resource_type_filters' => 'ResourceTypeFilters',
+        'tag_filters' => 'TagFilters'
     ];
 
     /**
@@ -91,12 +88,11 @@ class QueryAttackAnalysisTermsAggLbRequest implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $setters = [
-        'analysis_key' => 'setAnalysisKey',
-        'end_time' => 'setEndTime',
-        'host' => 'setHost',
-        'plugins' => 'setPlugins',
-        'project_name' => 'setProjectName',
-        'start_time' => 'setStartTime'
+        'max_results' => 'setMaxResults',
+        'next_token' => 'setNextToken',
+        'resource_trn_list' => 'setResourceTrnList',
+        'resource_type_filters' => 'setResourceTypeFilters',
+        'tag_filters' => 'setTagFilters'
     ];
 
     /**
@@ -105,12 +101,11 @@ class QueryAttackAnalysisTermsAggLbRequest implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $getters = [
-        'analysis_key' => 'getAnalysisKey',
-        'end_time' => 'getEndTime',
-        'host' => 'getHost',
-        'plugins' => 'getPlugins',
-        'project_name' => 'getProjectName',
-        'start_time' => 'getStartTime'
+        'max_results' => 'getMaxResults',
+        'next_token' => 'getNextToken',
+        'resource_trn_list' => 'getResourceTrnList',
+        'resource_type_filters' => 'getResourceTypeFilters',
+        'tag_filters' => 'getTagFilters'
     ];
 
     /**
@@ -173,12 +168,11 @@ class QueryAttackAnalysisTermsAggLbRequest implements ModelInterface, ArrayAcces
      */
     public function __construct(array $data = null)
     {
-        $this->container['analysis_key'] = isset($data['analysis_key']) ? $data['analysis_key'] : null;
-        $this->container['end_time'] = isset($data['end_time']) ? $data['end_time'] : null;
-        $this->container['host'] = isset($data['host']) ? $data['host'] : null;
-        $this->container['plugins'] = isset($data['plugins']) ? $data['plugins'] : null;
-        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
-        $this->container['start_time'] = isset($data['start_time']) ? $data['start_time'] : null;
+        $this->container['max_results'] = isset($data['max_results']) ? $data['max_results'] : null;
+        $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
+        $this->container['resource_trn_list'] = isset($data['resource_trn_list']) ? $data['resource_trn_list'] : null;
+        $this->container['resource_type_filters'] = isset($data['resource_type_filters']) ? $data['resource_type_filters'] : null;
+        $this->container['tag_filters'] = isset($data['tag_filters']) ? $data['tag_filters'] : null;
     }
 
     /**
@@ -190,15 +184,6 @@ class QueryAttackAnalysisTermsAggLbRequest implements ModelInterface, ArrayAcces
     {
         $invalidProperties = [];
 
-        if ($this->container['analysis_key'] === null) {
-            $invalidProperties[] = "'analysis_key' can't be null";
-        }
-        if ($this->container['end_time'] === null) {
-            $invalidProperties[] = "'end_time' can't be null";
-        }
-        if ($this->container['start_time'] === null) {
-            $invalidProperties[] = "'start_time' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -215,145 +200,121 @@ class QueryAttackAnalysisTermsAggLbRequest implements ModelInterface, ArrayAcces
 
 
     /**
-     * Gets analysis_key
-     *
-     * @return string
-     */
-    public function getAnalysisKey()
-    {
-        return $this->container['analysis_key'];
-    }
-
-    /**
-     * Sets analysis_key
-     *
-     * @param string $analysis_key analysis_key
-     *
-     * @return $this
-     */
-    public function setAnalysisKey($analysis_key)
-    {
-        $this->container['analysis_key'] = $analysis_key;
-
-        return $this;
-    }
-
-    /**
-     * Gets end_time
+     * Gets max_results
      *
      * @return int
      */
-    public function getEndTime()
+    public function getMaxResults()
     {
-        return $this->container['end_time'];
+        return $this->container['max_results'];
     }
 
     /**
-     * Sets end_time
+     * Sets max_results
      *
-     * @param int $end_time end_time
+     * @param int $max_results max_results
      *
      * @return $this
      */
-    public function setEndTime($end_time)
+    public function setMaxResults($max_results)
     {
-        $this->container['end_time'] = $end_time;
+        $this->container['max_results'] = $max_results;
 
         return $this;
     }
 
     /**
-     * Gets host
+     * Gets next_token
      *
      * @return string
      */
-    public function getHost()
+    public function getNextToken()
     {
-        return $this->container['host'];
+        return $this->container['next_token'];
     }
 
     /**
-     * Sets host
+     * Sets next_token
      *
-     * @param string $host host
+     * @param string $next_token next_token
      *
      * @return $this
      */
-    public function setHost($host)
+    public function setNextToken($next_token)
     {
-        $this->container['host'] = $host;
+        $this->container['next_token'] = $next_token;
 
         return $this;
     }
 
     /**
-     * Gets plugins
+     * Gets resource_trn_list
      *
      * @return string[]
      */
-    public function getPlugins()
+    public function getResourceTrnList()
     {
-        return $this->container['plugins'];
+        return $this->container['resource_trn_list'];
     }
 
     /**
-     * Sets plugins
+     * Sets resource_trn_list
      *
-     * @param string[] $plugins plugins
+     * @param string[] $resource_trn_list resource_trn_list
      *
      * @return $this
      */
-    public function setPlugins($plugins)
+    public function setResourceTrnList($resource_trn_list)
     {
-        $this->container['plugins'] = $plugins;
+        $this->container['resource_trn_list'] = $resource_trn_list;
 
         return $this;
     }
 
     /**
-     * Gets project_name
+     * Gets resource_type_filters
      *
-     * @return string
+     * @return string[]
      */
-    public function getProjectName()
+    public function getResourceTypeFilters()
     {
-        return $this->container['project_name'];
+        return $this->container['resource_type_filters'];
     }
 
     /**
-     * Sets project_name
+     * Sets resource_type_filters
      *
-     * @param string $project_name project_name
+     * @param string[] $resource_type_filters resource_type_filters
      *
      * @return $this
      */
-    public function setProjectName($project_name)
+    public function setResourceTypeFilters($resource_type_filters)
     {
-        $this->container['project_name'] = $project_name;
+        $this->container['resource_type_filters'] = $resource_type_filters;
 
         return $this;
     }
 
     /**
-     * Gets start_time
+     * Gets tag_filters
      *
-     * @return int
+     * @return \Volcengine\Tag\Model\TagFilterForGetResourcesInput[]
      */
-    public function getStartTime()
+    public function getTagFilters()
     {
-        return $this->container['start_time'];
+        return $this->container['tag_filters'];
     }
 
     /**
-     * Sets start_time
+     * Sets tag_filters
      *
-     * @param int $start_time start_time
+     * @param \Volcengine\Tag\Model\TagFilterForGetResourcesInput[] $tag_filters tag_filters
      *
      * @return $this
      */
-    public function setStartTime($start_time)
+    public function setTagFilters($tag_filters)
     {
-        $this->container['start_time'] = $start_time;
+        $this->container['tag_filters'] = $tag_filters;
 
         return $this;
     }

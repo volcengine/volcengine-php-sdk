@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Waf\Model;
+namespace Volcengine\Tag\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class QueryAttackAnalysisTermsAggLbRequest implements ModelInterface, ArrayAccess
+class ResourceTagMappingListForGetResourcesOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class QueryAttackAnalysisTermsAggLbRequest implements ModelInterface, ArrayAcces
       *
       * @var string
       */
-    protected static $swaggerModelName = 'QueryAttackAnalysisTermsAggLbRequest';
+    protected static $swaggerModelName = 'ResourceTagMappingListForGetResourcesOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,12 @@ class QueryAttackAnalysisTermsAggLbRequest implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'analysis_key' => 'string',
-        'end_time' => 'int',
-        'host' => 'string',
-        'plugins' => 'string[]',
-        'project_name' => 'string',
-        'start_time' => 'int'
+        'region' => 'string',
+        'resource_id' => 'string',
+        'resource_trn' => 'string',
+        'resource_type' => 'string',
+        'service_name' => 'string',
+        'tags' => '\Volcengine\Tag\Model\TagForGetResourcesOutput[]'
     ];
 
     /**
@@ -42,12 +42,12 @@ class QueryAttackAnalysisTermsAggLbRequest implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'analysis_key' => null,
-        'end_time' => 'int32',
-        'host' => null,
-        'plugins' => null,
-        'project_name' => null,
-        'start_time' => 'int32'
+        'region' => null,
+        'resource_id' => null,
+        'resource_trn' => null,
+        'resource_type' => null,
+        'service_name' => null,
+        'tags' => null
     ];
 
     /**
@@ -77,12 +77,12 @@ class QueryAttackAnalysisTermsAggLbRequest implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $attributeMap = [
-        'analysis_key' => 'AnalysisKey',
-        'end_time' => 'EndTime',
-        'host' => 'Host',
-        'plugins' => 'Plugins',
-        'project_name' => 'ProjectName',
-        'start_time' => 'StartTime'
+        'region' => 'Region',
+        'resource_id' => 'ResourceID',
+        'resource_trn' => 'ResourceTrn',
+        'resource_type' => 'ResourceType',
+        'service_name' => 'ServiceName',
+        'tags' => 'Tags'
     ];
 
     /**
@@ -91,12 +91,12 @@ class QueryAttackAnalysisTermsAggLbRequest implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $setters = [
-        'analysis_key' => 'setAnalysisKey',
-        'end_time' => 'setEndTime',
-        'host' => 'setHost',
-        'plugins' => 'setPlugins',
-        'project_name' => 'setProjectName',
-        'start_time' => 'setStartTime'
+        'region' => 'setRegion',
+        'resource_id' => 'setResourceId',
+        'resource_trn' => 'setResourceTrn',
+        'resource_type' => 'setResourceType',
+        'service_name' => 'setServiceName',
+        'tags' => 'setTags'
     ];
 
     /**
@@ -105,12 +105,12 @@ class QueryAttackAnalysisTermsAggLbRequest implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $getters = [
-        'analysis_key' => 'getAnalysisKey',
-        'end_time' => 'getEndTime',
-        'host' => 'getHost',
-        'plugins' => 'getPlugins',
-        'project_name' => 'getProjectName',
-        'start_time' => 'getStartTime'
+        'region' => 'getRegion',
+        'resource_id' => 'getResourceId',
+        'resource_trn' => 'getResourceTrn',
+        'resource_type' => 'getResourceType',
+        'service_name' => 'getServiceName',
+        'tags' => 'getTags'
     ];
 
     /**
@@ -173,12 +173,12 @@ class QueryAttackAnalysisTermsAggLbRequest implements ModelInterface, ArrayAcces
      */
     public function __construct(array $data = null)
     {
-        $this->container['analysis_key'] = isset($data['analysis_key']) ? $data['analysis_key'] : null;
-        $this->container['end_time'] = isset($data['end_time']) ? $data['end_time'] : null;
-        $this->container['host'] = isset($data['host']) ? $data['host'] : null;
-        $this->container['plugins'] = isset($data['plugins']) ? $data['plugins'] : null;
-        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
-        $this->container['start_time'] = isset($data['start_time']) ? $data['start_time'] : null;
+        $this->container['region'] = isset($data['region']) ? $data['region'] : null;
+        $this->container['resource_id'] = isset($data['resource_id']) ? $data['resource_id'] : null;
+        $this->container['resource_trn'] = isset($data['resource_trn']) ? $data['resource_trn'] : null;
+        $this->container['resource_type'] = isset($data['resource_type']) ? $data['resource_type'] : null;
+        $this->container['service_name'] = isset($data['service_name']) ? $data['service_name'] : null;
+        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
     }
 
     /**
@@ -190,15 +190,6 @@ class QueryAttackAnalysisTermsAggLbRequest implements ModelInterface, ArrayAcces
     {
         $invalidProperties = [];
 
-        if ($this->container['analysis_key'] === null) {
-            $invalidProperties[] = "'analysis_key' can't be null";
-        }
-        if ($this->container['end_time'] === null) {
-            $invalidProperties[] = "'end_time' can't be null";
-        }
-        if ($this->container['start_time'] === null) {
-            $invalidProperties[] = "'start_time' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -215,145 +206,145 @@ class QueryAttackAnalysisTermsAggLbRequest implements ModelInterface, ArrayAcces
 
 
     /**
-     * Gets analysis_key
+     * Gets region
      *
      * @return string
      */
-    public function getAnalysisKey()
+    public function getRegion()
     {
-        return $this->container['analysis_key'];
+        return $this->container['region'];
     }
 
     /**
-     * Sets analysis_key
+     * Sets region
      *
-     * @param string $analysis_key analysis_key
+     * @param string $region region
      *
      * @return $this
      */
-    public function setAnalysisKey($analysis_key)
+    public function setRegion($region)
     {
-        $this->container['analysis_key'] = $analysis_key;
+        $this->container['region'] = $region;
 
         return $this;
     }
 
     /**
-     * Gets end_time
-     *
-     * @return int
-     */
-    public function getEndTime()
-    {
-        return $this->container['end_time'];
-    }
-
-    /**
-     * Sets end_time
-     *
-     * @param int $end_time end_time
-     *
-     * @return $this
-     */
-    public function setEndTime($end_time)
-    {
-        $this->container['end_time'] = $end_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets host
+     * Gets resource_id
      *
      * @return string
      */
-    public function getHost()
+    public function getResourceId()
     {
-        return $this->container['host'];
+        return $this->container['resource_id'];
     }
 
     /**
-     * Sets host
+     * Sets resource_id
      *
-     * @param string $host host
+     * @param string $resource_id resource_id
      *
      * @return $this
      */
-    public function setHost($host)
+    public function setResourceId($resource_id)
     {
-        $this->container['host'] = $host;
+        $this->container['resource_id'] = $resource_id;
 
         return $this;
     }
 
     /**
-     * Gets plugins
-     *
-     * @return string[]
-     */
-    public function getPlugins()
-    {
-        return $this->container['plugins'];
-    }
-
-    /**
-     * Sets plugins
-     *
-     * @param string[] $plugins plugins
-     *
-     * @return $this
-     */
-    public function setPlugins($plugins)
-    {
-        $this->container['plugins'] = $plugins;
-
-        return $this;
-    }
-
-    /**
-     * Gets project_name
+     * Gets resource_trn
      *
      * @return string
      */
-    public function getProjectName()
+    public function getResourceTrn()
     {
-        return $this->container['project_name'];
+        return $this->container['resource_trn'];
     }
 
     /**
-     * Sets project_name
+     * Sets resource_trn
      *
-     * @param string $project_name project_name
+     * @param string $resource_trn resource_trn
      *
      * @return $this
      */
-    public function setProjectName($project_name)
+    public function setResourceTrn($resource_trn)
     {
-        $this->container['project_name'] = $project_name;
+        $this->container['resource_trn'] = $resource_trn;
 
         return $this;
     }
 
     /**
-     * Gets start_time
+     * Gets resource_type
      *
-     * @return int
+     * @return string
      */
-    public function getStartTime()
+    public function getResourceType()
     {
-        return $this->container['start_time'];
+        return $this->container['resource_type'];
     }
 
     /**
-     * Sets start_time
+     * Sets resource_type
      *
-     * @param int $start_time start_time
+     * @param string $resource_type resource_type
      *
      * @return $this
      */
-    public function setStartTime($start_time)
+    public function setResourceType($resource_type)
     {
-        $this->container['start_time'] = $start_time;
+        $this->container['resource_type'] = $resource_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets service_name
+     *
+     * @return string
+     */
+    public function getServiceName()
+    {
+        return $this->container['service_name'];
+    }
+
+    /**
+     * Sets service_name
+     *
+     * @param string $service_name service_name
+     *
+     * @return $this
+     */
+    public function setServiceName($service_name)
+    {
+        $this->container['service_name'] = $service_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets tags
+     *
+     * @return \Volcengine\Tag\Model\TagForGetResourcesOutput[]
+     */
+    public function getTags()
+    {
+        return $this->container['tags'];
+    }
+
+    /**
+     * Sets tags
+     *
+     * @param \Volcengine\Tag\Model\TagForGetResourcesOutput[] $tags tags
+     *
+     * @return $this
+     */
+    public function setTags($tags)
+    {
+        $this->container['tags'] = $tags;
 
         return $this;
     }

@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Waf\Model;
+namespace Volcengine\Tag\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class QueryAttackAnalysisTermsAggLbRequest implements ModelInterface, ArrayAccess
+class GetTagValuesRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class QueryAttackAnalysisTermsAggLbRequest implements ModelInterface, ArrayAcces
       *
       * @var string
       */
-    protected static $swaggerModelName = 'QueryAttackAnalysisTermsAggLbRequest';
+    protected static $swaggerModelName = 'GetTagValuesRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,9 @@ class QueryAttackAnalysisTermsAggLbRequest implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'analysis_key' => 'string',
-        'end_time' => 'int',
-        'host' => 'string',
-        'plugins' => 'string[]',
-        'project_name' => 'string',
-        'start_time' => 'int'
+        'max_results' => 'int',
+        'next_token' => 'string',
+        'tag_keys' => 'string[]'
     ];
 
     /**
@@ -42,12 +39,9 @@ class QueryAttackAnalysisTermsAggLbRequest implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'analysis_key' => null,
-        'end_time' => 'int32',
-        'host' => null,
-        'plugins' => null,
-        'project_name' => null,
-        'start_time' => 'int32'
+        'max_results' => 'int32',
+        'next_token' => null,
+        'tag_keys' => null
     ];
 
     /**
@@ -77,12 +71,9 @@ class QueryAttackAnalysisTermsAggLbRequest implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $attributeMap = [
-        'analysis_key' => 'AnalysisKey',
-        'end_time' => 'EndTime',
-        'host' => 'Host',
-        'plugins' => 'Plugins',
-        'project_name' => 'ProjectName',
-        'start_time' => 'StartTime'
+        'max_results' => 'MaxResults',
+        'next_token' => 'NextToken',
+        'tag_keys' => 'TagKeys'
     ];
 
     /**
@@ -91,12 +82,9 @@ class QueryAttackAnalysisTermsAggLbRequest implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $setters = [
-        'analysis_key' => 'setAnalysisKey',
-        'end_time' => 'setEndTime',
-        'host' => 'setHost',
-        'plugins' => 'setPlugins',
-        'project_name' => 'setProjectName',
-        'start_time' => 'setStartTime'
+        'max_results' => 'setMaxResults',
+        'next_token' => 'setNextToken',
+        'tag_keys' => 'setTagKeys'
     ];
 
     /**
@@ -105,12 +93,9 @@ class QueryAttackAnalysisTermsAggLbRequest implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $getters = [
-        'analysis_key' => 'getAnalysisKey',
-        'end_time' => 'getEndTime',
-        'host' => 'getHost',
-        'plugins' => 'getPlugins',
-        'project_name' => 'getProjectName',
-        'start_time' => 'getStartTime'
+        'max_results' => 'getMaxResults',
+        'next_token' => 'getNextToken',
+        'tag_keys' => 'getTagKeys'
     ];
 
     /**
@@ -173,12 +158,9 @@ class QueryAttackAnalysisTermsAggLbRequest implements ModelInterface, ArrayAcces
      */
     public function __construct(array $data = null)
     {
-        $this->container['analysis_key'] = isset($data['analysis_key']) ? $data['analysis_key'] : null;
-        $this->container['end_time'] = isset($data['end_time']) ? $data['end_time'] : null;
-        $this->container['host'] = isset($data['host']) ? $data['host'] : null;
-        $this->container['plugins'] = isset($data['plugins']) ? $data['plugins'] : null;
-        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
-        $this->container['start_time'] = isset($data['start_time']) ? $data['start_time'] : null;
+        $this->container['max_results'] = isset($data['max_results']) ? $data['max_results'] : null;
+        $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
+        $this->container['tag_keys'] = isset($data['tag_keys']) ? $data['tag_keys'] : null;
     }
 
     /**
@@ -190,15 +172,6 @@ class QueryAttackAnalysisTermsAggLbRequest implements ModelInterface, ArrayAcces
     {
         $invalidProperties = [];
 
-        if ($this->container['analysis_key'] === null) {
-            $invalidProperties[] = "'analysis_key' can't be null";
-        }
-        if ($this->container['end_time'] === null) {
-            $invalidProperties[] = "'end_time' can't be null";
-        }
-        if ($this->container['start_time'] === null) {
-            $invalidProperties[] = "'start_time' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -215,145 +188,73 @@ class QueryAttackAnalysisTermsAggLbRequest implements ModelInterface, ArrayAcces
 
 
     /**
-     * Gets analysis_key
-     *
-     * @return string
-     */
-    public function getAnalysisKey()
-    {
-        return $this->container['analysis_key'];
-    }
-
-    /**
-     * Sets analysis_key
-     *
-     * @param string $analysis_key analysis_key
-     *
-     * @return $this
-     */
-    public function setAnalysisKey($analysis_key)
-    {
-        $this->container['analysis_key'] = $analysis_key;
-
-        return $this;
-    }
-
-    /**
-     * Gets end_time
+     * Gets max_results
      *
      * @return int
      */
-    public function getEndTime()
+    public function getMaxResults()
     {
-        return $this->container['end_time'];
+        return $this->container['max_results'];
     }
 
     /**
-     * Sets end_time
+     * Sets max_results
      *
-     * @param int $end_time end_time
+     * @param int $max_results max_results
      *
      * @return $this
      */
-    public function setEndTime($end_time)
+    public function setMaxResults($max_results)
     {
-        $this->container['end_time'] = $end_time;
+        $this->container['max_results'] = $max_results;
 
         return $this;
     }
 
     /**
-     * Gets host
+     * Gets next_token
      *
      * @return string
      */
-    public function getHost()
+    public function getNextToken()
     {
-        return $this->container['host'];
+        return $this->container['next_token'];
     }
 
     /**
-     * Sets host
+     * Sets next_token
      *
-     * @param string $host host
+     * @param string $next_token next_token
      *
      * @return $this
      */
-    public function setHost($host)
+    public function setNextToken($next_token)
     {
-        $this->container['host'] = $host;
+        $this->container['next_token'] = $next_token;
 
         return $this;
     }
 
     /**
-     * Gets plugins
+     * Gets tag_keys
      *
      * @return string[]
      */
-    public function getPlugins()
+    public function getTagKeys()
     {
-        return $this->container['plugins'];
+        return $this->container['tag_keys'];
     }
 
     /**
-     * Sets plugins
+     * Sets tag_keys
      *
-     * @param string[] $plugins plugins
+     * @param string[] $tag_keys tag_keys
      *
      * @return $this
      */
-    public function setPlugins($plugins)
+    public function setTagKeys($tag_keys)
     {
-        $this->container['plugins'] = $plugins;
-
-        return $this;
-    }
-
-    /**
-     * Gets project_name
-     *
-     * @return string
-     */
-    public function getProjectName()
-    {
-        return $this->container['project_name'];
-    }
-
-    /**
-     * Sets project_name
-     *
-     * @param string $project_name project_name
-     *
-     * @return $this
-     */
-    public function setProjectName($project_name)
-    {
-        $this->container['project_name'] = $project_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets start_time
-     *
-     * @return int
-     */
-    public function getStartTime()
-    {
-        return $this->container['start_time'];
-    }
-
-    /**
-     * Sets start_time
-     *
-     * @param int $start_time start_time
-     *
-     * @return $this
-     */
-    public function setStartTime($start_time)
-    {
-        $this->container['start_time'] = $start_time;
+        $this->container['tag_keys'] = $tag_keys;
 
         return $this;
     }
