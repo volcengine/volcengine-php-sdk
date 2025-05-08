@@ -32,6 +32,7 @@ class QueryAttackAnalysisTermsAggLbRequest implements ModelInterface, ArrayAcces
         'end_time' => 'int',
         'host' => 'string',
         'plugins' => 'string[]',
+        'project_name' => 'string',
         'start_time' => 'int'
     ];
 
@@ -45,6 +46,7 @@ class QueryAttackAnalysisTermsAggLbRequest implements ModelInterface, ArrayAcces
         'end_time' => 'int32',
         'host' => null,
         'plugins' => null,
+        'project_name' => null,
         'start_time' => 'int32'
     ];
 
@@ -79,6 +81,7 @@ class QueryAttackAnalysisTermsAggLbRequest implements ModelInterface, ArrayAcces
         'end_time' => 'EndTime',
         'host' => 'Host',
         'plugins' => 'Plugins',
+        'project_name' => 'ProjectName',
         'start_time' => 'StartTime'
     ];
 
@@ -92,6 +95,7 @@ class QueryAttackAnalysisTermsAggLbRequest implements ModelInterface, ArrayAcces
         'end_time' => 'setEndTime',
         'host' => 'setHost',
         'plugins' => 'setPlugins',
+        'project_name' => 'setProjectName',
         'start_time' => 'setStartTime'
     ];
 
@@ -105,6 +109,7 @@ class QueryAttackAnalysisTermsAggLbRequest implements ModelInterface, ArrayAcces
         'end_time' => 'getEndTime',
         'host' => 'getHost',
         'plugins' => 'getPlugins',
+        'project_name' => 'getProjectName',
         'start_time' => 'getStartTime'
     ];
 
@@ -172,6 +177,7 @@ class QueryAttackAnalysisTermsAggLbRequest implements ModelInterface, ArrayAcces
         $this->container['end_time'] = isset($data['end_time']) ? $data['end_time'] : null;
         $this->container['host'] = isset($data['host']) ? $data['host'] : null;
         $this->container['plugins'] = isset($data['plugins']) ? $data['plugins'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['start_time'] = isset($data['start_time']) ? $data['start_time'] : null;
     }
 
@@ -184,6 +190,9 @@ class QueryAttackAnalysisTermsAggLbRequest implements ModelInterface, ArrayAcces
     {
         $invalidProperties = [];
 
+        if ($this->container['analysis_key'] === null) {
+            $invalidProperties[] = "'analysis_key' can't be null";
+        }
         if ($this->container['end_time'] === null) {
             $invalidProperties[] = "'end_time' can't be null";
         }
@@ -297,6 +306,30 @@ class QueryAttackAnalysisTermsAggLbRequest implements ModelInterface, ArrayAcces
     public function setPlugins($plugins)
     {
         $this->container['plugins'] = $plugins;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }
