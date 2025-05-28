@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
+class ListAITranslationProjectRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AsrForGetExecutionOutput';
+    protected static $swaggerModelName = 'ListAITranslationProjectRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,11 +28,11 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'language' => 'string',
-        'mode' => 'string',
-        'type' => 'string',
-        'with_confidence' => 'bool',
-        'with_speaker_info' => 'bool'
+        'page_number' => 'int',
+        'page_size' => 'string',
+        'project_id_or_title_filter' => 'string',
+        'space_name' => 'string',
+        'status_filter' => 'string'
     ];
 
     /**
@@ -41,11 +41,11 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'language' => null,
-        'mode' => null,
-        'type' => null,
-        'with_confidence' => null,
-        'with_speaker_info' => null
+        'page_number' => 'int32',
+        'page_size' => null,
+        'project_id_or_title_filter' => null,
+        'space_name' => null,
+        'status_filter' => null
     ];
 
     /**
@@ -75,11 +75,11 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'language' => 'Language',
-        'mode' => 'Mode',
-        'type' => 'Type',
-        'with_confidence' => 'WithConfidence',
-        'with_speaker_info' => 'WithSpeakerInfo'
+        'page_number' => 'PageNumber',
+        'page_size' => 'PageSize',
+        'project_id_or_title_filter' => 'ProjectIdOrTitleFilter',
+        'space_name' => 'SpaceName',
+        'status_filter' => 'StatusFilter'
     ];
 
     /**
@@ -88,11 +88,11 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'language' => 'setLanguage',
-        'mode' => 'setMode',
-        'type' => 'setType',
-        'with_confidence' => 'setWithConfidence',
-        'with_speaker_info' => 'setWithSpeakerInfo'
+        'page_number' => 'setPageNumber',
+        'page_size' => 'setPageSize',
+        'project_id_or_title_filter' => 'setProjectIdOrTitleFilter',
+        'space_name' => 'setSpaceName',
+        'status_filter' => 'setStatusFilter'
     ];
 
     /**
@@ -101,11 +101,11 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'language' => 'getLanguage',
-        'mode' => 'getMode',
-        'type' => 'getType',
-        'with_confidence' => 'getWithConfidence',
-        'with_speaker_info' => 'getWithSpeakerInfo'
+        'page_number' => 'getPageNumber',
+        'page_size' => 'getPageSize',
+        'project_id_or_title_filter' => 'getProjectIdOrTitleFilter',
+        'space_name' => 'getSpaceName',
+        'status_filter' => 'getStatusFilter'
     ];
 
     /**
@@ -168,11 +168,11 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['language'] = isset($data['language']) ? $data['language'] : null;
-        $this->container['mode'] = isset($data['mode']) ? $data['mode'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['with_confidence'] = isset($data['with_confidence']) ? $data['with_confidence'] : null;
-        $this->container['with_speaker_info'] = isset($data['with_speaker_info']) ? $data['with_speaker_info'] : null;
+        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
+        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
+        $this->container['project_id_or_title_filter'] = isset($data['project_id_or_title_filter']) ? $data['project_id_or_title_filter'] : null;
+        $this->container['space_name'] = isset($data['space_name']) ? $data['space_name'] : null;
+        $this->container['status_filter'] = isset($data['status_filter']) ? $data['status_filter'] : null;
     }
 
     /**
@@ -184,6 +184,9 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['space_name'] === null) {
+            $invalidProperties[] = "'space_name' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -200,121 +203,121 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets language
+     * Gets page_number
+     *
+     * @return int
+     */
+    public function getPageNumber()
+    {
+        return $this->container['page_number'];
+    }
+
+    /**
+     * Sets page_number
+     *
+     * @param int $page_number page_number
+     *
+     * @return $this
+     */
+    public function setPageNumber($page_number)
+    {
+        $this->container['page_number'] = $page_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets page_size
      *
      * @return string
      */
-    public function getLanguage()
+    public function getPageSize()
     {
-        return $this->container['language'];
+        return $this->container['page_size'];
     }
 
     /**
-     * Sets language
+     * Sets page_size
      *
-     * @param string $language language
+     * @param string $page_size page_size
      *
      * @return $this
      */
-    public function setLanguage($language)
+    public function setPageSize($page_size)
     {
-        $this->container['language'] = $language;
+        $this->container['page_size'] = $page_size;
 
         return $this;
     }
 
     /**
-     * Gets mode
+     * Gets project_id_or_title_filter
      *
      * @return string
      */
-    public function getMode()
+    public function getProjectIdOrTitleFilter()
     {
-        return $this->container['mode'];
+        return $this->container['project_id_or_title_filter'];
     }
 
     /**
-     * Sets mode
+     * Sets project_id_or_title_filter
      *
-     * @param string $mode mode
+     * @param string $project_id_or_title_filter project_id_or_title_filter
      *
      * @return $this
      */
-    public function setMode($mode)
+    public function setProjectIdOrTitleFilter($project_id_or_title_filter)
     {
-        $this->container['mode'] = $mode;
+        $this->container['project_id_or_title_filter'] = $project_id_or_title_filter;
 
         return $this;
     }
 
     /**
-     * Gets type
+     * Gets space_name
      *
      * @return string
      */
-    public function getType()
+    public function getSpaceName()
     {
-        return $this->container['type'];
+        return $this->container['space_name'];
     }
 
     /**
-     * Sets type
+     * Sets space_name
      *
-     * @param string $type type
+     * @param string $space_name space_name
      *
      * @return $this
      */
-    public function setType($type)
+    public function setSpaceName($space_name)
     {
-        $this->container['type'] = $type;
+        $this->container['space_name'] = $space_name;
 
         return $this;
     }
 
     /**
-     * Gets with_confidence
+     * Gets status_filter
      *
-     * @return bool
+     * @return string
      */
-    public function getWithConfidence()
+    public function getStatusFilter()
     {
-        return $this->container['with_confidence'];
+        return $this->container['status_filter'];
     }
 
     /**
-     * Sets with_confidence
+     * Sets status_filter
      *
-     * @param bool $with_confidence with_confidence
+     * @param string $status_filter status_filter
      *
      * @return $this
      */
-    public function setWithConfidence($with_confidence)
+    public function setStatusFilter($status_filter)
     {
-        $this->container['with_confidence'] = $with_confidence;
-
-        return $this;
-    }
-
-    /**
-     * Gets with_speaker_info
-     *
-     * @return bool
-     */
-    public function getWithSpeakerInfo()
-    {
-        return $this->container['with_speaker_info'];
-    }
-
-    /**
-     * Sets with_speaker_info
-     *
-     * @param bool $with_speaker_info with_speaker_info
-     *
-     * @return $this
-     */
-    public function setWithSpeakerInfo($with_speaker_info)
-    {
-        $this->container['with_speaker_info'] = $with_speaker_info;
+        $this->container['status_filter'] = $status_filter;
 
         return $this;
     }

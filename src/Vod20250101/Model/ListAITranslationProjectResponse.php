@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
+class ListAITranslationProjectResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AsrForGetExecutionOutput';
+    protected static $swaggerModelName = 'ListAITranslationProjectResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,11 +28,10 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'language' => 'string',
-        'mode' => 'string',
-        'type' => 'string',
-        'with_confidence' => 'bool',
-        'with_speaker_info' => 'bool'
+        'page_number' => 'int',
+        'page_size' => 'int',
+        'projects' => '\Volcengine\Vod20250101\Model\ProjectForListAITranslationProjectOutput[]',
+        'total_count' => 'int'
     ];
 
     /**
@@ -41,11 +40,10 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'language' => null,
-        'mode' => null,
-        'type' => null,
-        'with_confidence' => null,
-        'with_speaker_info' => null
+        'page_number' => 'int32',
+        'page_size' => 'int32',
+        'projects' => null,
+        'total_count' => 'int32'
     ];
 
     /**
@@ -75,11 +73,10 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'language' => 'Language',
-        'mode' => 'Mode',
-        'type' => 'Type',
-        'with_confidence' => 'WithConfidence',
-        'with_speaker_info' => 'WithSpeakerInfo'
+        'page_number' => 'PageNumber',
+        'page_size' => 'PageSize',
+        'projects' => 'Projects',
+        'total_count' => 'TotalCount'
     ];
 
     /**
@@ -88,11 +85,10 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'language' => 'setLanguage',
-        'mode' => 'setMode',
-        'type' => 'setType',
-        'with_confidence' => 'setWithConfidence',
-        'with_speaker_info' => 'setWithSpeakerInfo'
+        'page_number' => 'setPageNumber',
+        'page_size' => 'setPageSize',
+        'projects' => 'setProjects',
+        'total_count' => 'setTotalCount'
     ];
 
     /**
@@ -101,11 +97,10 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'language' => 'getLanguage',
-        'mode' => 'getMode',
-        'type' => 'getType',
-        'with_confidence' => 'getWithConfidence',
-        'with_speaker_info' => 'getWithSpeakerInfo'
+        'page_number' => 'getPageNumber',
+        'page_size' => 'getPageSize',
+        'projects' => 'getProjects',
+        'total_count' => 'getTotalCount'
     ];
 
     /**
@@ -168,11 +163,10 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['language'] = isset($data['language']) ? $data['language'] : null;
-        $this->container['mode'] = isset($data['mode']) ? $data['mode'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['with_confidence'] = isset($data['with_confidence']) ? $data['with_confidence'] : null;
-        $this->container['with_speaker_info'] = isset($data['with_speaker_info']) ? $data['with_speaker_info'] : null;
+        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
+        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
+        $this->container['projects'] = isset($data['projects']) ? $data['projects'] : null;
+        $this->container['total_count'] = isset($data['total_count']) ? $data['total_count'] : null;
     }
 
     /**
@@ -200,121 +194,97 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets language
+     * Gets page_number
      *
-     * @return string
+     * @return int
      */
-    public function getLanguage()
+    public function getPageNumber()
     {
-        return $this->container['language'];
+        return $this->container['page_number'];
     }
 
     /**
-     * Sets language
+     * Sets page_number
      *
-     * @param string $language language
+     * @param int $page_number page_number
      *
      * @return $this
      */
-    public function setLanguage($language)
+    public function setPageNumber($page_number)
     {
-        $this->container['language'] = $language;
+        $this->container['page_number'] = $page_number;
 
         return $this;
     }
 
     /**
-     * Gets mode
+     * Gets page_size
      *
-     * @return string
+     * @return int
      */
-    public function getMode()
+    public function getPageSize()
     {
-        return $this->container['mode'];
+        return $this->container['page_size'];
     }
 
     /**
-     * Sets mode
+     * Sets page_size
      *
-     * @param string $mode mode
+     * @param int $page_size page_size
      *
      * @return $this
      */
-    public function setMode($mode)
+    public function setPageSize($page_size)
     {
-        $this->container['mode'] = $mode;
+        $this->container['page_size'] = $page_size;
 
         return $this;
     }
 
     /**
-     * Gets type
+     * Gets projects
      *
-     * @return string
+     * @return \Volcengine\Vod20250101\Model\ProjectForListAITranslationProjectOutput[]
      */
-    public function getType()
+    public function getProjects()
     {
-        return $this->container['type'];
+        return $this->container['projects'];
     }
 
     /**
-     * Sets type
+     * Sets projects
      *
-     * @param string $type type
+     * @param \Volcengine\Vod20250101\Model\ProjectForListAITranslationProjectOutput[] $projects projects
      *
      * @return $this
      */
-    public function setType($type)
+    public function setProjects($projects)
     {
-        $this->container['type'] = $type;
+        $this->container['projects'] = $projects;
 
         return $this;
     }
 
     /**
-     * Gets with_confidence
+     * Gets total_count
      *
-     * @return bool
+     * @return int
      */
-    public function getWithConfidence()
+    public function getTotalCount()
     {
-        return $this->container['with_confidence'];
+        return $this->container['total_count'];
     }
 
     /**
-     * Sets with_confidence
+     * Sets total_count
      *
-     * @param bool $with_confidence with_confidence
+     * @param int $total_count total_count
      *
      * @return $this
      */
-    public function setWithConfidence($with_confidence)
+    public function setTotalCount($total_count)
     {
-        $this->container['with_confidence'] = $with_confidence;
-
-        return $this;
-    }
-
-    /**
-     * Gets with_speaker_info
-     *
-     * @return bool
-     */
-    public function getWithSpeakerInfo()
-    {
-        return $this->container['with_speaker_info'];
-    }
-
-    /**
-     * Sets with_speaker_info
-     *
-     * @param bool $with_speaker_info with_speaker_info
-     *
-     * @return $this
-     */
-    public function setWithSpeakerInfo($with_speaker_info)
-    {
-        $this->container['with_speaker_info'] = $with_speaker_info;
+        $this->container['total_count'] = $total_count;
 
         return $this;
     }

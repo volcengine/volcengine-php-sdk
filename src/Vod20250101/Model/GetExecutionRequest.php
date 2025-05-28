@@ -160,6 +160,9 @@ class GetExecutionRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['run_id'] === null) {
+            $invalidProperties[] = "'run_id' can't be null";
+        }
         return $invalidProperties;
     }
 

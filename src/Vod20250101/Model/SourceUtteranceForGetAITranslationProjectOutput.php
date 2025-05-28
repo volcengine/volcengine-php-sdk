@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class TaskForStartExecutionInput implements ModelInterface, ArrayAccess
+class SourceUtteranceForGetAITranslationProjectOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class TaskForStartExecutionInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'TaskForStartExecutionInput';
+    protected static $swaggerModelName = 'SourceUtteranceForGetAITranslationProjectOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,15 +28,16 @@ class TaskForStartExecutionInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'ad_audit' => '\Volcengine\Vod20250101\Model\AdAuditForStartExecutionInput',
-        'asr' => '\Volcengine\Vod20250101\Model\AsrForStartExecutionInput',
-        'audio_extract' => '\Volcengine\Vod20250101\Model\AudioExtractForStartExecutionInput',
-        'highlight' => '\Volcengine\Vod20250101\Model\HighlightForStartExecutionInput',
-        'ocr' => '\Volcengine\Vod20250101\Model\OcrForStartExecutionInput',
-        'segment' => '\Volcengine\Vod20250101\Model\SegmentForStartExecutionInput',
-        'storyline' => '\Volcengine\Vod20250101\Model\StorylineForStartExecutionInput',
-        'type' => 'string',
-        'vision' => '\Volcengine\Vod20250101\Model\VisionForStartExecutionInput'
+        'blueprint_id' => 'string',
+        'clip_id' => 'string',
+        'id' => 'string',
+        'is_facial_translation' => 'bool',
+        'project_id' => 'string',
+        'source_id' => 'string',
+        'speaker_id' => 'string',
+        'status' => 'string',
+        'text' => 'string',
+        'translation_type' => 'string'
     ];
 
     /**
@@ -45,15 +46,16 @@ class TaskForStartExecutionInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'ad_audit' => null,
-        'asr' => null,
-        'audio_extract' => null,
-        'highlight' => null,
-        'ocr' => null,
-        'segment' => null,
-        'storyline' => null,
-        'type' => null,
-        'vision' => null
+        'blueprint_id' => null,
+        'clip_id' => null,
+        'id' => null,
+        'is_facial_translation' => null,
+        'project_id' => null,
+        'source_id' => null,
+        'speaker_id' => null,
+        'status' => null,
+        'text' => null,
+        'translation_type' => null
     ];
 
     /**
@@ -83,15 +85,16 @@ class TaskForStartExecutionInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'ad_audit' => 'AdAudit',
-        'asr' => 'Asr',
-        'audio_extract' => 'AudioExtract',
-        'highlight' => 'Highlight',
-        'ocr' => 'Ocr',
-        'segment' => 'Segment',
-        'storyline' => 'Storyline',
-        'type' => 'Type',
-        'vision' => 'Vision'
+        'blueprint_id' => 'BlueprintId',
+        'clip_id' => 'ClipId',
+        'id' => 'Id',
+        'is_facial_translation' => 'IsFacialTranslation',
+        'project_id' => 'ProjectId',
+        'source_id' => 'SourceId',
+        'speaker_id' => 'SpeakerId',
+        'status' => 'Status',
+        'text' => 'Text',
+        'translation_type' => 'TranslationType'
     ];
 
     /**
@@ -100,15 +103,16 @@ class TaskForStartExecutionInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'ad_audit' => 'setAdAudit',
-        'asr' => 'setAsr',
-        'audio_extract' => 'setAudioExtract',
-        'highlight' => 'setHighlight',
-        'ocr' => 'setOcr',
-        'segment' => 'setSegment',
-        'storyline' => 'setStoryline',
-        'type' => 'setType',
-        'vision' => 'setVision'
+        'blueprint_id' => 'setBlueprintId',
+        'clip_id' => 'setClipId',
+        'id' => 'setId',
+        'is_facial_translation' => 'setIsFacialTranslation',
+        'project_id' => 'setProjectId',
+        'source_id' => 'setSourceId',
+        'speaker_id' => 'setSpeakerId',
+        'status' => 'setStatus',
+        'text' => 'setText',
+        'translation_type' => 'setTranslationType'
     ];
 
     /**
@@ -117,15 +121,16 @@ class TaskForStartExecutionInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'ad_audit' => 'getAdAudit',
-        'asr' => 'getAsr',
-        'audio_extract' => 'getAudioExtract',
-        'highlight' => 'getHighlight',
-        'ocr' => 'getOcr',
-        'segment' => 'getSegment',
-        'storyline' => 'getStoryline',
-        'type' => 'getType',
-        'vision' => 'getVision'
+        'blueprint_id' => 'getBlueprintId',
+        'clip_id' => 'getClipId',
+        'id' => 'getId',
+        'is_facial_translation' => 'getIsFacialTranslation',
+        'project_id' => 'getProjectId',
+        'source_id' => 'getSourceId',
+        'speaker_id' => 'getSpeakerId',
+        'status' => 'getStatus',
+        'text' => 'getText',
+        'translation_type' => 'getTranslationType'
     ];
 
     /**
@@ -188,15 +193,16 @@ class TaskForStartExecutionInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['ad_audit'] = isset($data['ad_audit']) ? $data['ad_audit'] : null;
-        $this->container['asr'] = isset($data['asr']) ? $data['asr'] : null;
-        $this->container['audio_extract'] = isset($data['audio_extract']) ? $data['audio_extract'] : null;
-        $this->container['highlight'] = isset($data['highlight']) ? $data['highlight'] : null;
-        $this->container['ocr'] = isset($data['ocr']) ? $data['ocr'] : null;
-        $this->container['segment'] = isset($data['segment']) ? $data['segment'] : null;
-        $this->container['storyline'] = isset($data['storyline']) ? $data['storyline'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['vision'] = isset($data['vision']) ? $data['vision'] : null;
+        $this->container['blueprint_id'] = isset($data['blueprint_id']) ? $data['blueprint_id'] : null;
+        $this->container['clip_id'] = isset($data['clip_id']) ? $data['clip_id'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['is_facial_translation'] = isset($data['is_facial_translation']) ? $data['is_facial_translation'] : null;
+        $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
+        $this->container['source_id'] = isset($data['source_id']) ? $data['source_id'] : null;
+        $this->container['speaker_id'] = isset($data['speaker_id']) ? $data['speaker_id'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['text'] = isset($data['text']) ? $data['text'] : null;
+        $this->container['translation_type'] = isset($data['translation_type']) ? $data['translation_type'] : null;
     }
 
     /**
@@ -224,217 +230,241 @@ class TaskForStartExecutionInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets ad_audit
-     *
-     * @return \Volcengine\Vod20250101\Model\AdAuditForStartExecutionInput
-     */
-    public function getAdAudit()
-    {
-        return $this->container['ad_audit'];
-    }
-
-    /**
-     * Sets ad_audit
-     *
-     * @param \Volcengine\Vod20250101\Model\AdAuditForStartExecutionInput $ad_audit ad_audit
-     *
-     * @return $this
-     */
-    public function setAdAudit($ad_audit)
-    {
-        $this->container['ad_audit'] = $ad_audit;
-
-        return $this;
-    }
-
-    /**
-     * Gets asr
-     *
-     * @return \Volcengine\Vod20250101\Model\AsrForStartExecutionInput
-     */
-    public function getAsr()
-    {
-        return $this->container['asr'];
-    }
-
-    /**
-     * Sets asr
-     *
-     * @param \Volcengine\Vod20250101\Model\AsrForStartExecutionInput $asr asr
-     *
-     * @return $this
-     */
-    public function setAsr($asr)
-    {
-        $this->container['asr'] = $asr;
-
-        return $this;
-    }
-
-    /**
-     * Gets audio_extract
-     *
-     * @return \Volcengine\Vod20250101\Model\AudioExtractForStartExecutionInput
-     */
-    public function getAudioExtract()
-    {
-        return $this->container['audio_extract'];
-    }
-
-    /**
-     * Sets audio_extract
-     *
-     * @param \Volcengine\Vod20250101\Model\AudioExtractForStartExecutionInput $audio_extract audio_extract
-     *
-     * @return $this
-     */
-    public function setAudioExtract($audio_extract)
-    {
-        $this->container['audio_extract'] = $audio_extract;
-
-        return $this;
-    }
-
-    /**
-     * Gets highlight
-     *
-     * @return \Volcengine\Vod20250101\Model\HighlightForStartExecutionInput
-     */
-    public function getHighlight()
-    {
-        return $this->container['highlight'];
-    }
-
-    /**
-     * Sets highlight
-     *
-     * @param \Volcengine\Vod20250101\Model\HighlightForStartExecutionInput $highlight highlight
-     *
-     * @return $this
-     */
-    public function setHighlight($highlight)
-    {
-        $this->container['highlight'] = $highlight;
-
-        return $this;
-    }
-
-    /**
-     * Gets ocr
-     *
-     * @return \Volcengine\Vod20250101\Model\OcrForStartExecutionInput
-     */
-    public function getOcr()
-    {
-        return $this->container['ocr'];
-    }
-
-    /**
-     * Sets ocr
-     *
-     * @param \Volcengine\Vod20250101\Model\OcrForStartExecutionInput $ocr ocr
-     *
-     * @return $this
-     */
-    public function setOcr($ocr)
-    {
-        $this->container['ocr'] = $ocr;
-
-        return $this;
-    }
-
-    /**
-     * Gets segment
-     *
-     * @return \Volcengine\Vod20250101\Model\SegmentForStartExecutionInput
-     */
-    public function getSegment()
-    {
-        return $this->container['segment'];
-    }
-
-    /**
-     * Sets segment
-     *
-     * @param \Volcengine\Vod20250101\Model\SegmentForStartExecutionInput $segment segment
-     *
-     * @return $this
-     */
-    public function setSegment($segment)
-    {
-        $this->container['segment'] = $segment;
-
-        return $this;
-    }
-
-    /**
-     * Gets storyline
-     *
-     * @return \Volcengine\Vod20250101\Model\StorylineForStartExecutionInput
-     */
-    public function getStoryline()
-    {
-        return $this->container['storyline'];
-    }
-
-    /**
-     * Sets storyline
-     *
-     * @param \Volcengine\Vod20250101\Model\StorylineForStartExecutionInput $storyline storyline
-     *
-     * @return $this
-     */
-    public function setStoryline($storyline)
-    {
-        $this->container['storyline'] = $storyline;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
+     * Gets blueprint_id
      *
      * @return string
      */
-    public function getType()
+    public function getBlueprintId()
     {
-        return $this->container['type'];
+        return $this->container['blueprint_id'];
     }
 
     /**
-     * Sets type
+     * Sets blueprint_id
      *
-     * @param string $type type
+     * @param string $blueprint_id blueprint_id
      *
      * @return $this
      */
-    public function setType($type)
+    public function setBlueprintId($blueprint_id)
     {
-        $this->container['type'] = $type;
+        $this->container['blueprint_id'] = $blueprint_id;
 
         return $this;
     }
 
     /**
-     * Gets vision
+     * Gets clip_id
      *
-     * @return \Volcengine\Vod20250101\Model\VisionForStartExecutionInput
+     * @return string
      */
-    public function getVision()
+    public function getClipId()
     {
-        return $this->container['vision'];
+        return $this->container['clip_id'];
     }
 
     /**
-     * Sets vision
+     * Sets clip_id
      *
-     * @param \Volcengine\Vod20250101\Model\VisionForStartExecutionInput $vision vision
+     * @param string $clip_id clip_id
      *
      * @return $this
      */
-    public function setVision($vision)
+    public function setClipId($clip_id)
     {
-        $this->container['vision'] = $vision;
+        $this->container['clip_id'] = $clip_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string $id id
+     *
+     * @return $this
+     */
+    public function setId($id)
+    {
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_facial_translation
+     *
+     * @return bool
+     */
+    public function getIsFacialTranslation()
+    {
+        return $this->container['is_facial_translation'];
+    }
+
+    /**
+     * Sets is_facial_translation
+     *
+     * @param bool $is_facial_translation is_facial_translation
+     *
+     * @return $this
+     */
+    public function setIsFacialTranslation($is_facial_translation)
+    {
+        $this->container['is_facial_translation'] = $is_facial_translation;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_id
+     *
+     * @return string
+     */
+    public function getProjectId()
+    {
+        return $this->container['project_id'];
+    }
+
+    /**
+     * Sets project_id
+     *
+     * @param string $project_id project_id
+     *
+     * @return $this
+     */
+    public function setProjectId($project_id)
+    {
+        $this->container['project_id'] = $project_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets source_id
+     *
+     * @return string
+     */
+    public function getSourceId()
+    {
+        return $this->container['source_id'];
+    }
+
+    /**
+     * Sets source_id
+     *
+     * @param string $source_id source_id
+     *
+     * @return $this
+     */
+    public function setSourceId($source_id)
+    {
+        $this->container['source_id'] = $source_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets speaker_id
+     *
+     * @return string
+     */
+    public function getSpeakerId()
+    {
+        return $this->container['speaker_id'];
+    }
+
+    /**
+     * Sets speaker_id
+     *
+     * @param string $speaker_id speaker_id
+     *
+     * @return $this
+     */
+    public function setSpeakerId($speaker_id)
+    {
+        $this->container['speaker_id'] = $speaker_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param string $status status
+     *
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets text
+     *
+     * @return string
+     */
+    public function getText()
+    {
+        return $this->container['text'];
+    }
+
+    /**
+     * Sets text
+     *
+     * @param string $text text
+     *
+     * @return $this
+     */
+    public function setText($text)
+    {
+        $this->container['text'] = $text;
+
+        return $this;
+    }
+
+    /**
+     * Gets translation_type
+     *
+     * @return string
+     */
+    public function getTranslationType()
+    {
+        return $this->container['translation_type'];
+    }
+
+    /**
+     * Sets translation_type
+     *
+     * @param string $translation_type translation_type
+     *
+     * @return $this
+     */
+    public function setTranslationType($translation_type)
+    {
+        $this->container['translation_type'] = $translation_type;
 
         return $this;
     }

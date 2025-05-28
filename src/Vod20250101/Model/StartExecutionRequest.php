@@ -30,6 +30,7 @@ class StartExecutionRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'control' => '\Volcengine\Vod20250101\Model\ControlForStartExecutionInput',
         'input' => '\Volcengine\Vod20250101\Model\InputForStartExecutionInput',
+        'multi_inputs' => '\Volcengine\Vod20250101\Model\MultiInputForStartExecutionInput[]',
         'operation' => '\Volcengine\Vod20250101\Model\OperationForStartExecutionInput'
     ];
 
@@ -41,6 +42,7 @@ class StartExecutionRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'control' => null,
         'input' => null,
+        'multi_inputs' => null,
         'operation' => null
     ];
 
@@ -73,6 +75,7 @@ class StartExecutionRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'control' => 'Control',
         'input' => 'Input',
+        'multi_inputs' => 'MultiInputs',
         'operation' => 'Operation'
     ];
 
@@ -84,6 +87,7 @@ class StartExecutionRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'control' => 'setControl',
         'input' => 'setInput',
+        'multi_inputs' => 'setMultiInputs',
         'operation' => 'setOperation'
     ];
 
@@ -95,6 +99,7 @@ class StartExecutionRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'control' => 'getControl',
         'input' => 'getInput',
+        'multi_inputs' => 'getMultiInputs',
         'operation' => 'getOperation'
     ];
 
@@ -160,6 +165,7 @@ class StartExecutionRequest implements ModelInterface, ArrayAccess
     {
         $this->container['control'] = isset($data['control']) ? $data['control'] : null;
         $this->container['input'] = isset($data['input']) ? $data['input'] : null;
+        $this->container['multi_inputs'] = isset($data['multi_inputs']) ? $data['multi_inputs'] : null;
         $this->container['operation'] = isset($data['operation']) ? $data['operation'] : null;
     }
 
@@ -231,6 +237,30 @@ class StartExecutionRequest implements ModelInterface, ArrayAccess
     public function setInput($input)
     {
         $this->container['input'] = $input;
+
+        return $this;
+    }
+
+    /**
+     * Gets multi_inputs
+     *
+     * @return \Volcengine\Vod20250101\Model\MultiInputForStartExecutionInput[]
+     */
+    public function getMultiInputs()
+    {
+        return $this->container['multi_inputs'];
+    }
+
+    /**
+     * Sets multi_inputs
+     *
+     * @param \Volcengine\Vod20250101\Model\MultiInputForStartExecutionInput[] $multi_inputs multi_inputs
+     *
+     * @return $this
+     */
+    public function setMultiInputs($multi_inputs)
+    {
+        $this->container['multi_inputs'] = $multi_inputs;
 
         return $this;
     }

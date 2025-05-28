@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
+class MultiInputForStartExecutionInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AsrForGetExecutionOutput';
+    protected static $swaggerModelName = 'MultiInputForStartExecutionInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,11 +28,10 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'language' => 'string',
-        'mode' => 'string',
+        'direct_url' => '\Volcengine\Vod20250101\Model\DirectUrlForStartExecutionInput',
+        'file_id' => '\Volcengine\Vod20250101\Model\FileIdForStartExecutionInput',
         'type' => 'string',
-        'with_confidence' => 'bool',
-        'with_speaker_info' => 'bool'
+        'vid' => 'string'
     ];
 
     /**
@@ -41,11 +40,10 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'language' => null,
-        'mode' => null,
+        'direct_url' => null,
+        'file_id' => null,
         'type' => null,
-        'with_confidence' => null,
-        'with_speaker_info' => null
+        'vid' => null
     ];
 
     /**
@@ -75,11 +73,10 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'language' => 'Language',
-        'mode' => 'Mode',
+        'direct_url' => 'DirectUrl',
+        'file_id' => 'FileId',
         'type' => 'Type',
-        'with_confidence' => 'WithConfidence',
-        'with_speaker_info' => 'WithSpeakerInfo'
+        'vid' => 'Vid'
     ];
 
     /**
@@ -88,11 +85,10 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'language' => 'setLanguage',
-        'mode' => 'setMode',
+        'direct_url' => 'setDirectUrl',
+        'file_id' => 'setFileId',
         'type' => 'setType',
-        'with_confidence' => 'setWithConfidence',
-        'with_speaker_info' => 'setWithSpeakerInfo'
+        'vid' => 'setVid'
     ];
 
     /**
@@ -101,11 +97,10 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'language' => 'getLanguage',
-        'mode' => 'getMode',
+        'direct_url' => 'getDirectUrl',
+        'file_id' => 'getFileId',
         'type' => 'getType',
-        'with_confidence' => 'getWithConfidence',
-        'with_speaker_info' => 'getWithSpeakerInfo'
+        'vid' => 'getVid'
     ];
 
     /**
@@ -168,11 +163,10 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['language'] = isset($data['language']) ? $data['language'] : null;
-        $this->container['mode'] = isset($data['mode']) ? $data['mode'] : null;
+        $this->container['direct_url'] = isset($data['direct_url']) ? $data['direct_url'] : null;
+        $this->container['file_id'] = isset($data['file_id']) ? $data['file_id'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['with_confidence'] = isset($data['with_confidence']) ? $data['with_confidence'] : null;
-        $this->container['with_speaker_info'] = isset($data['with_speaker_info']) ? $data['with_speaker_info'] : null;
+        $this->container['vid'] = isset($data['vid']) ? $data['vid'] : null;
     }
 
     /**
@@ -200,49 +194,49 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets language
+     * Gets direct_url
      *
-     * @return string
+     * @return \Volcengine\Vod20250101\Model\DirectUrlForStartExecutionInput
      */
-    public function getLanguage()
+    public function getDirectUrl()
     {
-        return $this->container['language'];
+        return $this->container['direct_url'];
     }
 
     /**
-     * Sets language
+     * Sets direct_url
      *
-     * @param string $language language
+     * @param \Volcengine\Vod20250101\Model\DirectUrlForStartExecutionInput $direct_url direct_url
      *
      * @return $this
      */
-    public function setLanguage($language)
+    public function setDirectUrl($direct_url)
     {
-        $this->container['language'] = $language;
+        $this->container['direct_url'] = $direct_url;
 
         return $this;
     }
 
     /**
-     * Gets mode
+     * Gets file_id
      *
-     * @return string
+     * @return \Volcengine\Vod20250101\Model\FileIdForStartExecutionInput
      */
-    public function getMode()
+    public function getFileId()
     {
-        return $this->container['mode'];
+        return $this->container['file_id'];
     }
 
     /**
-     * Sets mode
+     * Sets file_id
      *
-     * @param string $mode mode
+     * @param \Volcengine\Vod20250101\Model\FileIdForStartExecutionInput $file_id file_id
      *
      * @return $this
      */
-    public function setMode($mode)
+    public function setFileId($file_id)
     {
-        $this->container['mode'] = $mode;
+        $this->container['file_id'] = $file_id;
 
         return $this;
     }
@@ -272,49 +266,25 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets with_confidence
+     * Gets vid
      *
-     * @return bool
+     * @return string
      */
-    public function getWithConfidence()
+    public function getVid()
     {
-        return $this->container['with_confidence'];
+        return $this->container['vid'];
     }
 
     /**
-     * Sets with_confidence
+     * Sets vid
      *
-     * @param bool $with_confidence with_confidence
+     * @param string $vid vid
      *
      * @return $this
      */
-    public function setWithConfidence($with_confidence)
+    public function setVid($vid)
     {
-        $this->container['with_confidence'] = $with_confidence;
-
-        return $this;
-    }
-
-    /**
-     * Gets with_speaker_info
-     *
-     * @return bool
-     */
-    public function getWithSpeakerInfo()
-    {
-        return $this->container['with_speaker_info'];
-    }
-
-    /**
-     * Sets with_speaker_info
-     *
-     * @param bool $with_speaker_info with_speaker_info
-     *
-     * @return $this
-     */
-    public function setWithSpeakerInfo($with_speaker_info)
-    {
-        $this->container['with_speaker_info'] = $with_speaker_info;
+        $this->container['vid'] = $vid;
 
         return $this;
     }
