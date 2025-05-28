@@ -34,7 +34,7 @@ class SetRenewalTypeRequest implements ModelInterface, ArrayAccess
         'renew_type' => 'string',
         'renewal_duration' => 'int',
         'renewal_duration_unit' => 'string',
-        'renewal_times' => 'string',
+        'renewal_times' => 'int',
         'set_renewal_related_instance' => 'bool'
     ];
 
@@ -50,7 +50,7 @@ class SetRenewalTypeRequest implements ModelInterface, ArrayAccess
         'renew_type' => null,
         'renewal_duration' => 'int64',
         'renewal_duration_unit' => null,
-        'renewal_times' => null,
+        'renewal_times' => 'int64',
         'set_renewal_related_instance' => null
     ];
 
@@ -373,7 +373,7 @@ class SetRenewalTypeRequest implements ModelInterface, ArrayAccess
     /**
      * Gets renewal_times
      *
-     * @return string
+     * @return int
      */
     public function getRenewalTimes()
     {
@@ -383,7 +383,7 @@ class SetRenewalTypeRequest implements ModelInterface, ArrayAccess
     /**
      * Sets renewal_times
      *
-     * @param string $renewal_times renewal_times
+     * @param int $renewal_times renewal_times
      *
      * @return $this
      */
