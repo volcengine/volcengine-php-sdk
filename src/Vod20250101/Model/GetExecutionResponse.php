@@ -32,6 +32,7 @@ class GetExecutionResponse implements ModelInterface, ArrayAccess
         'control' => '\Volcengine\Vod20250101\Model\ControlForGetExecutionOutput',
         'input' => '\Volcengine\Vod20250101\Model\InputForGetExecutionOutput',
         'meta' => '\Volcengine\Vod20250101\Model\MetaForGetExecutionOutput',
+        'multi_inputs' => '\Volcengine\Vod20250101\Model\MultiInputForGetExecutionOutput[]',
         'operation' => '\Volcengine\Vod20250101\Model\OperationForGetExecutionOutput',
         'output' => '\Volcengine\Vod20250101\Model\OutputForGetExecutionOutput',
         'run_id' => 'string',
@@ -48,6 +49,7 @@ class GetExecutionResponse implements ModelInterface, ArrayAccess
         'control' => null,
         'input' => null,
         'meta' => null,
+        'multi_inputs' => null,
         'operation' => null,
         'output' => null,
         'run_id' => null,
@@ -85,6 +87,7 @@ class GetExecutionResponse implements ModelInterface, ArrayAccess
         'control' => 'Control',
         'input' => 'Input',
         'meta' => 'Meta',
+        'multi_inputs' => 'MultiInputs',
         'operation' => 'Operation',
         'output' => 'Output',
         'run_id' => 'RunId',
@@ -101,6 +104,7 @@ class GetExecutionResponse implements ModelInterface, ArrayAccess
         'control' => 'setControl',
         'input' => 'setInput',
         'meta' => 'setMeta',
+        'multi_inputs' => 'setMultiInputs',
         'operation' => 'setOperation',
         'output' => 'setOutput',
         'run_id' => 'setRunId',
@@ -117,6 +121,7 @@ class GetExecutionResponse implements ModelInterface, ArrayAccess
         'control' => 'getControl',
         'input' => 'getInput',
         'meta' => 'getMeta',
+        'multi_inputs' => 'getMultiInputs',
         'operation' => 'getOperation',
         'output' => 'getOutput',
         'run_id' => 'getRunId',
@@ -187,6 +192,7 @@ class GetExecutionResponse implements ModelInterface, ArrayAccess
         $this->container['control'] = isset($data['control']) ? $data['control'] : null;
         $this->container['input'] = isset($data['input']) ? $data['input'] : null;
         $this->container['meta'] = isset($data['meta']) ? $data['meta'] : null;
+        $this->container['multi_inputs'] = isset($data['multi_inputs']) ? $data['multi_inputs'] : null;
         $this->container['operation'] = isset($data['operation']) ? $data['operation'] : null;
         $this->container['output'] = isset($data['output']) ? $data['output'] : null;
         $this->container['run_id'] = isset($data['run_id']) ? $data['run_id'] : null;
@@ -309,6 +315,30 @@ class GetExecutionResponse implements ModelInterface, ArrayAccess
     public function setMeta($meta)
     {
         $this->container['meta'] = $meta;
+
+        return $this;
+    }
+
+    /**
+     * Gets multi_inputs
+     *
+     * @return \Volcengine\Vod20250101\Model\MultiInputForGetExecutionOutput[]
+     */
+    public function getMultiInputs()
+    {
+        return $this->container['multi_inputs'];
+    }
+
+    /**
+     * Sets multi_inputs
+     *
+     * @param \Volcengine\Vod20250101\Model\MultiInputForGetExecutionOutput[] $multi_inputs multi_inputs
+     *
+     * @return $this
+     */
+    public function setMultiInputs($multi_inputs)
+    {
+        $this->container['multi_inputs'] = $multi_inputs;
 
         return $this;
     }

@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
+class ConvertConvertStorylineForGetExecutionOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AsrForGetExecutionOutput';
+    protected static $swaggerModelName = 'ConvertConvertStorylineForGetExecutionOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,11 +28,12 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'language' => 'string',
-        'mode' => 'string',
-        'type' => 'string',
-        'with_confidence' => 'bool',
-        'with_speaker_info' => 'bool'
+        'all_tags' => '\Volcengine\Vod20250101\Model\AllTagForGetExecutionOutput[]',
+        'clips' => '\Volcengine\Vod20250101\Model\ConvertClipForGetExecutionOutput[]',
+        'duration' => 'double',
+        'storylines' => '\Volcengine\Vod20250101\Model\ConvertStorylineForGetExecutionOutput[]',
+        'summaries' => 'string[]',
+        'titles' => 'string[]'
     ];
 
     /**
@@ -41,11 +42,12 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'language' => null,
-        'mode' => null,
-        'type' => null,
-        'with_confidence' => null,
-        'with_speaker_info' => null
+        'all_tags' => null,
+        'clips' => null,
+        'duration' => 'double',
+        'storylines' => null,
+        'summaries' => null,
+        'titles' => null
     ];
 
     /**
@@ -75,11 +77,12 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'language' => 'Language',
-        'mode' => 'Mode',
-        'type' => 'Type',
-        'with_confidence' => 'WithConfidence',
-        'with_speaker_info' => 'WithSpeakerInfo'
+        'all_tags' => 'AllTags',
+        'clips' => 'Clips',
+        'duration' => 'Duration',
+        'storylines' => 'Storylines',
+        'summaries' => 'Summaries',
+        'titles' => 'Titles'
     ];
 
     /**
@@ -88,11 +91,12 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'language' => 'setLanguage',
-        'mode' => 'setMode',
-        'type' => 'setType',
-        'with_confidence' => 'setWithConfidence',
-        'with_speaker_info' => 'setWithSpeakerInfo'
+        'all_tags' => 'setAllTags',
+        'clips' => 'setClips',
+        'duration' => 'setDuration',
+        'storylines' => 'setStorylines',
+        'summaries' => 'setSummaries',
+        'titles' => 'setTitles'
     ];
 
     /**
@@ -101,11 +105,12 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'language' => 'getLanguage',
-        'mode' => 'getMode',
-        'type' => 'getType',
-        'with_confidence' => 'getWithConfidence',
-        'with_speaker_info' => 'getWithSpeakerInfo'
+        'all_tags' => 'getAllTags',
+        'clips' => 'getClips',
+        'duration' => 'getDuration',
+        'storylines' => 'getStorylines',
+        'summaries' => 'getSummaries',
+        'titles' => 'getTitles'
     ];
 
     /**
@@ -168,11 +173,12 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['language'] = isset($data['language']) ? $data['language'] : null;
-        $this->container['mode'] = isset($data['mode']) ? $data['mode'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['with_confidence'] = isset($data['with_confidence']) ? $data['with_confidence'] : null;
-        $this->container['with_speaker_info'] = isset($data['with_speaker_info']) ? $data['with_speaker_info'] : null;
+        $this->container['all_tags'] = isset($data['all_tags']) ? $data['all_tags'] : null;
+        $this->container['clips'] = isset($data['clips']) ? $data['clips'] : null;
+        $this->container['duration'] = isset($data['duration']) ? $data['duration'] : null;
+        $this->container['storylines'] = isset($data['storylines']) ? $data['storylines'] : null;
+        $this->container['summaries'] = isset($data['summaries']) ? $data['summaries'] : null;
+        $this->container['titles'] = isset($data['titles']) ? $data['titles'] : null;
     }
 
     /**
@@ -200,121 +206,145 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets language
+     * Gets all_tags
      *
-     * @return string
+     * @return \Volcengine\Vod20250101\Model\AllTagForGetExecutionOutput[]
      */
-    public function getLanguage()
+    public function getAllTags()
     {
-        return $this->container['language'];
+        return $this->container['all_tags'];
     }
 
     /**
-     * Sets language
+     * Sets all_tags
      *
-     * @param string $language language
+     * @param \Volcengine\Vod20250101\Model\AllTagForGetExecutionOutput[] $all_tags all_tags
      *
      * @return $this
      */
-    public function setLanguage($language)
+    public function setAllTags($all_tags)
     {
-        $this->container['language'] = $language;
+        $this->container['all_tags'] = $all_tags;
 
         return $this;
     }
 
     /**
-     * Gets mode
+     * Gets clips
      *
-     * @return string
+     * @return \Volcengine\Vod20250101\Model\ConvertClipForGetExecutionOutput[]
      */
-    public function getMode()
+    public function getClips()
     {
-        return $this->container['mode'];
+        return $this->container['clips'];
     }
 
     /**
-     * Sets mode
+     * Sets clips
      *
-     * @param string $mode mode
+     * @param \Volcengine\Vod20250101\Model\ConvertClipForGetExecutionOutput[] $clips clips
      *
      * @return $this
      */
-    public function setMode($mode)
+    public function setClips($clips)
     {
-        $this->container['mode'] = $mode;
+        $this->container['clips'] = $clips;
 
         return $this;
     }
 
     /**
-     * Gets type
+     * Gets duration
      *
-     * @return string
+     * @return double
      */
-    public function getType()
+    public function getDuration()
     {
-        return $this->container['type'];
+        return $this->container['duration'];
     }
 
     /**
-     * Sets type
+     * Sets duration
      *
-     * @param string $type type
+     * @param double $duration duration
      *
      * @return $this
      */
-    public function setType($type)
+    public function setDuration($duration)
     {
-        $this->container['type'] = $type;
+        $this->container['duration'] = $duration;
 
         return $this;
     }
 
     /**
-     * Gets with_confidence
+     * Gets storylines
      *
-     * @return bool
+     * @return \Volcengine\Vod20250101\Model\ConvertStorylineForGetExecutionOutput[]
      */
-    public function getWithConfidence()
+    public function getStorylines()
     {
-        return $this->container['with_confidence'];
+        return $this->container['storylines'];
     }
 
     /**
-     * Sets with_confidence
+     * Sets storylines
      *
-     * @param bool $with_confidence with_confidence
+     * @param \Volcengine\Vod20250101\Model\ConvertStorylineForGetExecutionOutput[] $storylines storylines
      *
      * @return $this
      */
-    public function setWithConfidence($with_confidence)
+    public function setStorylines($storylines)
     {
-        $this->container['with_confidence'] = $with_confidence;
+        $this->container['storylines'] = $storylines;
 
         return $this;
     }
 
     /**
-     * Gets with_speaker_info
+     * Gets summaries
      *
-     * @return bool
+     * @return string[]
      */
-    public function getWithSpeakerInfo()
+    public function getSummaries()
     {
-        return $this->container['with_speaker_info'];
+        return $this->container['summaries'];
     }
 
     /**
-     * Sets with_speaker_info
+     * Sets summaries
      *
-     * @param bool $with_speaker_info with_speaker_info
+     * @param string[] $summaries summaries
      *
      * @return $this
      */
-    public function setWithSpeakerInfo($with_speaker_info)
+    public function setSummaries($summaries)
     {
-        $this->container['with_speaker_info'] = $with_speaker_info;
+        $this->container['summaries'] = $summaries;
+
+        return $this;
+    }
+
+    /**
+     * Gets titles
+     *
+     * @return string[]
+     */
+    public function getTitles()
+    {
+        return $this->container['titles'];
+    }
+
+    /**
+     * Sets titles
+     *
+     * @param string[] $titles titles
+     *
+     * @return $this
+     */
+    public function setTitles($titles)
+    {
+        $this->container['titles'] = $titles;
 
         return $this;
     }

@@ -30,6 +30,7 @@ class ConvertAsrForGetExecutionOutput implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'confidence' => 'double',
         'duration' => 'double',
+        'mode' => 'string',
         'utterances' => '\Volcengine\Vod20250101\Model\UtteranceForGetExecutionOutput[]'
     ];
 
@@ -41,6 +42,7 @@ class ConvertAsrForGetExecutionOutput implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'confidence' => 'double',
         'duration' => 'double',
+        'mode' => null,
         'utterances' => null
     ];
 
@@ -73,6 +75,7 @@ class ConvertAsrForGetExecutionOutput implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'confidence' => 'Confidence',
         'duration' => 'Duration',
+        'mode' => 'Mode',
         'utterances' => 'Utterances'
     ];
 
@@ -84,6 +87,7 @@ class ConvertAsrForGetExecutionOutput implements ModelInterface, ArrayAccess
     protected static $setters = [
         'confidence' => 'setConfidence',
         'duration' => 'setDuration',
+        'mode' => 'setMode',
         'utterances' => 'setUtterances'
     ];
 
@@ -95,6 +99,7 @@ class ConvertAsrForGetExecutionOutput implements ModelInterface, ArrayAccess
     protected static $getters = [
         'confidence' => 'getConfidence',
         'duration' => 'getDuration',
+        'mode' => 'getMode',
         'utterances' => 'getUtterances'
     ];
 
@@ -160,6 +165,7 @@ class ConvertAsrForGetExecutionOutput implements ModelInterface, ArrayAccess
     {
         $this->container['confidence'] = isset($data['confidence']) ? $data['confidence'] : null;
         $this->container['duration'] = isset($data['duration']) ? $data['duration'] : null;
+        $this->container['mode'] = isset($data['mode']) ? $data['mode'] : null;
         $this->container['utterances'] = isset($data['utterances']) ? $data['utterances'] : null;
     }
 
@@ -231,6 +237,30 @@ class ConvertAsrForGetExecutionOutput implements ModelInterface, ArrayAccess
     public function setDuration($duration)
     {
         $this->container['duration'] = $duration;
+
+        return $this;
+    }
+
+    /**
+     * Gets mode
+     *
+     * @return string
+     */
+    public function getMode()
+    {
+        return $this->container['mode'];
+    }
+
+    /**
+     * Sets mode
+     *
+     * @param string $mode mode
+     *
+     * @return $this
+     */
+    public function setMode($mode)
+    {
+        $this->container['mode'] = $mode;
 
         return $this;
     }

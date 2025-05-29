@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
+class TranslationConfigForSubmitAITranslationWorkflowInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AsrForGetExecutionOutput';
+    protected static $swaggerModelName = 'TranslationConfigForSubmitAITranslationWorkflowInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,11 +28,9 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'language' => 'string',
-        'mode' => 'string',
-        'type' => 'string',
-        'with_confidence' => 'bool',
-        'with_speaker_info' => 'bool'
+        'source_language' => 'string',
+        'target_language' => 'string',
+        'translation_type_list' => 'string[]'
     ];
 
     /**
@@ -41,11 +39,9 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'language' => null,
-        'mode' => null,
-        'type' => null,
-        'with_confidence' => null,
-        'with_speaker_info' => null
+        'source_language' => null,
+        'target_language' => null,
+        'translation_type_list' => null
     ];
 
     /**
@@ -75,11 +71,9 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'language' => 'Language',
-        'mode' => 'Mode',
-        'type' => 'Type',
-        'with_confidence' => 'WithConfidence',
-        'with_speaker_info' => 'WithSpeakerInfo'
+        'source_language' => 'SourceLanguage',
+        'target_language' => 'TargetLanguage',
+        'translation_type_list' => 'TranslationTypeList'
     ];
 
     /**
@@ -88,11 +82,9 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'language' => 'setLanguage',
-        'mode' => 'setMode',
-        'type' => 'setType',
-        'with_confidence' => 'setWithConfidence',
-        'with_speaker_info' => 'setWithSpeakerInfo'
+        'source_language' => 'setSourceLanguage',
+        'target_language' => 'setTargetLanguage',
+        'translation_type_list' => 'setTranslationTypeList'
     ];
 
     /**
@@ -101,11 +93,9 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'language' => 'getLanguage',
-        'mode' => 'getMode',
-        'type' => 'getType',
-        'with_confidence' => 'getWithConfidence',
-        'with_speaker_info' => 'getWithSpeakerInfo'
+        'source_language' => 'getSourceLanguage',
+        'target_language' => 'getTargetLanguage',
+        'translation_type_list' => 'getTranslationTypeList'
     ];
 
     /**
@@ -168,11 +158,9 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['language'] = isset($data['language']) ? $data['language'] : null;
-        $this->container['mode'] = isset($data['mode']) ? $data['mode'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['with_confidence'] = isset($data['with_confidence']) ? $data['with_confidence'] : null;
-        $this->container['with_speaker_info'] = isset($data['with_speaker_info']) ? $data['with_speaker_info'] : null;
+        $this->container['source_language'] = isset($data['source_language']) ? $data['source_language'] : null;
+        $this->container['target_language'] = isset($data['target_language']) ? $data['target_language'] : null;
+        $this->container['translation_type_list'] = isset($data['translation_type_list']) ? $data['translation_type_list'] : null;
     }
 
     /**
@@ -200,121 +188,73 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets language
+     * Gets source_language
      *
      * @return string
      */
-    public function getLanguage()
+    public function getSourceLanguage()
     {
-        return $this->container['language'];
+        return $this->container['source_language'];
     }
 
     /**
-     * Sets language
+     * Sets source_language
      *
-     * @param string $language language
+     * @param string $source_language source_language
      *
      * @return $this
      */
-    public function setLanguage($language)
+    public function setSourceLanguage($source_language)
     {
-        $this->container['language'] = $language;
+        $this->container['source_language'] = $source_language;
 
         return $this;
     }
 
     /**
-     * Gets mode
+     * Gets target_language
      *
      * @return string
      */
-    public function getMode()
+    public function getTargetLanguage()
     {
-        return $this->container['mode'];
+        return $this->container['target_language'];
     }
 
     /**
-     * Sets mode
+     * Sets target_language
      *
-     * @param string $mode mode
+     * @param string $target_language target_language
      *
      * @return $this
      */
-    public function setMode($mode)
+    public function setTargetLanguage($target_language)
     {
-        $this->container['mode'] = $mode;
+        $this->container['target_language'] = $target_language;
 
         return $this;
     }
 
     /**
-     * Gets type
+     * Gets translation_type_list
      *
-     * @return string
+     * @return string[]
      */
-    public function getType()
+    public function getTranslationTypeList()
     {
-        return $this->container['type'];
+        return $this->container['translation_type_list'];
     }
 
     /**
-     * Sets type
+     * Sets translation_type_list
      *
-     * @param string $type type
+     * @param string[] $translation_type_list translation_type_list
      *
      * @return $this
      */
-    public function setType($type)
+    public function setTranslationTypeList($translation_type_list)
     {
-        $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets with_confidence
-     *
-     * @return bool
-     */
-    public function getWithConfidence()
-    {
-        return $this->container['with_confidence'];
-    }
-
-    /**
-     * Sets with_confidence
-     *
-     * @param bool $with_confidence with_confidence
-     *
-     * @return $this
-     */
-    public function setWithConfidence($with_confidence)
-    {
-        $this->container['with_confidence'] = $with_confidence;
-
-        return $this;
-    }
-
-    /**
-     * Gets with_speaker_info
-     *
-     * @return bool
-     */
-    public function getWithSpeakerInfo()
-    {
-        return $this->container['with_speaker_info'];
-    }
-
-    /**
-     * Sets with_speaker_info
-     *
-     * @param bool $with_speaker_info with_speaker_info
-     *
-     * @return $this
-     */
-    public function setWithSpeakerInfo($with_speaker_info)
-    {
-        $this->container['with_speaker_info'] = $with_speaker_info;
+        $this->container['translation_type_list'] = $translation_type_list;
 
         return $this;
     }

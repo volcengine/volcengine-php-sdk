@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
+class SourceClipForGetAITranslationProjectOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AsrForGetExecutionOutput';
+    protected static $swaggerModelName = 'SourceClipForGetAITranslationProjectOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,11 +28,13 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'language' => 'string',
-        'mode' => 'string',
-        'type' => 'string',
-        'with_confidence' => 'bool',
-        'with_speaker_info' => 'bool'
+        'clip_audio' => '\Volcengine\Vod20250101\Model\PreviewVideoMutedForGetAITranslationProjectOutput',
+        'clip_video' => '\Volcengine\Vod20250101\Model\PreviewVideoMutedForGetAITranslationProjectOutput',
+        'id' => 'string',
+        'track_id' => 'string',
+        'translation_type' => 'string',
+        'trim' => '\Volcengine\Vod20250101\Model\TrimForGetAITranslationProjectOutput',
+        'volume' => 'int'
     ];
 
     /**
@@ -41,11 +43,13 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'language' => null,
-        'mode' => null,
-        'type' => null,
-        'with_confidence' => null,
-        'with_speaker_info' => null
+        'clip_audio' => null,
+        'clip_video' => null,
+        'id' => null,
+        'track_id' => null,
+        'translation_type' => null,
+        'trim' => null,
+        'volume' => 'int32'
     ];
 
     /**
@@ -75,11 +79,13 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'language' => 'Language',
-        'mode' => 'Mode',
-        'type' => 'Type',
-        'with_confidence' => 'WithConfidence',
-        'with_speaker_info' => 'WithSpeakerInfo'
+        'clip_audio' => 'ClipAudio',
+        'clip_video' => 'ClipVideo',
+        'id' => 'Id',
+        'track_id' => 'TrackId',
+        'translation_type' => 'TranslationType',
+        'trim' => 'Trim',
+        'volume' => 'Volume'
     ];
 
     /**
@@ -88,11 +94,13 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'language' => 'setLanguage',
-        'mode' => 'setMode',
-        'type' => 'setType',
-        'with_confidence' => 'setWithConfidence',
-        'with_speaker_info' => 'setWithSpeakerInfo'
+        'clip_audio' => 'setClipAudio',
+        'clip_video' => 'setClipVideo',
+        'id' => 'setId',
+        'track_id' => 'setTrackId',
+        'translation_type' => 'setTranslationType',
+        'trim' => 'setTrim',
+        'volume' => 'setVolume'
     ];
 
     /**
@@ -101,11 +109,13 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'language' => 'getLanguage',
-        'mode' => 'getMode',
-        'type' => 'getType',
-        'with_confidence' => 'getWithConfidence',
-        'with_speaker_info' => 'getWithSpeakerInfo'
+        'clip_audio' => 'getClipAudio',
+        'clip_video' => 'getClipVideo',
+        'id' => 'getId',
+        'track_id' => 'getTrackId',
+        'translation_type' => 'getTranslationType',
+        'trim' => 'getTrim',
+        'volume' => 'getVolume'
     ];
 
     /**
@@ -168,11 +178,13 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['language'] = isset($data['language']) ? $data['language'] : null;
-        $this->container['mode'] = isset($data['mode']) ? $data['mode'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['with_confidence'] = isset($data['with_confidence']) ? $data['with_confidence'] : null;
-        $this->container['with_speaker_info'] = isset($data['with_speaker_info']) ? $data['with_speaker_info'] : null;
+        $this->container['clip_audio'] = isset($data['clip_audio']) ? $data['clip_audio'] : null;
+        $this->container['clip_video'] = isset($data['clip_video']) ? $data['clip_video'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['track_id'] = isset($data['track_id']) ? $data['track_id'] : null;
+        $this->container['translation_type'] = isset($data['translation_type']) ? $data['translation_type'] : null;
+        $this->container['trim'] = isset($data['trim']) ? $data['trim'] : null;
+        $this->container['volume'] = isset($data['volume']) ? $data['volume'] : null;
     }
 
     /**
@@ -200,121 +212,169 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets language
+     * Gets clip_audio
+     *
+     * @return \Volcengine\Vod20250101\Model\PreviewVideoMutedForGetAITranslationProjectOutput
+     */
+    public function getClipAudio()
+    {
+        return $this->container['clip_audio'];
+    }
+
+    /**
+     * Sets clip_audio
+     *
+     * @param \Volcengine\Vod20250101\Model\PreviewVideoMutedForGetAITranslationProjectOutput $clip_audio clip_audio
+     *
+     * @return $this
+     */
+    public function setClipAudio($clip_audio)
+    {
+        $this->container['clip_audio'] = $clip_audio;
+
+        return $this;
+    }
+
+    /**
+     * Gets clip_video
+     *
+     * @return \Volcengine\Vod20250101\Model\PreviewVideoMutedForGetAITranslationProjectOutput
+     */
+    public function getClipVideo()
+    {
+        return $this->container['clip_video'];
+    }
+
+    /**
+     * Sets clip_video
+     *
+     * @param \Volcengine\Vod20250101\Model\PreviewVideoMutedForGetAITranslationProjectOutput $clip_video clip_video
+     *
+     * @return $this
+     */
+    public function setClipVideo($clip_video)
+    {
+        $this->container['clip_video'] = $clip_video;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
      *
      * @return string
      */
-    public function getLanguage()
+    public function getId()
     {
-        return $this->container['language'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets language
+     * Sets id
      *
-     * @param string $language language
+     * @param string $id id
      *
      * @return $this
      */
-    public function setLanguage($language)
+    public function setId($id)
     {
-        $this->container['language'] = $language;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets mode
+     * Gets track_id
      *
      * @return string
      */
-    public function getMode()
+    public function getTrackId()
     {
-        return $this->container['mode'];
+        return $this->container['track_id'];
     }
 
     /**
-     * Sets mode
+     * Sets track_id
      *
-     * @param string $mode mode
+     * @param string $track_id track_id
      *
      * @return $this
      */
-    public function setMode($mode)
+    public function setTrackId($track_id)
     {
-        $this->container['mode'] = $mode;
+        $this->container['track_id'] = $track_id;
 
         return $this;
     }
 
     /**
-     * Gets type
+     * Gets translation_type
      *
      * @return string
      */
-    public function getType()
+    public function getTranslationType()
     {
-        return $this->container['type'];
+        return $this->container['translation_type'];
     }
 
     /**
-     * Sets type
+     * Sets translation_type
      *
-     * @param string $type type
+     * @param string $translation_type translation_type
      *
      * @return $this
      */
-    public function setType($type)
+    public function setTranslationType($translation_type)
     {
-        $this->container['type'] = $type;
+        $this->container['translation_type'] = $translation_type;
 
         return $this;
     }
 
     /**
-     * Gets with_confidence
+     * Gets trim
      *
-     * @return bool
+     * @return \Volcengine\Vod20250101\Model\TrimForGetAITranslationProjectOutput
      */
-    public function getWithConfidence()
+    public function getTrim()
     {
-        return $this->container['with_confidence'];
+        return $this->container['trim'];
     }
 
     /**
-     * Sets with_confidence
+     * Sets trim
      *
-     * @param bool $with_confidence with_confidence
+     * @param \Volcengine\Vod20250101\Model\TrimForGetAITranslationProjectOutput $trim trim
      *
      * @return $this
      */
-    public function setWithConfidence($with_confidence)
+    public function setTrim($trim)
     {
-        $this->container['with_confidence'] = $with_confidence;
+        $this->container['trim'] = $trim;
 
         return $this;
     }
 
     /**
-     * Gets with_speaker_info
+     * Gets volume
      *
-     * @return bool
+     * @return int
      */
-    public function getWithSpeakerInfo()
+    public function getVolume()
     {
-        return $this->container['with_speaker_info'];
+        return $this->container['volume'];
     }
 
     /**
-     * Sets with_speaker_info
+     * Sets volume
      *
-     * @param bool $with_speaker_info with_speaker_info
+     * @param int $volume volume
      *
      * @return $this
      */
-    public function setWithSpeakerInfo($with_speaker_info)
+    public function setVolume($volume)
     {
-        $this->container['with_speaker_info'] = $with_speaker_info;
+        $this->container['volume'] = $volume;
 
         return $this;
     }

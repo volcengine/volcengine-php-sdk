@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
+class SubmitAITranslationWorkflowRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AsrForGetExecutionOutput';
+    protected static $swaggerModelName = 'SubmitAITranslationWorkflowRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,11 +28,10 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'language' => 'string',
-        'mode' => 'string',
-        'type' => 'string',
-        'with_confidence' => 'bool',
-        'with_speaker_info' => 'bool'
+        'operator_config' => '\Volcengine\Vod20250101\Model\OperatorConfigForSubmitAITranslationWorkflowInput',
+        'space_name' => 'string',
+        'translation_config' => '\Volcengine\Vod20250101\Model\TranslationConfigForSubmitAITranslationWorkflowInput',
+        'vid' => 'string'
     ];
 
     /**
@@ -41,11 +40,10 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'language' => null,
-        'mode' => null,
-        'type' => null,
-        'with_confidence' => null,
-        'with_speaker_info' => null
+        'operator_config' => null,
+        'space_name' => null,
+        'translation_config' => null,
+        'vid' => null
     ];
 
     /**
@@ -75,11 +73,10 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'language' => 'Language',
-        'mode' => 'Mode',
-        'type' => 'Type',
-        'with_confidence' => 'WithConfidence',
-        'with_speaker_info' => 'WithSpeakerInfo'
+        'operator_config' => 'OperatorConfig',
+        'space_name' => 'SpaceName',
+        'translation_config' => 'TranslationConfig',
+        'vid' => 'Vid'
     ];
 
     /**
@@ -88,11 +85,10 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'language' => 'setLanguage',
-        'mode' => 'setMode',
-        'type' => 'setType',
-        'with_confidence' => 'setWithConfidence',
-        'with_speaker_info' => 'setWithSpeakerInfo'
+        'operator_config' => 'setOperatorConfig',
+        'space_name' => 'setSpaceName',
+        'translation_config' => 'setTranslationConfig',
+        'vid' => 'setVid'
     ];
 
     /**
@@ -101,11 +97,10 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'language' => 'getLanguage',
-        'mode' => 'getMode',
-        'type' => 'getType',
-        'with_confidence' => 'getWithConfidence',
-        'with_speaker_info' => 'getWithSpeakerInfo'
+        'operator_config' => 'getOperatorConfig',
+        'space_name' => 'getSpaceName',
+        'translation_config' => 'getTranslationConfig',
+        'vid' => 'getVid'
     ];
 
     /**
@@ -168,11 +163,10 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['language'] = isset($data['language']) ? $data['language'] : null;
-        $this->container['mode'] = isset($data['mode']) ? $data['mode'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['with_confidence'] = isset($data['with_confidence']) ? $data['with_confidence'] : null;
-        $this->container['with_speaker_info'] = isset($data['with_speaker_info']) ? $data['with_speaker_info'] : null;
+        $this->container['operator_config'] = isset($data['operator_config']) ? $data['operator_config'] : null;
+        $this->container['space_name'] = isset($data['space_name']) ? $data['space_name'] : null;
+        $this->container['translation_config'] = isset($data['translation_config']) ? $data['translation_config'] : null;
+        $this->container['vid'] = isset($data['vid']) ? $data['vid'] : null;
     }
 
     /**
@@ -184,6 +178,12 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['space_name'] === null) {
+            $invalidProperties[] = "'space_name' can't be null";
+        }
+        if ($this->container['vid'] === null) {
+            $invalidProperties[] = "'vid' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -200,121 +200,97 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets language
+     * Gets operator_config
+     *
+     * @return \Volcengine\Vod20250101\Model\OperatorConfigForSubmitAITranslationWorkflowInput
+     */
+    public function getOperatorConfig()
+    {
+        return $this->container['operator_config'];
+    }
+
+    /**
+     * Sets operator_config
+     *
+     * @param \Volcengine\Vod20250101\Model\OperatorConfigForSubmitAITranslationWorkflowInput $operator_config operator_config
+     *
+     * @return $this
+     */
+    public function setOperatorConfig($operator_config)
+    {
+        $this->container['operator_config'] = $operator_config;
+
+        return $this;
+    }
+
+    /**
+     * Gets space_name
      *
      * @return string
      */
-    public function getLanguage()
+    public function getSpaceName()
     {
-        return $this->container['language'];
+        return $this->container['space_name'];
     }
 
     /**
-     * Sets language
+     * Sets space_name
      *
-     * @param string $language language
+     * @param string $space_name space_name
      *
      * @return $this
      */
-    public function setLanguage($language)
+    public function setSpaceName($space_name)
     {
-        $this->container['language'] = $language;
+        $this->container['space_name'] = $space_name;
 
         return $this;
     }
 
     /**
-     * Gets mode
+     * Gets translation_config
+     *
+     * @return \Volcengine\Vod20250101\Model\TranslationConfigForSubmitAITranslationWorkflowInput
+     */
+    public function getTranslationConfig()
+    {
+        return $this->container['translation_config'];
+    }
+
+    /**
+     * Sets translation_config
+     *
+     * @param \Volcengine\Vod20250101\Model\TranslationConfigForSubmitAITranslationWorkflowInput $translation_config translation_config
+     *
+     * @return $this
+     */
+    public function setTranslationConfig($translation_config)
+    {
+        $this->container['translation_config'] = $translation_config;
+
+        return $this;
+    }
+
+    /**
+     * Gets vid
      *
      * @return string
      */
-    public function getMode()
+    public function getVid()
     {
-        return $this->container['mode'];
+        return $this->container['vid'];
     }
 
     /**
-     * Sets mode
+     * Sets vid
      *
-     * @param string $mode mode
+     * @param string $vid vid
      *
      * @return $this
      */
-    public function setMode($mode)
+    public function setVid($vid)
     {
-        $this->container['mode'] = $mode;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     *
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param string $type type
-     *
-     * @return $this
-     */
-    public function setType($type)
-    {
-        $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets with_confidence
-     *
-     * @return bool
-     */
-    public function getWithConfidence()
-    {
-        return $this->container['with_confidence'];
-    }
-
-    /**
-     * Sets with_confidence
-     *
-     * @param bool $with_confidence with_confidence
-     *
-     * @return $this
-     */
-    public function setWithConfidence($with_confidence)
-    {
-        $this->container['with_confidence'] = $with_confidence;
-
-        return $this;
-    }
-
-    /**
-     * Gets with_speaker_info
-     *
-     * @return bool
-     */
-    public function getWithSpeakerInfo()
-    {
-        return $this->container['with_speaker_info'];
-    }
-
-    /**
-     * Sets with_speaker_info
-     *
-     * @param bool $with_speaker_info with_speaker_info
-     *
-     * @return $this
-     */
-    public function setWithSpeakerInfo($with_speaker_info)
-    {
-        $this->container['with_speaker_info'] = $with_speaker_info;
+        $this->container['vid'] = $vid;
 
         return $this;
     }

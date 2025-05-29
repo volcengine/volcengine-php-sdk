@@ -32,6 +32,9 @@ class TaskForGetExecutionOutput implements ModelInterface, ArrayAccess
         'asr' => '\Volcengine\Vod20250101\Model\AsrForGetExecutionOutput',
         'audio_extract' => '\Volcengine\Vod20250101\Model\AudioExtractForGetExecutionOutput',
         'highlight' => '\Volcengine\Vod20250101\Model\HighlightForGetExecutionOutput',
+        'ocr' => '\Volcengine\Vod20250101\Model\OcrForGetExecutionOutput',
+        'segment' => '\Volcengine\Vod20250101\Model\SegmentForGetExecutionOutput',
+        'storyline' => '\Volcengine\Vod20250101\Model\StorylineForGetExecutionOutput',
         'type' => 'string',
         'vision' => '\Volcengine\Vod20250101\Model\VisionForGetExecutionOutput'
     ];
@@ -46,6 +49,9 @@ class TaskForGetExecutionOutput implements ModelInterface, ArrayAccess
         'asr' => null,
         'audio_extract' => null,
         'highlight' => null,
+        'ocr' => null,
+        'segment' => null,
+        'storyline' => null,
         'type' => null,
         'vision' => null
     ];
@@ -81,6 +87,9 @@ class TaskForGetExecutionOutput implements ModelInterface, ArrayAccess
         'asr' => 'Asr',
         'audio_extract' => 'AudioExtract',
         'highlight' => 'Highlight',
+        'ocr' => 'Ocr',
+        'segment' => 'Segment',
+        'storyline' => 'Storyline',
         'type' => 'Type',
         'vision' => 'Vision'
     ];
@@ -95,6 +104,9 @@ class TaskForGetExecutionOutput implements ModelInterface, ArrayAccess
         'asr' => 'setAsr',
         'audio_extract' => 'setAudioExtract',
         'highlight' => 'setHighlight',
+        'ocr' => 'setOcr',
+        'segment' => 'setSegment',
+        'storyline' => 'setStoryline',
         'type' => 'setType',
         'vision' => 'setVision'
     ];
@@ -109,6 +121,9 @@ class TaskForGetExecutionOutput implements ModelInterface, ArrayAccess
         'asr' => 'getAsr',
         'audio_extract' => 'getAudioExtract',
         'highlight' => 'getHighlight',
+        'ocr' => 'getOcr',
+        'segment' => 'getSegment',
+        'storyline' => 'getStoryline',
         'type' => 'getType',
         'vision' => 'getVision'
     ];
@@ -177,6 +192,9 @@ class TaskForGetExecutionOutput implements ModelInterface, ArrayAccess
         $this->container['asr'] = isset($data['asr']) ? $data['asr'] : null;
         $this->container['audio_extract'] = isset($data['audio_extract']) ? $data['audio_extract'] : null;
         $this->container['highlight'] = isset($data['highlight']) ? $data['highlight'] : null;
+        $this->container['ocr'] = isset($data['ocr']) ? $data['ocr'] : null;
+        $this->container['segment'] = isset($data['segment']) ? $data['segment'] : null;
+        $this->container['storyline'] = isset($data['storyline']) ? $data['storyline'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['vision'] = isset($data['vision']) ? $data['vision'] : null;
     }
@@ -297,6 +315,78 @@ class TaskForGetExecutionOutput implements ModelInterface, ArrayAccess
     public function setHighlight($highlight)
     {
         $this->container['highlight'] = $highlight;
+
+        return $this;
+    }
+
+    /**
+     * Gets ocr
+     *
+     * @return \Volcengine\Vod20250101\Model\OcrForGetExecutionOutput
+     */
+    public function getOcr()
+    {
+        return $this->container['ocr'];
+    }
+
+    /**
+     * Sets ocr
+     *
+     * @param \Volcengine\Vod20250101\Model\OcrForGetExecutionOutput $ocr ocr
+     *
+     * @return $this
+     */
+    public function setOcr($ocr)
+    {
+        $this->container['ocr'] = $ocr;
+
+        return $this;
+    }
+
+    /**
+     * Gets segment
+     *
+     * @return \Volcengine\Vod20250101\Model\SegmentForGetExecutionOutput
+     */
+    public function getSegment()
+    {
+        return $this->container['segment'];
+    }
+
+    /**
+     * Sets segment
+     *
+     * @param \Volcengine\Vod20250101\Model\SegmentForGetExecutionOutput $segment segment
+     *
+     * @return $this
+     */
+    public function setSegment($segment)
+    {
+        $this->container['segment'] = $segment;
+
+        return $this;
+    }
+
+    /**
+     * Gets storyline
+     *
+     * @return \Volcengine\Vod20250101\Model\StorylineForGetExecutionOutput
+     */
+    public function getStoryline()
+    {
+        return $this->container['storyline'];
+    }
+
+    /**
+     * Sets storyline
+     *
+     * @param \Volcengine\Vod20250101\Model\StorylineForGetExecutionOutput $storyline storyline
+     *
+     * @return $this
+     */
+    public function setStoryline($storyline)
+    {
+        $this->container['storyline'] = $storyline;
 
         return $this;
     }

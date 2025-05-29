@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
+class ConvertClipForGetExecutionOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AsrForGetExecutionOutput';
+    protected static $swaggerModelName = 'ConvertClipForGetExecutionOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,11 +28,15 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'language' => 'string',
-        'mode' => 'string',
-        'type' => 'string',
-        'with_confidence' => 'bool',
-        'with_speaker_info' => 'bool'
+        'dialogue' => 'string',
+        'end' => 'double',
+        'offset' => 'int',
+        'score' => 'double',
+        'snapshot' => 'string',
+        'start' => 'double',
+        'summary' => 'string',
+        'title' => 'string',
+        'video_index' => 'int'
     ];
 
     /**
@@ -41,11 +45,15 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'language' => null,
-        'mode' => null,
-        'type' => null,
-        'with_confidence' => null,
-        'with_speaker_info' => null
+        'dialogue' => null,
+        'end' => 'double',
+        'offset' => 'int32',
+        'score' => 'double',
+        'snapshot' => null,
+        'start' => 'double',
+        'summary' => null,
+        'title' => null,
+        'video_index' => 'int32'
     ];
 
     /**
@@ -75,11 +83,15 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'language' => 'Language',
-        'mode' => 'Mode',
-        'type' => 'Type',
-        'with_confidence' => 'WithConfidence',
-        'with_speaker_info' => 'WithSpeakerInfo'
+        'dialogue' => 'Dialogue',
+        'end' => 'End',
+        'offset' => 'Offset',
+        'score' => 'Score',
+        'snapshot' => 'Snapshot',
+        'start' => 'Start',
+        'summary' => 'Summary',
+        'title' => 'Title',
+        'video_index' => 'VideoIndex'
     ];
 
     /**
@@ -88,11 +100,15 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'language' => 'setLanguage',
-        'mode' => 'setMode',
-        'type' => 'setType',
-        'with_confidence' => 'setWithConfidence',
-        'with_speaker_info' => 'setWithSpeakerInfo'
+        'dialogue' => 'setDialogue',
+        'end' => 'setEnd',
+        'offset' => 'setOffset',
+        'score' => 'setScore',
+        'snapshot' => 'setSnapshot',
+        'start' => 'setStart',
+        'summary' => 'setSummary',
+        'title' => 'setTitle',
+        'video_index' => 'setVideoIndex'
     ];
 
     /**
@@ -101,11 +117,15 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'language' => 'getLanguage',
-        'mode' => 'getMode',
-        'type' => 'getType',
-        'with_confidence' => 'getWithConfidence',
-        'with_speaker_info' => 'getWithSpeakerInfo'
+        'dialogue' => 'getDialogue',
+        'end' => 'getEnd',
+        'offset' => 'getOffset',
+        'score' => 'getScore',
+        'snapshot' => 'getSnapshot',
+        'start' => 'getStart',
+        'summary' => 'getSummary',
+        'title' => 'getTitle',
+        'video_index' => 'getVideoIndex'
     ];
 
     /**
@@ -168,11 +188,15 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['language'] = isset($data['language']) ? $data['language'] : null;
-        $this->container['mode'] = isset($data['mode']) ? $data['mode'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['with_confidence'] = isset($data['with_confidence']) ? $data['with_confidence'] : null;
-        $this->container['with_speaker_info'] = isset($data['with_speaker_info']) ? $data['with_speaker_info'] : null;
+        $this->container['dialogue'] = isset($data['dialogue']) ? $data['dialogue'] : null;
+        $this->container['end'] = isset($data['end']) ? $data['end'] : null;
+        $this->container['offset'] = isset($data['offset']) ? $data['offset'] : null;
+        $this->container['score'] = isset($data['score']) ? $data['score'] : null;
+        $this->container['snapshot'] = isset($data['snapshot']) ? $data['snapshot'] : null;
+        $this->container['start'] = isset($data['start']) ? $data['start'] : null;
+        $this->container['summary'] = isset($data['summary']) ? $data['summary'] : null;
+        $this->container['title'] = isset($data['title']) ? $data['title'] : null;
+        $this->container['video_index'] = isset($data['video_index']) ? $data['video_index'] : null;
     }
 
     /**
@@ -200,121 +224,217 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets language
+     * Gets dialogue
      *
      * @return string
      */
-    public function getLanguage()
+    public function getDialogue()
     {
-        return $this->container['language'];
+        return $this->container['dialogue'];
     }
 
     /**
-     * Sets language
+     * Sets dialogue
      *
-     * @param string $language language
+     * @param string $dialogue dialogue
      *
      * @return $this
      */
-    public function setLanguage($language)
+    public function setDialogue($dialogue)
     {
-        $this->container['language'] = $language;
+        $this->container['dialogue'] = $dialogue;
 
         return $this;
     }
 
     /**
-     * Gets mode
+     * Gets end
+     *
+     * @return double
+     */
+    public function getEnd()
+    {
+        return $this->container['end'];
+    }
+
+    /**
+     * Sets end
+     *
+     * @param double $end end
+     *
+     * @return $this
+     */
+    public function setEnd($end)
+    {
+        $this->container['end'] = $end;
+
+        return $this;
+    }
+
+    /**
+     * Gets offset
+     *
+     * @return int
+     */
+    public function getOffset()
+    {
+        return $this->container['offset'];
+    }
+
+    /**
+     * Sets offset
+     *
+     * @param int $offset offset
+     *
+     * @return $this
+     */
+    public function setOffset($offset)
+    {
+        $this->container['offset'] = $offset;
+
+        return $this;
+    }
+
+    /**
+     * Gets score
+     *
+     * @return double
+     */
+    public function getScore()
+    {
+        return $this->container['score'];
+    }
+
+    /**
+     * Sets score
+     *
+     * @param double $score score
+     *
+     * @return $this
+     */
+    public function setScore($score)
+    {
+        $this->container['score'] = $score;
+
+        return $this;
+    }
+
+    /**
+     * Gets snapshot
      *
      * @return string
      */
-    public function getMode()
+    public function getSnapshot()
     {
-        return $this->container['mode'];
+        return $this->container['snapshot'];
     }
 
     /**
-     * Sets mode
+     * Sets snapshot
      *
-     * @param string $mode mode
+     * @param string $snapshot snapshot
      *
      * @return $this
      */
-    public function setMode($mode)
+    public function setSnapshot($snapshot)
     {
-        $this->container['mode'] = $mode;
+        $this->container['snapshot'] = $snapshot;
 
         return $this;
     }
 
     /**
-     * Gets type
+     * Gets start
+     *
+     * @return double
+     */
+    public function getStart()
+    {
+        return $this->container['start'];
+    }
+
+    /**
+     * Sets start
+     *
+     * @param double $start start
+     *
+     * @return $this
+     */
+    public function setStart($start)
+    {
+        $this->container['start'] = $start;
+
+        return $this;
+    }
+
+    /**
+     * Gets summary
      *
      * @return string
      */
-    public function getType()
+    public function getSummary()
     {
-        return $this->container['type'];
+        return $this->container['summary'];
     }
 
     /**
-     * Sets type
+     * Sets summary
      *
-     * @param string $type type
+     * @param string $summary summary
      *
      * @return $this
      */
-    public function setType($type)
+    public function setSummary($summary)
     {
-        $this->container['type'] = $type;
+        $this->container['summary'] = $summary;
 
         return $this;
     }
 
     /**
-     * Gets with_confidence
+     * Gets title
      *
-     * @return bool
+     * @return string
      */
-    public function getWithConfidence()
+    public function getTitle()
     {
-        return $this->container['with_confidence'];
+        return $this->container['title'];
     }
 
     /**
-     * Sets with_confidence
+     * Sets title
      *
-     * @param bool $with_confidence with_confidence
+     * @param string $title title
      *
      * @return $this
      */
-    public function setWithConfidence($with_confidence)
+    public function setTitle($title)
     {
-        $this->container['with_confidence'] = $with_confidence;
+        $this->container['title'] = $title;
 
         return $this;
     }
 
     /**
-     * Gets with_speaker_info
+     * Gets video_index
      *
-     * @return bool
+     * @return int
      */
-    public function getWithSpeakerInfo()
+    public function getVideoIndex()
     {
-        return $this->container['with_speaker_info'];
+        return $this->container['video_index'];
     }
 
     /**
-     * Sets with_speaker_info
+     * Sets video_index
      *
-     * @param bool $with_speaker_info with_speaker_info
+     * @param int $video_index video_index
      *
      * @return $this
      */
-    public function setWithSpeakerInfo($with_speaker_info)
+    public function setVideoIndex($video_index)
     {
-        $this->container['with_speaker_info'] = $with_speaker_info;
+        $this->container['video_index'] = $video_index;
 
         return $this;
     }
