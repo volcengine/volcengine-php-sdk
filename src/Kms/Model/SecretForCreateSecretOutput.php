@@ -41,6 +41,7 @@ class SecretForCreateSecretOutput implements ModelInterface, ArrayAccess
         'schedule_delete_time' => 'string',
         'schedule_rotation_time' => 'string',
         'secret_name' => 'string',
+        'secret_state' => 'string',
         'secret_type' => 'string',
         'trn' => 'string',
         'uid' => 'string',
@@ -66,6 +67,7 @@ class SecretForCreateSecretOutput implements ModelInterface, ArrayAccess
         'schedule_delete_time' => null,
         'schedule_rotation_time' => null,
         'secret_name' => null,
+        'secret_state' => null,
         'secret_type' => null,
         'trn' => null,
         'uid' => null,
@@ -112,6 +114,7 @@ class SecretForCreateSecretOutput implements ModelInterface, ArrayAccess
         'schedule_delete_time' => 'ScheduleDeleteTime',
         'schedule_rotation_time' => 'ScheduleRotationTime',
         'secret_name' => 'SecretName',
+        'secret_state' => 'SecretState',
         'secret_type' => 'SecretType',
         'trn' => 'Trn',
         'uid' => 'UID',
@@ -137,6 +140,7 @@ class SecretForCreateSecretOutput implements ModelInterface, ArrayAccess
         'schedule_delete_time' => 'setScheduleDeleteTime',
         'schedule_rotation_time' => 'setScheduleRotationTime',
         'secret_name' => 'setSecretName',
+        'secret_state' => 'setSecretState',
         'secret_type' => 'setSecretType',
         'trn' => 'setTrn',
         'uid' => 'setUid',
@@ -162,6 +166,7 @@ class SecretForCreateSecretOutput implements ModelInterface, ArrayAccess
         'schedule_delete_time' => 'getScheduleDeleteTime',
         'schedule_rotation_time' => 'getScheduleRotationTime',
         'secret_name' => 'getSecretName',
+        'secret_state' => 'getSecretState',
         'secret_type' => 'getSecretType',
         'trn' => 'getTrn',
         'uid' => 'getUid',
@@ -209,6 +214,9 @@ class SecretForCreateSecretOutput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const SECRET_STATE_ENABLE = 'Enable';
+    const SECRET_STATE_DISABLE = 'Disable';
+    const SECRET_STATE_PENDING_DELETE = 'PendingDelete';
     const SECRET_TYPE_GENERIC = 'Generic';
     const SECRET_TYPE_IAM = 'IAM';
     const SECRET_TYPE_RDS = 'RDS';
@@ -216,6 +224,20 @@ class SecretForCreateSecretOutput implements ModelInterface, ArrayAccess
     const SECRET_TYPE_ECS = 'ECS';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getSecretStateAllowableValues()
+    {
+        return [
+            self::SECRET_STATE_ENABLE,
+            self::SECRET_STATE_DISABLE,
+            self::SECRET_STATE_PENDING_DELETE,
+        ];
+    }
     
     /**
      * Gets allowable values of the enum
@@ -262,6 +284,7 @@ class SecretForCreateSecretOutput implements ModelInterface, ArrayAccess
         $this->container['schedule_delete_time'] = isset($data['schedule_delete_time']) ? $data['schedule_delete_time'] : null;
         $this->container['schedule_rotation_time'] = isset($data['schedule_rotation_time']) ? $data['schedule_rotation_time'] : null;
         $this->container['secret_name'] = isset($data['secret_name']) ? $data['secret_name'] : null;
+        $this->container['secret_state'] = isset($data['secret_state']) ? $data['secret_state'] : null;
         $this->container['secret_type'] = isset($data['secret_type']) ? $data['secret_type'] : null;
         $this->container['trn'] = isset($data['trn']) ? $data['trn'] : null;
         $this->container['uid'] = isset($data['uid']) ? $data['uid'] : null;
@@ -276,6 +299,14 @@ class SecretForCreateSecretOutput implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getSecretStateAllowableValues();
+        if (!is_null($this->container['secret_state']) && !in_array($this->container['secret_state'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'secret_state', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         $allowedValues = $this->getSecretTypeAllowableValues();
         if (!is_null($this->container['secret_type']) && !in_array($this->container['secret_type'], $allowedValues, true)) {
@@ -608,6 +639,39 @@ class SecretForCreateSecretOutput implements ModelInterface, ArrayAccess
     public function setSecretName($secret_name)
     {
         $this->container['secret_name'] = $secret_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets secret_state
+     *
+     * @return string
+     */
+    public function getSecretState()
+    {
+        return $this->container['secret_state'];
+    }
+
+    /**
+     * Sets secret_state
+     *
+     * @param string $secret_state secret_state
+     *
+     * @return $this
+     */
+    public function setSecretState($secret_state)
+    {
+        $allowedValues = $this->getSecretStateAllowableValues();
+        if (!is_null($secret_state) && !in_array($secret_state, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'secret_state', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['secret_state'] = $secret_state;
 
         return $this;
     }

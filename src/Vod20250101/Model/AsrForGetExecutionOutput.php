@@ -29,6 +29,7 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'language' => 'string',
+        'mode' => 'string',
         'type' => 'string',
         'with_confidence' => 'bool',
         'with_speaker_info' => 'bool'
@@ -41,6 +42,7 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'language' => null,
+        'mode' => null,
         'type' => null,
         'with_confidence' => null,
         'with_speaker_info' => null
@@ -74,6 +76,7 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'language' => 'Language',
+        'mode' => 'Mode',
         'type' => 'Type',
         'with_confidence' => 'WithConfidence',
         'with_speaker_info' => 'WithSpeakerInfo'
@@ -86,6 +89,7 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'language' => 'setLanguage',
+        'mode' => 'setMode',
         'type' => 'setType',
         'with_confidence' => 'setWithConfidence',
         'with_speaker_info' => 'setWithSpeakerInfo'
@@ -98,6 +102,7 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'language' => 'getLanguage',
+        'mode' => 'getMode',
         'type' => 'getType',
         'with_confidence' => 'getWithConfidence',
         'with_speaker_info' => 'getWithSpeakerInfo'
@@ -164,6 +169,7 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['language'] = isset($data['language']) ? $data['language'] : null;
+        $this->container['mode'] = isset($data['mode']) ? $data['mode'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['with_confidence'] = isset($data['with_confidence']) ? $data['with_confidence'] : null;
         $this->container['with_speaker_info'] = isset($data['with_speaker_info']) ? $data['with_speaker_info'] : null;
@@ -213,6 +219,30 @@ class AsrForGetExecutionOutput implements ModelInterface, ArrayAccess
     public function setLanguage($language)
     {
         $this->container['language'] = $language;
+
+        return $this;
+    }
+
+    /**
+     * Gets mode
+     *
+     * @return string
+     */
+    public function getMode()
+    {
+        return $this->container['mode'];
+    }
+
+    /**
+     * Sets mode
+     *
+     * @param string $mode mode
+     *
+     * @return $this
+     */
+    public function setMode($mode)
+    {
+        $this->container['mode'] = $mode;
 
         return $this;
     }
