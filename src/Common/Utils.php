@@ -13,6 +13,11 @@ class Utils
             $value = $data->$getter();
 
             if ($value !== null) {
+                // If the current field is already a boolean, convert it to a string first; this is to address the issue of rawurlencode handling booleans.
+                if (is_bool($value)) {
+                    $value = $value ? 'true' : 'false';
+                }
+
                 if (is_array($value)) {
                     foreach ($value as $key => $element) {
                         if (is_object($element)) {
