@@ -34,6 +34,7 @@ class ListHostGroupRequest implements ModelInterface, ArrayAccess
         'name_fix' => 'string',
         'page' => 'int',
         'page_size' => 'int',
+        'project_name' => 'string',
         'rule_tag' => 'string',
         'time_order_by' => 'string'
     ];
@@ -50,6 +51,7 @@ class ListHostGroupRequest implements ModelInterface, ArrayAccess
         'name_fix' => null,
         'page' => 'int32',
         'page_size' => 'int32',
+        'project_name' => null,
         'rule_tag' => null,
         'time_order_by' => null
     ];
@@ -87,6 +89,7 @@ class ListHostGroupRequest implements ModelInterface, ArrayAccess
         'name_fix' => 'NameFix',
         'page' => 'Page',
         'page_size' => 'PageSize',
+        'project_name' => 'ProjectName',
         'rule_tag' => 'RuleTag',
         'time_order_by' => 'TimeOrderBy'
     ];
@@ -103,6 +106,7 @@ class ListHostGroupRequest implements ModelInterface, ArrayAccess
         'name_fix' => 'setNameFix',
         'page' => 'setPage',
         'page_size' => 'setPageSize',
+        'project_name' => 'setProjectName',
         'rule_tag' => 'setRuleTag',
         'time_order_by' => 'setTimeOrderBy'
     ];
@@ -119,6 +123,7 @@ class ListHostGroupRequest implements ModelInterface, ArrayAccess
         'name_fix' => 'getNameFix',
         'page' => 'getPage',
         'page_size' => 'getPageSize',
+        'project_name' => 'getProjectName',
         'rule_tag' => 'getRuleTag',
         'time_order_by' => 'getTimeOrderBy'
     ];
@@ -189,6 +194,7 @@ class ListHostGroupRequest implements ModelInterface, ArrayAccess
         $this->container['name_fix'] = isset($data['name_fix']) ? $data['name_fix'] : null;
         $this->container['page'] = isset($data['page']) ? $data['page'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['rule_tag'] = isset($data['rule_tag']) ? $data['rule_tag'] : null;
         $this->container['time_order_by'] = isset($data['time_order_by']) ? $data['time_order_by'] : null;
     }
@@ -357,6 +363,30 @@ class ListHostGroupRequest implements ModelInterface, ArrayAccess
     public function setPageSize($page_size)
     {
         $this->container['page_size'] = $page_size;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }

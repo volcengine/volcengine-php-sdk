@@ -45,8 +45,6 @@ class UpdateDomainRequest implements ModelInterface, ArrayAccess
         'keep_alive_request' => 'int',
         'keep_alive_time_out' => 'int',
         'lb_algorithm' => 'string',
-        'llm_available' => 'bool',
-        'llm_path_info' => '\Volcengine\Waf\Model\LLMPathInfoForUpdateDomainInput[]',
         'project_name' => 'string',
         'protocol_follow' => 'int',
         'protocol_ports' => '\Volcengine\Waf\Model\ProtocolPortsForUpdateDomainInput',
@@ -92,8 +90,6 @@ class UpdateDomainRequest implements ModelInterface, ArrayAccess
         'keep_alive_request' => 'int32',
         'keep_alive_time_out' => 'int32',
         'lb_algorithm' => null,
-        'llm_available' => null,
-        'llm_path_info' => null,
         'project_name' => null,
         'protocol_follow' => 'int32',
         'protocol_ports' => null,
@@ -160,8 +156,6 @@ class UpdateDomainRequest implements ModelInterface, ArrayAccess
         'keep_alive_request' => 'KeepAliveRequest',
         'keep_alive_time_out' => 'KeepAliveTimeOut',
         'lb_algorithm' => 'LBAlgorithm',
-        'llm_available' => 'LLMAvailable',
-        'llm_path_info' => 'LLMPathInfo',
         'project_name' => 'ProjectName',
         'protocol_follow' => 'ProtocolFollow',
         'protocol_ports' => 'ProtocolPorts',
@@ -207,8 +201,6 @@ class UpdateDomainRequest implements ModelInterface, ArrayAccess
         'keep_alive_request' => 'setKeepAliveRequest',
         'keep_alive_time_out' => 'setKeepAliveTimeOut',
         'lb_algorithm' => 'setLbAlgorithm',
-        'llm_available' => 'setLlmAvailable',
-        'llm_path_info' => 'setLlmPathInfo',
         'project_name' => 'setProjectName',
         'protocol_follow' => 'setProtocolFollow',
         'protocol_ports' => 'setProtocolPorts',
@@ -254,8 +246,6 @@ class UpdateDomainRequest implements ModelInterface, ArrayAccess
         'keep_alive_request' => 'getKeepAliveRequest',
         'keep_alive_time_out' => 'getKeepAliveTimeOut',
         'lb_algorithm' => 'getLbAlgorithm',
-        'llm_available' => 'getLlmAvailable',
-        'llm_path_info' => 'getLlmPathInfo',
         'project_name' => 'getProjectName',
         'protocol_follow' => 'getProtocolFollow',
         'protocol_ports' => 'getProtocolPorts',
@@ -355,8 +345,6 @@ class UpdateDomainRequest implements ModelInterface, ArrayAccess
         $this->container['keep_alive_request'] = isset($data['keep_alive_request']) ? $data['keep_alive_request'] : null;
         $this->container['keep_alive_time_out'] = isset($data['keep_alive_time_out']) ? $data['keep_alive_time_out'] : null;
         $this->container['lb_algorithm'] = isset($data['lb_algorithm']) ? $data['lb_algorithm'] : null;
-        $this->container['llm_available'] = isset($data['llm_available']) ? $data['llm_available'] : null;
-        $this->container['llm_path_info'] = isset($data['llm_path_info']) ? $data['llm_path_info'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['protocol_follow'] = isset($data['protocol_follow']) ? $data['protocol_follow'] : null;
         $this->container['protocol_ports'] = isset($data['protocol_ports']) ? $data['protocol_ports'] : null;
@@ -816,54 +804,6 @@ class UpdateDomainRequest implements ModelInterface, ArrayAccess
     public function setLbAlgorithm($lb_algorithm)
     {
         $this->container['lb_algorithm'] = $lb_algorithm;
-
-        return $this;
-    }
-
-    /**
-     * Gets llm_available
-     *
-     * @return bool
-     */
-    public function getLlmAvailable()
-    {
-        return $this->container['llm_available'];
-    }
-
-    /**
-     * Sets llm_available
-     *
-     * @param bool $llm_available llm_available
-     *
-     * @return $this
-     */
-    public function setLlmAvailable($llm_available)
-    {
-        $this->container['llm_available'] = $llm_available;
-
-        return $this;
-    }
-
-    /**
-     * Gets llm_path_info
-     *
-     * @return \Volcengine\Waf\Model\LLMPathInfoForUpdateDomainInput[]
-     */
-    public function getLlmPathInfo()
-    {
-        return $this->container['llm_path_info'];
-    }
-
-    /**
-     * Sets llm_path_info
-     *
-     * @param \Volcengine\Waf\Model\LLMPathInfoForUpdateDomainInput[] $llm_path_info llm_path_info
-     *
-     * @return $this
-     */
-    public function setLlmPathInfo($llm_path_info)
-    {
-        $this->container['llm_path_info'] = $llm_path_info;
 
         return $this;
     }
