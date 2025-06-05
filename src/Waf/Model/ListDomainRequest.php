@@ -38,6 +38,7 @@ class ListDomainRequest implements ModelInterface, ArrayAccess
         'lb_info' => '\Volcengine\Waf\Model\LBInfoForListDomainInput[]',
         'page' => 'int',
         'page_size' => 'int',
+        'project_name' => 'string',
         'public_real_server' => 'int[]',
         'region' => 'string',
         'sort_by_create_time' => 'string',
@@ -67,6 +68,7 @@ class ListDomainRequest implements ModelInterface, ArrayAccess
         'lb_info' => null,
         'page' => 'int32',
         'page_size' => 'int32',
+        'project_name' => null,
         'public_real_server' => 'int32',
         'region' => null,
         'sort_by_create_time' => null,
@@ -117,6 +119,7 @@ class ListDomainRequest implements ModelInterface, ArrayAccess
         'lb_info' => 'LBInfo',
         'page' => 'Page',
         'page_size' => 'PageSize',
+        'project_name' => 'ProjectName',
         'public_real_server' => 'PublicRealServer',
         'region' => 'Region',
         'sort_by_create_time' => 'SortByCreateTime',
@@ -146,6 +149,7 @@ class ListDomainRequest implements ModelInterface, ArrayAccess
         'lb_info' => 'setLbInfo',
         'page' => 'setPage',
         'page_size' => 'setPageSize',
+        'project_name' => 'setProjectName',
         'public_real_server' => 'setPublicRealServer',
         'region' => 'setRegion',
         'sort_by_create_time' => 'setSortByCreateTime',
@@ -175,6 +179,7 @@ class ListDomainRequest implements ModelInterface, ArrayAccess
         'lb_info' => 'getLbInfo',
         'page' => 'getPage',
         'page_size' => 'getPageSize',
+        'project_name' => 'getProjectName',
         'public_real_server' => 'getPublicRealServer',
         'region' => 'getRegion',
         'sort_by_create_time' => 'getSortByCreateTime',
@@ -258,6 +263,7 @@ class ListDomainRequest implements ModelInterface, ArrayAccess
         $this->container['lb_info'] = isset($data['lb_info']) ? $data['lb_info'] : null;
         $this->container['page'] = isset($data['page']) ? $data['page'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['public_real_server'] = isset($data['public_real_server']) ? $data['public_real_server'] : null;
         $this->container['region'] = isset($data['region']) ? $data['region'] : null;
         $this->container['sort_by_create_time'] = isset($data['sort_by_create_time']) ? $data['sort_by_create_time'] : null;
@@ -540,6 +546,30 @@ class ListDomainRequest implements ModelInterface, ArrayAccess
     public function setPageSize($page_size)
     {
         $this->container['page_size'] = $page_size;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }

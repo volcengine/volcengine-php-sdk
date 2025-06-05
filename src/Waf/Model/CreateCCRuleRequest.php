@@ -29,7 +29,6 @@ class CreateCCRuleRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'accurate_group' => '\Volcengine\Waf\Model\AccurateGroupForCreateCCRuleInput',
-        'accurate_group_priority' => 'int',
         'cc_type' => 'int',
         'count_time' => 'int',
         'cron_confs' => '\Volcengine\Waf\Model\CronConfForCreateCCRuleInput[]',
@@ -55,7 +54,6 @@ class CreateCCRuleRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'accurate_group' => null,
-        'accurate_group_priority' => 'int32',
         'cc_type' => 'int32',
         'count_time' => 'int32',
         'cron_confs' => null,
@@ -102,7 +100,6 @@ class CreateCCRuleRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'accurate_group' => 'AccurateGroup',
-        'accurate_group_priority' => 'AccurateGroupPriority',
         'cc_type' => 'CCType',
         'count_time' => 'CountTime',
         'cron_confs' => 'CronConfs',
@@ -128,7 +125,6 @@ class CreateCCRuleRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'accurate_group' => 'setAccurateGroup',
-        'accurate_group_priority' => 'setAccurateGroupPriority',
         'cc_type' => 'setCcType',
         'count_time' => 'setCountTime',
         'cron_confs' => 'setCronConfs',
@@ -154,7 +150,6 @@ class CreateCCRuleRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'accurate_group' => 'getAccurateGroup',
-        'accurate_group_priority' => 'getAccurateGroupPriority',
         'cc_type' => 'getCcType',
         'count_time' => 'getCountTime',
         'cron_confs' => 'getCronConfs',
@@ -234,7 +229,6 @@ class CreateCCRuleRequest implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['accurate_group'] = isset($data['accurate_group']) ? $data['accurate_group'] : null;
-        $this->container['accurate_group_priority'] = isset($data['accurate_group_priority']) ? $data['accurate_group_priority'] : null;
         $this->container['cc_type'] = isset($data['cc_type']) ? $data['cc_type'] : null;
         $this->container['count_time'] = isset($data['count_time']) ? $data['count_time'] : null;
         $this->container['cron_confs'] = isset($data['cron_confs']) ? $data['cron_confs'] : null;
@@ -318,30 +312,6 @@ class CreateCCRuleRequest implements ModelInterface, ArrayAccess
     public function setAccurateGroup($accurate_group)
     {
         $this->container['accurate_group'] = $accurate_group;
-
-        return $this;
-    }
-
-    /**
-     * Gets accurate_group_priority
-     *
-     * @return int
-     */
-    public function getAccurateGroupPriority()
-    {
-        return $this->container['accurate_group_priority'];
-    }
-
-    /**
-     * Sets accurate_group_priority
-     *
-     * @param int $accurate_group_priority accurate_group_priority
-     *
-     * @return $this
-     */
-    public function setAccurateGroupPriority($accurate_group_priority)
-    {
-        $this->container['accurate_group_priority'] = $accurate_group_priority;
 
         return $this;
     }

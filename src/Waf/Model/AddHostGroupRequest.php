@@ -30,7 +30,8 @@ class AddHostGroupRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'description' => 'string',
         'host_list' => 'string[]',
-        'name' => 'string'
+        'name' => 'string',
+        'project_name' => 'string'
     ];
 
     /**
@@ -41,7 +42,8 @@ class AddHostGroupRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'description' => null,
         'host_list' => null,
-        'name' => null
+        'name' => null,
+        'project_name' => null
     ];
 
     /**
@@ -73,7 +75,8 @@ class AddHostGroupRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'description' => 'Description',
         'host_list' => 'HostList',
-        'name' => 'Name'
+        'name' => 'Name',
+        'project_name' => 'ProjectName'
     ];
 
     /**
@@ -84,7 +87,8 @@ class AddHostGroupRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'description' => 'setDescription',
         'host_list' => 'setHostList',
-        'name' => 'setName'
+        'name' => 'setName',
+        'project_name' => 'setProjectName'
     ];
 
     /**
@@ -95,7 +99,8 @@ class AddHostGroupRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'description' => 'getDescription',
         'host_list' => 'getHostList',
-        'name' => 'getName'
+        'name' => 'getName',
+        'project_name' => 'getProjectName'
     ];
 
     /**
@@ -161,6 +166,7 @@ class AddHostGroupRequest implements ModelInterface, ArrayAccess
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['host_list'] = isset($data['host_list']) ? $data['host_list'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
     }
 
     /**
@@ -258,6 +264,30 @@ class AddHostGroupRequest implements ModelInterface, ArrayAccess
     public function setName($name)
     {
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }
