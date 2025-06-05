@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Waf\Model;
+namespace Volcengine\Sqs\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ListHostGroupRequest implements ModelInterface, ArrayAccess
+class GetQueueAttributesResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ListHostGroupRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ListHostGroupRequest';
+    protected static $swaggerModelName = 'GetQueueAttributesResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,15 +28,11 @@ class ListHostGroupRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'host_fix' => 'string',
-        'host_group_id' => 'int',
-        'list_all' => 'bool',
-        'name_fix' => 'string',
-        'page' => 'int',
-        'page_size' => 'int',
-        'project_name' => 'string',
-        'rule_tag' => 'string',
-        'time_order_by' => 'string'
+        'created_at' => 'string',
+        'message_retention_period' => 'int',
+        'queue_display_name' => 'string',
+        'queue_trn' => 'string',
+        'visibility_timeout' => 'int'
     ];
 
     /**
@@ -45,15 +41,11 @@ class ListHostGroupRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'host_fix' => null,
-        'host_group_id' => 'int32',
-        'list_all' => null,
-        'name_fix' => null,
-        'page' => 'int32',
-        'page_size' => 'int32',
-        'project_name' => null,
-        'rule_tag' => null,
-        'time_order_by' => null
+        'created_at' => null,
+        'message_retention_period' => 'int32',
+        'queue_display_name' => null,
+        'queue_trn' => null,
+        'visibility_timeout' => 'int32'
     ];
 
     /**
@@ -83,15 +75,11 @@ class ListHostGroupRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'host_fix' => 'HostFix',
-        'host_group_id' => 'HostGroupID',
-        'list_all' => 'ListAll',
-        'name_fix' => 'NameFix',
-        'page' => 'Page',
-        'page_size' => 'PageSize',
-        'project_name' => 'ProjectName',
-        'rule_tag' => 'RuleTag',
-        'time_order_by' => 'TimeOrderBy'
+        'created_at' => 'CreatedAt',
+        'message_retention_period' => 'MessageRetentionPeriod',
+        'queue_display_name' => 'QueueDisplayName',
+        'queue_trn' => 'QueueTrn',
+        'visibility_timeout' => 'VisibilityTimeout'
     ];
 
     /**
@@ -100,15 +88,11 @@ class ListHostGroupRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'host_fix' => 'setHostFix',
-        'host_group_id' => 'setHostGroupId',
-        'list_all' => 'setListAll',
-        'name_fix' => 'setNameFix',
-        'page' => 'setPage',
-        'page_size' => 'setPageSize',
-        'project_name' => 'setProjectName',
-        'rule_tag' => 'setRuleTag',
-        'time_order_by' => 'setTimeOrderBy'
+        'created_at' => 'setCreatedAt',
+        'message_retention_period' => 'setMessageRetentionPeriod',
+        'queue_display_name' => 'setQueueDisplayName',
+        'queue_trn' => 'setQueueTrn',
+        'visibility_timeout' => 'setVisibilityTimeout'
     ];
 
     /**
@@ -117,15 +101,11 @@ class ListHostGroupRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'host_fix' => 'getHostFix',
-        'host_group_id' => 'getHostGroupId',
-        'list_all' => 'getListAll',
-        'name_fix' => 'getNameFix',
-        'page' => 'getPage',
-        'page_size' => 'getPageSize',
-        'project_name' => 'getProjectName',
-        'rule_tag' => 'getRuleTag',
-        'time_order_by' => 'getTimeOrderBy'
+        'created_at' => 'getCreatedAt',
+        'message_retention_period' => 'getMessageRetentionPeriod',
+        'queue_display_name' => 'getQueueDisplayName',
+        'queue_trn' => 'getQueueTrn',
+        'visibility_timeout' => 'getVisibilityTimeout'
     ];
 
     /**
@@ -188,15 +168,11 @@ class ListHostGroupRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['host_fix'] = isset($data['host_fix']) ? $data['host_fix'] : null;
-        $this->container['host_group_id'] = isset($data['host_group_id']) ? $data['host_group_id'] : null;
-        $this->container['list_all'] = isset($data['list_all']) ? $data['list_all'] : null;
-        $this->container['name_fix'] = isset($data['name_fix']) ? $data['name_fix'] : null;
-        $this->container['page'] = isset($data['page']) ? $data['page'] : null;
-        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
-        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
-        $this->container['rule_tag'] = isset($data['rule_tag']) ? $data['rule_tag'] : null;
-        $this->container['time_order_by'] = isset($data['time_order_by']) ? $data['time_order_by'] : null;
+        $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
+        $this->container['message_retention_period'] = isset($data['message_retention_period']) ? $data['message_retention_period'] : null;
+        $this->container['queue_display_name'] = isset($data['queue_display_name']) ? $data['queue_display_name'] : null;
+        $this->container['queue_trn'] = isset($data['queue_trn']) ? $data['queue_trn'] : null;
+        $this->container['visibility_timeout'] = isset($data['visibility_timeout']) ? $data['visibility_timeout'] : null;
     }
 
     /**
@@ -224,217 +200,121 @@ class ListHostGroupRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets host_fix
+     * Gets created_at
      *
      * @return string
      */
-    public function getHostFix()
+    public function getCreatedAt()
     {
-        return $this->container['host_fix'];
+        return $this->container['created_at'];
     }
 
     /**
-     * Sets host_fix
+     * Sets created_at
      *
-     * @param string $host_fix host_fix
+     * @param string $created_at created_at
      *
      * @return $this
      */
-    public function setHostFix($host_fix)
+    public function setCreatedAt($created_at)
     {
-        $this->container['host_fix'] = $host_fix;
+        $this->container['created_at'] = $created_at;
 
         return $this;
     }
 
     /**
-     * Gets host_group_id
+     * Gets message_retention_period
      *
      * @return int
      */
-    public function getHostGroupId()
+    public function getMessageRetentionPeriod()
     {
-        return $this->container['host_group_id'];
+        return $this->container['message_retention_period'];
     }
 
     /**
-     * Sets host_group_id
+     * Sets message_retention_period
      *
-     * @param int $host_group_id host_group_id
+     * @param int $message_retention_period message_retention_period
      *
      * @return $this
      */
-    public function setHostGroupId($host_group_id)
+    public function setMessageRetentionPeriod($message_retention_period)
     {
-        $this->container['host_group_id'] = $host_group_id;
+        $this->container['message_retention_period'] = $message_retention_period;
 
         return $this;
     }
 
     /**
-     * Gets list_all
-     *
-     * @return bool
-     */
-    public function getListAll()
-    {
-        return $this->container['list_all'];
-    }
-
-    /**
-     * Sets list_all
-     *
-     * @param bool $list_all list_all
-     *
-     * @return $this
-     */
-    public function setListAll($list_all)
-    {
-        $this->container['list_all'] = $list_all;
-
-        return $this;
-    }
-
-    /**
-     * Gets name_fix
+     * Gets queue_display_name
      *
      * @return string
      */
-    public function getNameFix()
+    public function getQueueDisplayName()
     {
-        return $this->container['name_fix'];
+        return $this->container['queue_display_name'];
     }
 
     /**
-     * Sets name_fix
+     * Sets queue_display_name
      *
-     * @param string $name_fix name_fix
+     * @param string $queue_display_name queue_display_name
      *
      * @return $this
      */
-    public function setNameFix($name_fix)
+    public function setQueueDisplayName($queue_display_name)
     {
-        $this->container['name_fix'] = $name_fix;
+        $this->container['queue_display_name'] = $queue_display_name;
 
         return $this;
     }
 
     /**
-     * Gets page
+     * Gets queue_trn
+     *
+     * @return string
+     */
+    public function getQueueTrn()
+    {
+        return $this->container['queue_trn'];
+    }
+
+    /**
+     * Sets queue_trn
+     *
+     * @param string $queue_trn queue_trn
+     *
+     * @return $this
+     */
+    public function setQueueTrn($queue_trn)
+    {
+        $this->container['queue_trn'] = $queue_trn;
+
+        return $this;
+    }
+
+    /**
+     * Gets visibility_timeout
      *
      * @return int
      */
-    public function getPage()
+    public function getVisibilityTimeout()
     {
-        return $this->container['page'];
+        return $this->container['visibility_timeout'];
     }
 
     /**
-     * Sets page
+     * Sets visibility_timeout
      *
-     * @param int $page page
+     * @param int $visibility_timeout visibility_timeout
      *
      * @return $this
      */
-    public function setPage($page)
+    public function setVisibilityTimeout($visibility_timeout)
     {
-        $this->container['page'] = $page;
-
-        return $this;
-    }
-
-    /**
-     * Gets page_size
-     *
-     * @return int
-     */
-    public function getPageSize()
-    {
-        return $this->container['page_size'];
-    }
-
-    /**
-     * Sets page_size
-     *
-     * @param int $page_size page_size
-     *
-     * @return $this
-     */
-    public function setPageSize($page_size)
-    {
-        $this->container['page_size'] = $page_size;
-
-        return $this;
-    }
-
-    /**
-     * Gets project_name
-     *
-     * @return string
-     */
-    public function getProjectName()
-    {
-        return $this->container['project_name'];
-    }
-
-    /**
-     * Sets project_name
-     *
-     * @param string $project_name project_name
-     *
-     * @return $this
-     */
-    public function setProjectName($project_name)
-    {
-        $this->container['project_name'] = $project_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets rule_tag
-     *
-     * @return string
-     */
-    public function getRuleTag()
-    {
-        return $this->container['rule_tag'];
-    }
-
-    /**
-     * Sets rule_tag
-     *
-     * @param string $rule_tag rule_tag
-     *
-     * @return $this
-     */
-    public function setRuleTag($rule_tag)
-    {
-        $this->container['rule_tag'] = $rule_tag;
-
-        return $this;
-    }
-
-    /**
-     * Gets time_order_by
-     *
-     * @return string
-     */
-    public function getTimeOrderBy()
-    {
-        return $this->container['time_order_by'];
-    }
-
-    /**
-     * Sets time_order_by
-     *
-     * @param string $time_order_by time_order_by
-     *
-     * @return $this
-     */
-    public function setTimeOrderBy($time_order_by)
-    {
-        $this->container['time_order_by'] = $time_order_by;
+        $this->container['visibility_timeout'] = $visibility_timeout;
 
         return $this;
     }

@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Waf\Model;
+namespace Volcengine\Sqs\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AddHostGroupRequest implements ModelInterface, ArrayAccess
+class ListQueuesRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AddHostGroupRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AddHostGroupRequest';
+    protected static $swaggerModelName = 'ListQueuesRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,9 @@ class AddHostGroupRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'description' => 'string',
-        'host_list' => 'string[]',
-        'name' => 'string',
-        'project_name' => 'string'
+        'max_results' => 'int',
+        'next_token' => 'string',
+        'queue_display_name_prefix' => 'string'
     ];
 
     /**
@@ -40,10 +39,9 @@ class AddHostGroupRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'description' => null,
-        'host_list' => null,
-        'name' => null,
-        'project_name' => null
+        'max_results' => 'int32',
+        'next_token' => null,
+        'queue_display_name_prefix' => null
     ];
 
     /**
@@ -73,10 +71,9 @@ class AddHostGroupRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'description' => 'Description',
-        'host_list' => 'HostList',
-        'name' => 'Name',
-        'project_name' => 'ProjectName'
+        'max_results' => 'MaxResults',
+        'next_token' => 'NextToken',
+        'queue_display_name_prefix' => 'QueueDisplayNamePrefix'
     ];
 
     /**
@@ -85,10 +82,9 @@ class AddHostGroupRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'description' => 'setDescription',
-        'host_list' => 'setHostList',
-        'name' => 'setName',
-        'project_name' => 'setProjectName'
+        'max_results' => 'setMaxResults',
+        'next_token' => 'setNextToken',
+        'queue_display_name_prefix' => 'setQueueDisplayNamePrefix'
     ];
 
     /**
@@ -97,10 +93,9 @@ class AddHostGroupRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'description' => 'getDescription',
-        'host_list' => 'getHostList',
-        'name' => 'getName',
-        'project_name' => 'getProjectName'
+        'max_results' => 'getMaxResults',
+        'next_token' => 'getNextToken',
+        'queue_display_name_prefix' => 'getQueueDisplayNamePrefix'
     ];
 
     /**
@@ -163,10 +158,9 @@ class AddHostGroupRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['host_list'] = isset($data['host_list']) ? $data['host_list'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['max_results'] = isset($data['max_results']) ? $data['max_results'] : null;
+        $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
+        $this->container['queue_display_name_prefix'] = isset($data['queue_display_name_prefix']) ? $data['queue_display_name_prefix'] : null;
     }
 
     /**
@@ -178,9 +172,6 @@ class AddHostGroupRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -197,97 +188,73 @@ class AddHostGroupRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets description
+     * Gets max_results
      *
-     * @return string
+     * @return int
      */
-    public function getDescription()
+    public function getMaxResults()
     {
-        return $this->container['description'];
+        return $this->container['max_results'];
     }
 
     /**
-     * Sets description
+     * Sets max_results
      *
-     * @param string $description description
+     * @param int $max_results max_results
      *
      * @return $this
      */
-    public function setDescription($description)
+    public function setMaxResults($max_results)
     {
-        $this->container['description'] = $description;
+        $this->container['max_results'] = $max_results;
 
         return $this;
     }
 
     /**
-     * Gets host_list
+     * Gets next_token
      *
-     * @return string[]
+     * @return string
      */
-    public function getHostList()
+    public function getNextToken()
     {
-        return $this->container['host_list'];
+        return $this->container['next_token'];
     }
 
     /**
-     * Sets host_list
+     * Sets next_token
      *
-     * @param string[] $host_list host_list
+     * @param string $next_token next_token
      *
      * @return $this
      */
-    public function setHostList($host_list)
+    public function setNextToken($next_token)
     {
-        $this->container['host_list'] = $host_list;
+        $this->container['next_token'] = $next_token;
 
         return $this;
     }
 
     /**
-     * Gets name
+     * Gets queue_display_name_prefix
      *
      * @return string
      */
-    public function getName()
+    public function getQueueDisplayNamePrefix()
     {
-        return $this->container['name'];
+        return $this->container['queue_display_name_prefix'];
     }
 
     /**
-     * Sets name
+     * Sets queue_display_name_prefix
      *
-     * @param string $name name
+     * @param string $queue_display_name_prefix queue_display_name_prefix
      *
      * @return $this
      */
-    public function setName($name)
+    public function setQueueDisplayNamePrefix($queue_display_name_prefix)
     {
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets project_name
-     *
-     * @return string
-     */
-    public function getProjectName()
-    {
-        return $this->container['project_name'];
-    }
-
-    /**
-     * Sets project_name
-     *
-     * @param string $project_name project_name
-     *
-     * @return $this
-     */
-    public function setProjectName($project_name)
-    {
-        $this->container['project_name'] = $project_name;
+        $this->container['queue_display_name_prefix'] = $queue_display_name_prefix;
 
         return $this;
     }

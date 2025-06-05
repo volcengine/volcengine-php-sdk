@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Waf\Model;
+namespace Volcengine\Sqs\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AddHostGroupRequest implements ModelInterface, ArrayAccess
+class CreateQueueRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AddHostGroupRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AddHostGroupRequest';
+    protected static $swaggerModelName = 'CreateQueueRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,9 @@ class AddHostGroupRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'description' => 'string',
-        'host_list' => 'string[]',
-        'name' => 'string',
-        'project_name' => 'string'
+        'message_retention_period' => 'int',
+        'queue_display_name' => 'string',
+        'visibility_timeout' => 'int'
     ];
 
     /**
@@ -40,10 +39,9 @@ class AddHostGroupRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'description' => null,
-        'host_list' => null,
-        'name' => null,
-        'project_name' => null
+        'message_retention_period' => 'int32',
+        'queue_display_name' => null,
+        'visibility_timeout' => 'int32'
     ];
 
     /**
@@ -73,10 +71,9 @@ class AddHostGroupRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'description' => 'Description',
-        'host_list' => 'HostList',
-        'name' => 'Name',
-        'project_name' => 'ProjectName'
+        'message_retention_period' => 'MessageRetentionPeriod',
+        'queue_display_name' => 'QueueDisplayName',
+        'visibility_timeout' => 'VisibilityTimeout'
     ];
 
     /**
@@ -85,10 +82,9 @@ class AddHostGroupRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'description' => 'setDescription',
-        'host_list' => 'setHostList',
-        'name' => 'setName',
-        'project_name' => 'setProjectName'
+        'message_retention_period' => 'setMessageRetentionPeriod',
+        'queue_display_name' => 'setQueueDisplayName',
+        'visibility_timeout' => 'setVisibilityTimeout'
     ];
 
     /**
@@ -97,10 +93,9 @@ class AddHostGroupRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'description' => 'getDescription',
-        'host_list' => 'getHostList',
-        'name' => 'getName',
-        'project_name' => 'getProjectName'
+        'message_retention_period' => 'getMessageRetentionPeriod',
+        'queue_display_name' => 'getQueueDisplayName',
+        'visibility_timeout' => 'getVisibilityTimeout'
     ];
 
     /**
@@ -163,10 +158,9 @@ class AddHostGroupRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['host_list'] = isset($data['host_list']) ? $data['host_list'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['message_retention_period'] = isset($data['message_retention_period']) ? $data['message_retention_period'] : null;
+        $this->container['queue_display_name'] = isset($data['queue_display_name']) ? $data['queue_display_name'] : null;
+        $this->container['visibility_timeout'] = isset($data['visibility_timeout']) ? $data['visibility_timeout'] : null;
     }
 
     /**
@@ -178,8 +172,8 @@ class AddHostGroupRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
+        if ($this->container['queue_display_name'] === null) {
+            $invalidProperties[] = "'queue_display_name' can't be null";
         }
         return $invalidProperties;
     }
@@ -197,97 +191,73 @@ class AddHostGroupRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets description
+     * Gets message_retention_period
      *
-     * @return string
+     * @return int
      */
-    public function getDescription()
+    public function getMessageRetentionPeriod()
     {
-        return $this->container['description'];
+        return $this->container['message_retention_period'];
     }
 
     /**
-     * Sets description
+     * Sets message_retention_period
      *
-     * @param string $description description
+     * @param int $message_retention_period message_retention_period
      *
      * @return $this
      */
-    public function setDescription($description)
+    public function setMessageRetentionPeriod($message_retention_period)
     {
-        $this->container['description'] = $description;
+        $this->container['message_retention_period'] = $message_retention_period;
 
         return $this;
     }
 
     /**
-     * Gets host_list
+     * Gets queue_display_name
      *
-     * @return string[]
+     * @return string
      */
-    public function getHostList()
+    public function getQueueDisplayName()
     {
-        return $this->container['host_list'];
+        return $this->container['queue_display_name'];
     }
 
     /**
-     * Sets host_list
+     * Sets queue_display_name
      *
-     * @param string[] $host_list host_list
+     * @param string $queue_display_name queue_display_name
      *
      * @return $this
      */
-    public function setHostList($host_list)
+    public function setQueueDisplayName($queue_display_name)
     {
-        $this->container['host_list'] = $host_list;
+        $this->container['queue_display_name'] = $queue_display_name;
 
         return $this;
     }
 
     /**
-     * Gets name
+     * Gets visibility_timeout
      *
-     * @return string
+     * @return int
      */
-    public function getName()
+    public function getVisibilityTimeout()
     {
-        return $this->container['name'];
+        return $this->container['visibility_timeout'];
     }
 
     /**
-     * Sets name
+     * Sets visibility_timeout
      *
-     * @param string $name name
+     * @param int $visibility_timeout visibility_timeout
      *
      * @return $this
      */
-    public function setName($name)
+    public function setVisibilityTimeout($visibility_timeout)
     {
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets project_name
-     *
-     * @return string
-     */
-    public function getProjectName()
-    {
-        return $this->container['project_name'];
-    }
-
-    /**
-     * Sets project_name
-     *
-     * @param string $project_name project_name
-     *
-     * @return $this
-     */
-    public function setProjectName($project_name)
-    {
-        $this->container['project_name'] = $project_name;
+        $this->container['visibility_timeout'] = $visibility_timeout;
 
         return $this;
     }

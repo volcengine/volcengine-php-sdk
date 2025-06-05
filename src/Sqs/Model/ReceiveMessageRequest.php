@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Waf\Model;
+namespace Volcengine\Sqs\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AddHostGroupRequest implements ModelInterface, ArrayAccess
+class ReceiveMessageRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AddHostGroupRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AddHostGroupRequest';
+    protected static $swaggerModelName = 'ReceiveMessageRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,9 @@ class AddHostGroupRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'description' => 'string',
-        'host_list' => 'string[]',
-        'name' => 'string',
-        'project_name' => 'string'
+        'max_number_of_messages' => 'int',
+        'queue_trn' => 'string',
+        'wait_time_seconds' => 'int'
     ];
 
     /**
@@ -40,10 +39,9 @@ class AddHostGroupRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'description' => null,
-        'host_list' => null,
-        'name' => null,
-        'project_name' => null
+        'max_number_of_messages' => 'int32',
+        'queue_trn' => null,
+        'wait_time_seconds' => 'int32'
     ];
 
     /**
@@ -73,10 +71,9 @@ class AddHostGroupRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'description' => 'Description',
-        'host_list' => 'HostList',
-        'name' => 'Name',
-        'project_name' => 'ProjectName'
+        'max_number_of_messages' => 'MaxNumberOfMessages',
+        'queue_trn' => 'QueueTrn',
+        'wait_time_seconds' => 'WaitTimeSeconds'
     ];
 
     /**
@@ -85,10 +82,9 @@ class AddHostGroupRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'description' => 'setDescription',
-        'host_list' => 'setHostList',
-        'name' => 'setName',
-        'project_name' => 'setProjectName'
+        'max_number_of_messages' => 'setMaxNumberOfMessages',
+        'queue_trn' => 'setQueueTrn',
+        'wait_time_seconds' => 'setWaitTimeSeconds'
     ];
 
     /**
@@ -97,10 +93,9 @@ class AddHostGroupRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'description' => 'getDescription',
-        'host_list' => 'getHostList',
-        'name' => 'getName',
-        'project_name' => 'getProjectName'
+        'max_number_of_messages' => 'getMaxNumberOfMessages',
+        'queue_trn' => 'getQueueTrn',
+        'wait_time_seconds' => 'getWaitTimeSeconds'
     ];
 
     /**
@@ -163,10 +158,9 @@ class AddHostGroupRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['host_list'] = isset($data['host_list']) ? $data['host_list'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['max_number_of_messages'] = isset($data['max_number_of_messages']) ? $data['max_number_of_messages'] : null;
+        $this->container['queue_trn'] = isset($data['queue_trn']) ? $data['queue_trn'] : null;
+        $this->container['wait_time_seconds'] = isset($data['wait_time_seconds']) ? $data['wait_time_seconds'] : null;
     }
 
     /**
@@ -178,8 +172,8 @@ class AddHostGroupRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
+        if ($this->container['queue_trn'] === null) {
+            $invalidProperties[] = "'queue_trn' can't be null";
         }
         return $invalidProperties;
     }
@@ -197,97 +191,73 @@ class AddHostGroupRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets description
+     * Gets max_number_of_messages
      *
-     * @return string
+     * @return int
      */
-    public function getDescription()
+    public function getMaxNumberOfMessages()
     {
-        return $this->container['description'];
+        return $this->container['max_number_of_messages'];
     }
 
     /**
-     * Sets description
+     * Sets max_number_of_messages
      *
-     * @param string $description description
+     * @param int $max_number_of_messages max_number_of_messages
      *
      * @return $this
      */
-    public function setDescription($description)
+    public function setMaxNumberOfMessages($max_number_of_messages)
     {
-        $this->container['description'] = $description;
+        $this->container['max_number_of_messages'] = $max_number_of_messages;
 
         return $this;
     }
 
     /**
-     * Gets host_list
+     * Gets queue_trn
      *
-     * @return string[]
+     * @return string
      */
-    public function getHostList()
+    public function getQueueTrn()
     {
-        return $this->container['host_list'];
+        return $this->container['queue_trn'];
     }
 
     /**
-     * Sets host_list
+     * Sets queue_trn
      *
-     * @param string[] $host_list host_list
+     * @param string $queue_trn queue_trn
      *
      * @return $this
      */
-    public function setHostList($host_list)
+    public function setQueueTrn($queue_trn)
     {
-        $this->container['host_list'] = $host_list;
+        $this->container['queue_trn'] = $queue_trn;
 
         return $this;
     }
 
     /**
-     * Gets name
+     * Gets wait_time_seconds
      *
-     * @return string
+     * @return int
      */
-    public function getName()
+    public function getWaitTimeSeconds()
     {
-        return $this->container['name'];
+        return $this->container['wait_time_seconds'];
     }
 
     /**
-     * Sets name
+     * Sets wait_time_seconds
      *
-     * @param string $name name
+     * @param int $wait_time_seconds wait_time_seconds
      *
      * @return $this
      */
-    public function setName($name)
+    public function setWaitTimeSeconds($wait_time_seconds)
     {
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets project_name
-     *
-     * @return string
-     */
-    public function getProjectName()
-    {
-        return $this->container['project_name'];
-    }
-
-    /**
-     * Sets project_name
-     *
-     * @param string $project_name project_name
-     *
-     * @return $this
-     */
-    public function setProjectName($project_name)
-    {
-        $this->container['project_name'] = $project_name;
+        $this->container['wait_time_seconds'] = $wait_time_seconds;
 
         return $this;
     }

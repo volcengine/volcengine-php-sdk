@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Waf\Model;
+namespace Volcengine\Sqs\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class LLMPathInfoForUpdateDomainInput implements ModelInterface, ArrayAccess
+class DeleteMessageRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class LLMPathInfoForUpdateDomainInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'LLMPathInfoForUpdateDomainInput';
+    protected static $swaggerModelName = 'DeleteMessageRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,8 @@ class LLMPathInfoForUpdateDomainInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'path' => 'string',
-        'token_location' => 'string'
+        'queue_trn' => 'string',
+        'receipt_handle' => 'string'
     ];
 
     /**
@@ -38,8 +38,8 @@ class LLMPathInfoForUpdateDomainInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'path' => null,
-        'token_location' => null
+        'queue_trn' => null,
+        'receipt_handle' => null
     ];
 
     /**
@@ -69,8 +69,8 @@ class LLMPathInfoForUpdateDomainInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'path' => 'Path',
-        'token_location' => 'TokenLocation'
+        'queue_trn' => 'QueueTrn',
+        'receipt_handle' => 'ReceiptHandle'
     ];
 
     /**
@@ -79,8 +79,8 @@ class LLMPathInfoForUpdateDomainInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'path' => 'setPath',
-        'token_location' => 'setTokenLocation'
+        'queue_trn' => 'setQueueTrn',
+        'receipt_handle' => 'setReceiptHandle'
     ];
 
     /**
@@ -89,8 +89,8 @@ class LLMPathInfoForUpdateDomainInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'path' => 'getPath',
-        'token_location' => 'getTokenLocation'
+        'queue_trn' => 'getQueueTrn',
+        'receipt_handle' => 'getReceiptHandle'
     ];
 
     /**
@@ -153,8 +153,8 @@ class LLMPathInfoForUpdateDomainInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['path'] = isset($data['path']) ? $data['path'] : null;
-        $this->container['token_location'] = isset($data['token_location']) ? $data['token_location'] : null;
+        $this->container['queue_trn'] = isset($data['queue_trn']) ? $data['queue_trn'] : null;
+        $this->container['receipt_handle'] = isset($data['receipt_handle']) ? $data['receipt_handle'] : null;
     }
 
     /**
@@ -166,6 +166,12 @@ class LLMPathInfoForUpdateDomainInput implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['queue_trn'] === null) {
+            $invalidProperties[] = "'queue_trn' can't be null";
+        }
+        if ($this->container['receipt_handle'] === null) {
+            $invalidProperties[] = "'receipt_handle' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -182,49 +188,49 @@ class LLMPathInfoForUpdateDomainInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets path
+     * Gets queue_trn
      *
      * @return string
      */
-    public function getPath()
+    public function getQueueTrn()
     {
-        return $this->container['path'];
+        return $this->container['queue_trn'];
     }
 
     /**
-     * Sets path
+     * Sets queue_trn
      *
-     * @param string $path path
+     * @param string $queue_trn queue_trn
      *
      * @return $this
      */
-    public function setPath($path)
+    public function setQueueTrn($queue_trn)
     {
-        $this->container['path'] = $path;
+        $this->container['queue_trn'] = $queue_trn;
 
         return $this;
     }
 
     /**
-     * Gets token_location
+     * Gets receipt_handle
      *
      * @return string
      */
-    public function getTokenLocation()
+    public function getReceiptHandle()
     {
-        return $this->container['token_location'];
+        return $this->container['receipt_handle'];
     }
 
     /**
-     * Sets token_location
+     * Sets receipt_handle
      *
-     * @param string $token_location token_location
+     * @param string $receipt_handle receipt_handle
      *
      * @return $this
      */
-    public function setTokenLocation($token_location)
+    public function setReceiptHandle($receipt_handle)
     {
-        $this->container['token_location'] = $token_location;
+        $this->container['receipt_handle'] = $receipt_handle;
 
         return $this;
     }

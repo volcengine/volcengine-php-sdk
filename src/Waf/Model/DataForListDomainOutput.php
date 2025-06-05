@@ -51,7 +51,7 @@ class DataForListDomainOutput implements ModelInterface, ArrayAccess
         'clb_listener_id' => 'string',
         'clb_pool_id' => 'string',
         'clb_server_id' => 'string',
-        'client_ip_location' => 'string',
+        'client_ip_location' => 'int',
         'client_max_body_size' => 'int',
         'cloud_access_config' => '\Volcengine\Waf\Model\CloudAccessConfigForListDomainOutput[]',
         'cname' => 'string',
@@ -129,7 +129,7 @@ class DataForListDomainOutput implements ModelInterface, ArrayAccess
         'clb_listener_id' => null,
         'clb_pool_id' => null,
         'clb_server_id' => null,
-        'client_ip_location' => null,
+        'client_ip_location' => 'int32',
         'client_max_body_size' => 'int32',
         'cloud_access_config' => null,
         'cname' => null,
@@ -1144,7 +1144,7 @@ class DataForListDomainOutput implements ModelInterface, ArrayAccess
     /**
      * Gets client_ip_location
      *
-     * @return string
+     * @return int
      */
     public function getClientIpLocation()
     {
@@ -1154,7 +1154,7 @@ class DataForListDomainOutput implements ModelInterface, ArrayAccess
     /**
      * Sets client_ip_location
      *
-     * @param string $client_ip_location client_ip_location
+     * @param int $client_ip_location client_ip_location
      *
      * @return $this
      */
