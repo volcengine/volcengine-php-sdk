@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class SubmitAITranslationWorkflowResponse implements ModelInterface, ArrayAccess
+class ProjectBaseInfoForSubmitAITranslationWorkflowOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class SubmitAITranslationWorkflowResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'SubmitAITranslationWorkflowResponse';
+    protected static $swaggerModelName = 'ProjectBaseInfoForSubmitAITranslationWorkflowOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,8 @@ class SubmitAITranslationWorkflowResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'project_base_info' => '\Volcengine\Vod20250101\Model\ProjectBaseInfoForSubmitAITranslationWorkflowOutput'
+        'project_id' => 'string',
+        'project_version' => 'string'
     ];
 
     /**
@@ -37,7 +38,8 @@ class SubmitAITranslationWorkflowResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'project_base_info' => null
+        'project_id' => null,
+        'project_version' => null
     ];
 
     /**
@@ -67,7 +69,8 @@ class SubmitAITranslationWorkflowResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'project_base_info' => 'ProjectBaseInfo'
+        'project_id' => 'ProjectId',
+        'project_version' => 'ProjectVersion'
     ];
 
     /**
@@ -76,7 +79,8 @@ class SubmitAITranslationWorkflowResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'project_base_info' => 'setProjectBaseInfo'
+        'project_id' => 'setProjectId',
+        'project_version' => 'setProjectVersion'
     ];
 
     /**
@@ -85,7 +89,8 @@ class SubmitAITranslationWorkflowResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'project_base_info' => 'getProjectBaseInfo'
+        'project_id' => 'getProjectId',
+        'project_version' => 'getProjectVersion'
     ];
 
     /**
@@ -148,7 +153,8 @@ class SubmitAITranslationWorkflowResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['project_base_info'] = isset($data['project_base_info']) ? $data['project_base_info'] : null;
+        $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
+        $this->container['project_version'] = isset($data['project_version']) ? $data['project_version'] : null;
     }
 
     /**
@@ -176,25 +182,49 @@ class SubmitAITranslationWorkflowResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets project_base_info
+     * Gets project_id
      *
-     * @return \Volcengine\Vod20250101\Model\ProjectBaseInfoForSubmitAITranslationWorkflowOutput
+     * @return string
      */
-    public function getProjectBaseInfo()
+    public function getProjectId()
     {
-        return $this->container['project_base_info'];
+        return $this->container['project_id'];
     }
 
     /**
-     * Sets project_base_info
+     * Sets project_id
      *
-     * @param \Volcengine\Vod20250101\Model\ProjectBaseInfoForSubmitAITranslationWorkflowOutput $project_base_info project_base_info
+     * @param string $project_id project_id
      *
      * @return $this
      */
-    public function setProjectBaseInfo($project_base_info)
+    public function setProjectId($project_id)
     {
-        $this->container['project_base_info'] = $project_base_info;
+        $this->container['project_id'] = $project_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_version
+     *
+     * @return string
+     */
+    public function getProjectVersion()
+    {
+        return $this->container['project_version'];
+    }
+
+    /**
+     * Sets project_version
+     *
+     * @param string $project_version project_version
+     *
+     * @return $this
+     */
+    public function setProjectVersion($project_version)
+    {
+        $this->container['project_version'] = $project_version;
 
         return $this;
     }
