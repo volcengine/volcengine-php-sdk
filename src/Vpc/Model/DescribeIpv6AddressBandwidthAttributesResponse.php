@@ -47,6 +47,7 @@ class DescribeIpv6AddressBandwidthAttributesResponse implements ModelInterface, 
         'request_id' => 'string',
         'service_managed' => 'bool',
         'status' => 'string',
+        'tags' => '\Volcengine\Vpc\Model\TagForDescribeIpv6AddressBandwidthAttributesOutput[]',
         'update_time' => 'string'
     ];
 
@@ -75,6 +76,7 @@ class DescribeIpv6AddressBandwidthAttributesResponse implements ModelInterface, 
         'request_id' => null,
         'service_managed' => null,
         'status' => null,
+        'tags' => null,
         'update_time' => null
     ];
 
@@ -124,6 +126,7 @@ class DescribeIpv6AddressBandwidthAttributesResponse implements ModelInterface, 
         'request_id' => 'RequestId',
         'service_managed' => 'ServiceManaged',
         'status' => 'Status',
+        'tags' => 'Tags',
         'update_time' => 'UpdateTime'
     ];
 
@@ -152,6 +155,7 @@ class DescribeIpv6AddressBandwidthAttributesResponse implements ModelInterface, 
         'request_id' => 'setRequestId',
         'service_managed' => 'setServiceManaged',
         'status' => 'setStatus',
+        'tags' => 'setTags',
         'update_time' => 'setUpdateTime'
     ];
 
@@ -180,6 +184,7 @@ class DescribeIpv6AddressBandwidthAttributesResponse implements ModelInterface, 
         'request_id' => 'getRequestId',
         'service_managed' => 'getServiceManaged',
         'status' => 'getStatus',
+        'tags' => 'getTags',
         'update_time' => 'getUpdateTime'
     ];
 
@@ -262,6 +267,7 @@ class DescribeIpv6AddressBandwidthAttributesResponse implements ModelInterface, 
         $this->container['request_id'] = isset($data['request_id']) ? $data['request_id'] : null;
         $this->container['service_managed'] = isset($data['service_managed']) ? $data['service_managed'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
     }
 
@@ -741,6 +747,30 @@ class DescribeIpv6AddressBandwidthAttributesResponse implements ModelInterface, 
     public function setStatus($status)
     {
         $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets tags
+     *
+     * @return \Volcengine\Vpc\Model\TagForDescribeIpv6AddressBandwidthAttributesOutput[]
+     */
+    public function getTags()
+    {
+        return $this->container['tags'];
+    }
+
+    /**
+     * Sets tags
+     *
+     * @param \Volcengine\Vpc\Model\TagForDescribeIpv6AddressBandwidthAttributesOutput[] $tags tags
+     *
+     * @return $this
+     */
+    public function setTags($tags)
+    {
+        $this->container['tags'] = $tags;
 
         return $this;
     }

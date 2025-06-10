@@ -28,16 +28,17 @@ class DescribeIpv6AddressBandwidthsRequest implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'allocation_ids' => 'string',
+        'allocation_ids' => 'string[]',
         'associated_instance_id' => 'string',
         'associated_instance_type' => 'string',
         'bandwidth_package_id' => 'string',
         'isp' => 'string',
-        'ipv6_addresses' => 'string',
+        'ipv6_addresses' => 'string[]',
         'max_results' => 'int',
         'network_type' => 'string',
         'next_token' => 'string',
         'project_name' => 'string',
+        'tag_filters' => '\Volcengine\Vpc\Model\TagFilterForDescribeIpv6AddressBandwidthsInput[]',
         'vpc_id' => 'string'
     ];
 
@@ -57,6 +58,7 @@ class DescribeIpv6AddressBandwidthsRequest implements ModelInterface, ArrayAcces
         'network_type' => null,
         'next_token' => null,
         'project_name' => null,
+        'tag_filters' => null,
         'vpc_id' => null
     ];
 
@@ -97,6 +99,7 @@ class DescribeIpv6AddressBandwidthsRequest implements ModelInterface, ArrayAcces
         'network_type' => 'NetworkType',
         'next_token' => 'NextToken',
         'project_name' => 'ProjectName',
+        'tag_filters' => 'TagFilters',
         'vpc_id' => 'VpcId'
     ];
 
@@ -116,6 +119,7 @@ class DescribeIpv6AddressBandwidthsRequest implements ModelInterface, ArrayAcces
         'network_type' => 'setNetworkType',
         'next_token' => 'setNextToken',
         'project_name' => 'setProjectName',
+        'tag_filters' => 'setTagFilters',
         'vpc_id' => 'setVpcId'
     ];
 
@@ -135,6 +139,7 @@ class DescribeIpv6AddressBandwidthsRequest implements ModelInterface, ArrayAcces
         'network_type' => 'getNetworkType',
         'next_token' => 'getNextToken',
         'project_name' => 'getProjectName',
+        'tag_filters' => 'getTagFilters',
         'vpc_id' => 'getVpcId'
     ];
 
@@ -208,6 +213,7 @@ class DescribeIpv6AddressBandwidthsRequest implements ModelInterface, ArrayAcces
         $this->container['network_type'] = isset($data['network_type']) ? $data['network_type'] : null;
         $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['tag_filters'] = isset($data['tag_filters']) ? $data['tag_filters'] : null;
         $this->container['vpc_id'] = isset($data['vpc_id']) ? $data['vpc_id'] : null;
     }
 
@@ -238,7 +244,7 @@ class DescribeIpv6AddressBandwidthsRequest implements ModelInterface, ArrayAcces
     /**
      * Gets allocation_ids
      *
-     * @return string
+     * @return string[]
      */
     public function getAllocationIds()
     {
@@ -248,7 +254,7 @@ class DescribeIpv6AddressBandwidthsRequest implements ModelInterface, ArrayAcces
     /**
      * Sets allocation_ids
      *
-     * @param string $allocation_ids allocation_ids
+     * @param string[] $allocation_ids allocation_ids
      *
      * @return $this
      */
@@ -358,7 +364,7 @@ class DescribeIpv6AddressBandwidthsRequest implements ModelInterface, ArrayAcces
     /**
      * Gets ipv6_addresses
      *
-     * @return string
+     * @return string[]
      */
     public function getIpv6Addresses()
     {
@@ -368,7 +374,7 @@ class DescribeIpv6AddressBandwidthsRequest implements ModelInterface, ArrayAcces
     /**
      * Sets ipv6_addresses
      *
-     * @param string $ipv6_addresses ipv6_addresses
+     * @param string[] $ipv6_addresses ipv6_addresses
      *
      * @return $this
      */
@@ -471,6 +477,30 @@ class DescribeIpv6AddressBandwidthsRequest implements ModelInterface, ArrayAcces
     public function setProjectName($project_name)
     {
         $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets tag_filters
+     *
+     * @return \Volcengine\Vpc\Model\TagFilterForDescribeIpv6AddressBandwidthsInput[]
+     */
+    public function getTagFilters()
+    {
+        return $this->container['tag_filters'];
+    }
+
+    /**
+     * Sets tag_filters
+     *
+     * @param \Volcengine\Vpc\Model\TagFilterForDescribeIpv6AddressBandwidthsInput[] $tag_filters tag_filters
+     *
+     * @return $this
+     */
+    public function setTagFilters($tag_filters)
+    {
+        $this->container['tag_filters'] = $tag_filters;
 
         return $this;
     }

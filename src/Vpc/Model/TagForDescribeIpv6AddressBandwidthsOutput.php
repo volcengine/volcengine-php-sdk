@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class DescribeIpv6GatewaysRequest implements ModelInterface, ArrayAccess
+class TagForDescribeIpv6AddressBandwidthsOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class DescribeIpv6GatewaysRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'DescribeIpv6GatewaysRequest';
+    protected static $swaggerModelName = 'TagForDescribeIpv6AddressBandwidthsOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,13 +28,8 @@ class DescribeIpv6GatewaysRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'ipv6_gateway_ids' => 'string[]',
-        'max_results' => 'int',
-        'name' => 'string',
-        'next_token' => 'string',
-        'project_name' => 'string',
-        'tag_filters' => '\Volcengine\Vpc\Model\TagFilterForDescribeIpv6GatewaysInput[]',
-        'vpc_ids' => 'string[]'
+        'key' => 'string',
+        'value' => 'string'
     ];
 
     /**
@@ -43,13 +38,8 @@ class DescribeIpv6GatewaysRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'ipv6_gateway_ids' => null,
-        'max_results' => null,
-        'name' => null,
-        'next_token' => null,
-        'project_name' => null,
-        'tag_filters' => null,
-        'vpc_ids' => null
+        'key' => null,
+        'value' => null
     ];
 
     /**
@@ -79,13 +69,8 @@ class DescribeIpv6GatewaysRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'ipv6_gateway_ids' => 'Ipv6GatewayIds',
-        'max_results' => 'MaxResults',
-        'name' => 'Name',
-        'next_token' => 'NextToken',
-        'project_name' => 'ProjectName',
-        'tag_filters' => 'TagFilters',
-        'vpc_ids' => 'VpcIds'
+        'key' => 'Key',
+        'value' => 'Value'
     ];
 
     /**
@@ -94,13 +79,8 @@ class DescribeIpv6GatewaysRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'ipv6_gateway_ids' => 'setIpv6GatewayIds',
-        'max_results' => 'setMaxResults',
-        'name' => 'setName',
-        'next_token' => 'setNextToken',
-        'project_name' => 'setProjectName',
-        'tag_filters' => 'setTagFilters',
-        'vpc_ids' => 'setVpcIds'
+        'key' => 'setKey',
+        'value' => 'setValue'
     ];
 
     /**
@@ -109,13 +89,8 @@ class DescribeIpv6GatewaysRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'ipv6_gateway_ids' => 'getIpv6GatewayIds',
-        'max_results' => 'getMaxResults',
-        'name' => 'getName',
-        'next_token' => 'getNextToken',
-        'project_name' => 'getProjectName',
-        'tag_filters' => 'getTagFilters',
-        'vpc_ids' => 'getVpcIds'
+        'key' => 'getKey',
+        'value' => 'getValue'
     ];
 
     /**
@@ -178,13 +153,8 @@ class DescribeIpv6GatewaysRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['ipv6_gateway_ids'] = isset($data['ipv6_gateway_ids']) ? $data['ipv6_gateway_ids'] : null;
-        $this->container['max_results'] = isset($data['max_results']) ? $data['max_results'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
-        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
-        $this->container['tag_filters'] = isset($data['tag_filters']) ? $data['tag_filters'] : null;
-        $this->container['vpc_ids'] = isset($data['vpc_ids']) ? $data['vpc_ids'] : null;
+        $this->container['key'] = isset($data['key']) ? $data['key'] : null;
+        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 
     /**
@@ -212,169 +182,49 @@ class DescribeIpv6GatewaysRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets ipv6_gateway_ids
-     *
-     * @return string[]
-     */
-    public function getIpv6GatewayIds()
-    {
-        return $this->container['ipv6_gateway_ids'];
-    }
-
-    /**
-     * Sets ipv6_gateway_ids
-     *
-     * @param string[] $ipv6_gateway_ids ipv6_gateway_ids
-     *
-     * @return $this
-     */
-    public function setIpv6GatewayIds($ipv6_gateway_ids)
-    {
-        $this->container['ipv6_gateway_ids'] = $ipv6_gateway_ids;
-
-        return $this;
-    }
-
-    /**
-     * Gets max_results
-     *
-     * @return int
-     */
-    public function getMaxResults()
-    {
-        return $this->container['max_results'];
-    }
-
-    /**
-     * Sets max_results
-     *
-     * @param int $max_results max_results
-     *
-     * @return $this
-     */
-    public function setMaxResults($max_results)
-    {
-        $this->container['max_results'] = $max_results;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
+     * Gets key
      *
      * @return string
      */
-    public function getName()
+    public function getKey()
     {
-        return $this->container['name'];
+        return $this->container['key'];
     }
 
     /**
-     * Sets name
+     * Sets key
      *
-     * @param string $name name
+     * @param string $key key
      *
      * @return $this
      */
-    public function setName($name)
+    public function setKey($key)
     {
-        $this->container['name'] = $name;
+        $this->container['key'] = $key;
 
         return $this;
     }
 
     /**
-     * Gets next_token
+     * Gets value
      *
      * @return string
      */
-    public function getNextToken()
+    public function getValue()
     {
-        return $this->container['next_token'];
+        return $this->container['value'];
     }
 
     /**
-     * Sets next_token
+     * Sets value
      *
-     * @param string $next_token next_token
+     * @param string $value value
      *
      * @return $this
      */
-    public function setNextToken($next_token)
+    public function setValue($value)
     {
-        $this->container['next_token'] = $next_token;
-
-        return $this;
-    }
-
-    /**
-     * Gets project_name
-     *
-     * @return string
-     */
-    public function getProjectName()
-    {
-        return $this->container['project_name'];
-    }
-
-    /**
-     * Sets project_name
-     *
-     * @param string $project_name project_name
-     *
-     * @return $this
-     */
-    public function setProjectName($project_name)
-    {
-        $this->container['project_name'] = $project_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets tag_filters
-     *
-     * @return \Volcengine\Vpc\Model\TagFilterForDescribeIpv6GatewaysInput[]
-     */
-    public function getTagFilters()
-    {
-        return $this->container['tag_filters'];
-    }
-
-    /**
-     * Sets tag_filters
-     *
-     * @param \Volcengine\Vpc\Model\TagFilterForDescribeIpv6GatewaysInput[] $tag_filters tag_filters
-     *
-     * @return $this
-     */
-    public function setTagFilters($tag_filters)
-    {
-        $this->container['tag_filters'] = $tag_filters;
-
-        return $this;
-    }
-
-    /**
-     * Gets vpc_ids
-     *
-     * @return string[]
-     */
-    public function getVpcIds()
-    {
-        return $this->container['vpc_ids'];
-    }
-
-    /**
-     * Sets vpc_ids
-     *
-     * @param string[] $vpc_ids vpc_ids
-     *
-     * @return $this
-     */
-    public function setVpcIds($vpc_ids)
-    {
-        $this->container['vpc_ids'] = $vpc_ids;
+        $this->container['value'] = $value;
 
         return $this;
     }
