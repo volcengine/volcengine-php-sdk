@@ -37,6 +37,7 @@ class ListJobsRequest implements ModelInterface, ArrayAccess
         'priority' => 'int',
         'resource_group_id' => 'string',
         'resource_queue_id' => 'string',
+        'resource_reservation_plan_id' => 'string',
         'sort_by' => 'string',
         'sort_order' => 'string',
         'state' => 'string',
@@ -59,6 +60,7 @@ class ListJobsRequest implements ModelInterface, ArrayAccess
         'priority' => 'int32',
         'resource_group_id' => null,
         'resource_queue_id' => null,
+        'resource_reservation_plan_id' => null,
         'sort_by' => null,
         'sort_order' => null,
         'state' => null,
@@ -102,6 +104,7 @@ class ListJobsRequest implements ModelInterface, ArrayAccess
         'priority' => 'Priority',
         'resource_group_id' => 'ResourceGroupId',
         'resource_queue_id' => 'ResourceQueueId',
+        'resource_reservation_plan_id' => 'ResourceReservationPlanId',
         'sort_by' => 'SortBy',
         'sort_order' => 'SortOrder',
         'state' => 'State',
@@ -124,6 +127,7 @@ class ListJobsRequest implements ModelInterface, ArrayAccess
         'priority' => 'setPriority',
         'resource_group_id' => 'setResourceGroupId',
         'resource_queue_id' => 'setResourceQueueId',
+        'resource_reservation_plan_id' => 'setResourceReservationPlanId',
         'sort_by' => 'setSortBy',
         'sort_order' => 'setSortOrder',
         'state' => 'setState',
@@ -146,6 +150,7 @@ class ListJobsRequest implements ModelInterface, ArrayAccess
         'priority' => 'getPriority',
         'resource_group_id' => 'getResourceGroupId',
         'resource_queue_id' => 'getResourceQueueId',
+        'resource_reservation_plan_id' => 'getResourceReservationPlanId',
         'sort_by' => 'getSortBy',
         'sort_order' => 'getSortOrder',
         'state' => 'getState',
@@ -300,6 +305,7 @@ class ListJobsRequest implements ModelInterface, ArrayAccess
         $this->container['priority'] = isset($data['priority']) ? $data['priority'] : null;
         $this->container['resource_group_id'] = isset($data['resource_group_id']) ? $data['resource_group_id'] : null;
         $this->container['resource_queue_id'] = isset($data['resource_queue_id']) ? $data['resource_queue_id'] : null;
+        $this->container['resource_reservation_plan_id'] = isset($data['resource_reservation_plan_id']) ? $data['resource_reservation_plan_id'] : null;
         $this->container['sort_by'] = isset($data['sort_by']) ? $data['sort_by'] : null;
         $this->container['sort_order'] = isset($data['sort_order']) ? $data['sort_order'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
@@ -584,6 +590,30 @@ class ListJobsRequest implements ModelInterface, ArrayAccess
     public function setResourceQueueId($resource_queue_id)
     {
         $this->container['resource_queue_id'] = $resource_queue_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets resource_reservation_plan_id
+     *
+     * @return string
+     */
+    public function getResourceReservationPlanId()
+    {
+        return $this->container['resource_reservation_plan_id'];
+    }
+
+    /**
+     * Sets resource_reservation_plan_id
+     *
+     * @param string $resource_reservation_plan_id resource_reservation_plan_id
+     *
+     * @return $this
+     */
+    public function setResourceReservationPlanId($resource_reservation_plan_id)
+    {
+        $this->container['resource_reservation_plan_id'] = $resource_reservation_plan_id;
 
         return $this;
     }

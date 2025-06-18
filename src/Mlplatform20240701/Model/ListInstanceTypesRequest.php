@@ -29,6 +29,7 @@ class ListInstanceTypesRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'name_contains' => 'string',
+        'reservation_plan_support_status' => 'string',
         'support_status' => 'string',
         'zone_id' => 'string'
     ];
@@ -40,6 +41,7 @@ class ListInstanceTypesRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'name_contains' => null,
+        'reservation_plan_support_status' => null,
         'support_status' => null,
         'zone_id' => null
     ];
@@ -72,6 +74,7 @@ class ListInstanceTypesRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'name_contains' => 'NameContains',
+        'reservation_plan_support_status' => 'ReservationPlanSupportStatus',
         'support_status' => 'SupportStatus',
         'zone_id' => 'ZoneId'
     ];
@@ -83,6 +86,7 @@ class ListInstanceTypesRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'name_contains' => 'setNameContains',
+        'reservation_plan_support_status' => 'setReservationPlanSupportStatus',
         'support_status' => 'setSupportStatus',
         'zone_id' => 'setZoneId'
     ];
@@ -94,6 +98,7 @@ class ListInstanceTypesRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'name_contains' => 'getNameContains',
+        'reservation_plan_support_status' => 'getReservationPlanSupportStatus',
         'support_status' => 'getSupportStatus',
         'zone_id' => 'getZoneId'
     ];
@@ -139,10 +144,23 @@ class ListInstanceTypesRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const RESERVATION_PLAN_SUPPORT_STATUS_VALID = 'Valid';
     const SUPPORT_STATUS_DEPRECATED = 'Deprecated';
     const SUPPORT_STATUS_VALID = 'Valid';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getReservationPlanSupportStatusAllowableValues()
+    {
+        return [
+            self::RESERVATION_PLAN_SUPPORT_STATUS_VALID,
+        ];
+    }
     
     /**
      * Gets allowable values of the enum
@@ -174,6 +192,7 @@ class ListInstanceTypesRequest implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['name_contains'] = isset($data['name_contains']) ? $data['name_contains'] : null;
+        $this->container['reservation_plan_support_status'] = isset($data['reservation_plan_support_status']) ? $data['reservation_plan_support_status'] : null;
         $this->container['support_status'] = isset($data['support_status']) ? $data['support_status'] : null;
         $this->container['zone_id'] = isset($data['zone_id']) ? $data['zone_id'] : null;
     }
@@ -186,6 +205,14 @@ class ListInstanceTypesRequest implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getReservationPlanSupportStatusAllowableValues();
+        if (!is_null($this->container['reservation_plan_support_status']) && !in_array($this->container['reservation_plan_support_status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'reservation_plan_support_status', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         $allowedValues = $this->getSupportStatusAllowableValues();
         if (!is_null($this->container['support_status']) && !in_array($this->container['support_status'], $allowedValues, true)) {
@@ -230,6 +257,39 @@ class ListInstanceTypesRequest implements ModelInterface, ArrayAccess
     public function setNameContains($name_contains)
     {
         $this->container['name_contains'] = $name_contains;
+
+        return $this;
+    }
+
+    /**
+     * Gets reservation_plan_support_status
+     *
+     * @return string
+     */
+    public function getReservationPlanSupportStatus()
+    {
+        return $this->container['reservation_plan_support_status'];
+    }
+
+    /**
+     * Sets reservation_plan_support_status
+     *
+     * @param string $reservation_plan_support_status reservation_plan_support_status
+     *
+     * @return $this
+     */
+    public function setReservationPlanSupportStatus($reservation_plan_support_status)
+    {
+        $allowedValues = $this->getReservationPlanSupportStatusAllowableValues();
+        if (!is_null($reservation_plan_support_status) && !in_array($reservation_plan_support_status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'reservation_plan_support_status', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['reservation_plan_support_status'] = $reservation_plan_support_status;
 
         return $this;
     }

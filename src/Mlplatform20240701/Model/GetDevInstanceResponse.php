@@ -39,6 +39,8 @@ class GetDevInstanceResponse implements ModelInterface, ArrayAccess
         'launch_time' => 'string',
         'name' => 'string',
         'node_affinity_spec' => '\Volcengine\Mlplatform20240701\Model\NodeAffinitySpecForGetDevInstanceOutput',
+        'numa_affinity' => 'string',
+        'numa_status' => 'string',
         'ports' => '\Volcengine\Mlplatform20240701\Model\PortForGetDevInstanceOutput[]',
         'resource_claim' => '\Volcengine\Mlplatform20240701\Model\ResourceClaimForGetDevInstanceOutput',
         'resource_queue_id' => 'string',
@@ -69,6 +71,8 @@ class GetDevInstanceResponse implements ModelInterface, ArrayAccess
         'launch_time' => null,
         'name' => null,
         'node_affinity_spec' => null,
+        'numa_affinity' => null,
+        'numa_status' => null,
         'ports' => null,
         'resource_claim' => null,
         'resource_queue_id' => null,
@@ -120,6 +124,8 @@ class GetDevInstanceResponse implements ModelInterface, ArrayAccess
         'launch_time' => 'LaunchTime',
         'name' => 'Name',
         'node_affinity_spec' => 'NodeAffinitySpec',
+        'numa_affinity' => 'NumaAffinity',
+        'numa_status' => 'NumaStatus',
         'ports' => 'Ports',
         'resource_claim' => 'ResourceClaim',
         'resource_queue_id' => 'ResourceQueueId',
@@ -150,6 +156,8 @@ class GetDevInstanceResponse implements ModelInterface, ArrayAccess
         'launch_time' => 'setLaunchTime',
         'name' => 'setName',
         'node_affinity_spec' => 'setNodeAffinitySpec',
+        'numa_affinity' => 'setNumaAffinity',
+        'numa_status' => 'setNumaStatus',
         'ports' => 'setPorts',
         'resource_claim' => 'setResourceClaim',
         'resource_queue_id' => 'setResourceQueueId',
@@ -180,6 +188,8 @@ class GetDevInstanceResponse implements ModelInterface, ArrayAccess
         'launch_time' => 'getLaunchTime',
         'name' => 'getName',
         'node_affinity_spec' => 'getNodeAffinitySpec',
+        'numa_affinity' => 'getNumaAffinity',
+        'numa_status' => 'getNumaStatus',
         'ports' => 'getPorts',
         'resource_claim' => 'getResourceClaim',
         'resource_queue_id' => 'getResourceQueueId',
@@ -264,6 +274,8 @@ class GetDevInstanceResponse implements ModelInterface, ArrayAccess
         $this->container['launch_time'] = isset($data['launch_time']) ? $data['launch_time'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['node_affinity_spec'] = isset($data['node_affinity_spec']) ? $data['node_affinity_spec'] : null;
+        $this->container['numa_affinity'] = isset($data['numa_affinity']) ? $data['numa_affinity'] : null;
+        $this->container['numa_status'] = isset($data['numa_status']) ? $data['numa_status'] : null;
         $this->container['ports'] = isset($data['ports']) ? $data['ports'] : null;
         $this->container['resource_claim'] = isset($data['resource_claim']) ? $data['resource_claim'] : null;
         $this->container['resource_queue_id'] = isset($data['resource_queue_id']) ? $data['resource_queue_id'] : null;
@@ -561,6 +573,54 @@ class GetDevInstanceResponse implements ModelInterface, ArrayAccess
     public function setNodeAffinitySpec($node_affinity_spec)
     {
         $this->container['node_affinity_spec'] = $node_affinity_spec;
+
+        return $this;
+    }
+
+    /**
+     * Gets numa_affinity
+     *
+     * @return string
+     */
+    public function getNumaAffinity()
+    {
+        return $this->container['numa_affinity'];
+    }
+
+    /**
+     * Sets numa_affinity
+     *
+     * @param string $numa_affinity numa_affinity
+     *
+     * @return $this
+     */
+    public function setNumaAffinity($numa_affinity)
+    {
+        $this->container['numa_affinity'] = $numa_affinity;
+
+        return $this;
+    }
+
+    /**
+     * Gets numa_status
+     *
+     * @return string
+     */
+    public function getNumaStatus()
+    {
+        return $this->container['numa_status'];
+    }
+
+    /**
+     * Sets numa_status
+     *
+     * @param string $numa_status numa_status
+     *
+     * @return $this
+     */
+    public function setNumaStatus($numa_status)
+    {
+        $this->container['numa_status'] = $numa_status;
 
         return $this;
     }

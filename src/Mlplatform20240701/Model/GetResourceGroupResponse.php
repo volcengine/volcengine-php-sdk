@@ -33,6 +33,7 @@ class GetResourceGroupResponse implements ModelInterface, ArrayAccess
         'description' => 'string',
         'expire_time' => 'string',
         'id' => 'string',
+        'm_gpu_enabled' => 'bool',
         'name' => 'string',
         'period_unit' => 'string',
         'remain_auto_renew_times' => 'int',
@@ -42,6 +43,7 @@ class GetResourceGroupResponse implements ModelInterface, ArrayAccess
         'status' => '\Volcengine\Mlplatform20240701\Model\StatusForGetResourceGroupOutput',
         'storage_config' => '\Volcengine\Mlplatform20240701\Model\StorageConfigForGetResourceGroupOutput',
         'workload_network_config' => '\Volcengine\Mlplatform20240701\Model\WorkloadNetworkConfigForGetResourceGroupOutput',
+        'workload_network_mode' => 'string',
         'zone_ids' => 'string[]'
     ];
 
@@ -56,6 +58,7 @@ class GetResourceGroupResponse implements ModelInterface, ArrayAccess
         'description' => null,
         'expire_time' => null,
         'id' => null,
+        'm_gpu_enabled' => null,
         'name' => null,
         'period_unit' => null,
         'remain_auto_renew_times' => 'int32',
@@ -65,6 +68,7 @@ class GetResourceGroupResponse implements ModelInterface, ArrayAccess
         'status' => null,
         'storage_config' => null,
         'workload_network_config' => null,
+        'workload_network_mode' => null,
         'zone_ids' => null
     ];
 
@@ -100,6 +104,7 @@ class GetResourceGroupResponse implements ModelInterface, ArrayAccess
         'description' => 'Description',
         'expire_time' => 'ExpireTime',
         'id' => 'Id',
+        'm_gpu_enabled' => 'MGpuEnabled',
         'name' => 'Name',
         'period_unit' => 'PeriodUnit',
         'remain_auto_renew_times' => 'RemainAutoRenewTimes',
@@ -109,6 +114,7 @@ class GetResourceGroupResponse implements ModelInterface, ArrayAccess
         'status' => 'Status',
         'storage_config' => 'StorageConfig',
         'workload_network_config' => 'WorkloadNetworkConfig',
+        'workload_network_mode' => 'WorkloadNetworkMode',
         'zone_ids' => 'ZoneIds'
     ];
 
@@ -123,6 +129,7 @@ class GetResourceGroupResponse implements ModelInterface, ArrayAccess
         'description' => 'setDescription',
         'expire_time' => 'setExpireTime',
         'id' => 'setId',
+        'm_gpu_enabled' => 'setMGpuEnabled',
         'name' => 'setName',
         'period_unit' => 'setPeriodUnit',
         'remain_auto_renew_times' => 'setRemainAutoRenewTimes',
@@ -132,6 +139,7 @@ class GetResourceGroupResponse implements ModelInterface, ArrayAccess
         'status' => 'setStatus',
         'storage_config' => 'setStorageConfig',
         'workload_network_config' => 'setWorkloadNetworkConfig',
+        'workload_network_mode' => 'setWorkloadNetworkMode',
         'zone_ids' => 'setZoneIds'
     ];
 
@@ -146,6 +154,7 @@ class GetResourceGroupResponse implements ModelInterface, ArrayAccess
         'description' => 'getDescription',
         'expire_time' => 'getExpireTime',
         'id' => 'getId',
+        'm_gpu_enabled' => 'getMGpuEnabled',
         'name' => 'getName',
         'period_unit' => 'getPeriodUnit',
         'remain_auto_renew_times' => 'getRemainAutoRenewTimes',
@@ -155,6 +164,7 @@ class GetResourceGroupResponse implements ModelInterface, ArrayAccess
         'status' => 'getStatus',
         'storage_config' => 'getStorageConfig',
         'workload_network_config' => 'getWorkloadNetworkConfig',
+        'workload_network_mode' => 'getWorkloadNetworkMode',
         'zone_ids' => 'getZoneIds'
     ];
 
@@ -223,6 +233,7 @@ class GetResourceGroupResponse implements ModelInterface, ArrayAccess
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['expire_time'] = isset($data['expire_time']) ? $data['expire_time'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['m_gpu_enabled'] = isset($data['m_gpu_enabled']) ? $data['m_gpu_enabled'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['period_unit'] = isset($data['period_unit']) ? $data['period_unit'] : null;
         $this->container['remain_auto_renew_times'] = isset($data['remain_auto_renew_times']) ? $data['remain_auto_renew_times'] : null;
@@ -232,6 +243,7 @@ class GetResourceGroupResponse implements ModelInterface, ArrayAccess
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['storage_config'] = isset($data['storage_config']) ? $data['storage_config'] : null;
         $this->container['workload_network_config'] = isset($data['workload_network_config']) ? $data['workload_network_config'] : null;
+        $this->container['workload_network_mode'] = isset($data['workload_network_mode']) ? $data['workload_network_mode'] : null;
         $this->container['zone_ids'] = isset($data['zone_ids']) ? $data['zone_ids'] : null;
     }
 
@@ -375,6 +387,30 @@ class GetResourceGroupResponse implements ModelInterface, ArrayAccess
     public function setId($id)
     {
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets m_gpu_enabled
+     *
+     * @return bool
+     */
+    public function getMGpuEnabled()
+    {
+        return $this->container['m_gpu_enabled'];
+    }
+
+    /**
+     * Sets m_gpu_enabled
+     *
+     * @param bool $m_gpu_enabled m_gpu_enabled
+     *
+     * @return $this
+     */
+    public function setMGpuEnabled($m_gpu_enabled)
+    {
+        $this->container['m_gpu_enabled'] = $m_gpu_enabled;
 
         return $this;
     }
@@ -591,6 +627,30 @@ class GetResourceGroupResponse implements ModelInterface, ArrayAccess
     public function setWorkloadNetworkConfig($workload_network_config)
     {
         $this->container['workload_network_config'] = $workload_network_config;
+
+        return $this;
+    }
+
+    /**
+     * Gets workload_network_mode
+     *
+     * @return string
+     */
+    public function getWorkloadNetworkMode()
+    {
+        return $this->container['workload_network_mode'];
+    }
+
+    /**
+     * Sets workload_network_mode
+     *
+     * @param string $workload_network_mode workload_network_mode
+     *
+     * @return $this
+     */
+    public function setWorkloadNetworkMode($workload_network_mode)
+    {
+        $this->container['workload_network_mode'] = $workload_network_mode;
 
         return $this;
     }

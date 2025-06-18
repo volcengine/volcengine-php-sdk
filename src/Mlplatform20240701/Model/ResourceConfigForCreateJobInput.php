@@ -30,11 +30,13 @@ class ResourceConfigForCreateJobInput implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'holding_time_seconds' => 'int',
         'max_runtime_seconds' => 'int',
+        'numa_affinity' => 'string',
         'only_use_suspected_node' => 'bool',
         'preemptible' => 'bool',
         'priority' => 'int',
         'resource_queue_id' => 'string',
         'resource_reservation' => 'bool',
+        'resource_reservation_plan_id' => 'string',
         'roles' => '\Volcengine\Mlplatform20240701\Model\RoleForCreateJobInput[]'
     ];
 
@@ -46,11 +48,13 @@ class ResourceConfigForCreateJobInput implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'holding_time_seconds' => 'int64',
         'max_runtime_seconds' => 'int64',
+        'numa_affinity' => null,
         'only_use_suspected_node' => null,
         'preemptible' => null,
         'priority' => 'int32',
         'resource_queue_id' => null,
         'resource_reservation' => null,
+        'resource_reservation_plan_id' => null,
         'roles' => null
     ];
 
@@ -83,11 +87,13 @@ class ResourceConfigForCreateJobInput implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'holding_time_seconds' => 'HoldingTimeSeconds',
         'max_runtime_seconds' => 'MaxRuntimeSeconds',
+        'numa_affinity' => 'NumaAffinity',
         'only_use_suspected_node' => 'OnlyUseSuspectedNode',
         'preemptible' => 'Preemptible',
         'priority' => 'Priority',
         'resource_queue_id' => 'ResourceQueueId',
         'resource_reservation' => 'ResourceReservation',
+        'resource_reservation_plan_id' => 'ResourceReservationPlanId',
         'roles' => 'Roles'
     ];
 
@@ -99,11 +105,13 @@ class ResourceConfigForCreateJobInput implements ModelInterface, ArrayAccess
     protected static $setters = [
         'holding_time_seconds' => 'setHoldingTimeSeconds',
         'max_runtime_seconds' => 'setMaxRuntimeSeconds',
+        'numa_affinity' => 'setNumaAffinity',
         'only_use_suspected_node' => 'setOnlyUseSuspectedNode',
         'preemptible' => 'setPreemptible',
         'priority' => 'setPriority',
         'resource_queue_id' => 'setResourceQueueId',
         'resource_reservation' => 'setResourceReservation',
+        'resource_reservation_plan_id' => 'setResourceReservationPlanId',
         'roles' => 'setRoles'
     ];
 
@@ -115,11 +123,13 @@ class ResourceConfigForCreateJobInput implements ModelInterface, ArrayAccess
     protected static $getters = [
         'holding_time_seconds' => 'getHoldingTimeSeconds',
         'max_runtime_seconds' => 'getMaxRuntimeSeconds',
+        'numa_affinity' => 'getNumaAffinity',
         'only_use_suspected_node' => 'getOnlyUseSuspectedNode',
         'preemptible' => 'getPreemptible',
         'priority' => 'getPriority',
         'resource_queue_id' => 'getResourceQueueId',
         'resource_reservation' => 'getResourceReservation',
+        'resource_reservation_plan_id' => 'getResourceReservationPlanId',
         'roles' => 'getRoles'
     ];
 
@@ -185,11 +195,13 @@ class ResourceConfigForCreateJobInput implements ModelInterface, ArrayAccess
     {
         $this->container['holding_time_seconds'] = isset($data['holding_time_seconds']) ? $data['holding_time_seconds'] : null;
         $this->container['max_runtime_seconds'] = isset($data['max_runtime_seconds']) ? $data['max_runtime_seconds'] : null;
+        $this->container['numa_affinity'] = isset($data['numa_affinity']) ? $data['numa_affinity'] : null;
         $this->container['only_use_suspected_node'] = isset($data['only_use_suspected_node']) ? $data['only_use_suspected_node'] : null;
         $this->container['preemptible'] = isset($data['preemptible']) ? $data['preemptible'] : null;
         $this->container['priority'] = isset($data['priority']) ? $data['priority'] : null;
         $this->container['resource_queue_id'] = isset($data['resource_queue_id']) ? $data['resource_queue_id'] : null;
         $this->container['resource_reservation'] = isset($data['resource_reservation']) ? $data['resource_reservation'] : null;
+        $this->container['resource_reservation_plan_id'] = isset($data['resource_reservation_plan_id']) ? $data['resource_reservation_plan_id'] : null;
         $this->container['roles'] = isset($data['roles']) ? $data['roles'] : null;
     }
 
@@ -261,6 +273,30 @@ class ResourceConfigForCreateJobInput implements ModelInterface, ArrayAccess
     public function setMaxRuntimeSeconds($max_runtime_seconds)
     {
         $this->container['max_runtime_seconds'] = $max_runtime_seconds;
+
+        return $this;
+    }
+
+    /**
+     * Gets numa_affinity
+     *
+     * @return string
+     */
+    public function getNumaAffinity()
+    {
+        return $this->container['numa_affinity'];
+    }
+
+    /**
+     * Sets numa_affinity
+     *
+     * @param string $numa_affinity numa_affinity
+     *
+     * @return $this
+     */
+    public function setNumaAffinity($numa_affinity)
+    {
+        $this->container['numa_affinity'] = $numa_affinity;
 
         return $this;
     }
@@ -381,6 +417,30 @@ class ResourceConfigForCreateJobInput implements ModelInterface, ArrayAccess
     public function setResourceReservation($resource_reservation)
     {
         $this->container['resource_reservation'] = $resource_reservation;
+
+        return $this;
+    }
+
+    /**
+     * Gets resource_reservation_plan_id
+     *
+     * @return string
+     */
+    public function getResourceReservationPlanId()
+    {
+        return $this->container['resource_reservation_plan_id'];
+    }
+
+    /**
+     * Sets resource_reservation_plan_id
+     *
+     * @param string $resource_reservation_plan_id resource_reservation_plan_id
+     *
+     * @return $this
+     */
+    public function setResourceReservationPlanId($resource_reservation_plan_id)
+    {
+        $this->container['resource_reservation_plan_id'] = $resource_reservation_plan_id;
 
         return $this;
     }

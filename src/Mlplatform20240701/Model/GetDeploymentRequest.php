@@ -28,7 +28,9 @@ class GetDeploymentRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'string'
+        'history_version_limit' => 'int',
+        'id' => 'string',
+        'include_instance_items' => 'bool'
     ];
 
     /**
@@ -37,7 +39,9 @@ class GetDeploymentRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => null
+        'history_version_limit' => 'int32',
+        'id' => null,
+        'include_instance_items' => null
     ];
 
     /**
@@ -67,7 +71,9 @@ class GetDeploymentRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'Id'
+        'history_version_limit' => 'HistoryVersionLimit',
+        'id' => 'Id',
+        'include_instance_items' => 'IncludeInstanceItems'
     ];
 
     /**
@@ -76,7 +82,9 @@ class GetDeploymentRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId'
+        'history_version_limit' => 'setHistoryVersionLimit',
+        'id' => 'setId',
+        'include_instance_items' => 'setIncludeInstanceItems'
     ];
 
     /**
@@ -85,7 +93,9 @@ class GetDeploymentRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId'
+        'history_version_limit' => 'getHistoryVersionLimit',
+        'id' => 'getId',
+        'include_instance_items' => 'getIncludeInstanceItems'
     ];
 
     /**
@@ -148,7 +158,9 @@ class GetDeploymentRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['history_version_limit'] = isset($data['history_version_limit']) ? $data['history_version_limit'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['include_instance_items'] = isset($data['include_instance_items']) ? $data['include_instance_items'] : null;
     }
 
     /**
@@ -179,6 +191,30 @@ class GetDeploymentRequest implements ModelInterface, ArrayAccess
 
 
     /**
+     * Gets history_version_limit
+     *
+     * @return int
+     */
+    public function getHistoryVersionLimit()
+    {
+        return $this->container['history_version_limit'];
+    }
+
+    /**
+     * Sets history_version_limit
+     *
+     * @param int $history_version_limit history_version_limit
+     *
+     * @return $this
+     */
+    public function setHistoryVersionLimit($history_version_limit)
+    {
+        $this->container['history_version_limit'] = $history_version_limit;
+
+        return $this;
+    }
+
+    /**
      * Gets id
      *
      * @return string
@@ -198,6 +234,30 @@ class GetDeploymentRequest implements ModelInterface, ArrayAccess
     public function setId($id)
     {
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets include_instance_items
+     *
+     * @return bool
+     */
+    public function getIncludeInstanceItems()
+    {
+        return $this->container['include_instance_items'];
+    }
+
+    /**
+     * Sets include_instance_items
+     *
+     * @param bool $include_instance_items include_instance_items
+     *
+     * @return $this
+     */
+    public function setIncludeInstanceItems($include_instance_items)
+    {
+        $this->container['include_instance_items'] = $include_instance_items;
 
         return $this;
     }
