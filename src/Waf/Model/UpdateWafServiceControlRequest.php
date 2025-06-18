@@ -32,7 +32,7 @@ class UpdateWafServiceControlRequest implements ModelInterface, ArrayAccess
         'auto_cc_enable' => 'int',
         'black_ip_enable' => 'int',
         'black_lct_enable' => 'int',
-        'bot_dytoken_enable' => 'string',
+        'bot_dytoken_enable' => 'int',
         'bot_frequency_enable' => 'int',
         'bot_repeat_enable' => 'int',
         'bot_sequence_default_action' => 'int',
@@ -62,7 +62,7 @@ class UpdateWafServiceControlRequest implements ModelInterface, ArrayAccess
         'auto_cc_enable' => 'int32',
         'black_ip_enable' => 'int32',
         'black_lct_enable' => 'int32',
-        'bot_dytoken_enable' => null,
+        'bot_dytoken_enable' => 'int32',
         'bot_frequency_enable' => 'int32',
         'bot_repeat_enable' => 'int32',
         'bot_sequence_default_action' => 'int32',
@@ -403,7 +403,7 @@ class UpdateWafServiceControlRequest implements ModelInterface, ArrayAccess
     /**
      * Gets bot_dytoken_enable
      *
-     * @return string
+     * @return int
      */
     public function getBotDytokenEnable()
     {
@@ -413,7 +413,7 @@ class UpdateWafServiceControlRequest implements ModelInterface, ArrayAccess
     /**
      * Sets bot_dytoken_enable
      *
-     * @param string $bot_dytoken_enable bot_dytoken_enable
+     * @param int $bot_dytoken_enable bot_dytoken_enable
      *
      * @return $this
      */

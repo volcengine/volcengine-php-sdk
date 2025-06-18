@@ -28,7 +28,11 @@ class ListHostGroupResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'host_group_list' => '\Volcengine\Waf\Model\HostGroupListForListHostGroupOutput[]'
+        'count' => 'int',
+        'current_page' => 'int',
+        'host_group_list' => '\Volcengine\Waf\Model\HostGroupListForListHostGroupOutput[]',
+        'page_size' => 'int',
+        'total_count' => 'int'
     ];
 
     /**
@@ -37,7 +41,11 @@ class ListHostGroupResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'host_group_list' => null
+        'count' => 'int32',
+        'current_page' => 'int32',
+        'host_group_list' => null,
+        'page_size' => 'int32',
+        'total_count' => 'int32'
     ];
 
     /**
@@ -67,7 +75,11 @@ class ListHostGroupResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'host_group_list' => 'HostGroupList'
+        'count' => 'Count',
+        'current_page' => 'CurrentPage',
+        'host_group_list' => 'HostGroupList',
+        'page_size' => 'PageSize',
+        'total_count' => 'TotalCount'
     ];
 
     /**
@@ -76,7 +88,11 @@ class ListHostGroupResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'host_group_list' => 'setHostGroupList'
+        'count' => 'setCount',
+        'current_page' => 'setCurrentPage',
+        'host_group_list' => 'setHostGroupList',
+        'page_size' => 'setPageSize',
+        'total_count' => 'setTotalCount'
     ];
 
     /**
@@ -85,7 +101,11 @@ class ListHostGroupResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'host_group_list' => 'getHostGroupList'
+        'count' => 'getCount',
+        'current_page' => 'getCurrentPage',
+        'host_group_list' => 'getHostGroupList',
+        'page_size' => 'getPageSize',
+        'total_count' => 'getTotalCount'
     ];
 
     /**
@@ -148,7 +168,11 @@ class ListHostGroupResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['count'] = isset($data['count']) ? $data['count'] : null;
+        $this->container['current_page'] = isset($data['current_page']) ? $data['current_page'] : null;
         $this->container['host_group_list'] = isset($data['host_group_list']) ? $data['host_group_list'] : null;
+        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
+        $this->container['total_count'] = isset($data['total_count']) ? $data['total_count'] : null;
     }
 
     /**
@@ -176,6 +200,54 @@ class ListHostGroupResponse implements ModelInterface, ArrayAccess
 
 
     /**
+     * Gets count
+     *
+     * @return int
+     */
+    public function getCount()
+    {
+        return $this->container['count'];
+    }
+
+    /**
+     * Sets count
+     *
+     * @param int $count count
+     *
+     * @return $this
+     */
+    public function setCount($count)
+    {
+        $this->container['count'] = $count;
+
+        return $this;
+    }
+
+    /**
+     * Gets current_page
+     *
+     * @return int
+     */
+    public function getCurrentPage()
+    {
+        return $this->container['current_page'];
+    }
+
+    /**
+     * Sets current_page
+     *
+     * @param int $current_page current_page
+     *
+     * @return $this
+     */
+    public function setCurrentPage($current_page)
+    {
+        $this->container['current_page'] = $current_page;
+
+        return $this;
+    }
+
+    /**
      * Gets host_group_list
      *
      * @return \Volcengine\Waf\Model\HostGroupListForListHostGroupOutput[]
@@ -195,6 +267,54 @@ class ListHostGroupResponse implements ModelInterface, ArrayAccess
     public function setHostGroupList($host_group_list)
     {
         $this->container['host_group_list'] = $host_group_list;
+
+        return $this;
+    }
+
+    /**
+     * Gets page_size
+     *
+     * @return int
+     */
+    public function getPageSize()
+    {
+        return $this->container['page_size'];
+    }
+
+    /**
+     * Sets page_size
+     *
+     * @param int $page_size page_size
+     *
+     * @return $this
+     */
+    public function setPageSize($page_size)
+    {
+        $this->container['page_size'] = $page_size;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_count
+     *
+     * @return int
+     */
+    public function getTotalCount()
+    {
+        return $this->container['total_count'];
+    }
+
+    /**
+     * Sets total_count
+     *
+     * @param int $total_count total_count
+     *
+     * @return $this
+     */
+    public function setTotalCount($total_count)
+    {
+        $this->container['total_count'] = $total_count;
 
         return $this;
     }

@@ -46,7 +46,6 @@ class UpdateCCRuleRequest implements ModelInterface, ArrayAccess
         'rule_priority' => 'int',
         'rule_tag' => 'string',
         'single_threshold' => 'int',
-        'update_time' => 'string',
         'url' => 'string'
     ];
 
@@ -74,7 +73,6 @@ class UpdateCCRuleRequest implements ModelInterface, ArrayAccess
         'rule_priority' => 'int32',
         'rule_tag' => null,
         'single_threshold' => 'int32',
-        'update_time' => null,
         'url' => null
     ];
 
@@ -123,7 +121,6 @@ class UpdateCCRuleRequest implements ModelInterface, ArrayAccess
         'rule_priority' => 'RulePriority',
         'rule_tag' => 'RuleTag',
         'single_threshold' => 'SingleThreshold',
-        'update_time' => 'UpdateTime',
         'url' => 'Url'
     ];
 
@@ -151,7 +148,6 @@ class UpdateCCRuleRequest implements ModelInterface, ArrayAccess
         'rule_priority' => 'setRulePriority',
         'rule_tag' => 'setRuleTag',
         'single_threshold' => 'setSingleThreshold',
-        'update_time' => 'setUpdateTime',
         'url' => 'setUrl'
     ];
 
@@ -179,7 +175,6 @@ class UpdateCCRuleRequest implements ModelInterface, ArrayAccess
         'rule_priority' => 'getRulePriority',
         'rule_tag' => 'getRuleTag',
         'single_threshold' => 'getSingleThreshold',
-        'update_time' => 'getUpdateTime',
         'url' => 'getUrl'
     ];
 
@@ -261,7 +256,6 @@ class UpdateCCRuleRequest implements ModelInterface, ArrayAccess
         $this->container['rule_priority'] = isset($data['rule_priority']) ? $data['rule_priority'] : null;
         $this->container['rule_tag'] = isset($data['rule_tag']) ? $data['rule_tag'] : null;
         $this->container['single_threshold'] = isset($data['single_threshold']) ? $data['single_threshold'] : null;
-        $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
         $this->container['url'] = isset($data['url']) ? $data['url'] : null;
     }
 
@@ -741,30 +735,6 @@ class UpdateCCRuleRequest implements ModelInterface, ArrayAccess
     public function setSingleThreshold($single_threshold)
     {
         $this->container['single_threshold'] = $single_threshold;
-
-        return $this;
-    }
-
-    /**
-     * Gets update_time
-     *
-     * @return string
-     */
-    public function getUpdateTime()
-    {
-        return $this->container['update_time'];
-    }
-
-    /**
-     * Sets update_time
-     *
-     * @param string $update_time update_time
-     *
-     * @return $this
-     */
-    public function setUpdateTime($update_time)
-    {
-        $this->container['update_time'] = $update_time;
 
         return $this;
     }

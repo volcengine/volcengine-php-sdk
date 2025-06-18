@@ -46,7 +46,6 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
         'ip_location_country' => 'string[]',
         'ip_location_subregion' => 'string[]',
         'name' => 'string',
-        'prefix_switch' => 'string[]',
         'rule_tag' => 'string',
         'update_time' => 'string',
         'url' => 'string'
@@ -76,7 +75,6 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
         'ip_location_country' => null,
         'ip_location_subregion' => null,
         'name' => null,
-        'prefix_switch' => null,
         'rule_tag' => null,
         'update_time' => null,
         'url' => null
@@ -127,7 +125,6 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
         'ip_location_country' => 'IpLocationCountry',
         'ip_location_subregion' => 'IpLocationSubregion',
         'name' => 'Name',
-        'prefix_switch' => 'PrefixSwitch',
         'rule_tag' => 'RuleTag',
         'update_time' => 'UpdateTime',
         'url' => 'Url'
@@ -157,7 +154,6 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
         'ip_location_country' => 'setIpLocationCountry',
         'ip_location_subregion' => 'setIpLocationSubregion',
         'name' => 'setName',
-        'prefix_switch' => 'setPrefixSwitch',
         'rule_tag' => 'setRuleTag',
         'update_time' => 'setUpdateTime',
         'url' => 'setUrl'
@@ -187,7 +183,6 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
         'ip_location_country' => 'getIpLocationCountry',
         'ip_location_subregion' => 'getIpLocationSubregion',
         'name' => 'getName',
-        'prefix_switch' => 'getPrefixSwitch',
         'rule_tag' => 'getRuleTag',
         'update_time' => 'getUpdateTime',
         'url' => 'getUrl'
@@ -271,7 +266,6 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
         $this->container['ip_location_country'] = isset($data['ip_location_country']) ? $data['ip_location_country'] : null;
         $this->container['ip_location_subregion'] = isset($data['ip_location_subregion']) ? $data['ip_location_subregion'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['prefix_switch'] = isset($data['prefix_switch']) ? $data['prefix_switch'] : null;
         $this->container['rule_tag'] = isset($data['rule_tag']) ? $data['rule_tag'] : null;
         $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
         $this->container['url'] = isset($data['url']) ? $data['url'] : null;
@@ -729,30 +723,6 @@ class RuleForListAclRuleOutput implements ModelInterface, ArrayAccess
     public function setName($name)
     {
         $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets prefix_switch
-     *
-     * @return string[]
-     */
-    public function getPrefixSwitch()
-    {
-        return $this->container['prefix_switch'];
-    }
-
-    /**
-     * Sets prefix_switch
-     *
-     * @param string[] $prefix_switch prefix_switch
-     *
-     * @return $this
-     */
-    public function setPrefixSwitch($prefix_switch)
-    {
-        $this->container['prefix_switch'] = $prefix_switch;
 
         return $this;
     }

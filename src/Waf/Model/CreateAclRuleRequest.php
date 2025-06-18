@@ -43,7 +43,6 @@ class CreateAclRuleRequest implements ModelInterface, ArrayAccess
         'ip_location_country' => 'string[]',
         'ip_location_subregion' => 'string[]',
         'name' => 'string',
-        'prefix_switch' => 'int',
         'project_name' => 'string',
         'url' => 'string'
     ];
@@ -69,7 +68,6 @@ class CreateAclRuleRequest implements ModelInterface, ArrayAccess
         'ip_location_country' => null,
         'ip_location_subregion' => null,
         'name' => null,
-        'prefix_switch' => 'int32',
         'project_name' => null,
         'url' => null
     ];
@@ -116,7 +114,6 @@ class CreateAclRuleRequest implements ModelInterface, ArrayAccess
         'ip_location_country' => 'IpLocationCountry',
         'ip_location_subregion' => 'IpLocationSubregion',
         'name' => 'Name',
-        'prefix_switch' => 'PrefixSwitch',
         'project_name' => 'ProjectName',
         'url' => 'Url'
     ];
@@ -142,7 +139,6 @@ class CreateAclRuleRequest implements ModelInterface, ArrayAccess
         'ip_location_country' => 'setIpLocationCountry',
         'ip_location_subregion' => 'setIpLocationSubregion',
         'name' => 'setName',
-        'prefix_switch' => 'setPrefixSwitch',
         'project_name' => 'setProjectName',
         'url' => 'setUrl'
     ];
@@ -168,7 +164,6 @@ class CreateAclRuleRequest implements ModelInterface, ArrayAccess
         'ip_location_country' => 'getIpLocationCountry',
         'ip_location_subregion' => 'getIpLocationSubregion',
         'name' => 'getName',
-        'prefix_switch' => 'getPrefixSwitch',
         'project_name' => 'getProjectName',
         'url' => 'getUrl'
     ];
@@ -248,7 +243,6 @@ class CreateAclRuleRequest implements ModelInterface, ArrayAccess
         $this->container['ip_location_country'] = isset($data['ip_location_country']) ? $data['ip_location_country'] : null;
         $this->container['ip_location_subregion'] = isset($data['ip_location_subregion']) ? $data['ip_location_subregion'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['prefix_switch'] = isset($data['prefix_switch']) ? $data['prefix_switch'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['url'] = isset($data['url']) ? $data['url'] : null;
     }
@@ -651,30 +645,6 @@ class CreateAclRuleRequest implements ModelInterface, ArrayAccess
     public function setName($name)
     {
         $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets prefix_switch
-     *
-     * @return int
-     */
-    public function getPrefixSwitch()
-    {
-        return $this->container['prefix_switch'];
-    }
-
-    /**
-     * Sets prefix_switch
-     *
-     * @param int $prefix_switch prefix_switch
-     *
-     * @return $this
-     */
-    public function setPrefixSwitch($prefix_switch)
-    {
-        $this->container['prefix_switch'] = $prefix_switch;
 
         return $this;
     }
