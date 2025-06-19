@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
+class ApplyObjectForApplyObjectGroupsByAlertTemplateInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ConditionForListRulesByIdsOutput';
+    protected static $swaggerModelName = 'ApplyObjectForApplyObjectGroupsByAlertTemplateInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,13 +28,14 @@ class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'comparison_operator' => 'string',
-        'display_name' => 'string',
-        'metric_name' => 'string',
-        'metric_unit' => 'string',
-        'period' => 'string',
-        'statistics' => 'string',
-        'threshold' => 'string'
+        'alert_methods' => 'string[]',
+        'contact_group_ids' => 'string[]',
+        'effect_end_at' => 'string',
+        'effect_start_at' => 'string',
+        'notification_id' => 'string',
+        'object_group_id' => 'string',
+        'webhook' => 'string',
+        'webhook_ids' => 'string[]'
     ];
 
     /**
@@ -43,13 +44,14 @@ class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'comparison_operator' => null,
-        'display_name' => null,
-        'metric_name' => null,
-        'metric_unit' => null,
-        'period' => null,
-        'statistics' => null,
-        'threshold' => null
+        'alert_methods' => null,
+        'contact_group_ids' => null,
+        'effect_end_at' => null,
+        'effect_start_at' => null,
+        'notification_id' => null,
+        'object_group_id' => null,
+        'webhook' => null,
+        'webhook_ids' => null
     ];
 
     /**
@@ -79,13 +81,14 @@ class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'comparison_operator' => 'ComparisonOperator',
-        'display_name' => 'DisplayName',
-        'metric_name' => 'MetricName',
-        'metric_unit' => 'MetricUnit',
-        'period' => 'Period',
-        'statistics' => 'Statistics',
-        'threshold' => 'Threshold'
+        'alert_methods' => 'AlertMethods',
+        'contact_group_ids' => 'ContactGroupIds',
+        'effect_end_at' => 'EffectEndAt',
+        'effect_start_at' => 'EffectStartAt',
+        'notification_id' => 'NotificationId',
+        'object_group_id' => 'ObjectGroupId',
+        'webhook' => 'Webhook',
+        'webhook_ids' => 'WebhookIds'
     ];
 
     /**
@@ -94,13 +97,14 @@ class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'comparison_operator' => 'setComparisonOperator',
-        'display_name' => 'setDisplayName',
-        'metric_name' => 'setMetricName',
-        'metric_unit' => 'setMetricUnit',
-        'period' => 'setPeriod',
-        'statistics' => 'setStatistics',
-        'threshold' => 'setThreshold'
+        'alert_methods' => 'setAlertMethods',
+        'contact_group_ids' => 'setContactGroupIds',
+        'effect_end_at' => 'setEffectEndAt',
+        'effect_start_at' => 'setEffectStartAt',
+        'notification_id' => 'setNotificationId',
+        'object_group_id' => 'setObjectGroupId',
+        'webhook' => 'setWebhook',
+        'webhook_ids' => 'setWebhookIds'
     ];
 
     /**
@@ -109,13 +113,14 @@ class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'comparison_operator' => 'getComparisonOperator',
-        'display_name' => 'getDisplayName',
-        'metric_name' => 'getMetricName',
-        'metric_unit' => 'getMetricUnit',
-        'period' => 'getPeriod',
-        'statistics' => 'getStatistics',
-        'threshold' => 'getThreshold'
+        'alert_methods' => 'getAlertMethods',
+        'contact_group_ids' => 'getContactGroupIds',
+        'effect_end_at' => 'getEffectEndAt',
+        'effect_start_at' => 'getEffectStartAt',
+        'notification_id' => 'getNotificationId',
+        'object_group_id' => 'getObjectGroupId',
+        'webhook' => 'getWebhook',
+        'webhook_ids' => 'getWebhookIds'
     ];
 
     /**
@@ -178,13 +183,14 @@ class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['comparison_operator'] = isset($data['comparison_operator']) ? $data['comparison_operator'] : null;
-        $this->container['display_name'] = isset($data['display_name']) ? $data['display_name'] : null;
-        $this->container['metric_name'] = isset($data['metric_name']) ? $data['metric_name'] : null;
-        $this->container['metric_unit'] = isset($data['metric_unit']) ? $data['metric_unit'] : null;
-        $this->container['period'] = isset($data['period']) ? $data['period'] : null;
-        $this->container['statistics'] = isset($data['statistics']) ? $data['statistics'] : null;
-        $this->container['threshold'] = isset($data['threshold']) ? $data['threshold'] : null;
+        $this->container['alert_methods'] = isset($data['alert_methods']) ? $data['alert_methods'] : null;
+        $this->container['contact_group_ids'] = isset($data['contact_group_ids']) ? $data['contact_group_ids'] : null;
+        $this->container['effect_end_at'] = isset($data['effect_end_at']) ? $data['effect_end_at'] : null;
+        $this->container['effect_start_at'] = isset($data['effect_start_at']) ? $data['effect_start_at'] : null;
+        $this->container['notification_id'] = isset($data['notification_id']) ? $data['notification_id'] : null;
+        $this->container['object_group_id'] = isset($data['object_group_id']) ? $data['object_group_id'] : null;
+        $this->container['webhook'] = isset($data['webhook']) ? $data['webhook'] : null;
+        $this->container['webhook_ids'] = isset($data['webhook_ids']) ? $data['webhook_ids'] : null;
     }
 
     /**
@@ -212,169 +218,193 @@ class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets comparison_operator
+     * Gets alert_methods
      *
-     * @return string
+     * @return string[]
      */
-    public function getComparisonOperator()
+    public function getAlertMethods()
     {
-        return $this->container['comparison_operator'];
+        return $this->container['alert_methods'];
     }
 
     /**
-     * Sets comparison_operator
+     * Sets alert_methods
      *
-     * @param string $comparison_operator comparison_operator
+     * @param string[] $alert_methods alert_methods
      *
      * @return $this
      */
-    public function setComparisonOperator($comparison_operator)
+    public function setAlertMethods($alert_methods)
     {
-        $this->container['comparison_operator'] = $comparison_operator;
+        $this->container['alert_methods'] = $alert_methods;
 
         return $this;
     }
 
     /**
-     * Gets display_name
+     * Gets contact_group_ids
      *
-     * @return string
+     * @return string[]
      */
-    public function getDisplayName()
+    public function getContactGroupIds()
     {
-        return $this->container['display_name'];
+        return $this->container['contact_group_ids'];
     }
 
     /**
-     * Sets display_name
+     * Sets contact_group_ids
      *
-     * @param string $display_name display_name
+     * @param string[] $contact_group_ids contact_group_ids
      *
      * @return $this
      */
-    public function setDisplayName($display_name)
+    public function setContactGroupIds($contact_group_ids)
     {
-        $this->container['display_name'] = $display_name;
+        $this->container['contact_group_ids'] = $contact_group_ids;
 
         return $this;
     }
 
     /**
-     * Gets metric_name
+     * Gets effect_end_at
      *
      * @return string
      */
-    public function getMetricName()
+    public function getEffectEndAt()
     {
-        return $this->container['metric_name'];
+        return $this->container['effect_end_at'];
     }
 
     /**
-     * Sets metric_name
+     * Sets effect_end_at
      *
-     * @param string $metric_name metric_name
+     * @param string $effect_end_at effect_end_at
      *
      * @return $this
      */
-    public function setMetricName($metric_name)
+    public function setEffectEndAt($effect_end_at)
     {
-        $this->container['metric_name'] = $metric_name;
+        $this->container['effect_end_at'] = $effect_end_at;
 
         return $this;
     }
 
     /**
-     * Gets metric_unit
+     * Gets effect_start_at
      *
      * @return string
      */
-    public function getMetricUnit()
+    public function getEffectStartAt()
     {
-        return $this->container['metric_unit'];
+        return $this->container['effect_start_at'];
     }
 
     /**
-     * Sets metric_unit
+     * Sets effect_start_at
      *
-     * @param string $metric_unit metric_unit
+     * @param string $effect_start_at effect_start_at
      *
      * @return $this
      */
-    public function setMetricUnit($metric_unit)
+    public function setEffectStartAt($effect_start_at)
     {
-        $this->container['metric_unit'] = $metric_unit;
+        $this->container['effect_start_at'] = $effect_start_at;
 
         return $this;
     }
 
     /**
-     * Gets period
+     * Gets notification_id
      *
      * @return string
      */
-    public function getPeriod()
+    public function getNotificationId()
     {
-        return $this->container['period'];
+        return $this->container['notification_id'];
     }
 
     /**
-     * Sets period
+     * Sets notification_id
      *
-     * @param string $period period
+     * @param string $notification_id notification_id
      *
      * @return $this
      */
-    public function setPeriod($period)
+    public function setNotificationId($notification_id)
     {
-        $this->container['period'] = $period;
+        $this->container['notification_id'] = $notification_id;
 
         return $this;
     }
 
     /**
-     * Gets statistics
+     * Gets object_group_id
      *
      * @return string
      */
-    public function getStatistics()
+    public function getObjectGroupId()
     {
-        return $this->container['statistics'];
+        return $this->container['object_group_id'];
     }
 
     /**
-     * Sets statistics
+     * Sets object_group_id
      *
-     * @param string $statistics statistics
+     * @param string $object_group_id object_group_id
      *
      * @return $this
      */
-    public function setStatistics($statistics)
+    public function setObjectGroupId($object_group_id)
     {
-        $this->container['statistics'] = $statistics;
+        $this->container['object_group_id'] = $object_group_id;
 
         return $this;
     }
 
     /**
-     * Gets threshold
+     * Gets webhook
      *
      * @return string
      */
-    public function getThreshold()
+    public function getWebhook()
     {
-        return $this->container['threshold'];
+        return $this->container['webhook'];
     }
 
     /**
-     * Sets threshold
+     * Sets webhook
      *
-     * @param string $threshold threshold
+     * @param string $webhook webhook
      *
      * @return $this
      */
-    public function setThreshold($threshold)
+    public function setWebhook($webhook)
     {
-        $this->container['threshold'] = $threshold;
+        $this->container['webhook'] = $webhook;
+
+        return $this;
+    }
+
+    /**
+     * Gets webhook_ids
+     *
+     * @return string[]
+     */
+    public function getWebhookIds()
+    {
+        return $this->container['webhook_ids'];
+    }
+
+    /**
+     * Sets webhook_ids
+     *
+     * @param string[] $webhook_ids webhook_ids
+     *
+     * @return $this
+     */
+    public function setWebhookIds($webhook_ids)
+    {
+        $this->container['webhook_ids'] = $webhook_ids;
 
         return $this;
     }

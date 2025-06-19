@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
+class NoDataForListPresetAlertTemplatesOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ConditionForListRulesByIdsOutput';
+    protected static $swaggerModelName = 'NoDataForListPresetAlertTemplatesOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,13 +28,9 @@ class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'comparison_operator' => 'string',
-        'display_name' => 'string',
-        'metric_name' => 'string',
-        'metric_unit' => 'string',
-        'period' => 'string',
-        'statistics' => 'string',
-        'threshold' => 'string'
+        'enable' => 'bool',
+        'evaluation_count' => 'int',
+        'level' => 'string'
     ];
 
     /**
@@ -43,13 +39,9 @@ class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'comparison_operator' => null,
-        'display_name' => null,
-        'metric_name' => null,
-        'metric_unit' => null,
-        'period' => null,
-        'statistics' => null,
-        'threshold' => null
+        'enable' => null,
+        'evaluation_count' => null,
+        'level' => null
     ];
 
     /**
@@ -79,13 +71,9 @@ class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'comparison_operator' => 'ComparisonOperator',
-        'display_name' => 'DisplayName',
-        'metric_name' => 'MetricName',
-        'metric_unit' => 'MetricUnit',
-        'period' => 'Period',
-        'statistics' => 'Statistics',
-        'threshold' => 'Threshold'
+        'enable' => 'Enable',
+        'evaluation_count' => 'EvaluationCount',
+        'level' => 'Level'
     ];
 
     /**
@@ -94,13 +82,9 @@ class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'comparison_operator' => 'setComparisonOperator',
-        'display_name' => 'setDisplayName',
-        'metric_name' => 'setMetricName',
-        'metric_unit' => 'setMetricUnit',
-        'period' => 'setPeriod',
-        'statistics' => 'setStatistics',
-        'threshold' => 'setThreshold'
+        'enable' => 'setEnable',
+        'evaluation_count' => 'setEvaluationCount',
+        'level' => 'setLevel'
     ];
 
     /**
@@ -109,13 +93,9 @@ class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'comparison_operator' => 'getComparisonOperator',
-        'display_name' => 'getDisplayName',
-        'metric_name' => 'getMetricName',
-        'metric_unit' => 'getMetricUnit',
-        'period' => 'getPeriod',
-        'statistics' => 'getStatistics',
-        'threshold' => 'getThreshold'
+        'enable' => 'getEnable',
+        'evaluation_count' => 'getEvaluationCount',
+        'level' => 'getLevel'
     ];
 
     /**
@@ -178,13 +158,9 @@ class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['comparison_operator'] = isset($data['comparison_operator']) ? $data['comparison_operator'] : null;
-        $this->container['display_name'] = isset($data['display_name']) ? $data['display_name'] : null;
-        $this->container['metric_name'] = isset($data['metric_name']) ? $data['metric_name'] : null;
-        $this->container['metric_unit'] = isset($data['metric_unit']) ? $data['metric_unit'] : null;
-        $this->container['period'] = isset($data['period']) ? $data['period'] : null;
-        $this->container['statistics'] = isset($data['statistics']) ? $data['statistics'] : null;
-        $this->container['threshold'] = isset($data['threshold']) ? $data['threshold'] : null;
+        $this->container['enable'] = isset($data['enable']) ? $data['enable'] : null;
+        $this->container['evaluation_count'] = isset($data['evaluation_count']) ? $data['evaluation_count'] : null;
+        $this->container['level'] = isset($data['level']) ? $data['level'] : null;
     }
 
     /**
@@ -212,169 +188,73 @@ class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets comparison_operator
+     * Gets enable
      *
-     * @return string
+     * @return bool
      */
-    public function getComparisonOperator()
+    public function getEnable()
     {
-        return $this->container['comparison_operator'];
+        return $this->container['enable'];
     }
 
     /**
-     * Sets comparison_operator
+     * Sets enable
      *
-     * @param string $comparison_operator comparison_operator
+     * @param bool $enable enable
      *
      * @return $this
      */
-    public function setComparisonOperator($comparison_operator)
+    public function setEnable($enable)
     {
-        $this->container['comparison_operator'] = $comparison_operator;
+        $this->container['enable'] = $enable;
 
         return $this;
     }
 
     /**
-     * Gets display_name
+     * Gets evaluation_count
      *
-     * @return string
+     * @return int
      */
-    public function getDisplayName()
+    public function getEvaluationCount()
     {
-        return $this->container['display_name'];
+        return $this->container['evaluation_count'];
     }
 
     /**
-     * Sets display_name
+     * Sets evaluation_count
      *
-     * @param string $display_name display_name
+     * @param int $evaluation_count evaluation_count
      *
      * @return $this
      */
-    public function setDisplayName($display_name)
+    public function setEvaluationCount($evaluation_count)
     {
-        $this->container['display_name'] = $display_name;
+        $this->container['evaluation_count'] = $evaluation_count;
 
         return $this;
     }
 
     /**
-     * Gets metric_name
+     * Gets level
      *
      * @return string
      */
-    public function getMetricName()
+    public function getLevel()
     {
-        return $this->container['metric_name'];
+        return $this->container['level'];
     }
 
     /**
-     * Sets metric_name
+     * Sets level
      *
-     * @param string $metric_name metric_name
+     * @param string $level level
      *
      * @return $this
      */
-    public function setMetricName($metric_name)
+    public function setLevel($level)
     {
-        $this->container['metric_name'] = $metric_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets metric_unit
-     *
-     * @return string
-     */
-    public function getMetricUnit()
-    {
-        return $this->container['metric_unit'];
-    }
-
-    /**
-     * Sets metric_unit
-     *
-     * @param string $metric_unit metric_unit
-     *
-     * @return $this
-     */
-    public function setMetricUnit($metric_unit)
-    {
-        $this->container['metric_unit'] = $metric_unit;
-
-        return $this;
-    }
-
-    /**
-     * Gets period
-     *
-     * @return string
-     */
-    public function getPeriod()
-    {
-        return $this->container['period'];
-    }
-
-    /**
-     * Sets period
-     *
-     * @param string $period period
-     *
-     * @return $this
-     */
-    public function setPeriod($period)
-    {
-        $this->container['period'] = $period;
-
-        return $this;
-    }
-
-    /**
-     * Gets statistics
-     *
-     * @return string
-     */
-    public function getStatistics()
-    {
-        return $this->container['statistics'];
-    }
-
-    /**
-     * Sets statistics
-     *
-     * @param string $statistics statistics
-     *
-     * @return $this
-     */
-    public function setStatistics($statistics)
-    {
-        $this->container['statistics'] = $statistics;
-
-        return $this;
-    }
-
-    /**
-     * Gets threshold
-     *
-     * @return string
-     */
-    public function getThreshold()
-    {
-        return $this->container['threshold'];
-    }
-
-    /**
-     * Sets threshold
-     *
-     * @param string $threshold threshold
-     *
-     * @return $this
-     */
-    public function setThreshold($threshold)
-    {
-        $this->container['threshold'] = $threshold;
+        $this->container['level'] = $level;
 
         return $this;
     }

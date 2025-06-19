@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
+class LevelConditionForListPresetAlertTemplatesOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ConditionForListRulesByIdsOutput';
+    protected static $swaggerModelName = 'LevelConditionForListPresetAlertTemplatesOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,13 +28,8 @@ class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'comparison_operator' => 'string',
-        'display_name' => 'string',
-        'metric_name' => 'string',
-        'metric_unit' => 'string',
-        'period' => 'string',
-        'statistics' => 'string',
-        'threshold' => 'string'
+        'conditions' => '\Volcengine\Volcobserve\Model\ConditionForListPresetAlertTemplatesOutput[]',
+        'level' => 'string'
     ];
 
     /**
@@ -43,13 +38,8 @@ class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'comparison_operator' => null,
-        'display_name' => null,
-        'metric_name' => null,
-        'metric_unit' => null,
-        'period' => null,
-        'statistics' => null,
-        'threshold' => null
+        'conditions' => null,
+        'level' => null
     ];
 
     /**
@@ -79,13 +69,8 @@ class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'comparison_operator' => 'ComparisonOperator',
-        'display_name' => 'DisplayName',
-        'metric_name' => 'MetricName',
-        'metric_unit' => 'MetricUnit',
-        'period' => 'Period',
-        'statistics' => 'Statistics',
-        'threshold' => 'Threshold'
+        'conditions' => 'Conditions',
+        'level' => 'Level'
     ];
 
     /**
@@ -94,13 +79,8 @@ class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'comparison_operator' => 'setComparisonOperator',
-        'display_name' => 'setDisplayName',
-        'metric_name' => 'setMetricName',
-        'metric_unit' => 'setMetricUnit',
-        'period' => 'setPeriod',
-        'statistics' => 'setStatistics',
-        'threshold' => 'setThreshold'
+        'conditions' => 'setConditions',
+        'level' => 'setLevel'
     ];
 
     /**
@@ -109,13 +89,8 @@ class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'comparison_operator' => 'getComparisonOperator',
-        'display_name' => 'getDisplayName',
-        'metric_name' => 'getMetricName',
-        'metric_unit' => 'getMetricUnit',
-        'period' => 'getPeriod',
-        'statistics' => 'getStatistics',
-        'threshold' => 'getThreshold'
+        'conditions' => 'getConditions',
+        'level' => 'getLevel'
     ];
 
     /**
@@ -159,8 +134,25 @@ class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const LEVEL_NOTICE = 'notice';
+    const LEVEL_WARNING = 'warning';
+    const LEVEL_CRITICAL = 'critical';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getLevelAllowableValues()
+    {
+        return [
+            self::LEVEL_NOTICE,
+            self::LEVEL_WARNING,
+            self::LEVEL_CRITICAL,
+        ];
+    }
     
 
     /**
@@ -178,13 +170,8 @@ class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['comparison_operator'] = isset($data['comparison_operator']) ? $data['comparison_operator'] : null;
-        $this->container['display_name'] = isset($data['display_name']) ? $data['display_name'] : null;
-        $this->container['metric_name'] = isset($data['metric_name']) ? $data['metric_name'] : null;
-        $this->container['metric_unit'] = isset($data['metric_unit']) ? $data['metric_unit'] : null;
-        $this->container['period'] = isset($data['period']) ? $data['period'] : null;
-        $this->container['statistics'] = isset($data['statistics']) ? $data['statistics'] : null;
-        $this->container['threshold'] = isset($data['threshold']) ? $data['threshold'] : null;
+        $this->container['conditions'] = isset($data['conditions']) ? $data['conditions'] : null;
+        $this->container['level'] = isset($data['level']) ? $data['level'] : null;
     }
 
     /**
@@ -195,6 +182,14 @@ class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getLevelAllowableValues();
+        if (!is_null($this->container['level']) && !in_array($this->container['level'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'level', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -212,169 +207,58 @@ class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets comparison_operator
+     * Gets conditions
      *
-     * @return string
+     * @return \Volcengine\Volcobserve\Model\ConditionForListPresetAlertTemplatesOutput[]
      */
-    public function getComparisonOperator()
+    public function getConditions()
     {
-        return $this->container['comparison_operator'];
+        return $this->container['conditions'];
     }
 
     /**
-     * Sets comparison_operator
+     * Sets conditions
      *
-     * @param string $comparison_operator comparison_operator
+     * @param \Volcengine\Volcobserve\Model\ConditionForListPresetAlertTemplatesOutput[] $conditions conditions
      *
      * @return $this
      */
-    public function setComparisonOperator($comparison_operator)
+    public function setConditions($conditions)
     {
-        $this->container['comparison_operator'] = $comparison_operator;
+        $this->container['conditions'] = $conditions;
 
         return $this;
     }
 
     /**
-     * Gets display_name
+     * Gets level
      *
      * @return string
      */
-    public function getDisplayName()
+    public function getLevel()
     {
-        return $this->container['display_name'];
+        return $this->container['level'];
     }
 
     /**
-     * Sets display_name
+     * Sets level
      *
-     * @param string $display_name display_name
+     * @param string $level level
      *
      * @return $this
      */
-    public function setDisplayName($display_name)
+    public function setLevel($level)
     {
-        $this->container['display_name'] = $display_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets metric_name
-     *
-     * @return string
-     */
-    public function getMetricName()
-    {
-        return $this->container['metric_name'];
-    }
-
-    /**
-     * Sets metric_name
-     *
-     * @param string $metric_name metric_name
-     *
-     * @return $this
-     */
-    public function setMetricName($metric_name)
-    {
-        $this->container['metric_name'] = $metric_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets metric_unit
-     *
-     * @return string
-     */
-    public function getMetricUnit()
-    {
-        return $this->container['metric_unit'];
-    }
-
-    /**
-     * Sets metric_unit
-     *
-     * @param string $metric_unit metric_unit
-     *
-     * @return $this
-     */
-    public function setMetricUnit($metric_unit)
-    {
-        $this->container['metric_unit'] = $metric_unit;
-
-        return $this;
-    }
-
-    /**
-     * Gets period
-     *
-     * @return string
-     */
-    public function getPeriod()
-    {
-        return $this->container['period'];
-    }
-
-    /**
-     * Sets period
-     *
-     * @param string $period period
-     *
-     * @return $this
-     */
-    public function setPeriod($period)
-    {
-        $this->container['period'] = $period;
-
-        return $this;
-    }
-
-    /**
-     * Gets statistics
-     *
-     * @return string
-     */
-    public function getStatistics()
-    {
-        return $this->container['statistics'];
-    }
-
-    /**
-     * Sets statistics
-     *
-     * @param string $statistics statistics
-     *
-     * @return $this
-     */
-    public function setStatistics($statistics)
-    {
-        $this->container['statistics'] = $statistics;
-
-        return $this;
-    }
-
-    /**
-     * Gets threshold
-     *
-     * @return string
-     */
-    public function getThreshold()
-    {
-        return $this->container['threshold'];
-    }
-
-    /**
-     * Sets threshold
-     *
-     * @param string $threshold threshold
-     *
-     * @return $this
-     */
-    public function setThreshold($threshold)
-    {
-        $this->container['threshold'] = $threshold;
+        $allowedValues = $this->getLevelAllowableValues();
+        if (!is_null($level) && !in_array($level, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'level', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['level'] = $level;
 
         return $this;
     }

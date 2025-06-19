@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
+class CreateAlertTemplateRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ConditionForListRulesByIdsOutput';
+    protected static $swaggerModelName = 'CreateAlertTemplateRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,13 +28,13 @@ class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'comparison_operator' => 'string',
-        'display_name' => 'string',
-        'metric_name' => 'string',
-        'metric_unit' => 'string',
-        'period' => 'string',
-        'statistics' => 'string',
-        'threshold' => 'string'
+        'description' => 'string',
+        'name' => 'string',
+        'no_data' => '\Volcengine\Volcobserve\Model\NoDataForCreateAlertTemplateInput',
+        'notify_mode' => 'string',
+        'recovery_notify' => '\Volcengine\Volcobserve\Model\RecoveryNotifyForCreateAlertTemplateInput',
+        'silence_time' => 'int',
+        'template_rules' => '\Volcengine\Volcobserve\Model\TemplateRuleForCreateAlertTemplateInput[]'
     ];
 
     /**
@@ -43,13 +43,13 @@ class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'comparison_operator' => null,
-        'display_name' => null,
-        'metric_name' => null,
-        'metric_unit' => null,
-        'period' => null,
-        'statistics' => null,
-        'threshold' => null
+        'description' => null,
+        'name' => null,
+        'no_data' => null,
+        'notify_mode' => null,
+        'recovery_notify' => null,
+        'silence_time' => null,
+        'template_rules' => null
     ];
 
     /**
@@ -79,13 +79,13 @@ class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'comparison_operator' => 'ComparisonOperator',
-        'display_name' => 'DisplayName',
-        'metric_name' => 'MetricName',
-        'metric_unit' => 'MetricUnit',
-        'period' => 'Period',
-        'statistics' => 'Statistics',
-        'threshold' => 'Threshold'
+        'description' => 'Description',
+        'name' => 'Name',
+        'no_data' => 'NoData',
+        'notify_mode' => 'NotifyMode',
+        'recovery_notify' => 'RecoveryNotify',
+        'silence_time' => 'SilenceTime',
+        'template_rules' => 'TemplateRules'
     ];
 
     /**
@@ -94,13 +94,13 @@ class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'comparison_operator' => 'setComparisonOperator',
-        'display_name' => 'setDisplayName',
-        'metric_name' => 'setMetricName',
-        'metric_unit' => 'setMetricUnit',
-        'period' => 'setPeriod',
-        'statistics' => 'setStatistics',
-        'threshold' => 'setThreshold'
+        'description' => 'setDescription',
+        'name' => 'setName',
+        'no_data' => 'setNoData',
+        'notify_mode' => 'setNotifyMode',
+        'recovery_notify' => 'setRecoveryNotify',
+        'silence_time' => 'setSilenceTime',
+        'template_rules' => 'setTemplateRules'
     ];
 
     /**
@@ -109,13 +109,13 @@ class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'comparison_operator' => 'getComparisonOperator',
-        'display_name' => 'getDisplayName',
-        'metric_name' => 'getMetricName',
-        'metric_unit' => 'getMetricUnit',
-        'period' => 'getPeriod',
-        'statistics' => 'getStatistics',
-        'threshold' => 'getThreshold'
+        'description' => 'getDescription',
+        'name' => 'getName',
+        'no_data' => 'getNoData',
+        'notify_mode' => 'getNotifyMode',
+        'recovery_notify' => 'getRecoveryNotify',
+        'silence_time' => 'getSilenceTime',
+        'template_rules' => 'getTemplateRules'
     ];
 
     /**
@@ -178,13 +178,13 @@ class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['comparison_operator'] = isset($data['comparison_operator']) ? $data['comparison_operator'] : null;
-        $this->container['display_name'] = isset($data['display_name']) ? $data['display_name'] : null;
-        $this->container['metric_name'] = isset($data['metric_name']) ? $data['metric_name'] : null;
-        $this->container['metric_unit'] = isset($data['metric_unit']) ? $data['metric_unit'] : null;
-        $this->container['period'] = isset($data['period']) ? $data['period'] : null;
-        $this->container['statistics'] = isset($data['statistics']) ? $data['statistics'] : null;
-        $this->container['threshold'] = isset($data['threshold']) ? $data['threshold'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['no_data'] = isset($data['no_data']) ? $data['no_data'] : null;
+        $this->container['notify_mode'] = isset($data['notify_mode']) ? $data['notify_mode'] : null;
+        $this->container['recovery_notify'] = isset($data['recovery_notify']) ? $data['recovery_notify'] : null;
+        $this->container['silence_time'] = isset($data['silence_time']) ? $data['silence_time'] : null;
+        $this->container['template_rules'] = isset($data['template_rules']) ? $data['template_rules'] : null;
     }
 
     /**
@@ -196,6 +196,15 @@ class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
+        if ($this->container['notify_mode'] === null) {
+            $invalidProperties[] = "'notify_mode' can't be null";
+        }
+        if ($this->container['silence_time'] === null) {
+            $invalidProperties[] = "'silence_time' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -212,169 +221,169 @@ class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets comparison_operator
+     * Gets description
      *
      * @return string
      */
-    public function getComparisonOperator()
+    public function getDescription()
     {
-        return $this->container['comparison_operator'];
+        return $this->container['description'];
     }
 
     /**
-     * Sets comparison_operator
+     * Sets description
      *
-     * @param string $comparison_operator comparison_operator
+     * @param string $description description
      *
      * @return $this
      */
-    public function setComparisonOperator($comparison_operator)
+    public function setDescription($description)
     {
-        $this->container['comparison_operator'] = $comparison_operator;
+        $this->container['description'] = $description;
 
         return $this;
     }
 
     /**
-     * Gets display_name
+     * Gets name
      *
      * @return string
      */
-    public function getDisplayName()
+    public function getName()
     {
-        return $this->container['display_name'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets display_name
+     * Sets name
      *
-     * @param string $display_name display_name
+     * @param string $name name
      *
      * @return $this
      */
-    public function setDisplayName($display_name)
+    public function setName($name)
     {
-        $this->container['display_name'] = $display_name;
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets metric_name
+     * Gets no_data
      *
-     * @return string
+     * @return \Volcengine\Volcobserve\Model\NoDataForCreateAlertTemplateInput
      */
-    public function getMetricName()
+    public function getNoData()
     {
-        return $this->container['metric_name'];
+        return $this->container['no_data'];
     }
 
     /**
-     * Sets metric_name
+     * Sets no_data
      *
-     * @param string $metric_name metric_name
+     * @param \Volcengine\Volcobserve\Model\NoDataForCreateAlertTemplateInput $no_data no_data
      *
      * @return $this
      */
-    public function setMetricName($metric_name)
+    public function setNoData($no_data)
     {
-        $this->container['metric_name'] = $metric_name;
+        $this->container['no_data'] = $no_data;
 
         return $this;
     }
 
     /**
-     * Gets metric_unit
+     * Gets notify_mode
      *
      * @return string
      */
-    public function getMetricUnit()
+    public function getNotifyMode()
     {
-        return $this->container['metric_unit'];
+        return $this->container['notify_mode'];
     }
 
     /**
-     * Sets metric_unit
+     * Sets notify_mode
      *
-     * @param string $metric_unit metric_unit
+     * @param string $notify_mode notify_mode
      *
      * @return $this
      */
-    public function setMetricUnit($metric_unit)
+    public function setNotifyMode($notify_mode)
     {
-        $this->container['metric_unit'] = $metric_unit;
+        $this->container['notify_mode'] = $notify_mode;
 
         return $this;
     }
 
     /**
-     * Gets period
+     * Gets recovery_notify
      *
-     * @return string
+     * @return \Volcengine\Volcobserve\Model\RecoveryNotifyForCreateAlertTemplateInput
      */
-    public function getPeriod()
+    public function getRecoveryNotify()
     {
-        return $this->container['period'];
+        return $this->container['recovery_notify'];
     }
 
     /**
-     * Sets period
+     * Sets recovery_notify
      *
-     * @param string $period period
+     * @param \Volcengine\Volcobserve\Model\RecoveryNotifyForCreateAlertTemplateInput $recovery_notify recovery_notify
      *
      * @return $this
      */
-    public function setPeriod($period)
+    public function setRecoveryNotify($recovery_notify)
     {
-        $this->container['period'] = $period;
+        $this->container['recovery_notify'] = $recovery_notify;
 
         return $this;
     }
 
     /**
-     * Gets statistics
+     * Gets silence_time
      *
-     * @return string
+     * @return int
      */
-    public function getStatistics()
+    public function getSilenceTime()
     {
-        return $this->container['statistics'];
+        return $this->container['silence_time'];
     }
 
     /**
-     * Sets statistics
+     * Sets silence_time
      *
-     * @param string $statistics statistics
+     * @param int $silence_time silence_time
      *
      * @return $this
      */
-    public function setStatistics($statistics)
+    public function setSilenceTime($silence_time)
     {
-        $this->container['statistics'] = $statistics;
+        $this->container['silence_time'] = $silence_time;
 
         return $this;
     }
 
     /**
-     * Gets threshold
+     * Gets template_rules
      *
-     * @return string
+     * @return \Volcengine\Volcobserve\Model\TemplateRuleForCreateAlertTemplateInput[]
      */
-    public function getThreshold()
+    public function getTemplateRules()
     {
-        return $this->container['threshold'];
+        return $this->container['template_rules'];
     }
 
     /**
-     * Sets threshold
+     * Sets template_rules
      *
-     * @param string $threshold threshold
+     * @param \Volcengine\Volcobserve\Model\TemplateRuleForCreateAlertTemplateInput[] $template_rules template_rules
      *
      * @return $this
      */
-    public function setThreshold($threshold)
+    public function setTemplateRules($template_rules)
     {
-        $this->container['threshold'] = $threshold;
+        $this->container['template_rules'] = $template_rules;
 
         return $this;
     }
