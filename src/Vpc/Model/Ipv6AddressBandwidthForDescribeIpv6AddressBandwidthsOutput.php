@@ -45,6 +45,7 @@ class Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput implements Mode
         'overdue_time' => 'string',
         'project_name' => 'string',
         'status' => 'string',
+        'tags' => '\Volcengine\Vpc\Model\TagForDescribeIpv6AddressBandwidthsOutput[]',
         'updated_at' => 'string'
     ];
 
@@ -71,6 +72,7 @@ class Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput implements Mode
         'overdue_time' => null,
         'project_name' => null,
         'status' => null,
+        'tags' => null,
         'updated_at' => null
     ];
 
@@ -118,6 +120,7 @@ class Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput implements Mode
         'overdue_time' => 'OverdueTime',
         'project_name' => 'ProjectName',
         'status' => 'Status',
+        'tags' => 'Tags',
         'updated_at' => 'UpdatedAt'
     ];
 
@@ -144,6 +147,7 @@ class Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput implements Mode
         'overdue_time' => 'setOverdueTime',
         'project_name' => 'setProjectName',
         'status' => 'setStatus',
+        'tags' => 'setTags',
         'updated_at' => 'setUpdatedAt'
     ];
 
@@ -170,6 +174,7 @@ class Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput implements Mode
         'overdue_time' => 'getOverdueTime',
         'project_name' => 'getProjectName',
         'status' => 'getStatus',
+        'tags' => 'getTags',
         'updated_at' => 'getUpdatedAt'
     ];
 
@@ -250,6 +255,7 @@ class Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput implements Mode
         $this->container['overdue_time'] = isset($data['overdue_time']) ? $data['overdue_time'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
     }
 
@@ -681,6 +687,30 @@ class Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput implements Mode
     public function setStatus($status)
     {
         $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets tags
+     *
+     * @return \Volcengine\Vpc\Model\TagForDescribeIpv6AddressBandwidthsOutput[]
+     */
+    public function getTags()
+    {
+        return $this->container['tags'];
+    }
+
+    /**
+     * Sets tags
+     *
+     * @param \Volcengine\Vpc\Model\TagForDescribeIpv6AddressBandwidthsOutput[] $tags tags
+     *
+     * @return $this
+     */
+    public function setTags($tags)
+    {
+        $this->container['tags'] = $tags;
 
         return $this;
     }

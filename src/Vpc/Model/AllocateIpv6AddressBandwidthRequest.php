@@ -33,7 +33,8 @@ class AllocateIpv6AddressBandwidthRequest implements ModelInterface, ArrayAccess
         'billing_type' => 'int',
         'client_token' => 'string',
         'ipv6_address' => 'string',
-        'project_name' => 'string'
+        'project_name' => 'string',
+        'tags' => '\Volcengine\Vpc\Model\TagForAllocateIpv6AddressBandwidthInput[]'
     ];
 
     /**
@@ -47,7 +48,8 @@ class AllocateIpv6AddressBandwidthRequest implements ModelInterface, ArrayAccess
         'billing_type' => null,
         'client_token' => null,
         'ipv6_address' => null,
-        'project_name' => null
+        'project_name' => null,
+        'tags' => null
     ];
 
     /**
@@ -82,7 +84,8 @@ class AllocateIpv6AddressBandwidthRequest implements ModelInterface, ArrayAccess
         'billing_type' => 'BillingType',
         'client_token' => 'ClientToken',
         'ipv6_address' => 'Ipv6Address',
-        'project_name' => 'ProjectName'
+        'project_name' => 'ProjectName',
+        'tags' => 'Tags'
     ];
 
     /**
@@ -96,7 +99,8 @@ class AllocateIpv6AddressBandwidthRequest implements ModelInterface, ArrayAccess
         'billing_type' => 'setBillingType',
         'client_token' => 'setClientToken',
         'ipv6_address' => 'setIpv6Address',
-        'project_name' => 'setProjectName'
+        'project_name' => 'setProjectName',
+        'tags' => 'setTags'
     ];
 
     /**
@@ -110,7 +114,8 @@ class AllocateIpv6AddressBandwidthRequest implements ModelInterface, ArrayAccess
         'billing_type' => 'getBillingType',
         'client_token' => 'getClientToken',
         'ipv6_address' => 'getIpv6Address',
-        'project_name' => 'getProjectName'
+        'project_name' => 'getProjectName',
+        'tags' => 'getTags'
     ];
 
     /**
@@ -179,6 +184,7 @@ class AllocateIpv6AddressBandwidthRequest implements ModelInterface, ArrayAccess
         $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
         $this->container['ipv6_address'] = isset($data['ipv6_address']) ? $data['ipv6_address'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
     }
 
     /**
@@ -351,6 +357,30 @@ class AllocateIpv6AddressBandwidthRequest implements ModelInterface, ArrayAccess
     public function setProjectName($project_name)
     {
         $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets tags
+     *
+     * @return \Volcengine\Vpc\Model\TagForAllocateIpv6AddressBandwidthInput[]
+     */
+    public function getTags()
+    {
+        return $this->container['tags'];
+    }
+
+    /**
+     * Sets tags
+     *
+     * @param \Volcengine\Vpc\Model\TagForAllocateIpv6AddressBandwidthInput[] $tags tags
+     *
+     * @return $this
+     */
+    public function setTags($tags)
+    {
+        $this->container['tags'] = $tags;
 
         return $this;
     }
