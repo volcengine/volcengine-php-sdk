@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
+class TemplateRuleForUpdateAlertTemplateInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ConditionForListRulesByIdsOutput';
+    protected static $swaggerModelName = 'TemplateRuleForUpdateAlertTemplateInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,13 +28,13 @@ class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'comparison_operator' => 'string',
-        'display_name' => 'string',
-        'metric_name' => 'string',
-        'metric_unit' => 'string',
-        'period' => 'string',
-        'statistics' => 'string',
-        'threshold' => 'string'
+        'condition_operator' => 'string',
+        'evaluation_count' => 'int',
+        'level_conditions' => '\Volcengine\Volcobserve\Model\LevelConditionForUpdateAlertTemplateInput[]',
+        'multiple_conditions' => 'bool',
+        'name' => 'string',
+        'namespace' => 'string',
+        'sub_namespace' => 'string'
     ];
 
     /**
@@ -43,13 +43,13 @@ class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'comparison_operator' => null,
-        'display_name' => null,
-        'metric_name' => null,
-        'metric_unit' => null,
-        'period' => null,
-        'statistics' => null,
-        'threshold' => null
+        'condition_operator' => null,
+        'evaluation_count' => null,
+        'level_conditions' => null,
+        'multiple_conditions' => null,
+        'name' => null,
+        'namespace' => null,
+        'sub_namespace' => null
     ];
 
     /**
@@ -79,13 +79,13 @@ class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'comparison_operator' => 'ComparisonOperator',
-        'display_name' => 'DisplayName',
-        'metric_name' => 'MetricName',
-        'metric_unit' => 'MetricUnit',
-        'period' => 'Period',
-        'statistics' => 'Statistics',
-        'threshold' => 'Threshold'
+        'condition_operator' => 'ConditionOperator',
+        'evaluation_count' => 'EvaluationCount',
+        'level_conditions' => 'LevelConditions',
+        'multiple_conditions' => 'MultipleConditions',
+        'name' => 'Name',
+        'namespace' => 'Namespace',
+        'sub_namespace' => 'SubNamespace'
     ];
 
     /**
@@ -94,13 +94,13 @@ class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'comparison_operator' => 'setComparisonOperator',
-        'display_name' => 'setDisplayName',
-        'metric_name' => 'setMetricName',
-        'metric_unit' => 'setMetricUnit',
-        'period' => 'setPeriod',
-        'statistics' => 'setStatistics',
-        'threshold' => 'setThreshold'
+        'condition_operator' => 'setConditionOperator',
+        'evaluation_count' => 'setEvaluationCount',
+        'level_conditions' => 'setLevelConditions',
+        'multiple_conditions' => 'setMultipleConditions',
+        'name' => 'setName',
+        'namespace' => 'setNamespace',
+        'sub_namespace' => 'setSubNamespace'
     ];
 
     /**
@@ -109,13 +109,13 @@ class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'comparison_operator' => 'getComparisonOperator',
-        'display_name' => 'getDisplayName',
-        'metric_name' => 'getMetricName',
-        'metric_unit' => 'getMetricUnit',
-        'period' => 'getPeriod',
-        'statistics' => 'getStatistics',
-        'threshold' => 'getThreshold'
+        'condition_operator' => 'getConditionOperator',
+        'evaluation_count' => 'getEvaluationCount',
+        'level_conditions' => 'getLevelConditions',
+        'multiple_conditions' => 'getMultipleConditions',
+        'name' => 'getName',
+        'namespace' => 'getNamespace',
+        'sub_namespace' => 'getSubNamespace'
     ];
 
     /**
@@ -178,13 +178,13 @@ class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['comparison_operator'] = isset($data['comparison_operator']) ? $data['comparison_operator'] : null;
-        $this->container['display_name'] = isset($data['display_name']) ? $data['display_name'] : null;
-        $this->container['metric_name'] = isset($data['metric_name']) ? $data['metric_name'] : null;
-        $this->container['metric_unit'] = isset($data['metric_unit']) ? $data['metric_unit'] : null;
-        $this->container['period'] = isset($data['period']) ? $data['period'] : null;
-        $this->container['statistics'] = isset($data['statistics']) ? $data['statistics'] : null;
-        $this->container['threshold'] = isset($data['threshold']) ? $data['threshold'] : null;
+        $this->container['condition_operator'] = isset($data['condition_operator']) ? $data['condition_operator'] : null;
+        $this->container['evaluation_count'] = isset($data['evaluation_count']) ? $data['evaluation_count'] : null;
+        $this->container['level_conditions'] = isset($data['level_conditions']) ? $data['level_conditions'] : null;
+        $this->container['multiple_conditions'] = isset($data['multiple_conditions']) ? $data['multiple_conditions'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['namespace'] = isset($data['namespace']) ? $data['namespace'] : null;
+        $this->container['sub_namespace'] = isset($data['sub_namespace']) ? $data['sub_namespace'] : null;
     }
 
     /**
@@ -212,169 +212,169 @@ class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets comparison_operator
+     * Gets condition_operator
      *
      * @return string
      */
-    public function getComparisonOperator()
+    public function getConditionOperator()
     {
-        return $this->container['comparison_operator'];
+        return $this->container['condition_operator'];
     }
 
     /**
-     * Sets comparison_operator
+     * Sets condition_operator
      *
-     * @param string $comparison_operator comparison_operator
+     * @param string $condition_operator condition_operator
      *
      * @return $this
      */
-    public function setComparisonOperator($comparison_operator)
+    public function setConditionOperator($condition_operator)
     {
-        $this->container['comparison_operator'] = $comparison_operator;
+        $this->container['condition_operator'] = $condition_operator;
 
         return $this;
     }
 
     /**
-     * Gets display_name
+     * Gets evaluation_count
      *
-     * @return string
+     * @return int
      */
-    public function getDisplayName()
+    public function getEvaluationCount()
     {
-        return $this->container['display_name'];
+        return $this->container['evaluation_count'];
     }
 
     /**
-     * Sets display_name
+     * Sets evaluation_count
      *
-     * @param string $display_name display_name
+     * @param int $evaluation_count evaluation_count
      *
      * @return $this
      */
-    public function setDisplayName($display_name)
+    public function setEvaluationCount($evaluation_count)
     {
-        $this->container['display_name'] = $display_name;
+        $this->container['evaluation_count'] = $evaluation_count;
 
         return $this;
     }
 
     /**
-     * Gets metric_name
+     * Gets level_conditions
      *
-     * @return string
+     * @return \Volcengine\Volcobserve\Model\LevelConditionForUpdateAlertTemplateInput[]
      */
-    public function getMetricName()
+    public function getLevelConditions()
     {
-        return $this->container['metric_name'];
+        return $this->container['level_conditions'];
     }
 
     /**
-     * Sets metric_name
+     * Sets level_conditions
      *
-     * @param string $metric_name metric_name
+     * @param \Volcengine\Volcobserve\Model\LevelConditionForUpdateAlertTemplateInput[] $level_conditions level_conditions
      *
      * @return $this
      */
-    public function setMetricName($metric_name)
+    public function setLevelConditions($level_conditions)
     {
-        $this->container['metric_name'] = $metric_name;
+        $this->container['level_conditions'] = $level_conditions;
 
         return $this;
     }
 
     /**
-     * Gets metric_unit
+     * Gets multiple_conditions
      *
-     * @return string
+     * @return bool
      */
-    public function getMetricUnit()
+    public function getMultipleConditions()
     {
-        return $this->container['metric_unit'];
+        return $this->container['multiple_conditions'];
     }
 
     /**
-     * Sets metric_unit
+     * Sets multiple_conditions
      *
-     * @param string $metric_unit metric_unit
+     * @param bool $multiple_conditions multiple_conditions
      *
      * @return $this
      */
-    public function setMetricUnit($metric_unit)
+    public function setMultipleConditions($multiple_conditions)
     {
-        $this->container['metric_unit'] = $metric_unit;
+        $this->container['multiple_conditions'] = $multiple_conditions;
 
         return $this;
     }
 
     /**
-     * Gets period
+     * Gets name
      *
      * @return string
      */
-    public function getPeriod()
+    public function getName()
     {
-        return $this->container['period'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets period
+     * Sets name
      *
-     * @param string $period period
+     * @param string $name name
      *
      * @return $this
      */
-    public function setPeriod($period)
+    public function setName($name)
     {
-        $this->container['period'] = $period;
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets statistics
+     * Gets namespace
      *
      * @return string
      */
-    public function getStatistics()
+    public function getNamespace()
     {
-        return $this->container['statistics'];
+        return $this->container['namespace'];
     }
 
     /**
-     * Sets statistics
+     * Sets namespace
      *
-     * @param string $statistics statistics
+     * @param string $namespace namespace
      *
      * @return $this
      */
-    public function setStatistics($statistics)
+    public function setNamespace($namespace)
     {
-        $this->container['statistics'] = $statistics;
+        $this->container['namespace'] = $namespace;
 
         return $this;
     }
 
     /**
-     * Gets threshold
+     * Gets sub_namespace
      *
      * @return string
      */
-    public function getThreshold()
+    public function getSubNamespace()
     {
-        return $this->container['threshold'];
+        return $this->container['sub_namespace'];
     }
 
     /**
-     * Sets threshold
+     * Sets sub_namespace
      *
-     * @param string $threshold threshold
+     * @param string $sub_namespace sub_namespace
      *
      * @return $this
      */
-    public function setThreshold($threshold)
+    public function setSubNamespace($sub_namespace)
     {
-        $this->container['threshold'] = $threshold;
+        $this->container['sub_namespace'] = $sub_namespace;
 
         return $this;
     }

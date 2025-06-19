@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
+class ApplyObjectGroupsByAlertTemplateRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ConditionForListRulesByIdsOutput';
+    protected static $swaggerModelName = 'ApplyObjectGroupsByAlertTemplateRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,13 +28,9 @@ class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'comparison_operator' => 'string',
-        'display_name' => 'string',
-        'metric_name' => 'string',
-        'metric_unit' => 'string',
-        'period' => 'string',
-        'statistics' => 'string',
-        'threshold' => 'string'
+        'alert_template_id' => 'string',
+        'apply_objects' => '\Volcengine\Volcobserve\Model\ApplyObjectForApplyObjectGroupsByAlertTemplateInput[]',
+        'project_name' => 'string'
     ];
 
     /**
@@ -43,13 +39,9 @@ class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'comparison_operator' => null,
-        'display_name' => null,
-        'metric_name' => null,
-        'metric_unit' => null,
-        'period' => null,
-        'statistics' => null,
-        'threshold' => null
+        'alert_template_id' => null,
+        'apply_objects' => null,
+        'project_name' => null
     ];
 
     /**
@@ -79,13 +71,9 @@ class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'comparison_operator' => 'ComparisonOperator',
-        'display_name' => 'DisplayName',
-        'metric_name' => 'MetricName',
-        'metric_unit' => 'MetricUnit',
-        'period' => 'Period',
-        'statistics' => 'Statistics',
-        'threshold' => 'Threshold'
+        'alert_template_id' => 'AlertTemplateId',
+        'apply_objects' => 'ApplyObjects',
+        'project_name' => 'ProjectName'
     ];
 
     /**
@@ -94,13 +82,9 @@ class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'comparison_operator' => 'setComparisonOperator',
-        'display_name' => 'setDisplayName',
-        'metric_name' => 'setMetricName',
-        'metric_unit' => 'setMetricUnit',
-        'period' => 'setPeriod',
-        'statistics' => 'setStatistics',
-        'threshold' => 'setThreshold'
+        'alert_template_id' => 'setAlertTemplateId',
+        'apply_objects' => 'setApplyObjects',
+        'project_name' => 'setProjectName'
     ];
 
     /**
@@ -109,13 +93,9 @@ class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'comparison_operator' => 'getComparisonOperator',
-        'display_name' => 'getDisplayName',
-        'metric_name' => 'getMetricName',
-        'metric_unit' => 'getMetricUnit',
-        'period' => 'getPeriod',
-        'statistics' => 'getStatistics',
-        'threshold' => 'getThreshold'
+        'alert_template_id' => 'getAlertTemplateId',
+        'apply_objects' => 'getApplyObjects',
+        'project_name' => 'getProjectName'
     ];
 
     /**
@@ -178,13 +158,9 @@ class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['comparison_operator'] = isset($data['comparison_operator']) ? $data['comparison_operator'] : null;
-        $this->container['display_name'] = isset($data['display_name']) ? $data['display_name'] : null;
-        $this->container['metric_name'] = isset($data['metric_name']) ? $data['metric_name'] : null;
-        $this->container['metric_unit'] = isset($data['metric_unit']) ? $data['metric_unit'] : null;
-        $this->container['period'] = isset($data['period']) ? $data['period'] : null;
-        $this->container['statistics'] = isset($data['statistics']) ? $data['statistics'] : null;
-        $this->container['threshold'] = isset($data['threshold']) ? $data['threshold'] : null;
+        $this->container['alert_template_id'] = isset($data['alert_template_id']) ? $data['alert_template_id'] : null;
+        $this->container['apply_objects'] = isset($data['apply_objects']) ? $data['apply_objects'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
     }
 
     /**
@@ -196,6 +172,12 @@ class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['alert_template_id'] === null) {
+            $invalidProperties[] = "'alert_template_id' can't be null";
+        }
+        if ($this->container['project_name'] === null) {
+            $invalidProperties[] = "'project_name' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -212,169 +194,73 @@ class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets comparison_operator
+     * Gets alert_template_id
      *
      * @return string
      */
-    public function getComparisonOperator()
+    public function getAlertTemplateId()
     {
-        return $this->container['comparison_operator'];
+        return $this->container['alert_template_id'];
     }
 
     /**
-     * Sets comparison_operator
+     * Sets alert_template_id
      *
-     * @param string $comparison_operator comparison_operator
+     * @param string $alert_template_id alert_template_id
      *
      * @return $this
      */
-    public function setComparisonOperator($comparison_operator)
+    public function setAlertTemplateId($alert_template_id)
     {
-        $this->container['comparison_operator'] = $comparison_operator;
+        $this->container['alert_template_id'] = $alert_template_id;
 
         return $this;
     }
 
     /**
-     * Gets display_name
+     * Gets apply_objects
      *
-     * @return string
+     * @return \Volcengine\Volcobserve\Model\ApplyObjectForApplyObjectGroupsByAlertTemplateInput[]
      */
-    public function getDisplayName()
+    public function getApplyObjects()
     {
-        return $this->container['display_name'];
+        return $this->container['apply_objects'];
     }
 
     /**
-     * Sets display_name
+     * Sets apply_objects
      *
-     * @param string $display_name display_name
+     * @param \Volcengine\Volcobserve\Model\ApplyObjectForApplyObjectGroupsByAlertTemplateInput[] $apply_objects apply_objects
      *
      * @return $this
      */
-    public function setDisplayName($display_name)
+    public function setApplyObjects($apply_objects)
     {
-        $this->container['display_name'] = $display_name;
+        $this->container['apply_objects'] = $apply_objects;
 
         return $this;
     }
 
     /**
-     * Gets metric_name
+     * Gets project_name
      *
      * @return string
      */
-    public function getMetricName()
+    public function getProjectName()
     {
-        return $this->container['metric_name'];
+        return $this->container['project_name'];
     }
 
     /**
-     * Sets metric_name
+     * Sets project_name
      *
-     * @param string $metric_name metric_name
+     * @param string $project_name project_name
      *
      * @return $this
      */
-    public function setMetricName($metric_name)
+    public function setProjectName($project_name)
     {
-        $this->container['metric_name'] = $metric_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets metric_unit
-     *
-     * @return string
-     */
-    public function getMetricUnit()
-    {
-        return $this->container['metric_unit'];
-    }
-
-    /**
-     * Sets metric_unit
-     *
-     * @param string $metric_unit metric_unit
-     *
-     * @return $this
-     */
-    public function setMetricUnit($metric_unit)
-    {
-        $this->container['metric_unit'] = $metric_unit;
-
-        return $this;
-    }
-
-    /**
-     * Gets period
-     *
-     * @return string
-     */
-    public function getPeriod()
-    {
-        return $this->container['period'];
-    }
-
-    /**
-     * Sets period
-     *
-     * @param string $period period
-     *
-     * @return $this
-     */
-    public function setPeriod($period)
-    {
-        $this->container['period'] = $period;
-
-        return $this;
-    }
-
-    /**
-     * Gets statistics
-     *
-     * @return string
-     */
-    public function getStatistics()
-    {
-        return $this->container['statistics'];
-    }
-
-    /**
-     * Sets statistics
-     *
-     * @param string $statistics statistics
-     *
-     * @return $this
-     */
-    public function setStatistics($statistics)
-    {
-        $this->container['statistics'] = $statistics;
-
-        return $this;
-    }
-
-    /**
-     * Gets threshold
-     *
-     * @return string
-     */
-    public function getThreshold()
-    {
-        return $this->container['threshold'];
-    }
-
-    /**
-     * Sets threshold
-     *
-     * @param string $threshold threshold
-     *
-     * @return $this
-     */
-    public function setThreshold($threshold)
-    {
-        $this->container['threshold'] = $threshold;
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }

@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
+class ListAlertTemplatesRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ConditionForListRulesByIdsOutput';
+    protected static $swaggerModelName = 'ListAlertTemplatesRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,13 +28,11 @@ class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'comparison_operator' => 'string',
-        'display_name' => 'string',
-        'metric_name' => 'string',
-        'metric_unit' => 'string',
-        'period' => 'string',
-        'statistics' => 'string',
-        'threshold' => 'string'
+        'name' => 'string',
+        'namespaces' => 'string[]',
+        'page_number' => 'int',
+        'page_size' => 'int',
+        'template_ids' => 'string[]'
     ];
 
     /**
@@ -43,13 +41,11 @@ class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'comparison_operator' => null,
-        'display_name' => null,
-        'metric_name' => null,
-        'metric_unit' => null,
-        'period' => null,
-        'statistics' => null,
-        'threshold' => null
+        'name' => null,
+        'namespaces' => null,
+        'page_number' => null,
+        'page_size' => null,
+        'template_ids' => null
     ];
 
     /**
@@ -79,13 +75,11 @@ class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'comparison_operator' => 'ComparisonOperator',
-        'display_name' => 'DisplayName',
-        'metric_name' => 'MetricName',
-        'metric_unit' => 'MetricUnit',
-        'period' => 'Period',
-        'statistics' => 'Statistics',
-        'threshold' => 'Threshold'
+        'name' => 'Name',
+        'namespaces' => 'Namespaces',
+        'page_number' => 'PageNumber',
+        'page_size' => 'PageSize',
+        'template_ids' => 'TemplateIds'
     ];
 
     /**
@@ -94,13 +88,11 @@ class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'comparison_operator' => 'setComparisonOperator',
-        'display_name' => 'setDisplayName',
-        'metric_name' => 'setMetricName',
-        'metric_unit' => 'setMetricUnit',
-        'period' => 'setPeriod',
-        'statistics' => 'setStatistics',
-        'threshold' => 'setThreshold'
+        'name' => 'setName',
+        'namespaces' => 'setNamespaces',
+        'page_number' => 'setPageNumber',
+        'page_size' => 'setPageSize',
+        'template_ids' => 'setTemplateIds'
     ];
 
     /**
@@ -109,13 +101,11 @@ class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'comparison_operator' => 'getComparisonOperator',
-        'display_name' => 'getDisplayName',
-        'metric_name' => 'getMetricName',
-        'metric_unit' => 'getMetricUnit',
-        'period' => 'getPeriod',
-        'statistics' => 'getStatistics',
-        'threshold' => 'getThreshold'
+        'name' => 'getName',
+        'namespaces' => 'getNamespaces',
+        'page_number' => 'getPageNumber',
+        'page_size' => 'getPageSize',
+        'template_ids' => 'getTemplateIds'
     ];
 
     /**
@@ -178,13 +168,11 @@ class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['comparison_operator'] = isset($data['comparison_operator']) ? $data['comparison_operator'] : null;
-        $this->container['display_name'] = isset($data['display_name']) ? $data['display_name'] : null;
-        $this->container['metric_name'] = isset($data['metric_name']) ? $data['metric_name'] : null;
-        $this->container['metric_unit'] = isset($data['metric_unit']) ? $data['metric_unit'] : null;
-        $this->container['period'] = isset($data['period']) ? $data['period'] : null;
-        $this->container['statistics'] = isset($data['statistics']) ? $data['statistics'] : null;
-        $this->container['threshold'] = isset($data['threshold']) ? $data['threshold'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['namespaces'] = isset($data['namespaces']) ? $data['namespaces'] : null;
+        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
+        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
+        $this->container['template_ids'] = isset($data['template_ids']) ? $data['template_ids'] : null;
     }
 
     /**
@@ -212,169 +200,121 @@ class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets comparison_operator
+     * Gets name
      *
      * @return string
      */
-    public function getComparisonOperator()
+    public function getName()
     {
-        return $this->container['comparison_operator'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets comparison_operator
+     * Sets name
      *
-     * @param string $comparison_operator comparison_operator
+     * @param string $name name
      *
      * @return $this
      */
-    public function setComparisonOperator($comparison_operator)
+    public function setName($name)
     {
-        $this->container['comparison_operator'] = $comparison_operator;
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets display_name
+     * Gets namespaces
      *
-     * @return string
+     * @return string[]
      */
-    public function getDisplayName()
+    public function getNamespaces()
     {
-        return $this->container['display_name'];
+        return $this->container['namespaces'];
     }
 
     /**
-     * Sets display_name
+     * Sets namespaces
      *
-     * @param string $display_name display_name
+     * @param string[] $namespaces namespaces
      *
      * @return $this
      */
-    public function setDisplayName($display_name)
+    public function setNamespaces($namespaces)
     {
-        $this->container['display_name'] = $display_name;
+        $this->container['namespaces'] = $namespaces;
 
         return $this;
     }
 
     /**
-     * Gets metric_name
+     * Gets page_number
      *
-     * @return string
+     * @return int
      */
-    public function getMetricName()
+    public function getPageNumber()
     {
-        return $this->container['metric_name'];
+        return $this->container['page_number'];
     }
 
     /**
-     * Sets metric_name
+     * Sets page_number
      *
-     * @param string $metric_name metric_name
+     * @param int $page_number page_number
      *
      * @return $this
      */
-    public function setMetricName($metric_name)
+    public function setPageNumber($page_number)
     {
-        $this->container['metric_name'] = $metric_name;
+        $this->container['page_number'] = $page_number;
 
         return $this;
     }
 
     /**
-     * Gets metric_unit
+     * Gets page_size
      *
-     * @return string
+     * @return int
      */
-    public function getMetricUnit()
+    public function getPageSize()
     {
-        return $this->container['metric_unit'];
+        return $this->container['page_size'];
     }
 
     /**
-     * Sets metric_unit
+     * Sets page_size
      *
-     * @param string $metric_unit metric_unit
+     * @param int $page_size page_size
      *
      * @return $this
      */
-    public function setMetricUnit($metric_unit)
+    public function setPageSize($page_size)
     {
-        $this->container['metric_unit'] = $metric_unit;
+        $this->container['page_size'] = $page_size;
 
         return $this;
     }
 
     /**
-     * Gets period
+     * Gets template_ids
      *
-     * @return string
+     * @return string[]
      */
-    public function getPeriod()
+    public function getTemplateIds()
     {
-        return $this->container['period'];
+        return $this->container['template_ids'];
     }
 
     /**
-     * Sets period
+     * Sets template_ids
      *
-     * @param string $period period
+     * @param string[] $template_ids template_ids
      *
      * @return $this
      */
-    public function setPeriod($period)
+    public function setTemplateIds($template_ids)
     {
-        $this->container['period'] = $period;
-
-        return $this;
-    }
-
-    /**
-     * Gets statistics
-     *
-     * @return string
-     */
-    public function getStatistics()
-    {
-        return $this->container['statistics'];
-    }
-
-    /**
-     * Sets statistics
-     *
-     * @param string $statistics statistics
-     *
-     * @return $this
-     */
-    public function setStatistics($statistics)
-    {
-        $this->container['statistics'] = $statistics;
-
-        return $this;
-    }
-
-    /**
-     * Gets threshold
-     *
-     * @return string
-     */
-    public function getThreshold()
-    {
-        return $this->container['threshold'];
-    }
-
-    /**
-     * Sets threshold
-     *
-     * @param string $threshold threshold
-     *
-     * @return $this
-     */
-    public function setThreshold($threshold)
-    {
-        $this->container['threshold'] = $threshold;
+        $this->container['template_ids'] = $template_ids;
 
         return $this;
     }
