@@ -29,8 +29,10 @@ class ConditionForListRulesOutput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'comparison_operator' => 'string',
+        'display_name' => 'string',
         'metric_name' => 'string',
         'metric_unit' => 'string',
+        'period' => 'string',
         'statistics' => 'string',
         'threshold' => 'string'
     ];
@@ -42,8 +44,10 @@ class ConditionForListRulesOutput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'comparison_operator' => null,
+        'display_name' => null,
         'metric_name' => null,
         'metric_unit' => null,
+        'period' => null,
         'statistics' => null,
         'threshold' => null
     ];
@@ -76,8 +80,10 @@ class ConditionForListRulesOutput implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'comparison_operator' => 'ComparisonOperator',
+        'display_name' => 'DisplayName',
         'metric_name' => 'MetricName',
         'metric_unit' => 'MetricUnit',
+        'period' => 'Period',
         'statistics' => 'Statistics',
         'threshold' => 'Threshold'
     ];
@@ -89,8 +95,10 @@ class ConditionForListRulesOutput implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'comparison_operator' => 'setComparisonOperator',
+        'display_name' => 'setDisplayName',
         'metric_name' => 'setMetricName',
         'metric_unit' => 'setMetricUnit',
+        'period' => 'setPeriod',
         'statistics' => 'setStatistics',
         'threshold' => 'setThreshold'
     ];
@@ -102,8 +110,10 @@ class ConditionForListRulesOutput implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'comparison_operator' => 'getComparisonOperator',
+        'display_name' => 'getDisplayName',
         'metric_name' => 'getMetricName',
         'metric_unit' => 'getMetricUnit',
+        'period' => 'getPeriod',
         'statistics' => 'getStatistics',
         'threshold' => 'getThreshold'
     ];
@@ -169,8 +179,10 @@ class ConditionForListRulesOutput implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['comparison_operator'] = isset($data['comparison_operator']) ? $data['comparison_operator'] : null;
+        $this->container['display_name'] = isset($data['display_name']) ? $data['display_name'] : null;
         $this->container['metric_name'] = isset($data['metric_name']) ? $data['metric_name'] : null;
         $this->container['metric_unit'] = isset($data['metric_unit']) ? $data['metric_unit'] : null;
+        $this->container['period'] = isset($data['period']) ? $data['period'] : null;
         $this->container['statistics'] = isset($data['statistics']) ? $data['statistics'] : null;
         $this->container['threshold'] = isset($data['threshold']) ? $data['threshold'] : null;
     }
@@ -224,6 +236,30 @@ class ConditionForListRulesOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets display_name
+     *
+     * @return string
+     */
+    public function getDisplayName()
+    {
+        return $this->container['display_name'];
+    }
+
+    /**
+     * Sets display_name
+     *
+     * @param string $display_name display_name
+     *
+     * @return $this
+     */
+    public function setDisplayName($display_name)
+    {
+        $this->container['display_name'] = $display_name;
+
+        return $this;
+    }
+
+    /**
      * Gets metric_name
      *
      * @return string
@@ -267,6 +303,30 @@ class ConditionForListRulesOutput implements ModelInterface, ArrayAccess
     public function setMetricUnit($metric_unit)
     {
         $this->container['metric_unit'] = $metric_unit;
+
+        return $this;
+    }
+
+    /**
+     * Gets period
+     *
+     * @return string
+     */
+    public function getPeriod()
+    {
+        return $this->container['period'];
+    }
+
+    /**
+     * Sets period
+     *
+     * @param string $period period
+     *
+     * @return $this
+     */
+    public function setPeriod($period)
+    {
+        $this->container['period'] = $period;
 
         return $this;
     }

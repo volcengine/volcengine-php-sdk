@@ -42,7 +42,7 @@ class UpdateBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
         'path_threshold' => 'int',
         'project_name' => 'string',
         'rule_priority' => 'int',
-        'single_proportion' => 'string',
+        'single_proportion' => 'float',
         'single_threshold' => 'int',
         'statistical_duration' => 'int',
         'statistical_type' => 'int'
@@ -68,7 +68,7 @@ class UpdateBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
         'path_threshold' => 'int32',
         'project_name' => null,
         'rule_priority' => 'int32',
-        'single_proportion' => null,
+        'single_proportion' => 'float',
         'single_threshold' => 'int32',
         'statistical_duration' => 'int32',
         'statistical_type' => 'int32'
@@ -652,7 +652,7 @@ class UpdateBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
     /**
      * Gets single_proportion
      *
-     * @return string
+     * @return float
      */
     public function getSingleProportion()
     {
@@ -662,7 +662,7 @@ class UpdateBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
     /**
      * Sets single_proportion
      *
-     * @param string $single_proportion single_proportion
+     * @param float $single_proportion single_proportion
      *
      * @return $this
      */

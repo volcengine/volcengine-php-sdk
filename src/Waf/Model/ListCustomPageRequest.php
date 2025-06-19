@@ -31,7 +31,8 @@ class ListCustomPageRequest implements ModelInterface, ArrayAccess
         'host' => 'string',
         'page' => 'int',
         'page_size' => 'int',
-        'project_name' => 'string'
+        'project_name' => 'string',
+        'rule_tag' => 'string'
     ];
 
     /**
@@ -43,7 +44,8 @@ class ListCustomPageRequest implements ModelInterface, ArrayAccess
         'host' => null,
         'page' => 'int32',
         'page_size' => 'int32',
-        'project_name' => null
+        'project_name' => null,
+        'rule_tag' => null
     ];
 
     /**
@@ -76,7 +78,8 @@ class ListCustomPageRequest implements ModelInterface, ArrayAccess
         'host' => 'Host',
         'page' => 'Page',
         'page_size' => 'PageSize',
-        'project_name' => 'ProjectName'
+        'project_name' => 'ProjectName',
+        'rule_tag' => 'RuleTag'
     ];
 
     /**
@@ -88,7 +91,8 @@ class ListCustomPageRequest implements ModelInterface, ArrayAccess
         'host' => 'setHost',
         'page' => 'setPage',
         'page_size' => 'setPageSize',
-        'project_name' => 'setProjectName'
+        'project_name' => 'setProjectName',
+        'rule_tag' => 'setRuleTag'
     ];
 
     /**
@@ -100,7 +104,8 @@ class ListCustomPageRequest implements ModelInterface, ArrayAccess
         'host' => 'getHost',
         'page' => 'getPage',
         'page_size' => 'getPageSize',
-        'project_name' => 'getProjectName'
+        'project_name' => 'getProjectName',
+        'rule_tag' => 'getRuleTag'
     ];
 
     /**
@@ -167,6 +172,7 @@ class ListCustomPageRequest implements ModelInterface, ArrayAccess
         $this->container['page'] = isset($data['page']) ? $data['page'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['rule_tag'] = isset($data['rule_tag']) ? $data['rule_tag'] : null;
     }
 
     /**
@@ -288,6 +294,30 @@ class ListCustomPageRequest implements ModelInterface, ArrayAccess
     public function setProjectName($project_name)
     {
         $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets rule_tag
+     *
+     * @return string
+     */
+    public function getRuleTag()
+    {
+        return $this->container['rule_tag'];
+    }
+
+    /**
+     * Sets rule_tag
+     *
+     * @param string $rule_tag rule_tag
+     *
+     * @return $this
+     */
+    public function setRuleTag($rule_tag)
+    {
+        $this->container['rule_tag'] = $rule_tag;
 
         return $this;
     }

@@ -28,13 +28,13 @@ class DescribeIpv6GatewaysRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'ipv6_gateway_ids' => 'string',
+        'ipv6_gateway_ids' => 'string[]',
         'max_results' => 'int',
         'name' => 'string',
         'next_token' => 'string',
         'project_name' => 'string',
         'tag_filters' => '\Volcengine\Vpc\Model\TagFilterForDescribeIpv6GatewaysInput[]',
-        'vpc_ids' => 'string'
+        'vpc_ids' => 'string[]'
     ];
 
     /**
@@ -214,7 +214,7 @@ class DescribeIpv6GatewaysRequest implements ModelInterface, ArrayAccess
     /**
      * Gets ipv6_gateway_ids
      *
-     * @return string
+     * @return string[]
      */
     public function getIpv6GatewayIds()
     {
@@ -224,7 +224,7 @@ class DescribeIpv6GatewaysRequest implements ModelInterface, ArrayAccess
     /**
      * Sets ipv6_gateway_ids
      *
-     * @param string $ipv6_gateway_ids ipv6_gateway_ids
+     * @param string[] $ipv6_gateway_ids ipv6_gateway_ids
      *
      * @return $this
      */
@@ -358,7 +358,7 @@ class DescribeIpv6GatewaysRequest implements ModelInterface, ArrayAccess
     /**
      * Gets vpc_ids
      *
-     * @return string
+     * @return string[]
      */
     public function getVpcIds()
     {
@@ -368,7 +368,7 @@ class DescribeIpv6GatewaysRequest implements ModelInterface, ArrayAccess
     /**
      * Sets vpc_ids
      *
-     * @param string $vpc_ids vpc_ids
+     * @param string[] $vpc_ids vpc_ids
      *
      * @return $this
      */

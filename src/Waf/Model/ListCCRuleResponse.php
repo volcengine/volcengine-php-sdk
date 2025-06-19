@@ -28,8 +28,11 @@ class ListCCRuleResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'count' => 'int',
+        'current_page' => 'int',
         'enable_count' => 'int',
         'insert_time' => 'string',
+        'page_size' => 'int',
         'rule_group' => '\Volcengine\Waf\Model\RuleGroupForListCCRuleOutput[]',
         'total_count' => 'int',
         'url' => 'string'
@@ -41,8 +44,11 @@ class ListCCRuleResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'count' => 'int32',
+        'current_page' => 'int32',
         'enable_count' => 'int32',
         'insert_time' => null,
+        'page_size' => 'int32',
         'rule_group' => null,
         'total_count' => 'int32',
         'url' => null
@@ -75,8 +81,11 @@ class ListCCRuleResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'count' => 'Count',
+        'current_page' => 'CurrentPage',
         'enable_count' => 'EnableCount',
         'insert_time' => 'InsertTime',
+        'page_size' => 'PageSize',
         'rule_group' => 'RuleGroup',
         'total_count' => 'TotalCount',
         'url' => 'Url'
@@ -88,8 +97,11 @@ class ListCCRuleResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'count' => 'setCount',
+        'current_page' => 'setCurrentPage',
         'enable_count' => 'setEnableCount',
         'insert_time' => 'setInsertTime',
+        'page_size' => 'setPageSize',
         'rule_group' => 'setRuleGroup',
         'total_count' => 'setTotalCount',
         'url' => 'setUrl'
@@ -101,8 +113,11 @@ class ListCCRuleResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'count' => 'getCount',
+        'current_page' => 'getCurrentPage',
         'enable_count' => 'getEnableCount',
         'insert_time' => 'getInsertTime',
+        'page_size' => 'getPageSize',
         'rule_group' => 'getRuleGroup',
         'total_count' => 'getTotalCount',
         'url' => 'getUrl'
@@ -168,8 +183,11 @@ class ListCCRuleResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['count'] = isset($data['count']) ? $data['count'] : null;
+        $this->container['current_page'] = isset($data['current_page']) ? $data['current_page'] : null;
         $this->container['enable_count'] = isset($data['enable_count']) ? $data['enable_count'] : null;
         $this->container['insert_time'] = isset($data['insert_time']) ? $data['insert_time'] : null;
+        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
         $this->container['rule_group'] = isset($data['rule_group']) ? $data['rule_group'] : null;
         $this->container['total_count'] = isset($data['total_count']) ? $data['total_count'] : null;
         $this->container['url'] = isset($data['url']) ? $data['url'] : null;
@@ -198,6 +216,54 @@ class ListCCRuleResponse implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets count
+     *
+     * @return int
+     */
+    public function getCount()
+    {
+        return $this->container['count'];
+    }
+
+    /**
+     * Sets count
+     *
+     * @param int $count count
+     *
+     * @return $this
+     */
+    public function setCount($count)
+    {
+        $this->container['count'] = $count;
+
+        return $this;
+    }
+
+    /**
+     * Gets current_page
+     *
+     * @return int
+     */
+    public function getCurrentPage()
+    {
+        return $this->container['current_page'];
+    }
+
+    /**
+     * Sets current_page
+     *
+     * @param int $current_page current_page
+     *
+     * @return $this
+     */
+    public function setCurrentPage($current_page)
+    {
+        $this->container['current_page'] = $current_page;
+
+        return $this;
+    }
 
     /**
      * Gets enable_count
@@ -243,6 +309,30 @@ class ListCCRuleResponse implements ModelInterface, ArrayAccess
     public function setInsertTime($insert_time)
     {
         $this->container['insert_time'] = $insert_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets page_size
+     *
+     * @return int
+     */
+    public function getPageSize()
+    {
+        return $this->container['page_size'];
+    }
+
+    /**
+     * Sets page_size
+     *
+     * @param int $page_size page_size
+     *
+     * @return $this
+     */
+    public function setPageSize($page_size)
+    {
+        $this->container['page_size'] = $page_size;
 
         return $this;
     }

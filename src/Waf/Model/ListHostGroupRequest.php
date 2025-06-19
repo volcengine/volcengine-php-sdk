@@ -208,6 +208,9 @@ class ListHostGroupRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['time_order_by'] === null) {
+            $invalidProperties[] = "'time_order_by' can't be null";
+        }
         return $invalidProperties;
     }
 

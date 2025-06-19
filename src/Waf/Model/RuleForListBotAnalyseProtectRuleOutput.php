@@ -44,7 +44,7 @@ class RuleForListBotAnalyseProtectRuleOutput implements ModelInterface, ArrayAcc
         'path_threshold' => 'int',
         'rule_priority' => 'int',
         'rule_tag' => 'string',
-        'single_proportion' => 'string',
+        'single_proportion' => 'float',
         'single_threshold' => 'int',
         'statistical_duration' => 'int',
         'statistical_type' => 'int',
@@ -73,7 +73,7 @@ class RuleForListBotAnalyseProtectRuleOutput implements ModelInterface, ArrayAcc
         'path_threshold' => 'int32',
         'rule_priority' => 'int32',
         'rule_tag' => null,
-        'single_proportion' => null,
+        'single_proportion' => 'float',
         'single_threshold' => 'int32',
         'statistical_duration' => 'int32',
         'statistical_type' => 'int32',
@@ -682,7 +682,7 @@ class RuleForListBotAnalyseProtectRuleOutput implements ModelInterface, ArrayAcc
     /**
      * Gets single_proportion
      *
-     * @return string
+     * @return float
      */
     public function getSingleProportion()
     {
@@ -692,7 +692,7 @@ class RuleForListBotAnalyseProtectRuleOutput implements ModelInterface, ArrayAcc
     /**
      * Sets single_proportion
      *
-     * @param string $single_proportion single_proportion
+     * @param float $single_proportion single_proportion
      *
      * @return $this
      */

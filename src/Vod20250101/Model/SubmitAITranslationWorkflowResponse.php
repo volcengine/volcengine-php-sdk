@@ -28,7 +28,7 @@ class SubmitAITranslationWorkflowResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'project_base_info' => '\Volcengine\Vod20250101\Model\ProjectBaseInfoForSubmitAITranslationWorkflowOutput'
     ];
 
     /**
@@ -37,7 +37,7 @@ class SubmitAITranslationWorkflowResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'project_base_info' => null
     ];
 
     /**
@@ -67,7 +67,7 @@ class SubmitAITranslationWorkflowResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'project_base_info' => 'ProjectBaseInfo'
     ];
 
     /**
@@ -76,7 +76,7 @@ class SubmitAITranslationWorkflowResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        
+        'project_base_info' => 'setProjectBaseInfo'
     ];
 
     /**
@@ -85,7 +85,7 @@ class SubmitAITranslationWorkflowResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        
+        'project_base_info' => 'getProjectBaseInfo'
     ];
 
     /**
@@ -148,6 +148,7 @@ class SubmitAITranslationWorkflowResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['project_base_info'] = isset($data['project_base_info']) ? $data['project_base_info'] : null;
     }
 
     /**
@@ -173,6 +174,30 @@ class SubmitAITranslationWorkflowResponse implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets project_base_info
+     *
+     * @return \Volcengine\Vod20250101\Model\ProjectBaseInfoForSubmitAITranslationWorkflowOutput
+     */
+    public function getProjectBaseInfo()
+    {
+        return $this->container['project_base_info'];
+    }
+
+    /**
+     * Sets project_base_info
+     *
+     * @param \Volcengine\Vod20250101\Model\ProjectBaseInfoForSubmitAITranslationWorkflowOutput $project_base_info project_base_info
+     *
+     * @return $this
+     */
+    public function setProjectBaseInfo($project_base_info)
+    {
+        $this->container['project_base_info'] = $project_base_info;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *
