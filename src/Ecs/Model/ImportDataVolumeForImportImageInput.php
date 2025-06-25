@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class RdmaForDescribeInstanceTypesOutput implements ModelInterface, ArrayAccess
+class ImportDataVolumeForImportImageInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class RdmaForDescribeInstanceTypesOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'RdmaForDescribeInstanceTypesOutput';
+    protected static $swaggerModelName = 'ImportDataVolumeForImportImageInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,7 @@ class RdmaForDescribeInstanceTypesOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'rdma_network_interfaces' => 'int',
-        'rdma_product_name' => 'string'
+        'data_volume_url' => 'string'
     ];
 
     /**
@@ -38,8 +37,7 @@ class RdmaForDescribeInstanceTypesOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'rdma_network_interfaces' => 'int32',
-        'rdma_product_name' => null
+        'data_volume_url' => null
     ];
 
     /**
@@ -69,8 +67,7 @@ class RdmaForDescribeInstanceTypesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'rdma_network_interfaces' => 'RdmaNetworkInterfaces',
-        'rdma_product_name' => 'RdmaProductName'
+        'data_volume_url' => 'DataVolumeUrl'
     ];
 
     /**
@@ -79,8 +76,7 @@ class RdmaForDescribeInstanceTypesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'rdma_network_interfaces' => 'setRdmaNetworkInterfaces',
-        'rdma_product_name' => 'setRdmaProductName'
+        'data_volume_url' => 'setDataVolumeUrl'
     ];
 
     /**
@@ -89,8 +85,7 @@ class RdmaForDescribeInstanceTypesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'rdma_network_interfaces' => 'getRdmaNetworkInterfaces',
-        'rdma_product_name' => 'getRdmaProductName'
+        'data_volume_url' => 'getDataVolumeUrl'
     ];
 
     /**
@@ -153,8 +148,7 @@ class RdmaForDescribeInstanceTypesOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['rdma_network_interfaces'] = isset($data['rdma_network_interfaces']) ? $data['rdma_network_interfaces'] : null;
-        $this->container['rdma_product_name'] = isset($data['rdma_product_name']) ? $data['rdma_product_name'] : null;
+        $this->container['data_volume_url'] = isset($data['data_volume_url']) ? $data['data_volume_url'] : null;
     }
 
     /**
@@ -182,49 +176,25 @@ class RdmaForDescribeInstanceTypesOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets rdma_network_interfaces
-     *
-     * @return int
-     */
-    public function getRdmaNetworkInterfaces()
-    {
-        return $this->container['rdma_network_interfaces'];
-    }
-
-    /**
-     * Sets rdma_network_interfaces
-     *
-     * @param int $rdma_network_interfaces rdma_network_interfaces
-     *
-     * @return $this
-     */
-    public function setRdmaNetworkInterfaces($rdma_network_interfaces)
-    {
-        $this->container['rdma_network_interfaces'] = $rdma_network_interfaces;
-
-        return $this;
-    }
-
-    /**
-     * Gets rdma_product_name
+     * Gets data_volume_url
      *
      * @return string
      */
-    public function getRdmaProductName()
+    public function getDataVolumeUrl()
     {
-        return $this->container['rdma_product_name'];
+        return $this->container['data_volume_url'];
     }
 
     /**
-     * Sets rdma_product_name
+     * Sets data_volume_url
      *
-     * @param string $rdma_product_name rdma_product_name
+     * @param string $data_volume_url data_volume_url
      *
      * @return $this
      */
-    public function setRdmaProductName($rdma_product_name)
+    public function setDataVolumeUrl($data_volume_url)
     {
-        $this->container['rdma_product_name'] = $rdma_product_name;
+        $this->container['data_volume_url'] = $data_volume_url;
 
         return $this;
     }
