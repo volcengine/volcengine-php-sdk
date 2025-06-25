@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CreateSandboxRequest implements ModelInterface, ArrayAccess
+class EnvForCreateSandboxInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CreateSandboxRequest';
+    protected static $swaggerModelName = 'EnvForCreateSandboxInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,11 +28,8 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'envs' => '\Volcengine\Vefaas\Model\EnvForCreateSandboxInput[]',
-        'function_id' => 'string',
-        'instance_tos_mount_config' => '\Volcengine\Vefaas\Model\InstanceTosMountConfigForCreateSandboxInput',
-        'metadata' => '\Volcengine\Vefaas\Model\MetadataForCreateSandboxInput',
-        'timeout' => 'int'
+        'key' => 'string',
+        'value' => 'string'
     ];
 
     /**
@@ -41,11 +38,8 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'envs' => null,
-        'function_id' => null,
-        'instance_tos_mount_config' => null,
-        'metadata' => null,
-        'timeout' => 'int32'
+        'key' => null,
+        'value' => null
     ];
 
     /**
@@ -75,11 +69,8 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'envs' => 'Envs',
-        'function_id' => 'FunctionId',
-        'instance_tos_mount_config' => 'InstanceTosMountConfig',
-        'metadata' => 'Metadata',
-        'timeout' => 'Timeout'
+        'key' => 'Key',
+        'value' => 'Value'
     ];
 
     /**
@@ -88,11 +79,8 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'envs' => 'setEnvs',
-        'function_id' => 'setFunctionId',
-        'instance_tos_mount_config' => 'setInstanceTosMountConfig',
-        'metadata' => 'setMetadata',
-        'timeout' => 'setTimeout'
+        'key' => 'setKey',
+        'value' => 'setValue'
     ];
 
     /**
@@ -101,11 +89,8 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'envs' => 'getEnvs',
-        'function_id' => 'getFunctionId',
-        'instance_tos_mount_config' => 'getInstanceTosMountConfig',
-        'metadata' => 'getMetadata',
-        'timeout' => 'getTimeout'
+        'key' => 'getKey',
+        'value' => 'getValue'
     ];
 
     /**
@@ -168,11 +153,8 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['envs'] = isset($data['envs']) ? $data['envs'] : null;
-        $this->container['function_id'] = isset($data['function_id']) ? $data['function_id'] : null;
-        $this->container['instance_tos_mount_config'] = isset($data['instance_tos_mount_config']) ? $data['instance_tos_mount_config'] : null;
-        $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
-        $this->container['timeout'] = isset($data['timeout']) ? $data['timeout'] : null;
+        $this->container['key'] = isset($data['key']) ? $data['key'] : null;
+        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 
     /**
@@ -184,9 +166,6 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['function_id'] === null) {
-            $invalidProperties[] = "'function_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -203,121 +182,49 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets envs
-     *
-     * @return \Volcengine\Vefaas\Model\EnvForCreateSandboxInput[]
-     */
-    public function getEnvs()
-    {
-        return $this->container['envs'];
-    }
-
-    /**
-     * Sets envs
-     *
-     * @param \Volcengine\Vefaas\Model\EnvForCreateSandboxInput[] $envs envs
-     *
-     * @return $this
-     */
-    public function setEnvs($envs)
-    {
-        $this->container['envs'] = $envs;
-
-        return $this;
-    }
-
-    /**
-     * Gets function_id
+     * Gets key
      *
      * @return string
      */
-    public function getFunctionId()
+    public function getKey()
     {
-        return $this->container['function_id'];
+        return $this->container['key'];
     }
 
     /**
-     * Sets function_id
+     * Sets key
      *
-     * @param string $function_id function_id
+     * @param string $key key
      *
      * @return $this
      */
-    public function setFunctionId($function_id)
+    public function setKey($key)
     {
-        $this->container['function_id'] = $function_id;
+        $this->container['key'] = $key;
 
         return $this;
     }
 
     /**
-     * Gets instance_tos_mount_config
+     * Gets value
      *
-     * @return \Volcengine\Vefaas\Model\InstanceTosMountConfigForCreateSandboxInput
+     * @return string
      */
-    public function getInstanceTosMountConfig()
+    public function getValue()
     {
-        return $this->container['instance_tos_mount_config'];
+        return $this->container['value'];
     }
 
     /**
-     * Sets instance_tos_mount_config
+     * Sets value
      *
-     * @param \Volcengine\Vefaas\Model\InstanceTosMountConfigForCreateSandboxInput $instance_tos_mount_config instance_tos_mount_config
+     * @param string $value value
      *
      * @return $this
      */
-    public function setInstanceTosMountConfig($instance_tos_mount_config)
+    public function setValue($value)
     {
-        $this->container['instance_tos_mount_config'] = $instance_tos_mount_config;
-
-        return $this;
-    }
-
-    /**
-     * Gets metadata
-     *
-     * @return \Volcengine\Vefaas\Model\MetadataForCreateSandboxInput
-     */
-    public function getMetadata()
-    {
-        return $this->container['metadata'];
-    }
-
-    /**
-     * Sets metadata
-     *
-     * @param \Volcengine\Vefaas\Model\MetadataForCreateSandboxInput $metadata metadata
-     *
-     * @return $this
-     */
-    public function setMetadata($metadata)
-    {
-        $this->container['metadata'] = $metadata;
-
-        return $this;
-    }
-
-    /**
-     * Gets timeout
-     *
-     * @return int
-     */
-    public function getTimeout()
-    {
-        return $this->container['timeout'];
-    }
-
-    /**
-     * Sets timeout
-     *
-     * @param int $timeout timeout
-     *
-     * @return $this
-     */
-    public function setTimeout($timeout)
-    {
-        $this->container['timeout'] = $timeout;
+        $this->container['value'] = $value;
 
         return $this;
     }
