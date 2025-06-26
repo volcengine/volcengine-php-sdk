@@ -28,11 +28,13 @@ class InstanceTypeForDescribeInstanceTypesOutput implements ModelInterface, Arra
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'affinity_group_sizes' => 'int[]',
         'baseline_credit' => 'int',
         'gpu' => '\Volcengine\Ecs\Model\GpuForDescribeInstanceTypesOutput',
         'initial_credit' => 'int',
         'instance_type_family' => 'string',
         'instance_type_id' => 'string',
+        'is_support_affinity_group' => 'bool',
         'local_volumes' => '\Volcengine\Ecs\Model\LocalVolumeForDescribeInstanceTypesOutput[]',
         'memory' => '\Volcengine\Ecs\Model\MemoryForDescribeInstanceTypesOutput',
         'network' => '\Volcengine\Ecs\Model\NetworkForDescribeInstanceTypesOutput',
@@ -47,11 +49,13 @@ class InstanceTypeForDescribeInstanceTypesOutput implements ModelInterface, Arra
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'affinity_group_sizes' => 'int32',
         'baseline_credit' => 'int64',
         'gpu' => null,
         'initial_credit' => 'int64',
         'instance_type_family' => null,
         'instance_type_id' => null,
+        'is_support_affinity_group' => null,
         'local_volumes' => null,
         'memory' => null,
         'network' => null,
@@ -87,11 +91,13 @@ class InstanceTypeForDescribeInstanceTypesOutput implements ModelInterface, Arra
      * @var string[]
      */
     protected static $attributeMap = [
+        'affinity_group_sizes' => 'AffinityGroupSizes',
         'baseline_credit' => 'BaselineCredit',
         'gpu' => 'Gpu',
         'initial_credit' => 'InitialCredit',
         'instance_type_family' => 'InstanceTypeFamily',
         'instance_type_id' => 'InstanceTypeId',
+        'is_support_affinity_group' => 'IsSupportAffinityGroup',
         'local_volumes' => 'LocalVolumes',
         'memory' => 'Memory',
         'network' => 'Network',
@@ -106,11 +112,13 @@ class InstanceTypeForDescribeInstanceTypesOutput implements ModelInterface, Arra
      * @var string[]
      */
     protected static $setters = [
+        'affinity_group_sizes' => 'setAffinityGroupSizes',
         'baseline_credit' => 'setBaselineCredit',
         'gpu' => 'setGpu',
         'initial_credit' => 'setInitialCredit',
         'instance_type_family' => 'setInstanceTypeFamily',
         'instance_type_id' => 'setInstanceTypeId',
+        'is_support_affinity_group' => 'setIsSupportAffinityGroup',
         'local_volumes' => 'setLocalVolumes',
         'memory' => 'setMemory',
         'network' => 'setNetwork',
@@ -125,11 +133,13 @@ class InstanceTypeForDescribeInstanceTypesOutput implements ModelInterface, Arra
      * @var string[]
      */
     protected static $getters = [
+        'affinity_group_sizes' => 'getAffinityGroupSizes',
         'baseline_credit' => 'getBaselineCredit',
         'gpu' => 'getGpu',
         'initial_credit' => 'getInitialCredit',
         'instance_type_family' => 'getInstanceTypeFamily',
         'instance_type_id' => 'getInstanceTypeId',
+        'is_support_affinity_group' => 'getIsSupportAffinityGroup',
         'local_volumes' => 'getLocalVolumes',
         'memory' => 'getMemory',
         'network' => 'getNetwork',
@@ -198,11 +208,13 @@ class InstanceTypeForDescribeInstanceTypesOutput implements ModelInterface, Arra
      */
     public function __construct(array $data = null)
     {
+        $this->container['affinity_group_sizes'] = isset($data['affinity_group_sizes']) ? $data['affinity_group_sizes'] : null;
         $this->container['baseline_credit'] = isset($data['baseline_credit']) ? $data['baseline_credit'] : null;
         $this->container['gpu'] = isset($data['gpu']) ? $data['gpu'] : null;
         $this->container['initial_credit'] = isset($data['initial_credit']) ? $data['initial_credit'] : null;
         $this->container['instance_type_family'] = isset($data['instance_type_family']) ? $data['instance_type_family'] : null;
         $this->container['instance_type_id'] = isset($data['instance_type_id']) ? $data['instance_type_id'] : null;
+        $this->container['is_support_affinity_group'] = isset($data['is_support_affinity_group']) ? $data['is_support_affinity_group'] : null;
         $this->container['local_volumes'] = isset($data['local_volumes']) ? $data['local_volumes'] : null;
         $this->container['memory'] = isset($data['memory']) ? $data['memory'] : null;
         $this->container['network'] = isset($data['network']) ? $data['network'] : null;
@@ -234,6 +246,30 @@ class InstanceTypeForDescribeInstanceTypesOutput implements ModelInterface, Arra
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets affinity_group_sizes
+     *
+     * @return int[]
+     */
+    public function getAffinityGroupSizes()
+    {
+        return $this->container['affinity_group_sizes'];
+    }
+
+    /**
+     * Sets affinity_group_sizes
+     *
+     * @param int[] $affinity_group_sizes affinity_group_sizes
+     *
+     * @return $this
+     */
+    public function setAffinityGroupSizes($affinity_group_sizes)
+    {
+        $this->container['affinity_group_sizes'] = $affinity_group_sizes;
+
+        return $this;
+    }
 
     /**
      * Gets baseline_credit
@@ -351,6 +387,30 @@ class InstanceTypeForDescribeInstanceTypesOutput implements ModelInterface, Arra
     public function setInstanceTypeId($instance_type_id)
     {
         $this->container['instance_type_id'] = $instance_type_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_support_affinity_group
+     *
+     * @return bool
+     */
+    public function getIsSupportAffinityGroup()
+    {
+        return $this->container['is_support_affinity_group'];
+    }
+
+    /**
+     * Sets is_support_affinity_group
+     *
+     * @param bool $is_support_affinity_group is_support_affinity_group
+     *
+     * @return $this
+     */
+    public function setIsSupportAffinityGroup($is_support_affinity_group)
+    {
+        $this->container['is_support_affinity_group'] = $is_support_affinity_group;
 
         return $this;
     }

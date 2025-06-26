@@ -33,13 +33,14 @@ class CreateResourceGroupRequest implements ModelInterface, ArrayAccess
         'charge_type' => 'string',
         'description' => 'string',
         'dry_run' => 'bool',
+        'm_gpu_enabled' => 'bool',
         'name' => 'string',
         'period' => 'int',
         'period_unit' => 'string',
         'resource_config' => '\Volcengine\Mlplatform20240701\Model\ResourceConfigForCreateResourceGroupInput',
         'storage_config' => '\Volcengine\Mlplatform20240701\Model\StorageConfigForCreateResourceGroupInput',
-        'use_m_gpu' => 'bool',
-        'workload_network_config' => '\Volcengine\Mlplatform20240701\Model\WorkloadNetworkConfigForCreateResourceGroupInput'
+        'workload_network_config' => '\Volcengine\Mlplatform20240701\Model\WorkloadNetworkConfigForCreateResourceGroupInput',
+        'workload_network_mode' => 'string'
     ];
 
     /**
@@ -53,13 +54,14 @@ class CreateResourceGroupRequest implements ModelInterface, ArrayAccess
         'charge_type' => null,
         'description' => null,
         'dry_run' => null,
+        'm_gpu_enabled' => null,
         'name' => null,
         'period' => 'int32',
         'period_unit' => null,
         'resource_config' => null,
         'storage_config' => null,
-        'use_m_gpu' => null,
-        'workload_network_config' => null
+        'workload_network_config' => null,
+        'workload_network_mode' => null
     ];
 
     /**
@@ -94,13 +96,14 @@ class CreateResourceGroupRequest implements ModelInterface, ArrayAccess
         'charge_type' => 'ChargeType',
         'description' => 'Description',
         'dry_run' => 'DryRun',
+        'm_gpu_enabled' => 'MGpuEnabled',
         'name' => 'Name',
         'period' => 'Period',
         'period_unit' => 'PeriodUnit',
         'resource_config' => 'ResourceConfig',
         'storage_config' => 'StorageConfig',
-        'use_m_gpu' => 'UseMGpu',
-        'workload_network_config' => 'WorkloadNetworkConfig'
+        'workload_network_config' => 'WorkloadNetworkConfig',
+        'workload_network_mode' => 'WorkloadNetworkMode'
     ];
 
     /**
@@ -114,13 +117,14 @@ class CreateResourceGroupRequest implements ModelInterface, ArrayAccess
         'charge_type' => 'setChargeType',
         'description' => 'setDescription',
         'dry_run' => 'setDryRun',
+        'm_gpu_enabled' => 'setMGpuEnabled',
         'name' => 'setName',
         'period' => 'setPeriod',
         'period_unit' => 'setPeriodUnit',
         'resource_config' => 'setResourceConfig',
         'storage_config' => 'setStorageConfig',
-        'use_m_gpu' => 'setUseMGpu',
-        'workload_network_config' => 'setWorkloadNetworkConfig'
+        'workload_network_config' => 'setWorkloadNetworkConfig',
+        'workload_network_mode' => 'setWorkloadNetworkMode'
     ];
 
     /**
@@ -134,13 +138,14 @@ class CreateResourceGroupRequest implements ModelInterface, ArrayAccess
         'charge_type' => 'getChargeType',
         'description' => 'getDescription',
         'dry_run' => 'getDryRun',
+        'm_gpu_enabled' => 'getMGpuEnabled',
         'name' => 'getName',
         'period' => 'getPeriod',
         'period_unit' => 'getPeriodUnit',
         'resource_config' => 'getResourceConfig',
         'storage_config' => 'getStorageConfig',
-        'use_m_gpu' => 'getUseMGpu',
-        'workload_network_config' => 'getWorkloadNetworkConfig'
+        'workload_network_config' => 'getWorkloadNetworkConfig',
+        'workload_network_mode' => 'getWorkloadNetworkMode'
     ];
 
     /**
@@ -240,13 +245,14 @@ class CreateResourceGroupRequest implements ModelInterface, ArrayAccess
         $this->container['charge_type'] = isset($data['charge_type']) ? $data['charge_type'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['dry_run'] = isset($data['dry_run']) ? $data['dry_run'] : null;
+        $this->container['m_gpu_enabled'] = isset($data['m_gpu_enabled']) ? $data['m_gpu_enabled'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['period'] = isset($data['period']) ? $data['period'] : null;
         $this->container['period_unit'] = isset($data['period_unit']) ? $data['period_unit'] : null;
         $this->container['resource_config'] = isset($data['resource_config']) ? $data['resource_config'] : null;
         $this->container['storage_config'] = isset($data['storage_config']) ? $data['storage_config'] : null;
-        $this->container['use_m_gpu'] = isset($data['use_m_gpu']) ? $data['use_m_gpu'] : null;
         $this->container['workload_network_config'] = isset($data['workload_network_config']) ? $data['workload_network_config'] : null;
+        $this->container['workload_network_mode'] = isset($data['workload_network_mode']) ? $data['workload_network_mode'] : null;
     }
 
     /**
@@ -425,6 +431,30 @@ class CreateResourceGroupRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets m_gpu_enabled
+     *
+     * @return bool
+     */
+    public function getMGpuEnabled()
+    {
+        return $this->container['m_gpu_enabled'];
+    }
+
+    /**
+     * Sets m_gpu_enabled
+     *
+     * @param bool $m_gpu_enabled m_gpu_enabled
+     *
+     * @return $this
+     */
+    public function setMGpuEnabled($m_gpu_enabled)
+    {
+        $this->container['m_gpu_enabled'] = $m_gpu_enabled;
+
+        return $this;
+    }
+
+    /**
      * Gets name
      *
      * @return string
@@ -554,30 +584,6 @@ class CreateResourceGroupRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets use_m_gpu
-     *
-     * @return bool
-     */
-    public function getUseMGpu()
-    {
-        return $this->container['use_m_gpu'];
-    }
-
-    /**
-     * Sets use_m_gpu
-     *
-     * @param bool $use_m_gpu use_m_gpu
-     *
-     * @return $this
-     */
-    public function setUseMGpu($use_m_gpu)
-    {
-        $this->container['use_m_gpu'] = $use_m_gpu;
-
-        return $this;
-    }
-
-    /**
      * Gets workload_network_config
      *
      * @return \Volcengine\Mlplatform20240701\Model\WorkloadNetworkConfigForCreateResourceGroupInput
@@ -597,6 +603,30 @@ class CreateResourceGroupRequest implements ModelInterface, ArrayAccess
     public function setWorkloadNetworkConfig($workload_network_config)
     {
         $this->container['workload_network_config'] = $workload_network_config;
+
+        return $this;
+    }
+
+    /**
+     * Gets workload_network_mode
+     *
+     * @return string
+     */
+    public function getWorkloadNetworkMode()
+    {
+        return $this->container['workload_network_mode'];
+    }
+
+    /**
+     * Sets workload_network_mode
+     *
+     * @param string $workload_network_mode workload_network_mode
+     *
+     * @return $this
+     */
+    public function setWorkloadNetworkMode($workload_network_mode)
+    {
+        $this->container['workload_network_mode'] = $workload_network_mode;
 
         return $this;
     }

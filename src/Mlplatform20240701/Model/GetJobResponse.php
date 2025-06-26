@@ -41,6 +41,7 @@ class GetJobResponse implements ModelInterface, ArrayAccess
         'retry_config' => '\Volcengine\Mlplatform20240701\Model\RetryConfigForGetJobOutput',
         'runtime_config' => '\Volcengine\Mlplatform20240701\Model\RuntimeConfigForGetJobOutput',
         'status' => '\Volcengine\Mlplatform20240701\Model\StatusForGetJobOutput',
+        'stop_reason' => 'string',
         'storage_config' => '\Volcengine\Mlplatform20240701\Model\StorageConfigForGetJobOutput',
         'update_time' => 'string'
     ];
@@ -64,6 +65,7 @@ class GetJobResponse implements ModelInterface, ArrayAccess
         'retry_config' => null,
         'runtime_config' => null,
         'status' => null,
+        'stop_reason' => null,
         'storage_config' => null,
         'update_time' => null
     ];
@@ -108,6 +110,7 @@ class GetJobResponse implements ModelInterface, ArrayAccess
         'retry_config' => 'RetryConfig',
         'runtime_config' => 'RuntimeConfig',
         'status' => 'Status',
+        'stop_reason' => 'StopReason',
         'storage_config' => 'StorageConfig',
         'update_time' => 'UpdateTime'
     ];
@@ -131,6 +134,7 @@ class GetJobResponse implements ModelInterface, ArrayAccess
         'retry_config' => 'setRetryConfig',
         'runtime_config' => 'setRuntimeConfig',
         'status' => 'setStatus',
+        'stop_reason' => 'setStopReason',
         'storage_config' => 'setStorageConfig',
         'update_time' => 'setUpdateTime'
     ];
@@ -154,6 +158,7 @@ class GetJobResponse implements ModelInterface, ArrayAccess
         'retry_config' => 'getRetryConfig',
         'runtime_config' => 'getRuntimeConfig',
         'status' => 'getStatus',
+        'stop_reason' => 'getStopReason',
         'storage_config' => 'getStorageConfig',
         'update_time' => 'getUpdateTime'
     ];
@@ -231,6 +236,7 @@ class GetJobResponse implements ModelInterface, ArrayAccess
         $this->container['retry_config'] = isset($data['retry_config']) ? $data['retry_config'] : null;
         $this->container['runtime_config'] = isset($data['runtime_config']) ? $data['runtime_config'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['stop_reason'] = isset($data['stop_reason']) ? $data['stop_reason'] : null;
         $this->container['storage_config'] = isset($data['storage_config']) ? $data['storage_config'] : null;
         $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
     }
@@ -567,6 +573,30 @@ class GetJobResponse implements ModelInterface, ArrayAccess
     public function setStatus($status)
     {
         $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets stop_reason
+     *
+     * @return string
+     */
+    public function getStopReason()
+    {
+        return $this->container['stop_reason'];
+    }
+
+    /**
+     * Sets stop_reason
+     *
+     * @param string $stop_reason stop_reason
+     *
+     * @return $this
+     */
+    public function setStopReason($stop_reason)
+    {
+        $this->container['stop_reason'] = $stop_reason;
 
         return $this;
     }

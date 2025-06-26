@@ -28,12 +28,14 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'affinity_group_size' => 'int',
         'auto_renew' => 'bool',
         'auto_renew_period' => 'int',
         'client_token' => 'string',
         'count' => 'int',
         'cpu_max_frequency' => 'float',
         'credit_specification' => 'string',
+        'deletion_protection' => 'bool',
         'deployment_set_group_number' => 'int',
         'deployment_set_id' => 'string',
         'description' => 'string',
@@ -75,12 +77,14 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'affinity_group_size' => 'int32',
         'auto_renew' => null,
         'auto_renew_period' => 'int32',
         'client_token' => null,
         'count' => 'int32',
         'cpu_max_frequency' => 'float',
         'credit_specification' => null,
+        'deletion_protection' => null,
         'deployment_set_group_number' => 'int32',
         'deployment_set_id' => null,
         'description' => null,
@@ -143,12 +147,14 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'affinity_group_size' => 'AffinityGroupSize',
         'auto_renew' => 'AutoRenew',
         'auto_renew_period' => 'AutoRenewPeriod',
         'client_token' => 'ClientToken',
         'count' => 'Count',
         'cpu_max_frequency' => 'CpuMaxFrequency',
         'credit_specification' => 'CreditSpecification',
+        'deletion_protection' => 'DeletionProtection',
         'deployment_set_group_number' => 'DeploymentSetGroupNumber',
         'deployment_set_id' => 'DeploymentSetId',
         'description' => 'Description',
@@ -190,12 +196,14 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'affinity_group_size' => 'setAffinityGroupSize',
         'auto_renew' => 'setAutoRenew',
         'auto_renew_period' => 'setAutoRenewPeriod',
         'client_token' => 'setClientToken',
         'count' => 'setCount',
         'cpu_max_frequency' => 'setCpuMaxFrequency',
         'credit_specification' => 'setCreditSpecification',
+        'deletion_protection' => 'setDeletionProtection',
         'deployment_set_group_number' => 'setDeploymentSetGroupNumber',
         'deployment_set_id' => 'setDeploymentSetId',
         'description' => 'setDescription',
@@ -237,12 +245,14 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'affinity_group_size' => 'getAffinityGroupSize',
         'auto_renew' => 'getAutoRenew',
         'auto_renew_period' => 'getAutoRenewPeriod',
         'client_token' => 'getClientToken',
         'count' => 'getCount',
         'cpu_max_frequency' => 'getCpuMaxFrequency',
         'credit_specification' => 'getCreditSpecification',
+        'deletion_protection' => 'getDeletionProtection',
         'deployment_set_group_number' => 'getDeploymentSetGroupNumber',
         'deployment_set_id' => 'getDeploymentSetId',
         'description' => 'getDescription',
@@ -338,12 +348,14 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['affinity_group_size'] = isset($data['affinity_group_size']) ? $data['affinity_group_size'] : null;
         $this->container['auto_renew'] = isset($data['auto_renew']) ? $data['auto_renew'] : null;
         $this->container['auto_renew_period'] = isset($data['auto_renew_period']) ? $data['auto_renew_period'] : null;
         $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
         $this->container['count'] = isset($data['count']) ? $data['count'] : null;
         $this->container['cpu_max_frequency'] = isset($data['cpu_max_frequency']) ? $data['cpu_max_frequency'] : null;
         $this->container['credit_specification'] = isset($data['credit_specification']) ? $data['credit_specification'] : null;
+        $this->container['deletion_protection'] = isset($data['deletion_protection']) ? $data['deletion_protection'] : null;
         $this->container['deployment_set_group_number'] = isset($data['deployment_set_group_number']) ? $data['deployment_set_group_number'] : null;
         $this->container['deployment_set_id'] = isset($data['deployment_set_id']) ? $data['deployment_set_id'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
@@ -411,6 +423,30 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets affinity_group_size
+     *
+     * @return int
+     */
+    public function getAffinityGroupSize()
+    {
+        return $this->container['affinity_group_size'];
+    }
+
+    /**
+     * Sets affinity_group_size
+     *
+     * @param int $affinity_group_size affinity_group_size
+     *
+     * @return $this
+     */
+    public function setAffinityGroupSize($affinity_group_size)
+    {
+        $this->container['affinity_group_size'] = $affinity_group_size;
+
+        return $this;
+    }
 
     /**
      * Gets auto_renew
@@ -552,6 +588,30 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
     public function setCreditSpecification($credit_specification)
     {
         $this->container['credit_specification'] = $credit_specification;
+
+        return $this;
+    }
+
+    /**
+     * Gets deletion_protection
+     *
+     * @return bool
+     */
+    public function getDeletionProtection()
+    {
+        return $this->container['deletion_protection'];
+    }
+
+    /**
+     * Sets deletion_protection
+     *
+     * @param bool $deletion_protection deletion_protection
+     *
+     * @return $this
+     */
+    public function setDeletionProtection($deletion_protection)
+    {
+        $this->container['deletion_protection'] = $deletion_protection;
 
         return $this;
     }

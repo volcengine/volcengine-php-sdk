@@ -33,7 +33,8 @@ class UpdateResourceGroupRequest implements ModelInterface, ArrayAccess
         'name' => 'string',
         'resource_config' => '\Volcengine\Mlplatform20240701\Model\ResourceConfigForUpdateResourceGroupInput',
         'storage_config' => '\Volcengine\Mlplatform20240701\Model\StorageConfigForUpdateResourceGroupInput',
-        'workload_network_config' => '\Volcengine\Mlplatform20240701\Model\WorkloadNetworkConfigForUpdateResourceGroupInput'
+        'workload_network_config' => '\Volcengine\Mlplatform20240701\Model\WorkloadNetworkConfigForUpdateResourceGroupInput',
+        'workload_network_mode' => 'string'
     ];
 
     /**
@@ -47,7 +48,8 @@ class UpdateResourceGroupRequest implements ModelInterface, ArrayAccess
         'name' => null,
         'resource_config' => null,
         'storage_config' => null,
-        'workload_network_config' => null
+        'workload_network_config' => null,
+        'workload_network_mode' => null
     ];
 
     /**
@@ -82,7 +84,8 @@ class UpdateResourceGroupRequest implements ModelInterface, ArrayAccess
         'name' => 'Name',
         'resource_config' => 'ResourceConfig',
         'storage_config' => 'StorageConfig',
-        'workload_network_config' => 'WorkloadNetworkConfig'
+        'workload_network_config' => 'WorkloadNetworkConfig',
+        'workload_network_mode' => 'WorkloadNetworkMode'
     ];
 
     /**
@@ -96,7 +99,8 @@ class UpdateResourceGroupRequest implements ModelInterface, ArrayAccess
         'name' => 'setName',
         'resource_config' => 'setResourceConfig',
         'storage_config' => 'setStorageConfig',
-        'workload_network_config' => 'setWorkloadNetworkConfig'
+        'workload_network_config' => 'setWorkloadNetworkConfig',
+        'workload_network_mode' => 'setWorkloadNetworkMode'
     ];
 
     /**
@@ -110,7 +114,8 @@ class UpdateResourceGroupRequest implements ModelInterface, ArrayAccess
         'name' => 'getName',
         'resource_config' => 'getResourceConfig',
         'storage_config' => 'getStorageConfig',
-        'workload_network_config' => 'getWorkloadNetworkConfig'
+        'workload_network_config' => 'getWorkloadNetworkConfig',
+        'workload_network_mode' => 'getWorkloadNetworkMode'
     ];
 
     /**
@@ -179,6 +184,7 @@ class UpdateResourceGroupRequest implements ModelInterface, ArrayAccess
         $this->container['resource_config'] = isset($data['resource_config']) ? $data['resource_config'] : null;
         $this->container['storage_config'] = isset($data['storage_config']) ? $data['storage_config'] : null;
         $this->container['workload_network_config'] = isset($data['workload_network_config']) ? $data['workload_network_config'] : null;
+        $this->container['workload_network_mode'] = isset($data['workload_network_mode']) ? $data['workload_network_mode'] : null;
     }
 
     /**
@@ -348,6 +354,30 @@ class UpdateResourceGroupRequest implements ModelInterface, ArrayAccess
     public function setWorkloadNetworkConfig($workload_network_config)
     {
         $this->container['workload_network_config'] = $workload_network_config;
+
+        return $this;
+    }
+
+    /**
+     * Gets workload_network_mode
+     *
+     * @return string
+     */
+    public function getWorkloadNetworkMode()
+    {
+        return $this->container['workload_network_mode'];
+    }
+
+    /**
+     * Sets workload_network_mode
+     *
+     * @param string $workload_network_mode workload_network_mode
+     *
+     * @return $this
+     */
+    public function setWorkloadNetworkMode($workload_network_mode)
+    {
+        $this->container['workload_network_mode'] = $workload_network_mode;
 
         return $this;
     }

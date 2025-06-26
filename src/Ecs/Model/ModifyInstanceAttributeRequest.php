@@ -29,6 +29,7 @@ class ModifyInstanceAttributeRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'client_token' => 'string',
+        'deletion_protection' => 'bool',
         'description' => 'string',
         'hostname' => 'string',
         'instance_id' => 'string',
@@ -44,6 +45,7 @@ class ModifyInstanceAttributeRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'client_token' => null,
+        'deletion_protection' => null,
         'description' => null,
         'hostname' => null,
         'instance_id' => null,
@@ -80,6 +82,7 @@ class ModifyInstanceAttributeRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'client_token' => 'ClientToken',
+        'deletion_protection' => 'DeletionProtection',
         'description' => 'Description',
         'hostname' => 'Hostname',
         'instance_id' => 'InstanceId',
@@ -95,6 +98,7 @@ class ModifyInstanceAttributeRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'client_token' => 'setClientToken',
+        'deletion_protection' => 'setDeletionProtection',
         'description' => 'setDescription',
         'hostname' => 'setHostname',
         'instance_id' => 'setInstanceId',
@@ -110,6 +114,7 @@ class ModifyInstanceAttributeRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'client_token' => 'getClientToken',
+        'deletion_protection' => 'getDeletionProtection',
         'description' => 'getDescription',
         'hostname' => 'getHostname',
         'instance_id' => 'getInstanceId',
@@ -179,6 +184,7 @@ class ModifyInstanceAttributeRequest implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
+        $this->container['deletion_protection'] = isset($data['deletion_protection']) ? $data['deletion_protection'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['hostname'] = isset($data['hostname']) ? $data['hostname'] : null;
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
@@ -234,6 +240,30 @@ class ModifyInstanceAttributeRequest implements ModelInterface, ArrayAccess
     public function setClientToken($client_token)
     {
         $this->container['client_token'] = $client_token;
+
+        return $this;
+    }
+
+    /**
+     * Gets deletion_protection
+     *
+     * @return bool
+     */
+    public function getDeletionProtection()
+    {
+        return $this->container['deletion_protection'];
+    }
+
+    /**
+     * Sets deletion_protection
+     *
+     * @param bool $deletion_protection deletion_protection
+     *
+     * @return $this
+     */
+    public function setDeletionProtection($deletion_protection)
+    {
+        $this->container['deletion_protection'] = $deletion_protection;
 
         return $this;
     }

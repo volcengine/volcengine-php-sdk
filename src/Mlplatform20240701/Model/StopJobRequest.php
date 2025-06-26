@@ -30,7 +30,8 @@ class StopJobRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'diagnose_names' => 'string[]',
         'dry_run' => 'bool',
-        'id' => 'string'
+        'id' => 'string',
+        'reason' => 'string'
     ];
 
     /**
@@ -41,7 +42,8 @@ class StopJobRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'diagnose_names' => null,
         'dry_run' => null,
-        'id' => null
+        'id' => null,
+        'reason' => null
     ];
 
     /**
@@ -73,7 +75,8 @@ class StopJobRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'diagnose_names' => 'DiagnoseNames',
         'dry_run' => 'DryRun',
-        'id' => 'Id'
+        'id' => 'Id',
+        'reason' => 'Reason'
     ];
 
     /**
@@ -84,7 +87,8 @@ class StopJobRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'diagnose_names' => 'setDiagnoseNames',
         'dry_run' => 'setDryRun',
-        'id' => 'setId'
+        'id' => 'setId',
+        'reason' => 'setReason'
     ];
 
     /**
@@ -95,7 +99,8 @@ class StopJobRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'diagnose_names' => 'getDiagnoseNames',
         'dry_run' => 'getDryRun',
-        'id' => 'getId'
+        'id' => 'getId',
+        'reason' => 'getReason'
     ];
 
     /**
@@ -178,6 +183,7 @@ class StopJobRequest implements ModelInterface, ArrayAccess
         $this->container['diagnose_names'] = isset($data['diagnose_names']) ? $data['diagnose_names'] : null;
         $this->container['dry_run'] = isset($data['dry_run']) ? $data['dry_run'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['reason'] = isset($data['reason']) ? $data['reason'] : null;
     }
 
     /**
@@ -284,6 +290,30 @@ class StopJobRequest implements ModelInterface, ArrayAccess
     public function setId($id)
     {
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets reason
+     *
+     * @return string
+     */
+    public function getReason()
+    {
+        return $this->container['reason'];
+    }
+
+    /**
+     * Sets reason
+     *
+     * @param string $reason reason
+     *
+     * @return $this
+     */
+    public function setReason($reason)
+    {
+        $this->container['reason'] = $reason;
 
         return $this;
     }

@@ -33,6 +33,7 @@ class CreateDevInstanceRequest implements ModelInterface, ArrayAccess
         'image' => '\Volcengine\Mlplatform20240701\Model\ImageForCreateDevInstanceInput',
         'name' => 'string',
         'node_affinity_spec' => '\Volcengine\Mlplatform20240701\Model\NodeAffinitySpecForCreateDevInstanceInput',
+        'numa_affinity' => 'string',
         'ports' => '\Volcengine\Mlplatform20240701\Model\PortForCreateDevInstanceInput[]',
         'resource_claim' => '\Volcengine\Mlplatform20240701\Model\ResourceClaimForCreateDevInstanceInput',
         'resource_queue_id' => 'string',
@@ -52,6 +53,7 @@ class CreateDevInstanceRequest implements ModelInterface, ArrayAccess
         'image' => null,
         'name' => null,
         'node_affinity_spec' => null,
+        'numa_affinity' => null,
         'ports' => null,
         'resource_claim' => null,
         'resource_queue_id' => null,
@@ -92,6 +94,7 @@ class CreateDevInstanceRequest implements ModelInterface, ArrayAccess
         'image' => 'Image',
         'name' => 'Name',
         'node_affinity_spec' => 'NodeAffinitySpec',
+        'numa_affinity' => 'NumaAffinity',
         'ports' => 'Ports',
         'resource_claim' => 'ResourceClaim',
         'resource_queue_id' => 'ResourceQueueId',
@@ -111,6 +114,7 @@ class CreateDevInstanceRequest implements ModelInterface, ArrayAccess
         'image' => 'setImage',
         'name' => 'setName',
         'node_affinity_spec' => 'setNodeAffinitySpec',
+        'numa_affinity' => 'setNumaAffinity',
         'ports' => 'setPorts',
         'resource_claim' => 'setResourceClaim',
         'resource_queue_id' => 'setResourceQueueId',
@@ -130,6 +134,7 @@ class CreateDevInstanceRequest implements ModelInterface, ArrayAccess
         'image' => 'getImage',
         'name' => 'getName',
         'node_affinity_spec' => 'getNodeAffinitySpec',
+        'numa_affinity' => 'getNumaAffinity',
         'ports' => 'getPorts',
         'resource_claim' => 'getResourceClaim',
         'resource_queue_id' => 'getResourceQueueId',
@@ -203,6 +208,7 @@ class CreateDevInstanceRequest implements ModelInterface, ArrayAccess
         $this->container['image'] = isset($data['image']) ? $data['image'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['node_affinity_spec'] = isset($data['node_affinity_spec']) ? $data['node_affinity_spec'] : null;
+        $this->container['numa_affinity'] = isset($data['numa_affinity']) ? $data['numa_affinity'] : null;
         $this->container['ports'] = isset($data['ports']) ? $data['ports'] : null;
         $this->container['resource_claim'] = isset($data['resource_claim']) ? $data['resource_claim'] : null;
         $this->container['resource_queue_id'] = isset($data['resource_queue_id']) ? $data['resource_queue_id'] : null;
@@ -357,6 +363,30 @@ class CreateDevInstanceRequest implements ModelInterface, ArrayAccess
     public function setNodeAffinitySpec($node_affinity_spec)
     {
         $this->container['node_affinity_spec'] = $node_affinity_spec;
+
+        return $this;
+    }
+
+    /**
+     * Gets numa_affinity
+     *
+     * @return string
+     */
+    public function getNumaAffinity()
+    {
+        return $this->container['numa_affinity'];
+    }
+
+    /**
+     * Sets numa_affinity
+     *
+     * @param string $numa_affinity numa_affinity
+     *
+     * @return $this
+     */
+    public function setNumaAffinity($numa_affinity)
+    {
+        $this->container['numa_affinity'] = $numa_affinity;
 
         return $this;
     }
