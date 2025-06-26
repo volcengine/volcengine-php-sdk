@@ -32,6 +32,7 @@ class ImportImageRequest implements ModelInterface, ArrayAccess
         'boot_mode' => 'string',
         'description' => 'string',
         'image_name' => 'string',
+        'import_data_volumes' => '\Volcengine\Ecs\Model\ImportDataVolumeForImportImageInput[]',
         'license_type' => 'string',
         'need_detection' => 'bool',
         'os_type' => 'string',
@@ -52,6 +53,7 @@ class ImportImageRequest implements ModelInterface, ArrayAccess
         'boot_mode' => null,
         'description' => null,
         'image_name' => null,
+        'import_data_volumes' => null,
         'license_type' => null,
         'need_detection' => null,
         'os_type' => null,
@@ -93,6 +95,7 @@ class ImportImageRequest implements ModelInterface, ArrayAccess
         'boot_mode' => 'BootMode',
         'description' => 'Description',
         'image_name' => 'ImageName',
+        'import_data_volumes' => 'ImportDataVolumes',
         'license_type' => 'LicenseType',
         'need_detection' => 'NeedDetection',
         'os_type' => 'OsType',
@@ -113,6 +116,7 @@ class ImportImageRequest implements ModelInterface, ArrayAccess
         'boot_mode' => 'setBootMode',
         'description' => 'setDescription',
         'image_name' => 'setImageName',
+        'import_data_volumes' => 'setImportDataVolumes',
         'license_type' => 'setLicenseType',
         'need_detection' => 'setNeedDetection',
         'os_type' => 'setOsType',
@@ -133,6 +137,7 @@ class ImportImageRequest implements ModelInterface, ArrayAccess
         'boot_mode' => 'getBootMode',
         'description' => 'getDescription',
         'image_name' => 'getImageName',
+        'import_data_volumes' => 'getImportDataVolumes',
         'license_type' => 'getLicenseType',
         'need_detection' => 'getNeedDetection',
         'os_type' => 'getOsType',
@@ -207,6 +212,7 @@ class ImportImageRequest implements ModelInterface, ArrayAccess
         $this->container['boot_mode'] = isset($data['boot_mode']) ? $data['boot_mode'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['image_name'] = isset($data['image_name']) ? $data['image_name'] : null;
+        $this->container['import_data_volumes'] = isset($data['import_data_volumes']) ? $data['import_data_volumes'] : null;
         $this->container['license_type'] = isset($data['license_type']) ? $data['license_type'] : null;
         $this->container['need_detection'] = isset($data['need_detection']) ? $data['need_detection'] : null;
         $this->container['os_type'] = isset($data['os_type']) ? $data['os_type'] : null;
@@ -342,6 +348,30 @@ class ImportImageRequest implements ModelInterface, ArrayAccess
     public function setImageName($image_name)
     {
         $this->container['image_name'] = $image_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets import_data_volumes
+     *
+     * @return \Volcengine\Ecs\Model\ImportDataVolumeForImportImageInput[]
+     */
+    public function getImportDataVolumes()
+    {
+        return $this->container['import_data_volumes'];
+    }
+
+    /**
+     * Sets import_data_volumes
+     *
+     * @param \Volcengine\Ecs\Model\ImportDataVolumeForImportImageInput[] $import_data_volumes import_data_volumes
+     *
+     * @return $this
+     */
+    public function setImportDataVolumes($import_data_volumes)
+    {
+        $this->container['import_data_volumes'] = $import_data_volumes;
 
         return $this;
     }

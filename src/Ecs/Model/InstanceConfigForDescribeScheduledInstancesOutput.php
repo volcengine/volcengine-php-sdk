@@ -31,6 +31,7 @@ class InstanceConfigForDescribeScheduledInstancesOutput implements ModelInterfac
         'description' => 'string',
         'eip_address' => '\Volcengine\Ecs\Model\EipAddressForDescribeScheduledInstancesOutput',
         'host_name' => 'string',
+        'hpc_cluster_id' => 'string',
         'image_id' => 'string',
         'instance_name' => 'string',
         'instance_type_id' => 'string',
@@ -51,6 +52,7 @@ class InstanceConfigForDescribeScheduledInstancesOutput implements ModelInterfac
         'description' => null,
         'eip_address' => null,
         'host_name' => null,
+        'hpc_cluster_id' => null,
         'image_id' => null,
         'instance_name' => null,
         'instance_type_id' => null,
@@ -92,6 +94,7 @@ class InstanceConfigForDescribeScheduledInstancesOutput implements ModelInterfac
         'description' => 'Description',
         'eip_address' => 'EipAddress',
         'host_name' => 'HostName',
+        'hpc_cluster_id' => 'HpcClusterId',
         'image_id' => 'ImageId',
         'instance_name' => 'InstanceName',
         'instance_type_id' => 'InstanceTypeId',
@@ -112,6 +115,7 @@ class InstanceConfigForDescribeScheduledInstancesOutput implements ModelInterfac
         'description' => 'setDescription',
         'eip_address' => 'setEipAddress',
         'host_name' => 'setHostName',
+        'hpc_cluster_id' => 'setHpcClusterId',
         'image_id' => 'setImageId',
         'instance_name' => 'setInstanceName',
         'instance_type_id' => 'setInstanceTypeId',
@@ -132,6 +136,7 @@ class InstanceConfigForDescribeScheduledInstancesOutput implements ModelInterfac
         'description' => 'getDescription',
         'eip_address' => 'getEipAddress',
         'host_name' => 'getHostName',
+        'hpc_cluster_id' => 'getHpcClusterId',
         'image_id' => 'getImageId',
         'instance_name' => 'getInstanceName',
         'instance_type_id' => 'getInstanceTypeId',
@@ -206,6 +211,7 @@ class InstanceConfigForDescribeScheduledInstancesOutput implements ModelInterfac
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['eip_address'] = isset($data['eip_address']) ? $data['eip_address'] : null;
         $this->container['host_name'] = isset($data['host_name']) ? $data['host_name'] : null;
+        $this->container['hpc_cluster_id'] = isset($data['hpc_cluster_id']) ? $data['hpc_cluster_id'] : null;
         $this->container['image_id'] = isset($data['image_id']) ? $data['image_id'] : null;
         $this->container['instance_name'] = isset($data['instance_name']) ? $data['instance_name'] : null;
         $this->container['instance_type_id'] = isset($data['instance_type_id']) ? $data['instance_type_id'] : null;
@@ -309,6 +315,30 @@ class InstanceConfigForDescribeScheduledInstancesOutput implements ModelInterfac
     public function setHostName($host_name)
     {
         $this->container['host_name'] = $host_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets hpc_cluster_id
+     *
+     * @return string
+     */
+    public function getHpcClusterId()
+    {
+        return $this->container['hpc_cluster_id'];
+    }
+
+    /**
+     * Sets hpc_cluster_id
+     *
+     * @param string $hpc_cluster_id hpc_cluster_id
+     *
+     * @return $this
+     */
+    public function setHpcClusterId($hpc_cluster_id)
+    {
+        $this->container['hpc_cluster_id'] = $hpc_cluster_id;
 
         return $this;
     }

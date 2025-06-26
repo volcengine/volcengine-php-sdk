@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class RdmaForDescribeInstanceTypesOutput implements ModelInterface, ArrayAccess
+class RepairImageRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class RdmaForDescribeInstanceTypesOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'RdmaForDescribeInstanceTypesOutput';
+    protected static $swaggerModelName = 'RepairImageRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,7 @@ class RdmaForDescribeInstanceTypesOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'rdma_network_interfaces' => 'int',
-        'rdma_product_name' => 'string'
+        'image_id' => 'string'
     ];
 
     /**
@@ -38,8 +37,7 @@ class RdmaForDescribeInstanceTypesOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'rdma_network_interfaces' => 'int32',
-        'rdma_product_name' => null
+        'image_id' => null
     ];
 
     /**
@@ -69,8 +67,7 @@ class RdmaForDescribeInstanceTypesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'rdma_network_interfaces' => 'RdmaNetworkInterfaces',
-        'rdma_product_name' => 'RdmaProductName'
+        'image_id' => 'ImageId'
     ];
 
     /**
@@ -79,8 +76,7 @@ class RdmaForDescribeInstanceTypesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'rdma_network_interfaces' => 'setRdmaNetworkInterfaces',
-        'rdma_product_name' => 'setRdmaProductName'
+        'image_id' => 'setImageId'
     ];
 
     /**
@@ -89,8 +85,7 @@ class RdmaForDescribeInstanceTypesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'rdma_network_interfaces' => 'getRdmaNetworkInterfaces',
-        'rdma_product_name' => 'getRdmaProductName'
+        'image_id' => 'getImageId'
     ];
 
     /**
@@ -153,8 +148,7 @@ class RdmaForDescribeInstanceTypesOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['rdma_network_interfaces'] = isset($data['rdma_network_interfaces']) ? $data['rdma_network_interfaces'] : null;
-        $this->container['rdma_product_name'] = isset($data['rdma_product_name']) ? $data['rdma_product_name'] : null;
+        $this->container['image_id'] = isset($data['image_id']) ? $data['image_id'] : null;
     }
 
     /**
@@ -166,6 +160,9 @@ class RdmaForDescribeInstanceTypesOutput implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['image_id'] === null) {
+            $invalidProperties[] = "'image_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -182,49 +179,25 @@ class RdmaForDescribeInstanceTypesOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets rdma_network_interfaces
-     *
-     * @return int
-     */
-    public function getRdmaNetworkInterfaces()
-    {
-        return $this->container['rdma_network_interfaces'];
-    }
-
-    /**
-     * Sets rdma_network_interfaces
-     *
-     * @param int $rdma_network_interfaces rdma_network_interfaces
-     *
-     * @return $this
-     */
-    public function setRdmaNetworkInterfaces($rdma_network_interfaces)
-    {
-        $this->container['rdma_network_interfaces'] = $rdma_network_interfaces;
-
-        return $this;
-    }
-
-    /**
-     * Gets rdma_product_name
+     * Gets image_id
      *
      * @return string
      */
-    public function getRdmaProductName()
+    public function getImageId()
     {
-        return $this->container['rdma_product_name'];
+        return $this->container['image_id'];
     }
 
     /**
-     * Sets rdma_product_name
+     * Sets image_id
      *
-     * @param string $rdma_product_name rdma_product_name
+     * @param string $image_id image_id
      *
      * @return $this
      */
-    public function setRdmaProductName($rdma_product_name)
+    public function setImageId($image_id)
     {
-        $this->container['rdma_product_name'] = $rdma_product_name;
+        $this->container['image_id'] = $image_id;
 
         return $this;
     }

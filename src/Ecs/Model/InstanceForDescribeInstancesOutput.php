@@ -28,9 +28,11 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'affinity_group_id' => 'string',
         'cpu_options' => '\Volcengine\Ecs\Model\CpuOptionsForDescribeInstancesOutput',
         'cpus' => 'int',
         'created_at' => 'string',
+        'deletion_protection' => 'bool',
         'deployment_set_group_number' => 'int',
         'deployment_set_id' => 'string',
         'description' => 'string',
@@ -63,6 +65,7 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
         'tags' => '\Volcengine\Ecs\Model\TagForDescribeInstancesOutput[]',
         'updated_at' => 'string',
         'uuid' => 'string',
+        'volumes' => '\Volcengine\Ecs\Model\VolumeForDescribeInstancesOutput[]',
         'vpc_id' => 'string',
         'zone_id' => 'string'
     ];
@@ -73,9 +76,11 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'affinity_group_id' => null,
         'cpu_options' => null,
         'cpus' => 'int32',
         'created_at' => null,
+        'deletion_protection' => null,
         'deployment_set_group_number' => 'int32',
         'deployment_set_id' => null,
         'description' => null,
@@ -108,6 +113,7 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
         'tags' => null,
         'updated_at' => null,
         'uuid' => null,
+        'volumes' => null,
         'vpc_id' => null,
         'zone_id' => null
     ];
@@ -139,9 +145,11 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'affinity_group_id' => 'AffinityGroupId',
         'cpu_options' => 'CpuOptions',
         'cpus' => 'Cpus',
         'created_at' => 'CreatedAt',
+        'deletion_protection' => 'DeletionProtection',
         'deployment_set_group_number' => 'DeploymentSetGroupNumber',
         'deployment_set_id' => 'DeploymentSetId',
         'description' => 'Description',
@@ -174,6 +182,7 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
         'tags' => 'Tags',
         'updated_at' => 'UpdatedAt',
         'uuid' => 'Uuid',
+        'volumes' => 'Volumes',
         'vpc_id' => 'VpcId',
         'zone_id' => 'ZoneId'
     ];
@@ -184,9 +193,11 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'affinity_group_id' => 'setAffinityGroupId',
         'cpu_options' => 'setCpuOptions',
         'cpus' => 'setCpus',
         'created_at' => 'setCreatedAt',
+        'deletion_protection' => 'setDeletionProtection',
         'deployment_set_group_number' => 'setDeploymentSetGroupNumber',
         'deployment_set_id' => 'setDeploymentSetId',
         'description' => 'setDescription',
@@ -219,6 +230,7 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
         'tags' => 'setTags',
         'updated_at' => 'setUpdatedAt',
         'uuid' => 'setUuid',
+        'volumes' => 'setVolumes',
         'vpc_id' => 'setVpcId',
         'zone_id' => 'setZoneId'
     ];
@@ -229,9 +241,11 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'affinity_group_id' => 'getAffinityGroupId',
         'cpu_options' => 'getCpuOptions',
         'cpus' => 'getCpus',
         'created_at' => 'getCreatedAt',
+        'deletion_protection' => 'getDeletionProtection',
         'deployment_set_group_number' => 'getDeploymentSetGroupNumber',
         'deployment_set_id' => 'getDeploymentSetId',
         'description' => 'getDescription',
@@ -264,6 +278,7 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
         'tags' => 'getTags',
         'updated_at' => 'getUpdatedAt',
         'uuid' => 'getUuid',
+        'volumes' => 'getVolumes',
         'vpc_id' => 'getVpcId',
         'zone_id' => 'getZoneId'
     ];
@@ -328,9 +343,11 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['affinity_group_id'] = isset($data['affinity_group_id']) ? $data['affinity_group_id'] : null;
         $this->container['cpu_options'] = isset($data['cpu_options']) ? $data['cpu_options'] : null;
         $this->container['cpus'] = isset($data['cpus']) ? $data['cpus'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
+        $this->container['deletion_protection'] = isset($data['deletion_protection']) ? $data['deletion_protection'] : null;
         $this->container['deployment_set_group_number'] = isset($data['deployment_set_group_number']) ? $data['deployment_set_group_number'] : null;
         $this->container['deployment_set_id'] = isset($data['deployment_set_id']) ? $data['deployment_set_id'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
@@ -363,6 +380,7 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
         $this->container['uuid'] = isset($data['uuid']) ? $data['uuid'] : null;
+        $this->container['volumes'] = isset($data['volumes']) ? $data['volumes'] : null;
         $this->container['vpc_id'] = isset($data['vpc_id']) ? $data['vpc_id'] : null;
         $this->container['zone_id'] = isset($data['zone_id']) ? $data['zone_id'] : null;
     }
@@ -390,6 +408,30 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets affinity_group_id
+     *
+     * @return string
+     */
+    public function getAffinityGroupId()
+    {
+        return $this->container['affinity_group_id'];
+    }
+
+    /**
+     * Sets affinity_group_id
+     *
+     * @param string $affinity_group_id affinity_group_id
+     *
+     * @return $this
+     */
+    public function setAffinityGroupId($affinity_group_id)
+    {
+        $this->container['affinity_group_id'] = $affinity_group_id;
+
+        return $this;
+    }
 
     /**
      * Gets cpu_options
@@ -459,6 +501,30 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
     public function setCreatedAt($created_at)
     {
         $this->container['created_at'] = $created_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets deletion_protection
+     *
+     * @return bool
+     */
+    public function getDeletionProtection()
+    {
+        return $this->container['deletion_protection'];
+    }
+
+    /**
+     * Sets deletion_protection
+     *
+     * @param bool $deletion_protection deletion_protection
+     *
+     * @return $this
+     */
+    public function setDeletionProtection($deletion_protection)
+    {
+        $this->container['deletion_protection'] = $deletion_protection;
 
         return $this;
     }
@@ -1227,6 +1293,30 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
     public function setUuid($uuid)
     {
         $this->container['uuid'] = $uuid;
+
+        return $this;
+    }
+
+    /**
+     * Gets volumes
+     *
+     * @return \Volcengine\Ecs\Model\VolumeForDescribeInstancesOutput[]
+     */
+    public function getVolumes()
+    {
+        return $this->container['volumes'];
+    }
+
+    /**
+     * Sets volumes
+     *
+     * @param \Volcengine\Ecs\Model\VolumeForDescribeInstancesOutput[] $volumes volumes
+     *
+     * @return $this
+     */
+    public function setVolumes($volumes)
+    {
+        $this->container['volumes'] = $volumes;
 
         return $this;
     }

@@ -32,6 +32,7 @@ class CreateScheduledInstancesRequest implements ModelInterface, ArrayAccess
         'client_token' => 'string',
         'count' => 'int',
         'cpu_max_frequency' => 'float',
+        'deletion_protection' => 'bool',
         'delivery_type' => 'string',
         'description' => 'string',
         'dry_run' => 'bool',
@@ -72,6 +73,7 @@ class CreateScheduledInstancesRequest implements ModelInterface, ArrayAccess
         'client_token' => null,
         'count' => 'int32',
         'cpu_max_frequency' => 'float',
+        'deletion_protection' => null,
         'delivery_type' => null,
         'description' => null,
         'dry_run' => null,
@@ -133,6 +135,7 @@ class CreateScheduledInstancesRequest implements ModelInterface, ArrayAccess
         'client_token' => 'ClientToken',
         'count' => 'Count',
         'cpu_max_frequency' => 'CpuMaxFrequency',
+        'deletion_protection' => 'DeletionProtection',
         'delivery_type' => 'DeliveryType',
         'description' => 'Description',
         'dry_run' => 'DryRun',
@@ -173,6 +176,7 @@ class CreateScheduledInstancesRequest implements ModelInterface, ArrayAccess
         'client_token' => 'setClientToken',
         'count' => 'setCount',
         'cpu_max_frequency' => 'setCpuMaxFrequency',
+        'deletion_protection' => 'setDeletionProtection',
         'delivery_type' => 'setDeliveryType',
         'description' => 'setDescription',
         'dry_run' => 'setDryRun',
@@ -213,6 +217,7 @@ class CreateScheduledInstancesRequest implements ModelInterface, ArrayAccess
         'client_token' => 'getClientToken',
         'count' => 'getCount',
         'cpu_max_frequency' => 'getCpuMaxFrequency',
+        'deletion_protection' => 'getDeletionProtection',
         'delivery_type' => 'getDeliveryType',
         'description' => 'getDescription',
         'dry_run' => 'getDryRun',
@@ -307,6 +312,7 @@ class CreateScheduledInstancesRequest implements ModelInterface, ArrayAccess
         $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
         $this->container['count'] = isset($data['count']) ? $data['count'] : null;
         $this->container['cpu_max_frequency'] = isset($data['cpu_max_frequency']) ? $data['cpu_max_frequency'] : null;
+        $this->container['deletion_protection'] = isset($data['deletion_protection']) ? $data['deletion_protection'] : null;
         $this->container['delivery_type'] = isset($data['delivery_type']) ? $data['delivery_type'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['dry_run'] = isset($data['dry_run']) ? $data['dry_run'] : null;
@@ -468,6 +474,30 @@ class CreateScheduledInstancesRequest implements ModelInterface, ArrayAccess
     public function setCpuMaxFrequency($cpu_max_frequency)
     {
         $this->container['cpu_max_frequency'] = $cpu_max_frequency;
+
+        return $this;
+    }
+
+    /**
+     * Gets deletion_protection
+     *
+     * @return bool
+     */
+    public function getDeletionProtection()
+    {
+        return $this->container['deletion_protection'];
+    }
+
+    /**
+     * Sets deletion_protection
+     *
+     * @param bool $deletion_protection deletion_protection
+     *
+     * @return $this
+     */
+    public function setDeletionProtection($deletion_protection)
+    {
+        $this->container['deletion_protection'] = $deletion_protection;
 
         return $this;
     }

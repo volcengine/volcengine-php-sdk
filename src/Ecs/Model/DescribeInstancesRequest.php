@@ -28,6 +28,7 @@ class DescribeInstancesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'affinity_group_ids' => 'string[]',
         'dedicated_host_cluster_id' => 'string',
         'dedicated_host_id' => 'string',
         'deployment_set_group_numbers' => 'int[]',
@@ -59,6 +60,7 @@ class DescribeInstancesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'affinity_group_ids' => null,
         'dedicated_host_cluster_id' => null,
         'dedicated_host_id' => null,
         'deployment_set_group_numbers' => 'int32',
@@ -111,6 +113,7 @@ class DescribeInstancesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'affinity_group_ids' => 'AffinityGroupIds',
         'dedicated_host_cluster_id' => 'DedicatedHostClusterId',
         'dedicated_host_id' => 'DedicatedHostId',
         'deployment_set_group_numbers' => 'DeploymentSetGroupNumbers',
@@ -142,6 +145,7 @@ class DescribeInstancesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'affinity_group_ids' => 'setAffinityGroupIds',
         'dedicated_host_cluster_id' => 'setDedicatedHostClusterId',
         'dedicated_host_id' => 'setDedicatedHostId',
         'deployment_set_group_numbers' => 'setDeploymentSetGroupNumbers',
@@ -173,6 +177,7 @@ class DescribeInstancesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'affinity_group_ids' => 'getAffinityGroupIds',
         'dedicated_host_cluster_id' => 'getDedicatedHostClusterId',
         'dedicated_host_id' => 'getDedicatedHostId',
         'deployment_set_group_numbers' => 'getDeploymentSetGroupNumbers',
@@ -258,6 +263,7 @@ class DescribeInstancesRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['affinity_group_ids'] = isset($data['affinity_group_ids']) ? $data['affinity_group_ids'] : null;
         $this->container['dedicated_host_cluster_id'] = isset($data['dedicated_host_cluster_id']) ? $data['dedicated_host_cluster_id'] : null;
         $this->container['dedicated_host_id'] = isset($data['dedicated_host_id']) ? $data['dedicated_host_id'] : null;
         $this->container['deployment_set_group_numbers'] = isset($data['deployment_set_group_numbers']) ? $data['deployment_set_group_numbers'] : null;
@@ -306,6 +312,30 @@ class DescribeInstancesRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets affinity_group_ids
+     *
+     * @return string[]
+     */
+    public function getAffinityGroupIds()
+    {
+        return $this->container['affinity_group_ids'];
+    }
+
+    /**
+     * Sets affinity_group_ids
+     *
+     * @param string[] $affinity_group_ids affinity_group_ids
+     *
+     * @return $this
+     */
+    public function setAffinityGroupIds($affinity_group_ids)
+    {
+        $this->container['affinity_group_ids'] = $affinity_group_ids;
+
+        return $this;
+    }
 
     /**
      * Gets dedicated_host_cluster_id
