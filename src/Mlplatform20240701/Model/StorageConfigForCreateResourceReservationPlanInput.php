@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ZoneInfoForListInstanceTypesOutput implements ModelInterface, ArrayAccess
+class StorageConfigForCreateResourceReservationPlanInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ZoneInfoForListInstanceTypesOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ZoneInfoForListInstanceTypesOutput';
+    protected static $swaggerModelName = 'StorageConfigForCreateResourceReservationPlanInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,8 @@ class ZoneInfoForListInstanceTypesOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'reservation_plan_support_status' => 'string',
-        'support_status' => 'string',
-        'zone_id' => 'string'
+        'storage_network_config' => '\Volcengine\Mlplatform20240701\Model\StorageNetworkConfigForCreateResourceReservationPlanInput',
+        'vepfs' => '\Volcengine\Mlplatform20240701\Model\VepfsForCreateResourceReservationPlanInput'
     ];
 
     /**
@@ -39,9 +38,8 @@ class ZoneInfoForListInstanceTypesOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'reservation_plan_support_status' => null,
-        'support_status' => null,
-        'zone_id' => null
+        'storage_network_config' => null,
+        'vepfs' => null
     ];
 
     /**
@@ -71,9 +69,8 @@ class ZoneInfoForListInstanceTypesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'reservation_plan_support_status' => 'ReservationPlanSupportStatus',
-        'support_status' => 'SupportStatus',
-        'zone_id' => 'ZoneId'
+        'storage_network_config' => 'StorageNetworkConfig',
+        'vepfs' => 'Vepfs'
     ];
 
     /**
@@ -82,9 +79,8 @@ class ZoneInfoForListInstanceTypesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'reservation_plan_support_status' => 'setReservationPlanSupportStatus',
-        'support_status' => 'setSupportStatus',
-        'zone_id' => 'setZoneId'
+        'storage_network_config' => 'setStorageNetworkConfig',
+        'vepfs' => 'setVepfs'
     ];
 
     /**
@@ -93,9 +89,8 @@ class ZoneInfoForListInstanceTypesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'reservation_plan_support_status' => 'getReservationPlanSupportStatus',
-        'support_status' => 'getSupportStatus',
-        'zone_id' => 'getZoneId'
+        'storage_network_config' => 'getStorageNetworkConfig',
+        'vepfs' => 'getVepfs'
     ];
 
     /**
@@ -139,36 +134,8 @@ class ZoneInfoForListInstanceTypesOutput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const RESERVATION_PLAN_SUPPORT_STATUS_VALID = 'Valid';
-    const SUPPORT_STATUS_DEPRECATED = 'Deprecated';
-    const SUPPORT_STATUS_VALID = 'Valid';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getReservationPlanSupportStatusAllowableValues()
-    {
-        return [
-            self::RESERVATION_PLAN_SUPPORT_STATUS_VALID,
-        ];
-    }
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getSupportStatusAllowableValues()
-    {
-        return [
-            self::SUPPORT_STATUS_DEPRECATED,
-            self::SUPPORT_STATUS_VALID,
-        ];
-    }
     
 
     /**
@@ -186,9 +153,8 @@ class ZoneInfoForListInstanceTypesOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['reservation_plan_support_status'] = isset($data['reservation_plan_support_status']) ? $data['reservation_plan_support_status'] : null;
-        $this->container['support_status'] = isset($data['support_status']) ? $data['support_status'] : null;
-        $this->container['zone_id'] = isset($data['zone_id']) ? $data['zone_id'] : null;
+        $this->container['storage_network_config'] = isset($data['storage_network_config']) ? $data['storage_network_config'] : null;
+        $this->container['vepfs'] = isset($data['vepfs']) ? $data['vepfs'] : null;
     }
 
     /**
@@ -199,22 +165,6 @@ class ZoneInfoForListInstanceTypesOutput implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getReservationPlanSupportStatusAllowableValues();
-        if (!is_null($this->container['reservation_plan_support_status']) && !in_array($this->container['reservation_plan_support_status'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'reservation_plan_support_status', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        $allowedValues = $this->getSupportStatusAllowableValues();
-        if (!is_null($this->container['support_status']) && !in_array($this->container['support_status'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'support_status', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -232,91 +182,49 @@ class ZoneInfoForListInstanceTypesOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets reservation_plan_support_status
+     * Gets storage_network_config
      *
-     * @return string
+     * @return \Volcengine\Mlplatform20240701\Model\StorageNetworkConfigForCreateResourceReservationPlanInput
      */
-    public function getReservationPlanSupportStatus()
+    public function getStorageNetworkConfig()
     {
-        return $this->container['reservation_plan_support_status'];
+        return $this->container['storage_network_config'];
     }
 
     /**
-     * Sets reservation_plan_support_status
+     * Sets storage_network_config
      *
-     * @param string $reservation_plan_support_status reservation_plan_support_status
+     * @param \Volcengine\Mlplatform20240701\Model\StorageNetworkConfigForCreateResourceReservationPlanInput $storage_network_config storage_network_config
      *
      * @return $this
      */
-    public function setReservationPlanSupportStatus($reservation_plan_support_status)
+    public function setStorageNetworkConfig($storage_network_config)
     {
-        $allowedValues = $this->getReservationPlanSupportStatusAllowableValues();
-        if (!is_null($reservation_plan_support_status) && !in_array($reservation_plan_support_status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'reservation_plan_support_status', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['reservation_plan_support_status'] = $reservation_plan_support_status;
+        $this->container['storage_network_config'] = $storage_network_config;
 
         return $this;
     }
 
     /**
-     * Gets support_status
+     * Gets vepfs
      *
-     * @return string
+     * @return \Volcengine\Mlplatform20240701\Model\VepfsForCreateResourceReservationPlanInput
      */
-    public function getSupportStatus()
+    public function getVepfs()
     {
-        return $this->container['support_status'];
+        return $this->container['vepfs'];
     }
 
     /**
-     * Sets support_status
+     * Sets vepfs
      *
-     * @param string $support_status support_status
+     * @param \Volcengine\Mlplatform20240701\Model\VepfsForCreateResourceReservationPlanInput $vepfs vepfs
      *
      * @return $this
      */
-    public function setSupportStatus($support_status)
+    public function setVepfs($vepfs)
     {
-        $allowedValues = $this->getSupportStatusAllowableValues();
-        if (!is_null($support_status) && !in_array($support_status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'support_status', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['support_status'] = $support_status;
-
-        return $this;
-    }
-
-    /**
-     * Gets zone_id
-     *
-     * @return string
-     */
-    public function getZoneId()
-    {
-        return $this->container['zone_id'];
-    }
-
-    /**
-     * Sets zone_id
-     *
-     * @param string $zone_id zone_id
-     *
-     * @return $this
-     */
-    public function setZoneId($zone_id)
-    {
-        $this->container['zone_id'] = $zone_id;
+        $this->container['vepfs'] = $vepfs;
 
         return $this;
     }

@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ListInstanceTypesRequest implements ModelInterface, ArrayAccess
+class UpdateResourceReservationPlanRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ListInstanceTypesRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ListInstanceTypesRequest';
+    protected static $swaggerModelName = 'UpdateResourceReservationPlanRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,12 @@ class ListInstanceTypesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'name_contains' => 'string',
-        'reservation_plan_support_status' => 'string',
-        'support_status' => 'string',
-        'zone_id' => 'string'
+        'description' => 'string',
+        'dry_run' => 'bool',
+        'id' => 'string',
+        'name' => 'string',
+        'storage_config' => '\Volcengine\Mlplatform20240701\Model\StorageConfigForUpdateResourceReservationPlanInput',
+        'workload_network_config' => '\Volcengine\Mlplatform20240701\Model\WorkloadNetworkConfigForUpdateResourceReservationPlanInput'
     ];
 
     /**
@@ -40,10 +42,12 @@ class ListInstanceTypesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'name_contains' => null,
-        'reservation_plan_support_status' => null,
-        'support_status' => null,
-        'zone_id' => null
+        'description' => null,
+        'dry_run' => null,
+        'id' => null,
+        'name' => null,
+        'storage_config' => null,
+        'workload_network_config' => null
     ];
 
     /**
@@ -73,10 +77,12 @@ class ListInstanceTypesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'name_contains' => 'NameContains',
-        'reservation_plan_support_status' => 'ReservationPlanSupportStatus',
-        'support_status' => 'SupportStatus',
-        'zone_id' => 'ZoneId'
+        'description' => 'Description',
+        'dry_run' => 'DryRun',
+        'id' => 'Id',
+        'name' => 'Name',
+        'storage_config' => 'StorageConfig',
+        'workload_network_config' => 'WorkloadNetworkConfig'
     ];
 
     /**
@@ -85,10 +91,12 @@ class ListInstanceTypesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'name_contains' => 'setNameContains',
-        'reservation_plan_support_status' => 'setReservationPlanSupportStatus',
-        'support_status' => 'setSupportStatus',
-        'zone_id' => 'setZoneId'
+        'description' => 'setDescription',
+        'dry_run' => 'setDryRun',
+        'id' => 'setId',
+        'name' => 'setName',
+        'storage_config' => 'setStorageConfig',
+        'workload_network_config' => 'setWorkloadNetworkConfig'
     ];
 
     /**
@@ -97,10 +105,12 @@ class ListInstanceTypesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'name_contains' => 'getNameContains',
-        'reservation_plan_support_status' => 'getReservationPlanSupportStatus',
-        'support_status' => 'getSupportStatus',
-        'zone_id' => 'getZoneId'
+        'description' => 'getDescription',
+        'dry_run' => 'getDryRun',
+        'id' => 'getId',
+        'name' => 'getName',
+        'storage_config' => 'getStorageConfig',
+        'workload_network_config' => 'getWorkloadNetworkConfig'
     ];
 
     /**
@@ -144,36 +154,8 @@ class ListInstanceTypesRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const RESERVATION_PLAN_SUPPORT_STATUS_VALID = 'Valid';
-    const SUPPORT_STATUS_DEPRECATED = 'Deprecated';
-    const SUPPORT_STATUS_VALID = 'Valid';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getReservationPlanSupportStatusAllowableValues()
-    {
-        return [
-            self::RESERVATION_PLAN_SUPPORT_STATUS_VALID,
-        ];
-    }
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getSupportStatusAllowableValues()
-    {
-        return [
-            self::SUPPORT_STATUS_DEPRECATED,
-            self::SUPPORT_STATUS_VALID,
-        ];
-    }
     
 
     /**
@@ -191,10 +173,12 @@ class ListInstanceTypesRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['name_contains'] = isset($data['name_contains']) ? $data['name_contains'] : null;
-        $this->container['reservation_plan_support_status'] = isset($data['reservation_plan_support_status']) ? $data['reservation_plan_support_status'] : null;
-        $this->container['support_status'] = isset($data['support_status']) ? $data['support_status'] : null;
-        $this->container['zone_id'] = isset($data['zone_id']) ? $data['zone_id'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['dry_run'] = isset($data['dry_run']) ? $data['dry_run'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['storage_config'] = isset($data['storage_config']) ? $data['storage_config'] : null;
+        $this->container['workload_network_config'] = isset($data['workload_network_config']) ? $data['workload_network_config'] : null;
     }
 
     /**
@@ -206,22 +190,9 @@ class ListInstanceTypesRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getReservationPlanSupportStatusAllowableValues();
-        if (!is_null($this->container['reservation_plan_support_status']) && !in_array($this->container['reservation_plan_support_status'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'reservation_plan_support_status', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
         }
-
-        $allowedValues = $this->getSupportStatusAllowableValues();
-        if (!is_null($this->container['support_status']) && !in_array($this->container['support_status'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'support_status', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -238,115 +209,145 @@ class ListInstanceTypesRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets name_contains
+     * Gets description
      *
      * @return string
      */
-    public function getNameContains()
+    public function getDescription()
     {
-        return $this->container['name_contains'];
+        return $this->container['description'];
     }
 
     /**
-     * Sets name_contains
+     * Sets description
      *
-     * @param string $name_contains name_contains
+     * @param string $description description
      *
      * @return $this
      */
-    public function setNameContains($name_contains)
+    public function setDescription($description)
     {
-        $this->container['name_contains'] = $name_contains;
+        $this->container['description'] = $description;
 
         return $this;
     }
 
     /**
-     * Gets reservation_plan_support_status
+     * Gets dry_run
      *
-     * @return string
+     * @return bool
      */
-    public function getReservationPlanSupportStatus()
+    public function getDryRun()
     {
-        return $this->container['reservation_plan_support_status'];
+        return $this->container['dry_run'];
     }
 
     /**
-     * Sets reservation_plan_support_status
+     * Sets dry_run
      *
-     * @param string $reservation_plan_support_status reservation_plan_support_status
+     * @param bool $dry_run dry_run
      *
      * @return $this
      */
-    public function setReservationPlanSupportStatus($reservation_plan_support_status)
+    public function setDryRun($dry_run)
     {
-        $allowedValues = $this->getReservationPlanSupportStatusAllowableValues();
-        if (!is_null($reservation_plan_support_status) && !in_array($reservation_plan_support_status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'reservation_plan_support_status', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['reservation_plan_support_status'] = $reservation_plan_support_status;
+        $this->container['dry_run'] = $dry_run;
 
         return $this;
     }
 
     /**
-     * Gets support_status
+     * Gets id
      *
      * @return string
      */
-    public function getSupportStatus()
+    public function getId()
     {
-        return $this->container['support_status'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets support_status
+     * Sets id
      *
-     * @param string $support_status support_status
+     * @param string $id id
      *
      * @return $this
      */
-    public function setSupportStatus($support_status)
+    public function setId($id)
     {
-        $allowedValues = $this->getSupportStatusAllowableValues();
-        if (!is_null($support_status) && !in_array($support_status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'support_status', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['support_status'] = $support_status;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets zone_id
+     * Gets name
      *
      * @return string
      */
-    public function getZoneId()
+    public function getName()
     {
-        return $this->container['zone_id'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets zone_id
+     * Sets name
      *
-     * @param string $zone_id zone_id
+     * @param string $name name
      *
      * @return $this
      */
-    public function setZoneId($zone_id)
+    public function setName($name)
     {
-        $this->container['zone_id'] = $zone_id;
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets storage_config
+     *
+     * @return \Volcengine\Mlplatform20240701\Model\StorageConfigForUpdateResourceReservationPlanInput
+     */
+    public function getStorageConfig()
+    {
+        return $this->container['storage_config'];
+    }
+
+    /**
+     * Sets storage_config
+     *
+     * @param \Volcengine\Mlplatform20240701\Model\StorageConfigForUpdateResourceReservationPlanInput $storage_config storage_config
+     *
+     * @return $this
+     */
+    public function setStorageConfig($storage_config)
+    {
+        $this->container['storage_config'] = $storage_config;
+
+        return $this;
+    }
+
+    /**
+     * Gets workload_network_config
+     *
+     * @return \Volcengine\Mlplatform20240701\Model\WorkloadNetworkConfigForUpdateResourceReservationPlanInput
+     */
+    public function getWorkloadNetworkConfig()
+    {
+        return $this->container['workload_network_config'];
+    }
+
+    /**
+     * Sets workload_network_config
+     *
+     * @param \Volcengine\Mlplatform20240701\Model\WorkloadNetworkConfigForUpdateResourceReservationPlanInput $workload_network_config workload_network_config
+     *
+     * @return $this
+     */
+    public function setWorkloadNetworkConfig($workload_network_config)
+    {
+        $this->container['workload_network_config'] = $workload_network_config;
 
         return $this;
     }

@@ -28,6 +28,7 @@ class ZoneInfoForGetInstanceTypeOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'reservation_plan_support_status' => 'string',
         'support_status' => 'string',
         'zone_id' => 'string'
     ];
@@ -38,6 +39,7 @@ class ZoneInfoForGetInstanceTypeOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'reservation_plan_support_status' => null,
         'support_status' => null,
         'zone_id' => null
     ];
@@ -69,6 +71,7 @@ class ZoneInfoForGetInstanceTypeOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'reservation_plan_support_status' => 'ReservationPlanSupportStatus',
         'support_status' => 'SupportStatus',
         'zone_id' => 'ZoneId'
     ];
@@ -79,6 +82,7 @@ class ZoneInfoForGetInstanceTypeOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'reservation_plan_support_status' => 'setReservationPlanSupportStatus',
         'support_status' => 'setSupportStatus',
         'zone_id' => 'setZoneId'
     ];
@@ -89,6 +93,7 @@ class ZoneInfoForGetInstanceTypeOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'reservation_plan_support_status' => 'getReservationPlanSupportStatus',
         'support_status' => 'getSupportStatus',
         'zone_id' => 'getZoneId'
     ];
@@ -134,10 +139,23 @@ class ZoneInfoForGetInstanceTypeOutput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const RESERVATION_PLAN_SUPPORT_STATUS_VALID = 'Valid';
     const SUPPORT_STATUS_DEPRECATED = 'Deprecated';
     const SUPPORT_STATUS_VALID = 'Valid';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getReservationPlanSupportStatusAllowableValues()
+    {
+        return [
+            self::RESERVATION_PLAN_SUPPORT_STATUS_VALID,
+        ];
+    }
     
     /**
      * Gets allowable values of the enum
@@ -168,6 +186,7 @@ class ZoneInfoForGetInstanceTypeOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['reservation_plan_support_status'] = isset($data['reservation_plan_support_status']) ? $data['reservation_plan_support_status'] : null;
         $this->container['support_status'] = isset($data['support_status']) ? $data['support_status'] : null;
         $this->container['zone_id'] = isset($data['zone_id']) ? $data['zone_id'] : null;
     }
@@ -180,6 +199,14 @@ class ZoneInfoForGetInstanceTypeOutput implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getReservationPlanSupportStatusAllowableValues();
+        if (!is_null($this->container['reservation_plan_support_status']) && !in_array($this->container['reservation_plan_support_status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'reservation_plan_support_status', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         $allowedValues = $this->getSupportStatusAllowableValues();
         if (!is_null($this->container['support_status']) && !in_array($this->container['support_status'], $allowedValues, true)) {
@@ -203,6 +230,39 @@ class ZoneInfoForGetInstanceTypeOutput implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets reservation_plan_support_status
+     *
+     * @return string
+     */
+    public function getReservationPlanSupportStatus()
+    {
+        return $this->container['reservation_plan_support_status'];
+    }
+
+    /**
+     * Sets reservation_plan_support_status
+     *
+     * @param string $reservation_plan_support_status reservation_plan_support_status
+     *
+     * @return $this
+     */
+    public function setReservationPlanSupportStatus($reservation_plan_support_status)
+    {
+        $allowedValues = $this->getReservationPlanSupportStatusAllowableValues();
+        if (!is_null($reservation_plan_support_status) && !in_array($reservation_plan_support_status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'reservation_plan_support_status', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['reservation_plan_support_status'] = $reservation_plan_support_status;
+
+        return $this;
+    }
 
     /**
      * Gets support_status

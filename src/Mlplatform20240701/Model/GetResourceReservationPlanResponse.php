@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class GetJobResponse implements ModelInterface, ArrayAccess
+class GetResourceReservationPlanResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class GetJobResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetJobResponse';
+    protected static $swaggerModelName = 'GetResourceReservationPlanResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -29,21 +29,16 @@ class GetJobResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'create_time' => 'string',
-        'created_by' => 'string',
+        'creator_trn' => 'string',
         'description' => 'string',
-        'diagnose_config' => '\Volcengine\Mlplatform20240701\Model\DiagnoseConfigForGetJobOutput[]',
+        'desired_compute_resource' => '\Volcengine\Mlplatform20240701\Model\DesiredComputeResourceForGetResourceReservationPlanOutput',
         'id' => 'string',
-        'initial_id' => 'string',
         'name' => 'string',
-        'observable_config' => '\Volcengine\Mlplatform20240701\Model\ObservableConfigForGetJobOutput',
-        'private_network_config' => '\Volcengine\Mlplatform20240701\Model\PrivateNetworkConfigForGetJobOutput',
-        'resource_config' => '\Volcengine\Mlplatform20240701\Model\ResourceConfigForGetJobOutput',
-        'retry_config' => '\Volcengine\Mlplatform20240701\Model\RetryConfigForGetJobOutput',
-        'runtime_config' => '\Volcengine\Mlplatform20240701\Model\RuntimeConfigForGetJobOutput',
-        'status' => '\Volcengine\Mlplatform20240701\Model\StatusForGetJobOutput',
-        'stop_reason' => 'string',
-        'storage_config' => '\Volcengine\Mlplatform20240701\Model\StorageConfigForGetJobOutput',
-        'update_time' => 'string'
+        'reservation_config' => '\Volcengine\Mlplatform20240701\Model\ReservationConfigForGetResourceReservationPlanOutput',
+        'status' => '\Volcengine\Mlplatform20240701\Model\StatusForGetResourceReservationPlanOutput',
+        'storage_config' => '\Volcengine\Mlplatform20240701\Model\StorageConfigForGetResourceReservationPlanOutput',
+        'update_time' => 'string',
+        'workload_network_config' => '\Volcengine\Mlplatform20240701\Model\WorkloadNetworkConfigForGetResourceReservationPlanOutput'
     ];
 
     /**
@@ -53,21 +48,16 @@ class GetJobResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'create_time' => null,
-        'created_by' => null,
+        'creator_trn' => null,
         'description' => null,
-        'diagnose_config' => null,
+        'desired_compute_resource' => null,
         'id' => null,
-        'initial_id' => null,
         'name' => null,
-        'observable_config' => null,
-        'private_network_config' => null,
-        'resource_config' => null,
-        'retry_config' => null,
-        'runtime_config' => null,
+        'reservation_config' => null,
         'status' => null,
-        'stop_reason' => null,
         'storage_config' => null,
-        'update_time' => null
+        'update_time' => null,
+        'workload_network_config' => null
     ];
 
     /**
@@ -98,21 +88,16 @@ class GetJobResponse implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'create_time' => 'CreateTime',
-        'created_by' => 'CreatedBy',
+        'creator_trn' => 'CreatorTrn',
         'description' => 'Description',
-        'diagnose_config' => 'DiagnoseConfig',
+        'desired_compute_resource' => 'DesiredComputeResource',
         'id' => 'Id',
-        'initial_id' => 'InitialId',
         'name' => 'Name',
-        'observable_config' => 'ObservableConfig',
-        'private_network_config' => 'PrivateNetworkConfig',
-        'resource_config' => 'ResourceConfig',
-        'retry_config' => 'RetryConfig',
-        'runtime_config' => 'RuntimeConfig',
+        'reservation_config' => 'ReservationConfig',
         'status' => 'Status',
-        'stop_reason' => 'StopReason',
         'storage_config' => 'StorageConfig',
-        'update_time' => 'UpdateTime'
+        'update_time' => 'UpdateTime',
+        'workload_network_config' => 'WorkloadNetworkConfig'
     ];
 
     /**
@@ -122,21 +107,16 @@ class GetJobResponse implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'create_time' => 'setCreateTime',
-        'created_by' => 'setCreatedBy',
+        'creator_trn' => 'setCreatorTrn',
         'description' => 'setDescription',
-        'diagnose_config' => 'setDiagnoseConfig',
+        'desired_compute_resource' => 'setDesiredComputeResource',
         'id' => 'setId',
-        'initial_id' => 'setInitialId',
         'name' => 'setName',
-        'observable_config' => 'setObservableConfig',
-        'private_network_config' => 'setPrivateNetworkConfig',
-        'resource_config' => 'setResourceConfig',
-        'retry_config' => 'setRetryConfig',
-        'runtime_config' => 'setRuntimeConfig',
+        'reservation_config' => 'setReservationConfig',
         'status' => 'setStatus',
-        'stop_reason' => 'setStopReason',
         'storage_config' => 'setStorageConfig',
-        'update_time' => 'setUpdateTime'
+        'update_time' => 'setUpdateTime',
+        'workload_network_config' => 'setWorkloadNetworkConfig'
     ];
 
     /**
@@ -146,21 +126,16 @@ class GetJobResponse implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'create_time' => 'getCreateTime',
-        'created_by' => 'getCreatedBy',
+        'creator_trn' => 'getCreatorTrn',
         'description' => 'getDescription',
-        'diagnose_config' => 'getDiagnoseConfig',
+        'desired_compute_resource' => 'getDesiredComputeResource',
         'id' => 'getId',
-        'initial_id' => 'getInitialId',
         'name' => 'getName',
-        'observable_config' => 'getObservableConfig',
-        'private_network_config' => 'getPrivateNetworkConfig',
-        'resource_config' => 'getResourceConfig',
-        'retry_config' => 'getRetryConfig',
-        'runtime_config' => 'getRuntimeConfig',
+        'reservation_config' => 'getReservationConfig',
         'status' => 'getStatus',
-        'stop_reason' => 'getStopReason',
         'storage_config' => 'getStorageConfig',
-        'update_time' => 'getUpdateTime'
+        'update_time' => 'getUpdateTime',
+        'workload_network_config' => 'getWorkloadNetworkConfig'
     ];
 
     /**
@@ -224,21 +199,16 @@ class GetJobResponse implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
-        $this->container['created_by'] = isset($data['created_by']) ? $data['created_by'] : null;
+        $this->container['creator_trn'] = isset($data['creator_trn']) ? $data['creator_trn'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['diagnose_config'] = isset($data['diagnose_config']) ? $data['diagnose_config'] : null;
+        $this->container['desired_compute_resource'] = isset($data['desired_compute_resource']) ? $data['desired_compute_resource'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['initial_id'] = isset($data['initial_id']) ? $data['initial_id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['observable_config'] = isset($data['observable_config']) ? $data['observable_config'] : null;
-        $this->container['private_network_config'] = isset($data['private_network_config']) ? $data['private_network_config'] : null;
-        $this->container['resource_config'] = isset($data['resource_config']) ? $data['resource_config'] : null;
-        $this->container['retry_config'] = isset($data['retry_config']) ? $data['retry_config'] : null;
-        $this->container['runtime_config'] = isset($data['runtime_config']) ? $data['runtime_config'] : null;
+        $this->container['reservation_config'] = isset($data['reservation_config']) ? $data['reservation_config'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['stop_reason'] = isset($data['stop_reason']) ? $data['stop_reason'] : null;
         $this->container['storage_config'] = isset($data['storage_config']) ? $data['storage_config'] : null;
         $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
+        $this->container['workload_network_config'] = isset($data['workload_network_config']) ? $data['workload_network_config'] : null;
     }
 
     /**
@@ -290,25 +260,25 @@ class GetJobResponse implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets created_by
+     * Gets creator_trn
      *
      * @return string
      */
-    public function getCreatedBy()
+    public function getCreatorTrn()
     {
-        return $this->container['created_by'];
+        return $this->container['creator_trn'];
     }
 
     /**
-     * Sets created_by
+     * Sets creator_trn
      *
-     * @param string $created_by created_by
+     * @param string $creator_trn creator_trn
      *
      * @return $this
      */
-    public function setCreatedBy($created_by)
+    public function setCreatorTrn($creator_trn)
     {
-        $this->container['created_by'] = $created_by;
+        $this->container['creator_trn'] = $creator_trn;
 
         return $this;
     }
@@ -338,25 +308,25 @@ class GetJobResponse implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets diagnose_config
+     * Gets desired_compute_resource
      *
-     * @return \Volcengine\Mlplatform20240701\Model\DiagnoseConfigForGetJobOutput[]
+     * @return \Volcengine\Mlplatform20240701\Model\DesiredComputeResourceForGetResourceReservationPlanOutput
      */
-    public function getDiagnoseConfig()
+    public function getDesiredComputeResource()
     {
-        return $this->container['diagnose_config'];
+        return $this->container['desired_compute_resource'];
     }
 
     /**
-     * Sets diagnose_config
+     * Sets desired_compute_resource
      *
-     * @param \Volcengine\Mlplatform20240701\Model\DiagnoseConfigForGetJobOutput[] $diagnose_config diagnose_config
+     * @param \Volcengine\Mlplatform20240701\Model\DesiredComputeResourceForGetResourceReservationPlanOutput $desired_compute_resource desired_compute_resource
      *
      * @return $this
      */
-    public function setDiagnoseConfig($diagnose_config)
+    public function setDesiredComputeResource($desired_compute_resource)
     {
-        $this->container['diagnose_config'] = $diagnose_config;
+        $this->container['desired_compute_resource'] = $desired_compute_resource;
 
         return $this;
     }
@@ -386,30 +356,6 @@ class GetJobResponse implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets initial_id
-     *
-     * @return string
-     */
-    public function getInitialId()
-    {
-        return $this->container['initial_id'];
-    }
-
-    /**
-     * Sets initial_id
-     *
-     * @param string $initial_id initial_id
-     *
-     * @return $this
-     */
-    public function setInitialId($initial_id)
-    {
-        $this->container['initial_id'] = $initial_id;
-
-        return $this;
-    }
-
-    /**
      * Gets name
      *
      * @return string
@@ -434,121 +380,25 @@ class GetJobResponse implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets observable_config
+     * Gets reservation_config
      *
-     * @return \Volcengine\Mlplatform20240701\Model\ObservableConfigForGetJobOutput
+     * @return \Volcengine\Mlplatform20240701\Model\ReservationConfigForGetResourceReservationPlanOutput
      */
-    public function getObservableConfig()
+    public function getReservationConfig()
     {
-        return $this->container['observable_config'];
+        return $this->container['reservation_config'];
     }
 
     /**
-     * Sets observable_config
+     * Sets reservation_config
      *
-     * @param \Volcengine\Mlplatform20240701\Model\ObservableConfigForGetJobOutput $observable_config observable_config
+     * @param \Volcengine\Mlplatform20240701\Model\ReservationConfigForGetResourceReservationPlanOutput $reservation_config reservation_config
      *
      * @return $this
      */
-    public function setObservableConfig($observable_config)
+    public function setReservationConfig($reservation_config)
     {
-        $this->container['observable_config'] = $observable_config;
-
-        return $this;
-    }
-
-    /**
-     * Gets private_network_config
-     *
-     * @return \Volcengine\Mlplatform20240701\Model\PrivateNetworkConfigForGetJobOutput
-     */
-    public function getPrivateNetworkConfig()
-    {
-        return $this->container['private_network_config'];
-    }
-
-    /**
-     * Sets private_network_config
-     *
-     * @param \Volcengine\Mlplatform20240701\Model\PrivateNetworkConfigForGetJobOutput $private_network_config private_network_config
-     *
-     * @return $this
-     */
-    public function setPrivateNetworkConfig($private_network_config)
-    {
-        $this->container['private_network_config'] = $private_network_config;
-
-        return $this;
-    }
-
-    /**
-     * Gets resource_config
-     *
-     * @return \Volcengine\Mlplatform20240701\Model\ResourceConfigForGetJobOutput
-     */
-    public function getResourceConfig()
-    {
-        return $this->container['resource_config'];
-    }
-
-    /**
-     * Sets resource_config
-     *
-     * @param \Volcengine\Mlplatform20240701\Model\ResourceConfigForGetJobOutput $resource_config resource_config
-     *
-     * @return $this
-     */
-    public function setResourceConfig($resource_config)
-    {
-        $this->container['resource_config'] = $resource_config;
-
-        return $this;
-    }
-
-    /**
-     * Gets retry_config
-     *
-     * @return \Volcengine\Mlplatform20240701\Model\RetryConfigForGetJobOutput
-     */
-    public function getRetryConfig()
-    {
-        return $this->container['retry_config'];
-    }
-
-    /**
-     * Sets retry_config
-     *
-     * @param \Volcengine\Mlplatform20240701\Model\RetryConfigForGetJobOutput $retry_config retry_config
-     *
-     * @return $this
-     */
-    public function setRetryConfig($retry_config)
-    {
-        $this->container['retry_config'] = $retry_config;
-
-        return $this;
-    }
-
-    /**
-     * Gets runtime_config
-     *
-     * @return \Volcengine\Mlplatform20240701\Model\RuntimeConfigForGetJobOutput
-     */
-    public function getRuntimeConfig()
-    {
-        return $this->container['runtime_config'];
-    }
-
-    /**
-     * Sets runtime_config
-     *
-     * @param \Volcengine\Mlplatform20240701\Model\RuntimeConfigForGetJobOutput $runtime_config runtime_config
-     *
-     * @return $this
-     */
-    public function setRuntimeConfig($runtime_config)
-    {
-        $this->container['runtime_config'] = $runtime_config;
+        $this->container['reservation_config'] = $reservation_config;
 
         return $this;
     }
@@ -556,7 +406,7 @@ class GetJobResponse implements ModelInterface, ArrayAccess
     /**
      * Gets status
      *
-     * @return \Volcengine\Mlplatform20240701\Model\StatusForGetJobOutput
+     * @return \Volcengine\Mlplatform20240701\Model\StatusForGetResourceReservationPlanOutput
      */
     public function getStatus()
     {
@@ -566,7 +416,7 @@ class GetJobResponse implements ModelInterface, ArrayAccess
     /**
      * Sets status
      *
-     * @param \Volcengine\Mlplatform20240701\Model\StatusForGetJobOutput $status status
+     * @param \Volcengine\Mlplatform20240701\Model\StatusForGetResourceReservationPlanOutput $status status
      *
      * @return $this
      */
@@ -578,33 +428,9 @@ class GetJobResponse implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets stop_reason
-     *
-     * @return string
-     */
-    public function getStopReason()
-    {
-        return $this->container['stop_reason'];
-    }
-
-    /**
-     * Sets stop_reason
-     *
-     * @param string $stop_reason stop_reason
-     *
-     * @return $this
-     */
-    public function setStopReason($stop_reason)
-    {
-        $this->container['stop_reason'] = $stop_reason;
-
-        return $this;
-    }
-
-    /**
      * Gets storage_config
      *
-     * @return \Volcengine\Mlplatform20240701\Model\StorageConfigForGetJobOutput
+     * @return \Volcengine\Mlplatform20240701\Model\StorageConfigForGetResourceReservationPlanOutput
      */
     public function getStorageConfig()
     {
@@ -614,7 +440,7 @@ class GetJobResponse implements ModelInterface, ArrayAccess
     /**
      * Sets storage_config
      *
-     * @param \Volcengine\Mlplatform20240701\Model\StorageConfigForGetJobOutput $storage_config storage_config
+     * @param \Volcengine\Mlplatform20240701\Model\StorageConfigForGetResourceReservationPlanOutput $storage_config storage_config
      *
      * @return $this
      */
@@ -645,6 +471,30 @@ class GetJobResponse implements ModelInterface, ArrayAccess
     public function setUpdateTime($update_time)
     {
         $this->container['update_time'] = $update_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets workload_network_config
+     *
+     * @return \Volcengine\Mlplatform20240701\Model\WorkloadNetworkConfigForGetResourceReservationPlanOutput
+     */
+    public function getWorkloadNetworkConfig()
+    {
+        return $this->container['workload_network_config'];
+    }
+
+    /**
+     * Sets workload_network_config
+     *
+     * @param \Volcengine\Mlplatform20240701\Model\WorkloadNetworkConfigForGetResourceReservationPlanOutput $workload_network_config workload_network_config
+     *
+     * @return $this
+     */
+    public function setWorkloadNetworkConfig($workload_network_config)
+    {
+        $this->container['workload_network_config'] = $workload_network_config;
 
         return $this;
     }

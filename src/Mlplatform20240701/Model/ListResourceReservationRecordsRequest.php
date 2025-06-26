@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ListInstanceTypesRequest implements ModelInterface, ArrayAccess
+class ListResourceReservationRecordsRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ListInstanceTypesRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ListInstanceTypesRequest';
+    protected static $swaggerModelName = 'ListResourceReservationRecordsRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,12 @@ class ListInstanceTypesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'name_contains' => 'string',
-        'reservation_plan_support_status' => 'string',
-        'support_status' => 'string',
-        'zone_id' => 'string'
+        'page_number' => 'int',
+        'page_size' => 'int',
+        'reservation_plan_id' => 'string',
+        'sort_by' => 'string',
+        'sort_order' => 'string',
+        'states' => 'string[]'
     ];
 
     /**
@@ -40,10 +42,12 @@ class ListInstanceTypesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'name_contains' => null,
-        'reservation_plan_support_status' => null,
-        'support_status' => null,
-        'zone_id' => null
+        'page_number' => 'int32',
+        'page_size' => 'int32',
+        'reservation_plan_id' => null,
+        'sort_by' => null,
+        'sort_order' => null,
+        'states' => null
     ];
 
     /**
@@ -73,10 +77,12 @@ class ListInstanceTypesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'name_contains' => 'NameContains',
-        'reservation_plan_support_status' => 'ReservationPlanSupportStatus',
-        'support_status' => 'SupportStatus',
-        'zone_id' => 'ZoneId'
+        'page_number' => 'PageNumber',
+        'page_size' => 'PageSize',
+        'reservation_plan_id' => 'ReservationPlanId',
+        'sort_by' => 'SortBy',
+        'sort_order' => 'SortOrder',
+        'states' => 'States'
     ];
 
     /**
@@ -85,10 +91,12 @@ class ListInstanceTypesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'name_contains' => 'setNameContains',
-        'reservation_plan_support_status' => 'setReservationPlanSupportStatus',
-        'support_status' => 'setSupportStatus',
-        'zone_id' => 'setZoneId'
+        'page_number' => 'setPageNumber',
+        'page_size' => 'setPageSize',
+        'reservation_plan_id' => 'setReservationPlanId',
+        'sort_by' => 'setSortBy',
+        'sort_order' => 'setSortOrder',
+        'states' => 'setStates'
     ];
 
     /**
@@ -97,10 +105,12 @@ class ListInstanceTypesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'name_contains' => 'getNameContains',
-        'reservation_plan_support_status' => 'getReservationPlanSupportStatus',
-        'support_status' => 'getSupportStatus',
-        'zone_id' => 'getZoneId'
+        'page_number' => 'getPageNumber',
+        'page_size' => 'getPageSize',
+        'reservation_plan_id' => 'getReservationPlanId',
+        'sort_by' => 'getSortBy',
+        'sort_order' => 'getSortOrder',
+        'states' => 'getStates'
     ];
 
     /**
@@ -144,9 +154,9 @@ class ListInstanceTypesRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const RESERVATION_PLAN_SUPPORT_STATUS_VALID = 'Valid';
-    const SUPPORT_STATUS_DEPRECATED = 'Deprecated';
-    const SUPPORT_STATUS_VALID = 'Valid';
+    const SORT_BY_CREATE_TIME = 'CreateTime';
+    const SORT_ORDER_ASCEND = 'Ascend';
+    const SORT_ORDER_DESCEND = 'Descend';
     
 
     
@@ -155,10 +165,10 @@ class ListInstanceTypesRequest implements ModelInterface, ArrayAccess
      *
      * @return string[]
      */
-    public function getReservationPlanSupportStatusAllowableValues()
+    public function getSortByAllowableValues()
     {
         return [
-            self::RESERVATION_PLAN_SUPPORT_STATUS_VALID,
+            self::SORT_BY_CREATE_TIME,
         ];
     }
     
@@ -167,11 +177,11 @@ class ListInstanceTypesRequest implements ModelInterface, ArrayAccess
      *
      * @return string[]
      */
-    public function getSupportStatusAllowableValues()
+    public function getSortOrderAllowableValues()
     {
         return [
-            self::SUPPORT_STATUS_DEPRECATED,
-            self::SUPPORT_STATUS_VALID,
+            self::SORT_ORDER_ASCEND,
+            self::SORT_ORDER_DESCEND,
         ];
     }
     
@@ -191,10 +201,12 @@ class ListInstanceTypesRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['name_contains'] = isset($data['name_contains']) ? $data['name_contains'] : null;
-        $this->container['reservation_plan_support_status'] = isset($data['reservation_plan_support_status']) ? $data['reservation_plan_support_status'] : null;
-        $this->container['support_status'] = isset($data['support_status']) ? $data['support_status'] : null;
-        $this->container['zone_id'] = isset($data['zone_id']) ? $data['zone_id'] : null;
+        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
+        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
+        $this->container['reservation_plan_id'] = isset($data['reservation_plan_id']) ? $data['reservation_plan_id'] : null;
+        $this->container['sort_by'] = isset($data['sort_by']) ? $data['sort_by'] : null;
+        $this->container['sort_order'] = isset($data['sort_order']) ? $data['sort_order'] : null;
+        $this->container['states'] = isset($data['states']) ? $data['states'] : null;
     }
 
     /**
@@ -206,18 +218,21 @@ class ListInstanceTypesRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getReservationPlanSupportStatusAllowableValues();
-        if (!is_null($this->container['reservation_plan_support_status']) && !in_array($this->container['reservation_plan_support_status'], $allowedValues, true)) {
+        if ($this->container['reservation_plan_id'] === null) {
+            $invalidProperties[] = "'reservation_plan_id' can't be null";
+        }
+        $allowedValues = $this->getSortByAllowableValues();
+        if (!is_null($this->container['sort_by']) && !in_array($this->container['sort_by'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'reservation_plan_support_status', must be one of '%s'",
+                "invalid value for 'sort_by', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
 
-        $allowedValues = $this->getSupportStatusAllowableValues();
-        if (!is_null($this->container['support_status']) && !in_array($this->container['support_status'], $allowedValues, true)) {
+        $allowedValues = $this->getSortOrderAllowableValues();
+        if (!is_null($this->container['sort_order']) && !in_array($this->container['sort_order'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'support_status', must be one of '%s'",
+                "invalid value for 'sort_order', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -238,115 +253,163 @@ class ListInstanceTypesRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets name_contains
+     * Gets page_number
      *
-     * @return string
+     * @return int
      */
-    public function getNameContains()
+    public function getPageNumber()
     {
-        return $this->container['name_contains'];
+        return $this->container['page_number'];
     }
 
     /**
-     * Sets name_contains
+     * Sets page_number
      *
-     * @param string $name_contains name_contains
+     * @param int $page_number page_number
      *
      * @return $this
      */
-    public function setNameContains($name_contains)
+    public function setPageNumber($page_number)
     {
-        $this->container['name_contains'] = $name_contains;
+        $this->container['page_number'] = $page_number;
 
         return $this;
     }
 
     /**
-     * Gets reservation_plan_support_status
+     * Gets page_size
      *
-     * @return string
+     * @return int
      */
-    public function getReservationPlanSupportStatus()
+    public function getPageSize()
     {
-        return $this->container['reservation_plan_support_status'];
+        return $this->container['page_size'];
     }
 
     /**
-     * Sets reservation_plan_support_status
+     * Sets page_size
      *
-     * @param string $reservation_plan_support_status reservation_plan_support_status
+     * @param int $page_size page_size
      *
      * @return $this
      */
-    public function setReservationPlanSupportStatus($reservation_plan_support_status)
+    public function setPageSize($page_size)
     {
-        $allowedValues = $this->getReservationPlanSupportStatusAllowableValues();
-        if (!is_null($reservation_plan_support_status) && !in_array($reservation_plan_support_status, $allowedValues, true)) {
+        $this->container['page_size'] = $page_size;
+
+        return $this;
+    }
+
+    /**
+     * Gets reservation_plan_id
+     *
+     * @return string
+     */
+    public function getReservationPlanId()
+    {
+        return $this->container['reservation_plan_id'];
+    }
+
+    /**
+     * Sets reservation_plan_id
+     *
+     * @param string $reservation_plan_id reservation_plan_id
+     *
+     * @return $this
+     */
+    public function setReservationPlanId($reservation_plan_id)
+    {
+        $this->container['reservation_plan_id'] = $reservation_plan_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets sort_by
+     *
+     * @return string
+     */
+    public function getSortBy()
+    {
+        return $this->container['sort_by'];
+    }
+
+    /**
+     * Sets sort_by
+     *
+     * @param string $sort_by sort_by
+     *
+     * @return $this
+     */
+    public function setSortBy($sort_by)
+    {
+        $allowedValues = $this->getSortByAllowableValues();
+        if (!is_null($sort_by) && !in_array($sort_by, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'reservation_plan_support_status', must be one of '%s'",
+                    "Invalid value for 'sort_by', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['reservation_plan_support_status'] = $reservation_plan_support_status;
+        $this->container['sort_by'] = $sort_by;
 
         return $this;
     }
 
     /**
-     * Gets support_status
+     * Gets sort_order
      *
      * @return string
      */
-    public function getSupportStatus()
+    public function getSortOrder()
     {
-        return $this->container['support_status'];
+        return $this->container['sort_order'];
     }
 
     /**
-     * Sets support_status
+     * Sets sort_order
      *
-     * @param string $support_status support_status
+     * @param string $sort_order sort_order
      *
      * @return $this
      */
-    public function setSupportStatus($support_status)
+    public function setSortOrder($sort_order)
     {
-        $allowedValues = $this->getSupportStatusAllowableValues();
-        if (!is_null($support_status) && !in_array($support_status, $allowedValues, true)) {
+        $allowedValues = $this->getSortOrderAllowableValues();
+        if (!is_null($sort_order) && !in_array($sort_order, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'support_status', must be one of '%s'",
+                    "Invalid value for 'sort_order', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['support_status'] = $support_status;
+        $this->container['sort_order'] = $sort_order;
 
         return $this;
     }
 
     /**
-     * Gets zone_id
+     * Gets states
      *
-     * @return string
+     * @return string[]
      */
-    public function getZoneId()
+    public function getStates()
     {
-        return $this->container['zone_id'];
+        return $this->container['states'];
     }
 
     /**
-     * Sets zone_id
+     * Sets states
      *
-     * @param string $zone_id zone_id
+     * @param string[] $states states
      *
      * @return $this
      */
-    public function setZoneId($zone_id)
+    public function setStates($states)
     {
-        $this->container['zone_id'] = $zone_id;
+        $this->container['states'] = $states;
 
         return $this;
     }

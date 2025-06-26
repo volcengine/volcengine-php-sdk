@@ -36,6 +36,7 @@ class ItemForListJobsOutput implements ModelInterface, ArrayAccess
         'name' => 'string',
         'resource_config' => '\Volcengine\Mlplatform20240701\Model\ResourceConfigForListJobsOutput',
         'status' => '\Volcengine\Mlplatform20240701\Model\StatusForListJobsOutput',
+        'stop_reason' => 'string',
         'update_time' => 'string'
     ];
 
@@ -53,6 +54,7 @@ class ItemForListJobsOutput implements ModelInterface, ArrayAccess
         'name' => null,
         'resource_config' => null,
         'status' => null,
+        'stop_reason' => null,
         'update_time' => null
     ];
 
@@ -91,6 +93,7 @@ class ItemForListJobsOutput implements ModelInterface, ArrayAccess
         'name' => 'Name',
         'resource_config' => 'ResourceConfig',
         'status' => 'Status',
+        'stop_reason' => 'StopReason',
         'update_time' => 'UpdateTime'
     ];
 
@@ -108,6 +111,7 @@ class ItemForListJobsOutput implements ModelInterface, ArrayAccess
         'name' => 'setName',
         'resource_config' => 'setResourceConfig',
         'status' => 'setStatus',
+        'stop_reason' => 'setStopReason',
         'update_time' => 'setUpdateTime'
     ];
 
@@ -125,6 +129,7 @@ class ItemForListJobsOutput implements ModelInterface, ArrayAccess
         'name' => 'getName',
         'resource_config' => 'getResourceConfig',
         'status' => 'getStatus',
+        'stop_reason' => 'getStopReason',
         'update_time' => 'getUpdateTime'
     ];
 
@@ -196,6 +201,7 @@ class ItemForListJobsOutput implements ModelInterface, ArrayAccess
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['resource_config'] = isset($data['resource_config']) ? $data['resource_config'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['stop_reason'] = isset($data['stop_reason']) ? $data['stop_reason'] : null;
         $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
     }
 
@@ -411,6 +417,30 @@ class ItemForListJobsOutput implements ModelInterface, ArrayAccess
     public function setStatus($status)
     {
         $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets stop_reason
+     *
+     * @return string
+     */
+    public function getStopReason()
+    {
+        return $this->container['stop_reason'];
+    }
+
+    /**
+     * Sets stop_reason
+     *
+     * @param string $stop_reason stop_reason
+     *
+     * @return $this
+     */
+    public function setStopReason($stop_reason)
+    {
+        $this->container['stop_reason'] = $stop_reason;
 
         return $this;
     }

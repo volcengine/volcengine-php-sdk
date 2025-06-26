@@ -34,6 +34,7 @@ class StatusForListJobInstancesOutput implements ModelInterface, ArrayAccess
         'exit_code' => 'int',
         'holding_end_time' => 'string',
         'message' => 'string',
+        'numa_status' => 'string',
         'secondary_state' => 'string',
         'start_time' => 'string',
         'state' => 'string'
@@ -51,6 +52,7 @@ class StatusForListJobInstancesOutput implements ModelInterface, ArrayAccess
         'exit_code' => 'int32',
         'holding_end_time' => null,
         'message' => null,
+        'numa_status' => null,
         'secondary_state' => null,
         'start_time' => null,
         'state' => null
@@ -89,6 +91,7 @@ class StatusForListJobInstancesOutput implements ModelInterface, ArrayAccess
         'exit_code' => 'ExitCode',
         'holding_end_time' => 'HoldingEndTime',
         'message' => 'Message',
+        'numa_status' => 'NumaStatus',
         'secondary_state' => 'SecondaryState',
         'start_time' => 'StartTime',
         'state' => 'State'
@@ -106,6 +109,7 @@ class StatusForListJobInstancesOutput implements ModelInterface, ArrayAccess
         'exit_code' => 'setExitCode',
         'holding_end_time' => 'setHoldingEndTime',
         'message' => 'setMessage',
+        'numa_status' => 'setNumaStatus',
         'secondary_state' => 'setSecondaryState',
         'start_time' => 'setStartTime',
         'state' => 'setState'
@@ -123,6 +127,7 @@ class StatusForListJobInstancesOutput implements ModelInterface, ArrayAccess
         'exit_code' => 'getExitCode',
         'holding_end_time' => 'getHoldingEndTime',
         'message' => 'getMessage',
+        'numa_status' => 'getNumaStatus',
         'secondary_state' => 'getSecondaryState',
         'start_time' => 'getStartTime',
         'state' => 'getState'
@@ -275,6 +280,7 @@ class StatusForListJobInstancesOutput implements ModelInterface, ArrayAccess
         $this->container['exit_code'] = isset($data['exit_code']) ? $data['exit_code'] : null;
         $this->container['holding_end_time'] = isset($data['holding_end_time']) ? $data['holding_end_time'] : null;
         $this->container['message'] = isset($data['message']) ? $data['message'] : null;
+        $this->container['numa_status'] = isset($data['numa_status']) ? $data['numa_status'] : null;
         $this->container['secondary_state'] = isset($data['secondary_state']) ? $data['secondary_state'] : null;
         $this->container['start_time'] = isset($data['start_time']) ? $data['start_time'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
@@ -477,6 +483,30 @@ class StatusForListJobInstancesOutput implements ModelInterface, ArrayAccess
     public function setMessage($message)
     {
         $this->container['message'] = $message;
+
+        return $this;
+    }
+
+    /**
+     * Gets numa_status
+     *
+     * @return string
+     */
+    public function getNumaStatus()
+    {
+        return $this->container['numa_status'];
+    }
+
+    /**
+     * Sets numa_status
+     *
+     * @param string $numa_status numa_status
+     *
+     * @return $this
+     */
+    public function setNumaStatus($numa_status)
+    {
+        $this->container['numa_status'] = $numa_status;
 
         return $this;
     }

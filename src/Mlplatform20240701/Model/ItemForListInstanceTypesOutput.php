@@ -45,6 +45,7 @@ class ItemForListInstanceTypesOutput implements ModelInterface, ArrayAccess
         'price_by_month' => 'double',
         'rdma_eni_count' => 'int',
         'rdma_eni_maximum_bandwidth_mbps' => 'int',
+        'reservation_plan_price_by_hour' => 'double',
         'volume_maximum_bandwidth_mbps' => 'int',
         'volume_maximum_iops' => 'int',
         'volume_supported_types' => 'string[]',
@@ -74,6 +75,7 @@ class ItemForListInstanceTypesOutput implements ModelInterface, ArrayAccess
         'price_by_month' => 'double',
         'rdma_eni_count' => 'int32',
         'rdma_eni_maximum_bandwidth_mbps' => 'int32',
+        'reservation_plan_price_by_hour' => 'double',
         'volume_maximum_bandwidth_mbps' => 'int32',
         'volume_maximum_iops' => 'int32',
         'volume_supported_types' => null,
@@ -124,6 +126,7 @@ class ItemForListInstanceTypesOutput implements ModelInterface, ArrayAccess
         'price_by_month' => 'PriceByMonth',
         'rdma_eni_count' => 'RdmaEniCount',
         'rdma_eni_maximum_bandwidth_mbps' => 'RdmaEniMaximumBandwidthMbps',
+        'reservation_plan_price_by_hour' => 'ReservationPlanPriceByHour',
         'volume_maximum_bandwidth_mbps' => 'VolumeMaximumBandwidthMbps',
         'volume_maximum_iops' => 'VolumeMaximumIops',
         'volume_supported_types' => 'VolumeSupportedTypes',
@@ -153,6 +156,7 @@ class ItemForListInstanceTypesOutput implements ModelInterface, ArrayAccess
         'price_by_month' => 'setPriceByMonth',
         'rdma_eni_count' => 'setRdmaEniCount',
         'rdma_eni_maximum_bandwidth_mbps' => 'setRdmaEniMaximumBandwidthMbps',
+        'reservation_plan_price_by_hour' => 'setReservationPlanPriceByHour',
         'volume_maximum_bandwidth_mbps' => 'setVolumeMaximumBandwidthMbps',
         'volume_maximum_iops' => 'setVolumeMaximumIops',
         'volume_supported_types' => 'setVolumeSupportedTypes',
@@ -182,6 +186,7 @@ class ItemForListInstanceTypesOutput implements ModelInterface, ArrayAccess
         'price_by_month' => 'getPriceByMonth',
         'rdma_eni_count' => 'getRdmaEniCount',
         'rdma_eni_maximum_bandwidth_mbps' => 'getRdmaEniMaximumBandwidthMbps',
+        'reservation_plan_price_by_hour' => 'getReservationPlanPriceByHour',
         'volume_maximum_bandwidth_mbps' => 'getVolumeMaximumBandwidthMbps',
         'volume_maximum_iops' => 'getVolumeMaximumIops',
         'volume_supported_types' => 'getVolumeSupportedTypes',
@@ -288,6 +293,7 @@ class ItemForListInstanceTypesOutput implements ModelInterface, ArrayAccess
         $this->container['price_by_month'] = isset($data['price_by_month']) ? $data['price_by_month'] : null;
         $this->container['rdma_eni_count'] = isset($data['rdma_eni_count']) ? $data['rdma_eni_count'] : null;
         $this->container['rdma_eni_maximum_bandwidth_mbps'] = isset($data['rdma_eni_maximum_bandwidth_mbps']) ? $data['rdma_eni_maximum_bandwidth_mbps'] : null;
+        $this->container['reservation_plan_price_by_hour'] = isset($data['reservation_plan_price_by_hour']) ? $data['reservation_plan_price_by_hour'] : null;
         $this->container['volume_maximum_bandwidth_mbps'] = isset($data['volume_maximum_bandwidth_mbps']) ? $data['volume_maximum_bandwidth_mbps'] : null;
         $this->container['volume_maximum_iops'] = isset($data['volume_maximum_iops']) ? $data['volume_maximum_iops'] : null;
         $this->container['volume_supported_types'] = isset($data['volume_supported_types']) ? $data['volume_supported_types'] : null;
@@ -739,6 +745,30 @@ class ItemForListInstanceTypesOutput implements ModelInterface, ArrayAccess
     public function setRdmaEniMaximumBandwidthMbps($rdma_eni_maximum_bandwidth_mbps)
     {
         $this->container['rdma_eni_maximum_bandwidth_mbps'] = $rdma_eni_maximum_bandwidth_mbps;
+
+        return $this;
+    }
+
+    /**
+     * Gets reservation_plan_price_by_hour
+     *
+     * @return double
+     */
+    public function getReservationPlanPriceByHour()
+    {
+        return $this->container['reservation_plan_price_by_hour'];
+    }
+
+    /**
+     * Sets reservation_plan_price_by_hour
+     *
+     * @param double $reservation_plan_price_by_hour reservation_plan_price_by_hour
+     *
+     * @return $this
+     */
+    public function setReservationPlanPriceByHour($reservation_plan_price_by_hour)
+    {
+        $this->container['reservation_plan_price_by_hour'] = $reservation_plan_price_by_hour;
 
         return $this;
     }

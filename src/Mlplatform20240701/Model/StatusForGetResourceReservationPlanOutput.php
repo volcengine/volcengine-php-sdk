@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ListInstanceTypesRequest implements ModelInterface, ArrayAccess
+class StatusForGetResourceReservationPlanOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ListInstanceTypesRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ListInstanceTypesRequest';
+    protected static $swaggerModelName = 'StatusForGetResourceReservationPlanOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,9 @@ class ListInstanceTypesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'name_contains' => 'string',
-        'reservation_plan_support_status' => 'string',
-        'support_status' => 'string',
-        'zone_id' => 'string'
+        'message' => 'string',
+        'secondary_state' => 'string',
+        'state' => 'string'
     ];
 
     /**
@@ -40,10 +39,9 @@ class ListInstanceTypesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'name_contains' => null,
-        'reservation_plan_support_status' => null,
-        'support_status' => null,
-        'zone_id' => null
+        'message' => null,
+        'secondary_state' => null,
+        'state' => null
     ];
 
     /**
@@ -73,10 +71,9 @@ class ListInstanceTypesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'name_contains' => 'NameContains',
-        'reservation_plan_support_status' => 'ReservationPlanSupportStatus',
-        'support_status' => 'SupportStatus',
-        'zone_id' => 'ZoneId'
+        'message' => 'Message',
+        'secondary_state' => 'SecondaryState',
+        'state' => 'State'
     ];
 
     /**
@@ -85,10 +82,9 @@ class ListInstanceTypesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'name_contains' => 'setNameContains',
-        'reservation_plan_support_status' => 'setReservationPlanSupportStatus',
-        'support_status' => 'setSupportStatus',
-        'zone_id' => 'setZoneId'
+        'message' => 'setMessage',
+        'secondary_state' => 'setSecondaryState',
+        'state' => 'setState'
     ];
 
     /**
@@ -97,10 +93,9 @@ class ListInstanceTypesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'name_contains' => 'getNameContains',
-        'reservation_plan_support_status' => 'getReservationPlanSupportStatus',
-        'support_status' => 'getSupportStatus',
-        'zone_id' => 'getZoneId'
+        'message' => 'getMessage',
+        'secondary_state' => 'getSecondaryState',
+        'state' => 'getState'
     ];
 
     /**
@@ -144,36 +139,8 @@ class ListInstanceTypesRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const RESERVATION_PLAN_SUPPORT_STATUS_VALID = 'Valid';
-    const SUPPORT_STATUS_DEPRECATED = 'Deprecated';
-    const SUPPORT_STATUS_VALID = 'Valid';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getReservationPlanSupportStatusAllowableValues()
-    {
-        return [
-            self::RESERVATION_PLAN_SUPPORT_STATUS_VALID,
-        ];
-    }
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getSupportStatusAllowableValues()
-    {
-        return [
-            self::SUPPORT_STATUS_DEPRECATED,
-            self::SUPPORT_STATUS_VALID,
-        ];
-    }
     
 
     /**
@@ -191,10 +158,9 @@ class ListInstanceTypesRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['name_contains'] = isset($data['name_contains']) ? $data['name_contains'] : null;
-        $this->container['reservation_plan_support_status'] = isset($data['reservation_plan_support_status']) ? $data['reservation_plan_support_status'] : null;
-        $this->container['support_status'] = isset($data['support_status']) ? $data['support_status'] : null;
-        $this->container['zone_id'] = isset($data['zone_id']) ? $data['zone_id'] : null;
+        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
+        $this->container['secondary_state'] = isset($data['secondary_state']) ? $data['secondary_state'] : null;
+        $this->container['state'] = isset($data['state']) ? $data['state'] : null;
     }
 
     /**
@@ -205,22 +171,6 @@ class ListInstanceTypesRequest implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getReservationPlanSupportStatusAllowableValues();
-        if (!is_null($this->container['reservation_plan_support_status']) && !in_array($this->container['reservation_plan_support_status'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'reservation_plan_support_status', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        $allowedValues = $this->getSupportStatusAllowableValues();
-        if (!is_null($this->container['support_status']) && !in_array($this->container['support_status'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'support_status', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -238,115 +188,73 @@ class ListInstanceTypesRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets name_contains
+     * Gets message
      *
      * @return string
      */
-    public function getNameContains()
+    public function getMessage()
     {
-        return $this->container['name_contains'];
+        return $this->container['message'];
     }
 
     /**
-     * Sets name_contains
+     * Sets message
      *
-     * @param string $name_contains name_contains
+     * @param string $message message
      *
      * @return $this
      */
-    public function setNameContains($name_contains)
+    public function setMessage($message)
     {
-        $this->container['name_contains'] = $name_contains;
+        $this->container['message'] = $message;
 
         return $this;
     }
 
     /**
-     * Gets reservation_plan_support_status
+     * Gets secondary_state
      *
      * @return string
      */
-    public function getReservationPlanSupportStatus()
+    public function getSecondaryState()
     {
-        return $this->container['reservation_plan_support_status'];
+        return $this->container['secondary_state'];
     }
 
     /**
-     * Sets reservation_plan_support_status
+     * Sets secondary_state
      *
-     * @param string $reservation_plan_support_status reservation_plan_support_status
+     * @param string $secondary_state secondary_state
      *
      * @return $this
      */
-    public function setReservationPlanSupportStatus($reservation_plan_support_status)
+    public function setSecondaryState($secondary_state)
     {
-        $allowedValues = $this->getReservationPlanSupportStatusAllowableValues();
-        if (!is_null($reservation_plan_support_status) && !in_array($reservation_plan_support_status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'reservation_plan_support_status', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['reservation_plan_support_status'] = $reservation_plan_support_status;
+        $this->container['secondary_state'] = $secondary_state;
 
         return $this;
     }
 
     /**
-     * Gets support_status
+     * Gets state
      *
      * @return string
      */
-    public function getSupportStatus()
+    public function getState()
     {
-        return $this->container['support_status'];
+        return $this->container['state'];
     }
 
     /**
-     * Sets support_status
+     * Sets state
      *
-     * @param string $support_status support_status
+     * @param string $state state
      *
      * @return $this
      */
-    public function setSupportStatus($support_status)
+    public function setState($state)
     {
-        $allowedValues = $this->getSupportStatusAllowableValues();
-        if (!is_null($support_status) && !in_array($support_status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'support_status', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['support_status'] = $support_status;
-
-        return $this;
-    }
-
-    /**
-     * Gets zone_id
-     *
-     * @return string
-     */
-    public function getZoneId()
-    {
-        return $this->container['zone_id'];
-    }
-
-    /**
-     * Sets zone_id
-     *
-     * @param string $zone_id zone_id
-     *
-     * @return $this
-     */
-    public function setZoneId($zone_id)
-    {
-        $this->container['zone_id'] = $zone_id;
+        $this->container['state'] = $state;
 
         return $this;
     }

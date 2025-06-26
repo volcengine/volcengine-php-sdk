@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ListInstanceTypesRequest implements ModelInterface, ArrayAccess
+class ReservationConfigForCreateResourceReservationPlanInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ListInstanceTypesRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ListInstanceTypesRequest';
+    protected static $swaggerModelName = 'ReservationConfigForCreateResourceReservationPlanInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,12 @@ class ListInstanceTypesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'name_contains' => 'string',
-        'reservation_plan_support_status' => 'string',
-        'support_status' => 'string',
-        'zone_id' => 'string'
+        'max_duration_hours' => 'int',
+        'min_duration_hours' => 'int',
+        'recurrence_end_time' => 'string',
+        'recurrence_interval' => 'string',
+        'recurrence_start_time' => 'string',
+        'reservation_type' => 'string'
     ];
 
     /**
@@ -40,10 +42,12 @@ class ListInstanceTypesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'name_contains' => null,
-        'reservation_plan_support_status' => null,
-        'support_status' => null,
-        'zone_id' => null
+        'max_duration_hours' => 'int64',
+        'min_duration_hours' => 'int64',
+        'recurrence_end_time' => null,
+        'recurrence_interval' => null,
+        'recurrence_start_time' => null,
+        'reservation_type' => null
     ];
 
     /**
@@ -73,10 +77,12 @@ class ListInstanceTypesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'name_contains' => 'NameContains',
-        'reservation_plan_support_status' => 'ReservationPlanSupportStatus',
-        'support_status' => 'SupportStatus',
-        'zone_id' => 'ZoneId'
+        'max_duration_hours' => 'MaxDurationHours',
+        'min_duration_hours' => 'MinDurationHours',
+        'recurrence_end_time' => 'RecurrenceEndTime',
+        'recurrence_interval' => 'RecurrenceInterval',
+        'recurrence_start_time' => 'RecurrenceStartTime',
+        'reservation_type' => 'ReservationType'
     ];
 
     /**
@@ -85,10 +91,12 @@ class ListInstanceTypesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'name_contains' => 'setNameContains',
-        'reservation_plan_support_status' => 'setReservationPlanSupportStatus',
-        'support_status' => 'setSupportStatus',
-        'zone_id' => 'setZoneId'
+        'max_duration_hours' => 'setMaxDurationHours',
+        'min_duration_hours' => 'setMinDurationHours',
+        'recurrence_end_time' => 'setRecurrenceEndTime',
+        'recurrence_interval' => 'setRecurrenceInterval',
+        'recurrence_start_time' => 'setRecurrenceStartTime',
+        'reservation_type' => 'setReservationType'
     ];
 
     /**
@@ -97,10 +105,12 @@ class ListInstanceTypesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'name_contains' => 'getNameContains',
-        'reservation_plan_support_status' => 'getReservationPlanSupportStatus',
-        'support_status' => 'getSupportStatus',
-        'zone_id' => 'getZoneId'
+        'max_duration_hours' => 'getMaxDurationHours',
+        'min_duration_hours' => 'getMinDurationHours',
+        'recurrence_end_time' => 'getRecurrenceEndTime',
+        'recurrence_interval' => 'getRecurrenceInterval',
+        'recurrence_start_time' => 'getRecurrenceStartTime',
+        'reservation_type' => 'getReservationType'
     ];
 
     /**
@@ -144,36 +154,8 @@ class ListInstanceTypesRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const RESERVATION_PLAN_SUPPORT_STATUS_VALID = 'Valid';
-    const SUPPORT_STATUS_DEPRECATED = 'Deprecated';
-    const SUPPORT_STATUS_VALID = 'Valid';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getReservationPlanSupportStatusAllowableValues()
-    {
-        return [
-            self::RESERVATION_PLAN_SUPPORT_STATUS_VALID,
-        ];
-    }
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getSupportStatusAllowableValues()
-    {
-        return [
-            self::SUPPORT_STATUS_DEPRECATED,
-            self::SUPPORT_STATUS_VALID,
-        ];
-    }
     
 
     /**
@@ -191,10 +173,12 @@ class ListInstanceTypesRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['name_contains'] = isset($data['name_contains']) ? $data['name_contains'] : null;
-        $this->container['reservation_plan_support_status'] = isset($data['reservation_plan_support_status']) ? $data['reservation_plan_support_status'] : null;
-        $this->container['support_status'] = isset($data['support_status']) ? $data['support_status'] : null;
-        $this->container['zone_id'] = isset($data['zone_id']) ? $data['zone_id'] : null;
+        $this->container['max_duration_hours'] = isset($data['max_duration_hours']) ? $data['max_duration_hours'] : null;
+        $this->container['min_duration_hours'] = isset($data['min_duration_hours']) ? $data['min_duration_hours'] : null;
+        $this->container['recurrence_end_time'] = isset($data['recurrence_end_time']) ? $data['recurrence_end_time'] : null;
+        $this->container['recurrence_interval'] = isset($data['recurrence_interval']) ? $data['recurrence_interval'] : null;
+        $this->container['recurrence_start_time'] = isset($data['recurrence_start_time']) ? $data['recurrence_start_time'] : null;
+        $this->container['reservation_type'] = isset($data['reservation_type']) ? $data['reservation_type'] : null;
     }
 
     /**
@@ -205,22 +189,6 @@ class ListInstanceTypesRequest implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getReservationPlanSupportStatusAllowableValues();
-        if (!is_null($this->container['reservation_plan_support_status']) && !in_array($this->container['reservation_plan_support_status'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'reservation_plan_support_status', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        $allowedValues = $this->getSupportStatusAllowableValues();
-        if (!is_null($this->container['support_status']) && !in_array($this->container['support_status'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'support_status', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -238,115 +206,145 @@ class ListInstanceTypesRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets name_contains
+     * Gets max_duration_hours
      *
-     * @return string
+     * @return int
      */
-    public function getNameContains()
+    public function getMaxDurationHours()
     {
-        return $this->container['name_contains'];
+        return $this->container['max_duration_hours'];
     }
 
     /**
-     * Sets name_contains
+     * Sets max_duration_hours
      *
-     * @param string $name_contains name_contains
+     * @param int $max_duration_hours max_duration_hours
      *
      * @return $this
      */
-    public function setNameContains($name_contains)
+    public function setMaxDurationHours($max_duration_hours)
     {
-        $this->container['name_contains'] = $name_contains;
+        $this->container['max_duration_hours'] = $max_duration_hours;
 
         return $this;
     }
 
     /**
-     * Gets reservation_plan_support_status
+     * Gets min_duration_hours
      *
-     * @return string
+     * @return int
      */
-    public function getReservationPlanSupportStatus()
+    public function getMinDurationHours()
     {
-        return $this->container['reservation_plan_support_status'];
+        return $this->container['min_duration_hours'];
     }
 
     /**
-     * Sets reservation_plan_support_status
+     * Sets min_duration_hours
      *
-     * @param string $reservation_plan_support_status reservation_plan_support_status
+     * @param int $min_duration_hours min_duration_hours
      *
      * @return $this
      */
-    public function setReservationPlanSupportStatus($reservation_plan_support_status)
+    public function setMinDurationHours($min_duration_hours)
     {
-        $allowedValues = $this->getReservationPlanSupportStatusAllowableValues();
-        if (!is_null($reservation_plan_support_status) && !in_array($reservation_plan_support_status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'reservation_plan_support_status', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['reservation_plan_support_status'] = $reservation_plan_support_status;
+        $this->container['min_duration_hours'] = $min_duration_hours;
 
         return $this;
     }
 
     /**
-     * Gets support_status
+     * Gets recurrence_end_time
      *
      * @return string
      */
-    public function getSupportStatus()
+    public function getRecurrenceEndTime()
     {
-        return $this->container['support_status'];
+        return $this->container['recurrence_end_time'];
     }
 
     /**
-     * Sets support_status
+     * Sets recurrence_end_time
      *
-     * @param string $support_status support_status
+     * @param string $recurrence_end_time recurrence_end_time
      *
      * @return $this
      */
-    public function setSupportStatus($support_status)
+    public function setRecurrenceEndTime($recurrence_end_time)
     {
-        $allowedValues = $this->getSupportStatusAllowableValues();
-        if (!is_null($support_status) && !in_array($support_status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'support_status', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['support_status'] = $support_status;
+        $this->container['recurrence_end_time'] = $recurrence_end_time;
 
         return $this;
     }
 
     /**
-     * Gets zone_id
+     * Gets recurrence_interval
      *
      * @return string
      */
-    public function getZoneId()
+    public function getRecurrenceInterval()
     {
-        return $this->container['zone_id'];
+        return $this->container['recurrence_interval'];
     }
 
     /**
-     * Sets zone_id
+     * Sets recurrence_interval
      *
-     * @param string $zone_id zone_id
+     * @param string $recurrence_interval recurrence_interval
      *
      * @return $this
      */
-    public function setZoneId($zone_id)
+    public function setRecurrenceInterval($recurrence_interval)
     {
-        $this->container['zone_id'] = $zone_id;
+        $this->container['recurrence_interval'] = $recurrence_interval;
+
+        return $this;
+    }
+
+    /**
+     * Gets recurrence_start_time
+     *
+     * @return string
+     */
+    public function getRecurrenceStartTime()
+    {
+        return $this->container['recurrence_start_time'];
+    }
+
+    /**
+     * Sets recurrence_start_time
+     *
+     * @param string $recurrence_start_time recurrence_start_time
+     *
+     * @return $this
+     */
+    public function setRecurrenceStartTime($recurrence_start_time)
+    {
+        $this->container['recurrence_start_time'] = $recurrence_start_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets reservation_type
+     *
+     * @return string
+     */
+    public function getReservationType()
+    {
+        return $this->container['reservation_type'];
+    }
+
+    /**
+     * Sets reservation_type
+     *
+     * @param string $reservation_type reservation_type
+     *
+     * @return $this
+     */
+    public function setReservationType($reservation_type)
+    {
+        $this->container['reservation_type'] = $reservation_type;
 
         return $this;
     }

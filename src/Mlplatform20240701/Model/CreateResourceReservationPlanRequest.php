@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class StopJobRequest implements ModelInterface, ArrayAccess
+class CreateResourceReservationPlanRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class StopJobRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'StopJobRequest';
+    protected static $swaggerModelName = 'CreateResourceReservationPlanRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,13 @@ class StopJobRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'diagnose_names' => 'string[]',
+        'compute_resource' => '\Volcengine\Mlplatform20240701\Model\ComputeResourceForCreateResourceReservationPlanInput',
+        'description' => 'string',
         'dry_run' => 'bool',
-        'id' => 'string',
-        'reason' => 'string'
+        'name' => 'string',
+        'reservation_config' => '\Volcengine\Mlplatform20240701\Model\ReservationConfigForCreateResourceReservationPlanInput',
+        'storage_config' => '\Volcengine\Mlplatform20240701\Model\StorageConfigForCreateResourceReservationPlanInput',
+        'workload_network_config' => '\Volcengine\Mlplatform20240701\Model\WorkloadNetworkConfigForCreateResourceReservationPlanInput'
     ];
 
     /**
@@ -40,10 +43,13 @@ class StopJobRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'diagnose_names' => null,
+        'compute_resource' => null,
+        'description' => null,
         'dry_run' => null,
-        'id' => null,
-        'reason' => null
+        'name' => null,
+        'reservation_config' => null,
+        'storage_config' => null,
+        'workload_network_config' => null
     ];
 
     /**
@@ -73,10 +79,13 @@ class StopJobRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'diagnose_names' => 'DiagnoseNames',
+        'compute_resource' => 'ComputeResource',
+        'description' => 'Description',
         'dry_run' => 'DryRun',
-        'id' => 'Id',
-        'reason' => 'Reason'
+        'name' => 'Name',
+        'reservation_config' => 'ReservationConfig',
+        'storage_config' => 'StorageConfig',
+        'workload_network_config' => 'WorkloadNetworkConfig'
     ];
 
     /**
@@ -85,10 +94,13 @@ class StopJobRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'diagnose_names' => 'setDiagnoseNames',
+        'compute_resource' => 'setComputeResource',
+        'description' => 'setDescription',
         'dry_run' => 'setDryRun',
-        'id' => 'setId',
-        'reason' => 'setReason'
+        'name' => 'setName',
+        'reservation_config' => 'setReservationConfig',
+        'storage_config' => 'setStorageConfig',
+        'workload_network_config' => 'setWorkloadNetworkConfig'
     ];
 
     /**
@@ -97,10 +109,13 @@ class StopJobRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'diagnose_names' => 'getDiagnoseNames',
+        'compute_resource' => 'getComputeResource',
+        'description' => 'getDescription',
         'dry_run' => 'getDryRun',
-        'id' => 'getId',
-        'reason' => 'getReason'
+        'name' => 'getName',
+        'reservation_config' => 'getReservationConfig',
+        'storage_config' => 'getStorageConfig',
+        'workload_network_config' => 'getWorkloadNetworkConfig'
     ];
 
     /**
@@ -144,25 +159,8 @@ class StopJobRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const DIAGNOSE_NAMES_ENVIRONMENTAL_DIAGNOSIS = 'EnvironmentalDiagnosis';
-    const DIAGNOSE_NAMES_PYTHON_DETECTION = 'PythonDetection';
-    const DIAGNOSE_NAMES_LOG_DETECTION = 'LogDetection';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getDiagnoseNamesAllowableValues()
-    {
-        return [
-            self::DIAGNOSE_NAMES_ENVIRONMENTAL_DIAGNOSIS,
-            self::DIAGNOSE_NAMES_PYTHON_DETECTION,
-            self::DIAGNOSE_NAMES_LOG_DETECTION,
-        ];
-    }
     
 
     /**
@@ -180,10 +178,13 @@ class StopJobRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['diagnose_names'] = isset($data['diagnose_names']) ? $data['diagnose_names'] : null;
+        $this->container['compute_resource'] = isset($data['compute_resource']) ? $data['compute_resource'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['dry_run'] = isset($data['dry_run']) ? $data['dry_run'] : null;
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['reason'] = isset($data['reason']) ? $data['reason'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['reservation_config'] = isset($data['reservation_config']) ? $data['reservation_config'] : null;
+        $this->container['storage_config'] = isset($data['storage_config']) ? $data['storage_config'] : null;
+        $this->container['workload_network_config'] = isset($data['workload_network_config']) ? $data['workload_network_config'] : null;
     }
 
     /**
@@ -195,8 +196,8 @@ class StopJobRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
         }
         return $invalidProperties;
     }
@@ -214,34 +215,49 @@ class StopJobRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets diagnose_names
+     * Gets compute_resource
      *
-     * @return string[]
+     * @return \Volcengine\Mlplatform20240701\Model\ComputeResourceForCreateResourceReservationPlanInput
      */
-    public function getDiagnoseNames()
+    public function getComputeResource()
     {
-        return $this->container['diagnose_names'];
+        return $this->container['compute_resource'];
     }
 
     /**
-     * Sets diagnose_names
+     * Sets compute_resource
      *
-     * @param string[] $diagnose_names diagnose_names
+     * @param \Volcengine\Mlplatform20240701\Model\ComputeResourceForCreateResourceReservationPlanInput $compute_resource compute_resource
      *
      * @return $this
      */
-    public function setDiagnoseNames($diagnose_names)
+    public function setComputeResource($compute_resource)
     {
-        $allowedValues = $this->getDiagnoseNamesAllowableValues();
-        if (!is_null($diagnose_names) && array_diff($diagnose_names, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'diagnose_names', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['diagnose_names'] = $diagnose_names;
+        $this->container['compute_resource'] = $compute_resource;
+
+        return $this;
+    }
+
+    /**
+     * Gets description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string $description description
+     *
+     * @return $this
+     */
+    public function setDescription($description)
+    {
+        $this->container['description'] = $description;
 
         return $this;
     }
@@ -271,49 +287,97 @@ class StopJobRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets id
+     * Gets name
      *
      * @return string
      */
-    public function getId()
+    public function getName()
     {
-        return $this->container['id'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets id
+     * Sets name
      *
-     * @param string $id id
+     * @param string $name name
      *
      * @return $this
      */
-    public function setId($id)
+    public function setName($name)
     {
-        $this->container['id'] = $id;
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets reason
+     * Gets reservation_config
      *
-     * @return string
+     * @return \Volcengine\Mlplatform20240701\Model\ReservationConfigForCreateResourceReservationPlanInput
      */
-    public function getReason()
+    public function getReservationConfig()
     {
-        return $this->container['reason'];
+        return $this->container['reservation_config'];
     }
 
     /**
-     * Sets reason
+     * Sets reservation_config
      *
-     * @param string $reason reason
+     * @param \Volcengine\Mlplatform20240701\Model\ReservationConfigForCreateResourceReservationPlanInput $reservation_config reservation_config
      *
      * @return $this
      */
-    public function setReason($reason)
+    public function setReservationConfig($reservation_config)
     {
-        $this->container['reason'] = $reason;
+        $this->container['reservation_config'] = $reservation_config;
+
+        return $this;
+    }
+
+    /**
+     * Gets storage_config
+     *
+     * @return \Volcengine\Mlplatform20240701\Model\StorageConfigForCreateResourceReservationPlanInput
+     */
+    public function getStorageConfig()
+    {
+        return $this->container['storage_config'];
+    }
+
+    /**
+     * Sets storage_config
+     *
+     * @param \Volcengine\Mlplatform20240701\Model\StorageConfigForCreateResourceReservationPlanInput $storage_config storage_config
+     *
+     * @return $this
+     */
+    public function setStorageConfig($storage_config)
+    {
+        $this->container['storage_config'] = $storage_config;
+
+        return $this;
+    }
+
+    /**
+     * Gets workload_network_config
+     *
+     * @return \Volcengine\Mlplatform20240701\Model\WorkloadNetworkConfigForCreateResourceReservationPlanInput
+     */
+    public function getWorkloadNetworkConfig()
+    {
+        return $this->container['workload_network_config'];
+    }
+
+    /**
+     * Sets workload_network_config
+     *
+     * @param \Volcengine\Mlplatform20240701\Model\WorkloadNetworkConfigForCreateResourceReservationPlanInput $workload_network_config workload_network_config
+     *
+     * @return $this
+     */
+    public function setWorkloadNetworkConfig($workload_network_config)
+    {
+        $this->container['workload_network_config'] = $workload_network_config;
 
         return $this;
     }
