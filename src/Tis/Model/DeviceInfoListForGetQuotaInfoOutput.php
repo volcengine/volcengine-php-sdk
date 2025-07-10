@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class GetAccessTokenRequest implements ModelInterface, ArrayAccess
+class DeviceInfoListForGetQuotaInfoOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class GetAccessTokenRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetAccessTokenRequest';
+    protected static $swaggerModelName = 'deviceInfoListForGetQuotaInfoOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,8 @@ class GetAccessTokenRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'app_id' => 'string'
+        'field_name' => 'string',
+        'field_value' => 'string'
     ];
 
     /**
@@ -37,7 +38,8 @@ class GetAccessTokenRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'app_id' => null
+        'field_name' => null,
+        'field_value' => null
     ];
 
     /**
@@ -67,7 +69,8 @@ class GetAccessTokenRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'app_id' => 'AppId'
+        'field_name' => 'fieldName',
+        'field_value' => 'fieldValue'
     ];
 
     /**
@@ -76,7 +79,8 @@ class GetAccessTokenRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'app_id' => 'setAppId'
+        'field_name' => 'setFieldName',
+        'field_value' => 'setFieldValue'
     ];
 
     /**
@@ -85,7 +89,8 @@ class GetAccessTokenRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'app_id' => 'getAppId'
+        'field_name' => 'getFieldName',
+        'field_value' => 'getFieldValue'
     ];
 
     /**
@@ -148,7 +153,8 @@ class GetAccessTokenRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['app_id'] = isset($data['app_id']) ? $data['app_id'] : null;
+        $this->container['field_name'] = isset($data['field_name']) ? $data['field_name'] : null;
+        $this->container['field_value'] = isset($data['field_value']) ? $data['field_value'] : null;
     }
 
     /**
@@ -160,9 +166,6 @@ class GetAccessTokenRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['app_id'] === null) {
-            $invalidProperties[] = "'app_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -179,25 +182,49 @@ class GetAccessTokenRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets app_id
+     * Gets field_name
      *
      * @return string
      */
-    public function getAppId()
+    public function getFieldName()
     {
-        return $this->container['app_id'];
+        return $this->container['field_name'];
     }
 
     /**
-     * Sets app_id
+     * Sets field_name
      *
-     * @param string $app_id app_id
+     * @param string $field_name field_name
      *
      * @return $this
      */
-    public function setAppId($app_id)
+    public function setFieldName($field_name)
     {
-        $this->container['app_id'] = $app_id;
+        $this->container['field_name'] = $field_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets field_value
+     *
+     * @return string
+     */
+    public function getFieldValue()
+    {
+        return $this->container['field_value'];
+    }
+
+    /**
+     * Sets field_value
+     *
+     * @param string $field_value field_value
+     *
+     * @return $this
+     */
+    public function setFieldValue($field_value)
+    {
+        $this->container['field_value'] = $field_value;
 
         return $this;
     }

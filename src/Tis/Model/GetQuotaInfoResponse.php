@@ -28,6 +28,7 @@ class GetQuotaInfoResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'device_info_list' => '\Volcengine\Tis\Model\DeviceInfoListForGetQuotaInfoOutput',
         'quota_info_list' => '\Volcengine\Tis\Model\QuotaInfoListForGetQuotaInfoOutput[]'
     ];
 
@@ -37,6 +38,7 @@ class GetQuotaInfoResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'device_info_list' => null,
         'quota_info_list' => null
     ];
 
@@ -67,6 +69,7 @@ class GetQuotaInfoResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'device_info_list' => 'deviceInfoList',
         'quota_info_list' => 'quotaInfoList'
     ];
 
@@ -76,6 +79,7 @@ class GetQuotaInfoResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'device_info_list' => 'setDeviceInfoList',
         'quota_info_list' => 'setQuotaInfoList'
     ];
 
@@ -85,6 +89,7 @@ class GetQuotaInfoResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'device_info_list' => 'getDeviceInfoList',
         'quota_info_list' => 'getQuotaInfoList'
     ];
 
@@ -148,6 +153,7 @@ class GetQuotaInfoResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['device_info_list'] = isset($data['device_info_list']) ? $data['device_info_list'] : null;
         $this->container['quota_info_list'] = isset($data['quota_info_list']) ? $data['quota_info_list'] : null;
     }
 
@@ -174,6 +180,30 @@ class GetQuotaInfoResponse implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets device_info_list
+     *
+     * @return \Volcengine\Tis\Model\DeviceInfoListForGetQuotaInfoOutput
+     */
+    public function getDeviceInfoList()
+    {
+        return $this->container['device_info_list'];
+    }
+
+    /**
+     * Sets device_info_list
+     *
+     * @param \Volcengine\Tis\Model\DeviceInfoListForGetQuotaInfoOutput $device_info_list device_info_list
+     *
+     * @return $this
+     */
+    public function setDeviceInfoList($device_info_list)
+    {
+        $this->container['device_info_list'] = $device_info_list;
+
+        return $this;
+    }
 
     /**
      * Gets quota_info_list
