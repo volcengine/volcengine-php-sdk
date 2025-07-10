@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Tis\Model;
+namespace Volcengine\Acep\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class GetAccessTokenResponse implements ModelInterface, ArrayAccess
+class DisplayStatusForListPodOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class GetAccessTokenResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetAccessTokenResponse';
+    protected static $swaggerModelName = 'DisplayStatusForListPodOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,7 @@ class GetAccessTokenResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'access_token' => 'string',
-        'expire_time' => 'int'
+        
     ];
 
     /**
@@ -38,8 +37,7 @@ class GetAccessTokenResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'access_token' => null,
-        'expire_time' => 'int64'
+        
     ];
 
     /**
@@ -69,8 +67,7 @@ class GetAccessTokenResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'access_token' => 'AccessToken',
-        'expire_time' => 'ExpireTime'
+        
     ];
 
     /**
@@ -79,8 +76,7 @@ class GetAccessTokenResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'access_token' => 'setAccessToken',
-        'expire_time' => 'setExpireTime'
+        
     ];
 
     /**
@@ -89,8 +85,7 @@ class GetAccessTokenResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'access_token' => 'getAccessToken',
-        'expire_time' => 'getExpireTime'
+        
     ];
 
     /**
@@ -153,8 +148,6 @@ class GetAccessTokenResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['access_token'] = isset($data['access_token']) ? $data['access_token'] : null;
-        $this->container['expire_time'] = isset($data['expire_time']) ? $data['expire_time'] : null;
     }
 
     /**
@@ -180,54 +173,6 @@ class GetAccessTokenResponse implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets access_token
-     *
-     * @return string
-     */
-    public function getAccessToken()
-    {
-        return $this->container['access_token'];
-    }
-
-    /**
-     * Sets access_token
-     *
-     * @param string $access_token access_token
-     *
-     * @return $this
-     */
-    public function setAccessToken($access_token)
-    {
-        $this->container['access_token'] = $access_token;
-
-        return $this;
-    }
-
-    /**
-     * Gets expire_time
-     *
-     * @return int
-     */
-    public function getExpireTime()
-    {
-        return $this->container['expire_time'];
-    }
-
-    /**
-     * Sets expire_time
-     *
-     * @param int $expire_time expire_time
-     *
-     * @return $this
-     */
-    public function setExpireTime($expire_time)
-    {
-        $this->container['expire_time'] = $expire_time;
-
-        return $this;
-    }
     /**
      * Returns true if offset exists. False otherwise.
      *

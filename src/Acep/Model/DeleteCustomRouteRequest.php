@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Tis\Model;
+namespace Volcengine\Acep\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class GetQuotaInfoResponse implements ModelInterface, ArrayAccess
+class DeleteCustomRouteRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class GetQuotaInfoResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetQuotaInfoResponse';
+    protected static $swaggerModelName = 'DeleteCustomRouteRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,8 @@ class GetQuotaInfoResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'device_info_list' => '\Volcengine\Tis\Model\DeviceInfoListForGetQuotaInfoOutput',
-        'quota_info_list' => '\Volcengine\Tis\Model\QuotaInfoListForGetQuotaInfoOutput[]'
+        'custom_route_id' => 'string',
+        'product_id' => 'string'
     ];
 
     /**
@@ -38,8 +38,8 @@ class GetQuotaInfoResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'device_info_list' => null,
-        'quota_info_list' => null
+        'custom_route_id' => null,
+        'product_id' => null
     ];
 
     /**
@@ -69,8 +69,8 @@ class GetQuotaInfoResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'device_info_list' => 'deviceInfoList',
-        'quota_info_list' => 'quotaInfoList'
+        'custom_route_id' => 'CustomRouteId',
+        'product_id' => 'ProductId'
     ];
 
     /**
@@ -79,8 +79,8 @@ class GetQuotaInfoResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'device_info_list' => 'setDeviceInfoList',
-        'quota_info_list' => 'setQuotaInfoList'
+        'custom_route_id' => 'setCustomRouteId',
+        'product_id' => 'setProductId'
     ];
 
     /**
@@ -89,8 +89,8 @@ class GetQuotaInfoResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'device_info_list' => 'getDeviceInfoList',
-        'quota_info_list' => 'getQuotaInfoList'
+        'custom_route_id' => 'getCustomRouteId',
+        'product_id' => 'getProductId'
     ];
 
     /**
@@ -153,8 +153,8 @@ class GetQuotaInfoResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['device_info_list'] = isset($data['device_info_list']) ? $data['device_info_list'] : null;
-        $this->container['quota_info_list'] = isset($data['quota_info_list']) ? $data['quota_info_list'] : null;
+        $this->container['custom_route_id'] = isset($data['custom_route_id']) ? $data['custom_route_id'] : null;
+        $this->container['product_id'] = isset($data['product_id']) ? $data['product_id'] : null;
     }
 
     /**
@@ -166,6 +166,12 @@ class GetQuotaInfoResponse implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['custom_route_id'] === null) {
+            $invalidProperties[] = "'custom_route_id' can't be null";
+        }
+        if ($this->container['product_id'] === null) {
+            $invalidProperties[] = "'product_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -182,49 +188,49 @@ class GetQuotaInfoResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets device_info_list
+     * Gets custom_route_id
      *
-     * @return \Volcengine\Tis\Model\DeviceInfoListForGetQuotaInfoOutput
+     * @return string
      */
-    public function getDeviceInfoList()
+    public function getCustomRouteId()
     {
-        return $this->container['device_info_list'];
+        return $this->container['custom_route_id'];
     }
 
     /**
-     * Sets device_info_list
+     * Sets custom_route_id
      *
-     * @param \Volcengine\Tis\Model\DeviceInfoListForGetQuotaInfoOutput $device_info_list device_info_list
+     * @param string $custom_route_id custom_route_id
      *
      * @return $this
      */
-    public function setDeviceInfoList($device_info_list)
+    public function setCustomRouteId($custom_route_id)
     {
-        $this->container['device_info_list'] = $device_info_list;
+        $this->container['custom_route_id'] = $custom_route_id;
 
         return $this;
     }
 
     /**
-     * Gets quota_info_list
+     * Gets product_id
      *
-     * @return \Volcengine\Tis\Model\QuotaInfoListForGetQuotaInfoOutput[]
+     * @return string
      */
-    public function getQuotaInfoList()
+    public function getProductId()
     {
-        return $this->container['quota_info_list'];
+        return $this->container['product_id'];
     }
 
     /**
-     * Sets quota_info_list
+     * Sets product_id
      *
-     * @param \Volcengine\Tis\Model\QuotaInfoListForGetQuotaInfoOutput[] $quota_info_list quota_info_list
+     * @param string $product_id product_id
      *
      * @return $this
      */
-    public function setQuotaInfoList($quota_info_list)
+    public function setProductId($product_id)
     {
-        $this->container['quota_info_list'] = $quota_info_list;
+        $this->container['product_id'] = $product_id;
 
         return $this;
     }

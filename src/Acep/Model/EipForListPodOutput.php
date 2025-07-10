@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Tis\Model;
+namespace Volcengine\Acep\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class GetQuotaInfoResponse implements ModelInterface, ArrayAccess
+class EipForListPodOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class GetQuotaInfoResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetQuotaInfoResponse';
+    protected static $swaggerModelName = 'EipForListPodOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,9 @@ class GetQuotaInfoResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'device_info_list' => '\Volcengine\Tis\Model\DeviceInfoListForGetQuotaInfoOutput',
-        'quota_info_list' => '\Volcengine\Tis\Model\QuotaInfoListForGetQuotaInfoOutput[]'
+        'eip_address' => 'string',
+        'eip_id' => 'string',
+        'isp' => 'int'
     ];
 
     /**
@@ -38,8 +39,9 @@ class GetQuotaInfoResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'device_info_list' => null,
-        'quota_info_list' => null
+        'eip_address' => null,
+        'eip_id' => null,
+        'isp' => 'int32'
     ];
 
     /**
@@ -69,8 +71,9 @@ class GetQuotaInfoResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'device_info_list' => 'deviceInfoList',
-        'quota_info_list' => 'quotaInfoList'
+        'eip_address' => 'EipAddress',
+        'eip_id' => 'EipId',
+        'isp' => 'Isp'
     ];
 
     /**
@@ -79,8 +82,9 @@ class GetQuotaInfoResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'device_info_list' => 'setDeviceInfoList',
-        'quota_info_list' => 'setQuotaInfoList'
+        'eip_address' => 'setEipAddress',
+        'eip_id' => 'setEipId',
+        'isp' => 'setIsp'
     ];
 
     /**
@@ -89,8 +93,9 @@ class GetQuotaInfoResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'device_info_list' => 'getDeviceInfoList',
-        'quota_info_list' => 'getQuotaInfoList'
+        'eip_address' => 'getEipAddress',
+        'eip_id' => 'getEipId',
+        'isp' => 'getIsp'
     ];
 
     /**
@@ -153,8 +158,9 @@ class GetQuotaInfoResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['device_info_list'] = isset($data['device_info_list']) ? $data['device_info_list'] : null;
-        $this->container['quota_info_list'] = isset($data['quota_info_list']) ? $data['quota_info_list'] : null;
+        $this->container['eip_address'] = isset($data['eip_address']) ? $data['eip_address'] : null;
+        $this->container['eip_id'] = isset($data['eip_id']) ? $data['eip_id'] : null;
+        $this->container['isp'] = isset($data['isp']) ? $data['isp'] : null;
     }
 
     /**
@@ -182,49 +188,73 @@ class GetQuotaInfoResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets device_info_list
+     * Gets eip_address
      *
-     * @return \Volcengine\Tis\Model\DeviceInfoListForGetQuotaInfoOutput
+     * @return string
      */
-    public function getDeviceInfoList()
+    public function getEipAddress()
     {
-        return $this->container['device_info_list'];
+        return $this->container['eip_address'];
     }
 
     /**
-     * Sets device_info_list
+     * Sets eip_address
      *
-     * @param \Volcengine\Tis\Model\DeviceInfoListForGetQuotaInfoOutput $device_info_list device_info_list
+     * @param string $eip_address eip_address
      *
      * @return $this
      */
-    public function setDeviceInfoList($device_info_list)
+    public function setEipAddress($eip_address)
     {
-        $this->container['device_info_list'] = $device_info_list;
+        $this->container['eip_address'] = $eip_address;
 
         return $this;
     }
 
     /**
-     * Gets quota_info_list
+     * Gets eip_id
      *
-     * @return \Volcengine\Tis\Model\QuotaInfoListForGetQuotaInfoOutput[]
+     * @return string
      */
-    public function getQuotaInfoList()
+    public function getEipId()
     {
-        return $this->container['quota_info_list'];
+        return $this->container['eip_id'];
     }
 
     /**
-     * Sets quota_info_list
+     * Sets eip_id
      *
-     * @param \Volcengine\Tis\Model\QuotaInfoListForGetQuotaInfoOutput[] $quota_info_list quota_info_list
+     * @param string $eip_id eip_id
      *
      * @return $this
      */
-    public function setQuotaInfoList($quota_info_list)
+    public function setEipId($eip_id)
     {
-        $this->container['quota_info_list'] = $quota_info_list;
+        $this->container['eip_id'] = $eip_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets isp
+     *
+     * @return int
+     */
+    public function getIsp()
+    {
+        return $this->container['isp'];
+    }
+
+    /**
+     * Sets isp
+     *
+     * @param int $isp isp
+     *
+     * @return $this
+     */
+    public function setIsp($isp)
+    {
+        $this->container['isp'] = $isp;
 
         return $this;
     }

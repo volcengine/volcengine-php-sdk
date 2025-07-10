@@ -28,6 +28,7 @@ class ListPodRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'archive_status' => 'string',
         'authority_status' => 'int',
         'configuration_code_list' => 'string[]',
         'dnsid' => 'string',
@@ -52,6 +53,7 @@ class ListPodRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'archive_status' => null,
         'authority_status' => 'int32',
         'configuration_code_list' => null,
         'dnsid' => null,
@@ -97,6 +99,7 @@ class ListPodRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'archive_status' => 'ArchiveStatus',
         'authority_status' => 'AuthorityStatus',
         'configuration_code_list' => 'ConfigurationCodeList',
         'dnsid' => 'DNSId',
@@ -121,6 +124,7 @@ class ListPodRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'archive_status' => 'setArchiveStatus',
         'authority_status' => 'setAuthorityStatus',
         'configuration_code_list' => 'setConfigurationCodeList',
         'dnsid' => 'setDnsid',
@@ -145,6 +149,7 @@ class ListPodRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'archive_status' => 'getArchiveStatus',
         'authority_status' => 'getAuthorityStatus',
         'configuration_code_list' => 'getConfigurationCodeList',
         'dnsid' => 'getDnsid',
@@ -223,6 +228,7 @@ class ListPodRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['archive_status'] = isset($data['archive_status']) ? $data['archive_status'] : null;
         $this->container['authority_status'] = isset($data['authority_status']) ? $data['authority_status'] : null;
         $this->container['configuration_code_list'] = isset($data['configuration_code_list']) ? $data['configuration_code_list'] : null;
         $this->container['dnsid'] = isset($data['dnsid']) ? $data['dnsid'] : null;
@@ -267,6 +273,30 @@ class ListPodRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets archive_status
+     *
+     * @return string
+     */
+    public function getArchiveStatus()
+    {
+        return $this->container['archive_status'];
+    }
+
+    /**
+     * Sets archive_status
+     *
+     * @param string $archive_status archive_status
+     *
+     * @return $this
+     */
+    public function setArchiveStatus($archive_status)
+    {
+        $this->container['archive_status'] = $archive_status;
+
+        return $this;
+    }
 
     /**
      * Gets authority_status

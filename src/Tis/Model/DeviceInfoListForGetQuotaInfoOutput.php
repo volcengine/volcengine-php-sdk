@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class GetQuotaInfoResponse implements ModelInterface, ArrayAccess
+class DeviceInfoListForGetQuotaInfoOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class GetQuotaInfoResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetQuotaInfoResponse';
+    protected static $swaggerModelName = 'deviceInfoListForGetQuotaInfoOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,8 @@ class GetQuotaInfoResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'device_info_list' => '\Volcengine\Tis\Model\DeviceInfoListForGetQuotaInfoOutput',
-        'quota_info_list' => '\Volcengine\Tis\Model\QuotaInfoListForGetQuotaInfoOutput[]'
+        'field_name' => 'string',
+        'field_value' => 'string'
     ];
 
     /**
@@ -38,8 +38,8 @@ class GetQuotaInfoResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'device_info_list' => null,
-        'quota_info_list' => null
+        'field_name' => null,
+        'field_value' => null
     ];
 
     /**
@@ -69,8 +69,8 @@ class GetQuotaInfoResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'device_info_list' => 'deviceInfoList',
-        'quota_info_list' => 'quotaInfoList'
+        'field_name' => 'fieldName',
+        'field_value' => 'fieldValue'
     ];
 
     /**
@@ -79,8 +79,8 @@ class GetQuotaInfoResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'device_info_list' => 'setDeviceInfoList',
-        'quota_info_list' => 'setQuotaInfoList'
+        'field_name' => 'setFieldName',
+        'field_value' => 'setFieldValue'
     ];
 
     /**
@@ -89,8 +89,8 @@ class GetQuotaInfoResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'device_info_list' => 'getDeviceInfoList',
-        'quota_info_list' => 'getQuotaInfoList'
+        'field_name' => 'getFieldName',
+        'field_value' => 'getFieldValue'
     ];
 
     /**
@@ -153,8 +153,8 @@ class GetQuotaInfoResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['device_info_list'] = isset($data['device_info_list']) ? $data['device_info_list'] : null;
-        $this->container['quota_info_list'] = isset($data['quota_info_list']) ? $data['quota_info_list'] : null;
+        $this->container['field_name'] = isset($data['field_name']) ? $data['field_name'] : null;
+        $this->container['field_value'] = isset($data['field_value']) ? $data['field_value'] : null;
     }
 
     /**
@@ -182,49 +182,49 @@ class GetQuotaInfoResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets device_info_list
+     * Gets field_name
      *
-     * @return \Volcengine\Tis\Model\DeviceInfoListForGetQuotaInfoOutput
+     * @return string
      */
-    public function getDeviceInfoList()
+    public function getFieldName()
     {
-        return $this->container['device_info_list'];
+        return $this->container['field_name'];
     }
 
     /**
-     * Sets device_info_list
+     * Sets field_name
      *
-     * @param \Volcengine\Tis\Model\DeviceInfoListForGetQuotaInfoOutput $device_info_list device_info_list
+     * @param string $field_name field_name
      *
      * @return $this
      */
-    public function setDeviceInfoList($device_info_list)
+    public function setFieldName($field_name)
     {
-        $this->container['device_info_list'] = $device_info_list;
+        $this->container['field_name'] = $field_name;
 
         return $this;
     }
 
     /**
-     * Gets quota_info_list
+     * Gets field_value
      *
-     * @return \Volcengine\Tis\Model\QuotaInfoListForGetQuotaInfoOutput[]
+     * @return string
      */
-    public function getQuotaInfoList()
+    public function getFieldValue()
     {
-        return $this->container['quota_info_list'];
+        return $this->container['field_value'];
     }
 
     /**
-     * Sets quota_info_list
+     * Sets field_value
      *
-     * @param \Volcengine\Tis\Model\QuotaInfoListForGetQuotaInfoOutput[] $quota_info_list quota_info_list
+     * @param string $field_value field_value
      *
      * @return $this
      */
-    public function setQuotaInfoList($quota_info_list)
+    public function setFieldValue($field_value)
     {
-        $this->container['quota_info_list'] = $quota_info_list;
+        $this->container['field_value'] = $field_value;
 
         return $this;
     }

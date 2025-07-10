@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Tis\Model;
+namespace Volcengine\Acep\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class GetQuotaInfoResponse implements ModelInterface, ArrayAccess
+class ListCustomRouteResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class GetQuotaInfoResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetQuotaInfoResponse';
+    protected static $swaggerModelName = 'ListCustomRouteResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,8 @@ class GetQuotaInfoResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'device_info_list' => '\Volcengine\Tis\Model\DeviceInfoListForGetQuotaInfoOutput',
-        'quota_info_list' => '\Volcengine\Tis\Model\QuotaInfoListForGetQuotaInfoOutput[]'
+        'next_token' => 'string',
+        'row' => '\Volcengine\Acep\Model\RowForListCustomRouteOutput[]'
     ];
 
     /**
@@ -38,8 +38,8 @@ class GetQuotaInfoResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'device_info_list' => null,
-        'quota_info_list' => null
+        'next_token' => null,
+        'row' => null
     ];
 
     /**
@@ -69,8 +69,8 @@ class GetQuotaInfoResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'device_info_list' => 'deviceInfoList',
-        'quota_info_list' => 'quotaInfoList'
+        'next_token' => 'NextToken',
+        'row' => 'Row'
     ];
 
     /**
@@ -79,8 +79,8 @@ class GetQuotaInfoResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'device_info_list' => 'setDeviceInfoList',
-        'quota_info_list' => 'setQuotaInfoList'
+        'next_token' => 'setNextToken',
+        'row' => 'setRow'
     ];
 
     /**
@@ -89,8 +89,8 @@ class GetQuotaInfoResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'device_info_list' => 'getDeviceInfoList',
-        'quota_info_list' => 'getQuotaInfoList'
+        'next_token' => 'getNextToken',
+        'row' => 'getRow'
     ];
 
     /**
@@ -153,8 +153,8 @@ class GetQuotaInfoResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['device_info_list'] = isset($data['device_info_list']) ? $data['device_info_list'] : null;
-        $this->container['quota_info_list'] = isset($data['quota_info_list']) ? $data['quota_info_list'] : null;
+        $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
+        $this->container['row'] = isset($data['row']) ? $data['row'] : null;
     }
 
     /**
@@ -182,49 +182,49 @@ class GetQuotaInfoResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets device_info_list
+     * Gets next_token
      *
-     * @return \Volcengine\Tis\Model\DeviceInfoListForGetQuotaInfoOutput
+     * @return string
      */
-    public function getDeviceInfoList()
+    public function getNextToken()
     {
-        return $this->container['device_info_list'];
+        return $this->container['next_token'];
     }
 
     /**
-     * Sets device_info_list
+     * Sets next_token
      *
-     * @param \Volcengine\Tis\Model\DeviceInfoListForGetQuotaInfoOutput $device_info_list device_info_list
+     * @param string $next_token next_token
      *
      * @return $this
      */
-    public function setDeviceInfoList($device_info_list)
+    public function setNextToken($next_token)
     {
-        $this->container['device_info_list'] = $device_info_list;
+        $this->container['next_token'] = $next_token;
 
         return $this;
     }
 
     /**
-     * Gets quota_info_list
+     * Gets row
      *
-     * @return \Volcengine\Tis\Model\QuotaInfoListForGetQuotaInfoOutput[]
+     * @return \Volcengine\Acep\Model\RowForListCustomRouteOutput[]
      */
-    public function getQuotaInfoList()
+    public function getRow()
     {
-        return $this->container['quota_info_list'];
+        return $this->container['row'];
     }
 
     /**
-     * Sets quota_info_list
+     * Sets row
      *
-     * @param \Volcengine\Tis\Model\QuotaInfoListForGetQuotaInfoOutput[] $quota_info_list quota_info_list
+     * @param \Volcengine\Acep\Model\RowForListCustomRouteOutput[] $row row
      *
      * @return $this
      */
-    public function setQuotaInfoList($quota_info_list)
+    public function setRow($row)
     {
-        $this->container['quota_info_list'] = $quota_info_list;
+        $this->container['row'] = $row;
 
         return $this;
     }

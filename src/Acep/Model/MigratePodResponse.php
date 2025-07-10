@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Tis\Model;
+namespace Volcengine\Acep\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class GetAccessTokenRequest implements ModelInterface, ArrayAccess
+class MigratePodResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class GetAccessTokenRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetAccessTokenRequest';
+    protected static $swaggerModelName = 'MigratePodResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,8 @@ class GetAccessTokenRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'app_id' => 'string'
+        'details' => '\Volcengine\Acep\Model\DetailForMigratePodOutput[]',
+        'product_id' => 'string'
     ];
 
     /**
@@ -37,7 +38,8 @@ class GetAccessTokenRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'app_id' => null
+        'details' => null,
+        'product_id' => null
     ];
 
     /**
@@ -67,7 +69,8 @@ class GetAccessTokenRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'app_id' => 'AppId'
+        'details' => 'Details',
+        'product_id' => 'ProductId'
     ];
 
     /**
@@ -76,7 +79,8 @@ class GetAccessTokenRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'app_id' => 'setAppId'
+        'details' => 'setDetails',
+        'product_id' => 'setProductId'
     ];
 
     /**
@@ -85,7 +89,8 @@ class GetAccessTokenRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'app_id' => 'getAppId'
+        'details' => 'getDetails',
+        'product_id' => 'getProductId'
     ];
 
     /**
@@ -148,7 +153,8 @@ class GetAccessTokenRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['app_id'] = isset($data['app_id']) ? $data['app_id'] : null;
+        $this->container['details'] = isset($data['details']) ? $data['details'] : null;
+        $this->container['product_id'] = isset($data['product_id']) ? $data['product_id'] : null;
     }
 
     /**
@@ -160,9 +166,6 @@ class GetAccessTokenRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['app_id'] === null) {
-            $invalidProperties[] = "'app_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -179,25 +182,49 @@ class GetAccessTokenRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets app_id
+     * Gets details
      *
-     * @return string
+     * @return \Volcengine\Acep\Model\DetailForMigratePodOutput[]
      */
-    public function getAppId()
+    public function getDetails()
     {
-        return $this->container['app_id'];
+        return $this->container['details'];
     }
 
     /**
-     * Sets app_id
+     * Sets details
      *
-     * @param string $app_id app_id
+     * @param \Volcengine\Acep\Model\DetailForMigratePodOutput[] $details details
      *
      * @return $this
      */
-    public function setAppId($app_id)
+    public function setDetails($details)
     {
-        $this->container['app_id'] = $app_id;
+        $this->container['details'] = $details;
+
+        return $this;
+    }
+
+    /**
+     * Gets product_id
+     *
+     * @return string
+     */
+    public function getProductId()
+    {
+        return $this->container['product_id'];
+    }
+
+    /**
+     * Sets product_id
+     *
+     * @param string $product_id product_id
+     *
+     * @return $this
+     */
+    public function setProductId($product_id)
+    {
+        $this->container['product_id'] = $product_id;
 
         return $this;
     }

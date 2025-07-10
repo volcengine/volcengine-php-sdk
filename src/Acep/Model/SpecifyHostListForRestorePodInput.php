@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Tis\Model;
+namespace Volcengine\Acep\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class GetQuotaInfoResponse implements ModelInterface, ArrayAccess
+class SpecifyHostListForRestorePodInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class GetQuotaInfoResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetQuotaInfoResponse';
+    protected static $swaggerModelName = 'SpecifyHostListForRestorePodInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,8 @@ class GetQuotaInfoResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'device_info_list' => '\Volcengine\Tis\Model\DeviceInfoListForGetQuotaInfoOutput',
-        'quota_info_list' => '\Volcengine\Tis\Model\QuotaInfoListForGetQuotaInfoOutput[]'
+        'host_id' => 'string',
+        'pod_id_list' => 'string[]'
     ];
 
     /**
@@ -38,8 +38,8 @@ class GetQuotaInfoResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'device_info_list' => null,
-        'quota_info_list' => null
+        'host_id' => null,
+        'pod_id_list' => null
     ];
 
     /**
@@ -69,8 +69,8 @@ class GetQuotaInfoResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'device_info_list' => 'deviceInfoList',
-        'quota_info_list' => 'quotaInfoList'
+        'host_id' => 'HostId',
+        'pod_id_list' => 'PodIdList'
     ];
 
     /**
@@ -79,8 +79,8 @@ class GetQuotaInfoResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'device_info_list' => 'setDeviceInfoList',
-        'quota_info_list' => 'setQuotaInfoList'
+        'host_id' => 'setHostId',
+        'pod_id_list' => 'setPodIdList'
     ];
 
     /**
@@ -89,8 +89,8 @@ class GetQuotaInfoResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'device_info_list' => 'getDeviceInfoList',
-        'quota_info_list' => 'getQuotaInfoList'
+        'host_id' => 'getHostId',
+        'pod_id_list' => 'getPodIdList'
     ];
 
     /**
@@ -153,8 +153,8 @@ class GetQuotaInfoResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['device_info_list'] = isset($data['device_info_list']) ? $data['device_info_list'] : null;
-        $this->container['quota_info_list'] = isset($data['quota_info_list']) ? $data['quota_info_list'] : null;
+        $this->container['host_id'] = isset($data['host_id']) ? $data['host_id'] : null;
+        $this->container['pod_id_list'] = isset($data['pod_id_list']) ? $data['pod_id_list'] : null;
     }
 
     /**
@@ -182,49 +182,49 @@ class GetQuotaInfoResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets device_info_list
+     * Gets host_id
      *
-     * @return \Volcengine\Tis\Model\DeviceInfoListForGetQuotaInfoOutput
+     * @return string
      */
-    public function getDeviceInfoList()
+    public function getHostId()
     {
-        return $this->container['device_info_list'];
+        return $this->container['host_id'];
     }
 
     /**
-     * Sets device_info_list
+     * Sets host_id
      *
-     * @param \Volcengine\Tis\Model\DeviceInfoListForGetQuotaInfoOutput $device_info_list device_info_list
+     * @param string $host_id host_id
      *
      * @return $this
      */
-    public function setDeviceInfoList($device_info_list)
+    public function setHostId($host_id)
     {
-        $this->container['device_info_list'] = $device_info_list;
+        $this->container['host_id'] = $host_id;
 
         return $this;
     }
 
     /**
-     * Gets quota_info_list
+     * Gets pod_id_list
      *
-     * @return \Volcengine\Tis\Model\QuotaInfoListForGetQuotaInfoOutput[]
+     * @return string[]
      */
-    public function getQuotaInfoList()
+    public function getPodIdList()
     {
-        return $this->container['quota_info_list'];
+        return $this->container['pod_id_list'];
     }
 
     /**
-     * Sets quota_info_list
+     * Sets pod_id_list
      *
-     * @param \Volcengine\Tis\Model\QuotaInfoListForGetQuotaInfoOutput[] $quota_info_list quota_info_list
+     * @param string[] $pod_id_list pod_id_list
      *
      * @return $this
      */
-    public function setQuotaInfoList($quota_info_list)
+    public function setPodIdList($pod_id_list)
     {
-        $this->container['quota_info_list'] = $quota_info_list;
+        $this->container['pod_id_list'] = $pod_id_list;
 
         return $this;
     }
