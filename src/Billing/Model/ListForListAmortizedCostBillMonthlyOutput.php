@@ -38,8 +38,22 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         'before_amortized_original_bill_amount' => 'string',
         'before_amortized_paid_amount' => 'string',
         'before_amortized_payable_amount' => 'string',
+        'before_amortized_posttax_amount' => 'string',
+        'before_amortized_pre_tax_payable_amount' => 'string',
+        'before_amortized_pre_tax_real_value' => 'string',
         'before_amortized_preferential_bill_amount' => 'string',
+        'before_amortized_pretax_amount' => 'string',
+        'before_amortized_real_value' => 'string',
         'before_amortized_round_amount' => 'string',
+        'before_amortized_saving_plan_original_amount' => 'string',
+        'before_amortized_settle_payable_amount' => 'string',
+        'before_amortized_settle_posttax_amount' => 'string',
+        'before_amortized_settle_pre_tax_payable_amount' => 'string',
+        'before_amortized_settle_pre_tax_real_value' => 'string',
+        'before_amortized_settle_pretax_amount' => 'string',
+        'before_amortized_settle_real_value' => 'string',
+        'before_amortized_settle_tax_amount' => 'string',
+        'before_amortized_tax_amount' => 'string',
         'bill_category' => 'string',
         'bill_id' => 'string',
         'bill_period' => 'string',
@@ -50,15 +64,31 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         'business_mode' => 'string',
         'config_name' => 'string',
         'count' => 'string',
+        'country_region' => 'string',
         'coupon_amount' => 'string',
         'currency' => 'string',
+        'currency_settlement' => 'string',
         'daily_amortized_coupon_amount' => 'string',
         'daily_amortized_discount_bill_amount' => 'string',
         'daily_amortized_original_bill_amount' => 'string',
         'daily_amortized_paid_amount' => 'string',
         'daily_amortized_payable_amount' => 'string',
+        'daily_amortized_posttax_amount' => 'string',
+        'daily_amortized_pre_tax_payable_amount' => 'string',
+        'daily_amortized_pre_tax_real_value' => 'string',
         'daily_amortized_preferential_bill_amount' => 'string',
+        'daily_amortized_pretax_amount' => 'string',
+        'daily_amortized_real_value' => 'string',
         'daily_amortized_round_amount' => 'string',
+        'daily_amortized_saving_plan_original_amount' => 'string',
+        'daily_amortized_settle_payable_amount' => 'string',
+        'daily_amortized_settle_posttax_amount' => 'string',
+        'daily_amortized_settle_pre_tax_payable_amount' => 'string',
+        'daily_amortized_settle_pre_tax_real_value' => 'string',
+        'daily_amortized_settle_pretax_amount' => 'string',
+        'daily_amortized_settle_real_value' => 'string',
+        'daily_amortized_settle_tax_amount' => 'string',
+        'daily_amortized_tax_amount' => 'string',
         'deduction_use_duration' => 'string',
         'discount_bill_amount' => 'string',
         'discount_biz_billing_function' => 'string',
@@ -79,8 +109,22 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         'now_amortized_original_bill_amount' => 'string',
         'now_amortized_paid_amount' => 'string',
         'now_amortized_payable_amount' => 'string',
+        'now_amortized_posttax_amount' => 'string',
+        'now_amortized_pre_tax_payable_amount' => 'string',
+        'now_amortized_pre_tax_real_value' => 'string',
         'now_amortized_preferential_bill_amount' => 'string',
+        'now_amortized_pretax_amount' => 'string',
+        'now_amortized_real_value' => 'string',
         'now_amortized_round_amount' => 'string',
+        'now_amortized_saving_plan_original_amount' => 'string',
+        'now_amortized_settle_payable_amount' => 'string',
+        'now_amortized_settle_posttax_amount' => 'string',
+        'now_amortized_settle_pre_tax_payable_amount' => 'string',
+        'now_amortized_settle_pre_tax_real_value' => 'string',
+        'now_amortized_settle_pretax_amount' => 'string',
+        'now_amortized_settle_real_value' => 'string',
+        'now_amortized_settle_tax_amount' => 'string',
+        'now_amortized_tax_amount' => 'string',
         'original_bill_amount' => 'string',
         'owner_customer_name' => 'string',
         'owner_id' => 'string',
@@ -90,7 +134,11 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         'payer_customer_name' => 'string',
         'payer_id' => 'string',
         'payer_user_name' => 'string',
+        'posttax_amount' => 'string',
+        'pre_tax_payable_amount' => 'string',
+        'pre_tax_real_value' => 'string',
         'preferential_bill_amount' => 'string',
+        'pretax_amount' => 'string',
         'price' => 'string',
         'price_interval' => 'string',
         'price_unit' => 'string',
@@ -98,22 +146,47 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         'product_zh' => 'string',
         'project' => 'string',
         'project_display_name' => 'string',
+        'real_value' => 'string',
         'region' => 'string',
         'round_amount' => 'string',
+        'saving_plan_original_amount' => 'string',
         'seller_customer_name' => 'string',
         'seller_id' => 'string',
         'seller_user_name' => 'string',
+        'settle_payable_amount' => 'string',
+        'settle_posttax_amount' => 'string',
+        'settle_pre_tax_payable_amount' => 'string',
+        'settle_pre_tax_real_value' => 'string',
+        'settle_pretax_amount' => 'string',
+        'settle_real_value' => 'string',
+        'settle_tax_amount' => 'string',
         'split_item_id' => 'string',
         'split_item_name' => 'string',
         'subject_name' => 'string',
         'tag' => 'string',
+        'tax' => 'string',
+        'tax_rate' => 'string',
+        'un_amortized_saving_plan_original_amount' => 'string',
         'unamortized_coupon_amount' => 'string',
         'unamortized_discount_bill_amount' => 'string',
         'unamortized_original_bill_amount' => 'string',
         'unamortized_paid_amount' => 'string',
         'unamortized_payable_amount' => 'string',
+        'unamortized_posttax_amount' => 'string',
+        'unamortized_pre_tax_payable_amount' => 'string',
+        'unamortized_pre_tax_real_value' => 'string',
         'unamortized_preferential_bill_amount' => 'string',
+        'unamortized_pretax_amount' => 'string',
+        'unamortized_real_value' => 'string',
         'unamortized_round_amount' => 'string',
+        'unamortized_settle_payable_amount' => 'string',
+        'unamortized_settle_posttax_amount' => 'string',
+        'unamortized_settle_pre_tax_payable_amount' => 'string',
+        'unamortized_settle_pre_tax_real_value' => 'string',
+        'unamortized_settle_pretax_amount' => 'string',
+        'unamortized_settle_real_value' => 'string',
+        'unamortized_settle_tax_amount' => 'string',
+        'unamortized_tax_amount' => 'string',
         'unit' => 'string',
         'use_duration' => 'string',
         'use_duration_unit' => 'string',
@@ -136,8 +209,22 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         'before_amortized_original_bill_amount' => null,
         'before_amortized_paid_amount' => null,
         'before_amortized_payable_amount' => null,
+        'before_amortized_posttax_amount' => null,
+        'before_amortized_pre_tax_payable_amount' => null,
+        'before_amortized_pre_tax_real_value' => null,
         'before_amortized_preferential_bill_amount' => null,
+        'before_amortized_pretax_amount' => null,
+        'before_amortized_real_value' => null,
         'before_amortized_round_amount' => null,
+        'before_amortized_saving_plan_original_amount' => null,
+        'before_amortized_settle_payable_amount' => null,
+        'before_amortized_settle_posttax_amount' => null,
+        'before_amortized_settle_pre_tax_payable_amount' => null,
+        'before_amortized_settle_pre_tax_real_value' => null,
+        'before_amortized_settle_pretax_amount' => null,
+        'before_amortized_settle_real_value' => null,
+        'before_amortized_settle_tax_amount' => null,
+        'before_amortized_tax_amount' => null,
         'bill_category' => null,
         'bill_id' => null,
         'bill_period' => null,
@@ -148,15 +235,31 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         'business_mode' => null,
         'config_name' => null,
         'count' => null,
+        'country_region' => null,
         'coupon_amount' => null,
         'currency' => null,
+        'currency_settlement' => null,
         'daily_amortized_coupon_amount' => null,
         'daily_amortized_discount_bill_amount' => null,
         'daily_amortized_original_bill_amount' => null,
         'daily_amortized_paid_amount' => null,
         'daily_amortized_payable_amount' => null,
+        'daily_amortized_posttax_amount' => null,
+        'daily_amortized_pre_tax_payable_amount' => null,
+        'daily_amortized_pre_tax_real_value' => null,
         'daily_amortized_preferential_bill_amount' => null,
+        'daily_amortized_pretax_amount' => null,
+        'daily_amortized_real_value' => null,
         'daily_amortized_round_amount' => null,
+        'daily_amortized_saving_plan_original_amount' => null,
+        'daily_amortized_settle_payable_amount' => null,
+        'daily_amortized_settle_posttax_amount' => null,
+        'daily_amortized_settle_pre_tax_payable_amount' => null,
+        'daily_amortized_settle_pre_tax_real_value' => null,
+        'daily_amortized_settle_pretax_amount' => null,
+        'daily_amortized_settle_real_value' => null,
+        'daily_amortized_settle_tax_amount' => null,
+        'daily_amortized_tax_amount' => null,
         'deduction_use_duration' => null,
         'discount_bill_amount' => null,
         'discount_biz_billing_function' => null,
@@ -177,8 +280,22 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         'now_amortized_original_bill_amount' => null,
         'now_amortized_paid_amount' => null,
         'now_amortized_payable_amount' => null,
+        'now_amortized_posttax_amount' => null,
+        'now_amortized_pre_tax_payable_amount' => null,
+        'now_amortized_pre_tax_real_value' => null,
         'now_amortized_preferential_bill_amount' => null,
+        'now_amortized_pretax_amount' => null,
+        'now_amortized_real_value' => null,
         'now_amortized_round_amount' => null,
+        'now_amortized_saving_plan_original_amount' => null,
+        'now_amortized_settle_payable_amount' => null,
+        'now_amortized_settle_posttax_amount' => null,
+        'now_amortized_settle_pre_tax_payable_amount' => null,
+        'now_amortized_settle_pre_tax_real_value' => null,
+        'now_amortized_settle_pretax_amount' => null,
+        'now_amortized_settle_real_value' => null,
+        'now_amortized_settle_tax_amount' => null,
+        'now_amortized_tax_amount' => null,
         'original_bill_amount' => null,
         'owner_customer_name' => null,
         'owner_id' => null,
@@ -188,7 +305,11 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         'payer_customer_name' => null,
         'payer_id' => null,
         'payer_user_name' => null,
+        'posttax_amount' => null,
+        'pre_tax_payable_amount' => null,
+        'pre_tax_real_value' => null,
         'preferential_bill_amount' => null,
+        'pretax_amount' => null,
         'price' => null,
         'price_interval' => null,
         'price_unit' => null,
@@ -196,22 +317,47 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         'product_zh' => null,
         'project' => null,
         'project_display_name' => null,
+        'real_value' => null,
         'region' => null,
         'round_amount' => null,
+        'saving_plan_original_amount' => null,
         'seller_customer_name' => null,
         'seller_id' => null,
         'seller_user_name' => null,
+        'settle_payable_amount' => null,
+        'settle_posttax_amount' => null,
+        'settle_pre_tax_payable_amount' => null,
+        'settle_pre_tax_real_value' => null,
+        'settle_pretax_amount' => null,
+        'settle_real_value' => null,
+        'settle_tax_amount' => null,
         'split_item_id' => null,
         'split_item_name' => null,
         'subject_name' => null,
         'tag' => null,
+        'tax' => null,
+        'tax_rate' => null,
+        'un_amortized_saving_plan_original_amount' => null,
         'unamortized_coupon_amount' => null,
         'unamortized_discount_bill_amount' => null,
         'unamortized_original_bill_amount' => null,
         'unamortized_paid_amount' => null,
         'unamortized_payable_amount' => null,
+        'unamortized_posttax_amount' => null,
+        'unamortized_pre_tax_payable_amount' => null,
+        'unamortized_pre_tax_real_value' => null,
         'unamortized_preferential_bill_amount' => null,
+        'unamortized_pretax_amount' => null,
+        'unamortized_real_value' => null,
         'unamortized_round_amount' => null,
+        'unamortized_settle_payable_amount' => null,
+        'unamortized_settle_posttax_amount' => null,
+        'unamortized_settle_pre_tax_payable_amount' => null,
+        'unamortized_settle_pre_tax_real_value' => null,
+        'unamortized_settle_pretax_amount' => null,
+        'unamortized_settle_real_value' => null,
+        'unamortized_settle_tax_amount' => null,
+        'unamortized_tax_amount' => null,
         'unit' => null,
         'use_duration' => null,
         'use_duration_unit' => null,
@@ -255,8 +401,22 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         'before_amortized_original_bill_amount' => 'BeforeAmortizedOriginalBillAmount',
         'before_amortized_paid_amount' => 'BeforeAmortizedPaidAmount',
         'before_amortized_payable_amount' => 'BeforeAmortizedPayableAmount',
+        'before_amortized_posttax_amount' => 'BeforeAmortizedPosttaxAmount',
+        'before_amortized_pre_tax_payable_amount' => 'BeforeAmortizedPreTaxPayableAmount',
+        'before_amortized_pre_tax_real_value' => 'BeforeAmortizedPreTaxRealValue',
         'before_amortized_preferential_bill_amount' => 'BeforeAmortizedPreferentialBillAmount',
+        'before_amortized_pretax_amount' => 'BeforeAmortizedPretaxAmount',
+        'before_amortized_real_value' => 'BeforeAmortizedRealValue',
         'before_amortized_round_amount' => 'BeforeAmortizedRoundAmount',
+        'before_amortized_saving_plan_original_amount' => 'BeforeAmortizedSavingPlanOriginalAmount',
+        'before_amortized_settle_payable_amount' => 'BeforeAmortizedSettlePayableAmount',
+        'before_amortized_settle_posttax_amount' => 'BeforeAmortizedSettlePosttaxAmount',
+        'before_amortized_settle_pre_tax_payable_amount' => 'BeforeAmortizedSettlePreTaxPayableAmount',
+        'before_amortized_settle_pre_tax_real_value' => 'BeforeAmortizedSettlePreTaxRealValue',
+        'before_amortized_settle_pretax_amount' => 'BeforeAmortizedSettlePretaxAmount',
+        'before_amortized_settle_real_value' => 'BeforeAmortizedSettleRealValue',
+        'before_amortized_settle_tax_amount' => 'BeforeAmortizedSettleTaxAmount',
+        'before_amortized_tax_amount' => 'BeforeAmortizedTaxAmount',
         'bill_category' => 'BillCategory',
         'bill_id' => 'BillID',
         'bill_period' => 'BillPeriod',
@@ -267,15 +427,31 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         'business_mode' => 'BusinessMode',
         'config_name' => 'ConfigName',
         'count' => 'Count',
+        'country_region' => 'CountryRegion',
         'coupon_amount' => 'CouponAmount',
         'currency' => 'Currency',
+        'currency_settlement' => 'CurrencySettlement',
         'daily_amortized_coupon_amount' => 'DailyAmortizedCouponAmount',
         'daily_amortized_discount_bill_amount' => 'DailyAmortizedDiscountBillAmount',
         'daily_amortized_original_bill_amount' => 'DailyAmortizedOriginalBillAmount',
         'daily_amortized_paid_amount' => 'DailyAmortizedPaidAmount',
         'daily_amortized_payable_amount' => 'DailyAmortizedPayableAmount',
+        'daily_amortized_posttax_amount' => 'DailyAmortizedPosttaxAmount',
+        'daily_amortized_pre_tax_payable_amount' => 'DailyAmortizedPreTaxPayableAmount',
+        'daily_amortized_pre_tax_real_value' => 'DailyAmortizedPreTaxRealValue',
         'daily_amortized_preferential_bill_amount' => 'DailyAmortizedPreferentialBillAmount',
+        'daily_amortized_pretax_amount' => 'DailyAmortizedPretaxAmount',
+        'daily_amortized_real_value' => 'DailyAmortizedRealValue',
         'daily_amortized_round_amount' => 'DailyAmortizedRoundAmount',
+        'daily_amortized_saving_plan_original_amount' => 'DailyAmortizedSavingPlanOriginalAmount',
+        'daily_amortized_settle_payable_amount' => 'DailyAmortizedSettlePayableAmount',
+        'daily_amortized_settle_posttax_amount' => 'DailyAmortizedSettlePosttaxAmount',
+        'daily_amortized_settle_pre_tax_payable_amount' => 'DailyAmortizedSettlePreTaxPayableAmount',
+        'daily_amortized_settle_pre_tax_real_value' => 'DailyAmortizedSettlePreTaxRealValue',
+        'daily_amortized_settle_pretax_amount' => 'DailyAmortizedSettlePretaxAmount',
+        'daily_amortized_settle_real_value' => 'DailyAmortizedSettleRealValue',
+        'daily_amortized_settle_tax_amount' => 'DailyAmortizedSettleTaxAmount',
+        'daily_amortized_tax_amount' => 'DailyAmortizedTaxAmount',
         'deduction_use_duration' => 'DeductionUseDuration',
         'discount_bill_amount' => 'DiscountBillAmount',
         'discount_biz_billing_function' => 'DiscountBizBillingFunction',
@@ -296,8 +472,22 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         'now_amortized_original_bill_amount' => 'NowAmortizedOriginalBillAmount',
         'now_amortized_paid_amount' => 'NowAmortizedPaidAmount',
         'now_amortized_payable_amount' => 'NowAmortizedPayableAmount',
+        'now_amortized_posttax_amount' => 'NowAmortizedPosttaxAmount',
+        'now_amortized_pre_tax_payable_amount' => 'NowAmortizedPreTaxPayableAmount',
+        'now_amortized_pre_tax_real_value' => 'NowAmortizedPreTaxRealValue',
         'now_amortized_preferential_bill_amount' => 'NowAmortizedPreferentialBillAmount',
+        'now_amortized_pretax_amount' => 'NowAmortizedPretaxAmount',
+        'now_amortized_real_value' => 'NowAmortizedRealValue',
         'now_amortized_round_amount' => 'NowAmortizedRoundAmount',
+        'now_amortized_saving_plan_original_amount' => 'NowAmortizedSavingPlanOriginalAmount',
+        'now_amortized_settle_payable_amount' => 'NowAmortizedSettlePayableAmount',
+        'now_amortized_settle_posttax_amount' => 'NowAmortizedSettlePosttaxAmount',
+        'now_amortized_settle_pre_tax_payable_amount' => 'NowAmortizedSettlePreTaxPayableAmount',
+        'now_amortized_settle_pre_tax_real_value' => 'NowAmortizedSettlePreTaxRealValue',
+        'now_amortized_settle_pretax_amount' => 'NowAmortizedSettlePretaxAmount',
+        'now_amortized_settle_real_value' => 'NowAmortizedSettleRealValue',
+        'now_amortized_settle_tax_amount' => 'NowAmortizedSettleTaxAmount',
+        'now_amortized_tax_amount' => 'NowAmortizedTaxAmount',
         'original_bill_amount' => 'OriginalBillAmount',
         'owner_customer_name' => 'OwnerCustomerName',
         'owner_id' => 'OwnerID',
@@ -307,7 +497,11 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         'payer_customer_name' => 'PayerCustomerName',
         'payer_id' => 'PayerID',
         'payer_user_name' => 'PayerUserName',
+        'posttax_amount' => 'PosttaxAmount',
+        'pre_tax_payable_amount' => 'PreTaxPayableAmount',
+        'pre_tax_real_value' => 'PreTaxRealValue',
         'preferential_bill_amount' => 'PreferentialBillAmount',
+        'pretax_amount' => 'PretaxAmount',
         'price' => 'Price',
         'price_interval' => 'PriceInterval',
         'price_unit' => 'PriceUnit',
@@ -315,22 +509,47 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         'product_zh' => 'ProductZh',
         'project' => 'Project',
         'project_display_name' => 'ProjectDisplayName',
+        'real_value' => 'RealValue',
         'region' => 'Region',
         'round_amount' => 'RoundAmount',
+        'saving_plan_original_amount' => 'SavingPlanOriginalAmount',
         'seller_customer_name' => 'SellerCustomerName',
         'seller_id' => 'SellerID',
         'seller_user_name' => 'SellerUserName',
+        'settle_payable_amount' => 'SettlePayableAmount',
+        'settle_posttax_amount' => 'SettlePosttaxAmount',
+        'settle_pre_tax_payable_amount' => 'SettlePreTaxPayableAmount',
+        'settle_pre_tax_real_value' => 'SettlePreTaxRealValue',
+        'settle_pretax_amount' => 'SettlePretaxAmount',
+        'settle_real_value' => 'SettleRealValue',
+        'settle_tax_amount' => 'SettleTaxAmount',
         'split_item_id' => 'SplitItemID',
         'split_item_name' => 'SplitItemName',
         'subject_name' => 'SubjectName',
         'tag' => 'Tag',
+        'tax' => 'Tax',
+        'tax_rate' => 'TaxRate',
+        'un_amortized_saving_plan_original_amount' => 'UnAmortizedSavingPlanOriginalAmount',
         'unamortized_coupon_amount' => 'UnamortizedCouponAmount',
         'unamortized_discount_bill_amount' => 'UnamortizedDiscountBillAmount',
         'unamortized_original_bill_amount' => 'UnamortizedOriginalBillAmount',
         'unamortized_paid_amount' => 'UnamortizedPaidAmount',
         'unamortized_payable_amount' => 'UnamortizedPayableAmount',
+        'unamortized_posttax_amount' => 'UnamortizedPosttaxAmount',
+        'unamortized_pre_tax_payable_amount' => 'UnamortizedPreTaxPayableAmount',
+        'unamortized_pre_tax_real_value' => 'UnamortizedPreTaxRealValue',
         'unamortized_preferential_bill_amount' => 'UnamortizedPreferentialBillAmount',
+        'unamortized_pretax_amount' => 'UnamortizedPretaxAmount',
+        'unamortized_real_value' => 'UnamortizedRealValue',
         'unamortized_round_amount' => 'UnamortizedRoundAmount',
+        'unamortized_settle_payable_amount' => 'UnamortizedSettlePayableAmount',
+        'unamortized_settle_posttax_amount' => 'UnamortizedSettlePosttaxAmount',
+        'unamortized_settle_pre_tax_payable_amount' => 'UnamortizedSettlePreTaxPayableAmount',
+        'unamortized_settle_pre_tax_real_value' => 'UnamortizedSettlePreTaxRealValue',
+        'unamortized_settle_pretax_amount' => 'UnamortizedSettlePretaxAmount',
+        'unamortized_settle_real_value' => 'UnamortizedSettleRealValue',
+        'unamortized_settle_tax_amount' => 'UnamortizedSettleTaxAmount',
+        'unamortized_tax_amount' => 'UnamortizedTaxAmount',
         'unit' => 'Unit',
         'use_duration' => 'UseDuration',
         'use_duration_unit' => 'UseDurationUnit',
@@ -353,8 +572,22 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         'before_amortized_original_bill_amount' => 'setBeforeAmortizedOriginalBillAmount',
         'before_amortized_paid_amount' => 'setBeforeAmortizedPaidAmount',
         'before_amortized_payable_amount' => 'setBeforeAmortizedPayableAmount',
+        'before_amortized_posttax_amount' => 'setBeforeAmortizedPosttaxAmount',
+        'before_amortized_pre_tax_payable_amount' => 'setBeforeAmortizedPreTaxPayableAmount',
+        'before_amortized_pre_tax_real_value' => 'setBeforeAmortizedPreTaxRealValue',
         'before_amortized_preferential_bill_amount' => 'setBeforeAmortizedPreferentialBillAmount',
+        'before_amortized_pretax_amount' => 'setBeforeAmortizedPretaxAmount',
+        'before_amortized_real_value' => 'setBeforeAmortizedRealValue',
         'before_amortized_round_amount' => 'setBeforeAmortizedRoundAmount',
+        'before_amortized_saving_plan_original_amount' => 'setBeforeAmortizedSavingPlanOriginalAmount',
+        'before_amortized_settle_payable_amount' => 'setBeforeAmortizedSettlePayableAmount',
+        'before_amortized_settle_posttax_amount' => 'setBeforeAmortizedSettlePosttaxAmount',
+        'before_amortized_settle_pre_tax_payable_amount' => 'setBeforeAmortizedSettlePreTaxPayableAmount',
+        'before_amortized_settle_pre_tax_real_value' => 'setBeforeAmortizedSettlePreTaxRealValue',
+        'before_amortized_settle_pretax_amount' => 'setBeforeAmortizedSettlePretaxAmount',
+        'before_amortized_settle_real_value' => 'setBeforeAmortizedSettleRealValue',
+        'before_amortized_settle_tax_amount' => 'setBeforeAmortizedSettleTaxAmount',
+        'before_amortized_tax_amount' => 'setBeforeAmortizedTaxAmount',
         'bill_category' => 'setBillCategory',
         'bill_id' => 'setBillId',
         'bill_period' => 'setBillPeriod',
@@ -365,15 +598,31 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         'business_mode' => 'setBusinessMode',
         'config_name' => 'setConfigName',
         'count' => 'setCount',
+        'country_region' => 'setCountryRegion',
         'coupon_amount' => 'setCouponAmount',
         'currency' => 'setCurrency',
+        'currency_settlement' => 'setCurrencySettlement',
         'daily_amortized_coupon_amount' => 'setDailyAmortizedCouponAmount',
         'daily_amortized_discount_bill_amount' => 'setDailyAmortizedDiscountBillAmount',
         'daily_amortized_original_bill_amount' => 'setDailyAmortizedOriginalBillAmount',
         'daily_amortized_paid_amount' => 'setDailyAmortizedPaidAmount',
         'daily_amortized_payable_amount' => 'setDailyAmortizedPayableAmount',
+        'daily_amortized_posttax_amount' => 'setDailyAmortizedPosttaxAmount',
+        'daily_amortized_pre_tax_payable_amount' => 'setDailyAmortizedPreTaxPayableAmount',
+        'daily_amortized_pre_tax_real_value' => 'setDailyAmortizedPreTaxRealValue',
         'daily_amortized_preferential_bill_amount' => 'setDailyAmortizedPreferentialBillAmount',
+        'daily_amortized_pretax_amount' => 'setDailyAmortizedPretaxAmount',
+        'daily_amortized_real_value' => 'setDailyAmortizedRealValue',
         'daily_amortized_round_amount' => 'setDailyAmortizedRoundAmount',
+        'daily_amortized_saving_plan_original_amount' => 'setDailyAmortizedSavingPlanOriginalAmount',
+        'daily_amortized_settle_payable_amount' => 'setDailyAmortizedSettlePayableAmount',
+        'daily_amortized_settle_posttax_amount' => 'setDailyAmortizedSettlePosttaxAmount',
+        'daily_amortized_settle_pre_tax_payable_amount' => 'setDailyAmortizedSettlePreTaxPayableAmount',
+        'daily_amortized_settle_pre_tax_real_value' => 'setDailyAmortizedSettlePreTaxRealValue',
+        'daily_amortized_settle_pretax_amount' => 'setDailyAmortizedSettlePretaxAmount',
+        'daily_amortized_settle_real_value' => 'setDailyAmortizedSettleRealValue',
+        'daily_amortized_settle_tax_amount' => 'setDailyAmortizedSettleTaxAmount',
+        'daily_amortized_tax_amount' => 'setDailyAmortizedTaxAmount',
         'deduction_use_duration' => 'setDeductionUseDuration',
         'discount_bill_amount' => 'setDiscountBillAmount',
         'discount_biz_billing_function' => 'setDiscountBizBillingFunction',
@@ -394,8 +643,22 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         'now_amortized_original_bill_amount' => 'setNowAmortizedOriginalBillAmount',
         'now_amortized_paid_amount' => 'setNowAmortizedPaidAmount',
         'now_amortized_payable_amount' => 'setNowAmortizedPayableAmount',
+        'now_amortized_posttax_amount' => 'setNowAmortizedPosttaxAmount',
+        'now_amortized_pre_tax_payable_amount' => 'setNowAmortizedPreTaxPayableAmount',
+        'now_amortized_pre_tax_real_value' => 'setNowAmortizedPreTaxRealValue',
         'now_amortized_preferential_bill_amount' => 'setNowAmortizedPreferentialBillAmount',
+        'now_amortized_pretax_amount' => 'setNowAmortizedPretaxAmount',
+        'now_amortized_real_value' => 'setNowAmortizedRealValue',
         'now_amortized_round_amount' => 'setNowAmortizedRoundAmount',
+        'now_amortized_saving_plan_original_amount' => 'setNowAmortizedSavingPlanOriginalAmount',
+        'now_amortized_settle_payable_amount' => 'setNowAmortizedSettlePayableAmount',
+        'now_amortized_settle_posttax_amount' => 'setNowAmortizedSettlePosttaxAmount',
+        'now_amortized_settle_pre_tax_payable_amount' => 'setNowAmortizedSettlePreTaxPayableAmount',
+        'now_amortized_settle_pre_tax_real_value' => 'setNowAmortizedSettlePreTaxRealValue',
+        'now_amortized_settle_pretax_amount' => 'setNowAmortizedSettlePretaxAmount',
+        'now_amortized_settle_real_value' => 'setNowAmortizedSettleRealValue',
+        'now_amortized_settle_tax_amount' => 'setNowAmortizedSettleTaxAmount',
+        'now_amortized_tax_amount' => 'setNowAmortizedTaxAmount',
         'original_bill_amount' => 'setOriginalBillAmount',
         'owner_customer_name' => 'setOwnerCustomerName',
         'owner_id' => 'setOwnerId',
@@ -405,7 +668,11 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         'payer_customer_name' => 'setPayerCustomerName',
         'payer_id' => 'setPayerId',
         'payer_user_name' => 'setPayerUserName',
+        'posttax_amount' => 'setPosttaxAmount',
+        'pre_tax_payable_amount' => 'setPreTaxPayableAmount',
+        'pre_tax_real_value' => 'setPreTaxRealValue',
         'preferential_bill_amount' => 'setPreferentialBillAmount',
+        'pretax_amount' => 'setPretaxAmount',
         'price' => 'setPrice',
         'price_interval' => 'setPriceInterval',
         'price_unit' => 'setPriceUnit',
@@ -413,22 +680,47 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         'product_zh' => 'setProductZh',
         'project' => 'setProject',
         'project_display_name' => 'setProjectDisplayName',
+        'real_value' => 'setRealValue',
         'region' => 'setRegion',
         'round_amount' => 'setRoundAmount',
+        'saving_plan_original_amount' => 'setSavingPlanOriginalAmount',
         'seller_customer_name' => 'setSellerCustomerName',
         'seller_id' => 'setSellerId',
         'seller_user_name' => 'setSellerUserName',
+        'settle_payable_amount' => 'setSettlePayableAmount',
+        'settle_posttax_amount' => 'setSettlePosttaxAmount',
+        'settle_pre_tax_payable_amount' => 'setSettlePreTaxPayableAmount',
+        'settle_pre_tax_real_value' => 'setSettlePreTaxRealValue',
+        'settle_pretax_amount' => 'setSettlePretaxAmount',
+        'settle_real_value' => 'setSettleRealValue',
+        'settle_tax_amount' => 'setSettleTaxAmount',
         'split_item_id' => 'setSplitItemId',
         'split_item_name' => 'setSplitItemName',
         'subject_name' => 'setSubjectName',
         'tag' => 'setTag',
+        'tax' => 'setTax',
+        'tax_rate' => 'setTaxRate',
+        'un_amortized_saving_plan_original_amount' => 'setUnAmortizedSavingPlanOriginalAmount',
         'unamortized_coupon_amount' => 'setUnamortizedCouponAmount',
         'unamortized_discount_bill_amount' => 'setUnamortizedDiscountBillAmount',
         'unamortized_original_bill_amount' => 'setUnamortizedOriginalBillAmount',
         'unamortized_paid_amount' => 'setUnamortizedPaidAmount',
         'unamortized_payable_amount' => 'setUnamortizedPayableAmount',
+        'unamortized_posttax_amount' => 'setUnamortizedPosttaxAmount',
+        'unamortized_pre_tax_payable_amount' => 'setUnamortizedPreTaxPayableAmount',
+        'unamortized_pre_tax_real_value' => 'setUnamortizedPreTaxRealValue',
         'unamortized_preferential_bill_amount' => 'setUnamortizedPreferentialBillAmount',
+        'unamortized_pretax_amount' => 'setUnamortizedPretaxAmount',
+        'unamortized_real_value' => 'setUnamortizedRealValue',
         'unamortized_round_amount' => 'setUnamortizedRoundAmount',
+        'unamortized_settle_payable_amount' => 'setUnamortizedSettlePayableAmount',
+        'unamortized_settle_posttax_amount' => 'setUnamortizedSettlePosttaxAmount',
+        'unamortized_settle_pre_tax_payable_amount' => 'setUnamortizedSettlePreTaxPayableAmount',
+        'unamortized_settle_pre_tax_real_value' => 'setUnamortizedSettlePreTaxRealValue',
+        'unamortized_settle_pretax_amount' => 'setUnamortizedSettlePretaxAmount',
+        'unamortized_settle_real_value' => 'setUnamortizedSettleRealValue',
+        'unamortized_settle_tax_amount' => 'setUnamortizedSettleTaxAmount',
+        'unamortized_tax_amount' => 'setUnamortizedTaxAmount',
         'unit' => 'setUnit',
         'use_duration' => 'setUseDuration',
         'use_duration_unit' => 'setUseDurationUnit',
@@ -451,8 +743,22 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         'before_amortized_original_bill_amount' => 'getBeforeAmortizedOriginalBillAmount',
         'before_amortized_paid_amount' => 'getBeforeAmortizedPaidAmount',
         'before_amortized_payable_amount' => 'getBeforeAmortizedPayableAmount',
+        'before_amortized_posttax_amount' => 'getBeforeAmortizedPosttaxAmount',
+        'before_amortized_pre_tax_payable_amount' => 'getBeforeAmortizedPreTaxPayableAmount',
+        'before_amortized_pre_tax_real_value' => 'getBeforeAmortizedPreTaxRealValue',
         'before_amortized_preferential_bill_amount' => 'getBeforeAmortizedPreferentialBillAmount',
+        'before_amortized_pretax_amount' => 'getBeforeAmortizedPretaxAmount',
+        'before_amortized_real_value' => 'getBeforeAmortizedRealValue',
         'before_amortized_round_amount' => 'getBeforeAmortizedRoundAmount',
+        'before_amortized_saving_plan_original_amount' => 'getBeforeAmortizedSavingPlanOriginalAmount',
+        'before_amortized_settle_payable_amount' => 'getBeforeAmortizedSettlePayableAmount',
+        'before_amortized_settle_posttax_amount' => 'getBeforeAmortizedSettlePosttaxAmount',
+        'before_amortized_settle_pre_tax_payable_amount' => 'getBeforeAmortizedSettlePreTaxPayableAmount',
+        'before_amortized_settle_pre_tax_real_value' => 'getBeforeAmortizedSettlePreTaxRealValue',
+        'before_amortized_settle_pretax_amount' => 'getBeforeAmortizedSettlePretaxAmount',
+        'before_amortized_settle_real_value' => 'getBeforeAmortizedSettleRealValue',
+        'before_amortized_settle_tax_amount' => 'getBeforeAmortizedSettleTaxAmount',
+        'before_amortized_tax_amount' => 'getBeforeAmortizedTaxAmount',
         'bill_category' => 'getBillCategory',
         'bill_id' => 'getBillId',
         'bill_period' => 'getBillPeriod',
@@ -463,15 +769,31 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         'business_mode' => 'getBusinessMode',
         'config_name' => 'getConfigName',
         'count' => 'getCount',
+        'country_region' => 'getCountryRegion',
         'coupon_amount' => 'getCouponAmount',
         'currency' => 'getCurrency',
+        'currency_settlement' => 'getCurrencySettlement',
         'daily_amortized_coupon_amount' => 'getDailyAmortizedCouponAmount',
         'daily_amortized_discount_bill_amount' => 'getDailyAmortizedDiscountBillAmount',
         'daily_amortized_original_bill_amount' => 'getDailyAmortizedOriginalBillAmount',
         'daily_amortized_paid_amount' => 'getDailyAmortizedPaidAmount',
         'daily_amortized_payable_amount' => 'getDailyAmortizedPayableAmount',
+        'daily_amortized_posttax_amount' => 'getDailyAmortizedPosttaxAmount',
+        'daily_amortized_pre_tax_payable_amount' => 'getDailyAmortizedPreTaxPayableAmount',
+        'daily_amortized_pre_tax_real_value' => 'getDailyAmortizedPreTaxRealValue',
         'daily_amortized_preferential_bill_amount' => 'getDailyAmortizedPreferentialBillAmount',
+        'daily_amortized_pretax_amount' => 'getDailyAmortizedPretaxAmount',
+        'daily_amortized_real_value' => 'getDailyAmortizedRealValue',
         'daily_amortized_round_amount' => 'getDailyAmortizedRoundAmount',
+        'daily_amortized_saving_plan_original_amount' => 'getDailyAmortizedSavingPlanOriginalAmount',
+        'daily_amortized_settle_payable_amount' => 'getDailyAmortizedSettlePayableAmount',
+        'daily_amortized_settle_posttax_amount' => 'getDailyAmortizedSettlePosttaxAmount',
+        'daily_amortized_settle_pre_tax_payable_amount' => 'getDailyAmortizedSettlePreTaxPayableAmount',
+        'daily_amortized_settle_pre_tax_real_value' => 'getDailyAmortizedSettlePreTaxRealValue',
+        'daily_amortized_settle_pretax_amount' => 'getDailyAmortizedSettlePretaxAmount',
+        'daily_amortized_settle_real_value' => 'getDailyAmortizedSettleRealValue',
+        'daily_amortized_settle_tax_amount' => 'getDailyAmortizedSettleTaxAmount',
+        'daily_amortized_tax_amount' => 'getDailyAmortizedTaxAmount',
         'deduction_use_duration' => 'getDeductionUseDuration',
         'discount_bill_amount' => 'getDiscountBillAmount',
         'discount_biz_billing_function' => 'getDiscountBizBillingFunction',
@@ -492,8 +814,22 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         'now_amortized_original_bill_amount' => 'getNowAmortizedOriginalBillAmount',
         'now_amortized_paid_amount' => 'getNowAmortizedPaidAmount',
         'now_amortized_payable_amount' => 'getNowAmortizedPayableAmount',
+        'now_amortized_posttax_amount' => 'getNowAmortizedPosttaxAmount',
+        'now_amortized_pre_tax_payable_amount' => 'getNowAmortizedPreTaxPayableAmount',
+        'now_amortized_pre_tax_real_value' => 'getNowAmortizedPreTaxRealValue',
         'now_amortized_preferential_bill_amount' => 'getNowAmortizedPreferentialBillAmount',
+        'now_amortized_pretax_amount' => 'getNowAmortizedPretaxAmount',
+        'now_amortized_real_value' => 'getNowAmortizedRealValue',
         'now_amortized_round_amount' => 'getNowAmortizedRoundAmount',
+        'now_amortized_saving_plan_original_amount' => 'getNowAmortizedSavingPlanOriginalAmount',
+        'now_amortized_settle_payable_amount' => 'getNowAmortizedSettlePayableAmount',
+        'now_amortized_settle_posttax_amount' => 'getNowAmortizedSettlePosttaxAmount',
+        'now_amortized_settle_pre_tax_payable_amount' => 'getNowAmortizedSettlePreTaxPayableAmount',
+        'now_amortized_settle_pre_tax_real_value' => 'getNowAmortizedSettlePreTaxRealValue',
+        'now_amortized_settle_pretax_amount' => 'getNowAmortizedSettlePretaxAmount',
+        'now_amortized_settle_real_value' => 'getNowAmortizedSettleRealValue',
+        'now_amortized_settle_tax_amount' => 'getNowAmortizedSettleTaxAmount',
+        'now_amortized_tax_amount' => 'getNowAmortizedTaxAmount',
         'original_bill_amount' => 'getOriginalBillAmount',
         'owner_customer_name' => 'getOwnerCustomerName',
         'owner_id' => 'getOwnerId',
@@ -503,7 +839,11 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         'payer_customer_name' => 'getPayerCustomerName',
         'payer_id' => 'getPayerId',
         'payer_user_name' => 'getPayerUserName',
+        'posttax_amount' => 'getPosttaxAmount',
+        'pre_tax_payable_amount' => 'getPreTaxPayableAmount',
+        'pre_tax_real_value' => 'getPreTaxRealValue',
         'preferential_bill_amount' => 'getPreferentialBillAmount',
+        'pretax_amount' => 'getPretaxAmount',
         'price' => 'getPrice',
         'price_interval' => 'getPriceInterval',
         'price_unit' => 'getPriceUnit',
@@ -511,22 +851,47 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         'product_zh' => 'getProductZh',
         'project' => 'getProject',
         'project_display_name' => 'getProjectDisplayName',
+        'real_value' => 'getRealValue',
         'region' => 'getRegion',
         'round_amount' => 'getRoundAmount',
+        'saving_plan_original_amount' => 'getSavingPlanOriginalAmount',
         'seller_customer_name' => 'getSellerCustomerName',
         'seller_id' => 'getSellerId',
         'seller_user_name' => 'getSellerUserName',
+        'settle_payable_amount' => 'getSettlePayableAmount',
+        'settle_posttax_amount' => 'getSettlePosttaxAmount',
+        'settle_pre_tax_payable_amount' => 'getSettlePreTaxPayableAmount',
+        'settle_pre_tax_real_value' => 'getSettlePreTaxRealValue',
+        'settle_pretax_amount' => 'getSettlePretaxAmount',
+        'settle_real_value' => 'getSettleRealValue',
+        'settle_tax_amount' => 'getSettleTaxAmount',
         'split_item_id' => 'getSplitItemId',
         'split_item_name' => 'getSplitItemName',
         'subject_name' => 'getSubjectName',
         'tag' => 'getTag',
+        'tax' => 'getTax',
+        'tax_rate' => 'getTaxRate',
+        'un_amortized_saving_plan_original_amount' => 'getUnAmortizedSavingPlanOriginalAmount',
         'unamortized_coupon_amount' => 'getUnamortizedCouponAmount',
         'unamortized_discount_bill_amount' => 'getUnamortizedDiscountBillAmount',
         'unamortized_original_bill_amount' => 'getUnamortizedOriginalBillAmount',
         'unamortized_paid_amount' => 'getUnamortizedPaidAmount',
         'unamortized_payable_amount' => 'getUnamortizedPayableAmount',
+        'unamortized_posttax_amount' => 'getUnamortizedPosttaxAmount',
+        'unamortized_pre_tax_payable_amount' => 'getUnamortizedPreTaxPayableAmount',
+        'unamortized_pre_tax_real_value' => 'getUnamortizedPreTaxRealValue',
         'unamortized_preferential_bill_amount' => 'getUnamortizedPreferentialBillAmount',
+        'unamortized_pretax_amount' => 'getUnamortizedPretaxAmount',
+        'unamortized_real_value' => 'getUnamortizedRealValue',
         'unamortized_round_amount' => 'getUnamortizedRoundAmount',
+        'unamortized_settle_payable_amount' => 'getUnamortizedSettlePayableAmount',
+        'unamortized_settle_posttax_amount' => 'getUnamortizedSettlePosttaxAmount',
+        'unamortized_settle_pre_tax_payable_amount' => 'getUnamortizedSettlePreTaxPayableAmount',
+        'unamortized_settle_pre_tax_real_value' => 'getUnamortizedSettlePreTaxRealValue',
+        'unamortized_settle_pretax_amount' => 'getUnamortizedSettlePretaxAmount',
+        'unamortized_settle_real_value' => 'getUnamortizedSettleRealValue',
+        'unamortized_settle_tax_amount' => 'getUnamortizedSettleTaxAmount',
+        'unamortized_tax_amount' => 'getUnamortizedTaxAmount',
         'unit' => 'getUnit',
         'use_duration' => 'getUseDuration',
         'use_duration_unit' => 'getUseDurationUnit',
@@ -603,8 +968,22 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         $this->container['before_amortized_original_bill_amount'] = isset($data['before_amortized_original_bill_amount']) ? $data['before_amortized_original_bill_amount'] : null;
         $this->container['before_amortized_paid_amount'] = isset($data['before_amortized_paid_amount']) ? $data['before_amortized_paid_amount'] : null;
         $this->container['before_amortized_payable_amount'] = isset($data['before_amortized_payable_amount']) ? $data['before_amortized_payable_amount'] : null;
+        $this->container['before_amortized_posttax_amount'] = isset($data['before_amortized_posttax_amount']) ? $data['before_amortized_posttax_amount'] : null;
+        $this->container['before_amortized_pre_tax_payable_amount'] = isset($data['before_amortized_pre_tax_payable_amount']) ? $data['before_amortized_pre_tax_payable_amount'] : null;
+        $this->container['before_amortized_pre_tax_real_value'] = isset($data['before_amortized_pre_tax_real_value']) ? $data['before_amortized_pre_tax_real_value'] : null;
         $this->container['before_amortized_preferential_bill_amount'] = isset($data['before_amortized_preferential_bill_amount']) ? $data['before_amortized_preferential_bill_amount'] : null;
+        $this->container['before_amortized_pretax_amount'] = isset($data['before_amortized_pretax_amount']) ? $data['before_amortized_pretax_amount'] : null;
+        $this->container['before_amortized_real_value'] = isset($data['before_amortized_real_value']) ? $data['before_amortized_real_value'] : null;
         $this->container['before_amortized_round_amount'] = isset($data['before_amortized_round_amount']) ? $data['before_amortized_round_amount'] : null;
+        $this->container['before_amortized_saving_plan_original_amount'] = isset($data['before_amortized_saving_plan_original_amount']) ? $data['before_amortized_saving_plan_original_amount'] : null;
+        $this->container['before_amortized_settle_payable_amount'] = isset($data['before_amortized_settle_payable_amount']) ? $data['before_amortized_settle_payable_amount'] : null;
+        $this->container['before_amortized_settle_posttax_amount'] = isset($data['before_amortized_settle_posttax_amount']) ? $data['before_amortized_settle_posttax_amount'] : null;
+        $this->container['before_amortized_settle_pre_tax_payable_amount'] = isset($data['before_amortized_settle_pre_tax_payable_amount']) ? $data['before_amortized_settle_pre_tax_payable_amount'] : null;
+        $this->container['before_amortized_settle_pre_tax_real_value'] = isset($data['before_amortized_settle_pre_tax_real_value']) ? $data['before_amortized_settle_pre_tax_real_value'] : null;
+        $this->container['before_amortized_settle_pretax_amount'] = isset($data['before_amortized_settle_pretax_amount']) ? $data['before_amortized_settle_pretax_amount'] : null;
+        $this->container['before_amortized_settle_real_value'] = isset($data['before_amortized_settle_real_value']) ? $data['before_amortized_settle_real_value'] : null;
+        $this->container['before_amortized_settle_tax_amount'] = isset($data['before_amortized_settle_tax_amount']) ? $data['before_amortized_settle_tax_amount'] : null;
+        $this->container['before_amortized_tax_amount'] = isset($data['before_amortized_tax_amount']) ? $data['before_amortized_tax_amount'] : null;
         $this->container['bill_category'] = isset($data['bill_category']) ? $data['bill_category'] : null;
         $this->container['bill_id'] = isset($data['bill_id']) ? $data['bill_id'] : null;
         $this->container['bill_period'] = isset($data['bill_period']) ? $data['bill_period'] : null;
@@ -615,15 +994,31 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         $this->container['business_mode'] = isset($data['business_mode']) ? $data['business_mode'] : null;
         $this->container['config_name'] = isset($data['config_name']) ? $data['config_name'] : null;
         $this->container['count'] = isset($data['count']) ? $data['count'] : null;
+        $this->container['country_region'] = isset($data['country_region']) ? $data['country_region'] : null;
         $this->container['coupon_amount'] = isset($data['coupon_amount']) ? $data['coupon_amount'] : null;
         $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
+        $this->container['currency_settlement'] = isset($data['currency_settlement']) ? $data['currency_settlement'] : null;
         $this->container['daily_amortized_coupon_amount'] = isset($data['daily_amortized_coupon_amount']) ? $data['daily_amortized_coupon_amount'] : null;
         $this->container['daily_amortized_discount_bill_amount'] = isset($data['daily_amortized_discount_bill_amount']) ? $data['daily_amortized_discount_bill_amount'] : null;
         $this->container['daily_amortized_original_bill_amount'] = isset($data['daily_amortized_original_bill_amount']) ? $data['daily_amortized_original_bill_amount'] : null;
         $this->container['daily_amortized_paid_amount'] = isset($data['daily_amortized_paid_amount']) ? $data['daily_amortized_paid_amount'] : null;
         $this->container['daily_amortized_payable_amount'] = isset($data['daily_amortized_payable_amount']) ? $data['daily_amortized_payable_amount'] : null;
+        $this->container['daily_amortized_posttax_amount'] = isset($data['daily_amortized_posttax_amount']) ? $data['daily_amortized_posttax_amount'] : null;
+        $this->container['daily_amortized_pre_tax_payable_amount'] = isset($data['daily_amortized_pre_tax_payable_amount']) ? $data['daily_amortized_pre_tax_payable_amount'] : null;
+        $this->container['daily_amortized_pre_tax_real_value'] = isset($data['daily_amortized_pre_tax_real_value']) ? $data['daily_amortized_pre_tax_real_value'] : null;
         $this->container['daily_amortized_preferential_bill_amount'] = isset($data['daily_amortized_preferential_bill_amount']) ? $data['daily_amortized_preferential_bill_amount'] : null;
+        $this->container['daily_amortized_pretax_amount'] = isset($data['daily_amortized_pretax_amount']) ? $data['daily_amortized_pretax_amount'] : null;
+        $this->container['daily_amortized_real_value'] = isset($data['daily_amortized_real_value']) ? $data['daily_amortized_real_value'] : null;
         $this->container['daily_amortized_round_amount'] = isset($data['daily_amortized_round_amount']) ? $data['daily_amortized_round_amount'] : null;
+        $this->container['daily_amortized_saving_plan_original_amount'] = isset($data['daily_amortized_saving_plan_original_amount']) ? $data['daily_amortized_saving_plan_original_amount'] : null;
+        $this->container['daily_amortized_settle_payable_amount'] = isset($data['daily_amortized_settle_payable_amount']) ? $data['daily_amortized_settle_payable_amount'] : null;
+        $this->container['daily_amortized_settle_posttax_amount'] = isset($data['daily_amortized_settle_posttax_amount']) ? $data['daily_amortized_settle_posttax_amount'] : null;
+        $this->container['daily_amortized_settle_pre_tax_payable_amount'] = isset($data['daily_amortized_settle_pre_tax_payable_amount']) ? $data['daily_amortized_settle_pre_tax_payable_amount'] : null;
+        $this->container['daily_amortized_settle_pre_tax_real_value'] = isset($data['daily_amortized_settle_pre_tax_real_value']) ? $data['daily_amortized_settle_pre_tax_real_value'] : null;
+        $this->container['daily_amortized_settle_pretax_amount'] = isset($data['daily_amortized_settle_pretax_amount']) ? $data['daily_amortized_settle_pretax_amount'] : null;
+        $this->container['daily_amortized_settle_real_value'] = isset($data['daily_amortized_settle_real_value']) ? $data['daily_amortized_settle_real_value'] : null;
+        $this->container['daily_amortized_settle_tax_amount'] = isset($data['daily_amortized_settle_tax_amount']) ? $data['daily_amortized_settle_tax_amount'] : null;
+        $this->container['daily_amortized_tax_amount'] = isset($data['daily_amortized_tax_amount']) ? $data['daily_amortized_tax_amount'] : null;
         $this->container['deduction_use_duration'] = isset($data['deduction_use_duration']) ? $data['deduction_use_duration'] : null;
         $this->container['discount_bill_amount'] = isset($data['discount_bill_amount']) ? $data['discount_bill_amount'] : null;
         $this->container['discount_biz_billing_function'] = isset($data['discount_biz_billing_function']) ? $data['discount_biz_billing_function'] : null;
@@ -644,8 +1039,22 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         $this->container['now_amortized_original_bill_amount'] = isset($data['now_amortized_original_bill_amount']) ? $data['now_amortized_original_bill_amount'] : null;
         $this->container['now_amortized_paid_amount'] = isset($data['now_amortized_paid_amount']) ? $data['now_amortized_paid_amount'] : null;
         $this->container['now_amortized_payable_amount'] = isset($data['now_amortized_payable_amount']) ? $data['now_amortized_payable_amount'] : null;
+        $this->container['now_amortized_posttax_amount'] = isset($data['now_amortized_posttax_amount']) ? $data['now_amortized_posttax_amount'] : null;
+        $this->container['now_amortized_pre_tax_payable_amount'] = isset($data['now_amortized_pre_tax_payable_amount']) ? $data['now_amortized_pre_tax_payable_amount'] : null;
+        $this->container['now_amortized_pre_tax_real_value'] = isset($data['now_amortized_pre_tax_real_value']) ? $data['now_amortized_pre_tax_real_value'] : null;
         $this->container['now_amortized_preferential_bill_amount'] = isset($data['now_amortized_preferential_bill_amount']) ? $data['now_amortized_preferential_bill_amount'] : null;
+        $this->container['now_amortized_pretax_amount'] = isset($data['now_amortized_pretax_amount']) ? $data['now_amortized_pretax_amount'] : null;
+        $this->container['now_amortized_real_value'] = isset($data['now_amortized_real_value']) ? $data['now_amortized_real_value'] : null;
         $this->container['now_amortized_round_amount'] = isset($data['now_amortized_round_amount']) ? $data['now_amortized_round_amount'] : null;
+        $this->container['now_amortized_saving_plan_original_amount'] = isset($data['now_amortized_saving_plan_original_amount']) ? $data['now_amortized_saving_plan_original_amount'] : null;
+        $this->container['now_amortized_settle_payable_amount'] = isset($data['now_amortized_settle_payable_amount']) ? $data['now_amortized_settle_payable_amount'] : null;
+        $this->container['now_amortized_settle_posttax_amount'] = isset($data['now_amortized_settle_posttax_amount']) ? $data['now_amortized_settle_posttax_amount'] : null;
+        $this->container['now_amortized_settle_pre_tax_payable_amount'] = isset($data['now_amortized_settle_pre_tax_payable_amount']) ? $data['now_amortized_settle_pre_tax_payable_amount'] : null;
+        $this->container['now_amortized_settle_pre_tax_real_value'] = isset($data['now_amortized_settle_pre_tax_real_value']) ? $data['now_amortized_settle_pre_tax_real_value'] : null;
+        $this->container['now_amortized_settle_pretax_amount'] = isset($data['now_amortized_settle_pretax_amount']) ? $data['now_amortized_settle_pretax_amount'] : null;
+        $this->container['now_amortized_settle_real_value'] = isset($data['now_amortized_settle_real_value']) ? $data['now_amortized_settle_real_value'] : null;
+        $this->container['now_amortized_settle_tax_amount'] = isset($data['now_amortized_settle_tax_amount']) ? $data['now_amortized_settle_tax_amount'] : null;
+        $this->container['now_amortized_tax_amount'] = isset($data['now_amortized_tax_amount']) ? $data['now_amortized_tax_amount'] : null;
         $this->container['original_bill_amount'] = isset($data['original_bill_amount']) ? $data['original_bill_amount'] : null;
         $this->container['owner_customer_name'] = isset($data['owner_customer_name']) ? $data['owner_customer_name'] : null;
         $this->container['owner_id'] = isset($data['owner_id']) ? $data['owner_id'] : null;
@@ -655,7 +1064,11 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         $this->container['payer_customer_name'] = isset($data['payer_customer_name']) ? $data['payer_customer_name'] : null;
         $this->container['payer_id'] = isset($data['payer_id']) ? $data['payer_id'] : null;
         $this->container['payer_user_name'] = isset($data['payer_user_name']) ? $data['payer_user_name'] : null;
+        $this->container['posttax_amount'] = isset($data['posttax_amount']) ? $data['posttax_amount'] : null;
+        $this->container['pre_tax_payable_amount'] = isset($data['pre_tax_payable_amount']) ? $data['pre_tax_payable_amount'] : null;
+        $this->container['pre_tax_real_value'] = isset($data['pre_tax_real_value']) ? $data['pre_tax_real_value'] : null;
         $this->container['preferential_bill_amount'] = isset($data['preferential_bill_amount']) ? $data['preferential_bill_amount'] : null;
+        $this->container['pretax_amount'] = isset($data['pretax_amount']) ? $data['pretax_amount'] : null;
         $this->container['price'] = isset($data['price']) ? $data['price'] : null;
         $this->container['price_interval'] = isset($data['price_interval']) ? $data['price_interval'] : null;
         $this->container['price_unit'] = isset($data['price_unit']) ? $data['price_unit'] : null;
@@ -663,22 +1076,47 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
         $this->container['product_zh'] = isset($data['product_zh']) ? $data['product_zh'] : null;
         $this->container['project'] = isset($data['project']) ? $data['project'] : null;
         $this->container['project_display_name'] = isset($data['project_display_name']) ? $data['project_display_name'] : null;
+        $this->container['real_value'] = isset($data['real_value']) ? $data['real_value'] : null;
         $this->container['region'] = isset($data['region']) ? $data['region'] : null;
         $this->container['round_amount'] = isset($data['round_amount']) ? $data['round_amount'] : null;
+        $this->container['saving_plan_original_amount'] = isset($data['saving_plan_original_amount']) ? $data['saving_plan_original_amount'] : null;
         $this->container['seller_customer_name'] = isset($data['seller_customer_name']) ? $data['seller_customer_name'] : null;
         $this->container['seller_id'] = isset($data['seller_id']) ? $data['seller_id'] : null;
         $this->container['seller_user_name'] = isset($data['seller_user_name']) ? $data['seller_user_name'] : null;
+        $this->container['settle_payable_amount'] = isset($data['settle_payable_amount']) ? $data['settle_payable_amount'] : null;
+        $this->container['settle_posttax_amount'] = isset($data['settle_posttax_amount']) ? $data['settle_posttax_amount'] : null;
+        $this->container['settle_pre_tax_payable_amount'] = isset($data['settle_pre_tax_payable_amount']) ? $data['settle_pre_tax_payable_amount'] : null;
+        $this->container['settle_pre_tax_real_value'] = isset($data['settle_pre_tax_real_value']) ? $data['settle_pre_tax_real_value'] : null;
+        $this->container['settle_pretax_amount'] = isset($data['settle_pretax_amount']) ? $data['settle_pretax_amount'] : null;
+        $this->container['settle_real_value'] = isset($data['settle_real_value']) ? $data['settle_real_value'] : null;
+        $this->container['settle_tax_amount'] = isset($data['settle_tax_amount']) ? $data['settle_tax_amount'] : null;
         $this->container['split_item_id'] = isset($data['split_item_id']) ? $data['split_item_id'] : null;
         $this->container['split_item_name'] = isset($data['split_item_name']) ? $data['split_item_name'] : null;
         $this->container['subject_name'] = isset($data['subject_name']) ? $data['subject_name'] : null;
         $this->container['tag'] = isset($data['tag']) ? $data['tag'] : null;
+        $this->container['tax'] = isset($data['tax']) ? $data['tax'] : null;
+        $this->container['tax_rate'] = isset($data['tax_rate']) ? $data['tax_rate'] : null;
+        $this->container['un_amortized_saving_plan_original_amount'] = isset($data['un_amortized_saving_plan_original_amount']) ? $data['un_amortized_saving_plan_original_amount'] : null;
         $this->container['unamortized_coupon_amount'] = isset($data['unamortized_coupon_amount']) ? $data['unamortized_coupon_amount'] : null;
         $this->container['unamortized_discount_bill_amount'] = isset($data['unamortized_discount_bill_amount']) ? $data['unamortized_discount_bill_amount'] : null;
         $this->container['unamortized_original_bill_amount'] = isset($data['unamortized_original_bill_amount']) ? $data['unamortized_original_bill_amount'] : null;
         $this->container['unamortized_paid_amount'] = isset($data['unamortized_paid_amount']) ? $data['unamortized_paid_amount'] : null;
         $this->container['unamortized_payable_amount'] = isset($data['unamortized_payable_amount']) ? $data['unamortized_payable_amount'] : null;
+        $this->container['unamortized_posttax_amount'] = isset($data['unamortized_posttax_amount']) ? $data['unamortized_posttax_amount'] : null;
+        $this->container['unamortized_pre_tax_payable_amount'] = isset($data['unamortized_pre_tax_payable_amount']) ? $data['unamortized_pre_tax_payable_amount'] : null;
+        $this->container['unamortized_pre_tax_real_value'] = isset($data['unamortized_pre_tax_real_value']) ? $data['unamortized_pre_tax_real_value'] : null;
         $this->container['unamortized_preferential_bill_amount'] = isset($data['unamortized_preferential_bill_amount']) ? $data['unamortized_preferential_bill_amount'] : null;
+        $this->container['unamortized_pretax_amount'] = isset($data['unamortized_pretax_amount']) ? $data['unamortized_pretax_amount'] : null;
+        $this->container['unamortized_real_value'] = isset($data['unamortized_real_value']) ? $data['unamortized_real_value'] : null;
         $this->container['unamortized_round_amount'] = isset($data['unamortized_round_amount']) ? $data['unamortized_round_amount'] : null;
+        $this->container['unamortized_settle_payable_amount'] = isset($data['unamortized_settle_payable_amount']) ? $data['unamortized_settle_payable_amount'] : null;
+        $this->container['unamortized_settle_posttax_amount'] = isset($data['unamortized_settle_posttax_amount']) ? $data['unamortized_settle_posttax_amount'] : null;
+        $this->container['unamortized_settle_pre_tax_payable_amount'] = isset($data['unamortized_settle_pre_tax_payable_amount']) ? $data['unamortized_settle_pre_tax_payable_amount'] : null;
+        $this->container['unamortized_settle_pre_tax_real_value'] = isset($data['unamortized_settle_pre_tax_real_value']) ? $data['unamortized_settle_pre_tax_real_value'] : null;
+        $this->container['unamortized_settle_pretax_amount'] = isset($data['unamortized_settle_pretax_amount']) ? $data['unamortized_settle_pretax_amount'] : null;
+        $this->container['unamortized_settle_real_value'] = isset($data['unamortized_settle_real_value']) ? $data['unamortized_settle_real_value'] : null;
+        $this->container['unamortized_settle_tax_amount'] = isset($data['unamortized_settle_tax_amount']) ? $data['unamortized_settle_tax_amount'] : null;
+        $this->container['unamortized_tax_amount'] = isset($data['unamortized_tax_amount']) ? $data['unamortized_tax_amount'] : null;
         $this->container['unit'] = isset($data['unit']) ? $data['unit'] : null;
         $this->container['use_duration'] = isset($data['use_duration']) ? $data['use_duration'] : null;
         $this->container['use_duration_unit'] = isset($data['use_duration_unit']) ? $data['use_duration_unit'] : null;
@@ -950,6 +1388,78 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
     }
 
     /**
+     * Gets before_amortized_posttax_amount
+     *
+     * @return string
+     */
+    public function getBeforeAmortizedPosttaxAmount()
+    {
+        return $this->container['before_amortized_posttax_amount'];
+    }
+
+    /**
+     * Sets before_amortized_posttax_amount
+     *
+     * @param string $before_amortized_posttax_amount before_amortized_posttax_amount
+     *
+     * @return $this
+     */
+    public function setBeforeAmortizedPosttaxAmount($before_amortized_posttax_amount)
+    {
+        $this->container['before_amortized_posttax_amount'] = $before_amortized_posttax_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets before_amortized_pre_tax_payable_amount
+     *
+     * @return string
+     */
+    public function getBeforeAmortizedPreTaxPayableAmount()
+    {
+        return $this->container['before_amortized_pre_tax_payable_amount'];
+    }
+
+    /**
+     * Sets before_amortized_pre_tax_payable_amount
+     *
+     * @param string $before_amortized_pre_tax_payable_amount before_amortized_pre_tax_payable_amount
+     *
+     * @return $this
+     */
+    public function setBeforeAmortizedPreTaxPayableAmount($before_amortized_pre_tax_payable_amount)
+    {
+        $this->container['before_amortized_pre_tax_payable_amount'] = $before_amortized_pre_tax_payable_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets before_amortized_pre_tax_real_value
+     *
+     * @return string
+     */
+    public function getBeforeAmortizedPreTaxRealValue()
+    {
+        return $this->container['before_amortized_pre_tax_real_value'];
+    }
+
+    /**
+     * Sets before_amortized_pre_tax_real_value
+     *
+     * @param string $before_amortized_pre_tax_real_value before_amortized_pre_tax_real_value
+     *
+     * @return $this
+     */
+    public function setBeforeAmortizedPreTaxRealValue($before_amortized_pre_tax_real_value)
+    {
+        $this->container['before_amortized_pre_tax_real_value'] = $before_amortized_pre_tax_real_value;
+
+        return $this;
+    }
+
+    /**
      * Gets before_amortized_preferential_bill_amount
      *
      * @return string
@@ -974,6 +1484,54 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
     }
 
     /**
+     * Gets before_amortized_pretax_amount
+     *
+     * @return string
+     */
+    public function getBeforeAmortizedPretaxAmount()
+    {
+        return $this->container['before_amortized_pretax_amount'];
+    }
+
+    /**
+     * Sets before_amortized_pretax_amount
+     *
+     * @param string $before_amortized_pretax_amount before_amortized_pretax_amount
+     *
+     * @return $this
+     */
+    public function setBeforeAmortizedPretaxAmount($before_amortized_pretax_amount)
+    {
+        $this->container['before_amortized_pretax_amount'] = $before_amortized_pretax_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets before_amortized_real_value
+     *
+     * @return string
+     */
+    public function getBeforeAmortizedRealValue()
+    {
+        return $this->container['before_amortized_real_value'];
+    }
+
+    /**
+     * Sets before_amortized_real_value
+     *
+     * @param string $before_amortized_real_value before_amortized_real_value
+     *
+     * @return $this
+     */
+    public function setBeforeAmortizedRealValue($before_amortized_real_value)
+    {
+        $this->container['before_amortized_real_value'] = $before_amortized_real_value;
+
+        return $this;
+    }
+
+    /**
      * Gets before_amortized_round_amount
      *
      * @return string
@@ -993,6 +1551,222 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
     public function setBeforeAmortizedRoundAmount($before_amortized_round_amount)
     {
         $this->container['before_amortized_round_amount'] = $before_amortized_round_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets before_amortized_saving_plan_original_amount
+     *
+     * @return string
+     */
+    public function getBeforeAmortizedSavingPlanOriginalAmount()
+    {
+        return $this->container['before_amortized_saving_plan_original_amount'];
+    }
+
+    /**
+     * Sets before_amortized_saving_plan_original_amount
+     *
+     * @param string $before_amortized_saving_plan_original_amount before_amortized_saving_plan_original_amount
+     *
+     * @return $this
+     */
+    public function setBeforeAmortizedSavingPlanOriginalAmount($before_amortized_saving_plan_original_amount)
+    {
+        $this->container['before_amortized_saving_plan_original_amount'] = $before_amortized_saving_plan_original_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets before_amortized_settle_payable_amount
+     *
+     * @return string
+     */
+    public function getBeforeAmortizedSettlePayableAmount()
+    {
+        return $this->container['before_amortized_settle_payable_amount'];
+    }
+
+    /**
+     * Sets before_amortized_settle_payable_amount
+     *
+     * @param string $before_amortized_settle_payable_amount before_amortized_settle_payable_amount
+     *
+     * @return $this
+     */
+    public function setBeforeAmortizedSettlePayableAmount($before_amortized_settle_payable_amount)
+    {
+        $this->container['before_amortized_settle_payable_amount'] = $before_amortized_settle_payable_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets before_amortized_settle_posttax_amount
+     *
+     * @return string
+     */
+    public function getBeforeAmortizedSettlePosttaxAmount()
+    {
+        return $this->container['before_amortized_settle_posttax_amount'];
+    }
+
+    /**
+     * Sets before_amortized_settle_posttax_amount
+     *
+     * @param string $before_amortized_settle_posttax_amount before_amortized_settle_posttax_amount
+     *
+     * @return $this
+     */
+    public function setBeforeAmortizedSettlePosttaxAmount($before_amortized_settle_posttax_amount)
+    {
+        $this->container['before_amortized_settle_posttax_amount'] = $before_amortized_settle_posttax_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets before_amortized_settle_pre_tax_payable_amount
+     *
+     * @return string
+     */
+    public function getBeforeAmortizedSettlePreTaxPayableAmount()
+    {
+        return $this->container['before_amortized_settle_pre_tax_payable_amount'];
+    }
+
+    /**
+     * Sets before_amortized_settle_pre_tax_payable_amount
+     *
+     * @param string $before_amortized_settle_pre_tax_payable_amount before_amortized_settle_pre_tax_payable_amount
+     *
+     * @return $this
+     */
+    public function setBeforeAmortizedSettlePreTaxPayableAmount($before_amortized_settle_pre_tax_payable_amount)
+    {
+        $this->container['before_amortized_settle_pre_tax_payable_amount'] = $before_amortized_settle_pre_tax_payable_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets before_amortized_settle_pre_tax_real_value
+     *
+     * @return string
+     */
+    public function getBeforeAmortizedSettlePreTaxRealValue()
+    {
+        return $this->container['before_amortized_settle_pre_tax_real_value'];
+    }
+
+    /**
+     * Sets before_amortized_settle_pre_tax_real_value
+     *
+     * @param string $before_amortized_settle_pre_tax_real_value before_amortized_settle_pre_tax_real_value
+     *
+     * @return $this
+     */
+    public function setBeforeAmortizedSettlePreTaxRealValue($before_amortized_settle_pre_tax_real_value)
+    {
+        $this->container['before_amortized_settle_pre_tax_real_value'] = $before_amortized_settle_pre_tax_real_value;
+
+        return $this;
+    }
+
+    /**
+     * Gets before_amortized_settle_pretax_amount
+     *
+     * @return string
+     */
+    public function getBeforeAmortizedSettlePretaxAmount()
+    {
+        return $this->container['before_amortized_settle_pretax_amount'];
+    }
+
+    /**
+     * Sets before_amortized_settle_pretax_amount
+     *
+     * @param string $before_amortized_settle_pretax_amount before_amortized_settle_pretax_amount
+     *
+     * @return $this
+     */
+    public function setBeforeAmortizedSettlePretaxAmount($before_amortized_settle_pretax_amount)
+    {
+        $this->container['before_amortized_settle_pretax_amount'] = $before_amortized_settle_pretax_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets before_amortized_settle_real_value
+     *
+     * @return string
+     */
+    public function getBeforeAmortizedSettleRealValue()
+    {
+        return $this->container['before_amortized_settle_real_value'];
+    }
+
+    /**
+     * Sets before_amortized_settle_real_value
+     *
+     * @param string $before_amortized_settle_real_value before_amortized_settle_real_value
+     *
+     * @return $this
+     */
+    public function setBeforeAmortizedSettleRealValue($before_amortized_settle_real_value)
+    {
+        $this->container['before_amortized_settle_real_value'] = $before_amortized_settle_real_value;
+
+        return $this;
+    }
+
+    /**
+     * Gets before_amortized_settle_tax_amount
+     *
+     * @return string
+     */
+    public function getBeforeAmortizedSettleTaxAmount()
+    {
+        return $this->container['before_amortized_settle_tax_amount'];
+    }
+
+    /**
+     * Sets before_amortized_settle_tax_amount
+     *
+     * @param string $before_amortized_settle_tax_amount before_amortized_settle_tax_amount
+     *
+     * @return $this
+     */
+    public function setBeforeAmortizedSettleTaxAmount($before_amortized_settle_tax_amount)
+    {
+        $this->container['before_amortized_settle_tax_amount'] = $before_amortized_settle_tax_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets before_amortized_tax_amount
+     *
+     * @return string
+     */
+    public function getBeforeAmortizedTaxAmount()
+    {
+        return $this->container['before_amortized_tax_amount'];
+    }
+
+    /**
+     * Sets before_amortized_tax_amount
+     *
+     * @param string $before_amortized_tax_amount before_amortized_tax_amount
+     *
+     * @return $this
+     */
+    public function setBeforeAmortizedTaxAmount($before_amortized_tax_amount)
+    {
+        $this->container['before_amortized_tax_amount'] = $before_amortized_tax_amount;
 
         return $this;
     }
@@ -1238,6 +2012,30 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
     }
 
     /**
+     * Gets country_region
+     *
+     * @return string
+     */
+    public function getCountryRegion()
+    {
+        return $this->container['country_region'];
+    }
+
+    /**
+     * Sets country_region
+     *
+     * @param string $country_region country_region
+     *
+     * @return $this
+     */
+    public function setCountryRegion($country_region)
+    {
+        $this->container['country_region'] = $country_region;
+
+        return $this;
+    }
+
+    /**
      * Gets coupon_amount
      *
      * @return string
@@ -1281,6 +2079,30 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
     public function setCurrency($currency)
     {
         $this->container['currency'] = $currency;
+
+        return $this;
+    }
+
+    /**
+     * Gets currency_settlement
+     *
+     * @return string
+     */
+    public function getCurrencySettlement()
+    {
+        return $this->container['currency_settlement'];
+    }
+
+    /**
+     * Sets currency_settlement
+     *
+     * @param string $currency_settlement currency_settlement
+     *
+     * @return $this
+     */
+    public function setCurrencySettlement($currency_settlement)
+    {
+        $this->container['currency_settlement'] = $currency_settlement;
 
         return $this;
     }
@@ -1406,6 +2228,78 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
     }
 
     /**
+     * Gets daily_amortized_posttax_amount
+     *
+     * @return string
+     */
+    public function getDailyAmortizedPosttaxAmount()
+    {
+        return $this->container['daily_amortized_posttax_amount'];
+    }
+
+    /**
+     * Sets daily_amortized_posttax_amount
+     *
+     * @param string $daily_amortized_posttax_amount daily_amortized_posttax_amount
+     *
+     * @return $this
+     */
+    public function setDailyAmortizedPosttaxAmount($daily_amortized_posttax_amount)
+    {
+        $this->container['daily_amortized_posttax_amount'] = $daily_amortized_posttax_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets daily_amortized_pre_tax_payable_amount
+     *
+     * @return string
+     */
+    public function getDailyAmortizedPreTaxPayableAmount()
+    {
+        return $this->container['daily_amortized_pre_tax_payable_amount'];
+    }
+
+    /**
+     * Sets daily_amortized_pre_tax_payable_amount
+     *
+     * @param string $daily_amortized_pre_tax_payable_amount daily_amortized_pre_tax_payable_amount
+     *
+     * @return $this
+     */
+    public function setDailyAmortizedPreTaxPayableAmount($daily_amortized_pre_tax_payable_amount)
+    {
+        $this->container['daily_amortized_pre_tax_payable_amount'] = $daily_amortized_pre_tax_payable_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets daily_amortized_pre_tax_real_value
+     *
+     * @return string
+     */
+    public function getDailyAmortizedPreTaxRealValue()
+    {
+        return $this->container['daily_amortized_pre_tax_real_value'];
+    }
+
+    /**
+     * Sets daily_amortized_pre_tax_real_value
+     *
+     * @param string $daily_amortized_pre_tax_real_value daily_amortized_pre_tax_real_value
+     *
+     * @return $this
+     */
+    public function setDailyAmortizedPreTaxRealValue($daily_amortized_pre_tax_real_value)
+    {
+        $this->container['daily_amortized_pre_tax_real_value'] = $daily_amortized_pre_tax_real_value;
+
+        return $this;
+    }
+
+    /**
      * Gets daily_amortized_preferential_bill_amount
      *
      * @return string
@@ -1430,6 +2324,54 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
     }
 
     /**
+     * Gets daily_amortized_pretax_amount
+     *
+     * @return string
+     */
+    public function getDailyAmortizedPretaxAmount()
+    {
+        return $this->container['daily_amortized_pretax_amount'];
+    }
+
+    /**
+     * Sets daily_amortized_pretax_amount
+     *
+     * @param string $daily_amortized_pretax_amount daily_amortized_pretax_amount
+     *
+     * @return $this
+     */
+    public function setDailyAmortizedPretaxAmount($daily_amortized_pretax_amount)
+    {
+        $this->container['daily_amortized_pretax_amount'] = $daily_amortized_pretax_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets daily_amortized_real_value
+     *
+     * @return string
+     */
+    public function getDailyAmortizedRealValue()
+    {
+        return $this->container['daily_amortized_real_value'];
+    }
+
+    /**
+     * Sets daily_amortized_real_value
+     *
+     * @param string $daily_amortized_real_value daily_amortized_real_value
+     *
+     * @return $this
+     */
+    public function setDailyAmortizedRealValue($daily_amortized_real_value)
+    {
+        $this->container['daily_amortized_real_value'] = $daily_amortized_real_value;
+
+        return $this;
+    }
+
+    /**
      * Gets daily_amortized_round_amount
      *
      * @return string
@@ -1449,6 +2391,222 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
     public function setDailyAmortizedRoundAmount($daily_amortized_round_amount)
     {
         $this->container['daily_amortized_round_amount'] = $daily_amortized_round_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets daily_amortized_saving_plan_original_amount
+     *
+     * @return string
+     */
+    public function getDailyAmortizedSavingPlanOriginalAmount()
+    {
+        return $this->container['daily_amortized_saving_plan_original_amount'];
+    }
+
+    /**
+     * Sets daily_amortized_saving_plan_original_amount
+     *
+     * @param string $daily_amortized_saving_plan_original_amount daily_amortized_saving_plan_original_amount
+     *
+     * @return $this
+     */
+    public function setDailyAmortizedSavingPlanOriginalAmount($daily_amortized_saving_plan_original_amount)
+    {
+        $this->container['daily_amortized_saving_plan_original_amount'] = $daily_amortized_saving_plan_original_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets daily_amortized_settle_payable_amount
+     *
+     * @return string
+     */
+    public function getDailyAmortizedSettlePayableAmount()
+    {
+        return $this->container['daily_amortized_settle_payable_amount'];
+    }
+
+    /**
+     * Sets daily_amortized_settle_payable_amount
+     *
+     * @param string $daily_amortized_settle_payable_amount daily_amortized_settle_payable_amount
+     *
+     * @return $this
+     */
+    public function setDailyAmortizedSettlePayableAmount($daily_amortized_settle_payable_amount)
+    {
+        $this->container['daily_amortized_settle_payable_amount'] = $daily_amortized_settle_payable_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets daily_amortized_settle_posttax_amount
+     *
+     * @return string
+     */
+    public function getDailyAmortizedSettlePosttaxAmount()
+    {
+        return $this->container['daily_amortized_settle_posttax_amount'];
+    }
+
+    /**
+     * Sets daily_amortized_settle_posttax_amount
+     *
+     * @param string $daily_amortized_settle_posttax_amount daily_amortized_settle_posttax_amount
+     *
+     * @return $this
+     */
+    public function setDailyAmortizedSettlePosttaxAmount($daily_amortized_settle_posttax_amount)
+    {
+        $this->container['daily_amortized_settle_posttax_amount'] = $daily_amortized_settle_posttax_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets daily_amortized_settle_pre_tax_payable_amount
+     *
+     * @return string
+     */
+    public function getDailyAmortizedSettlePreTaxPayableAmount()
+    {
+        return $this->container['daily_amortized_settle_pre_tax_payable_amount'];
+    }
+
+    /**
+     * Sets daily_amortized_settle_pre_tax_payable_amount
+     *
+     * @param string $daily_amortized_settle_pre_tax_payable_amount daily_amortized_settle_pre_tax_payable_amount
+     *
+     * @return $this
+     */
+    public function setDailyAmortizedSettlePreTaxPayableAmount($daily_amortized_settle_pre_tax_payable_amount)
+    {
+        $this->container['daily_amortized_settle_pre_tax_payable_amount'] = $daily_amortized_settle_pre_tax_payable_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets daily_amortized_settle_pre_tax_real_value
+     *
+     * @return string
+     */
+    public function getDailyAmortizedSettlePreTaxRealValue()
+    {
+        return $this->container['daily_amortized_settle_pre_tax_real_value'];
+    }
+
+    /**
+     * Sets daily_amortized_settle_pre_tax_real_value
+     *
+     * @param string $daily_amortized_settle_pre_tax_real_value daily_amortized_settle_pre_tax_real_value
+     *
+     * @return $this
+     */
+    public function setDailyAmortizedSettlePreTaxRealValue($daily_amortized_settle_pre_tax_real_value)
+    {
+        $this->container['daily_amortized_settle_pre_tax_real_value'] = $daily_amortized_settle_pre_tax_real_value;
+
+        return $this;
+    }
+
+    /**
+     * Gets daily_amortized_settle_pretax_amount
+     *
+     * @return string
+     */
+    public function getDailyAmortizedSettlePretaxAmount()
+    {
+        return $this->container['daily_amortized_settle_pretax_amount'];
+    }
+
+    /**
+     * Sets daily_amortized_settle_pretax_amount
+     *
+     * @param string $daily_amortized_settle_pretax_amount daily_amortized_settle_pretax_amount
+     *
+     * @return $this
+     */
+    public function setDailyAmortizedSettlePretaxAmount($daily_amortized_settle_pretax_amount)
+    {
+        $this->container['daily_amortized_settle_pretax_amount'] = $daily_amortized_settle_pretax_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets daily_amortized_settle_real_value
+     *
+     * @return string
+     */
+    public function getDailyAmortizedSettleRealValue()
+    {
+        return $this->container['daily_amortized_settle_real_value'];
+    }
+
+    /**
+     * Sets daily_amortized_settle_real_value
+     *
+     * @param string $daily_amortized_settle_real_value daily_amortized_settle_real_value
+     *
+     * @return $this
+     */
+    public function setDailyAmortizedSettleRealValue($daily_amortized_settle_real_value)
+    {
+        $this->container['daily_amortized_settle_real_value'] = $daily_amortized_settle_real_value;
+
+        return $this;
+    }
+
+    /**
+     * Gets daily_amortized_settle_tax_amount
+     *
+     * @return string
+     */
+    public function getDailyAmortizedSettleTaxAmount()
+    {
+        return $this->container['daily_amortized_settle_tax_amount'];
+    }
+
+    /**
+     * Sets daily_amortized_settle_tax_amount
+     *
+     * @param string $daily_amortized_settle_tax_amount daily_amortized_settle_tax_amount
+     *
+     * @return $this
+     */
+    public function setDailyAmortizedSettleTaxAmount($daily_amortized_settle_tax_amount)
+    {
+        $this->container['daily_amortized_settle_tax_amount'] = $daily_amortized_settle_tax_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets daily_amortized_tax_amount
+     *
+     * @return string
+     */
+    public function getDailyAmortizedTaxAmount()
+    {
+        return $this->container['daily_amortized_tax_amount'];
+    }
+
+    /**
+     * Sets daily_amortized_tax_amount
+     *
+     * @param string $daily_amortized_tax_amount daily_amortized_tax_amount
+     *
+     * @return $this
+     */
+    public function setDailyAmortizedTaxAmount($daily_amortized_tax_amount)
+    {
+        $this->container['daily_amortized_tax_amount'] = $daily_amortized_tax_amount;
 
         return $this;
     }
@@ -1934,6 +3092,78 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
     }
 
     /**
+     * Gets now_amortized_posttax_amount
+     *
+     * @return string
+     */
+    public function getNowAmortizedPosttaxAmount()
+    {
+        return $this->container['now_amortized_posttax_amount'];
+    }
+
+    /**
+     * Sets now_amortized_posttax_amount
+     *
+     * @param string $now_amortized_posttax_amount now_amortized_posttax_amount
+     *
+     * @return $this
+     */
+    public function setNowAmortizedPosttaxAmount($now_amortized_posttax_amount)
+    {
+        $this->container['now_amortized_posttax_amount'] = $now_amortized_posttax_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets now_amortized_pre_tax_payable_amount
+     *
+     * @return string
+     */
+    public function getNowAmortizedPreTaxPayableAmount()
+    {
+        return $this->container['now_amortized_pre_tax_payable_amount'];
+    }
+
+    /**
+     * Sets now_amortized_pre_tax_payable_amount
+     *
+     * @param string $now_amortized_pre_tax_payable_amount now_amortized_pre_tax_payable_amount
+     *
+     * @return $this
+     */
+    public function setNowAmortizedPreTaxPayableAmount($now_amortized_pre_tax_payable_amount)
+    {
+        $this->container['now_amortized_pre_tax_payable_amount'] = $now_amortized_pre_tax_payable_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets now_amortized_pre_tax_real_value
+     *
+     * @return string
+     */
+    public function getNowAmortizedPreTaxRealValue()
+    {
+        return $this->container['now_amortized_pre_tax_real_value'];
+    }
+
+    /**
+     * Sets now_amortized_pre_tax_real_value
+     *
+     * @param string $now_amortized_pre_tax_real_value now_amortized_pre_tax_real_value
+     *
+     * @return $this
+     */
+    public function setNowAmortizedPreTaxRealValue($now_amortized_pre_tax_real_value)
+    {
+        $this->container['now_amortized_pre_tax_real_value'] = $now_amortized_pre_tax_real_value;
+
+        return $this;
+    }
+
+    /**
      * Gets now_amortized_preferential_bill_amount
      *
      * @return string
@@ -1958,6 +3188,54 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
     }
 
     /**
+     * Gets now_amortized_pretax_amount
+     *
+     * @return string
+     */
+    public function getNowAmortizedPretaxAmount()
+    {
+        return $this->container['now_amortized_pretax_amount'];
+    }
+
+    /**
+     * Sets now_amortized_pretax_amount
+     *
+     * @param string $now_amortized_pretax_amount now_amortized_pretax_amount
+     *
+     * @return $this
+     */
+    public function setNowAmortizedPretaxAmount($now_amortized_pretax_amount)
+    {
+        $this->container['now_amortized_pretax_amount'] = $now_amortized_pretax_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets now_amortized_real_value
+     *
+     * @return string
+     */
+    public function getNowAmortizedRealValue()
+    {
+        return $this->container['now_amortized_real_value'];
+    }
+
+    /**
+     * Sets now_amortized_real_value
+     *
+     * @param string $now_amortized_real_value now_amortized_real_value
+     *
+     * @return $this
+     */
+    public function setNowAmortizedRealValue($now_amortized_real_value)
+    {
+        $this->container['now_amortized_real_value'] = $now_amortized_real_value;
+
+        return $this;
+    }
+
+    /**
      * Gets now_amortized_round_amount
      *
      * @return string
@@ -1977,6 +3255,222 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
     public function setNowAmortizedRoundAmount($now_amortized_round_amount)
     {
         $this->container['now_amortized_round_amount'] = $now_amortized_round_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets now_amortized_saving_plan_original_amount
+     *
+     * @return string
+     */
+    public function getNowAmortizedSavingPlanOriginalAmount()
+    {
+        return $this->container['now_amortized_saving_plan_original_amount'];
+    }
+
+    /**
+     * Sets now_amortized_saving_plan_original_amount
+     *
+     * @param string $now_amortized_saving_plan_original_amount now_amortized_saving_plan_original_amount
+     *
+     * @return $this
+     */
+    public function setNowAmortizedSavingPlanOriginalAmount($now_amortized_saving_plan_original_amount)
+    {
+        $this->container['now_amortized_saving_plan_original_amount'] = $now_amortized_saving_plan_original_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets now_amortized_settle_payable_amount
+     *
+     * @return string
+     */
+    public function getNowAmortizedSettlePayableAmount()
+    {
+        return $this->container['now_amortized_settle_payable_amount'];
+    }
+
+    /**
+     * Sets now_amortized_settle_payable_amount
+     *
+     * @param string $now_amortized_settle_payable_amount now_amortized_settle_payable_amount
+     *
+     * @return $this
+     */
+    public function setNowAmortizedSettlePayableAmount($now_amortized_settle_payable_amount)
+    {
+        $this->container['now_amortized_settle_payable_amount'] = $now_amortized_settle_payable_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets now_amortized_settle_posttax_amount
+     *
+     * @return string
+     */
+    public function getNowAmortizedSettlePosttaxAmount()
+    {
+        return $this->container['now_amortized_settle_posttax_amount'];
+    }
+
+    /**
+     * Sets now_amortized_settle_posttax_amount
+     *
+     * @param string $now_amortized_settle_posttax_amount now_amortized_settle_posttax_amount
+     *
+     * @return $this
+     */
+    public function setNowAmortizedSettlePosttaxAmount($now_amortized_settle_posttax_amount)
+    {
+        $this->container['now_amortized_settle_posttax_amount'] = $now_amortized_settle_posttax_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets now_amortized_settle_pre_tax_payable_amount
+     *
+     * @return string
+     */
+    public function getNowAmortizedSettlePreTaxPayableAmount()
+    {
+        return $this->container['now_amortized_settle_pre_tax_payable_amount'];
+    }
+
+    /**
+     * Sets now_amortized_settle_pre_tax_payable_amount
+     *
+     * @param string $now_amortized_settle_pre_tax_payable_amount now_amortized_settle_pre_tax_payable_amount
+     *
+     * @return $this
+     */
+    public function setNowAmortizedSettlePreTaxPayableAmount($now_amortized_settle_pre_tax_payable_amount)
+    {
+        $this->container['now_amortized_settle_pre_tax_payable_amount'] = $now_amortized_settle_pre_tax_payable_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets now_amortized_settle_pre_tax_real_value
+     *
+     * @return string
+     */
+    public function getNowAmortizedSettlePreTaxRealValue()
+    {
+        return $this->container['now_amortized_settle_pre_tax_real_value'];
+    }
+
+    /**
+     * Sets now_amortized_settle_pre_tax_real_value
+     *
+     * @param string $now_amortized_settle_pre_tax_real_value now_amortized_settle_pre_tax_real_value
+     *
+     * @return $this
+     */
+    public function setNowAmortizedSettlePreTaxRealValue($now_amortized_settle_pre_tax_real_value)
+    {
+        $this->container['now_amortized_settle_pre_tax_real_value'] = $now_amortized_settle_pre_tax_real_value;
+
+        return $this;
+    }
+
+    /**
+     * Gets now_amortized_settle_pretax_amount
+     *
+     * @return string
+     */
+    public function getNowAmortizedSettlePretaxAmount()
+    {
+        return $this->container['now_amortized_settle_pretax_amount'];
+    }
+
+    /**
+     * Sets now_amortized_settle_pretax_amount
+     *
+     * @param string $now_amortized_settle_pretax_amount now_amortized_settle_pretax_amount
+     *
+     * @return $this
+     */
+    public function setNowAmortizedSettlePretaxAmount($now_amortized_settle_pretax_amount)
+    {
+        $this->container['now_amortized_settle_pretax_amount'] = $now_amortized_settle_pretax_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets now_amortized_settle_real_value
+     *
+     * @return string
+     */
+    public function getNowAmortizedSettleRealValue()
+    {
+        return $this->container['now_amortized_settle_real_value'];
+    }
+
+    /**
+     * Sets now_amortized_settle_real_value
+     *
+     * @param string $now_amortized_settle_real_value now_amortized_settle_real_value
+     *
+     * @return $this
+     */
+    public function setNowAmortizedSettleRealValue($now_amortized_settle_real_value)
+    {
+        $this->container['now_amortized_settle_real_value'] = $now_amortized_settle_real_value;
+
+        return $this;
+    }
+
+    /**
+     * Gets now_amortized_settle_tax_amount
+     *
+     * @return string
+     */
+    public function getNowAmortizedSettleTaxAmount()
+    {
+        return $this->container['now_amortized_settle_tax_amount'];
+    }
+
+    /**
+     * Sets now_amortized_settle_tax_amount
+     *
+     * @param string $now_amortized_settle_tax_amount now_amortized_settle_tax_amount
+     *
+     * @return $this
+     */
+    public function setNowAmortizedSettleTaxAmount($now_amortized_settle_tax_amount)
+    {
+        $this->container['now_amortized_settle_tax_amount'] = $now_amortized_settle_tax_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets now_amortized_tax_amount
+     *
+     * @return string
+     */
+    public function getNowAmortizedTaxAmount()
+    {
+        return $this->container['now_amortized_tax_amount'];
+    }
+
+    /**
+     * Sets now_amortized_tax_amount
+     *
+     * @param string $now_amortized_tax_amount now_amortized_tax_amount
+     *
+     * @return $this
+     */
+    public function setNowAmortizedTaxAmount($now_amortized_tax_amount)
+    {
+        $this->container['now_amortized_tax_amount'] = $now_amortized_tax_amount;
 
         return $this;
     }
@@ -2198,6 +3692,78 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
     }
 
     /**
+     * Gets posttax_amount
+     *
+     * @return string
+     */
+    public function getPosttaxAmount()
+    {
+        return $this->container['posttax_amount'];
+    }
+
+    /**
+     * Sets posttax_amount
+     *
+     * @param string $posttax_amount posttax_amount
+     *
+     * @return $this
+     */
+    public function setPosttaxAmount($posttax_amount)
+    {
+        $this->container['posttax_amount'] = $posttax_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets pre_tax_payable_amount
+     *
+     * @return string
+     */
+    public function getPreTaxPayableAmount()
+    {
+        return $this->container['pre_tax_payable_amount'];
+    }
+
+    /**
+     * Sets pre_tax_payable_amount
+     *
+     * @param string $pre_tax_payable_amount pre_tax_payable_amount
+     *
+     * @return $this
+     */
+    public function setPreTaxPayableAmount($pre_tax_payable_amount)
+    {
+        $this->container['pre_tax_payable_amount'] = $pre_tax_payable_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets pre_tax_real_value
+     *
+     * @return string
+     */
+    public function getPreTaxRealValue()
+    {
+        return $this->container['pre_tax_real_value'];
+    }
+
+    /**
+     * Sets pre_tax_real_value
+     *
+     * @param string $pre_tax_real_value pre_tax_real_value
+     *
+     * @return $this
+     */
+    public function setPreTaxRealValue($pre_tax_real_value)
+    {
+        $this->container['pre_tax_real_value'] = $pre_tax_real_value;
+
+        return $this;
+    }
+
+    /**
      * Gets preferential_bill_amount
      *
      * @return string
@@ -2217,6 +3783,30 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
     public function setPreferentialBillAmount($preferential_bill_amount)
     {
         $this->container['preferential_bill_amount'] = $preferential_bill_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets pretax_amount
+     *
+     * @return string
+     */
+    public function getPretaxAmount()
+    {
+        return $this->container['pretax_amount'];
+    }
+
+    /**
+     * Sets pretax_amount
+     *
+     * @param string $pretax_amount pretax_amount
+     *
+     * @return $this
+     */
+    public function setPretaxAmount($pretax_amount)
+    {
+        $this->container['pretax_amount'] = $pretax_amount;
 
         return $this;
     }
@@ -2390,6 +3980,30 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
     }
 
     /**
+     * Gets real_value
+     *
+     * @return string
+     */
+    public function getRealValue()
+    {
+        return $this->container['real_value'];
+    }
+
+    /**
+     * Sets real_value
+     *
+     * @param string $real_value real_value
+     *
+     * @return $this
+     */
+    public function setRealValue($real_value)
+    {
+        $this->container['real_value'] = $real_value;
+
+        return $this;
+    }
+
+    /**
      * Gets region
      *
      * @return string
@@ -2433,6 +4047,30 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
     public function setRoundAmount($round_amount)
     {
         $this->container['round_amount'] = $round_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets saving_plan_original_amount
+     *
+     * @return string
+     */
+    public function getSavingPlanOriginalAmount()
+    {
+        return $this->container['saving_plan_original_amount'];
+    }
+
+    /**
+     * Sets saving_plan_original_amount
+     *
+     * @param string $saving_plan_original_amount saving_plan_original_amount
+     *
+     * @return $this
+     */
+    public function setSavingPlanOriginalAmount($saving_plan_original_amount)
+    {
+        $this->container['saving_plan_original_amount'] = $saving_plan_original_amount;
 
         return $this;
     }
@@ -2505,6 +4143,174 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
     public function setSellerUserName($seller_user_name)
     {
         $this->container['seller_user_name'] = $seller_user_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets settle_payable_amount
+     *
+     * @return string
+     */
+    public function getSettlePayableAmount()
+    {
+        return $this->container['settle_payable_amount'];
+    }
+
+    /**
+     * Sets settle_payable_amount
+     *
+     * @param string $settle_payable_amount settle_payable_amount
+     *
+     * @return $this
+     */
+    public function setSettlePayableAmount($settle_payable_amount)
+    {
+        $this->container['settle_payable_amount'] = $settle_payable_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets settle_posttax_amount
+     *
+     * @return string
+     */
+    public function getSettlePosttaxAmount()
+    {
+        return $this->container['settle_posttax_amount'];
+    }
+
+    /**
+     * Sets settle_posttax_amount
+     *
+     * @param string $settle_posttax_amount settle_posttax_amount
+     *
+     * @return $this
+     */
+    public function setSettlePosttaxAmount($settle_posttax_amount)
+    {
+        $this->container['settle_posttax_amount'] = $settle_posttax_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets settle_pre_tax_payable_amount
+     *
+     * @return string
+     */
+    public function getSettlePreTaxPayableAmount()
+    {
+        return $this->container['settle_pre_tax_payable_amount'];
+    }
+
+    /**
+     * Sets settle_pre_tax_payable_amount
+     *
+     * @param string $settle_pre_tax_payable_amount settle_pre_tax_payable_amount
+     *
+     * @return $this
+     */
+    public function setSettlePreTaxPayableAmount($settle_pre_tax_payable_amount)
+    {
+        $this->container['settle_pre_tax_payable_amount'] = $settle_pre_tax_payable_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets settle_pre_tax_real_value
+     *
+     * @return string
+     */
+    public function getSettlePreTaxRealValue()
+    {
+        return $this->container['settle_pre_tax_real_value'];
+    }
+
+    /**
+     * Sets settle_pre_tax_real_value
+     *
+     * @param string $settle_pre_tax_real_value settle_pre_tax_real_value
+     *
+     * @return $this
+     */
+    public function setSettlePreTaxRealValue($settle_pre_tax_real_value)
+    {
+        $this->container['settle_pre_tax_real_value'] = $settle_pre_tax_real_value;
+
+        return $this;
+    }
+
+    /**
+     * Gets settle_pretax_amount
+     *
+     * @return string
+     */
+    public function getSettlePretaxAmount()
+    {
+        return $this->container['settle_pretax_amount'];
+    }
+
+    /**
+     * Sets settle_pretax_amount
+     *
+     * @param string $settle_pretax_amount settle_pretax_amount
+     *
+     * @return $this
+     */
+    public function setSettlePretaxAmount($settle_pretax_amount)
+    {
+        $this->container['settle_pretax_amount'] = $settle_pretax_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets settle_real_value
+     *
+     * @return string
+     */
+    public function getSettleRealValue()
+    {
+        return $this->container['settle_real_value'];
+    }
+
+    /**
+     * Sets settle_real_value
+     *
+     * @param string $settle_real_value settle_real_value
+     *
+     * @return $this
+     */
+    public function setSettleRealValue($settle_real_value)
+    {
+        $this->container['settle_real_value'] = $settle_real_value;
+
+        return $this;
+    }
+
+    /**
+     * Gets settle_tax_amount
+     *
+     * @return string
+     */
+    public function getSettleTaxAmount()
+    {
+        return $this->container['settle_tax_amount'];
+    }
+
+    /**
+     * Sets settle_tax_amount
+     *
+     * @param string $settle_tax_amount settle_tax_amount
+     *
+     * @return $this
+     */
+    public function setSettleTaxAmount($settle_tax_amount)
+    {
+        $this->container['settle_tax_amount'] = $settle_tax_amount;
 
         return $this;
     }
@@ -2601,6 +4407,78 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
     public function setTag($tag)
     {
         $this->container['tag'] = $tag;
+
+        return $this;
+    }
+
+    /**
+     * Gets tax
+     *
+     * @return string
+     */
+    public function getTax()
+    {
+        return $this->container['tax'];
+    }
+
+    /**
+     * Sets tax
+     *
+     * @param string $tax tax
+     *
+     * @return $this
+     */
+    public function setTax($tax)
+    {
+        $this->container['tax'] = $tax;
+
+        return $this;
+    }
+
+    /**
+     * Gets tax_rate
+     *
+     * @return string
+     */
+    public function getTaxRate()
+    {
+        return $this->container['tax_rate'];
+    }
+
+    /**
+     * Sets tax_rate
+     *
+     * @param string $tax_rate tax_rate
+     *
+     * @return $this
+     */
+    public function setTaxRate($tax_rate)
+    {
+        $this->container['tax_rate'] = $tax_rate;
+
+        return $this;
+    }
+
+    /**
+     * Gets un_amortized_saving_plan_original_amount
+     *
+     * @return string
+     */
+    public function getUnAmortizedSavingPlanOriginalAmount()
+    {
+        return $this->container['un_amortized_saving_plan_original_amount'];
+    }
+
+    /**
+     * Sets un_amortized_saving_plan_original_amount
+     *
+     * @param string $un_amortized_saving_plan_original_amount un_amortized_saving_plan_original_amount
+     *
+     * @return $this
+     */
+    public function setUnAmortizedSavingPlanOriginalAmount($un_amortized_saving_plan_original_amount)
+    {
+        $this->container['un_amortized_saving_plan_original_amount'] = $un_amortized_saving_plan_original_amount;
 
         return $this;
     }
@@ -2726,6 +4604,78 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
     }
 
     /**
+     * Gets unamortized_posttax_amount
+     *
+     * @return string
+     */
+    public function getUnamortizedPosttaxAmount()
+    {
+        return $this->container['unamortized_posttax_amount'];
+    }
+
+    /**
+     * Sets unamortized_posttax_amount
+     *
+     * @param string $unamortized_posttax_amount unamortized_posttax_amount
+     *
+     * @return $this
+     */
+    public function setUnamortizedPosttaxAmount($unamortized_posttax_amount)
+    {
+        $this->container['unamortized_posttax_amount'] = $unamortized_posttax_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets unamortized_pre_tax_payable_amount
+     *
+     * @return string
+     */
+    public function getUnamortizedPreTaxPayableAmount()
+    {
+        return $this->container['unamortized_pre_tax_payable_amount'];
+    }
+
+    /**
+     * Sets unamortized_pre_tax_payable_amount
+     *
+     * @param string $unamortized_pre_tax_payable_amount unamortized_pre_tax_payable_amount
+     *
+     * @return $this
+     */
+    public function setUnamortizedPreTaxPayableAmount($unamortized_pre_tax_payable_amount)
+    {
+        $this->container['unamortized_pre_tax_payable_amount'] = $unamortized_pre_tax_payable_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets unamortized_pre_tax_real_value
+     *
+     * @return string
+     */
+    public function getUnamortizedPreTaxRealValue()
+    {
+        return $this->container['unamortized_pre_tax_real_value'];
+    }
+
+    /**
+     * Sets unamortized_pre_tax_real_value
+     *
+     * @param string $unamortized_pre_tax_real_value unamortized_pre_tax_real_value
+     *
+     * @return $this
+     */
+    public function setUnamortizedPreTaxRealValue($unamortized_pre_tax_real_value)
+    {
+        $this->container['unamortized_pre_tax_real_value'] = $unamortized_pre_tax_real_value;
+
+        return $this;
+    }
+
+    /**
      * Gets unamortized_preferential_bill_amount
      *
      * @return string
@@ -2750,6 +4700,54 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
     }
 
     /**
+     * Gets unamortized_pretax_amount
+     *
+     * @return string
+     */
+    public function getUnamortizedPretaxAmount()
+    {
+        return $this->container['unamortized_pretax_amount'];
+    }
+
+    /**
+     * Sets unamortized_pretax_amount
+     *
+     * @param string $unamortized_pretax_amount unamortized_pretax_amount
+     *
+     * @return $this
+     */
+    public function setUnamortizedPretaxAmount($unamortized_pretax_amount)
+    {
+        $this->container['unamortized_pretax_amount'] = $unamortized_pretax_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets unamortized_real_value
+     *
+     * @return string
+     */
+    public function getUnamortizedRealValue()
+    {
+        return $this->container['unamortized_real_value'];
+    }
+
+    /**
+     * Sets unamortized_real_value
+     *
+     * @param string $unamortized_real_value unamortized_real_value
+     *
+     * @return $this
+     */
+    public function setUnamortizedRealValue($unamortized_real_value)
+    {
+        $this->container['unamortized_real_value'] = $unamortized_real_value;
+
+        return $this;
+    }
+
+    /**
      * Gets unamortized_round_amount
      *
      * @return string
@@ -2769,6 +4767,198 @@ class ListForListAmortizedCostBillMonthlyOutput implements ModelInterface, Array
     public function setUnamortizedRoundAmount($unamortized_round_amount)
     {
         $this->container['unamortized_round_amount'] = $unamortized_round_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets unamortized_settle_payable_amount
+     *
+     * @return string
+     */
+    public function getUnamortizedSettlePayableAmount()
+    {
+        return $this->container['unamortized_settle_payable_amount'];
+    }
+
+    /**
+     * Sets unamortized_settle_payable_amount
+     *
+     * @param string $unamortized_settle_payable_amount unamortized_settle_payable_amount
+     *
+     * @return $this
+     */
+    public function setUnamortizedSettlePayableAmount($unamortized_settle_payable_amount)
+    {
+        $this->container['unamortized_settle_payable_amount'] = $unamortized_settle_payable_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets unamortized_settle_posttax_amount
+     *
+     * @return string
+     */
+    public function getUnamortizedSettlePosttaxAmount()
+    {
+        return $this->container['unamortized_settle_posttax_amount'];
+    }
+
+    /**
+     * Sets unamortized_settle_posttax_amount
+     *
+     * @param string $unamortized_settle_posttax_amount unamortized_settle_posttax_amount
+     *
+     * @return $this
+     */
+    public function setUnamortizedSettlePosttaxAmount($unamortized_settle_posttax_amount)
+    {
+        $this->container['unamortized_settle_posttax_amount'] = $unamortized_settle_posttax_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets unamortized_settle_pre_tax_payable_amount
+     *
+     * @return string
+     */
+    public function getUnamortizedSettlePreTaxPayableAmount()
+    {
+        return $this->container['unamortized_settle_pre_tax_payable_amount'];
+    }
+
+    /**
+     * Sets unamortized_settle_pre_tax_payable_amount
+     *
+     * @param string $unamortized_settle_pre_tax_payable_amount unamortized_settle_pre_tax_payable_amount
+     *
+     * @return $this
+     */
+    public function setUnamortizedSettlePreTaxPayableAmount($unamortized_settle_pre_tax_payable_amount)
+    {
+        $this->container['unamortized_settle_pre_tax_payable_amount'] = $unamortized_settle_pre_tax_payable_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets unamortized_settle_pre_tax_real_value
+     *
+     * @return string
+     */
+    public function getUnamortizedSettlePreTaxRealValue()
+    {
+        return $this->container['unamortized_settle_pre_tax_real_value'];
+    }
+
+    /**
+     * Sets unamortized_settle_pre_tax_real_value
+     *
+     * @param string $unamortized_settle_pre_tax_real_value unamortized_settle_pre_tax_real_value
+     *
+     * @return $this
+     */
+    public function setUnamortizedSettlePreTaxRealValue($unamortized_settle_pre_tax_real_value)
+    {
+        $this->container['unamortized_settle_pre_tax_real_value'] = $unamortized_settle_pre_tax_real_value;
+
+        return $this;
+    }
+
+    /**
+     * Gets unamortized_settle_pretax_amount
+     *
+     * @return string
+     */
+    public function getUnamortizedSettlePretaxAmount()
+    {
+        return $this->container['unamortized_settle_pretax_amount'];
+    }
+
+    /**
+     * Sets unamortized_settle_pretax_amount
+     *
+     * @param string $unamortized_settle_pretax_amount unamortized_settle_pretax_amount
+     *
+     * @return $this
+     */
+    public function setUnamortizedSettlePretaxAmount($unamortized_settle_pretax_amount)
+    {
+        $this->container['unamortized_settle_pretax_amount'] = $unamortized_settle_pretax_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets unamortized_settle_real_value
+     *
+     * @return string
+     */
+    public function getUnamortizedSettleRealValue()
+    {
+        return $this->container['unamortized_settle_real_value'];
+    }
+
+    /**
+     * Sets unamortized_settle_real_value
+     *
+     * @param string $unamortized_settle_real_value unamortized_settle_real_value
+     *
+     * @return $this
+     */
+    public function setUnamortizedSettleRealValue($unamortized_settle_real_value)
+    {
+        $this->container['unamortized_settle_real_value'] = $unamortized_settle_real_value;
+
+        return $this;
+    }
+
+    /**
+     * Gets unamortized_settle_tax_amount
+     *
+     * @return string
+     */
+    public function getUnamortizedSettleTaxAmount()
+    {
+        return $this->container['unamortized_settle_tax_amount'];
+    }
+
+    /**
+     * Sets unamortized_settle_tax_amount
+     *
+     * @param string $unamortized_settle_tax_amount unamortized_settle_tax_amount
+     *
+     * @return $this
+     */
+    public function setUnamortizedSettleTaxAmount($unamortized_settle_tax_amount)
+    {
+        $this->container['unamortized_settle_tax_amount'] = $unamortized_settle_tax_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets unamortized_tax_amount
+     *
+     * @return string
+     */
+    public function getUnamortizedTaxAmount()
+    {
+        return $this->container['unamortized_tax_amount'];
+    }
+
+    /**
+     * Sets unamortized_tax_amount
+     *
+     * @param string $unamortized_tax_amount unamortized_tax_amount
+     *
+     * @return $this
+     */
+    public function setUnamortizedTaxAmount($unamortized_tax_amount)
+    {
+        $this->container['unamortized_tax_amount'] = $unamortized_tax_amount;
 
         return $this;
     }
