@@ -35,7 +35,6 @@ class RowForListPodOutput implements ModelInterface, ArrayAccess
         'archive_status' => 'int',
         'authority_expire_time' => 'int',
         'authority_status' => 'int',
-        'cidr_block' => 'string',
         'configuration' => '\Volcengine\Acep\Model\ConfigurationForListPodOutput',
         'create_at' => 'int',
         'dnsid' => 'string',
@@ -43,9 +42,7 @@ class RowForListPodOutput implements ModelInterface, ArrayAccess
         'data_size_used' => 'string',
         'dc_info' => '\Volcengine\Acep\Model\DcInfoForListPodOutput',
         'display_layout_id' => 'string',
-        'display_status' => '\Volcengine\Acep\Model\DisplayStatusForListPodOutput',
         'down_bandwidth_limit' => 'int',
-        'eip' => '\Volcengine\Acep\Model\EipForListPodOutput',
         'host_id' => 'string',
         'image_id' => 'string',
         'image_name' => 'string',
@@ -55,7 +52,6 @@ class RowForListPodOutput implements ModelInterface, ArrayAccess
         'pod_name' => 'string',
         'port_mapping_rule_list' => '\Volcengine\Acep\Model\PortMappingRuleListForListPodOutput[]',
         'product_id' => 'string',
-        'snatid' => 'string',
         'server_type_code' => 'string',
         'stream_status' => 'int',
         'tag' => '\Volcengine\Acep\Model\TagForListPodOutput',
@@ -75,7 +71,6 @@ class RowForListPodOutput implements ModelInterface, ArrayAccess
         'archive_status' => 'int32',
         'authority_expire_time' => 'int64',
         'authority_status' => 'int32',
-        'cidr_block' => null,
         'configuration' => null,
         'create_at' => 'int64',
         'dnsid' => null,
@@ -83,9 +78,7 @@ class RowForListPodOutput implements ModelInterface, ArrayAccess
         'data_size_used' => null,
         'dc_info' => null,
         'display_layout_id' => null,
-        'display_status' => null,
         'down_bandwidth_limit' => 'int32',
-        'eip' => null,
         'host_id' => null,
         'image_id' => null,
         'image_name' => null,
@@ -95,7 +88,6 @@ class RowForListPodOutput implements ModelInterface, ArrayAccess
         'pod_name' => null,
         'port_mapping_rule_list' => null,
         'product_id' => null,
-        'snatid' => null,
         'server_type_code' => null,
         'stream_status' => 'int32',
         'tag' => null,
@@ -136,7 +128,6 @@ class RowForListPodOutput implements ModelInterface, ArrayAccess
         'archive_status' => 'ArchiveStatus',
         'authority_expire_time' => 'AuthorityExpireTime',
         'authority_status' => 'AuthorityStatus',
-        'cidr_block' => 'CidrBlock',
         'configuration' => 'Configuration',
         'create_at' => 'CreateAt',
         'dnsid' => 'DNSId',
@@ -144,9 +135,7 @@ class RowForListPodOutput implements ModelInterface, ArrayAccess
         'data_size_used' => 'DataSizeUsed',
         'dc_info' => 'DcInfo',
         'display_layout_id' => 'DisplayLayoutId',
-        'display_status' => 'DisplayStatus',
         'down_bandwidth_limit' => 'DownBandwidthLimit',
-        'eip' => 'Eip',
         'host_id' => 'HostId',
         'image_id' => 'ImageId',
         'image_name' => 'ImageName',
@@ -156,7 +145,6 @@ class RowForListPodOutput implements ModelInterface, ArrayAccess
         'pod_name' => 'PodName',
         'port_mapping_rule_list' => 'PortMappingRuleList',
         'product_id' => 'ProductId',
-        'snatid' => 'SNATId',
         'server_type_code' => 'ServerTypeCode',
         'stream_status' => 'StreamStatus',
         'tag' => 'Tag',
@@ -176,7 +164,6 @@ class RowForListPodOutput implements ModelInterface, ArrayAccess
         'archive_status' => 'setArchiveStatus',
         'authority_expire_time' => 'setAuthorityExpireTime',
         'authority_status' => 'setAuthorityStatus',
-        'cidr_block' => 'setCidrBlock',
         'configuration' => 'setConfiguration',
         'create_at' => 'setCreateAt',
         'dnsid' => 'setDnsid',
@@ -184,9 +171,7 @@ class RowForListPodOutput implements ModelInterface, ArrayAccess
         'data_size_used' => 'setDataSizeUsed',
         'dc_info' => 'setDcInfo',
         'display_layout_id' => 'setDisplayLayoutId',
-        'display_status' => 'setDisplayStatus',
         'down_bandwidth_limit' => 'setDownBandwidthLimit',
-        'eip' => 'setEip',
         'host_id' => 'setHostId',
         'image_id' => 'setImageId',
         'image_name' => 'setImageName',
@@ -196,7 +181,6 @@ class RowForListPodOutput implements ModelInterface, ArrayAccess
         'pod_name' => 'setPodName',
         'port_mapping_rule_list' => 'setPortMappingRuleList',
         'product_id' => 'setProductId',
-        'snatid' => 'setSnatid',
         'server_type_code' => 'setServerTypeCode',
         'stream_status' => 'setStreamStatus',
         'tag' => 'setTag',
@@ -216,7 +200,6 @@ class RowForListPodOutput implements ModelInterface, ArrayAccess
         'archive_status' => 'getArchiveStatus',
         'authority_expire_time' => 'getAuthorityExpireTime',
         'authority_status' => 'getAuthorityStatus',
-        'cidr_block' => 'getCidrBlock',
         'configuration' => 'getConfiguration',
         'create_at' => 'getCreateAt',
         'dnsid' => 'getDnsid',
@@ -224,9 +207,7 @@ class RowForListPodOutput implements ModelInterface, ArrayAccess
         'data_size_used' => 'getDataSizeUsed',
         'dc_info' => 'getDcInfo',
         'display_layout_id' => 'getDisplayLayoutId',
-        'display_status' => 'getDisplayStatus',
         'down_bandwidth_limit' => 'getDownBandwidthLimit',
-        'eip' => 'getEip',
         'host_id' => 'getHostId',
         'image_id' => 'getImageId',
         'image_name' => 'getImageName',
@@ -236,7 +217,6 @@ class RowForListPodOutput implements ModelInterface, ArrayAccess
         'pod_name' => 'getPodName',
         'port_mapping_rule_list' => 'getPortMappingRuleList',
         'product_id' => 'getProductId',
-        'snatid' => 'getSnatid',
         'server_type_code' => 'getServerTypeCode',
         'stream_status' => 'getStreamStatus',
         'tag' => 'getTag',
@@ -310,7 +290,6 @@ class RowForListPodOutput implements ModelInterface, ArrayAccess
         $this->container['archive_status'] = isset($data['archive_status']) ? $data['archive_status'] : null;
         $this->container['authority_expire_time'] = isset($data['authority_expire_time']) ? $data['authority_expire_time'] : null;
         $this->container['authority_status'] = isset($data['authority_status']) ? $data['authority_status'] : null;
-        $this->container['cidr_block'] = isset($data['cidr_block']) ? $data['cidr_block'] : null;
         $this->container['configuration'] = isset($data['configuration']) ? $data['configuration'] : null;
         $this->container['create_at'] = isset($data['create_at']) ? $data['create_at'] : null;
         $this->container['dnsid'] = isset($data['dnsid']) ? $data['dnsid'] : null;
@@ -318,9 +297,7 @@ class RowForListPodOutput implements ModelInterface, ArrayAccess
         $this->container['data_size_used'] = isset($data['data_size_used']) ? $data['data_size_used'] : null;
         $this->container['dc_info'] = isset($data['dc_info']) ? $data['dc_info'] : null;
         $this->container['display_layout_id'] = isset($data['display_layout_id']) ? $data['display_layout_id'] : null;
-        $this->container['display_status'] = isset($data['display_status']) ? $data['display_status'] : null;
         $this->container['down_bandwidth_limit'] = isset($data['down_bandwidth_limit']) ? $data['down_bandwidth_limit'] : null;
-        $this->container['eip'] = isset($data['eip']) ? $data['eip'] : null;
         $this->container['host_id'] = isset($data['host_id']) ? $data['host_id'] : null;
         $this->container['image_id'] = isset($data['image_id']) ? $data['image_id'] : null;
         $this->container['image_name'] = isset($data['image_name']) ? $data['image_name'] : null;
@@ -330,7 +307,6 @@ class RowForListPodOutput implements ModelInterface, ArrayAccess
         $this->container['pod_name'] = isset($data['pod_name']) ? $data['pod_name'] : null;
         $this->container['port_mapping_rule_list'] = isset($data['port_mapping_rule_list']) ? $data['port_mapping_rule_list'] : null;
         $this->container['product_id'] = isset($data['product_id']) ? $data['product_id'] : null;
-        $this->container['snatid'] = isset($data['snatid']) ? $data['snatid'] : null;
         $this->container['server_type_code'] = isset($data['server_type_code']) ? $data['server_type_code'] : null;
         $this->container['stream_status'] = isset($data['stream_status']) ? $data['stream_status'] : null;
         $this->container['tag'] = isset($data['tag']) ? $data['tag'] : null;
@@ -530,30 +506,6 @@ class RowForListPodOutput implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets cidr_block
-     *
-     * @return string
-     */
-    public function getCidrBlock()
-    {
-        return $this->container['cidr_block'];
-    }
-
-    /**
-     * Sets cidr_block
-     *
-     * @param string $cidr_block cidr_block
-     *
-     * @return $this
-     */
-    public function setCidrBlock($cidr_block)
-    {
-        $this->container['cidr_block'] = $cidr_block;
-
-        return $this;
-    }
-
-    /**
      * Gets configuration
      *
      * @return \Volcengine\Acep\Model\ConfigurationForListPodOutput
@@ -722,30 +674,6 @@ class RowForListPodOutput implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets display_status
-     *
-     * @return \Volcengine\Acep\Model\DisplayStatusForListPodOutput
-     */
-    public function getDisplayStatus()
-    {
-        return $this->container['display_status'];
-    }
-
-    /**
-     * Sets display_status
-     *
-     * @param \Volcengine\Acep\Model\DisplayStatusForListPodOutput $display_status display_status
-     *
-     * @return $this
-     */
-    public function setDisplayStatus($display_status)
-    {
-        $this->container['display_status'] = $display_status;
-
-        return $this;
-    }
-
-    /**
      * Gets down_bandwidth_limit
      *
      * @return int
@@ -765,30 +693,6 @@ class RowForListPodOutput implements ModelInterface, ArrayAccess
     public function setDownBandwidthLimit($down_bandwidth_limit)
     {
         $this->container['down_bandwidth_limit'] = $down_bandwidth_limit;
-
-        return $this;
-    }
-
-    /**
-     * Gets eip
-     *
-     * @return \Volcengine\Acep\Model\EipForListPodOutput
-     */
-    public function getEip()
-    {
-        return $this->container['eip'];
-    }
-
-    /**
-     * Sets eip
-     *
-     * @param \Volcengine\Acep\Model\EipForListPodOutput $eip eip
-     *
-     * @return $this
-     */
-    public function setEip($eip)
-    {
-        $this->container['eip'] = $eip;
 
         return $this;
     }
@@ -1005,30 +909,6 @@ class RowForListPodOutput implements ModelInterface, ArrayAccess
     public function setProductId($product_id)
     {
         $this->container['product_id'] = $product_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets snatid
-     *
-     * @return string
-     */
-    public function getSnatid()
-    {
-        return $this->container['snatid'];
-    }
-
-    /**
-     * Sets snatid
-     *
-     * @param string $snatid snatid
-     *
-     * @return $this
-     */
-    public function setSnatid($snatid)
-    {
-        $this->container['snatid'] = $snatid;
 
         return $this;
     }

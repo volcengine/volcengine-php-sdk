@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class DisplayStatusForListPodOutput implements ModelInterface, ArrayAccess
+class StartScreenShotResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class DisplayStatusForListPodOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'DisplayStatusForListPodOutput';
+    protected static $swaggerModelName = 'StartScreenShotResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,7 @@ class DisplayStatusForListPodOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'details' => '\Volcengine\Acep\Model\DetailForStartScreenShotOutput[]'
     ];
 
     /**
@@ -37,7 +37,7 @@ class DisplayStatusForListPodOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'details' => null
     ];
 
     /**
@@ -67,7 +67,7 @@ class DisplayStatusForListPodOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'details' => 'Details'
     ];
 
     /**
@@ -76,7 +76,7 @@ class DisplayStatusForListPodOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        
+        'details' => 'setDetails'
     ];
 
     /**
@@ -85,7 +85,7 @@ class DisplayStatusForListPodOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        
+        'details' => 'getDetails'
     ];
 
     /**
@@ -148,6 +148,7 @@ class DisplayStatusForListPodOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['details'] = isset($data['details']) ? $data['details'] : null;
     }
 
     /**
@@ -173,6 +174,30 @@ class DisplayStatusForListPodOutput implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets details
+     *
+     * @return \Volcengine\Acep\Model\DetailForStartScreenShotOutput[]
+     */
+    public function getDetails()
+    {
+        return $this->container['details'];
+    }
+
+    /**
+     * Sets details
+     *
+     * @param \Volcengine\Acep\Model\DetailForStartScreenShotOutput[] $details details
+     *
+     * @return $this
+     */
+    public function setDetails($details)
+    {
+        $this->container['details'] = $details;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

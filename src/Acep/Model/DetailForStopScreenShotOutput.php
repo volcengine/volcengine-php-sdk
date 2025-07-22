@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class EipForListPodOutput implements ModelInterface, ArrayAccess
+class DetailForStopScreenShotOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class EipForListPodOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'EipForListPodOutput';
+    protected static $swaggerModelName = 'DetailForStopScreenShotOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,13 @@ class EipForListPodOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'eip_address' => 'string',
-        'eip_id' => 'string',
-        'isp' => 'int'
+        'download_url' => 'string',
+        'error_code' => 'int',
+        'error_msg' => 'string',
+        'expire_at' => 'int',
+        'height' => 'int',
+        'pod_id' => 'string',
+        'width' => 'int'
     ];
 
     /**
@@ -39,9 +43,13 @@ class EipForListPodOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'eip_address' => null,
-        'eip_id' => null,
-        'isp' => 'int32'
+        'download_url' => null,
+        'error_code' => 'int32',
+        'error_msg' => null,
+        'expire_at' => 'int64',
+        'height' => 'int32',
+        'pod_id' => null,
+        'width' => 'int32'
     ];
 
     /**
@@ -71,9 +79,13 @@ class EipForListPodOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'eip_address' => 'EipAddress',
-        'eip_id' => 'EipId',
-        'isp' => 'Isp'
+        'download_url' => 'DownloadUrl',
+        'error_code' => 'ErrorCode',
+        'error_msg' => 'ErrorMsg',
+        'expire_at' => 'ExpireAt',
+        'height' => 'Height',
+        'pod_id' => 'PodId',
+        'width' => 'Width'
     ];
 
     /**
@@ -82,9 +94,13 @@ class EipForListPodOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'eip_address' => 'setEipAddress',
-        'eip_id' => 'setEipId',
-        'isp' => 'setIsp'
+        'download_url' => 'setDownloadUrl',
+        'error_code' => 'setErrorCode',
+        'error_msg' => 'setErrorMsg',
+        'expire_at' => 'setExpireAt',
+        'height' => 'setHeight',
+        'pod_id' => 'setPodId',
+        'width' => 'setWidth'
     ];
 
     /**
@@ -93,9 +109,13 @@ class EipForListPodOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'eip_address' => 'getEipAddress',
-        'eip_id' => 'getEipId',
-        'isp' => 'getIsp'
+        'download_url' => 'getDownloadUrl',
+        'error_code' => 'getErrorCode',
+        'error_msg' => 'getErrorMsg',
+        'expire_at' => 'getExpireAt',
+        'height' => 'getHeight',
+        'pod_id' => 'getPodId',
+        'width' => 'getWidth'
     ];
 
     /**
@@ -158,9 +178,13 @@ class EipForListPodOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['eip_address'] = isset($data['eip_address']) ? $data['eip_address'] : null;
-        $this->container['eip_id'] = isset($data['eip_id']) ? $data['eip_id'] : null;
-        $this->container['isp'] = isset($data['isp']) ? $data['isp'] : null;
+        $this->container['download_url'] = isset($data['download_url']) ? $data['download_url'] : null;
+        $this->container['error_code'] = isset($data['error_code']) ? $data['error_code'] : null;
+        $this->container['error_msg'] = isset($data['error_msg']) ? $data['error_msg'] : null;
+        $this->container['expire_at'] = isset($data['expire_at']) ? $data['expire_at'] : null;
+        $this->container['height'] = isset($data['height']) ? $data['height'] : null;
+        $this->container['pod_id'] = isset($data['pod_id']) ? $data['pod_id'] : null;
+        $this->container['width'] = isset($data['width']) ? $data['width'] : null;
     }
 
     /**
@@ -188,73 +212,169 @@ class EipForListPodOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets eip_address
+     * Gets download_url
      *
      * @return string
      */
-    public function getEipAddress()
+    public function getDownloadUrl()
     {
-        return $this->container['eip_address'];
+        return $this->container['download_url'];
     }
 
     /**
-     * Sets eip_address
+     * Sets download_url
      *
-     * @param string $eip_address eip_address
+     * @param string $download_url download_url
      *
      * @return $this
      */
-    public function setEipAddress($eip_address)
+    public function setDownloadUrl($download_url)
     {
-        $this->container['eip_address'] = $eip_address;
+        $this->container['download_url'] = $download_url;
 
         return $this;
     }
 
     /**
-     * Gets eip_id
-     *
-     * @return string
-     */
-    public function getEipId()
-    {
-        return $this->container['eip_id'];
-    }
-
-    /**
-     * Sets eip_id
-     *
-     * @param string $eip_id eip_id
-     *
-     * @return $this
-     */
-    public function setEipId($eip_id)
-    {
-        $this->container['eip_id'] = $eip_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets isp
+     * Gets error_code
      *
      * @return int
      */
-    public function getIsp()
+    public function getErrorCode()
     {
-        return $this->container['isp'];
+        return $this->container['error_code'];
     }
 
     /**
-     * Sets isp
+     * Sets error_code
      *
-     * @param int $isp isp
+     * @param int $error_code error_code
      *
      * @return $this
      */
-    public function setIsp($isp)
+    public function setErrorCode($error_code)
     {
-        $this->container['isp'] = $isp;
+        $this->container['error_code'] = $error_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets error_msg
+     *
+     * @return string
+     */
+    public function getErrorMsg()
+    {
+        return $this->container['error_msg'];
+    }
+
+    /**
+     * Sets error_msg
+     *
+     * @param string $error_msg error_msg
+     *
+     * @return $this
+     */
+    public function setErrorMsg($error_msg)
+    {
+        $this->container['error_msg'] = $error_msg;
+
+        return $this;
+    }
+
+    /**
+     * Gets expire_at
+     *
+     * @return int
+     */
+    public function getExpireAt()
+    {
+        return $this->container['expire_at'];
+    }
+
+    /**
+     * Sets expire_at
+     *
+     * @param int $expire_at expire_at
+     *
+     * @return $this
+     */
+    public function setExpireAt($expire_at)
+    {
+        $this->container['expire_at'] = $expire_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets height
+     *
+     * @return int
+     */
+    public function getHeight()
+    {
+        return $this->container['height'];
+    }
+
+    /**
+     * Sets height
+     *
+     * @param int $height height
+     *
+     * @return $this
+     */
+    public function setHeight($height)
+    {
+        $this->container['height'] = $height;
+
+        return $this;
+    }
+
+    /**
+     * Gets pod_id
+     *
+     * @return string
+     */
+    public function getPodId()
+    {
+        return $this->container['pod_id'];
+    }
+
+    /**
+     * Sets pod_id
+     *
+     * @param string $pod_id pod_id
+     *
+     * @return $this
+     */
+    public function setPodId($pod_id)
+    {
+        $this->container['pod_id'] = $pod_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets width
+     *
+     * @return int
+     */
+    public function getWidth()
+    {
+        return $this->container['width'];
+    }
+
+    /**
+     * Sets width
+     *
+     * @param int $width width
+     *
+     * @return $this
+     */
+    public function setWidth($width)
+    {
+        $this->container['width'] = $width;
 
         return $this;
     }
