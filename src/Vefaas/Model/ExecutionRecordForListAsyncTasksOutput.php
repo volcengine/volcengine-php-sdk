@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ItemForListFunctionInstancesOutput implements ModelInterface, ArrayAccess
+class ExecutionRecordForListAsyncTasksOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ItemForListFunctionInstancesOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ItemForListFunctionInstancesOutput';
+    protected static $swaggerModelName = 'ExecutionRecordForListAsyncTasksOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,17 +28,13 @@ class ItemForListFunctionInstancesOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'availability_zone' => 'string',
-        'creation_time' => 'string',
-        'expire_at' => 'string',
-        'id' => 'string',
+        'command' => 'string',
+        'end_time' => 'string',
+        'error_message' => 'string',
         'instance_name' => 'string',
-        'instance_status' => 'string',
-        'instance_type' => 'string',
-        'labels' => '\Volcengine\Vefaas\Model\LabelsForListFunctionInstancesOutput',
         'revision_number' => 'int',
-        'user_vpc_ip' => 'string',
-        'user_vpc_ipv6' => 'string'
+        'start_time' => 'string',
+        'status' => 'string'
     ];
 
     /**
@@ -47,17 +43,13 @@ class ItemForListFunctionInstancesOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'availability_zone' => null,
-        'creation_time' => null,
-        'expire_at' => null,
-        'id' => null,
+        'command' => null,
+        'end_time' => null,
+        'error_message' => null,
         'instance_name' => null,
-        'instance_status' => null,
-        'instance_type' => null,
-        'labels' => null,
         'revision_number' => 'int32',
-        'user_vpc_ip' => null,
-        'user_vpc_ipv6' => null
+        'start_time' => null,
+        'status' => null
     ];
 
     /**
@@ -87,17 +79,13 @@ class ItemForListFunctionInstancesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'availability_zone' => 'AvailabilityZone',
-        'creation_time' => 'CreationTime',
-        'expire_at' => 'ExpireAt',
-        'id' => 'Id',
+        'command' => 'Command',
+        'end_time' => 'EndTime',
+        'error_message' => 'ErrorMessage',
         'instance_name' => 'InstanceName',
-        'instance_status' => 'InstanceStatus',
-        'instance_type' => 'InstanceType',
-        'labels' => 'Labels',
         'revision_number' => 'RevisionNumber',
-        'user_vpc_ip' => 'UserVpcIP',
-        'user_vpc_ipv6' => 'UserVpcIPv6'
+        'start_time' => 'StartTime',
+        'status' => 'Status'
     ];
 
     /**
@@ -106,17 +94,13 @@ class ItemForListFunctionInstancesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'availability_zone' => 'setAvailabilityZone',
-        'creation_time' => 'setCreationTime',
-        'expire_at' => 'setExpireAt',
-        'id' => 'setId',
+        'command' => 'setCommand',
+        'end_time' => 'setEndTime',
+        'error_message' => 'setErrorMessage',
         'instance_name' => 'setInstanceName',
-        'instance_status' => 'setInstanceStatus',
-        'instance_type' => 'setInstanceType',
-        'labels' => 'setLabels',
         'revision_number' => 'setRevisionNumber',
-        'user_vpc_ip' => 'setUserVpcIp',
-        'user_vpc_ipv6' => 'setUserVpcIpv6'
+        'start_time' => 'setStartTime',
+        'status' => 'setStatus'
     ];
 
     /**
@@ -125,17 +109,13 @@ class ItemForListFunctionInstancesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'availability_zone' => 'getAvailabilityZone',
-        'creation_time' => 'getCreationTime',
-        'expire_at' => 'getExpireAt',
-        'id' => 'getId',
+        'command' => 'getCommand',
+        'end_time' => 'getEndTime',
+        'error_message' => 'getErrorMessage',
         'instance_name' => 'getInstanceName',
-        'instance_status' => 'getInstanceStatus',
-        'instance_type' => 'getInstanceType',
-        'labels' => 'getLabels',
         'revision_number' => 'getRevisionNumber',
-        'user_vpc_ip' => 'getUserVpcIp',
-        'user_vpc_ipv6' => 'getUserVpcIpv6'
+        'start_time' => 'getStartTime',
+        'status' => 'getStatus'
     ];
 
     /**
@@ -198,17 +178,13 @@ class ItemForListFunctionInstancesOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['availability_zone'] = isset($data['availability_zone']) ? $data['availability_zone'] : null;
-        $this->container['creation_time'] = isset($data['creation_time']) ? $data['creation_time'] : null;
-        $this->container['expire_at'] = isset($data['expire_at']) ? $data['expire_at'] : null;
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['command'] = isset($data['command']) ? $data['command'] : null;
+        $this->container['end_time'] = isset($data['end_time']) ? $data['end_time'] : null;
+        $this->container['error_message'] = isset($data['error_message']) ? $data['error_message'] : null;
         $this->container['instance_name'] = isset($data['instance_name']) ? $data['instance_name'] : null;
-        $this->container['instance_status'] = isset($data['instance_status']) ? $data['instance_status'] : null;
-        $this->container['instance_type'] = isset($data['instance_type']) ? $data['instance_type'] : null;
-        $this->container['labels'] = isset($data['labels']) ? $data['labels'] : null;
         $this->container['revision_number'] = isset($data['revision_number']) ? $data['revision_number'] : null;
-        $this->container['user_vpc_ip'] = isset($data['user_vpc_ip']) ? $data['user_vpc_ip'] : null;
-        $this->container['user_vpc_ipv6'] = isset($data['user_vpc_ipv6']) ? $data['user_vpc_ipv6'] : null;
+        $this->container['start_time'] = isset($data['start_time']) ? $data['start_time'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }
 
     /**
@@ -236,97 +212,73 @@ class ItemForListFunctionInstancesOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets availability_zone
+     * Gets command
      *
      * @return string
      */
-    public function getAvailabilityZone()
+    public function getCommand()
     {
-        return $this->container['availability_zone'];
+        return $this->container['command'];
     }
 
     /**
-     * Sets availability_zone
+     * Sets command
      *
-     * @param string $availability_zone availability_zone
+     * @param string $command command
      *
      * @return $this
      */
-    public function setAvailabilityZone($availability_zone)
+    public function setCommand($command)
     {
-        $this->container['availability_zone'] = $availability_zone;
+        $this->container['command'] = $command;
 
         return $this;
     }
 
     /**
-     * Gets creation_time
+     * Gets end_time
      *
      * @return string
      */
-    public function getCreationTime()
+    public function getEndTime()
     {
-        return $this->container['creation_time'];
+        return $this->container['end_time'];
     }
 
     /**
-     * Sets creation_time
+     * Sets end_time
      *
-     * @param string $creation_time creation_time
+     * @param string $end_time end_time
      *
      * @return $this
      */
-    public function setCreationTime($creation_time)
+    public function setEndTime($end_time)
     {
-        $this->container['creation_time'] = $creation_time;
+        $this->container['end_time'] = $end_time;
 
         return $this;
     }
 
     /**
-     * Gets expire_at
+     * Gets error_message
      *
      * @return string
      */
-    public function getExpireAt()
+    public function getErrorMessage()
     {
-        return $this->container['expire_at'];
+        return $this->container['error_message'];
     }
 
     /**
-     * Sets expire_at
+     * Sets error_message
      *
-     * @param string $expire_at expire_at
+     * @param string $error_message error_message
      *
      * @return $this
      */
-    public function setExpireAt($expire_at)
+    public function setErrorMessage($error_message)
     {
-        $this->container['expire_at'] = $expire_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets id
-     *
-     * @return string
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string $id id
-     *
-     * @return $this
-     */
-    public function setId($id)
-    {
-        $this->container['id'] = $id;
+        $this->container['error_message'] = $error_message;
 
         return $this;
     }
@@ -356,78 +308,6 @@ class ItemForListFunctionInstancesOutput implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets instance_status
-     *
-     * @return string
-     */
-    public function getInstanceStatus()
-    {
-        return $this->container['instance_status'];
-    }
-
-    /**
-     * Sets instance_status
-     *
-     * @param string $instance_status instance_status
-     *
-     * @return $this
-     */
-    public function setInstanceStatus($instance_status)
-    {
-        $this->container['instance_status'] = $instance_status;
-
-        return $this;
-    }
-
-    /**
-     * Gets instance_type
-     *
-     * @return string
-     */
-    public function getInstanceType()
-    {
-        return $this->container['instance_type'];
-    }
-
-    /**
-     * Sets instance_type
-     *
-     * @param string $instance_type instance_type
-     *
-     * @return $this
-     */
-    public function setInstanceType($instance_type)
-    {
-        $this->container['instance_type'] = $instance_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets labels
-     *
-     * @return \Volcengine\Vefaas\Model\LabelsForListFunctionInstancesOutput
-     */
-    public function getLabels()
-    {
-        return $this->container['labels'];
-    }
-
-    /**
-     * Sets labels
-     *
-     * @param \Volcengine\Vefaas\Model\LabelsForListFunctionInstancesOutput $labels labels
-     *
-     * @return $this
-     */
-    public function setLabels($labels)
-    {
-        $this->container['labels'] = $labels;
-
-        return $this;
-    }
-
-    /**
      * Gets revision_number
      *
      * @return int
@@ -452,49 +332,49 @@ class ItemForListFunctionInstancesOutput implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets user_vpc_ip
+     * Gets start_time
      *
      * @return string
      */
-    public function getUserVpcIp()
+    public function getStartTime()
     {
-        return $this->container['user_vpc_ip'];
+        return $this->container['start_time'];
     }
 
     /**
-     * Sets user_vpc_ip
+     * Sets start_time
      *
-     * @param string $user_vpc_ip user_vpc_ip
+     * @param string $start_time start_time
      *
      * @return $this
      */
-    public function setUserVpcIp($user_vpc_ip)
+    public function setStartTime($start_time)
     {
-        $this->container['user_vpc_ip'] = $user_vpc_ip;
+        $this->container['start_time'] = $start_time;
 
         return $this;
     }
 
     /**
-     * Gets user_vpc_ipv6
+     * Gets status
      *
      * @return string
      */
-    public function getUserVpcIpv6()
+    public function getStatus()
     {
-        return $this->container['user_vpc_ipv6'];
+        return $this->container['status'];
     }
 
     /**
-     * Sets user_vpc_ipv6
+     * Sets status
      *
-     * @param string $user_vpc_ipv6 user_vpc_ipv6
+     * @param string $status status
      *
      * @return $this
      */
-    public function setUserVpcIpv6($user_vpc_ipv6)
+    public function setStatus($status)
     {
-        $this->container['user_vpc_ipv6'] = $user_vpc_ipv6;
+        $this->container['status'] = $status;
 
         return $this;
     }
