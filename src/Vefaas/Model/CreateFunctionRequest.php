@@ -28,7 +28,9 @@ class CreateFunctionRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'cell' => 'string',
         'command' => 'string',
+        'cpu_milli' => 'int',
         'cpu_strategy' => 'string',
         'description' => 'string',
         'envs' => '\Volcengine\Vefaas\Model\EnvForCreateFunctionInput[]',
@@ -57,7 +59,9 @@ class CreateFunctionRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'cell' => null,
         'command' => null,
+        'cpu_milli' => 'int32',
         'cpu_strategy' => null,
         'description' => null,
         'envs' => null,
@@ -107,7 +111,9 @@ class CreateFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'cell' => 'Cell',
         'command' => 'Command',
+        'cpu_milli' => 'CpuMilli',
         'cpu_strategy' => 'CpuStrategy',
         'description' => 'Description',
         'envs' => 'Envs',
@@ -136,7 +142,9 @@ class CreateFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'cell' => 'setCell',
         'command' => 'setCommand',
+        'cpu_milli' => 'setCpuMilli',
         'cpu_strategy' => 'setCpuStrategy',
         'description' => 'setDescription',
         'envs' => 'setEnvs',
@@ -165,7 +173,9 @@ class CreateFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'cell' => 'getCell',
         'command' => 'getCommand',
+        'cpu_milli' => 'getCpuMilli',
         'cpu_strategy' => 'getCpuStrategy',
         'description' => 'getDescription',
         'envs' => 'getEnvs',
@@ -248,7 +258,9 @@ class CreateFunctionRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['cell'] = isset($data['cell']) ? $data['cell'] : null;
         $this->container['command'] = isset($data['command']) ? $data['command'] : null;
+        $this->container['cpu_milli'] = isset($data['cpu_milli']) ? $data['cpu_milli'] : null;
         $this->container['cpu_strategy'] = isset($data['cpu_strategy']) ? $data['cpu_strategy'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['envs'] = isset($data['envs']) ? $data['envs'] : null;
@@ -302,6 +314,30 @@ class CreateFunctionRequest implements ModelInterface, ArrayAccess
 
 
     /**
+     * Gets cell
+     *
+     * @return string
+     */
+    public function getCell()
+    {
+        return $this->container['cell'];
+    }
+
+    /**
+     * Sets cell
+     *
+     * @param string $cell cell
+     *
+     * @return $this
+     */
+    public function setCell($cell)
+    {
+        $this->container['cell'] = $cell;
+
+        return $this;
+    }
+
+    /**
      * Gets command
      *
      * @return string
@@ -321,6 +357,30 @@ class CreateFunctionRequest implements ModelInterface, ArrayAccess
     public function setCommand($command)
     {
         $this->container['command'] = $command;
+
+        return $this;
+    }
+
+    /**
+     * Gets cpu_milli
+     *
+     * @return int
+     */
+    public function getCpuMilli()
+    {
+        return $this->container['cpu_milli'];
+    }
+
+    /**
+     * Sets cpu_milli
+     *
+     * @param int $cpu_milli cpu_milli
+     *
+     * @return $this
+     */
+    public function setCpuMilli($cpu_milli)
+    {
+        $this->container['cpu_milli'] = $cpu_milli;
 
         return $this;
     }

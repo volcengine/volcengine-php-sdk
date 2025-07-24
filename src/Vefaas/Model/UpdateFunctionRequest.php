@@ -28,6 +28,7 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'cpu_milli' => 'int',
         'description' => 'string',
         'envs' => '\Volcengine\Vefaas\Model\EnvForUpdateFunctionInput[]',
         'exclusive_mode' => 'bool',
@@ -53,6 +54,7 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'cpu_milli' => 'int32',
         'description' => null,
         'envs' => null,
         'exclusive_mode' => null,
@@ -99,6 +101,7 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'cpu_milli' => 'CpuMilli',
         'description' => 'Description',
         'envs' => 'Envs',
         'exclusive_mode' => 'ExclusiveMode',
@@ -124,6 +127,7 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'cpu_milli' => 'setCpuMilli',
         'description' => 'setDescription',
         'envs' => 'setEnvs',
         'exclusive_mode' => 'setExclusiveMode',
@@ -149,6 +153,7 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'cpu_milli' => 'getCpuMilli',
         'description' => 'getDescription',
         'envs' => 'getEnvs',
         'exclusive_mode' => 'getExclusiveMode',
@@ -228,6 +233,7 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['cpu_milli'] = isset($data['cpu_milli']) ? $data['cpu_milli'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['envs'] = isset($data['envs']) ? $data['envs'] : null;
         $this->container['exclusive_mode'] = isset($data['exclusive_mode']) ? $data['exclusive_mode'] : null;
@@ -273,6 +279,30 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets cpu_milli
+     *
+     * @return int
+     */
+    public function getCpuMilli()
+    {
+        return $this->container['cpu_milli'];
+    }
+
+    /**
+     * Sets cpu_milli
+     *
+     * @param int $cpu_milli cpu_milli
+     *
+     * @return $this
+     */
+    public function setCpuMilli($cpu_milli)
+    {
+        $this->container['cpu_milli'] = $cpu_milli;
+
+        return $this;
+    }
 
     /**
      * Gets description

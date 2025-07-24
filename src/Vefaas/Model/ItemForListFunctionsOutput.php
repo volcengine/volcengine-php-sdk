@@ -28,6 +28,7 @@ class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'cell' => 'string',
         'code_size' => 'int',
         'code_size_limit' => 'int',
         'command' => 'string',
@@ -36,6 +37,7 @@ class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
         'description' => 'string',
         'envs' => '\Volcengine\Vefaas\Model\EnvForListFunctionsOutput[]',
         'exclusive_mode' => 'bool',
+        'function_type' => 'string',
         'id' => 'string',
         'initializer_sec' => 'int',
         'instance_type' => 'string',
@@ -64,6 +66,7 @@ class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'cell' => null,
         'code_size' => 'int32',
         'code_size_limit' => 'int32',
         'command' => null,
@@ -72,6 +75,7 @@ class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
         'description' => null,
         'envs' => null,
         'exclusive_mode' => null,
+        'function_type' => null,
         'id' => null,
         'initializer_sec' => 'int32',
         'instance_type' => null,
@@ -121,6 +125,7 @@ class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'cell' => 'Cell',
         'code_size' => 'CodeSize',
         'code_size_limit' => 'CodeSizeLimit',
         'command' => 'Command',
@@ -129,6 +134,7 @@ class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
         'description' => 'Description',
         'envs' => 'Envs',
         'exclusive_mode' => 'ExclusiveMode',
+        'function_type' => 'FunctionType',
         'id' => 'Id',
         'initializer_sec' => 'InitializerSec',
         'instance_type' => 'InstanceType',
@@ -157,6 +163,7 @@ class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'cell' => 'setCell',
         'code_size' => 'setCodeSize',
         'code_size_limit' => 'setCodeSizeLimit',
         'command' => 'setCommand',
@@ -165,6 +172,7 @@ class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
         'description' => 'setDescription',
         'envs' => 'setEnvs',
         'exclusive_mode' => 'setExclusiveMode',
+        'function_type' => 'setFunctionType',
         'id' => 'setId',
         'initializer_sec' => 'setInitializerSec',
         'instance_type' => 'setInstanceType',
@@ -193,6 +201,7 @@ class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'cell' => 'getCell',
         'code_size' => 'getCodeSize',
         'code_size_limit' => 'getCodeSizeLimit',
         'command' => 'getCommand',
@@ -201,6 +210,7 @@ class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
         'description' => 'getDescription',
         'envs' => 'getEnvs',
         'exclusive_mode' => 'getExclusiveMode',
+        'function_type' => 'getFunctionType',
         'id' => 'getId',
         'initializer_sec' => 'getInitializerSec',
         'instance_type' => 'getInstanceType',
@@ -283,6 +293,7 @@ class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['cell'] = isset($data['cell']) ? $data['cell'] : null;
         $this->container['code_size'] = isset($data['code_size']) ? $data['code_size'] : null;
         $this->container['code_size_limit'] = isset($data['code_size_limit']) ? $data['code_size_limit'] : null;
         $this->container['command'] = isset($data['command']) ? $data['command'] : null;
@@ -291,6 +302,7 @@ class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['envs'] = isset($data['envs']) ? $data['envs'] : null;
         $this->container['exclusive_mode'] = isset($data['exclusive_mode']) ? $data['exclusive_mode'] : null;
+        $this->container['function_type'] = isset($data['function_type']) ? $data['function_type'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['initializer_sec'] = isset($data['initializer_sec']) ? $data['initializer_sec'] : null;
         $this->container['instance_type'] = isset($data['instance_type']) ? $data['instance_type'] : null;
@@ -336,6 +348,30 @@ class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets cell
+     *
+     * @return string
+     */
+    public function getCell()
+    {
+        return $this->container['cell'];
+    }
+
+    /**
+     * Sets cell
+     *
+     * @param string $cell cell
+     *
+     * @return $this
+     */
+    public function setCell($cell)
+    {
+        $this->container['cell'] = $cell;
+
+        return $this;
+    }
 
     /**
      * Gets code_size
@@ -525,6 +561,30 @@ class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
     public function setExclusiveMode($exclusive_mode)
     {
         $this->container['exclusive_mode'] = $exclusive_mode;
+
+        return $this;
+    }
+
+    /**
+     * Gets function_type
+     *
+     * @return string
+     */
+    public function getFunctionType()
+    {
+        return $this->container['function_type'];
+    }
+
+    /**
+     * Sets function_type
+     *
+     * @param string $function_type function_type
+     *
+     * @return $this
+     */
+    public function setFunctionType($function_type)
+    {
+        $this->container['function_type'] = $function_type;
 
         return $this;
     }

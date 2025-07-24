@@ -34,6 +34,7 @@ class ItemForListRevisionsOutput implements ModelInterface, ArrayAccess
         'description' => 'string',
         'envs' => '\Volcengine\Vefaas\Model\EnvForListRevisionsOutput[]',
         'exclusive_mode' => 'bool',
+        'function_type' => 'string',
         'health_check_config' => '\Volcengine\Vefaas\Model\HealthCheckConfigForListRevisionsOutput',
         'id' => 'string',
         'initializer_sec' => 'int',
@@ -68,6 +69,7 @@ class ItemForListRevisionsOutput implements ModelInterface, ArrayAccess
         'description' => null,
         'envs' => null,
         'exclusive_mode' => null,
+        'function_type' => null,
         'health_check_config' => null,
         'id' => null,
         'initializer_sec' => 'int32',
@@ -123,6 +125,7 @@ class ItemForListRevisionsOutput implements ModelInterface, ArrayAccess
         'description' => 'Description',
         'envs' => 'Envs',
         'exclusive_mode' => 'ExclusiveMode',
+        'function_type' => 'FunctionType',
         'health_check_config' => 'HealthCheckConfig',
         'id' => 'Id',
         'initializer_sec' => 'InitializerSec',
@@ -157,6 +160,7 @@ class ItemForListRevisionsOutput implements ModelInterface, ArrayAccess
         'description' => 'setDescription',
         'envs' => 'setEnvs',
         'exclusive_mode' => 'setExclusiveMode',
+        'function_type' => 'setFunctionType',
         'health_check_config' => 'setHealthCheckConfig',
         'id' => 'setId',
         'initializer_sec' => 'setInitializerSec',
@@ -191,6 +195,7 @@ class ItemForListRevisionsOutput implements ModelInterface, ArrayAccess
         'description' => 'getDescription',
         'envs' => 'getEnvs',
         'exclusive_mode' => 'getExclusiveMode',
+        'function_type' => 'getFunctionType',
         'health_check_config' => 'getHealthCheckConfig',
         'id' => 'getId',
         'initializer_sec' => 'getInitializerSec',
@@ -279,6 +284,7 @@ class ItemForListRevisionsOutput implements ModelInterface, ArrayAccess
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['envs'] = isset($data['envs']) ? $data['envs'] : null;
         $this->container['exclusive_mode'] = isset($data['exclusive_mode']) ? $data['exclusive_mode'] : null;
+        $this->container['function_type'] = isset($data['function_type']) ? $data['function_type'] : null;
         $this->container['health_check_config'] = isset($data['health_check_config']) ? $data['health_check_config'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['initializer_sec'] = isset($data['initializer_sec']) ? $data['initializer_sec'] : null;
@@ -465,6 +471,30 @@ class ItemForListRevisionsOutput implements ModelInterface, ArrayAccess
     public function setExclusiveMode($exclusive_mode)
     {
         $this->container['exclusive_mode'] = $exclusive_mode;
+
+        return $this;
+    }
+
+    /**
+     * Gets function_type
+     *
+     * @return string
+     */
+    public function getFunctionType()
+    {
+        return $this->container['function_type'];
+    }
+
+    /**
+     * Sets function_type
+     *
+     * @param string $function_type function_type
+     *
+     * @return $this
+     */
+    public function setFunctionType($function_type)
+    {
+        $this->container['function_type'] = $function_type;
 
         return $this;
     }
