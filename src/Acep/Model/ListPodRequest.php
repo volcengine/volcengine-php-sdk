@@ -28,7 +28,7 @@ class ListPodRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'archive_status' => 'string',
+        'archive_status' => 'int',
         'authority_status' => 'int',
         'configuration_code_list' => 'string[]',
         'dnsid' => 'string',
@@ -53,7 +53,7 @@ class ListPodRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'archive_status' => null,
+        'archive_status' => 'int32',
         'authority_status' => 'int32',
         'configuration_code_list' => null,
         'dnsid' => null,
@@ -277,7 +277,7 @@ class ListPodRequest implements ModelInterface, ArrayAccess
     /**
      * Gets archive_status
      *
-     * @return string
+     * @return int
      */
     public function getArchiveStatus()
     {
@@ -287,7 +287,7 @@ class ListPodRequest implements ModelInterface, ArrayAccess
     /**
      * Sets archive_status
      *
-     * @param string $archive_status archive_status
+     * @param int $archive_status archive_status
      *
      * @return $this
      */
