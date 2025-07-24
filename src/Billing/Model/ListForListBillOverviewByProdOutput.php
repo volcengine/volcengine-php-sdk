@@ -32,8 +32,11 @@ class ListForListBillOverviewByProdOutput implements ModelInterface, ArrayAccess
         'bill_period' => 'string',
         'billing_mode' => 'string',
         'business_mode' => 'string',
+        'country_region' => 'string',
         'coupon_amount' => 'string',
         'credit_carried_amount' => 'string',
+        'currency' => 'string',
+        'currency_settlement' => 'string',
         'discount_bill_amount' => 'string',
         'original_bill_amount' => 'string',
         'owner_customer_name' => 'string',
@@ -44,14 +47,29 @@ class ListForListBillOverviewByProdOutput implements ModelInterface, ArrayAccess
         'payer_customer_name' => 'string',
         'payer_id' => 'string',
         'payer_user_name' => 'string',
+        'posttax_amount' => 'string',
+        'pre_tax_payable_amount' => 'string',
         'preferential_bill_amount' => 'string',
+        'pretax_amount' => 'string',
+        'pretax_real_value' => 'string',
         'product' => 'string',
         'product_zh' => 'string',
+        'real_value' => 'string',
         'round_bill_amount' => 'string',
+        'saving_plan_original_amount' => 'string',
         'seller_customer_name' => 'string',
         'seller_id' => 'string',
         'seller_user_name' => 'string',
+        'settle_payable_amount' => 'string',
+        'settle_posttax_amount' => 'string',
+        'settle_pre_tax_payable_amount' => 'string',
+        'settle_pretax_amount' => 'string',
+        'settle_pretax_real_value' => 'string',
+        'settle_real_value' => 'string',
+        'settle_tax' => 'string',
         'settlement_type' => 'string',
+        'subject_name' => 'string',
+        'tax' => 'string',
         'unpaid_amount' => 'string'
     ];
 
@@ -65,8 +83,11 @@ class ListForListBillOverviewByProdOutput implements ModelInterface, ArrayAccess
         'bill_period' => null,
         'billing_mode' => null,
         'business_mode' => null,
+        'country_region' => null,
         'coupon_amount' => null,
         'credit_carried_amount' => null,
+        'currency' => null,
+        'currency_settlement' => null,
         'discount_bill_amount' => null,
         'original_bill_amount' => null,
         'owner_customer_name' => null,
@@ -77,14 +98,29 @@ class ListForListBillOverviewByProdOutput implements ModelInterface, ArrayAccess
         'payer_customer_name' => null,
         'payer_id' => null,
         'payer_user_name' => null,
+        'posttax_amount' => null,
+        'pre_tax_payable_amount' => null,
         'preferential_bill_amount' => null,
+        'pretax_amount' => null,
+        'pretax_real_value' => null,
         'product' => null,
         'product_zh' => null,
+        'real_value' => null,
         'round_bill_amount' => null,
+        'saving_plan_original_amount' => null,
         'seller_customer_name' => null,
         'seller_id' => null,
         'seller_user_name' => null,
+        'settle_payable_amount' => null,
+        'settle_posttax_amount' => null,
+        'settle_pre_tax_payable_amount' => null,
+        'settle_pretax_amount' => null,
+        'settle_pretax_real_value' => null,
+        'settle_real_value' => null,
+        'settle_tax' => null,
         'settlement_type' => null,
+        'subject_name' => null,
+        'tax' => null,
         'unpaid_amount' => null
     ];
 
@@ -119,8 +155,11 @@ class ListForListBillOverviewByProdOutput implements ModelInterface, ArrayAccess
         'bill_period' => 'BillPeriod',
         'billing_mode' => 'BillingMode',
         'business_mode' => 'BusinessMode',
+        'country_region' => 'CountryRegion',
         'coupon_amount' => 'CouponAmount',
         'credit_carried_amount' => 'CreditCarriedAmount',
+        'currency' => 'Currency',
+        'currency_settlement' => 'CurrencySettlement',
         'discount_bill_amount' => 'DiscountBillAmount',
         'original_bill_amount' => 'OriginalBillAmount',
         'owner_customer_name' => 'OwnerCustomerName',
@@ -131,14 +170,29 @@ class ListForListBillOverviewByProdOutput implements ModelInterface, ArrayAccess
         'payer_customer_name' => 'PayerCustomerName',
         'payer_id' => 'PayerID',
         'payer_user_name' => 'PayerUserName',
+        'posttax_amount' => 'PosttaxAmount',
+        'pre_tax_payable_amount' => 'PreTaxPayableAmount',
         'preferential_bill_amount' => 'PreferentialBillAmount',
+        'pretax_amount' => 'PretaxAmount',
+        'pretax_real_value' => 'PretaxRealValue',
         'product' => 'Product',
         'product_zh' => 'ProductZh',
+        'real_value' => 'RealValue',
         'round_bill_amount' => 'RoundBillAmount',
+        'saving_plan_original_amount' => 'SavingPlanOriginalAmount',
         'seller_customer_name' => 'SellerCustomerName',
         'seller_id' => 'SellerID',
         'seller_user_name' => 'SellerUserName',
+        'settle_payable_amount' => 'SettlePayableAmount',
+        'settle_posttax_amount' => 'SettlePosttaxAmount',
+        'settle_pre_tax_payable_amount' => 'SettlePreTaxPayableAmount',
+        'settle_pretax_amount' => 'SettlePretaxAmount',
+        'settle_pretax_real_value' => 'SettlePretaxRealValue',
+        'settle_real_value' => 'SettleRealValue',
+        'settle_tax' => 'SettleTax',
         'settlement_type' => 'SettlementType',
+        'subject_name' => 'SubjectName',
+        'tax' => 'Tax',
         'unpaid_amount' => 'UnpaidAmount'
     ];
 
@@ -152,8 +206,11 @@ class ListForListBillOverviewByProdOutput implements ModelInterface, ArrayAccess
         'bill_period' => 'setBillPeriod',
         'billing_mode' => 'setBillingMode',
         'business_mode' => 'setBusinessMode',
+        'country_region' => 'setCountryRegion',
         'coupon_amount' => 'setCouponAmount',
         'credit_carried_amount' => 'setCreditCarriedAmount',
+        'currency' => 'setCurrency',
+        'currency_settlement' => 'setCurrencySettlement',
         'discount_bill_amount' => 'setDiscountBillAmount',
         'original_bill_amount' => 'setOriginalBillAmount',
         'owner_customer_name' => 'setOwnerCustomerName',
@@ -164,14 +221,29 @@ class ListForListBillOverviewByProdOutput implements ModelInterface, ArrayAccess
         'payer_customer_name' => 'setPayerCustomerName',
         'payer_id' => 'setPayerId',
         'payer_user_name' => 'setPayerUserName',
+        'posttax_amount' => 'setPosttaxAmount',
+        'pre_tax_payable_amount' => 'setPreTaxPayableAmount',
         'preferential_bill_amount' => 'setPreferentialBillAmount',
+        'pretax_amount' => 'setPretaxAmount',
+        'pretax_real_value' => 'setPretaxRealValue',
         'product' => 'setProduct',
         'product_zh' => 'setProductZh',
+        'real_value' => 'setRealValue',
         'round_bill_amount' => 'setRoundBillAmount',
+        'saving_plan_original_amount' => 'setSavingPlanOriginalAmount',
         'seller_customer_name' => 'setSellerCustomerName',
         'seller_id' => 'setSellerId',
         'seller_user_name' => 'setSellerUserName',
+        'settle_payable_amount' => 'setSettlePayableAmount',
+        'settle_posttax_amount' => 'setSettlePosttaxAmount',
+        'settle_pre_tax_payable_amount' => 'setSettlePreTaxPayableAmount',
+        'settle_pretax_amount' => 'setSettlePretaxAmount',
+        'settle_pretax_real_value' => 'setSettlePretaxRealValue',
+        'settle_real_value' => 'setSettleRealValue',
+        'settle_tax' => 'setSettleTax',
         'settlement_type' => 'setSettlementType',
+        'subject_name' => 'setSubjectName',
+        'tax' => 'setTax',
         'unpaid_amount' => 'setUnpaidAmount'
     ];
 
@@ -185,8 +257,11 @@ class ListForListBillOverviewByProdOutput implements ModelInterface, ArrayAccess
         'bill_period' => 'getBillPeriod',
         'billing_mode' => 'getBillingMode',
         'business_mode' => 'getBusinessMode',
+        'country_region' => 'getCountryRegion',
         'coupon_amount' => 'getCouponAmount',
         'credit_carried_amount' => 'getCreditCarriedAmount',
+        'currency' => 'getCurrency',
+        'currency_settlement' => 'getCurrencySettlement',
         'discount_bill_amount' => 'getDiscountBillAmount',
         'original_bill_amount' => 'getOriginalBillAmount',
         'owner_customer_name' => 'getOwnerCustomerName',
@@ -197,14 +272,29 @@ class ListForListBillOverviewByProdOutput implements ModelInterface, ArrayAccess
         'payer_customer_name' => 'getPayerCustomerName',
         'payer_id' => 'getPayerId',
         'payer_user_name' => 'getPayerUserName',
+        'posttax_amount' => 'getPosttaxAmount',
+        'pre_tax_payable_amount' => 'getPreTaxPayableAmount',
         'preferential_bill_amount' => 'getPreferentialBillAmount',
+        'pretax_amount' => 'getPretaxAmount',
+        'pretax_real_value' => 'getPretaxRealValue',
         'product' => 'getProduct',
         'product_zh' => 'getProductZh',
+        'real_value' => 'getRealValue',
         'round_bill_amount' => 'getRoundBillAmount',
+        'saving_plan_original_amount' => 'getSavingPlanOriginalAmount',
         'seller_customer_name' => 'getSellerCustomerName',
         'seller_id' => 'getSellerId',
         'seller_user_name' => 'getSellerUserName',
+        'settle_payable_amount' => 'getSettlePayableAmount',
+        'settle_posttax_amount' => 'getSettlePosttaxAmount',
+        'settle_pre_tax_payable_amount' => 'getSettlePreTaxPayableAmount',
+        'settle_pretax_amount' => 'getSettlePretaxAmount',
+        'settle_pretax_real_value' => 'getSettlePretaxRealValue',
+        'settle_real_value' => 'getSettleRealValue',
+        'settle_tax' => 'getSettleTax',
         'settlement_type' => 'getSettlementType',
+        'subject_name' => 'getSubjectName',
+        'tax' => 'getTax',
         'unpaid_amount' => 'getUnpaidAmount'
     ];
 
@@ -272,8 +362,11 @@ class ListForListBillOverviewByProdOutput implements ModelInterface, ArrayAccess
         $this->container['bill_period'] = isset($data['bill_period']) ? $data['bill_period'] : null;
         $this->container['billing_mode'] = isset($data['billing_mode']) ? $data['billing_mode'] : null;
         $this->container['business_mode'] = isset($data['business_mode']) ? $data['business_mode'] : null;
+        $this->container['country_region'] = isset($data['country_region']) ? $data['country_region'] : null;
         $this->container['coupon_amount'] = isset($data['coupon_amount']) ? $data['coupon_amount'] : null;
         $this->container['credit_carried_amount'] = isset($data['credit_carried_amount']) ? $data['credit_carried_amount'] : null;
+        $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
+        $this->container['currency_settlement'] = isset($data['currency_settlement']) ? $data['currency_settlement'] : null;
         $this->container['discount_bill_amount'] = isset($data['discount_bill_amount']) ? $data['discount_bill_amount'] : null;
         $this->container['original_bill_amount'] = isset($data['original_bill_amount']) ? $data['original_bill_amount'] : null;
         $this->container['owner_customer_name'] = isset($data['owner_customer_name']) ? $data['owner_customer_name'] : null;
@@ -284,14 +377,29 @@ class ListForListBillOverviewByProdOutput implements ModelInterface, ArrayAccess
         $this->container['payer_customer_name'] = isset($data['payer_customer_name']) ? $data['payer_customer_name'] : null;
         $this->container['payer_id'] = isset($data['payer_id']) ? $data['payer_id'] : null;
         $this->container['payer_user_name'] = isset($data['payer_user_name']) ? $data['payer_user_name'] : null;
+        $this->container['posttax_amount'] = isset($data['posttax_amount']) ? $data['posttax_amount'] : null;
+        $this->container['pre_tax_payable_amount'] = isset($data['pre_tax_payable_amount']) ? $data['pre_tax_payable_amount'] : null;
         $this->container['preferential_bill_amount'] = isset($data['preferential_bill_amount']) ? $data['preferential_bill_amount'] : null;
+        $this->container['pretax_amount'] = isset($data['pretax_amount']) ? $data['pretax_amount'] : null;
+        $this->container['pretax_real_value'] = isset($data['pretax_real_value']) ? $data['pretax_real_value'] : null;
         $this->container['product'] = isset($data['product']) ? $data['product'] : null;
         $this->container['product_zh'] = isset($data['product_zh']) ? $data['product_zh'] : null;
+        $this->container['real_value'] = isset($data['real_value']) ? $data['real_value'] : null;
         $this->container['round_bill_amount'] = isset($data['round_bill_amount']) ? $data['round_bill_amount'] : null;
+        $this->container['saving_plan_original_amount'] = isset($data['saving_plan_original_amount']) ? $data['saving_plan_original_amount'] : null;
         $this->container['seller_customer_name'] = isset($data['seller_customer_name']) ? $data['seller_customer_name'] : null;
         $this->container['seller_id'] = isset($data['seller_id']) ? $data['seller_id'] : null;
         $this->container['seller_user_name'] = isset($data['seller_user_name']) ? $data['seller_user_name'] : null;
+        $this->container['settle_payable_amount'] = isset($data['settle_payable_amount']) ? $data['settle_payable_amount'] : null;
+        $this->container['settle_posttax_amount'] = isset($data['settle_posttax_amount']) ? $data['settle_posttax_amount'] : null;
+        $this->container['settle_pre_tax_payable_amount'] = isset($data['settle_pre_tax_payable_amount']) ? $data['settle_pre_tax_payable_amount'] : null;
+        $this->container['settle_pretax_amount'] = isset($data['settle_pretax_amount']) ? $data['settle_pretax_amount'] : null;
+        $this->container['settle_pretax_real_value'] = isset($data['settle_pretax_real_value']) ? $data['settle_pretax_real_value'] : null;
+        $this->container['settle_real_value'] = isset($data['settle_real_value']) ? $data['settle_real_value'] : null;
+        $this->container['settle_tax'] = isset($data['settle_tax']) ? $data['settle_tax'] : null;
         $this->container['settlement_type'] = isset($data['settlement_type']) ? $data['settlement_type'] : null;
+        $this->container['subject_name'] = isset($data['subject_name']) ? $data['subject_name'] : null;
+        $this->container['tax'] = isset($data['tax']) ? $data['tax'] : null;
         $this->container['unpaid_amount'] = isset($data['unpaid_amount']) ? $data['unpaid_amount'] : null;
     }
 
@@ -416,6 +524,30 @@ class ListForListBillOverviewByProdOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets country_region
+     *
+     * @return string
+     */
+    public function getCountryRegion()
+    {
+        return $this->container['country_region'];
+    }
+
+    /**
+     * Sets country_region
+     *
+     * @param string $country_region country_region
+     *
+     * @return $this
+     */
+    public function setCountryRegion($country_region)
+    {
+        $this->container['country_region'] = $country_region;
+
+        return $this;
+    }
+
+    /**
      * Gets coupon_amount
      *
      * @return string
@@ -459,6 +591,54 @@ class ListForListBillOverviewByProdOutput implements ModelInterface, ArrayAccess
     public function setCreditCarriedAmount($credit_carried_amount)
     {
         $this->container['credit_carried_amount'] = $credit_carried_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets currency
+     *
+     * @return string
+     */
+    public function getCurrency()
+    {
+        return $this->container['currency'];
+    }
+
+    /**
+     * Sets currency
+     *
+     * @param string $currency currency
+     *
+     * @return $this
+     */
+    public function setCurrency($currency)
+    {
+        $this->container['currency'] = $currency;
+
+        return $this;
+    }
+
+    /**
+     * Gets currency_settlement
+     *
+     * @return string
+     */
+    public function getCurrencySettlement()
+    {
+        return $this->container['currency_settlement'];
+    }
+
+    /**
+     * Sets currency_settlement
+     *
+     * @param string $currency_settlement currency_settlement
+     *
+     * @return $this
+     */
+    public function setCurrencySettlement($currency_settlement)
+    {
+        $this->container['currency_settlement'] = $currency_settlement;
 
         return $this;
     }
@@ -704,6 +884,54 @@ class ListForListBillOverviewByProdOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets posttax_amount
+     *
+     * @return string
+     */
+    public function getPosttaxAmount()
+    {
+        return $this->container['posttax_amount'];
+    }
+
+    /**
+     * Sets posttax_amount
+     *
+     * @param string $posttax_amount posttax_amount
+     *
+     * @return $this
+     */
+    public function setPosttaxAmount($posttax_amount)
+    {
+        $this->container['posttax_amount'] = $posttax_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets pre_tax_payable_amount
+     *
+     * @return string
+     */
+    public function getPreTaxPayableAmount()
+    {
+        return $this->container['pre_tax_payable_amount'];
+    }
+
+    /**
+     * Sets pre_tax_payable_amount
+     *
+     * @param string $pre_tax_payable_amount pre_tax_payable_amount
+     *
+     * @return $this
+     */
+    public function setPreTaxPayableAmount($pre_tax_payable_amount)
+    {
+        $this->container['pre_tax_payable_amount'] = $pre_tax_payable_amount;
+
+        return $this;
+    }
+
+    /**
      * Gets preferential_bill_amount
      *
      * @return string
@@ -723,6 +951,54 @@ class ListForListBillOverviewByProdOutput implements ModelInterface, ArrayAccess
     public function setPreferentialBillAmount($preferential_bill_amount)
     {
         $this->container['preferential_bill_amount'] = $preferential_bill_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets pretax_amount
+     *
+     * @return string
+     */
+    public function getPretaxAmount()
+    {
+        return $this->container['pretax_amount'];
+    }
+
+    /**
+     * Sets pretax_amount
+     *
+     * @param string $pretax_amount pretax_amount
+     *
+     * @return $this
+     */
+    public function setPretaxAmount($pretax_amount)
+    {
+        $this->container['pretax_amount'] = $pretax_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets pretax_real_value
+     *
+     * @return string
+     */
+    public function getPretaxRealValue()
+    {
+        return $this->container['pretax_real_value'];
+    }
+
+    /**
+     * Sets pretax_real_value
+     *
+     * @param string $pretax_real_value pretax_real_value
+     *
+     * @return $this
+     */
+    public function setPretaxRealValue($pretax_real_value)
+    {
+        $this->container['pretax_real_value'] = $pretax_real_value;
 
         return $this;
     }
@@ -776,6 +1052,30 @@ class ListForListBillOverviewByProdOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets real_value
+     *
+     * @return string
+     */
+    public function getRealValue()
+    {
+        return $this->container['real_value'];
+    }
+
+    /**
+     * Sets real_value
+     *
+     * @param string $real_value real_value
+     *
+     * @return $this
+     */
+    public function setRealValue($real_value)
+    {
+        $this->container['real_value'] = $real_value;
+
+        return $this;
+    }
+
+    /**
      * Gets round_bill_amount
      *
      * @return string
@@ -795,6 +1095,30 @@ class ListForListBillOverviewByProdOutput implements ModelInterface, ArrayAccess
     public function setRoundBillAmount($round_bill_amount)
     {
         $this->container['round_bill_amount'] = $round_bill_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets saving_plan_original_amount
+     *
+     * @return string
+     */
+    public function getSavingPlanOriginalAmount()
+    {
+        return $this->container['saving_plan_original_amount'];
+    }
+
+    /**
+     * Sets saving_plan_original_amount
+     *
+     * @param string $saving_plan_original_amount saving_plan_original_amount
+     *
+     * @return $this
+     */
+    public function setSavingPlanOriginalAmount($saving_plan_original_amount)
+    {
+        $this->container['saving_plan_original_amount'] = $saving_plan_original_amount;
 
         return $this;
     }
@@ -872,6 +1196,174 @@ class ListForListBillOverviewByProdOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets settle_payable_amount
+     *
+     * @return string
+     */
+    public function getSettlePayableAmount()
+    {
+        return $this->container['settle_payable_amount'];
+    }
+
+    /**
+     * Sets settle_payable_amount
+     *
+     * @param string $settle_payable_amount settle_payable_amount
+     *
+     * @return $this
+     */
+    public function setSettlePayableAmount($settle_payable_amount)
+    {
+        $this->container['settle_payable_amount'] = $settle_payable_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets settle_posttax_amount
+     *
+     * @return string
+     */
+    public function getSettlePosttaxAmount()
+    {
+        return $this->container['settle_posttax_amount'];
+    }
+
+    /**
+     * Sets settle_posttax_amount
+     *
+     * @param string $settle_posttax_amount settle_posttax_amount
+     *
+     * @return $this
+     */
+    public function setSettlePosttaxAmount($settle_posttax_amount)
+    {
+        $this->container['settle_posttax_amount'] = $settle_posttax_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets settle_pre_tax_payable_amount
+     *
+     * @return string
+     */
+    public function getSettlePreTaxPayableAmount()
+    {
+        return $this->container['settle_pre_tax_payable_amount'];
+    }
+
+    /**
+     * Sets settle_pre_tax_payable_amount
+     *
+     * @param string $settle_pre_tax_payable_amount settle_pre_tax_payable_amount
+     *
+     * @return $this
+     */
+    public function setSettlePreTaxPayableAmount($settle_pre_tax_payable_amount)
+    {
+        $this->container['settle_pre_tax_payable_amount'] = $settle_pre_tax_payable_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets settle_pretax_amount
+     *
+     * @return string
+     */
+    public function getSettlePretaxAmount()
+    {
+        return $this->container['settle_pretax_amount'];
+    }
+
+    /**
+     * Sets settle_pretax_amount
+     *
+     * @param string $settle_pretax_amount settle_pretax_amount
+     *
+     * @return $this
+     */
+    public function setSettlePretaxAmount($settle_pretax_amount)
+    {
+        $this->container['settle_pretax_amount'] = $settle_pretax_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets settle_pretax_real_value
+     *
+     * @return string
+     */
+    public function getSettlePretaxRealValue()
+    {
+        return $this->container['settle_pretax_real_value'];
+    }
+
+    /**
+     * Sets settle_pretax_real_value
+     *
+     * @param string $settle_pretax_real_value settle_pretax_real_value
+     *
+     * @return $this
+     */
+    public function setSettlePretaxRealValue($settle_pretax_real_value)
+    {
+        $this->container['settle_pretax_real_value'] = $settle_pretax_real_value;
+
+        return $this;
+    }
+
+    /**
+     * Gets settle_real_value
+     *
+     * @return string
+     */
+    public function getSettleRealValue()
+    {
+        return $this->container['settle_real_value'];
+    }
+
+    /**
+     * Sets settle_real_value
+     *
+     * @param string $settle_real_value settle_real_value
+     *
+     * @return $this
+     */
+    public function setSettleRealValue($settle_real_value)
+    {
+        $this->container['settle_real_value'] = $settle_real_value;
+
+        return $this;
+    }
+
+    /**
+     * Gets settle_tax
+     *
+     * @return string
+     */
+    public function getSettleTax()
+    {
+        return $this->container['settle_tax'];
+    }
+
+    /**
+     * Sets settle_tax
+     *
+     * @param string $settle_tax settle_tax
+     *
+     * @return $this
+     */
+    public function setSettleTax($settle_tax)
+    {
+        $this->container['settle_tax'] = $settle_tax;
+
+        return $this;
+    }
+
+    /**
      * Gets settlement_type
      *
      * @return string
@@ -891,6 +1383,54 @@ class ListForListBillOverviewByProdOutput implements ModelInterface, ArrayAccess
     public function setSettlementType($settlement_type)
     {
         $this->container['settlement_type'] = $settlement_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets subject_name
+     *
+     * @return string
+     */
+    public function getSubjectName()
+    {
+        return $this->container['subject_name'];
+    }
+
+    /**
+     * Sets subject_name
+     *
+     * @param string $subject_name subject_name
+     *
+     * @return $this
+     */
+    public function setSubjectName($subject_name)
+    {
+        $this->container['subject_name'] = $subject_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets tax
+     *
+     * @return string
+     */
+    public function getTax()
+    {
+        return $this->container['tax'];
+    }
+
+    /**
+     * Sets tax
+     *
+     * @param string $tax tax
+     *
+     * @return $this
+     */
+    public function setTax($tax)
+    {
+        $this->container['tax'] = $tax;
 
         return $this;
     }

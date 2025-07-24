@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Acep\Model;
+namespace Volcengine\Vefaasdev\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class EipForListPodOutput implements ModelInterface, ArrayAccess
+class SetSandboxTimeoutRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class EipForListPodOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'EipForListPodOutput';
+    protected static $swaggerModelName = 'SetSandboxTimeoutRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,9 @@ class EipForListPodOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'eip_address' => 'string',
-        'eip_id' => 'string',
-        'isp' => 'int'
+        'function_id' => 'string',
+        'sandbox_id' => 'string',
+        'timeout' => 'int'
     ];
 
     /**
@@ -39,9 +39,9 @@ class EipForListPodOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'eip_address' => null,
-        'eip_id' => null,
-        'isp' => 'int32'
+        'function_id' => null,
+        'sandbox_id' => null,
+        'timeout' => 'int32'
     ];
 
     /**
@@ -71,9 +71,9 @@ class EipForListPodOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'eip_address' => 'EipAddress',
-        'eip_id' => 'EipId',
-        'isp' => 'Isp'
+        'function_id' => 'FunctionId',
+        'sandbox_id' => 'SandboxId',
+        'timeout' => 'Timeout'
     ];
 
     /**
@@ -82,9 +82,9 @@ class EipForListPodOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'eip_address' => 'setEipAddress',
-        'eip_id' => 'setEipId',
-        'isp' => 'setIsp'
+        'function_id' => 'setFunctionId',
+        'sandbox_id' => 'setSandboxId',
+        'timeout' => 'setTimeout'
     ];
 
     /**
@@ -93,9 +93,9 @@ class EipForListPodOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'eip_address' => 'getEipAddress',
-        'eip_id' => 'getEipId',
-        'isp' => 'getIsp'
+        'function_id' => 'getFunctionId',
+        'sandbox_id' => 'getSandboxId',
+        'timeout' => 'getTimeout'
     ];
 
     /**
@@ -158,9 +158,9 @@ class EipForListPodOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['eip_address'] = isset($data['eip_address']) ? $data['eip_address'] : null;
-        $this->container['eip_id'] = isset($data['eip_id']) ? $data['eip_id'] : null;
-        $this->container['isp'] = isset($data['isp']) ? $data['isp'] : null;
+        $this->container['function_id'] = isset($data['function_id']) ? $data['function_id'] : null;
+        $this->container['sandbox_id'] = isset($data['sandbox_id']) ? $data['sandbox_id'] : null;
+        $this->container['timeout'] = isset($data['timeout']) ? $data['timeout'] : null;
     }
 
     /**
@@ -172,6 +172,15 @@ class EipForListPodOutput implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['function_id'] === null) {
+            $invalidProperties[] = "'function_id' can't be null";
+        }
+        if ($this->container['sandbox_id'] === null) {
+            $invalidProperties[] = "'sandbox_id' can't be null";
+        }
+        if ($this->container['timeout'] === null) {
+            $invalidProperties[] = "'timeout' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -188,73 +197,73 @@ class EipForListPodOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets eip_address
+     * Gets function_id
      *
      * @return string
      */
-    public function getEipAddress()
+    public function getFunctionId()
     {
-        return $this->container['eip_address'];
+        return $this->container['function_id'];
     }
 
     /**
-     * Sets eip_address
+     * Sets function_id
      *
-     * @param string $eip_address eip_address
+     * @param string $function_id function_id
      *
      * @return $this
      */
-    public function setEipAddress($eip_address)
+    public function setFunctionId($function_id)
     {
-        $this->container['eip_address'] = $eip_address;
+        $this->container['function_id'] = $function_id;
 
         return $this;
     }
 
     /**
-     * Gets eip_id
+     * Gets sandbox_id
      *
      * @return string
      */
-    public function getEipId()
+    public function getSandboxId()
     {
-        return $this->container['eip_id'];
+        return $this->container['sandbox_id'];
     }
 
     /**
-     * Sets eip_id
+     * Sets sandbox_id
      *
-     * @param string $eip_id eip_id
+     * @param string $sandbox_id sandbox_id
      *
      * @return $this
      */
-    public function setEipId($eip_id)
+    public function setSandboxId($sandbox_id)
     {
-        $this->container['eip_id'] = $eip_id;
+        $this->container['sandbox_id'] = $sandbox_id;
 
         return $this;
     }
 
     /**
-     * Gets isp
+     * Gets timeout
      *
      * @return int
      */
-    public function getIsp()
+    public function getTimeout()
     {
-        return $this->container['isp'];
+        return $this->container['timeout'];
     }
 
     /**
-     * Sets isp
+     * Sets timeout
      *
-     * @param int $isp isp
+     * @param int $timeout timeout
      *
      * @return $this
      */
-    public function setIsp($isp)
+    public function setTimeout($timeout)
     {
-        $this->container['isp'] = $isp;
+        $this->container['timeout'] = $timeout;
 
         return $this;
     }

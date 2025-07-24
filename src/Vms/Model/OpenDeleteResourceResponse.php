@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Acep\Model;
+namespace Volcengine\Vms\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class DisplayStatusForListPodOutput implements ModelInterface, ArrayAccess
+class OpenDeleteResourceResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class DisplayStatusForListPodOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'DisplayStatusForListPodOutput';
+    protected static $swaggerModelName = 'OpenDeleteResourceResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,7 @@ class DisplayStatusForListPodOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'resource_key' => 'string'
     ];
 
     /**
@@ -37,7 +37,7 @@ class DisplayStatusForListPodOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'resource_key' => null
     ];
 
     /**
@@ -67,7 +67,7 @@ class DisplayStatusForListPodOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'resource_key' => 'ResourceKey'
     ];
 
     /**
@@ -76,7 +76,7 @@ class DisplayStatusForListPodOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        
+        'resource_key' => 'setResourceKey'
     ];
 
     /**
@@ -85,7 +85,7 @@ class DisplayStatusForListPodOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        
+        'resource_key' => 'getResourceKey'
     ];
 
     /**
@@ -148,6 +148,7 @@ class DisplayStatusForListPodOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['resource_key'] = isset($data['resource_key']) ? $data['resource_key'] : null;
     }
 
     /**
@@ -173,6 +174,30 @@ class DisplayStatusForListPodOutput implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets resource_key
+     *
+     * @return string
+     */
+    public function getResourceKey()
+    {
+        return $this->container['resource_key'];
+    }
+
+    /**
+     * Sets resource_key
+     *
+     * @param string $resource_key resource_key
+     *
+     * @return $this
+     */
+    public function setResourceKey($resource_key)
+    {
+        $this->container['resource_key'] = $resource_key;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

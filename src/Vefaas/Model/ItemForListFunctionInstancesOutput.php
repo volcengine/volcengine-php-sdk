@@ -30,10 +30,12 @@ class ItemForListFunctionInstancesOutput implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'availability_zone' => 'string',
         'creation_time' => 'string',
+        'expire_at' => 'string',
         'id' => 'string',
         'instance_name' => 'string',
         'instance_status' => 'string',
         'instance_type' => 'string',
+        'labels' => '\Volcengine\Vefaas\Model\LabelsForListFunctionInstancesOutput',
         'revision_number' => 'int',
         'user_vpc_ip' => 'string',
         'user_vpc_ipv6' => 'string'
@@ -47,10 +49,12 @@ class ItemForListFunctionInstancesOutput implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'availability_zone' => null,
         'creation_time' => null,
+        'expire_at' => null,
         'id' => null,
         'instance_name' => null,
         'instance_status' => null,
         'instance_type' => null,
+        'labels' => null,
         'revision_number' => 'int32',
         'user_vpc_ip' => null,
         'user_vpc_ipv6' => null
@@ -85,10 +89,12 @@ class ItemForListFunctionInstancesOutput implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'availability_zone' => 'AvailabilityZone',
         'creation_time' => 'CreationTime',
+        'expire_at' => 'ExpireAt',
         'id' => 'Id',
         'instance_name' => 'InstanceName',
         'instance_status' => 'InstanceStatus',
         'instance_type' => 'InstanceType',
+        'labels' => 'Labels',
         'revision_number' => 'RevisionNumber',
         'user_vpc_ip' => 'UserVpcIP',
         'user_vpc_ipv6' => 'UserVpcIPv6'
@@ -102,10 +108,12 @@ class ItemForListFunctionInstancesOutput implements ModelInterface, ArrayAccess
     protected static $setters = [
         'availability_zone' => 'setAvailabilityZone',
         'creation_time' => 'setCreationTime',
+        'expire_at' => 'setExpireAt',
         'id' => 'setId',
         'instance_name' => 'setInstanceName',
         'instance_status' => 'setInstanceStatus',
         'instance_type' => 'setInstanceType',
+        'labels' => 'setLabels',
         'revision_number' => 'setRevisionNumber',
         'user_vpc_ip' => 'setUserVpcIp',
         'user_vpc_ipv6' => 'setUserVpcIpv6'
@@ -119,10 +127,12 @@ class ItemForListFunctionInstancesOutput implements ModelInterface, ArrayAccess
     protected static $getters = [
         'availability_zone' => 'getAvailabilityZone',
         'creation_time' => 'getCreationTime',
+        'expire_at' => 'getExpireAt',
         'id' => 'getId',
         'instance_name' => 'getInstanceName',
         'instance_status' => 'getInstanceStatus',
         'instance_type' => 'getInstanceType',
+        'labels' => 'getLabels',
         'revision_number' => 'getRevisionNumber',
         'user_vpc_ip' => 'getUserVpcIp',
         'user_vpc_ipv6' => 'getUserVpcIpv6'
@@ -190,10 +200,12 @@ class ItemForListFunctionInstancesOutput implements ModelInterface, ArrayAccess
     {
         $this->container['availability_zone'] = isset($data['availability_zone']) ? $data['availability_zone'] : null;
         $this->container['creation_time'] = isset($data['creation_time']) ? $data['creation_time'] : null;
+        $this->container['expire_at'] = isset($data['expire_at']) ? $data['expire_at'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['instance_name'] = isset($data['instance_name']) ? $data['instance_name'] : null;
         $this->container['instance_status'] = isset($data['instance_status']) ? $data['instance_status'] : null;
         $this->container['instance_type'] = isset($data['instance_type']) ? $data['instance_type'] : null;
+        $this->container['labels'] = isset($data['labels']) ? $data['labels'] : null;
         $this->container['revision_number'] = isset($data['revision_number']) ? $data['revision_number'] : null;
         $this->container['user_vpc_ip'] = isset($data['user_vpc_ip']) ? $data['user_vpc_ip'] : null;
         $this->container['user_vpc_ipv6'] = isset($data['user_vpc_ipv6']) ? $data['user_vpc_ipv6'] : null;
@@ -267,6 +279,30 @@ class ItemForListFunctionInstancesOutput implements ModelInterface, ArrayAccess
     public function setCreationTime($creation_time)
     {
         $this->container['creation_time'] = $creation_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets expire_at
+     *
+     * @return string
+     */
+    public function getExpireAt()
+    {
+        return $this->container['expire_at'];
+    }
+
+    /**
+     * Sets expire_at
+     *
+     * @param string $expire_at expire_at
+     *
+     * @return $this
+     */
+    public function setExpireAt($expire_at)
+    {
+        $this->container['expire_at'] = $expire_at;
 
         return $this;
     }
@@ -363,6 +399,30 @@ class ItemForListFunctionInstancesOutput implements ModelInterface, ArrayAccess
     public function setInstanceType($instance_type)
     {
         $this->container['instance_type'] = $instance_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets labels
+     *
+     * @return \Volcengine\Vefaas\Model\LabelsForListFunctionInstancesOutput
+     */
+    public function getLabels()
+    {
+        return $this->container['labels'];
+    }
+
+    /**
+     * Sets labels
+     *
+     * @param \Volcengine\Vefaas\Model\LabelsForListFunctionInstancesOutput $labels labels
+     *
+     * @return $this
+     */
+    public function setLabels($labels)
+    {
+        $this->container['labels'] = $labels;
 
         return $this;
     }
