@@ -38,18 +38,22 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'business_mode' => 'string',
         'config_name' => 'string',
         'configuration_code' => 'string',
+        'country_region' => 'string',
         'coupon_deduction_amount' => 'string',
         'credit_carried_amount' => 'string',
         'currency' => 'string',
+        'currency_settlement' => 'string',
         'deduction_count' => 'string',
         'discount_bill_amount' => 'string',
         'discount_biz_billing_function' => 'string',
         'discount_biz_measure_interval' => 'string',
         'discount_biz_unit_price' => 'string',
         'discount_biz_unit_price_interval' => 'string',
+        'discount_info' => 'string',
         'effective_factor' => 'string',
         'element' => 'string',
         'element_code' => 'string',
+        'exchange_rate' => 'string',
         'expand_field' => 'string',
         'expense_time' => 'string',
         'factor' => 'string',
@@ -67,7 +71,11 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'payer_customer_name' => 'string',
         'payer_id' => 'string',
         'payer_user_name' => 'string',
+        'posttax_amount' => 'string',
+        'pre_tax_payable_amount' => 'string',
         'preferential_bill_amount' => 'string',
+        'pretax_amount' => 'string',
+        'pretax_real_value' => 'string',
         'price' => 'string',
         'price_interval' => 'string',
         'price_unit' => 'string',
@@ -75,13 +83,25 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'product_zh' => 'string',
         'project' => 'string',
         'project_display_name' => 'string',
+        'real_value' => 'string',
         'region' => 'string',
         'region_code' => 'string',
         'reservation_instance' => 'string',
+        'round_amount' => 'string',
+        'saving_plan_deduction_discount_amount' => 'string',
+        'saving_plan_deduction_sp_id' => 'string',
+        'saving_plan_original_amount' => 'string',
         'seller_customer_name' => 'string',
         'seller_id' => 'string',
         'seller_user_name' => 'string',
         'selling_mode' => 'string',
+        'settle_payable_amount' => 'string',
+        'settle_posttax_amount' => 'string',
+        'settle_pre_tax_payable_amount' => 'string',
+        'settle_pretax_amount' => 'string',
+        'settle_pretax_real_value' => 'string',
+        'settle_real_value' => 'string',
+        'settle_tax' => 'string',
         'settlement_type' => 'string',
         'solution_zh' => 'string',
         'split_bill_detail_id' => 'string',
@@ -91,6 +111,8 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'split_item_ratio' => 'string',
         'subject_name' => 'string',
         'tag' => 'string',
+        'tax' => 'string',
+        'tax_rate' => 'string',
         'trade_time' => 'string',
         'unit' => 'string',
         'unpaid_amount' => 'string',
@@ -116,18 +138,22 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'business_mode' => null,
         'config_name' => null,
         'configuration_code' => null,
+        'country_region' => null,
         'coupon_deduction_amount' => null,
         'credit_carried_amount' => null,
         'currency' => null,
+        'currency_settlement' => null,
         'deduction_count' => null,
         'discount_bill_amount' => null,
         'discount_biz_billing_function' => null,
         'discount_biz_measure_interval' => null,
         'discount_biz_unit_price' => null,
         'discount_biz_unit_price_interval' => null,
+        'discount_info' => null,
         'effective_factor' => null,
         'element' => null,
         'element_code' => null,
+        'exchange_rate' => null,
         'expand_field' => null,
         'expense_time' => null,
         'factor' => null,
@@ -145,7 +171,11 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'payer_customer_name' => null,
         'payer_id' => null,
         'payer_user_name' => null,
+        'posttax_amount' => null,
+        'pre_tax_payable_amount' => null,
         'preferential_bill_amount' => null,
+        'pretax_amount' => null,
+        'pretax_real_value' => null,
         'price' => null,
         'price_interval' => null,
         'price_unit' => null,
@@ -153,13 +183,25 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'product_zh' => null,
         'project' => null,
         'project_display_name' => null,
+        'real_value' => null,
         'region' => null,
         'region_code' => null,
         'reservation_instance' => null,
+        'round_amount' => null,
+        'saving_plan_deduction_discount_amount' => null,
+        'saving_plan_deduction_sp_id' => null,
+        'saving_plan_original_amount' => null,
         'seller_customer_name' => null,
         'seller_id' => null,
         'seller_user_name' => null,
         'selling_mode' => null,
+        'settle_payable_amount' => null,
+        'settle_posttax_amount' => null,
+        'settle_pre_tax_payable_amount' => null,
+        'settle_pretax_amount' => null,
+        'settle_pretax_real_value' => null,
+        'settle_real_value' => null,
+        'settle_tax' => null,
         'settlement_type' => null,
         'solution_zh' => null,
         'split_bill_detail_id' => null,
@@ -169,6 +211,8 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'split_item_ratio' => null,
         'subject_name' => null,
         'tag' => null,
+        'tax' => null,
+        'tax_rate' => null,
         'trade_time' => null,
         'unit' => null,
         'unpaid_amount' => null,
@@ -215,18 +259,22 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'business_mode' => 'BusinessMode',
         'config_name' => 'ConfigName',
         'configuration_code' => 'ConfigurationCode',
+        'country_region' => 'CountryRegion',
         'coupon_deduction_amount' => 'CouponDeductionAmount',
         'credit_carried_amount' => 'CreditCarriedAmount',
         'currency' => 'Currency',
+        'currency_settlement' => 'CurrencySettlement',
         'deduction_count' => 'DeductionCount',
         'discount_bill_amount' => 'DiscountBillAmount',
         'discount_biz_billing_function' => 'DiscountBizBillingFunction',
         'discount_biz_measure_interval' => 'DiscountBizMeasureInterval',
         'discount_biz_unit_price' => 'DiscountBizUnitPrice',
         'discount_biz_unit_price_interval' => 'DiscountBizUnitPriceInterval',
+        'discount_info' => 'DiscountInfo',
         'effective_factor' => 'EffectiveFactor',
         'element' => 'Element',
         'element_code' => 'ElementCode',
+        'exchange_rate' => 'ExchangeRate',
         'expand_field' => 'ExpandField',
         'expense_time' => 'ExpenseTime',
         'factor' => 'Factor',
@@ -244,7 +292,11 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'payer_customer_name' => 'PayerCustomerName',
         'payer_id' => 'PayerID',
         'payer_user_name' => 'PayerUserName',
+        'posttax_amount' => 'PosttaxAmount',
+        'pre_tax_payable_amount' => 'PreTaxPayableAmount',
         'preferential_bill_amount' => 'PreferentialBillAmount',
+        'pretax_amount' => 'PretaxAmount',
+        'pretax_real_value' => 'PretaxRealValue',
         'price' => 'Price',
         'price_interval' => 'PriceInterval',
         'price_unit' => 'PriceUnit',
@@ -252,13 +304,25 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'product_zh' => 'ProductZh',
         'project' => 'Project',
         'project_display_name' => 'ProjectDisplayName',
+        'real_value' => 'RealValue',
         'region' => 'Region',
         'region_code' => 'RegionCode',
         'reservation_instance' => 'ReservationInstance',
+        'round_amount' => 'RoundAmount',
+        'saving_plan_deduction_discount_amount' => 'SavingPlanDeductionDiscountAmount',
+        'saving_plan_deduction_sp_id' => 'SavingPlanDeductionSpID',
+        'saving_plan_original_amount' => 'SavingPlanOriginalAmount',
         'seller_customer_name' => 'SellerCustomerName',
         'seller_id' => 'SellerID',
         'seller_user_name' => 'SellerUserName',
         'selling_mode' => 'SellingMode',
+        'settle_payable_amount' => 'SettlePayableAmount',
+        'settle_posttax_amount' => 'SettlePosttaxAmount',
+        'settle_pre_tax_payable_amount' => 'SettlePreTaxPayableAmount',
+        'settle_pretax_amount' => 'SettlePretaxAmount',
+        'settle_pretax_real_value' => 'SettlePretaxRealValue',
+        'settle_real_value' => 'SettleRealValue',
+        'settle_tax' => 'SettleTax',
         'settlement_type' => 'SettlementType',
         'solution_zh' => 'SolutionZh',
         'split_bill_detail_id' => 'SplitBillDetailId',
@@ -268,6 +332,8 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'split_item_ratio' => 'SplitItemRatio',
         'subject_name' => 'SubjectName',
         'tag' => 'Tag',
+        'tax' => 'Tax',
+        'tax_rate' => 'TaxRate',
         'trade_time' => 'TradeTime',
         'unit' => 'Unit',
         'unpaid_amount' => 'UnpaidAmount',
@@ -293,18 +359,22 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'business_mode' => 'setBusinessMode',
         'config_name' => 'setConfigName',
         'configuration_code' => 'setConfigurationCode',
+        'country_region' => 'setCountryRegion',
         'coupon_deduction_amount' => 'setCouponDeductionAmount',
         'credit_carried_amount' => 'setCreditCarriedAmount',
         'currency' => 'setCurrency',
+        'currency_settlement' => 'setCurrencySettlement',
         'deduction_count' => 'setDeductionCount',
         'discount_bill_amount' => 'setDiscountBillAmount',
         'discount_biz_billing_function' => 'setDiscountBizBillingFunction',
         'discount_biz_measure_interval' => 'setDiscountBizMeasureInterval',
         'discount_biz_unit_price' => 'setDiscountBizUnitPrice',
         'discount_biz_unit_price_interval' => 'setDiscountBizUnitPriceInterval',
+        'discount_info' => 'setDiscountInfo',
         'effective_factor' => 'setEffectiveFactor',
         'element' => 'setElement',
         'element_code' => 'setElementCode',
+        'exchange_rate' => 'setExchangeRate',
         'expand_field' => 'setExpandField',
         'expense_time' => 'setExpenseTime',
         'factor' => 'setFactor',
@@ -322,7 +392,11 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'payer_customer_name' => 'setPayerCustomerName',
         'payer_id' => 'setPayerId',
         'payer_user_name' => 'setPayerUserName',
+        'posttax_amount' => 'setPosttaxAmount',
+        'pre_tax_payable_amount' => 'setPreTaxPayableAmount',
         'preferential_bill_amount' => 'setPreferentialBillAmount',
+        'pretax_amount' => 'setPretaxAmount',
+        'pretax_real_value' => 'setPretaxRealValue',
         'price' => 'setPrice',
         'price_interval' => 'setPriceInterval',
         'price_unit' => 'setPriceUnit',
@@ -330,13 +404,25 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'product_zh' => 'setProductZh',
         'project' => 'setProject',
         'project_display_name' => 'setProjectDisplayName',
+        'real_value' => 'setRealValue',
         'region' => 'setRegion',
         'region_code' => 'setRegionCode',
         'reservation_instance' => 'setReservationInstance',
+        'round_amount' => 'setRoundAmount',
+        'saving_plan_deduction_discount_amount' => 'setSavingPlanDeductionDiscountAmount',
+        'saving_plan_deduction_sp_id' => 'setSavingPlanDeductionSpId',
+        'saving_plan_original_amount' => 'setSavingPlanOriginalAmount',
         'seller_customer_name' => 'setSellerCustomerName',
         'seller_id' => 'setSellerId',
         'seller_user_name' => 'setSellerUserName',
         'selling_mode' => 'setSellingMode',
+        'settle_payable_amount' => 'setSettlePayableAmount',
+        'settle_posttax_amount' => 'setSettlePosttaxAmount',
+        'settle_pre_tax_payable_amount' => 'setSettlePreTaxPayableAmount',
+        'settle_pretax_amount' => 'setSettlePretaxAmount',
+        'settle_pretax_real_value' => 'setSettlePretaxRealValue',
+        'settle_real_value' => 'setSettleRealValue',
+        'settle_tax' => 'setSettleTax',
         'settlement_type' => 'setSettlementType',
         'solution_zh' => 'setSolutionZh',
         'split_bill_detail_id' => 'setSplitBillDetailId',
@@ -346,6 +432,8 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'split_item_ratio' => 'setSplitItemRatio',
         'subject_name' => 'setSubjectName',
         'tag' => 'setTag',
+        'tax' => 'setTax',
+        'tax_rate' => 'setTaxRate',
         'trade_time' => 'setTradeTime',
         'unit' => 'setUnit',
         'unpaid_amount' => 'setUnpaidAmount',
@@ -371,18 +459,22 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'business_mode' => 'getBusinessMode',
         'config_name' => 'getConfigName',
         'configuration_code' => 'getConfigurationCode',
+        'country_region' => 'getCountryRegion',
         'coupon_deduction_amount' => 'getCouponDeductionAmount',
         'credit_carried_amount' => 'getCreditCarriedAmount',
         'currency' => 'getCurrency',
+        'currency_settlement' => 'getCurrencySettlement',
         'deduction_count' => 'getDeductionCount',
         'discount_bill_amount' => 'getDiscountBillAmount',
         'discount_biz_billing_function' => 'getDiscountBizBillingFunction',
         'discount_biz_measure_interval' => 'getDiscountBizMeasureInterval',
         'discount_biz_unit_price' => 'getDiscountBizUnitPrice',
         'discount_biz_unit_price_interval' => 'getDiscountBizUnitPriceInterval',
+        'discount_info' => 'getDiscountInfo',
         'effective_factor' => 'getEffectiveFactor',
         'element' => 'getElement',
         'element_code' => 'getElementCode',
+        'exchange_rate' => 'getExchangeRate',
         'expand_field' => 'getExpandField',
         'expense_time' => 'getExpenseTime',
         'factor' => 'getFactor',
@@ -400,7 +492,11 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'payer_customer_name' => 'getPayerCustomerName',
         'payer_id' => 'getPayerId',
         'payer_user_name' => 'getPayerUserName',
+        'posttax_amount' => 'getPosttaxAmount',
+        'pre_tax_payable_amount' => 'getPreTaxPayableAmount',
         'preferential_bill_amount' => 'getPreferentialBillAmount',
+        'pretax_amount' => 'getPretaxAmount',
+        'pretax_real_value' => 'getPretaxRealValue',
         'price' => 'getPrice',
         'price_interval' => 'getPriceInterval',
         'price_unit' => 'getPriceUnit',
@@ -408,13 +504,25 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'product_zh' => 'getProductZh',
         'project' => 'getProject',
         'project_display_name' => 'getProjectDisplayName',
+        'real_value' => 'getRealValue',
         'region' => 'getRegion',
         'region_code' => 'getRegionCode',
         'reservation_instance' => 'getReservationInstance',
+        'round_amount' => 'getRoundAmount',
+        'saving_plan_deduction_discount_amount' => 'getSavingPlanDeductionDiscountAmount',
+        'saving_plan_deduction_sp_id' => 'getSavingPlanDeductionSpId',
+        'saving_plan_original_amount' => 'getSavingPlanOriginalAmount',
         'seller_customer_name' => 'getSellerCustomerName',
         'seller_id' => 'getSellerId',
         'seller_user_name' => 'getSellerUserName',
         'selling_mode' => 'getSellingMode',
+        'settle_payable_amount' => 'getSettlePayableAmount',
+        'settle_posttax_amount' => 'getSettlePosttaxAmount',
+        'settle_pre_tax_payable_amount' => 'getSettlePreTaxPayableAmount',
+        'settle_pretax_amount' => 'getSettlePretaxAmount',
+        'settle_pretax_real_value' => 'getSettlePretaxRealValue',
+        'settle_real_value' => 'getSettleRealValue',
+        'settle_tax' => 'getSettleTax',
         'settlement_type' => 'getSettlementType',
         'solution_zh' => 'getSolutionZh',
         'split_bill_detail_id' => 'getSplitBillDetailId',
@@ -424,6 +532,8 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'split_item_ratio' => 'getSplitItemRatio',
         'subject_name' => 'getSubjectName',
         'tag' => 'getTag',
+        'tax' => 'getTax',
+        'tax_rate' => 'getTaxRate',
         'trade_time' => 'getTradeTime',
         'unit' => 'getUnit',
         'unpaid_amount' => 'getUnpaidAmount',
@@ -503,18 +613,22 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         $this->container['business_mode'] = isset($data['business_mode']) ? $data['business_mode'] : null;
         $this->container['config_name'] = isset($data['config_name']) ? $data['config_name'] : null;
         $this->container['configuration_code'] = isset($data['configuration_code']) ? $data['configuration_code'] : null;
+        $this->container['country_region'] = isset($data['country_region']) ? $data['country_region'] : null;
         $this->container['coupon_deduction_amount'] = isset($data['coupon_deduction_amount']) ? $data['coupon_deduction_amount'] : null;
         $this->container['credit_carried_amount'] = isset($data['credit_carried_amount']) ? $data['credit_carried_amount'] : null;
         $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
+        $this->container['currency_settlement'] = isset($data['currency_settlement']) ? $data['currency_settlement'] : null;
         $this->container['deduction_count'] = isset($data['deduction_count']) ? $data['deduction_count'] : null;
         $this->container['discount_bill_amount'] = isset($data['discount_bill_amount']) ? $data['discount_bill_amount'] : null;
         $this->container['discount_biz_billing_function'] = isset($data['discount_biz_billing_function']) ? $data['discount_biz_billing_function'] : null;
         $this->container['discount_biz_measure_interval'] = isset($data['discount_biz_measure_interval']) ? $data['discount_biz_measure_interval'] : null;
         $this->container['discount_biz_unit_price'] = isset($data['discount_biz_unit_price']) ? $data['discount_biz_unit_price'] : null;
         $this->container['discount_biz_unit_price_interval'] = isset($data['discount_biz_unit_price_interval']) ? $data['discount_biz_unit_price_interval'] : null;
+        $this->container['discount_info'] = isset($data['discount_info']) ? $data['discount_info'] : null;
         $this->container['effective_factor'] = isset($data['effective_factor']) ? $data['effective_factor'] : null;
         $this->container['element'] = isset($data['element']) ? $data['element'] : null;
         $this->container['element_code'] = isset($data['element_code']) ? $data['element_code'] : null;
+        $this->container['exchange_rate'] = isset($data['exchange_rate']) ? $data['exchange_rate'] : null;
         $this->container['expand_field'] = isset($data['expand_field']) ? $data['expand_field'] : null;
         $this->container['expense_time'] = isset($data['expense_time']) ? $data['expense_time'] : null;
         $this->container['factor'] = isset($data['factor']) ? $data['factor'] : null;
@@ -532,7 +646,11 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         $this->container['payer_customer_name'] = isset($data['payer_customer_name']) ? $data['payer_customer_name'] : null;
         $this->container['payer_id'] = isset($data['payer_id']) ? $data['payer_id'] : null;
         $this->container['payer_user_name'] = isset($data['payer_user_name']) ? $data['payer_user_name'] : null;
+        $this->container['posttax_amount'] = isset($data['posttax_amount']) ? $data['posttax_amount'] : null;
+        $this->container['pre_tax_payable_amount'] = isset($data['pre_tax_payable_amount']) ? $data['pre_tax_payable_amount'] : null;
         $this->container['preferential_bill_amount'] = isset($data['preferential_bill_amount']) ? $data['preferential_bill_amount'] : null;
+        $this->container['pretax_amount'] = isset($data['pretax_amount']) ? $data['pretax_amount'] : null;
+        $this->container['pretax_real_value'] = isset($data['pretax_real_value']) ? $data['pretax_real_value'] : null;
         $this->container['price'] = isset($data['price']) ? $data['price'] : null;
         $this->container['price_interval'] = isset($data['price_interval']) ? $data['price_interval'] : null;
         $this->container['price_unit'] = isset($data['price_unit']) ? $data['price_unit'] : null;
@@ -540,13 +658,25 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         $this->container['product_zh'] = isset($data['product_zh']) ? $data['product_zh'] : null;
         $this->container['project'] = isset($data['project']) ? $data['project'] : null;
         $this->container['project_display_name'] = isset($data['project_display_name']) ? $data['project_display_name'] : null;
+        $this->container['real_value'] = isset($data['real_value']) ? $data['real_value'] : null;
         $this->container['region'] = isset($data['region']) ? $data['region'] : null;
         $this->container['region_code'] = isset($data['region_code']) ? $data['region_code'] : null;
         $this->container['reservation_instance'] = isset($data['reservation_instance']) ? $data['reservation_instance'] : null;
+        $this->container['round_amount'] = isset($data['round_amount']) ? $data['round_amount'] : null;
+        $this->container['saving_plan_deduction_discount_amount'] = isset($data['saving_plan_deduction_discount_amount']) ? $data['saving_plan_deduction_discount_amount'] : null;
+        $this->container['saving_plan_deduction_sp_id'] = isset($data['saving_plan_deduction_sp_id']) ? $data['saving_plan_deduction_sp_id'] : null;
+        $this->container['saving_plan_original_amount'] = isset($data['saving_plan_original_amount']) ? $data['saving_plan_original_amount'] : null;
         $this->container['seller_customer_name'] = isset($data['seller_customer_name']) ? $data['seller_customer_name'] : null;
         $this->container['seller_id'] = isset($data['seller_id']) ? $data['seller_id'] : null;
         $this->container['seller_user_name'] = isset($data['seller_user_name']) ? $data['seller_user_name'] : null;
         $this->container['selling_mode'] = isset($data['selling_mode']) ? $data['selling_mode'] : null;
+        $this->container['settle_payable_amount'] = isset($data['settle_payable_amount']) ? $data['settle_payable_amount'] : null;
+        $this->container['settle_posttax_amount'] = isset($data['settle_posttax_amount']) ? $data['settle_posttax_amount'] : null;
+        $this->container['settle_pre_tax_payable_amount'] = isset($data['settle_pre_tax_payable_amount']) ? $data['settle_pre_tax_payable_amount'] : null;
+        $this->container['settle_pretax_amount'] = isset($data['settle_pretax_amount']) ? $data['settle_pretax_amount'] : null;
+        $this->container['settle_pretax_real_value'] = isset($data['settle_pretax_real_value']) ? $data['settle_pretax_real_value'] : null;
+        $this->container['settle_real_value'] = isset($data['settle_real_value']) ? $data['settle_real_value'] : null;
+        $this->container['settle_tax'] = isset($data['settle_tax']) ? $data['settle_tax'] : null;
         $this->container['settlement_type'] = isset($data['settlement_type']) ? $data['settlement_type'] : null;
         $this->container['solution_zh'] = isset($data['solution_zh']) ? $data['solution_zh'] : null;
         $this->container['split_bill_detail_id'] = isset($data['split_bill_detail_id']) ? $data['split_bill_detail_id'] : null;
@@ -556,6 +686,8 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         $this->container['split_item_ratio'] = isset($data['split_item_ratio']) ? $data['split_item_ratio'] : null;
         $this->container['subject_name'] = isset($data['subject_name']) ? $data['subject_name'] : null;
         $this->container['tag'] = isset($data['tag']) ? $data['tag'] : null;
+        $this->container['tax'] = isset($data['tax']) ? $data['tax'] : null;
+        $this->container['tax_rate'] = isset($data['tax_rate']) ? $data['tax_rate'] : null;
         $this->container['trade_time'] = isset($data['trade_time']) ? $data['trade_time'] : null;
         $this->container['unit'] = isset($data['unit']) ? $data['unit'] : null;
         $this->container['unpaid_amount'] = isset($data['unpaid_amount']) ? $data['unpaid_amount'] : null;
@@ -830,6 +962,30 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets country_region
+     *
+     * @return string
+     */
+    public function getCountryRegion()
+    {
+        return $this->container['country_region'];
+    }
+
+    /**
+     * Sets country_region
+     *
+     * @param string $country_region country_region
+     *
+     * @return $this
+     */
+    public function setCountryRegion($country_region)
+    {
+        $this->container['country_region'] = $country_region;
+
+        return $this;
+    }
+
+    /**
      * Gets coupon_deduction_amount
      *
      * @return string
@@ -897,6 +1053,30 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
     public function setCurrency($currency)
     {
         $this->container['currency'] = $currency;
+
+        return $this;
+    }
+
+    /**
+     * Gets currency_settlement
+     *
+     * @return string
+     */
+    public function getCurrencySettlement()
+    {
+        return $this->container['currency_settlement'];
+    }
+
+    /**
+     * Sets currency_settlement
+     *
+     * @param string $currency_settlement currency_settlement
+     *
+     * @return $this
+     */
+    public function setCurrencySettlement($currency_settlement)
+    {
+        $this->container['currency_settlement'] = $currency_settlement;
 
         return $this;
     }
@@ -1046,6 +1226,30 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets discount_info
+     *
+     * @return string
+     */
+    public function getDiscountInfo()
+    {
+        return $this->container['discount_info'];
+    }
+
+    /**
+     * Sets discount_info
+     *
+     * @param string $discount_info discount_info
+     *
+     * @return $this
+     */
+    public function setDiscountInfo($discount_info)
+    {
+        $this->container['discount_info'] = $discount_info;
+
+        return $this;
+    }
+
+    /**
      * Gets effective_factor
      *
      * @return string
@@ -1113,6 +1317,30 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
     public function setElementCode($element_code)
     {
         $this->container['element_code'] = $element_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets exchange_rate
+     *
+     * @return string
+     */
+    public function getExchangeRate()
+    {
+        return $this->container['exchange_rate'];
+    }
+
+    /**
+     * Sets exchange_rate
+     *
+     * @param string $exchange_rate exchange_rate
+     *
+     * @return $this
+     */
+    public function setExchangeRate($exchange_rate)
+    {
+        $this->container['exchange_rate'] = $exchange_rate;
 
         return $this;
     }
@@ -1526,6 +1754,54 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets posttax_amount
+     *
+     * @return string
+     */
+    public function getPosttaxAmount()
+    {
+        return $this->container['posttax_amount'];
+    }
+
+    /**
+     * Sets posttax_amount
+     *
+     * @param string $posttax_amount posttax_amount
+     *
+     * @return $this
+     */
+    public function setPosttaxAmount($posttax_amount)
+    {
+        $this->container['posttax_amount'] = $posttax_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets pre_tax_payable_amount
+     *
+     * @return string
+     */
+    public function getPreTaxPayableAmount()
+    {
+        return $this->container['pre_tax_payable_amount'];
+    }
+
+    /**
+     * Sets pre_tax_payable_amount
+     *
+     * @param string $pre_tax_payable_amount pre_tax_payable_amount
+     *
+     * @return $this
+     */
+    public function setPreTaxPayableAmount($pre_tax_payable_amount)
+    {
+        $this->container['pre_tax_payable_amount'] = $pre_tax_payable_amount;
+
+        return $this;
+    }
+
+    /**
      * Gets preferential_bill_amount
      *
      * @return string
@@ -1545,6 +1821,54 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
     public function setPreferentialBillAmount($preferential_bill_amount)
     {
         $this->container['preferential_bill_amount'] = $preferential_bill_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets pretax_amount
+     *
+     * @return string
+     */
+    public function getPretaxAmount()
+    {
+        return $this->container['pretax_amount'];
+    }
+
+    /**
+     * Sets pretax_amount
+     *
+     * @param string $pretax_amount pretax_amount
+     *
+     * @return $this
+     */
+    public function setPretaxAmount($pretax_amount)
+    {
+        $this->container['pretax_amount'] = $pretax_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets pretax_real_value
+     *
+     * @return string
+     */
+    public function getPretaxRealValue()
+    {
+        return $this->container['pretax_real_value'];
+    }
+
+    /**
+     * Sets pretax_real_value
+     *
+     * @param string $pretax_real_value pretax_real_value
+     *
+     * @return $this
+     */
+    public function setPretaxRealValue($pretax_real_value)
+    {
+        $this->container['pretax_real_value'] = $pretax_real_value;
 
         return $this;
     }
@@ -1718,6 +2042,30 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets real_value
+     *
+     * @return string
+     */
+    public function getRealValue()
+    {
+        return $this->container['real_value'];
+    }
+
+    /**
+     * Sets real_value
+     *
+     * @param string $real_value real_value
+     *
+     * @return $this
+     */
+    public function setRealValue($real_value)
+    {
+        $this->container['real_value'] = $real_value;
+
+        return $this;
+    }
+
+    /**
      * Gets region
      *
      * @return string
@@ -1785,6 +2133,102 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
     public function setReservationInstance($reservation_instance)
     {
         $this->container['reservation_instance'] = $reservation_instance;
+
+        return $this;
+    }
+
+    /**
+     * Gets round_amount
+     *
+     * @return string
+     */
+    public function getRoundAmount()
+    {
+        return $this->container['round_amount'];
+    }
+
+    /**
+     * Sets round_amount
+     *
+     * @param string $round_amount round_amount
+     *
+     * @return $this
+     */
+    public function setRoundAmount($round_amount)
+    {
+        $this->container['round_amount'] = $round_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets saving_plan_deduction_discount_amount
+     *
+     * @return string
+     */
+    public function getSavingPlanDeductionDiscountAmount()
+    {
+        return $this->container['saving_plan_deduction_discount_amount'];
+    }
+
+    /**
+     * Sets saving_plan_deduction_discount_amount
+     *
+     * @param string $saving_plan_deduction_discount_amount saving_plan_deduction_discount_amount
+     *
+     * @return $this
+     */
+    public function setSavingPlanDeductionDiscountAmount($saving_plan_deduction_discount_amount)
+    {
+        $this->container['saving_plan_deduction_discount_amount'] = $saving_plan_deduction_discount_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets saving_plan_deduction_sp_id
+     *
+     * @return string
+     */
+    public function getSavingPlanDeductionSpId()
+    {
+        return $this->container['saving_plan_deduction_sp_id'];
+    }
+
+    /**
+     * Sets saving_plan_deduction_sp_id
+     *
+     * @param string $saving_plan_deduction_sp_id saving_plan_deduction_sp_id
+     *
+     * @return $this
+     */
+    public function setSavingPlanDeductionSpId($saving_plan_deduction_sp_id)
+    {
+        $this->container['saving_plan_deduction_sp_id'] = $saving_plan_deduction_sp_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets saving_plan_original_amount
+     *
+     * @return string
+     */
+    public function getSavingPlanOriginalAmount()
+    {
+        return $this->container['saving_plan_original_amount'];
+    }
+
+    /**
+     * Sets saving_plan_original_amount
+     *
+     * @param string $saving_plan_original_amount saving_plan_original_amount
+     *
+     * @return $this
+     */
+    public function setSavingPlanOriginalAmount($saving_plan_original_amount)
+    {
+        $this->container['saving_plan_original_amount'] = $saving_plan_original_amount;
 
         return $this;
     }
@@ -1881,6 +2325,174 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
     public function setSellingMode($selling_mode)
     {
         $this->container['selling_mode'] = $selling_mode;
+
+        return $this;
+    }
+
+    /**
+     * Gets settle_payable_amount
+     *
+     * @return string
+     */
+    public function getSettlePayableAmount()
+    {
+        return $this->container['settle_payable_amount'];
+    }
+
+    /**
+     * Sets settle_payable_amount
+     *
+     * @param string $settle_payable_amount settle_payable_amount
+     *
+     * @return $this
+     */
+    public function setSettlePayableAmount($settle_payable_amount)
+    {
+        $this->container['settle_payable_amount'] = $settle_payable_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets settle_posttax_amount
+     *
+     * @return string
+     */
+    public function getSettlePosttaxAmount()
+    {
+        return $this->container['settle_posttax_amount'];
+    }
+
+    /**
+     * Sets settle_posttax_amount
+     *
+     * @param string $settle_posttax_amount settle_posttax_amount
+     *
+     * @return $this
+     */
+    public function setSettlePosttaxAmount($settle_posttax_amount)
+    {
+        $this->container['settle_posttax_amount'] = $settle_posttax_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets settle_pre_tax_payable_amount
+     *
+     * @return string
+     */
+    public function getSettlePreTaxPayableAmount()
+    {
+        return $this->container['settle_pre_tax_payable_amount'];
+    }
+
+    /**
+     * Sets settle_pre_tax_payable_amount
+     *
+     * @param string $settle_pre_tax_payable_amount settle_pre_tax_payable_amount
+     *
+     * @return $this
+     */
+    public function setSettlePreTaxPayableAmount($settle_pre_tax_payable_amount)
+    {
+        $this->container['settle_pre_tax_payable_amount'] = $settle_pre_tax_payable_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets settle_pretax_amount
+     *
+     * @return string
+     */
+    public function getSettlePretaxAmount()
+    {
+        return $this->container['settle_pretax_amount'];
+    }
+
+    /**
+     * Sets settle_pretax_amount
+     *
+     * @param string $settle_pretax_amount settle_pretax_amount
+     *
+     * @return $this
+     */
+    public function setSettlePretaxAmount($settle_pretax_amount)
+    {
+        $this->container['settle_pretax_amount'] = $settle_pretax_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets settle_pretax_real_value
+     *
+     * @return string
+     */
+    public function getSettlePretaxRealValue()
+    {
+        return $this->container['settle_pretax_real_value'];
+    }
+
+    /**
+     * Sets settle_pretax_real_value
+     *
+     * @param string $settle_pretax_real_value settle_pretax_real_value
+     *
+     * @return $this
+     */
+    public function setSettlePretaxRealValue($settle_pretax_real_value)
+    {
+        $this->container['settle_pretax_real_value'] = $settle_pretax_real_value;
+
+        return $this;
+    }
+
+    /**
+     * Gets settle_real_value
+     *
+     * @return string
+     */
+    public function getSettleRealValue()
+    {
+        return $this->container['settle_real_value'];
+    }
+
+    /**
+     * Sets settle_real_value
+     *
+     * @param string $settle_real_value settle_real_value
+     *
+     * @return $this
+     */
+    public function setSettleRealValue($settle_real_value)
+    {
+        $this->container['settle_real_value'] = $settle_real_value;
+
+        return $this;
+    }
+
+    /**
+     * Gets settle_tax
+     *
+     * @return string
+     */
+    public function getSettleTax()
+    {
+        return $this->container['settle_tax'];
+    }
+
+    /**
+     * Sets settle_tax
+     *
+     * @param string $settle_tax settle_tax
+     *
+     * @return $this
+     */
+    public function setSettleTax($settle_tax)
+    {
+        $this->container['settle_tax'] = $settle_tax;
 
         return $this;
     }
@@ -2097,6 +2709,54 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
     public function setTag($tag)
     {
         $this->container['tag'] = $tag;
+
+        return $this;
+    }
+
+    /**
+     * Gets tax
+     *
+     * @return string
+     */
+    public function getTax()
+    {
+        return $this->container['tax'];
+    }
+
+    /**
+     * Sets tax
+     *
+     * @param string $tax tax
+     *
+     * @return $this
+     */
+    public function setTax($tax)
+    {
+        $this->container['tax'] = $tax;
+
+        return $this;
+    }
+
+    /**
+     * Gets tax_rate
+     *
+     * @return string
+     */
+    public function getTaxRate()
+    {
+        return $this->container['tax_rate'];
+    }
+
+    /**
+     * Sets tax_rate
+     *
+     * @param string $tax_rate tax_rate
+     *
+     * @return $this
+     */
+    public function setTaxRate($tax_rate)
+    {
+        $this->container['tax_rate'] = $tax_rate;
 
         return $this;
     }
