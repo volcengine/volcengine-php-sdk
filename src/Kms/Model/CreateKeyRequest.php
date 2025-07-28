@@ -28,6 +28,7 @@ class CreateKeyRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'custom_key_store_id' => 'string',
         'description' => 'string',
         'key_name' => 'string',
         'key_spec' => 'string',
@@ -37,7 +38,8 @@ class CreateKeyRequest implements ModelInterface, ArrayAccess
         'origin' => 'string',
         'protection_level' => 'string',
         'rotate_state' => 'string',
-        'tags' => '\Volcengine\Kms\Model\TagForCreateKeyInput[]'
+        'tags' => '\Volcengine\Kms\Model\TagForCreateKeyInput[]',
+        'xks_key_id' => 'string'
     ];
 
     /**
@@ -46,6 +48,7 @@ class CreateKeyRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'custom_key_store_id' => null,
         'description' => null,
         'key_name' => null,
         'key_spec' => null,
@@ -55,7 +58,8 @@ class CreateKeyRequest implements ModelInterface, ArrayAccess
         'origin' => null,
         'protection_level' => null,
         'rotate_state' => null,
-        'tags' => null
+        'tags' => null,
+        'xks_key_id' => null
     ];
 
     /**
@@ -85,6 +89,7 @@ class CreateKeyRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'custom_key_store_id' => 'CustomKeyStoreID',
         'description' => 'Description',
         'key_name' => 'KeyName',
         'key_spec' => 'KeySpec',
@@ -94,7 +99,8 @@ class CreateKeyRequest implements ModelInterface, ArrayAccess
         'origin' => 'Origin',
         'protection_level' => 'ProtectionLevel',
         'rotate_state' => 'RotateState',
-        'tags' => 'Tags'
+        'tags' => 'Tags',
+        'xks_key_id' => 'XksKeyID'
     ];
 
     /**
@@ -103,6 +109,7 @@ class CreateKeyRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'custom_key_store_id' => 'setCustomKeyStoreId',
         'description' => 'setDescription',
         'key_name' => 'setKeyName',
         'key_spec' => 'setKeySpec',
@@ -112,7 +119,8 @@ class CreateKeyRequest implements ModelInterface, ArrayAccess
         'origin' => 'setOrigin',
         'protection_level' => 'setProtectionLevel',
         'rotate_state' => 'setRotateState',
-        'tags' => 'setTags'
+        'tags' => 'setTags',
+        'xks_key_id' => 'setXksKeyId'
     ];
 
     /**
@@ -121,6 +129,7 @@ class CreateKeyRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'custom_key_store_id' => 'getCustomKeyStoreId',
         'description' => 'getDescription',
         'key_name' => 'getKeyName',
         'key_spec' => 'getKeySpec',
@@ -130,7 +139,8 @@ class CreateKeyRequest implements ModelInterface, ArrayAccess
         'origin' => 'getOrigin',
         'protection_level' => 'getProtectionLevel',
         'rotate_state' => 'getRotateState',
-        'tags' => 'getTags'
+        'tags' => 'getTags',
+        'xks_key_id' => 'getXksKeyId'
     ];
 
     /**
@@ -193,6 +203,7 @@ class CreateKeyRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['custom_key_store_id'] = isset($data['custom_key_store_id']) ? $data['custom_key_store_id'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['key_name'] = isset($data['key_name']) ? $data['key_name'] : null;
         $this->container['key_spec'] = isset($data['key_spec']) ? $data['key_spec'] : null;
@@ -203,6 +214,7 @@ class CreateKeyRequest implements ModelInterface, ArrayAccess
         $this->container['protection_level'] = isset($data['protection_level']) ? $data['protection_level'] : null;
         $this->container['rotate_state'] = isset($data['rotate_state']) ? $data['rotate_state'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
+        $this->container['xks_key_id'] = isset($data['xks_key_id']) ? $data['xks_key_id'] : null;
     }
 
     /**
@@ -234,6 +246,30 @@ class CreateKeyRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets custom_key_store_id
+     *
+     * @return string
+     */
+    public function getCustomKeyStoreId()
+    {
+        return $this->container['custom_key_store_id'];
+    }
+
+    /**
+     * Sets custom_key_store_id
+     *
+     * @param string $custom_key_store_id custom_key_store_id
+     *
+     * @return $this
+     */
+    public function setCustomKeyStoreId($custom_key_store_id)
+    {
+        $this->container['custom_key_store_id'] = $custom_key_store_id;
+
+        return $this;
+    }
 
     /**
      * Gets description
@@ -471,6 +507,30 @@ class CreateKeyRequest implements ModelInterface, ArrayAccess
     public function setTags($tags)
     {
         $this->container['tags'] = $tags;
+
+        return $this;
+    }
+
+    /**
+     * Gets xks_key_id
+     *
+     * @return string
+     */
+    public function getXksKeyId()
+    {
+        return $this->container['xks_key_id'];
+    }
+
+    /**
+     * Sets xks_key_id
+     *
+     * @param string $xks_key_id xks_key_id
+     *
+     * @return $this
+     */
+    public function setXksKeyId($xks_key_id)
+    {
+        $this->container['xks_key_id'] = $xks_key_id;
 
         return $this;
     }
