@@ -28,6 +28,7 @@ class CheckLLMResponseStreamResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'context_id' => 'string',
         'decision' => '\Volcengine\Waf\Model\DecisionForCheckLLMResponseStreamOutput',
         'msg_id' => 'string'
     ];
@@ -38,6 +39,7 @@ class CheckLLMResponseStreamResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'context_id' => null,
         'decision' => null,
         'msg_id' => null
     ];
@@ -69,6 +71,7 @@ class CheckLLMResponseStreamResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'context_id' => 'ContextID',
         'decision' => 'Decision',
         'msg_id' => 'MsgID'
     ];
@@ -79,6 +82,7 @@ class CheckLLMResponseStreamResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'context_id' => 'setContextId',
         'decision' => 'setDecision',
         'msg_id' => 'setMsgId'
     ];
@@ -89,6 +93,7 @@ class CheckLLMResponseStreamResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'context_id' => 'getContextId',
         'decision' => 'getDecision',
         'msg_id' => 'getMsgId'
     ];
@@ -153,6 +158,7 @@ class CheckLLMResponseStreamResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['context_id'] = isset($data['context_id']) ? $data['context_id'] : null;
         $this->container['decision'] = isset($data['decision']) ? $data['decision'] : null;
         $this->container['msg_id'] = isset($data['msg_id']) ? $data['msg_id'] : null;
     }
@@ -180,6 +186,30 @@ class CheckLLMResponseStreamResponse implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets context_id
+     *
+     * @return string
+     */
+    public function getContextId()
+    {
+        return $this->container['context_id'];
+    }
+
+    /**
+     * Sets context_id
+     *
+     * @param string $context_id context_id
+     *
+     * @return $this
+     */
+    public function setContextId($context_id)
+    {
+        $this->container['context_id'] = $context_id;
+
+        return $this;
+    }
 
     /**
      * Gets decision

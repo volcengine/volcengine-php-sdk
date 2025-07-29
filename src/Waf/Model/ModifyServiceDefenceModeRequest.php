@@ -178,6 +178,9 @@ class ModifyServiceDefenceModeRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['defence_mode'] === null) {
+            $invalidProperties[] = "'defence_mode' can't be null";
+        }
         if ($this->container['host'] === null) {
             $invalidProperties[] = "'host' can't be null";
         }
