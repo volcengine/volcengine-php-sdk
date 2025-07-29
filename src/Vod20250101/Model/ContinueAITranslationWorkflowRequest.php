@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class SubmitAITranslationWorkflowRequest implements ModelInterface, ArrayAccess
+class ContinueAITranslationWorkflowRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class SubmitAITranslationWorkflowRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'SubmitAITranslationWorkflowRequest';
+    protected static $swaggerModelName = 'ContinueAITranslationWorkflowRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,8 @@ class SubmitAITranslationWorkflowRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'operator_config' => '\Volcengine\Vod20250101\Model\OperatorConfigForSubmitAITranslationWorkflowInput',
-        'process_config' => '\Volcengine\Vod20250101\Model\ProcessConfigForSubmitAITranslationWorkflowInput',
-        'space_name' => 'string',
-        'subtitle_config' => '\Volcengine\Vod20250101\Model\SubtitleConfigForSubmitAITranslationWorkflowInput',
-        'translation_config' => '\Volcengine\Vod20250101\Model\TranslationConfigForSubmitAITranslationWorkflowInput',
-        'vid' => 'string'
+        'project_id' => 'string',
+        'space_name' => 'string'
     ];
 
     /**
@@ -42,12 +38,8 @@ class SubmitAITranslationWorkflowRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'operator_config' => null,
-        'process_config' => null,
-        'space_name' => null,
-        'subtitle_config' => null,
-        'translation_config' => null,
-        'vid' => null
+        'project_id' => null,
+        'space_name' => null
     ];
 
     /**
@@ -77,12 +69,8 @@ class SubmitAITranslationWorkflowRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'operator_config' => 'OperatorConfig',
-        'process_config' => 'ProcessConfig',
-        'space_name' => 'SpaceName',
-        'subtitle_config' => 'SubtitleConfig',
-        'translation_config' => 'TranslationConfig',
-        'vid' => 'Vid'
+        'project_id' => 'ProjectId',
+        'space_name' => 'SpaceName'
     ];
 
     /**
@@ -91,12 +79,8 @@ class SubmitAITranslationWorkflowRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'operator_config' => 'setOperatorConfig',
-        'process_config' => 'setProcessConfig',
-        'space_name' => 'setSpaceName',
-        'subtitle_config' => 'setSubtitleConfig',
-        'translation_config' => 'setTranslationConfig',
-        'vid' => 'setVid'
+        'project_id' => 'setProjectId',
+        'space_name' => 'setSpaceName'
     ];
 
     /**
@@ -105,12 +89,8 @@ class SubmitAITranslationWorkflowRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'operator_config' => 'getOperatorConfig',
-        'process_config' => 'getProcessConfig',
-        'space_name' => 'getSpaceName',
-        'subtitle_config' => 'getSubtitleConfig',
-        'translation_config' => 'getTranslationConfig',
-        'vid' => 'getVid'
+        'project_id' => 'getProjectId',
+        'space_name' => 'getSpaceName'
     ];
 
     /**
@@ -173,12 +153,8 @@ class SubmitAITranslationWorkflowRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['operator_config'] = isset($data['operator_config']) ? $data['operator_config'] : null;
-        $this->container['process_config'] = isset($data['process_config']) ? $data['process_config'] : null;
+        $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
         $this->container['space_name'] = isset($data['space_name']) ? $data['space_name'] : null;
-        $this->container['subtitle_config'] = isset($data['subtitle_config']) ? $data['subtitle_config'] : null;
-        $this->container['translation_config'] = isset($data['translation_config']) ? $data['translation_config'] : null;
-        $this->container['vid'] = isset($data['vid']) ? $data['vid'] : null;
     }
 
     /**
@@ -190,11 +166,11 @@ class SubmitAITranslationWorkflowRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['project_id'] === null) {
+            $invalidProperties[] = "'project_id' can't be null";
+        }
         if ($this->container['space_name'] === null) {
             $invalidProperties[] = "'space_name' can't be null";
-        }
-        if ($this->container['vid'] === null) {
-            $invalidProperties[] = "'vid' can't be null";
         }
         return $invalidProperties;
     }
@@ -212,49 +188,25 @@ class SubmitAITranslationWorkflowRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets operator_config
+     * Gets project_id
      *
-     * @return \Volcengine\Vod20250101\Model\OperatorConfigForSubmitAITranslationWorkflowInput
+     * @return string
      */
-    public function getOperatorConfig()
+    public function getProjectId()
     {
-        return $this->container['operator_config'];
+        return $this->container['project_id'];
     }
 
     /**
-     * Sets operator_config
+     * Sets project_id
      *
-     * @param \Volcengine\Vod20250101\Model\OperatorConfigForSubmitAITranslationWorkflowInput $operator_config operator_config
+     * @param string $project_id project_id
      *
      * @return $this
      */
-    public function setOperatorConfig($operator_config)
+    public function setProjectId($project_id)
     {
-        $this->container['operator_config'] = $operator_config;
-
-        return $this;
-    }
-
-    /**
-     * Gets process_config
-     *
-     * @return \Volcengine\Vod20250101\Model\ProcessConfigForSubmitAITranslationWorkflowInput
-     */
-    public function getProcessConfig()
-    {
-        return $this->container['process_config'];
-    }
-
-    /**
-     * Sets process_config
-     *
-     * @param \Volcengine\Vod20250101\Model\ProcessConfigForSubmitAITranslationWorkflowInput $process_config process_config
-     *
-     * @return $this
-     */
-    public function setProcessConfig($process_config)
-    {
-        $this->container['process_config'] = $process_config;
+        $this->container['project_id'] = $project_id;
 
         return $this;
     }
@@ -279,78 +231,6 @@ class SubmitAITranslationWorkflowRequest implements ModelInterface, ArrayAccess
     public function setSpaceName($space_name)
     {
         $this->container['space_name'] = $space_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets subtitle_config
-     *
-     * @return \Volcengine\Vod20250101\Model\SubtitleConfigForSubmitAITranslationWorkflowInput
-     */
-    public function getSubtitleConfig()
-    {
-        return $this->container['subtitle_config'];
-    }
-
-    /**
-     * Sets subtitle_config
-     *
-     * @param \Volcengine\Vod20250101\Model\SubtitleConfigForSubmitAITranslationWorkflowInput $subtitle_config subtitle_config
-     *
-     * @return $this
-     */
-    public function setSubtitleConfig($subtitle_config)
-    {
-        $this->container['subtitle_config'] = $subtitle_config;
-
-        return $this;
-    }
-
-    /**
-     * Gets translation_config
-     *
-     * @return \Volcengine\Vod20250101\Model\TranslationConfigForSubmitAITranslationWorkflowInput
-     */
-    public function getTranslationConfig()
-    {
-        return $this->container['translation_config'];
-    }
-
-    /**
-     * Sets translation_config
-     *
-     * @param \Volcengine\Vod20250101\Model\TranslationConfigForSubmitAITranslationWorkflowInput $translation_config translation_config
-     *
-     * @return $this
-     */
-    public function setTranslationConfig($translation_config)
-    {
-        $this->container['translation_config'] = $translation_config;
-
-        return $this;
-    }
-
-    /**
-     * Gets vid
-     *
-     * @return string
-     */
-    public function getVid()
-    {
-        return $this->container['vid'];
-    }
-
-    /**
-     * Sets vid
-     *
-     * @param string $vid vid
-     *
-     * @return $this
-     */
-    public function setVid($vid)
-    {
-        $this->container['vid'] = $vid;
 
         return $this;
     }

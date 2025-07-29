@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class SubmitAITranslationWorkflowRequest implements ModelInterface, ArrayAccess
+class SubtitleConfigForSubmitAITranslationWorkflowInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class SubmitAITranslationWorkflowRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'SubmitAITranslationWorkflowRequest';
+    protected static $swaggerModelName = 'SubtitleConfigForSubmitAITranslationWorkflowInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,13 @@ class SubmitAITranslationWorkflowRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'operator_config' => '\Volcengine\Vod20250101\Model\OperatorConfigForSubmitAITranslationWorkflowInput',
-        'process_config' => '\Volcengine\Vod20250101\Model\ProcessConfigForSubmitAITranslationWorkflowInput',
-        'space_name' => 'string',
-        'subtitle_config' => '\Volcengine\Vod20250101\Model\SubtitleConfigForSubmitAITranslationWorkflowInput',
-        'translation_config' => '\Volcengine\Vod20250101\Model\TranslationConfigForSubmitAITranslationWorkflowInput',
-        'vid' => 'string'
+        'font_size' => 'int',
+        'is_erase_source' => 'bool',
+        'is_hard_subtitle' => 'bool',
+        'margin_l' => 'double',
+        'margin_r' => 'double',
+        'margin_v' => 'double',
+        'show_lines' => 'int'
     ];
 
     /**
@@ -42,12 +43,13 @@ class SubmitAITranslationWorkflowRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'operator_config' => null,
-        'process_config' => null,
-        'space_name' => null,
-        'subtitle_config' => null,
-        'translation_config' => null,
-        'vid' => null
+        'font_size' => 'int32',
+        'is_erase_source' => null,
+        'is_hard_subtitle' => null,
+        'margin_l' => 'double',
+        'margin_r' => 'double',
+        'margin_v' => 'double',
+        'show_lines' => 'int32'
     ];
 
     /**
@@ -77,12 +79,13 @@ class SubmitAITranslationWorkflowRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'operator_config' => 'OperatorConfig',
-        'process_config' => 'ProcessConfig',
-        'space_name' => 'SpaceName',
-        'subtitle_config' => 'SubtitleConfig',
-        'translation_config' => 'TranslationConfig',
-        'vid' => 'Vid'
+        'font_size' => 'FontSize',
+        'is_erase_source' => 'IsEraseSource',
+        'is_hard_subtitle' => 'IsHardSubtitle',
+        'margin_l' => 'MarginL',
+        'margin_r' => 'MarginR',
+        'margin_v' => 'MarginV',
+        'show_lines' => 'ShowLines'
     ];
 
     /**
@@ -91,12 +94,13 @@ class SubmitAITranslationWorkflowRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'operator_config' => 'setOperatorConfig',
-        'process_config' => 'setProcessConfig',
-        'space_name' => 'setSpaceName',
-        'subtitle_config' => 'setSubtitleConfig',
-        'translation_config' => 'setTranslationConfig',
-        'vid' => 'setVid'
+        'font_size' => 'setFontSize',
+        'is_erase_source' => 'setIsEraseSource',
+        'is_hard_subtitle' => 'setIsHardSubtitle',
+        'margin_l' => 'setMarginL',
+        'margin_r' => 'setMarginR',
+        'margin_v' => 'setMarginV',
+        'show_lines' => 'setShowLines'
     ];
 
     /**
@@ -105,12 +109,13 @@ class SubmitAITranslationWorkflowRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'operator_config' => 'getOperatorConfig',
-        'process_config' => 'getProcessConfig',
-        'space_name' => 'getSpaceName',
-        'subtitle_config' => 'getSubtitleConfig',
-        'translation_config' => 'getTranslationConfig',
-        'vid' => 'getVid'
+        'font_size' => 'getFontSize',
+        'is_erase_source' => 'getIsEraseSource',
+        'is_hard_subtitle' => 'getIsHardSubtitle',
+        'margin_l' => 'getMarginL',
+        'margin_r' => 'getMarginR',
+        'margin_v' => 'getMarginV',
+        'show_lines' => 'getShowLines'
     ];
 
     /**
@@ -173,12 +178,13 @@ class SubmitAITranslationWorkflowRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['operator_config'] = isset($data['operator_config']) ? $data['operator_config'] : null;
-        $this->container['process_config'] = isset($data['process_config']) ? $data['process_config'] : null;
-        $this->container['space_name'] = isset($data['space_name']) ? $data['space_name'] : null;
-        $this->container['subtitle_config'] = isset($data['subtitle_config']) ? $data['subtitle_config'] : null;
-        $this->container['translation_config'] = isset($data['translation_config']) ? $data['translation_config'] : null;
-        $this->container['vid'] = isset($data['vid']) ? $data['vid'] : null;
+        $this->container['font_size'] = isset($data['font_size']) ? $data['font_size'] : null;
+        $this->container['is_erase_source'] = isset($data['is_erase_source']) ? $data['is_erase_source'] : null;
+        $this->container['is_hard_subtitle'] = isset($data['is_hard_subtitle']) ? $data['is_hard_subtitle'] : null;
+        $this->container['margin_l'] = isset($data['margin_l']) ? $data['margin_l'] : null;
+        $this->container['margin_r'] = isset($data['margin_r']) ? $data['margin_r'] : null;
+        $this->container['margin_v'] = isset($data['margin_v']) ? $data['margin_v'] : null;
+        $this->container['show_lines'] = isset($data['show_lines']) ? $data['show_lines'] : null;
     }
 
     /**
@@ -190,12 +196,6 @@ class SubmitAITranslationWorkflowRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['space_name'] === null) {
-            $invalidProperties[] = "'space_name' can't be null";
-        }
-        if ($this->container['vid'] === null) {
-            $invalidProperties[] = "'vid' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -212,145 +212,169 @@ class SubmitAITranslationWorkflowRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets operator_config
+     * Gets font_size
      *
-     * @return \Volcengine\Vod20250101\Model\OperatorConfigForSubmitAITranslationWorkflowInput
+     * @return int
      */
-    public function getOperatorConfig()
+    public function getFontSize()
     {
-        return $this->container['operator_config'];
+        return $this->container['font_size'];
     }
 
     /**
-     * Sets operator_config
+     * Sets font_size
      *
-     * @param \Volcengine\Vod20250101\Model\OperatorConfigForSubmitAITranslationWorkflowInput $operator_config operator_config
+     * @param int $font_size font_size
      *
      * @return $this
      */
-    public function setOperatorConfig($operator_config)
+    public function setFontSize($font_size)
     {
-        $this->container['operator_config'] = $operator_config;
+        $this->container['font_size'] = $font_size;
 
         return $this;
     }
 
     /**
-     * Gets process_config
+     * Gets is_erase_source
      *
-     * @return \Volcengine\Vod20250101\Model\ProcessConfigForSubmitAITranslationWorkflowInput
+     * @return bool
      */
-    public function getProcessConfig()
+    public function getIsEraseSource()
     {
-        return $this->container['process_config'];
+        return $this->container['is_erase_source'];
     }
 
     /**
-     * Sets process_config
+     * Sets is_erase_source
      *
-     * @param \Volcengine\Vod20250101\Model\ProcessConfigForSubmitAITranslationWorkflowInput $process_config process_config
+     * @param bool $is_erase_source is_erase_source
      *
      * @return $this
      */
-    public function setProcessConfig($process_config)
+    public function setIsEraseSource($is_erase_source)
     {
-        $this->container['process_config'] = $process_config;
+        $this->container['is_erase_source'] = $is_erase_source;
 
         return $this;
     }
 
     /**
-     * Gets space_name
+     * Gets is_hard_subtitle
      *
-     * @return string
+     * @return bool
      */
-    public function getSpaceName()
+    public function getIsHardSubtitle()
     {
-        return $this->container['space_name'];
+        return $this->container['is_hard_subtitle'];
     }
 
     /**
-     * Sets space_name
+     * Sets is_hard_subtitle
      *
-     * @param string $space_name space_name
+     * @param bool $is_hard_subtitle is_hard_subtitle
      *
      * @return $this
      */
-    public function setSpaceName($space_name)
+    public function setIsHardSubtitle($is_hard_subtitle)
     {
-        $this->container['space_name'] = $space_name;
+        $this->container['is_hard_subtitle'] = $is_hard_subtitle;
 
         return $this;
     }
 
     /**
-     * Gets subtitle_config
+     * Gets margin_l
      *
-     * @return \Volcengine\Vod20250101\Model\SubtitleConfigForSubmitAITranslationWorkflowInput
+     * @return double
      */
-    public function getSubtitleConfig()
+    public function getMarginL()
     {
-        return $this->container['subtitle_config'];
+        return $this->container['margin_l'];
     }
 
     /**
-     * Sets subtitle_config
+     * Sets margin_l
      *
-     * @param \Volcengine\Vod20250101\Model\SubtitleConfigForSubmitAITranslationWorkflowInput $subtitle_config subtitle_config
+     * @param double $margin_l margin_l
      *
      * @return $this
      */
-    public function setSubtitleConfig($subtitle_config)
+    public function setMarginL($margin_l)
     {
-        $this->container['subtitle_config'] = $subtitle_config;
+        $this->container['margin_l'] = $margin_l;
 
         return $this;
     }
 
     /**
-     * Gets translation_config
+     * Gets margin_r
      *
-     * @return \Volcengine\Vod20250101\Model\TranslationConfigForSubmitAITranslationWorkflowInput
+     * @return double
      */
-    public function getTranslationConfig()
+    public function getMarginR()
     {
-        return $this->container['translation_config'];
+        return $this->container['margin_r'];
     }
 
     /**
-     * Sets translation_config
+     * Sets margin_r
      *
-     * @param \Volcengine\Vod20250101\Model\TranslationConfigForSubmitAITranslationWorkflowInput $translation_config translation_config
+     * @param double $margin_r margin_r
      *
      * @return $this
      */
-    public function setTranslationConfig($translation_config)
+    public function setMarginR($margin_r)
     {
-        $this->container['translation_config'] = $translation_config;
+        $this->container['margin_r'] = $margin_r;
 
         return $this;
     }
 
     /**
-     * Gets vid
+     * Gets margin_v
      *
-     * @return string
+     * @return double
      */
-    public function getVid()
+    public function getMarginV()
     {
-        return $this->container['vid'];
+        return $this->container['margin_v'];
     }
 
     /**
-     * Sets vid
+     * Sets margin_v
      *
-     * @param string $vid vid
+     * @param double $margin_v margin_v
      *
      * @return $this
      */
-    public function setVid($vid)
+    public function setMarginV($margin_v)
     {
-        $this->container['vid'] = $vid;
+        $this->container['margin_v'] = $margin_v;
+
+        return $this;
+    }
+
+    /**
+     * Gets show_lines
+     *
+     * @return int
+     */
+    public function getShowLines()
+    {
+        return $this->container['show_lines'];
+    }
+
+    /**
+     * Sets show_lines
+     *
+     * @param int $show_lines show_lines
+     *
+     * @return $this
+     */
+    public function setShowLines($show_lines)
+    {
+        $this->container['show_lines'] = $show_lines;
 
         return $this;
     }

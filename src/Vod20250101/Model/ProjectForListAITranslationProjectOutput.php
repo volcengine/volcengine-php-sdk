@@ -32,6 +32,7 @@ class ProjectForListAITranslationProjectOutput implements ModelInterface, ArrayA
         'error_code' => 'int',
         'error_msg' => 'string',
         'input_video' => '\Volcengine\Vod20250101\Model\InputVideoForListAITranslationProjectOutput',
+        'input_video_poster_url' => 'string',
         'input_video_title' => 'string',
         'operator_config' => '\Volcengine\Vod20250101\Model\OperatorConfigForListAITranslationProjectOutput',
         'output_video' => '\Volcengine\Vod20250101\Model\OutputVideoForListAITranslationProjectOutput',
@@ -55,6 +56,7 @@ class ProjectForListAITranslationProjectOutput implements ModelInterface, ArrayA
         'error_code' => 'int32',
         'error_msg' => null,
         'input_video' => null,
+        'input_video_poster_url' => null,
         'input_video_title' => null,
         'operator_config' => null,
         'output_video' => null,
@@ -99,6 +101,7 @@ class ProjectForListAITranslationProjectOutput implements ModelInterface, ArrayA
         'error_code' => 'ErrorCode',
         'error_msg' => 'ErrorMsg',
         'input_video' => 'InputVideo',
+        'input_video_poster_url' => 'InputVideoPosterUrl',
         'input_video_title' => 'InputVideoTitle',
         'operator_config' => 'OperatorConfig',
         'output_video' => 'OutputVideo',
@@ -122,6 +125,7 @@ class ProjectForListAITranslationProjectOutput implements ModelInterface, ArrayA
         'error_code' => 'setErrorCode',
         'error_msg' => 'setErrorMsg',
         'input_video' => 'setInputVideo',
+        'input_video_poster_url' => 'setInputVideoPosterUrl',
         'input_video_title' => 'setInputVideoTitle',
         'operator_config' => 'setOperatorConfig',
         'output_video' => 'setOutputVideo',
@@ -145,6 +149,7 @@ class ProjectForListAITranslationProjectOutput implements ModelInterface, ArrayA
         'error_code' => 'getErrorCode',
         'error_msg' => 'getErrorMsg',
         'input_video' => 'getInputVideo',
+        'input_video_poster_url' => 'getInputVideoPosterUrl',
         'input_video_title' => 'getInputVideoTitle',
         'operator_config' => 'getOperatorConfig',
         'output_video' => 'getOutputVideo',
@@ -222,6 +227,7 @@ class ProjectForListAITranslationProjectOutput implements ModelInterface, ArrayA
         $this->container['error_code'] = isset($data['error_code']) ? $data['error_code'] : null;
         $this->container['error_msg'] = isset($data['error_msg']) ? $data['error_msg'] : null;
         $this->container['input_video'] = isset($data['input_video']) ? $data['input_video'] : null;
+        $this->container['input_video_poster_url'] = isset($data['input_video_poster_url']) ? $data['input_video_poster_url'] : null;
         $this->container['input_video_title'] = isset($data['input_video_title']) ? $data['input_video_title'] : null;
         $this->container['operator_config'] = isset($data['operator_config']) ? $data['operator_config'] : null;
         $this->container['output_video'] = isset($data['output_video']) ? $data['output_video'] : null;
@@ -351,6 +357,30 @@ class ProjectForListAITranslationProjectOutput implements ModelInterface, ArrayA
     public function setInputVideo($input_video)
     {
         $this->container['input_video'] = $input_video;
+
+        return $this;
+    }
+
+    /**
+     * Gets input_video_poster_url
+     *
+     * @return string
+     */
+    public function getInputVideoPosterUrl()
+    {
+        return $this->container['input_video_poster_url'];
+    }
+
+    /**
+     * Sets input_video_poster_url
+     *
+     * @param string $input_video_poster_url input_video_poster_url
+     *
+     * @return $this
+     */
+    public function setInputVideoPosterUrl($input_video_poster_url)
+    {
+        $this->container['input_video_poster_url'] = $input_video_poster_url;
 
         return $this;
     }

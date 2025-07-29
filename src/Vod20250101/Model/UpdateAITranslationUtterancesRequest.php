@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class SubmitAITranslationWorkflowRequest implements ModelInterface, ArrayAccess
+class UpdateAITranslationUtterancesRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class SubmitAITranslationWorkflowRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'SubmitAITranslationWorkflowRequest';
+    protected static $swaggerModelName = 'UpdateAITranslationUtterancesRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,12 @@ class SubmitAITranslationWorkflowRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'operator_config' => '\Volcengine\Vod20250101\Model\OperatorConfigForSubmitAITranslationWorkflowInput',
-        'process_config' => '\Volcengine\Vod20250101\Model\ProcessConfigForSubmitAITranslationWorkflowInput',
+        'input_subtitle_file_name' => 'string',
+        'output_subtitle_file_name' => 'string',
+        'project_id' => 'string',
         'space_name' => 'string',
-        'subtitle_config' => '\Volcengine\Vod20250101\Model\SubtitleConfigForSubmitAITranslationWorkflowInput',
-        'translation_config' => '\Volcengine\Vod20250101\Model\TranslationConfigForSubmitAITranslationWorkflowInput',
-        'vid' => 'string'
+        'update_type' => 'string',
+        'utterances' => '\Volcengine\Vod20250101\Model\UtteranceForUpdateAITranslationUtterancesInput[]'
     ];
 
     /**
@@ -42,12 +42,12 @@ class SubmitAITranslationWorkflowRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'operator_config' => null,
-        'process_config' => null,
+        'input_subtitle_file_name' => null,
+        'output_subtitle_file_name' => null,
+        'project_id' => null,
         'space_name' => null,
-        'subtitle_config' => null,
-        'translation_config' => null,
-        'vid' => null
+        'update_type' => null,
+        'utterances' => null
     ];
 
     /**
@@ -77,12 +77,12 @@ class SubmitAITranslationWorkflowRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'operator_config' => 'OperatorConfig',
-        'process_config' => 'ProcessConfig',
+        'input_subtitle_file_name' => 'InputSubtitleFileName',
+        'output_subtitle_file_name' => 'OutputSubtitleFileName',
+        'project_id' => 'ProjectId',
         'space_name' => 'SpaceName',
-        'subtitle_config' => 'SubtitleConfig',
-        'translation_config' => 'TranslationConfig',
-        'vid' => 'Vid'
+        'update_type' => 'UpdateType',
+        'utterances' => 'Utterances'
     ];
 
     /**
@@ -91,12 +91,12 @@ class SubmitAITranslationWorkflowRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'operator_config' => 'setOperatorConfig',
-        'process_config' => 'setProcessConfig',
+        'input_subtitle_file_name' => 'setInputSubtitleFileName',
+        'output_subtitle_file_name' => 'setOutputSubtitleFileName',
+        'project_id' => 'setProjectId',
         'space_name' => 'setSpaceName',
-        'subtitle_config' => 'setSubtitleConfig',
-        'translation_config' => 'setTranslationConfig',
-        'vid' => 'setVid'
+        'update_type' => 'setUpdateType',
+        'utterances' => 'setUtterances'
     ];
 
     /**
@@ -105,12 +105,12 @@ class SubmitAITranslationWorkflowRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'operator_config' => 'getOperatorConfig',
-        'process_config' => 'getProcessConfig',
+        'input_subtitle_file_name' => 'getInputSubtitleFileName',
+        'output_subtitle_file_name' => 'getOutputSubtitleFileName',
+        'project_id' => 'getProjectId',
         'space_name' => 'getSpaceName',
-        'subtitle_config' => 'getSubtitleConfig',
-        'translation_config' => 'getTranslationConfig',
-        'vid' => 'getVid'
+        'update_type' => 'getUpdateType',
+        'utterances' => 'getUtterances'
     ];
 
     /**
@@ -173,12 +173,12 @@ class SubmitAITranslationWorkflowRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['operator_config'] = isset($data['operator_config']) ? $data['operator_config'] : null;
-        $this->container['process_config'] = isset($data['process_config']) ? $data['process_config'] : null;
+        $this->container['input_subtitle_file_name'] = isset($data['input_subtitle_file_name']) ? $data['input_subtitle_file_name'] : null;
+        $this->container['output_subtitle_file_name'] = isset($data['output_subtitle_file_name']) ? $data['output_subtitle_file_name'] : null;
+        $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
         $this->container['space_name'] = isset($data['space_name']) ? $data['space_name'] : null;
-        $this->container['subtitle_config'] = isset($data['subtitle_config']) ? $data['subtitle_config'] : null;
-        $this->container['translation_config'] = isset($data['translation_config']) ? $data['translation_config'] : null;
-        $this->container['vid'] = isset($data['vid']) ? $data['vid'] : null;
+        $this->container['update_type'] = isset($data['update_type']) ? $data['update_type'] : null;
+        $this->container['utterances'] = isset($data['utterances']) ? $data['utterances'] : null;
     }
 
     /**
@@ -190,11 +190,14 @@ class SubmitAITranslationWorkflowRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['project_id'] === null) {
+            $invalidProperties[] = "'project_id' can't be null";
+        }
         if ($this->container['space_name'] === null) {
             $invalidProperties[] = "'space_name' can't be null";
         }
-        if ($this->container['vid'] === null) {
-            $invalidProperties[] = "'vid' can't be null";
+        if ($this->container['update_type'] === null) {
+            $invalidProperties[] = "'update_type' can't be null";
         }
         return $invalidProperties;
     }
@@ -212,49 +215,73 @@ class SubmitAITranslationWorkflowRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets operator_config
+     * Gets input_subtitle_file_name
      *
-     * @return \Volcengine\Vod20250101\Model\OperatorConfigForSubmitAITranslationWorkflowInput
+     * @return string
      */
-    public function getOperatorConfig()
+    public function getInputSubtitleFileName()
     {
-        return $this->container['operator_config'];
+        return $this->container['input_subtitle_file_name'];
     }
 
     /**
-     * Sets operator_config
+     * Sets input_subtitle_file_name
      *
-     * @param \Volcengine\Vod20250101\Model\OperatorConfigForSubmitAITranslationWorkflowInput $operator_config operator_config
+     * @param string $input_subtitle_file_name input_subtitle_file_name
      *
      * @return $this
      */
-    public function setOperatorConfig($operator_config)
+    public function setInputSubtitleFileName($input_subtitle_file_name)
     {
-        $this->container['operator_config'] = $operator_config;
+        $this->container['input_subtitle_file_name'] = $input_subtitle_file_name;
 
         return $this;
     }
 
     /**
-     * Gets process_config
+     * Gets output_subtitle_file_name
      *
-     * @return \Volcengine\Vod20250101\Model\ProcessConfigForSubmitAITranslationWorkflowInput
+     * @return string
      */
-    public function getProcessConfig()
+    public function getOutputSubtitleFileName()
     {
-        return $this->container['process_config'];
+        return $this->container['output_subtitle_file_name'];
     }
 
     /**
-     * Sets process_config
+     * Sets output_subtitle_file_name
      *
-     * @param \Volcengine\Vod20250101\Model\ProcessConfigForSubmitAITranslationWorkflowInput $process_config process_config
+     * @param string $output_subtitle_file_name output_subtitle_file_name
      *
      * @return $this
      */
-    public function setProcessConfig($process_config)
+    public function setOutputSubtitleFileName($output_subtitle_file_name)
     {
-        $this->container['process_config'] = $process_config;
+        $this->container['output_subtitle_file_name'] = $output_subtitle_file_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_id
+     *
+     * @return string
+     */
+    public function getProjectId()
+    {
+        return $this->container['project_id'];
+    }
+
+    /**
+     * Sets project_id
+     *
+     * @param string $project_id project_id
+     *
+     * @return $this
+     */
+    public function setProjectId($project_id)
+    {
+        $this->container['project_id'] = $project_id;
 
         return $this;
     }
@@ -284,73 +311,49 @@ class SubmitAITranslationWorkflowRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets subtitle_config
-     *
-     * @return \Volcengine\Vod20250101\Model\SubtitleConfigForSubmitAITranslationWorkflowInput
-     */
-    public function getSubtitleConfig()
-    {
-        return $this->container['subtitle_config'];
-    }
-
-    /**
-     * Sets subtitle_config
-     *
-     * @param \Volcengine\Vod20250101\Model\SubtitleConfigForSubmitAITranslationWorkflowInput $subtitle_config subtitle_config
-     *
-     * @return $this
-     */
-    public function setSubtitleConfig($subtitle_config)
-    {
-        $this->container['subtitle_config'] = $subtitle_config;
-
-        return $this;
-    }
-
-    /**
-     * Gets translation_config
-     *
-     * @return \Volcengine\Vod20250101\Model\TranslationConfigForSubmitAITranslationWorkflowInput
-     */
-    public function getTranslationConfig()
-    {
-        return $this->container['translation_config'];
-    }
-
-    /**
-     * Sets translation_config
-     *
-     * @param \Volcengine\Vod20250101\Model\TranslationConfigForSubmitAITranslationWorkflowInput $translation_config translation_config
-     *
-     * @return $this
-     */
-    public function setTranslationConfig($translation_config)
-    {
-        $this->container['translation_config'] = $translation_config;
-
-        return $this;
-    }
-
-    /**
-     * Gets vid
+     * Gets update_type
      *
      * @return string
      */
-    public function getVid()
+    public function getUpdateType()
     {
-        return $this->container['vid'];
+        return $this->container['update_type'];
     }
 
     /**
-     * Sets vid
+     * Sets update_type
      *
-     * @param string $vid vid
+     * @param string $update_type update_type
      *
      * @return $this
      */
-    public function setVid($vid)
+    public function setUpdateType($update_type)
     {
-        $this->container['vid'] = $vid;
+        $this->container['update_type'] = $update_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets utterances
+     *
+     * @return \Volcengine\Vod20250101\Model\UtteranceForUpdateAITranslationUtterancesInput[]
+     */
+    public function getUtterances()
+    {
+        return $this->container['utterances'];
+    }
+
+    /**
+     * Sets utterances
+     *
+     * @param \Volcengine\Vod20250101\Model\UtteranceForUpdateAITranslationUtterancesInput[] $utterances utterances
+     *
+     * @return $this
+     */
+    public function setUtterances($utterances)
+    {
+        $this->container['utterances'] = $utterances;
 
         return $this;
     }
