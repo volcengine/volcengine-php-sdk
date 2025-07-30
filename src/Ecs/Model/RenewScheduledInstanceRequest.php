@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CopyImageRequest implements ModelInterface, ArrayAccess
+class RenewScheduledInstanceRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CopyImageRequest';
+    protected static $swaggerModelName = 'RenewScheduledInstanceRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,13 +28,9 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'copy_image_tags' => 'bool',
-        'description' => 'string',
-        'destination_region' => 'string',
-        'image_id' => 'string',
-        'image_name' => 'string',
-        'project_name' => 'string',
-        'tags' => '\Volcengine\Ecs\Model\TagForCopyImageInput[]'
+        'auto_release_at' => 'string',
+        'client_token' => 'string',
+        'scheduled_instance_id' => 'string'
     ];
 
     /**
@@ -43,13 +39,9 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'copy_image_tags' => null,
-        'description' => null,
-        'destination_region' => null,
-        'image_id' => null,
-        'image_name' => null,
-        'project_name' => null,
-        'tags' => null
+        'auto_release_at' => null,
+        'client_token' => null,
+        'scheduled_instance_id' => null
     ];
 
     /**
@@ -79,13 +71,9 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'copy_image_tags' => 'CopyImageTags',
-        'description' => 'Description',
-        'destination_region' => 'DestinationRegion',
-        'image_id' => 'ImageId',
-        'image_name' => 'ImageName',
-        'project_name' => 'ProjectName',
-        'tags' => 'Tags'
+        'auto_release_at' => 'AutoReleaseAt',
+        'client_token' => 'ClientToken',
+        'scheduled_instance_id' => 'ScheduledInstanceId'
     ];
 
     /**
@@ -94,13 +82,9 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'copy_image_tags' => 'setCopyImageTags',
-        'description' => 'setDescription',
-        'destination_region' => 'setDestinationRegion',
-        'image_id' => 'setImageId',
-        'image_name' => 'setImageName',
-        'project_name' => 'setProjectName',
-        'tags' => 'setTags'
+        'auto_release_at' => 'setAutoReleaseAt',
+        'client_token' => 'setClientToken',
+        'scheduled_instance_id' => 'setScheduledInstanceId'
     ];
 
     /**
@@ -109,13 +93,9 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'copy_image_tags' => 'getCopyImageTags',
-        'description' => 'getDescription',
-        'destination_region' => 'getDestinationRegion',
-        'image_id' => 'getImageId',
-        'image_name' => 'getImageName',
-        'project_name' => 'getProjectName',
-        'tags' => 'getTags'
+        'auto_release_at' => 'getAutoReleaseAt',
+        'client_token' => 'getClientToken',
+        'scheduled_instance_id' => 'getScheduledInstanceId'
     ];
 
     /**
@@ -178,13 +158,9 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['copy_image_tags'] = isset($data['copy_image_tags']) ? $data['copy_image_tags'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['destination_region'] = isset($data['destination_region']) ? $data['destination_region'] : null;
-        $this->container['image_id'] = isset($data['image_id']) ? $data['image_id'] : null;
-        $this->container['image_name'] = isset($data['image_name']) ? $data['image_name'] : null;
-        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
-        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
+        $this->container['auto_release_at'] = isset($data['auto_release_at']) ? $data['auto_release_at'] : null;
+        $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
+        $this->container['scheduled_instance_id'] = isset($data['scheduled_instance_id']) ? $data['scheduled_instance_id'] : null;
     }
 
     /**
@@ -196,14 +172,11 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['destination_region'] === null) {
-            $invalidProperties[] = "'destination_region' can't be null";
+        if ($this->container['auto_release_at'] === null) {
+            $invalidProperties[] = "'auto_release_at' can't be null";
         }
-        if ($this->container['image_id'] === null) {
-            $invalidProperties[] = "'image_id' can't be null";
-        }
-        if ($this->container['image_name'] === null) {
-            $invalidProperties[] = "'image_name' can't be null";
+        if ($this->container['scheduled_instance_id'] === null) {
+            $invalidProperties[] = "'scheduled_instance_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -221,169 +194,73 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets copy_image_tags
-     *
-     * @return bool
-     */
-    public function getCopyImageTags()
-    {
-        return $this->container['copy_image_tags'];
-    }
-
-    /**
-     * Sets copy_image_tags
-     *
-     * @param bool $copy_image_tags copy_image_tags
-     *
-     * @return $this
-     */
-    public function setCopyImageTags($copy_image_tags)
-    {
-        $this->container['copy_image_tags'] = $copy_image_tags;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
+     * Gets auto_release_at
      *
      * @return string
      */
-    public function getDescription()
+    public function getAutoReleaseAt()
     {
-        return $this->container['description'];
+        return $this->container['auto_release_at'];
     }
 
     /**
-     * Sets description
+     * Sets auto_release_at
      *
-     * @param string $description description
+     * @param string $auto_release_at auto_release_at
      *
      * @return $this
      */
-    public function setDescription($description)
+    public function setAutoReleaseAt($auto_release_at)
     {
-        $this->container['description'] = $description;
+        $this->container['auto_release_at'] = $auto_release_at;
 
         return $this;
     }
 
     /**
-     * Gets destination_region
+     * Gets client_token
      *
      * @return string
      */
-    public function getDestinationRegion()
+    public function getClientToken()
     {
-        return $this->container['destination_region'];
+        return $this->container['client_token'];
     }
 
     /**
-     * Sets destination_region
+     * Sets client_token
      *
-     * @param string $destination_region destination_region
+     * @param string $client_token client_token
      *
      * @return $this
      */
-    public function setDestinationRegion($destination_region)
+    public function setClientToken($client_token)
     {
-        $this->container['destination_region'] = $destination_region;
+        $this->container['client_token'] = $client_token;
 
         return $this;
     }
 
     /**
-     * Gets image_id
+     * Gets scheduled_instance_id
      *
      * @return string
      */
-    public function getImageId()
+    public function getScheduledInstanceId()
     {
-        return $this->container['image_id'];
+        return $this->container['scheduled_instance_id'];
     }
 
     /**
-     * Sets image_id
+     * Sets scheduled_instance_id
      *
-     * @param string $image_id image_id
+     * @param string $scheduled_instance_id scheduled_instance_id
      *
      * @return $this
      */
-    public function setImageId($image_id)
+    public function setScheduledInstanceId($scheduled_instance_id)
     {
-        $this->container['image_id'] = $image_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets image_name
-     *
-     * @return string
-     */
-    public function getImageName()
-    {
-        return $this->container['image_name'];
-    }
-
-    /**
-     * Sets image_name
-     *
-     * @param string $image_name image_name
-     *
-     * @return $this
-     */
-    public function setImageName($image_name)
-    {
-        $this->container['image_name'] = $image_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets project_name
-     *
-     * @return string
-     */
-    public function getProjectName()
-    {
-        return $this->container['project_name'];
-    }
-
-    /**
-     * Sets project_name
-     *
-     * @param string $project_name project_name
-     *
-     * @return $this
-     */
-    public function setProjectName($project_name)
-    {
-        $this->container['project_name'] = $project_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets tags
-     *
-     * @return \Volcengine\Ecs\Model\TagForCopyImageInput[]
-     */
-    public function getTags()
-    {
-        return $this->container['tags'];
-    }
-
-    /**
-     * Sets tags
-     *
-     * @param \Volcengine\Ecs\Model\TagForCopyImageInput[] $tags tags
-     *
-     * @return $this
-     */
-    public function setTags($tags)
-    {
-        $this->container['tags'] = $tags;
+        $this->container['scheduled_instance_id'] = $scheduled_instance_id;
 
         return $this;
     }

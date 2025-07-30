@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CopyImageRequest implements ModelInterface, ArrayAccess
+class HpcInstancePositionInfoForDescribeHpcInstancePositionOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CopyImageRequest';
+    protected static $swaggerModelName = 'HpcInstancePositionInfoForDescribeHpcInstancePositionOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,13 +28,9 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'copy_image_tags' => 'bool',
-        'description' => 'string',
-        'destination_region' => 'string',
-        'image_id' => 'string',
-        'image_name' => 'string',
-        'project_name' => 'string',
-        'tags' => '\Volcengine\Ecs\Model\TagForCopyImageInput[]'
+        'instance_id' => 'string',
+        'rdma_minipod' => 'string',
+        'switch_name' => 'string'
     ];
 
     /**
@@ -43,13 +39,9 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'copy_image_tags' => null,
-        'description' => null,
-        'destination_region' => null,
-        'image_id' => null,
-        'image_name' => null,
-        'project_name' => null,
-        'tags' => null
+        'instance_id' => null,
+        'rdma_minipod' => null,
+        'switch_name' => null
     ];
 
     /**
@@ -79,13 +71,9 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'copy_image_tags' => 'CopyImageTags',
-        'description' => 'Description',
-        'destination_region' => 'DestinationRegion',
-        'image_id' => 'ImageId',
-        'image_name' => 'ImageName',
-        'project_name' => 'ProjectName',
-        'tags' => 'Tags'
+        'instance_id' => 'InstanceId',
+        'rdma_minipod' => 'RdmaMinipod',
+        'switch_name' => 'SwitchName'
     ];
 
     /**
@@ -94,13 +82,9 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'copy_image_tags' => 'setCopyImageTags',
-        'description' => 'setDescription',
-        'destination_region' => 'setDestinationRegion',
-        'image_id' => 'setImageId',
-        'image_name' => 'setImageName',
-        'project_name' => 'setProjectName',
-        'tags' => 'setTags'
+        'instance_id' => 'setInstanceId',
+        'rdma_minipod' => 'setRdmaMinipod',
+        'switch_name' => 'setSwitchName'
     ];
 
     /**
@@ -109,13 +93,9 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'copy_image_tags' => 'getCopyImageTags',
-        'description' => 'getDescription',
-        'destination_region' => 'getDestinationRegion',
-        'image_id' => 'getImageId',
-        'image_name' => 'getImageName',
-        'project_name' => 'getProjectName',
-        'tags' => 'getTags'
+        'instance_id' => 'getInstanceId',
+        'rdma_minipod' => 'getRdmaMinipod',
+        'switch_name' => 'getSwitchName'
     ];
 
     /**
@@ -178,13 +158,9 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['copy_image_tags'] = isset($data['copy_image_tags']) ? $data['copy_image_tags'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['destination_region'] = isset($data['destination_region']) ? $data['destination_region'] : null;
-        $this->container['image_id'] = isset($data['image_id']) ? $data['image_id'] : null;
-        $this->container['image_name'] = isset($data['image_name']) ? $data['image_name'] : null;
-        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
-        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
+        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
+        $this->container['rdma_minipod'] = isset($data['rdma_minipod']) ? $data['rdma_minipod'] : null;
+        $this->container['switch_name'] = isset($data['switch_name']) ? $data['switch_name'] : null;
     }
 
     /**
@@ -196,15 +172,6 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['destination_region'] === null) {
-            $invalidProperties[] = "'destination_region' can't be null";
-        }
-        if ($this->container['image_id'] === null) {
-            $invalidProperties[] = "'image_id' can't be null";
-        }
-        if ($this->container['image_name'] === null) {
-            $invalidProperties[] = "'image_name' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -221,169 +188,73 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets copy_image_tags
-     *
-     * @return bool
-     */
-    public function getCopyImageTags()
-    {
-        return $this->container['copy_image_tags'];
-    }
-
-    /**
-     * Sets copy_image_tags
-     *
-     * @param bool $copy_image_tags copy_image_tags
-     *
-     * @return $this
-     */
-    public function setCopyImageTags($copy_image_tags)
-    {
-        $this->container['copy_image_tags'] = $copy_image_tags;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
+     * Gets instance_id
      *
      * @return string
      */
-    public function getDescription()
+    public function getInstanceId()
     {
-        return $this->container['description'];
+        return $this->container['instance_id'];
     }
 
     /**
-     * Sets description
+     * Sets instance_id
      *
-     * @param string $description description
+     * @param string $instance_id instance_id
      *
      * @return $this
      */
-    public function setDescription($description)
+    public function setInstanceId($instance_id)
     {
-        $this->container['description'] = $description;
+        $this->container['instance_id'] = $instance_id;
 
         return $this;
     }
 
     /**
-     * Gets destination_region
+     * Gets rdma_minipod
      *
      * @return string
      */
-    public function getDestinationRegion()
+    public function getRdmaMinipod()
     {
-        return $this->container['destination_region'];
+        return $this->container['rdma_minipod'];
     }
 
     /**
-     * Sets destination_region
+     * Sets rdma_minipod
      *
-     * @param string $destination_region destination_region
+     * @param string $rdma_minipod rdma_minipod
      *
      * @return $this
      */
-    public function setDestinationRegion($destination_region)
+    public function setRdmaMinipod($rdma_minipod)
     {
-        $this->container['destination_region'] = $destination_region;
+        $this->container['rdma_minipod'] = $rdma_minipod;
 
         return $this;
     }
 
     /**
-     * Gets image_id
+     * Gets switch_name
      *
      * @return string
      */
-    public function getImageId()
+    public function getSwitchName()
     {
-        return $this->container['image_id'];
+        return $this->container['switch_name'];
     }
 
     /**
-     * Sets image_id
+     * Sets switch_name
      *
-     * @param string $image_id image_id
+     * @param string $switch_name switch_name
      *
      * @return $this
      */
-    public function setImageId($image_id)
+    public function setSwitchName($switch_name)
     {
-        $this->container['image_id'] = $image_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets image_name
-     *
-     * @return string
-     */
-    public function getImageName()
-    {
-        return $this->container['image_name'];
-    }
-
-    /**
-     * Sets image_name
-     *
-     * @param string $image_name image_name
-     *
-     * @return $this
-     */
-    public function setImageName($image_name)
-    {
-        $this->container['image_name'] = $image_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets project_name
-     *
-     * @return string
-     */
-    public function getProjectName()
-    {
-        return $this->container['project_name'];
-    }
-
-    /**
-     * Sets project_name
-     *
-     * @param string $project_name project_name
-     *
-     * @return $this
-     */
-    public function setProjectName($project_name)
-    {
-        $this->container['project_name'] = $project_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets tags
-     *
-     * @return \Volcengine\Ecs\Model\TagForCopyImageInput[]
-     */
-    public function getTags()
-    {
-        return $this->container['tags'];
-    }
-
-    /**
-     * Sets tags
-     *
-     * @param \Volcengine\Ecs\Model\TagForCopyImageInput[] $tags tags
-     *
-     * @return $this
-     */
-    public function setTags($tags)
-    {
-        $this->container['tags'] = $tags;
+        $this->container['switch_name'] = $switch_name;
 
         return $this;
     }

@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CreateScheduledInstancesRequest implements ModelInterface, ArrayAccess
+class AllocateInstancesRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CreateScheduledInstancesRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CreateScheduledInstancesRequest';
+    protected static $swaggerModelName = 'AllocateInstancesRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,39 +28,41 @@ class CreateScheduledInstancesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'auto_release_at' => 'string',
+        'auto_renew' => 'bool',
+        'auto_renew_period' => 'int',
+        'batch_create_in_multi_zone' => 'bool',
         'client_token' => 'string',
         'count' => 'int',
-        'cpu_max_frequency' => 'float',
-        'deletion_protection' => 'bool',
-        'delivery_type' => 'string',
+        'credit_specification' => 'string',
+        'deployment_set_group_number' => 'int',
+        'deployment_set_id' => 'string',
         'description' => 'string',
         'dry_run' => 'bool',
-        'eip_address' => '\Volcengine\Ecs\Model\EipAddressForCreateScheduledInstancesInput',
-        'elastic_scheduled_instance_type' => 'string',
-        'end_delivery_at' => 'string',
+        'eip_address' => '\Volcengine\Ecs\Model\EipAddressForAllocateInstancesInput',
         'hostname' => 'string',
         'hpc_cluster_id' => 'string',
-        'http_tokens' => 'string',
         'image_id' => 'string',
+        'image_release_version' => 'string',
         'install_run_command_agent' => 'bool',
+        'instance_charge_type' => 'string',
         'instance_name' => 'string',
         'instance_type_id' => 'string',
         'keep_image_credential' => 'bool',
         'key_pair_name' => 'string',
-        'min_count' => 'int',
-        'network_interfaces' => '\Volcengine\Ecs\Model\NetworkInterfaceForCreateScheduledInstancesInput[]',
+        'network_interfaces' => '\Volcengine\Ecs\Model\NetworkInterfaceForAllocateInstancesInput[]',
         'password' => 'string',
+        'period' => 'int',
+        'period_unit' => 'string',
+        'placement' => '\Volcengine\Ecs\Model\PlacementForAllocateInstancesInput',
         'project_name' => 'string',
-        'scheduled_instance_description' => 'string',
-        'scheduled_instance_name' => 'string',
         'security_enhancement_strategy' => 'string',
-        'start_delivery_at' => 'string',
+        'spot_price_limit' => 'float',
+        'spot_strategy' => 'string',
         'suffix_index' => 'int',
-        'tags' => '\Volcengine\Ecs\Model\TagForCreateScheduledInstancesInput[]',
+        'tags' => '\Volcengine\Ecs\Model\TagForAllocateInstancesInput[]',
         'unique_suffix' => 'bool',
         'user_data' => 'string',
-        'volumes' => '\Volcengine\Ecs\Model\VolumeForCreateScheduledInstancesInput[]',
+        'volumes' => '\Volcengine\Ecs\Model\VolumeForAllocateInstancesInput[]',
         'zone_id' => 'string'
     ];
 
@@ -70,34 +72,36 @@ class CreateScheduledInstancesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'auto_release_at' => null,
+        'auto_renew' => null,
+        'auto_renew_period' => 'int32',
+        'batch_create_in_multi_zone' => null,
         'client_token' => null,
         'count' => 'int32',
-        'cpu_max_frequency' => 'float',
-        'deletion_protection' => null,
-        'delivery_type' => null,
+        'credit_specification' => null,
+        'deployment_set_group_number' => 'int32',
+        'deployment_set_id' => null,
         'description' => null,
         'dry_run' => null,
         'eip_address' => null,
-        'elastic_scheduled_instance_type' => null,
-        'end_delivery_at' => null,
         'hostname' => null,
         'hpc_cluster_id' => null,
-        'http_tokens' => null,
         'image_id' => null,
+        'image_release_version' => null,
         'install_run_command_agent' => null,
+        'instance_charge_type' => null,
         'instance_name' => null,
         'instance_type_id' => null,
         'keep_image_credential' => null,
         'key_pair_name' => null,
-        'min_count' => 'int32',
         'network_interfaces' => null,
         'password' => null,
+        'period' => 'int32',
+        'period_unit' => null,
+        'placement' => null,
         'project_name' => null,
-        'scheduled_instance_description' => null,
-        'scheduled_instance_name' => null,
         'security_enhancement_strategy' => null,
-        'start_delivery_at' => null,
+        'spot_price_limit' => 'float',
+        'spot_strategy' => null,
         'suffix_index' => 'int32',
         'tags' => null,
         'unique_suffix' => null,
@@ -133,34 +137,36 @@ class CreateScheduledInstancesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'auto_release_at' => 'AutoReleaseAt',
+        'auto_renew' => 'AutoRenew',
+        'auto_renew_period' => 'AutoRenewPeriod',
+        'batch_create_in_multi_zone' => 'BatchCreateInMultiZone',
         'client_token' => 'ClientToken',
         'count' => 'Count',
-        'cpu_max_frequency' => 'CpuMaxFrequency',
-        'deletion_protection' => 'DeletionProtection',
-        'delivery_type' => 'DeliveryType',
+        'credit_specification' => 'CreditSpecification',
+        'deployment_set_group_number' => 'DeploymentSetGroupNumber',
+        'deployment_set_id' => 'DeploymentSetId',
         'description' => 'Description',
         'dry_run' => 'DryRun',
         'eip_address' => 'EipAddress',
-        'elastic_scheduled_instance_type' => 'ElasticScheduledInstanceType',
-        'end_delivery_at' => 'EndDeliveryAt',
         'hostname' => 'Hostname',
         'hpc_cluster_id' => 'HpcClusterId',
-        'http_tokens' => 'HttpTokens',
         'image_id' => 'ImageId',
+        'image_release_version' => 'ImageReleaseVersion',
         'install_run_command_agent' => 'InstallRunCommandAgent',
+        'instance_charge_type' => 'InstanceChargeType',
         'instance_name' => 'InstanceName',
         'instance_type_id' => 'InstanceTypeId',
         'keep_image_credential' => 'KeepImageCredential',
         'key_pair_name' => 'KeyPairName',
-        'min_count' => 'MinCount',
         'network_interfaces' => 'NetworkInterfaces',
         'password' => 'Password',
+        'period' => 'Period',
+        'period_unit' => 'PeriodUnit',
+        'placement' => 'Placement',
         'project_name' => 'ProjectName',
-        'scheduled_instance_description' => 'ScheduledInstanceDescription',
-        'scheduled_instance_name' => 'ScheduledInstanceName',
         'security_enhancement_strategy' => 'SecurityEnhancementStrategy',
-        'start_delivery_at' => 'StartDeliveryAt',
+        'spot_price_limit' => 'SpotPriceLimit',
+        'spot_strategy' => 'SpotStrategy',
         'suffix_index' => 'SuffixIndex',
         'tags' => 'Tags',
         'unique_suffix' => 'UniqueSuffix',
@@ -175,34 +181,36 @@ class CreateScheduledInstancesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'auto_release_at' => 'setAutoReleaseAt',
+        'auto_renew' => 'setAutoRenew',
+        'auto_renew_period' => 'setAutoRenewPeriod',
+        'batch_create_in_multi_zone' => 'setBatchCreateInMultiZone',
         'client_token' => 'setClientToken',
         'count' => 'setCount',
-        'cpu_max_frequency' => 'setCpuMaxFrequency',
-        'deletion_protection' => 'setDeletionProtection',
-        'delivery_type' => 'setDeliveryType',
+        'credit_specification' => 'setCreditSpecification',
+        'deployment_set_group_number' => 'setDeploymentSetGroupNumber',
+        'deployment_set_id' => 'setDeploymentSetId',
         'description' => 'setDescription',
         'dry_run' => 'setDryRun',
         'eip_address' => 'setEipAddress',
-        'elastic_scheduled_instance_type' => 'setElasticScheduledInstanceType',
-        'end_delivery_at' => 'setEndDeliveryAt',
         'hostname' => 'setHostname',
         'hpc_cluster_id' => 'setHpcClusterId',
-        'http_tokens' => 'setHttpTokens',
         'image_id' => 'setImageId',
+        'image_release_version' => 'setImageReleaseVersion',
         'install_run_command_agent' => 'setInstallRunCommandAgent',
+        'instance_charge_type' => 'setInstanceChargeType',
         'instance_name' => 'setInstanceName',
         'instance_type_id' => 'setInstanceTypeId',
         'keep_image_credential' => 'setKeepImageCredential',
         'key_pair_name' => 'setKeyPairName',
-        'min_count' => 'setMinCount',
         'network_interfaces' => 'setNetworkInterfaces',
         'password' => 'setPassword',
+        'period' => 'setPeriod',
+        'period_unit' => 'setPeriodUnit',
+        'placement' => 'setPlacement',
         'project_name' => 'setProjectName',
-        'scheduled_instance_description' => 'setScheduledInstanceDescription',
-        'scheduled_instance_name' => 'setScheduledInstanceName',
         'security_enhancement_strategy' => 'setSecurityEnhancementStrategy',
-        'start_delivery_at' => 'setStartDeliveryAt',
+        'spot_price_limit' => 'setSpotPriceLimit',
+        'spot_strategy' => 'setSpotStrategy',
         'suffix_index' => 'setSuffixIndex',
         'tags' => 'setTags',
         'unique_suffix' => 'setUniqueSuffix',
@@ -217,34 +225,36 @@ class CreateScheduledInstancesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'auto_release_at' => 'getAutoReleaseAt',
+        'auto_renew' => 'getAutoRenew',
+        'auto_renew_period' => 'getAutoRenewPeriod',
+        'batch_create_in_multi_zone' => 'getBatchCreateInMultiZone',
         'client_token' => 'getClientToken',
         'count' => 'getCount',
-        'cpu_max_frequency' => 'getCpuMaxFrequency',
-        'deletion_protection' => 'getDeletionProtection',
-        'delivery_type' => 'getDeliveryType',
+        'credit_specification' => 'getCreditSpecification',
+        'deployment_set_group_number' => 'getDeploymentSetGroupNumber',
+        'deployment_set_id' => 'getDeploymentSetId',
         'description' => 'getDescription',
         'dry_run' => 'getDryRun',
         'eip_address' => 'getEipAddress',
-        'elastic_scheduled_instance_type' => 'getElasticScheduledInstanceType',
-        'end_delivery_at' => 'getEndDeliveryAt',
         'hostname' => 'getHostname',
         'hpc_cluster_id' => 'getHpcClusterId',
-        'http_tokens' => 'getHttpTokens',
         'image_id' => 'getImageId',
+        'image_release_version' => 'getImageReleaseVersion',
         'install_run_command_agent' => 'getInstallRunCommandAgent',
+        'instance_charge_type' => 'getInstanceChargeType',
         'instance_name' => 'getInstanceName',
         'instance_type_id' => 'getInstanceTypeId',
         'keep_image_credential' => 'getKeepImageCredential',
         'key_pair_name' => 'getKeyPairName',
-        'min_count' => 'getMinCount',
         'network_interfaces' => 'getNetworkInterfaces',
         'password' => 'getPassword',
+        'period' => 'getPeriod',
+        'period_unit' => 'getPeriodUnit',
+        'placement' => 'getPlacement',
         'project_name' => 'getProjectName',
-        'scheduled_instance_description' => 'getScheduledInstanceDescription',
-        'scheduled_instance_name' => 'getScheduledInstanceName',
         'security_enhancement_strategy' => 'getSecurityEnhancementStrategy',
-        'start_delivery_at' => 'getStartDeliveryAt',
+        'spot_price_limit' => 'getSpotPriceLimit',
+        'spot_strategy' => 'getSpotStrategy',
         'suffix_index' => 'getSuffixIndex',
         'tags' => 'getTags',
         'unique_suffix' => 'getUniqueSuffix',
@@ -313,34 +323,36 @@ class CreateScheduledInstancesRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['auto_release_at'] = isset($data['auto_release_at']) ? $data['auto_release_at'] : null;
+        $this->container['auto_renew'] = isset($data['auto_renew']) ? $data['auto_renew'] : null;
+        $this->container['auto_renew_period'] = isset($data['auto_renew_period']) ? $data['auto_renew_period'] : null;
+        $this->container['batch_create_in_multi_zone'] = isset($data['batch_create_in_multi_zone']) ? $data['batch_create_in_multi_zone'] : null;
         $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
         $this->container['count'] = isset($data['count']) ? $data['count'] : null;
-        $this->container['cpu_max_frequency'] = isset($data['cpu_max_frequency']) ? $data['cpu_max_frequency'] : null;
-        $this->container['deletion_protection'] = isset($data['deletion_protection']) ? $data['deletion_protection'] : null;
-        $this->container['delivery_type'] = isset($data['delivery_type']) ? $data['delivery_type'] : null;
+        $this->container['credit_specification'] = isset($data['credit_specification']) ? $data['credit_specification'] : null;
+        $this->container['deployment_set_group_number'] = isset($data['deployment_set_group_number']) ? $data['deployment_set_group_number'] : null;
+        $this->container['deployment_set_id'] = isset($data['deployment_set_id']) ? $data['deployment_set_id'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['dry_run'] = isset($data['dry_run']) ? $data['dry_run'] : null;
         $this->container['eip_address'] = isset($data['eip_address']) ? $data['eip_address'] : null;
-        $this->container['elastic_scheduled_instance_type'] = isset($data['elastic_scheduled_instance_type']) ? $data['elastic_scheduled_instance_type'] : null;
-        $this->container['end_delivery_at'] = isset($data['end_delivery_at']) ? $data['end_delivery_at'] : null;
         $this->container['hostname'] = isset($data['hostname']) ? $data['hostname'] : null;
         $this->container['hpc_cluster_id'] = isset($data['hpc_cluster_id']) ? $data['hpc_cluster_id'] : null;
-        $this->container['http_tokens'] = isset($data['http_tokens']) ? $data['http_tokens'] : null;
         $this->container['image_id'] = isset($data['image_id']) ? $data['image_id'] : null;
+        $this->container['image_release_version'] = isset($data['image_release_version']) ? $data['image_release_version'] : null;
         $this->container['install_run_command_agent'] = isset($data['install_run_command_agent']) ? $data['install_run_command_agent'] : null;
+        $this->container['instance_charge_type'] = isset($data['instance_charge_type']) ? $data['instance_charge_type'] : null;
         $this->container['instance_name'] = isset($data['instance_name']) ? $data['instance_name'] : null;
         $this->container['instance_type_id'] = isset($data['instance_type_id']) ? $data['instance_type_id'] : null;
         $this->container['keep_image_credential'] = isset($data['keep_image_credential']) ? $data['keep_image_credential'] : null;
         $this->container['key_pair_name'] = isset($data['key_pair_name']) ? $data['key_pair_name'] : null;
-        $this->container['min_count'] = isset($data['min_count']) ? $data['min_count'] : null;
         $this->container['network_interfaces'] = isset($data['network_interfaces']) ? $data['network_interfaces'] : null;
         $this->container['password'] = isset($data['password']) ? $data['password'] : null;
+        $this->container['period'] = isset($data['period']) ? $data['period'] : null;
+        $this->container['period_unit'] = isset($data['period_unit']) ? $data['period_unit'] : null;
+        $this->container['placement'] = isset($data['placement']) ? $data['placement'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
-        $this->container['scheduled_instance_description'] = isset($data['scheduled_instance_description']) ? $data['scheduled_instance_description'] : null;
-        $this->container['scheduled_instance_name'] = isset($data['scheduled_instance_name']) ? $data['scheduled_instance_name'] : null;
         $this->container['security_enhancement_strategy'] = isset($data['security_enhancement_strategy']) ? $data['security_enhancement_strategy'] : null;
-        $this->container['start_delivery_at'] = isset($data['start_delivery_at']) ? $data['start_delivery_at'] : null;
+        $this->container['spot_price_limit'] = isset($data['spot_price_limit']) ? $data['spot_price_limit'] : null;
+        $this->container['spot_strategy'] = isset($data['spot_strategy']) ? $data['spot_strategy'] : null;
         $this->container['suffix_index'] = isset($data['suffix_index']) ? $data['suffix_index'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['unique_suffix'] = isset($data['unique_suffix']) ? $data['unique_suffix'] : null;
@@ -367,12 +379,6 @@ class CreateScheduledInstancesRequest implements ModelInterface, ArrayAccess
         if ($this->container['instance_type_id'] === null) {
             $invalidProperties[] = "'instance_type_id' can't be null";
         }
-        if ($this->container['scheduled_instance_name'] === null) {
-            $invalidProperties[] = "'scheduled_instance_name' can't be null";
-        }
-        if ($this->container['zone_id'] === null) {
-            $invalidProperties[] = "'zone_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -389,25 +395,73 @@ class CreateScheduledInstancesRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets auto_release_at
+     * Gets auto_renew
      *
-     * @return string
+     * @return bool
      */
-    public function getAutoReleaseAt()
+    public function getAutoRenew()
     {
-        return $this->container['auto_release_at'];
+        return $this->container['auto_renew'];
     }
 
     /**
-     * Sets auto_release_at
+     * Sets auto_renew
      *
-     * @param string $auto_release_at auto_release_at
+     * @param bool $auto_renew auto_renew
      *
      * @return $this
      */
-    public function setAutoReleaseAt($auto_release_at)
+    public function setAutoRenew($auto_renew)
     {
-        $this->container['auto_release_at'] = $auto_release_at;
+        $this->container['auto_renew'] = $auto_renew;
+
+        return $this;
+    }
+
+    /**
+     * Gets auto_renew_period
+     *
+     * @return int
+     */
+    public function getAutoRenewPeriod()
+    {
+        return $this->container['auto_renew_period'];
+    }
+
+    /**
+     * Sets auto_renew_period
+     *
+     * @param int $auto_renew_period auto_renew_period
+     *
+     * @return $this
+     */
+    public function setAutoRenewPeriod($auto_renew_period)
+    {
+        $this->container['auto_renew_period'] = $auto_renew_period;
+
+        return $this;
+    }
+
+    /**
+     * Gets batch_create_in_multi_zone
+     *
+     * @return bool
+     */
+    public function getBatchCreateInMultiZone()
+    {
+        return $this->container['batch_create_in_multi_zone'];
+    }
+
+    /**
+     * Sets batch_create_in_multi_zone
+     *
+     * @param bool $batch_create_in_multi_zone batch_create_in_multi_zone
+     *
+     * @return $this
+     */
+    public function setBatchCreateInMultiZone($batch_create_in_multi_zone)
+    {
+        $this->container['batch_create_in_multi_zone'] = $batch_create_in_multi_zone;
 
         return $this;
     }
@@ -461,73 +515,73 @@ class CreateScheduledInstancesRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets cpu_max_frequency
-     *
-     * @return float
-     */
-    public function getCpuMaxFrequency()
-    {
-        return $this->container['cpu_max_frequency'];
-    }
-
-    /**
-     * Sets cpu_max_frequency
-     *
-     * @param float $cpu_max_frequency cpu_max_frequency
-     *
-     * @return $this
-     */
-    public function setCpuMaxFrequency($cpu_max_frequency)
-    {
-        $this->container['cpu_max_frequency'] = $cpu_max_frequency;
-
-        return $this;
-    }
-
-    /**
-     * Gets deletion_protection
-     *
-     * @return bool
-     */
-    public function getDeletionProtection()
-    {
-        return $this->container['deletion_protection'];
-    }
-
-    /**
-     * Sets deletion_protection
-     *
-     * @param bool $deletion_protection deletion_protection
-     *
-     * @return $this
-     */
-    public function setDeletionProtection($deletion_protection)
-    {
-        $this->container['deletion_protection'] = $deletion_protection;
-
-        return $this;
-    }
-
-    /**
-     * Gets delivery_type
+     * Gets credit_specification
      *
      * @return string
      */
-    public function getDeliveryType()
+    public function getCreditSpecification()
     {
-        return $this->container['delivery_type'];
+        return $this->container['credit_specification'];
     }
 
     /**
-     * Sets delivery_type
+     * Sets credit_specification
      *
-     * @param string $delivery_type delivery_type
+     * @param string $credit_specification credit_specification
      *
      * @return $this
      */
-    public function setDeliveryType($delivery_type)
+    public function setCreditSpecification($credit_specification)
     {
-        $this->container['delivery_type'] = $delivery_type;
+        $this->container['credit_specification'] = $credit_specification;
+
+        return $this;
+    }
+
+    /**
+     * Gets deployment_set_group_number
+     *
+     * @return int
+     */
+    public function getDeploymentSetGroupNumber()
+    {
+        return $this->container['deployment_set_group_number'];
+    }
+
+    /**
+     * Sets deployment_set_group_number
+     *
+     * @param int $deployment_set_group_number deployment_set_group_number
+     *
+     * @return $this
+     */
+    public function setDeploymentSetGroupNumber($deployment_set_group_number)
+    {
+        $this->container['deployment_set_group_number'] = $deployment_set_group_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets deployment_set_id
+     *
+     * @return string
+     */
+    public function getDeploymentSetId()
+    {
+        return $this->container['deployment_set_id'];
+    }
+
+    /**
+     * Sets deployment_set_id
+     *
+     * @param string $deployment_set_id deployment_set_id
+     *
+     * @return $this
+     */
+    public function setDeploymentSetId($deployment_set_id)
+    {
+        $this->container['deployment_set_id'] = $deployment_set_id;
 
         return $this;
     }
@@ -583,7 +637,7 @@ class CreateScheduledInstancesRequest implements ModelInterface, ArrayAccess
     /**
      * Gets eip_address
      *
-     * @return \Volcengine\Ecs\Model\EipAddressForCreateScheduledInstancesInput
+     * @return \Volcengine\Ecs\Model\EipAddressForAllocateInstancesInput
      */
     public function getEipAddress()
     {
@@ -593,61 +647,13 @@ class CreateScheduledInstancesRequest implements ModelInterface, ArrayAccess
     /**
      * Sets eip_address
      *
-     * @param \Volcengine\Ecs\Model\EipAddressForCreateScheduledInstancesInput $eip_address eip_address
+     * @param \Volcengine\Ecs\Model\EipAddressForAllocateInstancesInput $eip_address eip_address
      *
      * @return $this
      */
     public function setEipAddress($eip_address)
     {
         $this->container['eip_address'] = $eip_address;
-
-        return $this;
-    }
-
-    /**
-     * Gets elastic_scheduled_instance_type
-     *
-     * @return string
-     */
-    public function getElasticScheduledInstanceType()
-    {
-        return $this->container['elastic_scheduled_instance_type'];
-    }
-
-    /**
-     * Sets elastic_scheduled_instance_type
-     *
-     * @param string $elastic_scheduled_instance_type elastic_scheduled_instance_type
-     *
-     * @return $this
-     */
-    public function setElasticScheduledInstanceType($elastic_scheduled_instance_type)
-    {
-        $this->container['elastic_scheduled_instance_type'] = $elastic_scheduled_instance_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets end_delivery_at
-     *
-     * @return string
-     */
-    public function getEndDeliveryAt()
-    {
-        return $this->container['end_delivery_at'];
-    }
-
-    /**
-     * Sets end_delivery_at
-     *
-     * @param string $end_delivery_at end_delivery_at
-     *
-     * @return $this
-     */
-    public function setEndDeliveryAt($end_delivery_at)
-    {
-        $this->container['end_delivery_at'] = $end_delivery_at;
 
         return $this;
     }
@@ -701,30 +707,6 @@ class CreateScheduledInstancesRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets http_tokens
-     *
-     * @return string
-     */
-    public function getHttpTokens()
-    {
-        return $this->container['http_tokens'];
-    }
-
-    /**
-     * Sets http_tokens
-     *
-     * @param string $http_tokens http_tokens
-     *
-     * @return $this
-     */
-    public function setHttpTokens($http_tokens)
-    {
-        $this->container['http_tokens'] = $http_tokens;
-
-        return $this;
-    }
-
-    /**
      * Gets image_id
      *
      * @return string
@@ -749,6 +731,30 @@ class CreateScheduledInstancesRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets image_release_version
+     *
+     * @return string
+     */
+    public function getImageReleaseVersion()
+    {
+        return $this->container['image_release_version'];
+    }
+
+    /**
+     * Sets image_release_version
+     *
+     * @param string $image_release_version image_release_version
+     *
+     * @return $this
+     */
+    public function setImageReleaseVersion($image_release_version)
+    {
+        $this->container['image_release_version'] = $image_release_version;
+
+        return $this;
+    }
+
+    /**
      * Gets install_run_command_agent
      *
      * @return bool
@@ -768,6 +774,30 @@ class CreateScheduledInstancesRequest implements ModelInterface, ArrayAccess
     public function setInstallRunCommandAgent($install_run_command_agent)
     {
         $this->container['install_run_command_agent'] = $install_run_command_agent;
+
+        return $this;
+    }
+
+    /**
+     * Gets instance_charge_type
+     *
+     * @return string
+     */
+    public function getInstanceChargeType()
+    {
+        return $this->container['instance_charge_type'];
+    }
+
+    /**
+     * Sets instance_charge_type
+     *
+     * @param string $instance_charge_type instance_charge_type
+     *
+     * @return $this
+     */
+    public function setInstanceChargeType($instance_charge_type)
+    {
+        $this->container['instance_charge_type'] = $instance_charge_type;
 
         return $this;
     }
@@ -869,33 +899,9 @@ class CreateScheduledInstancesRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets min_count
-     *
-     * @return int
-     */
-    public function getMinCount()
-    {
-        return $this->container['min_count'];
-    }
-
-    /**
-     * Sets min_count
-     *
-     * @param int $min_count min_count
-     *
-     * @return $this
-     */
-    public function setMinCount($min_count)
-    {
-        $this->container['min_count'] = $min_count;
-
-        return $this;
-    }
-
-    /**
      * Gets network_interfaces
      *
-     * @return \Volcengine\Ecs\Model\NetworkInterfaceForCreateScheduledInstancesInput[]
+     * @return \Volcengine\Ecs\Model\NetworkInterfaceForAllocateInstancesInput[]
      */
     public function getNetworkInterfaces()
     {
@@ -905,7 +911,7 @@ class CreateScheduledInstancesRequest implements ModelInterface, ArrayAccess
     /**
      * Sets network_interfaces
      *
-     * @param \Volcengine\Ecs\Model\NetworkInterfaceForCreateScheduledInstancesInput[] $network_interfaces network_interfaces
+     * @param \Volcengine\Ecs\Model\NetworkInterfaceForAllocateInstancesInput[] $network_interfaces network_interfaces
      *
      * @return $this
      */
@@ -941,6 +947,78 @@ class CreateScheduledInstancesRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets period
+     *
+     * @return int
+     */
+    public function getPeriod()
+    {
+        return $this->container['period'];
+    }
+
+    /**
+     * Sets period
+     *
+     * @param int $period period
+     *
+     * @return $this
+     */
+    public function setPeriod($period)
+    {
+        $this->container['period'] = $period;
+
+        return $this;
+    }
+
+    /**
+     * Gets period_unit
+     *
+     * @return string
+     */
+    public function getPeriodUnit()
+    {
+        return $this->container['period_unit'];
+    }
+
+    /**
+     * Sets period_unit
+     *
+     * @param string $period_unit period_unit
+     *
+     * @return $this
+     */
+    public function setPeriodUnit($period_unit)
+    {
+        $this->container['period_unit'] = $period_unit;
+
+        return $this;
+    }
+
+    /**
+     * Gets placement
+     *
+     * @return \Volcengine\Ecs\Model\PlacementForAllocateInstancesInput
+     */
+    public function getPlacement()
+    {
+        return $this->container['placement'];
+    }
+
+    /**
+     * Sets placement
+     *
+     * @param \Volcengine\Ecs\Model\PlacementForAllocateInstancesInput $placement placement
+     *
+     * @return $this
+     */
+    public function setPlacement($placement)
+    {
+        $this->container['placement'] = $placement;
+
+        return $this;
+    }
+
+    /**
      * Gets project_name
      *
      * @return string
@@ -960,54 +1038,6 @@ class CreateScheduledInstancesRequest implements ModelInterface, ArrayAccess
     public function setProjectName($project_name)
     {
         $this->container['project_name'] = $project_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets scheduled_instance_description
-     *
-     * @return string
-     */
-    public function getScheduledInstanceDescription()
-    {
-        return $this->container['scheduled_instance_description'];
-    }
-
-    /**
-     * Sets scheduled_instance_description
-     *
-     * @param string $scheduled_instance_description scheduled_instance_description
-     *
-     * @return $this
-     */
-    public function setScheduledInstanceDescription($scheduled_instance_description)
-    {
-        $this->container['scheduled_instance_description'] = $scheduled_instance_description;
-
-        return $this;
-    }
-
-    /**
-     * Gets scheduled_instance_name
-     *
-     * @return string
-     */
-    public function getScheduledInstanceName()
-    {
-        return $this->container['scheduled_instance_name'];
-    }
-
-    /**
-     * Sets scheduled_instance_name
-     *
-     * @param string $scheduled_instance_name scheduled_instance_name
-     *
-     * @return $this
-     */
-    public function setScheduledInstanceName($scheduled_instance_name)
-    {
-        $this->container['scheduled_instance_name'] = $scheduled_instance_name;
 
         return $this;
     }
@@ -1037,25 +1067,49 @@ class CreateScheduledInstancesRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets start_delivery_at
+     * Gets spot_price_limit
      *
-     * @return string
+     * @return float
      */
-    public function getStartDeliveryAt()
+    public function getSpotPriceLimit()
     {
-        return $this->container['start_delivery_at'];
+        return $this->container['spot_price_limit'];
     }
 
     /**
-     * Sets start_delivery_at
+     * Sets spot_price_limit
      *
-     * @param string $start_delivery_at start_delivery_at
+     * @param float $spot_price_limit spot_price_limit
      *
      * @return $this
      */
-    public function setStartDeliveryAt($start_delivery_at)
+    public function setSpotPriceLimit($spot_price_limit)
     {
-        $this->container['start_delivery_at'] = $start_delivery_at;
+        $this->container['spot_price_limit'] = $spot_price_limit;
+
+        return $this;
+    }
+
+    /**
+     * Gets spot_strategy
+     *
+     * @return string
+     */
+    public function getSpotStrategy()
+    {
+        return $this->container['spot_strategy'];
+    }
+
+    /**
+     * Sets spot_strategy
+     *
+     * @param string $spot_strategy spot_strategy
+     *
+     * @return $this
+     */
+    public function setSpotStrategy($spot_strategy)
+    {
+        $this->container['spot_strategy'] = $spot_strategy;
 
         return $this;
     }
@@ -1087,7 +1141,7 @@ class CreateScheduledInstancesRequest implements ModelInterface, ArrayAccess
     /**
      * Gets tags
      *
-     * @return \Volcengine\Ecs\Model\TagForCreateScheduledInstancesInput[]
+     * @return \Volcengine\Ecs\Model\TagForAllocateInstancesInput[]
      */
     public function getTags()
     {
@@ -1097,7 +1151,7 @@ class CreateScheduledInstancesRequest implements ModelInterface, ArrayAccess
     /**
      * Sets tags
      *
-     * @param \Volcengine\Ecs\Model\TagForCreateScheduledInstancesInput[] $tags tags
+     * @param \Volcengine\Ecs\Model\TagForAllocateInstancesInput[] $tags tags
      *
      * @return $this
      */
@@ -1159,7 +1213,7 @@ class CreateScheduledInstancesRequest implements ModelInterface, ArrayAccess
     /**
      * Gets volumes
      *
-     * @return \Volcengine\Ecs\Model\VolumeForCreateScheduledInstancesInput[]
+     * @return \Volcengine\Ecs\Model\VolumeForAllocateInstancesInput[]
      */
     public function getVolumes()
     {
@@ -1169,7 +1223,7 @@ class CreateScheduledInstancesRequest implements ModelInterface, ArrayAccess
     /**
      * Sets volumes
      *
-     * @param \Volcengine\Ecs\Model\VolumeForCreateScheduledInstancesInput[] $volumes volumes
+     * @param \Volcengine\Ecs\Model\VolumeForAllocateInstancesInput[] $volumes volumes
      *
      * @return $this
      */
