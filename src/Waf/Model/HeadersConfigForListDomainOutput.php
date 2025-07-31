@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CheckLLMPromptResponse implements ModelInterface, ArrayAccess
+class HeadersConfigForListDomainOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CheckLLMPromptResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CheckLLMPromptResponse';
+    protected static $swaggerModelName = 'HeadersConfigForListDomainOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,9 @@ class CheckLLMPromptResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'context_id' => 'string',
-        'decision' => '\Volcengine\Waf\Model\DecisionForCheckLLMPromptOutput',
-        'msg_id' => 'string'
+        'enable' => 'int',
+        'excluded_key_list' => 'string[]',
+        'statistical_key_list' => 'string[]'
     ];
 
     /**
@@ -39,9 +39,9 @@ class CheckLLMPromptResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'context_id' => null,
-        'decision' => null,
-        'msg_id' => null
+        'enable' => 'int32',
+        'excluded_key_list' => null,
+        'statistical_key_list' => null
     ];
 
     /**
@@ -71,9 +71,9 @@ class CheckLLMPromptResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'context_id' => 'ContextID',
-        'decision' => 'Decision',
-        'msg_id' => 'MsgID'
+        'enable' => 'Enable',
+        'excluded_key_list' => 'ExcludedKeyList',
+        'statistical_key_list' => 'StatisticalKeyList'
     ];
 
     /**
@@ -82,9 +82,9 @@ class CheckLLMPromptResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'context_id' => 'setContextId',
-        'decision' => 'setDecision',
-        'msg_id' => 'setMsgId'
+        'enable' => 'setEnable',
+        'excluded_key_list' => 'setExcludedKeyList',
+        'statistical_key_list' => 'setStatisticalKeyList'
     ];
 
     /**
@@ -93,9 +93,9 @@ class CheckLLMPromptResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'context_id' => 'getContextId',
-        'decision' => 'getDecision',
-        'msg_id' => 'getMsgId'
+        'enable' => 'getEnable',
+        'excluded_key_list' => 'getExcludedKeyList',
+        'statistical_key_list' => 'getStatisticalKeyList'
     ];
 
     /**
@@ -158,9 +158,9 @@ class CheckLLMPromptResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['context_id'] = isset($data['context_id']) ? $data['context_id'] : null;
-        $this->container['decision'] = isset($data['decision']) ? $data['decision'] : null;
-        $this->container['msg_id'] = isset($data['msg_id']) ? $data['msg_id'] : null;
+        $this->container['enable'] = isset($data['enable']) ? $data['enable'] : null;
+        $this->container['excluded_key_list'] = isset($data['excluded_key_list']) ? $data['excluded_key_list'] : null;
+        $this->container['statistical_key_list'] = isset($data['statistical_key_list']) ? $data['statistical_key_list'] : null;
     }
 
     /**
@@ -188,73 +188,73 @@ class CheckLLMPromptResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets context_id
+     * Gets enable
      *
-     * @return string
+     * @return int
      */
-    public function getContextId()
+    public function getEnable()
     {
-        return $this->container['context_id'];
+        return $this->container['enable'];
     }
 
     /**
-     * Sets context_id
+     * Sets enable
      *
-     * @param string $context_id context_id
+     * @param int $enable enable
      *
      * @return $this
      */
-    public function setContextId($context_id)
+    public function setEnable($enable)
     {
-        $this->container['context_id'] = $context_id;
+        $this->container['enable'] = $enable;
 
         return $this;
     }
 
     /**
-     * Gets decision
+     * Gets excluded_key_list
      *
-     * @return \Volcengine\Waf\Model\DecisionForCheckLLMPromptOutput
+     * @return string[]
      */
-    public function getDecision()
+    public function getExcludedKeyList()
     {
-        return $this->container['decision'];
+        return $this->container['excluded_key_list'];
     }
 
     /**
-     * Sets decision
+     * Sets excluded_key_list
      *
-     * @param \Volcengine\Waf\Model\DecisionForCheckLLMPromptOutput $decision decision
+     * @param string[] $excluded_key_list excluded_key_list
      *
      * @return $this
      */
-    public function setDecision($decision)
+    public function setExcludedKeyList($excluded_key_list)
     {
-        $this->container['decision'] = $decision;
+        $this->container['excluded_key_list'] = $excluded_key_list;
 
         return $this;
     }
 
     /**
-     * Gets msg_id
+     * Gets statistical_key_list
      *
-     * @return string
+     * @return string[]
      */
-    public function getMsgId()
+    public function getStatisticalKeyList()
     {
-        return $this->container['msg_id'];
+        return $this->container['statistical_key_list'];
     }
 
     /**
-     * Sets msg_id
+     * Sets statistical_key_list
      *
-     * @param string $msg_id msg_id
+     * @param string[] $statistical_key_list statistical_key_list
      *
      * @return $this
      */
-    public function setMsgId($msg_id)
+    public function setStatisticalKeyList($statistical_key_list)
     {
-        $this->container['msg_id'] = $msg_id;
+        $this->container['statistical_key_list'] = $statistical_key_list;
 
         return $this;
     }

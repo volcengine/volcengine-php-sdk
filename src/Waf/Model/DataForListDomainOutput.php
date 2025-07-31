@@ -58,11 +58,14 @@ class DataForListDomainOutput implements ModelInterface, ArrayAccess
         'custom_bot_enable' => 'int',
         'custom_header' => 'string[]',
         'custom_rsp_enable' => 'int',
+        'custom_sni' => 'string',
         'defence_mode' => 'int',
         'dlp_enable' => 'int',
         'domain' => 'string',
+        'enable_custom_redirect' => 'int',
         'enable_http2' => 'int',
         'enable_ipv6' => 'int',
+        'enable_sni' => 'int',
         'keep_alive_request' => 'int',
         'keep_alive_time_out' => 'int',
         'lb_algorithm' => 'string',
@@ -90,6 +93,7 @@ class DataForListDomainOutput implements ModelInterface, ArrayAccess
         'system_bot_enable' => 'int',
         'tcp_listener_config' => '\Volcengine\Waf\Model\TCPListenerConfigForListDomainOutput[]',
         'tls_enable' => 'int',
+        'tls_fields_config' => '\Volcengine\Waf\Model\TLSFieldsConfigForListDomainOutput',
         'tamper_proof_enable' => 'int',
         'update_time' => 'string',
         'volc_certificate_id' => 'string',
@@ -136,11 +140,14 @@ class DataForListDomainOutput implements ModelInterface, ArrayAccess
         'custom_bot_enable' => 'int32',
         'custom_header' => null,
         'custom_rsp_enable' => 'int32',
+        'custom_sni' => null,
         'defence_mode' => 'int32',
         'dlp_enable' => 'int32',
         'domain' => null,
+        'enable_custom_redirect' => 'int32',
         'enable_http2' => 'int32',
         'enable_ipv6' => 'int32',
+        'enable_sni' => 'int32',
         'keep_alive_request' => 'int32',
         'keep_alive_time_out' => 'int32',
         'lb_algorithm' => null,
@@ -168,6 +175,7 @@ class DataForListDomainOutput implements ModelInterface, ArrayAccess
         'system_bot_enable' => 'int32',
         'tcp_listener_config' => null,
         'tls_enable' => 'int32',
+        'tls_fields_config' => null,
         'tamper_proof_enable' => 'int32',
         'update_time' => null,
         'volc_certificate_id' => null,
@@ -235,11 +243,14 @@ class DataForListDomainOutput implements ModelInterface, ArrayAccess
         'custom_bot_enable' => 'CustomBotEnable',
         'custom_header' => 'CustomHeader',
         'custom_rsp_enable' => 'CustomRspEnable',
+        'custom_sni' => 'CustomSNI',
         'defence_mode' => 'DefenceMode',
         'dlp_enable' => 'DlpEnable',
         'domain' => 'Domain',
+        'enable_custom_redirect' => 'EnableCustomRedirect',
         'enable_http2' => 'EnableHTTP2',
         'enable_ipv6' => 'EnableIPv6',
+        'enable_sni' => 'EnableSNI',
         'keep_alive_request' => 'KeepAliveRequest',
         'keep_alive_time_out' => 'KeepAliveTimeOut',
         'lb_algorithm' => 'LBAlgorithm',
@@ -267,6 +278,7 @@ class DataForListDomainOutput implements ModelInterface, ArrayAccess
         'system_bot_enable' => 'SystemBotEnable',
         'tcp_listener_config' => 'TCPListenerConfig',
         'tls_enable' => 'TLSEnable',
+        'tls_fields_config' => 'TLSFieldsConfig',
         'tamper_proof_enable' => 'TamperProofEnable',
         'update_time' => 'UpdateTime',
         'volc_certificate_id' => 'VolcCertificateID',
@@ -313,11 +325,14 @@ class DataForListDomainOutput implements ModelInterface, ArrayAccess
         'custom_bot_enable' => 'setCustomBotEnable',
         'custom_header' => 'setCustomHeader',
         'custom_rsp_enable' => 'setCustomRspEnable',
+        'custom_sni' => 'setCustomSni',
         'defence_mode' => 'setDefenceMode',
         'dlp_enable' => 'setDlpEnable',
         'domain' => 'setDomain',
+        'enable_custom_redirect' => 'setEnableCustomRedirect',
         'enable_http2' => 'setEnableHttp2',
         'enable_ipv6' => 'setEnableIpv6',
+        'enable_sni' => 'setEnableSni',
         'keep_alive_request' => 'setKeepAliveRequest',
         'keep_alive_time_out' => 'setKeepAliveTimeOut',
         'lb_algorithm' => 'setLbAlgorithm',
@@ -345,6 +360,7 @@ class DataForListDomainOutput implements ModelInterface, ArrayAccess
         'system_bot_enable' => 'setSystemBotEnable',
         'tcp_listener_config' => 'setTcpListenerConfig',
         'tls_enable' => 'setTlsEnable',
+        'tls_fields_config' => 'setTlsFieldsConfig',
         'tamper_proof_enable' => 'setTamperProofEnable',
         'update_time' => 'setUpdateTime',
         'volc_certificate_id' => 'setVolcCertificateId',
@@ -391,11 +407,14 @@ class DataForListDomainOutput implements ModelInterface, ArrayAccess
         'custom_bot_enable' => 'getCustomBotEnable',
         'custom_header' => 'getCustomHeader',
         'custom_rsp_enable' => 'getCustomRspEnable',
+        'custom_sni' => 'getCustomSni',
         'defence_mode' => 'getDefenceMode',
         'dlp_enable' => 'getDlpEnable',
         'domain' => 'getDomain',
+        'enable_custom_redirect' => 'getEnableCustomRedirect',
         'enable_http2' => 'getEnableHttp2',
         'enable_ipv6' => 'getEnableIpv6',
+        'enable_sni' => 'getEnableSni',
         'keep_alive_request' => 'getKeepAliveRequest',
         'keep_alive_time_out' => 'getKeepAliveTimeOut',
         'lb_algorithm' => 'getLbAlgorithm',
@@ -423,6 +442,7 @@ class DataForListDomainOutput implements ModelInterface, ArrayAccess
         'system_bot_enable' => 'getSystemBotEnable',
         'tcp_listener_config' => 'getTcpListenerConfig',
         'tls_enable' => 'getTlsEnable',
+        'tls_fields_config' => 'getTlsFieldsConfig',
         'tamper_proof_enable' => 'getTamperProofEnable',
         'update_time' => 'getUpdateTime',
         'volc_certificate_id' => 'getVolcCertificateId',
@@ -523,11 +543,14 @@ class DataForListDomainOutput implements ModelInterface, ArrayAccess
         $this->container['custom_bot_enable'] = isset($data['custom_bot_enable']) ? $data['custom_bot_enable'] : null;
         $this->container['custom_header'] = isset($data['custom_header']) ? $data['custom_header'] : null;
         $this->container['custom_rsp_enable'] = isset($data['custom_rsp_enable']) ? $data['custom_rsp_enable'] : null;
+        $this->container['custom_sni'] = isset($data['custom_sni']) ? $data['custom_sni'] : null;
         $this->container['defence_mode'] = isset($data['defence_mode']) ? $data['defence_mode'] : null;
         $this->container['dlp_enable'] = isset($data['dlp_enable']) ? $data['dlp_enable'] : null;
         $this->container['domain'] = isset($data['domain']) ? $data['domain'] : null;
+        $this->container['enable_custom_redirect'] = isset($data['enable_custom_redirect']) ? $data['enable_custom_redirect'] : null;
         $this->container['enable_http2'] = isset($data['enable_http2']) ? $data['enable_http2'] : null;
         $this->container['enable_ipv6'] = isset($data['enable_ipv6']) ? $data['enable_ipv6'] : null;
+        $this->container['enable_sni'] = isset($data['enable_sni']) ? $data['enable_sni'] : null;
         $this->container['keep_alive_request'] = isset($data['keep_alive_request']) ? $data['keep_alive_request'] : null;
         $this->container['keep_alive_time_out'] = isset($data['keep_alive_time_out']) ? $data['keep_alive_time_out'] : null;
         $this->container['lb_algorithm'] = isset($data['lb_algorithm']) ? $data['lb_algorithm'] : null;
@@ -555,6 +578,7 @@ class DataForListDomainOutput implements ModelInterface, ArrayAccess
         $this->container['system_bot_enable'] = isset($data['system_bot_enable']) ? $data['system_bot_enable'] : null;
         $this->container['tcp_listener_config'] = isset($data['tcp_listener_config']) ? $data['tcp_listener_config'] : null;
         $this->container['tls_enable'] = isset($data['tls_enable']) ? $data['tls_enable'] : null;
+        $this->container['tls_fields_config'] = isset($data['tls_fields_config']) ? $data['tls_fields_config'] : null;
         $this->container['tamper_proof_enable'] = isset($data['tamper_proof_enable']) ? $data['tamper_proof_enable'] : null;
         $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
         $this->container['volc_certificate_id'] = isset($data['volc_certificate_id']) ? $data['volc_certificate_id'] : null;
@@ -1310,6 +1334,30 @@ class DataForListDomainOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets custom_sni
+     *
+     * @return string
+     */
+    public function getCustomSni()
+    {
+        return $this->container['custom_sni'];
+    }
+
+    /**
+     * Sets custom_sni
+     *
+     * @param string $custom_sni custom_sni
+     *
+     * @return $this
+     */
+    public function setCustomSni($custom_sni)
+    {
+        $this->container['custom_sni'] = $custom_sni;
+
+        return $this;
+    }
+
+    /**
      * Gets defence_mode
      *
      * @return int
@@ -1382,6 +1430,30 @@ class DataForListDomainOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets enable_custom_redirect
+     *
+     * @return int
+     */
+    public function getEnableCustomRedirect()
+    {
+        return $this->container['enable_custom_redirect'];
+    }
+
+    /**
+     * Sets enable_custom_redirect
+     *
+     * @param int $enable_custom_redirect enable_custom_redirect
+     *
+     * @return $this
+     */
+    public function setEnableCustomRedirect($enable_custom_redirect)
+    {
+        $this->container['enable_custom_redirect'] = $enable_custom_redirect;
+
+        return $this;
+    }
+
+    /**
      * Gets enable_http2
      *
      * @return int
@@ -1425,6 +1497,30 @@ class DataForListDomainOutput implements ModelInterface, ArrayAccess
     public function setEnableIpv6($enable_ipv6)
     {
         $this->container['enable_ipv6'] = $enable_ipv6;
+
+        return $this;
+    }
+
+    /**
+     * Gets enable_sni
+     *
+     * @return int
+     */
+    public function getEnableSni()
+    {
+        return $this->container['enable_sni'];
+    }
+
+    /**
+     * Sets enable_sni
+     *
+     * @param int $enable_sni enable_sni
+     *
+     * @return $this
+     */
+    public function setEnableSni($enable_sni)
+    {
+        $this->container['enable_sni'] = $enable_sni;
 
         return $this;
     }
@@ -2073,6 +2169,30 @@ class DataForListDomainOutput implements ModelInterface, ArrayAccess
     public function setTlsEnable($tls_enable)
     {
         $this->container['tls_enable'] = $tls_enable;
+
+        return $this;
+    }
+
+    /**
+     * Gets tls_fields_config
+     *
+     * @return \Volcengine\Waf\Model\TLSFieldsConfigForListDomainOutput
+     */
+    public function getTlsFieldsConfig()
+    {
+        return $this->container['tls_fields_config'];
+    }
+
+    /**
+     * Sets tls_fields_config
+     *
+     * @param \Volcengine\Waf\Model\TLSFieldsConfigForListDomainOutput $tls_fields_config tls_fields_config
+     *
+     * @return $this
+     */
+    public function setTlsFieldsConfig($tls_fields_config)
+    {
+        $this->container['tls_fields_config'] = $tls_fields_config;
 
         return $this;
     }

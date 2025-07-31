@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CheckLLMPromptResponse implements ModelInterface, ArrayAccess
+class TLSFieldsConfigForListDomainOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CheckLLMPromptResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CheckLLMPromptResponse';
+    protected static $swaggerModelName = 'TLSFieldsConfigForListDomainOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,7 @@ class CheckLLMPromptResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'context_id' => 'string',
-        'decision' => '\Volcengine\Waf\Model\DecisionForCheckLLMPromptOutput',
-        'msg_id' => 'string'
+        'headers_config' => '\Volcengine\Waf\Model\HeadersConfigForListDomainOutput'
     ];
 
     /**
@@ -39,9 +37,7 @@ class CheckLLMPromptResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'context_id' => null,
-        'decision' => null,
-        'msg_id' => null
+        'headers_config' => null
     ];
 
     /**
@@ -71,9 +67,7 @@ class CheckLLMPromptResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'context_id' => 'ContextID',
-        'decision' => 'Decision',
-        'msg_id' => 'MsgID'
+        'headers_config' => 'HeadersConfig'
     ];
 
     /**
@@ -82,9 +76,7 @@ class CheckLLMPromptResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'context_id' => 'setContextId',
-        'decision' => 'setDecision',
-        'msg_id' => 'setMsgId'
+        'headers_config' => 'setHeadersConfig'
     ];
 
     /**
@@ -93,9 +85,7 @@ class CheckLLMPromptResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'context_id' => 'getContextId',
-        'decision' => 'getDecision',
-        'msg_id' => 'getMsgId'
+        'headers_config' => 'getHeadersConfig'
     ];
 
     /**
@@ -158,9 +148,7 @@ class CheckLLMPromptResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['context_id'] = isset($data['context_id']) ? $data['context_id'] : null;
-        $this->container['decision'] = isset($data['decision']) ? $data['decision'] : null;
-        $this->container['msg_id'] = isset($data['msg_id']) ? $data['msg_id'] : null;
+        $this->container['headers_config'] = isset($data['headers_config']) ? $data['headers_config'] : null;
     }
 
     /**
@@ -188,73 +176,25 @@ class CheckLLMPromptResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets context_id
+     * Gets headers_config
      *
-     * @return string
+     * @return \Volcengine\Waf\Model\HeadersConfigForListDomainOutput
      */
-    public function getContextId()
+    public function getHeadersConfig()
     {
-        return $this->container['context_id'];
+        return $this->container['headers_config'];
     }
 
     /**
-     * Sets context_id
+     * Sets headers_config
      *
-     * @param string $context_id context_id
+     * @param \Volcengine\Waf\Model\HeadersConfigForListDomainOutput $headers_config headers_config
      *
      * @return $this
      */
-    public function setContextId($context_id)
+    public function setHeadersConfig($headers_config)
     {
-        $this->container['context_id'] = $context_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets decision
-     *
-     * @return \Volcengine\Waf\Model\DecisionForCheckLLMPromptOutput
-     */
-    public function getDecision()
-    {
-        return $this->container['decision'];
-    }
-
-    /**
-     * Sets decision
-     *
-     * @param \Volcengine\Waf\Model\DecisionForCheckLLMPromptOutput $decision decision
-     *
-     * @return $this
-     */
-    public function setDecision($decision)
-    {
-        $this->container['decision'] = $decision;
-
-        return $this;
-    }
-
-    /**
-     * Gets msg_id
-     *
-     * @return string
-     */
-    public function getMsgId()
-    {
-        return $this->container['msg_id'];
-    }
-
-    /**
-     * Sets msg_id
-     *
-     * @param string $msg_id msg_id
-     *
-     * @return $this
-     */
-    public function setMsgId($msg_id)
-    {
-        $this->container['msg_id'] = $msg_id;
+        $this->container['headers_config'] = $headers_config;
 
         return $this;
     }

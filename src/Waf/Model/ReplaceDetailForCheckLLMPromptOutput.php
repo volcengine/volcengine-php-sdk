@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CheckLLMPromptResponse implements ModelInterface, ArrayAccess
+class ReplaceDetailForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CheckLLMPromptResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CheckLLMPromptResponse';
+    protected static $swaggerModelName = 'ReplaceDetailForCheckLLMPromptOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,8 @@ class CheckLLMPromptResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'context_id' => 'string',
-        'decision' => '\Volcengine\Waf\Model\DecisionForCheckLLMPromptOutput',
-        'msg_id' => 'string'
+        'content' => 'string',
+        'content_type' => 'int'
     ];
 
     /**
@@ -39,9 +38,8 @@ class CheckLLMPromptResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'context_id' => null,
-        'decision' => null,
-        'msg_id' => null
+        'content' => null,
+        'content_type' => 'int32'
     ];
 
     /**
@@ -71,9 +69,8 @@ class CheckLLMPromptResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'context_id' => 'ContextID',
-        'decision' => 'Decision',
-        'msg_id' => 'MsgID'
+        'content' => 'Content',
+        'content_type' => 'ContentType'
     ];
 
     /**
@@ -82,9 +79,8 @@ class CheckLLMPromptResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'context_id' => 'setContextId',
-        'decision' => 'setDecision',
-        'msg_id' => 'setMsgId'
+        'content' => 'setContent',
+        'content_type' => 'setContentType'
     ];
 
     /**
@@ -93,9 +89,8 @@ class CheckLLMPromptResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'context_id' => 'getContextId',
-        'decision' => 'getDecision',
-        'msg_id' => 'getMsgId'
+        'content' => 'getContent',
+        'content_type' => 'getContentType'
     ];
 
     /**
@@ -158,9 +153,8 @@ class CheckLLMPromptResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['context_id'] = isset($data['context_id']) ? $data['context_id'] : null;
-        $this->container['decision'] = isset($data['decision']) ? $data['decision'] : null;
-        $this->container['msg_id'] = isset($data['msg_id']) ? $data['msg_id'] : null;
+        $this->container['content'] = isset($data['content']) ? $data['content'] : null;
+        $this->container['content_type'] = isset($data['content_type']) ? $data['content_type'] : null;
     }
 
     /**
@@ -188,73 +182,49 @@ class CheckLLMPromptResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets context_id
+     * Gets content
      *
      * @return string
      */
-    public function getContextId()
+    public function getContent()
     {
-        return $this->container['context_id'];
+        return $this->container['content'];
     }
 
     /**
-     * Sets context_id
+     * Sets content
      *
-     * @param string $context_id context_id
+     * @param string $content content
      *
      * @return $this
      */
-    public function setContextId($context_id)
+    public function setContent($content)
     {
-        $this->container['context_id'] = $context_id;
+        $this->container['content'] = $content;
 
         return $this;
     }
 
     /**
-     * Gets decision
+     * Gets content_type
      *
-     * @return \Volcengine\Waf\Model\DecisionForCheckLLMPromptOutput
+     * @return int
      */
-    public function getDecision()
+    public function getContentType()
     {
-        return $this->container['decision'];
+        return $this->container['content_type'];
     }
 
     /**
-     * Sets decision
+     * Sets content_type
      *
-     * @param \Volcengine\Waf\Model\DecisionForCheckLLMPromptOutput $decision decision
+     * @param int $content_type content_type
      *
      * @return $this
      */
-    public function setDecision($decision)
+    public function setContentType($content_type)
     {
-        $this->container['decision'] = $decision;
-
-        return $this;
-    }
-
-    /**
-     * Gets msg_id
-     *
-     * @return string
-     */
-    public function getMsgId()
-    {
-        return $this->container['msg_id'];
-    }
-
-    /**
-     * Sets msg_id
-     *
-     * @param string $msg_id msg_id
-     *
-     * @return $this
-     */
-    public function setMsgId($msg_id)
-    {
-        $this->container['msg_id'] = $msg_id;
+        $this->container['content_type'] = $content_type;
 
         return $this;
     }

@@ -34,7 +34,7 @@ class DataForListCustomBotConfigOutput implements ModelInterface, ArrayAccess
         'bot_type' => 'string',
         'description' => 'string',
         'enable' => 'int',
-        'id' => 'string',
+        'id' => 'int',
         'rule_tag' => 'string',
         'update_time' => 'string'
     ];
@@ -51,7 +51,7 @@ class DataForListCustomBotConfigOutput implements ModelInterface, ArrayAccess
         'bot_type' => null,
         'description' => null,
         'enable' => 'int32',
-        'id' => null,
+        'id' => 'int32',
         'rule_tag' => null,
         'update_time' => null
     ];
@@ -370,7 +370,7 @@ class DataForListCustomBotConfigOutput implements ModelInterface, ArrayAccess
     /**
      * Gets id
      *
-     * @return string
+     * @return int
      */
     public function getId()
     {
@@ -380,7 +380,7 @@ class DataForListCustomBotConfigOutput implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param string $id id
+     * @param int $id id
      *
      * @return $this
      */
