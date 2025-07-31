@@ -33,7 +33,8 @@ class DecisionForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
         'err_code' => 'int',
         'err_msg' => 'string',
         'labels' => 'string[]',
-        'matches' => '\Volcengine\Waf\Model\MatchForCheckLLMPromptOutput[]'
+        'matches' => '\Volcengine\Waf\Model\MatchForCheckLLMPromptOutput[]',
+        'replace_detail' => '\Volcengine\Waf\Model\ReplaceDetailForCheckLLMPromptOutput'
     ];
 
     /**
@@ -47,7 +48,8 @@ class DecisionForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
         'err_code' => 'int32',
         'err_msg' => null,
         'labels' => null,
-        'matches' => null
+        'matches' => null,
+        'replace_detail' => null
     ];
 
     /**
@@ -82,7 +84,8 @@ class DecisionForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
         'err_code' => 'ErrCode',
         'err_msg' => 'ErrMsg',
         'labels' => 'Labels',
-        'matches' => 'Matches'
+        'matches' => 'Matches',
+        'replace_detail' => 'ReplaceDetail'
     ];
 
     /**
@@ -96,7 +99,8 @@ class DecisionForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
         'err_code' => 'setErrCode',
         'err_msg' => 'setErrMsg',
         'labels' => 'setLabels',
-        'matches' => 'setMatches'
+        'matches' => 'setMatches',
+        'replace_detail' => 'setReplaceDetail'
     ];
 
     /**
@@ -110,7 +114,8 @@ class DecisionForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
         'err_code' => 'getErrCode',
         'err_msg' => 'getErrMsg',
         'labels' => 'getLabels',
-        'matches' => 'getMatches'
+        'matches' => 'getMatches',
+        'replace_detail' => 'getReplaceDetail'
     ];
 
     /**
@@ -179,6 +184,7 @@ class DecisionForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
         $this->container['err_msg'] = isset($data['err_msg']) ? $data['err_msg'] : null;
         $this->container['labels'] = isset($data['labels']) ? $data['labels'] : null;
         $this->container['matches'] = isset($data['matches']) ? $data['matches'] : null;
+        $this->container['replace_detail'] = isset($data['replace_detail']) ? $data['replace_detail'] : null;
     }
 
     /**
@@ -345,6 +351,30 @@ class DecisionForCheckLLMPromptOutput implements ModelInterface, ArrayAccess
     public function setMatches($matches)
     {
         $this->container['matches'] = $matches;
+
+        return $this;
+    }
+
+    /**
+     * Gets replace_detail
+     *
+     * @return \Volcengine\Waf\Model\ReplaceDetailForCheckLLMPromptOutput
+     */
+    public function getReplaceDetail()
+    {
+        return $this->container['replace_detail'];
+    }
+
+    /**
+     * Sets replace_detail
+     *
+     * @param \Volcengine\Waf\Model\ReplaceDetailForCheckLLMPromptOutput $replace_detail replace_detail
+     *
+     * @return $this
+     */
+    public function setReplaceDetail($replace_detail)
+    {
+        $this->container['replace_detail'] = $replace_detail;
 
         return $this;
     }

@@ -44,6 +44,7 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
         'host_name' => 'string',
         'hostname' => 'string',
         'hpc_cluster_id' => 'string',
+        'http_tokens' => 'string',
         'image_id' => 'string',
         'image_release_version' => 'string',
         'install_run_command_agent' => 'bool',
@@ -93,6 +94,7 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
         'host_name' => null,
         'hostname' => null,
         'hpc_cluster_id' => null,
+        'http_tokens' => null,
         'image_id' => null,
         'image_release_version' => null,
         'install_run_command_agent' => null,
@@ -163,6 +165,7 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
         'host_name' => 'HostName',
         'hostname' => 'Hostname',
         'hpc_cluster_id' => 'HpcClusterId',
+        'http_tokens' => 'HttpTokens',
         'image_id' => 'ImageId',
         'image_release_version' => 'ImageReleaseVersion',
         'install_run_command_agent' => 'InstallRunCommandAgent',
@@ -212,6 +215,7 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
         'host_name' => 'setHostName',
         'hostname' => 'setHostname',
         'hpc_cluster_id' => 'setHpcClusterId',
+        'http_tokens' => 'setHttpTokens',
         'image_id' => 'setImageId',
         'image_release_version' => 'setImageReleaseVersion',
         'install_run_command_agent' => 'setInstallRunCommandAgent',
@@ -261,6 +265,7 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
         'host_name' => 'getHostName',
         'hostname' => 'getHostname',
         'hpc_cluster_id' => 'getHpcClusterId',
+        'http_tokens' => 'getHttpTokens',
         'image_id' => 'getImageId',
         'image_release_version' => 'getImageReleaseVersion',
         'install_run_command_agent' => 'getInstallRunCommandAgent',
@@ -364,6 +369,7 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
         $this->container['host_name'] = isset($data['host_name']) ? $data['host_name'] : null;
         $this->container['hostname'] = isset($data['hostname']) ? $data['hostname'] : null;
         $this->container['hpc_cluster_id'] = isset($data['hpc_cluster_id']) ? $data['hpc_cluster_id'] : null;
+        $this->container['http_tokens'] = isset($data['http_tokens']) ? $data['http_tokens'] : null;
         $this->container['image_id'] = isset($data['image_id']) ? $data['image_id'] : null;
         $this->container['image_release_version'] = isset($data['image_release_version']) ? $data['image_release_version'] : null;
         $this->container['install_run_command_agent'] = isset($data['install_run_command_agent']) ? $data['install_run_command_agent'] : null;
@@ -804,6 +810,30 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
     public function setHpcClusterId($hpc_cluster_id)
     {
         $this->container['hpc_cluster_id'] = $hpc_cluster_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets http_tokens
+     *
+     * @return string
+     */
+    public function getHttpTokens()
+    {
+        return $this->container['http_tokens'];
+    }
+
+    /**
+     * Sets http_tokens
+     *
+     * @param string $http_tokens http_tokens
+     *
+     * @return $this
+     */
+    public function setHttpTokens($http_tokens)
+    {
+        $this->container['http_tokens'] = $http_tokens;
 
         return $this;
     }

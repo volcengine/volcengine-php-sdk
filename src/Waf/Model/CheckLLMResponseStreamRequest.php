@@ -30,6 +30,7 @@ class CheckLLMResponseStreamRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'content' => 'string',
         'content_type' => 'int',
+        'context_id' => 'string',
         'host' => 'string',
         'msg_class' => 'int',
         'msg_id' => 'string',
@@ -46,6 +47,7 @@ class CheckLLMResponseStreamRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'content' => null,
         'content_type' => 'int32',
+        'context_id' => null,
         'host' => null,
         'msg_class' => 'int32',
         'msg_id' => null,
@@ -83,6 +85,7 @@ class CheckLLMResponseStreamRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'content' => 'Content',
         'content_type' => 'ContentType',
+        'context_id' => 'ContextID',
         'host' => 'Host',
         'msg_class' => 'MsgClass',
         'msg_id' => 'MsgID',
@@ -99,6 +102,7 @@ class CheckLLMResponseStreamRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'content' => 'setContent',
         'content_type' => 'setContentType',
+        'context_id' => 'setContextId',
         'host' => 'setHost',
         'msg_class' => 'setMsgClass',
         'msg_id' => 'setMsgId',
@@ -115,6 +119,7 @@ class CheckLLMResponseStreamRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'content' => 'getContent',
         'content_type' => 'getContentType',
+        'context_id' => 'getContextId',
         'host' => 'getHost',
         'msg_class' => 'getMsgClass',
         'msg_id' => 'getMsgId',
@@ -185,6 +190,7 @@ class CheckLLMResponseStreamRequest implements ModelInterface, ArrayAccess
     {
         $this->container['content'] = isset($data['content']) ? $data['content'] : null;
         $this->container['content_type'] = isset($data['content_type']) ? $data['content_type'] : null;
+        $this->container['context_id'] = isset($data['context_id']) ? $data['context_id'] : null;
         $this->container['host'] = isset($data['host']) ? $data['host'] : null;
         $this->container['msg_class'] = isset($data['msg_class']) ? $data['msg_class'] : null;
         $this->container['msg_id'] = isset($data['msg_id']) ? $data['msg_id'] : null;
@@ -276,6 +282,30 @@ class CheckLLMResponseStreamRequest implements ModelInterface, ArrayAccess
     public function setContentType($content_type)
     {
         $this->container['content_type'] = $content_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets context_id
+     *
+     * @return string
+     */
+    public function getContextId()
+    {
+        return $this->container['context_id'];
+    }
+
+    /**
+     * Sets context_id
+     *
+     * @param string $context_id context_id
+     *
+     * @return $this
+     */
+    public function setContextId($context_id)
+    {
+        $this->container['context_id'] = $context_id;
 
         return $this;
     }

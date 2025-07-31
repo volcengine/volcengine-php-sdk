@@ -29,7 +29,9 @@ class SubmitAITranslationWorkflowRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'operator_config' => '\Volcengine\Vod20250101\Model\OperatorConfigForSubmitAITranslationWorkflowInput',
+        'process_config' => '\Volcengine\Vod20250101\Model\ProcessConfigForSubmitAITranslationWorkflowInput',
         'space_name' => 'string',
+        'subtitle_config' => '\Volcengine\Vod20250101\Model\SubtitleConfigForSubmitAITranslationWorkflowInput',
         'translation_config' => '\Volcengine\Vod20250101\Model\TranslationConfigForSubmitAITranslationWorkflowInput',
         'vid' => 'string'
     ];
@@ -41,7 +43,9 @@ class SubmitAITranslationWorkflowRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'operator_config' => null,
+        'process_config' => null,
         'space_name' => null,
+        'subtitle_config' => null,
         'translation_config' => null,
         'vid' => null
     ];
@@ -74,7 +78,9 @@ class SubmitAITranslationWorkflowRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'operator_config' => 'OperatorConfig',
+        'process_config' => 'ProcessConfig',
         'space_name' => 'SpaceName',
+        'subtitle_config' => 'SubtitleConfig',
         'translation_config' => 'TranslationConfig',
         'vid' => 'Vid'
     ];
@@ -86,7 +92,9 @@ class SubmitAITranslationWorkflowRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'operator_config' => 'setOperatorConfig',
+        'process_config' => 'setProcessConfig',
         'space_name' => 'setSpaceName',
+        'subtitle_config' => 'setSubtitleConfig',
         'translation_config' => 'setTranslationConfig',
         'vid' => 'setVid'
     ];
@@ -98,7 +106,9 @@ class SubmitAITranslationWorkflowRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'operator_config' => 'getOperatorConfig',
+        'process_config' => 'getProcessConfig',
         'space_name' => 'getSpaceName',
+        'subtitle_config' => 'getSubtitleConfig',
         'translation_config' => 'getTranslationConfig',
         'vid' => 'getVid'
     ];
@@ -164,7 +174,9 @@ class SubmitAITranslationWorkflowRequest implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['operator_config'] = isset($data['operator_config']) ? $data['operator_config'] : null;
+        $this->container['process_config'] = isset($data['process_config']) ? $data['process_config'] : null;
         $this->container['space_name'] = isset($data['space_name']) ? $data['space_name'] : null;
+        $this->container['subtitle_config'] = isset($data['subtitle_config']) ? $data['subtitle_config'] : null;
         $this->container['translation_config'] = isset($data['translation_config']) ? $data['translation_config'] : null;
         $this->container['vid'] = isset($data['vid']) ? $data['vid'] : null;
     }
@@ -224,6 +236,30 @@ class SubmitAITranslationWorkflowRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets process_config
+     *
+     * @return \Volcengine\Vod20250101\Model\ProcessConfigForSubmitAITranslationWorkflowInput
+     */
+    public function getProcessConfig()
+    {
+        return $this->container['process_config'];
+    }
+
+    /**
+     * Sets process_config
+     *
+     * @param \Volcengine\Vod20250101\Model\ProcessConfigForSubmitAITranslationWorkflowInput $process_config process_config
+     *
+     * @return $this
+     */
+    public function setProcessConfig($process_config)
+    {
+        $this->container['process_config'] = $process_config;
+
+        return $this;
+    }
+
+    /**
      * Gets space_name
      *
      * @return string
@@ -243,6 +279,30 @@ class SubmitAITranslationWorkflowRequest implements ModelInterface, ArrayAccess
     public function setSpaceName($space_name)
     {
         $this->container['space_name'] = $space_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets subtitle_config
+     *
+     * @return \Volcengine\Vod20250101\Model\SubtitleConfigForSubmitAITranslationWorkflowInput
+     */
+    public function getSubtitleConfig()
+    {
+        return $this->container['subtitle_config'];
+    }
+
+    /**
+     * Sets subtitle_config
+     *
+     * @param \Volcengine\Vod20250101\Model\SubtitleConfigForSubmitAITranslationWorkflowInput $subtitle_config subtitle_config
+     *
+     * @return $this
+     */
+    public function setSubtitleConfig($subtitle_config)
+    {
+        $this->container['subtitle_config'] = $subtitle_config;
 
         return $this;
     }

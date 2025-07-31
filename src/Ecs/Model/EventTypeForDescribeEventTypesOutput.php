@@ -28,6 +28,7 @@ class EventTypeForDescribeEventTypesOutput implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'impact_level' => 'string',
         'kind' => 'string',
         'response_required' => 'bool',
         'status' => 'string[]',
@@ -41,6 +42,7 @@ class EventTypeForDescribeEventTypesOutput implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'impact_level' => null,
         'kind' => null,
         'response_required' => null,
         'status' => null,
@@ -75,6 +77,7 @@ class EventTypeForDescribeEventTypesOutput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $attributeMap = [
+        'impact_level' => 'ImpactLevel',
         'kind' => 'Kind',
         'response_required' => 'ResponseRequired',
         'status' => 'Status',
@@ -88,6 +91,7 @@ class EventTypeForDescribeEventTypesOutput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $setters = [
+        'impact_level' => 'setImpactLevel',
         'kind' => 'setKind',
         'response_required' => 'setResponseRequired',
         'status' => 'setStatus',
@@ -101,6 +105,7 @@ class EventTypeForDescribeEventTypesOutput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $getters = [
+        'impact_level' => 'getImpactLevel',
         'kind' => 'getKind',
         'response_required' => 'getResponseRequired',
         'status' => 'getStatus',
@@ -168,6 +173,7 @@ class EventTypeForDescribeEventTypesOutput implements ModelInterface, ArrayAcces
      */
     public function __construct(array $data = null)
     {
+        $this->container['impact_level'] = isset($data['impact_level']) ? $data['impact_level'] : null;
         $this->container['kind'] = isset($data['kind']) ? $data['kind'] : null;
         $this->container['response_required'] = isset($data['response_required']) ? $data['response_required'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
@@ -198,6 +204,30 @@ class EventTypeForDescribeEventTypesOutput implements ModelInterface, ArrayAcces
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets impact_level
+     *
+     * @return string
+     */
+    public function getImpactLevel()
+    {
+        return $this->container['impact_level'];
+    }
+
+    /**
+     * Sets impact_level
+     *
+     * @param string $impact_level impact_level
+     *
+     * @return $this
+     */
+    public function setImpactLevel($impact_level)
+    {
+        $this->container['impact_level'] = $impact_level;
+
+        return $this;
+    }
 
     /**
      * Gets kind

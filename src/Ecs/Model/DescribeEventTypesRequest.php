@@ -28,6 +28,7 @@ class DescribeEventTypesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'impact_level' => 'string',
         'kind' => 'string',
         'max_results' => 'string',
         'next_token' => 'string',
@@ -41,6 +42,7 @@ class DescribeEventTypesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'impact_level' => null,
         'kind' => null,
         'max_results' => 'json_number',
         'next_token' => null,
@@ -75,6 +77,7 @@ class DescribeEventTypesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'impact_level' => 'ImpactLevel',
         'kind' => 'Kind',
         'max_results' => 'MaxResults',
         'next_token' => 'NextToken',
@@ -88,6 +91,7 @@ class DescribeEventTypesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'impact_level' => 'setImpactLevel',
         'kind' => 'setKind',
         'max_results' => 'setMaxResults',
         'next_token' => 'setNextToken',
@@ -101,6 +105,7 @@ class DescribeEventTypesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'impact_level' => 'getImpactLevel',
         'kind' => 'getKind',
         'max_results' => 'getMaxResults',
         'next_token' => 'getNextToken',
@@ -168,6 +173,7 @@ class DescribeEventTypesRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['impact_level'] = isset($data['impact_level']) ? $data['impact_level'] : null;
         $this->container['kind'] = isset($data['kind']) ? $data['kind'] : null;
         $this->container['max_results'] = isset($data['max_results']) ? $data['max_results'] : null;
         $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
@@ -198,6 +204,30 @@ class DescribeEventTypesRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets impact_level
+     *
+     * @return string
+     */
+    public function getImpactLevel()
+    {
+        return $this->container['impact_level'];
+    }
+
+    /**
+     * Sets impact_level
+     *
+     * @param string $impact_level impact_level
+     *
+     * @return $this
+     */
+    public function setImpactLevel($impact_level)
+    {
+        $this->container['impact_level'] = $impact_level;
+
+        return $this;
+    }
 
     /**
      * Gets kind

@@ -29,6 +29,7 @@ class KeyForDescribeKeyOutput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'creation_date' => 'int',
+        'custom_key_store_id' => 'string',
         'description' => 'string',
         'id' => 'string',
         'key_material_expire_time' => 'string',
@@ -46,7 +47,8 @@ class KeyForDescribeKeyOutput implements ModelInterface, ArrayAccess
         'schedule_rotation_time' => 'string',
         'tags' => '\Volcengine\Kms\Model\TagForDescribeKeyOutput[]',
         'trn' => 'string',
-        'update_date' => 'int'
+        'update_date' => 'int',
+        'xks_key_configuration' => '\Volcengine\Kms\Model\XksKeyConfigurationForDescribeKeyOutput'
     ];
 
     /**
@@ -56,6 +58,7 @@ class KeyForDescribeKeyOutput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'creation_date' => 'int64',
+        'custom_key_store_id' => null,
         'description' => null,
         'id' => null,
         'key_material_expire_time' => null,
@@ -73,7 +76,8 @@ class KeyForDescribeKeyOutput implements ModelInterface, ArrayAccess
         'schedule_rotation_time' => null,
         'tags' => null,
         'trn' => null,
-        'update_date' => 'int64'
+        'update_date' => 'int64',
+        'xks_key_configuration' => null
     ];
 
     /**
@@ -104,6 +108,7 @@ class KeyForDescribeKeyOutput implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'creation_date' => 'CreationDate',
+        'custom_key_store_id' => 'CustomKeyStoreID',
         'description' => 'Description',
         'id' => 'ID',
         'key_material_expire_time' => 'KeyMaterialExpireTime',
@@ -121,7 +126,8 @@ class KeyForDescribeKeyOutput implements ModelInterface, ArrayAccess
         'schedule_rotation_time' => 'ScheduleRotationTime',
         'tags' => 'Tags',
         'trn' => 'Trn',
-        'update_date' => 'UpdateDate'
+        'update_date' => 'UpdateDate',
+        'xks_key_configuration' => 'XksKeyConfiguration'
     ];
 
     /**
@@ -131,6 +137,7 @@ class KeyForDescribeKeyOutput implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'creation_date' => 'setCreationDate',
+        'custom_key_store_id' => 'setCustomKeyStoreId',
         'description' => 'setDescription',
         'id' => 'setId',
         'key_material_expire_time' => 'setKeyMaterialExpireTime',
@@ -148,7 +155,8 @@ class KeyForDescribeKeyOutput implements ModelInterface, ArrayAccess
         'schedule_rotation_time' => 'setScheduleRotationTime',
         'tags' => 'setTags',
         'trn' => 'setTrn',
-        'update_date' => 'setUpdateDate'
+        'update_date' => 'setUpdateDate',
+        'xks_key_configuration' => 'setXksKeyConfiguration'
     ];
 
     /**
@@ -158,6 +166,7 @@ class KeyForDescribeKeyOutput implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'creation_date' => 'getCreationDate',
+        'custom_key_store_id' => 'getCustomKeyStoreId',
         'description' => 'getDescription',
         'id' => 'getId',
         'key_material_expire_time' => 'getKeyMaterialExpireTime',
@@ -175,7 +184,8 @@ class KeyForDescribeKeyOutput implements ModelInterface, ArrayAccess
         'schedule_rotation_time' => 'getScheduleRotationTime',
         'tags' => 'getTags',
         'trn' => 'getTrn',
-        'update_date' => 'getUpdateDate'
+        'update_date' => 'getUpdateDate',
+        'xks_key_configuration' => 'getXksKeyConfiguration'
     ];
 
     /**
@@ -239,6 +249,7 @@ class KeyForDescribeKeyOutput implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['creation_date'] = isset($data['creation_date']) ? $data['creation_date'] : null;
+        $this->container['custom_key_store_id'] = isset($data['custom_key_store_id']) ? $data['custom_key_store_id'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['key_material_expire_time'] = isset($data['key_material_expire_time']) ? $data['key_material_expire_time'] : null;
@@ -257,6 +268,7 @@ class KeyForDescribeKeyOutput implements ModelInterface, ArrayAccess
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['trn'] = isset($data['trn']) ? $data['trn'] : null;
         $this->container['update_date'] = isset($data['update_date']) ? $data['update_date'] : null;
+        $this->container['xks_key_configuration'] = isset($data['xks_key_configuration']) ? $data['xks_key_configuration'] : null;
     }
 
     /**
@@ -303,6 +315,30 @@ class KeyForDescribeKeyOutput implements ModelInterface, ArrayAccess
     public function setCreationDate($creation_date)
     {
         $this->container['creation_date'] = $creation_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets custom_key_store_id
+     *
+     * @return string
+     */
+    public function getCustomKeyStoreId()
+    {
+        return $this->container['custom_key_store_id'];
+    }
+
+    /**
+     * Sets custom_key_store_id
+     *
+     * @param string $custom_key_store_id custom_key_store_id
+     *
+     * @return $this
+     */
+    public function setCustomKeyStoreId($custom_key_store_id)
+    {
+        $this->container['custom_key_store_id'] = $custom_key_store_id;
 
         return $this;
     }
@@ -735,6 +771,30 @@ class KeyForDescribeKeyOutput implements ModelInterface, ArrayAccess
     public function setUpdateDate($update_date)
     {
         $this->container['update_date'] = $update_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets xks_key_configuration
+     *
+     * @return \Volcengine\Kms\Model\XksKeyConfigurationForDescribeKeyOutput
+     */
+    public function getXksKeyConfiguration()
+    {
+        return $this->container['xks_key_configuration'];
+    }
+
+    /**
+     * Sets xks_key_configuration
+     *
+     * @param \Volcengine\Kms\Model\XksKeyConfigurationForDescribeKeyOutput $xks_key_configuration xks_key_configuration
+     *
+     * @return $this
+     */
+    public function setXksKeyConfiguration($xks_key_configuration)
+    {
+        $this->container['xks_key_configuration'] = $xks_key_configuration;
 
         return $this;
     }

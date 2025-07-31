@@ -41,6 +41,7 @@ class CreateScheduledInstancesRequest implements ModelInterface, ArrayAccess
         'end_delivery_at' => 'string',
         'hostname' => 'string',
         'hpc_cluster_id' => 'string',
+        'http_tokens' => 'string',
         'image_id' => 'string',
         'install_run_command_agent' => 'bool',
         'instance_name' => 'string',
@@ -82,6 +83,7 @@ class CreateScheduledInstancesRequest implements ModelInterface, ArrayAccess
         'end_delivery_at' => null,
         'hostname' => null,
         'hpc_cluster_id' => null,
+        'http_tokens' => null,
         'image_id' => null,
         'install_run_command_agent' => null,
         'instance_name' => null,
@@ -144,6 +146,7 @@ class CreateScheduledInstancesRequest implements ModelInterface, ArrayAccess
         'end_delivery_at' => 'EndDeliveryAt',
         'hostname' => 'Hostname',
         'hpc_cluster_id' => 'HpcClusterId',
+        'http_tokens' => 'HttpTokens',
         'image_id' => 'ImageId',
         'install_run_command_agent' => 'InstallRunCommandAgent',
         'instance_name' => 'InstanceName',
@@ -185,6 +188,7 @@ class CreateScheduledInstancesRequest implements ModelInterface, ArrayAccess
         'end_delivery_at' => 'setEndDeliveryAt',
         'hostname' => 'setHostname',
         'hpc_cluster_id' => 'setHpcClusterId',
+        'http_tokens' => 'setHttpTokens',
         'image_id' => 'setImageId',
         'install_run_command_agent' => 'setInstallRunCommandAgent',
         'instance_name' => 'setInstanceName',
@@ -226,6 +230,7 @@ class CreateScheduledInstancesRequest implements ModelInterface, ArrayAccess
         'end_delivery_at' => 'getEndDeliveryAt',
         'hostname' => 'getHostname',
         'hpc_cluster_id' => 'getHpcClusterId',
+        'http_tokens' => 'getHttpTokens',
         'image_id' => 'getImageId',
         'install_run_command_agent' => 'getInstallRunCommandAgent',
         'instance_name' => 'getInstanceName',
@@ -321,6 +326,7 @@ class CreateScheduledInstancesRequest implements ModelInterface, ArrayAccess
         $this->container['end_delivery_at'] = isset($data['end_delivery_at']) ? $data['end_delivery_at'] : null;
         $this->container['hostname'] = isset($data['hostname']) ? $data['hostname'] : null;
         $this->container['hpc_cluster_id'] = isset($data['hpc_cluster_id']) ? $data['hpc_cluster_id'] : null;
+        $this->container['http_tokens'] = isset($data['http_tokens']) ? $data['http_tokens'] : null;
         $this->container['image_id'] = isset($data['image_id']) ? $data['image_id'] : null;
         $this->container['install_run_command_agent'] = isset($data['install_run_command_agent']) ? $data['install_run_command_agent'] : null;
         $this->container['instance_name'] = isset($data['instance_name']) ? $data['instance_name'] : null;
@@ -690,6 +696,30 @@ class CreateScheduledInstancesRequest implements ModelInterface, ArrayAccess
     public function setHpcClusterId($hpc_cluster_id)
     {
         $this->container['hpc_cluster_id'] = $hpc_cluster_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets http_tokens
+     *
+     * @return string
+     */
+    public function getHttpTokens()
+    {
+        return $this->container['http_tokens'];
+    }
+
+    /**
+     * Sets http_tokens
+     *
+     * @param string $http_tokens http_tokens
+     *
+     * @return $this
+     */
+    public function setHttpTokens($http_tokens)
+    {
+        $this->container['http_tokens'] = $http_tokens;
 
         return $this;
     }

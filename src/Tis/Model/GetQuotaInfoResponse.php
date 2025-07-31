@@ -28,7 +28,7 @@ class GetQuotaInfoResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'device_info_list' => '\Volcengine\Tis\Model\DeviceInfoListForGetQuotaInfoOutput',
+        'device_info_list' => '\Volcengine\Tis\Model\DeviceInfoListForGetQuotaInfoOutput[]',
         'quota_info_list' => '\Volcengine\Tis\Model\QuotaInfoListForGetQuotaInfoOutput[]'
     ];
 
@@ -184,7 +184,7 @@ class GetQuotaInfoResponse implements ModelInterface, ArrayAccess
     /**
      * Gets device_info_list
      *
-     * @return \Volcengine\Tis\Model\DeviceInfoListForGetQuotaInfoOutput
+     * @return \Volcengine\Tis\Model\DeviceInfoListForGetQuotaInfoOutput[]
      */
     public function getDeviceInfoList()
     {
@@ -194,7 +194,7 @@ class GetQuotaInfoResponse implements ModelInterface, ArrayAccess
     /**
      * Sets device_info_list
      *
-     * @param \Volcengine\Tis\Model\DeviceInfoListForGetQuotaInfoOutput $device_info_list device_info_list
+     * @param \Volcengine\Tis\Model\DeviceInfoListForGetQuotaInfoOutput[] $device_info_list device_info_list
      *
      * @return $this
      */

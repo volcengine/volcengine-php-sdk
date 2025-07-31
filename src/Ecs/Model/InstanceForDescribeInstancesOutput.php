@@ -51,6 +51,7 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
         'key_pair_name' => 'string',
         'local_volumes' => '\Volcengine\Ecs\Model\LocalVolumeForDescribeInstancesOutput[]',
         'memory_size' => 'int',
+        'metadata_options' => '\Volcengine\Ecs\Model\MetadataOptionsForDescribeInstancesOutput',
         'network_interfaces' => '\Volcengine\Ecs\Model\NetworkInterfaceForDescribeInstancesOutput[]',
         'os_name' => 'string',
         'os_type' => 'string',
@@ -99,6 +100,7 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
         'key_pair_name' => null,
         'local_volumes' => null,
         'memory_size' => 'int32',
+        'metadata_options' => null,
         'network_interfaces' => null,
         'os_name' => null,
         'os_type' => null,
@@ -168,6 +170,7 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
         'key_pair_name' => 'KeyPairName',
         'local_volumes' => 'LocalVolumes',
         'memory_size' => 'MemorySize',
+        'metadata_options' => 'MetadataOptions',
         'network_interfaces' => 'NetworkInterfaces',
         'os_name' => 'OsName',
         'os_type' => 'OsType',
@@ -216,6 +219,7 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
         'key_pair_name' => 'setKeyPairName',
         'local_volumes' => 'setLocalVolumes',
         'memory_size' => 'setMemorySize',
+        'metadata_options' => 'setMetadataOptions',
         'network_interfaces' => 'setNetworkInterfaces',
         'os_name' => 'setOsName',
         'os_type' => 'setOsType',
@@ -264,6 +268,7 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
         'key_pair_name' => 'getKeyPairName',
         'local_volumes' => 'getLocalVolumes',
         'memory_size' => 'getMemorySize',
+        'metadata_options' => 'getMetadataOptions',
         'network_interfaces' => 'getNetworkInterfaces',
         'os_name' => 'getOsName',
         'os_type' => 'getOsType',
@@ -366,6 +371,7 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
         $this->container['key_pair_name'] = isset($data['key_pair_name']) ? $data['key_pair_name'] : null;
         $this->container['local_volumes'] = isset($data['local_volumes']) ? $data['local_volumes'] : null;
         $this->container['memory_size'] = isset($data['memory_size']) ? $data['memory_size'] : null;
+        $this->container['metadata_options'] = isset($data['metadata_options']) ? $data['metadata_options'] : null;
         $this->container['network_interfaces'] = isset($data['network_interfaces']) ? $data['network_interfaces'] : null;
         $this->container['os_name'] = isset($data['os_name']) ? $data['os_name'] : null;
         $this->container['os_type'] = isset($data['os_type']) ? $data['os_type'] : null;
@@ -957,6 +963,30 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
     public function setMemorySize($memory_size)
     {
         $this->container['memory_size'] = $memory_size;
+
+        return $this;
+    }
+
+    /**
+     * Gets metadata_options
+     *
+     * @return \Volcengine\Ecs\Model\MetadataOptionsForDescribeInstancesOutput
+     */
+    public function getMetadataOptions()
+    {
+        return $this->container['metadata_options'];
+    }
+
+    /**
+     * Sets metadata_options
+     *
+     * @param \Volcengine\Ecs\Model\MetadataOptionsForDescribeInstancesOutput $metadata_options metadata_options
+     *
+     * @return $this
+     */
+    public function setMetadataOptions($metadata_options)
+    {
+        $this->container['metadata_options'] = $metadata_options;
 
         return $this;
     }

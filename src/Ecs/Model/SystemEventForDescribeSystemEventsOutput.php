@@ -32,6 +32,7 @@ class SystemEventForDescribeSystemEventsOutput implements ModelInterface, ArrayA
         'created_at' => 'string',
         'extra_info' => 'map[string,string]',
         'id' => 'string',
+        'impact_level' => 'string',
         'operated_end_at' => 'string',
         'operated_start_at' => 'string',
         'resource_id' => 'string',
@@ -50,6 +51,7 @@ class SystemEventForDescribeSystemEventsOutput implements ModelInterface, ArrayA
         'created_at' => null,
         'extra_info' => null,
         'id' => null,
+        'impact_level' => null,
         'operated_end_at' => null,
         'operated_start_at' => null,
         'resource_id' => null,
@@ -89,6 +91,7 @@ class SystemEventForDescribeSystemEventsOutput implements ModelInterface, ArrayA
         'created_at' => 'CreatedAt',
         'extra_info' => 'ExtraInfo',
         'id' => 'Id',
+        'impact_level' => 'ImpactLevel',
         'operated_end_at' => 'OperatedEndAt',
         'operated_start_at' => 'OperatedStartAt',
         'resource_id' => 'ResourceId',
@@ -107,6 +110,7 @@ class SystemEventForDescribeSystemEventsOutput implements ModelInterface, ArrayA
         'created_at' => 'setCreatedAt',
         'extra_info' => 'setExtraInfo',
         'id' => 'setId',
+        'impact_level' => 'setImpactLevel',
         'operated_end_at' => 'setOperatedEndAt',
         'operated_start_at' => 'setOperatedStartAt',
         'resource_id' => 'setResourceId',
@@ -125,6 +129,7 @@ class SystemEventForDescribeSystemEventsOutput implements ModelInterface, ArrayA
         'created_at' => 'getCreatedAt',
         'extra_info' => 'getExtraInfo',
         'id' => 'getId',
+        'impact_level' => 'getImpactLevel',
         'operated_end_at' => 'getOperatedEndAt',
         'operated_start_at' => 'getOperatedStartAt',
         'resource_id' => 'getResourceId',
@@ -307,6 +312,7 @@ class SystemEventForDescribeSystemEventsOutput implements ModelInterface, ArrayA
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['extra_info'] = isset($data['extra_info']) ? $data['extra_info'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['impact_level'] = isset($data['impact_level']) ? $data['impact_level'] : null;
         $this->container['operated_end_at'] = isset($data['operated_end_at']) ? $data['operated_end_at'] : null;
         $this->container['operated_start_at'] = isset($data['operated_start_at']) ? $data['operated_start_at'] : null;
         $this->container['resource_id'] = isset($data['resource_id']) ? $data['resource_id'] : null;
@@ -447,6 +453,30 @@ class SystemEventForDescribeSystemEventsOutput implements ModelInterface, ArrayA
     public function setId($id)
     {
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets impact_level
+     *
+     * @return string
+     */
+    public function getImpactLevel()
+    {
+        return $this->container['impact_level'];
+    }
+
+    /**
+     * Sets impact_level
+     *
+     * @param string $impact_level impact_level
+     *
+     * @return $this
+     */
+    public function setImpactLevel($impact_level)
+    {
+        $this->container['impact_level'] = $impact_level;
 
         return $this;
     }

@@ -33,7 +33,8 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
         'destination_region' => 'string',
         'image_id' => 'string',
         'image_name' => 'string',
-        'project_name' => 'string'
+        'project_name' => 'string',
+        'tags' => '\Volcengine\Ecs\Model\TagForCopyImageInput[]'
     ];
 
     /**
@@ -47,7 +48,8 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
         'destination_region' => null,
         'image_id' => null,
         'image_name' => null,
-        'project_name' => null
+        'project_name' => null,
+        'tags' => null
     ];
 
     /**
@@ -82,7 +84,8 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
         'destination_region' => 'DestinationRegion',
         'image_id' => 'ImageId',
         'image_name' => 'ImageName',
-        'project_name' => 'ProjectName'
+        'project_name' => 'ProjectName',
+        'tags' => 'Tags'
     ];
 
     /**
@@ -96,7 +99,8 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
         'destination_region' => 'setDestinationRegion',
         'image_id' => 'setImageId',
         'image_name' => 'setImageName',
-        'project_name' => 'setProjectName'
+        'project_name' => 'setProjectName',
+        'tags' => 'setTags'
     ];
 
     /**
@@ -110,7 +114,8 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
         'destination_region' => 'getDestinationRegion',
         'image_id' => 'getImageId',
         'image_name' => 'getImageName',
-        'project_name' => 'getProjectName'
+        'project_name' => 'getProjectName',
+        'tags' => 'getTags'
     ];
 
     /**
@@ -179,6 +184,7 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
         $this->container['image_id'] = isset($data['image_id']) ? $data['image_id'] : null;
         $this->container['image_name'] = isset($data['image_name']) ? $data['image_name'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
     }
 
     /**
@@ -354,6 +360,30 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
     public function setProjectName($project_name)
     {
         $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets tags
+     *
+     * @return \Volcengine\Ecs\Model\TagForCopyImageInput[]
+     */
+    public function getTags()
+    {
+        return $this->container['tags'];
+    }
+
+    /**
+     * Sets tags
+     *
+     * @param \Volcengine\Ecs\Model\TagForCopyImageInput[] $tags tags
+     *
+     * @return $this
+     */
+    public function setTags($tags)
+    {
+        $this->container['tags'] = $tags;
 
         return $this;
     }
