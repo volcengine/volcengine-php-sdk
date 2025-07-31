@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class DescribeEventTypesRequest implements ModelInterface, ArrayAccess
+class TagForAllocateInstancesInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class DescribeEventTypesRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'DescribeEventTypesRequest';
+    protected static $swaggerModelName = 'TagForAllocateInstancesInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,8 @@ class DescribeEventTypesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'impact_level' => 'string',
-        'kind' => 'string',
-        'max_results' => 'string',
-        'next_token' => 'string',
-        'response_required' => 'bool',
-        'types' => 'string[]'
+        'key' => 'string',
+        'value' => 'string'
     ];
 
     /**
@@ -42,12 +38,8 @@ class DescribeEventTypesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'impact_level' => null,
-        'kind' => null,
-        'max_results' => 'json_number',
-        'next_token' => null,
-        'response_required' => null,
-        'types' => null
+        'key' => null,
+        'value' => null
     ];
 
     /**
@@ -77,12 +69,8 @@ class DescribeEventTypesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'impact_level' => 'ImpactLevel',
-        'kind' => 'Kind',
-        'max_results' => 'MaxResults',
-        'next_token' => 'NextToken',
-        'response_required' => 'ResponseRequired',
-        'types' => 'Types'
+        'key' => 'Key',
+        'value' => 'Value'
     ];
 
     /**
@@ -91,12 +79,8 @@ class DescribeEventTypesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'impact_level' => 'setImpactLevel',
-        'kind' => 'setKind',
-        'max_results' => 'setMaxResults',
-        'next_token' => 'setNextToken',
-        'response_required' => 'setResponseRequired',
-        'types' => 'setTypes'
+        'key' => 'setKey',
+        'value' => 'setValue'
     ];
 
     /**
@@ -105,12 +89,8 @@ class DescribeEventTypesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'impact_level' => 'getImpactLevel',
-        'kind' => 'getKind',
-        'max_results' => 'getMaxResults',
-        'next_token' => 'getNextToken',
-        'response_required' => 'getResponseRequired',
-        'types' => 'getTypes'
+        'key' => 'getKey',
+        'value' => 'getValue'
     ];
 
     /**
@@ -173,12 +153,8 @@ class DescribeEventTypesRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['impact_level'] = isset($data['impact_level']) ? $data['impact_level'] : null;
-        $this->container['kind'] = isset($data['kind']) ? $data['kind'] : null;
-        $this->container['max_results'] = isset($data['max_results']) ? $data['max_results'] : null;
-        $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
-        $this->container['response_required'] = isset($data['response_required']) ? $data['response_required'] : null;
-        $this->container['types'] = isset($data['types']) ? $data['types'] : null;
+        $this->container['key'] = isset($data['key']) ? $data['key'] : null;
+        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 
     /**
@@ -206,145 +182,49 @@ class DescribeEventTypesRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets impact_level
+     * Gets key
      *
      * @return string
      */
-    public function getImpactLevel()
+    public function getKey()
     {
-        return $this->container['impact_level'];
+        return $this->container['key'];
     }
 
     /**
-     * Sets impact_level
+     * Sets key
      *
-     * @param string $impact_level impact_level
+     * @param string $key key
      *
      * @return $this
      */
-    public function setImpactLevel($impact_level)
+    public function setKey($key)
     {
-        $this->container['impact_level'] = $impact_level;
+        $this->container['key'] = $key;
 
         return $this;
     }
 
     /**
-     * Gets kind
+     * Gets value
      *
      * @return string
      */
-    public function getKind()
+    public function getValue()
     {
-        return $this->container['kind'];
+        return $this->container['value'];
     }
 
     /**
-     * Sets kind
+     * Sets value
      *
-     * @param string $kind kind
+     * @param string $value value
      *
      * @return $this
      */
-    public function setKind($kind)
+    public function setValue($value)
     {
-        $this->container['kind'] = $kind;
-
-        return $this;
-    }
-
-    /**
-     * Gets max_results
-     *
-     * @return string
-     */
-    public function getMaxResults()
-    {
-        return $this->container['max_results'];
-    }
-
-    /**
-     * Sets max_results
-     *
-     * @param string $max_results max_results
-     *
-     * @return $this
-     */
-    public function setMaxResults($max_results)
-    {
-        $this->container['max_results'] = $max_results;
-
-        return $this;
-    }
-
-    /**
-     * Gets next_token
-     *
-     * @return string
-     */
-    public function getNextToken()
-    {
-        return $this->container['next_token'];
-    }
-
-    /**
-     * Sets next_token
-     *
-     * @param string $next_token next_token
-     *
-     * @return $this
-     */
-    public function setNextToken($next_token)
-    {
-        $this->container['next_token'] = $next_token;
-
-        return $this;
-    }
-
-    /**
-     * Gets response_required
-     *
-     * @return bool
-     */
-    public function getResponseRequired()
-    {
-        return $this->container['response_required'];
-    }
-
-    /**
-     * Sets response_required
-     *
-     * @param bool $response_required response_required
-     *
-     * @return $this
-     */
-    public function setResponseRequired($response_required)
-    {
-        $this->container['response_required'] = $response_required;
-
-        return $this;
-    }
-
-    /**
-     * Gets types
-     *
-     * @return string[]
-     */
-    public function getTypes()
-    {
-        return $this->container['types'];
-    }
-
-    /**
-     * Sets types
-     *
-     * @param string[] $types types
-     *
-     * @return $this
-     */
-    public function setTypes($types)
-    {
-        $this->container['types'] = $types;
+        $this->container['value'] = $value;
 
         return $this;
     }

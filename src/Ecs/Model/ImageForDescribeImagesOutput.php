@@ -45,6 +45,7 @@ class ImageForDescribeImagesOutput implements ModelInterface, ArrayAccess
         'os_type' => 'string',
         'platform' => 'string',
         'platform_version' => 'string',
+        'product_code' => 'string',
         'project_name' => 'string',
         'share_status' => 'string',
         'size' => 'int',
@@ -79,6 +80,7 @@ class ImageForDescribeImagesOutput implements ModelInterface, ArrayAccess
         'os_type' => null,
         'platform' => null,
         'platform_version' => null,
+        'product_code' => null,
         'project_name' => null,
         'share_status' => null,
         'size' => 'int32',
@@ -134,6 +136,7 @@ class ImageForDescribeImagesOutput implements ModelInterface, ArrayAccess
         'os_type' => 'OsType',
         'platform' => 'Platform',
         'platform_version' => 'PlatformVersion',
+        'product_code' => 'ProductCode',
         'project_name' => 'ProjectName',
         'share_status' => 'ShareStatus',
         'size' => 'Size',
@@ -168,6 +171,7 @@ class ImageForDescribeImagesOutput implements ModelInterface, ArrayAccess
         'os_type' => 'setOsType',
         'platform' => 'setPlatform',
         'platform_version' => 'setPlatformVersion',
+        'product_code' => 'setProductCode',
         'project_name' => 'setProjectName',
         'share_status' => 'setShareStatus',
         'size' => 'setSize',
@@ -202,6 +206,7 @@ class ImageForDescribeImagesOutput implements ModelInterface, ArrayAccess
         'os_type' => 'getOsType',
         'platform' => 'getPlatform',
         'platform_version' => 'getPlatformVersion',
+        'product_code' => 'getProductCode',
         'project_name' => 'getProjectName',
         'share_status' => 'getShareStatus',
         'size' => 'getSize',
@@ -290,6 +295,7 @@ class ImageForDescribeImagesOutput implements ModelInterface, ArrayAccess
         $this->container['os_type'] = isset($data['os_type']) ? $data['os_type'] : null;
         $this->container['platform'] = isset($data['platform']) ? $data['platform'] : null;
         $this->container['platform_version'] = isset($data['platform_version']) ? $data['platform_version'] : null;
+        $this->container['product_code'] = isset($data['product_code']) ? $data['product_code'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['share_status'] = isset($data['share_status']) ? $data['share_status'] : null;
         $this->container['size'] = isset($data['size']) ? $data['size'] : null;
@@ -729,6 +735,30 @@ class ImageForDescribeImagesOutput implements ModelInterface, ArrayAccess
     public function setPlatformVersion($platform_version)
     {
         $this->container['platform_version'] = $platform_version;
+
+        return $this;
+    }
+
+    /**
+     * Gets product_code
+     *
+     * @return string
+     */
+    public function getProductCode()
+    {
+        return $this->container['product_code'];
+    }
+
+    /**
+     * Sets product_code
+     *
+     * @param string $product_code product_code
+     *
+     * @return $this
+     */
+    public function setProductCode($product_code)
+    {
+        $this->container['product_code'] = $product_code;
 
         return $this;
     }

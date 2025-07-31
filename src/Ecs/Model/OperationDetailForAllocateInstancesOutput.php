@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CopyImageRequest implements ModelInterface, ArrayAccess
+class OperationDetailForAllocateInstancesOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CopyImageRequest';
+    protected static $swaggerModelName = 'OperationDetailForAllocateInstancesOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,13 +28,10 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'copy_image_tags' => 'bool',
-        'description' => 'string',
-        'destination_region' => 'string',
-        'image_id' => 'string',
-        'image_name' => 'string',
-        'project_name' => 'string',
-        'tags' => '\Volcengine\Ecs\Model\TagForCopyImageInput[]'
+        'error' => '\Volcengine\Ecs\Model\ErrorForAllocateInstancesOutput',
+        'instance_ids' => 'string[]',
+        'preorder_ids' => 'string[]',
+        'zone_id' => 'string'
     ];
 
     /**
@@ -43,13 +40,10 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'copy_image_tags' => null,
-        'description' => null,
-        'destination_region' => null,
-        'image_id' => null,
-        'image_name' => null,
-        'project_name' => null,
-        'tags' => null
+        'error' => null,
+        'instance_ids' => null,
+        'preorder_ids' => null,
+        'zone_id' => null
     ];
 
     /**
@@ -79,13 +73,10 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'copy_image_tags' => 'CopyImageTags',
-        'description' => 'Description',
-        'destination_region' => 'DestinationRegion',
-        'image_id' => 'ImageId',
-        'image_name' => 'ImageName',
-        'project_name' => 'ProjectName',
-        'tags' => 'Tags'
+        'error' => 'Error',
+        'instance_ids' => 'InstanceIds',
+        'preorder_ids' => 'PreorderIds',
+        'zone_id' => 'ZoneId'
     ];
 
     /**
@@ -94,13 +85,10 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'copy_image_tags' => 'setCopyImageTags',
-        'description' => 'setDescription',
-        'destination_region' => 'setDestinationRegion',
-        'image_id' => 'setImageId',
-        'image_name' => 'setImageName',
-        'project_name' => 'setProjectName',
-        'tags' => 'setTags'
+        'error' => 'setError',
+        'instance_ids' => 'setInstanceIds',
+        'preorder_ids' => 'setPreorderIds',
+        'zone_id' => 'setZoneId'
     ];
 
     /**
@@ -109,13 +97,10 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'copy_image_tags' => 'getCopyImageTags',
-        'description' => 'getDescription',
-        'destination_region' => 'getDestinationRegion',
-        'image_id' => 'getImageId',
-        'image_name' => 'getImageName',
-        'project_name' => 'getProjectName',
-        'tags' => 'getTags'
+        'error' => 'getError',
+        'instance_ids' => 'getInstanceIds',
+        'preorder_ids' => 'getPreorderIds',
+        'zone_id' => 'getZoneId'
     ];
 
     /**
@@ -178,13 +163,10 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['copy_image_tags'] = isset($data['copy_image_tags']) ? $data['copy_image_tags'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['destination_region'] = isset($data['destination_region']) ? $data['destination_region'] : null;
-        $this->container['image_id'] = isset($data['image_id']) ? $data['image_id'] : null;
-        $this->container['image_name'] = isset($data['image_name']) ? $data['image_name'] : null;
-        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
-        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
+        $this->container['error'] = isset($data['error']) ? $data['error'] : null;
+        $this->container['instance_ids'] = isset($data['instance_ids']) ? $data['instance_ids'] : null;
+        $this->container['preorder_ids'] = isset($data['preorder_ids']) ? $data['preorder_ids'] : null;
+        $this->container['zone_id'] = isset($data['zone_id']) ? $data['zone_id'] : null;
     }
 
     /**
@@ -196,15 +178,6 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['destination_region'] === null) {
-            $invalidProperties[] = "'destination_region' can't be null";
-        }
-        if ($this->container['image_id'] === null) {
-            $invalidProperties[] = "'image_id' can't be null";
-        }
-        if ($this->container['image_name'] === null) {
-            $invalidProperties[] = "'image_name' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -221,169 +194,97 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets copy_image_tags
+     * Gets error
      *
-     * @return bool
+     * @return \Volcengine\Ecs\Model\ErrorForAllocateInstancesOutput
      */
-    public function getCopyImageTags()
+    public function getError()
     {
-        return $this->container['copy_image_tags'];
+        return $this->container['error'];
     }
 
     /**
-     * Sets copy_image_tags
+     * Sets error
      *
-     * @param bool $copy_image_tags copy_image_tags
+     * @param \Volcengine\Ecs\Model\ErrorForAllocateInstancesOutput $error error
      *
      * @return $this
      */
-    public function setCopyImageTags($copy_image_tags)
+    public function setError($error)
     {
-        $this->container['copy_image_tags'] = $copy_image_tags;
+        $this->container['error'] = $error;
 
         return $this;
     }
 
     /**
-     * Gets description
+     * Gets instance_ids
+     *
+     * @return string[]
+     */
+    public function getInstanceIds()
+    {
+        return $this->container['instance_ids'];
+    }
+
+    /**
+     * Sets instance_ids
+     *
+     * @param string[] $instance_ids instance_ids
+     *
+     * @return $this
+     */
+    public function setInstanceIds($instance_ids)
+    {
+        $this->container['instance_ids'] = $instance_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets preorder_ids
+     *
+     * @return string[]
+     */
+    public function getPreorderIds()
+    {
+        return $this->container['preorder_ids'];
+    }
+
+    /**
+     * Sets preorder_ids
+     *
+     * @param string[] $preorder_ids preorder_ids
+     *
+     * @return $this
+     */
+    public function setPreorderIds($preorder_ids)
+    {
+        $this->container['preorder_ids'] = $preorder_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets zone_id
      *
      * @return string
      */
-    public function getDescription()
+    public function getZoneId()
     {
-        return $this->container['description'];
+        return $this->container['zone_id'];
     }
 
     /**
-     * Sets description
+     * Sets zone_id
      *
-     * @param string $description description
+     * @param string $zone_id zone_id
      *
      * @return $this
      */
-    public function setDescription($description)
+    public function setZoneId($zone_id)
     {
-        $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets destination_region
-     *
-     * @return string
-     */
-    public function getDestinationRegion()
-    {
-        return $this->container['destination_region'];
-    }
-
-    /**
-     * Sets destination_region
-     *
-     * @param string $destination_region destination_region
-     *
-     * @return $this
-     */
-    public function setDestinationRegion($destination_region)
-    {
-        $this->container['destination_region'] = $destination_region;
-
-        return $this;
-    }
-
-    /**
-     * Gets image_id
-     *
-     * @return string
-     */
-    public function getImageId()
-    {
-        return $this->container['image_id'];
-    }
-
-    /**
-     * Sets image_id
-     *
-     * @param string $image_id image_id
-     *
-     * @return $this
-     */
-    public function setImageId($image_id)
-    {
-        $this->container['image_id'] = $image_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets image_name
-     *
-     * @return string
-     */
-    public function getImageName()
-    {
-        return $this->container['image_name'];
-    }
-
-    /**
-     * Sets image_name
-     *
-     * @param string $image_name image_name
-     *
-     * @return $this
-     */
-    public function setImageName($image_name)
-    {
-        $this->container['image_name'] = $image_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets project_name
-     *
-     * @return string
-     */
-    public function getProjectName()
-    {
-        return $this->container['project_name'];
-    }
-
-    /**
-     * Sets project_name
-     *
-     * @param string $project_name project_name
-     *
-     * @return $this
-     */
-    public function setProjectName($project_name)
-    {
-        $this->container['project_name'] = $project_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets tags
-     *
-     * @return \Volcengine\Ecs\Model\TagForCopyImageInput[]
-     */
-    public function getTags()
-    {
-        return $this->container['tags'];
-    }
-
-    /**
-     * Sets tags
-     *
-     * @param \Volcengine\Ecs\Model\TagForCopyImageInput[] $tags tags
-     *
-     * @return $this
-     */
-    public function setTags($tags)
-    {
-        $this->container['tags'] = $tags;
+        $this->container['zone_id'] = $zone_id;
 
         return $this;
     }

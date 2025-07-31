@@ -32,6 +32,7 @@ class PurchaseReservedInstancesRequest implements ModelInterface, ArrayAccess
         'auto_renew_period' => 'int',
         'client_token' => 'string',
         'description' => 'string',
+        'effective_at' => 'string',
         'hpc_cluster_id' => 'string',
         'instance_count' => 'int',
         'instance_type_id' => 'string',
@@ -60,6 +61,7 @@ class PurchaseReservedInstancesRequest implements ModelInterface, ArrayAccess
         'auto_renew_period' => 'int32',
         'client_token' => null,
         'description' => null,
+        'effective_at' => null,
         'hpc_cluster_id' => null,
         'instance_count' => 'int32',
         'instance_type_id' => null,
@@ -109,6 +111,7 @@ class PurchaseReservedInstancesRequest implements ModelInterface, ArrayAccess
         'auto_renew_period' => 'AutoRenewPeriod',
         'client_token' => 'ClientToken',
         'description' => 'Description',
+        'effective_at' => 'EffectiveAt',
         'hpc_cluster_id' => 'HpcClusterId',
         'instance_count' => 'InstanceCount',
         'instance_type_id' => 'InstanceTypeId',
@@ -137,6 +140,7 @@ class PurchaseReservedInstancesRequest implements ModelInterface, ArrayAccess
         'auto_renew_period' => 'setAutoRenewPeriod',
         'client_token' => 'setClientToken',
         'description' => 'setDescription',
+        'effective_at' => 'setEffectiveAt',
         'hpc_cluster_id' => 'setHpcClusterId',
         'instance_count' => 'setInstanceCount',
         'instance_type_id' => 'setInstanceTypeId',
@@ -165,6 +169,7 @@ class PurchaseReservedInstancesRequest implements ModelInterface, ArrayAccess
         'auto_renew_period' => 'getAutoRenewPeriod',
         'client_token' => 'getClientToken',
         'description' => 'getDescription',
+        'effective_at' => 'getEffectiveAt',
         'hpc_cluster_id' => 'getHpcClusterId',
         'instance_count' => 'getInstanceCount',
         'instance_type_id' => 'getInstanceTypeId',
@@ -247,6 +252,7 @@ class PurchaseReservedInstancesRequest implements ModelInterface, ArrayAccess
         $this->container['auto_renew_period'] = isset($data['auto_renew_period']) ? $data['auto_renew_period'] : null;
         $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['effective_at'] = isset($data['effective_at']) ? $data['effective_at'] : null;
         $this->container['hpc_cluster_id'] = isset($data['hpc_cluster_id']) ? $data['hpc_cluster_id'] : null;
         $this->container['instance_count'] = isset($data['instance_count']) ? $data['instance_count'] : null;
         $this->container['instance_type_id'] = isset($data['instance_type_id']) ? $data['instance_type_id'] : null;
@@ -387,6 +393,30 @@ class PurchaseReservedInstancesRequest implements ModelInterface, ArrayAccess
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets effective_at
+     *
+     * @return string
+     */
+    public function getEffectiveAt()
+    {
+        return $this->container['effective_at'];
+    }
+
+    /**
+     * Sets effective_at
+     *
+     * @param string $effective_at effective_at
+     *
+     * @return $this
+     */
+    public function setEffectiveAt($effective_at)
+    {
+        $this->container['effective_at'] = $effective_at;
 
         return $this;
     }

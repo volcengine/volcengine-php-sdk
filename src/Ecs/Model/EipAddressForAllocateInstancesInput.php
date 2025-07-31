@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CopyImageRequest implements ModelInterface, ArrayAccess
+class EipAddressForAllocateInstancesInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CopyImageRequest';
+    protected static $swaggerModelName = 'EipAddressForAllocateInstancesInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,13 +28,13 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'copy_image_tags' => 'bool',
-        'description' => 'string',
-        'destination_region' => 'string',
-        'image_id' => 'string',
-        'image_name' => 'string',
-        'project_name' => 'string',
-        'tags' => '\Volcengine\Ecs\Model\TagForCopyImageInput[]'
+        'bandwidth_mbps' => 'int',
+        'bandwidth_package_id' => 'string',
+        'charge_type' => 'string',
+        'isp' => 'string',
+        'release_with_instance' => 'bool',
+        'security_protection_instance_id' => 'int',
+        'security_protection_types' => 'string[]'
     ];
 
     /**
@@ -43,13 +43,13 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'copy_image_tags' => null,
-        'description' => null,
-        'destination_region' => null,
-        'image_id' => null,
-        'image_name' => null,
-        'project_name' => null,
-        'tags' => null
+        'bandwidth_mbps' => 'int32',
+        'bandwidth_package_id' => null,
+        'charge_type' => null,
+        'isp' => null,
+        'release_with_instance' => null,
+        'security_protection_instance_id' => 'int32',
+        'security_protection_types' => null
     ];
 
     /**
@@ -79,13 +79,13 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'copy_image_tags' => 'CopyImageTags',
-        'description' => 'Description',
-        'destination_region' => 'DestinationRegion',
-        'image_id' => 'ImageId',
-        'image_name' => 'ImageName',
-        'project_name' => 'ProjectName',
-        'tags' => 'Tags'
+        'bandwidth_mbps' => 'BandwidthMbps',
+        'bandwidth_package_id' => 'BandwidthPackageId',
+        'charge_type' => 'ChargeType',
+        'isp' => 'ISP',
+        'release_with_instance' => 'ReleaseWithInstance',
+        'security_protection_instance_id' => 'SecurityProtectionInstanceId',
+        'security_protection_types' => 'SecurityProtectionTypes'
     ];
 
     /**
@@ -94,13 +94,13 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'copy_image_tags' => 'setCopyImageTags',
-        'description' => 'setDescription',
-        'destination_region' => 'setDestinationRegion',
-        'image_id' => 'setImageId',
-        'image_name' => 'setImageName',
-        'project_name' => 'setProjectName',
-        'tags' => 'setTags'
+        'bandwidth_mbps' => 'setBandwidthMbps',
+        'bandwidth_package_id' => 'setBandwidthPackageId',
+        'charge_type' => 'setChargeType',
+        'isp' => 'setIsp',
+        'release_with_instance' => 'setReleaseWithInstance',
+        'security_protection_instance_id' => 'setSecurityProtectionInstanceId',
+        'security_protection_types' => 'setSecurityProtectionTypes'
     ];
 
     /**
@@ -109,13 +109,13 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'copy_image_tags' => 'getCopyImageTags',
-        'description' => 'getDescription',
-        'destination_region' => 'getDestinationRegion',
-        'image_id' => 'getImageId',
-        'image_name' => 'getImageName',
-        'project_name' => 'getProjectName',
-        'tags' => 'getTags'
+        'bandwidth_mbps' => 'getBandwidthMbps',
+        'bandwidth_package_id' => 'getBandwidthPackageId',
+        'charge_type' => 'getChargeType',
+        'isp' => 'getIsp',
+        'release_with_instance' => 'getReleaseWithInstance',
+        'security_protection_instance_id' => 'getSecurityProtectionInstanceId',
+        'security_protection_types' => 'getSecurityProtectionTypes'
     ];
 
     /**
@@ -178,13 +178,13 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['copy_image_tags'] = isset($data['copy_image_tags']) ? $data['copy_image_tags'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['destination_region'] = isset($data['destination_region']) ? $data['destination_region'] : null;
-        $this->container['image_id'] = isset($data['image_id']) ? $data['image_id'] : null;
-        $this->container['image_name'] = isset($data['image_name']) ? $data['image_name'] : null;
-        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
-        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
+        $this->container['bandwidth_mbps'] = isset($data['bandwidth_mbps']) ? $data['bandwidth_mbps'] : null;
+        $this->container['bandwidth_package_id'] = isset($data['bandwidth_package_id']) ? $data['bandwidth_package_id'] : null;
+        $this->container['charge_type'] = isset($data['charge_type']) ? $data['charge_type'] : null;
+        $this->container['isp'] = isset($data['isp']) ? $data['isp'] : null;
+        $this->container['release_with_instance'] = isset($data['release_with_instance']) ? $data['release_with_instance'] : null;
+        $this->container['security_protection_instance_id'] = isset($data['security_protection_instance_id']) ? $data['security_protection_instance_id'] : null;
+        $this->container['security_protection_types'] = isset($data['security_protection_types']) ? $data['security_protection_types'] : null;
     }
 
     /**
@@ -196,15 +196,6 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['destination_region'] === null) {
-            $invalidProperties[] = "'destination_region' can't be null";
-        }
-        if ($this->container['image_id'] === null) {
-            $invalidProperties[] = "'image_id' can't be null";
-        }
-        if ($this->container['image_name'] === null) {
-            $invalidProperties[] = "'image_name' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -221,169 +212,169 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets copy_image_tags
+     * Gets bandwidth_mbps
+     *
+     * @return int
+     */
+    public function getBandwidthMbps()
+    {
+        return $this->container['bandwidth_mbps'];
+    }
+
+    /**
+     * Sets bandwidth_mbps
+     *
+     * @param int $bandwidth_mbps bandwidth_mbps
+     *
+     * @return $this
+     */
+    public function setBandwidthMbps($bandwidth_mbps)
+    {
+        $this->container['bandwidth_mbps'] = $bandwidth_mbps;
+
+        return $this;
+    }
+
+    /**
+     * Gets bandwidth_package_id
+     *
+     * @return string
+     */
+    public function getBandwidthPackageId()
+    {
+        return $this->container['bandwidth_package_id'];
+    }
+
+    /**
+     * Sets bandwidth_package_id
+     *
+     * @param string $bandwidth_package_id bandwidth_package_id
+     *
+     * @return $this
+     */
+    public function setBandwidthPackageId($bandwidth_package_id)
+    {
+        $this->container['bandwidth_package_id'] = $bandwidth_package_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets charge_type
+     *
+     * @return string
+     */
+    public function getChargeType()
+    {
+        return $this->container['charge_type'];
+    }
+
+    /**
+     * Sets charge_type
+     *
+     * @param string $charge_type charge_type
+     *
+     * @return $this
+     */
+    public function setChargeType($charge_type)
+    {
+        $this->container['charge_type'] = $charge_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets isp
+     *
+     * @return string
+     */
+    public function getIsp()
+    {
+        return $this->container['isp'];
+    }
+
+    /**
+     * Sets isp
+     *
+     * @param string $isp isp
+     *
+     * @return $this
+     */
+    public function setIsp($isp)
+    {
+        $this->container['isp'] = $isp;
+
+        return $this;
+    }
+
+    /**
+     * Gets release_with_instance
      *
      * @return bool
      */
-    public function getCopyImageTags()
+    public function getReleaseWithInstance()
     {
-        return $this->container['copy_image_tags'];
+        return $this->container['release_with_instance'];
     }
 
     /**
-     * Sets copy_image_tags
+     * Sets release_with_instance
      *
-     * @param bool $copy_image_tags copy_image_tags
+     * @param bool $release_with_instance release_with_instance
      *
      * @return $this
      */
-    public function setCopyImageTags($copy_image_tags)
+    public function setReleaseWithInstance($release_with_instance)
     {
-        $this->container['copy_image_tags'] = $copy_image_tags;
+        $this->container['release_with_instance'] = $release_with_instance;
 
         return $this;
     }
 
     /**
-     * Gets description
+     * Gets security_protection_instance_id
      *
-     * @return string
+     * @return int
      */
-    public function getDescription()
+    public function getSecurityProtectionInstanceId()
     {
-        return $this->container['description'];
+        return $this->container['security_protection_instance_id'];
     }
 
     /**
-     * Sets description
+     * Sets security_protection_instance_id
      *
-     * @param string $description description
+     * @param int $security_protection_instance_id security_protection_instance_id
      *
      * @return $this
      */
-    public function setDescription($description)
+    public function setSecurityProtectionInstanceId($security_protection_instance_id)
     {
-        $this->container['description'] = $description;
+        $this->container['security_protection_instance_id'] = $security_protection_instance_id;
 
         return $this;
     }
 
     /**
-     * Gets destination_region
+     * Gets security_protection_types
      *
-     * @return string
+     * @return string[]
      */
-    public function getDestinationRegion()
+    public function getSecurityProtectionTypes()
     {
-        return $this->container['destination_region'];
+        return $this->container['security_protection_types'];
     }
 
     /**
-     * Sets destination_region
+     * Sets security_protection_types
      *
-     * @param string $destination_region destination_region
+     * @param string[] $security_protection_types security_protection_types
      *
      * @return $this
      */
-    public function setDestinationRegion($destination_region)
+    public function setSecurityProtectionTypes($security_protection_types)
     {
-        $this->container['destination_region'] = $destination_region;
-
-        return $this;
-    }
-
-    /**
-     * Gets image_id
-     *
-     * @return string
-     */
-    public function getImageId()
-    {
-        return $this->container['image_id'];
-    }
-
-    /**
-     * Sets image_id
-     *
-     * @param string $image_id image_id
-     *
-     * @return $this
-     */
-    public function setImageId($image_id)
-    {
-        $this->container['image_id'] = $image_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets image_name
-     *
-     * @return string
-     */
-    public function getImageName()
-    {
-        return $this->container['image_name'];
-    }
-
-    /**
-     * Sets image_name
-     *
-     * @param string $image_name image_name
-     *
-     * @return $this
-     */
-    public function setImageName($image_name)
-    {
-        $this->container['image_name'] = $image_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets project_name
-     *
-     * @return string
-     */
-    public function getProjectName()
-    {
-        return $this->container['project_name'];
-    }
-
-    /**
-     * Sets project_name
-     *
-     * @param string $project_name project_name
-     *
-     * @return $this
-     */
-    public function setProjectName($project_name)
-    {
-        $this->container['project_name'] = $project_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets tags
-     *
-     * @return \Volcengine\Ecs\Model\TagForCopyImageInput[]
-     */
-    public function getTags()
-    {
-        return $this->container['tags'];
-    }
-
-    /**
-     * Sets tags
-     *
-     * @param \Volcengine\Ecs\Model\TagForCopyImageInput[] $tags tags
-     *
-     * @return $this
-     */
-    public function setTags($tags)
-    {
-        $this->container['tags'] = $tags;
+        $this->container['security_protection_types'] = $security_protection_types;
 
         return $this;
     }

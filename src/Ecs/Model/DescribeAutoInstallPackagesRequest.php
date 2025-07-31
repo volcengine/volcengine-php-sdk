@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CopyImageRequest implements ModelInterface, ArrayAccess
+class DescribeAutoInstallPackagesRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CopyImageRequest';
+    protected static $swaggerModelName = 'DescribeAutoInstallPackagesRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,13 +28,8 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'copy_image_tags' => 'bool',
-        'description' => 'string',
-        'destination_region' => 'string',
         'image_id' => 'string',
-        'image_name' => 'string',
-        'project_name' => 'string',
-        'tags' => '\Volcengine\Ecs\Model\TagForCopyImageInput[]'
+        'instance_type_family' => 'string'
     ];
 
     /**
@@ -43,13 +38,8 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'copy_image_tags' => null,
-        'description' => null,
-        'destination_region' => null,
         'image_id' => null,
-        'image_name' => null,
-        'project_name' => null,
-        'tags' => null
+        'instance_type_family' => null
     ];
 
     /**
@@ -79,13 +69,8 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'copy_image_tags' => 'CopyImageTags',
-        'description' => 'Description',
-        'destination_region' => 'DestinationRegion',
         'image_id' => 'ImageId',
-        'image_name' => 'ImageName',
-        'project_name' => 'ProjectName',
-        'tags' => 'Tags'
+        'instance_type_family' => 'InstanceTypeFamily'
     ];
 
     /**
@@ -94,13 +79,8 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'copy_image_tags' => 'setCopyImageTags',
-        'description' => 'setDescription',
-        'destination_region' => 'setDestinationRegion',
         'image_id' => 'setImageId',
-        'image_name' => 'setImageName',
-        'project_name' => 'setProjectName',
-        'tags' => 'setTags'
+        'instance_type_family' => 'setInstanceTypeFamily'
     ];
 
     /**
@@ -109,13 +89,8 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'copy_image_tags' => 'getCopyImageTags',
-        'description' => 'getDescription',
-        'destination_region' => 'getDestinationRegion',
         'image_id' => 'getImageId',
-        'image_name' => 'getImageName',
-        'project_name' => 'getProjectName',
-        'tags' => 'getTags'
+        'instance_type_family' => 'getInstanceTypeFamily'
     ];
 
     /**
@@ -178,13 +153,8 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['copy_image_tags'] = isset($data['copy_image_tags']) ? $data['copy_image_tags'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['destination_region'] = isset($data['destination_region']) ? $data['destination_region'] : null;
         $this->container['image_id'] = isset($data['image_id']) ? $data['image_id'] : null;
-        $this->container['image_name'] = isset($data['image_name']) ? $data['image_name'] : null;
-        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
-        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
+        $this->container['instance_type_family'] = isset($data['instance_type_family']) ? $data['instance_type_family'] : null;
     }
 
     /**
@@ -196,14 +166,11 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['destination_region'] === null) {
-            $invalidProperties[] = "'destination_region' can't be null";
-        }
         if ($this->container['image_id'] === null) {
             $invalidProperties[] = "'image_id' can't be null";
         }
-        if ($this->container['image_name'] === null) {
-            $invalidProperties[] = "'image_name' can't be null";
+        if ($this->container['instance_type_family'] === null) {
+            $invalidProperties[] = "'instance_type_family' can't be null";
         }
         return $invalidProperties;
     }
@@ -219,78 +186,6 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets copy_image_tags
-     *
-     * @return bool
-     */
-    public function getCopyImageTags()
-    {
-        return $this->container['copy_image_tags'];
-    }
-
-    /**
-     * Sets copy_image_tags
-     *
-     * @param bool $copy_image_tags copy_image_tags
-     *
-     * @return $this
-     */
-    public function setCopyImageTags($copy_image_tags)
-    {
-        $this->container['copy_image_tags'] = $copy_image_tags;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
-     *
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->container['description'];
-    }
-
-    /**
-     * Sets description
-     *
-     * @param string $description description
-     *
-     * @return $this
-     */
-    public function setDescription($description)
-    {
-        $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets destination_region
-     *
-     * @return string
-     */
-    public function getDestinationRegion()
-    {
-        return $this->container['destination_region'];
-    }
-
-    /**
-     * Sets destination_region
-     *
-     * @param string $destination_region destination_region
-     *
-     * @return $this
-     */
-    public function setDestinationRegion($destination_region)
-    {
-        $this->container['destination_region'] = $destination_region;
-
-        return $this;
-    }
 
     /**
      * Gets image_id
@@ -317,73 +212,25 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets image_name
+     * Gets instance_type_family
      *
      * @return string
      */
-    public function getImageName()
+    public function getInstanceTypeFamily()
     {
-        return $this->container['image_name'];
+        return $this->container['instance_type_family'];
     }
 
     /**
-     * Sets image_name
+     * Sets instance_type_family
      *
-     * @param string $image_name image_name
+     * @param string $instance_type_family instance_type_family
      *
      * @return $this
      */
-    public function setImageName($image_name)
+    public function setInstanceTypeFamily($instance_type_family)
     {
-        $this->container['image_name'] = $image_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets project_name
-     *
-     * @return string
-     */
-    public function getProjectName()
-    {
-        return $this->container['project_name'];
-    }
-
-    /**
-     * Sets project_name
-     *
-     * @param string $project_name project_name
-     *
-     * @return $this
-     */
-    public function setProjectName($project_name)
-    {
-        $this->container['project_name'] = $project_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets tags
-     *
-     * @return \Volcengine\Ecs\Model\TagForCopyImageInput[]
-     */
-    public function getTags()
-    {
-        return $this->container['tags'];
-    }
-
-    /**
-     * Sets tags
-     *
-     * @param \Volcengine\Ecs\Model\TagForCopyImageInput[] $tags tags
-     *
-     * @return $this
-     */
-    public function setTags($tags)
-    {
-        $this->container['tags'] = $tags;
+        $this->container['instance_type_family'] = $instance_type_family;
 
         return $this;
     }

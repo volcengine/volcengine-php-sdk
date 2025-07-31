@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CopyImageRequest implements ModelInterface, ArrayAccess
+class VolumeForAllocateInstancesInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CopyImageRequest';
+    protected static $swaggerModelName = 'VolumeForAllocateInstancesInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,13 +28,13 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'copy_image_tags' => 'bool',
-        'description' => 'string',
-        'destination_region' => 'string',
-        'image_id' => 'string',
-        'image_name' => 'string',
-        'project_name' => 'string',
-        'tags' => '\Volcengine\Ecs\Model\TagForCopyImageInput[]'
+        'delete_with_instance' => 'string',
+        'extra_performance_iops' => 'int',
+        'extra_performance_throughput_mb' => 'int',
+        'extra_performance_type_id' => 'string',
+        'size' => 'int',
+        'snapshot_id' => 'string',
+        'volume_type' => 'string'
     ];
 
     /**
@@ -43,13 +43,13 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'copy_image_tags' => null,
-        'description' => null,
-        'destination_region' => null,
-        'image_id' => null,
-        'image_name' => null,
-        'project_name' => null,
-        'tags' => null
+        'delete_with_instance' => null,
+        'extra_performance_iops' => 'int32',
+        'extra_performance_throughput_mb' => 'int32',
+        'extra_performance_type_id' => null,
+        'size' => 'int32',
+        'snapshot_id' => null,
+        'volume_type' => null
     ];
 
     /**
@@ -79,13 +79,13 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'copy_image_tags' => 'CopyImageTags',
-        'description' => 'Description',
-        'destination_region' => 'DestinationRegion',
-        'image_id' => 'ImageId',
-        'image_name' => 'ImageName',
-        'project_name' => 'ProjectName',
-        'tags' => 'Tags'
+        'delete_with_instance' => 'DeleteWithInstance',
+        'extra_performance_iops' => 'ExtraPerformanceIOPS',
+        'extra_performance_throughput_mb' => 'ExtraPerformanceThroughputMB',
+        'extra_performance_type_id' => 'ExtraPerformanceTypeId',
+        'size' => 'Size',
+        'snapshot_id' => 'SnapshotId',
+        'volume_type' => 'VolumeType'
     ];
 
     /**
@@ -94,13 +94,13 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'copy_image_tags' => 'setCopyImageTags',
-        'description' => 'setDescription',
-        'destination_region' => 'setDestinationRegion',
-        'image_id' => 'setImageId',
-        'image_name' => 'setImageName',
-        'project_name' => 'setProjectName',
-        'tags' => 'setTags'
+        'delete_with_instance' => 'setDeleteWithInstance',
+        'extra_performance_iops' => 'setExtraPerformanceIops',
+        'extra_performance_throughput_mb' => 'setExtraPerformanceThroughputMb',
+        'extra_performance_type_id' => 'setExtraPerformanceTypeId',
+        'size' => 'setSize',
+        'snapshot_id' => 'setSnapshotId',
+        'volume_type' => 'setVolumeType'
     ];
 
     /**
@@ -109,13 +109,13 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'copy_image_tags' => 'getCopyImageTags',
-        'description' => 'getDescription',
-        'destination_region' => 'getDestinationRegion',
-        'image_id' => 'getImageId',
-        'image_name' => 'getImageName',
-        'project_name' => 'getProjectName',
-        'tags' => 'getTags'
+        'delete_with_instance' => 'getDeleteWithInstance',
+        'extra_performance_iops' => 'getExtraPerformanceIops',
+        'extra_performance_throughput_mb' => 'getExtraPerformanceThroughputMb',
+        'extra_performance_type_id' => 'getExtraPerformanceTypeId',
+        'size' => 'getSize',
+        'snapshot_id' => 'getSnapshotId',
+        'volume_type' => 'getVolumeType'
     ];
 
     /**
@@ -178,13 +178,13 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['copy_image_tags'] = isset($data['copy_image_tags']) ? $data['copy_image_tags'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['destination_region'] = isset($data['destination_region']) ? $data['destination_region'] : null;
-        $this->container['image_id'] = isset($data['image_id']) ? $data['image_id'] : null;
-        $this->container['image_name'] = isset($data['image_name']) ? $data['image_name'] : null;
-        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
-        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
+        $this->container['delete_with_instance'] = isset($data['delete_with_instance']) ? $data['delete_with_instance'] : null;
+        $this->container['extra_performance_iops'] = isset($data['extra_performance_iops']) ? $data['extra_performance_iops'] : null;
+        $this->container['extra_performance_throughput_mb'] = isset($data['extra_performance_throughput_mb']) ? $data['extra_performance_throughput_mb'] : null;
+        $this->container['extra_performance_type_id'] = isset($data['extra_performance_type_id']) ? $data['extra_performance_type_id'] : null;
+        $this->container['size'] = isset($data['size']) ? $data['size'] : null;
+        $this->container['snapshot_id'] = isset($data['snapshot_id']) ? $data['snapshot_id'] : null;
+        $this->container['volume_type'] = isset($data['volume_type']) ? $data['volume_type'] : null;
     }
 
     /**
@@ -196,14 +196,8 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['destination_region'] === null) {
-            $invalidProperties[] = "'destination_region' can't be null";
-        }
-        if ($this->container['image_id'] === null) {
-            $invalidProperties[] = "'image_id' can't be null";
-        }
-        if ($this->container['image_name'] === null) {
-            $invalidProperties[] = "'image_name' can't be null";
+        if ($this->container['size'] === null) {
+            $invalidProperties[] = "'size' can't be null";
         }
         return $invalidProperties;
     }
@@ -221,169 +215,169 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets copy_image_tags
-     *
-     * @return bool
-     */
-    public function getCopyImageTags()
-    {
-        return $this->container['copy_image_tags'];
-    }
-
-    /**
-     * Sets copy_image_tags
-     *
-     * @param bool $copy_image_tags copy_image_tags
-     *
-     * @return $this
-     */
-    public function setCopyImageTags($copy_image_tags)
-    {
-        $this->container['copy_image_tags'] = $copy_image_tags;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
+     * Gets delete_with_instance
      *
      * @return string
      */
-    public function getDescription()
+    public function getDeleteWithInstance()
     {
-        return $this->container['description'];
+        return $this->container['delete_with_instance'];
     }
 
     /**
-     * Sets description
+     * Sets delete_with_instance
      *
-     * @param string $description description
+     * @param string $delete_with_instance delete_with_instance
      *
      * @return $this
      */
-    public function setDescription($description)
+    public function setDeleteWithInstance($delete_with_instance)
     {
-        $this->container['description'] = $description;
+        $this->container['delete_with_instance'] = $delete_with_instance;
 
         return $this;
     }
 
     /**
-     * Gets destination_region
+     * Gets extra_performance_iops
+     *
+     * @return int
+     */
+    public function getExtraPerformanceIops()
+    {
+        return $this->container['extra_performance_iops'];
+    }
+
+    /**
+     * Sets extra_performance_iops
+     *
+     * @param int $extra_performance_iops extra_performance_iops
+     *
+     * @return $this
+     */
+    public function setExtraPerformanceIops($extra_performance_iops)
+    {
+        $this->container['extra_performance_iops'] = $extra_performance_iops;
+
+        return $this;
+    }
+
+    /**
+     * Gets extra_performance_throughput_mb
+     *
+     * @return int
+     */
+    public function getExtraPerformanceThroughputMb()
+    {
+        return $this->container['extra_performance_throughput_mb'];
+    }
+
+    /**
+     * Sets extra_performance_throughput_mb
+     *
+     * @param int $extra_performance_throughput_mb extra_performance_throughput_mb
+     *
+     * @return $this
+     */
+    public function setExtraPerformanceThroughputMb($extra_performance_throughput_mb)
+    {
+        $this->container['extra_performance_throughput_mb'] = $extra_performance_throughput_mb;
+
+        return $this;
+    }
+
+    /**
+     * Gets extra_performance_type_id
      *
      * @return string
      */
-    public function getDestinationRegion()
+    public function getExtraPerformanceTypeId()
     {
-        return $this->container['destination_region'];
+        return $this->container['extra_performance_type_id'];
     }
 
     /**
-     * Sets destination_region
+     * Sets extra_performance_type_id
      *
-     * @param string $destination_region destination_region
+     * @param string $extra_performance_type_id extra_performance_type_id
      *
      * @return $this
      */
-    public function setDestinationRegion($destination_region)
+    public function setExtraPerformanceTypeId($extra_performance_type_id)
     {
-        $this->container['destination_region'] = $destination_region;
+        $this->container['extra_performance_type_id'] = $extra_performance_type_id;
 
         return $this;
     }
 
     /**
-     * Gets image_id
+     * Gets size
+     *
+     * @return int
+     */
+    public function getSize()
+    {
+        return $this->container['size'];
+    }
+
+    /**
+     * Sets size
+     *
+     * @param int $size size
+     *
+     * @return $this
+     */
+    public function setSize($size)
+    {
+        $this->container['size'] = $size;
+
+        return $this;
+    }
+
+    /**
+     * Gets snapshot_id
      *
      * @return string
      */
-    public function getImageId()
+    public function getSnapshotId()
     {
-        return $this->container['image_id'];
+        return $this->container['snapshot_id'];
     }
 
     /**
-     * Sets image_id
+     * Sets snapshot_id
      *
-     * @param string $image_id image_id
+     * @param string $snapshot_id snapshot_id
      *
      * @return $this
      */
-    public function setImageId($image_id)
+    public function setSnapshotId($snapshot_id)
     {
-        $this->container['image_id'] = $image_id;
+        $this->container['snapshot_id'] = $snapshot_id;
 
         return $this;
     }
 
     /**
-     * Gets image_name
+     * Gets volume_type
      *
      * @return string
      */
-    public function getImageName()
+    public function getVolumeType()
     {
-        return $this->container['image_name'];
+        return $this->container['volume_type'];
     }
 
     /**
-     * Sets image_name
+     * Sets volume_type
      *
-     * @param string $image_name image_name
+     * @param string $volume_type volume_type
      *
      * @return $this
      */
-    public function setImageName($image_name)
+    public function setVolumeType($volume_type)
     {
-        $this->container['image_name'] = $image_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets project_name
-     *
-     * @return string
-     */
-    public function getProjectName()
-    {
-        return $this->container['project_name'];
-    }
-
-    /**
-     * Sets project_name
-     *
-     * @param string $project_name project_name
-     *
-     * @return $this
-     */
-    public function setProjectName($project_name)
-    {
-        $this->container['project_name'] = $project_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets tags
-     *
-     * @return \Volcengine\Ecs\Model\TagForCopyImageInput[]
-     */
-    public function getTags()
-    {
-        return $this->container['tags'];
-    }
-
-    /**
-     * Sets tags
-     *
-     * @param \Volcengine\Ecs\Model\TagForCopyImageInput[] $tags tags
-     *
-     * @return $this
-     */
-    public function setTags($tags)
-    {
-        $this->container['tags'] = $tags;
+        $this->container['volume_type'] = $volume_type;
 
         return $this;
     }

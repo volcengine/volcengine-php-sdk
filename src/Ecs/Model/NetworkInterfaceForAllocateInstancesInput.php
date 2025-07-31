@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CopyImageRequest implements ModelInterface, ArrayAccess
+class NetworkInterfaceForAllocateInstancesInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CopyImageRequest';
+    protected static $swaggerModelName = 'NetworkInterfaceForAllocateInstancesInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,13 +28,9 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'copy_image_tags' => 'bool',
-        'description' => 'string',
-        'destination_region' => 'string',
-        'image_id' => 'string',
-        'image_name' => 'string',
-        'project_name' => 'string',
-        'tags' => '\Volcengine\Ecs\Model\TagForCopyImageInput[]'
+        'ipv6_address_count' => 'int',
+        'security_group_ids' => 'string[]',
+        'subnet_id' => 'string[]'
     ];
 
     /**
@@ -43,13 +39,9 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'copy_image_tags' => null,
-        'description' => null,
-        'destination_region' => null,
-        'image_id' => null,
-        'image_name' => null,
-        'project_name' => null,
-        'tags' => null
+        'ipv6_address_count' => 'int32',
+        'security_group_ids' => null,
+        'subnet_id' => null
     ];
 
     /**
@@ -79,13 +71,9 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'copy_image_tags' => 'CopyImageTags',
-        'description' => 'Description',
-        'destination_region' => 'DestinationRegion',
-        'image_id' => 'ImageId',
-        'image_name' => 'ImageName',
-        'project_name' => 'ProjectName',
-        'tags' => 'Tags'
+        'ipv6_address_count' => 'Ipv6AddressCount',
+        'security_group_ids' => 'SecurityGroupIds',
+        'subnet_id' => 'SubnetId'
     ];
 
     /**
@@ -94,13 +82,9 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'copy_image_tags' => 'setCopyImageTags',
-        'description' => 'setDescription',
-        'destination_region' => 'setDestinationRegion',
-        'image_id' => 'setImageId',
-        'image_name' => 'setImageName',
-        'project_name' => 'setProjectName',
-        'tags' => 'setTags'
+        'ipv6_address_count' => 'setIpv6AddressCount',
+        'security_group_ids' => 'setSecurityGroupIds',
+        'subnet_id' => 'setSubnetId'
     ];
 
     /**
@@ -109,13 +93,9 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'copy_image_tags' => 'getCopyImageTags',
-        'description' => 'getDescription',
-        'destination_region' => 'getDestinationRegion',
-        'image_id' => 'getImageId',
-        'image_name' => 'getImageName',
-        'project_name' => 'getProjectName',
-        'tags' => 'getTags'
+        'ipv6_address_count' => 'getIpv6AddressCount',
+        'security_group_ids' => 'getSecurityGroupIds',
+        'subnet_id' => 'getSubnetId'
     ];
 
     /**
@@ -178,13 +158,9 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['copy_image_tags'] = isset($data['copy_image_tags']) ? $data['copy_image_tags'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['destination_region'] = isset($data['destination_region']) ? $data['destination_region'] : null;
-        $this->container['image_id'] = isset($data['image_id']) ? $data['image_id'] : null;
-        $this->container['image_name'] = isset($data['image_name']) ? $data['image_name'] : null;
-        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
-        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
+        $this->container['ipv6_address_count'] = isset($data['ipv6_address_count']) ? $data['ipv6_address_count'] : null;
+        $this->container['security_group_ids'] = isset($data['security_group_ids']) ? $data['security_group_ids'] : null;
+        $this->container['subnet_id'] = isset($data['subnet_id']) ? $data['subnet_id'] : null;
     }
 
     /**
@@ -196,15 +172,6 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['destination_region'] === null) {
-            $invalidProperties[] = "'destination_region' can't be null";
-        }
-        if ($this->container['image_id'] === null) {
-            $invalidProperties[] = "'image_id' can't be null";
-        }
-        if ($this->container['image_name'] === null) {
-            $invalidProperties[] = "'image_name' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -221,169 +188,73 @@ class CopyImageRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets copy_image_tags
+     * Gets ipv6_address_count
      *
-     * @return bool
+     * @return int
      */
-    public function getCopyImageTags()
+    public function getIpv6AddressCount()
     {
-        return $this->container['copy_image_tags'];
+        return $this->container['ipv6_address_count'];
     }
 
     /**
-     * Sets copy_image_tags
+     * Sets ipv6_address_count
      *
-     * @param bool $copy_image_tags copy_image_tags
+     * @param int $ipv6_address_count ipv6_address_count
      *
      * @return $this
      */
-    public function setCopyImageTags($copy_image_tags)
+    public function setIpv6AddressCount($ipv6_address_count)
     {
-        $this->container['copy_image_tags'] = $copy_image_tags;
+        $this->container['ipv6_address_count'] = $ipv6_address_count;
 
         return $this;
     }
 
     /**
-     * Gets description
+     * Gets security_group_ids
      *
-     * @return string
+     * @return string[]
      */
-    public function getDescription()
+    public function getSecurityGroupIds()
     {
-        return $this->container['description'];
+        return $this->container['security_group_ids'];
     }
 
     /**
-     * Sets description
+     * Sets security_group_ids
      *
-     * @param string $description description
+     * @param string[] $security_group_ids security_group_ids
      *
      * @return $this
      */
-    public function setDescription($description)
+    public function setSecurityGroupIds($security_group_ids)
     {
-        $this->container['description'] = $description;
+        $this->container['security_group_ids'] = $security_group_ids;
 
         return $this;
     }
 
     /**
-     * Gets destination_region
+     * Gets subnet_id
      *
-     * @return string
+     * @return string[]
      */
-    public function getDestinationRegion()
+    public function getSubnetId()
     {
-        return $this->container['destination_region'];
+        return $this->container['subnet_id'];
     }
 
     /**
-     * Sets destination_region
+     * Sets subnet_id
      *
-     * @param string $destination_region destination_region
+     * @param string[] $subnet_id subnet_id
      *
      * @return $this
      */
-    public function setDestinationRegion($destination_region)
+    public function setSubnetId($subnet_id)
     {
-        $this->container['destination_region'] = $destination_region;
-
-        return $this;
-    }
-
-    /**
-     * Gets image_id
-     *
-     * @return string
-     */
-    public function getImageId()
-    {
-        return $this->container['image_id'];
-    }
-
-    /**
-     * Sets image_id
-     *
-     * @param string $image_id image_id
-     *
-     * @return $this
-     */
-    public function setImageId($image_id)
-    {
-        $this->container['image_id'] = $image_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets image_name
-     *
-     * @return string
-     */
-    public function getImageName()
-    {
-        return $this->container['image_name'];
-    }
-
-    /**
-     * Sets image_name
-     *
-     * @param string $image_name image_name
-     *
-     * @return $this
-     */
-    public function setImageName($image_name)
-    {
-        $this->container['image_name'] = $image_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets project_name
-     *
-     * @return string
-     */
-    public function getProjectName()
-    {
-        return $this->container['project_name'];
-    }
-
-    /**
-     * Sets project_name
-     *
-     * @param string $project_name project_name
-     *
-     * @return $this
-     */
-    public function setProjectName($project_name)
-    {
-        $this->container['project_name'] = $project_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets tags
-     *
-     * @return \Volcengine\Ecs\Model\TagForCopyImageInput[]
-     */
-    public function getTags()
-    {
-        return $this->container['tags'];
-    }
-
-    /**
-     * Sets tags
-     *
-     * @param \Volcengine\Ecs\Model\TagForCopyImageInput[] $tags tags
-     *
-     * @return $this
-     */
-    public function setTags($tags)
-    {
-        $this->container['tags'] = $tags;
+        $this->container['subnet_id'] = $subnet_id;
 
         return $this;
     }
