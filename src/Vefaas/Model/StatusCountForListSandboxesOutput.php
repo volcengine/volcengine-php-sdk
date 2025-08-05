@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ListSandboxesResponse implements ModelInterface, ArrayAccess
+class StatusCountForListSandboxesOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ListSandboxesResponse';
+    protected static $swaggerModelName = 'StatusCountForListSandboxesOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,7 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'sandboxes' => '\Volcengine\Vefaas\Model\SandboxForListSandboxesOutput[]',
-        'status_count' => '\Volcengine\Vefaas\Model\StatusCountForListSandboxesOutput',
-        'total' => 'int'
+        
     ];
 
     /**
@@ -39,9 +37,7 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'sandboxes' => null,
-        'status_count' => null,
-        'total' => 'int32'
+        
     ];
 
     /**
@@ -71,9 +67,7 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'sandboxes' => 'Sandboxes',
-        'status_count' => 'StatusCount',
-        'total' => 'Total'
+        
     ];
 
     /**
@@ -82,9 +76,7 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'sandboxes' => 'setSandboxes',
-        'status_count' => 'setStatusCount',
-        'total' => 'setTotal'
+        
     ];
 
     /**
@@ -93,9 +85,7 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'sandboxes' => 'getSandboxes',
-        'status_count' => 'getStatusCount',
-        'total' => 'getTotal'
+        
     ];
 
     /**
@@ -158,9 +148,6 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['sandboxes'] = isset($data['sandboxes']) ? $data['sandboxes'] : null;
-        $this->container['status_count'] = isset($data['status_count']) ? $data['status_count'] : null;
-        $this->container['total'] = isset($data['total']) ? $data['total'] : null;
     }
 
     /**
@@ -186,78 +173,6 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets sandboxes
-     *
-     * @return \Volcengine\Vefaas\Model\SandboxForListSandboxesOutput[]
-     */
-    public function getSandboxes()
-    {
-        return $this->container['sandboxes'];
-    }
-
-    /**
-     * Sets sandboxes
-     *
-     * @param \Volcengine\Vefaas\Model\SandboxForListSandboxesOutput[] $sandboxes sandboxes
-     *
-     * @return $this
-     */
-    public function setSandboxes($sandboxes)
-    {
-        $this->container['sandboxes'] = $sandboxes;
-
-        return $this;
-    }
-
-    /**
-     * Gets status_count
-     *
-     * @return \Volcengine\Vefaas\Model\StatusCountForListSandboxesOutput
-     */
-    public function getStatusCount()
-    {
-        return $this->container['status_count'];
-    }
-
-    /**
-     * Sets status_count
-     *
-     * @param \Volcengine\Vefaas\Model\StatusCountForListSandboxesOutput $status_count status_count
-     *
-     * @return $this
-     */
-    public function setStatusCount($status_count)
-    {
-        $this->container['status_count'] = $status_count;
-
-        return $this;
-    }
-
-    /**
-     * Gets total
-     *
-     * @return int
-     */
-    public function getTotal()
-    {
-        return $this->container['total'];
-    }
-
-    /**
-     * Sets total
-     *
-     * @param int $total total
-     *
-     * @return $this
-     */
-    public function setTotal($total)
-    {
-        $this->container['total'] = $total;
-
-        return $this;
-    }
     /**
      * Returns true if offset exists. False otherwise.
      *
