@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Vefaas\Model;
+namespace Volcengine\Speechsaasprod\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ListSandboxesResponse implements ModelInterface, ArrayAccess
+class CategoryForListBigModelTTSTimbresOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ListSandboxesResponse';
+    protected static $swaggerModelName = 'CategoryForListBigModelTTSTimbresOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,8 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'sandboxes' => '\Volcengine\Vefaas\Model\SandboxForListSandboxesOutput[]',
-        'status_count' => '\Volcengine\Vefaas\Model\StatusCountForListSandboxesOutput',
-        'total' => 'int'
+        'category' => 'string',
+        'next_category' => '\Volcengine\Speechsaasprod\Model\NextCategoryForListBigModelTTSTimbresOutput'
     ];
 
     /**
@@ -39,9 +38,8 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'sandboxes' => null,
-        'status_count' => null,
-        'total' => 'int32'
+        'category' => null,
+        'next_category' => null
     ];
 
     /**
@@ -71,9 +69,8 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'sandboxes' => 'Sandboxes',
-        'status_count' => 'StatusCount',
-        'total' => 'Total'
+        'category' => 'Category',
+        'next_category' => 'NextCategory'
     ];
 
     /**
@@ -82,9 +79,8 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'sandboxes' => 'setSandboxes',
-        'status_count' => 'setStatusCount',
-        'total' => 'setTotal'
+        'category' => 'setCategory',
+        'next_category' => 'setNextCategory'
     ];
 
     /**
@@ -93,9 +89,8 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'sandboxes' => 'getSandboxes',
-        'status_count' => 'getStatusCount',
-        'total' => 'getTotal'
+        'category' => 'getCategory',
+        'next_category' => 'getNextCategory'
     ];
 
     /**
@@ -158,9 +153,8 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['sandboxes'] = isset($data['sandboxes']) ? $data['sandboxes'] : null;
-        $this->container['status_count'] = isset($data['status_count']) ? $data['status_count'] : null;
-        $this->container['total'] = isset($data['total']) ? $data['total'] : null;
+        $this->container['category'] = isset($data['category']) ? $data['category'] : null;
+        $this->container['next_category'] = isset($data['next_category']) ? $data['next_category'] : null;
     }
 
     /**
@@ -188,73 +182,49 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets sandboxes
+     * Gets category
      *
-     * @return \Volcengine\Vefaas\Model\SandboxForListSandboxesOutput[]
+     * @return string
      */
-    public function getSandboxes()
+    public function getCategory()
     {
-        return $this->container['sandboxes'];
+        return $this->container['category'];
     }
 
     /**
-     * Sets sandboxes
+     * Sets category
      *
-     * @param \Volcengine\Vefaas\Model\SandboxForListSandboxesOutput[] $sandboxes sandboxes
+     * @param string $category category
      *
      * @return $this
      */
-    public function setSandboxes($sandboxes)
+    public function setCategory($category)
     {
-        $this->container['sandboxes'] = $sandboxes;
+        $this->container['category'] = $category;
 
         return $this;
     }
 
     /**
-     * Gets status_count
+     * Gets next_category
      *
-     * @return \Volcengine\Vefaas\Model\StatusCountForListSandboxesOutput
+     * @return \Volcengine\Speechsaasprod\Model\NextCategoryForListBigModelTTSTimbresOutput
      */
-    public function getStatusCount()
+    public function getNextCategory()
     {
-        return $this->container['status_count'];
+        return $this->container['next_category'];
     }
 
     /**
-     * Sets status_count
+     * Sets next_category
      *
-     * @param \Volcengine\Vefaas\Model\StatusCountForListSandboxesOutput $status_count status_count
+     * @param \Volcengine\Speechsaasprod\Model\NextCategoryForListBigModelTTSTimbresOutput $next_category next_category
      *
      * @return $this
      */
-    public function setStatusCount($status_count)
+    public function setNextCategory($next_category)
     {
-        $this->container['status_count'] = $status_count;
-
-        return $this;
-    }
-
-    /**
-     * Gets total
-     *
-     * @return int
-     */
-    public function getTotal()
-    {
-        return $this->container['total'];
-    }
-
-    /**
-     * Sets total
-     *
-     * @param int $total total
-     *
-     * @return $this
-     */
-    public function setTotal($total)
-    {
-        $this->container['total'] = $total;
+        $this->container['next_category'] = $next_category;
 
         return $this;
     }

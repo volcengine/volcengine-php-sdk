@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Vefaas\Model;
+namespace Volcengine\Speechsaasprod\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ListSandboxesResponse implements ModelInterface, ArrayAccess
+class TimbreForListBigModelTTSTimbresOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ListSandboxesResponse';
+    protected static $swaggerModelName = 'TimbreForListBigModelTTSTimbresOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,8 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'sandboxes' => '\Volcengine\Vefaas\Model\SandboxForListSandboxesOutput[]',
-        'status_count' => '\Volcengine\Vefaas\Model\StatusCountForListSandboxesOutput',
-        'total' => 'int'
+        'speaker_id' => 'string',
+        'timbre_infos' => '\Volcengine\Speechsaasprod\Model\TimbreInfoForListBigModelTTSTimbresOutput[]'
     ];
 
     /**
@@ -39,9 +38,8 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'sandboxes' => null,
-        'status_count' => null,
-        'total' => 'int32'
+        'speaker_id' => null,
+        'timbre_infos' => null
     ];
 
     /**
@@ -71,9 +69,8 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'sandboxes' => 'Sandboxes',
-        'status_count' => 'StatusCount',
-        'total' => 'Total'
+        'speaker_id' => 'SpeakerID',
+        'timbre_infos' => 'TimbreInfos'
     ];
 
     /**
@@ -82,9 +79,8 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'sandboxes' => 'setSandboxes',
-        'status_count' => 'setStatusCount',
-        'total' => 'setTotal'
+        'speaker_id' => 'setSpeakerId',
+        'timbre_infos' => 'setTimbreInfos'
     ];
 
     /**
@@ -93,9 +89,8 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'sandboxes' => 'getSandboxes',
-        'status_count' => 'getStatusCount',
-        'total' => 'getTotal'
+        'speaker_id' => 'getSpeakerId',
+        'timbre_infos' => 'getTimbreInfos'
     ];
 
     /**
@@ -158,9 +153,8 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['sandboxes'] = isset($data['sandboxes']) ? $data['sandboxes'] : null;
-        $this->container['status_count'] = isset($data['status_count']) ? $data['status_count'] : null;
-        $this->container['total'] = isset($data['total']) ? $data['total'] : null;
+        $this->container['speaker_id'] = isset($data['speaker_id']) ? $data['speaker_id'] : null;
+        $this->container['timbre_infos'] = isset($data['timbre_infos']) ? $data['timbre_infos'] : null;
     }
 
     /**
@@ -188,73 +182,49 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets sandboxes
+     * Gets speaker_id
      *
-     * @return \Volcengine\Vefaas\Model\SandboxForListSandboxesOutput[]
+     * @return string
      */
-    public function getSandboxes()
+    public function getSpeakerId()
     {
-        return $this->container['sandboxes'];
+        return $this->container['speaker_id'];
     }
 
     /**
-     * Sets sandboxes
+     * Sets speaker_id
      *
-     * @param \Volcengine\Vefaas\Model\SandboxForListSandboxesOutput[] $sandboxes sandboxes
+     * @param string $speaker_id speaker_id
      *
      * @return $this
      */
-    public function setSandboxes($sandboxes)
+    public function setSpeakerId($speaker_id)
     {
-        $this->container['sandboxes'] = $sandboxes;
+        $this->container['speaker_id'] = $speaker_id;
 
         return $this;
     }
 
     /**
-     * Gets status_count
+     * Gets timbre_infos
      *
-     * @return \Volcengine\Vefaas\Model\StatusCountForListSandboxesOutput
+     * @return \Volcengine\Speechsaasprod\Model\TimbreInfoForListBigModelTTSTimbresOutput[]
      */
-    public function getStatusCount()
+    public function getTimbreInfos()
     {
-        return $this->container['status_count'];
+        return $this->container['timbre_infos'];
     }
 
     /**
-     * Sets status_count
+     * Sets timbre_infos
      *
-     * @param \Volcengine\Vefaas\Model\StatusCountForListSandboxesOutput $status_count status_count
+     * @param \Volcengine\Speechsaasprod\Model\TimbreInfoForListBigModelTTSTimbresOutput[] $timbre_infos timbre_infos
      *
      * @return $this
      */
-    public function setStatusCount($status_count)
+    public function setTimbreInfos($timbre_infos)
     {
-        $this->container['status_count'] = $status_count;
-
-        return $this;
-    }
-
-    /**
-     * Gets total
-     *
-     * @return int
-     */
-    public function getTotal()
-    {
-        return $this->container['total'];
-    }
-
-    /**
-     * Sets total
-     *
-     * @param int $total total
-     *
-     * @return $this
-     */
-    public function setTotal($total)
-    {
-        $this->container['total'] = $total;
+        $this->container['timbre_infos'] = $timbre_infos;
 
         return $this;
     }

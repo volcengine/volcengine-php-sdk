@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Vefaas\Model;
+namespace Volcengine\Bmq20240901\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ListSandboxesResponse implements ModelInterface, ArrayAccess
+class RegisterDeviceCredentialResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ListSandboxesResponse';
+    protected static $swaggerModelName = 'RegisterDeviceCredentialResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,12 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'sandboxes' => '\Volcengine\Vefaas\Model\SandboxForListSandboxesOutput[]',
-        'status_count' => '\Volcengine\Vefaas\Model\StatusCountForListSandboxesOutput',
-        'total' => 'int'
+        'client_id' => 'string',
+        'create_time' => 'int',
+        'device_access_key_id' => 'string',
+        'device_access_key_secret' => 'string',
+        'instance_id' => 'string',
+        'update_time' => 'int'
     ];
 
     /**
@@ -39,9 +42,12 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'sandboxes' => null,
-        'status_count' => null,
-        'total' => 'int32'
+        'client_id' => null,
+        'create_time' => 'int64',
+        'device_access_key_id' => null,
+        'device_access_key_secret' => null,
+        'instance_id' => null,
+        'update_time' => 'int64'
     ];
 
     /**
@@ -71,9 +77,12 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'sandboxes' => 'Sandboxes',
-        'status_count' => 'StatusCount',
-        'total' => 'Total'
+        'client_id' => 'ClientId',
+        'create_time' => 'CreateTime',
+        'device_access_key_id' => 'DeviceAccessKeyId',
+        'device_access_key_secret' => 'DeviceAccessKeySecret',
+        'instance_id' => 'InstanceId',
+        'update_time' => 'UpdateTime'
     ];
 
     /**
@@ -82,9 +91,12 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'sandboxes' => 'setSandboxes',
-        'status_count' => 'setStatusCount',
-        'total' => 'setTotal'
+        'client_id' => 'setClientId',
+        'create_time' => 'setCreateTime',
+        'device_access_key_id' => 'setDeviceAccessKeyId',
+        'device_access_key_secret' => 'setDeviceAccessKeySecret',
+        'instance_id' => 'setInstanceId',
+        'update_time' => 'setUpdateTime'
     ];
 
     /**
@@ -93,9 +105,12 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'sandboxes' => 'getSandboxes',
-        'status_count' => 'getStatusCount',
-        'total' => 'getTotal'
+        'client_id' => 'getClientId',
+        'create_time' => 'getCreateTime',
+        'device_access_key_id' => 'getDeviceAccessKeyId',
+        'device_access_key_secret' => 'getDeviceAccessKeySecret',
+        'instance_id' => 'getInstanceId',
+        'update_time' => 'getUpdateTime'
     ];
 
     /**
@@ -158,9 +173,12 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['sandboxes'] = isset($data['sandboxes']) ? $data['sandboxes'] : null;
-        $this->container['status_count'] = isset($data['status_count']) ? $data['status_count'] : null;
-        $this->container['total'] = isset($data['total']) ? $data['total'] : null;
+        $this->container['client_id'] = isset($data['client_id']) ? $data['client_id'] : null;
+        $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
+        $this->container['device_access_key_id'] = isset($data['device_access_key_id']) ? $data['device_access_key_id'] : null;
+        $this->container['device_access_key_secret'] = isset($data['device_access_key_secret']) ? $data['device_access_key_secret'] : null;
+        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
+        $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
     }
 
     /**
@@ -188,73 +206,145 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets sandboxes
+     * Gets client_id
      *
-     * @return \Volcengine\Vefaas\Model\SandboxForListSandboxesOutput[]
+     * @return string
      */
-    public function getSandboxes()
+    public function getClientId()
     {
-        return $this->container['sandboxes'];
+        return $this->container['client_id'];
     }
 
     /**
-     * Sets sandboxes
+     * Sets client_id
      *
-     * @param \Volcengine\Vefaas\Model\SandboxForListSandboxesOutput[] $sandboxes sandboxes
+     * @param string $client_id client_id
      *
      * @return $this
      */
-    public function setSandboxes($sandboxes)
+    public function setClientId($client_id)
     {
-        $this->container['sandboxes'] = $sandboxes;
+        $this->container['client_id'] = $client_id;
 
         return $this;
     }
 
     /**
-     * Gets status_count
-     *
-     * @return \Volcengine\Vefaas\Model\StatusCountForListSandboxesOutput
-     */
-    public function getStatusCount()
-    {
-        return $this->container['status_count'];
-    }
-
-    /**
-     * Sets status_count
-     *
-     * @param \Volcengine\Vefaas\Model\StatusCountForListSandboxesOutput $status_count status_count
-     *
-     * @return $this
-     */
-    public function setStatusCount($status_count)
-    {
-        $this->container['status_count'] = $status_count;
-
-        return $this;
-    }
-
-    /**
-     * Gets total
+     * Gets create_time
      *
      * @return int
      */
-    public function getTotal()
+    public function getCreateTime()
     {
-        return $this->container['total'];
+        return $this->container['create_time'];
     }
 
     /**
-     * Sets total
+     * Sets create_time
      *
-     * @param int $total total
+     * @param int $create_time create_time
      *
      * @return $this
      */
-    public function setTotal($total)
+    public function setCreateTime($create_time)
     {
-        $this->container['total'] = $total;
+        $this->container['create_time'] = $create_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets device_access_key_id
+     *
+     * @return string
+     */
+    public function getDeviceAccessKeyId()
+    {
+        return $this->container['device_access_key_id'];
+    }
+
+    /**
+     * Sets device_access_key_id
+     *
+     * @param string $device_access_key_id device_access_key_id
+     *
+     * @return $this
+     */
+    public function setDeviceAccessKeyId($device_access_key_id)
+    {
+        $this->container['device_access_key_id'] = $device_access_key_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets device_access_key_secret
+     *
+     * @return string
+     */
+    public function getDeviceAccessKeySecret()
+    {
+        return $this->container['device_access_key_secret'];
+    }
+
+    /**
+     * Sets device_access_key_secret
+     *
+     * @param string $device_access_key_secret device_access_key_secret
+     *
+     * @return $this
+     */
+    public function setDeviceAccessKeySecret($device_access_key_secret)
+    {
+        $this->container['device_access_key_secret'] = $device_access_key_secret;
+
+        return $this;
+    }
+
+    /**
+     * Gets instance_id
+     *
+     * @return string
+     */
+    public function getInstanceId()
+    {
+        return $this->container['instance_id'];
+    }
+
+    /**
+     * Sets instance_id
+     *
+     * @param string $instance_id instance_id
+     *
+     * @return $this
+     */
+    public function setInstanceId($instance_id)
+    {
+        $this->container['instance_id'] = $instance_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets update_time
+     *
+     * @return int
+     */
+    public function getUpdateTime()
+    {
+        return $this->container['update_time'];
+    }
+
+    /**
+     * Sets update_time
+     *
+     * @param int $update_time update_time
+     *
+     * @return $this
+     */
+    public function setUpdateTime($update_time)
+    {
+        $this->container['update_time'] = $update_time;
 
         return $this;
     }

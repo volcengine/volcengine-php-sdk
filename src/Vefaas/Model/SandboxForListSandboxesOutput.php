@@ -30,11 +30,14 @@ class SandboxForListSandboxesOutput implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'availability_zone' => 'string',
         'created_at' => 'string',
+        'error_code' => 'string',
+        'error_message' => 'string',
         'expire_at' => 'string',
         'function_id' => 'string',
         'id' => 'string',
         'instance_type' => 'string',
         'metadata' => '\Volcengine\Vefaas\Model\MetadataForListSandboxesOutput',
+        'pending' => 'bool',
         'revision_number' => 'int',
         'status' => 'string'
     ];
@@ -47,11 +50,14 @@ class SandboxForListSandboxesOutput implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'availability_zone' => null,
         'created_at' => null,
+        'error_code' => null,
+        'error_message' => null,
         'expire_at' => null,
         'function_id' => null,
         'id' => null,
         'instance_type' => null,
         'metadata' => null,
+        'pending' => null,
         'revision_number' => 'int32',
         'status' => null
     ];
@@ -85,11 +91,14 @@ class SandboxForListSandboxesOutput implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'availability_zone' => 'AvailabilityZone',
         'created_at' => 'CreatedAt',
+        'error_code' => 'ErrorCode',
+        'error_message' => 'ErrorMessage',
         'expire_at' => 'ExpireAt',
         'function_id' => 'FunctionId',
         'id' => 'Id',
         'instance_type' => 'InstanceType',
         'metadata' => 'Metadata',
+        'pending' => 'Pending',
         'revision_number' => 'RevisionNumber',
         'status' => 'Status'
     ];
@@ -102,11 +111,14 @@ class SandboxForListSandboxesOutput implements ModelInterface, ArrayAccess
     protected static $setters = [
         'availability_zone' => 'setAvailabilityZone',
         'created_at' => 'setCreatedAt',
+        'error_code' => 'setErrorCode',
+        'error_message' => 'setErrorMessage',
         'expire_at' => 'setExpireAt',
         'function_id' => 'setFunctionId',
         'id' => 'setId',
         'instance_type' => 'setInstanceType',
         'metadata' => 'setMetadata',
+        'pending' => 'setPending',
         'revision_number' => 'setRevisionNumber',
         'status' => 'setStatus'
     ];
@@ -119,11 +131,14 @@ class SandboxForListSandboxesOutput implements ModelInterface, ArrayAccess
     protected static $getters = [
         'availability_zone' => 'getAvailabilityZone',
         'created_at' => 'getCreatedAt',
+        'error_code' => 'getErrorCode',
+        'error_message' => 'getErrorMessage',
         'expire_at' => 'getExpireAt',
         'function_id' => 'getFunctionId',
         'id' => 'getId',
         'instance_type' => 'getInstanceType',
         'metadata' => 'getMetadata',
+        'pending' => 'getPending',
         'revision_number' => 'getRevisionNumber',
         'status' => 'getStatus'
     ];
@@ -190,11 +205,14 @@ class SandboxForListSandboxesOutput implements ModelInterface, ArrayAccess
     {
         $this->container['availability_zone'] = isset($data['availability_zone']) ? $data['availability_zone'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
+        $this->container['error_code'] = isset($data['error_code']) ? $data['error_code'] : null;
+        $this->container['error_message'] = isset($data['error_message']) ? $data['error_message'] : null;
         $this->container['expire_at'] = isset($data['expire_at']) ? $data['expire_at'] : null;
         $this->container['function_id'] = isset($data['function_id']) ? $data['function_id'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['instance_type'] = isset($data['instance_type']) ? $data['instance_type'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
+        $this->container['pending'] = isset($data['pending']) ? $data['pending'] : null;
         $this->container['revision_number'] = isset($data['revision_number']) ? $data['revision_number'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }
@@ -267,6 +285,54 @@ class SandboxForListSandboxesOutput implements ModelInterface, ArrayAccess
     public function setCreatedAt($created_at)
     {
         $this->container['created_at'] = $created_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets error_code
+     *
+     * @return string
+     */
+    public function getErrorCode()
+    {
+        return $this->container['error_code'];
+    }
+
+    /**
+     * Sets error_code
+     *
+     * @param string $error_code error_code
+     *
+     * @return $this
+     */
+    public function setErrorCode($error_code)
+    {
+        $this->container['error_code'] = $error_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets error_message
+     *
+     * @return string
+     */
+    public function getErrorMessage()
+    {
+        return $this->container['error_message'];
+    }
+
+    /**
+     * Sets error_message
+     *
+     * @param string $error_message error_message
+     *
+     * @return $this
+     */
+    public function setErrorMessage($error_message)
+    {
+        $this->container['error_message'] = $error_message;
 
         return $this;
     }
@@ -387,6 +453,30 @@ class SandboxForListSandboxesOutput implements ModelInterface, ArrayAccess
     public function setMetadata($metadata)
     {
         $this->container['metadata'] = $metadata;
+
+        return $this;
+    }
+
+    /**
+     * Gets pending
+     *
+     * @return bool
+     */
+    public function getPending()
+    {
+        return $this->container['pending'];
+    }
+
+    /**
+     * Sets pending
+     *
+     * @param bool $pending pending
+     *
+     * @return $this
+     */
+    public function setPending($pending)
+    {
+        $this->container['pending'] = $pending;
 
         return $this;
     }

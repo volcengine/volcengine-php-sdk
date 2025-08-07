@@ -79,6 +79,7 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
         'factor_code' => 'string',
         'instance_name' => 'string',
         'instance_no' => 'string',
+        'main_contract_number' => 'string',
         'now_amortized_coupon_amount' => 'string',
         'now_amortized_discount_bill_amount' => 'string',
         'now_amortized_original_bill_amount' => 'string',
@@ -101,6 +102,7 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
         'now_amortized_settle_tax_amount' => 'string',
         'now_amortized_tax_amount' => 'string',
         'original_bill_amount' => 'string',
+        'original_order_no' => 'string',
         'owner_customer_name' => 'string',
         'owner_id' => 'string',
         'owner_user_name' => 'string',
@@ -205,6 +207,7 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
         'factor_code' => null,
         'instance_name' => null,
         'instance_no' => null,
+        'main_contract_number' => null,
         'now_amortized_coupon_amount' => null,
         'now_amortized_discount_bill_amount' => null,
         'now_amortized_original_bill_amount' => null,
@@ -227,6 +230,7 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
         'now_amortized_settle_tax_amount' => null,
         'now_amortized_tax_amount' => null,
         'original_bill_amount' => null,
+        'original_order_no' => null,
         'owner_customer_name' => null,
         'owner_id' => null,
         'owner_user_name' => null,
@@ -352,6 +356,7 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
         'factor_code' => 'FactorCode',
         'instance_name' => 'InstanceName',
         'instance_no' => 'InstanceNo',
+        'main_contract_number' => 'MainContractNumber',
         'now_amortized_coupon_amount' => 'NowAmortizedCouponAmount',
         'now_amortized_discount_bill_amount' => 'NowAmortizedDiscountBillAmount',
         'now_amortized_original_bill_amount' => 'NowAmortizedOriginalBillAmount',
@@ -374,6 +379,7 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
         'now_amortized_settle_tax_amount' => 'NowAmortizedSettleTaxAmount',
         'now_amortized_tax_amount' => 'NowAmortizedTaxAmount',
         'original_bill_amount' => 'OriginalBillAmount',
+        'original_order_no' => 'OriginalOrderNo',
         'owner_customer_name' => 'OwnerCustomerName',
         'owner_id' => 'OwnerID',
         'owner_user_name' => 'OwnerUserName',
@@ -478,6 +484,7 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
         'factor_code' => 'setFactorCode',
         'instance_name' => 'setInstanceName',
         'instance_no' => 'setInstanceNo',
+        'main_contract_number' => 'setMainContractNumber',
         'now_amortized_coupon_amount' => 'setNowAmortizedCouponAmount',
         'now_amortized_discount_bill_amount' => 'setNowAmortizedDiscountBillAmount',
         'now_amortized_original_bill_amount' => 'setNowAmortizedOriginalBillAmount',
@@ -500,6 +507,7 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
         'now_amortized_settle_tax_amount' => 'setNowAmortizedSettleTaxAmount',
         'now_amortized_tax_amount' => 'setNowAmortizedTaxAmount',
         'original_bill_amount' => 'setOriginalBillAmount',
+        'original_order_no' => 'setOriginalOrderNo',
         'owner_customer_name' => 'setOwnerCustomerName',
         'owner_id' => 'setOwnerId',
         'owner_user_name' => 'setOwnerUserName',
@@ -604,6 +612,7 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
         'factor_code' => 'getFactorCode',
         'instance_name' => 'getInstanceName',
         'instance_no' => 'getInstanceNo',
+        'main_contract_number' => 'getMainContractNumber',
         'now_amortized_coupon_amount' => 'getNowAmortizedCouponAmount',
         'now_amortized_discount_bill_amount' => 'getNowAmortizedDiscountBillAmount',
         'now_amortized_original_bill_amount' => 'getNowAmortizedOriginalBillAmount',
@@ -626,6 +635,7 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
         'now_amortized_settle_tax_amount' => 'getNowAmortizedSettleTaxAmount',
         'now_amortized_tax_amount' => 'getNowAmortizedTaxAmount',
         'original_bill_amount' => 'getOriginalBillAmount',
+        'original_order_no' => 'getOriginalOrderNo',
         'owner_customer_name' => 'getOwnerCustomerName',
         'owner_id' => 'getOwnerId',
         'owner_user_name' => 'getOwnerUserName',
@@ -784,6 +794,7 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
         $this->container['factor_code'] = isset($data['factor_code']) ? $data['factor_code'] : null;
         $this->container['instance_name'] = isset($data['instance_name']) ? $data['instance_name'] : null;
         $this->container['instance_no'] = isset($data['instance_no']) ? $data['instance_no'] : null;
+        $this->container['main_contract_number'] = isset($data['main_contract_number']) ? $data['main_contract_number'] : null;
         $this->container['now_amortized_coupon_amount'] = isset($data['now_amortized_coupon_amount']) ? $data['now_amortized_coupon_amount'] : null;
         $this->container['now_amortized_discount_bill_amount'] = isset($data['now_amortized_discount_bill_amount']) ? $data['now_amortized_discount_bill_amount'] : null;
         $this->container['now_amortized_original_bill_amount'] = isset($data['now_amortized_original_bill_amount']) ? $data['now_amortized_original_bill_amount'] : null;
@@ -806,6 +817,7 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
         $this->container['now_amortized_settle_tax_amount'] = isset($data['now_amortized_settle_tax_amount']) ? $data['now_amortized_settle_tax_amount'] : null;
         $this->container['now_amortized_tax_amount'] = isset($data['now_amortized_tax_amount']) ? $data['now_amortized_tax_amount'] : null;
         $this->container['original_bill_amount'] = isset($data['original_bill_amount']) ? $data['original_bill_amount'] : null;
+        $this->container['original_order_no'] = isset($data['original_order_no']) ? $data['original_order_no'] : null;
         $this->container['owner_customer_name'] = isset($data['owner_customer_name']) ? $data['owner_customer_name'] : null;
         $this->container['owner_id'] = isset($data['owner_id']) ? $data['owner_id'] : null;
         $this->container['owner_user_name'] = isset($data['owner_user_name']) ? $data['owner_user_name'] : null;
@@ -2102,6 +2114,30 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
     }
 
     /**
+     * Gets main_contract_number
+     *
+     * @return string
+     */
+    public function getMainContractNumber()
+    {
+        return $this->container['main_contract_number'];
+    }
+
+    /**
+     * Sets main_contract_number
+     *
+     * @param string $main_contract_number main_contract_number
+     *
+     * @return $this
+     */
+    public function setMainContractNumber($main_contract_number)
+    {
+        $this->container['main_contract_number'] = $main_contract_number;
+
+        return $this;
+    }
+
+    /**
      * Gets now_amortized_coupon_amount
      *
      * @return string
@@ -2625,6 +2661,30 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
     public function setOriginalBillAmount($original_bill_amount)
     {
         $this->container['original_bill_amount'] = $original_bill_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets original_order_no
+     *
+     * @return string
+     */
+    public function getOriginalOrderNo()
+    {
+        return $this->container['original_order_no'];
+    }
+
+    /**
+     * Sets original_order_no
+     *
+     * @param string $original_order_no original_order_no
+     *
+     * @return $this
+     */
+    public function setOriginalOrderNo($original_order_no)
+    {
+        $this->container['original_order_no'] = $original_order_no;
 
         return $this;
     }

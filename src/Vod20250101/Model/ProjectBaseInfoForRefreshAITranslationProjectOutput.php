@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Vefaas\Model;
+namespace Volcengine\Vod20250101\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ListSandboxesResponse implements ModelInterface, ArrayAccess
+class ProjectBaseInfoForRefreshAITranslationProjectOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ListSandboxesResponse';
+    protected static $swaggerModelName = 'ProjectBaseInfoForRefreshAITranslationProjectOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,8 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'sandboxes' => '\Volcengine\Vefaas\Model\SandboxForListSandboxesOutput[]',
-        'status_count' => '\Volcengine\Vefaas\Model\StatusCountForListSandboxesOutput',
-        'total' => 'int'
+        'project_id' => 'string',
+        'project_version' => 'string'
     ];
 
     /**
@@ -39,9 +38,8 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'sandboxes' => null,
-        'status_count' => null,
-        'total' => 'int32'
+        'project_id' => null,
+        'project_version' => null
     ];
 
     /**
@@ -71,9 +69,8 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'sandboxes' => 'Sandboxes',
-        'status_count' => 'StatusCount',
-        'total' => 'Total'
+        'project_id' => 'ProjectId',
+        'project_version' => 'ProjectVersion'
     ];
 
     /**
@@ -82,9 +79,8 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'sandboxes' => 'setSandboxes',
-        'status_count' => 'setStatusCount',
-        'total' => 'setTotal'
+        'project_id' => 'setProjectId',
+        'project_version' => 'setProjectVersion'
     ];
 
     /**
@@ -93,9 +89,8 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'sandboxes' => 'getSandboxes',
-        'status_count' => 'getStatusCount',
-        'total' => 'getTotal'
+        'project_id' => 'getProjectId',
+        'project_version' => 'getProjectVersion'
     ];
 
     /**
@@ -158,9 +153,8 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['sandboxes'] = isset($data['sandboxes']) ? $data['sandboxes'] : null;
-        $this->container['status_count'] = isset($data['status_count']) ? $data['status_count'] : null;
-        $this->container['total'] = isset($data['total']) ? $data['total'] : null;
+        $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
+        $this->container['project_version'] = isset($data['project_version']) ? $data['project_version'] : null;
     }
 
     /**
@@ -188,73 +182,49 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets sandboxes
+     * Gets project_id
      *
-     * @return \Volcengine\Vefaas\Model\SandboxForListSandboxesOutput[]
+     * @return string
      */
-    public function getSandboxes()
+    public function getProjectId()
     {
-        return $this->container['sandboxes'];
+        return $this->container['project_id'];
     }
 
     /**
-     * Sets sandboxes
+     * Sets project_id
      *
-     * @param \Volcengine\Vefaas\Model\SandboxForListSandboxesOutput[] $sandboxes sandboxes
+     * @param string $project_id project_id
      *
      * @return $this
      */
-    public function setSandboxes($sandboxes)
+    public function setProjectId($project_id)
     {
-        $this->container['sandboxes'] = $sandboxes;
+        $this->container['project_id'] = $project_id;
 
         return $this;
     }
 
     /**
-     * Gets status_count
+     * Gets project_version
      *
-     * @return \Volcengine\Vefaas\Model\StatusCountForListSandboxesOutput
+     * @return string
      */
-    public function getStatusCount()
+    public function getProjectVersion()
     {
-        return $this->container['status_count'];
+        return $this->container['project_version'];
     }
 
     /**
-     * Sets status_count
+     * Sets project_version
      *
-     * @param \Volcengine\Vefaas\Model\StatusCountForListSandboxesOutput $status_count status_count
+     * @param string $project_version project_version
      *
      * @return $this
      */
-    public function setStatusCount($status_count)
+    public function setProjectVersion($project_version)
     {
-        $this->container['status_count'] = $status_count;
-
-        return $this;
-    }
-
-    /**
-     * Gets total
-     *
-     * @return int
-     */
-    public function getTotal()
-    {
-        return $this->container['total'];
-    }
-
-    /**
-     * Sets total
-     *
-     * @param int $total total
-     *
-     * @return $this
-     */
-    public function setTotal($total)
-    {
-        $this->container['total'] = $total;
+        $this->container['project_version'] = $project_version;
 
         return $this;
     }

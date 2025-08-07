@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Vefaas\Model;
+namespace Volcengine\Bmq20240901\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ListSandboxesResponse implements ModelInterface, ArrayAccess
+class CreateDashboardEndpointRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ListSandboxesResponse';
+    protected static $swaggerModelName = 'CreateDashboardEndpointRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,7 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'sandboxes' => '\Volcengine\Vefaas\Model\SandboxForListSandboxesOutput[]',
-        'status_count' => '\Volcengine\Vefaas\Model\StatusCountForListSandboxesOutput',
-        'total' => 'int'
+        'instance_id' => 'string'
     ];
 
     /**
@@ -39,9 +37,7 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'sandboxes' => null,
-        'status_count' => null,
-        'total' => 'int32'
+        'instance_id' => null
     ];
 
     /**
@@ -71,9 +67,7 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'sandboxes' => 'Sandboxes',
-        'status_count' => 'StatusCount',
-        'total' => 'Total'
+        'instance_id' => 'InstanceId'
     ];
 
     /**
@@ -82,9 +76,7 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'sandboxes' => 'setSandboxes',
-        'status_count' => 'setStatusCount',
-        'total' => 'setTotal'
+        'instance_id' => 'setInstanceId'
     ];
 
     /**
@@ -93,9 +85,7 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'sandboxes' => 'getSandboxes',
-        'status_count' => 'getStatusCount',
-        'total' => 'getTotal'
+        'instance_id' => 'getInstanceId'
     ];
 
     /**
@@ -158,9 +148,7 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['sandboxes'] = isset($data['sandboxes']) ? $data['sandboxes'] : null;
-        $this->container['status_count'] = isset($data['status_count']) ? $data['status_count'] : null;
-        $this->container['total'] = isset($data['total']) ? $data['total'] : null;
+        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
     }
 
     /**
@@ -172,6 +160,9 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['instance_id'] === null) {
+            $invalidProperties[] = "'instance_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -188,73 +179,25 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets sandboxes
+     * Gets instance_id
      *
-     * @return \Volcengine\Vefaas\Model\SandboxForListSandboxesOutput[]
+     * @return string
      */
-    public function getSandboxes()
+    public function getInstanceId()
     {
-        return $this->container['sandboxes'];
+        return $this->container['instance_id'];
     }
 
     /**
-     * Sets sandboxes
+     * Sets instance_id
      *
-     * @param \Volcengine\Vefaas\Model\SandboxForListSandboxesOutput[] $sandboxes sandboxes
+     * @param string $instance_id instance_id
      *
      * @return $this
      */
-    public function setSandboxes($sandboxes)
+    public function setInstanceId($instance_id)
     {
-        $this->container['sandboxes'] = $sandboxes;
-
-        return $this;
-    }
-
-    /**
-     * Gets status_count
-     *
-     * @return \Volcengine\Vefaas\Model\StatusCountForListSandboxesOutput
-     */
-    public function getStatusCount()
-    {
-        return $this->container['status_count'];
-    }
-
-    /**
-     * Sets status_count
-     *
-     * @param \Volcengine\Vefaas\Model\StatusCountForListSandboxesOutput $status_count status_count
-     *
-     * @return $this
-     */
-    public function setStatusCount($status_count)
-    {
-        $this->container['status_count'] = $status_count;
-
-        return $this;
-    }
-
-    /**
-     * Gets total
-     *
-     * @return int
-     */
-    public function getTotal()
-    {
-        return $this->container['total'];
-    }
-
-    /**
-     * Sets total
-     *
-     * @param int $total total
-     *
-     * @return $this
-     */
-    public function setTotal($total)
-    {
-        $this->container['total'] = $total;
+        $this->container['instance_id'] = $instance_id;
 
         return $this;
     }

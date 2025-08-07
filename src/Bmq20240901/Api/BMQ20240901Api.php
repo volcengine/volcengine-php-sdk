@@ -5,7 +5,7 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Vod20250101\Api;
+namespace Volcengine\Bmq20240901\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -18,7 +18,7 @@ use Volcengine\Common\HeaderSelector;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\Utils;
 
-class VOD20250101Api
+class BMQ20240901Api
 {
     /**
      * @var ClientInterface
@@ -58,16 +58,16 @@ class VOD20250101Api
         return $this->config;
     }
 
-    public function continueAITranslationWorkflow($body)
+    public function createDashboardEndpoint($body)
     {
-        list($response) = $this->continueAITranslationWorkflowWithHttpInfo($body);
+        list($response) = $this->createDashboardEndpointWithHttpInfo($body);
         return $response;
     }
 
-    public function continueAITranslationWorkflowWithHttpInfo($body)
+    public function createDashboardEndpointWithHttpInfo($body)
     {
-        $returnType = '\Volcengine\Vod20250101\Model\ContinueAITranslationWorkflowResponse';
-        $request = $this->continueAITranslationWorkflowRequest($body);
+        $returnType = '\Volcengine\Bmq20240901\Model\CreateDashboardEndpointResponse';
+        $request = $this->createDashboardEndpointRequest($body);
 
         $options = $this->createHttpClientOption();
         try {
@@ -119,9 +119,9 @@ class VOD20250101Api
         ];
     }
 
-    public function continueAITranslationWorkflowAsync($body)
+    public function createDashboardEndpointAsync($body)
     {
-        return $this->continueAITranslationWorkflowAsyncWithHttpInfo($body)
+        return $this->createDashboardEndpointAsyncWithHttpInfo($body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -129,10 +129,10 @@ class VOD20250101Api
             );
     }
 
-    public function continueAITranslationWorkflowAsyncWithHttpInfo($body)
+    public function createDashboardEndpointAsyncWithHttpInfo($body)
     {
-        $returnType = '\Volcengine\Vod20250101\Model\ContinueAITranslationWorkflowResponse';
-        $request = $this->continueAITranslationWorkflowRequest($body);
+        $returnType = '\Volcengine\Bmq20240901\Model\CreateDashboardEndpointResponse';
+        $request = $this->createDashboardEndpointRequest($body);
         $uri = $request->getUri();
 
         return $this->client
@@ -179,16 +179,16 @@ class VOD20250101Api
             );
     }
 
-    protected function continueAITranslationWorkflowRequest($body)
+    protected function createDashboardEndpointRequest($body)
     {
         // verify the required parameter 'body' is set
         if ($body === null || (is_array($body) && count($body) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $body when calling continueAITranslationWorkflow'
+                'Missing the required parameter $body when calling createDashboardEndpoint'
             );
         }
 
-        $resourcePath = '/ContinueAITranslationWorkflow/2025-01-01/vod/post/application_json/';
+        $resourcePath = '/CreateDashboardEndpoint/2024-09-01/bmq/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -241,16 +241,16 @@ class VOD20250101Api
             $headers, $httpBody);
     }
 
-    public function getAITranslationProject($body)
+    public function deleteDashboardEndpoint($body)
     {
-        list($response) = $this->getAITranslationProjectWithHttpInfo($body);
+        list($response) = $this->deleteDashboardEndpointWithHttpInfo($body);
         return $response;
     }
 
-    public function getAITranslationProjectWithHttpInfo($body)
+    public function deleteDashboardEndpointWithHttpInfo($body)
     {
-        $returnType = '\Volcengine\Vod20250101\Model\GetAITranslationProjectResponse';
-        $request = $this->getAITranslationProjectRequest($body);
+        $returnType = '\Volcengine\Bmq20240901\Model\DeleteDashboardEndpointResponse';
+        $request = $this->deleteDashboardEndpointRequest($body);
 
         $options = $this->createHttpClientOption();
         try {
@@ -302,9 +302,9 @@ class VOD20250101Api
         ];
     }
 
-    public function getAITranslationProjectAsync($body)
+    public function deleteDashboardEndpointAsync($body)
     {
-        return $this->getAITranslationProjectAsyncWithHttpInfo($body)
+        return $this->deleteDashboardEndpointAsyncWithHttpInfo($body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -312,10 +312,10 @@ class VOD20250101Api
             );
     }
 
-    public function getAITranslationProjectAsyncWithHttpInfo($body)
+    public function deleteDashboardEndpointAsyncWithHttpInfo($body)
     {
-        $returnType = '\Volcengine\Vod20250101\Model\GetAITranslationProjectResponse';
-        $request = $this->getAITranslationProjectRequest($body);
+        $returnType = '\Volcengine\Bmq20240901\Model\DeleteDashboardEndpointResponse';
+        $request = $this->deleteDashboardEndpointRequest($body);
         $uri = $request->getUri();
 
         return $this->client
@@ -362,16 +362,16 @@ class VOD20250101Api
             );
     }
 
-    protected function getAITranslationProjectRequest($body)
+    protected function deleteDashboardEndpointRequest($body)
     {
         // verify the required parameter 'body' is set
         if ($body === null || (is_array($body) && count($body) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $body when calling getAITranslationProject'
+                'Missing the required parameter $body when calling deleteDashboardEndpoint'
             );
         }
 
-        $resourcePath = '/GetAITranslationProject/2025-01-01/vod/post/application_json/';
+        $resourcePath = '/DeleteDashboardEndpoint/2024-09-01/bmq/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -424,16 +424,16 @@ class VOD20250101Api
             $headers, $httpBody);
     }
 
-    public function getExecution($body)
+    public function describeDeviceCredential($body)
     {
-        list($response) = $this->getExecutionWithHttpInfo($body);
+        list($response) = $this->describeDeviceCredentialWithHttpInfo($body);
         return $response;
     }
 
-    public function getExecutionWithHttpInfo($body)
+    public function describeDeviceCredentialWithHttpInfo($body)
     {
-        $returnType = '\Volcengine\Vod20250101\Model\GetExecutionResponse';
-        $request = $this->getExecutionRequest($body);
+        $returnType = '\Volcengine\Bmq20240901\Model\DescribeDeviceCredentialResponse';
+        $request = $this->describeDeviceCredentialRequest($body);
 
         $options = $this->createHttpClientOption();
         try {
@@ -485,9 +485,9 @@ class VOD20250101Api
         ];
     }
 
-    public function getExecutionAsync($body)
+    public function describeDeviceCredentialAsync($body)
     {
-        return $this->getExecutionAsyncWithHttpInfo($body)
+        return $this->describeDeviceCredentialAsyncWithHttpInfo($body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -495,10 +495,10 @@ class VOD20250101Api
             );
     }
 
-    public function getExecutionAsyncWithHttpInfo($body)
+    public function describeDeviceCredentialAsyncWithHttpInfo($body)
     {
-        $returnType = '\Volcengine\Vod20250101\Model\GetExecutionResponse';
-        $request = $this->getExecutionRequest($body);
+        $returnType = '\Volcengine\Bmq20240901\Model\DescribeDeviceCredentialResponse';
+        $request = $this->describeDeviceCredentialRequest($body);
         $uri = $request->getUri();
 
         return $this->client
@@ -545,382 +545,16 @@ class VOD20250101Api
             );
     }
 
-    protected function getExecutionRequest($body)
+    protected function describeDeviceCredentialRequest($body)
     {
         // verify the required parameter 'body' is set
         if ($body === null || (is_array($body) && count($body) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $body when calling getExecution'
+                'Missing the required parameter $body when calling describeDeviceCredential'
             );
         }
 
-        $resourcePath = '/GetExecution/2025-01-01/vod/get/text_plain/';
-        $queryParams = [];
-        $httpBody = $body;
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json'],
-            ['text/plain']
-        );
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-        if ($this->config->getHost()) {
-            $defaultHeaders['Host'] = $this->config->getHost();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headers
-        );
-
-        $paths = explode("/", $resourcePath);
-        $service = $paths[3];
-        $method = strtoupper($paths[4]);
-
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
-    }
-
-    public function listAITranslationProject($body)
-    {
-        list($response) = $this->listAITranslationProjectWithHttpInfo($body);
-        return $response;
-    }
-
-    public function listAITranslationProjectWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\Vod20250101\Model\ListAITranslationProjectResponse';
-        $request = $this->listAITranslationProjectRequest($body);
-
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
-    }
-
-    public function listAITranslationProjectAsync($body)
-    {
-        return $this->listAITranslationProjectAsyncWithHttpInfo($body)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    public function listAITranslationProjectAsyncWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\Vod20250101\Model\ListAITranslationProjectResponse';
-        $request = $this->listAITranslationProjectRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    protected function listAITranslationProjectRequest($body)
-    {
-        // verify the required parameter 'body' is set
-        if ($body === null || (is_array($body) && count($body) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $body when calling listAITranslationProject'
-            );
-        }
-
-        $resourcePath = '/ListAITranslationProject/2025-01-01/vod/get/text_plain/';
-        $queryParams = [];
-        $httpBody = $body;
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json'],
-            ['text/plain']
-        );
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-        if ($this->config->getHost()) {
-            $defaultHeaders['Host'] = $this->config->getHost();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headers
-        );
-
-        $paths = explode("/", $resourcePath);
-        $service = $paths[3];
-        $method = strtoupper($paths[4]);
-
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
-    }
-
-    public function refreshAITranslationProject($body)
-    {
-        list($response) = $this->refreshAITranslationProjectWithHttpInfo($body);
-        return $response;
-    }
-
-    public function refreshAITranslationProjectWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\Vod20250101\Model\RefreshAITranslationProjectResponse';
-        $request = $this->refreshAITranslationProjectRequest($body);
-
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
-    }
-
-    public function refreshAITranslationProjectAsync($body)
-    {
-        return $this->refreshAITranslationProjectAsyncWithHttpInfo($body)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    public function refreshAITranslationProjectAsyncWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\Vod20250101\Model\RefreshAITranslationProjectResponse';
-        $request = $this->refreshAITranslationProjectRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    protected function refreshAITranslationProjectRequest($body)
-    {
-        // verify the required parameter 'body' is set
-        if ($body === null || (is_array($body) && count($body) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $body when calling refreshAITranslationProject'
-            );
-        }
-
-        $resourcePath = '/RefreshAITranslationProject/2025-01-01/vod/post/application_json/';
+        $resourcePath = '/DescribeDeviceCredential/2024-09-01/bmq/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -973,16 +607,16 @@ class VOD20250101Api
             $headers, $httpBody);
     }
 
-    public function startExecution($body)
+    public function describeMQTTClients($body)
     {
-        list($response) = $this->startExecutionWithHttpInfo($body);
+        list($response) = $this->describeMQTTClientsWithHttpInfo($body);
         return $response;
     }
 
-    public function startExecutionWithHttpInfo($body)
+    public function describeMQTTClientsWithHttpInfo($body)
     {
-        $returnType = '\Volcengine\Vod20250101\Model\StartExecutionResponse';
-        $request = $this->startExecutionRequest($body);
+        $returnType = '\Volcengine\Bmq20240901\Model\DescribeMQTTClientsResponse';
+        $request = $this->describeMQTTClientsRequest($body);
 
         $options = $this->createHttpClientOption();
         try {
@@ -1034,9 +668,9 @@ class VOD20250101Api
         ];
     }
 
-    public function startExecutionAsync($body)
+    public function describeMQTTClientsAsync($body)
     {
-        return $this->startExecutionAsyncWithHttpInfo($body)
+        return $this->describeMQTTClientsAsyncWithHttpInfo($body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1044,10 +678,10 @@ class VOD20250101Api
             );
     }
 
-    public function startExecutionAsyncWithHttpInfo($body)
+    public function describeMQTTClientsAsyncWithHttpInfo($body)
     {
-        $returnType = '\Volcengine\Vod20250101\Model\StartExecutionResponse';
-        $request = $this->startExecutionRequest($body);
+        $returnType = '\Volcengine\Bmq20240901\Model\DescribeMQTTClientsResponse';
+        $request = $this->describeMQTTClientsRequest($body);
         $uri = $request->getUri();
 
         return $this->client
@@ -1094,16 +728,16 @@ class VOD20250101Api
             );
     }
 
-    protected function startExecutionRequest($body)
+    protected function describeMQTTClientsRequest($body)
     {
         // verify the required parameter 'body' is set
         if ($body === null || (is_array($body) && count($body) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $body when calling startExecution'
+                'Missing the required parameter $body when calling describeMQTTClients'
             );
         }
 
-        $resourcePath = '/StartExecution/2025-01-01/vod/post/application_json/';
+        $resourcePath = '/DescribeMQTTClients/2024-09-01/bmq/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -1156,16 +790,16 @@ class VOD20250101Api
             $headers, $httpBody);
     }
 
-    public function submitAITranslationWorkflow($body)
+    public function refreshDeviceCredential($body)
     {
-        list($response) = $this->submitAITranslationWorkflowWithHttpInfo($body);
+        list($response) = $this->refreshDeviceCredentialWithHttpInfo($body);
         return $response;
     }
 
-    public function submitAITranslationWorkflowWithHttpInfo($body)
+    public function refreshDeviceCredentialWithHttpInfo($body)
     {
-        $returnType = '\Volcengine\Vod20250101\Model\SubmitAITranslationWorkflowResponse';
-        $request = $this->submitAITranslationWorkflowRequest($body);
+        $returnType = '\Volcengine\Bmq20240901\Model\RefreshDeviceCredentialResponse';
+        $request = $this->refreshDeviceCredentialRequest($body);
 
         $options = $this->createHttpClientOption();
         try {
@@ -1217,9 +851,9 @@ class VOD20250101Api
         ];
     }
 
-    public function submitAITranslationWorkflowAsync($body)
+    public function refreshDeviceCredentialAsync($body)
     {
-        return $this->submitAITranslationWorkflowAsyncWithHttpInfo($body)
+        return $this->refreshDeviceCredentialAsyncWithHttpInfo($body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1227,10 +861,10 @@ class VOD20250101Api
             );
     }
 
-    public function submitAITranslationWorkflowAsyncWithHttpInfo($body)
+    public function refreshDeviceCredentialAsyncWithHttpInfo($body)
     {
-        $returnType = '\Volcengine\Vod20250101\Model\SubmitAITranslationWorkflowResponse';
-        $request = $this->submitAITranslationWorkflowRequest($body);
+        $returnType = '\Volcengine\Bmq20240901\Model\RefreshDeviceCredentialResponse';
+        $request = $this->refreshDeviceCredentialRequest($body);
         $uri = $request->getUri();
 
         return $this->client
@@ -1277,16 +911,16 @@ class VOD20250101Api
             );
     }
 
-    protected function submitAITranslationWorkflowRequest($body)
+    protected function refreshDeviceCredentialRequest($body)
     {
         // verify the required parameter 'body' is set
         if ($body === null || (is_array($body) && count($body) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $body when calling submitAITranslationWorkflow'
+                'Missing the required parameter $body when calling refreshDeviceCredential'
             );
         }
 
-        $resourcePath = '/SubmitAITranslationWorkflow/2025-01-01/vod/post/application_json/';
+        $resourcePath = '/RefreshDeviceCredential/2024-09-01/bmq/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -1339,16 +973,16 @@ class VOD20250101Api
             $headers, $httpBody);
     }
 
-    public function updateAITranslationUtterances($body)
+    public function registerDeviceCredential($body)
     {
-        list($response) = $this->updateAITranslationUtterancesWithHttpInfo($body);
+        list($response) = $this->registerDeviceCredentialWithHttpInfo($body);
         return $response;
     }
 
-    public function updateAITranslationUtterancesWithHttpInfo($body)
+    public function registerDeviceCredentialWithHttpInfo($body)
     {
-        $returnType = '\Volcengine\Vod20250101\Model\UpdateAITranslationUtterancesResponse';
-        $request = $this->updateAITranslationUtterancesRequest($body);
+        $returnType = '\Volcengine\Bmq20240901\Model\RegisterDeviceCredentialResponse';
+        $request = $this->registerDeviceCredentialRequest($body);
 
         $options = $this->createHttpClientOption();
         try {
@@ -1400,9 +1034,9 @@ class VOD20250101Api
         ];
     }
 
-    public function updateAITranslationUtterancesAsync($body)
+    public function registerDeviceCredentialAsync($body)
     {
-        return $this->updateAITranslationUtterancesAsyncWithHttpInfo($body)
+        return $this->registerDeviceCredentialAsyncWithHttpInfo($body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1410,10 +1044,10 @@ class VOD20250101Api
             );
     }
 
-    public function updateAITranslationUtterancesAsyncWithHttpInfo($body)
+    public function registerDeviceCredentialAsyncWithHttpInfo($body)
     {
-        $returnType = '\Volcengine\Vod20250101\Model\UpdateAITranslationUtterancesResponse';
-        $request = $this->updateAITranslationUtterancesRequest($body);
+        $returnType = '\Volcengine\Bmq20240901\Model\RegisterDeviceCredentialResponse';
+        $request = $this->registerDeviceCredentialRequest($body);
         $uri = $request->getUri();
 
         return $this->client
@@ -1460,16 +1094,199 @@ class VOD20250101Api
             );
     }
 
-    protected function updateAITranslationUtterancesRequest($body)
+    protected function registerDeviceCredentialRequest($body)
     {
         // verify the required parameter 'body' is set
         if ($body === null || (is_array($body) && count($body) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $body when calling updateAITranslationUtterances'
+                'Missing the required parameter $body when calling registerDeviceCredential'
             );
         }
 
-        $resourcePath = '/UpdateAITranslationUtterances/2025-01-01/vod/post/application_json/';
+        $resourcePath = '/RegisterDeviceCredential/2024-09-01/bmq/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        // format request body
+        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
+            $queryParams = Utils::transRequest($httpBody);
+            $httpBody = '';
+        } else {
+            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
+        }
+
+        $queryParams['Action'] = $paths[1];
+        $queryParams['Version'] = $paths[2];
+        $resourcePath = '/';
+
+        $query = '';
+        ksort($queryParams);  // sort query first
+        foreach ($queryParams as $k => $v) {
+            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
+        }
+        $query = substr($query, 0, -1);
+
+        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
+            $httpBody, $query, $method, $resourcePath, $headers);
+
+        return new Request($method,
+            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers, $httpBody);
+    }
+
+    public function unRegisterDeviceCredential($body)
+    {
+        list($response) = $this->unRegisterDeviceCredentialWithHttpInfo($body);
+        return $response;
+    }
+
+    public function unRegisterDeviceCredentialWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Bmq20240901\Model\UnRegisterDeviceCredentialResponse';
+        $request = $this->unRegisterDeviceCredentialRequest($body);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+            );
+        }
+
+        $statusCode = $response->getStatusCode();
+
+        if ($statusCode < 200 || $statusCode > 299) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Error connecting to the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $response->getBody()
+            );
+        }
+
+        $responseContent = $response->getBody()->getContents();
+        $content = json_decode($responseContent);
+
+        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Return Error From the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $responseContent);
+        }
+        $content = $content->{'Result'};
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    public function unRegisterDeviceCredentialAsync($body)
+    {
+        return $this->unRegisterDeviceCredentialAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function unRegisterDeviceCredentialAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Bmq20240901\Model\UnRegisterDeviceCredentialResponse';
+        $request = $this->unRegisterDeviceCredentialRequest($body);
+        $uri = $request->getUri();
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($uri, $returnType) {
+                    $responseContent = $response->getBody()->getContents();
+                    $content = json_decode($responseContent);
+                    $statusCode = $response->getStatusCode();
+
+                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+                        throw new ApiException(
+                            sprintf(
+                                '[%d] Return Error From the API (%s)',
+                                $statusCode,
+                                $uri
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $responseContent);
+                    }
+                    $content = $content->{'Result'};
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    protected function unRegisterDeviceCredentialRequest($body)
+    {
+        // verify the required parameter 'body' is set
+        if ($body === null || (is_array($body) && count($body) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $body when calling unRegisterDeviceCredential'
+            );
+        }
+
+        $resourcePath = '/UnRegisterDeviceCredential/2024-09-01/bmq/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 

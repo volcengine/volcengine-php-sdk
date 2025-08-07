@@ -29,6 +29,7 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'bill_category' => 'string',
+        'bill_detail_id' => 'string',
         'bill_id' => 'string',
         'bill_period' => 'string',
         'billing_function' => 'string',
@@ -60,9 +61,11 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'factor_code' => 'string',
         'instance_name' => 'string',
         'instance_no' => 'string',
+        'main_contract_number' => 'string',
         'market_price' => 'string',
         'measure_interval' => 'string',
         'original_bill_amount' => 'string',
+        'original_order_no' => 'string',
         'owner_customer_name' => 'string',
         'owner_id' => 'string',
         'owner_user_name' => 'string',
@@ -129,6 +132,7 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'bill_category' => null,
+        'bill_detail_id' => null,
         'bill_id' => null,
         'bill_period' => null,
         'billing_function' => null,
@@ -160,9 +164,11 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'factor_code' => null,
         'instance_name' => null,
         'instance_no' => null,
+        'main_contract_number' => null,
         'market_price' => null,
         'measure_interval' => null,
         'original_bill_amount' => null,
+        'original_order_no' => null,
         'owner_customer_name' => null,
         'owner_id' => null,
         'owner_user_name' => null,
@@ -250,6 +256,7 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'bill_category' => 'BillCategory',
+        'bill_detail_id' => 'BillDetailId',
         'bill_id' => 'BillID',
         'bill_period' => 'BillPeriod',
         'billing_function' => 'BillingFunction',
@@ -281,9 +288,11 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'factor_code' => 'FactorCode',
         'instance_name' => 'InstanceName',
         'instance_no' => 'InstanceNo',
+        'main_contract_number' => 'MainContractNumber',
         'market_price' => 'MarketPrice',
         'measure_interval' => 'MeasureInterval',
         'original_bill_amount' => 'OriginalBillAmount',
+        'original_order_no' => 'OriginalOrderNo',
         'owner_customer_name' => 'OwnerCustomerName',
         'owner_id' => 'OwnerID',
         'owner_user_name' => 'OwnerUserName',
@@ -350,6 +359,7 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'bill_category' => 'setBillCategory',
+        'bill_detail_id' => 'setBillDetailId',
         'bill_id' => 'setBillId',
         'bill_period' => 'setBillPeriod',
         'billing_function' => 'setBillingFunction',
@@ -381,9 +391,11 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'factor_code' => 'setFactorCode',
         'instance_name' => 'setInstanceName',
         'instance_no' => 'setInstanceNo',
+        'main_contract_number' => 'setMainContractNumber',
         'market_price' => 'setMarketPrice',
         'measure_interval' => 'setMeasureInterval',
         'original_bill_amount' => 'setOriginalBillAmount',
+        'original_order_no' => 'setOriginalOrderNo',
         'owner_customer_name' => 'setOwnerCustomerName',
         'owner_id' => 'setOwnerId',
         'owner_user_name' => 'setOwnerUserName',
@@ -450,6 +462,7 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'bill_category' => 'getBillCategory',
+        'bill_detail_id' => 'getBillDetailId',
         'bill_id' => 'getBillId',
         'bill_period' => 'getBillPeriod',
         'billing_function' => 'getBillingFunction',
@@ -481,9 +494,11 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'factor_code' => 'getFactorCode',
         'instance_name' => 'getInstanceName',
         'instance_no' => 'getInstanceNo',
+        'main_contract_number' => 'getMainContractNumber',
         'market_price' => 'getMarketPrice',
         'measure_interval' => 'getMeasureInterval',
         'original_bill_amount' => 'getOriginalBillAmount',
+        'original_order_no' => 'getOriginalOrderNo',
         'owner_customer_name' => 'getOwnerCustomerName',
         'owner_id' => 'getOwnerId',
         'owner_user_name' => 'getOwnerUserName',
@@ -604,6 +619,7 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['bill_category'] = isset($data['bill_category']) ? $data['bill_category'] : null;
+        $this->container['bill_detail_id'] = isset($data['bill_detail_id']) ? $data['bill_detail_id'] : null;
         $this->container['bill_id'] = isset($data['bill_id']) ? $data['bill_id'] : null;
         $this->container['bill_period'] = isset($data['bill_period']) ? $data['bill_period'] : null;
         $this->container['billing_function'] = isset($data['billing_function']) ? $data['billing_function'] : null;
@@ -635,9 +651,11 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         $this->container['factor_code'] = isset($data['factor_code']) ? $data['factor_code'] : null;
         $this->container['instance_name'] = isset($data['instance_name']) ? $data['instance_name'] : null;
         $this->container['instance_no'] = isset($data['instance_no']) ? $data['instance_no'] : null;
+        $this->container['main_contract_number'] = isset($data['main_contract_number']) ? $data['main_contract_number'] : null;
         $this->container['market_price'] = isset($data['market_price']) ? $data['market_price'] : null;
         $this->container['measure_interval'] = isset($data['measure_interval']) ? $data['measure_interval'] : null;
         $this->container['original_bill_amount'] = isset($data['original_bill_amount']) ? $data['original_bill_amount'] : null;
+        $this->container['original_order_no'] = isset($data['original_order_no']) ? $data['original_order_no'] : null;
         $this->container['owner_customer_name'] = isset($data['owner_customer_name']) ? $data['owner_customer_name'] : null;
         $this->container['owner_id'] = isset($data['owner_id']) ? $data['owner_id'] : null;
         $this->container['owner_user_name'] = isset($data['owner_user_name']) ? $data['owner_user_name'] : null;
@@ -741,6 +759,30 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
     public function setBillCategory($bill_category)
     {
         $this->container['bill_category'] = $bill_category;
+
+        return $this;
+    }
+
+    /**
+     * Gets bill_detail_id
+     *
+     * @return string
+     */
+    public function getBillDetailId()
+    {
+        return $this->container['bill_detail_id'];
+    }
+
+    /**
+     * Sets bill_detail_id
+     *
+     * @param string $bill_detail_id bill_detail_id
+     *
+     * @return $this
+     */
+    public function setBillDetailId($bill_detail_id)
+    {
+        $this->container['bill_detail_id'] = $bill_detail_id;
 
         return $this;
     }
@@ -1490,6 +1532,30 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets main_contract_number
+     *
+     * @return string
+     */
+    public function getMainContractNumber()
+    {
+        return $this->container['main_contract_number'];
+    }
+
+    /**
+     * Sets main_contract_number
+     *
+     * @param string $main_contract_number main_contract_number
+     *
+     * @return $this
+     */
+    public function setMainContractNumber($main_contract_number)
+    {
+        $this->container['main_contract_number'] = $main_contract_number;
+
+        return $this;
+    }
+
+    /**
      * Gets market_price
      *
      * @return string
@@ -1557,6 +1623,30 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
     public function setOriginalBillAmount($original_bill_amount)
     {
         $this->container['original_bill_amount'] = $original_bill_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets original_order_no
+     *
+     * @return string
+     */
+    public function getOriginalOrderNo()
+    {
+        return $this->container['original_order_no'];
+    }
+
+    /**
+     * Sets original_order_no
+     *
+     * @param string $original_order_no original_order_no
+     *
+     * @return $this
+     */
+    public function setOriginalOrderNo($original_order_no)
+    {
+        $this->container['original_order_no'] = $original_order_no;
 
         return $this;
     }

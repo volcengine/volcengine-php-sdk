@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Vefaas\Model;
+namespace Volcengine\Speechsaasprod\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ListSandboxesResponse implements ModelInterface, ArrayAccess
+class EmotionForListBigModelTTSTimbresOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ListSandboxesResponse';
+    protected static $swaggerModelName = 'EmotionForListBigModelTTSTimbresOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,10 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'sandboxes' => '\Volcengine\Vefaas\Model\SandboxForListSandboxesOutput[]',
-        'status_count' => '\Volcengine\Vefaas\Model\StatusCountForListSandboxesOutput',
-        'total' => 'int'
+        'demo_text' => 'string',
+        'demo_url' => 'string',
+        'emotion' => 'string',
+        'emotion_type' => 'string'
     ];
 
     /**
@@ -39,9 +40,10 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'sandboxes' => null,
-        'status_count' => null,
-        'total' => 'int32'
+        'demo_text' => null,
+        'demo_url' => null,
+        'emotion' => null,
+        'emotion_type' => null
     ];
 
     /**
@@ -71,9 +73,10 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'sandboxes' => 'Sandboxes',
-        'status_count' => 'StatusCount',
-        'total' => 'Total'
+        'demo_text' => 'DemoText',
+        'demo_url' => 'DemoURL',
+        'emotion' => 'Emotion',
+        'emotion_type' => 'EmotionType'
     ];
 
     /**
@@ -82,9 +85,10 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'sandboxes' => 'setSandboxes',
-        'status_count' => 'setStatusCount',
-        'total' => 'setTotal'
+        'demo_text' => 'setDemoText',
+        'demo_url' => 'setDemoUrl',
+        'emotion' => 'setEmotion',
+        'emotion_type' => 'setEmotionType'
     ];
 
     /**
@@ -93,9 +97,10 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'sandboxes' => 'getSandboxes',
-        'status_count' => 'getStatusCount',
-        'total' => 'getTotal'
+        'demo_text' => 'getDemoText',
+        'demo_url' => 'getDemoUrl',
+        'emotion' => 'getEmotion',
+        'emotion_type' => 'getEmotionType'
     ];
 
     /**
@@ -158,9 +163,10 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['sandboxes'] = isset($data['sandboxes']) ? $data['sandboxes'] : null;
-        $this->container['status_count'] = isset($data['status_count']) ? $data['status_count'] : null;
-        $this->container['total'] = isset($data['total']) ? $data['total'] : null;
+        $this->container['demo_text'] = isset($data['demo_text']) ? $data['demo_text'] : null;
+        $this->container['demo_url'] = isset($data['demo_url']) ? $data['demo_url'] : null;
+        $this->container['emotion'] = isset($data['emotion']) ? $data['emotion'] : null;
+        $this->container['emotion_type'] = isset($data['emotion_type']) ? $data['emotion_type'] : null;
     }
 
     /**
@@ -188,73 +194,97 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets sandboxes
+     * Gets demo_text
      *
-     * @return \Volcengine\Vefaas\Model\SandboxForListSandboxesOutput[]
+     * @return string
      */
-    public function getSandboxes()
+    public function getDemoText()
     {
-        return $this->container['sandboxes'];
+        return $this->container['demo_text'];
     }
 
     /**
-     * Sets sandboxes
+     * Sets demo_text
      *
-     * @param \Volcengine\Vefaas\Model\SandboxForListSandboxesOutput[] $sandboxes sandboxes
+     * @param string $demo_text demo_text
      *
      * @return $this
      */
-    public function setSandboxes($sandboxes)
+    public function setDemoText($demo_text)
     {
-        $this->container['sandboxes'] = $sandboxes;
+        $this->container['demo_text'] = $demo_text;
 
         return $this;
     }
 
     /**
-     * Gets status_count
+     * Gets demo_url
      *
-     * @return \Volcengine\Vefaas\Model\StatusCountForListSandboxesOutput
+     * @return string
      */
-    public function getStatusCount()
+    public function getDemoUrl()
     {
-        return $this->container['status_count'];
+        return $this->container['demo_url'];
     }
 
     /**
-     * Sets status_count
+     * Sets demo_url
      *
-     * @param \Volcengine\Vefaas\Model\StatusCountForListSandboxesOutput $status_count status_count
+     * @param string $demo_url demo_url
      *
      * @return $this
      */
-    public function setStatusCount($status_count)
+    public function setDemoUrl($demo_url)
     {
-        $this->container['status_count'] = $status_count;
+        $this->container['demo_url'] = $demo_url;
 
         return $this;
     }
 
     /**
-     * Gets total
+     * Gets emotion
      *
-     * @return int
+     * @return string
      */
-    public function getTotal()
+    public function getEmotion()
     {
-        return $this->container['total'];
+        return $this->container['emotion'];
     }
 
     /**
-     * Sets total
+     * Sets emotion
      *
-     * @param int $total total
+     * @param string $emotion emotion
      *
      * @return $this
      */
-    public function setTotal($total)
+    public function setEmotion($emotion)
     {
-        $this->container['total'] = $total;
+        $this->container['emotion'] = $emotion;
+
+        return $this;
+    }
+
+    /**
+     * Gets emotion_type
+     *
+     * @return string
+     */
+    public function getEmotionType()
+    {
+        return $this->container['emotion_type'];
+    }
+
+    /**
+     * Sets emotion_type
+     *
+     * @param string $emotion_type emotion_type
+     *
+     * @return $this
+     */
+    public function setEmotionType($emotion_type)
+    {
+        $this->container['emotion_type'] = $emotion_type;
 
         return $this;
     }

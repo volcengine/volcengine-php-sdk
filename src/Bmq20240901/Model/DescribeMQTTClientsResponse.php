@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Vefaas\Model;
+namespace Volcengine\Bmq20240901\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ListSandboxesResponse implements ModelInterface, ArrayAccess
+class DescribeMQTTClientsResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ListSandboxesResponse';
+    protected static $swaggerModelName = 'DescribeMQTTClientsResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,10 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'sandboxes' => '\Volcengine\Vefaas\Model\SandboxForListSandboxesOutput[]',
-        'status_count' => '\Volcengine\Vefaas\Model\StatusCountForListSandboxesOutput',
+        'clients_info' => '\Volcengine\Bmq20240901\Model\ClientsInfoForDescribeMQTTClientsOutput[]',
+        'instance_id' => 'string',
+        'page_number' => 'int',
+        'page_size' => 'int',
         'total' => 'int'
     ];
 
@@ -39,8 +41,10 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'sandboxes' => null,
-        'status_count' => null,
+        'clients_info' => null,
+        'instance_id' => null,
+        'page_number' => 'int32',
+        'page_size' => 'int32',
         'total' => 'int32'
     ];
 
@@ -71,8 +75,10 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'sandboxes' => 'Sandboxes',
-        'status_count' => 'StatusCount',
+        'clients_info' => 'ClientsInfo',
+        'instance_id' => 'InstanceId',
+        'page_number' => 'PageNumber',
+        'page_size' => 'PageSize',
         'total' => 'Total'
     ];
 
@@ -82,8 +88,10 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'sandboxes' => 'setSandboxes',
-        'status_count' => 'setStatusCount',
+        'clients_info' => 'setClientsInfo',
+        'instance_id' => 'setInstanceId',
+        'page_number' => 'setPageNumber',
+        'page_size' => 'setPageSize',
         'total' => 'setTotal'
     ];
 
@@ -93,8 +101,10 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'sandboxes' => 'getSandboxes',
-        'status_count' => 'getStatusCount',
+        'clients_info' => 'getClientsInfo',
+        'instance_id' => 'getInstanceId',
+        'page_number' => 'getPageNumber',
+        'page_size' => 'getPageSize',
         'total' => 'getTotal'
     ];
 
@@ -158,8 +168,10 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['sandboxes'] = isset($data['sandboxes']) ? $data['sandboxes'] : null;
-        $this->container['status_count'] = isset($data['status_count']) ? $data['status_count'] : null;
+        $this->container['clients_info'] = isset($data['clients_info']) ? $data['clients_info'] : null;
+        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
+        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
+        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
         $this->container['total'] = isset($data['total']) ? $data['total'] : null;
     }
 
@@ -188,49 +200,97 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets sandboxes
+     * Gets clients_info
      *
-     * @return \Volcengine\Vefaas\Model\SandboxForListSandboxesOutput[]
+     * @return \Volcengine\Bmq20240901\Model\ClientsInfoForDescribeMQTTClientsOutput[]
      */
-    public function getSandboxes()
+    public function getClientsInfo()
     {
-        return $this->container['sandboxes'];
+        return $this->container['clients_info'];
     }
 
     /**
-     * Sets sandboxes
+     * Sets clients_info
      *
-     * @param \Volcengine\Vefaas\Model\SandboxForListSandboxesOutput[] $sandboxes sandboxes
+     * @param \Volcengine\Bmq20240901\Model\ClientsInfoForDescribeMQTTClientsOutput[] $clients_info clients_info
      *
      * @return $this
      */
-    public function setSandboxes($sandboxes)
+    public function setClientsInfo($clients_info)
     {
-        $this->container['sandboxes'] = $sandboxes;
+        $this->container['clients_info'] = $clients_info;
 
         return $this;
     }
 
     /**
-     * Gets status_count
+     * Gets instance_id
      *
-     * @return \Volcengine\Vefaas\Model\StatusCountForListSandboxesOutput
+     * @return string
      */
-    public function getStatusCount()
+    public function getInstanceId()
     {
-        return $this->container['status_count'];
+        return $this->container['instance_id'];
     }
 
     /**
-     * Sets status_count
+     * Sets instance_id
      *
-     * @param \Volcengine\Vefaas\Model\StatusCountForListSandboxesOutput $status_count status_count
+     * @param string $instance_id instance_id
      *
      * @return $this
      */
-    public function setStatusCount($status_count)
+    public function setInstanceId($instance_id)
     {
-        $this->container['status_count'] = $status_count;
+        $this->container['instance_id'] = $instance_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets page_number
+     *
+     * @return int
+     */
+    public function getPageNumber()
+    {
+        return $this->container['page_number'];
+    }
+
+    /**
+     * Sets page_number
+     *
+     * @param int $page_number page_number
+     *
+     * @return $this
+     */
+    public function setPageNumber($page_number)
+    {
+        $this->container['page_number'] = $page_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets page_size
+     *
+     * @return int
+     */
+    public function getPageSize()
+    {
+        return $this->container['page_size'];
+    }
+
+    /**
+     * Sets page_size
+     *
+     * @param int $page_size page_size
+     *
+     * @return $this
+     */
+    public function setPageSize($page_size)
+    {
+        $this->container['page_size'] = $page_size;
 
         return $this;
     }

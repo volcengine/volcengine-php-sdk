@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Vefaas\Model;
+namespace Volcengine\Vod20250101\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ListSandboxesResponse implements ModelInterface, ArrayAccess
+class RefreshAITranslationProjectRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ListSandboxesResponse';
+    protected static $swaggerModelName = 'RefreshAITranslationProjectRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,10 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'sandboxes' => '\Volcengine\Vefaas\Model\SandboxForListSandboxesOutput[]',
-        'status_count' => '\Volcengine\Vefaas\Model\StatusCountForListSandboxesOutput',
-        'total' => 'int'
+        'current_version' => 'string',
+        'project_id' => 'string',
+        'refresh_type' => 'string',
+        'space_name' => 'string'
     ];
 
     /**
@@ -39,9 +40,10 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'sandboxes' => null,
-        'status_count' => null,
-        'total' => 'int32'
+        'current_version' => null,
+        'project_id' => null,
+        'refresh_type' => null,
+        'space_name' => null
     ];
 
     /**
@@ -71,9 +73,10 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'sandboxes' => 'Sandboxes',
-        'status_count' => 'StatusCount',
-        'total' => 'Total'
+        'current_version' => 'CurrentVersion',
+        'project_id' => 'ProjectId',
+        'refresh_type' => 'RefreshType',
+        'space_name' => 'SpaceName'
     ];
 
     /**
@@ -82,9 +85,10 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'sandboxes' => 'setSandboxes',
-        'status_count' => 'setStatusCount',
-        'total' => 'setTotal'
+        'current_version' => 'setCurrentVersion',
+        'project_id' => 'setProjectId',
+        'refresh_type' => 'setRefreshType',
+        'space_name' => 'setSpaceName'
     ];
 
     /**
@@ -93,9 +97,10 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'sandboxes' => 'getSandboxes',
-        'status_count' => 'getStatusCount',
-        'total' => 'getTotal'
+        'current_version' => 'getCurrentVersion',
+        'project_id' => 'getProjectId',
+        'refresh_type' => 'getRefreshType',
+        'space_name' => 'getSpaceName'
     ];
 
     /**
@@ -158,9 +163,10 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['sandboxes'] = isset($data['sandboxes']) ? $data['sandboxes'] : null;
-        $this->container['status_count'] = isset($data['status_count']) ? $data['status_count'] : null;
-        $this->container['total'] = isset($data['total']) ? $data['total'] : null;
+        $this->container['current_version'] = isset($data['current_version']) ? $data['current_version'] : null;
+        $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
+        $this->container['refresh_type'] = isset($data['refresh_type']) ? $data['refresh_type'] : null;
+        $this->container['space_name'] = isset($data['space_name']) ? $data['space_name'] : null;
     }
 
     /**
@@ -172,6 +178,18 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['current_version'] === null) {
+            $invalidProperties[] = "'current_version' can't be null";
+        }
+        if ($this->container['project_id'] === null) {
+            $invalidProperties[] = "'project_id' can't be null";
+        }
+        if ($this->container['refresh_type'] === null) {
+            $invalidProperties[] = "'refresh_type' can't be null";
+        }
+        if ($this->container['space_name'] === null) {
+            $invalidProperties[] = "'space_name' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -188,73 +206,97 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets sandboxes
+     * Gets current_version
      *
-     * @return \Volcengine\Vefaas\Model\SandboxForListSandboxesOutput[]
+     * @return string
      */
-    public function getSandboxes()
+    public function getCurrentVersion()
     {
-        return $this->container['sandboxes'];
+        return $this->container['current_version'];
     }
 
     /**
-     * Sets sandboxes
+     * Sets current_version
      *
-     * @param \Volcengine\Vefaas\Model\SandboxForListSandboxesOutput[] $sandboxes sandboxes
+     * @param string $current_version current_version
      *
      * @return $this
      */
-    public function setSandboxes($sandboxes)
+    public function setCurrentVersion($current_version)
     {
-        $this->container['sandboxes'] = $sandboxes;
+        $this->container['current_version'] = $current_version;
 
         return $this;
     }
 
     /**
-     * Gets status_count
+     * Gets project_id
      *
-     * @return \Volcengine\Vefaas\Model\StatusCountForListSandboxesOutput
+     * @return string
      */
-    public function getStatusCount()
+    public function getProjectId()
     {
-        return $this->container['status_count'];
+        return $this->container['project_id'];
     }
 
     /**
-     * Sets status_count
+     * Sets project_id
      *
-     * @param \Volcengine\Vefaas\Model\StatusCountForListSandboxesOutput $status_count status_count
+     * @param string $project_id project_id
      *
      * @return $this
      */
-    public function setStatusCount($status_count)
+    public function setProjectId($project_id)
     {
-        $this->container['status_count'] = $status_count;
+        $this->container['project_id'] = $project_id;
 
         return $this;
     }
 
     /**
-     * Gets total
+     * Gets refresh_type
      *
-     * @return int
+     * @return string
      */
-    public function getTotal()
+    public function getRefreshType()
     {
-        return $this->container['total'];
+        return $this->container['refresh_type'];
     }
 
     /**
-     * Sets total
+     * Sets refresh_type
      *
-     * @param int $total total
+     * @param string $refresh_type refresh_type
      *
      * @return $this
      */
-    public function setTotal($total)
+    public function setRefreshType($refresh_type)
     {
-        $this->container['total'] = $total;
+        $this->container['refresh_type'] = $refresh_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets space_name
+     *
+     * @return string
+     */
+    public function getSpaceName()
+    {
+        return $this->container['space_name'];
+    }
+
+    /**
+     * Sets space_name
+     *
+     * @param string $space_name space_name
+     *
+     * @return $this
+     */
+    public function setSpaceName($space_name)
+    {
+        $this->container['space_name'] = $space_name;
 
         return $this;
     }

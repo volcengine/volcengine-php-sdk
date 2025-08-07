@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Vefaas\Model;
+namespace Volcengine\Speechsaasprod\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ListSandboxesResponse implements ModelInterface, ArrayAccess
+class TimbreInfoForListBigModelTTSTimbresOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ListSandboxesResponse';
+    protected static $swaggerModelName = 'TimbreInfoForListBigModelTTSTimbresOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,11 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'sandboxes' => '\Volcengine\Vefaas\Model\SandboxForListSandboxesOutput[]',
-        'status_count' => '\Volcengine\Vefaas\Model\StatusCountForListSandboxesOutput',
-        'total' => 'int'
+        'age' => 'string',
+        'categories' => '\Volcengine\Speechsaasprod\Model\CategoryForListBigModelTTSTimbresOutput[]',
+        'emotions' => '\Volcengine\Speechsaasprod\Model\EmotionForListBigModelTTSTimbresOutput[]',
+        'gender' => 'string',
+        'speaker_name' => 'string'
     ];
 
     /**
@@ -39,9 +41,11 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'sandboxes' => null,
-        'status_count' => null,
-        'total' => 'int32'
+        'age' => null,
+        'categories' => null,
+        'emotions' => null,
+        'gender' => null,
+        'speaker_name' => null
     ];
 
     /**
@@ -71,9 +75,11 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'sandboxes' => 'Sandboxes',
-        'status_count' => 'StatusCount',
-        'total' => 'Total'
+        'age' => 'Age',
+        'categories' => 'Categories',
+        'emotions' => 'Emotions',
+        'gender' => 'Gender',
+        'speaker_name' => 'SpeakerName'
     ];
 
     /**
@@ -82,9 +88,11 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'sandboxes' => 'setSandboxes',
-        'status_count' => 'setStatusCount',
-        'total' => 'setTotal'
+        'age' => 'setAge',
+        'categories' => 'setCategories',
+        'emotions' => 'setEmotions',
+        'gender' => 'setGender',
+        'speaker_name' => 'setSpeakerName'
     ];
 
     /**
@@ -93,9 +101,11 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'sandboxes' => 'getSandboxes',
-        'status_count' => 'getStatusCount',
-        'total' => 'getTotal'
+        'age' => 'getAge',
+        'categories' => 'getCategories',
+        'emotions' => 'getEmotions',
+        'gender' => 'getGender',
+        'speaker_name' => 'getSpeakerName'
     ];
 
     /**
@@ -158,9 +168,11 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['sandboxes'] = isset($data['sandboxes']) ? $data['sandboxes'] : null;
-        $this->container['status_count'] = isset($data['status_count']) ? $data['status_count'] : null;
-        $this->container['total'] = isset($data['total']) ? $data['total'] : null;
+        $this->container['age'] = isset($data['age']) ? $data['age'] : null;
+        $this->container['categories'] = isset($data['categories']) ? $data['categories'] : null;
+        $this->container['emotions'] = isset($data['emotions']) ? $data['emotions'] : null;
+        $this->container['gender'] = isset($data['gender']) ? $data['gender'] : null;
+        $this->container['speaker_name'] = isset($data['speaker_name']) ? $data['speaker_name'] : null;
     }
 
     /**
@@ -188,73 +200,121 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets sandboxes
+     * Gets age
      *
-     * @return \Volcengine\Vefaas\Model\SandboxForListSandboxesOutput[]
+     * @return string
      */
-    public function getSandboxes()
+    public function getAge()
     {
-        return $this->container['sandboxes'];
+        return $this->container['age'];
     }
 
     /**
-     * Sets sandboxes
+     * Sets age
      *
-     * @param \Volcengine\Vefaas\Model\SandboxForListSandboxesOutput[] $sandboxes sandboxes
+     * @param string $age age
      *
      * @return $this
      */
-    public function setSandboxes($sandboxes)
+    public function setAge($age)
     {
-        $this->container['sandboxes'] = $sandboxes;
+        $this->container['age'] = $age;
 
         return $this;
     }
 
     /**
-     * Gets status_count
+     * Gets categories
      *
-     * @return \Volcengine\Vefaas\Model\StatusCountForListSandboxesOutput
+     * @return \Volcengine\Speechsaasprod\Model\CategoryForListBigModelTTSTimbresOutput[]
      */
-    public function getStatusCount()
+    public function getCategories()
     {
-        return $this->container['status_count'];
+        return $this->container['categories'];
     }
 
     /**
-     * Sets status_count
+     * Sets categories
      *
-     * @param \Volcengine\Vefaas\Model\StatusCountForListSandboxesOutput $status_count status_count
+     * @param \Volcengine\Speechsaasprod\Model\CategoryForListBigModelTTSTimbresOutput[] $categories categories
      *
      * @return $this
      */
-    public function setStatusCount($status_count)
+    public function setCategories($categories)
     {
-        $this->container['status_count'] = $status_count;
+        $this->container['categories'] = $categories;
 
         return $this;
     }
 
     /**
-     * Gets total
+     * Gets emotions
      *
-     * @return int
+     * @return \Volcengine\Speechsaasprod\Model\EmotionForListBigModelTTSTimbresOutput[]
      */
-    public function getTotal()
+    public function getEmotions()
     {
-        return $this->container['total'];
+        return $this->container['emotions'];
     }
 
     /**
-     * Sets total
+     * Sets emotions
      *
-     * @param int $total total
+     * @param \Volcengine\Speechsaasprod\Model\EmotionForListBigModelTTSTimbresOutput[] $emotions emotions
      *
      * @return $this
      */
-    public function setTotal($total)
+    public function setEmotions($emotions)
     {
-        $this->container['total'] = $total;
+        $this->container['emotions'] = $emotions;
+
+        return $this;
+    }
+
+    /**
+     * Gets gender
+     *
+     * @return string
+     */
+    public function getGender()
+    {
+        return $this->container['gender'];
+    }
+
+    /**
+     * Sets gender
+     *
+     * @param string $gender gender
+     *
+     * @return $this
+     */
+    public function setGender($gender)
+    {
+        $this->container['gender'] = $gender;
+
+        return $this;
+    }
+
+    /**
+     * Gets speaker_name
+     *
+     * @return string
+     */
+    public function getSpeakerName()
+    {
+        return $this->container['speaker_name'];
+    }
+
+    /**
+     * Sets speaker_name
+     *
+     * @param string $speaker_name speaker_name
+     *
+     * @return $this
+     */
+    public function setSpeakerName($speaker_name)
+    {
+        $this->container['speaker_name'] = $speaker_name;
 
         return $this;
     }
