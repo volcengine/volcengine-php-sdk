@@ -172,12 +172,6 @@ class ListOrderProductDetailsRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['max_results'] === null) {
-            $invalidProperties[] = "'max_results' can't be null";
-        }
-        if ($this->container['next_token'] === null) {
-            $invalidProperties[] = "'next_token' can't be null";
-        }
         if ($this->container['order_id'] === null) {
             $invalidProperties[] = "'order_id' can't be null";
         }

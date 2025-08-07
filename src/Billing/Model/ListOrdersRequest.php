@@ -190,24 +190,6 @@ class ListOrdersRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['create_time_end'] === null) {
-            $invalidProperties[] = "'create_time_end' can't be null";
-        }
-        if ($this->container['create_time_start'] === null) {
-            $invalidProperties[] = "'create_time_start' can't be null";
-        }
-        if ($this->container['max_results'] === null) {
-            $invalidProperties[] = "'max_results' can't be null";
-        }
-        if ($this->container['next_token'] === null) {
-            $invalidProperties[] = "'next_token' can't be null";
-        }
-        if ($this->container['order_type'] === null) {
-            $invalidProperties[] = "'order_type' can't be null";
-        }
-        if ($this->container['status'] === null) {
-            $invalidProperties[] = "'status' can't be null";
-        }
         return $invalidProperties;
     }
 

@@ -66,9 +66,11 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         'formula' => 'string',
         'instance_name' => 'string',
         'instance_no' => 'string',
+        'main_contract_number' => 'string',
         'market_price' => 'string',
         'measure_interval' => 'string',
         'original_bill_amount' => 'string',
+        'original_order_no' => 'string',
         'owner_customer_name' => 'string',
         'owner_id' => 'string',
         'owner_user_name' => 'string',
@@ -167,9 +169,11 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         'formula' => null,
         'instance_name' => null,
         'instance_no' => null,
+        'main_contract_number' => null,
         'market_price' => null,
         'measure_interval' => null,
         'original_bill_amount' => null,
+        'original_order_no' => null,
         'owner_customer_name' => null,
         'owner_id' => null,
         'owner_user_name' => null,
@@ -289,9 +293,11 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         'formula' => 'Formula',
         'instance_name' => 'InstanceName',
         'instance_no' => 'InstanceNo',
+        'main_contract_number' => 'MainContractNumber',
         'market_price' => 'MarketPrice',
         'measure_interval' => 'MeasureInterval',
         'original_bill_amount' => 'OriginalBillAmount',
+        'original_order_no' => 'OriginalOrderNo',
         'owner_customer_name' => 'OwnerCustomerName',
         'owner_id' => 'OwnerID',
         'owner_user_name' => 'OwnerUserName',
@@ -390,9 +396,11 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         'formula' => 'setFormula',
         'instance_name' => 'setInstanceName',
         'instance_no' => 'setInstanceNo',
+        'main_contract_number' => 'setMainContractNumber',
         'market_price' => 'setMarketPrice',
         'measure_interval' => 'setMeasureInterval',
         'original_bill_amount' => 'setOriginalBillAmount',
+        'original_order_no' => 'setOriginalOrderNo',
         'owner_customer_name' => 'setOwnerCustomerName',
         'owner_id' => 'setOwnerId',
         'owner_user_name' => 'setOwnerUserName',
@@ -491,9 +499,11 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         'formula' => 'getFormula',
         'instance_name' => 'getInstanceName',
         'instance_no' => 'getInstanceNo',
+        'main_contract_number' => 'getMainContractNumber',
         'market_price' => 'getMarketPrice',
         'measure_interval' => 'getMeasureInterval',
         'original_bill_amount' => 'getOriginalBillAmount',
+        'original_order_no' => 'getOriginalOrderNo',
         'owner_customer_name' => 'getOwnerCustomerName',
         'owner_id' => 'getOwnerId',
         'owner_user_name' => 'getOwnerUserName',
@@ -646,9 +656,11 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         $this->container['formula'] = isset($data['formula']) ? $data['formula'] : null;
         $this->container['instance_name'] = isset($data['instance_name']) ? $data['instance_name'] : null;
         $this->container['instance_no'] = isset($data['instance_no']) ? $data['instance_no'] : null;
+        $this->container['main_contract_number'] = isset($data['main_contract_number']) ? $data['main_contract_number'] : null;
         $this->container['market_price'] = isset($data['market_price']) ? $data['market_price'] : null;
         $this->container['measure_interval'] = isset($data['measure_interval']) ? $data['measure_interval'] : null;
         $this->container['original_bill_amount'] = isset($data['original_bill_amount']) ? $data['original_bill_amount'] : null;
+        $this->container['original_order_no'] = isset($data['original_order_no']) ? $data['original_order_no'] : null;
         $this->container['owner_customer_name'] = isset($data['owner_customer_name']) ? $data['owner_customer_name'] : null;
         $this->container['owner_id'] = isset($data['owner_id']) ? $data['owner_id'] : null;
         $this->container['owner_user_name'] = isset($data['owner_user_name']) ? $data['owner_user_name'] : null;
@@ -1640,6 +1652,30 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets main_contract_number
+     *
+     * @return string
+     */
+    public function getMainContractNumber()
+    {
+        return $this->container['main_contract_number'];
+    }
+
+    /**
+     * Sets main_contract_number
+     *
+     * @param string $main_contract_number main_contract_number
+     *
+     * @return $this
+     */
+    public function setMainContractNumber($main_contract_number)
+    {
+        $this->container['main_contract_number'] = $main_contract_number;
+
+        return $this;
+    }
+
+    /**
      * Gets market_price
      *
      * @return string
@@ -1707,6 +1743,30 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
     public function setOriginalBillAmount($original_bill_amount)
     {
         $this->container['original_bill_amount'] = $original_bill_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets original_order_no
+     *
+     * @return string
+     */
+    public function getOriginalOrderNo()
+    {
+        return $this->container['original_order_no'];
+    }
+
+    /**
+     * Sets original_order_no
+     *
+     * @param string $original_order_no original_order_no
+     *
+     * @return $this
+     */
+    public function setOriginalOrderNo($original_order_no)
+    {
+        $this->container['original_order_no'] = $original_order_no;
 
         return $this;
     }
