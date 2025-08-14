@@ -31,7 +31,7 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
         'envs' => '\Volcengine\Vefaas\Model\EnvForCreateSandboxInput[]',
         'function_id' => 'string',
         'instance_tos_mount_config' => '\Volcengine\Vefaas\Model\InstanceTosMountConfigForCreateSandboxInput',
-        'metadata' => '\Volcengine\Vefaas\Model\MetadataForCreateSandboxInput',
+        'metadata' => 'map[string,string]',
         'timeout' => 'int'
     ];
 
@@ -277,7 +277,7 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
     /**
      * Gets metadata
      *
-     * @return \Volcengine\Vefaas\Model\MetadataForCreateSandboxInput
+     * @return map[string,string]
      */
     public function getMetadata()
     {
@@ -287,7 +287,7 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
     /**
      * Sets metadata
      *
-     * @param \Volcengine\Vefaas\Model\MetadataForCreateSandboxInput $metadata metadata
+     * @param map[string,string] $metadata metadata
      *
      * @return $this
      */

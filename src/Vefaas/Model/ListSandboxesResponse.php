@@ -29,7 +29,7 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'sandboxes' => '\Volcengine\Vefaas\Model\SandboxForListSandboxesOutput[]',
-        'status_count' => '\Volcengine\Vefaas\Model\StatusCountForListSandboxesOutput',
+        'status_count' => 'map[string,int]',
         'total' => 'int'
     ];
 
@@ -40,7 +40,7 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'sandboxes' => null,
-        'status_count' => null,
+        'status_count' => 'int32',
         'total' => 'int32'
     ];
 
@@ -214,7 +214,7 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
     /**
      * Gets status_count
      *
-     * @return \Volcengine\Vefaas\Model\StatusCountForListSandboxesOutput
+     * @return map[string,int]
      */
     public function getStatusCount()
     {
@@ -224,7 +224,7 @@ class ListSandboxesResponse implements ModelInterface, ArrayAccess
     /**
      * Sets status_count
      *
-     * @param \Volcengine\Vefaas\Model\StatusCountForListSandboxesOutput $status_count status_count
+     * @param map[string,int] $status_count status_count
      *
      * @return $this
      */

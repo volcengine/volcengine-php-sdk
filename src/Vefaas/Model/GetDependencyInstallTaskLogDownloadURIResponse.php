@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class MetadataForListSandboxesOutput implements ModelInterface, ArrayAccess
+class GetDependencyInstallTaskLogDownloadURIResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class MetadataForListSandboxesOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'MetadataForListSandboxesOutput';
+    protected static $swaggerModelName = 'GetDependencyInstallTaskLogDownloadURIResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,8 @@ class MetadataForListSandboxesOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'download_url' => 'string',
+        'function_id' => 'string'
     ];
 
     /**
@@ -37,7 +38,8 @@ class MetadataForListSandboxesOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'download_url' => null,
+        'function_id' => null
     ];
 
     /**
@@ -67,7 +69,8 @@ class MetadataForListSandboxesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'download_url' => 'DownloadURL',
+        'function_id' => 'FunctionId'
     ];
 
     /**
@@ -76,7 +79,8 @@ class MetadataForListSandboxesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        
+        'download_url' => 'setDownloadUrl',
+        'function_id' => 'setFunctionId'
     ];
 
     /**
@@ -85,7 +89,8 @@ class MetadataForListSandboxesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        
+        'download_url' => 'getDownloadUrl',
+        'function_id' => 'getFunctionId'
     ];
 
     /**
@@ -148,6 +153,8 @@ class MetadataForListSandboxesOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['download_url'] = isset($data['download_url']) ? $data['download_url'] : null;
+        $this->container['function_id'] = isset($data['function_id']) ? $data['function_id'] : null;
     }
 
     /**
@@ -173,6 +180,54 @@ class MetadataForListSandboxesOutput implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets download_url
+     *
+     * @return string
+     */
+    public function getDownloadUrl()
+    {
+        return $this->container['download_url'];
+    }
+
+    /**
+     * Sets download_url
+     *
+     * @param string $download_url download_url
+     *
+     * @return $this
+     */
+    public function setDownloadUrl($download_url)
+    {
+        $this->container['download_url'] = $download_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets function_id
+     *
+     * @return string
+     */
+    public function getFunctionId()
+    {
+        return $this->container['function_id'];
+    }
+
+    /**
+     * Sets function_id
+     *
+     * @param string $function_id function_id
+     *
+     * @return $this
+     */
+    public function setFunctionId($function_id)
+    {
+        $this->container['function_id'] = $function_id;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class MetadataForCreateSandboxInput implements ModelInterface, ArrayAccess
+class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class MetadataForCreateSandboxInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'MetadataForCreateSandboxInput';
+    protected static $swaggerModelName = 'GetDependencyInstallTaskStatusResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
