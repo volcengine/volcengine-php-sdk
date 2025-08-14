@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Vefaas\Model;
+namespace Volcengine\Graph20250815\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ListSandboxesRequest implements ModelInterface, ArrayAccess
+class GetGraphTableSchemaResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ListSandboxesRequest';
+    protected static $swaggerModelName = 'GetGraphTableSchemaResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,11 +28,7 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'function_id' => 'string',
-        'metadata' => 'map[string,string]',
-        'page_number' => 'int',
-        'page_size' => 'int',
-        'sandbox_id' => 'string'
+        'table_schema' => '\Volcengine\Graph20250815\Model\TableSchemaForGetGraphTableSchemaOutput'
     ];
 
     /**
@@ -41,11 +37,7 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'function_id' => null,
-        'metadata' => null,
-        'page_number' => 'int32',
-        'page_size' => 'int32',
-        'sandbox_id' => null
+        'table_schema' => null
     ];
 
     /**
@@ -75,11 +67,7 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'function_id' => 'FunctionId',
-        'metadata' => 'Metadata',
-        'page_number' => 'PageNumber',
-        'page_size' => 'PageSize',
-        'sandbox_id' => 'SandboxId'
+        'table_schema' => 'TableSchema'
     ];
 
     /**
@@ -88,11 +76,7 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'function_id' => 'setFunctionId',
-        'metadata' => 'setMetadata',
-        'page_number' => 'setPageNumber',
-        'page_size' => 'setPageSize',
-        'sandbox_id' => 'setSandboxId'
+        'table_schema' => 'setTableSchema'
     ];
 
     /**
@@ -101,11 +85,7 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'function_id' => 'getFunctionId',
-        'metadata' => 'getMetadata',
-        'page_number' => 'getPageNumber',
-        'page_size' => 'getPageSize',
-        'sandbox_id' => 'getSandboxId'
+        'table_schema' => 'getTableSchema'
     ];
 
     /**
@@ -168,11 +148,7 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['function_id'] = isset($data['function_id']) ? $data['function_id'] : null;
-        $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
-        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
-        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
-        $this->container['sandbox_id'] = isset($data['sandbox_id']) ? $data['sandbox_id'] : null;
+        $this->container['table_schema'] = isset($data['table_schema']) ? $data['table_schema'] : null;
     }
 
     /**
@@ -184,9 +160,6 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['function_id'] === null) {
-            $invalidProperties[] = "'function_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -203,121 +176,25 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets function_id
+     * Gets table_schema
      *
-     * @return string
+     * @return \Volcengine\Graph20250815\Model\TableSchemaForGetGraphTableSchemaOutput
      */
-    public function getFunctionId()
+    public function getTableSchema()
     {
-        return $this->container['function_id'];
+        return $this->container['table_schema'];
     }
 
     /**
-     * Sets function_id
+     * Sets table_schema
      *
-     * @param string $function_id function_id
+     * @param \Volcengine\Graph20250815\Model\TableSchemaForGetGraphTableSchemaOutput $table_schema table_schema
      *
      * @return $this
      */
-    public function setFunctionId($function_id)
+    public function setTableSchema($table_schema)
     {
-        $this->container['function_id'] = $function_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets metadata
-     *
-     * @return map[string,string]
-     */
-    public function getMetadata()
-    {
-        return $this->container['metadata'];
-    }
-
-    /**
-     * Sets metadata
-     *
-     * @param map[string,string] $metadata metadata
-     *
-     * @return $this
-     */
-    public function setMetadata($metadata)
-    {
-        $this->container['metadata'] = $metadata;
-
-        return $this;
-    }
-
-    /**
-     * Gets page_number
-     *
-     * @return int
-     */
-    public function getPageNumber()
-    {
-        return $this->container['page_number'];
-    }
-
-    /**
-     * Sets page_number
-     *
-     * @param int $page_number page_number
-     *
-     * @return $this
-     */
-    public function setPageNumber($page_number)
-    {
-        $this->container['page_number'] = $page_number;
-
-        return $this;
-    }
-
-    /**
-     * Gets page_size
-     *
-     * @return int
-     */
-    public function getPageSize()
-    {
-        return $this->container['page_size'];
-    }
-
-    /**
-     * Sets page_size
-     *
-     * @param int $page_size page_size
-     *
-     * @return $this
-     */
-    public function setPageSize($page_size)
-    {
-        $this->container['page_size'] = $page_size;
-
-        return $this;
-    }
-
-    /**
-     * Gets sandbox_id
-     *
-     * @return string
-     */
-    public function getSandboxId()
-    {
-        return $this->container['sandbox_id'];
-    }
-
-    /**
-     * Sets sandbox_id
-     *
-     * @param string $sandbox_id sandbox_id
-     *
-     * @return $this
-     */
-    public function setSandboxId($sandbox_id)
-    {
-        $this->container['sandbox_id'] = $sandbox_id;
+        $this->container['table_schema'] = $table_schema;
 
         return $this;
     }

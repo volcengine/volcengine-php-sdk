@@ -36,7 +36,7 @@ class SandboxForListSandboxesOutput implements ModelInterface, ArrayAccess
         'function_id' => 'string',
         'id' => 'string',
         'instance_type' => 'string',
-        'metadata' => '\Volcengine\Vefaas\Model\MetadataForListSandboxesOutput',
+        'metadata' => 'map[string,string]',
         'pending' => 'bool',
         'revision_number' => 'int',
         'status' => 'string'
@@ -436,7 +436,7 @@ class SandboxForListSandboxesOutput implements ModelInterface, ArrayAccess
     /**
      * Gets metadata
      *
-     * @return \Volcengine\Vefaas\Model\MetadataForListSandboxesOutput
+     * @return map[string,string]
      */
     public function getMetadata()
     {
@@ -446,7 +446,7 @@ class SandboxForListSandboxesOutput implements ModelInterface, ArrayAccess
     /**
      * Sets metadata
      *
-     * @param \Volcengine\Vefaas\Model\MetadataForListSandboxesOutput $metadata metadata
+     * @param map[string,string] $metadata metadata
      *
      * @return $this
      */

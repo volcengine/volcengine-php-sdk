@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class MetadataForListSandboxesInput implements ModelInterface, ArrayAccess
+class CreateDependencyInstallTaskRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class MetadataForListSandboxesInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'MetadataForListSandboxesInput';
+    protected static $swaggerModelName = 'CreateDependencyInstallTaskRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,7 @@ class MetadataForListSandboxesInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'function_id' => 'string'
     ];
 
     /**
@@ -37,7 +37,7 @@ class MetadataForListSandboxesInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'function_id' => null
     ];
 
     /**
@@ -67,7 +67,7 @@ class MetadataForListSandboxesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'function_id' => 'FunctionId'
     ];
 
     /**
@@ -76,7 +76,7 @@ class MetadataForListSandboxesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        
+        'function_id' => 'setFunctionId'
     ];
 
     /**
@@ -85,7 +85,7 @@ class MetadataForListSandboxesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        
+        'function_id' => 'getFunctionId'
     ];
 
     /**
@@ -148,6 +148,7 @@ class MetadataForListSandboxesInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['function_id'] = isset($data['function_id']) ? $data['function_id'] : null;
     }
 
     /**
@@ -159,6 +160,9 @@ class MetadataForListSandboxesInput implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['function_id'] === null) {
+            $invalidProperties[] = "'function_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -173,6 +177,30 @@ class MetadataForListSandboxesInput implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets function_id
+     *
+     * @return string
+     */
+    public function getFunctionId()
+    {
+        return $this->container['function_id'];
+    }
+
+    /**
+     * Sets function_id
+     *
+     * @param string $function_id function_id
+     *
+     * @return $this
+     */
+    public function setFunctionId($function_id)
+    {
+        $this->container['function_id'] = $function_id;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

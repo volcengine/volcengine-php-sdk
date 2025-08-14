@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Vefaas\Model;
+namespace Volcengine\Graph20250815\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class MetadataForListSandboxesOutput implements ModelInterface, ArrayAccess
+class SecondaryIndexForGetGraphTableSchemaOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class MetadataForListSandboxesOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'MetadataForListSandboxesOutput';
+    protected static $swaggerModelName = 'SecondaryIndexForGetGraphTableSchemaOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,7 @@ class MetadataForListSandboxesOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'column_names' => 'string[]'
     ];
 
     /**
@@ -37,7 +37,7 @@ class MetadataForListSandboxesOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'column_names' => null
     ];
 
     /**
@@ -67,7 +67,7 @@ class MetadataForListSandboxesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'column_names' => 'ColumnNames'
     ];
 
     /**
@@ -76,7 +76,7 @@ class MetadataForListSandboxesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        
+        'column_names' => 'setColumnNames'
     ];
 
     /**
@@ -85,7 +85,7 @@ class MetadataForListSandboxesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        
+        'column_names' => 'getColumnNames'
     ];
 
     /**
@@ -148,6 +148,7 @@ class MetadataForListSandboxesOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['column_names'] = isset($data['column_names']) ? $data['column_names'] : null;
     }
 
     /**
@@ -173,6 +174,30 @@ class MetadataForListSandboxesOutput implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets column_names
+     *
+     * @return string[]
+     */
+    public function getColumnNames()
+    {
+        return $this->container['column_names'];
+    }
+
+    /**
+     * Sets column_names
+     *
+     * @param string[] $column_names column_names
+     *
+     * @return $this
+     */
+    public function setColumnNames($column_names)
+    {
+        $this->container['column_names'] = $column_names;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

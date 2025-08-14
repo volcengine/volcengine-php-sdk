@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Vefaas\Model;
+namespace Volcengine\Billing\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ListSandboxesRequest implements ModelInterface, ArrayAccess
+class ListCouponUsageRecordsRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ListSandboxesRequest';
+    protected static $swaggerModelName = 'ListCouponUsageRecordsRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,11 +28,9 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'function_id' => 'string',
-        'metadata' => 'map[string,string]',
-        'page_number' => 'int',
-        'page_size' => 'int',
-        'sandbox_id' => 'string'
+        'coupon_id' => 'string',
+        'limit' => 'int',
+        'offset' => 'int'
     ];
 
     /**
@@ -41,11 +39,9 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'function_id' => null,
-        'metadata' => null,
-        'page_number' => 'int32',
-        'page_size' => 'int32',
-        'sandbox_id' => null
+        'coupon_id' => null,
+        'limit' => 'int32',
+        'offset' => 'int32'
     ];
 
     /**
@@ -75,11 +71,9 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'function_id' => 'FunctionId',
-        'metadata' => 'Metadata',
-        'page_number' => 'PageNumber',
-        'page_size' => 'PageSize',
-        'sandbox_id' => 'SandboxId'
+        'coupon_id' => 'CouponID',
+        'limit' => 'Limit',
+        'offset' => 'Offset'
     ];
 
     /**
@@ -88,11 +82,9 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'function_id' => 'setFunctionId',
-        'metadata' => 'setMetadata',
-        'page_number' => 'setPageNumber',
-        'page_size' => 'setPageSize',
-        'sandbox_id' => 'setSandboxId'
+        'coupon_id' => 'setCouponId',
+        'limit' => 'setLimit',
+        'offset' => 'setOffset'
     ];
 
     /**
@@ -101,11 +93,9 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'function_id' => 'getFunctionId',
-        'metadata' => 'getMetadata',
-        'page_number' => 'getPageNumber',
-        'page_size' => 'getPageSize',
-        'sandbox_id' => 'getSandboxId'
+        'coupon_id' => 'getCouponId',
+        'limit' => 'getLimit',
+        'offset' => 'getOffset'
     ];
 
     /**
@@ -168,11 +158,9 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['function_id'] = isset($data['function_id']) ? $data['function_id'] : null;
-        $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
-        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
-        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
-        $this->container['sandbox_id'] = isset($data['sandbox_id']) ? $data['sandbox_id'] : null;
+        $this->container['coupon_id'] = isset($data['coupon_id']) ? $data['coupon_id'] : null;
+        $this->container['limit'] = isset($data['limit']) ? $data['limit'] : null;
+        $this->container['offset'] = isset($data['offset']) ? $data['offset'] : null;
     }
 
     /**
@@ -184,8 +172,8 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['function_id'] === null) {
-            $invalidProperties[] = "'function_id' can't be null";
+        if ($this->container['coupon_id'] === null) {
+            $invalidProperties[] = "'coupon_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -203,121 +191,73 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets function_id
+     * Gets coupon_id
      *
      * @return string
      */
-    public function getFunctionId()
+    public function getCouponId()
     {
-        return $this->container['function_id'];
+        return $this->container['coupon_id'];
     }
 
     /**
-     * Sets function_id
+     * Sets coupon_id
      *
-     * @param string $function_id function_id
+     * @param string $coupon_id coupon_id
      *
      * @return $this
      */
-    public function setFunctionId($function_id)
+    public function setCouponId($coupon_id)
     {
-        $this->container['function_id'] = $function_id;
+        $this->container['coupon_id'] = $coupon_id;
 
         return $this;
     }
 
     /**
-     * Gets metadata
-     *
-     * @return map[string,string]
-     */
-    public function getMetadata()
-    {
-        return $this->container['metadata'];
-    }
-
-    /**
-     * Sets metadata
-     *
-     * @param map[string,string] $metadata metadata
-     *
-     * @return $this
-     */
-    public function setMetadata($metadata)
-    {
-        $this->container['metadata'] = $metadata;
-
-        return $this;
-    }
-
-    /**
-     * Gets page_number
+     * Gets limit
      *
      * @return int
      */
-    public function getPageNumber()
+    public function getLimit()
     {
-        return $this->container['page_number'];
+        return $this->container['limit'];
     }
 
     /**
-     * Sets page_number
+     * Sets limit
      *
-     * @param int $page_number page_number
+     * @param int $limit limit
      *
      * @return $this
      */
-    public function setPageNumber($page_number)
+    public function setLimit($limit)
     {
-        $this->container['page_number'] = $page_number;
+        $this->container['limit'] = $limit;
 
         return $this;
     }
 
     /**
-     * Gets page_size
+     * Gets offset
      *
      * @return int
      */
-    public function getPageSize()
+    public function getOffset()
     {
-        return $this->container['page_size'];
+        return $this->container['offset'];
     }
 
     /**
-     * Sets page_size
+     * Sets offset
      *
-     * @param int $page_size page_size
+     * @param int $offset offset
      *
      * @return $this
      */
-    public function setPageSize($page_size)
+    public function setOffset($offset)
     {
-        $this->container['page_size'] = $page_size;
-
-        return $this;
-    }
-
-    /**
-     * Gets sandbox_id
-     *
-     * @return string
-     */
-    public function getSandboxId()
-    {
-        return $this->container['sandbox_id'];
-    }
-
-    /**
-     * Sets sandbox_id
-     *
-     * @param string $sandbox_id sandbox_id
-     *
-     * @return $this
-     */
-    public function setSandboxId($sandbox_id)
-    {
-        $this->container['sandbox_id'] = $sandbox_id;
+        $this->container['offset'] = $offset;
 
         return $this;
     }

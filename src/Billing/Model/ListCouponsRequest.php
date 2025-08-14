@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Vefaas\Model;
+namespace Volcengine\Billing\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ListSandboxesRequest implements ModelInterface, ArrayAccess
+class ListCouponsRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ListSandboxesRequest';
+    protected static $swaggerModelName = 'ListCouponsRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,11 +28,13 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'function_id' => 'string',
-        'metadata' => 'map[string,string]',
-        'page_number' => 'int',
-        'page_size' => 'int',
-        'sandbox_id' => 'string'
+        'coupon_id' => 'string',
+        'limit' => 'int',
+        'offset' => 'int',
+        'product_code' => 'string',
+        'status' => 'string',
+        'valid_begin_time' => 'string',
+        'valid_end_time' => 'string'
     ];
 
     /**
@@ -41,11 +43,13 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'function_id' => null,
-        'metadata' => null,
-        'page_number' => 'int32',
-        'page_size' => 'int32',
-        'sandbox_id' => null
+        'coupon_id' => null,
+        'limit' => 'int32',
+        'offset' => 'int32',
+        'product_code' => null,
+        'status' => null,
+        'valid_begin_time' => null,
+        'valid_end_time' => null
     ];
 
     /**
@@ -75,11 +79,13 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'function_id' => 'FunctionId',
-        'metadata' => 'Metadata',
-        'page_number' => 'PageNumber',
-        'page_size' => 'PageSize',
-        'sandbox_id' => 'SandboxId'
+        'coupon_id' => 'CouponID',
+        'limit' => 'Limit',
+        'offset' => 'Offset',
+        'product_code' => 'ProductCode',
+        'status' => 'Status',
+        'valid_begin_time' => 'ValidBeginTime',
+        'valid_end_time' => 'ValidEndTime'
     ];
 
     /**
@@ -88,11 +94,13 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'function_id' => 'setFunctionId',
-        'metadata' => 'setMetadata',
-        'page_number' => 'setPageNumber',
-        'page_size' => 'setPageSize',
-        'sandbox_id' => 'setSandboxId'
+        'coupon_id' => 'setCouponId',
+        'limit' => 'setLimit',
+        'offset' => 'setOffset',
+        'product_code' => 'setProductCode',
+        'status' => 'setStatus',
+        'valid_begin_time' => 'setValidBeginTime',
+        'valid_end_time' => 'setValidEndTime'
     ];
 
     /**
@@ -101,11 +109,13 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'function_id' => 'getFunctionId',
-        'metadata' => 'getMetadata',
-        'page_number' => 'getPageNumber',
-        'page_size' => 'getPageSize',
-        'sandbox_id' => 'getSandboxId'
+        'coupon_id' => 'getCouponId',
+        'limit' => 'getLimit',
+        'offset' => 'getOffset',
+        'product_code' => 'getProductCode',
+        'status' => 'getStatus',
+        'valid_begin_time' => 'getValidBeginTime',
+        'valid_end_time' => 'getValidEndTime'
     ];
 
     /**
@@ -168,11 +178,13 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['function_id'] = isset($data['function_id']) ? $data['function_id'] : null;
-        $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
-        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
-        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
-        $this->container['sandbox_id'] = isset($data['sandbox_id']) ? $data['sandbox_id'] : null;
+        $this->container['coupon_id'] = isset($data['coupon_id']) ? $data['coupon_id'] : null;
+        $this->container['limit'] = isset($data['limit']) ? $data['limit'] : null;
+        $this->container['offset'] = isset($data['offset']) ? $data['offset'] : null;
+        $this->container['product_code'] = isset($data['product_code']) ? $data['product_code'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['valid_begin_time'] = isset($data['valid_begin_time']) ? $data['valid_begin_time'] : null;
+        $this->container['valid_end_time'] = isset($data['valid_end_time']) ? $data['valid_end_time'] : null;
     }
 
     /**
@@ -184,9 +196,6 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['function_id'] === null) {
-            $invalidProperties[] = "'function_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -203,121 +212,169 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets function_id
+     * Gets coupon_id
      *
      * @return string
      */
-    public function getFunctionId()
+    public function getCouponId()
     {
-        return $this->container['function_id'];
+        return $this->container['coupon_id'];
     }
 
     /**
-     * Sets function_id
+     * Sets coupon_id
      *
-     * @param string $function_id function_id
+     * @param string $coupon_id coupon_id
      *
      * @return $this
      */
-    public function setFunctionId($function_id)
+    public function setCouponId($coupon_id)
     {
-        $this->container['function_id'] = $function_id;
+        $this->container['coupon_id'] = $coupon_id;
 
         return $this;
     }
 
     /**
-     * Gets metadata
-     *
-     * @return map[string,string]
-     */
-    public function getMetadata()
-    {
-        return $this->container['metadata'];
-    }
-
-    /**
-     * Sets metadata
-     *
-     * @param map[string,string] $metadata metadata
-     *
-     * @return $this
-     */
-    public function setMetadata($metadata)
-    {
-        $this->container['metadata'] = $metadata;
-
-        return $this;
-    }
-
-    /**
-     * Gets page_number
+     * Gets limit
      *
      * @return int
      */
-    public function getPageNumber()
+    public function getLimit()
     {
-        return $this->container['page_number'];
+        return $this->container['limit'];
     }
 
     /**
-     * Sets page_number
+     * Sets limit
      *
-     * @param int $page_number page_number
+     * @param int $limit limit
      *
      * @return $this
      */
-    public function setPageNumber($page_number)
+    public function setLimit($limit)
     {
-        $this->container['page_number'] = $page_number;
+        $this->container['limit'] = $limit;
 
         return $this;
     }
 
     /**
-     * Gets page_size
+     * Gets offset
      *
      * @return int
      */
-    public function getPageSize()
+    public function getOffset()
     {
-        return $this->container['page_size'];
+        return $this->container['offset'];
     }
 
     /**
-     * Sets page_size
+     * Sets offset
      *
-     * @param int $page_size page_size
+     * @param int $offset offset
      *
      * @return $this
      */
-    public function setPageSize($page_size)
+    public function setOffset($offset)
     {
-        $this->container['page_size'] = $page_size;
+        $this->container['offset'] = $offset;
 
         return $this;
     }
 
     /**
-     * Gets sandbox_id
+     * Gets product_code
      *
      * @return string
      */
-    public function getSandboxId()
+    public function getProductCode()
     {
-        return $this->container['sandbox_id'];
+        return $this->container['product_code'];
     }
 
     /**
-     * Sets sandbox_id
+     * Sets product_code
      *
-     * @param string $sandbox_id sandbox_id
+     * @param string $product_code product_code
      *
      * @return $this
      */
-    public function setSandboxId($sandbox_id)
+    public function setProductCode($product_code)
     {
-        $this->container['sandbox_id'] = $sandbox_id;
+        $this->container['product_code'] = $product_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param string $status status
+     *
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets valid_begin_time
+     *
+     * @return string
+     */
+    public function getValidBeginTime()
+    {
+        return $this->container['valid_begin_time'];
+    }
+
+    /**
+     * Sets valid_begin_time
+     *
+     * @param string $valid_begin_time valid_begin_time
+     *
+     * @return $this
+     */
+    public function setValidBeginTime($valid_begin_time)
+    {
+        $this->container['valid_begin_time'] = $valid_begin_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets valid_end_time
+     *
+     * @return string
+     */
+    public function getValidEndTime()
+    {
+        return $this->container['valid_end_time'];
+    }
+
+    /**
+     * Sets valid_end_time
+     *
+     * @param string $valid_end_time valid_end_time
+     *
+     * @return $this
+     */
+    public function setValidEndTime($valid_end_time)
+    {
+        $this->container['valid_end_time'] = $valid_end_time;
 
         return $this;
     }

@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Vefaas\Model;
+namespace Volcengine\Graph20250815\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class MetadataForCreateSandboxInput implements ModelInterface, ArrayAccess
+class EdgeVertexConstraintForAddGraphTablesInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class MetadataForCreateSandboxInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'MetadataForCreateSandboxInput';
+    protected static $swaggerModelName = 'EdgeVertexConstraintForAddGraphTablesInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,8 @@ class MetadataForCreateSandboxInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'primary_key_columns' => '\Volcengine\Graph20250815\Model\ColumnForAddGraphTablesInput[]',
+        'schema_label_type' => 'string'
     ];
 
     /**
@@ -37,7 +38,8 @@ class MetadataForCreateSandboxInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'primary_key_columns' => null,
+        'schema_label_type' => null
     ];
 
     /**
@@ -67,7 +69,8 @@ class MetadataForCreateSandboxInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'primary_key_columns' => 'PrimaryKeyColumns',
+        'schema_label_type' => 'SchemaLabelType'
     ];
 
     /**
@@ -76,7 +79,8 @@ class MetadataForCreateSandboxInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        
+        'primary_key_columns' => 'setPrimaryKeyColumns',
+        'schema_label_type' => 'setSchemaLabelType'
     ];
 
     /**
@@ -85,7 +89,8 @@ class MetadataForCreateSandboxInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        
+        'primary_key_columns' => 'getPrimaryKeyColumns',
+        'schema_label_type' => 'getSchemaLabelType'
     ];
 
     /**
@@ -148,6 +153,8 @@ class MetadataForCreateSandboxInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['primary_key_columns'] = isset($data['primary_key_columns']) ? $data['primary_key_columns'] : null;
+        $this->container['schema_label_type'] = isset($data['schema_label_type']) ? $data['schema_label_type'] : null;
     }
 
     /**
@@ -173,6 +180,54 @@ class MetadataForCreateSandboxInput implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets primary_key_columns
+     *
+     * @return \Volcengine\Graph20250815\Model\ColumnForAddGraphTablesInput[]
+     */
+    public function getPrimaryKeyColumns()
+    {
+        return $this->container['primary_key_columns'];
+    }
+
+    /**
+     * Sets primary_key_columns
+     *
+     * @param \Volcengine\Graph20250815\Model\ColumnForAddGraphTablesInput[] $primary_key_columns primary_key_columns
+     *
+     * @return $this
+     */
+    public function setPrimaryKeyColumns($primary_key_columns)
+    {
+        $this->container['primary_key_columns'] = $primary_key_columns;
+
+        return $this;
+    }
+
+    /**
+     * Gets schema_label_type
+     *
+     * @return string
+     */
+    public function getSchemaLabelType()
+    {
+        return $this->container['schema_label_type'];
+    }
+
+    /**
+     * Sets schema_label_type
+     *
+     * @param string $schema_label_type schema_label_type
+     *
+     * @return $this
+     */
+    public function setSchemaLabelType($schema_label_type)
+    {
+        $this->container['schema_label_type'] = $schema_label_type;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

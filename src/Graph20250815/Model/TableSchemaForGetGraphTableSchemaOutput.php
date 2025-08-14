@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Vefaas\Model;
+namespace Volcengine\Graph20250815\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ListSandboxesRequest implements ModelInterface, ArrayAccess
+class TableSchemaForGetGraphTableSchemaOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ListSandboxesRequest';
+    protected static $swaggerModelName = 'TableSchemaForGetGraphTableSchemaOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,11 +28,12 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'function_id' => 'string',
-        'metadata' => 'map[string,string]',
-        'page_number' => 'int',
-        'page_size' => 'int',
-        'sandbox_id' => 'string'
+        'edges' => '\Volcengine\Graph20250815\Model\EdgeForGetGraphTableSchemaOutput[]',
+        'enable_rotate' => 'bool',
+        'rotate_size' => 'int',
+        'table_name' => 'string',
+        'version' => 'int',
+        'vertexes' => '\Volcengine\Graph20250815\Model\VertexForGetGraphTableSchemaOutput[]'
     ];
 
     /**
@@ -41,11 +42,12 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'function_id' => null,
-        'metadata' => null,
-        'page_number' => 'int32',
-        'page_size' => 'int32',
-        'sandbox_id' => null
+        'edges' => null,
+        'enable_rotate' => null,
+        'rotate_size' => 'int64',
+        'table_name' => null,
+        'version' => 'int64',
+        'vertexes' => null
     ];
 
     /**
@@ -75,11 +77,12 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'function_id' => 'FunctionId',
-        'metadata' => 'Metadata',
-        'page_number' => 'PageNumber',
-        'page_size' => 'PageSize',
-        'sandbox_id' => 'SandboxId'
+        'edges' => 'Edges',
+        'enable_rotate' => 'EnableRotate',
+        'rotate_size' => 'RotateSize',
+        'table_name' => 'TableName',
+        'version' => 'Version',
+        'vertexes' => 'Vertexes'
     ];
 
     /**
@@ -88,11 +91,12 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'function_id' => 'setFunctionId',
-        'metadata' => 'setMetadata',
-        'page_number' => 'setPageNumber',
-        'page_size' => 'setPageSize',
-        'sandbox_id' => 'setSandboxId'
+        'edges' => 'setEdges',
+        'enable_rotate' => 'setEnableRotate',
+        'rotate_size' => 'setRotateSize',
+        'table_name' => 'setTableName',
+        'version' => 'setVersion',
+        'vertexes' => 'setVertexes'
     ];
 
     /**
@@ -101,11 +105,12 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'function_id' => 'getFunctionId',
-        'metadata' => 'getMetadata',
-        'page_number' => 'getPageNumber',
-        'page_size' => 'getPageSize',
-        'sandbox_id' => 'getSandboxId'
+        'edges' => 'getEdges',
+        'enable_rotate' => 'getEnableRotate',
+        'rotate_size' => 'getRotateSize',
+        'table_name' => 'getTableName',
+        'version' => 'getVersion',
+        'vertexes' => 'getVertexes'
     ];
 
     /**
@@ -168,11 +173,12 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['function_id'] = isset($data['function_id']) ? $data['function_id'] : null;
-        $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
-        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
-        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
-        $this->container['sandbox_id'] = isset($data['sandbox_id']) ? $data['sandbox_id'] : null;
+        $this->container['edges'] = isset($data['edges']) ? $data['edges'] : null;
+        $this->container['enable_rotate'] = isset($data['enable_rotate']) ? $data['enable_rotate'] : null;
+        $this->container['rotate_size'] = isset($data['rotate_size']) ? $data['rotate_size'] : null;
+        $this->container['table_name'] = isset($data['table_name']) ? $data['table_name'] : null;
+        $this->container['version'] = isset($data['version']) ? $data['version'] : null;
+        $this->container['vertexes'] = isset($data['vertexes']) ? $data['vertexes'] : null;
     }
 
     /**
@@ -184,9 +190,6 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['function_id'] === null) {
-            $invalidProperties[] = "'function_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -203,121 +206,145 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets function_id
+     * Gets edges
      *
-     * @return string
+     * @return \Volcengine\Graph20250815\Model\EdgeForGetGraphTableSchemaOutput[]
      */
-    public function getFunctionId()
+    public function getEdges()
     {
-        return $this->container['function_id'];
+        return $this->container['edges'];
     }
 
     /**
-     * Sets function_id
+     * Sets edges
      *
-     * @param string $function_id function_id
+     * @param \Volcengine\Graph20250815\Model\EdgeForGetGraphTableSchemaOutput[] $edges edges
      *
      * @return $this
      */
-    public function setFunctionId($function_id)
+    public function setEdges($edges)
     {
-        $this->container['function_id'] = $function_id;
+        $this->container['edges'] = $edges;
 
         return $this;
     }
 
     /**
-     * Gets metadata
+     * Gets enable_rotate
      *
-     * @return map[string,string]
+     * @return bool
      */
-    public function getMetadata()
+    public function getEnableRotate()
     {
-        return $this->container['metadata'];
+        return $this->container['enable_rotate'];
     }
 
     /**
-     * Sets metadata
+     * Sets enable_rotate
      *
-     * @param map[string,string] $metadata metadata
+     * @param bool $enable_rotate enable_rotate
      *
      * @return $this
      */
-    public function setMetadata($metadata)
+    public function setEnableRotate($enable_rotate)
     {
-        $this->container['metadata'] = $metadata;
+        $this->container['enable_rotate'] = $enable_rotate;
 
         return $this;
     }
 
     /**
-     * Gets page_number
+     * Gets rotate_size
      *
      * @return int
      */
-    public function getPageNumber()
+    public function getRotateSize()
     {
-        return $this->container['page_number'];
+        return $this->container['rotate_size'];
     }
 
     /**
-     * Sets page_number
+     * Sets rotate_size
      *
-     * @param int $page_number page_number
+     * @param int $rotate_size rotate_size
      *
      * @return $this
      */
-    public function setPageNumber($page_number)
+    public function setRotateSize($rotate_size)
     {
-        $this->container['page_number'] = $page_number;
+        $this->container['rotate_size'] = $rotate_size;
 
         return $this;
     }
 
     /**
-     * Gets page_size
-     *
-     * @return int
-     */
-    public function getPageSize()
-    {
-        return $this->container['page_size'];
-    }
-
-    /**
-     * Sets page_size
-     *
-     * @param int $page_size page_size
-     *
-     * @return $this
-     */
-    public function setPageSize($page_size)
-    {
-        $this->container['page_size'] = $page_size;
-
-        return $this;
-    }
-
-    /**
-     * Gets sandbox_id
+     * Gets table_name
      *
      * @return string
      */
-    public function getSandboxId()
+    public function getTableName()
     {
-        return $this->container['sandbox_id'];
+        return $this->container['table_name'];
     }
 
     /**
-     * Sets sandbox_id
+     * Sets table_name
      *
-     * @param string $sandbox_id sandbox_id
+     * @param string $table_name table_name
      *
      * @return $this
      */
-    public function setSandboxId($sandbox_id)
+    public function setTableName($table_name)
     {
-        $this->container['sandbox_id'] = $sandbox_id;
+        $this->container['table_name'] = $table_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets version
+     *
+     * @return int
+     */
+    public function getVersion()
+    {
+        return $this->container['version'];
+    }
+
+    /**
+     * Sets version
+     *
+     * @param int $version version
+     *
+     * @return $this
+     */
+    public function setVersion($version)
+    {
+        $this->container['version'] = $version;
+
+        return $this;
+    }
+
+    /**
+     * Gets vertexes
+     *
+     * @return \Volcengine\Graph20250815\Model\VertexForGetGraphTableSchemaOutput[]
+     */
+    public function getVertexes()
+    {
+        return $this->container['vertexes'];
+    }
+
+    /**
+     * Sets vertexes
+     *
+     * @param \Volcengine\Graph20250815\Model\VertexForGetGraphTableSchemaOutput[] $vertexes vertexes
+     *
+     * @return $this
+     */
+    public function setVertexes($vertexes)
+    {
+        $this->container['vertexes'] = $vertexes;
 
         return $this;
     }

@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Vpc\Model;
+namespace Volcengine\Graph20250815\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ModifyEipAddressAttributesRequest implements ModelInterface, ArrayAccess
+class EdgeForGetGraphTableSchemaOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ModifyEipAddressAttributesRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ModifyEipAddressAttributesRequest';
+    protected static $swaggerModelName = 'EdgeForGetGraphTableSchemaOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,13 @@ class ModifyEipAddressAttributesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'allocation_id' => 'string',
-        'bandwidth' => 'int',
-        'description' => 'string',
-        'direct_mode' => 'bool',
-        'name' => 'string',
-        'release_with_instance' => 'bool'
+        'columns' => '\Volcengine\Graph20250815\Model\ColumnForGetGraphTableSchemaOutput[]',
+        'edge_vertex_constraint' => '\Volcengine\Graph20250815\Model\EdgeVertexConstraintForGetGraphTableSchemaOutput',
+        'enable_reverse_index' => 'bool',
+        'label' => 'string',
+        'primary_key' => 'string[]',
+        'schema_label_type' => 'string',
+        'secondary_indices' => '\Volcengine\Graph20250815\Model\SecondaryIndexForGetGraphTableSchemaOutput[]'
     ];
 
     /**
@@ -42,12 +43,13 @@ class ModifyEipAddressAttributesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'allocation_id' => null,
-        'bandwidth' => null,
-        'description' => null,
-        'direct_mode' => null,
-        'name' => null,
-        'release_with_instance' => null
+        'columns' => null,
+        'edge_vertex_constraint' => null,
+        'enable_reverse_index' => null,
+        'label' => null,
+        'primary_key' => null,
+        'schema_label_type' => null,
+        'secondary_indices' => null
     ];
 
     /**
@@ -77,12 +79,13 @@ class ModifyEipAddressAttributesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'allocation_id' => 'AllocationId',
-        'bandwidth' => 'Bandwidth',
-        'description' => 'Description',
-        'direct_mode' => 'DirectMode',
-        'name' => 'Name',
-        'release_with_instance' => 'ReleaseWithInstance'
+        'columns' => 'Columns',
+        'edge_vertex_constraint' => 'EdgeVertexConstraint',
+        'enable_reverse_index' => 'EnableReverseIndex',
+        'label' => 'Label',
+        'primary_key' => 'PrimaryKey',
+        'schema_label_type' => 'SchemaLabelType',
+        'secondary_indices' => 'SecondaryIndices'
     ];
 
     /**
@@ -91,12 +94,13 @@ class ModifyEipAddressAttributesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'allocation_id' => 'setAllocationId',
-        'bandwidth' => 'setBandwidth',
-        'description' => 'setDescription',
-        'direct_mode' => 'setDirectMode',
-        'name' => 'setName',
-        'release_with_instance' => 'setReleaseWithInstance'
+        'columns' => 'setColumns',
+        'edge_vertex_constraint' => 'setEdgeVertexConstraint',
+        'enable_reverse_index' => 'setEnableReverseIndex',
+        'label' => 'setLabel',
+        'primary_key' => 'setPrimaryKey',
+        'schema_label_type' => 'setSchemaLabelType',
+        'secondary_indices' => 'setSecondaryIndices'
     ];
 
     /**
@@ -105,12 +109,13 @@ class ModifyEipAddressAttributesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'allocation_id' => 'getAllocationId',
-        'bandwidth' => 'getBandwidth',
-        'description' => 'getDescription',
-        'direct_mode' => 'getDirectMode',
-        'name' => 'getName',
-        'release_with_instance' => 'getReleaseWithInstance'
+        'columns' => 'getColumns',
+        'edge_vertex_constraint' => 'getEdgeVertexConstraint',
+        'enable_reverse_index' => 'getEnableReverseIndex',
+        'label' => 'getLabel',
+        'primary_key' => 'getPrimaryKey',
+        'schema_label_type' => 'getSchemaLabelType',
+        'secondary_indices' => 'getSecondaryIndices'
     ];
 
     /**
@@ -173,12 +178,13 @@ class ModifyEipAddressAttributesRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['allocation_id'] = isset($data['allocation_id']) ? $data['allocation_id'] : null;
-        $this->container['bandwidth'] = isset($data['bandwidth']) ? $data['bandwidth'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['direct_mode'] = isset($data['direct_mode']) ? $data['direct_mode'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['release_with_instance'] = isset($data['release_with_instance']) ? $data['release_with_instance'] : null;
+        $this->container['columns'] = isset($data['columns']) ? $data['columns'] : null;
+        $this->container['edge_vertex_constraint'] = isset($data['edge_vertex_constraint']) ? $data['edge_vertex_constraint'] : null;
+        $this->container['enable_reverse_index'] = isset($data['enable_reverse_index']) ? $data['enable_reverse_index'] : null;
+        $this->container['label'] = isset($data['label']) ? $data['label'] : null;
+        $this->container['primary_key'] = isset($data['primary_key']) ? $data['primary_key'] : null;
+        $this->container['schema_label_type'] = isset($data['schema_label_type']) ? $data['schema_label_type'] : null;
+        $this->container['secondary_indices'] = isset($data['secondary_indices']) ? $data['secondary_indices'] : null;
     }
 
     /**
@@ -190,9 +196,6 @@ class ModifyEipAddressAttributesRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['allocation_id'] === null) {
-            $invalidProperties[] = "'allocation_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -209,145 +212,169 @@ class ModifyEipAddressAttributesRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets allocation_id
+     * Gets columns
      *
-     * @return string
+     * @return \Volcengine\Graph20250815\Model\ColumnForGetGraphTableSchemaOutput[]
      */
-    public function getAllocationId()
+    public function getColumns()
     {
-        return $this->container['allocation_id'];
+        return $this->container['columns'];
     }
 
     /**
-     * Sets allocation_id
+     * Sets columns
      *
-     * @param string $allocation_id allocation_id
+     * @param \Volcengine\Graph20250815\Model\ColumnForGetGraphTableSchemaOutput[] $columns columns
      *
      * @return $this
      */
-    public function setAllocationId($allocation_id)
+    public function setColumns($columns)
     {
-        $this->container['allocation_id'] = $allocation_id;
+        $this->container['columns'] = $columns;
 
         return $this;
     }
 
     /**
-     * Gets bandwidth
+     * Gets edge_vertex_constraint
      *
-     * @return int
+     * @return \Volcengine\Graph20250815\Model\EdgeVertexConstraintForGetGraphTableSchemaOutput
      */
-    public function getBandwidth()
+    public function getEdgeVertexConstraint()
     {
-        return $this->container['bandwidth'];
+        return $this->container['edge_vertex_constraint'];
     }
 
     /**
-     * Sets bandwidth
+     * Sets edge_vertex_constraint
      *
-     * @param int $bandwidth bandwidth
+     * @param \Volcengine\Graph20250815\Model\EdgeVertexConstraintForGetGraphTableSchemaOutput $edge_vertex_constraint edge_vertex_constraint
      *
      * @return $this
      */
-    public function setBandwidth($bandwidth)
+    public function setEdgeVertexConstraint($edge_vertex_constraint)
     {
-        $this->container['bandwidth'] = $bandwidth;
+        $this->container['edge_vertex_constraint'] = $edge_vertex_constraint;
 
         return $this;
     }
 
     /**
-     * Gets description
-     *
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->container['description'];
-    }
-
-    /**
-     * Sets description
-     *
-     * @param string $description description
-     *
-     * @return $this
-     */
-    public function setDescription($description)
-    {
-        $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets direct_mode
+     * Gets enable_reverse_index
      *
      * @return bool
      */
-    public function getDirectMode()
+    public function getEnableReverseIndex()
     {
-        return $this->container['direct_mode'];
+        return $this->container['enable_reverse_index'];
     }
 
     /**
-     * Sets direct_mode
+     * Sets enable_reverse_index
      *
-     * @param bool $direct_mode direct_mode
+     * @param bool $enable_reverse_index enable_reverse_index
      *
      * @return $this
      */
-    public function setDirectMode($direct_mode)
+    public function setEnableReverseIndex($enable_reverse_index)
     {
-        $this->container['direct_mode'] = $direct_mode;
+        $this->container['enable_reverse_index'] = $enable_reverse_index;
 
         return $this;
     }
 
     /**
-     * Gets name
+     * Gets label
      *
      * @return string
      */
-    public function getName()
+    public function getLabel()
     {
-        return $this->container['name'];
+        return $this->container['label'];
     }
 
     /**
-     * Sets name
+     * Sets label
      *
-     * @param string $name name
+     * @param string $label label
      *
      * @return $this
      */
-    public function setName($name)
+    public function setLabel($label)
     {
-        $this->container['name'] = $name;
+        $this->container['label'] = $label;
 
         return $this;
     }
 
     /**
-     * Gets release_with_instance
+     * Gets primary_key
      *
-     * @return bool
+     * @return string[]
      */
-    public function getReleaseWithInstance()
+    public function getPrimaryKey()
     {
-        return $this->container['release_with_instance'];
+        return $this->container['primary_key'];
     }
 
     /**
-     * Sets release_with_instance
+     * Sets primary_key
      *
-     * @param bool $release_with_instance release_with_instance
+     * @param string[] $primary_key primary_key
      *
      * @return $this
      */
-    public function setReleaseWithInstance($release_with_instance)
+    public function setPrimaryKey($primary_key)
     {
-        $this->container['release_with_instance'] = $release_with_instance;
+        $this->container['primary_key'] = $primary_key;
+
+        return $this;
+    }
+
+    /**
+     * Gets schema_label_type
+     *
+     * @return string
+     */
+    public function getSchemaLabelType()
+    {
+        return $this->container['schema_label_type'];
+    }
+
+    /**
+     * Sets schema_label_type
+     *
+     * @param string $schema_label_type schema_label_type
+     *
+     * @return $this
+     */
+    public function setSchemaLabelType($schema_label_type)
+    {
+        $this->container['schema_label_type'] = $schema_label_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets secondary_indices
+     *
+     * @return \Volcengine\Graph20250815\Model\SecondaryIndexForGetGraphTableSchemaOutput[]
+     */
+    public function getSecondaryIndices()
+    {
+        return $this->container['secondary_indices'];
+    }
+
+    /**
+     * Sets secondary_indices
+     *
+     * @param \Volcengine\Graph20250815\Model\SecondaryIndexForGetGraphTableSchemaOutput[] $secondary_indices secondary_indices
+     *
+     * @return $this
+     */
+    public function setSecondaryIndices($secondary_indices)
+    {
+        $this->container['secondary_indices'] = $secondary_indices;
 
         return $this;
     }

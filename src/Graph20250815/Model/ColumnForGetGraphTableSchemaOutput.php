@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Vefaas\Model;
+namespace Volcengine\Graph20250815\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ListSandboxesRequest implements ModelInterface, ArrayAccess
+class ColumnForGetGraphTableSchemaOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ListSandboxesRequest';
+    protected static $swaggerModelName = 'ColumnForGetGraphTableSchemaOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,11 +28,10 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'function_id' => 'string',
-        'metadata' => 'map[string,string]',
-        'page_number' => 'int',
-        'page_size' => 'int',
-        'sandbox_id' => 'string'
+        'column_name' => 'string',
+        'default_value' => 'string',
+        'enable_default_value' => 'bool',
+        'schema_column_type' => 'string'
     ];
 
     /**
@@ -41,11 +40,10 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'function_id' => null,
-        'metadata' => null,
-        'page_number' => 'int32',
-        'page_size' => 'int32',
-        'sandbox_id' => null
+        'column_name' => null,
+        'default_value' => null,
+        'enable_default_value' => null,
+        'schema_column_type' => null
     ];
 
     /**
@@ -75,11 +73,10 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'function_id' => 'FunctionId',
-        'metadata' => 'Metadata',
-        'page_number' => 'PageNumber',
-        'page_size' => 'PageSize',
-        'sandbox_id' => 'SandboxId'
+        'column_name' => 'ColumnName',
+        'default_value' => 'DefaultValue',
+        'enable_default_value' => 'EnableDefaultValue',
+        'schema_column_type' => 'SchemaColumnType'
     ];
 
     /**
@@ -88,11 +85,10 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'function_id' => 'setFunctionId',
-        'metadata' => 'setMetadata',
-        'page_number' => 'setPageNumber',
-        'page_size' => 'setPageSize',
-        'sandbox_id' => 'setSandboxId'
+        'column_name' => 'setColumnName',
+        'default_value' => 'setDefaultValue',
+        'enable_default_value' => 'setEnableDefaultValue',
+        'schema_column_type' => 'setSchemaColumnType'
     ];
 
     /**
@@ -101,11 +97,10 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'function_id' => 'getFunctionId',
-        'metadata' => 'getMetadata',
-        'page_number' => 'getPageNumber',
-        'page_size' => 'getPageSize',
-        'sandbox_id' => 'getSandboxId'
+        'column_name' => 'getColumnName',
+        'default_value' => 'getDefaultValue',
+        'enable_default_value' => 'getEnableDefaultValue',
+        'schema_column_type' => 'getSchemaColumnType'
     ];
 
     /**
@@ -168,11 +163,10 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['function_id'] = isset($data['function_id']) ? $data['function_id'] : null;
-        $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
-        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
-        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
-        $this->container['sandbox_id'] = isset($data['sandbox_id']) ? $data['sandbox_id'] : null;
+        $this->container['column_name'] = isset($data['column_name']) ? $data['column_name'] : null;
+        $this->container['default_value'] = isset($data['default_value']) ? $data['default_value'] : null;
+        $this->container['enable_default_value'] = isset($data['enable_default_value']) ? $data['enable_default_value'] : null;
+        $this->container['schema_column_type'] = isset($data['schema_column_type']) ? $data['schema_column_type'] : null;
     }
 
     /**
@@ -184,9 +178,6 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['function_id'] === null) {
-            $invalidProperties[] = "'function_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -203,121 +194,97 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets function_id
+     * Gets column_name
      *
      * @return string
      */
-    public function getFunctionId()
+    public function getColumnName()
     {
-        return $this->container['function_id'];
+        return $this->container['column_name'];
     }
 
     /**
-     * Sets function_id
+     * Sets column_name
      *
-     * @param string $function_id function_id
+     * @param string $column_name column_name
      *
      * @return $this
      */
-    public function setFunctionId($function_id)
+    public function setColumnName($column_name)
     {
-        $this->container['function_id'] = $function_id;
+        $this->container['column_name'] = $column_name;
 
         return $this;
     }
 
     /**
-     * Gets metadata
-     *
-     * @return map[string,string]
-     */
-    public function getMetadata()
-    {
-        return $this->container['metadata'];
-    }
-
-    /**
-     * Sets metadata
-     *
-     * @param map[string,string] $metadata metadata
-     *
-     * @return $this
-     */
-    public function setMetadata($metadata)
-    {
-        $this->container['metadata'] = $metadata;
-
-        return $this;
-    }
-
-    /**
-     * Gets page_number
-     *
-     * @return int
-     */
-    public function getPageNumber()
-    {
-        return $this->container['page_number'];
-    }
-
-    /**
-     * Sets page_number
-     *
-     * @param int $page_number page_number
-     *
-     * @return $this
-     */
-    public function setPageNumber($page_number)
-    {
-        $this->container['page_number'] = $page_number;
-
-        return $this;
-    }
-
-    /**
-     * Gets page_size
-     *
-     * @return int
-     */
-    public function getPageSize()
-    {
-        return $this->container['page_size'];
-    }
-
-    /**
-     * Sets page_size
-     *
-     * @param int $page_size page_size
-     *
-     * @return $this
-     */
-    public function setPageSize($page_size)
-    {
-        $this->container['page_size'] = $page_size;
-
-        return $this;
-    }
-
-    /**
-     * Gets sandbox_id
+     * Gets default_value
      *
      * @return string
      */
-    public function getSandboxId()
+    public function getDefaultValue()
     {
-        return $this->container['sandbox_id'];
+        return $this->container['default_value'];
     }
 
     /**
-     * Sets sandbox_id
+     * Sets default_value
      *
-     * @param string $sandbox_id sandbox_id
+     * @param string $default_value default_value
      *
      * @return $this
      */
-    public function setSandboxId($sandbox_id)
+    public function setDefaultValue($default_value)
     {
-        $this->container['sandbox_id'] = $sandbox_id;
+        $this->container['default_value'] = $default_value;
+
+        return $this;
+    }
+
+    /**
+     * Gets enable_default_value
+     *
+     * @return bool
+     */
+    public function getEnableDefaultValue()
+    {
+        return $this->container['enable_default_value'];
+    }
+
+    /**
+     * Sets enable_default_value
+     *
+     * @param bool $enable_default_value enable_default_value
+     *
+     * @return $this
+     */
+    public function setEnableDefaultValue($enable_default_value)
+    {
+        $this->container['enable_default_value'] = $enable_default_value;
+
+        return $this;
+    }
+
+    /**
+     * Gets schema_column_type
+     *
+     * @return string
+     */
+    public function getSchemaColumnType()
+    {
+        return $this->container['schema_column_type'];
+    }
+
+    /**
+     * Sets schema_column_type
+     *
+     * @param string $schema_column_type schema_column_type
+     *
+     * @return $this
+     */
+    public function setSchemaColumnType($schema_column_type)
+    {
+        $this->container['schema_column_type'] = $schema_column_type;
 
         return $this;
     }

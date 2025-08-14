@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Vefaas\Model;
+namespace Volcengine\Graph20250815\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ListSandboxesRequest implements ModelInterface, ArrayAccess
+class EdgeForAddGraphTablesInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ListSandboxesRequest';
+    protected static $swaggerModelName = 'EdgeForAddGraphTablesInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,11 +28,13 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'function_id' => 'string',
-        'metadata' => 'map[string,string]',
-        'page_number' => 'int',
-        'page_size' => 'int',
-        'sandbox_id' => 'string'
+        'columns' => '\Volcengine\Graph20250815\Model\ColumnForAddGraphTablesInput[]',
+        'edge_vertex_constraint' => '\Volcengine\Graph20250815\Model\EdgeVertexConstraintForAddGraphTablesInput',
+        'enable_reverse_index' => 'bool',
+        'label' => 'string',
+        'primary_key' => 'string[]',
+        'schema_label_type' => 'string',
+        'secondary_indices' => '\Volcengine\Graph20250815\Model\SecondaryIndexForAddGraphTablesInput[]'
     ];
 
     /**
@@ -41,11 +43,13 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'function_id' => null,
-        'metadata' => null,
-        'page_number' => 'int32',
-        'page_size' => 'int32',
-        'sandbox_id' => null
+        'columns' => null,
+        'edge_vertex_constraint' => null,
+        'enable_reverse_index' => null,
+        'label' => null,
+        'primary_key' => null,
+        'schema_label_type' => null,
+        'secondary_indices' => null
     ];
 
     /**
@@ -75,11 +79,13 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'function_id' => 'FunctionId',
-        'metadata' => 'Metadata',
-        'page_number' => 'PageNumber',
-        'page_size' => 'PageSize',
-        'sandbox_id' => 'SandboxId'
+        'columns' => 'Columns',
+        'edge_vertex_constraint' => 'EdgeVertexConstraint',
+        'enable_reverse_index' => 'EnableReverseIndex',
+        'label' => 'Label',
+        'primary_key' => 'PrimaryKey',
+        'schema_label_type' => 'SchemaLabelType',
+        'secondary_indices' => 'SecondaryIndices'
     ];
 
     /**
@@ -88,11 +94,13 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'function_id' => 'setFunctionId',
-        'metadata' => 'setMetadata',
-        'page_number' => 'setPageNumber',
-        'page_size' => 'setPageSize',
-        'sandbox_id' => 'setSandboxId'
+        'columns' => 'setColumns',
+        'edge_vertex_constraint' => 'setEdgeVertexConstraint',
+        'enable_reverse_index' => 'setEnableReverseIndex',
+        'label' => 'setLabel',
+        'primary_key' => 'setPrimaryKey',
+        'schema_label_type' => 'setSchemaLabelType',
+        'secondary_indices' => 'setSecondaryIndices'
     ];
 
     /**
@@ -101,11 +109,13 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'function_id' => 'getFunctionId',
-        'metadata' => 'getMetadata',
-        'page_number' => 'getPageNumber',
-        'page_size' => 'getPageSize',
-        'sandbox_id' => 'getSandboxId'
+        'columns' => 'getColumns',
+        'edge_vertex_constraint' => 'getEdgeVertexConstraint',
+        'enable_reverse_index' => 'getEnableReverseIndex',
+        'label' => 'getLabel',
+        'primary_key' => 'getPrimaryKey',
+        'schema_label_type' => 'getSchemaLabelType',
+        'secondary_indices' => 'getSecondaryIndices'
     ];
 
     /**
@@ -168,11 +178,13 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['function_id'] = isset($data['function_id']) ? $data['function_id'] : null;
-        $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
-        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
-        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
-        $this->container['sandbox_id'] = isset($data['sandbox_id']) ? $data['sandbox_id'] : null;
+        $this->container['columns'] = isset($data['columns']) ? $data['columns'] : null;
+        $this->container['edge_vertex_constraint'] = isset($data['edge_vertex_constraint']) ? $data['edge_vertex_constraint'] : null;
+        $this->container['enable_reverse_index'] = isset($data['enable_reverse_index']) ? $data['enable_reverse_index'] : null;
+        $this->container['label'] = isset($data['label']) ? $data['label'] : null;
+        $this->container['primary_key'] = isset($data['primary_key']) ? $data['primary_key'] : null;
+        $this->container['schema_label_type'] = isset($data['schema_label_type']) ? $data['schema_label_type'] : null;
+        $this->container['secondary_indices'] = isset($data['secondary_indices']) ? $data['secondary_indices'] : null;
     }
 
     /**
@@ -184,9 +196,6 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['function_id'] === null) {
-            $invalidProperties[] = "'function_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -203,121 +212,169 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets function_id
+     * Gets columns
+     *
+     * @return \Volcengine\Graph20250815\Model\ColumnForAddGraphTablesInput[]
+     */
+    public function getColumns()
+    {
+        return $this->container['columns'];
+    }
+
+    /**
+     * Sets columns
+     *
+     * @param \Volcengine\Graph20250815\Model\ColumnForAddGraphTablesInput[] $columns columns
+     *
+     * @return $this
+     */
+    public function setColumns($columns)
+    {
+        $this->container['columns'] = $columns;
+
+        return $this;
+    }
+
+    /**
+     * Gets edge_vertex_constraint
+     *
+     * @return \Volcengine\Graph20250815\Model\EdgeVertexConstraintForAddGraphTablesInput
+     */
+    public function getEdgeVertexConstraint()
+    {
+        return $this->container['edge_vertex_constraint'];
+    }
+
+    /**
+     * Sets edge_vertex_constraint
+     *
+     * @param \Volcengine\Graph20250815\Model\EdgeVertexConstraintForAddGraphTablesInput $edge_vertex_constraint edge_vertex_constraint
+     *
+     * @return $this
+     */
+    public function setEdgeVertexConstraint($edge_vertex_constraint)
+    {
+        $this->container['edge_vertex_constraint'] = $edge_vertex_constraint;
+
+        return $this;
+    }
+
+    /**
+     * Gets enable_reverse_index
+     *
+     * @return bool
+     */
+    public function getEnableReverseIndex()
+    {
+        return $this->container['enable_reverse_index'];
+    }
+
+    /**
+     * Sets enable_reverse_index
+     *
+     * @param bool $enable_reverse_index enable_reverse_index
+     *
+     * @return $this
+     */
+    public function setEnableReverseIndex($enable_reverse_index)
+    {
+        $this->container['enable_reverse_index'] = $enable_reverse_index;
+
+        return $this;
+    }
+
+    /**
+     * Gets label
      *
      * @return string
      */
-    public function getFunctionId()
+    public function getLabel()
     {
-        return $this->container['function_id'];
+        return $this->container['label'];
     }
 
     /**
-     * Sets function_id
+     * Sets label
      *
-     * @param string $function_id function_id
+     * @param string $label label
      *
      * @return $this
      */
-    public function setFunctionId($function_id)
+    public function setLabel($label)
     {
-        $this->container['function_id'] = $function_id;
+        $this->container['label'] = $label;
 
         return $this;
     }
 
     /**
-     * Gets metadata
+     * Gets primary_key
      *
-     * @return map[string,string]
+     * @return string[]
      */
-    public function getMetadata()
+    public function getPrimaryKey()
     {
-        return $this->container['metadata'];
+        return $this->container['primary_key'];
     }
 
     /**
-     * Sets metadata
+     * Sets primary_key
      *
-     * @param map[string,string] $metadata metadata
+     * @param string[] $primary_key primary_key
      *
      * @return $this
      */
-    public function setMetadata($metadata)
+    public function setPrimaryKey($primary_key)
     {
-        $this->container['metadata'] = $metadata;
+        $this->container['primary_key'] = $primary_key;
 
         return $this;
     }
 
     /**
-     * Gets page_number
-     *
-     * @return int
-     */
-    public function getPageNumber()
-    {
-        return $this->container['page_number'];
-    }
-
-    /**
-     * Sets page_number
-     *
-     * @param int $page_number page_number
-     *
-     * @return $this
-     */
-    public function setPageNumber($page_number)
-    {
-        $this->container['page_number'] = $page_number;
-
-        return $this;
-    }
-
-    /**
-     * Gets page_size
-     *
-     * @return int
-     */
-    public function getPageSize()
-    {
-        return $this->container['page_size'];
-    }
-
-    /**
-     * Sets page_size
-     *
-     * @param int $page_size page_size
-     *
-     * @return $this
-     */
-    public function setPageSize($page_size)
-    {
-        $this->container['page_size'] = $page_size;
-
-        return $this;
-    }
-
-    /**
-     * Gets sandbox_id
+     * Gets schema_label_type
      *
      * @return string
      */
-    public function getSandboxId()
+    public function getSchemaLabelType()
     {
-        return $this->container['sandbox_id'];
+        return $this->container['schema_label_type'];
     }
 
     /**
-     * Sets sandbox_id
+     * Sets schema_label_type
      *
-     * @param string $sandbox_id sandbox_id
+     * @param string $schema_label_type schema_label_type
      *
      * @return $this
      */
-    public function setSandboxId($sandbox_id)
+    public function setSchemaLabelType($schema_label_type)
     {
-        $this->container['sandbox_id'] = $sandbox_id;
+        $this->container['schema_label_type'] = $schema_label_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets secondary_indices
+     *
+     * @return \Volcengine\Graph20250815\Model\SecondaryIndexForAddGraphTablesInput[]
+     */
+    public function getSecondaryIndices()
+    {
+        return $this->container['secondary_indices'];
+    }
+
+    /**
+     * Sets secondary_indices
+     *
+     * @param \Volcengine\Graph20250815\Model\SecondaryIndexForAddGraphTablesInput[] $secondary_indices secondary_indices
+     *
+     * @return $this
+     */
+    public function setSecondaryIndices($secondary_indices)
+    {
+        $this->container['secondary_indices'] = $secondary_indices;
 
         return $this;
     }

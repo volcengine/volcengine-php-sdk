@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Vefaas\Model;
+namespace Volcengine\Graph20250815\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class StatusCountForListSandboxesOutput implements ModelInterface, ArrayAccess
+class ColumnForAddGraphTablesInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class StatusCountForListSandboxesOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'StatusCountForListSandboxesOutput';
+    protected static $swaggerModelName = 'ColumnForAddGraphTablesInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,10 @@ class StatusCountForListSandboxesOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'column_name' => 'string',
+        'default_value' => 'string',
+        'enable_default_value' => 'bool',
+        'schema_column_type' => 'string'
     ];
 
     /**
@@ -37,7 +40,10 @@ class StatusCountForListSandboxesOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'column_name' => null,
+        'default_value' => null,
+        'enable_default_value' => null,
+        'schema_column_type' => null
     ];
 
     /**
@@ -67,7 +73,10 @@ class StatusCountForListSandboxesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'column_name' => 'ColumnName',
+        'default_value' => 'DefaultValue',
+        'enable_default_value' => 'EnableDefaultValue',
+        'schema_column_type' => 'SchemaColumnType'
     ];
 
     /**
@@ -76,7 +85,10 @@ class StatusCountForListSandboxesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        
+        'column_name' => 'setColumnName',
+        'default_value' => 'setDefaultValue',
+        'enable_default_value' => 'setEnableDefaultValue',
+        'schema_column_type' => 'setSchemaColumnType'
     ];
 
     /**
@@ -85,7 +97,10 @@ class StatusCountForListSandboxesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        
+        'column_name' => 'getColumnName',
+        'default_value' => 'getDefaultValue',
+        'enable_default_value' => 'getEnableDefaultValue',
+        'schema_column_type' => 'getSchemaColumnType'
     ];
 
     /**
@@ -148,6 +163,10 @@ class StatusCountForListSandboxesOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['column_name'] = isset($data['column_name']) ? $data['column_name'] : null;
+        $this->container['default_value'] = isset($data['default_value']) ? $data['default_value'] : null;
+        $this->container['enable_default_value'] = isset($data['enable_default_value']) ? $data['enable_default_value'] : null;
+        $this->container['schema_column_type'] = isset($data['schema_column_type']) ? $data['schema_column_type'] : null;
     }
 
     /**
@@ -173,6 +192,102 @@ class StatusCountForListSandboxesOutput implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets column_name
+     *
+     * @return string
+     */
+    public function getColumnName()
+    {
+        return $this->container['column_name'];
+    }
+
+    /**
+     * Sets column_name
+     *
+     * @param string $column_name column_name
+     *
+     * @return $this
+     */
+    public function setColumnName($column_name)
+    {
+        $this->container['column_name'] = $column_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets default_value
+     *
+     * @return string
+     */
+    public function getDefaultValue()
+    {
+        return $this->container['default_value'];
+    }
+
+    /**
+     * Sets default_value
+     *
+     * @param string $default_value default_value
+     *
+     * @return $this
+     */
+    public function setDefaultValue($default_value)
+    {
+        $this->container['default_value'] = $default_value;
+
+        return $this;
+    }
+
+    /**
+     * Gets enable_default_value
+     *
+     * @return bool
+     */
+    public function getEnableDefaultValue()
+    {
+        return $this->container['enable_default_value'];
+    }
+
+    /**
+     * Sets enable_default_value
+     *
+     * @param bool $enable_default_value enable_default_value
+     *
+     * @return $this
+     */
+    public function setEnableDefaultValue($enable_default_value)
+    {
+        $this->container['enable_default_value'] = $enable_default_value;
+
+        return $this;
+    }
+
+    /**
+     * Gets schema_column_type
+     *
+     * @return string
+     */
+    public function getSchemaColumnType()
+    {
+        return $this->container['schema_column_type'];
+    }
+
+    /**
+     * Sets schema_column_type
+     *
+     * @param string $schema_column_type schema_column_type
+     *
+     * @return $this
+     */
+    public function setSchemaColumnType($schema_column_type)
+    {
+        $this->container['schema_column_type'] = $schema_column_type;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *
