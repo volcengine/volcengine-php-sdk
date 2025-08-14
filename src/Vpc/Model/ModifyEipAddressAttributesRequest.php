@@ -31,6 +31,7 @@ class ModifyEipAddressAttributesRequest implements ModelInterface, ArrayAccess
         'allocation_id' => 'string',
         'bandwidth' => 'int',
         'description' => 'string',
+        'direct_mode' => 'bool',
         'name' => 'string',
         'release_with_instance' => 'bool'
     ];
@@ -44,6 +45,7 @@ class ModifyEipAddressAttributesRequest implements ModelInterface, ArrayAccess
         'allocation_id' => null,
         'bandwidth' => null,
         'description' => null,
+        'direct_mode' => null,
         'name' => null,
         'release_with_instance' => null
     ];
@@ -78,6 +80,7 @@ class ModifyEipAddressAttributesRequest implements ModelInterface, ArrayAccess
         'allocation_id' => 'AllocationId',
         'bandwidth' => 'Bandwidth',
         'description' => 'Description',
+        'direct_mode' => 'DirectMode',
         'name' => 'Name',
         'release_with_instance' => 'ReleaseWithInstance'
     ];
@@ -91,6 +94,7 @@ class ModifyEipAddressAttributesRequest implements ModelInterface, ArrayAccess
         'allocation_id' => 'setAllocationId',
         'bandwidth' => 'setBandwidth',
         'description' => 'setDescription',
+        'direct_mode' => 'setDirectMode',
         'name' => 'setName',
         'release_with_instance' => 'setReleaseWithInstance'
     ];
@@ -104,6 +108,7 @@ class ModifyEipAddressAttributesRequest implements ModelInterface, ArrayAccess
         'allocation_id' => 'getAllocationId',
         'bandwidth' => 'getBandwidth',
         'description' => 'getDescription',
+        'direct_mode' => 'getDirectMode',
         'name' => 'getName',
         'release_with_instance' => 'getReleaseWithInstance'
     ];
@@ -171,6 +176,7 @@ class ModifyEipAddressAttributesRequest implements ModelInterface, ArrayAccess
         $this->container['allocation_id'] = isset($data['allocation_id']) ? $data['allocation_id'] : null;
         $this->container['bandwidth'] = isset($data['bandwidth']) ? $data['bandwidth'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['direct_mode'] = isset($data['direct_mode']) ? $data['direct_mode'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['release_with_instance'] = isset($data['release_with_instance']) ? $data['release_with_instance'] : null;
     }
@@ -270,6 +276,30 @@ class ModifyEipAddressAttributesRequest implements ModelInterface, ArrayAccess
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets direct_mode
+     *
+     * @return bool
+     */
+    public function getDirectMode()
+    {
+        return $this->container['direct_mode'];
+    }
+
+    /**
+     * Sets direct_mode
+     *
+     * @param bool $direct_mode direct_mode
+     *
+     * @return $this
+     */
+    public function setDirectMode($direct_mode)
+    {
+        $this->container['direct_mode'] = $direct_mode;
 
         return $this;
     }
