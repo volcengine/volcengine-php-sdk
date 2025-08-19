@@ -46,10 +46,12 @@ class DataForListRulesOutput implements ModelInterface, ArrayAccess
         'multiple_conditions' => 'bool',
         'namespace' => 'string',
         'notification_id' => 'string',
+        'notify_templates' => '\Volcengine\Volcobserve\Model\NotifyTemplateForListRulesOutput[]',
         'original_dimensions' => 'map[string,string[]]',
         'project_name' => 'string',
         'recovery_notify' => '\Volcengine\Volcobserve\Model\RecoveryNotifyForListRulesOutput',
         'regions' => 'string[]',
+        'resource_type' => 'string',
         'rule_name' => 'string',
         'rule_type' => 'string',
         'silence_time' => 'int',
@@ -84,10 +86,12 @@ class DataForListRulesOutput implements ModelInterface, ArrayAccess
         'multiple_conditions' => null,
         'namespace' => null,
         'notification_id' => null,
+        'notify_templates' => null,
         'original_dimensions' => null,
         'project_name' => null,
         'recovery_notify' => null,
         'regions' => null,
+        'resource_type' => null,
         'rule_name' => null,
         'rule_type' => null,
         'silence_time' => null,
@@ -143,10 +147,12 @@ class DataForListRulesOutput implements ModelInterface, ArrayAccess
         'multiple_conditions' => 'MultipleConditions',
         'namespace' => 'Namespace',
         'notification_id' => 'NotificationId',
+        'notify_templates' => 'NotifyTemplates',
         'original_dimensions' => 'OriginalDimensions',
         'project_name' => 'ProjectName',
         'recovery_notify' => 'RecoveryNotify',
         'regions' => 'Regions',
+        'resource_type' => 'ResourceType',
         'rule_name' => 'RuleName',
         'rule_type' => 'RuleType',
         'silence_time' => 'SilenceTime',
@@ -181,10 +187,12 @@ class DataForListRulesOutput implements ModelInterface, ArrayAccess
         'multiple_conditions' => 'setMultipleConditions',
         'namespace' => 'setNamespace',
         'notification_id' => 'setNotificationId',
+        'notify_templates' => 'setNotifyTemplates',
         'original_dimensions' => 'setOriginalDimensions',
         'project_name' => 'setProjectName',
         'recovery_notify' => 'setRecoveryNotify',
         'regions' => 'setRegions',
+        'resource_type' => 'setResourceType',
         'rule_name' => 'setRuleName',
         'rule_type' => 'setRuleType',
         'silence_time' => 'setSilenceTime',
@@ -219,10 +227,12 @@ class DataForListRulesOutput implements ModelInterface, ArrayAccess
         'multiple_conditions' => 'getMultipleConditions',
         'namespace' => 'getNamespace',
         'notification_id' => 'getNotificationId',
+        'notify_templates' => 'getNotifyTemplates',
         'original_dimensions' => 'getOriginalDimensions',
         'project_name' => 'getProjectName',
         'recovery_notify' => 'getRecoveryNotify',
         'regions' => 'getRegions',
+        'resource_type' => 'getResourceType',
         'rule_name' => 'getRuleName',
         'rule_type' => 'getRuleType',
         'silence_time' => 'getSilenceTime',
@@ -311,10 +321,12 @@ class DataForListRulesOutput implements ModelInterface, ArrayAccess
         $this->container['multiple_conditions'] = isset($data['multiple_conditions']) ? $data['multiple_conditions'] : null;
         $this->container['namespace'] = isset($data['namespace']) ? $data['namespace'] : null;
         $this->container['notification_id'] = isset($data['notification_id']) ? $data['notification_id'] : null;
+        $this->container['notify_templates'] = isset($data['notify_templates']) ? $data['notify_templates'] : null;
         $this->container['original_dimensions'] = isset($data['original_dimensions']) ? $data['original_dimensions'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['recovery_notify'] = isset($data['recovery_notify']) ? $data['recovery_notify'] : null;
         $this->container['regions'] = isset($data['regions']) ? $data['regions'] : null;
+        $this->container['resource_type'] = isset($data['resource_type']) ? $data['resource_type'] : null;
         $this->container['rule_name'] = isset($data['rule_name']) ? $data['rule_name'] : null;
         $this->container['rule_type'] = isset($data['rule_type']) ? $data['rule_type'] : null;
         $this->container['silence_time'] = isset($data['silence_time']) ? $data['silence_time'] : null;
@@ -782,6 +794,30 @@ class DataForListRulesOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets notify_templates
+     *
+     * @return \Volcengine\Volcobserve\Model\NotifyTemplateForListRulesOutput[]
+     */
+    public function getNotifyTemplates()
+    {
+        return $this->container['notify_templates'];
+    }
+
+    /**
+     * Sets notify_templates
+     *
+     * @param \Volcengine\Volcobserve\Model\NotifyTemplateForListRulesOutput[] $notify_templates notify_templates
+     *
+     * @return $this
+     */
+    public function setNotifyTemplates($notify_templates)
+    {
+        $this->container['notify_templates'] = $notify_templates;
+
+        return $this;
+    }
+
+    /**
      * Gets original_dimensions
      *
      * @return map[string,string[]]
@@ -873,6 +909,30 @@ class DataForListRulesOutput implements ModelInterface, ArrayAccess
     public function setRegions($regions)
     {
         $this->container['regions'] = $regions;
+
+        return $this;
+    }
+
+    /**
+     * Gets resource_type
+     *
+     * @return string
+     */
+    public function getResourceType()
+    {
+        return $this->container['resource_type'];
+    }
+
+    /**
+     * Sets resource_type
+     *
+     * @param string $resource_type resource_type
+     *
+     * @return $this
+     */
+    public function setResourceType($resource_type)
+    {
+        $this->container['resource_type'] = $resource_type;
 
         return $this;
     }

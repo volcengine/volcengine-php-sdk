@@ -31,6 +31,7 @@ class NotificationForCreateNotificationInput implements ModelInterface, ArrayAcc
         'alert_methods' => 'string[]',
         'contact_group_ids' => 'string[]',
         'level' => 'string',
+        'notify_templates' => '\Volcengine\Volcobserve\Model\NotifyTemplateForCreateNotificationInput[]',
         'webhook_ids' => 'string[]'
     ];
 
@@ -43,6 +44,7 @@ class NotificationForCreateNotificationInput implements ModelInterface, ArrayAcc
         'alert_methods' => null,
         'contact_group_ids' => null,
         'level' => null,
+        'notify_templates' => null,
         'webhook_ids' => null
     ];
 
@@ -76,6 +78,7 @@ class NotificationForCreateNotificationInput implements ModelInterface, ArrayAcc
         'alert_methods' => 'AlertMethods',
         'contact_group_ids' => 'ContactGroupIds',
         'level' => 'Level',
+        'notify_templates' => 'NotifyTemplates',
         'webhook_ids' => 'WebhookIds'
     ];
 
@@ -88,6 +91,7 @@ class NotificationForCreateNotificationInput implements ModelInterface, ArrayAcc
         'alert_methods' => 'setAlertMethods',
         'contact_group_ids' => 'setContactGroupIds',
         'level' => 'setLevel',
+        'notify_templates' => 'setNotifyTemplates',
         'webhook_ids' => 'setWebhookIds'
     ];
 
@@ -100,6 +104,7 @@ class NotificationForCreateNotificationInput implements ModelInterface, ArrayAcc
         'alert_methods' => 'getAlertMethods',
         'contact_group_ids' => 'getContactGroupIds',
         'level' => 'getLevel',
+        'notify_templates' => 'getNotifyTemplates',
         'webhook_ids' => 'getWebhookIds'
     ];
 
@@ -204,6 +209,7 @@ class NotificationForCreateNotificationInput implements ModelInterface, ArrayAcc
         $this->container['alert_methods'] = isset($data['alert_methods']) ? $data['alert_methods'] : null;
         $this->container['contact_group_ids'] = isset($data['contact_group_ids']) ? $data['contact_group_ids'] : null;
         $this->container['level'] = isset($data['level']) ? $data['level'] : null;
+        $this->container['notify_templates'] = isset($data['notify_templates']) ? $data['notify_templates'] : null;
         $this->container['webhook_ids'] = isset($data['webhook_ids']) ? $data['webhook_ids'] : null;
     }
 
@@ -325,6 +331,30 @@ class NotificationForCreateNotificationInput implements ModelInterface, ArrayAcc
             );
         }
         $this->container['level'] = $level;
+
+        return $this;
+    }
+
+    /**
+     * Gets notify_templates
+     *
+     * @return \Volcengine\Volcobserve\Model\NotifyTemplateForCreateNotificationInput[]
+     */
+    public function getNotifyTemplates()
+    {
+        return $this->container['notify_templates'];
+    }
+
+    /**
+     * Sets notify_templates
+     *
+     * @param \Volcengine\Volcobserve\Model\NotifyTemplateForCreateNotificationInput[] $notify_templates notify_templates
+     *
+     * @return $this
+     */
+    public function setNotifyTemplates($notify_templates)
+    {
+        $this->container['notify_templates'] = $notify_templates;
 
         return $this;
     }

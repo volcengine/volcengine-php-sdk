@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ApplyObjectForApplyObjectGroupsByAlertTemplateInput implements ModelInterface, ArrayAccess
+class DataForListNotifyTemplatesOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ApplyObjectForApplyObjectGroupsByAlertTemplateInput implements ModelInterf
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ApplyObjectForApplyObjectGroupsByAlertTemplateInput';
+    protected static $swaggerModelName = 'DataForListNotifyTemplatesOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,15 +28,15 @@ class ApplyObjectForApplyObjectGroupsByAlertTemplateInput implements ModelInterf
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'alert_methods' => 'string[]',
-        'contact_group_ids' => 'string[]',
-        'effect_end_at' => 'string',
-        'effect_start_at' => 'string',
-        'notification_id' => 'string',
-        'notify_templates' => '\Volcengine\Volcobserve\Model\NotifyTemplateForApplyObjectGroupsByAlertTemplateInput[]',
-        'object_group_id' => 'string',
-        'webhook' => 'string',
-        'webhook_ids' => 'string[]'
+        'channel' => 'string',
+        'content' => 'string',
+        'created_at' => 'string',
+        'description' => 'string',
+        'id' => 'string',
+        'name' => 'string',
+        'title' => 'string',
+        'type' => 'string',
+        'updated_at' => 'string'
     ];
 
     /**
@@ -45,15 +45,15 @@ class ApplyObjectForApplyObjectGroupsByAlertTemplateInput implements ModelInterf
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'alert_methods' => null,
-        'contact_group_ids' => null,
-        'effect_end_at' => null,
-        'effect_start_at' => null,
-        'notification_id' => null,
-        'notify_templates' => null,
-        'object_group_id' => null,
-        'webhook' => null,
-        'webhook_ids' => null
+        'channel' => null,
+        'content' => null,
+        'created_at' => null,
+        'description' => null,
+        'id' => null,
+        'name' => null,
+        'title' => null,
+        'type' => null,
+        'updated_at' => null
     ];
 
     /**
@@ -83,15 +83,15 @@ class ApplyObjectForApplyObjectGroupsByAlertTemplateInput implements ModelInterf
      * @var string[]
      */
     protected static $attributeMap = [
-        'alert_methods' => 'AlertMethods',
-        'contact_group_ids' => 'ContactGroupIds',
-        'effect_end_at' => 'EffectEndAt',
-        'effect_start_at' => 'EffectStartAt',
-        'notification_id' => 'NotificationId',
-        'notify_templates' => 'NotifyTemplates',
-        'object_group_id' => 'ObjectGroupId',
-        'webhook' => 'Webhook',
-        'webhook_ids' => 'WebhookIds'
+        'channel' => 'Channel',
+        'content' => 'Content',
+        'created_at' => 'CreatedAt',
+        'description' => 'Description',
+        'id' => 'Id',
+        'name' => 'Name',
+        'title' => 'Title',
+        'type' => 'Type',
+        'updated_at' => 'UpdatedAt'
     ];
 
     /**
@@ -100,15 +100,15 @@ class ApplyObjectForApplyObjectGroupsByAlertTemplateInput implements ModelInterf
      * @var string[]
      */
     protected static $setters = [
-        'alert_methods' => 'setAlertMethods',
-        'contact_group_ids' => 'setContactGroupIds',
-        'effect_end_at' => 'setEffectEndAt',
-        'effect_start_at' => 'setEffectStartAt',
-        'notification_id' => 'setNotificationId',
-        'notify_templates' => 'setNotifyTemplates',
-        'object_group_id' => 'setObjectGroupId',
-        'webhook' => 'setWebhook',
-        'webhook_ids' => 'setWebhookIds'
+        'channel' => 'setChannel',
+        'content' => 'setContent',
+        'created_at' => 'setCreatedAt',
+        'description' => 'setDescription',
+        'id' => 'setId',
+        'name' => 'setName',
+        'title' => 'setTitle',
+        'type' => 'setType',
+        'updated_at' => 'setUpdatedAt'
     ];
 
     /**
@@ -117,15 +117,15 @@ class ApplyObjectForApplyObjectGroupsByAlertTemplateInput implements ModelInterf
      * @var string[]
      */
     protected static $getters = [
-        'alert_methods' => 'getAlertMethods',
-        'contact_group_ids' => 'getContactGroupIds',
-        'effect_end_at' => 'getEffectEndAt',
-        'effect_start_at' => 'getEffectStartAt',
-        'notification_id' => 'getNotificationId',
-        'notify_templates' => 'getNotifyTemplates',
-        'object_group_id' => 'getObjectGroupId',
-        'webhook' => 'getWebhook',
-        'webhook_ids' => 'getWebhookIds'
+        'channel' => 'getChannel',
+        'content' => 'getContent',
+        'created_at' => 'getCreatedAt',
+        'description' => 'getDescription',
+        'id' => 'getId',
+        'name' => 'getName',
+        'title' => 'getTitle',
+        'type' => 'getType',
+        'updated_at' => 'getUpdatedAt'
     ];
 
     /**
@@ -188,15 +188,15 @@ class ApplyObjectForApplyObjectGroupsByAlertTemplateInput implements ModelInterf
      */
     public function __construct(array $data = null)
     {
-        $this->container['alert_methods'] = isset($data['alert_methods']) ? $data['alert_methods'] : null;
-        $this->container['contact_group_ids'] = isset($data['contact_group_ids']) ? $data['contact_group_ids'] : null;
-        $this->container['effect_end_at'] = isset($data['effect_end_at']) ? $data['effect_end_at'] : null;
-        $this->container['effect_start_at'] = isset($data['effect_start_at']) ? $data['effect_start_at'] : null;
-        $this->container['notification_id'] = isset($data['notification_id']) ? $data['notification_id'] : null;
-        $this->container['notify_templates'] = isset($data['notify_templates']) ? $data['notify_templates'] : null;
-        $this->container['object_group_id'] = isset($data['object_group_id']) ? $data['object_group_id'] : null;
-        $this->container['webhook'] = isset($data['webhook']) ? $data['webhook'] : null;
-        $this->container['webhook_ids'] = isset($data['webhook_ids']) ? $data['webhook_ids'] : null;
+        $this->container['channel'] = isset($data['channel']) ? $data['channel'] : null;
+        $this->container['content'] = isset($data['content']) ? $data['content'] : null;
+        $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['title'] = isset($data['title']) ? $data['title'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
     }
 
     /**
@@ -224,217 +224,217 @@ class ApplyObjectForApplyObjectGroupsByAlertTemplateInput implements ModelInterf
 
 
     /**
-     * Gets alert_methods
-     *
-     * @return string[]
-     */
-    public function getAlertMethods()
-    {
-        return $this->container['alert_methods'];
-    }
-
-    /**
-     * Sets alert_methods
-     *
-     * @param string[] $alert_methods alert_methods
-     *
-     * @return $this
-     */
-    public function setAlertMethods($alert_methods)
-    {
-        $this->container['alert_methods'] = $alert_methods;
-
-        return $this;
-    }
-
-    /**
-     * Gets contact_group_ids
-     *
-     * @return string[]
-     */
-    public function getContactGroupIds()
-    {
-        return $this->container['contact_group_ids'];
-    }
-
-    /**
-     * Sets contact_group_ids
-     *
-     * @param string[] $contact_group_ids contact_group_ids
-     *
-     * @return $this
-     */
-    public function setContactGroupIds($contact_group_ids)
-    {
-        $this->container['contact_group_ids'] = $contact_group_ids;
-
-        return $this;
-    }
-
-    /**
-     * Gets effect_end_at
+     * Gets channel
      *
      * @return string
      */
-    public function getEffectEndAt()
+    public function getChannel()
     {
-        return $this->container['effect_end_at'];
+        return $this->container['channel'];
     }
 
     /**
-     * Sets effect_end_at
+     * Sets channel
      *
-     * @param string $effect_end_at effect_end_at
+     * @param string $channel channel
      *
      * @return $this
      */
-    public function setEffectEndAt($effect_end_at)
+    public function setChannel($channel)
     {
-        $this->container['effect_end_at'] = $effect_end_at;
+        $this->container['channel'] = $channel;
 
         return $this;
     }
 
     /**
-     * Gets effect_start_at
+     * Gets content
      *
      * @return string
      */
-    public function getEffectStartAt()
+    public function getContent()
     {
-        return $this->container['effect_start_at'];
+        return $this->container['content'];
     }
 
     /**
-     * Sets effect_start_at
+     * Sets content
      *
-     * @param string $effect_start_at effect_start_at
+     * @param string $content content
      *
      * @return $this
      */
-    public function setEffectStartAt($effect_start_at)
+    public function setContent($content)
     {
-        $this->container['effect_start_at'] = $effect_start_at;
+        $this->container['content'] = $content;
 
         return $this;
     }
 
     /**
-     * Gets notification_id
+     * Gets created_at
      *
      * @return string
      */
-    public function getNotificationId()
+    public function getCreatedAt()
     {
-        return $this->container['notification_id'];
+        return $this->container['created_at'];
     }
 
     /**
-     * Sets notification_id
+     * Sets created_at
      *
-     * @param string $notification_id notification_id
+     * @param string $created_at created_at
      *
      * @return $this
      */
-    public function setNotificationId($notification_id)
+    public function setCreatedAt($created_at)
     {
-        $this->container['notification_id'] = $notification_id;
+        $this->container['created_at'] = $created_at;
 
         return $this;
     }
 
     /**
-     * Gets notify_templates
-     *
-     * @return \Volcengine\Volcobserve\Model\NotifyTemplateForApplyObjectGroupsByAlertTemplateInput[]
-     */
-    public function getNotifyTemplates()
-    {
-        return $this->container['notify_templates'];
-    }
-
-    /**
-     * Sets notify_templates
-     *
-     * @param \Volcengine\Volcobserve\Model\NotifyTemplateForApplyObjectGroupsByAlertTemplateInput[] $notify_templates notify_templates
-     *
-     * @return $this
-     */
-    public function setNotifyTemplates($notify_templates)
-    {
-        $this->container['notify_templates'] = $notify_templates;
-
-        return $this;
-    }
-
-    /**
-     * Gets object_group_id
+     * Gets description
      *
      * @return string
      */
-    public function getObjectGroupId()
+    public function getDescription()
     {
-        return $this->container['object_group_id'];
+        return $this->container['description'];
     }
 
     /**
-     * Sets object_group_id
+     * Sets description
      *
-     * @param string $object_group_id object_group_id
+     * @param string $description description
      *
      * @return $this
      */
-    public function setObjectGroupId($object_group_id)
+    public function setDescription($description)
     {
-        $this->container['object_group_id'] = $object_group_id;
+        $this->container['description'] = $description;
 
         return $this;
     }
 
     /**
-     * Gets webhook
+     * Gets id
      *
      * @return string
      */
-    public function getWebhook()
+    public function getId()
     {
-        return $this->container['webhook'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets webhook
+     * Sets id
      *
-     * @param string $webhook webhook
+     * @param string $id id
      *
      * @return $this
      */
-    public function setWebhook($webhook)
+    public function setId($id)
     {
-        $this->container['webhook'] = $webhook;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets webhook_ids
+     * Gets name
      *
-     * @return string[]
+     * @return string
      */
-    public function getWebhookIds()
+    public function getName()
     {
-        return $this->container['webhook_ids'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets webhook_ids
+     * Sets name
      *
-     * @param string[] $webhook_ids webhook_ids
+     * @param string $name name
      *
      * @return $this
      */
-    public function setWebhookIds($webhook_ids)
+    public function setName($name)
     {
-        $this->container['webhook_ids'] = $webhook_ids;
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets title
+     *
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->container['title'];
+    }
+
+    /**
+     * Sets title
+     *
+     * @param string $title title
+     *
+     * @return $this
+     */
+    public function setTitle($title)
+    {
+        $this->container['title'] = $title;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string $type type
+     *
+     * @return $this
+     */
+    public function setType($type)
+    {
+        $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets updated_at
+     *
+     * @return string
+     */
+    public function getUpdatedAt()
+    {
+        return $this->container['updated_at'];
+    }
+
+    /**
+     * Sets updated_at
+     *
+     * @param string $updated_at updated_at
+     *
+     * @return $this
+     */
+    public function setUpdatedAt($updated_at)
+    {
+        $this->container['updated_at'] = $updated_at;
 
         return $this;
     }

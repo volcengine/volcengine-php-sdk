@@ -39,6 +39,7 @@ class UpdateEventRuleRequest implements ModelInterface, ArrayAccess
         'filter_pattern' => 'map[string,object]',
         'level' => 'string',
         'message_queue' => '\Volcengine\Volcobserve\Model\MessageQueueForUpdateEventRuleInput[]',
+        'notify_templates' => '\Volcengine\Volcobserve\Model\NotifyTemplateForUpdateEventRuleInput[]',
         'rule_id' => 'string',
         'rule_name' => 'string',
         'status' => 'string',
@@ -63,6 +64,7 @@ class UpdateEventRuleRequest implements ModelInterface, ArrayAccess
         'filter_pattern' => null,
         'level' => null,
         'message_queue' => null,
+        'notify_templates' => null,
         'rule_id' => null,
         'rule_name' => null,
         'status' => null,
@@ -108,6 +110,7 @@ class UpdateEventRuleRequest implements ModelInterface, ArrayAccess
         'filter_pattern' => 'FilterPattern',
         'level' => 'Level',
         'message_queue' => 'MessageQueue',
+        'notify_templates' => 'NotifyTemplates',
         'rule_id' => 'RuleId',
         'rule_name' => 'RuleName',
         'status' => 'Status',
@@ -132,6 +135,7 @@ class UpdateEventRuleRequest implements ModelInterface, ArrayAccess
         'filter_pattern' => 'setFilterPattern',
         'level' => 'setLevel',
         'message_queue' => 'setMessageQueue',
+        'notify_templates' => 'setNotifyTemplates',
         'rule_id' => 'setRuleId',
         'rule_name' => 'setRuleName',
         'status' => 'setStatus',
@@ -156,6 +160,7 @@ class UpdateEventRuleRequest implements ModelInterface, ArrayAccess
         'filter_pattern' => 'getFilterPattern',
         'level' => 'getLevel',
         'message_queue' => 'getMessageQueue',
+        'notify_templates' => 'getNotifyTemplates',
         'rule_id' => 'getRuleId',
         'rule_name' => 'getRuleName',
         'status' => 'getStatus',
@@ -262,6 +267,7 @@ class UpdateEventRuleRequest implements ModelInterface, ArrayAccess
         $this->container['filter_pattern'] = isset($data['filter_pattern']) ? $data['filter_pattern'] : null;
         $this->container['level'] = isset($data['level']) ? $data['level'] : null;
         $this->container['message_queue'] = isset($data['message_queue']) ? $data['message_queue'] : null;
+        $this->container['notify_templates'] = isset($data['notify_templates']) ? $data['notify_templates'] : null;
         $this->container['rule_id'] = isset($data['rule_id']) ? $data['rule_id'] : null;
         $this->container['rule_name'] = isset($data['rule_name']) ? $data['rule_name'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
@@ -593,6 +599,30 @@ class UpdateEventRuleRequest implements ModelInterface, ArrayAccess
     public function setMessageQueue($message_queue)
     {
         $this->container['message_queue'] = $message_queue;
+
+        return $this;
+    }
+
+    /**
+     * Gets notify_templates
+     *
+     * @return \Volcengine\Volcobserve\Model\NotifyTemplateForUpdateEventRuleInput[]
+     */
+    public function getNotifyTemplates()
+    {
+        return $this->container['notify_templates'];
+    }
+
+    /**
+     * Sets notify_templates
+     *
+     * @param \Volcengine\Volcobserve\Model\NotifyTemplateForUpdateEventRuleInput[] $notify_templates notify_templates
+     *
+     * @return $this
+     */
+    public function setNotifyTemplates($notify_templates)
+    {
+        $this->container['notify_templates'] = $notify_templates;
 
         return $this;
     }

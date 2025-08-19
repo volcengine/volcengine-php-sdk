@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class NotificationForUpdateNotificationInput implements ModelInterface, ArrayAccess
+class ListDefaultNotifyTemplatesRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class NotificationForUpdateNotificationInput implements ModelInterface, ArrayAcc
       *
       * @var string
       */
-    protected static $swaggerModelName = 'NotificationForUpdateNotificationInput';
+    protected static $swaggerModelName = 'ListDefaultNotifyTemplatesRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,11 +28,9 @@ class NotificationForUpdateNotificationInput implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'alert_methods' => 'string[]',
-        'contact_group_ids' => 'string[]',
-        'level' => 'string',
-        'notify_templates' => '\Volcengine\Volcobserve\Model\NotifyTemplateForUpdateNotificationInput[]',
-        'webhook_ids' => 'string[]'
+        'channels' => 'string[]',
+        'language' => 'string',
+        'type' => 'string'
     ];
 
     /**
@@ -41,11 +39,9 @@ class NotificationForUpdateNotificationInput implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'alert_methods' => null,
-        'contact_group_ids' => null,
-        'level' => null,
-        'notify_templates' => null,
-        'webhook_ids' => null
+        'channels' => null,
+        'language' => null,
+        'type' => null
     ];
 
     /**
@@ -75,11 +71,9 @@ class NotificationForUpdateNotificationInput implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $attributeMap = [
-        'alert_methods' => 'AlertMethods',
-        'contact_group_ids' => 'ContactGroupIds',
-        'level' => 'Level',
-        'notify_templates' => 'NotifyTemplates',
-        'webhook_ids' => 'WebhookIds'
+        'channels' => 'Channels',
+        'language' => 'Language',
+        'type' => 'Type'
     ];
 
     /**
@@ -88,11 +82,9 @@ class NotificationForUpdateNotificationInput implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $setters = [
-        'alert_methods' => 'setAlertMethods',
-        'contact_group_ids' => 'setContactGroupIds',
-        'level' => 'setLevel',
-        'notify_templates' => 'setNotifyTemplates',
-        'webhook_ids' => 'setWebhookIds'
+        'channels' => 'setChannels',
+        'language' => 'setLanguage',
+        'type' => 'setType'
     ];
 
     /**
@@ -101,11 +93,9 @@ class NotificationForUpdateNotificationInput implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $getters = [
-        'alert_methods' => 'getAlertMethods',
-        'contact_group_ids' => 'getContactGroupIds',
-        'level' => 'getLevel',
-        'notify_templates' => 'getNotifyTemplates',
-        'webhook_ids' => 'getWebhookIds'
+        'channels' => 'getChannels',
+        'language' => 'getLanguage',
+        'type' => 'getType'
     ];
 
     /**
@@ -149,14 +139,18 @@ class NotificationForUpdateNotificationInput implements ModelInterface, ArrayAcc
         return self::$swaggerModelName;
     }
 
-    const ALERT_METHODS_EMAIL = 'Email';
-    const ALERT_METHODS_PHONE = 'Phone';
-    const ALERT_METHODS_SMS = 'SMS';
-    const ALERT_METHODS_WEBHOOK = 'Webhook';
-    const LEVEL_NOTICE = 'notice';
-    const LEVEL_WARNING = 'warning';
-    const LEVEL_CRITICAL = 'critical';
-    const LEVEL_RECOVERY = 'recovery';
+    const CHANNELS_EMAIL = 'email';
+    const CHANNELS_SMS = 'sms';
+    const CHANNELS_PHONE = 'phone';
+    const CHANNELS_LARK = 'lark';
+    const CHANNELS_DINGTALK = 'dingtalk';
+    const CHANNELS_WECOM = 'wecom';
+    const CHANNELS_SLACK = 'slack';
+    const CHANNELS_API = 'api';
+    const LANGUAGE_ZH = 'zh';
+    const LANGUAGE_EN = 'en';
+    const TYPE_METRIC = 'metric';
+    const TYPE_EVENT = 'event';
     
 
     
@@ -165,13 +159,17 @@ class NotificationForUpdateNotificationInput implements ModelInterface, ArrayAcc
      *
      * @return string[]
      */
-    public function getAlertMethodsAllowableValues()
+    public function getChannelsAllowableValues()
     {
         return [
-            self::ALERT_METHODS_EMAIL,
-            self::ALERT_METHODS_PHONE,
-            self::ALERT_METHODS_SMS,
-            self::ALERT_METHODS_WEBHOOK,
+            self::CHANNELS_EMAIL,
+            self::CHANNELS_SMS,
+            self::CHANNELS_PHONE,
+            self::CHANNELS_LARK,
+            self::CHANNELS_DINGTALK,
+            self::CHANNELS_WECOM,
+            self::CHANNELS_SLACK,
+            self::CHANNELS_API,
         ];
     }
     
@@ -180,13 +178,24 @@ class NotificationForUpdateNotificationInput implements ModelInterface, ArrayAcc
      *
      * @return string[]
      */
-    public function getLevelAllowableValues()
+    public function getLanguageAllowableValues()
     {
         return [
-            self::LEVEL_NOTICE,
-            self::LEVEL_WARNING,
-            self::LEVEL_CRITICAL,
-            self::LEVEL_RECOVERY,
+            self::LANGUAGE_ZH,
+            self::LANGUAGE_EN,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_METRIC,
+            self::TYPE_EVENT,
         ];
     }
     
@@ -206,11 +215,9 @@ class NotificationForUpdateNotificationInput implements ModelInterface, ArrayAcc
      */
     public function __construct(array $data = null)
     {
-        $this->container['alert_methods'] = isset($data['alert_methods']) ? $data['alert_methods'] : null;
-        $this->container['contact_group_ids'] = isset($data['contact_group_ids']) ? $data['contact_group_ids'] : null;
-        $this->container['level'] = isset($data['level']) ? $data['level'] : null;
-        $this->container['notify_templates'] = isset($data['notify_templates']) ? $data['notify_templates'] : null;
-        $this->container['webhook_ids'] = isset($data['webhook_ids']) ? $data['webhook_ids'] : null;
+        $this->container['channels'] = isset($data['channels']) ? $data['channels'] : null;
+        $this->container['language'] = isset($data['language']) ? $data['language'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
     /**
@@ -222,10 +229,21 @@ class NotificationForUpdateNotificationInput implements ModelInterface, ArrayAcc
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getLevelAllowableValues();
-        if (!is_null($this->container['level']) && !in_array($this->container['level'], $allowedValues, true)) {
+        $allowedValues = $this->getLanguageAllowableValues();
+        if (!is_null($this->container['language']) && !in_array($this->container['language'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'level', must be one of '%s'",
+                "invalid value for 'language', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'type', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -246,139 +264,100 @@ class NotificationForUpdateNotificationInput implements ModelInterface, ArrayAcc
 
 
     /**
-     * Gets alert_methods
+     * Gets channels
      *
      * @return string[]
      */
-    public function getAlertMethods()
+    public function getChannels()
     {
-        return $this->container['alert_methods'];
+        return $this->container['channels'];
     }
 
     /**
-     * Sets alert_methods
+     * Sets channels
      *
-     * @param string[] $alert_methods alert_methods
+     * @param string[] $channels channels
      *
      * @return $this
      */
-    public function setAlertMethods($alert_methods)
+    public function setChannels($channels)
     {
-        $allowedValues = $this->getAlertMethodsAllowableValues();
-        if (!is_null($alert_methods) && array_diff($alert_methods, $allowedValues)) {
+        $allowedValues = $this->getChannelsAllowableValues();
+        if (!is_null($channels) && array_diff($channels, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'alert_methods', must be one of '%s'",
+                    "Invalid value for 'channels', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['alert_methods'] = $alert_methods;
+        $this->container['channels'] = $channels;
 
         return $this;
     }
 
     /**
-     * Gets contact_group_ids
-     *
-     * @return string[]
-     */
-    public function getContactGroupIds()
-    {
-        return $this->container['contact_group_ids'];
-    }
-
-    /**
-     * Sets contact_group_ids
-     *
-     * @param string[] $contact_group_ids contact_group_ids
-     *
-     * @return $this
-     */
-    public function setContactGroupIds($contact_group_ids)
-    {
-        $this->container['contact_group_ids'] = $contact_group_ids;
-
-        return $this;
-    }
-
-    /**
-     * Gets level
+     * Gets language
      *
      * @return string
      */
-    public function getLevel()
+    public function getLanguage()
     {
-        return $this->container['level'];
+        return $this->container['language'];
     }
 
     /**
-     * Sets level
+     * Sets language
      *
-     * @param string $level level
+     * @param string $language language
      *
      * @return $this
      */
-    public function setLevel($level)
+    public function setLanguage($language)
     {
-        $allowedValues = $this->getLevelAllowableValues();
-        if (!is_null($level) && !in_array($level, $allowedValues, true)) {
+        $allowedValues = $this->getLanguageAllowableValues();
+        if (!is_null($language) && !in_array($language, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'level', must be one of '%s'",
+                    "Invalid value for 'language', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['level'] = $level;
+        $this->container['language'] = $language;
 
         return $this;
     }
 
     /**
-     * Gets notify_templates
+     * Gets type
      *
-     * @return \Volcengine\Volcobserve\Model\NotifyTemplateForUpdateNotificationInput[]
+     * @return string
      */
-    public function getNotifyTemplates()
+    public function getType()
     {
-        return $this->container['notify_templates'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets notify_templates
+     * Sets type
      *
-     * @param \Volcengine\Volcobserve\Model\NotifyTemplateForUpdateNotificationInput[] $notify_templates notify_templates
+     * @param string $type type
      *
      * @return $this
      */
-    public function setNotifyTemplates($notify_templates)
+    public function setType($type)
     {
-        $this->container['notify_templates'] = $notify_templates;
-
-        return $this;
-    }
-
-    /**
-     * Gets webhook_ids
-     *
-     * @return string[]
-     */
-    public function getWebhookIds()
-    {
-        return $this->container['webhook_ids'];
-    }
-
-    /**
-     * Sets webhook_ids
-     *
-     * @param string[] $webhook_ids webhook_ids
-     *
-     * @return $this
-     */
-    public function setWebhookIds($webhook_ids)
-    {
-        $this->container['webhook_ids'] = $webhook_ids;
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['type'] = $type;
 
         return $this;
     }

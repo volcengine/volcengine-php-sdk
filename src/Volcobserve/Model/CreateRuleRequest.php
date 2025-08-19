@@ -44,6 +44,7 @@ class CreateRuleRequest implements ModelInterface, ArrayAccess
         'namespace' => 'string',
         'no_data' => '\Volcengine\Volcobserve\Model\NoDataForCreateRuleInput',
         'notification_id' => 'string',
+        'notify_templates' => '\Volcengine\Volcobserve\Model\NotifyTemplateForCreateRuleInput[]',
         'original_dimensions' => 'map[string,string[]]',
         'project_name' => 'string',
         'recovery_notify' => '\Volcengine\Volcobserve\Model\RecoveryNotifyForCreateRuleInput',
@@ -79,6 +80,7 @@ class CreateRuleRequest implements ModelInterface, ArrayAccess
         'namespace' => null,
         'no_data' => null,
         'notification_id' => null,
+        'notify_templates' => null,
         'original_dimensions' => null,
         'project_name' => null,
         'recovery_notify' => null,
@@ -135,6 +137,7 @@ class CreateRuleRequest implements ModelInterface, ArrayAccess
         'namespace' => 'Namespace',
         'no_data' => 'NoData',
         'notification_id' => 'NotificationId',
+        'notify_templates' => 'NotifyTemplates',
         'original_dimensions' => 'OriginalDimensions',
         'project_name' => 'ProjectName',
         'recovery_notify' => 'RecoveryNotify',
@@ -170,6 +173,7 @@ class CreateRuleRequest implements ModelInterface, ArrayAccess
         'namespace' => 'setNamespace',
         'no_data' => 'setNoData',
         'notification_id' => 'setNotificationId',
+        'notify_templates' => 'setNotifyTemplates',
         'original_dimensions' => 'setOriginalDimensions',
         'project_name' => 'setProjectName',
         'recovery_notify' => 'setRecoveryNotify',
@@ -205,6 +209,7 @@ class CreateRuleRequest implements ModelInterface, ArrayAccess
         'namespace' => 'getNamespace',
         'no_data' => 'getNoData',
         'notification_id' => 'getNotificationId',
+        'notify_templates' => 'getNotifyTemplates',
         'original_dimensions' => 'getOriginalDimensions',
         'project_name' => 'getProjectName',
         'recovery_notify' => 'getRecoveryNotify',
@@ -328,6 +333,7 @@ class CreateRuleRequest implements ModelInterface, ArrayAccess
         $this->container['namespace'] = isset($data['namespace']) ? $data['namespace'] : null;
         $this->container['no_data'] = isset($data['no_data']) ? $data['no_data'] : null;
         $this->container['notification_id'] = isset($data['notification_id']) ? $data['notification_id'] : null;
+        $this->container['notify_templates'] = isset($data['notify_templates']) ? $data['notify_templates'] : null;
         $this->container['original_dimensions'] = isset($data['original_dimensions']) ? $data['original_dimensions'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['recovery_notify'] = isset($data['recovery_notify']) ? $data['recovery_notify'] : null;
@@ -792,6 +798,30 @@ class CreateRuleRequest implements ModelInterface, ArrayAccess
     public function setNotificationId($notification_id)
     {
         $this->container['notification_id'] = $notification_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets notify_templates
+     *
+     * @return \Volcengine\Volcobserve\Model\NotifyTemplateForCreateRuleInput[]
+     */
+    public function getNotifyTemplates()
+    {
+        return $this->container['notify_templates'];
+    }
+
+    /**
+     * Sets notify_templates
+     *
+     * @param \Volcengine\Volcobserve\Model\NotifyTemplateForCreateRuleInput[] $notify_templates notify_templates
+     *
+     * @return $this
+     */
+    public function setNotifyTemplates($notify_templates)
+    {
+        $this->container['notify_templates'] = $notify_templates;
 
         return $this;
     }
