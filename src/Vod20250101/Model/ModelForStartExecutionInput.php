@@ -30,6 +30,7 @@ class ModelForStartExecutionInput implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'asr_app_id' => 'string',
         'asr_app_type' => 'string',
+        'doubao_text_endpoint' => 'string',
         'doubao_vision_endpoint' => 'string'
     ];
 
@@ -41,6 +42,7 @@ class ModelForStartExecutionInput implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'asr_app_id' => null,
         'asr_app_type' => null,
+        'doubao_text_endpoint' => null,
         'doubao_vision_endpoint' => null
     ];
 
@@ -73,6 +75,7 @@ class ModelForStartExecutionInput implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'asr_app_id' => 'AsrAppId',
         'asr_app_type' => 'AsrAppType',
+        'doubao_text_endpoint' => 'DoubaoTextEndpoint',
         'doubao_vision_endpoint' => 'DoubaoVisionEndpoint'
     ];
 
@@ -84,6 +87,7 @@ class ModelForStartExecutionInput implements ModelInterface, ArrayAccess
     protected static $setters = [
         'asr_app_id' => 'setAsrAppId',
         'asr_app_type' => 'setAsrAppType',
+        'doubao_text_endpoint' => 'setDoubaoTextEndpoint',
         'doubao_vision_endpoint' => 'setDoubaoVisionEndpoint'
     ];
 
@@ -95,6 +99,7 @@ class ModelForStartExecutionInput implements ModelInterface, ArrayAccess
     protected static $getters = [
         'asr_app_id' => 'getAsrAppId',
         'asr_app_type' => 'getAsrAppType',
+        'doubao_text_endpoint' => 'getDoubaoTextEndpoint',
         'doubao_vision_endpoint' => 'getDoubaoVisionEndpoint'
     ];
 
@@ -160,6 +165,7 @@ class ModelForStartExecutionInput implements ModelInterface, ArrayAccess
     {
         $this->container['asr_app_id'] = isset($data['asr_app_id']) ? $data['asr_app_id'] : null;
         $this->container['asr_app_type'] = isset($data['asr_app_type']) ? $data['asr_app_type'] : null;
+        $this->container['doubao_text_endpoint'] = isset($data['doubao_text_endpoint']) ? $data['doubao_text_endpoint'] : null;
         $this->container['doubao_vision_endpoint'] = isset($data['doubao_vision_endpoint']) ? $data['doubao_vision_endpoint'] : null;
     }
 
@@ -231,6 +237,30 @@ class ModelForStartExecutionInput implements ModelInterface, ArrayAccess
     public function setAsrAppType($asr_app_type)
     {
         $this->container['asr_app_type'] = $asr_app_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets doubao_text_endpoint
+     *
+     * @return string
+     */
+    public function getDoubaoTextEndpoint()
+    {
+        return $this->container['doubao_text_endpoint'];
+    }
+
+    /**
+     * Sets doubao_text_endpoint
+     *
+     * @param string $doubao_text_endpoint doubao_text_endpoint
+     *
+     * @return $this
+     */
+    public function setDoubaoTextEndpoint($doubao_text_endpoint)
+    {
+        $this->container['doubao_text_endpoint'] = $doubao_text_endpoint;
 
         return $this;
     }

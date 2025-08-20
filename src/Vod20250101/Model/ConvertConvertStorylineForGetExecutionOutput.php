@@ -28,12 +28,9 @@ class ConvertConvertStorylineForGetExecutionOutput implements ModelInterface, Ar
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'all_tags' => '\Volcengine\Vod20250101\Model\AllTagForGetExecutionOutput[]',
-        'clips' => '\Volcengine\Vod20250101\Model\ConvertClipForGetExecutionOutput[]',
-        'duration' => 'double',
-        'storylines' => '\Volcengine\Vod20250101\Model\ConvertStorylineForGetExecutionOutput[]',
-        'summaries' => 'string[]',
-        'titles' => 'string[]'
+        'clips' => 'int[]',
+        'summary' => 'string',
+        'title' => 'string'
     ];
 
     /**
@@ -42,12 +39,9 @@ class ConvertConvertStorylineForGetExecutionOutput implements ModelInterface, Ar
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'all_tags' => null,
-        'clips' => null,
-        'duration' => 'double',
-        'storylines' => null,
-        'summaries' => null,
-        'titles' => null
+        'clips' => 'int32',
+        'summary' => null,
+        'title' => null
     ];
 
     /**
@@ -77,12 +71,9 @@ class ConvertConvertStorylineForGetExecutionOutput implements ModelInterface, Ar
      * @var string[]
      */
     protected static $attributeMap = [
-        'all_tags' => 'AllTags',
         'clips' => 'Clips',
-        'duration' => 'Duration',
-        'storylines' => 'Storylines',
-        'summaries' => 'Summaries',
-        'titles' => 'Titles'
+        'summary' => 'Summary',
+        'title' => 'Title'
     ];
 
     /**
@@ -91,12 +82,9 @@ class ConvertConvertStorylineForGetExecutionOutput implements ModelInterface, Ar
      * @var string[]
      */
     protected static $setters = [
-        'all_tags' => 'setAllTags',
         'clips' => 'setClips',
-        'duration' => 'setDuration',
-        'storylines' => 'setStorylines',
-        'summaries' => 'setSummaries',
-        'titles' => 'setTitles'
+        'summary' => 'setSummary',
+        'title' => 'setTitle'
     ];
 
     /**
@@ -105,12 +93,9 @@ class ConvertConvertStorylineForGetExecutionOutput implements ModelInterface, Ar
      * @var string[]
      */
     protected static $getters = [
-        'all_tags' => 'getAllTags',
         'clips' => 'getClips',
-        'duration' => 'getDuration',
-        'storylines' => 'getStorylines',
-        'summaries' => 'getSummaries',
-        'titles' => 'getTitles'
+        'summary' => 'getSummary',
+        'title' => 'getTitle'
     ];
 
     /**
@@ -173,12 +158,9 @@ class ConvertConvertStorylineForGetExecutionOutput implements ModelInterface, Ar
      */
     public function __construct(array $data = null)
     {
-        $this->container['all_tags'] = isset($data['all_tags']) ? $data['all_tags'] : null;
         $this->container['clips'] = isset($data['clips']) ? $data['clips'] : null;
-        $this->container['duration'] = isset($data['duration']) ? $data['duration'] : null;
-        $this->container['storylines'] = isset($data['storylines']) ? $data['storylines'] : null;
-        $this->container['summaries'] = isset($data['summaries']) ? $data['summaries'] : null;
-        $this->container['titles'] = isset($data['titles']) ? $data['titles'] : null;
+        $this->container['summary'] = isset($data['summary']) ? $data['summary'] : null;
+        $this->container['title'] = isset($data['title']) ? $data['title'] : null;
     }
 
     /**
@@ -206,33 +188,9 @@ class ConvertConvertStorylineForGetExecutionOutput implements ModelInterface, Ar
 
 
     /**
-     * Gets all_tags
-     *
-     * @return \Volcengine\Vod20250101\Model\AllTagForGetExecutionOutput[]
-     */
-    public function getAllTags()
-    {
-        return $this->container['all_tags'];
-    }
-
-    /**
-     * Sets all_tags
-     *
-     * @param \Volcengine\Vod20250101\Model\AllTagForGetExecutionOutput[] $all_tags all_tags
-     *
-     * @return $this
-     */
-    public function setAllTags($all_tags)
-    {
-        $this->container['all_tags'] = $all_tags;
-
-        return $this;
-    }
-
-    /**
      * Gets clips
      *
-     * @return \Volcengine\Vod20250101\Model\ConvertClipForGetExecutionOutput[]
+     * @return int[]
      */
     public function getClips()
     {
@@ -242,7 +200,7 @@ class ConvertConvertStorylineForGetExecutionOutput implements ModelInterface, Ar
     /**
      * Sets clips
      *
-     * @param \Volcengine\Vod20250101\Model\ConvertClipForGetExecutionOutput[] $clips clips
+     * @param int[] $clips clips
      *
      * @return $this
      */
@@ -254,97 +212,49 @@ class ConvertConvertStorylineForGetExecutionOutput implements ModelInterface, Ar
     }
 
     /**
-     * Gets duration
+     * Gets summary
      *
-     * @return double
+     * @return string
      */
-    public function getDuration()
+    public function getSummary()
     {
-        return $this->container['duration'];
+        return $this->container['summary'];
     }
 
     /**
-     * Sets duration
+     * Sets summary
      *
-     * @param double $duration duration
+     * @param string $summary summary
      *
      * @return $this
      */
-    public function setDuration($duration)
+    public function setSummary($summary)
     {
-        $this->container['duration'] = $duration;
+        $this->container['summary'] = $summary;
 
         return $this;
     }
 
     /**
-     * Gets storylines
+     * Gets title
      *
-     * @return \Volcengine\Vod20250101\Model\ConvertStorylineForGetExecutionOutput[]
+     * @return string
      */
-    public function getStorylines()
+    public function getTitle()
     {
-        return $this->container['storylines'];
+        return $this->container['title'];
     }
 
     /**
-     * Sets storylines
+     * Sets title
      *
-     * @param \Volcengine\Vod20250101\Model\ConvertStorylineForGetExecutionOutput[] $storylines storylines
+     * @param string $title title
      *
      * @return $this
      */
-    public function setStorylines($storylines)
+    public function setTitle($title)
     {
-        $this->container['storylines'] = $storylines;
-
-        return $this;
-    }
-
-    /**
-     * Gets summaries
-     *
-     * @return string[]
-     */
-    public function getSummaries()
-    {
-        return $this->container['summaries'];
-    }
-
-    /**
-     * Sets summaries
-     *
-     * @param string[] $summaries summaries
-     *
-     * @return $this
-     */
-    public function setSummaries($summaries)
-    {
-        $this->container['summaries'] = $summaries;
-
-        return $this;
-    }
-
-    /**
-     * Gets titles
-     *
-     * @return string[]
-     */
-    public function getTitles()
-    {
-        return $this->container['titles'];
-    }
-
-    /**
-     * Sets titles
-     *
-     * @param string[] $titles titles
-     *
-     * @return $this
-     */
-    public function setTitles($titles)
-    {
-        $this->container['titles'] = $titles;
+        $this->container['title'] = $title;
 
         return $this;
     }

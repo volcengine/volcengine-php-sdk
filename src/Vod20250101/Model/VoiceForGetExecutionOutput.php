@@ -29,7 +29,8 @@ class VoiceForGetExecutionOutput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'file_name' => 'string',
-        'size' => 'string'
+        'size' => 'string',
+        'vid' => 'string'
     ];
 
     /**
@@ -39,7 +40,8 @@ class VoiceForGetExecutionOutput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'file_name' => null,
-        'size' => null
+        'size' => null,
+        'vid' => null
     ];
 
     /**
@@ -70,7 +72,8 @@ class VoiceForGetExecutionOutput implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'file_name' => 'FileName',
-        'size' => 'Size'
+        'size' => 'Size',
+        'vid' => 'Vid'
     ];
 
     /**
@@ -80,7 +83,8 @@ class VoiceForGetExecutionOutput implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'file_name' => 'setFileName',
-        'size' => 'setSize'
+        'size' => 'setSize',
+        'vid' => 'setVid'
     ];
 
     /**
@@ -90,7 +94,8 @@ class VoiceForGetExecutionOutput implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'file_name' => 'getFileName',
-        'size' => 'getSize'
+        'size' => 'getSize',
+        'vid' => 'getVid'
     ];
 
     /**
@@ -155,6 +160,7 @@ class VoiceForGetExecutionOutput implements ModelInterface, ArrayAccess
     {
         $this->container['file_name'] = isset($data['file_name']) ? $data['file_name'] : null;
         $this->container['size'] = isset($data['size']) ? $data['size'] : null;
+        $this->container['vid'] = isset($data['vid']) ? $data['vid'] : null;
     }
 
     /**
@@ -225,6 +231,30 @@ class VoiceForGetExecutionOutput implements ModelInterface, ArrayAccess
     public function setSize($size)
     {
         $this->container['size'] = $size;
+
+        return $this;
+    }
+
+    /**
+     * Gets vid
+     *
+     * @return string
+     */
+    public function getVid()
+    {
+        return $this->container['vid'];
+    }
+
+    /**
+     * Sets vid
+     *
+     * @param string $vid vid
+     *
+     * @return $this
+     */
+    public function setVid($vid)
+    {
+        $this->container['vid'] = $vid;
 
         return $this;
     }

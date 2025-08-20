@@ -30,6 +30,9 @@ class ConvertModelForGetExecutionOutput implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'doubao_input_tokens' => 'int',
         'doubao_output_tokens' => 'int',
+        'doubao_text_input_tokens' => 'int',
+        'doubao_text_output_tokens' => 'int',
+        'doubao_text_total_tokens' => 'int',
         'doubao_total_tokens' => 'int'
     ];
 
@@ -41,6 +44,9 @@ class ConvertModelForGetExecutionOutput implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'doubao_input_tokens' => 'int32',
         'doubao_output_tokens' => 'int32',
+        'doubao_text_input_tokens' => 'int32',
+        'doubao_text_output_tokens' => 'int32',
+        'doubao_text_total_tokens' => 'int32',
         'doubao_total_tokens' => 'int32'
     ];
 
@@ -73,6 +79,9 @@ class ConvertModelForGetExecutionOutput implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'doubao_input_tokens' => 'DoubaoInputTokens',
         'doubao_output_tokens' => 'DoubaoOutputTokens',
+        'doubao_text_input_tokens' => 'DoubaoTextInputTokens',
+        'doubao_text_output_tokens' => 'DoubaoTextOutputTokens',
+        'doubao_text_total_tokens' => 'DoubaoTextTotalTokens',
         'doubao_total_tokens' => 'DoubaoTotalTokens'
     ];
 
@@ -84,6 +93,9 @@ class ConvertModelForGetExecutionOutput implements ModelInterface, ArrayAccess
     protected static $setters = [
         'doubao_input_tokens' => 'setDoubaoInputTokens',
         'doubao_output_tokens' => 'setDoubaoOutputTokens',
+        'doubao_text_input_tokens' => 'setDoubaoTextInputTokens',
+        'doubao_text_output_tokens' => 'setDoubaoTextOutputTokens',
+        'doubao_text_total_tokens' => 'setDoubaoTextTotalTokens',
         'doubao_total_tokens' => 'setDoubaoTotalTokens'
     ];
 
@@ -95,6 +107,9 @@ class ConvertModelForGetExecutionOutput implements ModelInterface, ArrayAccess
     protected static $getters = [
         'doubao_input_tokens' => 'getDoubaoInputTokens',
         'doubao_output_tokens' => 'getDoubaoOutputTokens',
+        'doubao_text_input_tokens' => 'getDoubaoTextInputTokens',
+        'doubao_text_output_tokens' => 'getDoubaoTextOutputTokens',
+        'doubao_text_total_tokens' => 'getDoubaoTextTotalTokens',
         'doubao_total_tokens' => 'getDoubaoTotalTokens'
     ];
 
@@ -160,6 +175,9 @@ class ConvertModelForGetExecutionOutput implements ModelInterface, ArrayAccess
     {
         $this->container['doubao_input_tokens'] = isset($data['doubao_input_tokens']) ? $data['doubao_input_tokens'] : null;
         $this->container['doubao_output_tokens'] = isset($data['doubao_output_tokens']) ? $data['doubao_output_tokens'] : null;
+        $this->container['doubao_text_input_tokens'] = isset($data['doubao_text_input_tokens']) ? $data['doubao_text_input_tokens'] : null;
+        $this->container['doubao_text_output_tokens'] = isset($data['doubao_text_output_tokens']) ? $data['doubao_text_output_tokens'] : null;
+        $this->container['doubao_text_total_tokens'] = isset($data['doubao_text_total_tokens']) ? $data['doubao_text_total_tokens'] : null;
         $this->container['doubao_total_tokens'] = isset($data['doubao_total_tokens']) ? $data['doubao_total_tokens'] : null;
     }
 
@@ -231,6 +249,78 @@ class ConvertModelForGetExecutionOutput implements ModelInterface, ArrayAccess
     public function setDoubaoOutputTokens($doubao_output_tokens)
     {
         $this->container['doubao_output_tokens'] = $doubao_output_tokens;
+
+        return $this;
+    }
+
+    /**
+     * Gets doubao_text_input_tokens
+     *
+     * @return int
+     */
+    public function getDoubaoTextInputTokens()
+    {
+        return $this->container['doubao_text_input_tokens'];
+    }
+
+    /**
+     * Sets doubao_text_input_tokens
+     *
+     * @param int $doubao_text_input_tokens doubao_text_input_tokens
+     *
+     * @return $this
+     */
+    public function setDoubaoTextInputTokens($doubao_text_input_tokens)
+    {
+        $this->container['doubao_text_input_tokens'] = $doubao_text_input_tokens;
+
+        return $this;
+    }
+
+    /**
+     * Gets doubao_text_output_tokens
+     *
+     * @return int
+     */
+    public function getDoubaoTextOutputTokens()
+    {
+        return $this->container['doubao_text_output_tokens'];
+    }
+
+    /**
+     * Sets doubao_text_output_tokens
+     *
+     * @param int $doubao_text_output_tokens doubao_text_output_tokens
+     *
+     * @return $this
+     */
+    public function setDoubaoTextOutputTokens($doubao_text_output_tokens)
+    {
+        $this->container['doubao_text_output_tokens'] = $doubao_text_output_tokens;
+
+        return $this;
+    }
+
+    /**
+     * Gets doubao_text_total_tokens
+     *
+     * @return int
+     */
+    public function getDoubaoTextTotalTokens()
+    {
+        return $this->container['doubao_text_total_tokens'];
+    }
+
+    /**
+     * Sets doubao_text_total_tokens
+     *
+     * @param int $doubao_text_total_tokens doubao_text_total_tokens
+     *
+     * @return $this
+     */
+    public function setDoubaoTextTotalTokens($doubao_text_total_tokens)
+    {
+        $this->container['doubao_text_total_tokens'] = $doubao_text_total_tokens;
 
         return $this;
     }

@@ -29,6 +29,7 @@ class StorylineForStartExecutionInput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'clip_duration' => 'double',
+        'sample_mode' => 'string',
         'with_snapshot' => 'bool'
     ];
 
@@ -39,6 +40,7 @@ class StorylineForStartExecutionInput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'clip_duration' => 'double',
+        'sample_mode' => null,
         'with_snapshot' => null
     ];
 
@@ -70,6 +72,7 @@ class StorylineForStartExecutionInput implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'clip_duration' => 'ClipDuration',
+        'sample_mode' => 'SampleMode',
         'with_snapshot' => 'WithSnapshot'
     ];
 
@@ -80,6 +83,7 @@ class StorylineForStartExecutionInput implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'clip_duration' => 'setClipDuration',
+        'sample_mode' => 'setSampleMode',
         'with_snapshot' => 'setWithSnapshot'
     ];
 
@@ -90,6 +94,7 @@ class StorylineForStartExecutionInput implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'clip_duration' => 'getClipDuration',
+        'sample_mode' => 'getSampleMode',
         'with_snapshot' => 'getWithSnapshot'
     ];
 
@@ -154,6 +159,7 @@ class StorylineForStartExecutionInput implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['clip_duration'] = isset($data['clip_duration']) ? $data['clip_duration'] : null;
+        $this->container['sample_mode'] = isset($data['sample_mode']) ? $data['sample_mode'] : null;
         $this->container['with_snapshot'] = isset($data['with_snapshot']) ? $data['with_snapshot'] : null;
     }
 
@@ -201,6 +207,30 @@ class StorylineForStartExecutionInput implements ModelInterface, ArrayAccess
     public function setClipDuration($clip_duration)
     {
         $this->container['clip_duration'] = $clip_duration;
+
+        return $this;
+    }
+
+    /**
+     * Gets sample_mode
+     *
+     * @return string
+     */
+    public function getSampleMode()
+    {
+        return $this->container['sample_mode'];
+    }
+
+    /**
+     * Sets sample_mode
+     *
+     * @param string $sample_mode sample_mode
+     *
+     * @return $this
+     */
+    public function setSampleMode($sample_mode)
+    {
+        $this->container['sample_mode'] = $sample_mode;
 
         return $this;
     }

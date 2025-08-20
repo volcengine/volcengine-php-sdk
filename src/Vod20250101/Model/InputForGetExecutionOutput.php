@@ -30,6 +30,7 @@ class InputForGetExecutionOutput implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'direct_url' => '\Volcengine\Vod20250101\Model\DirectUrlForGetExecutionOutput',
         'file_id' => '\Volcengine\Vod20250101\Model\FileIdForGetExecutionOutput',
+        'tag' => 'string',
         'type' => 'string',
         'vid' => 'string'
     ];
@@ -42,6 +43,7 @@ class InputForGetExecutionOutput implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'direct_url' => null,
         'file_id' => null,
+        'tag' => null,
         'type' => null,
         'vid' => null
     ];
@@ -75,6 +77,7 @@ class InputForGetExecutionOutput implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'direct_url' => 'DirectUrl',
         'file_id' => 'FileId',
+        'tag' => 'Tag',
         'type' => 'Type',
         'vid' => 'Vid'
     ];
@@ -87,6 +90,7 @@ class InputForGetExecutionOutput implements ModelInterface, ArrayAccess
     protected static $setters = [
         'direct_url' => 'setDirectUrl',
         'file_id' => 'setFileId',
+        'tag' => 'setTag',
         'type' => 'setType',
         'vid' => 'setVid'
     ];
@@ -99,6 +103,7 @@ class InputForGetExecutionOutput implements ModelInterface, ArrayAccess
     protected static $getters = [
         'direct_url' => 'getDirectUrl',
         'file_id' => 'getFileId',
+        'tag' => 'getTag',
         'type' => 'getType',
         'vid' => 'getVid'
     ];
@@ -165,6 +170,7 @@ class InputForGetExecutionOutput implements ModelInterface, ArrayAccess
     {
         $this->container['direct_url'] = isset($data['direct_url']) ? $data['direct_url'] : null;
         $this->container['file_id'] = isset($data['file_id']) ? $data['file_id'] : null;
+        $this->container['tag'] = isset($data['tag']) ? $data['tag'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['vid'] = isset($data['vid']) ? $data['vid'] : null;
     }
@@ -237,6 +243,30 @@ class InputForGetExecutionOutput implements ModelInterface, ArrayAccess
     public function setFileId($file_id)
     {
         $this->container['file_id'] = $file_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets tag
+     *
+     * @return string
+     */
+    public function getTag()
+    {
+        return $this->container['tag'];
+    }
+
+    /**
+     * Sets tag
+     *
+     * @param string $tag tag
+     *
+     * @return $this
+     */
+    public function setTag($tag)
+    {
+        $this->container['tag'] = $tag;
 
         return $this;
     }

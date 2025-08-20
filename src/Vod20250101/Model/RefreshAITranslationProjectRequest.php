@@ -28,7 +28,6 @@ class RefreshAITranslationProjectRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'current_version' => 'string',
         'project_id' => 'string',
         'refresh_type' => 'string',
         'space_name' => 'string'
@@ -40,7 +39,6 @@ class RefreshAITranslationProjectRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'current_version' => null,
         'project_id' => null,
         'refresh_type' => null,
         'space_name' => null
@@ -73,7 +71,6 @@ class RefreshAITranslationProjectRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'current_version' => 'CurrentVersion',
         'project_id' => 'ProjectId',
         'refresh_type' => 'RefreshType',
         'space_name' => 'SpaceName'
@@ -85,7 +82,6 @@ class RefreshAITranslationProjectRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'current_version' => 'setCurrentVersion',
         'project_id' => 'setProjectId',
         'refresh_type' => 'setRefreshType',
         'space_name' => 'setSpaceName'
@@ -97,7 +93,6 @@ class RefreshAITranslationProjectRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'current_version' => 'getCurrentVersion',
         'project_id' => 'getProjectId',
         'refresh_type' => 'getRefreshType',
         'space_name' => 'getSpaceName'
@@ -163,7 +158,6 @@ class RefreshAITranslationProjectRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['current_version'] = isset($data['current_version']) ? $data['current_version'] : null;
         $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
         $this->container['refresh_type'] = isset($data['refresh_type']) ? $data['refresh_type'] : null;
         $this->container['space_name'] = isset($data['space_name']) ? $data['space_name'] : null;
@@ -178,9 +172,6 @@ class RefreshAITranslationProjectRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['current_version'] === null) {
-            $invalidProperties[] = "'current_version' can't be null";
-        }
         if ($this->container['project_id'] === null) {
             $invalidProperties[] = "'project_id' can't be null";
         }
@@ -204,30 +195,6 @@ class RefreshAITranslationProjectRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets current_version
-     *
-     * @return string
-     */
-    public function getCurrentVersion()
-    {
-        return $this->container['current_version'];
-    }
-
-    /**
-     * Sets current_version
-     *
-     * @param string $current_version current_version
-     *
-     * @return $this
-     */
-    public function setCurrentVersion($current_version)
-    {
-        $this->container['current_version'] = $current_version;
-
-        return $this;
-    }
 
     /**
      * Gets project_id
