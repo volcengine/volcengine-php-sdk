@@ -172,6 +172,12 @@ class ExtendVolumeRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['new_size'] === null) {
+            $invalidProperties[] = "'new_size' can't be null";
+        }
+        if ($this->container['volume_id'] === null) {
+            $invalidProperties[] = "'volume_id' can't be null";
+        }
         return $invalidProperties;
     }
 

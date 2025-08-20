@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class TerminateVolumesResponse implements ModelInterface, ArrayAccess
+class ManualRenewReservedStorageCapacityResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class TerminateVolumesResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'TerminateVolumesResponse';
+    protected static $swaggerModelName = 'ManualRenewReservedStorageCapacityResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,7 @@ class TerminateVolumesResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'number' => 'string'
+        'reserved_storage_capacity_id' => 'string'
     ];
 
     /**
@@ -37,7 +37,7 @@ class TerminateVolumesResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'number' => null
+        'reserved_storage_capacity_id' => null
     ];
 
     /**
@@ -67,7 +67,7 @@ class TerminateVolumesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'number' => 'Number'
+        'reserved_storage_capacity_id' => 'ReservedStorageCapacityId'
     ];
 
     /**
@@ -76,7 +76,7 @@ class TerminateVolumesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'number' => 'setNumber'
+        'reserved_storage_capacity_id' => 'setReservedStorageCapacityId'
     ];
 
     /**
@@ -85,7 +85,7 @@ class TerminateVolumesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'number' => 'getNumber'
+        'reserved_storage_capacity_id' => 'getReservedStorageCapacityId'
     ];
 
     /**
@@ -148,7 +148,7 @@ class TerminateVolumesResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['number'] = isset($data['number']) ? $data['number'] : null;
+        $this->container['reserved_storage_capacity_id'] = isset($data['reserved_storage_capacity_id']) ? $data['reserved_storage_capacity_id'] : null;
     }
 
     /**
@@ -176,25 +176,25 @@ class TerminateVolumesResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets number
+     * Gets reserved_storage_capacity_id
      *
      * @return string
      */
-    public function getNumber()
+    public function getReservedStorageCapacityId()
     {
-        return $this->container['number'];
+        return $this->container['reserved_storage_capacity_id'];
     }
 
     /**
-     * Sets number
+     * Sets reserved_storage_capacity_id
      *
-     * @param string $number number
+     * @param string $reserved_storage_capacity_id reserved_storage_capacity_id
      *
      * @return $this
      */
-    public function setNumber($number)
+    public function setReservedStorageCapacityId($reserved_storage_capacity_id)
     {
-        $this->container['number'] = $number;
+        $this->container['reserved_storage_capacity_id'] = $reserved_storage_capacity_id;
 
         return $this;
     }

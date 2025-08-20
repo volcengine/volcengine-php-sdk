@@ -30,10 +30,16 @@ class CreateVolumeRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'client_token' => 'string',
         'description' => 'string',
+        'extra_performance_iops' => 'int',
+        'extra_performance_throughput_mb' => 'int',
+        'extra_performance_type_id' => 'string',
         'instance_id' => 'string',
         'kind' => 'string',
+        'placement_group_id' => 'string',
         'project_name' => 'string',
         'size' => 'string',
+        'snapshot_id' => 'string',
+        'subgroup_number' => 'int',
         'tags' => '\Volcengine\Storageebs\Model\TagForCreateVolumeInput[]',
         'volume_charge_type' => 'string',
         'volume_name' => 'string',
@@ -49,10 +55,16 @@ class CreateVolumeRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'client_token' => null,
         'description' => null,
+        'extra_performance_iops' => 'int32',
+        'extra_performance_throughput_mb' => 'int32',
+        'extra_performance_type_id' => null,
         'instance_id' => null,
         'kind' => null,
+        'placement_group_id' => null,
         'project_name' => null,
         'size' => 'json_number',
+        'snapshot_id' => null,
+        'subgroup_number' => 'int32',
         'tags' => null,
         'volume_charge_type' => null,
         'volume_name' => null,
@@ -89,10 +101,16 @@ class CreateVolumeRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'client_token' => 'ClientToken',
         'description' => 'Description',
+        'extra_performance_iops' => 'ExtraPerformanceIOPS',
+        'extra_performance_throughput_mb' => 'ExtraPerformanceThroughputMB',
+        'extra_performance_type_id' => 'ExtraPerformanceTypeId',
         'instance_id' => 'InstanceId',
         'kind' => 'Kind',
+        'placement_group_id' => 'PlacementGroupId',
         'project_name' => 'ProjectName',
         'size' => 'Size',
+        'snapshot_id' => 'SnapshotId',
+        'subgroup_number' => 'SubgroupNumber',
         'tags' => 'Tags',
         'volume_charge_type' => 'VolumeChargeType',
         'volume_name' => 'VolumeName',
@@ -108,10 +126,16 @@ class CreateVolumeRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'client_token' => 'setClientToken',
         'description' => 'setDescription',
+        'extra_performance_iops' => 'setExtraPerformanceIops',
+        'extra_performance_throughput_mb' => 'setExtraPerformanceThroughputMb',
+        'extra_performance_type_id' => 'setExtraPerformanceTypeId',
         'instance_id' => 'setInstanceId',
         'kind' => 'setKind',
+        'placement_group_id' => 'setPlacementGroupId',
         'project_name' => 'setProjectName',
         'size' => 'setSize',
+        'snapshot_id' => 'setSnapshotId',
+        'subgroup_number' => 'setSubgroupNumber',
         'tags' => 'setTags',
         'volume_charge_type' => 'setVolumeChargeType',
         'volume_name' => 'setVolumeName',
@@ -127,10 +151,16 @@ class CreateVolumeRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'client_token' => 'getClientToken',
         'description' => 'getDescription',
+        'extra_performance_iops' => 'getExtraPerformanceIops',
+        'extra_performance_throughput_mb' => 'getExtraPerformanceThroughputMb',
+        'extra_performance_type_id' => 'getExtraPerformanceTypeId',
         'instance_id' => 'getInstanceId',
         'kind' => 'getKind',
+        'placement_group_id' => 'getPlacementGroupId',
         'project_name' => 'getProjectName',
         'size' => 'getSize',
+        'snapshot_id' => 'getSnapshotId',
+        'subgroup_number' => 'getSubgroupNumber',
         'tags' => 'getTags',
         'volume_charge_type' => 'getVolumeChargeType',
         'volume_name' => 'getVolumeName',
@@ -200,10 +230,16 @@ class CreateVolumeRequest implements ModelInterface, ArrayAccess
     {
         $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['extra_performance_iops'] = isset($data['extra_performance_iops']) ? $data['extra_performance_iops'] : null;
+        $this->container['extra_performance_throughput_mb'] = isset($data['extra_performance_throughput_mb']) ? $data['extra_performance_throughput_mb'] : null;
+        $this->container['extra_performance_type_id'] = isset($data['extra_performance_type_id']) ? $data['extra_performance_type_id'] : null;
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
         $this->container['kind'] = isset($data['kind']) ? $data['kind'] : null;
+        $this->container['placement_group_id'] = isset($data['placement_group_id']) ? $data['placement_group_id'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['size'] = isset($data['size']) ? $data['size'] : null;
+        $this->container['snapshot_id'] = isset($data['snapshot_id']) ? $data['snapshot_id'] : null;
+        $this->container['subgroup_number'] = isset($data['subgroup_number']) ? $data['subgroup_number'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['volume_charge_type'] = isset($data['volume_charge_type']) ? $data['volume_charge_type'] : null;
         $this->container['volume_name'] = isset($data['volume_name']) ? $data['volume_name'] : null;
@@ -220,6 +256,15 @@ class CreateVolumeRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['size'] === null) {
+            $invalidProperties[] = "'size' can't be null";
+        }
+        if ($this->container['volume_name'] === null) {
+            $invalidProperties[] = "'volume_name' can't be null";
+        }
+        if ($this->container['volume_type'] === null) {
+            $invalidProperties[] = "'volume_type' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -284,6 +329,78 @@ class CreateVolumeRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets extra_performance_iops
+     *
+     * @return int
+     */
+    public function getExtraPerformanceIops()
+    {
+        return $this->container['extra_performance_iops'];
+    }
+
+    /**
+     * Sets extra_performance_iops
+     *
+     * @param int $extra_performance_iops extra_performance_iops
+     *
+     * @return $this
+     */
+    public function setExtraPerformanceIops($extra_performance_iops)
+    {
+        $this->container['extra_performance_iops'] = $extra_performance_iops;
+
+        return $this;
+    }
+
+    /**
+     * Gets extra_performance_throughput_mb
+     *
+     * @return int
+     */
+    public function getExtraPerformanceThroughputMb()
+    {
+        return $this->container['extra_performance_throughput_mb'];
+    }
+
+    /**
+     * Sets extra_performance_throughput_mb
+     *
+     * @param int $extra_performance_throughput_mb extra_performance_throughput_mb
+     *
+     * @return $this
+     */
+    public function setExtraPerformanceThroughputMb($extra_performance_throughput_mb)
+    {
+        $this->container['extra_performance_throughput_mb'] = $extra_performance_throughput_mb;
+
+        return $this;
+    }
+
+    /**
+     * Gets extra_performance_type_id
+     *
+     * @return string
+     */
+    public function getExtraPerformanceTypeId()
+    {
+        return $this->container['extra_performance_type_id'];
+    }
+
+    /**
+     * Sets extra_performance_type_id
+     *
+     * @param string $extra_performance_type_id extra_performance_type_id
+     *
+     * @return $this
+     */
+    public function setExtraPerformanceTypeId($extra_performance_type_id)
+    {
+        $this->container['extra_performance_type_id'] = $extra_performance_type_id;
+
+        return $this;
+    }
+
+    /**
      * Gets instance_id
      *
      * @return string
@@ -332,6 +449,30 @@ class CreateVolumeRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets placement_group_id
+     *
+     * @return string
+     */
+    public function getPlacementGroupId()
+    {
+        return $this->container['placement_group_id'];
+    }
+
+    /**
+     * Sets placement_group_id
+     *
+     * @param string $placement_group_id placement_group_id
+     *
+     * @return $this
+     */
+    public function setPlacementGroupId($placement_group_id)
+    {
+        $this->container['placement_group_id'] = $placement_group_id;
+
+        return $this;
+    }
+
+    /**
      * Gets project_name
      *
      * @return string
@@ -375,6 +516,54 @@ class CreateVolumeRequest implements ModelInterface, ArrayAccess
     public function setSize($size)
     {
         $this->container['size'] = $size;
+
+        return $this;
+    }
+
+    /**
+     * Gets snapshot_id
+     *
+     * @return string
+     */
+    public function getSnapshotId()
+    {
+        return $this->container['snapshot_id'];
+    }
+
+    /**
+     * Sets snapshot_id
+     *
+     * @param string $snapshot_id snapshot_id
+     *
+     * @return $this
+     */
+    public function setSnapshotId($snapshot_id)
+    {
+        $this->container['snapshot_id'] = $snapshot_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets subgroup_number
+     *
+     * @return int
+     */
+    public function getSubgroupNumber()
+    {
+        return $this->container['subgroup_number'];
+    }
+
+    /**
+     * Sets subgroup_number
+     *
+     * @param int $subgroup_number subgroup_number
+     *
+     * @return $this
+     */
+    public function setSubgroupNumber($subgroup_number)
+    {
+        $this->container['subgroup_number'] = $subgroup_number;
 
         return $this;
     }

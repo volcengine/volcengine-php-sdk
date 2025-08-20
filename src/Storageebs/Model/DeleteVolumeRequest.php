@@ -166,6 +166,9 @@ class DeleteVolumeRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['volume_id'] === null) {
+            $invalidProperties[] = "'volume_id' can't be null";
+        }
         return $invalidProperties;
     }
 

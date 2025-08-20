@@ -28,6 +28,7 @@ class DescribeVolumesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'billing_type' => 'int',
         'instance_id' => 'string',
         'kind' => 'string',
         'page_number' => 'int',
@@ -47,6 +48,7 @@ class DescribeVolumesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'billing_type' => 'int32',
         'instance_id' => null,
         'kind' => null,
         'page_number' => 'int32',
@@ -87,6 +89,7 @@ class DescribeVolumesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'billing_type' => 'BillingType',
         'instance_id' => 'InstanceId',
         'kind' => 'Kind',
         'page_number' => 'PageNumber',
@@ -106,6 +109,7 @@ class DescribeVolumesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'billing_type' => 'setBillingType',
         'instance_id' => 'setInstanceId',
         'kind' => 'setKind',
         'page_number' => 'setPageNumber',
@@ -125,6 +129,7 @@ class DescribeVolumesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'billing_type' => 'getBillingType',
         'instance_id' => 'getInstanceId',
         'kind' => 'getKind',
         'page_number' => 'getPageNumber',
@@ -198,6 +203,7 @@ class DescribeVolumesRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['billing_type'] = isset($data['billing_type']) ? $data['billing_type'] : null;
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
         $this->container['kind'] = isset($data['kind']) ? $data['kind'] : null;
         $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
@@ -234,6 +240,30 @@ class DescribeVolumesRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets billing_type
+     *
+     * @return int
+     */
+    public function getBillingType()
+    {
+        return $this->container['billing_type'];
+    }
+
+    /**
+     * Sets billing_type
+     *
+     * @param int $billing_type billing_type
+     *
+     * @return $this
+     */
+    public function setBillingType($billing_type)
+    {
+        $this->container['billing_type'] = $billing_type;
+
+        return $this;
+    }
 
     /**
      * Gets instance_id
