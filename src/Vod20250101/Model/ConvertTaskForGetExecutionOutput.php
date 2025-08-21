@@ -31,11 +31,15 @@ class ConvertTaskForGetExecutionOutput implements ModelInterface, ArrayAccess
         'ad_audit' => '\Volcengine\Vod20250101\Model\ConvertAdAuditForGetExecutionOutput',
         'asr' => '\Volcengine\Vod20250101\Model\ConvertAsrForGetExecutionOutput',
         'audio_extract' => '\Volcengine\Vod20250101\Model\ConvertAudioExtractForGetExecutionOutput',
+        'erase' => '\Volcengine\Vod20250101\Model\ConvertEraseForGetExecutionOutput',
+        'file_delete' => '\Volcengine\Vod20250101\Model\ConvertFileDeleteForGetExecutionOutput',
         'highlight' => '\Volcengine\Vod20250101\Model\ConvertHighlightForGetExecutionOutput',
         'ocr' => '\Volcengine\Vod20250101\Model\ConvertOcrForGetExecutionOutput',
-        'segment' => '\Volcengine\Vod20250101\Model\ConvertConvertSegmentForGetExecutionOutput',
-        'storyline' => '\Volcengine\Vod20250101\Model\ConvertConvertStorylineForGetExecutionOutput',
+        'segment' => '\Volcengine\Vod20250101\Model\ConvertConvertConvertConvertSegmentForGetExecutionOutput',
+        'storyline' => '\Volcengine\Vod20250101\Model\ConvertConvertConvertStorylineForGetExecutionOutput',
         'type' => 'string',
+        'video_generation' => '\Volcengine\Vod20250101\Model\ConvertVideoGenerationForGetExecutionOutput',
+        'video_summary' => '\Volcengine\Vod20250101\Model\ConvertVideoSummaryForGetExecutionOutput',
         'vision' => '\Volcengine\Vod20250101\Model\ConvertVisionForGetExecutionOutput'
     ];
 
@@ -48,11 +52,15 @@ class ConvertTaskForGetExecutionOutput implements ModelInterface, ArrayAccess
         'ad_audit' => null,
         'asr' => null,
         'audio_extract' => null,
+        'erase' => null,
+        'file_delete' => null,
         'highlight' => null,
         'ocr' => null,
         'segment' => null,
         'storyline' => null,
         'type' => null,
+        'video_generation' => null,
+        'video_summary' => null,
         'vision' => null
     ];
 
@@ -86,11 +94,15 @@ class ConvertTaskForGetExecutionOutput implements ModelInterface, ArrayAccess
         'ad_audit' => 'AdAudit',
         'asr' => 'Asr',
         'audio_extract' => 'AudioExtract',
+        'erase' => 'Erase',
+        'file_delete' => 'FileDelete',
         'highlight' => 'Highlight',
         'ocr' => 'Ocr',
         'segment' => 'Segment',
         'storyline' => 'Storyline',
         'type' => 'Type',
+        'video_generation' => 'VideoGeneration',
+        'video_summary' => 'VideoSummary',
         'vision' => 'Vision'
     ];
 
@@ -103,11 +115,15 @@ class ConvertTaskForGetExecutionOutput implements ModelInterface, ArrayAccess
         'ad_audit' => 'setAdAudit',
         'asr' => 'setAsr',
         'audio_extract' => 'setAudioExtract',
+        'erase' => 'setErase',
+        'file_delete' => 'setFileDelete',
         'highlight' => 'setHighlight',
         'ocr' => 'setOcr',
         'segment' => 'setSegment',
         'storyline' => 'setStoryline',
         'type' => 'setType',
+        'video_generation' => 'setVideoGeneration',
+        'video_summary' => 'setVideoSummary',
         'vision' => 'setVision'
     ];
 
@@ -120,11 +136,15 @@ class ConvertTaskForGetExecutionOutput implements ModelInterface, ArrayAccess
         'ad_audit' => 'getAdAudit',
         'asr' => 'getAsr',
         'audio_extract' => 'getAudioExtract',
+        'erase' => 'getErase',
+        'file_delete' => 'getFileDelete',
         'highlight' => 'getHighlight',
         'ocr' => 'getOcr',
         'segment' => 'getSegment',
         'storyline' => 'getStoryline',
         'type' => 'getType',
+        'video_generation' => 'getVideoGeneration',
+        'video_summary' => 'getVideoSummary',
         'vision' => 'getVision'
     ];
 
@@ -191,11 +211,15 @@ class ConvertTaskForGetExecutionOutput implements ModelInterface, ArrayAccess
         $this->container['ad_audit'] = isset($data['ad_audit']) ? $data['ad_audit'] : null;
         $this->container['asr'] = isset($data['asr']) ? $data['asr'] : null;
         $this->container['audio_extract'] = isset($data['audio_extract']) ? $data['audio_extract'] : null;
+        $this->container['erase'] = isset($data['erase']) ? $data['erase'] : null;
+        $this->container['file_delete'] = isset($data['file_delete']) ? $data['file_delete'] : null;
         $this->container['highlight'] = isset($data['highlight']) ? $data['highlight'] : null;
         $this->container['ocr'] = isset($data['ocr']) ? $data['ocr'] : null;
         $this->container['segment'] = isset($data['segment']) ? $data['segment'] : null;
         $this->container['storyline'] = isset($data['storyline']) ? $data['storyline'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['video_generation'] = isset($data['video_generation']) ? $data['video_generation'] : null;
+        $this->container['video_summary'] = isset($data['video_summary']) ? $data['video_summary'] : null;
         $this->container['vision'] = isset($data['vision']) ? $data['vision'] : null;
     }
 
@@ -296,6 +320,54 @@ class ConvertTaskForGetExecutionOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets erase
+     *
+     * @return \Volcengine\Vod20250101\Model\ConvertEraseForGetExecutionOutput
+     */
+    public function getErase()
+    {
+        return $this->container['erase'];
+    }
+
+    /**
+     * Sets erase
+     *
+     * @param \Volcengine\Vod20250101\Model\ConvertEraseForGetExecutionOutput $erase erase
+     *
+     * @return $this
+     */
+    public function setErase($erase)
+    {
+        $this->container['erase'] = $erase;
+
+        return $this;
+    }
+
+    /**
+     * Gets file_delete
+     *
+     * @return \Volcengine\Vod20250101\Model\ConvertFileDeleteForGetExecutionOutput
+     */
+    public function getFileDelete()
+    {
+        return $this->container['file_delete'];
+    }
+
+    /**
+     * Sets file_delete
+     *
+     * @param \Volcengine\Vod20250101\Model\ConvertFileDeleteForGetExecutionOutput $file_delete file_delete
+     *
+     * @return $this
+     */
+    public function setFileDelete($file_delete)
+    {
+        $this->container['file_delete'] = $file_delete;
+
+        return $this;
+    }
+
+    /**
      * Gets highlight
      *
      * @return \Volcengine\Vod20250101\Model\ConvertHighlightForGetExecutionOutput
@@ -346,7 +418,7 @@ class ConvertTaskForGetExecutionOutput implements ModelInterface, ArrayAccess
     /**
      * Gets segment
      *
-     * @return \Volcengine\Vod20250101\Model\ConvertConvertSegmentForGetExecutionOutput
+     * @return \Volcengine\Vod20250101\Model\ConvertConvertConvertConvertSegmentForGetExecutionOutput
      */
     public function getSegment()
     {
@@ -356,7 +428,7 @@ class ConvertTaskForGetExecutionOutput implements ModelInterface, ArrayAccess
     /**
      * Sets segment
      *
-     * @param \Volcengine\Vod20250101\Model\ConvertConvertSegmentForGetExecutionOutput $segment segment
+     * @param \Volcengine\Vod20250101\Model\ConvertConvertConvertConvertSegmentForGetExecutionOutput $segment segment
      *
      * @return $this
      */
@@ -370,7 +442,7 @@ class ConvertTaskForGetExecutionOutput implements ModelInterface, ArrayAccess
     /**
      * Gets storyline
      *
-     * @return \Volcengine\Vod20250101\Model\ConvertConvertStorylineForGetExecutionOutput
+     * @return \Volcengine\Vod20250101\Model\ConvertConvertConvertStorylineForGetExecutionOutput
      */
     public function getStoryline()
     {
@@ -380,7 +452,7 @@ class ConvertTaskForGetExecutionOutput implements ModelInterface, ArrayAccess
     /**
      * Sets storyline
      *
-     * @param \Volcengine\Vod20250101\Model\ConvertConvertStorylineForGetExecutionOutput $storyline storyline
+     * @param \Volcengine\Vod20250101\Model\ConvertConvertConvertStorylineForGetExecutionOutput $storyline storyline
      *
      * @return $this
      */
@@ -411,6 +483,54 @@ class ConvertTaskForGetExecutionOutput implements ModelInterface, ArrayAccess
     public function setType($type)
     {
         $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets video_generation
+     *
+     * @return \Volcengine\Vod20250101\Model\ConvertVideoGenerationForGetExecutionOutput
+     */
+    public function getVideoGeneration()
+    {
+        return $this->container['video_generation'];
+    }
+
+    /**
+     * Sets video_generation
+     *
+     * @param \Volcengine\Vod20250101\Model\ConvertVideoGenerationForGetExecutionOutput $video_generation video_generation
+     *
+     * @return $this
+     */
+    public function setVideoGeneration($video_generation)
+    {
+        $this->container['video_generation'] = $video_generation;
+
+        return $this;
+    }
+
+    /**
+     * Gets video_summary
+     *
+     * @return \Volcengine\Vod20250101\Model\ConvertVideoSummaryForGetExecutionOutput
+     */
+    public function getVideoSummary()
+    {
+        return $this->container['video_summary'];
+    }
+
+    /**
+     * Sets video_summary
+     *
+     * @param \Volcengine\Vod20250101\Model\ConvertVideoSummaryForGetExecutionOutput $video_summary video_summary
+     *
+     * @return $this
+     */
+    public function setVideoSummary($video_summary)
+    {
+        $this->container['video_summary'] = $video_summary;
 
         return $this;
     }

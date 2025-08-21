@@ -40,6 +40,7 @@ class ProjectForListAITranslationProjectOutput implements ModelInterface, ArrayA
         'project_version' => 'string',
         'source_blueprints' => '\Volcengine\Vod20250101\Model\SourceBlueprintForListAITranslationProjectOutput[]',
         'status' => 'string',
+        'subtitle_config' => '\Volcengine\Vod20250101\Model\SubtitleConfigForListAITranslationProjectOutput',
         'target_blueprints' => '\Volcengine\Vod20250101\Model\TargetBlueprintForListAITranslationProjectOutput[]',
         'translation_type_list' => 'string[]',
         'updated_at' => 'string',
@@ -64,6 +65,7 @@ class ProjectForListAITranslationProjectOutput implements ModelInterface, ArrayA
         'project_version' => null,
         'source_blueprints' => null,
         'status' => null,
+        'subtitle_config' => null,
         'target_blueprints' => null,
         'translation_type_list' => null,
         'updated_at' => null,
@@ -109,6 +111,7 @@ class ProjectForListAITranslationProjectOutput implements ModelInterface, ArrayA
         'project_version' => 'ProjectVersion',
         'source_blueprints' => 'SourceBlueprints',
         'status' => 'Status',
+        'subtitle_config' => 'SubtitleConfig',
         'target_blueprints' => 'TargetBlueprints',
         'translation_type_list' => 'TranslationTypeList',
         'updated_at' => 'UpdatedAt',
@@ -133,6 +136,7 @@ class ProjectForListAITranslationProjectOutput implements ModelInterface, ArrayA
         'project_version' => 'setProjectVersion',
         'source_blueprints' => 'setSourceBlueprints',
         'status' => 'setStatus',
+        'subtitle_config' => 'setSubtitleConfig',
         'target_blueprints' => 'setTargetBlueprints',
         'translation_type_list' => 'setTranslationTypeList',
         'updated_at' => 'setUpdatedAt',
@@ -157,6 +161,7 @@ class ProjectForListAITranslationProjectOutput implements ModelInterface, ArrayA
         'project_version' => 'getProjectVersion',
         'source_blueprints' => 'getSourceBlueprints',
         'status' => 'getStatus',
+        'subtitle_config' => 'getSubtitleConfig',
         'target_blueprints' => 'getTargetBlueprints',
         'translation_type_list' => 'getTranslationTypeList',
         'updated_at' => 'getUpdatedAt',
@@ -235,6 +240,7 @@ class ProjectForListAITranslationProjectOutput implements ModelInterface, ArrayA
         $this->container['project_version'] = isset($data['project_version']) ? $data['project_version'] : null;
         $this->container['source_blueprints'] = isset($data['source_blueprints']) ? $data['source_blueprints'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['subtitle_config'] = isset($data['subtitle_config']) ? $data['subtitle_config'] : null;
         $this->container['target_blueprints'] = isset($data['target_blueprints']) ? $data['target_blueprints'] : null;
         $this->container['translation_type_list'] = isset($data['translation_type_list']) ? $data['translation_type_list'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
@@ -549,6 +555,30 @@ class ProjectForListAITranslationProjectOutput implements ModelInterface, ArrayA
     public function setStatus($status)
     {
         $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets subtitle_config
+     *
+     * @return \Volcengine\Vod20250101\Model\SubtitleConfigForListAITranslationProjectOutput
+     */
+    public function getSubtitleConfig()
+    {
+        return $this->container['subtitle_config'];
+    }
+
+    /**
+     * Sets subtitle_config
+     *
+     * @param \Volcengine\Vod20250101\Model\SubtitleConfigForListAITranslationProjectOutput $subtitle_config subtitle_config
+     *
+     * @return $this
+     */
+    public function setSubtitleConfig($subtitle_config)
+    {
+        $this->container['subtitle_config'] = $subtitle_config;
 
         return $this;
     }

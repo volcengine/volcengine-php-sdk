@@ -31,6 +31,7 @@ class ProjectInfoForGetAITranslationProjectOutput implements ModelInterface, Arr
         'background_audio' => '\Volcengine\Vod20250101\Model\BackgroundAudioForGetAITranslationProjectOutput',
         'background_clip' => '\Volcengine\Vod20250101\Model\BackgroundClipForGetAITranslationProjectOutput',
         'created_at' => 'string',
+        'erased_subtitle_video' => '\Volcengine\Vod20250101\Model\ErasedSubtitleVideoForGetAITranslationProjectOutput',
         'error_code' => 'int',
         'error_msg' => 'string',
         'facial_translation_video' => '\Volcengine\Vod20250101\Model\FacialTranslationVideoForGetAITranslationProjectOutput',
@@ -68,6 +69,7 @@ class ProjectInfoForGetAITranslationProjectOutput implements ModelInterface, Arr
         'background_audio' => null,
         'background_clip' => null,
         'created_at' => null,
+        'erased_subtitle_video' => null,
         'error_code' => 'int32',
         'error_msg' => null,
         'facial_translation_video' => null,
@@ -126,6 +128,7 @@ class ProjectInfoForGetAITranslationProjectOutput implements ModelInterface, Arr
         'background_audio' => 'BackgroundAudio',
         'background_clip' => 'BackgroundClip',
         'created_at' => 'CreatedAt',
+        'erased_subtitle_video' => 'ErasedSubtitleVideo',
         'error_code' => 'ErrorCode',
         'error_msg' => 'ErrorMsg',
         'facial_translation_video' => 'FacialTranslationVideo',
@@ -163,6 +166,7 @@ class ProjectInfoForGetAITranslationProjectOutput implements ModelInterface, Arr
         'background_audio' => 'setBackgroundAudio',
         'background_clip' => 'setBackgroundClip',
         'created_at' => 'setCreatedAt',
+        'erased_subtitle_video' => 'setErasedSubtitleVideo',
         'error_code' => 'setErrorCode',
         'error_msg' => 'setErrorMsg',
         'facial_translation_video' => 'setFacialTranslationVideo',
@@ -200,6 +204,7 @@ class ProjectInfoForGetAITranslationProjectOutput implements ModelInterface, Arr
         'background_audio' => 'getBackgroundAudio',
         'background_clip' => 'getBackgroundClip',
         'created_at' => 'getCreatedAt',
+        'erased_subtitle_video' => 'getErasedSubtitleVideo',
         'error_code' => 'getErrorCode',
         'error_msg' => 'getErrorMsg',
         'facial_translation_video' => 'getFacialTranslationVideo',
@@ -291,6 +296,7 @@ class ProjectInfoForGetAITranslationProjectOutput implements ModelInterface, Arr
         $this->container['background_audio'] = isset($data['background_audio']) ? $data['background_audio'] : null;
         $this->container['background_clip'] = isset($data['background_clip']) ? $data['background_clip'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
+        $this->container['erased_subtitle_video'] = isset($data['erased_subtitle_video']) ? $data['erased_subtitle_video'] : null;
         $this->container['error_code'] = isset($data['error_code']) ? $data['error_code'] : null;
         $this->container['error_msg'] = isset($data['error_msg']) ? $data['error_msg'] : null;
         $this->container['facial_translation_video'] = isset($data['facial_translation_video']) ? $data['facial_translation_video'] : null;
@@ -411,6 +417,30 @@ class ProjectInfoForGetAITranslationProjectOutput implements ModelInterface, Arr
     public function setCreatedAt($created_at)
     {
         $this->container['created_at'] = $created_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets erased_subtitle_video
+     *
+     * @return \Volcengine\Vod20250101\Model\ErasedSubtitleVideoForGetAITranslationProjectOutput
+     */
+    public function getErasedSubtitleVideo()
+    {
+        return $this->container['erased_subtitle_video'];
+    }
+
+    /**
+     * Sets erased_subtitle_video
+     *
+     * @param \Volcengine\Vod20250101\Model\ErasedSubtitleVideoForGetAITranslationProjectOutput $erased_subtitle_video erased_subtitle_video
+     *
+     * @return $this
+     */
+    public function setErasedSubtitleVideo($erased_subtitle_video)
+    {
+        $this->container['erased_subtitle_video'] = $erased_subtitle_video;
 
         return $this;
     }

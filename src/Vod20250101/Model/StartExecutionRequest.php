@@ -31,7 +31,8 @@ class StartExecutionRequest implements ModelInterface, ArrayAccess
         'control' => '\Volcengine\Vod20250101\Model\ControlForStartExecutionInput',
         'input' => '\Volcengine\Vod20250101\Model\InputForStartExecutionInput',
         'multi_inputs' => '\Volcengine\Vod20250101\Model\MultiInputForStartExecutionInput[]',
-        'operation' => '\Volcengine\Vod20250101\Model\OperationForStartExecutionInput'
+        'operation' => '\Volcengine\Vod20250101\Model\ConvertOperationForStartExecutionInput',
+        'space_name' => 'string'
     ];
 
     /**
@@ -43,7 +44,8 @@ class StartExecutionRequest implements ModelInterface, ArrayAccess
         'control' => null,
         'input' => null,
         'multi_inputs' => null,
-        'operation' => null
+        'operation' => null,
+        'space_name' => null
     ];
 
     /**
@@ -76,7 +78,8 @@ class StartExecutionRequest implements ModelInterface, ArrayAccess
         'control' => 'Control',
         'input' => 'Input',
         'multi_inputs' => 'MultiInputs',
-        'operation' => 'Operation'
+        'operation' => 'Operation',
+        'space_name' => 'SpaceName'
     ];
 
     /**
@@ -88,7 +91,8 @@ class StartExecutionRequest implements ModelInterface, ArrayAccess
         'control' => 'setControl',
         'input' => 'setInput',
         'multi_inputs' => 'setMultiInputs',
-        'operation' => 'setOperation'
+        'operation' => 'setOperation',
+        'space_name' => 'setSpaceName'
     ];
 
     /**
@@ -100,7 +104,8 @@ class StartExecutionRequest implements ModelInterface, ArrayAccess
         'control' => 'getControl',
         'input' => 'getInput',
         'multi_inputs' => 'getMultiInputs',
-        'operation' => 'getOperation'
+        'operation' => 'getOperation',
+        'space_name' => 'getSpaceName'
     ];
 
     /**
@@ -167,6 +172,7 @@ class StartExecutionRequest implements ModelInterface, ArrayAccess
         $this->container['input'] = isset($data['input']) ? $data['input'] : null;
         $this->container['multi_inputs'] = isset($data['multi_inputs']) ? $data['multi_inputs'] : null;
         $this->container['operation'] = isset($data['operation']) ? $data['operation'] : null;
+        $this->container['space_name'] = isset($data['space_name']) ? $data['space_name'] : null;
     }
 
     /**
@@ -268,7 +274,7 @@ class StartExecutionRequest implements ModelInterface, ArrayAccess
     /**
      * Gets operation
      *
-     * @return \Volcengine\Vod20250101\Model\OperationForStartExecutionInput
+     * @return \Volcengine\Vod20250101\Model\ConvertOperationForStartExecutionInput
      */
     public function getOperation()
     {
@@ -278,13 +284,37 @@ class StartExecutionRequest implements ModelInterface, ArrayAccess
     /**
      * Sets operation
      *
-     * @param \Volcengine\Vod20250101\Model\OperationForStartExecutionInput $operation operation
+     * @param \Volcengine\Vod20250101\Model\ConvertOperationForStartExecutionInput $operation operation
      *
      * @return $this
      */
     public function setOperation($operation)
     {
         $this->container['operation'] = $operation;
+
+        return $this;
+    }
+
+    /**
+     * Gets space_name
+     *
+     * @return string
+     */
+    public function getSpaceName()
+    {
+        return $this->container['space_name'];
+    }
+
+    /**
+     * Sets space_name
+     *
+     * @param string $space_name space_name
+     *
+     * @return $this
+     */
+    public function setSpaceName($space_name)
+    {
+        $this->container['space_name'] = $space_name;
 
         return $this;
     }

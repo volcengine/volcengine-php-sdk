@@ -28,7 +28,8 @@ class HighlightForStartExecutionInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'mode' => 'string',
+        'storyline_cuts' => '\Volcengine\Vod20250101\Model\StorylineCutsForStartExecutionInput'
     ];
 
     /**
@@ -37,7 +38,8 @@ class HighlightForStartExecutionInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'mode' => null,
+        'storyline_cuts' => null
     ];
 
     /**
@@ -67,7 +69,8 @@ class HighlightForStartExecutionInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'mode' => 'Mode',
+        'storyline_cuts' => 'StorylineCuts'
     ];
 
     /**
@@ -76,7 +79,8 @@ class HighlightForStartExecutionInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        
+        'mode' => 'setMode',
+        'storyline_cuts' => 'setStorylineCuts'
     ];
 
     /**
@@ -85,7 +89,8 @@ class HighlightForStartExecutionInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        
+        'mode' => 'getMode',
+        'storyline_cuts' => 'getStorylineCuts'
     ];
 
     /**
@@ -148,6 +153,8 @@ class HighlightForStartExecutionInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['mode'] = isset($data['mode']) ? $data['mode'] : null;
+        $this->container['storyline_cuts'] = isset($data['storyline_cuts']) ? $data['storyline_cuts'] : null;
     }
 
     /**
@@ -173,6 +180,54 @@ class HighlightForStartExecutionInput implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets mode
+     *
+     * @return string
+     */
+    public function getMode()
+    {
+        return $this->container['mode'];
+    }
+
+    /**
+     * Sets mode
+     *
+     * @param string $mode mode
+     *
+     * @return $this
+     */
+    public function setMode($mode)
+    {
+        $this->container['mode'] = $mode;
+
+        return $this;
+    }
+
+    /**
+     * Gets storyline_cuts
+     *
+     * @return \Volcengine\Vod20250101\Model\StorylineCutsForStartExecutionInput
+     */
+    public function getStorylineCuts()
+    {
+        return $this->container['storyline_cuts'];
+    }
+
+    /**
+     * Sets storyline_cuts
+     *
+     * @param \Volcengine\Vod20250101\Model\StorylineCutsForStartExecutionInput $storyline_cuts storyline_cuts
+     *
+     * @return $this
+     */
+    public function setStorylineCuts($storyline_cuts)
+    {
+        $this->container['storyline_cuts'] = $storyline_cuts;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

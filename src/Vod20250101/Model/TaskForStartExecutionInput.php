@@ -31,11 +31,15 @@ class TaskForStartExecutionInput implements ModelInterface, ArrayAccess
         'ad_audit' => '\Volcengine\Vod20250101\Model\AdAuditForStartExecutionInput',
         'asr' => '\Volcengine\Vod20250101\Model\AsrForStartExecutionInput',
         'audio_extract' => '\Volcengine\Vod20250101\Model\AudioExtractForStartExecutionInput',
+        'erase' => '\Volcengine\Vod20250101\Model\EraseForStartExecutionInput',
+        'file_delete' => '\Volcengine\Vod20250101\Model\FileDeleteForStartExecutionInput',
         'highlight' => '\Volcengine\Vod20250101\Model\HighlightForStartExecutionInput',
         'ocr' => '\Volcengine\Vod20250101\Model\OcrForStartExecutionInput',
         'segment' => '\Volcengine\Vod20250101\Model\SegmentForStartExecutionInput',
         'storyline' => '\Volcengine\Vod20250101\Model\StorylineForStartExecutionInput',
         'type' => 'string',
+        'video_generation' => '\Volcengine\Vod20250101\Model\VideoGenerationForStartExecutionInput',
+        'video_summary' => '\Volcengine\Vod20250101\Model\VideoSummaryForStartExecutionInput',
         'vision' => '\Volcengine\Vod20250101\Model\VisionForStartExecutionInput'
     ];
 
@@ -48,11 +52,15 @@ class TaskForStartExecutionInput implements ModelInterface, ArrayAccess
         'ad_audit' => null,
         'asr' => null,
         'audio_extract' => null,
+        'erase' => null,
+        'file_delete' => null,
         'highlight' => null,
         'ocr' => null,
         'segment' => null,
         'storyline' => null,
         'type' => null,
+        'video_generation' => null,
+        'video_summary' => null,
         'vision' => null
     ];
 
@@ -86,11 +94,15 @@ class TaskForStartExecutionInput implements ModelInterface, ArrayAccess
         'ad_audit' => 'AdAudit',
         'asr' => 'Asr',
         'audio_extract' => 'AudioExtract',
+        'erase' => 'Erase',
+        'file_delete' => 'FileDelete',
         'highlight' => 'Highlight',
         'ocr' => 'Ocr',
         'segment' => 'Segment',
         'storyline' => 'Storyline',
         'type' => 'Type',
+        'video_generation' => 'VideoGeneration',
+        'video_summary' => 'VideoSummary',
         'vision' => 'Vision'
     ];
 
@@ -103,11 +115,15 @@ class TaskForStartExecutionInput implements ModelInterface, ArrayAccess
         'ad_audit' => 'setAdAudit',
         'asr' => 'setAsr',
         'audio_extract' => 'setAudioExtract',
+        'erase' => 'setErase',
+        'file_delete' => 'setFileDelete',
         'highlight' => 'setHighlight',
         'ocr' => 'setOcr',
         'segment' => 'setSegment',
         'storyline' => 'setStoryline',
         'type' => 'setType',
+        'video_generation' => 'setVideoGeneration',
+        'video_summary' => 'setVideoSummary',
         'vision' => 'setVision'
     ];
 
@@ -120,11 +136,15 @@ class TaskForStartExecutionInput implements ModelInterface, ArrayAccess
         'ad_audit' => 'getAdAudit',
         'asr' => 'getAsr',
         'audio_extract' => 'getAudioExtract',
+        'erase' => 'getErase',
+        'file_delete' => 'getFileDelete',
         'highlight' => 'getHighlight',
         'ocr' => 'getOcr',
         'segment' => 'getSegment',
         'storyline' => 'getStoryline',
         'type' => 'getType',
+        'video_generation' => 'getVideoGeneration',
+        'video_summary' => 'getVideoSummary',
         'vision' => 'getVision'
     ];
 
@@ -191,11 +211,15 @@ class TaskForStartExecutionInput implements ModelInterface, ArrayAccess
         $this->container['ad_audit'] = isset($data['ad_audit']) ? $data['ad_audit'] : null;
         $this->container['asr'] = isset($data['asr']) ? $data['asr'] : null;
         $this->container['audio_extract'] = isset($data['audio_extract']) ? $data['audio_extract'] : null;
+        $this->container['erase'] = isset($data['erase']) ? $data['erase'] : null;
+        $this->container['file_delete'] = isset($data['file_delete']) ? $data['file_delete'] : null;
         $this->container['highlight'] = isset($data['highlight']) ? $data['highlight'] : null;
         $this->container['ocr'] = isset($data['ocr']) ? $data['ocr'] : null;
         $this->container['segment'] = isset($data['segment']) ? $data['segment'] : null;
         $this->container['storyline'] = isset($data['storyline']) ? $data['storyline'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['video_generation'] = isset($data['video_generation']) ? $data['video_generation'] : null;
+        $this->container['video_summary'] = isset($data['video_summary']) ? $data['video_summary'] : null;
         $this->container['vision'] = isset($data['vision']) ? $data['vision'] : null;
     }
 
@@ -291,6 +315,54 @@ class TaskForStartExecutionInput implements ModelInterface, ArrayAccess
     public function setAudioExtract($audio_extract)
     {
         $this->container['audio_extract'] = $audio_extract;
+
+        return $this;
+    }
+
+    /**
+     * Gets erase
+     *
+     * @return \Volcengine\Vod20250101\Model\EraseForStartExecutionInput
+     */
+    public function getErase()
+    {
+        return $this->container['erase'];
+    }
+
+    /**
+     * Sets erase
+     *
+     * @param \Volcengine\Vod20250101\Model\EraseForStartExecutionInput $erase erase
+     *
+     * @return $this
+     */
+    public function setErase($erase)
+    {
+        $this->container['erase'] = $erase;
+
+        return $this;
+    }
+
+    /**
+     * Gets file_delete
+     *
+     * @return \Volcengine\Vod20250101\Model\FileDeleteForStartExecutionInput
+     */
+    public function getFileDelete()
+    {
+        return $this->container['file_delete'];
+    }
+
+    /**
+     * Sets file_delete
+     *
+     * @param \Volcengine\Vod20250101\Model\FileDeleteForStartExecutionInput $file_delete file_delete
+     *
+     * @return $this
+     */
+    public function setFileDelete($file_delete)
+    {
+        $this->container['file_delete'] = $file_delete;
 
         return $this;
     }
@@ -411,6 +483,54 @@ class TaskForStartExecutionInput implements ModelInterface, ArrayAccess
     public function setType($type)
     {
         $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets video_generation
+     *
+     * @return \Volcengine\Vod20250101\Model\VideoGenerationForStartExecutionInput
+     */
+    public function getVideoGeneration()
+    {
+        return $this->container['video_generation'];
+    }
+
+    /**
+     * Sets video_generation
+     *
+     * @param \Volcengine\Vod20250101\Model\VideoGenerationForStartExecutionInput $video_generation video_generation
+     *
+     * @return $this
+     */
+    public function setVideoGeneration($video_generation)
+    {
+        $this->container['video_generation'] = $video_generation;
+
+        return $this;
+    }
+
+    /**
+     * Gets video_summary
+     *
+     * @return \Volcengine\Vod20250101\Model\VideoSummaryForStartExecutionInput
+     */
+    public function getVideoSummary()
+    {
+        return $this->container['video_summary'];
+    }
+
+    /**
+     * Sets video_summary
+     *
+     * @param \Volcengine\Vod20250101\Model\VideoSummaryForStartExecutionInput $video_summary video_summary
+     *
+     * @return $this
+     */
+    public function setVideoSummary($video_summary)
+    {
+        $this->container['video_summary'] = $video_summary;
 
         return $this;
     }

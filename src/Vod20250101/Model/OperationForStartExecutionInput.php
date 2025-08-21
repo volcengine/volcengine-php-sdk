@@ -29,7 +29,6 @@ class OperationForStartExecutionInput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'task' => '\Volcengine\Vod20250101\Model\TaskForStartExecutionInput',
-        'template' => '\Volcengine\Vod20250101\Model\TemplateForStartExecutionInput',
         'type' => 'string'
     ];
 
@@ -40,7 +39,6 @@ class OperationForStartExecutionInput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'task' => null,
-        'template' => null,
         'type' => null
     ];
 
@@ -72,7 +70,6 @@ class OperationForStartExecutionInput implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'task' => 'Task',
-        'template' => 'Template',
         'type' => 'Type'
     ];
 
@@ -83,7 +80,6 @@ class OperationForStartExecutionInput implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'task' => 'setTask',
-        'template' => 'setTemplate',
         'type' => 'setType'
     ];
 
@@ -94,7 +90,6 @@ class OperationForStartExecutionInput implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'task' => 'getTask',
-        'template' => 'getTemplate',
         'type' => 'getType'
     ];
 
@@ -159,7 +154,6 @@ class OperationForStartExecutionInput implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['task'] = isset($data['task']) ? $data['task'] : null;
-        $this->container['template'] = isset($data['template']) ? $data['template'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
@@ -207,30 +201,6 @@ class OperationForStartExecutionInput implements ModelInterface, ArrayAccess
     public function setTask($task)
     {
         $this->container['task'] = $task;
-
-        return $this;
-    }
-
-    /**
-     * Gets template
-     *
-     * @return \Volcengine\Vod20250101\Model\TemplateForStartExecutionInput
-     */
-    public function getTemplate()
-    {
-        return $this->container['template'];
-    }
-
-    /**
-     * Sets template
-     *
-     * @param \Volcengine\Vod20250101\Model\TemplateForStartExecutionInput $template template
-     *
-     * @return $this
-     */
-    public function setTemplate($template)
-    {
-        $this->container['template'] = $template;
 
         return $this;
     }
