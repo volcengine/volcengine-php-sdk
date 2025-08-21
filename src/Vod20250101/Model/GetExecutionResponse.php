@@ -33,8 +33,8 @@ class GetExecutionResponse implements ModelInterface, ArrayAccess
         'input' => '\Volcengine\Vod20250101\Model\InputForGetExecutionOutput',
         'meta' => '\Volcengine\Vod20250101\Model\MetaForGetExecutionOutput',
         'multi_inputs' => '\Volcengine\Vod20250101\Model\MultiInputForGetExecutionOutput[]',
-        'operation' => '\Volcengine\Vod20250101\Model\OperationForGetExecutionOutput',
-        'output' => '\Volcengine\Vod20250101\Model\OutputForGetExecutionOutput',
+        'operation' => '\Volcengine\Vod20250101\Model\ConvertOperationForGetExecutionOutput',
+        'output' => '\Volcengine\Vod20250101\Model\ConvertOutputForGetExecutionOutput',
         'run_id' => 'string',
         'status' => 'string'
     ];
@@ -346,7 +346,7 @@ class GetExecutionResponse implements ModelInterface, ArrayAccess
     /**
      * Gets operation
      *
-     * @return \Volcengine\Vod20250101\Model\OperationForGetExecutionOutput
+     * @return \Volcengine\Vod20250101\Model\ConvertOperationForGetExecutionOutput
      */
     public function getOperation()
     {
@@ -356,7 +356,7 @@ class GetExecutionResponse implements ModelInterface, ArrayAccess
     /**
      * Sets operation
      *
-     * @param \Volcengine\Vod20250101\Model\OperationForGetExecutionOutput $operation operation
+     * @param \Volcengine\Vod20250101\Model\ConvertOperationForGetExecutionOutput $operation operation
      *
      * @return $this
      */
@@ -370,7 +370,7 @@ class GetExecutionResponse implements ModelInterface, ArrayAccess
     /**
      * Gets output
      *
-     * @return \Volcengine\Vod20250101\Model\OutputForGetExecutionOutput
+     * @return \Volcengine\Vod20250101\Model\ConvertOutputForGetExecutionOutput
      */
     public function getOutput()
     {
@@ -380,7 +380,7 @@ class GetExecutionResponse implements ModelInterface, ArrayAccess
     /**
      * Sets output
      *
-     * @param \Volcengine\Vod20250101\Model\OutputForGetExecutionOutput $output output
+     * @param \Volcengine\Vod20250101\Model\ConvertOutputForGetExecutionOutput $output output
      *
      * @return $this
      */

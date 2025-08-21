@@ -29,7 +29,9 @@ class VisionForGetExecutionOutput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'model' => '\Volcengine\Vod20250101\Model\ModelForGetExecutionOutput',
-        'prompt' => 'string'
+        'prompt' => 'string',
+        'segment' => '\Volcengine\Vod20250101\Model\ConvertSegmentForGetExecutionOutput',
+        'snapshot_param' => '\Volcengine\Vod20250101\Model\SnapshotParamForGetExecutionOutput'
     ];
 
     /**
@@ -39,7 +41,9 @@ class VisionForGetExecutionOutput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'model' => null,
-        'prompt' => null
+        'prompt' => null,
+        'segment' => null,
+        'snapshot_param' => null
     ];
 
     /**
@@ -70,7 +74,9 @@ class VisionForGetExecutionOutput implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'model' => 'Model',
-        'prompt' => 'Prompt'
+        'prompt' => 'Prompt',
+        'segment' => 'Segment',
+        'snapshot_param' => 'SnapshotParam'
     ];
 
     /**
@@ -80,7 +86,9 @@ class VisionForGetExecutionOutput implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'model' => 'setModel',
-        'prompt' => 'setPrompt'
+        'prompt' => 'setPrompt',
+        'segment' => 'setSegment',
+        'snapshot_param' => 'setSnapshotParam'
     ];
 
     /**
@@ -90,7 +98,9 @@ class VisionForGetExecutionOutput implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'model' => 'getModel',
-        'prompt' => 'getPrompt'
+        'prompt' => 'getPrompt',
+        'segment' => 'getSegment',
+        'snapshot_param' => 'getSnapshotParam'
     ];
 
     /**
@@ -155,6 +165,8 @@ class VisionForGetExecutionOutput implements ModelInterface, ArrayAccess
     {
         $this->container['model'] = isset($data['model']) ? $data['model'] : null;
         $this->container['prompt'] = isset($data['prompt']) ? $data['prompt'] : null;
+        $this->container['segment'] = isset($data['segment']) ? $data['segment'] : null;
+        $this->container['snapshot_param'] = isset($data['snapshot_param']) ? $data['snapshot_param'] : null;
     }
 
     /**
@@ -225,6 +237,54 @@ class VisionForGetExecutionOutput implements ModelInterface, ArrayAccess
     public function setPrompt($prompt)
     {
         $this->container['prompt'] = $prompt;
+
+        return $this;
+    }
+
+    /**
+     * Gets segment
+     *
+     * @return \Volcengine\Vod20250101\Model\ConvertSegmentForGetExecutionOutput
+     */
+    public function getSegment()
+    {
+        return $this->container['segment'];
+    }
+
+    /**
+     * Sets segment
+     *
+     * @param \Volcengine\Vod20250101\Model\ConvertSegmentForGetExecutionOutput $segment segment
+     *
+     * @return $this
+     */
+    public function setSegment($segment)
+    {
+        $this->container['segment'] = $segment;
+
+        return $this;
+    }
+
+    /**
+     * Gets snapshot_param
+     *
+     * @return \Volcengine\Vod20250101\Model\SnapshotParamForGetExecutionOutput
+     */
+    public function getSnapshotParam()
+    {
+        return $this->container['snapshot_param'];
+    }
+
+    /**
+     * Sets snapshot_param
+     *
+     * @param \Volcengine\Vod20250101\Model\SnapshotParamForGetExecutionOutput $snapshot_param snapshot_param
+     *
+     * @return $this
+     */
+    public function setSnapshotParam($snapshot_param)
+    {
+        $this->container['snapshot_param'] = $snapshot_param;
 
         return $this;
     }

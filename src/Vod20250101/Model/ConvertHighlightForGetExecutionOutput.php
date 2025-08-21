@@ -29,7 +29,8 @@ class ConvertHighlightForGetExecutionOutput implements ModelInterface, ArrayAcce
       */
     protected static $swaggerTypes = [
         'clips' => '\Volcengine\Vod20250101\Model\ClipForGetExecutionOutput[]',
-        'duration' => 'double'
+        'duration' => 'double',
+        'storyline_cuts' => '\Volcengine\Vod20250101\Model\ConvertStorylineCutsForGetExecutionOutput'
     ];
 
     /**
@@ -39,7 +40,8 @@ class ConvertHighlightForGetExecutionOutput implements ModelInterface, ArrayAcce
       */
     protected static $swaggerFormats = [
         'clips' => null,
-        'duration' => 'double'
+        'duration' => 'double',
+        'storyline_cuts' => null
     ];
 
     /**
@@ -70,7 +72,8 @@ class ConvertHighlightForGetExecutionOutput implements ModelInterface, ArrayAcce
      */
     protected static $attributeMap = [
         'clips' => 'Clips',
-        'duration' => 'Duration'
+        'duration' => 'Duration',
+        'storyline_cuts' => 'StorylineCuts'
     ];
 
     /**
@@ -80,7 +83,8 @@ class ConvertHighlightForGetExecutionOutput implements ModelInterface, ArrayAcce
      */
     protected static $setters = [
         'clips' => 'setClips',
-        'duration' => 'setDuration'
+        'duration' => 'setDuration',
+        'storyline_cuts' => 'setStorylineCuts'
     ];
 
     /**
@@ -90,7 +94,8 @@ class ConvertHighlightForGetExecutionOutput implements ModelInterface, ArrayAcce
      */
     protected static $getters = [
         'clips' => 'getClips',
-        'duration' => 'getDuration'
+        'duration' => 'getDuration',
+        'storyline_cuts' => 'getStorylineCuts'
     ];
 
     /**
@@ -155,6 +160,7 @@ class ConvertHighlightForGetExecutionOutput implements ModelInterface, ArrayAcce
     {
         $this->container['clips'] = isset($data['clips']) ? $data['clips'] : null;
         $this->container['duration'] = isset($data['duration']) ? $data['duration'] : null;
+        $this->container['storyline_cuts'] = isset($data['storyline_cuts']) ? $data['storyline_cuts'] : null;
     }
 
     /**
@@ -225,6 +231,30 @@ class ConvertHighlightForGetExecutionOutput implements ModelInterface, ArrayAcce
     public function setDuration($duration)
     {
         $this->container['duration'] = $duration;
+
+        return $this;
+    }
+
+    /**
+     * Gets storyline_cuts
+     *
+     * @return \Volcengine\Vod20250101\Model\ConvertStorylineCutsForGetExecutionOutput
+     */
+    public function getStorylineCuts()
+    {
+        return $this->container['storyline_cuts'];
+    }
+
+    /**
+     * Sets storyline_cuts
+     *
+     * @param \Volcengine\Vod20250101\Model\ConvertStorylineCutsForGetExecutionOutput $storyline_cuts storyline_cuts
+     *
+     * @return $this
+     */
+    public function setStorylineCuts($storyline_cuts)
+    {
+        $this->container['storyline_cuts'] = $storyline_cuts;
 
         return $this;
     }

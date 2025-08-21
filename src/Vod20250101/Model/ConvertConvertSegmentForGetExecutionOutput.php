@@ -28,8 +28,14 @@ class ConvertConvertSegmentForGetExecutionOutput implements ModelInterface, Arra
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'duration' => 'double',
-        'segments' => '\Volcengine\Vod20250101\Model\ConvertSegmentForGetExecutionOutput[]'
+        'description' => 'string',
+        'end' => 'double',
+        'location' => 'string',
+        'ocr' => 'string',
+        'score' => 'double',
+        'shot' => 'string',
+        'start' => 'double',
+        'video_index' => 'int'
     ];
 
     /**
@@ -38,8 +44,14 @@ class ConvertConvertSegmentForGetExecutionOutput implements ModelInterface, Arra
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'duration' => 'double',
-        'segments' => null
+        'description' => null,
+        'end' => 'double',
+        'location' => null,
+        'ocr' => null,
+        'score' => 'double',
+        'shot' => null,
+        'start' => 'double',
+        'video_index' => 'int32'
     ];
 
     /**
@@ -69,8 +81,14 @@ class ConvertConvertSegmentForGetExecutionOutput implements ModelInterface, Arra
      * @var string[]
      */
     protected static $attributeMap = [
-        'duration' => 'Duration',
-        'segments' => 'Segments'
+        'description' => 'Description',
+        'end' => 'End',
+        'location' => 'Location',
+        'ocr' => 'Ocr',
+        'score' => 'Score',
+        'shot' => 'Shot',
+        'start' => 'Start',
+        'video_index' => 'VideoIndex'
     ];
 
     /**
@@ -79,8 +97,14 @@ class ConvertConvertSegmentForGetExecutionOutput implements ModelInterface, Arra
      * @var string[]
      */
     protected static $setters = [
-        'duration' => 'setDuration',
-        'segments' => 'setSegments'
+        'description' => 'setDescription',
+        'end' => 'setEnd',
+        'location' => 'setLocation',
+        'ocr' => 'setOcr',
+        'score' => 'setScore',
+        'shot' => 'setShot',
+        'start' => 'setStart',
+        'video_index' => 'setVideoIndex'
     ];
 
     /**
@@ -89,8 +113,14 @@ class ConvertConvertSegmentForGetExecutionOutput implements ModelInterface, Arra
      * @var string[]
      */
     protected static $getters = [
-        'duration' => 'getDuration',
-        'segments' => 'getSegments'
+        'description' => 'getDescription',
+        'end' => 'getEnd',
+        'location' => 'getLocation',
+        'ocr' => 'getOcr',
+        'score' => 'getScore',
+        'shot' => 'getShot',
+        'start' => 'getStart',
+        'video_index' => 'getVideoIndex'
     ];
 
     /**
@@ -153,8 +183,14 @@ class ConvertConvertSegmentForGetExecutionOutput implements ModelInterface, Arra
      */
     public function __construct(array $data = null)
     {
-        $this->container['duration'] = isset($data['duration']) ? $data['duration'] : null;
-        $this->container['segments'] = isset($data['segments']) ? $data['segments'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['end'] = isset($data['end']) ? $data['end'] : null;
+        $this->container['location'] = isset($data['location']) ? $data['location'] : null;
+        $this->container['ocr'] = isset($data['ocr']) ? $data['ocr'] : null;
+        $this->container['score'] = isset($data['score']) ? $data['score'] : null;
+        $this->container['shot'] = isset($data['shot']) ? $data['shot'] : null;
+        $this->container['start'] = isset($data['start']) ? $data['start'] : null;
+        $this->container['video_index'] = isset($data['video_index']) ? $data['video_index'] : null;
     }
 
     /**
@@ -182,49 +218,193 @@ class ConvertConvertSegmentForGetExecutionOutput implements ModelInterface, Arra
 
 
     /**
-     * Gets duration
+     * Gets description
      *
-     * @return double
+     * @return string
      */
-    public function getDuration()
+    public function getDescription()
     {
-        return $this->container['duration'];
+        return $this->container['description'];
     }
 
     /**
-     * Sets duration
+     * Sets description
      *
-     * @param double $duration duration
+     * @param string $description description
      *
      * @return $this
      */
-    public function setDuration($duration)
+    public function setDescription($description)
     {
-        $this->container['duration'] = $duration;
+        $this->container['description'] = $description;
 
         return $this;
     }
 
     /**
-     * Gets segments
+     * Gets end
      *
-     * @return \Volcengine\Vod20250101\Model\ConvertSegmentForGetExecutionOutput[]
+     * @return double
      */
-    public function getSegments()
+    public function getEnd()
     {
-        return $this->container['segments'];
+        return $this->container['end'];
     }
 
     /**
-     * Sets segments
+     * Sets end
      *
-     * @param \Volcengine\Vod20250101\Model\ConvertSegmentForGetExecutionOutput[] $segments segments
+     * @param double $end end
      *
      * @return $this
      */
-    public function setSegments($segments)
+    public function setEnd($end)
     {
-        $this->container['segments'] = $segments;
+        $this->container['end'] = $end;
+
+        return $this;
+    }
+
+    /**
+     * Gets location
+     *
+     * @return string
+     */
+    public function getLocation()
+    {
+        return $this->container['location'];
+    }
+
+    /**
+     * Sets location
+     *
+     * @param string $location location
+     *
+     * @return $this
+     */
+    public function setLocation($location)
+    {
+        $this->container['location'] = $location;
+
+        return $this;
+    }
+
+    /**
+     * Gets ocr
+     *
+     * @return string
+     */
+    public function getOcr()
+    {
+        return $this->container['ocr'];
+    }
+
+    /**
+     * Sets ocr
+     *
+     * @param string $ocr ocr
+     *
+     * @return $this
+     */
+    public function setOcr($ocr)
+    {
+        $this->container['ocr'] = $ocr;
+
+        return $this;
+    }
+
+    /**
+     * Gets score
+     *
+     * @return double
+     */
+    public function getScore()
+    {
+        return $this->container['score'];
+    }
+
+    /**
+     * Sets score
+     *
+     * @param double $score score
+     *
+     * @return $this
+     */
+    public function setScore($score)
+    {
+        $this->container['score'] = $score;
+
+        return $this;
+    }
+
+    /**
+     * Gets shot
+     *
+     * @return string
+     */
+    public function getShot()
+    {
+        return $this->container['shot'];
+    }
+
+    /**
+     * Sets shot
+     *
+     * @param string $shot shot
+     *
+     * @return $this
+     */
+    public function setShot($shot)
+    {
+        $this->container['shot'] = $shot;
+
+        return $this;
+    }
+
+    /**
+     * Gets start
+     *
+     * @return double
+     */
+    public function getStart()
+    {
+        return $this->container['start'];
+    }
+
+    /**
+     * Sets start
+     *
+     * @param double $start start
+     *
+     * @return $this
+     */
+    public function setStart($start)
+    {
+        $this->container['start'] = $start;
+
+        return $this;
+    }
+
+    /**
+     * Gets video_index
+     *
+     * @return int
+     */
+    public function getVideoIndex()
+    {
+        return $this->container['video_index'];
+    }
+
+    /**
+     * Sets video_index
+     *
+     * @param int $video_index video_index
+     *
+     * @return $this
+     */
+    public function setVideoIndex($video_index)
+    {
+        $this->container['video_index'] = $video_index;
 
         return $this;
     }

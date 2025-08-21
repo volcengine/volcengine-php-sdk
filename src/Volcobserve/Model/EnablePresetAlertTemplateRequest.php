@@ -33,6 +33,7 @@ class EnablePresetAlertTemplateRequest implements ModelInterface, ArrayAccess
         'effect_end_at' => 'string',
         'effect_start_at' => 'string',
         'notification_id' => 'string',
+        'notify_templates' => '\Volcengine\Volcobserve\Model\NotifyTemplateForEnablePresetAlertTemplateInput[]',
         'project_name' => 'string',
         'template_id' => 'string',
         'upgrade_preset_alert_template' => 'bool',
@@ -51,6 +52,7 @@ class EnablePresetAlertTemplateRequest implements ModelInterface, ArrayAccess
         'effect_end_at' => null,
         'effect_start_at' => null,
         'notification_id' => null,
+        'notify_templates' => null,
         'project_name' => null,
         'template_id' => null,
         'upgrade_preset_alert_template' => null,
@@ -90,6 +92,7 @@ class EnablePresetAlertTemplateRequest implements ModelInterface, ArrayAccess
         'effect_end_at' => 'EffectEndAt',
         'effect_start_at' => 'EffectStartAt',
         'notification_id' => 'NotificationId',
+        'notify_templates' => 'NotifyTemplates',
         'project_name' => 'ProjectName',
         'template_id' => 'TemplateId',
         'upgrade_preset_alert_template' => 'UpgradePresetAlertTemplate',
@@ -108,6 +111,7 @@ class EnablePresetAlertTemplateRequest implements ModelInterface, ArrayAccess
         'effect_end_at' => 'setEffectEndAt',
         'effect_start_at' => 'setEffectStartAt',
         'notification_id' => 'setNotificationId',
+        'notify_templates' => 'setNotifyTemplates',
         'project_name' => 'setProjectName',
         'template_id' => 'setTemplateId',
         'upgrade_preset_alert_template' => 'setUpgradePresetAlertTemplate',
@@ -126,6 +130,7 @@ class EnablePresetAlertTemplateRequest implements ModelInterface, ArrayAccess
         'effect_end_at' => 'getEffectEndAt',
         'effect_start_at' => 'getEffectStartAt',
         'notification_id' => 'getNotificationId',
+        'notify_templates' => 'getNotifyTemplates',
         'project_name' => 'getProjectName',
         'template_id' => 'getTemplateId',
         'upgrade_preset_alert_template' => 'getUpgradePresetAlertTemplate',
@@ -198,6 +203,7 @@ class EnablePresetAlertTemplateRequest implements ModelInterface, ArrayAccess
         $this->container['effect_end_at'] = isset($data['effect_end_at']) ? $data['effect_end_at'] : null;
         $this->container['effect_start_at'] = isset($data['effect_start_at']) ? $data['effect_start_at'] : null;
         $this->container['notification_id'] = isset($data['notification_id']) ? $data['notification_id'] : null;
+        $this->container['notify_templates'] = isset($data['notify_templates']) ? $data['notify_templates'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['template_id'] = isset($data['template_id']) ? $data['template_id'] : null;
         $this->container['upgrade_preset_alert_template'] = isset($data['upgrade_preset_alert_template']) ? $data['upgrade_preset_alert_template'] : null;
@@ -357,6 +363,30 @@ class EnablePresetAlertTemplateRequest implements ModelInterface, ArrayAccess
     public function setNotificationId($notification_id)
     {
         $this->container['notification_id'] = $notification_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets notify_templates
+     *
+     * @return \Volcengine\Volcobserve\Model\NotifyTemplateForEnablePresetAlertTemplateInput[]
+     */
+    public function getNotifyTemplates()
+    {
+        return $this->container['notify_templates'];
+    }
+
+    /**
+     * Sets notify_templates
+     *
+     * @param \Volcengine\Volcobserve\Model\NotifyTemplateForEnablePresetAlertTemplateInput[] $notify_templates notify_templates
+     *
+     * @return $this
+     */
+    public function setNotifyTemplates($notify_templates)
+    {
+        $this->container['notify_templates'] = $notify_templates;
 
         return $this;
     }

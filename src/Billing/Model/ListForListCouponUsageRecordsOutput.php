@@ -46,7 +46,7 @@ class ListForListCouponUsageRecordsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'account_id' => 'int32',
+        'account_id' => 'int64',
         'change_amount' => 'double',
         'change_type' => 'int32',
         'coupon_id' => null,
@@ -55,7 +55,7 @@ class ListForListCouponUsageRecordsOutput implements ModelInterface, ArrayAccess
         'product_code' => null,
         'product_name' => null,
         'sub_business_id' => null,
-        'user_account_id' => 'int32'
+        'user_account_id' => 'int64'
     ];
 
     /**

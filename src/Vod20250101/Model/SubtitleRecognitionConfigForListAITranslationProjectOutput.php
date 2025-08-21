@@ -28,7 +28,8 @@ class SubtitleRecognitionConfigForListAITranslationProjectOutput implements Mode
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'recognition_type' => 'string'
+        'recognition_type' => 'string',
+        'subtitle_file_name' => 'string'
     ];
 
     /**
@@ -37,7 +38,8 @@ class SubtitleRecognitionConfigForListAITranslationProjectOutput implements Mode
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'recognition_type' => null
+        'recognition_type' => null,
+        'subtitle_file_name' => null
     ];
 
     /**
@@ -67,7 +69,8 @@ class SubtitleRecognitionConfigForListAITranslationProjectOutput implements Mode
      * @var string[]
      */
     protected static $attributeMap = [
-        'recognition_type' => 'RecognitionType'
+        'recognition_type' => 'RecognitionType',
+        'subtitle_file_name' => 'SubtitleFileName'
     ];
 
     /**
@@ -76,7 +79,8 @@ class SubtitleRecognitionConfigForListAITranslationProjectOutput implements Mode
      * @var string[]
      */
     protected static $setters = [
-        'recognition_type' => 'setRecognitionType'
+        'recognition_type' => 'setRecognitionType',
+        'subtitle_file_name' => 'setSubtitleFileName'
     ];
 
     /**
@@ -85,7 +89,8 @@ class SubtitleRecognitionConfigForListAITranslationProjectOutput implements Mode
      * @var string[]
      */
     protected static $getters = [
-        'recognition_type' => 'getRecognitionType'
+        'recognition_type' => 'getRecognitionType',
+        'subtitle_file_name' => 'getSubtitleFileName'
     ];
 
     /**
@@ -149,6 +154,7 @@ class SubtitleRecognitionConfigForListAITranslationProjectOutput implements Mode
     public function __construct(array $data = null)
     {
         $this->container['recognition_type'] = isset($data['recognition_type']) ? $data['recognition_type'] : null;
+        $this->container['subtitle_file_name'] = isset($data['subtitle_file_name']) ? $data['subtitle_file_name'] : null;
     }
 
     /**
@@ -195,6 +201,30 @@ class SubtitleRecognitionConfigForListAITranslationProjectOutput implements Mode
     public function setRecognitionType($recognition_type)
     {
         $this->container['recognition_type'] = $recognition_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets subtitle_file_name
+     *
+     * @return string
+     */
+    public function getSubtitleFileName()
+    {
+        return $this->container['subtitle_file_name'];
+    }
+
+    /**
+     * Sets subtitle_file_name
+     *
+     * @param string $subtitle_file_name subtitle_file_name
+     *
+     * @return $this
+     */
+    public function setSubtitleFileName($subtitle_file_name)
+    {
+        $this->container['subtitle_file_name'] = $subtitle_file_name;
 
         return $this;
     }

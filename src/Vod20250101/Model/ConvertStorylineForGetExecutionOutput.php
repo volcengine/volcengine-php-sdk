@@ -28,8 +28,9 @@ class ConvertStorylineForGetExecutionOutput implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'clips' => 'int[]',
-        'summary' => 'string',
+        'description' => 'string',
+        'score' => 'double',
+        'segments' => 'int[]',
         'title' => 'string'
     ];
 
@@ -39,8 +40,9 @@ class ConvertStorylineForGetExecutionOutput implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'clips' => 'int32',
-        'summary' => null,
+        'description' => null,
+        'score' => 'double',
+        'segments' => 'int32',
         'title' => null
     ];
 
@@ -71,8 +73,9 @@ class ConvertStorylineForGetExecutionOutput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $attributeMap = [
-        'clips' => 'Clips',
-        'summary' => 'Summary',
+        'description' => 'Description',
+        'score' => 'Score',
+        'segments' => 'Segments',
         'title' => 'Title'
     ];
 
@@ -82,8 +85,9 @@ class ConvertStorylineForGetExecutionOutput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $setters = [
-        'clips' => 'setClips',
-        'summary' => 'setSummary',
+        'description' => 'setDescription',
+        'score' => 'setScore',
+        'segments' => 'setSegments',
         'title' => 'setTitle'
     ];
 
@@ -93,8 +97,9 @@ class ConvertStorylineForGetExecutionOutput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $getters = [
-        'clips' => 'getClips',
-        'summary' => 'getSummary',
+        'description' => 'getDescription',
+        'score' => 'getScore',
+        'segments' => 'getSegments',
         'title' => 'getTitle'
     ];
 
@@ -158,8 +163,9 @@ class ConvertStorylineForGetExecutionOutput implements ModelInterface, ArrayAcce
      */
     public function __construct(array $data = null)
     {
-        $this->container['clips'] = isset($data['clips']) ? $data['clips'] : null;
-        $this->container['summary'] = isset($data['summary']) ? $data['summary'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['score'] = isset($data['score']) ? $data['score'] : null;
+        $this->container['segments'] = isset($data['segments']) ? $data['segments'] : null;
         $this->container['title'] = isset($data['title']) ? $data['title'] : null;
     }
 
@@ -188,49 +194,73 @@ class ConvertStorylineForGetExecutionOutput implements ModelInterface, ArrayAcce
 
 
     /**
-     * Gets clips
+     * Gets description
      *
-     * @return int[]
+     * @return string
      */
-    public function getClips()
+    public function getDescription()
     {
-        return $this->container['clips'];
+        return $this->container['description'];
     }
 
     /**
-     * Sets clips
+     * Sets description
      *
-     * @param int[] $clips clips
+     * @param string $description description
      *
      * @return $this
      */
-    public function setClips($clips)
+    public function setDescription($description)
     {
-        $this->container['clips'] = $clips;
+        $this->container['description'] = $description;
 
         return $this;
     }
 
     /**
-     * Gets summary
+     * Gets score
      *
-     * @return string
+     * @return double
      */
-    public function getSummary()
+    public function getScore()
     {
-        return $this->container['summary'];
+        return $this->container['score'];
     }
 
     /**
-     * Sets summary
+     * Sets score
      *
-     * @param string $summary summary
+     * @param double $score score
      *
      * @return $this
      */
-    public function setSummary($summary)
+    public function setScore($score)
     {
-        $this->container['summary'] = $summary;
+        $this->container['score'] = $score;
+
+        return $this;
+    }
+
+    /**
+     * Gets segments
+     *
+     * @return int[]
+     */
+    public function getSegments()
+    {
+        return $this->container['segments'];
+    }
+
+    /**
+     * Sets segments
+     *
+     * @param int[] $segments segments
+     *
+     * @return $this
+     */
+    public function setSegments($segments)
+    {
+        $this->container['segments'] = $segments;
 
         return $this;
     }

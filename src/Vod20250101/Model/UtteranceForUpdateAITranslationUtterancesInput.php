@@ -30,7 +30,9 @@ class UtteranceForUpdateAITranslationUtterancesInput implements ModelInterface, 
     protected static $swaggerTypes = [
         'id' => 'string',
         'speaker_id' => 'string',
-        'text' => 'string'
+        'text' => 'string',
+        'trim' => '\Volcengine\Vod20250101\Model\TrimForUpdateAITranslationUtterancesInput',
+        'volume' => 'int'
     ];
 
     /**
@@ -41,7 +43,9 @@ class UtteranceForUpdateAITranslationUtterancesInput implements ModelInterface, 
     protected static $swaggerFormats = [
         'id' => null,
         'speaker_id' => null,
-        'text' => null
+        'text' => null,
+        'trim' => null,
+        'volume' => 'int32'
     ];
 
     /**
@@ -73,7 +77,9 @@ class UtteranceForUpdateAITranslationUtterancesInput implements ModelInterface, 
     protected static $attributeMap = [
         'id' => 'Id',
         'speaker_id' => 'SpeakerId',
-        'text' => 'Text'
+        'text' => 'Text',
+        'trim' => 'Trim',
+        'volume' => 'Volume'
     ];
 
     /**
@@ -84,7 +90,9 @@ class UtteranceForUpdateAITranslationUtterancesInput implements ModelInterface, 
     protected static $setters = [
         'id' => 'setId',
         'speaker_id' => 'setSpeakerId',
-        'text' => 'setText'
+        'text' => 'setText',
+        'trim' => 'setTrim',
+        'volume' => 'setVolume'
     ];
 
     /**
@@ -95,7 +103,9 @@ class UtteranceForUpdateAITranslationUtterancesInput implements ModelInterface, 
     protected static $getters = [
         'id' => 'getId',
         'speaker_id' => 'getSpeakerId',
-        'text' => 'getText'
+        'text' => 'getText',
+        'trim' => 'getTrim',
+        'volume' => 'getVolume'
     ];
 
     /**
@@ -161,6 +171,8 @@ class UtteranceForUpdateAITranslationUtterancesInput implements ModelInterface, 
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['speaker_id'] = isset($data['speaker_id']) ? $data['speaker_id'] : null;
         $this->container['text'] = isset($data['text']) ? $data['text'] : null;
+        $this->container['trim'] = isset($data['trim']) ? $data['trim'] : null;
+        $this->container['volume'] = isset($data['volume']) ? $data['volume'] : null;
     }
 
     /**
@@ -255,6 +267,54 @@ class UtteranceForUpdateAITranslationUtterancesInput implements ModelInterface, 
     public function setText($text)
     {
         $this->container['text'] = $text;
+
+        return $this;
+    }
+
+    /**
+     * Gets trim
+     *
+     * @return \Volcengine\Vod20250101\Model\TrimForUpdateAITranslationUtterancesInput
+     */
+    public function getTrim()
+    {
+        return $this->container['trim'];
+    }
+
+    /**
+     * Sets trim
+     *
+     * @param \Volcengine\Vod20250101\Model\TrimForUpdateAITranslationUtterancesInput $trim trim
+     *
+     * @return $this
+     */
+    public function setTrim($trim)
+    {
+        $this->container['trim'] = $trim;
+
+        return $this;
+    }
+
+    /**
+     * Gets volume
+     *
+     * @return int
+     */
+    public function getVolume()
+    {
+        return $this->container['volume'];
+    }
+
+    /**
+     * Sets volume
+     *
+     * @param int $volume volume
+     *
+     * @return $this
+     */
+    public function setVolume($volume)
+    {
+        $this->container['volume'] = $volume;
 
         return $this;
     }

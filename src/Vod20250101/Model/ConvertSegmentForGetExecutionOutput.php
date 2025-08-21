@@ -29,8 +29,6 @@ class ConvertSegmentForGetExecutionOutput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'end' => 'double',
-        'file' => '\Volcengine\Vod20250101\Model\VoiceForGetExecutionOutput',
-        'frames' => 'int[]',
         'start' => 'double'
     ];
 
@@ -41,8 +39,6 @@ class ConvertSegmentForGetExecutionOutput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'end' => 'double',
-        'file' => null,
-        'frames' => 'int32',
         'start' => 'double'
     ];
 
@@ -74,8 +70,6 @@ class ConvertSegmentForGetExecutionOutput implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'end' => 'End',
-        'file' => 'File',
-        'frames' => 'Frames',
         'start' => 'Start'
     ];
 
@@ -86,8 +80,6 @@ class ConvertSegmentForGetExecutionOutput implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'end' => 'setEnd',
-        'file' => 'setFile',
-        'frames' => 'setFrames',
         'start' => 'setStart'
     ];
 
@@ -98,8 +90,6 @@ class ConvertSegmentForGetExecutionOutput implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'end' => 'getEnd',
-        'file' => 'getFile',
-        'frames' => 'getFrames',
         'start' => 'getStart'
     ];
 
@@ -164,8 +154,6 @@ class ConvertSegmentForGetExecutionOutput implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['end'] = isset($data['end']) ? $data['end'] : null;
-        $this->container['file'] = isset($data['file']) ? $data['file'] : null;
-        $this->container['frames'] = isset($data['frames']) ? $data['frames'] : null;
         $this->container['start'] = isset($data['start']) ? $data['start'] : null;
     }
 
@@ -213,54 +201,6 @@ class ConvertSegmentForGetExecutionOutput implements ModelInterface, ArrayAccess
     public function setEnd($end)
     {
         $this->container['end'] = $end;
-
-        return $this;
-    }
-
-    /**
-     * Gets file
-     *
-     * @return \Volcengine\Vod20250101\Model\VoiceForGetExecutionOutput
-     */
-    public function getFile()
-    {
-        return $this->container['file'];
-    }
-
-    /**
-     * Sets file
-     *
-     * @param \Volcengine\Vod20250101\Model\VoiceForGetExecutionOutput $file file
-     *
-     * @return $this
-     */
-    public function setFile($file)
-    {
-        $this->container['file'] = $file;
-
-        return $this;
-    }
-
-    /**
-     * Gets frames
-     *
-     * @return int[]
-     */
-    public function getFrames()
-    {
-        return $this->container['frames'];
-    }
-
-    /**
-     * Sets frames
-     *
-     * @param int[] $frames frames
-     *
-     * @return $this
-     */
-    public function setFrames($frames)
-    {
-        $this->container['frames'] = $frames;
 
         return $this;
     }
