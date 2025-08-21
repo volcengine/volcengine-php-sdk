@@ -39,6 +39,7 @@ class CreateEventRuleRequest implements ModelInterface, ArrayAccess
         'filter_pattern' => 'map[string,object]',
         'level' => 'string',
         'message_queue' => '\Volcengine\Volcobserve\Model\MessageQueueForCreateEventRuleInput[]',
+        'notify_templates' => '\Volcengine\Volcobserve\Model\NotifyTemplateForCreateEventRuleInput[]',
         'rule_name' => 'string',
         'status' => 'string',
         'tls_target' => '\Volcengine\Volcobserve\Model\TLSTargetForCreateEventRuleInput[]',
@@ -62,6 +63,7 @@ class CreateEventRuleRequest implements ModelInterface, ArrayAccess
         'filter_pattern' => null,
         'level' => null,
         'message_queue' => null,
+        'notify_templates' => null,
         'rule_name' => null,
         'status' => null,
         'tls_target' => null,
@@ -106,6 +108,7 @@ class CreateEventRuleRequest implements ModelInterface, ArrayAccess
         'filter_pattern' => 'FilterPattern',
         'level' => 'Level',
         'message_queue' => 'MessageQueue',
+        'notify_templates' => 'NotifyTemplates',
         'rule_name' => 'RuleName',
         'status' => 'Status',
         'tls_target' => 'TLSTarget',
@@ -129,6 +132,7 @@ class CreateEventRuleRequest implements ModelInterface, ArrayAccess
         'filter_pattern' => 'setFilterPattern',
         'level' => 'setLevel',
         'message_queue' => 'setMessageQueue',
+        'notify_templates' => 'setNotifyTemplates',
         'rule_name' => 'setRuleName',
         'status' => 'setStatus',
         'tls_target' => 'setTlsTarget',
@@ -152,6 +156,7 @@ class CreateEventRuleRequest implements ModelInterface, ArrayAccess
         'filter_pattern' => 'getFilterPattern',
         'level' => 'getLevel',
         'message_queue' => 'getMessageQueue',
+        'notify_templates' => 'getNotifyTemplates',
         'rule_name' => 'getRuleName',
         'status' => 'getStatus',
         'tls_target' => 'getTlsTarget',
@@ -257,6 +262,7 @@ class CreateEventRuleRequest implements ModelInterface, ArrayAccess
         $this->container['filter_pattern'] = isset($data['filter_pattern']) ? $data['filter_pattern'] : null;
         $this->container['level'] = isset($data['level']) ? $data['level'] : null;
         $this->container['message_queue'] = isset($data['message_queue']) ? $data['message_queue'] : null;
+        $this->container['notify_templates'] = isset($data['notify_templates']) ? $data['notify_templates'] : null;
         $this->container['rule_name'] = isset($data['rule_name']) ? $data['rule_name'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['tls_target'] = isset($data['tls_target']) ? $data['tls_target'] : null;
@@ -584,6 +590,30 @@ class CreateEventRuleRequest implements ModelInterface, ArrayAccess
     public function setMessageQueue($message_queue)
     {
         $this->container['message_queue'] = $message_queue;
+
+        return $this;
+    }
+
+    /**
+     * Gets notify_templates
+     *
+     * @return \Volcengine\Volcobserve\Model\NotifyTemplateForCreateEventRuleInput[]
+     */
+    public function getNotifyTemplates()
+    {
+        return $this->container['notify_templates'];
+    }
+
+    /**
+     * Sets notify_templates
+     *
+     * @param \Volcengine\Volcobserve\Model\NotifyTemplateForCreateEventRuleInput[] $notify_templates notify_templates
+     *
+     * @return $this
+     */
+    public function setNotifyTemplates($notify_templates)
+    {
+        $this->container['notify_templates'] = $notify_templates;
 
         return $this;
     }

@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ListAlertTemplatesResponse implements ModelInterface, ArrayAccess
+class ListNotifyTemplatesResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ListAlertTemplatesResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ListAlertTemplatesResponse';
+    protected static $swaggerModelName = 'ListNotifyTemplatesResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,7 @@ class ListAlertTemplatesResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'data' => '\Volcengine\Volcobserve\Model\DataForListAlertTemplatesOutput[]',
+        'data' => '\Volcengine\Volcobserve\Model\DataForListNotifyTemplatesOutput[]',
         'page_number' => 'int',
         'page_size' => 'int',
         'total_count' => 'int'
@@ -196,7 +196,7 @@ class ListAlertTemplatesResponse implements ModelInterface, ArrayAccess
     /**
      * Gets data
      *
-     * @return \Volcengine\Volcobserve\Model\DataForListAlertTemplatesOutput[]
+     * @return \Volcengine\Volcobserve\Model\DataForListNotifyTemplatesOutput[]
      */
     public function getData()
     {
@@ -206,7 +206,7 @@ class ListAlertTemplatesResponse implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \Volcengine\Volcobserve\Model\DataForListAlertTemplatesOutput[] $data data
+     * @param \Volcengine\Volcobserve\Model\DataForListNotifyTemplatesOutput[] $data data
      *
      * @return $this
      */

@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ListAlertTemplatesResponse implements ModelInterface, ArrayAccess
+class UpdateNotifyTemplateResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ListAlertTemplatesResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ListAlertTemplatesResponse';
+    protected static $swaggerModelName = 'UpdateNotifyTemplateResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,7 @@ class ListAlertTemplatesResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'data' => '\Volcengine\Volcobserve\Model\DataForListAlertTemplatesOutput[]',
-        'page_number' => 'int',
-        'page_size' => 'int',
-        'total_count' => 'int'
+        'data' => 'string'
     ];
 
     /**
@@ -40,10 +37,7 @@ class ListAlertTemplatesResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'data' => null,
-        'page_number' => null,
-        'page_size' => null,
-        'total_count' => null
+        'data' => null
     ];
 
     /**
@@ -73,10 +67,7 @@ class ListAlertTemplatesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'data' => 'Data',
-        'page_number' => 'PageNumber',
-        'page_size' => 'PageSize',
-        'total_count' => 'TotalCount'
+        'data' => 'Data'
     ];
 
     /**
@@ -85,10 +76,7 @@ class ListAlertTemplatesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'data' => 'setData',
-        'page_number' => 'setPageNumber',
-        'page_size' => 'setPageSize',
-        'total_count' => 'setTotalCount'
+        'data' => 'setData'
     ];
 
     /**
@@ -97,10 +85,7 @@ class ListAlertTemplatesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'data' => 'getData',
-        'page_number' => 'getPageNumber',
-        'page_size' => 'getPageSize',
-        'total_count' => 'getTotalCount'
+        'data' => 'getData'
     ];
 
     /**
@@ -164,9 +149,6 @@ class ListAlertTemplatesResponse implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['data'] = isset($data['data']) ? $data['data'] : null;
-        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
-        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
-        $this->container['total_count'] = isset($data['total_count']) ? $data['total_count'] : null;
     }
 
     /**
@@ -196,7 +178,7 @@ class ListAlertTemplatesResponse implements ModelInterface, ArrayAccess
     /**
      * Gets data
      *
-     * @return \Volcengine\Volcobserve\Model\DataForListAlertTemplatesOutput[]
+     * @return string
      */
     public function getData()
     {
@@ -206,85 +188,13 @@ class ListAlertTemplatesResponse implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \Volcengine\Volcobserve\Model\DataForListAlertTemplatesOutput[] $data data
+     * @param string $data data
      *
      * @return $this
      */
     public function setData($data)
     {
         $this->container['data'] = $data;
-
-        return $this;
-    }
-
-    /**
-     * Gets page_number
-     *
-     * @return int
-     */
-    public function getPageNumber()
-    {
-        return $this->container['page_number'];
-    }
-
-    /**
-     * Sets page_number
-     *
-     * @param int $page_number page_number
-     *
-     * @return $this
-     */
-    public function setPageNumber($page_number)
-    {
-        $this->container['page_number'] = $page_number;
-
-        return $this;
-    }
-
-    /**
-     * Gets page_size
-     *
-     * @return int
-     */
-    public function getPageSize()
-    {
-        return $this->container['page_size'];
-    }
-
-    /**
-     * Sets page_size
-     *
-     * @param int $page_size page_size
-     *
-     * @return $this
-     */
-    public function setPageSize($page_size)
-    {
-        $this->container['page_size'] = $page_size;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_count
-     *
-     * @return int
-     */
-    public function getTotalCount()
-    {
-        return $this->container['total_count'];
-    }
-
-    /**
-     * Sets total_count
-     *
-     * @param int $total_count total_count
-     *
-     * @return $this
-     */
-    public function setTotalCount($total_count)
-    {
-        $this->container['total_count'] = $total_count;
 
         return $this;
     }

@@ -33,6 +33,7 @@ class ObjectGroupForListAlertTemplatesOutput implements ModelInterface, ArrayAcc
         'effect_end_at' => 'string',
         'effect_start_at' => 'string',
         'notification_id' => 'string',
+        'notify_templates' => '\Volcengine\Volcobserve\Model\NotifyTemplateForListAlertTemplatesOutput[]',
         'object_group_id' => 'string',
         'object_group_name' => 'string',
         'webhook' => 'string',
@@ -50,6 +51,7 @@ class ObjectGroupForListAlertTemplatesOutput implements ModelInterface, ArrayAcc
         'effect_end_at' => null,
         'effect_start_at' => null,
         'notification_id' => null,
+        'notify_templates' => null,
         'object_group_id' => null,
         'object_group_name' => null,
         'webhook' => null,
@@ -88,6 +90,7 @@ class ObjectGroupForListAlertTemplatesOutput implements ModelInterface, ArrayAcc
         'effect_end_at' => 'EffectEndAt',
         'effect_start_at' => 'EffectStartAt',
         'notification_id' => 'NotificationId',
+        'notify_templates' => 'NotifyTemplates',
         'object_group_id' => 'ObjectGroupId',
         'object_group_name' => 'ObjectGroupName',
         'webhook' => 'Webhook',
@@ -105,6 +108,7 @@ class ObjectGroupForListAlertTemplatesOutput implements ModelInterface, ArrayAcc
         'effect_end_at' => 'setEffectEndAt',
         'effect_start_at' => 'setEffectStartAt',
         'notification_id' => 'setNotificationId',
+        'notify_templates' => 'setNotifyTemplates',
         'object_group_id' => 'setObjectGroupId',
         'object_group_name' => 'setObjectGroupName',
         'webhook' => 'setWebhook',
@@ -122,6 +126,7 @@ class ObjectGroupForListAlertTemplatesOutput implements ModelInterface, ArrayAcc
         'effect_end_at' => 'getEffectEndAt',
         'effect_start_at' => 'getEffectStartAt',
         'notification_id' => 'getNotificationId',
+        'notify_templates' => 'getNotifyTemplates',
         'object_group_id' => 'getObjectGroupId',
         'object_group_name' => 'getObjectGroupName',
         'webhook' => 'getWebhook',
@@ -193,6 +198,7 @@ class ObjectGroupForListAlertTemplatesOutput implements ModelInterface, ArrayAcc
         $this->container['effect_end_at'] = isset($data['effect_end_at']) ? $data['effect_end_at'] : null;
         $this->container['effect_start_at'] = isset($data['effect_start_at']) ? $data['effect_start_at'] : null;
         $this->container['notification_id'] = isset($data['notification_id']) ? $data['notification_id'] : null;
+        $this->container['notify_templates'] = isset($data['notify_templates']) ? $data['notify_templates'] : null;
         $this->container['object_group_id'] = isset($data['object_group_id']) ? $data['object_group_id'] : null;
         $this->container['object_group_name'] = isset($data['object_group_name']) ? $data['object_group_name'] : null;
         $this->container['webhook'] = isset($data['webhook']) ? $data['webhook'] : null;
@@ -339,6 +345,30 @@ class ObjectGroupForListAlertTemplatesOutput implements ModelInterface, ArrayAcc
     public function setNotificationId($notification_id)
     {
         $this->container['notification_id'] = $notification_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets notify_templates
+     *
+     * @return \Volcengine\Volcobserve\Model\NotifyTemplateForListAlertTemplatesOutput[]
+     */
+    public function getNotifyTemplates()
+    {
+        return $this->container['notify_templates'];
+    }
+
+    /**
+     * Sets notify_templates
+     *
+     * @param \Volcengine\Volcobserve\Model\NotifyTemplateForListAlertTemplatesOutput[] $notify_templates notify_templates
+     *
+     * @return $this
+     */
+    public function setNotifyTemplates($notify_templates)
+    {
+        $this->container['notify_templates'] = $notify_templates;
 
         return $this;
     }
