@@ -42,6 +42,7 @@ class ListForListCouponsOutput implements ModelInterface, ArrayAccess
         'remaining_amount' => 'double',
         'remark' => 'string',
         'status' => 'int',
+        'total_amount' => 'double',
         'usage_limit' => 'int'
     ];
 
@@ -51,10 +52,10 @@ class ListForListCouponsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'account_id' => 'int32',
+        'account_id' => 'int64',
         'acquire_time' => null,
         'amount_limit' => 'double',
-        'assigned_owner_id_list' => 'int32',
+        'assigned_owner_id_list' => 'int64',
         'begin_time' => null,
         'coupon_id' => null,
         'coupon_name' => null,
@@ -65,6 +66,7 @@ class ListForListCouponsOutput implements ModelInterface, ArrayAccess
         'remaining_amount' => 'double',
         'remark' => null,
         'status' => 'int32',
+        'total_amount' => 'double',
         'usage_limit' => 'int32'
     ];
 
@@ -109,6 +111,7 @@ class ListForListCouponsOutput implements ModelInterface, ArrayAccess
         'remaining_amount' => 'RemainingAmount',
         'remark' => 'Remark',
         'status' => 'Status',
+        'total_amount' => 'TotalAmount',
         'usage_limit' => 'UsageLimit'
     ];
 
@@ -132,6 +135,7 @@ class ListForListCouponsOutput implements ModelInterface, ArrayAccess
         'remaining_amount' => 'setRemainingAmount',
         'remark' => 'setRemark',
         'status' => 'setStatus',
+        'total_amount' => 'setTotalAmount',
         'usage_limit' => 'setUsageLimit'
     ];
 
@@ -155,6 +159,7 @@ class ListForListCouponsOutput implements ModelInterface, ArrayAccess
         'remaining_amount' => 'getRemainingAmount',
         'remark' => 'getRemark',
         'status' => 'getStatus',
+        'total_amount' => 'getTotalAmount',
         'usage_limit' => 'getUsageLimit'
     ];
 
@@ -232,6 +237,7 @@ class ListForListCouponsOutput implements ModelInterface, ArrayAccess
         $this->container['remaining_amount'] = isset($data['remaining_amount']) ? $data['remaining_amount'] : null;
         $this->container['remark'] = isset($data['remark']) ? $data['remark'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['total_amount'] = isset($data['total_amount']) ? $data['total_amount'] : null;
         $this->container['usage_limit'] = isset($data['usage_limit']) ? $data['usage_limit'] : null;
     }
 
@@ -591,6 +597,30 @@ class ListForListCouponsOutput implements ModelInterface, ArrayAccess
     public function setStatus($status)
     {
         $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_amount
+     *
+     * @return double
+     */
+    public function getTotalAmount()
+    {
+        return $this->container['total_amount'];
+    }
+
+    /**
+     * Sets total_amount
+     *
+     * @param double $total_amount total_amount
+     *
+     * @return $this
+     */
+    public function setTotalAmount($total_amount)
+    {
+        $this->container['total_amount'] = $total_amount;
 
         return $this;
     }
