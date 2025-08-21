@@ -58,6 +58,1104 @@ class SPEECHSAASPRODApi
         return $this->config;
     }
 
+    public function activateService($body)
+    {
+        list($response) = $this->activateServiceWithHttpInfo($body);
+        return $response;
+    }
+
+    public function activateServiceWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Speechsaasprod\Model\ActivateServiceResponse';
+        $request = $this->activateServiceRequest($body);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+            );
+        }
+
+        $statusCode = $response->getStatusCode();
+
+        if ($statusCode < 200 || $statusCode > 299) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Error connecting to the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $response->getBody()
+            );
+        }
+
+        $responseContent = $response->getBody()->getContents();
+        $content = json_decode($responseContent);
+
+        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Return Error From the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $responseContent);
+        }
+        $content = $content->{'Result'};
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    public function activateServiceAsync($body)
+    {
+        return $this->activateServiceAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function activateServiceAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Speechsaasprod\Model\ActivateServiceResponse';
+        $request = $this->activateServiceRequest($body);
+        $uri = $request->getUri();
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($uri, $returnType) {
+                    $responseContent = $response->getBody()->getContents();
+                    $content = json_decode($responseContent);
+                    $statusCode = $response->getStatusCode();
+
+                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+                        throw new ApiException(
+                            sprintf(
+                                '[%d] Return Error From the API (%s)',
+                                $statusCode,
+                                $uri
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $responseContent);
+                    }
+                    $content = $content->{'Result'};
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    protected function activateServiceRequest($body)
+    {
+        // verify the required parameter 'body' is set
+        if ($body === null || (is_array($body) && count($body) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $body when calling activateService'
+            );
+        }
+
+        $resourcePath = '/ActivateService/2025-05-20/speech_saas_prod/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        // format request body
+        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
+            $queryParams = Utils::transRequest($httpBody);
+            $httpBody = '';
+        } else {
+            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
+        }
+
+        $queryParams['Action'] = $paths[1];
+        $queryParams['Version'] = $paths[2];
+        $resourcePath = '/';
+
+        $query = '';
+        ksort($queryParams);  // sort query first
+        foreach ($queryParams as $k => $v) {
+            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
+        }
+        $query = substr($query, 0, -1);
+
+        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
+            $httpBody, $query, $method, $resourcePath, $headers);
+
+        return new Request($method,
+            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers, $httpBody);
+    }
+
+    public function aliasResourcePack($body)
+    {
+        list($response) = $this->aliasResourcePackWithHttpInfo($body);
+        return $response;
+    }
+
+    public function aliasResourcePackWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Speechsaasprod\Model\AliasResourcePackResponse';
+        $request = $this->aliasResourcePackRequest($body);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+            );
+        }
+
+        $statusCode = $response->getStatusCode();
+
+        if ($statusCode < 200 || $statusCode > 299) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Error connecting to the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $response->getBody()
+            );
+        }
+
+        $responseContent = $response->getBody()->getContents();
+        $content = json_decode($responseContent);
+
+        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Return Error From the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $responseContent);
+        }
+        $content = $content->{'Result'};
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    public function aliasResourcePackAsync($body)
+    {
+        return $this->aliasResourcePackAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function aliasResourcePackAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Speechsaasprod\Model\AliasResourcePackResponse';
+        $request = $this->aliasResourcePackRequest($body);
+        $uri = $request->getUri();
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($uri, $returnType) {
+                    $responseContent = $response->getBody()->getContents();
+                    $content = json_decode($responseContent);
+                    $statusCode = $response->getStatusCode();
+
+                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+                        throw new ApiException(
+                            sprintf(
+                                '[%d] Return Error From the API (%s)',
+                                $statusCode,
+                                $uri
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $responseContent);
+                    }
+                    $content = $content->{'Result'};
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    protected function aliasResourcePackRequest($body)
+    {
+        // verify the required parameter 'body' is set
+        if ($body === null || (is_array($body) && count($body) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $body when calling aliasResourcePack'
+            );
+        }
+
+        $resourcePath = '/AliasResourcePack/2025-05-20/speech_saas_prod/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        // format request body
+        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
+            $queryParams = Utils::transRequest($httpBody);
+            $httpBody = '';
+        } else {
+            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
+        }
+
+        $queryParams['Action'] = $paths[1];
+        $queryParams['Version'] = $paths[2];
+        $resourcePath = '/';
+
+        $query = '';
+        ksort($queryParams);  // sort query first
+        foreach ($queryParams as $k => $v) {
+            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
+        }
+        $query = substr($query, 0, -1);
+
+        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
+            $httpBody, $query, $method, $resourcePath, $headers);
+
+        return new Request($method,
+            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers, $httpBody);
+    }
+
+    public function createAPIKey($body)
+    {
+        list($response) = $this->createAPIKeyWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createAPIKeyWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Speechsaasprod\Model\CreateAPIKeyResponse';
+        $request = $this->createAPIKeyRequest($body);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+            );
+        }
+
+        $statusCode = $response->getStatusCode();
+
+        if ($statusCode < 200 || $statusCode > 299) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Error connecting to the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $response->getBody()
+            );
+        }
+
+        $responseContent = $response->getBody()->getContents();
+        $content = json_decode($responseContent);
+
+        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Return Error From the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $responseContent);
+        }
+        $content = $content->{'Result'};
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    public function createAPIKeyAsync($body)
+    {
+        return $this->createAPIKeyAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createAPIKeyAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Speechsaasprod\Model\CreateAPIKeyResponse';
+        $request = $this->createAPIKeyRequest($body);
+        $uri = $request->getUri();
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($uri, $returnType) {
+                    $responseContent = $response->getBody()->getContents();
+                    $content = json_decode($responseContent);
+                    $statusCode = $response->getStatusCode();
+
+                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+                        throw new ApiException(
+                            sprintf(
+                                '[%d] Return Error From the API (%s)',
+                                $statusCode,
+                                $uri
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $responseContent);
+                    }
+                    $content = $content->{'Result'};
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    protected function createAPIKeyRequest($body)
+    {
+        // verify the required parameter 'body' is set
+        if ($body === null || (is_array($body) && count($body) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $body when calling createAPIKey'
+            );
+        }
+
+        $resourcePath = '/CreateAPIKey/2025-05-20/speech_saas_prod/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        // format request body
+        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
+            $queryParams = Utils::transRequest($httpBody);
+            $httpBody = '';
+        } else {
+            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
+        }
+
+        $queryParams['Action'] = $paths[1];
+        $queryParams['Version'] = $paths[2];
+        $resourcePath = '/';
+
+        $query = '';
+        ksort($queryParams);  // sort query first
+        foreach ($queryParams as $k => $v) {
+            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
+        }
+        $query = substr($query, 0, -1);
+
+        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
+            $httpBody, $query, $method, $resourcePath, $headers);
+
+        return new Request($method,
+            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers, $httpBody);
+    }
+
+    public function deleteAPIKey($body)
+    {
+        list($response) = $this->deleteAPIKeyWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteAPIKeyWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Speechsaasprod\Model\DeleteAPIKeyResponse';
+        $request = $this->deleteAPIKeyRequest($body);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+            );
+        }
+
+        $statusCode = $response->getStatusCode();
+
+        if ($statusCode < 200 || $statusCode > 299) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Error connecting to the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $response->getBody()
+            );
+        }
+
+        $responseContent = $response->getBody()->getContents();
+        $content = json_decode($responseContent);
+
+        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Return Error From the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $responseContent);
+        }
+        $content = $content->{'Result'};
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    public function deleteAPIKeyAsync($body)
+    {
+        return $this->deleteAPIKeyAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteAPIKeyAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Speechsaasprod\Model\DeleteAPIKeyResponse';
+        $request = $this->deleteAPIKeyRequest($body);
+        $uri = $request->getUri();
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($uri, $returnType) {
+                    $responseContent = $response->getBody()->getContents();
+                    $content = json_decode($responseContent);
+                    $statusCode = $response->getStatusCode();
+
+                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+                        throw new ApiException(
+                            sprintf(
+                                '[%d] Return Error From the API (%s)',
+                                $statusCode,
+                                $uri
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $responseContent);
+                    }
+                    $content = $content->{'Result'};
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    protected function deleteAPIKeyRequest($body)
+    {
+        // verify the required parameter 'body' is set
+        if ($body === null || (is_array($body) && count($body) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $body when calling deleteAPIKey'
+            );
+        }
+
+        $resourcePath = '/DeleteAPIKey/2025-05-20/speech_saas_prod/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        // format request body
+        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
+            $queryParams = Utils::transRequest($httpBody);
+            $httpBody = '';
+        } else {
+            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
+        }
+
+        $queryParams['Action'] = $paths[1];
+        $queryParams['Version'] = $paths[2];
+        $resourcePath = '/';
+
+        $query = '';
+        ksort($queryParams);  // sort query first
+        foreach ($queryParams as $k => $v) {
+            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
+        }
+        $query = substr($query, 0, -1);
+
+        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
+            $httpBody, $query, $method, $resourcePath, $headers);
+
+        return new Request($method,
+            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers, $httpBody);
+    }
+
+    public function formalizeResourcePacks($body)
+    {
+        list($response) = $this->formalizeResourcePacksWithHttpInfo($body);
+        return $response;
+    }
+
+    public function formalizeResourcePacksWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Speechsaasprod\Model\FormalizeResourcePacksResponse';
+        $request = $this->formalizeResourcePacksRequest($body);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+            );
+        }
+
+        $statusCode = $response->getStatusCode();
+
+        if ($statusCode < 200 || $statusCode > 299) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Error connecting to the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $response->getBody()
+            );
+        }
+
+        $responseContent = $response->getBody()->getContents();
+        $content = json_decode($responseContent);
+
+        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Return Error From the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $responseContent);
+        }
+        $content = $content->{'Result'};
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    public function formalizeResourcePacksAsync($body)
+    {
+        return $this->formalizeResourcePacksAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function formalizeResourcePacksAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Speechsaasprod\Model\FormalizeResourcePacksResponse';
+        $request = $this->formalizeResourcePacksRequest($body);
+        $uri = $request->getUri();
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($uri, $returnType) {
+                    $responseContent = $response->getBody()->getContents();
+                    $content = json_decode($responseContent);
+                    $statusCode = $response->getStatusCode();
+
+                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+                        throw new ApiException(
+                            sprintf(
+                                '[%d] Return Error From the API (%s)',
+                                $statusCode,
+                                $uri
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $responseContent);
+                    }
+                    $content = $content->{'Result'};
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    protected function formalizeResourcePacksRequest($body)
+    {
+        // verify the required parameter 'body' is set
+        if ($body === null || (is_array($body) && count($body) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $body when calling formalizeResourcePacks'
+            );
+        }
+
+        $resourcePath = '/FormalizeResourcePacks/2025-05-20/speech_saas_prod/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        // format request body
+        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
+            $queryParams = Utils::transRequest($httpBody);
+            $httpBody = '';
+        } else {
+            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
+        }
+
+        $queryParams['Action'] = $paths[1];
+        $queryParams['Version'] = $paths[2];
+        $resourcePath = '/';
+
+        $query = '';
+        ksort($queryParams);  // sort query first
+        foreach ($queryParams as $k => $v) {
+            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
+        }
+        $query = substr($query, 0, -1);
+
+        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
+            $httpBody, $query, $method, $resourcePath, $headers);
+
+        return new Request($method,
+            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers, $httpBody);
+    }
+
+    public function listAPIKeys($body)
+    {
+        list($response) = $this->listAPIKeysWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listAPIKeysWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Speechsaasprod\Model\ListAPIKeysResponse';
+        $request = $this->listAPIKeysRequest($body);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+            );
+        }
+
+        $statusCode = $response->getStatusCode();
+
+        if ($statusCode < 200 || $statusCode > 299) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Error connecting to the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $response->getBody()
+            );
+        }
+
+        $responseContent = $response->getBody()->getContents();
+        $content = json_decode($responseContent);
+
+        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Return Error From the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $responseContent);
+        }
+        $content = $content->{'Result'};
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    public function listAPIKeysAsync($body)
+    {
+        return $this->listAPIKeysAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listAPIKeysAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Speechsaasprod\Model\ListAPIKeysResponse';
+        $request = $this->listAPIKeysRequest($body);
+        $uri = $request->getUri();
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($uri, $returnType) {
+                    $responseContent = $response->getBody()->getContents();
+                    $content = json_decode($responseContent);
+                    $statusCode = $response->getStatusCode();
+
+                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+                        throw new ApiException(
+                            sprintf(
+                                '[%d] Return Error From the API (%s)',
+                                $statusCode,
+                                $uri
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $responseContent);
+                    }
+                    $content = $content->{'Result'};
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    protected function listAPIKeysRequest($body)
+    {
+        // verify the required parameter 'body' is set
+        if ($body === null || (is_array($body) && count($body) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $body when calling listAPIKeys'
+            );
+        }
+
+        $resourcePath = '/ListAPIKeys/2025-05-20/speech_saas_prod/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        // format request body
+        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
+            $queryParams = Utils::transRequest($httpBody);
+            $httpBody = '';
+        } else {
+            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
+        }
+
+        $queryParams['Action'] = $paths[1];
+        $queryParams['Version'] = $paths[2];
+        $resourcePath = '/';
+
+        $query = '';
+        ksort($queryParams);  // sort query first
+        foreach ($queryParams as $k => $v) {
+            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
+        }
+        $query = substr($query, 0, -1);
+
+        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
+            $httpBody, $query, $method, $resourcePath, $headers);
+
+        return new Request($method,
+            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers, $httpBody);
+    }
+
     public function listBigModelTTSTimbres($body)
     {
         list($response) = $this->listBigModelTTSTimbresWithHttpInfo($body);
@@ -189,6 +1287,1287 @@ class SPEECHSAASPRODApi
         }
 
         $resourcePath = '/ListBigModelTTSTimbres/2025-05-20/speech_saas_prod/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        // format request body
+        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
+            $queryParams = Utils::transRequest($httpBody);
+            $httpBody = '';
+        } else {
+            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
+        }
+
+        $queryParams['Action'] = $paths[1];
+        $queryParams['Version'] = $paths[2];
+        $resourcePath = '/';
+
+        $query = '';
+        ksort($queryParams);  // sort query first
+        foreach ($queryParams as $k => $v) {
+            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
+        }
+        $query = substr($query, 0, -1);
+
+        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
+            $httpBody, $query, $method, $resourcePath, $headers);
+
+        return new Request($method,
+            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers, $httpBody);
+    }
+
+    public function orderResourcePacks($body)
+    {
+        list($response) = $this->orderResourcePacksWithHttpInfo($body);
+        return $response;
+    }
+
+    public function orderResourcePacksWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Speechsaasprod\Model\OrderResourcePacksResponse';
+        $request = $this->orderResourcePacksRequest($body);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+            );
+        }
+
+        $statusCode = $response->getStatusCode();
+
+        if ($statusCode < 200 || $statusCode > 299) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Error connecting to the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $response->getBody()
+            );
+        }
+
+        $responseContent = $response->getBody()->getContents();
+        $content = json_decode($responseContent);
+
+        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Return Error From the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $responseContent);
+        }
+        $content = $content->{'Result'};
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    public function orderResourcePacksAsync($body)
+    {
+        return $this->orderResourcePacksAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function orderResourcePacksAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Speechsaasprod\Model\OrderResourcePacksResponse';
+        $request = $this->orderResourcePacksRequest($body);
+        $uri = $request->getUri();
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($uri, $returnType) {
+                    $responseContent = $response->getBody()->getContents();
+                    $content = json_decode($responseContent);
+                    $statusCode = $response->getStatusCode();
+
+                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+                        throw new ApiException(
+                            sprintf(
+                                '[%d] Return Error From the API (%s)',
+                                $statusCode,
+                                $uri
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $responseContent);
+                    }
+                    $content = $content->{'Result'};
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    protected function orderResourcePacksRequest($body)
+    {
+        // verify the required parameter 'body' is set
+        if ($body === null || (is_array($body) && count($body) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $body when calling orderResourcePacks'
+            );
+        }
+
+        $resourcePath = '/OrderResourcePacks/2025-05-20/speech_saas_prod/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        // format request body
+        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
+            $queryParams = Utils::transRequest($httpBody);
+            $httpBody = '';
+        } else {
+            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
+        }
+
+        $queryParams['Action'] = $paths[1];
+        $queryParams['Version'] = $paths[2];
+        $resourcePath = '/';
+
+        $query = '';
+        ksort($queryParams);  // sort query first
+        foreach ($queryParams as $k => $v) {
+            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
+        }
+        $query = substr($query, 0, -1);
+
+        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
+            $httpBody, $query, $method, $resourcePath, $headers);
+
+        return new Request($method,
+            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers, $httpBody);
+    }
+
+    public function pauseService($body)
+    {
+        list($response) = $this->pauseServiceWithHttpInfo($body);
+        return $response;
+    }
+
+    public function pauseServiceWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Speechsaasprod\Model\PauseServiceResponse';
+        $request = $this->pauseServiceRequest($body);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+            );
+        }
+
+        $statusCode = $response->getStatusCode();
+
+        if ($statusCode < 200 || $statusCode > 299) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Error connecting to the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $response->getBody()
+            );
+        }
+
+        $responseContent = $response->getBody()->getContents();
+        $content = json_decode($responseContent);
+
+        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Return Error From the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $responseContent);
+        }
+        $content = $content->{'Result'};
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    public function pauseServiceAsync($body)
+    {
+        return $this->pauseServiceAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function pauseServiceAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Speechsaasprod\Model\PauseServiceResponse';
+        $request = $this->pauseServiceRequest($body);
+        $uri = $request->getUri();
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($uri, $returnType) {
+                    $responseContent = $response->getBody()->getContents();
+                    $content = json_decode($responseContent);
+                    $statusCode = $response->getStatusCode();
+
+                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+                        throw new ApiException(
+                            sprintf(
+                                '[%d] Return Error From the API (%s)',
+                                $statusCode,
+                                $uri
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $responseContent);
+                    }
+                    $content = $content->{'Result'};
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    protected function pauseServiceRequest($body)
+    {
+        // verify the required parameter 'body' is set
+        if ($body === null || (is_array($body) && count($body) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $body when calling pauseService'
+            );
+        }
+
+        $resourcePath = '/PauseService/2025-05-20/speech_saas_prod/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        // format request body
+        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
+            $queryParams = Utils::transRequest($httpBody);
+            $httpBody = '';
+        } else {
+            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
+        }
+
+        $queryParams['Action'] = $paths[1];
+        $queryParams['Version'] = $paths[2];
+        $resourcePath = '/';
+
+        $query = '';
+        ksort($queryParams);  // sort query first
+        foreach ($queryParams as $k => $v) {
+            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
+        }
+        $query = substr($query, 0, -1);
+
+        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
+            $httpBody, $query, $method, $resourcePath, $headers);
+
+        return new Request($method,
+            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers, $httpBody);
+    }
+
+    public function resourcePacksStatus($body)
+    {
+        list($response) = $this->resourcePacksStatusWithHttpInfo($body);
+        return $response;
+    }
+
+    public function resourcePacksStatusWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Speechsaasprod\Model\ResourcePacksStatusResponse';
+        $request = $this->resourcePacksStatusRequest($body);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+            );
+        }
+
+        $statusCode = $response->getStatusCode();
+
+        if ($statusCode < 200 || $statusCode > 299) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Error connecting to the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $response->getBody()
+            );
+        }
+
+        $responseContent = $response->getBody()->getContents();
+        $content = json_decode($responseContent);
+
+        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Return Error From the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $responseContent);
+        }
+        $content = $content->{'Result'};
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    public function resourcePacksStatusAsync($body)
+    {
+        return $this->resourcePacksStatusAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function resourcePacksStatusAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Speechsaasprod\Model\ResourcePacksStatusResponse';
+        $request = $this->resourcePacksStatusRequest($body);
+        $uri = $request->getUri();
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($uri, $returnType) {
+                    $responseContent = $response->getBody()->getContents();
+                    $content = json_decode($responseContent);
+                    $statusCode = $response->getStatusCode();
+
+                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+                        throw new ApiException(
+                            sprintf(
+                                '[%d] Return Error From the API (%s)',
+                                $statusCode,
+                                $uri
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $responseContent);
+                    }
+                    $content = $content->{'Result'};
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    protected function resourcePacksStatusRequest($body)
+    {
+        // verify the required parameter 'body' is set
+        if ($body === null || (is_array($body) && count($body) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $body when calling resourcePacksStatus'
+            );
+        }
+
+        $resourcePath = '/ResourcePacksStatus/2025-05-20/speech_saas_prod/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        // format request body
+        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
+            $queryParams = Utils::transRequest($httpBody);
+            $httpBody = '';
+        } else {
+            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
+        }
+
+        $queryParams['Action'] = $paths[1];
+        $queryParams['Version'] = $paths[2];
+        $resourcePath = '/';
+
+        $query = '';
+        ksort($queryParams);  // sort query first
+        foreach ($queryParams as $k => $v) {
+            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
+        }
+        $query = substr($query, 0, -1);
+
+        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
+            $httpBody, $query, $method, $resourcePath, $headers);
+
+        return new Request($method,
+            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers, $httpBody);
+    }
+
+    public function resumeService($body)
+    {
+        list($response) = $this->resumeServiceWithHttpInfo($body);
+        return $response;
+    }
+
+    public function resumeServiceWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Speechsaasprod\Model\ResumeServiceResponse';
+        $request = $this->resumeServiceRequest($body);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+            );
+        }
+
+        $statusCode = $response->getStatusCode();
+
+        if ($statusCode < 200 || $statusCode > 299) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Error connecting to the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $response->getBody()
+            );
+        }
+
+        $responseContent = $response->getBody()->getContents();
+        $content = json_decode($responseContent);
+
+        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Return Error From the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $responseContent);
+        }
+        $content = $content->{'Result'};
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    public function resumeServiceAsync($body)
+    {
+        return $this->resumeServiceAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function resumeServiceAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Speechsaasprod\Model\ResumeServiceResponse';
+        $request = $this->resumeServiceRequest($body);
+        $uri = $request->getUri();
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($uri, $returnType) {
+                    $responseContent = $response->getBody()->getContents();
+                    $content = json_decode($responseContent);
+                    $statusCode = $response->getStatusCode();
+
+                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+                        throw new ApiException(
+                            sprintf(
+                                '[%d] Return Error From the API (%s)',
+                                $statusCode,
+                                $uri
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $responseContent);
+                    }
+                    $content = $content->{'Result'};
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    protected function resumeServiceRequest($body)
+    {
+        // verify the required parameter 'body' is set
+        if ($body === null || (is_array($body) && count($body) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $body when calling resumeService'
+            );
+        }
+
+        $resourcePath = '/ResumeService/2025-05-20/speech_saas_prod/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        // format request body
+        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
+            $queryParams = Utils::transRequest($httpBody);
+            $httpBody = '';
+        } else {
+            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
+        }
+
+        $queryParams['Action'] = $paths[1];
+        $queryParams['Version'] = $paths[2];
+        $resourcePath = '/';
+
+        $query = '';
+        ksort($queryParams);  // sort query first
+        foreach ($queryParams as $k => $v) {
+            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
+        }
+        $query = substr($query, 0, -1);
+
+        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
+            $httpBody, $query, $method, $resourcePath, $headers);
+
+        return new Request($method,
+            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers, $httpBody);
+    }
+
+    public function serviceStatus($body)
+    {
+        list($response) = $this->serviceStatusWithHttpInfo($body);
+        return $response;
+    }
+
+    public function serviceStatusWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Speechsaasprod\Model\ServiceStatusResponse';
+        $request = $this->serviceStatusRequest($body);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+            );
+        }
+
+        $statusCode = $response->getStatusCode();
+
+        if ($statusCode < 200 || $statusCode > 299) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Error connecting to the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $response->getBody()
+            );
+        }
+
+        $responseContent = $response->getBody()->getContents();
+        $content = json_decode($responseContent);
+
+        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Return Error From the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $responseContent);
+        }
+        $content = $content->{'Result'};
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    public function serviceStatusAsync($body)
+    {
+        return $this->serviceStatusAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function serviceStatusAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Speechsaasprod\Model\ServiceStatusResponse';
+        $request = $this->serviceStatusRequest($body);
+        $uri = $request->getUri();
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($uri, $returnType) {
+                    $responseContent = $response->getBody()->getContents();
+                    $content = json_decode($responseContent);
+                    $statusCode = $response->getStatusCode();
+
+                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+                        throw new ApiException(
+                            sprintf(
+                                '[%d] Return Error From the API (%s)',
+                                $statusCode,
+                                $uri
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $responseContent);
+                    }
+                    $content = $content->{'Result'};
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    protected function serviceStatusRequest($body)
+    {
+        // verify the required parameter 'body' is set
+        if ($body === null || (is_array($body) && count($body) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $body when calling serviceStatus'
+            );
+        }
+
+        $resourcePath = '/ServiceStatus/2025-05-20/speech_saas_prod/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        // format request body
+        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
+            $queryParams = Utils::transRequest($httpBody);
+            $httpBody = '';
+        } else {
+            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
+        }
+
+        $queryParams['Action'] = $paths[1];
+        $queryParams['Version'] = $paths[2];
+        $resourcePath = '/';
+
+        $query = '';
+        ksort($queryParams);  // sort query first
+        foreach ($queryParams as $k => $v) {
+            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
+        }
+        $query = substr($query, 0, -1);
+
+        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
+            $httpBody, $query, $method, $resourcePath, $headers);
+
+        return new Request($method,
+            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers, $httpBody);
+    }
+
+    public function terminateService($body)
+    {
+        list($response) = $this->terminateServiceWithHttpInfo($body);
+        return $response;
+    }
+
+    public function terminateServiceWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Speechsaasprod\Model\TerminateServiceResponse';
+        $request = $this->terminateServiceRequest($body);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+            );
+        }
+
+        $statusCode = $response->getStatusCode();
+
+        if ($statusCode < 200 || $statusCode > 299) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Error connecting to the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $response->getBody()
+            );
+        }
+
+        $responseContent = $response->getBody()->getContents();
+        $content = json_decode($responseContent);
+
+        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Return Error From the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $responseContent);
+        }
+        $content = $content->{'Result'};
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    public function terminateServiceAsync($body)
+    {
+        return $this->terminateServiceAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function terminateServiceAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Speechsaasprod\Model\TerminateServiceResponse';
+        $request = $this->terminateServiceRequest($body);
+        $uri = $request->getUri();
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($uri, $returnType) {
+                    $responseContent = $response->getBody()->getContents();
+                    $content = json_decode($responseContent);
+                    $statusCode = $response->getStatusCode();
+
+                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+                        throw new ApiException(
+                            sprintf(
+                                '[%d] Return Error From the API (%s)',
+                                $statusCode,
+                                $uri
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $responseContent);
+                    }
+                    $content = $content->{'Result'};
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    protected function terminateServiceRequest($body)
+    {
+        // verify the required parameter 'body' is set
+        if ($body === null || (is_array($body) && count($body) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $body when calling terminateService'
+            );
+        }
+
+        $resourcePath = '/TerminateService/2025-05-20/speech_saas_prod/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        // format request body
+        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
+            $queryParams = Utils::transRequest($httpBody);
+            $httpBody = '';
+        } else {
+            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
+        }
+
+        $queryParams['Action'] = $paths[1];
+        $queryParams['Version'] = $paths[2];
+        $resourcePath = '/';
+
+        $query = '';
+        ksort($queryParams);  // sort query first
+        foreach ($queryParams as $k => $v) {
+            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
+        }
+        $query = substr($query, 0, -1);
+
+        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
+            $httpBody, $query, $method, $resourcePath, $headers);
+
+        return new Request($method,
+            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers, $httpBody);
+    }
+
+    public function updateAPIKey($body)
+    {
+        list($response) = $this->updateAPIKeyWithHttpInfo($body);
+        return $response;
+    }
+
+    public function updateAPIKeyWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Speechsaasprod\Model\UpdateAPIKeyResponse';
+        $request = $this->updateAPIKeyRequest($body);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+            );
+        }
+
+        $statusCode = $response->getStatusCode();
+
+        if ($statusCode < 200 || $statusCode > 299) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Error connecting to the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $response->getBody()
+            );
+        }
+
+        $responseContent = $response->getBody()->getContents();
+        $content = json_decode($responseContent);
+
+        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Return Error From the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $responseContent);
+        }
+        $content = $content->{'Result'};
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    public function updateAPIKeyAsync($body)
+    {
+        return $this->updateAPIKeyAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function updateAPIKeyAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Speechsaasprod\Model\UpdateAPIKeyResponse';
+        $request = $this->updateAPIKeyRequest($body);
+        $uri = $request->getUri();
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($uri, $returnType) {
+                    $responseContent = $response->getBody()->getContents();
+                    $content = json_decode($responseContent);
+                    $statusCode = $response->getStatusCode();
+
+                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+                        throw new ApiException(
+                            sprintf(
+                                '[%d] Return Error From the API (%s)',
+                                $statusCode,
+                                $uri
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $responseContent);
+                    }
+                    $content = $content->{'Result'};
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    protected function updateAPIKeyRequest($body)
+    {
+        // verify the required parameter 'body' is set
+        if ($body === null || (is_array($body) && count($body) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $body when calling updateAPIKey'
+            );
+        }
+
+        $resourcePath = '/UpdateAPIKey/2025-05-20/speech_saas_prod/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
