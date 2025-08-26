@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CreateTransitRouterRequest implements ModelInterface, ArrayAccess
+class ModifyTransitRouterFlowLogAttributesRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CreateTransitRouterRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CreateTransitRouterRequest';
+    protected static $swaggerModelName = 'ModifyTransitRouterFlowLogAttributesRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,13 +28,10 @@ class CreateTransitRouterRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'asn' => 'int',
-        'client_token' => 'string',
+        'aggregation_interval' => 'int',
         'description' => 'string',
-        'multicast_enabled' => 'bool',
-        'project_name' => 'string',
-        'tags' => '\Volcengine\Transitrouter\Model\TagForCreateTransitRouterInput[]',
-        'transit_router_name' => 'string'
+        'transit_router_flow_log_id' => 'string',
+        'transit_router_flow_log_name' => 'string'
     ];
 
     /**
@@ -43,13 +40,10 @@ class CreateTransitRouterRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'asn' => 'int64',
-        'client_token' => null,
+        'aggregation_interval' => 'int32',
         'description' => null,
-        'multicast_enabled' => null,
-        'project_name' => null,
-        'tags' => null,
-        'transit_router_name' => null
+        'transit_router_flow_log_id' => null,
+        'transit_router_flow_log_name' => null
     ];
 
     /**
@@ -79,13 +73,10 @@ class CreateTransitRouterRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'asn' => 'Asn',
-        'client_token' => 'ClientToken',
+        'aggregation_interval' => 'AggregationInterval',
         'description' => 'Description',
-        'multicast_enabled' => 'MulticastEnabled',
-        'project_name' => 'ProjectName',
-        'tags' => 'Tags',
-        'transit_router_name' => 'TransitRouterName'
+        'transit_router_flow_log_id' => 'TransitRouterFlowLogId',
+        'transit_router_flow_log_name' => 'TransitRouterFlowLogName'
     ];
 
     /**
@@ -94,13 +85,10 @@ class CreateTransitRouterRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'asn' => 'setAsn',
-        'client_token' => 'setClientToken',
+        'aggregation_interval' => 'setAggregationInterval',
         'description' => 'setDescription',
-        'multicast_enabled' => 'setMulticastEnabled',
-        'project_name' => 'setProjectName',
-        'tags' => 'setTags',
-        'transit_router_name' => 'setTransitRouterName'
+        'transit_router_flow_log_id' => 'setTransitRouterFlowLogId',
+        'transit_router_flow_log_name' => 'setTransitRouterFlowLogName'
     ];
 
     /**
@@ -109,13 +97,10 @@ class CreateTransitRouterRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'asn' => 'getAsn',
-        'client_token' => 'getClientToken',
+        'aggregation_interval' => 'getAggregationInterval',
         'description' => 'getDescription',
-        'multicast_enabled' => 'getMulticastEnabled',
-        'project_name' => 'getProjectName',
-        'tags' => 'getTags',
-        'transit_router_name' => 'getTransitRouterName'
+        'transit_router_flow_log_id' => 'getTransitRouterFlowLogId',
+        'transit_router_flow_log_name' => 'getTransitRouterFlowLogName'
     ];
 
     /**
@@ -178,13 +163,10 @@ class CreateTransitRouterRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['asn'] = isset($data['asn']) ? $data['asn'] : null;
-        $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
+        $this->container['aggregation_interval'] = isset($data['aggregation_interval']) ? $data['aggregation_interval'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['multicast_enabled'] = isset($data['multicast_enabled']) ? $data['multicast_enabled'] : null;
-        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
-        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
-        $this->container['transit_router_name'] = isset($data['transit_router_name']) ? $data['transit_router_name'] : null;
+        $this->container['transit_router_flow_log_id'] = isset($data['transit_router_flow_log_id']) ? $data['transit_router_flow_log_id'] : null;
+        $this->container['transit_router_flow_log_name'] = isset($data['transit_router_flow_log_name']) ? $data['transit_router_flow_log_name'] : null;
     }
 
     /**
@@ -196,6 +178,9 @@ class CreateTransitRouterRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['transit_router_flow_log_id'] === null) {
+            $invalidProperties[] = "'transit_router_flow_log_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -212,49 +197,25 @@ class CreateTransitRouterRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets asn
+     * Gets aggregation_interval
      *
      * @return int
      */
-    public function getAsn()
+    public function getAggregationInterval()
     {
-        return $this->container['asn'];
+        return $this->container['aggregation_interval'];
     }
 
     /**
-     * Sets asn
+     * Sets aggregation_interval
      *
-     * @param int $asn asn
+     * @param int $aggregation_interval aggregation_interval
      *
      * @return $this
      */
-    public function setAsn($asn)
+    public function setAggregationInterval($aggregation_interval)
     {
-        $this->container['asn'] = $asn;
-
-        return $this;
-    }
-
-    /**
-     * Gets client_token
-     *
-     * @return string
-     */
-    public function getClientToken()
-    {
-        return $this->container['client_token'];
-    }
-
-    /**
-     * Sets client_token
-     *
-     * @param string $client_token client_token
-     *
-     * @return $this
-     */
-    public function setClientToken($client_token)
-    {
-        $this->container['client_token'] = $client_token;
+        $this->container['aggregation_interval'] = $aggregation_interval;
 
         return $this;
     }
@@ -284,97 +245,49 @@ class CreateTransitRouterRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets multicast_enabled
-     *
-     * @return bool
-     */
-    public function getMulticastEnabled()
-    {
-        return $this->container['multicast_enabled'];
-    }
-
-    /**
-     * Sets multicast_enabled
-     *
-     * @param bool $multicast_enabled multicast_enabled
-     *
-     * @return $this
-     */
-    public function setMulticastEnabled($multicast_enabled)
-    {
-        $this->container['multicast_enabled'] = $multicast_enabled;
-
-        return $this;
-    }
-
-    /**
-     * Gets project_name
+     * Gets transit_router_flow_log_id
      *
      * @return string
      */
-    public function getProjectName()
+    public function getTransitRouterFlowLogId()
     {
-        return $this->container['project_name'];
+        return $this->container['transit_router_flow_log_id'];
     }
 
     /**
-     * Sets project_name
+     * Sets transit_router_flow_log_id
      *
-     * @param string $project_name project_name
+     * @param string $transit_router_flow_log_id transit_router_flow_log_id
      *
      * @return $this
      */
-    public function setProjectName($project_name)
+    public function setTransitRouterFlowLogId($transit_router_flow_log_id)
     {
-        $this->container['project_name'] = $project_name;
+        $this->container['transit_router_flow_log_id'] = $transit_router_flow_log_id;
 
         return $this;
     }
 
     /**
-     * Gets tags
-     *
-     * @return \Volcengine\Transitrouter\Model\TagForCreateTransitRouterInput[]
-     */
-    public function getTags()
-    {
-        return $this->container['tags'];
-    }
-
-    /**
-     * Sets tags
-     *
-     * @param \Volcengine\Transitrouter\Model\TagForCreateTransitRouterInput[] $tags tags
-     *
-     * @return $this
-     */
-    public function setTags($tags)
-    {
-        $this->container['tags'] = $tags;
-
-        return $this;
-    }
-
-    /**
-     * Gets transit_router_name
+     * Gets transit_router_flow_log_name
      *
      * @return string
      */
-    public function getTransitRouterName()
+    public function getTransitRouterFlowLogName()
     {
-        return $this->container['transit_router_name'];
+        return $this->container['transit_router_flow_log_name'];
     }
 
     /**
-     * Sets transit_router_name
+     * Sets transit_router_flow_log_name
      *
-     * @param string $transit_router_name transit_router_name
+     * @param string $transit_router_flow_log_name transit_router_flow_log_name
      *
      * @return $this
      */
-    public function setTransitRouterName($transit_router_name)
+    public function setTransitRouterFlowLogName($transit_router_flow_log_name)
     {
-        $this->container['transit_router_name'] = $transit_router_name;
+        $this->container['transit_router_flow_log_name'] = $transit_router_flow_log_name;
 
         return $this;
     }

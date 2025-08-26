@@ -34,6 +34,7 @@ class ModifyTransitRouterRoutePolicyEntryAttributesRequest implements ModelInter
         'description' => 'string',
         'destination_resource_ids' => 'string[]',
         'destination_resource_types' => 'string[]',
+        'ip_prefix_match_mode' => 'string',
         'ip_prefixes' => 'string[]',
         'priority' => 'int',
         'source_resource_ids' => 'string[]',
@@ -53,6 +54,7 @@ class ModifyTransitRouterRoutePolicyEntryAttributesRequest implements ModelInter
         'description' => null,
         'destination_resource_ids' => null,
         'destination_resource_types' => null,
+        'ip_prefix_match_mode' => null,
         'ip_prefixes' => null,
         'priority' => 'int32',
         'source_resource_ids' => null,
@@ -93,6 +95,7 @@ class ModifyTransitRouterRoutePolicyEntryAttributesRequest implements ModelInter
         'description' => 'Description',
         'destination_resource_ids' => 'DestinationResourceIds',
         'destination_resource_types' => 'DestinationResourceTypes',
+        'ip_prefix_match_mode' => 'IpPrefixMatchMode',
         'ip_prefixes' => 'IpPrefixes',
         'priority' => 'Priority',
         'source_resource_ids' => 'SourceResourceIds',
@@ -112,6 +115,7 @@ class ModifyTransitRouterRoutePolicyEntryAttributesRequest implements ModelInter
         'description' => 'setDescription',
         'destination_resource_ids' => 'setDestinationResourceIds',
         'destination_resource_types' => 'setDestinationResourceTypes',
+        'ip_prefix_match_mode' => 'setIpPrefixMatchMode',
         'ip_prefixes' => 'setIpPrefixes',
         'priority' => 'setPriority',
         'source_resource_ids' => 'setSourceResourceIds',
@@ -131,6 +135,7 @@ class ModifyTransitRouterRoutePolicyEntryAttributesRequest implements ModelInter
         'description' => 'getDescription',
         'destination_resource_ids' => 'getDestinationResourceIds',
         'destination_resource_types' => 'getDestinationResourceTypes',
+        'ip_prefix_match_mode' => 'getIpPrefixMatchMode',
         'ip_prefixes' => 'getIpPrefixes',
         'priority' => 'getPriority',
         'source_resource_ids' => 'getSourceResourceIds',
@@ -204,6 +209,7 @@ class ModifyTransitRouterRoutePolicyEntryAttributesRequest implements ModelInter
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['destination_resource_ids'] = isset($data['destination_resource_ids']) ? $data['destination_resource_ids'] : null;
         $this->container['destination_resource_types'] = isset($data['destination_resource_types']) ? $data['destination_resource_types'] : null;
+        $this->container['ip_prefix_match_mode'] = isset($data['ip_prefix_match_mode']) ? $data['ip_prefix_match_mode'] : null;
         $this->container['ip_prefixes'] = isset($data['ip_prefixes']) ? $data['ip_prefixes'] : null;
         $this->container['priority'] = isset($data['priority']) ? $data['priority'] : null;
         $this->container['source_resource_ids'] = isset($data['source_resource_ids']) ? $data['source_resource_ids'] : null;
@@ -378,6 +384,30 @@ class ModifyTransitRouterRoutePolicyEntryAttributesRequest implements ModelInter
     public function setDestinationResourceTypes($destination_resource_types)
     {
         $this->container['destination_resource_types'] = $destination_resource_types;
+
+        return $this;
+    }
+
+    /**
+     * Gets ip_prefix_match_mode
+     *
+     * @return string
+     */
+    public function getIpPrefixMatchMode()
+    {
+        return $this->container['ip_prefix_match_mode'];
+    }
+
+    /**
+     * Sets ip_prefix_match_mode
+     *
+     * @param string $ip_prefix_match_mode ip_prefix_match_mode
+     *
+     * @return $this
+     */
+    public function setIpPrefixMatchMode($ip_prefix_match_mode)
+    {
+        $this->container['ip_prefix_match_mode'] = $ip_prefix_match_mode;
 
         return $this;
     }

@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class DescribeTransitRouterForwardPolicyEntriesRequest implements ModelInterface, ArrayAccess
+class DescribeTransitRouterMulticastDomainsResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class DescribeTransitRouterForwardPolicyEntriesRequest implements ModelInterface
       *
       * @var string
       */
-    protected static $swaggerModelName = 'DescribeTransitRouterForwardPolicyEntriesRequest';
+    protected static $swaggerModelName = 'DescribeTransitRouterMulticastDomainsResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,13 +28,10 @@ class DescribeTransitRouterForwardPolicyEntriesRequest implements ModelInterface
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'destination_cidr_block' => 'string',
         'page_number' => 'int',
         'page_size' => 'int',
-        'source_cidr_block' => 'string',
-        'transit_router_forward_policy_entry_ids' => 'string[]',
-        'transit_router_forward_policy_table_id' => 'string',
-        'transit_router_route_table_id' => 'string'
+        'total_count' => 'int',
+        'transit_router_multicast_domains' => '\Volcengine\Transitrouter\Model\TransitRouterMulticastDomainsForDescribeTransitRouterMulticastDomainsOutput'
     ];
 
     /**
@@ -43,13 +40,10 @@ class DescribeTransitRouterForwardPolicyEntriesRequest implements ModelInterface
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'destination_cidr_block' => null,
         'page_number' => 'int32',
         'page_size' => 'int32',
-        'source_cidr_block' => null,
-        'transit_router_forward_policy_entry_ids' => null,
-        'transit_router_forward_policy_table_id' => null,
-        'transit_router_route_table_id' => null
+        'total_count' => 'int32',
+        'transit_router_multicast_domains' => null
     ];
 
     /**
@@ -79,13 +73,10 @@ class DescribeTransitRouterForwardPolicyEntriesRequest implements ModelInterface
      * @var string[]
      */
     protected static $attributeMap = [
-        'destination_cidr_block' => 'DestinationCidrBlock',
         'page_number' => 'PageNumber',
         'page_size' => 'PageSize',
-        'source_cidr_block' => 'SourceCidrBlock',
-        'transit_router_forward_policy_entry_ids' => 'TransitRouterForwardPolicyEntryIds',
-        'transit_router_forward_policy_table_id' => 'TransitRouterForwardPolicyTableId',
-        'transit_router_route_table_id' => 'TransitRouterRouteTableId'
+        'total_count' => 'TotalCount',
+        'transit_router_multicast_domains' => 'TransitRouterMulticastDomains'
     ];
 
     /**
@@ -94,13 +85,10 @@ class DescribeTransitRouterForwardPolicyEntriesRequest implements ModelInterface
      * @var string[]
      */
     protected static $setters = [
-        'destination_cidr_block' => 'setDestinationCidrBlock',
         'page_number' => 'setPageNumber',
         'page_size' => 'setPageSize',
-        'source_cidr_block' => 'setSourceCidrBlock',
-        'transit_router_forward_policy_entry_ids' => 'setTransitRouterForwardPolicyEntryIds',
-        'transit_router_forward_policy_table_id' => 'setTransitRouterForwardPolicyTableId',
-        'transit_router_route_table_id' => 'setTransitRouterRouteTableId'
+        'total_count' => 'setTotalCount',
+        'transit_router_multicast_domains' => 'setTransitRouterMulticastDomains'
     ];
 
     /**
@@ -109,13 +97,10 @@ class DescribeTransitRouterForwardPolicyEntriesRequest implements ModelInterface
      * @var string[]
      */
     protected static $getters = [
-        'destination_cidr_block' => 'getDestinationCidrBlock',
         'page_number' => 'getPageNumber',
         'page_size' => 'getPageSize',
-        'source_cidr_block' => 'getSourceCidrBlock',
-        'transit_router_forward_policy_entry_ids' => 'getTransitRouterForwardPolicyEntryIds',
-        'transit_router_forward_policy_table_id' => 'getTransitRouterForwardPolicyTableId',
-        'transit_router_route_table_id' => 'getTransitRouterRouteTableId'
+        'total_count' => 'getTotalCount',
+        'transit_router_multicast_domains' => 'getTransitRouterMulticastDomains'
     ];
 
     /**
@@ -178,13 +163,10 @@ class DescribeTransitRouterForwardPolicyEntriesRequest implements ModelInterface
      */
     public function __construct(array $data = null)
     {
-        $this->container['destination_cidr_block'] = isset($data['destination_cidr_block']) ? $data['destination_cidr_block'] : null;
         $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
-        $this->container['source_cidr_block'] = isset($data['source_cidr_block']) ? $data['source_cidr_block'] : null;
-        $this->container['transit_router_forward_policy_entry_ids'] = isset($data['transit_router_forward_policy_entry_ids']) ? $data['transit_router_forward_policy_entry_ids'] : null;
-        $this->container['transit_router_forward_policy_table_id'] = isset($data['transit_router_forward_policy_table_id']) ? $data['transit_router_forward_policy_table_id'] : null;
-        $this->container['transit_router_route_table_id'] = isset($data['transit_router_route_table_id']) ? $data['transit_router_route_table_id'] : null;
+        $this->container['total_count'] = isset($data['total_count']) ? $data['total_count'] : null;
+        $this->container['transit_router_multicast_domains'] = isset($data['transit_router_multicast_domains']) ? $data['transit_router_multicast_domains'] : null;
     }
 
     /**
@@ -196,9 +178,6 @@ class DescribeTransitRouterForwardPolicyEntriesRequest implements ModelInterface
     {
         $invalidProperties = [];
 
-        if ($this->container['transit_router_forward_policy_table_id'] === null) {
-            $invalidProperties[] = "'transit_router_forward_policy_table_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -213,30 +192,6 @@ class DescribeTransitRouterForwardPolicyEntriesRequest implements ModelInterface
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets destination_cidr_block
-     *
-     * @return string
-     */
-    public function getDestinationCidrBlock()
-    {
-        return $this->container['destination_cidr_block'];
-    }
-
-    /**
-     * Sets destination_cidr_block
-     *
-     * @param string $destination_cidr_block destination_cidr_block
-     *
-     * @return $this
-     */
-    public function setDestinationCidrBlock($destination_cidr_block)
-    {
-        $this->container['destination_cidr_block'] = $destination_cidr_block;
-
-        return $this;
-    }
 
     /**
      * Gets page_number
@@ -287,97 +242,49 @@ class DescribeTransitRouterForwardPolicyEntriesRequest implements ModelInterface
     }
 
     /**
-     * Gets source_cidr_block
+     * Gets total_count
      *
-     * @return string
+     * @return int
      */
-    public function getSourceCidrBlock()
+    public function getTotalCount()
     {
-        return $this->container['source_cidr_block'];
+        return $this->container['total_count'];
     }
 
     /**
-     * Sets source_cidr_block
+     * Sets total_count
      *
-     * @param string $source_cidr_block source_cidr_block
+     * @param int $total_count total_count
      *
      * @return $this
      */
-    public function setSourceCidrBlock($source_cidr_block)
+    public function setTotalCount($total_count)
     {
-        $this->container['source_cidr_block'] = $source_cidr_block;
+        $this->container['total_count'] = $total_count;
 
         return $this;
     }
 
     /**
-     * Gets transit_router_forward_policy_entry_ids
+     * Gets transit_router_multicast_domains
      *
-     * @return string[]
+     * @return \Volcengine\Transitrouter\Model\TransitRouterMulticastDomainsForDescribeTransitRouterMulticastDomainsOutput
      */
-    public function getTransitRouterForwardPolicyEntryIds()
+    public function getTransitRouterMulticastDomains()
     {
-        return $this->container['transit_router_forward_policy_entry_ids'];
+        return $this->container['transit_router_multicast_domains'];
     }
 
     /**
-     * Sets transit_router_forward_policy_entry_ids
+     * Sets transit_router_multicast_domains
      *
-     * @param string[] $transit_router_forward_policy_entry_ids transit_router_forward_policy_entry_ids
+     * @param \Volcengine\Transitrouter\Model\TransitRouterMulticastDomainsForDescribeTransitRouterMulticastDomainsOutput $transit_router_multicast_domains transit_router_multicast_domains
      *
      * @return $this
      */
-    public function setTransitRouterForwardPolicyEntryIds($transit_router_forward_policy_entry_ids)
+    public function setTransitRouterMulticastDomains($transit_router_multicast_domains)
     {
-        $this->container['transit_router_forward_policy_entry_ids'] = $transit_router_forward_policy_entry_ids;
-
-        return $this;
-    }
-
-    /**
-     * Gets transit_router_forward_policy_table_id
-     *
-     * @return string
-     */
-    public function getTransitRouterForwardPolicyTableId()
-    {
-        return $this->container['transit_router_forward_policy_table_id'];
-    }
-
-    /**
-     * Sets transit_router_forward_policy_table_id
-     *
-     * @param string $transit_router_forward_policy_table_id transit_router_forward_policy_table_id
-     *
-     * @return $this
-     */
-    public function setTransitRouterForwardPolicyTableId($transit_router_forward_policy_table_id)
-    {
-        $this->container['transit_router_forward_policy_table_id'] = $transit_router_forward_policy_table_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets transit_router_route_table_id
-     *
-     * @return string
-     */
-    public function getTransitRouterRouteTableId()
-    {
-        return $this->container['transit_router_route_table_id'];
-    }
-
-    /**
-     * Sets transit_router_route_table_id
-     *
-     * @param string $transit_router_route_table_id transit_router_route_table_id
-     *
-     * @return $this
-     */
-    public function setTransitRouterRouteTableId($transit_router_route_table_id)
-    {
-        $this->container['transit_router_route_table_id'] = $transit_router_route_table_id;
+        $this->container['transit_router_multicast_domains'] = $transit_router_multicast_domains;
 
         return $this;
     }

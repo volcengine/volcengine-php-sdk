@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class TransitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachmentsOutput implements ModelInterface, ArrayAccess
+class TransitRouterFlowLogForDescribeTransitRouterFlowLogsOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class TransitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachm
       *
       * @var string
       */
-    protected static $swaggerModelName = 'TransitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachmentsOutput';
+    protected static $swaggerModelName = 'TransitRouterFlowLogForDescribeTransitRouterFlowLogsOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -29,17 +29,21 @@ class TransitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachm
       */
     protected static $swaggerTypes = [
         'account_id' => 'string',
-        'auto_publish_route_enabled' => 'bool',
-        'creation_time' => 'string',
+        'aggregation_interval' => 'int',
+        'created_at' => 'string',
         'description' => 'string',
-        'direct_connect_gateway_id' => 'string',
-        'ipv6_enabled' => 'string',
+        'log_format_string' => 'string',
+        'resource_id' => 'string',
+        'resource_type' => 'string',
         'status' => 'string',
-        'tags' => '\Volcengine\Transitrouter\Model\TagForDescribeTransitRouterDirectConnectGatewayAttachmentsOutput[]',
-        'transit_router_attachment_id' => 'string',
-        'transit_router_attachment_name' => 'string',
+        'tls_project_id' => 'string',
+        'tls_project_name' => 'string',
+        'tls_topic_id' => 'string',
+        'tls_topic_name' => 'string',
+        'transit_router_flow_log_id' => 'string',
+        'transit_router_flow_log_name' => 'string',
         'transit_router_id' => 'string',
-        'update_time' => 'string'
+        'updated_at' => 'string'
     ];
 
     /**
@@ -49,17 +53,21 @@ class TransitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachm
       */
     protected static $swaggerFormats = [
         'account_id' => null,
-        'auto_publish_route_enabled' => null,
-        'creation_time' => null,
+        'aggregation_interval' => 'int32',
+        'created_at' => null,
         'description' => null,
-        'direct_connect_gateway_id' => null,
-        'ipv6_enabled' => null,
+        'log_format_string' => null,
+        'resource_id' => null,
+        'resource_type' => null,
         'status' => null,
-        'tags' => null,
-        'transit_router_attachment_id' => null,
-        'transit_router_attachment_name' => null,
+        'tls_project_id' => null,
+        'tls_project_name' => null,
+        'tls_topic_id' => null,
+        'tls_topic_name' => null,
+        'transit_router_flow_log_id' => null,
+        'transit_router_flow_log_name' => null,
         'transit_router_id' => null,
-        'update_time' => null
+        'updated_at' => null
     ];
 
     /**
@@ -89,18 +97,22 @@ class TransitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachm
      * @var string[]
      */
     protected static $attributeMap = [
-        'account_id' => 'AccountId',
-        'auto_publish_route_enabled' => 'AutoPublishRouteEnabled',
-        'creation_time' => 'CreationTime',
+        'account_id' => 'AccountID',
+        'aggregation_interval' => 'AggregationInterval',
+        'created_at' => 'CreatedAt',
         'description' => 'Description',
-        'direct_connect_gateway_id' => 'DirectConnectGatewayId',
-        'ipv6_enabled' => 'Ipv6Enabled',
+        'log_format_string' => 'LogFormatString',
+        'resource_id' => 'ResourceId',
+        'resource_type' => 'ResourceType',
         'status' => 'Status',
-        'tags' => 'Tags',
-        'transit_router_attachment_id' => 'TransitRouterAttachmentId',
-        'transit_router_attachment_name' => 'TransitRouterAttachmentName',
+        'tls_project_id' => 'TlsProjectId',
+        'tls_project_name' => 'TlsProjectName',
+        'tls_topic_id' => 'TlsTopicId',
+        'tls_topic_name' => 'TlsTopicName',
+        'transit_router_flow_log_id' => 'TransitRouterFlowLogId',
+        'transit_router_flow_log_name' => 'TransitRouterFlowLogName',
         'transit_router_id' => 'TransitRouterId',
-        'update_time' => 'UpdateTime'
+        'updated_at' => 'UpdatedAt'
     ];
 
     /**
@@ -110,17 +122,21 @@ class TransitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachm
      */
     protected static $setters = [
         'account_id' => 'setAccountId',
-        'auto_publish_route_enabled' => 'setAutoPublishRouteEnabled',
-        'creation_time' => 'setCreationTime',
+        'aggregation_interval' => 'setAggregationInterval',
+        'created_at' => 'setCreatedAt',
         'description' => 'setDescription',
-        'direct_connect_gateway_id' => 'setDirectConnectGatewayId',
-        'ipv6_enabled' => 'setIpv6Enabled',
+        'log_format_string' => 'setLogFormatString',
+        'resource_id' => 'setResourceId',
+        'resource_type' => 'setResourceType',
         'status' => 'setStatus',
-        'tags' => 'setTags',
-        'transit_router_attachment_id' => 'setTransitRouterAttachmentId',
-        'transit_router_attachment_name' => 'setTransitRouterAttachmentName',
+        'tls_project_id' => 'setTlsProjectId',
+        'tls_project_name' => 'setTlsProjectName',
+        'tls_topic_id' => 'setTlsTopicId',
+        'tls_topic_name' => 'setTlsTopicName',
+        'transit_router_flow_log_id' => 'setTransitRouterFlowLogId',
+        'transit_router_flow_log_name' => 'setTransitRouterFlowLogName',
         'transit_router_id' => 'setTransitRouterId',
-        'update_time' => 'setUpdateTime'
+        'updated_at' => 'setUpdatedAt'
     ];
 
     /**
@@ -130,17 +146,21 @@ class TransitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachm
      */
     protected static $getters = [
         'account_id' => 'getAccountId',
-        'auto_publish_route_enabled' => 'getAutoPublishRouteEnabled',
-        'creation_time' => 'getCreationTime',
+        'aggregation_interval' => 'getAggregationInterval',
+        'created_at' => 'getCreatedAt',
         'description' => 'getDescription',
-        'direct_connect_gateway_id' => 'getDirectConnectGatewayId',
-        'ipv6_enabled' => 'getIpv6Enabled',
+        'log_format_string' => 'getLogFormatString',
+        'resource_id' => 'getResourceId',
+        'resource_type' => 'getResourceType',
         'status' => 'getStatus',
-        'tags' => 'getTags',
-        'transit_router_attachment_id' => 'getTransitRouterAttachmentId',
-        'transit_router_attachment_name' => 'getTransitRouterAttachmentName',
+        'tls_project_id' => 'getTlsProjectId',
+        'tls_project_name' => 'getTlsProjectName',
+        'tls_topic_id' => 'getTlsTopicId',
+        'tls_topic_name' => 'getTlsTopicName',
+        'transit_router_flow_log_id' => 'getTransitRouterFlowLogId',
+        'transit_router_flow_log_name' => 'getTransitRouterFlowLogName',
         'transit_router_id' => 'getTransitRouterId',
-        'update_time' => 'getUpdateTime'
+        'updated_at' => 'getUpdatedAt'
     ];
 
     /**
@@ -204,17 +224,21 @@ class TransitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachm
     public function __construct(array $data = null)
     {
         $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
-        $this->container['auto_publish_route_enabled'] = isset($data['auto_publish_route_enabled']) ? $data['auto_publish_route_enabled'] : null;
-        $this->container['creation_time'] = isset($data['creation_time']) ? $data['creation_time'] : null;
+        $this->container['aggregation_interval'] = isset($data['aggregation_interval']) ? $data['aggregation_interval'] : null;
+        $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['direct_connect_gateway_id'] = isset($data['direct_connect_gateway_id']) ? $data['direct_connect_gateway_id'] : null;
-        $this->container['ipv6_enabled'] = isset($data['ipv6_enabled']) ? $data['ipv6_enabled'] : null;
+        $this->container['log_format_string'] = isset($data['log_format_string']) ? $data['log_format_string'] : null;
+        $this->container['resource_id'] = isset($data['resource_id']) ? $data['resource_id'] : null;
+        $this->container['resource_type'] = isset($data['resource_type']) ? $data['resource_type'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
-        $this->container['transit_router_attachment_id'] = isset($data['transit_router_attachment_id']) ? $data['transit_router_attachment_id'] : null;
-        $this->container['transit_router_attachment_name'] = isset($data['transit_router_attachment_name']) ? $data['transit_router_attachment_name'] : null;
+        $this->container['tls_project_id'] = isset($data['tls_project_id']) ? $data['tls_project_id'] : null;
+        $this->container['tls_project_name'] = isset($data['tls_project_name']) ? $data['tls_project_name'] : null;
+        $this->container['tls_topic_id'] = isset($data['tls_topic_id']) ? $data['tls_topic_id'] : null;
+        $this->container['tls_topic_name'] = isset($data['tls_topic_name']) ? $data['tls_topic_name'] : null;
+        $this->container['transit_router_flow_log_id'] = isset($data['transit_router_flow_log_id']) ? $data['transit_router_flow_log_id'] : null;
+        $this->container['transit_router_flow_log_name'] = isset($data['transit_router_flow_log_name']) ? $data['transit_router_flow_log_name'] : null;
         $this->container['transit_router_id'] = isset($data['transit_router_id']) ? $data['transit_router_id'] : null;
-        $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
+        $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
     }
 
     /**
@@ -266,49 +290,49 @@ class TransitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachm
     }
 
     /**
-     * Gets auto_publish_route_enabled
+     * Gets aggregation_interval
      *
-     * @return bool
+     * @return int
      */
-    public function getAutoPublishRouteEnabled()
+    public function getAggregationInterval()
     {
-        return $this->container['auto_publish_route_enabled'];
+        return $this->container['aggregation_interval'];
     }
 
     /**
-     * Sets auto_publish_route_enabled
+     * Sets aggregation_interval
      *
-     * @param bool $auto_publish_route_enabled auto_publish_route_enabled
+     * @param int $aggregation_interval aggregation_interval
      *
      * @return $this
      */
-    public function setAutoPublishRouteEnabled($auto_publish_route_enabled)
+    public function setAggregationInterval($aggregation_interval)
     {
-        $this->container['auto_publish_route_enabled'] = $auto_publish_route_enabled;
+        $this->container['aggregation_interval'] = $aggregation_interval;
 
         return $this;
     }
 
     /**
-     * Gets creation_time
+     * Gets created_at
      *
      * @return string
      */
-    public function getCreationTime()
+    public function getCreatedAt()
     {
-        return $this->container['creation_time'];
+        return $this->container['created_at'];
     }
 
     /**
-     * Sets creation_time
+     * Sets created_at
      *
-     * @param string $creation_time creation_time
+     * @param string $created_at created_at
      *
      * @return $this
      */
-    public function setCreationTime($creation_time)
+    public function setCreatedAt($created_at)
     {
-        $this->container['creation_time'] = $creation_time;
+        $this->container['created_at'] = $created_at;
 
         return $this;
     }
@@ -338,49 +362,73 @@ class TransitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachm
     }
 
     /**
-     * Gets direct_connect_gateway_id
+     * Gets log_format_string
      *
      * @return string
      */
-    public function getDirectConnectGatewayId()
+    public function getLogFormatString()
     {
-        return $this->container['direct_connect_gateway_id'];
+        return $this->container['log_format_string'];
     }
 
     /**
-     * Sets direct_connect_gateway_id
+     * Sets log_format_string
      *
-     * @param string $direct_connect_gateway_id direct_connect_gateway_id
+     * @param string $log_format_string log_format_string
      *
      * @return $this
      */
-    public function setDirectConnectGatewayId($direct_connect_gateway_id)
+    public function setLogFormatString($log_format_string)
     {
-        $this->container['direct_connect_gateway_id'] = $direct_connect_gateway_id;
+        $this->container['log_format_string'] = $log_format_string;
 
         return $this;
     }
 
     /**
-     * Gets ipv6_enabled
+     * Gets resource_id
      *
      * @return string
      */
-    public function getIpv6Enabled()
+    public function getResourceId()
     {
-        return $this->container['ipv6_enabled'];
+        return $this->container['resource_id'];
     }
 
     /**
-     * Sets ipv6_enabled
+     * Sets resource_id
      *
-     * @param string $ipv6_enabled ipv6_enabled
+     * @param string $resource_id resource_id
      *
      * @return $this
      */
-    public function setIpv6Enabled($ipv6_enabled)
+    public function setResourceId($resource_id)
     {
-        $this->container['ipv6_enabled'] = $ipv6_enabled;
+        $this->container['resource_id'] = $resource_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets resource_type
+     *
+     * @return string
+     */
+    public function getResourceType()
+    {
+        return $this->container['resource_type'];
+    }
+
+    /**
+     * Sets resource_type
+     *
+     * @param string $resource_type resource_type
+     *
+     * @return $this
+     */
+    public function setResourceType($resource_type)
+    {
+        $this->container['resource_type'] = $resource_type;
 
         return $this;
     }
@@ -410,73 +458,145 @@ class TransitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachm
     }
 
     /**
-     * Gets tags
+     * Gets tls_project_id
      *
-     * @return \Volcengine\Transitrouter\Model\TagForDescribeTransitRouterDirectConnectGatewayAttachmentsOutput[]
+     * @return string
      */
-    public function getTags()
+    public function getTlsProjectId()
     {
-        return $this->container['tags'];
+        return $this->container['tls_project_id'];
     }
 
     /**
-     * Sets tags
+     * Sets tls_project_id
      *
-     * @param \Volcengine\Transitrouter\Model\TagForDescribeTransitRouterDirectConnectGatewayAttachmentsOutput[] $tags tags
+     * @param string $tls_project_id tls_project_id
      *
      * @return $this
      */
-    public function setTags($tags)
+    public function setTlsProjectId($tls_project_id)
     {
-        $this->container['tags'] = $tags;
+        $this->container['tls_project_id'] = $tls_project_id;
 
         return $this;
     }
 
     /**
-     * Gets transit_router_attachment_id
+     * Gets tls_project_name
      *
      * @return string
      */
-    public function getTransitRouterAttachmentId()
+    public function getTlsProjectName()
     {
-        return $this->container['transit_router_attachment_id'];
+        return $this->container['tls_project_name'];
     }
 
     /**
-     * Sets transit_router_attachment_id
+     * Sets tls_project_name
      *
-     * @param string $transit_router_attachment_id transit_router_attachment_id
+     * @param string $tls_project_name tls_project_name
      *
      * @return $this
      */
-    public function setTransitRouterAttachmentId($transit_router_attachment_id)
+    public function setTlsProjectName($tls_project_name)
     {
-        $this->container['transit_router_attachment_id'] = $transit_router_attachment_id;
+        $this->container['tls_project_name'] = $tls_project_name;
 
         return $this;
     }
 
     /**
-     * Gets transit_router_attachment_name
+     * Gets tls_topic_id
      *
      * @return string
      */
-    public function getTransitRouterAttachmentName()
+    public function getTlsTopicId()
     {
-        return $this->container['transit_router_attachment_name'];
+        return $this->container['tls_topic_id'];
     }
 
     /**
-     * Sets transit_router_attachment_name
+     * Sets tls_topic_id
      *
-     * @param string $transit_router_attachment_name transit_router_attachment_name
+     * @param string $tls_topic_id tls_topic_id
      *
      * @return $this
      */
-    public function setTransitRouterAttachmentName($transit_router_attachment_name)
+    public function setTlsTopicId($tls_topic_id)
     {
-        $this->container['transit_router_attachment_name'] = $transit_router_attachment_name;
+        $this->container['tls_topic_id'] = $tls_topic_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets tls_topic_name
+     *
+     * @return string
+     */
+    public function getTlsTopicName()
+    {
+        return $this->container['tls_topic_name'];
+    }
+
+    /**
+     * Sets tls_topic_name
+     *
+     * @param string $tls_topic_name tls_topic_name
+     *
+     * @return $this
+     */
+    public function setTlsTopicName($tls_topic_name)
+    {
+        $this->container['tls_topic_name'] = $tls_topic_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets transit_router_flow_log_id
+     *
+     * @return string
+     */
+    public function getTransitRouterFlowLogId()
+    {
+        return $this->container['transit_router_flow_log_id'];
+    }
+
+    /**
+     * Sets transit_router_flow_log_id
+     *
+     * @param string $transit_router_flow_log_id transit_router_flow_log_id
+     *
+     * @return $this
+     */
+    public function setTransitRouterFlowLogId($transit_router_flow_log_id)
+    {
+        $this->container['transit_router_flow_log_id'] = $transit_router_flow_log_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets transit_router_flow_log_name
+     *
+     * @return string
+     */
+    public function getTransitRouterFlowLogName()
+    {
+        return $this->container['transit_router_flow_log_name'];
+    }
+
+    /**
+     * Sets transit_router_flow_log_name
+     *
+     * @param string $transit_router_flow_log_name transit_router_flow_log_name
+     *
+     * @return $this
+     */
+    public function setTransitRouterFlowLogName($transit_router_flow_log_name)
+    {
+        $this->container['transit_router_flow_log_name'] = $transit_router_flow_log_name;
 
         return $this;
     }
@@ -506,25 +626,25 @@ class TransitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachm
     }
 
     /**
-     * Gets update_time
+     * Gets updated_at
      *
      * @return string
      */
-    public function getUpdateTime()
+    public function getUpdatedAt()
     {
-        return $this->container['update_time'];
+        return $this->container['updated_at'];
     }
 
     /**
-     * Sets update_time
+     * Sets updated_at
      *
-     * @param string $update_time update_time
+     * @param string $updated_at updated_at
      *
      * @return $this
      */
-    public function setUpdateTime($update_time)
+    public function setUpdatedAt($updated_at)
     {
-        $this->container['update_time'] = $update_time;
+        $this->container['updated_at'] = $updated_at;
 
         return $this;
     }

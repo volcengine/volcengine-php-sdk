@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CreateTransitRouterRequest implements ModelInterface, ArrayAccess
+class TransitRouterMulticastDomainAssociationForDescribeTransitRouterMulticastDomainAssociationsOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CreateTransitRouterRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CreateTransitRouterRequest';
+    protected static $swaggerModelName = 'TransitRouterMulticastDomainAssociationForDescribeTransitRouterMulticastDomainAssociationsOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,13 +28,14 @@ class CreateTransitRouterRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'asn' => 'int',
-        'client_token' => 'string',
-        'description' => 'string',
-        'multicast_enabled' => 'bool',
-        'project_name' => 'string',
-        'tags' => '\Volcengine\Transitrouter\Model\TagForCreateTransitRouterInput[]',
-        'transit_router_name' => 'string'
+        'creation_time' => 'string',
+        'resource_id' => 'string',
+        'resource_type' => 'string',
+        'status' => 'string',
+        'subnet_id' => 'string',
+        'transit_router_attachment_id' => 'string',
+        'transit_router_multicast_domain_id' => 'string',
+        'update_time' => 'string'
     ];
 
     /**
@@ -43,13 +44,14 @@ class CreateTransitRouterRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'asn' => 'int64',
-        'client_token' => null,
-        'description' => null,
-        'multicast_enabled' => null,
-        'project_name' => null,
-        'tags' => null,
-        'transit_router_name' => null
+        'creation_time' => null,
+        'resource_id' => null,
+        'resource_type' => null,
+        'status' => null,
+        'subnet_id' => null,
+        'transit_router_attachment_id' => null,
+        'transit_router_multicast_domain_id' => null,
+        'update_time' => null
     ];
 
     /**
@@ -79,13 +81,14 @@ class CreateTransitRouterRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'asn' => 'Asn',
-        'client_token' => 'ClientToken',
-        'description' => 'Description',
-        'multicast_enabled' => 'MulticastEnabled',
-        'project_name' => 'ProjectName',
-        'tags' => 'Tags',
-        'transit_router_name' => 'TransitRouterName'
+        'creation_time' => 'CreationTime',
+        'resource_id' => 'ResourceId',
+        'resource_type' => 'ResourceType',
+        'status' => 'Status',
+        'subnet_id' => 'SubnetId',
+        'transit_router_attachment_id' => 'TransitRouterAttachmentId',
+        'transit_router_multicast_domain_id' => 'TransitRouterMulticastDomainId',
+        'update_time' => 'UpdateTime'
     ];
 
     /**
@@ -94,13 +97,14 @@ class CreateTransitRouterRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'asn' => 'setAsn',
-        'client_token' => 'setClientToken',
-        'description' => 'setDescription',
-        'multicast_enabled' => 'setMulticastEnabled',
-        'project_name' => 'setProjectName',
-        'tags' => 'setTags',
-        'transit_router_name' => 'setTransitRouterName'
+        'creation_time' => 'setCreationTime',
+        'resource_id' => 'setResourceId',
+        'resource_type' => 'setResourceType',
+        'status' => 'setStatus',
+        'subnet_id' => 'setSubnetId',
+        'transit_router_attachment_id' => 'setTransitRouterAttachmentId',
+        'transit_router_multicast_domain_id' => 'setTransitRouterMulticastDomainId',
+        'update_time' => 'setUpdateTime'
     ];
 
     /**
@@ -109,13 +113,14 @@ class CreateTransitRouterRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'asn' => 'getAsn',
-        'client_token' => 'getClientToken',
-        'description' => 'getDescription',
-        'multicast_enabled' => 'getMulticastEnabled',
-        'project_name' => 'getProjectName',
-        'tags' => 'getTags',
-        'transit_router_name' => 'getTransitRouterName'
+        'creation_time' => 'getCreationTime',
+        'resource_id' => 'getResourceId',
+        'resource_type' => 'getResourceType',
+        'status' => 'getStatus',
+        'subnet_id' => 'getSubnetId',
+        'transit_router_attachment_id' => 'getTransitRouterAttachmentId',
+        'transit_router_multicast_domain_id' => 'getTransitRouterMulticastDomainId',
+        'update_time' => 'getUpdateTime'
     ];
 
     /**
@@ -178,13 +183,14 @@ class CreateTransitRouterRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['asn'] = isset($data['asn']) ? $data['asn'] : null;
-        $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['multicast_enabled'] = isset($data['multicast_enabled']) ? $data['multicast_enabled'] : null;
-        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
-        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
-        $this->container['transit_router_name'] = isset($data['transit_router_name']) ? $data['transit_router_name'] : null;
+        $this->container['creation_time'] = isset($data['creation_time']) ? $data['creation_time'] : null;
+        $this->container['resource_id'] = isset($data['resource_id']) ? $data['resource_id'] : null;
+        $this->container['resource_type'] = isset($data['resource_type']) ? $data['resource_type'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['subnet_id'] = isset($data['subnet_id']) ? $data['subnet_id'] : null;
+        $this->container['transit_router_attachment_id'] = isset($data['transit_router_attachment_id']) ? $data['transit_router_attachment_id'] : null;
+        $this->container['transit_router_multicast_domain_id'] = isset($data['transit_router_multicast_domain_id']) ? $data['transit_router_multicast_domain_id'] : null;
+        $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
     }
 
     /**
@@ -212,169 +218,193 @@ class CreateTransitRouterRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets asn
-     *
-     * @return int
-     */
-    public function getAsn()
-    {
-        return $this->container['asn'];
-    }
-
-    /**
-     * Sets asn
-     *
-     * @param int $asn asn
-     *
-     * @return $this
-     */
-    public function setAsn($asn)
-    {
-        $this->container['asn'] = $asn;
-
-        return $this;
-    }
-
-    /**
-     * Gets client_token
+     * Gets creation_time
      *
      * @return string
      */
-    public function getClientToken()
+    public function getCreationTime()
     {
-        return $this->container['client_token'];
+        return $this->container['creation_time'];
     }
 
     /**
-     * Sets client_token
+     * Sets creation_time
      *
-     * @param string $client_token client_token
+     * @param string $creation_time creation_time
      *
      * @return $this
      */
-    public function setClientToken($client_token)
+    public function setCreationTime($creation_time)
     {
-        $this->container['client_token'] = $client_token;
+        $this->container['creation_time'] = $creation_time;
 
         return $this;
     }
 
     /**
-     * Gets description
+     * Gets resource_id
      *
      * @return string
      */
-    public function getDescription()
+    public function getResourceId()
     {
-        return $this->container['description'];
+        return $this->container['resource_id'];
     }
 
     /**
-     * Sets description
+     * Sets resource_id
      *
-     * @param string $description description
+     * @param string $resource_id resource_id
      *
      * @return $this
      */
-    public function setDescription($description)
+    public function setResourceId($resource_id)
     {
-        $this->container['description'] = $description;
+        $this->container['resource_id'] = $resource_id;
 
         return $this;
     }
 
     /**
-     * Gets multicast_enabled
-     *
-     * @return bool
-     */
-    public function getMulticastEnabled()
-    {
-        return $this->container['multicast_enabled'];
-    }
-
-    /**
-     * Sets multicast_enabled
-     *
-     * @param bool $multicast_enabled multicast_enabled
-     *
-     * @return $this
-     */
-    public function setMulticastEnabled($multicast_enabled)
-    {
-        $this->container['multicast_enabled'] = $multicast_enabled;
-
-        return $this;
-    }
-
-    /**
-     * Gets project_name
+     * Gets resource_type
      *
      * @return string
      */
-    public function getProjectName()
+    public function getResourceType()
     {
-        return $this->container['project_name'];
+        return $this->container['resource_type'];
     }
 
     /**
-     * Sets project_name
+     * Sets resource_type
      *
-     * @param string $project_name project_name
+     * @param string $resource_type resource_type
      *
      * @return $this
      */
-    public function setProjectName($project_name)
+    public function setResourceType($resource_type)
     {
-        $this->container['project_name'] = $project_name;
+        $this->container['resource_type'] = $resource_type;
 
         return $this;
     }
 
     /**
-     * Gets tags
-     *
-     * @return \Volcengine\Transitrouter\Model\TagForCreateTransitRouterInput[]
-     */
-    public function getTags()
-    {
-        return $this->container['tags'];
-    }
-
-    /**
-     * Sets tags
-     *
-     * @param \Volcengine\Transitrouter\Model\TagForCreateTransitRouterInput[] $tags tags
-     *
-     * @return $this
-     */
-    public function setTags($tags)
-    {
-        $this->container['tags'] = $tags;
-
-        return $this;
-    }
-
-    /**
-     * Gets transit_router_name
+     * Gets status
      *
      * @return string
      */
-    public function getTransitRouterName()
+    public function getStatus()
     {
-        return $this->container['transit_router_name'];
+        return $this->container['status'];
     }
 
     /**
-     * Sets transit_router_name
+     * Sets status
      *
-     * @param string $transit_router_name transit_router_name
+     * @param string $status status
      *
      * @return $this
      */
-    public function setTransitRouterName($transit_router_name)
+    public function setStatus($status)
     {
-        $this->container['transit_router_name'] = $transit_router_name;
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets subnet_id
+     *
+     * @return string
+     */
+    public function getSubnetId()
+    {
+        return $this->container['subnet_id'];
+    }
+
+    /**
+     * Sets subnet_id
+     *
+     * @param string $subnet_id subnet_id
+     *
+     * @return $this
+     */
+    public function setSubnetId($subnet_id)
+    {
+        $this->container['subnet_id'] = $subnet_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets transit_router_attachment_id
+     *
+     * @return string
+     */
+    public function getTransitRouterAttachmentId()
+    {
+        return $this->container['transit_router_attachment_id'];
+    }
+
+    /**
+     * Sets transit_router_attachment_id
+     *
+     * @param string $transit_router_attachment_id transit_router_attachment_id
+     *
+     * @return $this
+     */
+    public function setTransitRouterAttachmentId($transit_router_attachment_id)
+    {
+        $this->container['transit_router_attachment_id'] = $transit_router_attachment_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets transit_router_multicast_domain_id
+     *
+     * @return string
+     */
+    public function getTransitRouterMulticastDomainId()
+    {
+        return $this->container['transit_router_multicast_domain_id'];
+    }
+
+    /**
+     * Sets transit_router_multicast_domain_id
+     *
+     * @param string $transit_router_multicast_domain_id transit_router_multicast_domain_id
+     *
+     * @return $this
+     */
+    public function setTransitRouterMulticastDomainId($transit_router_multicast_domain_id)
+    {
+        $this->container['transit_router_multicast_domain_id'] = $transit_router_multicast_domain_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets update_time
+     *
+     * @return string
+     */
+    public function getUpdateTime()
+    {
+        return $this->container['update_time'];
+    }
+
+    /**
+     * Sets update_time
+     *
+     * @param string $update_time update_time
+     *
+     * @return $this
+     */
+    public function setUpdateTime($update_time)
+    {
+        $this->container['update_time'] = $update_time;
 
         return $this;
     }

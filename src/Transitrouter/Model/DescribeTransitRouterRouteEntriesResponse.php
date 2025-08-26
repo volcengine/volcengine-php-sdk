@@ -31,7 +31,9 @@ class DescribeTransitRouterRouteEntriesResponse implements ModelInterface, Array
         'page_number' => 'int',
         'page_size' => 'int',
         'total_count' => 'int',
-        'transit_router_route_entries' => '\Volcengine\Transitrouter\Model\TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput[]'
+        'transit_router_route_entries' => '\Volcengine\Transitrouter\Model\TransitRouterRouteEntryForDescribeTransitRouterRouteEntriesOutput[]',
+        'transit_router_route_entry_next_hop_resource_id' => 'string',
+        'transit_router_route_entry_next_hop_resource_type' => 'string'
     ];
 
     /**
@@ -43,7 +45,9 @@ class DescribeTransitRouterRouteEntriesResponse implements ModelInterface, Array
         'page_number' => 'int32',
         'page_size' => 'int32',
         'total_count' => 'int32',
-        'transit_router_route_entries' => null
+        'transit_router_route_entries' => null,
+        'transit_router_route_entry_next_hop_resource_id' => null,
+        'transit_router_route_entry_next_hop_resource_type' => null
     ];
 
     /**
@@ -76,7 +80,9 @@ class DescribeTransitRouterRouteEntriesResponse implements ModelInterface, Array
         'page_number' => 'PageNumber',
         'page_size' => 'PageSize',
         'total_count' => 'TotalCount',
-        'transit_router_route_entries' => 'TransitRouterRouteEntries'
+        'transit_router_route_entries' => 'TransitRouterRouteEntries',
+        'transit_router_route_entry_next_hop_resource_id' => 'TransitRouterRouteEntryNextHopResourceID',
+        'transit_router_route_entry_next_hop_resource_type' => 'TransitRouterRouteEntryNextHopResourceType'
     ];
 
     /**
@@ -88,7 +94,9 @@ class DescribeTransitRouterRouteEntriesResponse implements ModelInterface, Array
         'page_number' => 'setPageNumber',
         'page_size' => 'setPageSize',
         'total_count' => 'setTotalCount',
-        'transit_router_route_entries' => 'setTransitRouterRouteEntries'
+        'transit_router_route_entries' => 'setTransitRouterRouteEntries',
+        'transit_router_route_entry_next_hop_resource_id' => 'setTransitRouterRouteEntryNextHopResourceId',
+        'transit_router_route_entry_next_hop_resource_type' => 'setTransitRouterRouteEntryNextHopResourceType'
     ];
 
     /**
@@ -100,7 +108,9 @@ class DescribeTransitRouterRouteEntriesResponse implements ModelInterface, Array
         'page_number' => 'getPageNumber',
         'page_size' => 'getPageSize',
         'total_count' => 'getTotalCount',
-        'transit_router_route_entries' => 'getTransitRouterRouteEntries'
+        'transit_router_route_entries' => 'getTransitRouterRouteEntries',
+        'transit_router_route_entry_next_hop_resource_id' => 'getTransitRouterRouteEntryNextHopResourceId',
+        'transit_router_route_entry_next_hop_resource_type' => 'getTransitRouterRouteEntryNextHopResourceType'
     ];
 
     /**
@@ -167,6 +177,8 @@ class DescribeTransitRouterRouteEntriesResponse implements ModelInterface, Array
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
         $this->container['total_count'] = isset($data['total_count']) ? $data['total_count'] : null;
         $this->container['transit_router_route_entries'] = isset($data['transit_router_route_entries']) ? $data['transit_router_route_entries'] : null;
+        $this->container['transit_router_route_entry_next_hop_resource_id'] = isset($data['transit_router_route_entry_next_hop_resource_id']) ? $data['transit_router_route_entry_next_hop_resource_id'] : null;
+        $this->container['transit_router_route_entry_next_hop_resource_type'] = isset($data['transit_router_route_entry_next_hop_resource_type']) ? $data['transit_router_route_entry_next_hop_resource_type'] : null;
     }
 
     /**
@@ -285,6 +297,54 @@ class DescribeTransitRouterRouteEntriesResponse implements ModelInterface, Array
     public function setTransitRouterRouteEntries($transit_router_route_entries)
     {
         $this->container['transit_router_route_entries'] = $transit_router_route_entries;
+
+        return $this;
+    }
+
+    /**
+     * Gets transit_router_route_entry_next_hop_resource_id
+     *
+     * @return string
+     */
+    public function getTransitRouterRouteEntryNextHopResourceId()
+    {
+        return $this->container['transit_router_route_entry_next_hop_resource_id'];
+    }
+
+    /**
+     * Sets transit_router_route_entry_next_hop_resource_id
+     *
+     * @param string $transit_router_route_entry_next_hop_resource_id transit_router_route_entry_next_hop_resource_id
+     *
+     * @return $this
+     */
+    public function setTransitRouterRouteEntryNextHopResourceId($transit_router_route_entry_next_hop_resource_id)
+    {
+        $this->container['transit_router_route_entry_next_hop_resource_id'] = $transit_router_route_entry_next_hop_resource_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets transit_router_route_entry_next_hop_resource_type
+     *
+     * @return string
+     */
+    public function getTransitRouterRouteEntryNextHopResourceType()
+    {
+        return $this->container['transit_router_route_entry_next_hop_resource_type'];
+    }
+
+    /**
+     * Sets transit_router_route_entry_next_hop_resource_type
+     *
+     * @param string $transit_router_route_entry_next_hop_resource_type transit_router_route_entry_next_hop_resource_type
+     *
+     * @return $this
+     */
+    public function setTransitRouterRouteEntryNextHopResourceType($transit_router_route_entry_next_hop_resource_type)
+    {
+        $this->container['transit_router_route_entry_next_hop_resource_type'] = $transit_router_route_entry_next_hop_resource_type;
 
         return $this;
     }

@@ -37,6 +37,7 @@ class TransitRouterBandwidthPackageForDescribeTransitRouterBandwidthPackagesOutp
         'deleted_time' => 'string',
         'description' => 'string',
         'expired_time' => 'string',
+        'line_operator' => 'string',
         'local_geographic_region_set_id' => 'string',
         'peer_geographic_region_set_id' => 'string',
         'project_name' => 'string',
@@ -63,6 +64,7 @@ class TransitRouterBandwidthPackageForDescribeTransitRouterBandwidthPackagesOutp
         'deleted_time' => null,
         'description' => null,
         'expired_time' => null,
+        'line_operator' => null,
         'local_geographic_region_set_id' => null,
         'peer_geographic_region_set_id' => null,
         'project_name' => null,
@@ -110,6 +112,7 @@ class TransitRouterBandwidthPackageForDescribeTransitRouterBandwidthPackagesOutp
         'deleted_time' => 'DeletedTime',
         'description' => 'Description',
         'expired_time' => 'ExpiredTime',
+        'line_operator' => 'LineOperator',
         'local_geographic_region_set_id' => 'LocalGeographicRegionSetId',
         'peer_geographic_region_set_id' => 'PeerGeographicRegionSetId',
         'project_name' => 'ProjectName',
@@ -136,6 +139,7 @@ class TransitRouterBandwidthPackageForDescribeTransitRouterBandwidthPackagesOutp
         'deleted_time' => 'setDeletedTime',
         'description' => 'setDescription',
         'expired_time' => 'setExpiredTime',
+        'line_operator' => 'setLineOperator',
         'local_geographic_region_set_id' => 'setLocalGeographicRegionSetId',
         'peer_geographic_region_set_id' => 'setPeerGeographicRegionSetId',
         'project_name' => 'setProjectName',
@@ -162,6 +166,7 @@ class TransitRouterBandwidthPackageForDescribeTransitRouterBandwidthPackagesOutp
         'deleted_time' => 'getDeletedTime',
         'description' => 'getDescription',
         'expired_time' => 'getExpiredTime',
+        'line_operator' => 'getLineOperator',
         'local_geographic_region_set_id' => 'getLocalGeographicRegionSetId',
         'peer_geographic_region_set_id' => 'getPeerGeographicRegionSetId',
         'project_name' => 'getProjectName',
@@ -242,6 +247,7 @@ class TransitRouterBandwidthPackageForDescribeTransitRouterBandwidthPackagesOutp
         $this->container['deleted_time'] = isset($data['deleted_time']) ? $data['deleted_time'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['expired_time'] = isset($data['expired_time']) ? $data['expired_time'] : null;
+        $this->container['line_operator'] = isset($data['line_operator']) ? $data['line_operator'] : null;
         $this->container['local_geographic_region_set_id'] = isset($data['local_geographic_region_set_id']) ? $data['local_geographic_region_set_id'] : null;
         $this->container['peer_geographic_region_set_id'] = isset($data['peer_geographic_region_set_id']) ? $data['peer_geographic_region_set_id'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
@@ -489,6 +495,30 @@ class TransitRouterBandwidthPackageForDescribeTransitRouterBandwidthPackagesOutp
     public function setExpiredTime($expired_time)
     {
         $this->container['expired_time'] = $expired_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets line_operator
+     *
+     * @return string
+     */
+    public function getLineOperator()
+    {
+        return $this->container['line_operator'];
+    }
+
+    /**
+     * Sets line_operator
+     *
+     * @param string $line_operator line_operator
+     *
+     * @return $this
+     */
+    public function setLineOperator($line_operator)
+    {
+        $this->container['line_operator'] = $line_operator;
 
         return $this;
     }
