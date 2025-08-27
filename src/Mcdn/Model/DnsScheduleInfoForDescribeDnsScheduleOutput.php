@@ -33,6 +33,7 @@ class DnsScheduleInfoForDescribeDnsScheduleOutput implements ModelInterface, Arr
         'domestic_domains' => '\Volcengine\Mcdn\Model\DomesticDomainForDescribeDnsScheduleOutput[]',
         'global_domains' => '\Volcengine\Mcdn\Model\GlobalDomainForDescribeDnsScheduleOutput[]',
         'id' => 'string',
+        'project_name' => 'string',
         'region' => 'string',
         'schedule_cname' => 'string',
         'schedule_status' => 'string',
@@ -52,6 +53,7 @@ class DnsScheduleInfoForDescribeDnsScheduleOutput implements ModelInterface, Arr
         'domestic_domains' => null,
         'global_domains' => null,
         'id' => null,
+        'project_name' => null,
         'region' => null,
         'schedule_cname' => null,
         'schedule_status' => null,
@@ -92,6 +94,7 @@ class DnsScheduleInfoForDescribeDnsScheduleOutput implements ModelInterface, Arr
         'domestic_domains' => 'DomesticDomains',
         'global_domains' => 'GlobalDomains',
         'id' => 'Id',
+        'project_name' => 'ProjectName',
         'region' => 'Region',
         'schedule_cname' => 'ScheduleCname',
         'schedule_status' => 'ScheduleStatus',
@@ -111,6 +114,7 @@ class DnsScheduleInfoForDescribeDnsScheduleOutput implements ModelInterface, Arr
         'domestic_domains' => 'setDomesticDomains',
         'global_domains' => 'setGlobalDomains',
         'id' => 'setId',
+        'project_name' => 'setProjectName',
         'region' => 'setRegion',
         'schedule_cname' => 'setScheduleCname',
         'schedule_status' => 'setScheduleStatus',
@@ -130,6 +134,7 @@ class DnsScheduleInfoForDescribeDnsScheduleOutput implements ModelInterface, Arr
         'domestic_domains' => 'getDomesticDomains',
         'global_domains' => 'getGlobalDomains',
         'id' => 'getId',
+        'project_name' => 'getProjectName',
         'region' => 'getRegion',
         'schedule_cname' => 'getScheduleCname',
         'schedule_status' => 'getScheduleStatus',
@@ -203,6 +208,7 @@ class DnsScheduleInfoForDescribeDnsScheduleOutput implements ModelInterface, Arr
         $this->container['domestic_domains'] = isset($data['domestic_domains']) ? $data['domestic_domains'] : null;
         $this->container['global_domains'] = isset($data['global_domains']) ? $data['global_domains'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['region'] = isset($data['region']) ? $data['region'] : null;
         $this->container['schedule_cname'] = isset($data['schedule_cname']) ? $data['schedule_cname'] : null;
         $this->container['schedule_status'] = isset($data['schedule_status']) ? $data['schedule_status'] : null;
@@ -351,6 +357,30 @@ class DnsScheduleInfoForDescribeDnsScheduleOutput implements ModelInterface, Arr
     public function setId($id)
     {
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }

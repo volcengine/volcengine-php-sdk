@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ListVendorContentTaskRequest implements ModelInterface, ArrayAccess
+class VendorsMetaDataForDescribeCdnTopUrlOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ListVendorContentTaskRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ListVendorContentTaskRequest';
+    protected static $swaggerModelName = 'VendorsMetaDataForDescribeCdnTopUrlOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,15 +28,11 @@ class ListVendorContentTaskRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'cloud_account_id' => 'string',
-        'end_time' => 'int',
-        'pagination' => '\Volcengine\Mcdn\Model\PaginationForListVendorContentTaskInput',
-        'product_type' => 'string',
-        'project_name' => 'string',
-        'start_time' => 'int',
+        'cost' => 'double',
+        'error' => '\Volcengine\Mcdn\Model\ErrorForDescribeCdnTopUrlOutput',
+        'request_id' => 'string',
         'sub_product' => 'string',
-        'task_type' => 'string',
-        'vendor_task_id' => 'string'
+        'vendor' => 'string'
     ];
 
     /**
@@ -45,15 +41,11 @@ class ListVendorContentTaskRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'cloud_account_id' => null,
-        'end_time' => 'int64',
-        'pagination' => null,
-        'product_type' => null,
-        'project_name' => null,
-        'start_time' => 'int64',
+        'cost' => 'double',
+        'error' => null,
+        'request_id' => null,
         'sub_product' => null,
-        'task_type' => null,
-        'vendor_task_id' => null
+        'vendor' => null
     ];
 
     /**
@@ -83,15 +75,11 @@ class ListVendorContentTaskRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'cloud_account_id' => 'CloudAccountId',
-        'end_time' => 'EndTime',
-        'pagination' => 'Pagination',
-        'product_type' => 'ProductType',
-        'project_name' => 'ProjectName',
-        'start_time' => 'StartTime',
+        'cost' => 'Cost',
+        'error' => 'Error',
+        'request_id' => 'RequestId',
         'sub_product' => 'SubProduct',
-        'task_type' => 'TaskType',
-        'vendor_task_id' => 'VendorTaskId'
+        'vendor' => 'Vendor'
     ];
 
     /**
@@ -100,15 +88,11 @@ class ListVendorContentTaskRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'cloud_account_id' => 'setCloudAccountId',
-        'end_time' => 'setEndTime',
-        'pagination' => 'setPagination',
-        'product_type' => 'setProductType',
-        'project_name' => 'setProjectName',
-        'start_time' => 'setStartTime',
+        'cost' => 'setCost',
+        'error' => 'setError',
+        'request_id' => 'setRequestId',
         'sub_product' => 'setSubProduct',
-        'task_type' => 'setTaskType',
-        'vendor_task_id' => 'setVendorTaskId'
+        'vendor' => 'setVendor'
     ];
 
     /**
@@ -117,15 +101,11 @@ class ListVendorContentTaskRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'cloud_account_id' => 'getCloudAccountId',
-        'end_time' => 'getEndTime',
-        'pagination' => 'getPagination',
-        'product_type' => 'getProductType',
-        'project_name' => 'getProjectName',
-        'start_time' => 'getStartTime',
+        'cost' => 'getCost',
+        'error' => 'getError',
+        'request_id' => 'getRequestId',
         'sub_product' => 'getSubProduct',
-        'task_type' => 'getTaskType',
-        'vendor_task_id' => 'getVendorTaskId'
+        'vendor' => 'getVendor'
     ];
 
     /**
@@ -188,15 +168,11 @@ class ListVendorContentTaskRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['cloud_account_id'] = isset($data['cloud_account_id']) ? $data['cloud_account_id'] : null;
-        $this->container['end_time'] = isset($data['end_time']) ? $data['end_time'] : null;
-        $this->container['pagination'] = isset($data['pagination']) ? $data['pagination'] : null;
-        $this->container['product_type'] = isset($data['product_type']) ? $data['product_type'] : null;
-        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
-        $this->container['start_time'] = isset($data['start_time']) ? $data['start_time'] : null;
+        $this->container['cost'] = isset($data['cost']) ? $data['cost'] : null;
+        $this->container['error'] = isset($data['error']) ? $data['error'] : null;
+        $this->container['request_id'] = isset($data['request_id']) ? $data['request_id'] : null;
         $this->container['sub_product'] = isset($data['sub_product']) ? $data['sub_product'] : null;
-        $this->container['task_type'] = isset($data['task_type']) ? $data['task_type'] : null;
-        $this->container['vendor_task_id'] = isset($data['vendor_task_id']) ? $data['vendor_task_id'] : null;
+        $this->container['vendor'] = isset($data['vendor']) ? $data['vendor'] : null;
     }
 
     /**
@@ -208,12 +184,6 @@ class ListVendorContentTaskRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['cloud_account_id'] === null) {
-            $invalidProperties[] = "'cloud_account_id' can't be null";
-        }
-        if ($this->container['task_type'] === null) {
-            $invalidProperties[] = "'task_type' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -230,145 +200,73 @@ class ListVendorContentTaskRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets cloud_account_id
+     * Gets cost
+     *
+     * @return double
+     */
+    public function getCost()
+    {
+        return $this->container['cost'];
+    }
+
+    /**
+     * Sets cost
+     *
+     * @param double $cost cost
+     *
+     * @return $this
+     */
+    public function setCost($cost)
+    {
+        $this->container['cost'] = $cost;
+
+        return $this;
+    }
+
+    /**
+     * Gets error
+     *
+     * @return \Volcengine\Mcdn\Model\ErrorForDescribeCdnTopUrlOutput
+     */
+    public function getError()
+    {
+        return $this->container['error'];
+    }
+
+    /**
+     * Sets error
+     *
+     * @param \Volcengine\Mcdn\Model\ErrorForDescribeCdnTopUrlOutput $error error
+     *
+     * @return $this
+     */
+    public function setError($error)
+    {
+        $this->container['error'] = $error;
+
+        return $this;
+    }
+
+    /**
+     * Gets request_id
      *
      * @return string
      */
-    public function getCloudAccountId()
+    public function getRequestId()
     {
-        return $this->container['cloud_account_id'];
+        return $this->container['request_id'];
     }
 
     /**
-     * Sets cloud_account_id
+     * Sets request_id
      *
-     * @param string $cloud_account_id cloud_account_id
+     * @param string $request_id request_id
      *
      * @return $this
      */
-    public function setCloudAccountId($cloud_account_id)
+    public function setRequestId($request_id)
     {
-        $this->container['cloud_account_id'] = $cloud_account_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets end_time
-     *
-     * @return int
-     */
-    public function getEndTime()
-    {
-        return $this->container['end_time'];
-    }
-
-    /**
-     * Sets end_time
-     *
-     * @param int $end_time end_time
-     *
-     * @return $this
-     */
-    public function setEndTime($end_time)
-    {
-        $this->container['end_time'] = $end_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets pagination
-     *
-     * @return \Volcengine\Mcdn\Model\PaginationForListVendorContentTaskInput
-     */
-    public function getPagination()
-    {
-        return $this->container['pagination'];
-    }
-
-    /**
-     * Sets pagination
-     *
-     * @param \Volcengine\Mcdn\Model\PaginationForListVendorContentTaskInput $pagination pagination
-     *
-     * @return $this
-     */
-    public function setPagination($pagination)
-    {
-        $this->container['pagination'] = $pagination;
-
-        return $this;
-    }
-
-    /**
-     * Gets product_type
-     *
-     * @return string
-     */
-    public function getProductType()
-    {
-        return $this->container['product_type'];
-    }
-
-    /**
-     * Sets product_type
-     *
-     * @param string $product_type product_type
-     *
-     * @return $this
-     */
-    public function setProductType($product_type)
-    {
-        $this->container['product_type'] = $product_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets project_name
-     *
-     * @return string
-     */
-    public function getProjectName()
-    {
-        return $this->container['project_name'];
-    }
-
-    /**
-     * Sets project_name
-     *
-     * @param string $project_name project_name
-     *
-     * @return $this
-     */
-    public function setProjectName($project_name)
-    {
-        $this->container['project_name'] = $project_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets start_time
-     *
-     * @return int
-     */
-    public function getStartTime()
-    {
-        return $this->container['start_time'];
-    }
-
-    /**
-     * Sets start_time
-     *
-     * @param int $start_time start_time
-     *
-     * @return $this
-     */
-    public function setStartTime($start_time)
-    {
-        $this->container['start_time'] = $start_time;
+        $this->container['request_id'] = $request_id;
 
         return $this;
     }
@@ -398,49 +296,25 @@ class ListVendorContentTaskRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets task_type
+     * Gets vendor
      *
      * @return string
      */
-    public function getTaskType()
+    public function getVendor()
     {
-        return $this->container['task_type'];
+        return $this->container['vendor'];
     }
 
     /**
-     * Sets task_type
+     * Sets vendor
      *
-     * @param string $task_type task_type
+     * @param string $vendor vendor
      *
      * @return $this
      */
-    public function setTaskType($task_type)
+    public function setVendor($vendor)
     {
-        $this->container['task_type'] = $task_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets vendor_task_id
-     *
-     * @return string
-     */
-    public function getVendorTaskId()
-    {
-        return $this->container['vendor_task_id'];
-    }
-
-    /**
-     * Sets vendor_task_id
-     *
-     * @param string $vendor_task_id vendor_task_id
-     *
-     * @return $this
-     */
-    public function setVendorTaskId($vendor_task_id)
-    {
-        $this->container['vendor_task_id'] = $vendor_task_id;
+        $this->container['vendor'] = $vendor;
 
         return $this;
     }

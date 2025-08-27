@@ -31,6 +31,7 @@ class ListAlertStrategiesRequest implements ModelInterface, ArrayAccess
         'level' => 'string',
         'name' => 'string',
         'pagination' => '\Volcengine\Mcdn\Model\PaginationForListAlertStrategiesInput',
+        'project_name' => 'string',
         'status' => 'string'
     ];
 
@@ -43,6 +44,7 @@ class ListAlertStrategiesRequest implements ModelInterface, ArrayAccess
         'level' => null,
         'name' => null,
         'pagination' => null,
+        'project_name' => null,
         'status' => null
     ];
 
@@ -76,6 +78,7 @@ class ListAlertStrategiesRequest implements ModelInterface, ArrayAccess
         'level' => 'Level',
         'name' => 'Name',
         'pagination' => 'Pagination',
+        'project_name' => 'ProjectName',
         'status' => 'Status'
     ];
 
@@ -88,6 +91,7 @@ class ListAlertStrategiesRequest implements ModelInterface, ArrayAccess
         'level' => 'setLevel',
         'name' => 'setName',
         'pagination' => 'setPagination',
+        'project_name' => 'setProjectName',
         'status' => 'setStatus'
     ];
 
@@ -100,6 +104,7 @@ class ListAlertStrategiesRequest implements ModelInterface, ArrayAccess
         'level' => 'getLevel',
         'name' => 'getName',
         'pagination' => 'getPagination',
+        'project_name' => 'getProjectName',
         'status' => 'getStatus'
     ];
 
@@ -166,6 +171,7 @@ class ListAlertStrategiesRequest implements ModelInterface, ArrayAccess
         $this->container['level'] = isset($data['level']) ? $data['level'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['pagination'] = isset($data['pagination']) ? $data['pagination'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }
 
@@ -261,6 +267,30 @@ class ListAlertStrategiesRequest implements ModelInterface, ArrayAccess
     public function setPagination($pagination)
     {
         $this->container['pagination'] = $pagination;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }

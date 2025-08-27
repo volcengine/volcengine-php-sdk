@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
+class ErrorForDescribeCdnTopIpOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'TagFilterForListCdnDomainsInput';
+    protected static $swaggerModelName = 'ErrorForDescribeCdnTopIpOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,8 @@ class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'key' => 'string',
-        'value' => 'string',
-        'values' => 'string[]'
+        'code' => 'string',
+        'detail' => 'string'
     ];
 
     /**
@@ -39,9 +38,8 @@ class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'key' => null,
-        'value' => null,
-        'values' => null
+        'code' => null,
+        'detail' => null
     ];
 
     /**
@@ -71,9 +69,8 @@ class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'key' => 'Key',
-        'value' => 'Value',
-        'values' => 'Values'
+        'code' => 'Code',
+        'detail' => 'Detail'
     ];
 
     /**
@@ -82,9 +79,8 @@ class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'key' => 'setKey',
-        'value' => 'setValue',
-        'values' => 'setValues'
+        'code' => 'setCode',
+        'detail' => 'setDetail'
     ];
 
     /**
@@ -93,9 +89,8 @@ class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'key' => 'getKey',
-        'value' => 'getValue',
-        'values' => 'getValues'
+        'code' => 'getCode',
+        'detail' => 'getDetail'
     ];
 
     /**
@@ -158,9 +153,8 @@ class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['key'] = isset($data['key']) ? $data['key'] : null;
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
-        $this->container['values'] = isset($data['values']) ? $data['values'] : null;
+        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
+        $this->container['detail'] = isset($data['detail']) ? $data['detail'] : null;
     }
 
     /**
@@ -188,73 +182,49 @@ class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets key
+     * Gets code
      *
      * @return string
      */
-    public function getKey()
+    public function getCode()
     {
-        return $this->container['key'];
+        return $this->container['code'];
     }
 
     /**
-     * Sets key
+     * Sets code
      *
-     * @param string $key key
+     * @param string $code code
      *
      * @return $this
      */
-    public function setKey($key)
+    public function setCode($code)
     {
-        $this->container['key'] = $key;
+        $this->container['code'] = $code;
 
         return $this;
     }
 
     /**
-     * Gets value
+     * Gets detail
      *
      * @return string
      */
-    public function getValue()
+    public function getDetail()
     {
-        return $this->container['value'];
+        return $this->container['detail'];
     }
 
     /**
-     * Sets value
+     * Sets detail
      *
-     * @param string $value value
+     * @param string $detail detail
      *
      * @return $this
      */
-    public function setValue($value)
+    public function setDetail($detail)
     {
-        $this->container['value'] = $value;
-
-        return $this;
-    }
-
-    /**
-     * Gets values
-     *
-     * @return string[]
-     */
-    public function getValues()
-    {
-        return $this->container['values'];
-    }
-
-    /**
-     * Sets values
-     *
-     * @param string[] $values values
-     *
-     * @return $this
-     */
-    public function setValues($values)
-    {
-        $this->container['values'] = $values;
+        $this->container['detail'] = $detail;
 
         return $this;
     }

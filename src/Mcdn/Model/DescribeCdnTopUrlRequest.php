@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class DescribeCdnDataOfflineRequest implements ModelInterface, ArrayAccess
+class DescribeCdnTopUrlRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class DescribeCdnDataOfflineRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'DescribeCdnDataOfflineRequest';
+    protected static $swaggerModelName = 'DescribeCdnTopUrlRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,18 +28,13 @@ class DescribeCdnDataOfflineRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'cdn_types' => 'string[]',
-        'cloud_account_ids' => 'string[]',
-        'domain_ids' => 'string[]',
-        'domains' => 'string[]',
+        'domain' => 'string',
+        'domain_id' => 'string',
         'end_time' => 'int',
-        'group_by' => 'string',
-        'interval' => 'string',
-        'metric' => 'string',
-        'project_names' => 'string[]',
+        'sort_by' => 'string',
         'start_time' => 'int',
-        'sub_products' => 'string[]',
-        'vendors' => 'string[]'
+        'sub_product' => 'string',
+        'vendor' => 'string'
     ];
 
     /**
@@ -48,18 +43,13 @@ class DescribeCdnDataOfflineRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'cdn_types' => null,
-        'cloud_account_ids' => null,
-        'domain_ids' => null,
-        'domains' => null,
+        'domain' => null,
+        'domain_id' => null,
         'end_time' => 'int64',
-        'group_by' => null,
-        'interval' => null,
-        'metric' => null,
-        'project_names' => null,
+        'sort_by' => null,
         'start_time' => 'int64',
-        'sub_products' => null,
-        'vendors' => null
+        'sub_product' => null,
+        'vendor' => null
     ];
 
     /**
@@ -89,18 +79,13 @@ class DescribeCdnDataOfflineRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'cdn_types' => 'CdnTypes',
-        'cloud_account_ids' => 'CloudAccountIds',
-        'domain_ids' => 'DomainIds',
-        'domains' => 'Domains',
+        'domain' => 'Domain',
+        'domain_id' => 'DomainId',
         'end_time' => 'EndTime',
-        'group_by' => 'GroupBy',
-        'interval' => 'Interval',
-        'metric' => 'Metric',
-        'project_names' => 'ProjectNames',
+        'sort_by' => 'SortBy',
         'start_time' => 'StartTime',
-        'sub_products' => 'SubProducts',
-        'vendors' => 'Vendors'
+        'sub_product' => 'SubProduct',
+        'vendor' => 'Vendor'
     ];
 
     /**
@@ -109,18 +94,13 @@ class DescribeCdnDataOfflineRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'cdn_types' => 'setCdnTypes',
-        'cloud_account_ids' => 'setCloudAccountIds',
-        'domain_ids' => 'setDomainIds',
-        'domains' => 'setDomains',
+        'domain' => 'setDomain',
+        'domain_id' => 'setDomainId',
         'end_time' => 'setEndTime',
-        'group_by' => 'setGroupBy',
-        'interval' => 'setInterval',
-        'metric' => 'setMetric',
-        'project_names' => 'setProjectNames',
+        'sort_by' => 'setSortBy',
         'start_time' => 'setStartTime',
-        'sub_products' => 'setSubProducts',
-        'vendors' => 'setVendors'
+        'sub_product' => 'setSubProduct',
+        'vendor' => 'setVendor'
     ];
 
     /**
@@ -129,18 +109,13 @@ class DescribeCdnDataOfflineRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'cdn_types' => 'getCdnTypes',
-        'cloud_account_ids' => 'getCloudAccountIds',
-        'domain_ids' => 'getDomainIds',
-        'domains' => 'getDomains',
+        'domain' => 'getDomain',
+        'domain_id' => 'getDomainId',
         'end_time' => 'getEndTime',
-        'group_by' => 'getGroupBy',
-        'interval' => 'getInterval',
-        'metric' => 'getMetric',
-        'project_names' => 'getProjectNames',
+        'sort_by' => 'getSortBy',
         'start_time' => 'getStartTime',
-        'sub_products' => 'getSubProducts',
-        'vendors' => 'getVendors'
+        'sub_product' => 'getSubProduct',
+        'vendor' => 'getVendor'
     ];
 
     /**
@@ -203,18 +178,13 @@ class DescribeCdnDataOfflineRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['cdn_types'] = isset($data['cdn_types']) ? $data['cdn_types'] : null;
-        $this->container['cloud_account_ids'] = isset($data['cloud_account_ids']) ? $data['cloud_account_ids'] : null;
-        $this->container['domain_ids'] = isset($data['domain_ids']) ? $data['domain_ids'] : null;
-        $this->container['domains'] = isset($data['domains']) ? $data['domains'] : null;
+        $this->container['domain'] = isset($data['domain']) ? $data['domain'] : null;
+        $this->container['domain_id'] = isset($data['domain_id']) ? $data['domain_id'] : null;
         $this->container['end_time'] = isset($data['end_time']) ? $data['end_time'] : null;
-        $this->container['group_by'] = isset($data['group_by']) ? $data['group_by'] : null;
-        $this->container['interval'] = isset($data['interval']) ? $data['interval'] : null;
-        $this->container['metric'] = isset($data['metric']) ? $data['metric'] : null;
-        $this->container['project_names'] = isset($data['project_names']) ? $data['project_names'] : null;
+        $this->container['sort_by'] = isset($data['sort_by']) ? $data['sort_by'] : null;
         $this->container['start_time'] = isset($data['start_time']) ? $data['start_time'] : null;
-        $this->container['sub_products'] = isset($data['sub_products']) ? $data['sub_products'] : null;
-        $this->container['vendors'] = isset($data['vendors']) ? $data['vendors'] : null;
+        $this->container['sub_product'] = isset($data['sub_product']) ? $data['sub_product'] : null;
+        $this->container['vendor'] = isset($data['vendor']) ? $data['vendor'] : null;
     }
 
     /**
@@ -228,12 +198,6 @@ class DescribeCdnDataOfflineRequest implements ModelInterface, ArrayAccess
 
         if ($this->container['end_time'] === null) {
             $invalidProperties[] = "'end_time' can't be null";
-        }
-        if ($this->container['interval'] === null) {
-            $invalidProperties[] = "'interval' can't be null";
-        }
-        if ($this->container['metric'] === null) {
-            $invalidProperties[] = "'metric' can't be null";
         }
         if ($this->container['start_time'] === null) {
             $invalidProperties[] = "'start_time' can't be null";
@@ -254,97 +218,49 @@ class DescribeCdnDataOfflineRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets cdn_types
+     * Gets domain
      *
-     * @return string[]
+     * @return string
      */
-    public function getCdnTypes()
+    public function getDomain()
     {
-        return $this->container['cdn_types'];
+        return $this->container['domain'];
     }
 
     /**
-     * Sets cdn_types
+     * Sets domain
      *
-     * @param string[] $cdn_types cdn_types
+     * @param string $domain domain
      *
      * @return $this
      */
-    public function setCdnTypes($cdn_types)
+    public function setDomain($domain)
     {
-        $this->container['cdn_types'] = $cdn_types;
+        $this->container['domain'] = $domain;
 
         return $this;
     }
 
     /**
-     * Gets cloud_account_ids
+     * Gets domain_id
      *
-     * @return string[]
+     * @return string
      */
-    public function getCloudAccountIds()
+    public function getDomainId()
     {
-        return $this->container['cloud_account_ids'];
+        return $this->container['domain_id'];
     }
 
     /**
-     * Sets cloud_account_ids
+     * Sets domain_id
      *
-     * @param string[] $cloud_account_ids cloud_account_ids
+     * @param string $domain_id domain_id
      *
      * @return $this
      */
-    public function setCloudAccountIds($cloud_account_ids)
+    public function setDomainId($domain_id)
     {
-        $this->container['cloud_account_ids'] = $cloud_account_ids;
-
-        return $this;
-    }
-
-    /**
-     * Gets domain_ids
-     *
-     * @return string[]
-     */
-    public function getDomainIds()
-    {
-        return $this->container['domain_ids'];
-    }
-
-    /**
-     * Sets domain_ids
-     *
-     * @param string[] $domain_ids domain_ids
-     *
-     * @return $this
-     */
-    public function setDomainIds($domain_ids)
-    {
-        $this->container['domain_ids'] = $domain_ids;
-
-        return $this;
-    }
-
-    /**
-     * Gets domains
-     *
-     * @return string[]
-     */
-    public function getDomains()
-    {
-        return $this->container['domains'];
-    }
-
-    /**
-     * Sets domains
-     *
-     * @param string[] $domains domains
-     *
-     * @return $this
-     */
-    public function setDomains($domains)
-    {
-        $this->container['domains'] = $domains;
+        $this->container['domain_id'] = $domain_id;
 
         return $this;
     }
@@ -374,97 +290,25 @@ class DescribeCdnDataOfflineRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets group_by
+     * Gets sort_by
      *
      * @return string
      */
-    public function getGroupBy()
+    public function getSortBy()
     {
-        return $this->container['group_by'];
+        return $this->container['sort_by'];
     }
 
     /**
-     * Sets group_by
+     * Sets sort_by
      *
-     * @param string $group_by group_by
+     * @param string $sort_by sort_by
      *
      * @return $this
      */
-    public function setGroupBy($group_by)
+    public function setSortBy($sort_by)
     {
-        $this->container['group_by'] = $group_by;
-
-        return $this;
-    }
-
-    /**
-     * Gets interval
-     *
-     * @return string
-     */
-    public function getInterval()
-    {
-        return $this->container['interval'];
-    }
-
-    /**
-     * Sets interval
-     *
-     * @param string $interval interval
-     *
-     * @return $this
-     */
-    public function setInterval($interval)
-    {
-        $this->container['interval'] = $interval;
-
-        return $this;
-    }
-
-    /**
-     * Gets metric
-     *
-     * @return string
-     */
-    public function getMetric()
-    {
-        return $this->container['metric'];
-    }
-
-    /**
-     * Sets metric
-     *
-     * @param string $metric metric
-     *
-     * @return $this
-     */
-    public function setMetric($metric)
-    {
-        $this->container['metric'] = $metric;
-
-        return $this;
-    }
-
-    /**
-     * Gets project_names
-     *
-     * @return string[]
-     */
-    public function getProjectNames()
-    {
-        return $this->container['project_names'];
-    }
-
-    /**
-     * Sets project_names
-     *
-     * @param string[] $project_names project_names
-     *
-     * @return $this
-     */
-    public function setProjectNames($project_names)
-    {
-        $this->container['project_names'] = $project_names;
+        $this->container['sort_by'] = $sort_by;
 
         return $this;
     }
@@ -494,49 +338,49 @@ class DescribeCdnDataOfflineRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets sub_products
+     * Gets sub_product
      *
-     * @return string[]
+     * @return string
      */
-    public function getSubProducts()
+    public function getSubProduct()
     {
-        return $this->container['sub_products'];
+        return $this->container['sub_product'];
     }
 
     /**
-     * Sets sub_products
+     * Sets sub_product
      *
-     * @param string[] $sub_products sub_products
+     * @param string $sub_product sub_product
      *
      * @return $this
      */
-    public function setSubProducts($sub_products)
+    public function setSubProduct($sub_product)
     {
-        $this->container['sub_products'] = $sub_products;
+        $this->container['sub_product'] = $sub_product;
 
         return $this;
     }
 
     /**
-     * Gets vendors
+     * Gets vendor
      *
-     * @return string[]
+     * @return string
      */
-    public function getVendors()
+    public function getVendor()
     {
-        return $this->container['vendors'];
+        return $this->container['vendor'];
     }
 
     /**
-     * Sets vendors
+     * Sets vendor
      *
-     * @param string[] $vendors vendors
+     * @param string $vendor vendor
      *
      * @return $this
      */
-    public function setVendors($vendors)
+    public function setVendor($vendor)
     {
-        $this->container['vendors'] = $vendors;
+        $this->container['vendor'] = $vendor;
 
         return $this;
     }

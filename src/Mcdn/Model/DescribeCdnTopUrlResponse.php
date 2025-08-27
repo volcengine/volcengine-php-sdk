@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
+class DescribeCdnTopUrlResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'TagFilterForListCdnDomainsInput';
+    protected static $swaggerModelName = 'DescribeCdnTopUrlResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,8 @@ class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'key' => 'string',
-        'value' => 'string',
-        'values' => 'string[]'
+        'urls' => '\Volcengine\Mcdn\Model\UrlForDescribeCdnTopUrlOutput[]',
+        'vendors_meta_data' => '\Volcengine\Mcdn\Model\VendorsMetaDataForDescribeCdnTopUrlOutput[]'
     ];
 
     /**
@@ -39,9 +38,8 @@ class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'key' => null,
-        'value' => null,
-        'values' => null
+        'urls' => null,
+        'vendors_meta_data' => null
     ];
 
     /**
@@ -71,9 +69,8 @@ class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'key' => 'Key',
-        'value' => 'Value',
-        'values' => 'Values'
+        'urls' => 'Urls',
+        'vendors_meta_data' => 'VendorsMetaData'
     ];
 
     /**
@@ -82,9 +79,8 @@ class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'key' => 'setKey',
-        'value' => 'setValue',
-        'values' => 'setValues'
+        'urls' => 'setUrls',
+        'vendors_meta_data' => 'setVendorsMetaData'
     ];
 
     /**
@@ -93,9 +89,8 @@ class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'key' => 'getKey',
-        'value' => 'getValue',
-        'values' => 'getValues'
+        'urls' => 'getUrls',
+        'vendors_meta_data' => 'getVendorsMetaData'
     ];
 
     /**
@@ -158,9 +153,8 @@ class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['key'] = isset($data['key']) ? $data['key'] : null;
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
-        $this->container['values'] = isset($data['values']) ? $data['values'] : null;
+        $this->container['urls'] = isset($data['urls']) ? $data['urls'] : null;
+        $this->container['vendors_meta_data'] = isset($data['vendors_meta_data']) ? $data['vendors_meta_data'] : null;
     }
 
     /**
@@ -188,73 +182,49 @@ class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets key
+     * Gets urls
      *
-     * @return string
+     * @return \Volcengine\Mcdn\Model\UrlForDescribeCdnTopUrlOutput[]
      */
-    public function getKey()
+    public function getUrls()
     {
-        return $this->container['key'];
+        return $this->container['urls'];
     }
 
     /**
-     * Sets key
+     * Sets urls
      *
-     * @param string $key key
+     * @param \Volcengine\Mcdn\Model\UrlForDescribeCdnTopUrlOutput[] $urls urls
      *
      * @return $this
      */
-    public function setKey($key)
+    public function setUrls($urls)
     {
-        $this->container['key'] = $key;
+        $this->container['urls'] = $urls;
 
         return $this;
     }
 
     /**
-     * Gets value
+     * Gets vendors_meta_data
      *
-     * @return string
+     * @return \Volcengine\Mcdn\Model\VendorsMetaDataForDescribeCdnTopUrlOutput[]
      */
-    public function getValue()
+    public function getVendorsMetaData()
     {
-        return $this->container['value'];
+        return $this->container['vendors_meta_data'];
     }
 
     /**
-     * Sets value
+     * Sets vendors_meta_data
      *
-     * @param string $value value
+     * @param \Volcengine\Mcdn\Model\VendorsMetaDataForDescribeCdnTopUrlOutput[] $vendors_meta_data vendors_meta_data
      *
      * @return $this
      */
-    public function setValue($value)
+    public function setVendorsMetaData($vendors_meta_data)
     {
-        $this->container['value'] = $value;
-
-        return $this;
-    }
-
-    /**
-     * Gets values
-     *
-     * @return string[]
-     */
-    public function getValues()
-    {
-        return $this->container['values'];
-    }
-
-    /**
-     * Sets values
-     *
-     * @param string[] $values values
-     *
-     * @return $this
-     */
-    public function setValues($values)
-    {
-        $this->container['values'] = $values;
+        $this->container['vendors_meta_data'] = $vendors_meta_data;
 
         return $this;
     }

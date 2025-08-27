@@ -34,11 +34,13 @@ class ListCdnDomainsRequest implements ModelInterface, ArrayAccess
         'exact_name' => 'string',
         'name' => 'string',
         'pagination' => '\Volcengine\Mcdn\Model\PaginationForListCdnDomainsInput',
+        'project_name' => 'string',
         'region' => 'string[]',
         'schedule_created' => 'bool',
         'status' => 'string[]',
         'tag_filters' => '\Volcengine\Mcdn\Model\TagFilterForListCdnDomainsInput[]',
-        'vendor' => 'string[]'
+        'vendor' => 'string[]',
+        'with_configs' => 'bool'
     ];
 
     /**
@@ -53,11 +55,13 @@ class ListCdnDomainsRequest implements ModelInterface, ArrayAccess
         'exact_name' => null,
         'name' => null,
         'pagination' => null,
+        'project_name' => null,
         'region' => null,
         'schedule_created' => null,
         'status' => null,
         'tag_filters' => null,
-        'vendor' => null
+        'vendor' => null,
+        'with_configs' => null
     ];
 
     /**
@@ -93,11 +97,13 @@ class ListCdnDomainsRequest implements ModelInterface, ArrayAccess
         'exact_name' => 'ExactName',
         'name' => 'Name',
         'pagination' => 'Pagination',
+        'project_name' => 'ProjectName',
         'region' => 'Region',
         'schedule_created' => 'ScheduleCreated',
         'status' => 'Status',
         'tag_filters' => 'TagFilters',
-        'vendor' => 'Vendor'
+        'vendor' => 'Vendor',
+        'with_configs' => 'WithConfigs'
     ];
 
     /**
@@ -112,11 +118,13 @@ class ListCdnDomainsRequest implements ModelInterface, ArrayAccess
         'exact_name' => 'setExactName',
         'name' => 'setName',
         'pagination' => 'setPagination',
+        'project_name' => 'setProjectName',
         'region' => 'setRegion',
         'schedule_created' => 'setScheduleCreated',
         'status' => 'setStatus',
         'tag_filters' => 'setTagFilters',
-        'vendor' => 'setVendor'
+        'vendor' => 'setVendor',
+        'with_configs' => 'setWithConfigs'
     ];
 
     /**
@@ -131,11 +139,13 @@ class ListCdnDomainsRequest implements ModelInterface, ArrayAccess
         'exact_name' => 'getExactName',
         'name' => 'getName',
         'pagination' => 'getPagination',
+        'project_name' => 'getProjectName',
         'region' => 'getRegion',
         'schedule_created' => 'getScheduleCreated',
         'status' => 'getStatus',
         'tag_filters' => 'getTagFilters',
-        'vendor' => 'getVendor'
+        'vendor' => 'getVendor',
+        'with_configs' => 'getWithConfigs'
     ];
 
     /**
@@ -204,11 +214,13 @@ class ListCdnDomainsRequest implements ModelInterface, ArrayAccess
         $this->container['exact_name'] = isset($data['exact_name']) ? $data['exact_name'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['pagination'] = isset($data['pagination']) ? $data['pagination'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['region'] = isset($data['region']) ? $data['region'] : null;
         $this->container['schedule_created'] = isset($data['schedule_created']) ? $data['schedule_created'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['tag_filters'] = isset($data['tag_filters']) ? $data['tag_filters'] : null;
         $this->container['vendor'] = isset($data['vendor']) ? $data['vendor'] : null;
+        $this->container['with_configs'] = isset($data['with_configs']) ? $data['with_configs'] : null;
     }
 
     /**
@@ -380,6 +392,30 @@ class ListCdnDomainsRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
+
+    /**
      * Gets region
      *
      * @return string[]
@@ -495,6 +531,30 @@ class ListCdnDomainsRequest implements ModelInterface, ArrayAccess
     public function setVendor($vendor)
     {
         $this->container['vendor'] = $vendor;
+
+        return $this;
+    }
+
+    /**
+     * Gets with_configs
+     *
+     * @return bool
+     */
+    public function getWithConfigs()
+    {
+        return $this->container['with_configs'];
+    }
+
+    /**
+     * Sets with_configs
+     *
+     * @param bool $with_configs with_configs
+     *
+     * @return $this
+     */
+    public function setWithConfigs($with_configs)
+    {
+        $this->container['with_configs'] = $with_configs;
 
         return $this;
     }

@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
+class UrlForDescribeCdnTopUrlOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'TagFilterForListCdnDomainsInput';
+    protected static $swaggerModelName = 'UrlForDescribeCdnTopUrlOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,9 @@ class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'key' => 'string',
-        'value' => 'string',
-        'values' => 'string[]'
+        'flux' => 'int',
+        'request' => 'int',
+        'url' => 'string'
     ];
 
     /**
@@ -39,9 +39,9 @@ class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'key' => null,
-        'value' => null,
-        'values' => null
+        'flux' => 'int64',
+        'request' => 'int64',
+        'url' => null
     ];
 
     /**
@@ -71,9 +71,9 @@ class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'key' => 'Key',
-        'value' => 'Value',
-        'values' => 'Values'
+        'flux' => 'Flux',
+        'request' => 'Request',
+        'url' => 'Url'
     ];
 
     /**
@@ -82,9 +82,9 @@ class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'key' => 'setKey',
-        'value' => 'setValue',
-        'values' => 'setValues'
+        'flux' => 'setFlux',
+        'request' => 'setRequest',
+        'url' => 'setUrl'
     ];
 
     /**
@@ -93,9 +93,9 @@ class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'key' => 'getKey',
-        'value' => 'getValue',
-        'values' => 'getValues'
+        'flux' => 'getFlux',
+        'request' => 'getRequest',
+        'url' => 'getUrl'
     ];
 
     /**
@@ -158,9 +158,9 @@ class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['key'] = isset($data['key']) ? $data['key'] : null;
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
-        $this->container['values'] = isset($data['values']) ? $data['values'] : null;
+        $this->container['flux'] = isset($data['flux']) ? $data['flux'] : null;
+        $this->container['request'] = isset($data['request']) ? $data['request'] : null;
+        $this->container['url'] = isset($data['url']) ? $data['url'] : null;
     }
 
     /**
@@ -188,73 +188,73 @@ class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets key
+     * Gets flux
      *
-     * @return string
+     * @return int
      */
-    public function getKey()
+    public function getFlux()
     {
-        return $this->container['key'];
+        return $this->container['flux'];
     }
 
     /**
-     * Sets key
+     * Sets flux
      *
-     * @param string $key key
+     * @param int $flux flux
      *
      * @return $this
      */
-    public function setKey($key)
+    public function setFlux($flux)
     {
-        $this->container['key'] = $key;
+        $this->container['flux'] = $flux;
 
         return $this;
     }
 
     /**
-     * Gets value
+     * Gets request
      *
-     * @return string
+     * @return int
      */
-    public function getValue()
+    public function getRequest()
     {
-        return $this->container['value'];
+        return $this->container['request'];
     }
 
     /**
-     * Sets value
+     * Sets request
      *
-     * @param string $value value
+     * @param int $request request
      *
      * @return $this
      */
-    public function setValue($value)
+    public function setRequest($request)
     {
-        $this->container['value'] = $value;
+        $this->container['request'] = $request;
 
         return $this;
     }
 
     /**
-     * Gets values
+     * Gets url
      *
-     * @return string[]
+     * @return string
      */
-    public function getValues()
+    public function getUrl()
     {
-        return $this->container['values'];
+        return $this->container['url'];
     }
 
     /**
-     * Sets values
+     * Sets url
      *
-     * @param string[] $values values
+     * @param string $url url
      *
      * @return $this
      */
-    public function setValues($values)
+    public function setUrl($url)
     {
-        $this->container['values'] = $values;
+        $this->container['url'] = $url;
 
         return $this;
     }

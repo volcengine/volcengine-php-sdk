@@ -30,8 +30,10 @@ class DnsScheduleForListDnsSchedulesOutput implements ModelInterface, ArrayAcces
     protected static $swaggerTypes = [
         'cloud_account_ids' => 'string[]',
         'created_at' => 'int',
+        'created_time' => 'string',
         'domain_name' => 'string',
         'id' => 'string',
+        'project_name' => 'string',
         'region' => 'string',
         'schedule_cname' => 'string',
         'schedule_status' => 'string',
@@ -48,8 +50,10 @@ class DnsScheduleForListDnsSchedulesOutput implements ModelInterface, ArrayAcces
     protected static $swaggerFormats = [
         'cloud_account_ids' => null,
         'created_at' => 'int64',
+        'created_time' => null,
         'domain_name' => null,
         'id' => null,
+        'project_name' => null,
         'region' => null,
         'schedule_cname' => null,
         'schedule_status' => null,
@@ -87,8 +91,10 @@ class DnsScheduleForListDnsSchedulesOutput implements ModelInterface, ArrayAcces
     protected static $attributeMap = [
         'cloud_account_ids' => 'CloudAccountIds',
         'created_at' => 'CreatedAt',
+        'created_time' => 'CreatedTime',
         'domain_name' => 'DomainName',
         'id' => 'Id',
+        'project_name' => 'ProjectName',
         'region' => 'Region',
         'schedule_cname' => 'ScheduleCname',
         'schedule_status' => 'ScheduleStatus',
@@ -105,8 +111,10 @@ class DnsScheduleForListDnsSchedulesOutput implements ModelInterface, ArrayAcces
     protected static $setters = [
         'cloud_account_ids' => 'setCloudAccountIds',
         'created_at' => 'setCreatedAt',
+        'created_time' => 'setCreatedTime',
         'domain_name' => 'setDomainName',
         'id' => 'setId',
+        'project_name' => 'setProjectName',
         'region' => 'setRegion',
         'schedule_cname' => 'setScheduleCname',
         'schedule_status' => 'setScheduleStatus',
@@ -123,8 +131,10 @@ class DnsScheduleForListDnsSchedulesOutput implements ModelInterface, ArrayAcces
     protected static $getters = [
         'cloud_account_ids' => 'getCloudAccountIds',
         'created_at' => 'getCreatedAt',
+        'created_time' => 'getCreatedTime',
         'domain_name' => 'getDomainName',
         'id' => 'getId',
+        'project_name' => 'getProjectName',
         'region' => 'getRegion',
         'schedule_cname' => 'getScheduleCname',
         'schedule_status' => 'getScheduleStatus',
@@ -195,8 +205,10 @@ class DnsScheduleForListDnsSchedulesOutput implements ModelInterface, ArrayAcces
     {
         $this->container['cloud_account_ids'] = isset($data['cloud_account_ids']) ? $data['cloud_account_ids'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
+        $this->container['created_time'] = isset($data['created_time']) ? $data['created_time'] : null;
         $this->container['domain_name'] = isset($data['domain_name']) ? $data['domain_name'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['region'] = isset($data['region']) ? $data['region'] : null;
         $this->container['schedule_cname'] = isset($data['schedule_cname']) ? $data['schedule_cname'] : null;
         $this->container['schedule_status'] = isset($data['schedule_status']) ? $data['schedule_status'] : null;
@@ -278,6 +290,30 @@ class DnsScheduleForListDnsSchedulesOutput implements ModelInterface, ArrayAcces
     }
 
     /**
+     * Gets created_time
+     *
+     * @return string
+     */
+    public function getCreatedTime()
+    {
+        return $this->container['created_time'];
+    }
+
+    /**
+     * Sets created_time
+     *
+     * @param string $created_time created_time
+     *
+     * @return $this
+     */
+    public function setCreatedTime($created_time)
+    {
+        $this->container['created_time'] = $created_time;
+
+        return $this;
+    }
+
+    /**
      * Gets domain_name
      *
      * @return string
@@ -321,6 +357,30 @@ class DnsScheduleForListDnsSchedulesOutput implements ModelInterface, ArrayAcces
     public function setId($id)
     {
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }

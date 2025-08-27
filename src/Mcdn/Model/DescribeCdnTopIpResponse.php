@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
+class DescribeCdnTopIpResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'TagFilterForListCdnDomainsInput';
+    protected static $swaggerModelName = 'DescribeCdnTopIpResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,8 @@ class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'key' => 'string',
-        'value' => 'string',
-        'values' => 'string[]'
+        'ips' => '\Volcengine\Mcdn\Model\IpForDescribeCdnTopIpOutput[]',
+        'vendors_meta_data' => '\Volcengine\Mcdn\Model\VendorsMetaDataForDescribeCdnTopIpOutput[]'
     ];
 
     /**
@@ -39,9 +38,8 @@ class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'key' => null,
-        'value' => null,
-        'values' => null
+        'ips' => null,
+        'vendors_meta_data' => null
     ];
 
     /**
@@ -71,9 +69,8 @@ class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'key' => 'Key',
-        'value' => 'Value',
-        'values' => 'Values'
+        'ips' => 'Ips',
+        'vendors_meta_data' => 'VendorsMetaData'
     ];
 
     /**
@@ -82,9 +79,8 @@ class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'key' => 'setKey',
-        'value' => 'setValue',
-        'values' => 'setValues'
+        'ips' => 'setIps',
+        'vendors_meta_data' => 'setVendorsMetaData'
     ];
 
     /**
@@ -93,9 +89,8 @@ class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'key' => 'getKey',
-        'value' => 'getValue',
-        'values' => 'getValues'
+        'ips' => 'getIps',
+        'vendors_meta_data' => 'getVendorsMetaData'
     ];
 
     /**
@@ -158,9 +153,8 @@ class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['key'] = isset($data['key']) ? $data['key'] : null;
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
-        $this->container['values'] = isset($data['values']) ? $data['values'] : null;
+        $this->container['ips'] = isset($data['ips']) ? $data['ips'] : null;
+        $this->container['vendors_meta_data'] = isset($data['vendors_meta_data']) ? $data['vendors_meta_data'] : null;
     }
 
     /**
@@ -188,73 +182,49 @@ class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets key
+     * Gets ips
      *
-     * @return string
+     * @return \Volcengine\Mcdn\Model\IpForDescribeCdnTopIpOutput[]
      */
-    public function getKey()
+    public function getIps()
     {
-        return $this->container['key'];
+        return $this->container['ips'];
     }
 
     /**
-     * Sets key
+     * Sets ips
      *
-     * @param string $key key
+     * @param \Volcengine\Mcdn\Model\IpForDescribeCdnTopIpOutput[] $ips ips
      *
      * @return $this
      */
-    public function setKey($key)
+    public function setIps($ips)
     {
-        $this->container['key'] = $key;
+        $this->container['ips'] = $ips;
 
         return $this;
     }
 
     /**
-     * Gets value
+     * Gets vendors_meta_data
      *
-     * @return string
+     * @return \Volcengine\Mcdn\Model\VendorsMetaDataForDescribeCdnTopIpOutput[]
      */
-    public function getValue()
+    public function getVendorsMetaData()
     {
-        return $this->container['value'];
+        return $this->container['vendors_meta_data'];
     }
 
     /**
-     * Sets value
+     * Sets vendors_meta_data
      *
-     * @param string $value value
+     * @param \Volcengine\Mcdn\Model\VendorsMetaDataForDescribeCdnTopIpOutput[] $vendors_meta_data vendors_meta_data
      *
      * @return $this
      */
-    public function setValue($value)
+    public function setVendorsMetaData($vendors_meta_data)
     {
-        $this->container['value'] = $value;
-
-        return $this;
-    }
-
-    /**
-     * Gets values
-     *
-     * @return string[]
-     */
-    public function getValues()
-    {
-        return $this->container['values'];
-    }
-
-    /**
-     * Sets values
-     *
-     * @param string[] $values values
-     *
-     * @return $this
-     */
-    public function setValues($values)
-    {
-        $this->container['values'] = $values;
+        $this->container['vendors_meta_data'] = $vendors_meta_data;
 
         return $this;
     }
