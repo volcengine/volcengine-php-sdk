@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ModifyInstanceAttributeRequest implements ModelInterface, ArrayAccess
+class ModifyInstancesSpecRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ModifyInstanceAttributeRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ModifyInstanceAttributeRequest';
+    protected static $swaggerModelName = 'ModifyInstancesSpecRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -29,14 +29,8 @@ class ModifyInstanceAttributeRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'client_token' => 'string',
-        'deletion_protection' => 'bool',
-        'description' => 'string',
-        'enable_jumbo_frame' => 'bool',
-        'hostname' => 'string',
-        'instance_id' => 'string',
-        'instance_name' => 'string',
-        'password' => 'string',
-        'user_data' => 'string'
+        'instance_ids' => 'string[]',
+        'instance_type_id' => 'string'
     ];
 
     /**
@@ -46,14 +40,8 @@ class ModifyInstanceAttributeRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'client_token' => null,
-        'deletion_protection' => null,
-        'description' => null,
-        'enable_jumbo_frame' => null,
-        'hostname' => null,
-        'instance_id' => null,
-        'instance_name' => null,
-        'password' => null,
-        'user_data' => null
+        'instance_ids' => null,
+        'instance_type_id' => null
     ];
 
     /**
@@ -84,14 +72,8 @@ class ModifyInstanceAttributeRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'client_token' => 'ClientToken',
-        'deletion_protection' => 'DeletionProtection',
-        'description' => 'Description',
-        'enable_jumbo_frame' => 'EnableJumboFrame',
-        'hostname' => 'Hostname',
-        'instance_id' => 'InstanceId',
-        'instance_name' => 'InstanceName',
-        'password' => 'Password',
-        'user_data' => 'UserData'
+        'instance_ids' => 'InstanceIds',
+        'instance_type_id' => 'InstanceTypeId'
     ];
 
     /**
@@ -101,14 +83,8 @@ class ModifyInstanceAttributeRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'client_token' => 'setClientToken',
-        'deletion_protection' => 'setDeletionProtection',
-        'description' => 'setDescription',
-        'enable_jumbo_frame' => 'setEnableJumboFrame',
-        'hostname' => 'setHostname',
-        'instance_id' => 'setInstanceId',
-        'instance_name' => 'setInstanceName',
-        'password' => 'setPassword',
-        'user_data' => 'setUserData'
+        'instance_ids' => 'setInstanceIds',
+        'instance_type_id' => 'setInstanceTypeId'
     ];
 
     /**
@@ -118,14 +94,8 @@ class ModifyInstanceAttributeRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'client_token' => 'getClientToken',
-        'deletion_protection' => 'getDeletionProtection',
-        'description' => 'getDescription',
-        'enable_jumbo_frame' => 'getEnableJumboFrame',
-        'hostname' => 'getHostname',
-        'instance_id' => 'getInstanceId',
-        'instance_name' => 'getInstanceName',
-        'password' => 'getPassword',
-        'user_data' => 'getUserData'
+        'instance_ids' => 'getInstanceIds',
+        'instance_type_id' => 'getInstanceTypeId'
     ];
 
     /**
@@ -189,14 +159,8 @@ class ModifyInstanceAttributeRequest implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
-        $this->container['deletion_protection'] = isset($data['deletion_protection']) ? $data['deletion_protection'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['enable_jumbo_frame'] = isset($data['enable_jumbo_frame']) ? $data['enable_jumbo_frame'] : null;
-        $this->container['hostname'] = isset($data['hostname']) ? $data['hostname'] : null;
-        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
-        $this->container['instance_name'] = isset($data['instance_name']) ? $data['instance_name'] : null;
-        $this->container['password'] = isset($data['password']) ? $data['password'] : null;
-        $this->container['user_data'] = isset($data['user_data']) ? $data['user_data'] : null;
+        $this->container['instance_ids'] = isset($data['instance_ids']) ? $data['instance_ids'] : null;
+        $this->container['instance_type_id'] = isset($data['instance_type_id']) ? $data['instance_type_id'] : null;
     }
 
     /**
@@ -208,8 +172,8 @@ class ModifyInstanceAttributeRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['instance_id'] === null) {
-            $invalidProperties[] = "'instance_id' can't be null";
+        if ($this->container['instance_type_id'] === null) {
+            $invalidProperties[] = "'instance_type_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -251,193 +215,49 @@ class ModifyInstanceAttributeRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets deletion_protection
+     * Gets instance_ids
      *
-     * @return bool
+     * @return string[]
      */
-    public function getDeletionProtection()
+    public function getInstanceIds()
     {
-        return $this->container['deletion_protection'];
+        return $this->container['instance_ids'];
     }
 
     /**
-     * Sets deletion_protection
+     * Sets instance_ids
      *
-     * @param bool $deletion_protection deletion_protection
+     * @param string[] $instance_ids instance_ids
      *
      * @return $this
      */
-    public function setDeletionProtection($deletion_protection)
+    public function setInstanceIds($instance_ids)
     {
-        $this->container['deletion_protection'] = $deletion_protection;
+        $this->container['instance_ids'] = $instance_ids;
 
         return $this;
     }
 
     /**
-     * Gets description
+     * Gets instance_type_id
      *
      * @return string
      */
-    public function getDescription()
+    public function getInstanceTypeId()
     {
-        return $this->container['description'];
+        return $this->container['instance_type_id'];
     }
 
     /**
-     * Sets description
+     * Sets instance_type_id
      *
-     * @param string $description description
+     * @param string $instance_type_id instance_type_id
      *
      * @return $this
      */
-    public function setDescription($description)
+    public function setInstanceTypeId($instance_type_id)
     {
-        $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets enable_jumbo_frame
-     *
-     * @return bool
-     */
-    public function getEnableJumboFrame()
-    {
-        return $this->container['enable_jumbo_frame'];
-    }
-
-    /**
-     * Sets enable_jumbo_frame
-     *
-     * @param bool $enable_jumbo_frame enable_jumbo_frame
-     *
-     * @return $this
-     */
-    public function setEnableJumboFrame($enable_jumbo_frame)
-    {
-        $this->container['enable_jumbo_frame'] = $enable_jumbo_frame;
-
-        return $this;
-    }
-
-    /**
-     * Gets hostname
-     *
-     * @return string
-     */
-    public function getHostname()
-    {
-        return $this->container['hostname'];
-    }
-
-    /**
-     * Sets hostname
-     *
-     * @param string $hostname hostname
-     *
-     * @return $this
-     */
-    public function setHostname($hostname)
-    {
-        $this->container['hostname'] = $hostname;
-
-        return $this;
-    }
-
-    /**
-     * Gets instance_id
-     *
-     * @return string
-     */
-    public function getInstanceId()
-    {
-        return $this->container['instance_id'];
-    }
-
-    /**
-     * Sets instance_id
-     *
-     * @param string $instance_id instance_id
-     *
-     * @return $this
-     */
-    public function setInstanceId($instance_id)
-    {
-        $this->container['instance_id'] = $instance_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets instance_name
-     *
-     * @return string
-     */
-    public function getInstanceName()
-    {
-        return $this->container['instance_name'];
-    }
-
-    /**
-     * Sets instance_name
-     *
-     * @param string $instance_name instance_name
-     *
-     * @return $this
-     */
-    public function setInstanceName($instance_name)
-    {
-        $this->container['instance_name'] = $instance_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets password
-     *
-     * @return string
-     */
-    public function getPassword()
-    {
-        return $this->container['password'];
-    }
-
-    /**
-     * Sets password
-     *
-     * @param string $password password
-     *
-     * @return $this
-     */
-    public function setPassword($password)
-    {
-        $this->container['password'] = $password;
-
-        return $this;
-    }
-
-    /**
-     * Gets user_data
-     *
-     * @return string
-     */
-    public function getUserData()
-    {
-        return $this->container['user_data'];
-    }
-
-    /**
-     * Sets user_data
-     *
-     * @param string $user_data user_data
-     *
-     * @return $this
-     */
-    public function setUserData($user_data)
-    {
-        $this->container['user_data'] = $user_data;
+        $this->container['instance_type_id'] = $instance_type_id;
 
         return $this;
     }

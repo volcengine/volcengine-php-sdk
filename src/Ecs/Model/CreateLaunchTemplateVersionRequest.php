@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
+class CreateLaunchTemplateVersionRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'InstanceForDescribeInstancesOutput';
+    protected static $swaggerModelName = 'CreateLaunchTemplateVersionRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,46 +28,33 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'affinity_group_id' => 'string',
-        'cpu_options' => '\Volcengine\Ecs\Model\CpuOptionsForDescribeInstancesOutput',
-        'cpus' => 'int',
-        'created_at' => 'string',
-        'deletion_protection' => 'bool',
         'deployment_set_group_number' => 'int',
         'deployment_set_id' => 'string',
         'description' => 'string',
-        'eip_address' => '\Volcengine\Ecs\Model\EipAddressForDescribeInstancesOutput',
-        'elastic_scheduled_instance_type' => 'string',
-        'enable_jumbo_frame' => 'bool',
-        'expired_at' => 'string',
+        'eip' => '\Volcengine\Ecs\Model\EipForCreateLaunchTemplateVersionInput',
         'host_name' => 'string',
-        'hostname' => 'string',
         'hpc_cluster_id' => 'string',
         'image_id' => 'string',
+        'image_name' => 'string',
         'instance_charge_type' => 'string',
-        'instance_id' => 'string',
         'instance_name' => 'string',
         'instance_type_id' => 'string',
-        'key_pair_id' => 'string',
+        'keep_image_credential' => 'bool',
         'key_pair_name' => 'string',
-        'local_volumes' => '\Volcengine\Ecs\Model\LocalVolumeForDescribeInstancesOutput[]',
-        'memory_size' => 'int',
-        'metadata_options' => '\Volcengine\Ecs\Model\MetadataOptionsForDescribeInstancesOutput',
-        'network_interfaces' => '\Volcengine\Ecs\Model\NetworkInterfaceForDescribeInstancesOutput[]',
-        'os_name' => 'string',
-        'os_type' => 'string',
-        'placement' => '\Volcengine\Ecs\Model\PlacementForDescribeInstancesOutput',
+        'launch_template_id' => 'string',
+        'launch_template_name' => 'string',
+        'network_interfaces' => '\Volcengine\Ecs\Model\NetworkInterfaceForCreateLaunchTemplateVersionInput[]',
         'project_name' => 'string',
-        'rdma_ip_addresses' => 'string[]',
-        'scheduled_instance_id' => 'string',
+        'scheduled_instance' => '\Volcengine\Ecs\Model\ScheduledInstanceForCreateLaunchTemplateVersionInput',
+        'security_enhancement_strategy' => 'string',
         'spot_price_limit' => 'float',
         'spot_strategy' => 'string',
-        'status' => 'string',
-        'stopped_mode' => 'string',
-        'tags' => '\Volcengine\Ecs\Model\TagForDescribeInstancesOutput[]',
-        'updated_at' => 'string',
-        'uuid' => 'string',
-        'volumes' => '\Volcengine\Ecs\Model\VolumeForDescribeInstancesOutput[]',
+        'suffix_index' => 'int',
+        'tags' => '\Volcengine\Ecs\Model\TagForCreateLaunchTemplateVersionInput[]',
+        'unique_suffix' => 'bool',
+        'user_data' => 'string',
+        'version_description' => 'string',
+        'volumes' => '\Volcengine\Ecs\Model\VolumeForCreateLaunchTemplateVersionInput[]',
         'vpc_id' => 'string',
         'zone_id' => 'string'
     ];
@@ -78,45 +65,32 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'affinity_group_id' => null,
-        'cpu_options' => null,
-        'cpus' => 'int32',
-        'created_at' => null,
-        'deletion_protection' => null,
         'deployment_set_group_number' => 'int32',
         'deployment_set_id' => null,
         'description' => null,
-        'eip_address' => null,
-        'elastic_scheduled_instance_type' => null,
-        'enable_jumbo_frame' => null,
-        'expired_at' => null,
+        'eip' => null,
         'host_name' => null,
-        'hostname' => null,
         'hpc_cluster_id' => null,
         'image_id' => null,
+        'image_name' => null,
         'instance_charge_type' => null,
-        'instance_id' => null,
         'instance_name' => null,
         'instance_type_id' => null,
-        'key_pair_id' => null,
+        'keep_image_credential' => null,
         'key_pair_name' => null,
-        'local_volumes' => null,
-        'memory_size' => 'int32',
-        'metadata_options' => null,
+        'launch_template_id' => null,
+        'launch_template_name' => null,
         'network_interfaces' => null,
-        'os_name' => null,
-        'os_type' => null,
-        'placement' => null,
         'project_name' => null,
-        'rdma_ip_addresses' => null,
-        'scheduled_instance_id' => null,
+        'scheduled_instance' => null,
+        'security_enhancement_strategy' => null,
         'spot_price_limit' => 'float',
         'spot_strategy' => null,
-        'status' => null,
-        'stopped_mode' => null,
+        'suffix_index' => 'int32',
         'tags' => null,
-        'updated_at' => null,
-        'uuid' => null,
+        'unique_suffix' => null,
+        'user_data' => null,
+        'version_description' => null,
         'volumes' => null,
         'vpc_id' => null,
         'zone_id' => null
@@ -149,45 +123,32 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'affinity_group_id' => 'AffinityGroupId',
-        'cpu_options' => 'CpuOptions',
-        'cpus' => 'Cpus',
-        'created_at' => 'CreatedAt',
-        'deletion_protection' => 'DeletionProtection',
         'deployment_set_group_number' => 'DeploymentSetGroupNumber',
         'deployment_set_id' => 'DeploymentSetId',
         'description' => 'Description',
-        'eip_address' => 'EipAddress',
-        'elastic_scheduled_instance_type' => 'ElasticScheduledInstanceType',
-        'enable_jumbo_frame' => 'EnableJumboFrame',
-        'expired_at' => 'ExpiredAt',
+        'eip' => 'Eip',
         'host_name' => 'HostName',
-        'hostname' => 'Hostname',
         'hpc_cluster_id' => 'HpcClusterId',
         'image_id' => 'ImageId',
+        'image_name' => 'ImageName',
         'instance_charge_type' => 'InstanceChargeType',
-        'instance_id' => 'InstanceId',
         'instance_name' => 'InstanceName',
         'instance_type_id' => 'InstanceTypeId',
-        'key_pair_id' => 'KeyPairId',
+        'keep_image_credential' => 'KeepImageCredential',
         'key_pair_name' => 'KeyPairName',
-        'local_volumes' => 'LocalVolumes',
-        'memory_size' => 'MemorySize',
-        'metadata_options' => 'MetadataOptions',
+        'launch_template_id' => 'LaunchTemplateId',
+        'launch_template_name' => 'LaunchTemplateName',
         'network_interfaces' => 'NetworkInterfaces',
-        'os_name' => 'OsName',
-        'os_type' => 'OsType',
-        'placement' => 'Placement',
         'project_name' => 'ProjectName',
-        'rdma_ip_addresses' => 'RdmaIpAddresses',
-        'scheduled_instance_id' => 'ScheduledInstanceId',
+        'scheduled_instance' => 'ScheduledInstance',
+        'security_enhancement_strategy' => 'SecurityEnhancementStrategy',
         'spot_price_limit' => 'SpotPriceLimit',
         'spot_strategy' => 'SpotStrategy',
-        'status' => 'Status',
-        'stopped_mode' => 'StoppedMode',
+        'suffix_index' => 'SuffixIndex',
         'tags' => 'Tags',
-        'updated_at' => 'UpdatedAt',
-        'uuid' => 'Uuid',
+        'unique_suffix' => 'UniqueSuffix',
+        'user_data' => 'UserData',
+        'version_description' => 'VersionDescription',
         'volumes' => 'Volumes',
         'vpc_id' => 'VpcId',
         'zone_id' => 'ZoneId'
@@ -199,45 +160,32 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'affinity_group_id' => 'setAffinityGroupId',
-        'cpu_options' => 'setCpuOptions',
-        'cpus' => 'setCpus',
-        'created_at' => 'setCreatedAt',
-        'deletion_protection' => 'setDeletionProtection',
         'deployment_set_group_number' => 'setDeploymentSetGroupNumber',
         'deployment_set_id' => 'setDeploymentSetId',
         'description' => 'setDescription',
-        'eip_address' => 'setEipAddress',
-        'elastic_scheduled_instance_type' => 'setElasticScheduledInstanceType',
-        'enable_jumbo_frame' => 'setEnableJumboFrame',
-        'expired_at' => 'setExpiredAt',
+        'eip' => 'setEip',
         'host_name' => 'setHostName',
-        'hostname' => 'setHostname',
         'hpc_cluster_id' => 'setHpcClusterId',
         'image_id' => 'setImageId',
+        'image_name' => 'setImageName',
         'instance_charge_type' => 'setInstanceChargeType',
-        'instance_id' => 'setInstanceId',
         'instance_name' => 'setInstanceName',
         'instance_type_id' => 'setInstanceTypeId',
-        'key_pair_id' => 'setKeyPairId',
+        'keep_image_credential' => 'setKeepImageCredential',
         'key_pair_name' => 'setKeyPairName',
-        'local_volumes' => 'setLocalVolumes',
-        'memory_size' => 'setMemorySize',
-        'metadata_options' => 'setMetadataOptions',
+        'launch_template_id' => 'setLaunchTemplateId',
+        'launch_template_name' => 'setLaunchTemplateName',
         'network_interfaces' => 'setNetworkInterfaces',
-        'os_name' => 'setOsName',
-        'os_type' => 'setOsType',
-        'placement' => 'setPlacement',
         'project_name' => 'setProjectName',
-        'rdma_ip_addresses' => 'setRdmaIpAddresses',
-        'scheduled_instance_id' => 'setScheduledInstanceId',
+        'scheduled_instance' => 'setScheduledInstance',
+        'security_enhancement_strategy' => 'setSecurityEnhancementStrategy',
         'spot_price_limit' => 'setSpotPriceLimit',
         'spot_strategy' => 'setSpotStrategy',
-        'status' => 'setStatus',
-        'stopped_mode' => 'setStoppedMode',
+        'suffix_index' => 'setSuffixIndex',
         'tags' => 'setTags',
-        'updated_at' => 'setUpdatedAt',
-        'uuid' => 'setUuid',
+        'unique_suffix' => 'setUniqueSuffix',
+        'user_data' => 'setUserData',
+        'version_description' => 'setVersionDescription',
         'volumes' => 'setVolumes',
         'vpc_id' => 'setVpcId',
         'zone_id' => 'setZoneId'
@@ -249,45 +197,32 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'affinity_group_id' => 'getAffinityGroupId',
-        'cpu_options' => 'getCpuOptions',
-        'cpus' => 'getCpus',
-        'created_at' => 'getCreatedAt',
-        'deletion_protection' => 'getDeletionProtection',
         'deployment_set_group_number' => 'getDeploymentSetGroupNumber',
         'deployment_set_id' => 'getDeploymentSetId',
         'description' => 'getDescription',
-        'eip_address' => 'getEipAddress',
-        'elastic_scheduled_instance_type' => 'getElasticScheduledInstanceType',
-        'enable_jumbo_frame' => 'getEnableJumboFrame',
-        'expired_at' => 'getExpiredAt',
+        'eip' => 'getEip',
         'host_name' => 'getHostName',
-        'hostname' => 'getHostname',
         'hpc_cluster_id' => 'getHpcClusterId',
         'image_id' => 'getImageId',
+        'image_name' => 'getImageName',
         'instance_charge_type' => 'getInstanceChargeType',
-        'instance_id' => 'getInstanceId',
         'instance_name' => 'getInstanceName',
         'instance_type_id' => 'getInstanceTypeId',
-        'key_pair_id' => 'getKeyPairId',
+        'keep_image_credential' => 'getKeepImageCredential',
         'key_pair_name' => 'getKeyPairName',
-        'local_volumes' => 'getLocalVolumes',
-        'memory_size' => 'getMemorySize',
-        'metadata_options' => 'getMetadataOptions',
+        'launch_template_id' => 'getLaunchTemplateId',
+        'launch_template_name' => 'getLaunchTemplateName',
         'network_interfaces' => 'getNetworkInterfaces',
-        'os_name' => 'getOsName',
-        'os_type' => 'getOsType',
-        'placement' => 'getPlacement',
         'project_name' => 'getProjectName',
-        'rdma_ip_addresses' => 'getRdmaIpAddresses',
-        'scheduled_instance_id' => 'getScheduledInstanceId',
+        'scheduled_instance' => 'getScheduledInstance',
+        'security_enhancement_strategy' => 'getSecurityEnhancementStrategy',
         'spot_price_limit' => 'getSpotPriceLimit',
         'spot_strategy' => 'getSpotStrategy',
-        'status' => 'getStatus',
-        'stopped_mode' => 'getStoppedMode',
+        'suffix_index' => 'getSuffixIndex',
         'tags' => 'getTags',
-        'updated_at' => 'getUpdatedAt',
-        'uuid' => 'getUuid',
+        'unique_suffix' => 'getUniqueSuffix',
+        'user_data' => 'getUserData',
+        'version_description' => 'getVersionDescription',
         'volumes' => 'getVolumes',
         'vpc_id' => 'getVpcId',
         'zone_id' => 'getZoneId'
@@ -353,45 +288,32 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['affinity_group_id'] = isset($data['affinity_group_id']) ? $data['affinity_group_id'] : null;
-        $this->container['cpu_options'] = isset($data['cpu_options']) ? $data['cpu_options'] : null;
-        $this->container['cpus'] = isset($data['cpus']) ? $data['cpus'] : null;
-        $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
-        $this->container['deletion_protection'] = isset($data['deletion_protection']) ? $data['deletion_protection'] : null;
         $this->container['deployment_set_group_number'] = isset($data['deployment_set_group_number']) ? $data['deployment_set_group_number'] : null;
         $this->container['deployment_set_id'] = isset($data['deployment_set_id']) ? $data['deployment_set_id'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['eip_address'] = isset($data['eip_address']) ? $data['eip_address'] : null;
-        $this->container['elastic_scheduled_instance_type'] = isset($data['elastic_scheduled_instance_type']) ? $data['elastic_scheduled_instance_type'] : null;
-        $this->container['enable_jumbo_frame'] = isset($data['enable_jumbo_frame']) ? $data['enable_jumbo_frame'] : null;
-        $this->container['expired_at'] = isset($data['expired_at']) ? $data['expired_at'] : null;
+        $this->container['eip'] = isset($data['eip']) ? $data['eip'] : null;
         $this->container['host_name'] = isset($data['host_name']) ? $data['host_name'] : null;
-        $this->container['hostname'] = isset($data['hostname']) ? $data['hostname'] : null;
         $this->container['hpc_cluster_id'] = isset($data['hpc_cluster_id']) ? $data['hpc_cluster_id'] : null;
         $this->container['image_id'] = isset($data['image_id']) ? $data['image_id'] : null;
+        $this->container['image_name'] = isset($data['image_name']) ? $data['image_name'] : null;
         $this->container['instance_charge_type'] = isset($data['instance_charge_type']) ? $data['instance_charge_type'] : null;
-        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
         $this->container['instance_name'] = isset($data['instance_name']) ? $data['instance_name'] : null;
         $this->container['instance_type_id'] = isset($data['instance_type_id']) ? $data['instance_type_id'] : null;
-        $this->container['key_pair_id'] = isset($data['key_pair_id']) ? $data['key_pair_id'] : null;
+        $this->container['keep_image_credential'] = isset($data['keep_image_credential']) ? $data['keep_image_credential'] : null;
         $this->container['key_pair_name'] = isset($data['key_pair_name']) ? $data['key_pair_name'] : null;
-        $this->container['local_volumes'] = isset($data['local_volumes']) ? $data['local_volumes'] : null;
-        $this->container['memory_size'] = isset($data['memory_size']) ? $data['memory_size'] : null;
-        $this->container['metadata_options'] = isset($data['metadata_options']) ? $data['metadata_options'] : null;
+        $this->container['launch_template_id'] = isset($data['launch_template_id']) ? $data['launch_template_id'] : null;
+        $this->container['launch_template_name'] = isset($data['launch_template_name']) ? $data['launch_template_name'] : null;
         $this->container['network_interfaces'] = isset($data['network_interfaces']) ? $data['network_interfaces'] : null;
-        $this->container['os_name'] = isset($data['os_name']) ? $data['os_name'] : null;
-        $this->container['os_type'] = isset($data['os_type']) ? $data['os_type'] : null;
-        $this->container['placement'] = isset($data['placement']) ? $data['placement'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
-        $this->container['rdma_ip_addresses'] = isset($data['rdma_ip_addresses']) ? $data['rdma_ip_addresses'] : null;
-        $this->container['scheduled_instance_id'] = isset($data['scheduled_instance_id']) ? $data['scheduled_instance_id'] : null;
+        $this->container['scheduled_instance'] = isset($data['scheduled_instance']) ? $data['scheduled_instance'] : null;
+        $this->container['security_enhancement_strategy'] = isset($data['security_enhancement_strategy']) ? $data['security_enhancement_strategy'] : null;
         $this->container['spot_price_limit'] = isset($data['spot_price_limit']) ? $data['spot_price_limit'] : null;
         $this->container['spot_strategy'] = isset($data['spot_strategy']) ? $data['spot_strategy'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['stopped_mode'] = isset($data['stopped_mode']) ? $data['stopped_mode'] : null;
+        $this->container['suffix_index'] = isset($data['suffix_index']) ? $data['suffix_index'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
-        $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
-        $this->container['uuid'] = isset($data['uuid']) ? $data['uuid'] : null;
+        $this->container['unique_suffix'] = isset($data['unique_suffix']) ? $data['unique_suffix'] : null;
+        $this->container['user_data'] = isset($data['user_data']) ? $data['user_data'] : null;
+        $this->container['version_description'] = isset($data['version_description']) ? $data['version_description'] : null;
         $this->container['volumes'] = isset($data['volumes']) ? $data['volumes'] : null;
         $this->container['vpc_id'] = isset($data['vpc_id']) ? $data['vpc_id'] : null;
         $this->container['zone_id'] = isset($data['zone_id']) ? $data['zone_id'] : null;
@@ -420,126 +342,6 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets affinity_group_id
-     *
-     * @return string
-     */
-    public function getAffinityGroupId()
-    {
-        return $this->container['affinity_group_id'];
-    }
-
-    /**
-     * Sets affinity_group_id
-     *
-     * @param string $affinity_group_id affinity_group_id
-     *
-     * @return $this
-     */
-    public function setAffinityGroupId($affinity_group_id)
-    {
-        $this->container['affinity_group_id'] = $affinity_group_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets cpu_options
-     *
-     * @return \Volcengine\Ecs\Model\CpuOptionsForDescribeInstancesOutput
-     */
-    public function getCpuOptions()
-    {
-        return $this->container['cpu_options'];
-    }
-
-    /**
-     * Sets cpu_options
-     *
-     * @param \Volcengine\Ecs\Model\CpuOptionsForDescribeInstancesOutput $cpu_options cpu_options
-     *
-     * @return $this
-     */
-    public function setCpuOptions($cpu_options)
-    {
-        $this->container['cpu_options'] = $cpu_options;
-
-        return $this;
-    }
-
-    /**
-     * Gets cpus
-     *
-     * @return int
-     */
-    public function getCpus()
-    {
-        return $this->container['cpus'];
-    }
-
-    /**
-     * Sets cpus
-     *
-     * @param int $cpus cpus
-     *
-     * @return $this
-     */
-    public function setCpus($cpus)
-    {
-        $this->container['cpus'] = $cpus;
-
-        return $this;
-    }
-
-    /**
-     * Gets created_at
-     *
-     * @return string
-     */
-    public function getCreatedAt()
-    {
-        return $this->container['created_at'];
-    }
-
-    /**
-     * Sets created_at
-     *
-     * @param string $created_at created_at
-     *
-     * @return $this
-     */
-    public function setCreatedAt($created_at)
-    {
-        $this->container['created_at'] = $created_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets deletion_protection
-     *
-     * @return bool
-     */
-    public function getDeletionProtection()
-    {
-        return $this->container['deletion_protection'];
-    }
-
-    /**
-     * Sets deletion_protection
-     *
-     * @param bool $deletion_protection deletion_protection
-     *
-     * @return $this
-     */
-    public function setDeletionProtection($deletion_protection)
-    {
-        $this->container['deletion_protection'] = $deletion_protection;
-
-        return $this;
-    }
 
     /**
      * Gets deployment_set_group_number
@@ -614,97 +416,25 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets eip_address
+     * Gets eip
      *
-     * @return \Volcengine\Ecs\Model\EipAddressForDescribeInstancesOutput
+     * @return \Volcengine\Ecs\Model\EipForCreateLaunchTemplateVersionInput
      */
-    public function getEipAddress()
+    public function getEip()
     {
-        return $this->container['eip_address'];
+        return $this->container['eip'];
     }
 
     /**
-     * Sets eip_address
+     * Sets eip
      *
-     * @param \Volcengine\Ecs\Model\EipAddressForDescribeInstancesOutput $eip_address eip_address
+     * @param \Volcengine\Ecs\Model\EipForCreateLaunchTemplateVersionInput $eip eip
      *
      * @return $this
      */
-    public function setEipAddress($eip_address)
+    public function setEip($eip)
     {
-        $this->container['eip_address'] = $eip_address;
-
-        return $this;
-    }
-
-    /**
-     * Gets elastic_scheduled_instance_type
-     *
-     * @return string
-     */
-    public function getElasticScheduledInstanceType()
-    {
-        return $this->container['elastic_scheduled_instance_type'];
-    }
-
-    /**
-     * Sets elastic_scheduled_instance_type
-     *
-     * @param string $elastic_scheduled_instance_type elastic_scheduled_instance_type
-     *
-     * @return $this
-     */
-    public function setElasticScheduledInstanceType($elastic_scheduled_instance_type)
-    {
-        $this->container['elastic_scheduled_instance_type'] = $elastic_scheduled_instance_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets enable_jumbo_frame
-     *
-     * @return bool
-     */
-    public function getEnableJumboFrame()
-    {
-        return $this->container['enable_jumbo_frame'];
-    }
-
-    /**
-     * Sets enable_jumbo_frame
-     *
-     * @param bool $enable_jumbo_frame enable_jumbo_frame
-     *
-     * @return $this
-     */
-    public function setEnableJumboFrame($enable_jumbo_frame)
-    {
-        $this->container['enable_jumbo_frame'] = $enable_jumbo_frame;
-
-        return $this;
-    }
-
-    /**
-     * Gets expired_at
-     *
-     * @return string
-     */
-    public function getExpiredAt()
-    {
-        return $this->container['expired_at'];
-    }
-
-    /**
-     * Sets expired_at
-     *
-     * @param string $expired_at expired_at
-     *
-     * @return $this
-     */
-    public function setExpiredAt($expired_at)
-    {
-        $this->container['expired_at'] = $expired_at;
+        $this->container['eip'] = $eip;
 
         return $this;
     }
@@ -729,30 +459,6 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
     public function setHostName($host_name)
     {
         $this->container['host_name'] = $host_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets hostname
-     *
-     * @return string
-     */
-    public function getHostname()
-    {
-        return $this->container['hostname'];
-    }
-
-    /**
-     * Sets hostname
-     *
-     * @param string $hostname hostname
-     *
-     * @return $this
-     */
-    public function setHostname($hostname)
-    {
-        $this->container['hostname'] = $hostname;
 
         return $this;
     }
@@ -806,6 +512,30 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets image_name
+     *
+     * @return string
+     */
+    public function getImageName()
+    {
+        return $this->container['image_name'];
+    }
+
+    /**
+     * Sets image_name
+     *
+     * @param string $image_name image_name
+     *
+     * @return $this
+     */
+    public function setImageName($image_name)
+    {
+        $this->container['image_name'] = $image_name;
+
+        return $this;
+    }
+
+    /**
      * Gets instance_charge_type
      *
      * @return string
@@ -825,30 +555,6 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
     public function setInstanceChargeType($instance_charge_type)
     {
         $this->container['instance_charge_type'] = $instance_charge_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets instance_id
-     *
-     * @return string
-     */
-    public function getInstanceId()
-    {
-        return $this->container['instance_id'];
-    }
-
-    /**
-     * Sets instance_id
-     *
-     * @param string $instance_id instance_id
-     *
-     * @return $this
-     */
-    public function setInstanceId($instance_id)
-    {
-        $this->container['instance_id'] = $instance_id;
 
         return $this;
     }
@@ -902,25 +608,25 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets key_pair_id
+     * Gets keep_image_credential
      *
-     * @return string
+     * @return bool
      */
-    public function getKeyPairId()
+    public function getKeepImageCredential()
     {
-        return $this->container['key_pair_id'];
+        return $this->container['keep_image_credential'];
     }
 
     /**
-     * Sets key_pair_id
+     * Sets keep_image_credential
      *
-     * @param string $key_pair_id key_pair_id
+     * @param bool $keep_image_credential keep_image_credential
      *
      * @return $this
      */
-    public function setKeyPairId($key_pair_id)
+    public function setKeepImageCredential($keep_image_credential)
     {
-        $this->container['key_pair_id'] = $key_pair_id;
+        $this->container['keep_image_credential'] = $keep_image_credential;
 
         return $this;
     }
@@ -950,73 +656,49 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets local_volumes
+     * Gets launch_template_id
      *
-     * @return \Volcengine\Ecs\Model\LocalVolumeForDescribeInstancesOutput[]
+     * @return string
      */
-    public function getLocalVolumes()
+    public function getLaunchTemplateId()
     {
-        return $this->container['local_volumes'];
+        return $this->container['launch_template_id'];
     }
 
     /**
-     * Sets local_volumes
+     * Sets launch_template_id
      *
-     * @param \Volcengine\Ecs\Model\LocalVolumeForDescribeInstancesOutput[] $local_volumes local_volumes
+     * @param string $launch_template_id launch_template_id
      *
      * @return $this
      */
-    public function setLocalVolumes($local_volumes)
+    public function setLaunchTemplateId($launch_template_id)
     {
-        $this->container['local_volumes'] = $local_volumes;
+        $this->container['launch_template_id'] = $launch_template_id;
 
         return $this;
     }
 
     /**
-     * Gets memory_size
+     * Gets launch_template_name
      *
-     * @return int
+     * @return string
      */
-    public function getMemorySize()
+    public function getLaunchTemplateName()
     {
-        return $this->container['memory_size'];
+        return $this->container['launch_template_name'];
     }
 
     /**
-     * Sets memory_size
+     * Sets launch_template_name
      *
-     * @param int $memory_size memory_size
+     * @param string $launch_template_name launch_template_name
      *
      * @return $this
      */
-    public function setMemorySize($memory_size)
+    public function setLaunchTemplateName($launch_template_name)
     {
-        $this->container['memory_size'] = $memory_size;
-
-        return $this;
-    }
-
-    /**
-     * Gets metadata_options
-     *
-     * @return \Volcengine\Ecs\Model\MetadataOptionsForDescribeInstancesOutput
-     */
-    public function getMetadataOptions()
-    {
-        return $this->container['metadata_options'];
-    }
-
-    /**
-     * Sets metadata_options
-     *
-     * @param \Volcengine\Ecs\Model\MetadataOptionsForDescribeInstancesOutput $metadata_options metadata_options
-     *
-     * @return $this
-     */
-    public function setMetadataOptions($metadata_options)
-    {
-        $this->container['metadata_options'] = $metadata_options;
+        $this->container['launch_template_name'] = $launch_template_name;
 
         return $this;
     }
@@ -1024,7 +706,7 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
     /**
      * Gets network_interfaces
      *
-     * @return \Volcengine\Ecs\Model\NetworkInterfaceForDescribeInstancesOutput[]
+     * @return \Volcengine\Ecs\Model\NetworkInterfaceForCreateLaunchTemplateVersionInput[]
      */
     public function getNetworkInterfaces()
     {
@@ -1034,85 +716,13 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
     /**
      * Sets network_interfaces
      *
-     * @param \Volcengine\Ecs\Model\NetworkInterfaceForDescribeInstancesOutput[] $network_interfaces network_interfaces
+     * @param \Volcengine\Ecs\Model\NetworkInterfaceForCreateLaunchTemplateVersionInput[] $network_interfaces network_interfaces
      *
      * @return $this
      */
     public function setNetworkInterfaces($network_interfaces)
     {
         $this->container['network_interfaces'] = $network_interfaces;
-
-        return $this;
-    }
-
-    /**
-     * Gets os_name
-     *
-     * @return string
-     */
-    public function getOsName()
-    {
-        return $this->container['os_name'];
-    }
-
-    /**
-     * Sets os_name
-     *
-     * @param string $os_name os_name
-     *
-     * @return $this
-     */
-    public function setOsName($os_name)
-    {
-        $this->container['os_name'] = $os_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets os_type
-     *
-     * @return string
-     */
-    public function getOsType()
-    {
-        return $this->container['os_type'];
-    }
-
-    /**
-     * Sets os_type
-     *
-     * @param string $os_type os_type
-     *
-     * @return $this
-     */
-    public function setOsType($os_type)
-    {
-        $this->container['os_type'] = $os_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets placement
-     *
-     * @return \Volcengine\Ecs\Model\PlacementForDescribeInstancesOutput
-     */
-    public function getPlacement()
-    {
-        return $this->container['placement'];
-    }
-
-    /**
-     * Sets placement
-     *
-     * @param \Volcengine\Ecs\Model\PlacementForDescribeInstancesOutput $placement placement
-     *
-     * @return $this
-     */
-    public function setPlacement($placement)
-    {
-        $this->container['placement'] = $placement;
 
         return $this;
     }
@@ -1142,49 +752,49 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets rdma_ip_addresses
+     * Gets scheduled_instance
      *
-     * @return string[]
+     * @return \Volcengine\Ecs\Model\ScheduledInstanceForCreateLaunchTemplateVersionInput
      */
-    public function getRdmaIpAddresses()
+    public function getScheduledInstance()
     {
-        return $this->container['rdma_ip_addresses'];
+        return $this->container['scheduled_instance'];
     }
 
     /**
-     * Sets rdma_ip_addresses
+     * Sets scheduled_instance
      *
-     * @param string[] $rdma_ip_addresses rdma_ip_addresses
+     * @param \Volcengine\Ecs\Model\ScheduledInstanceForCreateLaunchTemplateVersionInput $scheduled_instance scheduled_instance
      *
      * @return $this
      */
-    public function setRdmaIpAddresses($rdma_ip_addresses)
+    public function setScheduledInstance($scheduled_instance)
     {
-        $this->container['rdma_ip_addresses'] = $rdma_ip_addresses;
+        $this->container['scheduled_instance'] = $scheduled_instance;
 
         return $this;
     }
 
     /**
-     * Gets scheduled_instance_id
+     * Gets security_enhancement_strategy
      *
      * @return string
      */
-    public function getScheduledInstanceId()
+    public function getSecurityEnhancementStrategy()
     {
-        return $this->container['scheduled_instance_id'];
+        return $this->container['security_enhancement_strategy'];
     }
 
     /**
-     * Sets scheduled_instance_id
+     * Sets security_enhancement_strategy
      *
-     * @param string $scheduled_instance_id scheduled_instance_id
+     * @param string $security_enhancement_strategy security_enhancement_strategy
      *
      * @return $this
      */
-    public function setScheduledInstanceId($scheduled_instance_id)
+    public function setSecurityEnhancementStrategy($security_enhancement_strategy)
     {
-        $this->container['scheduled_instance_id'] = $scheduled_instance_id;
+        $this->container['security_enhancement_strategy'] = $security_enhancement_strategy;
 
         return $this;
     }
@@ -1238,49 +848,25 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets status
+     * Gets suffix_index
      *
-     * @return string
+     * @return int
      */
-    public function getStatus()
+    public function getSuffixIndex()
     {
-        return $this->container['status'];
+        return $this->container['suffix_index'];
     }
 
     /**
-     * Sets status
+     * Sets suffix_index
      *
-     * @param string $status status
+     * @param int $suffix_index suffix_index
      *
      * @return $this
      */
-    public function setStatus($status)
+    public function setSuffixIndex($suffix_index)
     {
-        $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
-     * Gets stopped_mode
-     *
-     * @return string
-     */
-    public function getStoppedMode()
-    {
-        return $this->container['stopped_mode'];
-    }
-
-    /**
-     * Sets stopped_mode
-     *
-     * @param string $stopped_mode stopped_mode
-     *
-     * @return $this
-     */
-    public function setStoppedMode($stopped_mode)
-    {
-        $this->container['stopped_mode'] = $stopped_mode;
+        $this->container['suffix_index'] = $suffix_index;
 
         return $this;
     }
@@ -1288,7 +874,7 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
     /**
      * Gets tags
      *
-     * @return \Volcengine\Ecs\Model\TagForDescribeInstancesOutput[]
+     * @return \Volcengine\Ecs\Model\TagForCreateLaunchTemplateVersionInput[]
      */
     public function getTags()
     {
@@ -1298,7 +884,7 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
     /**
      * Sets tags
      *
-     * @param \Volcengine\Ecs\Model\TagForDescribeInstancesOutput[] $tags tags
+     * @param \Volcengine\Ecs\Model\TagForCreateLaunchTemplateVersionInput[] $tags tags
      *
      * @return $this
      */
@@ -1310,49 +896,73 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets updated_at
+     * Gets unique_suffix
      *
-     * @return string
+     * @return bool
      */
-    public function getUpdatedAt()
+    public function getUniqueSuffix()
     {
-        return $this->container['updated_at'];
+        return $this->container['unique_suffix'];
     }
 
     /**
-     * Sets updated_at
+     * Sets unique_suffix
      *
-     * @param string $updated_at updated_at
+     * @param bool $unique_suffix unique_suffix
      *
      * @return $this
      */
-    public function setUpdatedAt($updated_at)
+    public function setUniqueSuffix($unique_suffix)
     {
-        $this->container['updated_at'] = $updated_at;
+        $this->container['unique_suffix'] = $unique_suffix;
 
         return $this;
     }
 
     /**
-     * Gets uuid
+     * Gets user_data
      *
      * @return string
      */
-    public function getUuid()
+    public function getUserData()
     {
-        return $this->container['uuid'];
+        return $this->container['user_data'];
     }
 
     /**
-     * Sets uuid
+     * Sets user_data
      *
-     * @param string $uuid uuid
+     * @param string $user_data user_data
      *
      * @return $this
      */
-    public function setUuid($uuid)
+    public function setUserData($user_data)
     {
-        $this->container['uuid'] = $uuid;
+        $this->container['user_data'] = $user_data;
+
+        return $this;
+    }
+
+    /**
+     * Gets version_description
+     *
+     * @return string
+     */
+    public function getVersionDescription()
+    {
+        return $this->container['version_description'];
+    }
+
+    /**
+     * Sets version_description
+     *
+     * @param string $version_description version_description
+     *
+     * @return $this
+     */
+    public function setVersionDescription($version_description)
+    {
+        $this->container['version_description'] = $version_description;
 
         return $this;
     }
@@ -1360,7 +970,7 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
     /**
      * Gets volumes
      *
-     * @return \Volcengine\Ecs\Model\VolumeForDescribeInstancesOutput[]
+     * @return \Volcengine\Ecs\Model\VolumeForCreateLaunchTemplateVersionInput[]
      */
     public function getVolumes()
     {
@@ -1370,7 +980,7 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
     /**
      * Sets volumes
      *
-     * @param \Volcengine\Ecs\Model\VolumeForDescribeInstancesOutput[] $volumes volumes
+     * @param \Volcengine\Ecs\Model\VolumeForCreateLaunchTemplateVersionInput[] $volumes volumes
      *
      * @return $this
      */

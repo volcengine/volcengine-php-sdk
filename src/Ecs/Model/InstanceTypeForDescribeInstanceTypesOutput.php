@@ -35,6 +35,7 @@ class InstanceTypeForDescribeInstanceTypesOutput implements ModelInterface, Arra
         'instance_type_family' => 'string',
         'instance_type_id' => 'string',
         'is_support_affinity_group' => 'bool',
+        'is_support_jumbo_frame' => 'bool',
         'local_volumes' => '\Volcengine\Ecs\Model\LocalVolumeForDescribeInstanceTypesOutput[]',
         'memory' => '\Volcengine\Ecs\Model\MemoryForDescribeInstanceTypesOutput',
         'network' => '\Volcengine\Ecs\Model\NetworkForDescribeInstanceTypesOutput',
@@ -56,6 +57,7 @@ class InstanceTypeForDescribeInstanceTypesOutput implements ModelInterface, Arra
         'instance_type_family' => null,
         'instance_type_id' => null,
         'is_support_affinity_group' => null,
+        'is_support_jumbo_frame' => null,
         'local_volumes' => null,
         'memory' => null,
         'network' => null,
@@ -98,6 +100,7 @@ class InstanceTypeForDescribeInstanceTypesOutput implements ModelInterface, Arra
         'instance_type_family' => 'InstanceTypeFamily',
         'instance_type_id' => 'InstanceTypeId',
         'is_support_affinity_group' => 'IsSupportAffinityGroup',
+        'is_support_jumbo_frame' => 'IsSupportJumboFrame',
         'local_volumes' => 'LocalVolumes',
         'memory' => 'Memory',
         'network' => 'Network',
@@ -119,6 +122,7 @@ class InstanceTypeForDescribeInstanceTypesOutput implements ModelInterface, Arra
         'instance_type_family' => 'setInstanceTypeFamily',
         'instance_type_id' => 'setInstanceTypeId',
         'is_support_affinity_group' => 'setIsSupportAffinityGroup',
+        'is_support_jumbo_frame' => 'setIsSupportJumboFrame',
         'local_volumes' => 'setLocalVolumes',
         'memory' => 'setMemory',
         'network' => 'setNetwork',
@@ -140,6 +144,7 @@ class InstanceTypeForDescribeInstanceTypesOutput implements ModelInterface, Arra
         'instance_type_family' => 'getInstanceTypeFamily',
         'instance_type_id' => 'getInstanceTypeId',
         'is_support_affinity_group' => 'getIsSupportAffinityGroup',
+        'is_support_jumbo_frame' => 'getIsSupportJumboFrame',
         'local_volumes' => 'getLocalVolumes',
         'memory' => 'getMemory',
         'network' => 'getNetwork',
@@ -215,6 +220,7 @@ class InstanceTypeForDescribeInstanceTypesOutput implements ModelInterface, Arra
         $this->container['instance_type_family'] = isset($data['instance_type_family']) ? $data['instance_type_family'] : null;
         $this->container['instance_type_id'] = isset($data['instance_type_id']) ? $data['instance_type_id'] : null;
         $this->container['is_support_affinity_group'] = isset($data['is_support_affinity_group']) ? $data['is_support_affinity_group'] : null;
+        $this->container['is_support_jumbo_frame'] = isset($data['is_support_jumbo_frame']) ? $data['is_support_jumbo_frame'] : null;
         $this->container['local_volumes'] = isset($data['local_volumes']) ? $data['local_volumes'] : null;
         $this->container['memory'] = isset($data['memory']) ? $data['memory'] : null;
         $this->container['network'] = isset($data['network']) ? $data['network'] : null;
@@ -411,6 +417,30 @@ class InstanceTypeForDescribeInstanceTypesOutput implements ModelInterface, Arra
     public function setIsSupportAffinityGroup($is_support_affinity_group)
     {
         $this->container['is_support_affinity_group'] = $is_support_affinity_group;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_support_jumbo_frame
+     *
+     * @return bool
+     */
+    public function getIsSupportJumboFrame()
+    {
+        return $this->container['is_support_jumbo_frame'];
+    }
+
+    /**
+     * Sets is_support_jumbo_frame
+     *
+     * @param bool $is_support_jumbo_frame is_support_jumbo_frame
+     *
+     * @return $this
+     */
+    public function setIsSupportJumboFrame($is_support_jumbo_frame)
+    {
+        $this->container['is_support_jumbo_frame'] = $is_support_jumbo_frame;
 
         return $this;
     }
