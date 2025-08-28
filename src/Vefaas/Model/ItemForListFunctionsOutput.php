@@ -50,7 +50,9 @@ class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
         'port' => 'int',
         'project_name' => 'string',
         'request_timeout' => 'int',
+        'role' => 'string',
         'runtime' => 'string',
+        'source' => 'string',
         'source_location' => 'string',
         'source_type' => 'string',
         'tags' => '\Volcengine\Vefaas\Model\TagForListFunctionsOutput[]',
@@ -88,7 +90,9 @@ class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
         'port' => 'int32',
         'project_name' => null,
         'request_timeout' => 'int32',
+        'role' => null,
         'runtime' => null,
+        'source' => null,
         'source_location' => null,
         'source_type' => null,
         'tags' => null,
@@ -147,7 +151,9 @@ class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
         'port' => 'Port',
         'project_name' => 'ProjectName',
         'request_timeout' => 'RequestTimeout',
+        'role' => 'Role',
         'runtime' => 'Runtime',
+        'source' => 'Source',
         'source_location' => 'SourceLocation',
         'source_type' => 'SourceType',
         'tags' => 'Tags',
@@ -185,7 +191,9 @@ class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
         'port' => 'setPort',
         'project_name' => 'setProjectName',
         'request_timeout' => 'setRequestTimeout',
+        'role' => 'setRole',
         'runtime' => 'setRuntime',
+        'source' => 'setSource',
         'source_location' => 'setSourceLocation',
         'source_type' => 'setSourceType',
         'tags' => 'setTags',
@@ -223,7 +231,9 @@ class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
         'port' => 'getPort',
         'project_name' => 'getProjectName',
         'request_timeout' => 'getRequestTimeout',
+        'role' => 'getRole',
         'runtime' => 'getRuntime',
+        'source' => 'getSource',
         'source_location' => 'getSourceLocation',
         'source_type' => 'getSourceType',
         'tags' => 'getTags',
@@ -315,7 +325,9 @@ class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
         $this->container['port'] = isset($data['port']) ? $data['port'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['request_timeout'] = isset($data['request_timeout']) ? $data['request_timeout'] : null;
+        $this->container['role'] = isset($data['role']) ? $data['role'] : null;
         $this->container['runtime'] = isset($data['runtime']) ? $data['runtime'] : null;
+        $this->container['source'] = isset($data['source']) ? $data['source'] : null;
         $this->container['source_location'] = isset($data['source_location']) ? $data['source_location'] : null;
         $this->container['source_type'] = isset($data['source_type']) ? $data['source_type'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
@@ -878,6 +890,30 @@ class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets role
+     *
+     * @return string
+     */
+    public function getRole()
+    {
+        return $this->container['role'];
+    }
+
+    /**
+     * Sets role
+     *
+     * @param string $role role
+     *
+     * @return $this
+     */
+    public function setRole($role)
+    {
+        $this->container['role'] = $role;
+
+        return $this;
+    }
+
+    /**
      * Gets runtime
      *
      * @return string
@@ -897,6 +933,30 @@ class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
     public function setRuntime($runtime)
     {
         $this->container['runtime'] = $runtime;
+
+        return $this;
+    }
+
+    /**
+     * Gets source
+     *
+     * @return string
+     */
+    public function getSource()
+    {
+        return $this->container['source'];
+    }
+
+    /**
+     * Sets source
+     *
+     * @param string $source source
+     *
+     * @return $this
+     */
+    public function setSource($source)
+    {
+        $this->container['source'] = $source;
 
         return $this;
     }

@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAccess
+class GetRocketMQTriggerRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetDependencyInstallTaskStatusResponse';
+    protected static $swaggerModelName = 'GetRocketMQTriggerRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,8 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'create_time' => 'string',
-        'finish_time' => 'string',
         'function_id' => 'string',
-        'status' => 'string'
+        'id' => 'string'
     ];
 
     /**
@@ -40,10 +38,8 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'create_time' => null,
-        'finish_time' => null,
         'function_id' => null,
-        'status' => null
+        'id' => null
     ];
 
     /**
@@ -73,10 +69,8 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $attributeMap = [
-        'create_time' => 'CreateTime',
-        'finish_time' => 'FinishTime',
         'function_id' => 'FunctionId',
-        'status' => 'Status'
+        'id' => 'Id'
     ];
 
     /**
@@ -85,10 +79,8 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $setters = [
-        'create_time' => 'setCreateTime',
-        'finish_time' => 'setFinishTime',
         'function_id' => 'setFunctionId',
-        'status' => 'setStatus'
+        'id' => 'setId'
     ];
 
     /**
@@ -97,10 +89,8 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $getters = [
-        'create_time' => 'getCreateTime',
-        'finish_time' => 'getFinishTime',
         'function_id' => 'getFunctionId',
-        'status' => 'getStatus'
+        'id' => 'getId'
     ];
 
     /**
@@ -163,10 +153,8 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
      */
     public function __construct(array $data = null)
     {
-        $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
-        $this->container['finish_time'] = isset($data['finish_time']) ? $data['finish_time'] : null;
         $this->container['function_id'] = isset($data['function_id']) ? $data['function_id'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
     }
 
     /**
@@ -178,6 +166,12 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
     {
         $invalidProperties = [];
 
+        if ($this->container['function_id'] === null) {
+            $invalidProperties[] = "'function_id' can't be null";
+        }
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -192,54 +186,6 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets create_time
-     *
-     * @return string
-     */
-    public function getCreateTime()
-    {
-        return $this->container['create_time'];
-    }
-
-    /**
-     * Sets create_time
-     *
-     * @param string $create_time create_time
-     *
-     * @return $this
-     */
-    public function setCreateTime($create_time)
-    {
-        $this->container['create_time'] = $create_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets finish_time
-     *
-     * @return string
-     */
-    public function getFinishTime()
-    {
-        return $this->container['finish_time'];
-    }
-
-    /**
-     * Sets finish_time
-     *
-     * @param string $finish_time finish_time
-     *
-     * @return $this
-     */
-    public function setFinishTime($finish_time)
-    {
-        $this->container['finish_time'] = $finish_time;
-
-        return $this;
-    }
 
     /**
      * Gets function_id
@@ -266,25 +212,25 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
     }
 
     /**
-     * Gets status
+     * Gets id
      *
      * @return string
      */
-    public function getStatus()
+    public function getId()
     {
-        return $this->container['status'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets status
+     * Sets id
      *
-     * @param string $status status
+     * @param string $id id
      *
      * @return $this
      */
-    public function setStatus($status)
+    public function setId($id)
     {
-        $this->container['status'] = $status;
+        $this->container['id'] = $id;
 
         return $this;
     }

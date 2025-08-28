@@ -29,10 +29,12 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'function_id' => 'string',
+        'image_url' => 'string',
         'metadata' => 'map[string,string]',
         'page_number' => 'int',
         'page_size' => 'int',
-        'sandbox_id' => 'string'
+        'sandbox_id' => 'string',
+        'status' => 'string'
     ];
 
     /**
@@ -42,10 +44,12 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'function_id' => null,
+        'image_url' => null,
         'metadata' => null,
         'page_number' => 'int32',
         'page_size' => 'int32',
-        'sandbox_id' => null
+        'sandbox_id' => null,
+        'status' => null
     ];
 
     /**
@@ -76,10 +80,12 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'function_id' => 'FunctionId',
+        'image_url' => 'ImageUrl',
         'metadata' => 'Metadata',
         'page_number' => 'PageNumber',
         'page_size' => 'PageSize',
-        'sandbox_id' => 'SandboxId'
+        'sandbox_id' => 'SandboxId',
+        'status' => 'Status'
     ];
 
     /**
@@ -89,10 +95,12 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'function_id' => 'setFunctionId',
+        'image_url' => 'setImageUrl',
         'metadata' => 'setMetadata',
         'page_number' => 'setPageNumber',
         'page_size' => 'setPageSize',
-        'sandbox_id' => 'setSandboxId'
+        'sandbox_id' => 'setSandboxId',
+        'status' => 'setStatus'
     ];
 
     /**
@@ -102,10 +110,12 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'function_id' => 'getFunctionId',
+        'image_url' => 'getImageUrl',
         'metadata' => 'getMetadata',
         'page_number' => 'getPageNumber',
         'page_size' => 'getPageSize',
-        'sandbox_id' => 'getSandboxId'
+        'sandbox_id' => 'getSandboxId',
+        'status' => 'getStatus'
     ];
 
     /**
@@ -169,10 +179,12 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['function_id'] = isset($data['function_id']) ? $data['function_id'] : null;
+        $this->container['image_url'] = isset($data['image_url']) ? $data['image_url'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
         $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
         $this->container['sandbox_id'] = isset($data['sandbox_id']) ? $data['sandbox_id'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }
 
     /**
@@ -222,6 +234,30 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
     public function setFunctionId($function_id)
     {
         $this->container['function_id'] = $function_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets image_url
+     *
+     * @return string
+     */
+    public function getImageUrl()
+    {
+        return $this->container['image_url'];
+    }
+
+    /**
+     * Sets image_url
+     *
+     * @param string $image_url image_url
+     *
+     * @return $this
+     */
+    public function setImageUrl($image_url)
+    {
+        $this->container['image_url'] = $image_url;
 
         return $this;
     }
@@ -318,6 +354,30 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
     public function setSandboxId($sandbox_id)
     {
         $this->container['sandbox_id'] = $sandbox_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param string $status status
+     *
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $this->container['status'] = $status;
 
         return $this;
     }

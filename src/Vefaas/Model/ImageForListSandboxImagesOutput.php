@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAccess
+class ImageForListSandboxImagesOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetDependencyInstallTaskStatusResponse';
+    protected static $swaggerModelName = 'ImageForListSandboxImagesOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,12 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'create_time' => 'string',
-        'finish_time' => 'string',
-        'function_id' => 'string',
-        'status' => 'string'
+        'image_group' => 'string',
+        'image_id' => 'string',
+        'image_url' => 'string',
+        'precache_status' => 'string',
+        'related_sandbox_applications' => 'string[]',
+        'update_time' => 'string'
     ];
 
     /**
@@ -40,10 +42,12 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'create_time' => null,
-        'finish_time' => null,
-        'function_id' => null,
-        'status' => null
+        'image_group' => null,
+        'image_id' => null,
+        'image_url' => null,
+        'precache_status' => null,
+        'related_sandbox_applications' => null,
+        'update_time' => null
     ];
 
     /**
@@ -73,10 +77,12 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $attributeMap = [
-        'create_time' => 'CreateTime',
-        'finish_time' => 'FinishTime',
-        'function_id' => 'FunctionId',
-        'status' => 'Status'
+        'image_group' => 'ImageGroup',
+        'image_id' => 'ImageId',
+        'image_url' => 'ImageUrl',
+        'precache_status' => 'PrecacheStatus',
+        'related_sandbox_applications' => 'RelatedSandboxApplications',
+        'update_time' => 'UpdateTime'
     ];
 
     /**
@@ -85,10 +91,12 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $setters = [
-        'create_time' => 'setCreateTime',
-        'finish_time' => 'setFinishTime',
-        'function_id' => 'setFunctionId',
-        'status' => 'setStatus'
+        'image_group' => 'setImageGroup',
+        'image_id' => 'setImageId',
+        'image_url' => 'setImageUrl',
+        'precache_status' => 'setPrecacheStatus',
+        'related_sandbox_applications' => 'setRelatedSandboxApplications',
+        'update_time' => 'setUpdateTime'
     ];
 
     /**
@@ -97,10 +105,12 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $getters = [
-        'create_time' => 'getCreateTime',
-        'finish_time' => 'getFinishTime',
-        'function_id' => 'getFunctionId',
-        'status' => 'getStatus'
+        'image_group' => 'getImageGroup',
+        'image_id' => 'getImageId',
+        'image_url' => 'getImageUrl',
+        'precache_status' => 'getPrecacheStatus',
+        'related_sandbox_applications' => 'getRelatedSandboxApplications',
+        'update_time' => 'getUpdateTime'
     ];
 
     /**
@@ -163,10 +173,12 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
      */
     public function __construct(array $data = null)
     {
-        $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
-        $this->container['finish_time'] = isset($data['finish_time']) ? $data['finish_time'] : null;
-        $this->container['function_id'] = isset($data['function_id']) ? $data['function_id'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['image_group'] = isset($data['image_group']) ? $data['image_group'] : null;
+        $this->container['image_id'] = isset($data['image_id']) ? $data['image_id'] : null;
+        $this->container['image_url'] = isset($data['image_url']) ? $data['image_url'] : null;
+        $this->container['precache_status'] = isset($data['precache_status']) ? $data['precache_status'] : null;
+        $this->container['related_sandbox_applications'] = isset($data['related_sandbox_applications']) ? $data['related_sandbox_applications'] : null;
+        $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
     }
 
     /**
@@ -194,97 +206,145 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
 
 
     /**
-     * Gets create_time
+     * Gets image_group
      *
      * @return string
      */
-    public function getCreateTime()
+    public function getImageGroup()
     {
-        return $this->container['create_time'];
+        return $this->container['image_group'];
     }
 
     /**
-     * Sets create_time
+     * Sets image_group
      *
-     * @param string $create_time create_time
+     * @param string $image_group image_group
      *
      * @return $this
      */
-    public function setCreateTime($create_time)
+    public function setImageGroup($image_group)
     {
-        $this->container['create_time'] = $create_time;
+        $this->container['image_group'] = $image_group;
 
         return $this;
     }
 
     /**
-     * Gets finish_time
+     * Gets image_id
      *
      * @return string
      */
-    public function getFinishTime()
+    public function getImageId()
     {
-        return $this->container['finish_time'];
+        return $this->container['image_id'];
     }
 
     /**
-     * Sets finish_time
+     * Sets image_id
      *
-     * @param string $finish_time finish_time
+     * @param string $image_id image_id
      *
      * @return $this
      */
-    public function setFinishTime($finish_time)
+    public function setImageId($image_id)
     {
-        $this->container['finish_time'] = $finish_time;
+        $this->container['image_id'] = $image_id;
 
         return $this;
     }
 
     /**
-     * Gets function_id
+     * Gets image_url
      *
      * @return string
      */
-    public function getFunctionId()
+    public function getImageUrl()
     {
-        return $this->container['function_id'];
+        return $this->container['image_url'];
     }
 
     /**
-     * Sets function_id
+     * Sets image_url
      *
-     * @param string $function_id function_id
+     * @param string $image_url image_url
      *
      * @return $this
      */
-    public function setFunctionId($function_id)
+    public function setImageUrl($image_url)
     {
-        $this->container['function_id'] = $function_id;
+        $this->container['image_url'] = $image_url;
 
         return $this;
     }
 
     /**
-     * Gets status
+     * Gets precache_status
      *
      * @return string
      */
-    public function getStatus()
+    public function getPrecacheStatus()
     {
-        return $this->container['status'];
+        return $this->container['precache_status'];
     }
 
     /**
-     * Sets status
+     * Sets precache_status
      *
-     * @param string $status status
+     * @param string $precache_status precache_status
      *
      * @return $this
      */
-    public function setStatus($status)
+    public function setPrecacheStatus($precache_status)
     {
-        $this->container['status'] = $status;
+        $this->container['precache_status'] = $precache_status;
+
+        return $this;
+    }
+
+    /**
+     * Gets related_sandbox_applications
+     *
+     * @return string[]
+     */
+    public function getRelatedSandboxApplications()
+    {
+        return $this->container['related_sandbox_applications'];
+    }
+
+    /**
+     * Sets related_sandbox_applications
+     *
+     * @param string[] $related_sandbox_applications related_sandbox_applications
+     *
+     * @return $this
+     */
+    public function setRelatedSandboxApplications($related_sandbox_applications)
+    {
+        $this->container['related_sandbox_applications'] = $related_sandbox_applications;
+
+        return $this;
+    }
+
+    /**
+     * Gets update_time
+     *
+     * @return string
+     */
+    public function getUpdateTime()
+    {
+        return $this->container['update_time'];
+    }
+
+    /**
+     * Sets update_time
+     *
+     * @param string $update_time update_time
+     *
+     * @return $this
+     */
+    public function setUpdateTime($update_time)
+    {
+        $this->container['update_time'] = $update_time;
 
         return $this;
     }

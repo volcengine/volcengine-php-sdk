@@ -48,6 +48,7 @@ class ItemForListRevisionsOutput implements ModelInterface, ArrayAccess
         'revision_creation_time' => 'string',
         'revision_description' => 'string',
         'revision_number' => 'int',
+        'role' => 'string',
         'runtime' => 'string',
         'source' => 'string',
         'source_location' => 'string',
@@ -83,6 +84,7 @@ class ItemForListRevisionsOutput implements ModelInterface, ArrayAccess
         'revision_creation_time' => null,
         'revision_description' => null,
         'revision_number' => 'int32',
+        'role' => null,
         'runtime' => null,
         'source' => null,
         'source_location' => null,
@@ -139,6 +141,7 @@ class ItemForListRevisionsOutput implements ModelInterface, ArrayAccess
         'revision_creation_time' => 'RevisionCreationTime',
         'revision_description' => 'RevisionDescription',
         'revision_number' => 'RevisionNumber',
+        'role' => 'Role',
         'runtime' => 'Runtime',
         'source' => 'Source',
         'source_location' => 'SourceLocation',
@@ -174,6 +177,7 @@ class ItemForListRevisionsOutput implements ModelInterface, ArrayAccess
         'revision_creation_time' => 'setRevisionCreationTime',
         'revision_description' => 'setRevisionDescription',
         'revision_number' => 'setRevisionNumber',
+        'role' => 'setRole',
         'runtime' => 'setRuntime',
         'source' => 'setSource',
         'source_location' => 'setSourceLocation',
@@ -209,6 +213,7 @@ class ItemForListRevisionsOutput implements ModelInterface, ArrayAccess
         'revision_creation_time' => 'getRevisionCreationTime',
         'revision_description' => 'getRevisionDescription',
         'revision_number' => 'getRevisionNumber',
+        'role' => 'getRole',
         'runtime' => 'getRuntime',
         'source' => 'getSource',
         'source_location' => 'getSourceLocation',
@@ -298,6 +303,7 @@ class ItemForListRevisionsOutput implements ModelInterface, ArrayAccess
         $this->container['revision_creation_time'] = isset($data['revision_creation_time']) ? $data['revision_creation_time'] : null;
         $this->container['revision_description'] = isset($data['revision_description']) ? $data['revision_description'] : null;
         $this->container['revision_number'] = isset($data['revision_number']) ? $data['revision_number'] : null;
+        $this->container['role'] = isset($data['role']) ? $data['role'] : null;
         $this->container['runtime'] = isset($data['runtime']) ? $data['runtime'] : null;
         $this->container['source'] = isset($data['source']) ? $data['source'] : null;
         $this->container['source_location'] = isset($data['source_location']) ? $data['source_location'] : null;
@@ -807,6 +813,30 @@ class ItemForListRevisionsOutput implements ModelInterface, ArrayAccess
     public function setRevisionNumber($revision_number)
     {
         $this->container['revision_number'] = $revision_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets role
+     *
+     * @return string
+     */
+    public function getRole()
+    {
+        return $this->container['role'];
+    }
+
+    /**
+     * Sets role
+     *
+     * @param string $role role
+     *
+     * @return $this
+     */
+    public function setRole($role)
+    {
+        $this->container['role'] = $role;
 
         return $this;
     }

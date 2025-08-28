@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAccess
+class GetFunctionResourceResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetDependencyInstallTaskStatusResponse';
+    protected static $swaggerModelName = 'GetFunctionResourceResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,8 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'create_time' => 'string',
-        'finish_time' => 'string',
-        'function_id' => 'string',
-        'status' => 'string'
+        'account_resource' => '\Volcengine\Vefaas\Model\AccountResourceForGetFunctionResourceOutput',
+        'function_resource' => '\Volcengine\Vefaas\Model\FunctionResourceForGetFunctionResourceOutput'
     ];
 
     /**
@@ -40,10 +38,8 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'create_time' => null,
-        'finish_time' => null,
-        'function_id' => null,
-        'status' => null
+        'account_resource' => null,
+        'function_resource' => null
     ];
 
     /**
@@ -73,10 +69,8 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $attributeMap = [
-        'create_time' => 'CreateTime',
-        'finish_time' => 'FinishTime',
-        'function_id' => 'FunctionId',
-        'status' => 'Status'
+        'account_resource' => 'AccountResource',
+        'function_resource' => 'FunctionResource'
     ];
 
     /**
@@ -85,10 +79,8 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $setters = [
-        'create_time' => 'setCreateTime',
-        'finish_time' => 'setFinishTime',
-        'function_id' => 'setFunctionId',
-        'status' => 'setStatus'
+        'account_resource' => 'setAccountResource',
+        'function_resource' => 'setFunctionResource'
     ];
 
     /**
@@ -97,10 +89,8 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $getters = [
-        'create_time' => 'getCreateTime',
-        'finish_time' => 'getFinishTime',
-        'function_id' => 'getFunctionId',
-        'status' => 'getStatus'
+        'account_resource' => 'getAccountResource',
+        'function_resource' => 'getFunctionResource'
     ];
 
     /**
@@ -163,10 +153,8 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
      */
     public function __construct(array $data = null)
     {
-        $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
-        $this->container['finish_time'] = isset($data['finish_time']) ? $data['finish_time'] : null;
-        $this->container['function_id'] = isset($data['function_id']) ? $data['function_id'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['account_resource'] = isset($data['account_resource']) ? $data['account_resource'] : null;
+        $this->container['function_resource'] = isset($data['function_resource']) ? $data['function_resource'] : null;
     }
 
     /**
@@ -194,97 +182,49 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
 
 
     /**
-     * Gets create_time
+     * Gets account_resource
      *
-     * @return string
+     * @return \Volcengine\Vefaas\Model\AccountResourceForGetFunctionResourceOutput
      */
-    public function getCreateTime()
+    public function getAccountResource()
     {
-        return $this->container['create_time'];
+        return $this->container['account_resource'];
     }
 
     /**
-     * Sets create_time
+     * Sets account_resource
      *
-     * @param string $create_time create_time
+     * @param \Volcengine\Vefaas\Model\AccountResourceForGetFunctionResourceOutput $account_resource account_resource
      *
      * @return $this
      */
-    public function setCreateTime($create_time)
+    public function setAccountResource($account_resource)
     {
-        $this->container['create_time'] = $create_time;
+        $this->container['account_resource'] = $account_resource;
 
         return $this;
     }
 
     /**
-     * Gets finish_time
+     * Gets function_resource
      *
-     * @return string
+     * @return \Volcengine\Vefaas\Model\FunctionResourceForGetFunctionResourceOutput
      */
-    public function getFinishTime()
+    public function getFunctionResource()
     {
-        return $this->container['finish_time'];
+        return $this->container['function_resource'];
     }
 
     /**
-     * Sets finish_time
+     * Sets function_resource
      *
-     * @param string $finish_time finish_time
+     * @param \Volcengine\Vefaas\Model\FunctionResourceForGetFunctionResourceOutput $function_resource function_resource
      *
      * @return $this
      */
-    public function setFinishTime($finish_time)
+    public function setFunctionResource($function_resource)
     {
-        $this->container['finish_time'] = $finish_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets function_id
-     *
-     * @return string
-     */
-    public function getFunctionId()
-    {
-        return $this->container['function_id'];
-    }
-
-    /**
-     * Sets function_id
-     *
-     * @param string $function_id function_id
-     *
-     * @return $this
-     */
-    public function setFunctionId($function_id)
-    {
-        $this->container['function_id'] = $function_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets status
-     *
-     * @return string
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param string $status status
-     *
-     * @return $this
-     */
-    public function setStatus($status)
-    {
-        $this->container['status'] = $status;
+        $this->container['function_resource'] = $function_resource;
 
         return $this;
     }

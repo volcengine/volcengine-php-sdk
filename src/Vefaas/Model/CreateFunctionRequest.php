@@ -43,6 +43,7 @@ class CreateFunctionRequest implements ModelInterface, ArrayAccess
         'nas_storage' => '\Volcengine\Vefaas\Model\NasStorageForCreateFunctionInput',
         'project_name' => 'string',
         'request_timeout' => 'int',
+        'role' => 'string',
         'runtime' => 'string',
         'source' => 'string',
         'source_access_config' => '\Volcengine\Vefaas\Model\SourceAccessConfigForCreateFunctionInput',
@@ -74,6 +75,7 @@ class CreateFunctionRequest implements ModelInterface, ArrayAccess
         'nas_storage' => null,
         'project_name' => null,
         'request_timeout' => 'int32',
+        'role' => null,
         'runtime' => null,
         'source' => null,
         'source_access_config' => null,
@@ -126,6 +128,7 @@ class CreateFunctionRequest implements ModelInterface, ArrayAccess
         'nas_storage' => 'NasStorage',
         'project_name' => 'ProjectName',
         'request_timeout' => 'RequestTimeout',
+        'role' => 'Role',
         'runtime' => 'Runtime',
         'source' => 'Source',
         'source_access_config' => 'SourceAccessConfig',
@@ -157,6 +160,7 @@ class CreateFunctionRequest implements ModelInterface, ArrayAccess
         'nas_storage' => 'setNasStorage',
         'project_name' => 'setProjectName',
         'request_timeout' => 'setRequestTimeout',
+        'role' => 'setRole',
         'runtime' => 'setRuntime',
         'source' => 'setSource',
         'source_access_config' => 'setSourceAccessConfig',
@@ -188,6 +192,7 @@ class CreateFunctionRequest implements ModelInterface, ArrayAccess
         'nas_storage' => 'getNasStorage',
         'project_name' => 'getProjectName',
         'request_timeout' => 'getRequestTimeout',
+        'role' => 'getRole',
         'runtime' => 'getRuntime',
         'source' => 'getSource',
         'source_access_config' => 'getSourceAccessConfig',
@@ -273,6 +278,7 @@ class CreateFunctionRequest implements ModelInterface, ArrayAccess
         $this->container['nas_storage'] = isset($data['nas_storage']) ? $data['nas_storage'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['request_timeout'] = isset($data['request_timeout']) ? $data['request_timeout'] : null;
+        $this->container['role'] = isset($data['role']) ? $data['role'] : null;
         $this->container['runtime'] = isset($data['runtime']) ? $data['runtime'] : null;
         $this->container['source'] = isset($data['source']) ? $data['source'] : null;
         $this->container['source_access_config'] = isset($data['source_access_config']) ? $data['source_access_config'] : null;
@@ -669,6 +675,30 @@ class CreateFunctionRequest implements ModelInterface, ArrayAccess
     public function setRequestTimeout($request_timeout)
     {
         $this->container['request_timeout'] = $request_timeout;
+
+        return $this;
+    }
+
+    /**
+     * Gets role
+     *
+     * @return string
+     */
+    public function getRole()
+    {
+        return $this->container['role'];
+    }
+
+    /**
+     * Sets role
+     *
+     * @param string $role role
+     *
+     * @return $this
+     */
+    public function setRole($role)
+    {
+        $this->container['role'] = $role;
 
         return $this;
     }
