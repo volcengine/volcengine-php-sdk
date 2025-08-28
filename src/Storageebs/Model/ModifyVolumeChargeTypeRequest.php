@@ -178,6 +178,12 @@ class ModifyVolumeChargeTypeRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['disk_charge_type'] === null) {
+            $invalidProperties[] = "'disk_charge_type' can't be null";
+        }
+        if ($this->container['instance_id'] === null) {
+            $invalidProperties[] = "'instance_id' can't be null";
+        }
         return $invalidProperties;
     }
 

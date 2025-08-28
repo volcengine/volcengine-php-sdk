@@ -36,6 +36,7 @@ class DescribeCdnDataOfflineRequest implements ModelInterface, ArrayAccess
         'group_by' => 'string',
         'interval' => 'string',
         'metric' => 'string',
+        'project_names' => 'string[]',
         'start_time' => 'int',
         'sub_products' => 'string[]',
         'vendors' => 'string[]'
@@ -55,6 +56,7 @@ class DescribeCdnDataOfflineRequest implements ModelInterface, ArrayAccess
         'group_by' => null,
         'interval' => null,
         'metric' => null,
+        'project_names' => null,
         'start_time' => 'int64',
         'sub_products' => null,
         'vendors' => null
@@ -95,6 +97,7 @@ class DescribeCdnDataOfflineRequest implements ModelInterface, ArrayAccess
         'group_by' => 'GroupBy',
         'interval' => 'Interval',
         'metric' => 'Metric',
+        'project_names' => 'ProjectNames',
         'start_time' => 'StartTime',
         'sub_products' => 'SubProducts',
         'vendors' => 'Vendors'
@@ -114,6 +117,7 @@ class DescribeCdnDataOfflineRequest implements ModelInterface, ArrayAccess
         'group_by' => 'setGroupBy',
         'interval' => 'setInterval',
         'metric' => 'setMetric',
+        'project_names' => 'setProjectNames',
         'start_time' => 'setStartTime',
         'sub_products' => 'setSubProducts',
         'vendors' => 'setVendors'
@@ -133,6 +137,7 @@ class DescribeCdnDataOfflineRequest implements ModelInterface, ArrayAccess
         'group_by' => 'getGroupBy',
         'interval' => 'getInterval',
         'metric' => 'getMetric',
+        'project_names' => 'getProjectNames',
         'start_time' => 'getStartTime',
         'sub_products' => 'getSubProducts',
         'vendors' => 'getVendors'
@@ -206,6 +211,7 @@ class DescribeCdnDataOfflineRequest implements ModelInterface, ArrayAccess
         $this->container['group_by'] = isset($data['group_by']) ? $data['group_by'] : null;
         $this->container['interval'] = isset($data['interval']) ? $data['interval'] : null;
         $this->container['metric'] = isset($data['metric']) ? $data['metric'] : null;
+        $this->container['project_names'] = isset($data['project_names']) ? $data['project_names'] : null;
         $this->container['start_time'] = isset($data['start_time']) ? $data['start_time'] : null;
         $this->container['sub_products'] = isset($data['sub_products']) ? $data['sub_products'] : null;
         $this->container['vendors'] = isset($data['vendors']) ? $data['vendors'] : null;
@@ -435,6 +441,30 @@ class DescribeCdnDataOfflineRequest implements ModelInterface, ArrayAccess
     public function setMetric($metric)
     {
         $this->container['metric'] = $metric;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_names
+     *
+     * @return string[]
+     */
+    public function getProjectNames()
+    {
+        return $this->container['project_names'];
+    }
+
+    /**
+     * Sets project_names
+     *
+     * @param string[] $project_names project_names
+     *
+     * @return $this
+     */
+    public function setProjectNames($project_names)
+    {
+        $this->container['project_names'] = $project_names;
 
         return $this;
     }

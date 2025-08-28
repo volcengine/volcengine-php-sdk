@@ -29,7 +29,8 @@ class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'key' => 'string',
-        'value' => 'string'
+        'value' => 'string',
+        'values' => 'string[]'
     ];
 
     /**
@@ -39,7 +40,8 @@ class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'key' => null,
-        'value' => null
+        'value' => null,
+        'values' => null
     ];
 
     /**
@@ -70,7 +72,8 @@ class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'key' => 'Key',
-        'value' => 'Value'
+        'value' => 'Value',
+        'values' => 'Values'
     ];
 
     /**
@@ -80,7 +83,8 @@ class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'key' => 'setKey',
-        'value' => 'setValue'
+        'value' => 'setValue',
+        'values' => 'setValues'
     ];
 
     /**
@@ -90,7 +94,8 @@ class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'key' => 'getKey',
-        'value' => 'getValue'
+        'value' => 'getValue',
+        'values' => 'getValues'
     ];
 
     /**
@@ -155,6 +160,7 @@ class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
     {
         $this->container['key'] = isset($data['key']) ? $data['key'] : null;
         $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        $this->container['values'] = isset($data['values']) ? $data['values'] : null;
     }
 
     /**
@@ -225,6 +231,30 @@ class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
     public function setValue($value)
     {
         $this->container['value'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * Gets values
+     *
+     * @return string[]
+     */
+    public function getValues()
+    {
+        return $this->container['values'];
+    }
+
+    /**
+     * Sets values
+     *
+     * @param string[] $values values
+     *
+     * @return $this
+     */
+    public function setValues($values)
+    {
+        $this->container['values'] = $values;
 
         return $this;
     }

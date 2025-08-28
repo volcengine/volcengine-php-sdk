@@ -29,13 +29,16 @@ class SandboxForListSandboxesOutput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'availability_zone' => 'string',
+        'cpu_milli' => 'int',
         'created_at' => 'string',
         'error_code' => 'string',
         'error_message' => 'string',
         'expire_at' => 'string',
         'function_id' => 'string',
         'id' => 'string',
+        'image' => 'string',
         'instance_type' => 'string',
+        'memory_mb' => 'int',
         'metadata' => 'map[string,string]',
         'pending' => 'bool',
         'revision_number' => 'int',
@@ -49,13 +52,16 @@ class SandboxForListSandboxesOutput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'availability_zone' => null,
+        'cpu_milli' => 'int32',
         'created_at' => null,
         'error_code' => null,
         'error_message' => null,
         'expire_at' => null,
         'function_id' => null,
         'id' => null,
+        'image' => null,
         'instance_type' => null,
+        'memory_mb' => 'int32',
         'metadata' => null,
         'pending' => null,
         'revision_number' => 'int32',
@@ -90,13 +96,16 @@ class SandboxForListSandboxesOutput implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'availability_zone' => 'AvailabilityZone',
+        'cpu_milli' => 'CpuMilli',
         'created_at' => 'CreatedAt',
         'error_code' => 'ErrorCode',
         'error_message' => 'ErrorMessage',
         'expire_at' => 'ExpireAt',
         'function_id' => 'FunctionId',
         'id' => 'Id',
+        'image' => 'Image',
         'instance_type' => 'InstanceType',
+        'memory_mb' => 'MemoryMB',
         'metadata' => 'Metadata',
         'pending' => 'Pending',
         'revision_number' => 'RevisionNumber',
@@ -110,13 +119,16 @@ class SandboxForListSandboxesOutput implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'availability_zone' => 'setAvailabilityZone',
+        'cpu_milli' => 'setCpuMilli',
         'created_at' => 'setCreatedAt',
         'error_code' => 'setErrorCode',
         'error_message' => 'setErrorMessage',
         'expire_at' => 'setExpireAt',
         'function_id' => 'setFunctionId',
         'id' => 'setId',
+        'image' => 'setImage',
         'instance_type' => 'setInstanceType',
+        'memory_mb' => 'setMemoryMb',
         'metadata' => 'setMetadata',
         'pending' => 'setPending',
         'revision_number' => 'setRevisionNumber',
@@ -130,13 +142,16 @@ class SandboxForListSandboxesOutput implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'availability_zone' => 'getAvailabilityZone',
+        'cpu_milli' => 'getCpuMilli',
         'created_at' => 'getCreatedAt',
         'error_code' => 'getErrorCode',
         'error_message' => 'getErrorMessage',
         'expire_at' => 'getExpireAt',
         'function_id' => 'getFunctionId',
         'id' => 'getId',
+        'image' => 'getImage',
         'instance_type' => 'getInstanceType',
+        'memory_mb' => 'getMemoryMb',
         'metadata' => 'getMetadata',
         'pending' => 'getPending',
         'revision_number' => 'getRevisionNumber',
@@ -204,13 +219,16 @@ class SandboxForListSandboxesOutput implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['availability_zone'] = isset($data['availability_zone']) ? $data['availability_zone'] : null;
+        $this->container['cpu_milli'] = isset($data['cpu_milli']) ? $data['cpu_milli'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['error_code'] = isset($data['error_code']) ? $data['error_code'] : null;
         $this->container['error_message'] = isset($data['error_message']) ? $data['error_message'] : null;
         $this->container['expire_at'] = isset($data['expire_at']) ? $data['expire_at'] : null;
         $this->container['function_id'] = isset($data['function_id']) ? $data['function_id'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['image'] = isset($data['image']) ? $data['image'] : null;
         $this->container['instance_type'] = isset($data['instance_type']) ? $data['instance_type'] : null;
+        $this->container['memory_mb'] = isset($data['memory_mb']) ? $data['memory_mb'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
         $this->container['pending'] = isset($data['pending']) ? $data['pending'] : null;
         $this->container['revision_number'] = isset($data['revision_number']) ? $data['revision_number'] : null;
@@ -261,6 +279,30 @@ class SandboxForListSandboxesOutput implements ModelInterface, ArrayAccess
     public function setAvailabilityZone($availability_zone)
     {
         $this->container['availability_zone'] = $availability_zone;
+
+        return $this;
+    }
+
+    /**
+     * Gets cpu_milli
+     *
+     * @return int
+     */
+    public function getCpuMilli()
+    {
+        return $this->container['cpu_milli'];
+    }
+
+    /**
+     * Sets cpu_milli
+     *
+     * @param int $cpu_milli cpu_milli
+     *
+     * @return $this
+     */
+    public function setCpuMilli($cpu_milli)
+    {
+        $this->container['cpu_milli'] = $cpu_milli;
 
         return $this;
     }
@@ -410,6 +452,30 @@ class SandboxForListSandboxesOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets image
+     *
+     * @return string
+     */
+    public function getImage()
+    {
+        return $this->container['image'];
+    }
+
+    /**
+     * Sets image
+     *
+     * @param string $image image
+     *
+     * @return $this
+     */
+    public function setImage($image)
+    {
+        $this->container['image'] = $image;
+
+        return $this;
+    }
+
+    /**
      * Gets instance_type
      *
      * @return string
@@ -429,6 +495,30 @@ class SandboxForListSandboxesOutput implements ModelInterface, ArrayAccess
     public function setInstanceType($instance_type)
     {
         $this->container['instance_type'] = $instance_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets memory_mb
+     *
+     * @return int
+     */
+    public function getMemoryMb()
+    {
+        return $this->container['memory_mb'];
+    }
+
+    /**
+     * Sets memory_mb
+     *
+     * @param int $memory_mb memory_mb
+     *
+     * @return $this
+     */
+    public function setMemoryMb($memory_mb)
+    {
+        $this->container['memory_mb'] = $memory_mb;
 
         return $this;
     }

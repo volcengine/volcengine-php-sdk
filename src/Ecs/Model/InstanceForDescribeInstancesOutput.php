@@ -38,6 +38,7 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
         'description' => 'string',
         'eip_address' => '\Volcengine\Ecs\Model\EipAddressForDescribeInstancesOutput',
         'elastic_scheduled_instance_type' => 'string',
+        'enable_jumbo_frame' => 'bool',
         'expired_at' => 'string',
         'host_name' => 'string',
         'hostname' => 'string',
@@ -87,6 +88,7 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
         'description' => null,
         'eip_address' => null,
         'elastic_scheduled_instance_type' => null,
+        'enable_jumbo_frame' => null,
         'expired_at' => null,
         'host_name' => null,
         'hostname' => null,
@@ -157,6 +159,7 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
         'description' => 'Description',
         'eip_address' => 'EipAddress',
         'elastic_scheduled_instance_type' => 'ElasticScheduledInstanceType',
+        'enable_jumbo_frame' => 'EnableJumboFrame',
         'expired_at' => 'ExpiredAt',
         'host_name' => 'HostName',
         'hostname' => 'Hostname',
@@ -206,6 +209,7 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
         'description' => 'setDescription',
         'eip_address' => 'setEipAddress',
         'elastic_scheduled_instance_type' => 'setElasticScheduledInstanceType',
+        'enable_jumbo_frame' => 'setEnableJumboFrame',
         'expired_at' => 'setExpiredAt',
         'host_name' => 'setHostName',
         'hostname' => 'setHostname',
@@ -255,6 +259,7 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
         'description' => 'getDescription',
         'eip_address' => 'getEipAddress',
         'elastic_scheduled_instance_type' => 'getElasticScheduledInstanceType',
+        'enable_jumbo_frame' => 'getEnableJumboFrame',
         'expired_at' => 'getExpiredAt',
         'host_name' => 'getHostName',
         'hostname' => 'getHostname',
@@ -358,6 +363,7 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['eip_address'] = isset($data['eip_address']) ? $data['eip_address'] : null;
         $this->container['elastic_scheduled_instance_type'] = isset($data['elastic_scheduled_instance_type']) ? $data['elastic_scheduled_instance_type'] : null;
+        $this->container['enable_jumbo_frame'] = isset($data['enable_jumbo_frame']) ? $data['enable_jumbo_frame'] : null;
         $this->container['expired_at'] = isset($data['expired_at']) ? $data['expired_at'] : null;
         $this->container['host_name'] = isset($data['host_name']) ? $data['host_name'] : null;
         $this->container['hostname'] = isset($data['hostname']) ? $data['hostname'] : null;
@@ -651,6 +657,30 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
     public function setElasticScheduledInstanceType($elastic_scheduled_instance_type)
     {
         $this->container['elastic_scheduled_instance_type'] = $elastic_scheduled_instance_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets enable_jumbo_frame
+     *
+     * @return bool
+     */
+    public function getEnableJumboFrame()
+    {
+        return $this->container['enable_jumbo_frame'];
+    }
+
+    /**
+     * Sets enable_jumbo_frame
+     *
+     * @param bool $enable_jumbo_frame enable_jumbo_frame
+     *
+     * @return $this
+     */
+    public function setEnableJumboFrame($enable_jumbo_frame)
+    {
+        $this->container['enable_jumbo_frame'] = $enable_jumbo_frame;
 
         return $this;
     }

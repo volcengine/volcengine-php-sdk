@@ -28,7 +28,10 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'create_time' => 'string',
+        'finish_time' => 'string',
+        'function_id' => 'string',
+        'status' => 'string'
     ];
 
     /**
@@ -37,7 +40,10 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'create_time' => null,
+        'finish_time' => null,
+        'function_id' => null,
+        'status' => null
     ];
 
     /**
@@ -67,7 +73,10 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'create_time' => 'CreateTime',
+        'finish_time' => 'FinishTime',
+        'function_id' => 'FunctionId',
+        'status' => 'Status'
     ];
 
     /**
@@ -76,7 +85,10 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $setters = [
-        
+        'create_time' => 'setCreateTime',
+        'finish_time' => 'setFinishTime',
+        'function_id' => 'setFunctionId',
+        'status' => 'setStatus'
     ];
 
     /**
@@ -85,7 +97,10 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $getters = [
-        
+        'create_time' => 'getCreateTime',
+        'finish_time' => 'getFinishTime',
+        'function_id' => 'getFunctionId',
+        'status' => 'getStatus'
     ];
 
     /**
@@ -148,6 +163,10 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
      */
     public function __construct(array $data = null)
     {
+        $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
+        $this->container['finish_time'] = isset($data['finish_time']) ? $data['finish_time'] : null;
+        $this->container['function_id'] = isset($data['function_id']) ? $data['function_id'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }
 
     /**
@@ -173,6 +192,102 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets create_time
+     *
+     * @return string
+     */
+    public function getCreateTime()
+    {
+        return $this->container['create_time'];
+    }
+
+    /**
+     * Sets create_time
+     *
+     * @param string $create_time create_time
+     *
+     * @return $this
+     */
+    public function setCreateTime($create_time)
+    {
+        $this->container['create_time'] = $create_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets finish_time
+     *
+     * @return string
+     */
+    public function getFinishTime()
+    {
+        return $this->container['finish_time'];
+    }
+
+    /**
+     * Sets finish_time
+     *
+     * @param string $finish_time finish_time
+     *
+     * @return $this
+     */
+    public function setFinishTime($finish_time)
+    {
+        $this->container['finish_time'] = $finish_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets function_id
+     *
+     * @return string
+     */
+    public function getFunctionId()
+    {
+        return $this->container['function_id'];
+    }
+
+    /**
+     * Sets function_id
+     *
+     * @param string $function_id function_id
+     *
+     * @return $this
+     */
+    public function setFunctionId($function_id)
+    {
+        $this->container['function_id'] = $function_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param string $status status
+     *
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $this->container['status'] = $status;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

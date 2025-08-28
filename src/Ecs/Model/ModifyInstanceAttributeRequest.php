@@ -31,6 +31,7 @@ class ModifyInstanceAttributeRequest implements ModelInterface, ArrayAccess
         'client_token' => 'string',
         'deletion_protection' => 'bool',
         'description' => 'string',
+        'enable_jumbo_frame' => 'bool',
         'hostname' => 'string',
         'instance_id' => 'string',
         'instance_name' => 'string',
@@ -47,6 +48,7 @@ class ModifyInstanceAttributeRequest implements ModelInterface, ArrayAccess
         'client_token' => null,
         'deletion_protection' => null,
         'description' => null,
+        'enable_jumbo_frame' => null,
         'hostname' => null,
         'instance_id' => null,
         'instance_name' => null,
@@ -84,6 +86,7 @@ class ModifyInstanceAttributeRequest implements ModelInterface, ArrayAccess
         'client_token' => 'ClientToken',
         'deletion_protection' => 'DeletionProtection',
         'description' => 'Description',
+        'enable_jumbo_frame' => 'EnableJumboFrame',
         'hostname' => 'Hostname',
         'instance_id' => 'InstanceId',
         'instance_name' => 'InstanceName',
@@ -100,6 +103,7 @@ class ModifyInstanceAttributeRequest implements ModelInterface, ArrayAccess
         'client_token' => 'setClientToken',
         'deletion_protection' => 'setDeletionProtection',
         'description' => 'setDescription',
+        'enable_jumbo_frame' => 'setEnableJumboFrame',
         'hostname' => 'setHostname',
         'instance_id' => 'setInstanceId',
         'instance_name' => 'setInstanceName',
@@ -116,6 +120,7 @@ class ModifyInstanceAttributeRequest implements ModelInterface, ArrayAccess
         'client_token' => 'getClientToken',
         'deletion_protection' => 'getDeletionProtection',
         'description' => 'getDescription',
+        'enable_jumbo_frame' => 'getEnableJumboFrame',
         'hostname' => 'getHostname',
         'instance_id' => 'getInstanceId',
         'instance_name' => 'getInstanceName',
@@ -186,6 +191,7 @@ class ModifyInstanceAttributeRequest implements ModelInterface, ArrayAccess
         $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
         $this->container['deletion_protection'] = isset($data['deletion_protection']) ? $data['deletion_protection'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['enable_jumbo_frame'] = isset($data['enable_jumbo_frame']) ? $data['enable_jumbo_frame'] : null;
         $this->container['hostname'] = isset($data['hostname']) ? $data['hostname'] : null;
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
         $this->container['instance_name'] = isset($data['instance_name']) ? $data['instance_name'] : null;
@@ -288,6 +294,30 @@ class ModifyInstanceAttributeRequest implements ModelInterface, ArrayAccess
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets enable_jumbo_frame
+     *
+     * @return bool
+     */
+    public function getEnableJumboFrame()
+    {
+        return $this->container['enable_jumbo_frame'];
+    }
+
+    /**
+     * Sets enable_jumbo_frame
+     *
+     * @param bool $enable_jumbo_frame enable_jumbo_frame
+     *
+     * @return $this
+     */
+    public function setEnableJumboFrame($enable_jumbo_frame)
+    {
+        $this->container['enable_jumbo_frame'] = $enable_jumbo_frame;
 
         return $this;
     }

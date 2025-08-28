@@ -28,10 +28,15 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'cpu_milli' => 'int',
         'envs' => '\Volcengine\Vefaas\Model\EnvForCreateSandboxInput[]',
         'function_id' => 'string',
+        'instance_image_info' => '\Volcengine\Vefaas\Model\InstanceImageInfoForCreateSandboxInput',
         'instance_tos_mount_config' => '\Volcengine\Vefaas\Model\InstanceTosMountConfigForCreateSandboxInput',
+        'max_concurrency' => 'int',
+        'memory_mb' => 'int',
         'metadata' => 'map[string,string]',
+        'request_timeout' => 'int',
         'timeout' => 'int'
     ];
 
@@ -41,10 +46,15 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'cpu_milli' => 'int32',
         'envs' => null,
         'function_id' => null,
+        'instance_image_info' => null,
         'instance_tos_mount_config' => null,
+        'max_concurrency' => 'int32',
+        'memory_mb' => 'int32',
         'metadata' => null,
+        'request_timeout' => 'int32',
         'timeout' => 'int32'
     ];
 
@@ -75,10 +85,15 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'cpu_milli' => 'CpuMilli',
         'envs' => 'Envs',
         'function_id' => 'FunctionId',
+        'instance_image_info' => 'InstanceImageInfo',
         'instance_tos_mount_config' => 'InstanceTosMountConfig',
+        'max_concurrency' => 'MaxConcurrency',
+        'memory_mb' => 'MemoryMB',
         'metadata' => 'Metadata',
+        'request_timeout' => 'RequestTimeout',
         'timeout' => 'Timeout'
     ];
 
@@ -88,10 +103,15 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'cpu_milli' => 'setCpuMilli',
         'envs' => 'setEnvs',
         'function_id' => 'setFunctionId',
+        'instance_image_info' => 'setInstanceImageInfo',
         'instance_tos_mount_config' => 'setInstanceTosMountConfig',
+        'max_concurrency' => 'setMaxConcurrency',
+        'memory_mb' => 'setMemoryMb',
         'metadata' => 'setMetadata',
+        'request_timeout' => 'setRequestTimeout',
         'timeout' => 'setTimeout'
     ];
 
@@ -101,10 +121,15 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'cpu_milli' => 'getCpuMilli',
         'envs' => 'getEnvs',
         'function_id' => 'getFunctionId',
+        'instance_image_info' => 'getInstanceImageInfo',
         'instance_tos_mount_config' => 'getInstanceTosMountConfig',
+        'max_concurrency' => 'getMaxConcurrency',
+        'memory_mb' => 'getMemoryMb',
         'metadata' => 'getMetadata',
+        'request_timeout' => 'getRequestTimeout',
         'timeout' => 'getTimeout'
     ];
 
@@ -168,10 +193,15 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['cpu_milli'] = isset($data['cpu_milli']) ? $data['cpu_milli'] : null;
         $this->container['envs'] = isset($data['envs']) ? $data['envs'] : null;
         $this->container['function_id'] = isset($data['function_id']) ? $data['function_id'] : null;
+        $this->container['instance_image_info'] = isset($data['instance_image_info']) ? $data['instance_image_info'] : null;
         $this->container['instance_tos_mount_config'] = isset($data['instance_tos_mount_config']) ? $data['instance_tos_mount_config'] : null;
+        $this->container['max_concurrency'] = isset($data['max_concurrency']) ? $data['max_concurrency'] : null;
+        $this->container['memory_mb'] = isset($data['memory_mb']) ? $data['memory_mb'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
+        $this->container['request_timeout'] = isset($data['request_timeout']) ? $data['request_timeout'] : null;
         $this->container['timeout'] = isset($data['timeout']) ? $data['timeout'] : null;
     }
 
@@ -201,6 +231,30 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets cpu_milli
+     *
+     * @return int
+     */
+    public function getCpuMilli()
+    {
+        return $this->container['cpu_milli'];
+    }
+
+    /**
+     * Sets cpu_milli
+     *
+     * @param int $cpu_milli cpu_milli
+     *
+     * @return $this
+     */
+    public function setCpuMilli($cpu_milli)
+    {
+        $this->container['cpu_milli'] = $cpu_milli;
+
+        return $this;
+    }
 
     /**
      * Gets envs
@@ -251,6 +305,30 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets instance_image_info
+     *
+     * @return \Volcengine\Vefaas\Model\InstanceImageInfoForCreateSandboxInput
+     */
+    public function getInstanceImageInfo()
+    {
+        return $this->container['instance_image_info'];
+    }
+
+    /**
+     * Sets instance_image_info
+     *
+     * @param \Volcengine\Vefaas\Model\InstanceImageInfoForCreateSandboxInput $instance_image_info instance_image_info
+     *
+     * @return $this
+     */
+    public function setInstanceImageInfo($instance_image_info)
+    {
+        $this->container['instance_image_info'] = $instance_image_info;
+
+        return $this;
+    }
+
+    /**
      * Gets instance_tos_mount_config
      *
      * @return \Volcengine\Vefaas\Model\InstanceTosMountConfigForCreateSandboxInput
@@ -275,6 +353,54 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets max_concurrency
+     *
+     * @return int
+     */
+    public function getMaxConcurrency()
+    {
+        return $this->container['max_concurrency'];
+    }
+
+    /**
+     * Sets max_concurrency
+     *
+     * @param int $max_concurrency max_concurrency
+     *
+     * @return $this
+     */
+    public function setMaxConcurrency($max_concurrency)
+    {
+        $this->container['max_concurrency'] = $max_concurrency;
+
+        return $this;
+    }
+
+    /**
+     * Gets memory_mb
+     *
+     * @return int
+     */
+    public function getMemoryMb()
+    {
+        return $this->container['memory_mb'];
+    }
+
+    /**
+     * Sets memory_mb
+     *
+     * @param int $memory_mb memory_mb
+     *
+     * @return $this
+     */
+    public function setMemoryMb($memory_mb)
+    {
+        $this->container['memory_mb'] = $memory_mb;
+
+        return $this;
+    }
+
+    /**
      * Gets metadata
      *
      * @return map[string,string]
@@ -294,6 +420,30 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
     public function setMetadata($metadata)
     {
         $this->container['metadata'] = $metadata;
+
+        return $this;
+    }
+
+    /**
+     * Gets request_timeout
+     *
+     * @return int
+     */
+    public function getRequestTimeout()
+    {
+        return $this->container['request_timeout'];
+    }
+
+    /**
+     * Sets request_timeout
+     *
+     * @param int $request_timeout request_timeout
+     *
+     * @return $this
+     */
+    public function setRequestTimeout($request_timeout)
+    {
+        $this->container['request_timeout'] = $request_timeout;
 
         return $this;
     }

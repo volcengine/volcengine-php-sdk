@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Storageebs\Model;
+namespace Volcengine\Graph\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class TerminateVolumesRequest implements ModelInterface, ArrayAccess
+class TabletNumRangeForCalcTableLimitsOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class TerminateVolumesRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'TerminateVolumesRequest';
+    protected static $swaggerModelName = 'tablet_num_rangeForCalcTableLimitsOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,8 @@ class TerminateVolumesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'volume_ids' => 'string[]'
+        'max' => 'int',
+        'min' => 'int'
     ];
 
     /**
@@ -37,7 +38,8 @@ class TerminateVolumesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'volume_ids' => null
+        'max' => 'int64',
+        'min' => 'int64'
     ];
 
     /**
@@ -67,7 +69,8 @@ class TerminateVolumesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'volume_ids' => 'VolumeIds'
+        'max' => 'max',
+        'min' => 'min'
     ];
 
     /**
@@ -76,7 +79,8 @@ class TerminateVolumesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'volume_ids' => 'setVolumeIds'
+        'max' => 'setMax',
+        'min' => 'setMin'
     ];
 
     /**
@@ -85,7 +89,8 @@ class TerminateVolumesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'volume_ids' => 'getVolumeIds'
+        'max' => 'getMax',
+        'min' => 'getMin'
     ];
 
     /**
@@ -148,7 +153,8 @@ class TerminateVolumesRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['volume_ids'] = isset($data['volume_ids']) ? $data['volume_ids'] : null;
+        $this->container['max'] = isset($data['max']) ? $data['max'] : null;
+        $this->container['min'] = isset($data['min']) ? $data['min'] : null;
     }
 
     /**
@@ -176,25 +182,49 @@ class TerminateVolumesRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets volume_ids
+     * Gets max
      *
-     * @return string[]
+     * @return int
      */
-    public function getVolumeIds()
+    public function getMax()
     {
-        return $this->container['volume_ids'];
+        return $this->container['max'];
     }
 
     /**
-     * Sets volume_ids
+     * Sets max
      *
-     * @param string[] $volume_ids volume_ids
+     * @param int $max max
      *
      * @return $this
      */
-    public function setVolumeIds($volume_ids)
+    public function setMax($max)
     {
-        $this->container['volume_ids'] = $volume_ids;
+        $this->container['max'] = $max;
+
+        return $this;
+    }
+
+    /**
+     * Gets min
+     *
+     * @return int
+     */
+    public function getMin()
+    {
+        return $this->container['min'];
+    }
+
+    /**
+     * Sets min
+     *
+     * @param int $min min
+     *
+     * @return $this
+     */
+    public function setMin($min)
+    {
+        $this->container['min'] = $min;
 
         return $this;
     }

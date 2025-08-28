@@ -28,6 +28,7 @@ class DescribeContentTaskByTaskIdRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'project_name' => 'string',
         'task_id' => 'string'
     ];
 
@@ -37,6 +38,7 @@ class DescribeContentTaskByTaskIdRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'project_name' => null,
         'task_id' => null
     ];
 
@@ -67,6 +69,7 @@ class DescribeContentTaskByTaskIdRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'project_name' => 'ProjectName',
         'task_id' => 'TaskId'
     ];
 
@@ -76,6 +79,7 @@ class DescribeContentTaskByTaskIdRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'project_name' => 'setProjectName',
         'task_id' => 'setTaskId'
     ];
 
@@ -85,6 +89,7 @@ class DescribeContentTaskByTaskIdRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'project_name' => 'getProjectName',
         'task_id' => 'getTaskId'
     ];
 
@@ -148,6 +153,7 @@ class DescribeContentTaskByTaskIdRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['task_id'] = isset($data['task_id']) ? $data['task_id'] : null;
     }
 
@@ -177,6 +183,30 @@ class DescribeContentTaskByTaskIdRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
 
     /**
      * Gets task_id

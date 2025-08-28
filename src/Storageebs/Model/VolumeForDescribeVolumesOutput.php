@@ -28,8 +28,10 @@ class VolumeForDescribeVolumesOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'attachments' => '\Volcengine\Storageebs\Model\AttachmentForDescribeVolumesOutput[]',
         'auto_snapshot_policy_id' => 'string',
         'auto_snapshot_policy_name' => 'string',
+        'baseline_performance' => '\Volcengine\Storageebs\Model\BaselinePerformanceForDescribeVolumesOutput',
         'billing_type' => 'int',
         'created_at' => 'string',
         'delete_with_instance' => 'bool',
@@ -37,19 +39,26 @@ class VolumeForDescribeVolumesOutput implements ModelInterface, ArrayAccess
         'device_name' => 'string',
         'error_detail' => 'string',
         'expired_time' => 'string',
+        'extra_performance' => '\Volcengine\Storageebs\Model\ExtraPerformanceForDescribeVolumesOutput',
+        'extra_performance_iops' => 'int',
+        'extra_performance_throughput_mb' => 'int',
+        'extra_performance_type_id' => 'string',
         'image_id' => 'string',
         'instance_id' => 'string',
         'kind' => 'string',
         'overdue_reclaim_time' => 'string',
         'overdue_time' => 'string',
         'pay_type' => 'string',
+        'placement_group_id' => 'string',
         'project_name' => 'string',
         'renew_type' => 'int',
         'size' => 'string',
         'snapshot_count' => 'int',
         'source_snapshot_id' => 'string',
         'status' => 'string',
+        'subgroup_number' => 'string',
         'tags' => '\Volcengine\Storageebs\Model\TagForDescribeVolumesOutput[]',
+        'total_performance' => '\Volcengine\Storageebs\Model\TotalPerformanceForDescribeVolumesOutput',
         'trade_status' => 'int',
         'updated_at' => 'string',
         'volume_id' => 'string',
@@ -64,8 +73,10 @@ class VolumeForDescribeVolumesOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'attachments' => null,
         'auto_snapshot_policy_id' => null,
         'auto_snapshot_policy_name' => null,
+        'baseline_performance' => null,
         'billing_type' => 'int32',
         'created_at' => null,
         'delete_with_instance' => null,
@@ -73,19 +84,26 @@ class VolumeForDescribeVolumesOutput implements ModelInterface, ArrayAccess
         'device_name' => null,
         'error_detail' => null,
         'expired_time' => null,
+        'extra_performance' => null,
+        'extra_performance_iops' => 'int32',
+        'extra_performance_throughput_mb' => 'int32',
+        'extra_performance_type_id' => null,
         'image_id' => null,
         'instance_id' => null,
         'kind' => null,
         'overdue_reclaim_time' => null,
         'overdue_time' => null,
         'pay_type' => null,
+        'placement_group_id' => null,
         'project_name' => null,
         'renew_type' => 'int32',
         'size' => 'json_number',
         'snapshot_count' => 'int32',
         'source_snapshot_id' => null,
         'status' => null,
+        'subgroup_number' => null,
         'tags' => null,
+        'total_performance' => null,
         'trade_status' => 'int32',
         'updated_at' => null,
         'volume_id' => null,
@@ -121,8 +139,10 @@ class VolumeForDescribeVolumesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'attachments' => 'Attachments',
         'auto_snapshot_policy_id' => 'AutoSnapshotPolicyId',
         'auto_snapshot_policy_name' => 'AutoSnapshotPolicyName',
+        'baseline_performance' => 'BaselinePerformance',
         'billing_type' => 'BillingType',
         'created_at' => 'CreatedAt',
         'delete_with_instance' => 'DeleteWithInstance',
@@ -130,19 +150,26 @@ class VolumeForDescribeVolumesOutput implements ModelInterface, ArrayAccess
         'device_name' => 'DeviceName',
         'error_detail' => 'ErrorDetail',
         'expired_time' => 'ExpiredTime',
+        'extra_performance' => 'ExtraPerformance',
+        'extra_performance_iops' => 'ExtraPerformanceIOPS',
+        'extra_performance_throughput_mb' => 'ExtraPerformanceThroughputMB',
+        'extra_performance_type_id' => 'ExtraPerformanceTypeId',
         'image_id' => 'ImageId',
         'instance_id' => 'InstanceId',
         'kind' => 'Kind',
         'overdue_reclaim_time' => 'OverdueReclaimTime',
         'overdue_time' => 'OverdueTime',
         'pay_type' => 'PayType',
+        'placement_group_id' => 'PlacementGroupId',
         'project_name' => 'ProjectName',
         'renew_type' => 'RenewType',
         'size' => 'Size',
         'snapshot_count' => 'SnapshotCount',
         'source_snapshot_id' => 'SourceSnapshotId',
         'status' => 'Status',
+        'subgroup_number' => 'SubgroupNumber',
         'tags' => 'Tags',
+        'total_performance' => 'TotalPerformance',
         'trade_status' => 'TradeStatus',
         'updated_at' => 'UpdatedAt',
         'volume_id' => 'VolumeId',
@@ -157,8 +184,10 @@ class VolumeForDescribeVolumesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'attachments' => 'setAttachments',
         'auto_snapshot_policy_id' => 'setAutoSnapshotPolicyId',
         'auto_snapshot_policy_name' => 'setAutoSnapshotPolicyName',
+        'baseline_performance' => 'setBaselinePerformance',
         'billing_type' => 'setBillingType',
         'created_at' => 'setCreatedAt',
         'delete_with_instance' => 'setDeleteWithInstance',
@@ -166,19 +195,26 @@ class VolumeForDescribeVolumesOutput implements ModelInterface, ArrayAccess
         'device_name' => 'setDeviceName',
         'error_detail' => 'setErrorDetail',
         'expired_time' => 'setExpiredTime',
+        'extra_performance' => 'setExtraPerformance',
+        'extra_performance_iops' => 'setExtraPerformanceIops',
+        'extra_performance_throughput_mb' => 'setExtraPerformanceThroughputMb',
+        'extra_performance_type_id' => 'setExtraPerformanceTypeId',
         'image_id' => 'setImageId',
         'instance_id' => 'setInstanceId',
         'kind' => 'setKind',
         'overdue_reclaim_time' => 'setOverdueReclaimTime',
         'overdue_time' => 'setOverdueTime',
         'pay_type' => 'setPayType',
+        'placement_group_id' => 'setPlacementGroupId',
         'project_name' => 'setProjectName',
         'renew_type' => 'setRenewType',
         'size' => 'setSize',
         'snapshot_count' => 'setSnapshotCount',
         'source_snapshot_id' => 'setSourceSnapshotId',
         'status' => 'setStatus',
+        'subgroup_number' => 'setSubgroupNumber',
         'tags' => 'setTags',
+        'total_performance' => 'setTotalPerformance',
         'trade_status' => 'setTradeStatus',
         'updated_at' => 'setUpdatedAt',
         'volume_id' => 'setVolumeId',
@@ -193,8 +229,10 @@ class VolumeForDescribeVolumesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'attachments' => 'getAttachments',
         'auto_snapshot_policy_id' => 'getAutoSnapshotPolicyId',
         'auto_snapshot_policy_name' => 'getAutoSnapshotPolicyName',
+        'baseline_performance' => 'getBaselinePerformance',
         'billing_type' => 'getBillingType',
         'created_at' => 'getCreatedAt',
         'delete_with_instance' => 'getDeleteWithInstance',
@@ -202,19 +240,26 @@ class VolumeForDescribeVolumesOutput implements ModelInterface, ArrayAccess
         'device_name' => 'getDeviceName',
         'error_detail' => 'getErrorDetail',
         'expired_time' => 'getExpiredTime',
+        'extra_performance' => 'getExtraPerformance',
+        'extra_performance_iops' => 'getExtraPerformanceIops',
+        'extra_performance_throughput_mb' => 'getExtraPerformanceThroughputMb',
+        'extra_performance_type_id' => 'getExtraPerformanceTypeId',
         'image_id' => 'getImageId',
         'instance_id' => 'getInstanceId',
         'kind' => 'getKind',
         'overdue_reclaim_time' => 'getOverdueReclaimTime',
         'overdue_time' => 'getOverdueTime',
         'pay_type' => 'getPayType',
+        'placement_group_id' => 'getPlacementGroupId',
         'project_name' => 'getProjectName',
         'renew_type' => 'getRenewType',
         'size' => 'getSize',
         'snapshot_count' => 'getSnapshotCount',
         'source_snapshot_id' => 'getSourceSnapshotId',
         'status' => 'getStatus',
+        'subgroup_number' => 'getSubgroupNumber',
         'tags' => 'getTags',
+        'total_performance' => 'getTotalPerformance',
         'trade_status' => 'getTradeStatus',
         'updated_at' => 'getUpdatedAt',
         'volume_id' => 'getVolumeId',
@@ -283,8 +328,10 @@ class VolumeForDescribeVolumesOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['attachments'] = isset($data['attachments']) ? $data['attachments'] : null;
         $this->container['auto_snapshot_policy_id'] = isset($data['auto_snapshot_policy_id']) ? $data['auto_snapshot_policy_id'] : null;
         $this->container['auto_snapshot_policy_name'] = isset($data['auto_snapshot_policy_name']) ? $data['auto_snapshot_policy_name'] : null;
+        $this->container['baseline_performance'] = isset($data['baseline_performance']) ? $data['baseline_performance'] : null;
         $this->container['billing_type'] = isset($data['billing_type']) ? $data['billing_type'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['delete_with_instance'] = isset($data['delete_with_instance']) ? $data['delete_with_instance'] : null;
@@ -292,19 +339,26 @@ class VolumeForDescribeVolumesOutput implements ModelInterface, ArrayAccess
         $this->container['device_name'] = isset($data['device_name']) ? $data['device_name'] : null;
         $this->container['error_detail'] = isset($data['error_detail']) ? $data['error_detail'] : null;
         $this->container['expired_time'] = isset($data['expired_time']) ? $data['expired_time'] : null;
+        $this->container['extra_performance'] = isset($data['extra_performance']) ? $data['extra_performance'] : null;
+        $this->container['extra_performance_iops'] = isset($data['extra_performance_iops']) ? $data['extra_performance_iops'] : null;
+        $this->container['extra_performance_throughput_mb'] = isset($data['extra_performance_throughput_mb']) ? $data['extra_performance_throughput_mb'] : null;
+        $this->container['extra_performance_type_id'] = isset($data['extra_performance_type_id']) ? $data['extra_performance_type_id'] : null;
         $this->container['image_id'] = isset($data['image_id']) ? $data['image_id'] : null;
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
         $this->container['kind'] = isset($data['kind']) ? $data['kind'] : null;
         $this->container['overdue_reclaim_time'] = isset($data['overdue_reclaim_time']) ? $data['overdue_reclaim_time'] : null;
         $this->container['overdue_time'] = isset($data['overdue_time']) ? $data['overdue_time'] : null;
         $this->container['pay_type'] = isset($data['pay_type']) ? $data['pay_type'] : null;
+        $this->container['placement_group_id'] = isset($data['placement_group_id']) ? $data['placement_group_id'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['renew_type'] = isset($data['renew_type']) ? $data['renew_type'] : null;
         $this->container['size'] = isset($data['size']) ? $data['size'] : null;
         $this->container['snapshot_count'] = isset($data['snapshot_count']) ? $data['snapshot_count'] : null;
         $this->container['source_snapshot_id'] = isset($data['source_snapshot_id']) ? $data['source_snapshot_id'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['subgroup_number'] = isset($data['subgroup_number']) ? $data['subgroup_number'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
+        $this->container['total_performance'] = isset($data['total_performance']) ? $data['total_performance'] : null;
         $this->container['trade_status'] = isset($data['trade_status']) ? $data['trade_status'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
         $this->container['volume_id'] = isset($data['volume_id']) ? $data['volume_id'] : null;
@@ -336,6 +390,30 @@ class VolumeForDescribeVolumesOutput implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets attachments
+     *
+     * @return \Volcengine\Storageebs\Model\AttachmentForDescribeVolumesOutput[]
+     */
+    public function getAttachments()
+    {
+        return $this->container['attachments'];
+    }
+
+    /**
+     * Sets attachments
+     *
+     * @param \Volcengine\Storageebs\Model\AttachmentForDescribeVolumesOutput[] $attachments attachments
+     *
+     * @return $this
+     */
+    public function setAttachments($attachments)
+    {
+        $this->container['attachments'] = $attachments;
+
+        return $this;
+    }
 
     /**
      * Gets auto_snapshot_policy_id
@@ -381,6 +459,30 @@ class VolumeForDescribeVolumesOutput implements ModelInterface, ArrayAccess
     public function setAutoSnapshotPolicyName($auto_snapshot_policy_name)
     {
         $this->container['auto_snapshot_policy_name'] = $auto_snapshot_policy_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets baseline_performance
+     *
+     * @return \Volcengine\Storageebs\Model\BaselinePerformanceForDescribeVolumesOutput
+     */
+    public function getBaselinePerformance()
+    {
+        return $this->container['baseline_performance'];
+    }
+
+    /**
+     * Sets baseline_performance
+     *
+     * @param \Volcengine\Storageebs\Model\BaselinePerformanceForDescribeVolumesOutput $baseline_performance baseline_performance
+     *
+     * @return $this
+     */
+    public function setBaselinePerformance($baseline_performance)
+    {
+        $this->container['baseline_performance'] = $baseline_performance;
 
         return $this;
     }
@@ -554,6 +656,102 @@ class VolumeForDescribeVolumesOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets extra_performance
+     *
+     * @return \Volcengine\Storageebs\Model\ExtraPerformanceForDescribeVolumesOutput
+     */
+    public function getExtraPerformance()
+    {
+        return $this->container['extra_performance'];
+    }
+
+    /**
+     * Sets extra_performance
+     *
+     * @param \Volcengine\Storageebs\Model\ExtraPerformanceForDescribeVolumesOutput $extra_performance extra_performance
+     *
+     * @return $this
+     */
+    public function setExtraPerformance($extra_performance)
+    {
+        $this->container['extra_performance'] = $extra_performance;
+
+        return $this;
+    }
+
+    /**
+     * Gets extra_performance_iops
+     *
+     * @return int
+     */
+    public function getExtraPerformanceIops()
+    {
+        return $this->container['extra_performance_iops'];
+    }
+
+    /**
+     * Sets extra_performance_iops
+     *
+     * @param int $extra_performance_iops extra_performance_iops
+     *
+     * @return $this
+     */
+    public function setExtraPerformanceIops($extra_performance_iops)
+    {
+        $this->container['extra_performance_iops'] = $extra_performance_iops;
+
+        return $this;
+    }
+
+    /**
+     * Gets extra_performance_throughput_mb
+     *
+     * @return int
+     */
+    public function getExtraPerformanceThroughputMb()
+    {
+        return $this->container['extra_performance_throughput_mb'];
+    }
+
+    /**
+     * Sets extra_performance_throughput_mb
+     *
+     * @param int $extra_performance_throughput_mb extra_performance_throughput_mb
+     *
+     * @return $this
+     */
+    public function setExtraPerformanceThroughputMb($extra_performance_throughput_mb)
+    {
+        $this->container['extra_performance_throughput_mb'] = $extra_performance_throughput_mb;
+
+        return $this;
+    }
+
+    /**
+     * Gets extra_performance_type_id
+     *
+     * @return string
+     */
+    public function getExtraPerformanceTypeId()
+    {
+        return $this->container['extra_performance_type_id'];
+    }
+
+    /**
+     * Sets extra_performance_type_id
+     *
+     * @param string $extra_performance_type_id extra_performance_type_id
+     *
+     * @return $this
+     */
+    public function setExtraPerformanceTypeId($extra_performance_type_id)
+    {
+        $this->container['extra_performance_type_id'] = $extra_performance_type_id;
+
+        return $this;
+    }
+
+    /**
      * Gets image_id
      *
      * @return string
@@ -693,6 +891,30 @@ class VolumeForDescribeVolumesOutput implements ModelInterface, ArrayAccess
     public function setPayType($pay_type)
     {
         $this->container['pay_type'] = $pay_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets placement_group_id
+     *
+     * @return string
+     */
+    public function getPlacementGroupId()
+    {
+        return $this->container['placement_group_id'];
+    }
+
+    /**
+     * Sets placement_group_id
+     *
+     * @param string $placement_group_id placement_group_id
+     *
+     * @return $this
+     */
+    public function setPlacementGroupId($placement_group_id)
+    {
+        $this->container['placement_group_id'] = $placement_group_id;
 
         return $this;
     }
@@ -842,6 +1064,30 @@ class VolumeForDescribeVolumesOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets subgroup_number
+     *
+     * @return string
+     */
+    public function getSubgroupNumber()
+    {
+        return $this->container['subgroup_number'];
+    }
+
+    /**
+     * Sets subgroup_number
+     *
+     * @param string $subgroup_number subgroup_number
+     *
+     * @return $this
+     */
+    public function setSubgroupNumber($subgroup_number)
+    {
+        $this->container['subgroup_number'] = $subgroup_number;
+
+        return $this;
+    }
+
+    /**
      * Gets tags
      *
      * @return \Volcengine\Storageebs\Model\TagForDescribeVolumesOutput[]
@@ -861,6 +1107,30 @@ class VolumeForDescribeVolumesOutput implements ModelInterface, ArrayAccess
     public function setTags($tags)
     {
         $this->container['tags'] = $tags;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_performance
+     *
+     * @return \Volcengine\Storageebs\Model\TotalPerformanceForDescribeVolumesOutput
+     */
+    public function getTotalPerformance()
+    {
+        return $this->container['total_performance'];
+    }
+
+    /**
+     * Sets total_performance
+     *
+     * @param \Volcengine\Storageebs\Model\TotalPerformanceForDescribeVolumesOutput $total_performance total_performance
+     *
+     * @return $this
+     */
+    public function setTotalPerformance($total_performance)
+    {
+        $this->container['total_performance'] = $total_performance;
 
         return $this;
     }

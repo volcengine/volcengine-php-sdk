@@ -37,6 +37,7 @@ class DescribeCdnOriginDataOfflineRequest implements ModelInterface, ArrayAccess
         'interval' => 'string',
         'is_trim_latest_data' => 'bool',
         'metric' => 'string',
+        'project_names' => 'string[]',
         'start_time' => 'int',
         'sub_products' => 'string[]',
         'vendors' => 'string[]'
@@ -57,6 +58,7 @@ class DescribeCdnOriginDataOfflineRequest implements ModelInterface, ArrayAccess
         'interval' => null,
         'is_trim_latest_data' => null,
         'metric' => null,
+        'project_names' => null,
         'start_time' => 'int64',
         'sub_products' => null,
         'vendors' => null
@@ -98,6 +100,7 @@ class DescribeCdnOriginDataOfflineRequest implements ModelInterface, ArrayAccess
         'interval' => 'Interval',
         'is_trim_latest_data' => 'IsTrimLatestData',
         'metric' => 'Metric',
+        'project_names' => 'ProjectNames',
         'start_time' => 'StartTime',
         'sub_products' => 'SubProducts',
         'vendors' => 'Vendors'
@@ -118,6 +121,7 @@ class DescribeCdnOriginDataOfflineRequest implements ModelInterface, ArrayAccess
         'interval' => 'setInterval',
         'is_trim_latest_data' => 'setIsTrimLatestData',
         'metric' => 'setMetric',
+        'project_names' => 'setProjectNames',
         'start_time' => 'setStartTime',
         'sub_products' => 'setSubProducts',
         'vendors' => 'setVendors'
@@ -138,6 +142,7 @@ class DescribeCdnOriginDataOfflineRequest implements ModelInterface, ArrayAccess
         'interval' => 'getInterval',
         'is_trim_latest_data' => 'getIsTrimLatestData',
         'metric' => 'getMetric',
+        'project_names' => 'getProjectNames',
         'start_time' => 'getStartTime',
         'sub_products' => 'getSubProducts',
         'vendors' => 'getVendors'
@@ -212,6 +217,7 @@ class DescribeCdnOriginDataOfflineRequest implements ModelInterface, ArrayAccess
         $this->container['interval'] = isset($data['interval']) ? $data['interval'] : null;
         $this->container['is_trim_latest_data'] = isset($data['is_trim_latest_data']) ? $data['is_trim_latest_data'] : null;
         $this->container['metric'] = isset($data['metric']) ? $data['metric'] : null;
+        $this->container['project_names'] = isset($data['project_names']) ? $data['project_names'] : null;
         $this->container['start_time'] = isset($data['start_time']) ? $data['start_time'] : null;
         $this->container['sub_products'] = isset($data['sub_products']) ? $data['sub_products'] : null;
         $this->container['vendors'] = isset($data['vendors']) ? $data['vendors'] : null;
@@ -465,6 +471,30 @@ class DescribeCdnOriginDataOfflineRequest implements ModelInterface, ArrayAccess
     public function setMetric($metric)
     {
         $this->container['metric'] = $metric;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_names
+     *
+     * @return string[]
+     */
+    public function getProjectNames()
+    {
+        return $this->container['project_names'];
+    }
+
+    /**
+     * Sets project_names
+     *
+     * @param string[] $project_names project_names
+     *
+     * @return $this
+     */
+    public function setProjectNames($project_names)
+    {
+        $this->container['project_names'] = $project_names;
 
         return $this;
     }

@@ -178,6 +178,12 @@ class ModifyVolumeAttributeRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['volume_id'] === null) {
+            $invalidProperties[] = "'volume_id' can't be null";
+        }
+        if ($this->container['volume_name'] === null) {
+            $invalidProperties[] = "'volume_name' can't be null";
+        }
         return $invalidProperties;
     }
 

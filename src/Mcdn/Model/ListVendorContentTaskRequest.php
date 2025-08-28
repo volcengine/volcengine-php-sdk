@@ -32,6 +32,7 @@ class ListVendorContentTaskRequest implements ModelInterface, ArrayAccess
         'end_time' => 'int',
         'pagination' => '\Volcengine\Mcdn\Model\PaginationForListVendorContentTaskInput',
         'product_type' => 'string',
+        'project_name' => 'string',
         'start_time' => 'int',
         'sub_product' => 'string',
         'task_type' => 'string',
@@ -48,6 +49,7 @@ class ListVendorContentTaskRequest implements ModelInterface, ArrayAccess
         'end_time' => 'int64',
         'pagination' => null,
         'product_type' => null,
+        'project_name' => null,
         'start_time' => 'int64',
         'sub_product' => null,
         'task_type' => null,
@@ -85,6 +87,7 @@ class ListVendorContentTaskRequest implements ModelInterface, ArrayAccess
         'end_time' => 'EndTime',
         'pagination' => 'Pagination',
         'product_type' => 'ProductType',
+        'project_name' => 'ProjectName',
         'start_time' => 'StartTime',
         'sub_product' => 'SubProduct',
         'task_type' => 'TaskType',
@@ -101,6 +104,7 @@ class ListVendorContentTaskRequest implements ModelInterface, ArrayAccess
         'end_time' => 'setEndTime',
         'pagination' => 'setPagination',
         'product_type' => 'setProductType',
+        'project_name' => 'setProjectName',
         'start_time' => 'setStartTime',
         'sub_product' => 'setSubProduct',
         'task_type' => 'setTaskType',
@@ -117,6 +121,7 @@ class ListVendorContentTaskRequest implements ModelInterface, ArrayAccess
         'end_time' => 'getEndTime',
         'pagination' => 'getPagination',
         'product_type' => 'getProductType',
+        'project_name' => 'getProjectName',
         'start_time' => 'getStartTime',
         'sub_product' => 'getSubProduct',
         'task_type' => 'getTaskType',
@@ -187,6 +192,7 @@ class ListVendorContentTaskRequest implements ModelInterface, ArrayAccess
         $this->container['end_time'] = isset($data['end_time']) ? $data['end_time'] : null;
         $this->container['pagination'] = isset($data['pagination']) ? $data['pagination'] : null;
         $this->container['product_type'] = isset($data['product_type']) ? $data['product_type'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['start_time'] = isset($data['start_time']) ? $data['start_time'] : null;
         $this->container['sub_product'] = isset($data['sub_product']) ? $data['sub_product'] : null;
         $this->container['task_type'] = isset($data['task_type']) ? $data['task_type'] : null;
@@ -315,6 +321,30 @@ class ListVendorContentTaskRequest implements ModelInterface, ArrayAccess
     public function setProductType($product_type)
     {
         $this->container['product_type'] = $product_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }

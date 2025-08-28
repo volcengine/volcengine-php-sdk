@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Storageebs\Model;
+namespace Volcengine\Graph\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class TerminateVolumesResponse implements ModelInterface, ArrayAccess
+class AddTablesRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class TerminateVolumesResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'TerminateVolumesResponse';
+    protected static $swaggerModelName = 'AddTablesRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,10 @@ class TerminateVolumesResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'number' => 'string'
+        'dry_run' => 'bool',
+        'instance_id' => 'string',
+        'tables' => '\Volcengine\Graph\Model\TableForAddTablesInput[]',
+        'tables_info' => '\Volcengine\Graph\Model\TablesInfoForAddTablesInput[]'
     ];
 
     /**
@@ -37,7 +40,10 @@ class TerminateVolumesResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'number' => null
+        'dry_run' => null,
+        'instance_id' => null,
+        'tables' => null,
+        'tables_info' => null
     ];
 
     /**
@@ -67,7 +73,10 @@ class TerminateVolumesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'number' => 'Number'
+        'dry_run' => 'dry_run',
+        'instance_id' => 'instanceId',
+        'tables' => 'tables',
+        'tables_info' => 'tables_info'
     ];
 
     /**
@@ -76,7 +85,10 @@ class TerminateVolumesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'number' => 'setNumber'
+        'dry_run' => 'setDryRun',
+        'instance_id' => 'setInstanceId',
+        'tables' => 'setTables',
+        'tables_info' => 'setTablesInfo'
     ];
 
     /**
@@ -85,7 +97,10 @@ class TerminateVolumesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'number' => 'getNumber'
+        'dry_run' => 'getDryRun',
+        'instance_id' => 'getInstanceId',
+        'tables' => 'getTables',
+        'tables_info' => 'getTablesInfo'
     ];
 
     /**
@@ -148,7 +163,10 @@ class TerminateVolumesResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['number'] = isset($data['number']) ? $data['number'] : null;
+        $this->container['dry_run'] = isset($data['dry_run']) ? $data['dry_run'] : null;
+        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
+        $this->container['tables'] = isset($data['tables']) ? $data['tables'] : null;
+        $this->container['tables_info'] = isset($data['tables_info']) ? $data['tables_info'] : null;
     }
 
     /**
@@ -160,6 +178,9 @@ class TerminateVolumesResponse implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['instance_id'] === null) {
+            $invalidProperties[] = "'instance_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -176,25 +197,97 @@ class TerminateVolumesResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets number
+     * Gets dry_run
      *
-     * @return string
+     * @return bool
      */
-    public function getNumber()
+    public function getDryRun()
     {
-        return $this->container['number'];
+        return $this->container['dry_run'];
     }
 
     /**
-     * Sets number
+     * Sets dry_run
      *
-     * @param string $number number
+     * @param bool $dry_run dry_run
      *
      * @return $this
      */
-    public function setNumber($number)
+    public function setDryRun($dry_run)
     {
-        $this->container['number'] = $number;
+        $this->container['dry_run'] = $dry_run;
+
+        return $this;
+    }
+
+    /**
+     * Gets instance_id
+     *
+     * @return string
+     */
+    public function getInstanceId()
+    {
+        return $this->container['instance_id'];
+    }
+
+    /**
+     * Sets instance_id
+     *
+     * @param string $instance_id instance_id
+     *
+     * @return $this
+     */
+    public function setInstanceId($instance_id)
+    {
+        $this->container['instance_id'] = $instance_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets tables
+     *
+     * @return \Volcengine\Graph\Model\TableForAddTablesInput[]
+     */
+    public function getTables()
+    {
+        return $this->container['tables'];
+    }
+
+    /**
+     * Sets tables
+     *
+     * @param \Volcengine\Graph\Model\TableForAddTablesInput[] $tables tables
+     *
+     * @return $this
+     */
+    public function setTables($tables)
+    {
+        $this->container['tables'] = $tables;
+
+        return $this;
+    }
+
+    /**
+     * Gets tables_info
+     *
+     * @return \Volcengine\Graph\Model\TablesInfoForAddTablesInput[]
+     */
+    public function getTablesInfo()
+    {
+        return $this->container['tables_info'];
+    }
+
+    /**
+     * Sets tables_info
+     *
+     * @param \Volcengine\Graph\Model\TablesInfoForAddTablesInput[] $tables_info tables_info
+     *
+     * @return $this
+     */
+    public function setTablesInfo($tables_info)
+    {
+        $this->container['tables_info'] = $tables_info;
 
         return $this;
     }
