@@ -32,6 +32,7 @@ class ListDnsSchedulesRequest implements ModelInterface, ArrayAccess
         'domain_name' => 'string',
         'exact_domain_name' => 'string',
         'pagination' => '\Volcengine\Mcdn\Model\PaginationForListDnsSchedulesInput',
+        'project_name' => 'string',
         'region' => 'string',
         'schedule_status' => 'string',
         'schedule_strategy' => 'string',
@@ -50,6 +51,7 @@ class ListDnsSchedulesRequest implements ModelInterface, ArrayAccess
         'domain_name' => null,
         'exact_domain_name' => null,
         'pagination' => null,
+        'project_name' => null,
         'region' => null,
         'schedule_status' => null,
         'schedule_strategy' => null,
@@ -89,6 +91,7 @@ class ListDnsSchedulesRequest implements ModelInterface, ArrayAccess
         'domain_name' => 'DomainName',
         'exact_domain_name' => 'ExactDomainName',
         'pagination' => 'Pagination',
+        'project_name' => 'ProjectName',
         'region' => 'Region',
         'schedule_status' => 'ScheduleStatus',
         'schedule_strategy' => 'ScheduleStrategy',
@@ -107,6 +110,7 @@ class ListDnsSchedulesRequest implements ModelInterface, ArrayAccess
         'domain_name' => 'setDomainName',
         'exact_domain_name' => 'setExactDomainName',
         'pagination' => 'setPagination',
+        'project_name' => 'setProjectName',
         'region' => 'setRegion',
         'schedule_status' => 'setScheduleStatus',
         'schedule_strategy' => 'setScheduleStrategy',
@@ -125,6 +129,7 @@ class ListDnsSchedulesRequest implements ModelInterface, ArrayAccess
         'domain_name' => 'getDomainName',
         'exact_domain_name' => 'getExactDomainName',
         'pagination' => 'getPagination',
+        'project_name' => 'getProjectName',
         'region' => 'getRegion',
         'schedule_status' => 'getScheduleStatus',
         'schedule_strategy' => 'getScheduleStrategy',
@@ -197,6 +202,7 @@ class ListDnsSchedulesRequest implements ModelInterface, ArrayAccess
         $this->container['domain_name'] = isset($data['domain_name']) ? $data['domain_name'] : null;
         $this->container['exact_domain_name'] = isset($data['exact_domain_name']) ? $data['exact_domain_name'] : null;
         $this->container['pagination'] = isset($data['pagination']) ? $data['pagination'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['region'] = isset($data['region']) ? $data['region'] : null;
         $this->container['schedule_status'] = isset($data['schedule_status']) ? $data['schedule_status'] : null;
         $this->container['schedule_strategy'] = isset($data['schedule_strategy']) ? $data['schedule_strategy'] : null;
@@ -321,6 +327,30 @@ class ListDnsSchedulesRequest implements ModelInterface, ArrayAccess
     public function setPagination($pagination)
     {
         $this->container['pagination'] = $pagination;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }

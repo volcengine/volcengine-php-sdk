@@ -36,6 +36,7 @@ class DomainForListCdnDomainsOutput implements ModelInterface, ArrayAccess
         'cloud_account_id' => 'string',
         'cloud_account_name' => 'string',
         'cname' => 'string',
+        'configs' => '\Volcengine\Mcdn\Model\ConfigsForListCdnDomainsOutput',
         'created_at' => 'string',
         'id' => 'string',
         'imported_at' => 'string',
@@ -50,7 +51,8 @@ class DomainForListCdnDomainsOutput implements ModelInterface, ArrayAccess
         'top_account_id' => 'string',
         'updated_at' => 'string',
         'vendor' => 'string',
-        'vendor_id' => 'string'
+        'vendor_id' => 'string',
+        'volc_project_path' => 'string'
     ];
 
     /**
@@ -67,6 +69,7 @@ class DomainForListCdnDomainsOutput implements ModelInterface, ArrayAccess
         'cloud_account_id' => null,
         'cloud_account_name' => null,
         'cname' => null,
+        'configs' => null,
         'created_at' => null,
         'id' => null,
         'imported_at' => null,
@@ -81,7 +84,8 @@ class DomainForListCdnDomainsOutput implements ModelInterface, ArrayAccess
         'top_account_id' => null,
         'updated_at' => null,
         'vendor' => null,
-        'vendor_id' => null
+        'vendor_id' => null,
+        'volc_project_path' => null
     ];
 
     /**
@@ -119,6 +123,7 @@ class DomainForListCdnDomainsOutput implements ModelInterface, ArrayAccess
         'cloud_account_id' => 'CloudAccountId',
         'cloud_account_name' => 'CloudAccountName',
         'cname' => 'Cname',
+        'configs' => 'Configs',
         'created_at' => 'CreatedAt',
         'id' => 'Id',
         'imported_at' => 'ImportedAt',
@@ -133,7 +138,8 @@ class DomainForListCdnDomainsOutput implements ModelInterface, ArrayAccess
         'top_account_id' => 'TopAccountId',
         'updated_at' => 'UpdatedAt',
         'vendor' => 'Vendor',
-        'vendor_id' => 'VendorId'
+        'vendor_id' => 'VendorId',
+        'volc_project_path' => 'VolcProjectPath'
     ];
 
     /**
@@ -150,6 +156,7 @@ class DomainForListCdnDomainsOutput implements ModelInterface, ArrayAccess
         'cloud_account_id' => 'setCloudAccountId',
         'cloud_account_name' => 'setCloudAccountName',
         'cname' => 'setCname',
+        'configs' => 'setConfigs',
         'created_at' => 'setCreatedAt',
         'id' => 'setId',
         'imported_at' => 'setImportedAt',
@@ -164,7 +171,8 @@ class DomainForListCdnDomainsOutput implements ModelInterface, ArrayAccess
         'top_account_id' => 'setTopAccountId',
         'updated_at' => 'setUpdatedAt',
         'vendor' => 'setVendor',
-        'vendor_id' => 'setVendorId'
+        'vendor_id' => 'setVendorId',
+        'volc_project_path' => 'setVolcProjectPath'
     ];
 
     /**
@@ -181,6 +189,7 @@ class DomainForListCdnDomainsOutput implements ModelInterface, ArrayAccess
         'cloud_account_id' => 'getCloudAccountId',
         'cloud_account_name' => 'getCloudAccountName',
         'cname' => 'getCname',
+        'configs' => 'getConfigs',
         'created_at' => 'getCreatedAt',
         'id' => 'getId',
         'imported_at' => 'getImportedAt',
@@ -195,7 +204,8 @@ class DomainForListCdnDomainsOutput implements ModelInterface, ArrayAccess
         'top_account_id' => 'getTopAccountId',
         'updated_at' => 'getUpdatedAt',
         'vendor' => 'getVendor',
-        'vendor_id' => 'getVendorId'
+        'vendor_id' => 'getVendorId',
+        'volc_project_path' => 'getVolcProjectPath'
     ];
 
     /**
@@ -266,6 +276,7 @@ class DomainForListCdnDomainsOutput implements ModelInterface, ArrayAccess
         $this->container['cloud_account_id'] = isset($data['cloud_account_id']) ? $data['cloud_account_id'] : null;
         $this->container['cloud_account_name'] = isset($data['cloud_account_name']) ? $data['cloud_account_name'] : null;
         $this->container['cname'] = isset($data['cname']) ? $data['cname'] : null;
+        $this->container['configs'] = isset($data['configs']) ? $data['configs'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['imported_at'] = isset($data['imported_at']) ? $data['imported_at'] : null;
@@ -281,6 +292,7 @@ class DomainForListCdnDomainsOutput implements ModelInterface, ArrayAccess
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
         $this->container['vendor'] = isset($data['vendor']) ? $data['vendor'] : null;
         $this->container['vendor_id'] = isset($data['vendor_id']) ? $data['vendor_id'] : null;
+        $this->container['volc_project_path'] = isset($data['volc_project_path']) ? $data['volc_project_path'] : null;
     }
 
     /**
@@ -495,6 +507,30 @@ class DomainForListCdnDomainsOutput implements ModelInterface, ArrayAccess
     public function setCname($cname)
     {
         $this->container['cname'] = $cname;
+
+        return $this;
+    }
+
+    /**
+     * Gets configs
+     *
+     * @return \Volcengine\Mcdn\Model\ConfigsForListCdnDomainsOutput
+     */
+    public function getConfigs()
+    {
+        return $this->container['configs'];
+    }
+
+    /**
+     * Sets configs
+     *
+     * @param \Volcengine\Mcdn\Model\ConfigsForListCdnDomainsOutput $configs configs
+     *
+     * @return $this
+     */
+    public function setConfigs($configs)
+    {
+        $this->container['configs'] = $configs;
 
         return $this;
     }
@@ -855,6 +891,30 @@ class DomainForListCdnDomainsOutput implements ModelInterface, ArrayAccess
     public function setVendorId($vendor_id)
     {
         $this->container['vendor_id'] = $vendor_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets volc_project_path
+     *
+     * @return string
+     */
+    public function getVolcProjectPath()
+    {
+        return $this->container['volc_project_path'];
+    }
+
+    /**
+     * Sets volc_project_path
+     *
+     * @param string $volc_project_path volc_project_path
+     *
+     * @return $this
+     */
+    public function setVolcProjectPath($volc_project_path)
+    {
+        $this->container['volc_project_path'] = $volc_project_path;
 
         return $this;
     }

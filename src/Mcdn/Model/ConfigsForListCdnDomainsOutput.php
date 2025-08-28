@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
+class ConfigsForListCdnDomainsOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'TagFilterForListCdnDomainsInput';
+    protected static $swaggerModelName = 'ConfigsForListCdnDomainsOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,7 @@ class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'key' => 'string',
-        'value' => 'string',
-        'values' => 'string[]'
+        'origins' => '\Volcengine\Mcdn\Model\OriginForListCdnDomainsOutput[]'
     ];
 
     /**
@@ -39,9 +37,7 @@ class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'key' => null,
-        'value' => null,
-        'values' => null
+        'origins' => null
     ];
 
     /**
@@ -71,9 +67,7 @@ class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'key' => 'Key',
-        'value' => 'Value',
-        'values' => 'Values'
+        'origins' => 'Origins'
     ];
 
     /**
@@ -82,9 +76,7 @@ class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'key' => 'setKey',
-        'value' => 'setValue',
-        'values' => 'setValues'
+        'origins' => 'setOrigins'
     ];
 
     /**
@@ -93,9 +85,7 @@ class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'key' => 'getKey',
-        'value' => 'getValue',
-        'values' => 'getValues'
+        'origins' => 'getOrigins'
     ];
 
     /**
@@ -158,9 +148,7 @@ class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['key'] = isset($data['key']) ? $data['key'] : null;
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
-        $this->container['values'] = isset($data['values']) ? $data['values'] : null;
+        $this->container['origins'] = isset($data['origins']) ? $data['origins'] : null;
     }
 
     /**
@@ -188,73 +176,25 @@ class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets key
+     * Gets origins
      *
-     * @return string
+     * @return \Volcengine\Mcdn\Model\OriginForListCdnDomainsOutput[]
      */
-    public function getKey()
+    public function getOrigins()
     {
-        return $this->container['key'];
+        return $this->container['origins'];
     }
 
     /**
-     * Sets key
+     * Sets origins
      *
-     * @param string $key key
+     * @param \Volcengine\Mcdn\Model\OriginForListCdnDomainsOutput[] $origins origins
      *
      * @return $this
      */
-    public function setKey($key)
+    public function setOrigins($origins)
     {
-        $this->container['key'] = $key;
-
-        return $this;
-    }
-
-    /**
-     * Gets value
-     *
-     * @return string
-     */
-    public function getValue()
-    {
-        return $this->container['value'];
-    }
-
-    /**
-     * Sets value
-     *
-     * @param string $value value
-     *
-     * @return $this
-     */
-    public function setValue($value)
-    {
-        $this->container['value'] = $value;
-
-        return $this;
-    }
-
-    /**
-     * Gets values
-     *
-     * @return string[]
-     */
-    public function getValues()
-    {
-        return $this->container['values'];
-    }
-
-    /**
-     * Sets values
-     *
-     * @param string[] $values values
-     *
-     * @return $this
-     */
-    public function setValues($values)
-    {
-        $this->container['values'] = $values;
+        $this->container['origins'] = $origins;
 
         return $this;
     }

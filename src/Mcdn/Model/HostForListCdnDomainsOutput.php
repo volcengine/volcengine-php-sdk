@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
+class HostForListCdnDomainsOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'TagFilterForListCdnDomainsInput';
+    protected static $swaggerModelName = 'HostForListCdnDomainsOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,8 @@ class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'key' => 'string',
-        'value' => 'string',
-        'values' => 'string[]'
+        'header_host' => 'string',
+        'mode' => 'string'
     ];
 
     /**
@@ -39,9 +38,8 @@ class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'key' => null,
-        'value' => null,
-        'values' => null
+        'header_host' => null,
+        'mode' => null
     ];
 
     /**
@@ -71,9 +69,8 @@ class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'key' => 'Key',
-        'value' => 'Value',
-        'values' => 'Values'
+        'header_host' => 'HeaderHost',
+        'mode' => 'Mode'
     ];
 
     /**
@@ -82,9 +79,8 @@ class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'key' => 'setKey',
-        'value' => 'setValue',
-        'values' => 'setValues'
+        'header_host' => 'setHeaderHost',
+        'mode' => 'setMode'
     ];
 
     /**
@@ -93,9 +89,8 @@ class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'key' => 'getKey',
-        'value' => 'getValue',
-        'values' => 'getValues'
+        'header_host' => 'getHeaderHost',
+        'mode' => 'getMode'
     ];
 
     /**
@@ -158,9 +153,8 @@ class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['key'] = isset($data['key']) ? $data['key'] : null;
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
-        $this->container['values'] = isset($data['values']) ? $data['values'] : null;
+        $this->container['header_host'] = isset($data['header_host']) ? $data['header_host'] : null;
+        $this->container['mode'] = isset($data['mode']) ? $data['mode'] : null;
     }
 
     /**
@@ -188,73 +182,49 @@ class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets key
+     * Gets header_host
      *
      * @return string
      */
-    public function getKey()
+    public function getHeaderHost()
     {
-        return $this->container['key'];
+        return $this->container['header_host'];
     }
 
     /**
-     * Sets key
+     * Sets header_host
      *
-     * @param string $key key
+     * @param string $header_host header_host
      *
      * @return $this
      */
-    public function setKey($key)
+    public function setHeaderHost($header_host)
     {
-        $this->container['key'] = $key;
+        $this->container['header_host'] = $header_host;
 
         return $this;
     }
 
     /**
-     * Gets value
+     * Gets mode
      *
      * @return string
      */
-    public function getValue()
+    public function getMode()
     {
-        return $this->container['value'];
+        return $this->container['mode'];
     }
 
     /**
-     * Sets value
+     * Sets mode
      *
-     * @param string $value value
+     * @param string $mode mode
      *
      * @return $this
      */
-    public function setValue($value)
+    public function setMode($mode)
     {
-        $this->container['value'] = $value;
-
-        return $this;
-    }
-
-    /**
-     * Gets values
-     *
-     * @return string[]
-     */
-    public function getValues()
-    {
-        return $this->container['values'];
-    }
-
-    /**
-     * Sets values
-     *
-     * @param string[] $values values
-     *
-     * @return $this
-     */
-    public function setValues($values)
-    {
-        $this->container['values'] = $values;
+        $this->container['mode'] = $mode;
 
         return $this;
     }

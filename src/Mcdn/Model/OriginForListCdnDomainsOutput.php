@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
+class OriginForListCdnDomainsOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'TagFilterForListCdnDomainsInput';
+    protected static $swaggerModelName = 'OriginForListCdnDomainsOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,13 @@ class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'key' => 'string',
-        'value' => 'string',
-        'values' => 'string[]'
+        'address' => 'string',
+        'host' => '\Volcengine\Mcdn\Model\HostForListCdnDomainsOutput',
+        'http_port' => 'int',
+        'https_port' => 'int',
+        'priority' => 'int',
+        'type' => 'string',
+        'weight' => 'int'
     ];
 
     /**
@@ -39,9 +43,13 @@ class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'key' => null,
-        'value' => null,
-        'values' => null
+        'address' => null,
+        'host' => null,
+        'http_port' => 'int64',
+        'https_port' => 'int64',
+        'priority' => 'int64',
+        'type' => null,
+        'weight' => 'int64'
     ];
 
     /**
@@ -71,9 +79,13 @@ class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'key' => 'Key',
-        'value' => 'Value',
-        'values' => 'Values'
+        'address' => 'Address',
+        'host' => 'Host',
+        'http_port' => 'HttpPort',
+        'https_port' => 'HttpsPort',
+        'priority' => 'Priority',
+        'type' => 'Type',
+        'weight' => 'Weight'
     ];
 
     /**
@@ -82,9 +94,13 @@ class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'key' => 'setKey',
-        'value' => 'setValue',
-        'values' => 'setValues'
+        'address' => 'setAddress',
+        'host' => 'setHost',
+        'http_port' => 'setHttpPort',
+        'https_port' => 'setHttpsPort',
+        'priority' => 'setPriority',
+        'type' => 'setType',
+        'weight' => 'setWeight'
     ];
 
     /**
@@ -93,9 +109,13 @@ class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'key' => 'getKey',
-        'value' => 'getValue',
-        'values' => 'getValues'
+        'address' => 'getAddress',
+        'host' => 'getHost',
+        'http_port' => 'getHttpPort',
+        'https_port' => 'getHttpsPort',
+        'priority' => 'getPriority',
+        'type' => 'getType',
+        'weight' => 'getWeight'
     ];
 
     /**
@@ -158,9 +178,13 @@ class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['key'] = isset($data['key']) ? $data['key'] : null;
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
-        $this->container['values'] = isset($data['values']) ? $data['values'] : null;
+        $this->container['address'] = isset($data['address']) ? $data['address'] : null;
+        $this->container['host'] = isset($data['host']) ? $data['host'] : null;
+        $this->container['http_port'] = isset($data['http_port']) ? $data['http_port'] : null;
+        $this->container['https_port'] = isset($data['https_port']) ? $data['https_port'] : null;
+        $this->container['priority'] = isset($data['priority']) ? $data['priority'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['weight'] = isset($data['weight']) ? $data['weight'] : null;
     }
 
     /**
@@ -188,73 +212,169 @@ class TagFilterForListCdnDomainsInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets key
+     * Gets address
      *
      * @return string
      */
-    public function getKey()
+    public function getAddress()
     {
-        return $this->container['key'];
+        return $this->container['address'];
     }
 
     /**
-     * Sets key
+     * Sets address
      *
-     * @param string $key key
+     * @param string $address address
      *
      * @return $this
      */
-    public function setKey($key)
+    public function setAddress($address)
     {
-        $this->container['key'] = $key;
+        $this->container['address'] = $address;
 
         return $this;
     }
 
     /**
-     * Gets value
+     * Gets host
      *
-     * @return string
+     * @return \Volcengine\Mcdn\Model\HostForListCdnDomainsOutput
      */
-    public function getValue()
+    public function getHost()
     {
-        return $this->container['value'];
+        return $this->container['host'];
     }
 
     /**
-     * Sets value
+     * Sets host
      *
-     * @param string $value value
+     * @param \Volcengine\Mcdn\Model\HostForListCdnDomainsOutput $host host
      *
      * @return $this
      */
-    public function setValue($value)
+    public function setHost($host)
     {
-        $this->container['value'] = $value;
+        $this->container['host'] = $host;
 
         return $this;
     }
 
     /**
-     * Gets values
+     * Gets http_port
      *
-     * @return string[]
+     * @return int
      */
-    public function getValues()
+    public function getHttpPort()
     {
-        return $this->container['values'];
+        return $this->container['http_port'];
     }
 
     /**
-     * Sets values
+     * Sets http_port
      *
-     * @param string[] $values values
+     * @param int $http_port http_port
      *
      * @return $this
      */
-    public function setValues($values)
+    public function setHttpPort($http_port)
     {
-        $this->container['values'] = $values;
+        $this->container['http_port'] = $http_port;
+
+        return $this;
+    }
+
+    /**
+     * Gets https_port
+     *
+     * @return int
+     */
+    public function getHttpsPort()
+    {
+        return $this->container['https_port'];
+    }
+
+    /**
+     * Sets https_port
+     *
+     * @param int $https_port https_port
+     *
+     * @return $this
+     */
+    public function setHttpsPort($https_port)
+    {
+        $this->container['https_port'] = $https_port;
+
+        return $this;
+    }
+
+    /**
+     * Gets priority
+     *
+     * @return int
+     */
+    public function getPriority()
+    {
+        return $this->container['priority'];
+    }
+
+    /**
+     * Sets priority
+     *
+     * @param int $priority priority
+     *
+     * @return $this
+     */
+    public function setPriority($priority)
+    {
+        $this->container['priority'] = $priority;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string $type type
+     *
+     * @return $this
+     */
+    public function setType($type)
+    {
+        $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets weight
+     *
+     * @return int
+     */
+    public function getWeight()
+    {
+        return $this->container['weight'];
+    }
+
+    /**
+     * Sets weight
+     *
+     * @param int $weight weight
+     *
+     * @return $this
+     */
+    public function setWeight($weight)
+    {
+        $this->container['weight'] = $weight;
 
         return $this;
     }

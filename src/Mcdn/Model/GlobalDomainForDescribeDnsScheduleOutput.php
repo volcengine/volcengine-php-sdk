@@ -30,6 +30,8 @@ class GlobalDomainForDescribeDnsScheduleOutput implements ModelInterface, ArrayA
     protected static $swaggerTypes = [
         'cloud_account_id' => 'string',
         'cname' => 'string',
+        'ipv4_list' => 'string[]',
+        'ipv6_list' => 'string[]',
         'id' => 'string',
         'is_enabled' => 'bool',
         'name' => 'string',
@@ -47,6 +49,8 @@ class GlobalDomainForDescribeDnsScheduleOutput implements ModelInterface, ArrayA
     protected static $swaggerFormats = [
         'cloud_account_id' => null,
         'cname' => null,
+        'ipv4_list' => null,
+        'ipv6_list' => null,
         'id' => null,
         'is_enabled' => null,
         'name' => null,
@@ -85,6 +89,8 @@ class GlobalDomainForDescribeDnsScheduleOutput implements ModelInterface, ArrayA
     protected static $attributeMap = [
         'cloud_account_id' => 'CloudAccountId',
         'cname' => 'Cname',
+        'ipv4_list' => 'IPv4List',
+        'ipv6_list' => 'IPv6List',
         'id' => 'Id',
         'is_enabled' => 'IsEnabled',
         'name' => 'Name',
@@ -102,6 +108,8 @@ class GlobalDomainForDescribeDnsScheduleOutput implements ModelInterface, ArrayA
     protected static $setters = [
         'cloud_account_id' => 'setCloudAccountId',
         'cname' => 'setCname',
+        'ipv4_list' => 'setIpv4List',
+        'ipv6_list' => 'setIpv6List',
         'id' => 'setId',
         'is_enabled' => 'setIsEnabled',
         'name' => 'setName',
@@ -119,6 +127,8 @@ class GlobalDomainForDescribeDnsScheduleOutput implements ModelInterface, ArrayA
     protected static $getters = [
         'cloud_account_id' => 'getCloudAccountId',
         'cname' => 'getCname',
+        'ipv4_list' => 'getIpv4List',
+        'ipv6_list' => 'getIpv6List',
         'id' => 'getId',
         'is_enabled' => 'getIsEnabled',
         'name' => 'getName',
@@ -190,6 +200,8 @@ class GlobalDomainForDescribeDnsScheduleOutput implements ModelInterface, ArrayA
     {
         $this->container['cloud_account_id'] = isset($data['cloud_account_id']) ? $data['cloud_account_id'] : null;
         $this->container['cname'] = isset($data['cname']) ? $data['cname'] : null;
+        $this->container['ipv4_list'] = isset($data['ipv4_list']) ? $data['ipv4_list'] : null;
+        $this->container['ipv6_list'] = isset($data['ipv6_list']) ? $data['ipv6_list'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['is_enabled'] = isset($data['is_enabled']) ? $data['is_enabled'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
@@ -267,6 +279,54 @@ class GlobalDomainForDescribeDnsScheduleOutput implements ModelInterface, ArrayA
     public function setCname($cname)
     {
         $this->container['cname'] = $cname;
+
+        return $this;
+    }
+
+    /**
+     * Gets ipv4_list
+     *
+     * @return string[]
+     */
+    public function getIpv4List()
+    {
+        return $this->container['ipv4_list'];
+    }
+
+    /**
+     * Sets ipv4_list
+     *
+     * @param string[] $ipv4_list ipv4_list
+     *
+     * @return $this
+     */
+    public function setIpv4List($ipv4_list)
+    {
+        $this->container['ipv4_list'] = $ipv4_list;
+
+        return $this;
+    }
+
+    /**
+     * Gets ipv6_list
+     *
+     * @return string[]
+     */
+    public function getIpv6List()
+    {
+        return $this->container['ipv6_list'];
+    }
+
+    /**
+     * Sets ipv6_list
+     *
+     * @param string[] $ipv6_list ipv6_list
+     *
+     * @return $this
+     */
+    public function setIpv6List($ipv6_list)
+    {
+        $this->container['ipv6_list'] = $ipv6_list;
 
         return $this;
     }
