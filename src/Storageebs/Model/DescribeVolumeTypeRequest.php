@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class TerminateVolumesRequest implements ModelInterface, ArrayAccess
+class DescribeVolumeTypeRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class TerminateVolumesRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'TerminateVolumesRequest';
+    protected static $swaggerModelName = 'DescribeVolumeTypeRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,13 @@ class TerminateVolumesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'volume_ids' => 'string[]'
+        'filter' => 'string',
+        'order_by' => 'string',
+        'page_number' => 'int',
+        'page_size' => 'int',
+        'resource_class' => 'string',
+        'volume_type_ids' => 'string[]',
+        'zone_id' => 'string'
     ];
 
     /**
@@ -37,7 +43,13 @@ class TerminateVolumesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'volume_ids' => null
+        'filter' => null,
+        'order_by' => null,
+        'page_number' => 'int32',
+        'page_size' => 'int32',
+        'resource_class' => null,
+        'volume_type_ids' => null,
+        'zone_id' => null
     ];
 
     /**
@@ -67,7 +79,13 @@ class TerminateVolumesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'volume_ids' => 'VolumeIds'
+        'filter' => 'Filter',
+        'order_by' => 'OrderBy',
+        'page_number' => 'PageNumber',
+        'page_size' => 'PageSize',
+        'resource_class' => 'ResourceClass',
+        'volume_type_ids' => 'VolumeTypeIds',
+        'zone_id' => 'ZoneId'
     ];
 
     /**
@@ -76,7 +94,13 @@ class TerminateVolumesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'volume_ids' => 'setVolumeIds'
+        'filter' => 'setFilter',
+        'order_by' => 'setOrderBy',
+        'page_number' => 'setPageNumber',
+        'page_size' => 'setPageSize',
+        'resource_class' => 'setResourceClass',
+        'volume_type_ids' => 'setVolumeTypeIds',
+        'zone_id' => 'setZoneId'
     ];
 
     /**
@@ -85,7 +109,13 @@ class TerminateVolumesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'volume_ids' => 'getVolumeIds'
+        'filter' => 'getFilter',
+        'order_by' => 'getOrderBy',
+        'page_number' => 'getPageNumber',
+        'page_size' => 'getPageSize',
+        'resource_class' => 'getResourceClass',
+        'volume_type_ids' => 'getVolumeTypeIds',
+        'zone_id' => 'getZoneId'
     ];
 
     /**
@@ -148,7 +178,13 @@ class TerminateVolumesRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['volume_ids'] = isset($data['volume_ids']) ? $data['volume_ids'] : null;
+        $this->container['filter'] = isset($data['filter']) ? $data['filter'] : null;
+        $this->container['order_by'] = isset($data['order_by']) ? $data['order_by'] : null;
+        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
+        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
+        $this->container['resource_class'] = isset($data['resource_class']) ? $data['resource_class'] : null;
+        $this->container['volume_type_ids'] = isset($data['volume_type_ids']) ? $data['volume_type_ids'] : null;
+        $this->container['zone_id'] = isset($data['zone_id']) ? $data['zone_id'] : null;
     }
 
     /**
@@ -176,25 +212,169 @@ class TerminateVolumesRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets volume_ids
+     * Gets filter
      *
-     * @return string[]
+     * @return string
      */
-    public function getVolumeIds()
+    public function getFilter()
     {
-        return $this->container['volume_ids'];
+        return $this->container['filter'];
     }
 
     /**
-     * Sets volume_ids
+     * Sets filter
      *
-     * @param string[] $volume_ids volume_ids
+     * @param string $filter filter
      *
      * @return $this
      */
-    public function setVolumeIds($volume_ids)
+    public function setFilter($filter)
     {
-        $this->container['volume_ids'] = $volume_ids;
+        $this->container['filter'] = $filter;
+
+        return $this;
+    }
+
+    /**
+     * Gets order_by
+     *
+     * @return string
+     */
+    public function getOrderBy()
+    {
+        return $this->container['order_by'];
+    }
+
+    /**
+     * Sets order_by
+     *
+     * @param string $order_by order_by
+     *
+     * @return $this
+     */
+    public function setOrderBy($order_by)
+    {
+        $this->container['order_by'] = $order_by;
+
+        return $this;
+    }
+
+    /**
+     * Gets page_number
+     *
+     * @return int
+     */
+    public function getPageNumber()
+    {
+        return $this->container['page_number'];
+    }
+
+    /**
+     * Sets page_number
+     *
+     * @param int $page_number page_number
+     *
+     * @return $this
+     */
+    public function setPageNumber($page_number)
+    {
+        $this->container['page_number'] = $page_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets page_size
+     *
+     * @return int
+     */
+    public function getPageSize()
+    {
+        return $this->container['page_size'];
+    }
+
+    /**
+     * Sets page_size
+     *
+     * @param int $page_size page_size
+     *
+     * @return $this
+     */
+    public function setPageSize($page_size)
+    {
+        $this->container['page_size'] = $page_size;
+
+        return $this;
+    }
+
+    /**
+     * Gets resource_class
+     *
+     * @return string
+     */
+    public function getResourceClass()
+    {
+        return $this->container['resource_class'];
+    }
+
+    /**
+     * Sets resource_class
+     *
+     * @param string $resource_class resource_class
+     *
+     * @return $this
+     */
+    public function setResourceClass($resource_class)
+    {
+        $this->container['resource_class'] = $resource_class;
+
+        return $this;
+    }
+
+    /**
+     * Gets volume_type_ids
+     *
+     * @return string[]
+     */
+    public function getVolumeTypeIds()
+    {
+        return $this->container['volume_type_ids'];
+    }
+
+    /**
+     * Sets volume_type_ids
+     *
+     * @param string[] $volume_type_ids volume_type_ids
+     *
+     * @return $this
+     */
+    public function setVolumeTypeIds($volume_type_ids)
+    {
+        $this->container['volume_type_ids'] = $volume_type_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets zone_id
+     *
+     * @return string
+     */
+    public function getZoneId()
+    {
+        return $this->container['zone_id'];
+    }
+
+    /**
+     * Sets zone_id
+     *
+     * @param string $zone_id zone_id
+     *
+     * @return $this
+     */
+    public function setZoneId($zone_id)
+    {
+        $this->container['zone_id'] = $zone_id;
 
         return $this;
     }
