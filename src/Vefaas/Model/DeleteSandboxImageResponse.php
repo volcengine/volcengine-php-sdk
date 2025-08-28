@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAccess
+class DeleteSandboxImageResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetDependencyInstallTaskStatusResponse';
+    protected static $swaggerModelName = 'DeleteSandboxImageResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,7 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'create_time' => 'string',
-        'finish_time' => 'string',
-        'function_id' => 'string',
+        'related_sandbox_applications' => 'string[]',
         'status' => 'string'
     ];
 
@@ -40,9 +38,7 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'create_time' => null,
-        'finish_time' => null,
-        'function_id' => null,
+        'related_sandbox_applications' => null,
         'status' => null
     ];
 
@@ -73,9 +69,7 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $attributeMap = [
-        'create_time' => 'CreateTime',
-        'finish_time' => 'FinishTime',
-        'function_id' => 'FunctionId',
+        'related_sandbox_applications' => 'RelatedSandboxApplications',
         'status' => 'Status'
     ];
 
@@ -85,9 +79,7 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $setters = [
-        'create_time' => 'setCreateTime',
-        'finish_time' => 'setFinishTime',
-        'function_id' => 'setFunctionId',
+        'related_sandbox_applications' => 'setRelatedSandboxApplications',
         'status' => 'setStatus'
     ];
 
@@ -97,9 +89,7 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $getters = [
-        'create_time' => 'getCreateTime',
-        'finish_time' => 'getFinishTime',
-        'function_id' => 'getFunctionId',
+        'related_sandbox_applications' => 'getRelatedSandboxApplications',
         'status' => 'getStatus'
     ];
 
@@ -163,9 +153,7 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
      */
     public function __construct(array $data = null)
     {
-        $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
-        $this->container['finish_time'] = isset($data['finish_time']) ? $data['finish_time'] : null;
-        $this->container['function_id'] = isset($data['function_id']) ? $data['function_id'] : null;
+        $this->container['related_sandbox_applications'] = isset($data['related_sandbox_applications']) ? $data['related_sandbox_applications'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }
 
@@ -194,73 +182,25 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
 
 
     /**
-     * Gets create_time
+     * Gets related_sandbox_applications
      *
-     * @return string
+     * @return string[]
      */
-    public function getCreateTime()
+    public function getRelatedSandboxApplications()
     {
-        return $this->container['create_time'];
+        return $this->container['related_sandbox_applications'];
     }
 
     /**
-     * Sets create_time
+     * Sets related_sandbox_applications
      *
-     * @param string $create_time create_time
+     * @param string[] $related_sandbox_applications related_sandbox_applications
      *
      * @return $this
      */
-    public function setCreateTime($create_time)
+    public function setRelatedSandboxApplications($related_sandbox_applications)
     {
-        $this->container['create_time'] = $create_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets finish_time
-     *
-     * @return string
-     */
-    public function getFinishTime()
-    {
-        return $this->container['finish_time'];
-    }
-
-    /**
-     * Sets finish_time
-     *
-     * @param string $finish_time finish_time
-     *
-     * @return $this
-     */
-    public function setFinishTime($finish_time)
-    {
-        $this->container['finish_time'] = $finish_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets function_id
-     *
-     * @return string
-     */
-    public function getFunctionId()
-    {
-        return $this->container['function_id'];
-    }
-
-    /**
-     * Sets function_id
-     *
-     * @param string $function_id function_id
-     *
-     * @return $this
-     */
-    public function setFunctionId($function_id)
-    {
-        $this->container['function_id'] = $function_id;
+        $this->container['related_sandbox_applications'] = $related_sandbox_applications;
 
         return $this;
     }

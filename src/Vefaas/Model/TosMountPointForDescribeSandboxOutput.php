@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAccess
+class TosMountPointForDescribeSandboxOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetDependencyInstallTaskStatusResponse';
+    protected static $swaggerModelName = 'TosMountPointForDescribeSandboxOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,8 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'create_time' => 'string',
-        'finish_time' => 'string',
-        'function_id' => 'string',
-        'status' => 'string'
+        'bucket_path' => 'string',
+        'local_mount_path' => 'string'
     ];
 
     /**
@@ -40,10 +38,8 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'create_time' => null,
-        'finish_time' => null,
-        'function_id' => null,
-        'status' => null
+        'bucket_path' => null,
+        'local_mount_path' => null
     ];
 
     /**
@@ -73,10 +69,8 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $attributeMap = [
-        'create_time' => 'CreateTime',
-        'finish_time' => 'FinishTime',
-        'function_id' => 'FunctionId',
-        'status' => 'Status'
+        'bucket_path' => 'BucketPath',
+        'local_mount_path' => 'LocalMountPath'
     ];
 
     /**
@@ -85,10 +79,8 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $setters = [
-        'create_time' => 'setCreateTime',
-        'finish_time' => 'setFinishTime',
-        'function_id' => 'setFunctionId',
-        'status' => 'setStatus'
+        'bucket_path' => 'setBucketPath',
+        'local_mount_path' => 'setLocalMountPath'
     ];
 
     /**
@@ -97,10 +89,8 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $getters = [
-        'create_time' => 'getCreateTime',
-        'finish_time' => 'getFinishTime',
-        'function_id' => 'getFunctionId',
-        'status' => 'getStatus'
+        'bucket_path' => 'getBucketPath',
+        'local_mount_path' => 'getLocalMountPath'
     ];
 
     /**
@@ -163,10 +153,8 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
      */
     public function __construct(array $data = null)
     {
-        $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
-        $this->container['finish_time'] = isset($data['finish_time']) ? $data['finish_time'] : null;
-        $this->container['function_id'] = isset($data['function_id']) ? $data['function_id'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['bucket_path'] = isset($data['bucket_path']) ? $data['bucket_path'] : null;
+        $this->container['local_mount_path'] = isset($data['local_mount_path']) ? $data['local_mount_path'] : null;
     }
 
     /**
@@ -194,97 +182,49 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
 
 
     /**
-     * Gets create_time
+     * Gets bucket_path
      *
      * @return string
      */
-    public function getCreateTime()
+    public function getBucketPath()
     {
-        return $this->container['create_time'];
+        return $this->container['bucket_path'];
     }
 
     /**
-     * Sets create_time
+     * Sets bucket_path
      *
-     * @param string $create_time create_time
+     * @param string $bucket_path bucket_path
      *
      * @return $this
      */
-    public function setCreateTime($create_time)
+    public function setBucketPath($bucket_path)
     {
-        $this->container['create_time'] = $create_time;
+        $this->container['bucket_path'] = $bucket_path;
 
         return $this;
     }
 
     /**
-     * Gets finish_time
+     * Gets local_mount_path
      *
      * @return string
      */
-    public function getFinishTime()
+    public function getLocalMountPath()
     {
-        return $this->container['finish_time'];
+        return $this->container['local_mount_path'];
     }
 
     /**
-     * Sets finish_time
+     * Sets local_mount_path
      *
-     * @param string $finish_time finish_time
+     * @param string $local_mount_path local_mount_path
      *
      * @return $this
      */
-    public function setFinishTime($finish_time)
+    public function setLocalMountPath($local_mount_path)
     {
-        $this->container['finish_time'] = $finish_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets function_id
-     *
-     * @return string
-     */
-    public function getFunctionId()
-    {
-        return $this->container['function_id'];
-    }
-
-    /**
-     * Sets function_id
-     *
-     * @param string $function_id function_id
-     *
-     * @return $this
-     */
-    public function setFunctionId($function_id)
-    {
-        $this->container['function_id'] = $function_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets status
-     *
-     * @return string
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param string $status status
-     *
-     * @return $this
-     */
-    public function setStatus($status)
-    {
-        $this->container['status'] = $status;
+        $this->container['local_mount_path'] = $local_mount_path;
 
         return $this;
     }

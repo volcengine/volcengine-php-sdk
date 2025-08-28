@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAccess
+class InstanceImageInfoForCreateSandboxInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetDependencyInstallTaskStatusResponse';
+    protected static $swaggerModelName = 'InstanceImageInfoForCreateSandboxInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,10 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'create_time' => 'string',
-        'finish_time' => 'string',
-        'function_id' => 'string',
-        'status' => 'string'
+        'command' => 'string',
+        'id' => 'string',
+        'image' => 'string',
+        'port' => 'int'
     ];
 
     /**
@@ -40,10 +40,10 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'create_time' => null,
-        'finish_time' => null,
-        'function_id' => null,
-        'status' => null
+        'command' => null,
+        'id' => null,
+        'image' => null,
+        'port' => 'int32'
     ];
 
     /**
@@ -73,10 +73,10 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $attributeMap = [
-        'create_time' => 'CreateTime',
-        'finish_time' => 'FinishTime',
-        'function_id' => 'FunctionId',
-        'status' => 'Status'
+        'command' => 'Command',
+        'id' => 'Id',
+        'image' => 'Image',
+        'port' => 'Port'
     ];
 
     /**
@@ -85,10 +85,10 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $setters = [
-        'create_time' => 'setCreateTime',
-        'finish_time' => 'setFinishTime',
-        'function_id' => 'setFunctionId',
-        'status' => 'setStatus'
+        'command' => 'setCommand',
+        'id' => 'setId',
+        'image' => 'setImage',
+        'port' => 'setPort'
     ];
 
     /**
@@ -97,10 +97,10 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $getters = [
-        'create_time' => 'getCreateTime',
-        'finish_time' => 'getFinishTime',
-        'function_id' => 'getFunctionId',
-        'status' => 'getStatus'
+        'command' => 'getCommand',
+        'id' => 'getId',
+        'image' => 'getImage',
+        'port' => 'getPort'
     ];
 
     /**
@@ -163,10 +163,10 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
      */
     public function __construct(array $data = null)
     {
-        $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
-        $this->container['finish_time'] = isset($data['finish_time']) ? $data['finish_time'] : null;
-        $this->container['function_id'] = isset($data['function_id']) ? $data['function_id'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['command'] = isset($data['command']) ? $data['command'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['image'] = isset($data['image']) ? $data['image'] : null;
+        $this->container['port'] = isset($data['port']) ? $data['port'] : null;
     }
 
     /**
@@ -194,97 +194,97 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
 
 
     /**
-     * Gets create_time
+     * Gets command
      *
      * @return string
      */
-    public function getCreateTime()
+    public function getCommand()
     {
-        return $this->container['create_time'];
+        return $this->container['command'];
     }
 
     /**
-     * Sets create_time
+     * Sets command
      *
-     * @param string $create_time create_time
+     * @param string $command command
      *
      * @return $this
      */
-    public function setCreateTime($create_time)
+    public function setCommand($command)
     {
-        $this->container['create_time'] = $create_time;
+        $this->container['command'] = $command;
 
         return $this;
     }
 
     /**
-     * Gets finish_time
+     * Gets id
      *
      * @return string
      */
-    public function getFinishTime()
+    public function getId()
     {
-        return $this->container['finish_time'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets finish_time
+     * Sets id
      *
-     * @param string $finish_time finish_time
+     * @param string $id id
      *
      * @return $this
      */
-    public function setFinishTime($finish_time)
+    public function setId($id)
     {
-        $this->container['finish_time'] = $finish_time;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets function_id
+     * Gets image
      *
      * @return string
      */
-    public function getFunctionId()
+    public function getImage()
     {
-        return $this->container['function_id'];
+        return $this->container['image'];
     }
 
     /**
-     * Sets function_id
+     * Sets image
      *
-     * @param string $function_id function_id
+     * @param string $image image
      *
      * @return $this
      */
-    public function setFunctionId($function_id)
+    public function setImage($image)
     {
-        $this->container['function_id'] = $function_id;
+        $this->container['image'] = $image;
 
         return $this;
     }
 
     /**
-     * Gets status
+     * Gets port
      *
-     * @return string
+     * @return int
      */
-    public function getStatus()
+    public function getPort()
     {
-        return $this->container['status'];
+        return $this->container['port'];
     }
 
     /**
-     * Sets status
+     * Sets port
      *
-     * @param string $status status
+     * @param int $port port
      *
      * @return $this
      */
-    public function setStatus($status)
+    public function setPort($port)
     {
-        $this->container['status'] = $status;
+        $this->container['port'] = $port;
 
         return $this;
     }

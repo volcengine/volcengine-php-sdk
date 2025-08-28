@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAccess
+class ListSandboxImagesResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetDependencyInstallTaskStatusResponse';
+    protected static $swaggerModelName = 'ListSandboxImagesResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,8 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'create_time' => 'string',
-        'finish_time' => 'string',
-        'function_id' => 'string',
-        'status' => 'string'
+        'images' => '\Volcengine\Vefaas\Model\ImageForListSandboxImagesOutput[]',
+        'total_count' => 'int'
     ];
 
     /**
@@ -40,10 +38,8 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'create_time' => null,
-        'finish_time' => null,
-        'function_id' => null,
-        'status' => null
+        'images' => null,
+        'total_count' => 'int32'
     ];
 
     /**
@@ -73,10 +69,8 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $attributeMap = [
-        'create_time' => 'CreateTime',
-        'finish_time' => 'FinishTime',
-        'function_id' => 'FunctionId',
-        'status' => 'Status'
+        'images' => 'Images',
+        'total_count' => 'TotalCount'
     ];
 
     /**
@@ -85,10 +79,8 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $setters = [
-        'create_time' => 'setCreateTime',
-        'finish_time' => 'setFinishTime',
-        'function_id' => 'setFunctionId',
-        'status' => 'setStatus'
+        'images' => 'setImages',
+        'total_count' => 'setTotalCount'
     ];
 
     /**
@@ -97,10 +89,8 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $getters = [
-        'create_time' => 'getCreateTime',
-        'finish_time' => 'getFinishTime',
-        'function_id' => 'getFunctionId',
-        'status' => 'getStatus'
+        'images' => 'getImages',
+        'total_count' => 'getTotalCount'
     ];
 
     /**
@@ -163,10 +153,8 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
      */
     public function __construct(array $data = null)
     {
-        $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
-        $this->container['finish_time'] = isset($data['finish_time']) ? $data['finish_time'] : null;
-        $this->container['function_id'] = isset($data['function_id']) ? $data['function_id'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['images'] = isset($data['images']) ? $data['images'] : null;
+        $this->container['total_count'] = isset($data['total_count']) ? $data['total_count'] : null;
     }
 
     /**
@@ -194,97 +182,49 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
 
 
     /**
-     * Gets create_time
+     * Gets images
      *
-     * @return string
+     * @return \Volcengine\Vefaas\Model\ImageForListSandboxImagesOutput[]
      */
-    public function getCreateTime()
+    public function getImages()
     {
-        return $this->container['create_time'];
+        return $this->container['images'];
     }
 
     /**
-     * Sets create_time
+     * Sets images
      *
-     * @param string $create_time create_time
+     * @param \Volcengine\Vefaas\Model\ImageForListSandboxImagesOutput[] $images images
      *
      * @return $this
      */
-    public function setCreateTime($create_time)
+    public function setImages($images)
     {
-        $this->container['create_time'] = $create_time;
+        $this->container['images'] = $images;
 
         return $this;
     }
 
     /**
-     * Gets finish_time
+     * Gets total_count
      *
-     * @return string
+     * @return int
      */
-    public function getFinishTime()
+    public function getTotalCount()
     {
-        return $this->container['finish_time'];
+        return $this->container['total_count'];
     }
 
     /**
-     * Sets finish_time
+     * Sets total_count
      *
-     * @param string $finish_time finish_time
+     * @param int $total_count total_count
      *
      * @return $this
      */
-    public function setFinishTime($finish_time)
+    public function setTotalCount($total_count)
     {
-        $this->container['finish_time'] = $finish_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets function_id
-     *
-     * @return string
-     */
-    public function getFunctionId()
-    {
-        return $this->container['function_id'];
-    }
-
-    /**
-     * Sets function_id
-     *
-     * @param string $function_id function_id
-     *
-     * @return $this
-     */
-    public function setFunctionId($function_id)
-    {
-        $this->container['function_id'] = $function_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets status
-     *
-     * @return string
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param string $status status
-     *
-     * @return $this
-     */
-    public function setStatus($status)
-    {
-        $this->container['status'] = $status;
+        $this->container['total_count'] = $total_count;
 
         return $this;
     }

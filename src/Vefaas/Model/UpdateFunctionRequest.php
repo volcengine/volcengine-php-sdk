@@ -39,6 +39,7 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
         'nas_storage' => '\Volcengine\Vefaas\Model\NasStorageForUpdateFunctionInput',
         'project_name' => 'string',
         'request_timeout' => 'int',
+        'role' => 'string',
         'source' => 'string',
         'source_access_config' => '\Volcengine\Vefaas\Model\SourceAccessConfigForUpdateFunctionInput',
         'source_type' => 'string',
@@ -65,6 +66,7 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
         'nas_storage' => null,
         'project_name' => null,
         'request_timeout' => 'int32',
+        'role' => null,
         'source' => null,
         'source_access_config' => null,
         'source_type' => null,
@@ -112,6 +114,7 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
         'nas_storage' => 'NasStorage',
         'project_name' => 'ProjectName',
         'request_timeout' => 'RequestTimeout',
+        'role' => 'Role',
         'source' => 'Source',
         'source_access_config' => 'SourceAccessConfig',
         'source_type' => 'SourceType',
@@ -138,6 +141,7 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
         'nas_storage' => 'setNasStorage',
         'project_name' => 'setProjectName',
         'request_timeout' => 'setRequestTimeout',
+        'role' => 'setRole',
         'source' => 'setSource',
         'source_access_config' => 'setSourceAccessConfig',
         'source_type' => 'setSourceType',
@@ -164,6 +168,7 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
         'nas_storage' => 'getNasStorage',
         'project_name' => 'getProjectName',
         'request_timeout' => 'getRequestTimeout',
+        'role' => 'getRole',
         'source' => 'getSource',
         'source_access_config' => 'getSourceAccessConfig',
         'source_type' => 'getSourceType',
@@ -244,6 +249,7 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
         $this->container['nas_storage'] = isset($data['nas_storage']) ? $data['nas_storage'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['request_timeout'] = isset($data['request_timeout']) ? $data['request_timeout'] : null;
+        $this->container['role'] = isset($data['role']) ? $data['role'] : null;
         $this->container['source'] = isset($data['source']) ? $data['source'] : null;
         $this->container['source_access_config'] = isset($data['source_access_config']) ? $data['source_access_config'] : null;
         $this->container['source_type'] = isset($data['source_type']) ? $data['source_type'] : null;
@@ -540,6 +546,30 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
     public function setRequestTimeout($request_timeout)
     {
         $this->container['request_timeout'] = $request_timeout;
+
+        return $this;
+    }
+
+    /**
+     * Gets role
+     *
+     * @return string
+     */
+    public function getRole()
+    {
+        return $this->container['role'];
+    }
+
+    /**
+     * Sets role
+     *
+     * @param string $role role
+     *
+     * @return $this
+     */
+    public function setRole($role)
+    {
+        $this->container['role'] = $role;
 
         return $this;
     }

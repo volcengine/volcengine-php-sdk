@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAccess
+class ListSandboxImagesRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetDependencyInstallTaskStatusResponse';
+    protected static $swaggerModelName = 'ListSandboxImagesRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,10 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'create_time' => 'string',
-        'finish_time' => 'string',
-        'function_id' => 'string',
-        'status' => 'string'
+        'filters' => '\Volcengine\Vefaas\Model\FilterForListSandboxImagesInput[]',
+        'image_type' => 'string',
+        'page_number' => 'int',
+        'page_size' => 'int'
     ];
 
     /**
@@ -40,10 +40,10 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'create_time' => null,
-        'finish_time' => null,
-        'function_id' => null,
-        'status' => null
+        'filters' => null,
+        'image_type' => null,
+        'page_number' => 'int32',
+        'page_size' => 'int32'
     ];
 
     /**
@@ -73,10 +73,10 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $attributeMap = [
-        'create_time' => 'CreateTime',
-        'finish_time' => 'FinishTime',
-        'function_id' => 'FunctionId',
-        'status' => 'Status'
+        'filters' => 'Filters',
+        'image_type' => 'ImageType',
+        'page_number' => 'PageNumber',
+        'page_size' => 'PageSize'
     ];
 
     /**
@@ -85,10 +85,10 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $setters = [
-        'create_time' => 'setCreateTime',
-        'finish_time' => 'setFinishTime',
-        'function_id' => 'setFunctionId',
-        'status' => 'setStatus'
+        'filters' => 'setFilters',
+        'image_type' => 'setImageType',
+        'page_number' => 'setPageNumber',
+        'page_size' => 'setPageSize'
     ];
 
     /**
@@ -97,10 +97,10 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $getters = [
-        'create_time' => 'getCreateTime',
-        'finish_time' => 'getFinishTime',
-        'function_id' => 'getFunctionId',
-        'status' => 'getStatus'
+        'filters' => 'getFilters',
+        'image_type' => 'getImageType',
+        'page_number' => 'getPageNumber',
+        'page_size' => 'getPageSize'
     ];
 
     /**
@@ -163,10 +163,10 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
      */
     public function __construct(array $data = null)
     {
-        $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
-        $this->container['finish_time'] = isset($data['finish_time']) ? $data['finish_time'] : null;
-        $this->container['function_id'] = isset($data['function_id']) ? $data['function_id'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['filters'] = isset($data['filters']) ? $data['filters'] : null;
+        $this->container['image_type'] = isset($data['image_type']) ? $data['image_type'] : null;
+        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
+        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
     }
 
     /**
@@ -178,6 +178,9 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
     {
         $invalidProperties = [];
 
+        if ($this->container['image_type'] === null) {
+            $invalidProperties[] = "'image_type' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -194,97 +197,97 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
 
 
     /**
-     * Gets create_time
+     * Gets filters
      *
-     * @return string
+     * @return \Volcengine\Vefaas\Model\FilterForListSandboxImagesInput[]
      */
-    public function getCreateTime()
+    public function getFilters()
     {
-        return $this->container['create_time'];
+        return $this->container['filters'];
     }
 
     /**
-     * Sets create_time
+     * Sets filters
      *
-     * @param string $create_time create_time
+     * @param \Volcengine\Vefaas\Model\FilterForListSandboxImagesInput[] $filters filters
      *
      * @return $this
      */
-    public function setCreateTime($create_time)
+    public function setFilters($filters)
     {
-        $this->container['create_time'] = $create_time;
+        $this->container['filters'] = $filters;
 
         return $this;
     }
 
     /**
-     * Gets finish_time
+     * Gets image_type
      *
      * @return string
      */
-    public function getFinishTime()
+    public function getImageType()
     {
-        return $this->container['finish_time'];
+        return $this->container['image_type'];
     }
 
     /**
-     * Sets finish_time
+     * Sets image_type
      *
-     * @param string $finish_time finish_time
+     * @param string $image_type image_type
      *
      * @return $this
      */
-    public function setFinishTime($finish_time)
+    public function setImageType($image_type)
     {
-        $this->container['finish_time'] = $finish_time;
+        $this->container['image_type'] = $image_type;
 
         return $this;
     }
 
     /**
-     * Gets function_id
+     * Gets page_number
      *
-     * @return string
+     * @return int
      */
-    public function getFunctionId()
+    public function getPageNumber()
     {
-        return $this->container['function_id'];
+        return $this->container['page_number'];
     }
 
     /**
-     * Sets function_id
+     * Sets page_number
      *
-     * @param string $function_id function_id
+     * @param int $page_number page_number
      *
      * @return $this
      */
-    public function setFunctionId($function_id)
+    public function setPageNumber($page_number)
     {
-        $this->container['function_id'] = $function_id;
+        $this->container['page_number'] = $page_number;
 
         return $this;
     }
 
     /**
-     * Gets status
+     * Gets page_size
      *
-     * @return string
+     * @return int
      */
-    public function getStatus()
+    public function getPageSize()
     {
-        return $this->container['status'];
+        return $this->container['page_size'];
     }
 
     /**
-     * Sets status
+     * Sets page_size
      *
-     * @param string $status status
+     * @param int $page_size page_size
      *
      * @return $this
      */
-    public function setStatus($status)
+    public function setPageSize($page_size)
     {
-        $this->container['status'] = $status;
+        $this->container['page_size'] = $page_size;
 
         return $this;
     }

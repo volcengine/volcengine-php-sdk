@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAccess
+class AccountResourceForGetFunctionResourceOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetDependencyInstallTaskStatusResponse';
+    protected static $swaggerModelName = 'AccountResourceForGetFunctionResourceOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,13 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'create_time' => 'string',
-        'finish_time' => 'string',
-        'function_id' => 'string',
-        'status' => 'string'
+        'aailable' => 'int',
+        'account_id' => 'string',
+        'allocated' => 'int',
+        'gpu_memory_aailable' => 'int',
+        'gpu_memory_allocated' => 'int',
+        'gpu_memory_total' => 'int',
+        'total' => 'int'
     ];
 
     /**
@@ -40,10 +43,13 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'create_time' => null,
-        'finish_time' => null,
-        'function_id' => null,
-        'status' => null
+        'aailable' => 'int64',
+        'account_id' => null,
+        'allocated' => 'int64',
+        'gpu_memory_aailable' => 'int64',
+        'gpu_memory_allocated' => 'int64',
+        'gpu_memory_total' => 'int64',
+        'total' => 'int64'
     ];
 
     /**
@@ -73,10 +79,13 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $attributeMap = [
-        'create_time' => 'CreateTime',
-        'finish_time' => 'FinishTime',
-        'function_id' => 'FunctionId',
-        'status' => 'Status'
+        'aailable' => 'Aailable',
+        'account_id' => 'AccountId',
+        'allocated' => 'Allocated',
+        'gpu_memory_aailable' => 'GpuMemoryAailable',
+        'gpu_memory_allocated' => 'GpuMemoryAllocated',
+        'gpu_memory_total' => 'GpuMemoryTotal',
+        'total' => 'Total'
     ];
 
     /**
@@ -85,10 +94,13 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $setters = [
-        'create_time' => 'setCreateTime',
-        'finish_time' => 'setFinishTime',
-        'function_id' => 'setFunctionId',
-        'status' => 'setStatus'
+        'aailable' => 'setAailable',
+        'account_id' => 'setAccountId',
+        'allocated' => 'setAllocated',
+        'gpu_memory_aailable' => 'setGpuMemoryAailable',
+        'gpu_memory_allocated' => 'setGpuMemoryAllocated',
+        'gpu_memory_total' => 'setGpuMemoryTotal',
+        'total' => 'setTotal'
     ];
 
     /**
@@ -97,10 +109,13 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $getters = [
-        'create_time' => 'getCreateTime',
-        'finish_time' => 'getFinishTime',
-        'function_id' => 'getFunctionId',
-        'status' => 'getStatus'
+        'aailable' => 'getAailable',
+        'account_id' => 'getAccountId',
+        'allocated' => 'getAllocated',
+        'gpu_memory_aailable' => 'getGpuMemoryAailable',
+        'gpu_memory_allocated' => 'getGpuMemoryAllocated',
+        'gpu_memory_total' => 'getGpuMemoryTotal',
+        'total' => 'getTotal'
     ];
 
     /**
@@ -163,10 +178,13 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
      */
     public function __construct(array $data = null)
     {
-        $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
-        $this->container['finish_time'] = isset($data['finish_time']) ? $data['finish_time'] : null;
-        $this->container['function_id'] = isset($data['function_id']) ? $data['function_id'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['aailable'] = isset($data['aailable']) ? $data['aailable'] : null;
+        $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
+        $this->container['allocated'] = isset($data['allocated']) ? $data['allocated'] : null;
+        $this->container['gpu_memory_aailable'] = isset($data['gpu_memory_aailable']) ? $data['gpu_memory_aailable'] : null;
+        $this->container['gpu_memory_allocated'] = isset($data['gpu_memory_allocated']) ? $data['gpu_memory_allocated'] : null;
+        $this->container['gpu_memory_total'] = isset($data['gpu_memory_total']) ? $data['gpu_memory_total'] : null;
+        $this->container['total'] = isset($data['total']) ? $data['total'] : null;
     }
 
     /**
@@ -194,97 +212,169 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
 
 
     /**
-     * Gets create_time
+     * Gets aailable
      *
-     * @return string
+     * @return int
      */
-    public function getCreateTime()
+    public function getAailable()
     {
-        return $this->container['create_time'];
+        return $this->container['aailable'];
     }
 
     /**
-     * Sets create_time
+     * Sets aailable
      *
-     * @param string $create_time create_time
+     * @param int $aailable aailable
      *
      * @return $this
      */
-    public function setCreateTime($create_time)
+    public function setAailable($aailable)
     {
-        $this->container['create_time'] = $create_time;
+        $this->container['aailable'] = $aailable;
 
         return $this;
     }
 
     /**
-     * Gets finish_time
+     * Gets account_id
      *
      * @return string
      */
-    public function getFinishTime()
+    public function getAccountId()
     {
-        return $this->container['finish_time'];
+        return $this->container['account_id'];
     }
 
     /**
-     * Sets finish_time
+     * Sets account_id
      *
-     * @param string $finish_time finish_time
+     * @param string $account_id account_id
      *
      * @return $this
      */
-    public function setFinishTime($finish_time)
+    public function setAccountId($account_id)
     {
-        $this->container['finish_time'] = $finish_time;
+        $this->container['account_id'] = $account_id;
 
         return $this;
     }
 
     /**
-     * Gets function_id
+     * Gets allocated
      *
-     * @return string
+     * @return int
      */
-    public function getFunctionId()
+    public function getAllocated()
     {
-        return $this->container['function_id'];
+        return $this->container['allocated'];
     }
 
     /**
-     * Sets function_id
+     * Sets allocated
      *
-     * @param string $function_id function_id
+     * @param int $allocated allocated
      *
      * @return $this
      */
-    public function setFunctionId($function_id)
+    public function setAllocated($allocated)
     {
-        $this->container['function_id'] = $function_id;
+        $this->container['allocated'] = $allocated;
 
         return $this;
     }
 
     /**
-     * Gets status
+     * Gets gpu_memory_aailable
      *
-     * @return string
+     * @return int
      */
-    public function getStatus()
+    public function getGpuMemoryAailable()
     {
-        return $this->container['status'];
+        return $this->container['gpu_memory_aailable'];
     }
 
     /**
-     * Sets status
+     * Sets gpu_memory_aailable
      *
-     * @param string $status status
+     * @param int $gpu_memory_aailable gpu_memory_aailable
      *
      * @return $this
      */
-    public function setStatus($status)
+    public function setGpuMemoryAailable($gpu_memory_aailable)
     {
-        $this->container['status'] = $status;
+        $this->container['gpu_memory_aailable'] = $gpu_memory_aailable;
+
+        return $this;
+    }
+
+    /**
+     * Gets gpu_memory_allocated
+     *
+     * @return int
+     */
+    public function getGpuMemoryAllocated()
+    {
+        return $this->container['gpu_memory_allocated'];
+    }
+
+    /**
+     * Sets gpu_memory_allocated
+     *
+     * @param int $gpu_memory_allocated gpu_memory_allocated
+     *
+     * @return $this
+     */
+    public function setGpuMemoryAllocated($gpu_memory_allocated)
+    {
+        $this->container['gpu_memory_allocated'] = $gpu_memory_allocated;
+
+        return $this;
+    }
+
+    /**
+     * Gets gpu_memory_total
+     *
+     * @return int
+     */
+    public function getGpuMemoryTotal()
+    {
+        return $this->container['gpu_memory_total'];
+    }
+
+    /**
+     * Sets gpu_memory_total
+     *
+     * @param int $gpu_memory_total gpu_memory_total
+     *
+     * @return $this
+     */
+    public function setGpuMemoryTotal($gpu_memory_total)
+    {
+        $this->container['gpu_memory_total'] = $gpu_memory_total;
+
+        return $this;
+    }
+
+    /**
+     * Gets total
+     *
+     * @return int
+     */
+    public function getTotal()
+    {
+        return $this->container['total'];
+    }
+
+    /**
+     * Sets total
+     *
+     * @param int $total total
+     *
+     * @return $this
+     */
+    public function setTotal($total)
+    {
+        $this->container['total'] = $total;
 
         return $this;
     }

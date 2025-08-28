@@ -48,6 +48,7 @@ class CreateFunctionResponse implements ModelInterface, ArrayAccess
         'owner' => 'string',
         'project_name' => 'string',
         'request_timeout' => 'int',
+        'role' => 'string',
         'runtime' => 'string',
         'source_location' => 'string',
         'source_type' => 'string',
@@ -84,6 +85,7 @@ class CreateFunctionResponse implements ModelInterface, ArrayAccess
         'owner' => null,
         'project_name' => null,
         'request_timeout' => 'int32',
+        'role' => null,
         'runtime' => null,
         'source_location' => null,
         'source_type' => null,
@@ -141,6 +143,7 @@ class CreateFunctionResponse implements ModelInterface, ArrayAccess
         'owner' => 'Owner',
         'project_name' => 'ProjectName',
         'request_timeout' => 'RequestTimeout',
+        'role' => 'Role',
         'runtime' => 'Runtime',
         'source_location' => 'SourceLocation',
         'source_type' => 'SourceType',
@@ -177,6 +180,7 @@ class CreateFunctionResponse implements ModelInterface, ArrayAccess
         'owner' => 'setOwner',
         'project_name' => 'setProjectName',
         'request_timeout' => 'setRequestTimeout',
+        'role' => 'setRole',
         'runtime' => 'setRuntime',
         'source_location' => 'setSourceLocation',
         'source_type' => 'setSourceType',
@@ -213,6 +217,7 @@ class CreateFunctionResponse implements ModelInterface, ArrayAccess
         'owner' => 'getOwner',
         'project_name' => 'getProjectName',
         'request_timeout' => 'getRequestTimeout',
+        'role' => 'getRole',
         'runtime' => 'getRuntime',
         'source_location' => 'getSourceLocation',
         'source_type' => 'getSourceType',
@@ -303,6 +308,7 @@ class CreateFunctionResponse implements ModelInterface, ArrayAccess
         $this->container['owner'] = isset($data['owner']) ? $data['owner'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['request_timeout'] = isset($data['request_timeout']) ? $data['request_timeout'] : null;
+        $this->container['role'] = isset($data['role']) ? $data['role'] : null;
         $this->container['runtime'] = isset($data['runtime']) ? $data['runtime'] : null;
         $this->container['source_location'] = isset($data['source_location']) ? $data['source_location'] : null;
         $this->container['source_type'] = isset($data['source_type']) ? $data['source_type'] : null;
@@ -813,6 +819,30 @@ class CreateFunctionResponse implements ModelInterface, ArrayAccess
     public function setRequestTimeout($request_timeout)
     {
         $this->container['request_timeout'] = $request_timeout;
+
+        return $this;
+    }
+
+    /**
+     * Gets role
+     *
+     * @return string
+     */
+    public function getRole()
+    {
+        return $this->container['role'];
+    }
+
+    /**
+     * Sets role
+     *
+     * @param string $role role
+     *
+     * @return $this
+     */
+    public function setRole($role)
+    {
+        $this->container['role'] = $role;
 
         return $this;
     }

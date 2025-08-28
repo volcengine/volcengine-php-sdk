@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class SandboxForListSandboxesOutput implements ModelInterface, ArrayAccess
+class DescribeSandboxResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class SandboxForListSandboxesOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'SandboxForListSandboxesOutput';
+    protected static $swaggerModelName = 'DescribeSandboxResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -31,16 +31,19 @@ class SandboxForListSandboxesOutput implements ModelInterface, ArrayAccess
         'availability_zone' => 'string',
         'cpu_milli' => 'int',
         'created_at' => 'string',
+        'envs' => '\Volcengine\Vefaas\Model\EnvForDescribeSandboxOutput[]',
         'error_code' => 'string',
         'error_message' => 'string',
         'expire_at' => 'string',
         'function_id' => 'string',
         'id' => 'string',
-        'image' => 'string',
+        'image_info' => '\Volcengine\Vefaas\Model\ImageInfoForDescribeSandboxOutput',
+        'instance_tos_mount_config' => '\Volcengine\Vefaas\Model\InstanceTosMountConfigForDescribeSandboxOutput',
         'instance_type' => 'string',
+        'max_concurrency' => 'int',
         'memory_mb' => 'int',
-        'metadata' => 'map[string,string]',
         'pending' => 'bool',
+        'request_timeout' => 'int',
         'revision_number' => 'int',
         'status' => 'string'
     ];
@@ -54,16 +57,19 @@ class SandboxForListSandboxesOutput implements ModelInterface, ArrayAccess
         'availability_zone' => null,
         'cpu_milli' => 'int32',
         'created_at' => null,
+        'envs' => null,
         'error_code' => null,
         'error_message' => null,
         'expire_at' => null,
         'function_id' => null,
         'id' => null,
-        'image' => null,
+        'image_info' => null,
+        'instance_tos_mount_config' => null,
         'instance_type' => null,
+        'max_concurrency' => 'int32',
         'memory_mb' => 'int32',
-        'metadata' => null,
         'pending' => null,
+        'request_timeout' => 'int32',
         'revision_number' => 'int32',
         'status' => null
     ];
@@ -98,16 +104,19 @@ class SandboxForListSandboxesOutput implements ModelInterface, ArrayAccess
         'availability_zone' => 'AvailabilityZone',
         'cpu_milli' => 'CpuMilli',
         'created_at' => 'CreatedAt',
+        'envs' => 'Envs',
         'error_code' => 'ErrorCode',
         'error_message' => 'ErrorMessage',
         'expire_at' => 'ExpireAt',
         'function_id' => 'FunctionId',
         'id' => 'Id',
-        'image' => 'Image',
+        'image_info' => 'ImageInfo',
+        'instance_tos_mount_config' => 'InstanceTosMountConfig',
         'instance_type' => 'InstanceType',
+        'max_concurrency' => 'MaxConcurrency',
         'memory_mb' => 'MemoryMB',
-        'metadata' => 'Metadata',
         'pending' => 'Pending',
+        'request_timeout' => 'RequestTimeout',
         'revision_number' => 'RevisionNumber',
         'status' => 'Status'
     ];
@@ -121,16 +130,19 @@ class SandboxForListSandboxesOutput implements ModelInterface, ArrayAccess
         'availability_zone' => 'setAvailabilityZone',
         'cpu_milli' => 'setCpuMilli',
         'created_at' => 'setCreatedAt',
+        'envs' => 'setEnvs',
         'error_code' => 'setErrorCode',
         'error_message' => 'setErrorMessage',
         'expire_at' => 'setExpireAt',
         'function_id' => 'setFunctionId',
         'id' => 'setId',
-        'image' => 'setImage',
+        'image_info' => 'setImageInfo',
+        'instance_tos_mount_config' => 'setInstanceTosMountConfig',
         'instance_type' => 'setInstanceType',
+        'max_concurrency' => 'setMaxConcurrency',
         'memory_mb' => 'setMemoryMb',
-        'metadata' => 'setMetadata',
         'pending' => 'setPending',
+        'request_timeout' => 'setRequestTimeout',
         'revision_number' => 'setRevisionNumber',
         'status' => 'setStatus'
     ];
@@ -144,16 +156,19 @@ class SandboxForListSandboxesOutput implements ModelInterface, ArrayAccess
         'availability_zone' => 'getAvailabilityZone',
         'cpu_milli' => 'getCpuMilli',
         'created_at' => 'getCreatedAt',
+        'envs' => 'getEnvs',
         'error_code' => 'getErrorCode',
         'error_message' => 'getErrorMessage',
         'expire_at' => 'getExpireAt',
         'function_id' => 'getFunctionId',
         'id' => 'getId',
-        'image' => 'getImage',
+        'image_info' => 'getImageInfo',
+        'instance_tos_mount_config' => 'getInstanceTosMountConfig',
         'instance_type' => 'getInstanceType',
+        'max_concurrency' => 'getMaxConcurrency',
         'memory_mb' => 'getMemoryMb',
-        'metadata' => 'getMetadata',
         'pending' => 'getPending',
+        'request_timeout' => 'getRequestTimeout',
         'revision_number' => 'getRevisionNumber',
         'status' => 'getStatus'
     ];
@@ -221,16 +236,19 @@ class SandboxForListSandboxesOutput implements ModelInterface, ArrayAccess
         $this->container['availability_zone'] = isset($data['availability_zone']) ? $data['availability_zone'] : null;
         $this->container['cpu_milli'] = isset($data['cpu_milli']) ? $data['cpu_milli'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
+        $this->container['envs'] = isset($data['envs']) ? $data['envs'] : null;
         $this->container['error_code'] = isset($data['error_code']) ? $data['error_code'] : null;
         $this->container['error_message'] = isset($data['error_message']) ? $data['error_message'] : null;
         $this->container['expire_at'] = isset($data['expire_at']) ? $data['expire_at'] : null;
         $this->container['function_id'] = isset($data['function_id']) ? $data['function_id'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['image'] = isset($data['image']) ? $data['image'] : null;
+        $this->container['image_info'] = isset($data['image_info']) ? $data['image_info'] : null;
+        $this->container['instance_tos_mount_config'] = isset($data['instance_tos_mount_config']) ? $data['instance_tos_mount_config'] : null;
         $this->container['instance_type'] = isset($data['instance_type']) ? $data['instance_type'] : null;
+        $this->container['max_concurrency'] = isset($data['max_concurrency']) ? $data['max_concurrency'] : null;
         $this->container['memory_mb'] = isset($data['memory_mb']) ? $data['memory_mb'] : null;
-        $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
         $this->container['pending'] = isset($data['pending']) ? $data['pending'] : null;
+        $this->container['request_timeout'] = isset($data['request_timeout']) ? $data['request_timeout'] : null;
         $this->container['revision_number'] = isset($data['revision_number']) ? $data['revision_number'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }
@@ -327,6 +345,30 @@ class SandboxForListSandboxesOutput implements ModelInterface, ArrayAccess
     public function setCreatedAt($created_at)
     {
         $this->container['created_at'] = $created_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets envs
+     *
+     * @return \Volcengine\Vefaas\Model\EnvForDescribeSandboxOutput[]
+     */
+    public function getEnvs()
+    {
+        return $this->container['envs'];
+    }
+
+    /**
+     * Sets envs
+     *
+     * @param \Volcengine\Vefaas\Model\EnvForDescribeSandboxOutput[] $envs envs
+     *
+     * @return $this
+     */
+    public function setEnvs($envs)
+    {
+        $this->container['envs'] = $envs;
 
         return $this;
     }
@@ -452,25 +494,49 @@ class SandboxForListSandboxesOutput implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets image
+     * Gets image_info
      *
-     * @return string
+     * @return \Volcengine\Vefaas\Model\ImageInfoForDescribeSandboxOutput
      */
-    public function getImage()
+    public function getImageInfo()
     {
-        return $this->container['image'];
+        return $this->container['image_info'];
     }
 
     /**
-     * Sets image
+     * Sets image_info
      *
-     * @param string $image image
+     * @param \Volcengine\Vefaas\Model\ImageInfoForDescribeSandboxOutput $image_info image_info
      *
      * @return $this
      */
-    public function setImage($image)
+    public function setImageInfo($image_info)
     {
-        $this->container['image'] = $image;
+        $this->container['image_info'] = $image_info;
+
+        return $this;
+    }
+
+    /**
+     * Gets instance_tos_mount_config
+     *
+     * @return \Volcengine\Vefaas\Model\InstanceTosMountConfigForDescribeSandboxOutput
+     */
+    public function getInstanceTosMountConfig()
+    {
+        return $this->container['instance_tos_mount_config'];
+    }
+
+    /**
+     * Sets instance_tos_mount_config
+     *
+     * @param \Volcengine\Vefaas\Model\InstanceTosMountConfigForDescribeSandboxOutput $instance_tos_mount_config instance_tos_mount_config
+     *
+     * @return $this
+     */
+    public function setInstanceTosMountConfig($instance_tos_mount_config)
+    {
+        $this->container['instance_tos_mount_config'] = $instance_tos_mount_config;
 
         return $this;
     }
@@ -500,6 +566,30 @@ class SandboxForListSandboxesOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets max_concurrency
+     *
+     * @return int
+     */
+    public function getMaxConcurrency()
+    {
+        return $this->container['max_concurrency'];
+    }
+
+    /**
+     * Sets max_concurrency
+     *
+     * @param int $max_concurrency max_concurrency
+     *
+     * @return $this
+     */
+    public function setMaxConcurrency($max_concurrency)
+    {
+        $this->container['max_concurrency'] = $max_concurrency;
+
+        return $this;
+    }
+
+    /**
      * Gets memory_mb
      *
      * @return int
@@ -524,30 +614,6 @@ class SandboxForListSandboxesOutput implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets metadata
-     *
-     * @return map[string,string]
-     */
-    public function getMetadata()
-    {
-        return $this->container['metadata'];
-    }
-
-    /**
-     * Sets metadata
-     *
-     * @param map[string,string] $metadata metadata
-     *
-     * @return $this
-     */
-    public function setMetadata($metadata)
-    {
-        $this->container['metadata'] = $metadata;
-
-        return $this;
-    }
-
-    /**
      * Gets pending
      *
      * @return bool
@@ -567,6 +633,30 @@ class SandboxForListSandboxesOutput implements ModelInterface, ArrayAccess
     public function setPending($pending)
     {
         $this->container['pending'] = $pending;
+
+        return $this;
+    }
+
+    /**
+     * Gets request_timeout
+     *
+     * @return int
+     */
+    public function getRequestTimeout()
+    {
+        return $this->container['request_timeout'];
+    }
+
+    /**
+     * Sets request_timeout
+     *
+     * @param int $request_timeout request_timeout
+     *
+     * @return $this
+     */
+    public function setRequestTimeout($request_timeout)
+    {
+        $this->container['request_timeout'] = $request_timeout;
 
         return $this;
     }

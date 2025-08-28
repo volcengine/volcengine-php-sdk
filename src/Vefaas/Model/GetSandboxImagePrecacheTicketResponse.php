@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAccess
+class GetSandboxImagePrecacheTicketResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetDependencyInstallTaskStatusResponse';
+    protected static $swaggerModelName = 'GetSandboxImagePrecacheTicketResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,10 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'create_time' => 'string',
-        'finish_time' => 'string',
-        'function_id' => 'string',
-        'status' => 'string'
+        'duration' => 'int',
+        'progress' => '\Volcengine\Vefaas\Model\ProgressForGetSandboxImagePrecacheTicketOutput',
+        'status' => 'string',
+        'ticket_id' => 'string'
     ];
 
     /**
@@ -40,10 +40,10 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'create_time' => null,
-        'finish_time' => null,
-        'function_id' => null,
-        'status' => null
+        'duration' => 'int64',
+        'progress' => null,
+        'status' => null,
+        'ticket_id' => null
     ];
 
     /**
@@ -73,10 +73,10 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $attributeMap = [
-        'create_time' => 'CreateTime',
-        'finish_time' => 'FinishTime',
-        'function_id' => 'FunctionId',
-        'status' => 'Status'
+        'duration' => 'Duration',
+        'progress' => 'Progress',
+        'status' => 'Status',
+        'ticket_id' => 'TicketId'
     ];
 
     /**
@@ -85,10 +85,10 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $setters = [
-        'create_time' => 'setCreateTime',
-        'finish_time' => 'setFinishTime',
-        'function_id' => 'setFunctionId',
-        'status' => 'setStatus'
+        'duration' => 'setDuration',
+        'progress' => 'setProgress',
+        'status' => 'setStatus',
+        'ticket_id' => 'setTicketId'
     ];
 
     /**
@@ -97,10 +97,10 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $getters = [
-        'create_time' => 'getCreateTime',
-        'finish_time' => 'getFinishTime',
-        'function_id' => 'getFunctionId',
-        'status' => 'getStatus'
+        'duration' => 'getDuration',
+        'progress' => 'getProgress',
+        'status' => 'getStatus',
+        'ticket_id' => 'getTicketId'
     ];
 
     /**
@@ -163,10 +163,10 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
      */
     public function __construct(array $data = null)
     {
-        $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
-        $this->container['finish_time'] = isset($data['finish_time']) ? $data['finish_time'] : null;
-        $this->container['function_id'] = isset($data['function_id']) ? $data['function_id'] : null;
+        $this->container['duration'] = isset($data['duration']) ? $data['duration'] : null;
+        $this->container['progress'] = isset($data['progress']) ? $data['progress'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['ticket_id'] = isset($data['ticket_id']) ? $data['ticket_id'] : null;
     }
 
     /**
@@ -194,73 +194,49 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
 
 
     /**
-     * Gets create_time
+     * Gets duration
      *
-     * @return string
+     * @return int
      */
-    public function getCreateTime()
+    public function getDuration()
     {
-        return $this->container['create_time'];
+        return $this->container['duration'];
     }
 
     /**
-     * Sets create_time
+     * Sets duration
      *
-     * @param string $create_time create_time
+     * @param int $duration duration
      *
      * @return $this
      */
-    public function setCreateTime($create_time)
+    public function setDuration($duration)
     {
-        $this->container['create_time'] = $create_time;
+        $this->container['duration'] = $duration;
 
         return $this;
     }
 
     /**
-     * Gets finish_time
+     * Gets progress
      *
-     * @return string
+     * @return \Volcengine\Vefaas\Model\ProgressForGetSandboxImagePrecacheTicketOutput
      */
-    public function getFinishTime()
+    public function getProgress()
     {
-        return $this->container['finish_time'];
+        return $this->container['progress'];
     }
 
     /**
-     * Sets finish_time
+     * Sets progress
      *
-     * @param string $finish_time finish_time
+     * @param \Volcengine\Vefaas\Model\ProgressForGetSandboxImagePrecacheTicketOutput $progress progress
      *
      * @return $this
      */
-    public function setFinishTime($finish_time)
+    public function setProgress($progress)
     {
-        $this->container['finish_time'] = $finish_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets function_id
-     *
-     * @return string
-     */
-    public function getFunctionId()
-    {
-        return $this->container['function_id'];
-    }
-
-    /**
-     * Sets function_id
-     *
-     * @param string $function_id function_id
-     *
-     * @return $this
-     */
-    public function setFunctionId($function_id)
-    {
-        $this->container['function_id'] = $function_id;
+        $this->container['progress'] = $progress;
 
         return $this;
     }
@@ -285,6 +261,30 @@ class GetDependencyInstallTaskStatusResponse implements ModelInterface, ArrayAcc
     public function setStatus($status)
     {
         $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets ticket_id
+     *
+     * @return string
+     */
+    public function getTicketId()
+    {
+        return $this->container['ticket_id'];
+    }
+
+    /**
+     * Sets ticket_id
+     *
+     * @param string $ticket_id ticket_id
+     *
+     * @return $this
+     */
+    public function setTicketId($ticket_id)
+    {
+        $this->container['ticket_id'] = $ticket_id;
 
         return $this;
     }
