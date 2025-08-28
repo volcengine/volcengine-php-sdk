@@ -56,6 +56,7 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
         'key_pair_name' => 'string',
         'min_count' => 'int',
         'network_interfaces' => '\Volcengine\Ecs\Model\NetworkInterfaceForRunInstancesInput[]',
+        'network_options' => '\Volcengine\Ecs\Model\NetworkOptionsForRunInstancesInput',
         'password' => 'string',
         'period' => 'int',
         'period_unit' => 'string',
@@ -106,6 +107,7 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
         'key_pair_name' => null,
         'min_count' => 'int32',
         'network_interfaces' => null,
+        'network_options' => null,
         'password' => null,
         'period' => 'int32',
         'period_unit' => null,
@@ -177,6 +179,7 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
         'key_pair_name' => 'KeyPairName',
         'min_count' => 'MinCount',
         'network_interfaces' => 'NetworkInterfaces',
+        'network_options' => 'NetworkOptions',
         'password' => 'Password',
         'period' => 'Period',
         'period_unit' => 'PeriodUnit',
@@ -227,6 +230,7 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
         'key_pair_name' => 'setKeyPairName',
         'min_count' => 'setMinCount',
         'network_interfaces' => 'setNetworkInterfaces',
+        'network_options' => 'setNetworkOptions',
         'password' => 'setPassword',
         'period' => 'setPeriod',
         'period_unit' => 'setPeriodUnit',
@@ -277,6 +281,7 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
         'key_pair_name' => 'getKeyPairName',
         'min_count' => 'getMinCount',
         'network_interfaces' => 'getNetworkInterfaces',
+        'network_options' => 'getNetworkOptions',
         'password' => 'getPassword',
         'period' => 'getPeriod',
         'period_unit' => 'getPeriodUnit',
@@ -381,6 +386,7 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
         $this->container['key_pair_name'] = isset($data['key_pair_name']) ? $data['key_pair_name'] : null;
         $this->container['min_count'] = isset($data['min_count']) ? $data['min_count'] : null;
         $this->container['network_interfaces'] = isset($data['network_interfaces']) ? $data['network_interfaces'] : null;
+        $this->container['network_options'] = isset($data['network_options']) ? $data['network_options'] : null;
         $this->container['password'] = isset($data['password']) ? $data['password'] : null;
         $this->container['period'] = isset($data['period']) ? $data['period'] : null;
         $this->container['period_unit'] = isset($data['period_unit']) ? $data['period_unit'] : null;
@@ -1098,6 +1104,30 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
     public function setNetworkInterfaces($network_interfaces)
     {
         $this->container['network_interfaces'] = $network_interfaces;
+
+        return $this;
+    }
+
+    /**
+     * Gets network_options
+     *
+     * @return \Volcengine\Ecs\Model\NetworkOptionsForRunInstancesInput
+     */
+    public function getNetworkOptions()
+    {
+        return $this->container['network_options'];
+    }
+
+    /**
+     * Sets network_options
+     *
+     * @param \Volcengine\Ecs\Model\NetworkOptionsForRunInstancesInput $network_options network_options
+     *
+     * @return $this
+     */
+    public function setNetworkOptions($network_options)
+    {
+        $this->container['network_options'] = $network_options;
 
         return $this;
     }
