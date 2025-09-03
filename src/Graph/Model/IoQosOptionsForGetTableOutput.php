@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class GetVersionSetAndComponentsInfoRequest implements ModelInterface, ArrayAccess
+class IoQosOptionsForGetTableOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class GetVersionSetAndComponentsInfoRequest implements ModelInterface, ArrayAcce
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetVersionSetAndComponentsInfoRequest';
+    protected static $swaggerModelName = 'IoQosOptionsForGetTableOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,10 @@ class GetVersionSetAndComponentsInfoRequest implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'page_number' => 'int',
-        'page_size' => 'int',
-        'version_set_prefix' => 'string'
+        'iops_limit' => 'int',
+        'read_bandwidth_limit_in_bytes' => 'int',
+        'storage_capacity_limit_in_bytes' => 'int',
+        'write_bandwidth_limit_in_bytes' => 'int'
     ];
 
     /**
@@ -39,9 +40,10 @@ class GetVersionSetAndComponentsInfoRequest implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'page_number' => 'int32',
-        'page_size' => 'int32',
-        'version_set_prefix' => null
+        'iops_limit' => 'int64',
+        'read_bandwidth_limit_in_bytes' => 'int64',
+        'storage_capacity_limit_in_bytes' => 'int64',
+        'write_bandwidth_limit_in_bytes' => 'int64'
     ];
 
     /**
@@ -71,9 +73,10 @@ class GetVersionSetAndComponentsInfoRequest implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $attributeMap = [
-        'page_number' => 'pageNumber',
-        'page_size' => 'pageSize',
-        'version_set_prefix' => 'versionSetPrefix'
+        'iops_limit' => 'iops_limit',
+        'read_bandwidth_limit_in_bytes' => 'read_bandwidth_limit_in_bytes',
+        'storage_capacity_limit_in_bytes' => 'storage_capacity_limit_in_bytes',
+        'write_bandwidth_limit_in_bytes' => 'write_bandwidth_limit_in_bytes'
     ];
 
     /**
@@ -82,9 +85,10 @@ class GetVersionSetAndComponentsInfoRequest implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $setters = [
-        'page_number' => 'setPageNumber',
-        'page_size' => 'setPageSize',
-        'version_set_prefix' => 'setVersionSetPrefix'
+        'iops_limit' => 'setIopsLimit',
+        'read_bandwidth_limit_in_bytes' => 'setReadBandwidthLimitInBytes',
+        'storage_capacity_limit_in_bytes' => 'setStorageCapacityLimitInBytes',
+        'write_bandwidth_limit_in_bytes' => 'setWriteBandwidthLimitInBytes'
     ];
 
     /**
@@ -93,9 +97,10 @@ class GetVersionSetAndComponentsInfoRequest implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $getters = [
-        'page_number' => 'getPageNumber',
-        'page_size' => 'getPageSize',
-        'version_set_prefix' => 'getVersionSetPrefix'
+        'iops_limit' => 'getIopsLimit',
+        'read_bandwidth_limit_in_bytes' => 'getReadBandwidthLimitInBytes',
+        'storage_capacity_limit_in_bytes' => 'getStorageCapacityLimitInBytes',
+        'write_bandwidth_limit_in_bytes' => 'getWriteBandwidthLimitInBytes'
     ];
 
     /**
@@ -158,9 +163,10 @@ class GetVersionSetAndComponentsInfoRequest implements ModelInterface, ArrayAcce
      */
     public function __construct(array $data = null)
     {
-        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
-        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
-        $this->container['version_set_prefix'] = isset($data['version_set_prefix']) ? $data['version_set_prefix'] : null;
+        $this->container['iops_limit'] = isset($data['iops_limit']) ? $data['iops_limit'] : null;
+        $this->container['read_bandwidth_limit_in_bytes'] = isset($data['read_bandwidth_limit_in_bytes']) ? $data['read_bandwidth_limit_in_bytes'] : null;
+        $this->container['storage_capacity_limit_in_bytes'] = isset($data['storage_capacity_limit_in_bytes']) ? $data['storage_capacity_limit_in_bytes'] : null;
+        $this->container['write_bandwidth_limit_in_bytes'] = isset($data['write_bandwidth_limit_in_bytes']) ? $data['write_bandwidth_limit_in_bytes'] : null;
     }
 
     /**
@@ -188,73 +194,97 @@ class GetVersionSetAndComponentsInfoRequest implements ModelInterface, ArrayAcce
 
 
     /**
-     * Gets page_number
+     * Gets iops_limit
      *
      * @return int
      */
-    public function getPageNumber()
+    public function getIopsLimit()
     {
-        return $this->container['page_number'];
+        return $this->container['iops_limit'];
     }
 
     /**
-     * Sets page_number
+     * Sets iops_limit
      *
-     * @param int $page_number page_number
+     * @param int $iops_limit iops_limit
      *
      * @return $this
      */
-    public function setPageNumber($page_number)
+    public function setIopsLimit($iops_limit)
     {
-        $this->container['page_number'] = $page_number;
+        $this->container['iops_limit'] = $iops_limit;
 
         return $this;
     }
 
     /**
-     * Gets page_size
+     * Gets read_bandwidth_limit_in_bytes
      *
      * @return int
      */
-    public function getPageSize()
+    public function getReadBandwidthLimitInBytes()
     {
-        return $this->container['page_size'];
+        return $this->container['read_bandwidth_limit_in_bytes'];
     }
 
     /**
-     * Sets page_size
+     * Sets read_bandwidth_limit_in_bytes
      *
-     * @param int $page_size page_size
+     * @param int $read_bandwidth_limit_in_bytes read_bandwidth_limit_in_bytes
      *
      * @return $this
      */
-    public function setPageSize($page_size)
+    public function setReadBandwidthLimitInBytes($read_bandwidth_limit_in_bytes)
     {
-        $this->container['page_size'] = $page_size;
+        $this->container['read_bandwidth_limit_in_bytes'] = $read_bandwidth_limit_in_bytes;
 
         return $this;
     }
 
     /**
-     * Gets version_set_prefix
+     * Gets storage_capacity_limit_in_bytes
      *
-     * @return string
+     * @return int
      */
-    public function getVersionSetPrefix()
+    public function getStorageCapacityLimitInBytes()
     {
-        return $this->container['version_set_prefix'];
+        return $this->container['storage_capacity_limit_in_bytes'];
     }
 
     /**
-     * Sets version_set_prefix
+     * Sets storage_capacity_limit_in_bytes
      *
-     * @param string $version_set_prefix version_set_prefix
+     * @param int $storage_capacity_limit_in_bytes storage_capacity_limit_in_bytes
      *
      * @return $this
      */
-    public function setVersionSetPrefix($version_set_prefix)
+    public function setStorageCapacityLimitInBytes($storage_capacity_limit_in_bytes)
     {
-        $this->container['version_set_prefix'] = $version_set_prefix;
+        $this->container['storage_capacity_limit_in_bytes'] = $storage_capacity_limit_in_bytes;
+
+        return $this;
+    }
+
+    /**
+     * Gets write_bandwidth_limit_in_bytes
+     *
+     * @return int
+     */
+    public function getWriteBandwidthLimitInBytes()
+    {
+        return $this->container['write_bandwidth_limit_in_bytes'];
+    }
+
+    /**
+     * Sets write_bandwidth_limit_in_bytes
+     *
+     * @param int $write_bandwidth_limit_in_bytes write_bandwidth_limit_in_bytes
+     *
+     * @return $this
+     */
+    public function setWriteBandwidthLimitInBytes($write_bandwidth_limit_in_bytes)
+    {
+        $this->container['write_bandwidth_limit_in_bytes'] = $write_bandwidth_limit_in_bytes;
 
         return $this;
     }
