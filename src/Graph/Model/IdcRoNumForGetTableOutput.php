@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class GetVersionSetAndComponentsInfoRequest implements ModelInterface, ArrayAccess
+class IdcRoNumForGetTableOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class GetVersionSetAndComponentsInfoRequest implements ModelInterface, ArrayAcce
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetVersionSetAndComponentsInfoRequest';
+    protected static $swaggerModelName = 'IdcRoNumForGetTableOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,8 @@ class GetVersionSetAndComponentsInfoRequest implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'page_number' => 'int',
-        'page_size' => 'int',
-        'version_set_prefix' => 'string'
+        'idc' => 'string',
+        'ro_num' => 'int'
     ];
 
     /**
@@ -39,9 +38,8 @@ class GetVersionSetAndComponentsInfoRequest implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'page_number' => 'int32',
-        'page_size' => 'int32',
-        'version_set_prefix' => null
+        'idc' => null,
+        'ro_num' => 'int64'
     ];
 
     /**
@@ -71,9 +69,8 @@ class GetVersionSetAndComponentsInfoRequest implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $attributeMap = [
-        'page_number' => 'pageNumber',
-        'page_size' => 'pageSize',
-        'version_set_prefix' => 'versionSetPrefix'
+        'idc' => 'Idc',
+        'ro_num' => 'RoNum'
     ];
 
     /**
@@ -82,9 +79,8 @@ class GetVersionSetAndComponentsInfoRequest implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $setters = [
-        'page_number' => 'setPageNumber',
-        'page_size' => 'setPageSize',
-        'version_set_prefix' => 'setVersionSetPrefix'
+        'idc' => 'setIdc',
+        'ro_num' => 'setRoNum'
     ];
 
     /**
@@ -93,9 +89,8 @@ class GetVersionSetAndComponentsInfoRequest implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $getters = [
-        'page_number' => 'getPageNumber',
-        'page_size' => 'getPageSize',
-        'version_set_prefix' => 'getVersionSetPrefix'
+        'idc' => 'getIdc',
+        'ro_num' => 'getRoNum'
     ];
 
     /**
@@ -158,9 +153,8 @@ class GetVersionSetAndComponentsInfoRequest implements ModelInterface, ArrayAcce
      */
     public function __construct(array $data = null)
     {
-        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
-        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
-        $this->container['version_set_prefix'] = isset($data['version_set_prefix']) ? $data['version_set_prefix'] : null;
+        $this->container['idc'] = isset($data['idc']) ? $data['idc'] : null;
+        $this->container['ro_num'] = isset($data['ro_num']) ? $data['ro_num'] : null;
     }
 
     /**
@@ -188,73 +182,49 @@ class GetVersionSetAndComponentsInfoRequest implements ModelInterface, ArrayAcce
 
 
     /**
-     * Gets page_number
-     *
-     * @return int
-     */
-    public function getPageNumber()
-    {
-        return $this->container['page_number'];
-    }
-
-    /**
-     * Sets page_number
-     *
-     * @param int $page_number page_number
-     *
-     * @return $this
-     */
-    public function setPageNumber($page_number)
-    {
-        $this->container['page_number'] = $page_number;
-
-        return $this;
-    }
-
-    /**
-     * Gets page_size
-     *
-     * @return int
-     */
-    public function getPageSize()
-    {
-        return $this->container['page_size'];
-    }
-
-    /**
-     * Sets page_size
-     *
-     * @param int $page_size page_size
-     *
-     * @return $this
-     */
-    public function setPageSize($page_size)
-    {
-        $this->container['page_size'] = $page_size;
-
-        return $this;
-    }
-
-    /**
-     * Gets version_set_prefix
+     * Gets idc
      *
      * @return string
      */
-    public function getVersionSetPrefix()
+    public function getIdc()
     {
-        return $this->container['version_set_prefix'];
+        return $this->container['idc'];
     }
 
     /**
-     * Sets version_set_prefix
+     * Sets idc
      *
-     * @param string $version_set_prefix version_set_prefix
+     * @param string $idc idc
      *
      * @return $this
      */
-    public function setVersionSetPrefix($version_set_prefix)
+    public function setIdc($idc)
     {
-        $this->container['version_set_prefix'] = $version_set_prefix;
+        $this->container['idc'] = $idc;
+
+        return $this;
+    }
+
+    /**
+     * Gets ro_num
+     *
+     * @return int
+     */
+    public function getRoNum()
+    {
+        return $this->container['ro_num'];
+    }
+
+    /**
+     * Sets ro_num
+     *
+     * @param int $ro_num ro_num
+     *
+     * @return $this
+     */
+    public function setRoNum($ro_num)
+    {
+        $this->container['ro_num'] = $ro_num;
 
         return $this;
     }

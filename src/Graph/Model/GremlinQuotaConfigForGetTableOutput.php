@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class GetVersionSetAndComponentsInfoRequest implements ModelInterface, ArrayAccess
+class GremlinQuotaConfigForGetTableOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class GetVersionSetAndComponentsInfoRequest implements ModelInterface, ArrayAcce
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetVersionSetAndComponentsInfoRequest';
+    protected static $swaggerModelName = 'gremlin_quota_configForGetTableOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,10 @@ class GetVersionSetAndComponentsInfoRequest implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'page_number' => 'int',
-        'page_size' => 'int',
-        'version_set_prefix' => 'string'
+        'caller_psm' => 'string',
+        'fetch_size' => 'int',
+        'quota_size' => 'int',
+        'template' => 'string'
     ];
 
     /**
@@ -39,9 +40,10 @@ class GetVersionSetAndComponentsInfoRequest implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'page_number' => 'int32',
-        'page_size' => 'int32',
-        'version_set_prefix' => null
+        'caller_psm' => null,
+        'fetch_size' => 'int64',
+        'quota_size' => 'int64',
+        'template' => null
     ];
 
     /**
@@ -71,9 +73,10 @@ class GetVersionSetAndComponentsInfoRequest implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $attributeMap = [
-        'page_number' => 'pageNumber',
-        'page_size' => 'pageSize',
-        'version_set_prefix' => 'versionSetPrefix'
+        'caller_psm' => 'caller_psm',
+        'fetch_size' => 'fetch_size',
+        'quota_size' => 'quota_size',
+        'template' => 'template'
     ];
 
     /**
@@ -82,9 +85,10 @@ class GetVersionSetAndComponentsInfoRequest implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $setters = [
-        'page_number' => 'setPageNumber',
-        'page_size' => 'setPageSize',
-        'version_set_prefix' => 'setVersionSetPrefix'
+        'caller_psm' => 'setCallerPsm',
+        'fetch_size' => 'setFetchSize',
+        'quota_size' => 'setQuotaSize',
+        'template' => 'setTemplate'
     ];
 
     /**
@@ -93,9 +97,10 @@ class GetVersionSetAndComponentsInfoRequest implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $getters = [
-        'page_number' => 'getPageNumber',
-        'page_size' => 'getPageSize',
-        'version_set_prefix' => 'getVersionSetPrefix'
+        'caller_psm' => 'getCallerPsm',
+        'fetch_size' => 'getFetchSize',
+        'quota_size' => 'getQuotaSize',
+        'template' => 'getTemplate'
     ];
 
     /**
@@ -158,9 +163,10 @@ class GetVersionSetAndComponentsInfoRequest implements ModelInterface, ArrayAcce
      */
     public function __construct(array $data = null)
     {
-        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
-        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
-        $this->container['version_set_prefix'] = isset($data['version_set_prefix']) ? $data['version_set_prefix'] : null;
+        $this->container['caller_psm'] = isset($data['caller_psm']) ? $data['caller_psm'] : null;
+        $this->container['fetch_size'] = isset($data['fetch_size']) ? $data['fetch_size'] : null;
+        $this->container['quota_size'] = isset($data['quota_size']) ? $data['quota_size'] : null;
+        $this->container['template'] = isset($data['template']) ? $data['template'] : null;
     }
 
     /**
@@ -188,73 +194,97 @@ class GetVersionSetAndComponentsInfoRequest implements ModelInterface, ArrayAcce
 
 
     /**
-     * Gets page_number
-     *
-     * @return int
-     */
-    public function getPageNumber()
-    {
-        return $this->container['page_number'];
-    }
-
-    /**
-     * Sets page_number
-     *
-     * @param int $page_number page_number
-     *
-     * @return $this
-     */
-    public function setPageNumber($page_number)
-    {
-        $this->container['page_number'] = $page_number;
-
-        return $this;
-    }
-
-    /**
-     * Gets page_size
-     *
-     * @return int
-     */
-    public function getPageSize()
-    {
-        return $this->container['page_size'];
-    }
-
-    /**
-     * Sets page_size
-     *
-     * @param int $page_size page_size
-     *
-     * @return $this
-     */
-    public function setPageSize($page_size)
-    {
-        $this->container['page_size'] = $page_size;
-
-        return $this;
-    }
-
-    /**
-     * Gets version_set_prefix
+     * Gets caller_psm
      *
      * @return string
      */
-    public function getVersionSetPrefix()
+    public function getCallerPsm()
     {
-        return $this->container['version_set_prefix'];
+        return $this->container['caller_psm'];
     }
 
     /**
-     * Sets version_set_prefix
+     * Sets caller_psm
      *
-     * @param string $version_set_prefix version_set_prefix
+     * @param string $caller_psm caller_psm
      *
      * @return $this
      */
-    public function setVersionSetPrefix($version_set_prefix)
+    public function setCallerPsm($caller_psm)
     {
-        $this->container['version_set_prefix'] = $version_set_prefix;
+        $this->container['caller_psm'] = $caller_psm;
+
+        return $this;
+    }
+
+    /**
+     * Gets fetch_size
+     *
+     * @return int
+     */
+    public function getFetchSize()
+    {
+        return $this->container['fetch_size'];
+    }
+
+    /**
+     * Sets fetch_size
+     *
+     * @param int $fetch_size fetch_size
+     *
+     * @return $this
+     */
+    public function setFetchSize($fetch_size)
+    {
+        $this->container['fetch_size'] = $fetch_size;
+
+        return $this;
+    }
+
+    /**
+     * Gets quota_size
+     *
+     * @return int
+     */
+    public function getQuotaSize()
+    {
+        return $this->container['quota_size'];
+    }
+
+    /**
+     * Sets quota_size
+     *
+     * @param int $quota_size quota_size
+     *
+     * @return $this
+     */
+    public function setQuotaSize($quota_size)
+    {
+        $this->container['quota_size'] = $quota_size;
+
+        return $this;
+    }
+
+    /**
+     * Gets template
+     *
+     * @return string
+     */
+    public function getTemplate()
+    {
+        return $this->container['template'];
+    }
+
+    /**
+     * Sets template
+     *
+     * @param string $template template
+     *
+     * @return $this
+     */
+    public function setTemplate($template)
+    {
+        $this->container['template'] = $template;
 
         return $this;
     }

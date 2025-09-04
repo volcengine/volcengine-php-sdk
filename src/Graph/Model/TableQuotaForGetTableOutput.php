@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class GetVersionSetAndComponentsInfoRequest implements ModelInterface, ArrayAccess
+class TableQuotaForGetTableOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class GetVersionSetAndComponentsInfoRequest implements ModelInterface, ArrayAcce
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetVersionSetAndComponentsInfoRequest';
+    protected static $swaggerModelName = 'TableQuotaForGetTableOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,8 @@ class GetVersionSetAndComponentsInfoRequest implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'page_number' => 'int',
-        'page_size' => 'int',
-        'version_set_prefix' => 'string'
+        'gremlin_quota_configs' => '\Volcengine\Graph\Model\GremlinQuotaConfigForGetTableOutput[]',
+        'psm_quota_configs' => '\Volcengine\Graph\Model\PsmQuotaConfigForGetTableOutput[]'
     ];
 
     /**
@@ -39,9 +38,8 @@ class GetVersionSetAndComponentsInfoRequest implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'page_number' => 'int32',
-        'page_size' => 'int32',
-        'version_set_prefix' => null
+        'gremlin_quota_configs' => null,
+        'psm_quota_configs' => null
     ];
 
     /**
@@ -71,9 +69,8 @@ class GetVersionSetAndComponentsInfoRequest implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $attributeMap = [
-        'page_number' => 'pageNumber',
-        'page_size' => 'pageSize',
-        'version_set_prefix' => 'versionSetPrefix'
+        'gremlin_quota_configs' => 'gremlin_quota_configs',
+        'psm_quota_configs' => 'psm_quota_configs'
     ];
 
     /**
@@ -82,9 +79,8 @@ class GetVersionSetAndComponentsInfoRequest implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $setters = [
-        'page_number' => 'setPageNumber',
-        'page_size' => 'setPageSize',
-        'version_set_prefix' => 'setVersionSetPrefix'
+        'gremlin_quota_configs' => 'setGremlinQuotaConfigs',
+        'psm_quota_configs' => 'setPsmQuotaConfigs'
     ];
 
     /**
@@ -93,9 +89,8 @@ class GetVersionSetAndComponentsInfoRequest implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $getters = [
-        'page_number' => 'getPageNumber',
-        'page_size' => 'getPageSize',
-        'version_set_prefix' => 'getVersionSetPrefix'
+        'gremlin_quota_configs' => 'getGremlinQuotaConfigs',
+        'psm_quota_configs' => 'getPsmQuotaConfigs'
     ];
 
     /**
@@ -158,9 +153,8 @@ class GetVersionSetAndComponentsInfoRequest implements ModelInterface, ArrayAcce
      */
     public function __construct(array $data = null)
     {
-        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
-        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
-        $this->container['version_set_prefix'] = isset($data['version_set_prefix']) ? $data['version_set_prefix'] : null;
+        $this->container['gremlin_quota_configs'] = isset($data['gremlin_quota_configs']) ? $data['gremlin_quota_configs'] : null;
+        $this->container['psm_quota_configs'] = isset($data['psm_quota_configs']) ? $data['psm_quota_configs'] : null;
     }
 
     /**
@@ -188,73 +182,49 @@ class GetVersionSetAndComponentsInfoRequest implements ModelInterface, ArrayAcce
 
 
     /**
-     * Gets page_number
+     * Gets gremlin_quota_configs
      *
-     * @return int
+     * @return \Volcengine\Graph\Model\GremlinQuotaConfigForGetTableOutput[]
      */
-    public function getPageNumber()
+    public function getGremlinQuotaConfigs()
     {
-        return $this->container['page_number'];
+        return $this->container['gremlin_quota_configs'];
     }
 
     /**
-     * Sets page_number
+     * Sets gremlin_quota_configs
      *
-     * @param int $page_number page_number
+     * @param \Volcengine\Graph\Model\GremlinQuotaConfigForGetTableOutput[] $gremlin_quota_configs gremlin_quota_configs
      *
      * @return $this
      */
-    public function setPageNumber($page_number)
+    public function setGremlinQuotaConfigs($gremlin_quota_configs)
     {
-        $this->container['page_number'] = $page_number;
+        $this->container['gremlin_quota_configs'] = $gremlin_quota_configs;
 
         return $this;
     }
 
     /**
-     * Gets page_size
+     * Gets psm_quota_configs
      *
-     * @return int
+     * @return \Volcengine\Graph\Model\PsmQuotaConfigForGetTableOutput[]
      */
-    public function getPageSize()
+    public function getPsmQuotaConfigs()
     {
-        return $this->container['page_size'];
+        return $this->container['psm_quota_configs'];
     }
 
     /**
-     * Sets page_size
+     * Sets psm_quota_configs
      *
-     * @param int $page_size page_size
+     * @param \Volcengine\Graph\Model\PsmQuotaConfigForGetTableOutput[] $psm_quota_configs psm_quota_configs
      *
      * @return $this
      */
-    public function setPageSize($page_size)
+    public function setPsmQuotaConfigs($psm_quota_configs)
     {
-        $this->container['page_size'] = $page_size;
-
-        return $this;
-    }
-
-    /**
-     * Gets version_set_prefix
-     *
-     * @return string
-     */
-    public function getVersionSetPrefix()
-    {
-        return $this->container['version_set_prefix'];
-    }
-
-    /**
-     * Sets version_set_prefix
-     *
-     * @param string $version_set_prefix version_set_prefix
-     *
-     * @return $this
-     */
-    public function setVersionSetPrefix($version_set_prefix)
-    {
-        $this->container['version_set_prefix'] = $version_set_prefix;
+        $this->container['psm_quota_configs'] = $psm_quota_configs;
 
         return $this;
     }
