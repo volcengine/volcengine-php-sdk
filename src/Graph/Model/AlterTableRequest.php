@@ -29,10 +29,14 @@ class AlterTableRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'enable_read' => 'bool',
+        'enable_rw_seperate_schedule' => 'bool',
         'enable_write' => 'bool',
         'io_qos_options' => '\Volcengine\Graph\Model\IOQosOptionsForAlterTableInput',
+        'idc_replica_nums' => '\Volcengine\Graph\Model\IdcReplicaNumForAlterTableInput[]',
+        'idc_ro_nums' => '\Volcengine\Graph\Model\IdcRoNumForAlterTableInput[]',
         'instance_id' => 'string',
-        'state' => 'int',
+        'rw_schedulable_idcs' => 'string[]',
+        'state' => 'string',
         'table_name' => 'string'
     ];
 
@@ -43,10 +47,14 @@ class AlterTableRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'enable_read' => null,
+        'enable_rw_seperate_schedule' => null,
         'enable_write' => null,
         'io_qos_options' => null,
+        'idc_replica_nums' => null,
+        'idc_ro_nums' => null,
         'instance_id' => null,
-        'state' => 'int32',
+        'rw_schedulable_idcs' => null,
+        'state' => null,
         'table_name' => null
     ];
 
@@ -78,9 +86,13 @@ class AlterTableRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'enable_read' => 'EnableRead',
+        'enable_rw_seperate_schedule' => 'EnableRwSeperateSchedule',
         'enable_write' => 'EnableWrite',
         'io_qos_options' => 'IOQosOptions',
+        'idc_replica_nums' => 'IdcReplicaNums',
+        'idc_ro_nums' => 'IdcRoNums',
         'instance_id' => 'InstanceId',
+        'rw_schedulable_idcs' => 'RwSchedulableIdcs',
         'state' => 'State',
         'table_name' => 'TableName'
     ];
@@ -92,9 +104,13 @@ class AlterTableRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'enable_read' => 'setEnableRead',
+        'enable_rw_seperate_schedule' => 'setEnableRwSeperateSchedule',
         'enable_write' => 'setEnableWrite',
         'io_qos_options' => 'setIoQosOptions',
+        'idc_replica_nums' => 'setIdcReplicaNums',
+        'idc_ro_nums' => 'setIdcRoNums',
         'instance_id' => 'setInstanceId',
+        'rw_schedulable_idcs' => 'setRwSchedulableIdcs',
         'state' => 'setState',
         'table_name' => 'setTableName'
     ];
@@ -106,9 +122,13 @@ class AlterTableRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'enable_read' => 'getEnableRead',
+        'enable_rw_seperate_schedule' => 'getEnableRwSeperateSchedule',
         'enable_write' => 'getEnableWrite',
         'io_qos_options' => 'getIoQosOptions',
+        'idc_replica_nums' => 'getIdcReplicaNums',
+        'idc_ro_nums' => 'getIdcRoNums',
         'instance_id' => 'getInstanceId',
+        'rw_schedulable_idcs' => 'getRwSchedulableIdcs',
         'state' => 'getState',
         'table_name' => 'getTableName'
     ];
@@ -174,9 +194,13 @@ class AlterTableRequest implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['enable_read'] = isset($data['enable_read']) ? $data['enable_read'] : null;
+        $this->container['enable_rw_seperate_schedule'] = isset($data['enable_rw_seperate_schedule']) ? $data['enable_rw_seperate_schedule'] : null;
         $this->container['enable_write'] = isset($data['enable_write']) ? $data['enable_write'] : null;
         $this->container['io_qos_options'] = isset($data['io_qos_options']) ? $data['io_qos_options'] : null;
+        $this->container['idc_replica_nums'] = isset($data['idc_replica_nums']) ? $data['idc_replica_nums'] : null;
+        $this->container['idc_ro_nums'] = isset($data['idc_ro_nums']) ? $data['idc_ro_nums'] : null;
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
+        $this->container['rw_schedulable_idcs'] = isset($data['rw_schedulable_idcs']) ? $data['rw_schedulable_idcs'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
         $this->container['table_name'] = isset($data['table_name']) ? $data['table_name'] : null;
     }
@@ -236,6 +260,30 @@ class AlterTableRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets enable_rw_seperate_schedule
+     *
+     * @return bool
+     */
+    public function getEnableRwSeperateSchedule()
+    {
+        return $this->container['enable_rw_seperate_schedule'];
+    }
+
+    /**
+     * Sets enable_rw_seperate_schedule
+     *
+     * @param bool $enable_rw_seperate_schedule enable_rw_seperate_schedule
+     *
+     * @return $this
+     */
+    public function setEnableRwSeperateSchedule($enable_rw_seperate_schedule)
+    {
+        $this->container['enable_rw_seperate_schedule'] = $enable_rw_seperate_schedule;
+
+        return $this;
+    }
+
+    /**
      * Gets enable_write
      *
      * @return bool
@@ -284,6 +332,54 @@ class AlterTableRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets idc_replica_nums
+     *
+     * @return \Volcengine\Graph\Model\IdcReplicaNumForAlterTableInput[]
+     */
+    public function getIdcReplicaNums()
+    {
+        return $this->container['idc_replica_nums'];
+    }
+
+    /**
+     * Sets idc_replica_nums
+     *
+     * @param \Volcengine\Graph\Model\IdcReplicaNumForAlterTableInput[] $idc_replica_nums idc_replica_nums
+     *
+     * @return $this
+     */
+    public function setIdcReplicaNums($idc_replica_nums)
+    {
+        $this->container['idc_replica_nums'] = $idc_replica_nums;
+
+        return $this;
+    }
+
+    /**
+     * Gets idc_ro_nums
+     *
+     * @return \Volcengine\Graph\Model\IdcRoNumForAlterTableInput[]
+     */
+    public function getIdcRoNums()
+    {
+        return $this->container['idc_ro_nums'];
+    }
+
+    /**
+     * Sets idc_ro_nums
+     *
+     * @param \Volcengine\Graph\Model\IdcRoNumForAlterTableInput[] $idc_ro_nums idc_ro_nums
+     *
+     * @return $this
+     */
+    public function setIdcRoNums($idc_ro_nums)
+    {
+        $this->container['idc_ro_nums'] = $idc_ro_nums;
+
+        return $this;
+    }
+
+    /**
      * Gets instance_id
      *
      * @return string
@@ -308,9 +404,33 @@ class AlterTableRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets rw_schedulable_idcs
+     *
+     * @return string[]
+     */
+    public function getRwSchedulableIdcs()
+    {
+        return $this->container['rw_schedulable_idcs'];
+    }
+
+    /**
+     * Sets rw_schedulable_idcs
+     *
+     * @param string[] $rw_schedulable_idcs rw_schedulable_idcs
+     *
+     * @return $this
+     */
+    public function setRwSchedulableIdcs($rw_schedulable_idcs)
+    {
+        $this->container['rw_schedulable_idcs'] = $rw_schedulable_idcs;
+
+        return $this;
+    }
+
+    /**
      * Gets state
      *
-     * @return int
+     * @return string
      */
     public function getState()
     {
@@ -320,7 +440,7 @@ class AlterTableRequest implements ModelInterface, ArrayAccess
     /**
      * Sets state
      *
-     * @param int $state state
+     * @param string $state state
      *
      * @return $this
      */

@@ -29,7 +29,8 @@ class GetVersionSetAndComponentsInfoRequest implements ModelInterface, ArrayAcce
       */
     protected static $swaggerTypes = [
         'page_number' => 'int',
-        'page_size' => 'int'
+        'page_size' => 'int',
+        'version_set_prefix' => 'string'
     ];
 
     /**
@@ -39,7 +40,8 @@ class GetVersionSetAndComponentsInfoRequest implements ModelInterface, ArrayAcce
       */
     protected static $swaggerFormats = [
         'page_number' => 'int32',
-        'page_size' => 'int32'
+        'page_size' => 'int32',
+        'version_set_prefix' => null
     ];
 
     /**
@@ -70,7 +72,8 @@ class GetVersionSetAndComponentsInfoRequest implements ModelInterface, ArrayAcce
      */
     protected static $attributeMap = [
         'page_number' => 'pageNumber',
-        'page_size' => 'pageSize'
+        'page_size' => 'pageSize',
+        'version_set_prefix' => 'versionSetPrefix'
     ];
 
     /**
@@ -80,7 +83,8 @@ class GetVersionSetAndComponentsInfoRequest implements ModelInterface, ArrayAcce
      */
     protected static $setters = [
         'page_number' => 'setPageNumber',
-        'page_size' => 'setPageSize'
+        'page_size' => 'setPageSize',
+        'version_set_prefix' => 'setVersionSetPrefix'
     ];
 
     /**
@@ -90,7 +94,8 @@ class GetVersionSetAndComponentsInfoRequest implements ModelInterface, ArrayAcce
      */
     protected static $getters = [
         'page_number' => 'getPageNumber',
-        'page_size' => 'getPageSize'
+        'page_size' => 'getPageSize',
+        'version_set_prefix' => 'getVersionSetPrefix'
     ];
 
     /**
@@ -155,6 +160,7 @@ class GetVersionSetAndComponentsInfoRequest implements ModelInterface, ArrayAcce
     {
         $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
+        $this->container['version_set_prefix'] = isset($data['version_set_prefix']) ? $data['version_set_prefix'] : null;
     }
 
     /**
@@ -225,6 +231,30 @@ class GetVersionSetAndComponentsInfoRequest implements ModelInterface, ArrayAcce
     public function setPageSize($page_size)
     {
         $this->container['page_size'] = $page_size;
+
+        return $this;
+    }
+
+    /**
+     * Gets version_set_prefix
+     *
+     * @return string
+     */
+    public function getVersionSetPrefix()
+    {
+        return $this->container['version_set_prefix'];
+    }
+
+    /**
+     * Sets version_set_prefix
+     *
+     * @param string $version_set_prefix version_set_prefix
+     *
+     * @return $this
+     */
+    public function setVersionSetPrefix($version_set_prefix)
+    {
+        $this->container['version_set_prefix'] = $version_set_prefix;
 
         return $this;
     }

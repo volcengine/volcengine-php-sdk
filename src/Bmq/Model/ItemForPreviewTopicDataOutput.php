@@ -28,7 +28,7 @@ class ItemForPreviewTopicDataOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'header' => '\Volcengine\Bmq\Model\HeaderForPreviewTopicDataOutput',
+        'header' => '\Volcengine\Bmq\Model\HeaderForPreviewTopicDataOutput[]',
         'key' => 'string',
         'offset' => 'int',
         'partition_id' => 'int',
@@ -214,7 +214,7 @@ class ItemForPreviewTopicDataOutput implements ModelInterface, ArrayAccess
     /**
      * Gets header
      *
-     * @return \Volcengine\Bmq\Model\HeaderForPreviewTopicDataOutput
+     * @return \Volcengine\Bmq\Model\HeaderForPreviewTopicDataOutput[]
      */
     public function getHeader()
     {
@@ -224,7 +224,7 @@ class ItemForPreviewTopicDataOutput implements ModelInterface, ArrayAccess
     /**
      * Sets header
      *
-     * @param \Volcengine\Bmq\Model\HeaderForPreviewTopicDataOutput $header header
+     * @param \Volcengine\Bmq\Model\HeaderForPreviewTopicDataOutput[] $header header
      *
      * @return $this
      */
