@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class TagForGetRouteOutput implements ModelInterface, ArrayAccess
+class FallbackSettingForUpdateRouteInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class TagForGetRouteOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'TagForGetRouteOutput';
+    protected static $swaggerModelName = 'FallbackSettingForUpdateRouteInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,9 @@ class TagForGetRouteOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'key' => 'string',
-        'value' => 'string'
+        'conditions' => 'string[]',
+        'enable' => 'bool',
+        'fallback_upstreams' => '\Volcengine\Apig20221112\Model\FallbackUpstreamForUpdateRouteInput[]'
     ];
 
     /**
@@ -38,8 +39,9 @@ class TagForGetRouteOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'key' => null,
-        'value' => null
+        'conditions' => null,
+        'enable' => null,
+        'fallback_upstreams' => null
     ];
 
     /**
@@ -69,8 +71,9 @@ class TagForGetRouteOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'key' => 'Key',
-        'value' => 'Value'
+        'conditions' => 'Conditions',
+        'enable' => 'Enable',
+        'fallback_upstreams' => 'FallbackUpstreams'
     ];
 
     /**
@@ -79,8 +82,9 @@ class TagForGetRouteOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'key' => 'setKey',
-        'value' => 'setValue'
+        'conditions' => 'setConditions',
+        'enable' => 'setEnable',
+        'fallback_upstreams' => 'setFallbackUpstreams'
     ];
 
     /**
@@ -89,8 +93,9 @@ class TagForGetRouteOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'key' => 'getKey',
-        'value' => 'getValue'
+        'conditions' => 'getConditions',
+        'enable' => 'getEnable',
+        'fallback_upstreams' => 'getFallbackUpstreams'
     ];
 
     /**
@@ -153,8 +158,9 @@ class TagForGetRouteOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['key'] = isset($data['key']) ? $data['key'] : null;
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        $this->container['conditions'] = isset($data['conditions']) ? $data['conditions'] : null;
+        $this->container['enable'] = isset($data['enable']) ? $data['enable'] : null;
+        $this->container['fallback_upstreams'] = isset($data['fallback_upstreams']) ? $data['fallback_upstreams'] : null;
     }
 
     /**
@@ -182,49 +188,73 @@ class TagForGetRouteOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets key
+     * Gets conditions
      *
-     * @return string
+     * @return string[]
      */
-    public function getKey()
+    public function getConditions()
     {
-        return $this->container['key'];
+        return $this->container['conditions'];
     }
 
     /**
-     * Sets key
+     * Sets conditions
      *
-     * @param string $key key
+     * @param string[] $conditions conditions
      *
      * @return $this
      */
-    public function setKey($key)
+    public function setConditions($conditions)
     {
-        $this->container['key'] = $key;
+        $this->container['conditions'] = $conditions;
 
         return $this;
     }
 
     /**
-     * Gets value
+     * Gets enable
      *
-     * @return string
+     * @return bool
      */
-    public function getValue()
+    public function getEnable()
     {
-        return $this->container['value'];
+        return $this->container['enable'];
     }
 
     /**
-     * Sets value
+     * Sets enable
      *
-     * @param string $value value
+     * @param bool $enable enable
      *
      * @return $this
      */
-    public function setValue($value)
+    public function setEnable($enable)
     {
-        $this->container['value'] = $value;
+        $this->container['enable'] = $enable;
+
+        return $this;
+    }
+
+    /**
+     * Gets fallback_upstreams
+     *
+     * @return \Volcengine\Apig20221112\Model\FallbackUpstreamForUpdateRouteInput[]
+     */
+    public function getFallbackUpstreams()
+    {
+        return $this->container['fallback_upstreams'];
+    }
+
+    /**
+     * Sets fallback_upstreams
+     *
+     * @param \Volcengine\Apig20221112\Model\FallbackUpstreamForUpdateRouteInput[] $fallback_upstreams fallback_upstreams
+     *
+     * @return $this
+     */
+    public function setFallbackUpstreams($fallback_upstreams)
+    {
+        $this->container['fallback_upstreams'] = $fallback_upstreams;
 
         return $this;
     }

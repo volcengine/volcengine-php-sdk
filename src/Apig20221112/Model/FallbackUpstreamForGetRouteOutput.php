@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class TagForCreateRouteInput implements ModelInterface, ArrayAccess
+class FallbackUpstreamForGetRouteOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class TagForCreateRouteInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'TagForCreateRouteInput';
+    protected static $swaggerModelName = 'FallbackUpstreamForGetRouteOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,10 @@ class TagForCreateRouteInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'key' => 'string',
-        'value' => 'string'
+        'ai_provider_settings' => '\Volcengine\Apig20221112\Model\AIProviderSettingsForGetRouteOutput',
+        'upstream_id' => 'string',
+        'version' => 'string',
+        'weight' => 'int'
     ];
 
     /**
@@ -38,8 +40,10 @@ class TagForCreateRouteInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'key' => null,
-        'value' => null
+        'ai_provider_settings' => null,
+        'upstream_id' => null,
+        'version' => null,
+        'weight' => 'int32'
     ];
 
     /**
@@ -69,8 +73,10 @@ class TagForCreateRouteInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'key' => 'Key',
-        'value' => 'Value'
+        'ai_provider_settings' => 'AIProviderSettings',
+        'upstream_id' => 'UpstreamId',
+        'version' => 'Version',
+        'weight' => 'Weight'
     ];
 
     /**
@@ -79,8 +85,10 @@ class TagForCreateRouteInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'key' => 'setKey',
-        'value' => 'setValue'
+        'ai_provider_settings' => 'setAiProviderSettings',
+        'upstream_id' => 'setUpstreamId',
+        'version' => 'setVersion',
+        'weight' => 'setWeight'
     ];
 
     /**
@@ -89,8 +97,10 @@ class TagForCreateRouteInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'key' => 'getKey',
-        'value' => 'getValue'
+        'ai_provider_settings' => 'getAiProviderSettings',
+        'upstream_id' => 'getUpstreamId',
+        'version' => 'getVersion',
+        'weight' => 'getWeight'
     ];
 
     /**
@@ -153,8 +163,10 @@ class TagForCreateRouteInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['key'] = isset($data['key']) ? $data['key'] : null;
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        $this->container['ai_provider_settings'] = isset($data['ai_provider_settings']) ? $data['ai_provider_settings'] : null;
+        $this->container['upstream_id'] = isset($data['upstream_id']) ? $data['upstream_id'] : null;
+        $this->container['version'] = isset($data['version']) ? $data['version'] : null;
+        $this->container['weight'] = isset($data['weight']) ? $data['weight'] : null;
     }
 
     /**
@@ -182,49 +194,97 @@ class TagForCreateRouteInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets key
+     * Gets ai_provider_settings
      *
-     * @return string
+     * @return \Volcengine\Apig20221112\Model\AIProviderSettingsForGetRouteOutput
      */
-    public function getKey()
+    public function getAiProviderSettings()
     {
-        return $this->container['key'];
+        return $this->container['ai_provider_settings'];
     }
 
     /**
-     * Sets key
+     * Sets ai_provider_settings
      *
-     * @param string $key key
+     * @param \Volcengine\Apig20221112\Model\AIProviderSettingsForGetRouteOutput $ai_provider_settings ai_provider_settings
      *
      * @return $this
      */
-    public function setKey($key)
+    public function setAiProviderSettings($ai_provider_settings)
     {
-        $this->container['key'] = $key;
+        $this->container['ai_provider_settings'] = $ai_provider_settings;
 
         return $this;
     }
 
     /**
-     * Gets value
+     * Gets upstream_id
      *
      * @return string
      */
-    public function getValue()
+    public function getUpstreamId()
     {
-        return $this->container['value'];
+        return $this->container['upstream_id'];
     }
 
     /**
-     * Sets value
+     * Sets upstream_id
      *
-     * @param string $value value
+     * @param string $upstream_id upstream_id
      *
      * @return $this
      */
-    public function setValue($value)
+    public function setUpstreamId($upstream_id)
     {
-        $this->container['value'] = $value;
+        $this->container['upstream_id'] = $upstream_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets version
+     *
+     * @return string
+     */
+    public function getVersion()
+    {
+        return $this->container['version'];
+    }
+
+    /**
+     * Sets version
+     *
+     * @param string $version version
+     *
+     * @return $this
+     */
+    public function setVersion($version)
+    {
+        $this->container['version'] = $version;
+
+        return $this;
+    }
+
+    /**
+     * Gets weight
+     *
+     * @return int
+     */
+    public function getWeight()
+    {
+        return $this->container['weight'];
+    }
+
+    /**
+     * Sets weight
+     *
+     * @param int $weight weight
+     *
+     * @return $this
+     */
+    public function setWeight($weight)
+    {
+        $this->container['weight'] = $weight;
 
         return $this;
     }

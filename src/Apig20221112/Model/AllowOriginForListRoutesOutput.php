@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class TagForListRoutesOutput implements ModelInterface, ArrayAccess
+class AllowOriginForListRoutesOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class TagForListRoutesOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'TagForListRoutesOutput';
+    protected static $swaggerModelName = 'AllowOriginForListRoutesOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,7 @@ class TagForListRoutesOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'key' => 'string',
+        'match_type' => 'string',
         'value' => 'string'
     ];
 
@@ -38,7 +38,7 @@ class TagForListRoutesOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'key' => null,
+        'match_type' => null,
         'value' => null
     ];
 
@@ -69,7 +69,7 @@ class TagForListRoutesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'key' => 'Key',
+        'match_type' => 'MatchType',
         'value' => 'Value'
     ];
 
@@ -79,7 +79,7 @@ class TagForListRoutesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'key' => 'setKey',
+        'match_type' => 'setMatchType',
         'value' => 'setValue'
     ];
 
@@ -89,7 +89,7 @@ class TagForListRoutesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'key' => 'getKey',
+        'match_type' => 'getMatchType',
         'value' => 'getValue'
     ];
 
@@ -153,7 +153,7 @@ class TagForListRoutesOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['key'] = isset($data['key']) ? $data['key'] : null;
+        $this->container['match_type'] = isset($data['match_type']) ? $data['match_type'] : null;
         $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 
@@ -182,25 +182,25 @@ class TagForListRoutesOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets key
+     * Gets match_type
      *
      * @return string
      */
-    public function getKey()
+    public function getMatchType()
     {
-        return $this->container['key'];
+        return $this->container['match_type'];
     }
 
     /**
-     * Sets key
+     * Sets match_type
      *
-     * @param string $key key
+     * @param string $match_type match_type
      *
      * @return $this
      */
-    public function setKey($key)
+    public function setMatchType($match_type)
     {
-        $this->container['key'] = $key;
+        $this->container['match_type'] = $match_type;
 
         return $this;
     }

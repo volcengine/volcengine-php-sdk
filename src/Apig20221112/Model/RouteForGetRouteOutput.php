@@ -33,16 +33,15 @@ class RouteForGetRouteOutput implements ModelInterface, ArrayAccess
         'custom_domains' => '\Volcengine\Apig20221112\Model\CustomDomainForGetRouteOutput[]',
         'domains' => '\Volcengine\Apig20221112\Model\DomainForGetRouteOutput[]',
         'enable' => 'bool',
+        'fallback_setting' => '\Volcengine\Apig20221112\Model\FallbackSettingForGetRouteOutput',
         'id' => 'string',
         'match_rule' => '\Volcengine\Apig20221112\Model\MatchRuleForGetRouteOutput',
         'name' => 'string',
         'priority' => 'int',
         'reason' => 'string',
-        'resource_type' => 'string',
         'service_id' => 'string',
         'service_name' => 'string',
         'status' => 'string',
-        'tags' => '\Volcengine\Apig20221112\Model\TagForGetRouteOutput[]',
         'update_time' => 'string',
         'upstream_list' => '\Volcengine\Apig20221112\Model\UpstreamListForGetRouteOutput[]'
     ];
@@ -58,16 +57,15 @@ class RouteForGetRouteOutput implements ModelInterface, ArrayAccess
         'custom_domains' => null,
         'domains' => null,
         'enable' => null,
+        'fallback_setting' => null,
         'id' => null,
         'match_rule' => null,
         'name' => null,
         'priority' => 'int64',
         'reason' => null,
-        'resource_type' => null,
         'service_id' => null,
         'service_name' => null,
         'status' => null,
-        'tags' => null,
         'update_time' => null,
         'upstream_list' => null
     ];
@@ -104,16 +102,15 @@ class RouteForGetRouteOutput implements ModelInterface, ArrayAccess
         'custom_domains' => 'CustomDomains',
         'domains' => 'Domains',
         'enable' => 'Enable',
+        'fallback_setting' => 'FallbackSetting',
         'id' => 'Id',
         'match_rule' => 'MatchRule',
         'name' => 'Name',
         'priority' => 'Priority',
         'reason' => 'Reason',
-        'resource_type' => 'ResourceType',
         'service_id' => 'ServiceId',
         'service_name' => 'ServiceName',
         'status' => 'Status',
-        'tags' => 'Tags',
         'update_time' => 'UpdateTime',
         'upstream_list' => 'UpstreamList'
     ];
@@ -129,16 +126,15 @@ class RouteForGetRouteOutput implements ModelInterface, ArrayAccess
         'custom_domains' => 'setCustomDomains',
         'domains' => 'setDomains',
         'enable' => 'setEnable',
+        'fallback_setting' => 'setFallbackSetting',
         'id' => 'setId',
         'match_rule' => 'setMatchRule',
         'name' => 'setName',
         'priority' => 'setPriority',
         'reason' => 'setReason',
-        'resource_type' => 'setResourceType',
         'service_id' => 'setServiceId',
         'service_name' => 'setServiceName',
         'status' => 'setStatus',
-        'tags' => 'setTags',
         'update_time' => 'setUpdateTime',
         'upstream_list' => 'setUpstreamList'
     ];
@@ -154,16 +150,15 @@ class RouteForGetRouteOutput implements ModelInterface, ArrayAccess
         'custom_domains' => 'getCustomDomains',
         'domains' => 'getDomains',
         'enable' => 'getEnable',
+        'fallback_setting' => 'getFallbackSetting',
         'id' => 'getId',
         'match_rule' => 'getMatchRule',
         'name' => 'getName',
         'priority' => 'getPriority',
         'reason' => 'getReason',
-        'resource_type' => 'getResourceType',
         'service_id' => 'getServiceId',
         'service_name' => 'getServiceName',
         'status' => 'getStatus',
-        'tags' => 'getTags',
         'update_time' => 'getUpdateTime',
         'upstream_list' => 'getUpstreamList'
     ];
@@ -233,16 +228,15 @@ class RouteForGetRouteOutput implements ModelInterface, ArrayAccess
         $this->container['custom_domains'] = isset($data['custom_domains']) ? $data['custom_domains'] : null;
         $this->container['domains'] = isset($data['domains']) ? $data['domains'] : null;
         $this->container['enable'] = isset($data['enable']) ? $data['enable'] : null;
+        $this->container['fallback_setting'] = isset($data['fallback_setting']) ? $data['fallback_setting'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['match_rule'] = isset($data['match_rule']) ? $data['match_rule'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['priority'] = isset($data['priority']) ? $data['priority'] : null;
         $this->container['reason'] = isset($data['reason']) ? $data['reason'] : null;
-        $this->container['resource_type'] = isset($data['resource_type']) ? $data['resource_type'] : null;
         $this->container['service_id'] = isset($data['service_id']) ? $data['service_id'] : null;
         $this->container['service_name'] = isset($data['service_name']) ? $data['service_name'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
         $this->container['upstream_list'] = isset($data['upstream_list']) ? $data['upstream_list'] : null;
     }
@@ -392,6 +386,30 @@ class RouteForGetRouteOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets fallback_setting
+     *
+     * @return \Volcengine\Apig20221112\Model\FallbackSettingForGetRouteOutput
+     */
+    public function getFallbackSetting()
+    {
+        return $this->container['fallback_setting'];
+    }
+
+    /**
+     * Sets fallback_setting
+     *
+     * @param \Volcengine\Apig20221112\Model\FallbackSettingForGetRouteOutput $fallback_setting fallback_setting
+     *
+     * @return $this
+     */
+    public function setFallbackSetting($fallback_setting)
+    {
+        $this->container['fallback_setting'] = $fallback_setting;
+
+        return $this;
+    }
+
+    /**
      * Gets id
      *
      * @return string
@@ -512,30 +530,6 @@ class RouteForGetRouteOutput implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets resource_type
-     *
-     * @return string
-     */
-    public function getResourceType()
-    {
-        return $this->container['resource_type'];
-    }
-
-    /**
-     * Sets resource_type
-     *
-     * @param string $resource_type resource_type
-     *
-     * @return $this
-     */
-    public function setResourceType($resource_type)
-    {
-        $this->container['resource_type'] = $resource_type;
-
-        return $this;
-    }
-
-    /**
      * Gets service_id
      *
      * @return string
@@ -603,30 +597,6 @@ class RouteForGetRouteOutput implements ModelInterface, ArrayAccess
     public function setStatus($status)
     {
         $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
-     * Gets tags
-     *
-     * @return \Volcengine\Apig20221112\Model\TagForGetRouteOutput[]
-     */
-    public function getTags()
-    {
-        return $this->container['tags'];
-    }
-
-    /**
-     * Sets tags
-     *
-     * @param \Volcengine\Apig20221112\Model\TagForGetRouteOutput[] $tags tags
-     *
-     * @return $this
-     */
-    public function setTags($tags)
-    {
-        $this->container['tags'] = $tags;
 
         return $this;
     }
