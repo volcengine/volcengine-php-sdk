@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class OutputVideoForListAITranslationProjectOutput implements ModelInterface, ArrayAccess
+class UpdateAITranslationSpeechesRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class OutputVideoForListAITranslationProjectOutput implements ModelInterface, Ar
       *
       * @var string
       */
-    protected static $swaggerModelName = 'OutputVideoForListAITranslationProjectOutput';
+    protected static $swaggerModelName = 'UpdateAITranslationSpeechesRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,8 @@ class OutputVideoForListAITranslationProjectOutput implements ModelInterface, Ar
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'duration_second' => 'double',
-        'file_name' => 'string',
-        'is_audio' => 'bool',
-        'uri' => 'string',
-        'url' => 'string',
-        'vid' => 'string'
+        'space_name' => 'string',
+        'speeches' => '\Volcengine\Vod20250101\Model\SpeechForUpdateAITranslationSpeechesInput[]'
     ];
 
     /**
@@ -42,12 +38,8 @@ class OutputVideoForListAITranslationProjectOutput implements ModelInterface, Ar
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'duration_second' => 'double',
-        'file_name' => null,
-        'is_audio' => null,
-        'uri' => null,
-        'url' => null,
-        'vid' => null
+        'space_name' => null,
+        'speeches' => null
     ];
 
     /**
@@ -77,12 +69,8 @@ class OutputVideoForListAITranslationProjectOutput implements ModelInterface, Ar
      * @var string[]
      */
     protected static $attributeMap = [
-        'duration_second' => 'DurationSecond',
-        'file_name' => 'FileName',
-        'is_audio' => 'IsAudio',
-        'uri' => 'Uri',
-        'url' => 'Url',
-        'vid' => 'Vid'
+        'space_name' => 'SpaceName',
+        'speeches' => 'Speeches'
     ];
 
     /**
@@ -91,12 +79,8 @@ class OutputVideoForListAITranslationProjectOutput implements ModelInterface, Ar
      * @var string[]
      */
     protected static $setters = [
-        'duration_second' => 'setDurationSecond',
-        'file_name' => 'setFileName',
-        'is_audio' => 'setIsAudio',
-        'uri' => 'setUri',
-        'url' => 'setUrl',
-        'vid' => 'setVid'
+        'space_name' => 'setSpaceName',
+        'speeches' => 'setSpeeches'
     ];
 
     /**
@@ -105,12 +89,8 @@ class OutputVideoForListAITranslationProjectOutput implements ModelInterface, Ar
      * @var string[]
      */
     protected static $getters = [
-        'duration_second' => 'getDurationSecond',
-        'file_name' => 'getFileName',
-        'is_audio' => 'getIsAudio',
-        'uri' => 'getUri',
-        'url' => 'getUrl',
-        'vid' => 'getVid'
+        'space_name' => 'getSpaceName',
+        'speeches' => 'getSpeeches'
     ];
 
     /**
@@ -173,12 +153,8 @@ class OutputVideoForListAITranslationProjectOutput implements ModelInterface, Ar
      */
     public function __construct(array $data = null)
     {
-        $this->container['duration_second'] = isset($data['duration_second']) ? $data['duration_second'] : null;
-        $this->container['file_name'] = isset($data['file_name']) ? $data['file_name'] : null;
-        $this->container['is_audio'] = isset($data['is_audio']) ? $data['is_audio'] : null;
-        $this->container['uri'] = isset($data['uri']) ? $data['uri'] : null;
-        $this->container['url'] = isset($data['url']) ? $data['url'] : null;
-        $this->container['vid'] = isset($data['vid']) ? $data['vid'] : null;
+        $this->container['space_name'] = isset($data['space_name']) ? $data['space_name'] : null;
+        $this->container['speeches'] = isset($data['speeches']) ? $data['speeches'] : null;
     }
 
     /**
@@ -190,6 +166,9 @@ class OutputVideoForListAITranslationProjectOutput implements ModelInterface, Ar
     {
         $invalidProperties = [];
 
+        if ($this->container['space_name'] === null) {
+            $invalidProperties[] = "'space_name' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -206,145 +185,49 @@ class OutputVideoForListAITranslationProjectOutput implements ModelInterface, Ar
 
 
     /**
-     * Gets duration_second
-     *
-     * @return double
-     */
-    public function getDurationSecond()
-    {
-        return $this->container['duration_second'];
-    }
-
-    /**
-     * Sets duration_second
-     *
-     * @param double $duration_second duration_second
-     *
-     * @return $this
-     */
-    public function setDurationSecond($duration_second)
-    {
-        $this->container['duration_second'] = $duration_second;
-
-        return $this;
-    }
-
-    /**
-     * Gets file_name
+     * Gets space_name
      *
      * @return string
      */
-    public function getFileName()
+    public function getSpaceName()
     {
-        return $this->container['file_name'];
+        return $this->container['space_name'];
     }
 
     /**
-     * Sets file_name
+     * Sets space_name
      *
-     * @param string $file_name file_name
+     * @param string $space_name space_name
      *
      * @return $this
      */
-    public function setFileName($file_name)
+    public function setSpaceName($space_name)
     {
-        $this->container['file_name'] = $file_name;
+        $this->container['space_name'] = $space_name;
 
         return $this;
     }
 
     /**
-     * Gets is_audio
+     * Gets speeches
      *
-     * @return bool
+     * @return \Volcengine\Vod20250101\Model\SpeechForUpdateAITranslationSpeechesInput[]
      */
-    public function getIsAudio()
+    public function getSpeeches()
     {
-        return $this->container['is_audio'];
+        return $this->container['speeches'];
     }
 
     /**
-     * Sets is_audio
+     * Sets speeches
      *
-     * @param bool $is_audio is_audio
+     * @param \Volcengine\Vod20250101\Model\SpeechForUpdateAITranslationSpeechesInput[] $speeches speeches
      *
      * @return $this
      */
-    public function setIsAudio($is_audio)
+    public function setSpeeches($speeches)
     {
-        $this->container['is_audio'] = $is_audio;
-
-        return $this;
-    }
-
-    /**
-     * Gets uri
-     *
-     * @return string
-     */
-    public function getUri()
-    {
-        return $this->container['uri'];
-    }
-
-    /**
-     * Sets uri
-     *
-     * @param string $uri uri
-     *
-     * @return $this
-     */
-    public function setUri($uri)
-    {
-        $this->container['uri'] = $uri;
-
-        return $this;
-    }
-
-    /**
-     * Gets url
-     *
-     * @return string
-     */
-    public function getUrl()
-    {
-        return $this->container['url'];
-    }
-
-    /**
-     * Sets url
-     *
-     * @param string $url url
-     *
-     * @return $this
-     */
-    public function setUrl($url)
-    {
-        $this->container['url'] = $url;
-
-        return $this;
-    }
-
-    /**
-     * Gets vid
-     *
-     * @return string
-     */
-    public function getVid()
-    {
-        return $this->container['vid'];
-    }
-
-    /**
-     * Sets vid
-     *
-     * @param string $vid vid
-     *
-     * @return $this
-     */
-    public function setVid($vid)
-    {
-        $this->container['vid'] = $vid;
+        $this->container['speeches'] = $speeches;
 
         return $this;
     }
