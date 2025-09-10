@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ItemForListUpstreamsOutput implements ModelInterface, ArrayAccess
+class CustomDomainForGetCustomDomainOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ItemForListUpstreamsOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ItemForListUpstreamsOutput';
+    protected static $swaggerModelName = 'CustomDomainForGetCustomDomainOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,20 +28,16 @@ class ItemForListUpstreamsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'backend_target_list' => '\Volcengine\Apig\Model\BackendTargetListForListUpstreamsOutput[]',
-        'circuit_breaking_settings' => '\Volcengine\Apig\Model\CircuitBreakingSettingsForListUpstreamsOutput',
+        'certificate_id' => 'string',
         'comments' => 'string',
         'create_time' => 'string',
-        'gateway_id' => 'string',
+        'domain' => 'string',
         'id' => 'string',
-        'load_balancer_settings' => '\Volcengine\Apig\Model\LoadBalancerSettingsForListUpstreamsOutput',
-        'name' => 'string',
-        'protocol' => 'string',
-        'source_type' => 'string',
-        'tls_settings' => '\Volcengine\Apig\Model\TlsSettingsForListUpstreamsOutput',
-        'update_time' => 'string',
-        'upstream_spec' => '\Volcengine\Apig\Model\UpstreamSpecForListUpstreamsOutput',
-        'version_details' => '\Volcengine\Apig\Model\VersionDetailForListUpstreamsOutput[]'
+        'protocol' => 'string[]',
+        'ssl_redirect' => 'bool',
+        'service_id' => 'string',
+        'status' => 'string',
+        'update_time' => 'string'
     ];
 
     /**
@@ -50,20 +46,16 @@ class ItemForListUpstreamsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'backend_target_list' => null,
-        'circuit_breaking_settings' => null,
+        'certificate_id' => null,
         'comments' => null,
         'create_time' => null,
-        'gateway_id' => null,
+        'domain' => null,
         'id' => null,
-        'load_balancer_settings' => null,
-        'name' => null,
         'protocol' => null,
-        'source_type' => null,
-        'tls_settings' => null,
-        'update_time' => null,
-        'upstream_spec' => null,
-        'version_details' => null
+        'ssl_redirect' => null,
+        'service_id' => null,
+        'status' => null,
+        'update_time' => null
     ];
 
     /**
@@ -93,20 +85,16 @@ class ItemForListUpstreamsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'backend_target_list' => 'BackendTargetList',
-        'circuit_breaking_settings' => 'CircuitBreakingSettings',
+        'certificate_id' => 'CertificateId',
         'comments' => 'Comments',
         'create_time' => 'CreateTime',
-        'gateway_id' => 'GatewayId',
+        'domain' => 'Domain',
         'id' => 'Id',
-        'load_balancer_settings' => 'LoadBalancerSettings',
-        'name' => 'Name',
         'protocol' => 'Protocol',
-        'source_type' => 'SourceType',
-        'tls_settings' => 'TlsSettings',
-        'update_time' => 'UpdateTime',
-        'upstream_spec' => 'UpstreamSpec',
-        'version_details' => 'VersionDetails'
+        'ssl_redirect' => 'SSLRedirect',
+        'service_id' => 'ServiceId',
+        'status' => 'Status',
+        'update_time' => 'UpdateTime'
     ];
 
     /**
@@ -115,20 +103,16 @@ class ItemForListUpstreamsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'backend_target_list' => 'setBackendTargetList',
-        'circuit_breaking_settings' => 'setCircuitBreakingSettings',
+        'certificate_id' => 'setCertificateId',
         'comments' => 'setComments',
         'create_time' => 'setCreateTime',
-        'gateway_id' => 'setGatewayId',
+        'domain' => 'setDomain',
         'id' => 'setId',
-        'load_balancer_settings' => 'setLoadBalancerSettings',
-        'name' => 'setName',
         'protocol' => 'setProtocol',
-        'source_type' => 'setSourceType',
-        'tls_settings' => 'setTlsSettings',
-        'update_time' => 'setUpdateTime',
-        'upstream_spec' => 'setUpstreamSpec',
-        'version_details' => 'setVersionDetails'
+        'ssl_redirect' => 'setSslRedirect',
+        'service_id' => 'setServiceId',
+        'status' => 'setStatus',
+        'update_time' => 'setUpdateTime'
     ];
 
     /**
@@ -137,20 +121,16 @@ class ItemForListUpstreamsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'backend_target_list' => 'getBackendTargetList',
-        'circuit_breaking_settings' => 'getCircuitBreakingSettings',
+        'certificate_id' => 'getCertificateId',
         'comments' => 'getComments',
         'create_time' => 'getCreateTime',
-        'gateway_id' => 'getGatewayId',
+        'domain' => 'getDomain',
         'id' => 'getId',
-        'load_balancer_settings' => 'getLoadBalancerSettings',
-        'name' => 'getName',
         'protocol' => 'getProtocol',
-        'source_type' => 'getSourceType',
-        'tls_settings' => 'getTlsSettings',
-        'update_time' => 'getUpdateTime',
-        'upstream_spec' => 'getUpstreamSpec',
-        'version_details' => 'getVersionDetails'
+        'ssl_redirect' => 'getSslRedirect',
+        'service_id' => 'getServiceId',
+        'status' => 'getStatus',
+        'update_time' => 'getUpdateTime'
     ];
 
     /**
@@ -213,20 +193,16 @@ class ItemForListUpstreamsOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['backend_target_list'] = isset($data['backend_target_list']) ? $data['backend_target_list'] : null;
-        $this->container['circuit_breaking_settings'] = isset($data['circuit_breaking_settings']) ? $data['circuit_breaking_settings'] : null;
+        $this->container['certificate_id'] = isset($data['certificate_id']) ? $data['certificate_id'] : null;
         $this->container['comments'] = isset($data['comments']) ? $data['comments'] : null;
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
-        $this->container['gateway_id'] = isset($data['gateway_id']) ? $data['gateway_id'] : null;
+        $this->container['domain'] = isset($data['domain']) ? $data['domain'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['load_balancer_settings'] = isset($data['load_balancer_settings']) ? $data['load_balancer_settings'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['protocol'] = isset($data['protocol']) ? $data['protocol'] : null;
-        $this->container['source_type'] = isset($data['source_type']) ? $data['source_type'] : null;
-        $this->container['tls_settings'] = isset($data['tls_settings']) ? $data['tls_settings'] : null;
+        $this->container['ssl_redirect'] = isset($data['ssl_redirect']) ? $data['ssl_redirect'] : null;
+        $this->container['service_id'] = isset($data['service_id']) ? $data['service_id'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
-        $this->container['upstream_spec'] = isset($data['upstream_spec']) ? $data['upstream_spec'] : null;
-        $this->container['version_details'] = isset($data['version_details']) ? $data['version_details'] : null;
     }
 
     /**
@@ -254,49 +230,25 @@ class ItemForListUpstreamsOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets backend_target_list
+     * Gets certificate_id
      *
-     * @return \Volcengine\Apig\Model\BackendTargetListForListUpstreamsOutput[]
+     * @return string
      */
-    public function getBackendTargetList()
+    public function getCertificateId()
     {
-        return $this->container['backend_target_list'];
+        return $this->container['certificate_id'];
     }
 
     /**
-     * Sets backend_target_list
+     * Sets certificate_id
      *
-     * @param \Volcengine\Apig\Model\BackendTargetListForListUpstreamsOutput[] $backend_target_list backend_target_list
+     * @param string $certificate_id certificate_id
      *
      * @return $this
      */
-    public function setBackendTargetList($backend_target_list)
+    public function setCertificateId($certificate_id)
     {
-        $this->container['backend_target_list'] = $backend_target_list;
-
-        return $this;
-    }
-
-    /**
-     * Gets circuit_breaking_settings
-     *
-     * @return \Volcengine\Apig\Model\CircuitBreakingSettingsForListUpstreamsOutput
-     */
-    public function getCircuitBreakingSettings()
-    {
-        return $this->container['circuit_breaking_settings'];
-    }
-
-    /**
-     * Sets circuit_breaking_settings
-     *
-     * @param \Volcengine\Apig\Model\CircuitBreakingSettingsForListUpstreamsOutput $circuit_breaking_settings circuit_breaking_settings
-     *
-     * @return $this
-     */
-    public function setCircuitBreakingSettings($circuit_breaking_settings)
-    {
-        $this->container['circuit_breaking_settings'] = $circuit_breaking_settings;
+        $this->container['certificate_id'] = $certificate_id;
 
         return $this;
     }
@@ -350,25 +302,25 @@ class ItemForListUpstreamsOutput implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets gateway_id
+     * Gets domain
      *
      * @return string
      */
-    public function getGatewayId()
+    public function getDomain()
     {
-        return $this->container['gateway_id'];
+        return $this->container['domain'];
     }
 
     /**
-     * Sets gateway_id
+     * Sets domain
      *
-     * @param string $gateway_id gateway_id
+     * @param string $domain domain
      *
      * @return $this
      */
-    public function setGatewayId($gateway_id)
+    public function setDomain($domain)
     {
-        $this->container['gateway_id'] = $gateway_id;
+        $this->container['domain'] = $domain;
 
         return $this;
     }
@@ -398,57 +350,9 @@ class ItemForListUpstreamsOutput implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets load_balancer_settings
-     *
-     * @return \Volcengine\Apig\Model\LoadBalancerSettingsForListUpstreamsOutput
-     */
-    public function getLoadBalancerSettings()
-    {
-        return $this->container['load_balancer_settings'];
-    }
-
-    /**
-     * Sets load_balancer_settings
-     *
-     * @param \Volcengine\Apig\Model\LoadBalancerSettingsForListUpstreamsOutput $load_balancer_settings load_balancer_settings
-     *
-     * @return $this
-     */
-    public function setLoadBalancerSettings($load_balancer_settings)
-    {
-        $this->container['load_balancer_settings'] = $load_balancer_settings;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string $name name
-     *
-     * @return $this
-     */
-    public function setName($name)
-    {
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
      * Gets protocol
      *
-     * @return string
+     * @return string[]
      */
     public function getProtocol()
     {
@@ -458,7 +362,7 @@ class ItemForListUpstreamsOutput implements ModelInterface, ArrayAccess
     /**
      * Sets protocol
      *
-     * @param string $protocol protocol
+     * @param string[] $protocol protocol
      *
      * @return $this
      */
@@ -470,49 +374,73 @@ class ItemForListUpstreamsOutput implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets source_type
+     * Gets ssl_redirect
      *
-     * @return string
+     * @return bool
      */
-    public function getSourceType()
+    public function getSslRedirect()
     {
-        return $this->container['source_type'];
+        return $this->container['ssl_redirect'];
     }
 
     /**
-     * Sets source_type
+     * Sets ssl_redirect
      *
-     * @param string $source_type source_type
+     * @param bool $ssl_redirect ssl_redirect
      *
      * @return $this
      */
-    public function setSourceType($source_type)
+    public function setSslRedirect($ssl_redirect)
     {
-        $this->container['source_type'] = $source_type;
+        $this->container['ssl_redirect'] = $ssl_redirect;
 
         return $this;
     }
 
     /**
-     * Gets tls_settings
+     * Gets service_id
      *
-     * @return \Volcengine\Apig\Model\TlsSettingsForListUpstreamsOutput
+     * @return string
      */
-    public function getTlsSettings()
+    public function getServiceId()
     {
-        return $this->container['tls_settings'];
+        return $this->container['service_id'];
     }
 
     /**
-     * Sets tls_settings
+     * Sets service_id
      *
-     * @param \Volcengine\Apig\Model\TlsSettingsForListUpstreamsOutput $tls_settings tls_settings
+     * @param string $service_id service_id
      *
      * @return $this
      */
-    public function setTlsSettings($tls_settings)
+    public function setServiceId($service_id)
     {
-        $this->container['tls_settings'] = $tls_settings;
+        $this->container['service_id'] = $service_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param string $status status
+     *
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $this->container['status'] = $status;
 
         return $this;
     }
@@ -537,54 +465,6 @@ class ItemForListUpstreamsOutput implements ModelInterface, ArrayAccess
     public function setUpdateTime($update_time)
     {
         $this->container['update_time'] = $update_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets upstream_spec
-     *
-     * @return \Volcengine\Apig\Model\UpstreamSpecForListUpstreamsOutput
-     */
-    public function getUpstreamSpec()
-    {
-        return $this->container['upstream_spec'];
-    }
-
-    /**
-     * Sets upstream_spec
-     *
-     * @param \Volcengine\Apig\Model\UpstreamSpecForListUpstreamsOutput $upstream_spec upstream_spec
-     *
-     * @return $this
-     */
-    public function setUpstreamSpec($upstream_spec)
-    {
-        $this->container['upstream_spec'] = $upstream_spec;
-
-        return $this;
-    }
-
-    /**
-     * Gets version_details
-     *
-     * @return \Volcengine\Apig\Model\VersionDetailForListUpstreamsOutput[]
-     */
-    public function getVersionDetails()
-    {
-        return $this->container['version_details'];
-    }
-
-    /**
-     * Sets version_details
-     *
-     * @param \Volcengine\Apig\Model\VersionDetailForListUpstreamsOutput[] $version_details version_details
-     *
-     * @return $this
-     */
-    public function setVersionDetails($version_details)
-    {
-        $this->container['version_details'] = $version_details;
 
         return $this;
     }

@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
+class ImportedCLBSpecForListGatewayLBsOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'FilterForListGatewaysInput';
+    protected static $swaggerModelName = 'ImportedCLBSpecForListGatewayLBsOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,11 +28,10 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'ids' => 'string[]',
+        'id' => 'string',
         'name' => 'string',
-        'status' => 'string',
-        'type' => 'string',
-        'vpc_ids' => 'string[]'
+        'scheduler' => 'string',
+        'spec' => 'string'
     ];
 
     /**
@@ -41,11 +40,10 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'ids' => null,
+        'id' => null,
         'name' => null,
-        'status' => null,
-        'type' => null,
-        'vpc_ids' => null
+        'scheduler' => null,
+        'spec' => null
     ];
 
     /**
@@ -75,11 +73,10 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'ids' => 'Ids',
+        'id' => 'Id',
         'name' => 'Name',
-        'status' => 'Status',
-        'type' => 'Type',
-        'vpc_ids' => 'VpcIds'
+        'scheduler' => 'Scheduler',
+        'spec' => 'Spec'
     ];
 
     /**
@@ -88,11 +85,10 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'ids' => 'setIds',
+        'id' => 'setId',
         'name' => 'setName',
-        'status' => 'setStatus',
-        'type' => 'setType',
-        'vpc_ids' => 'setVpcIds'
+        'scheduler' => 'setScheduler',
+        'spec' => 'setSpec'
     ];
 
     /**
@@ -101,11 +97,10 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'ids' => 'getIds',
+        'id' => 'getId',
         'name' => 'getName',
-        'status' => 'getStatus',
-        'type' => 'getType',
-        'vpc_ids' => 'getVpcIds'
+        'scheduler' => 'getScheduler',
+        'spec' => 'getSpec'
     ];
 
     /**
@@ -168,11 +163,10 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['ids'] = isset($data['ids']) ? $data['ids'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['vpc_ids'] = isset($data['vpc_ids']) ? $data['vpc_ids'] : null;
+        $this->container['scheduler'] = isset($data['scheduler']) ? $data['scheduler'] : null;
+        $this->container['spec'] = isset($data['spec']) ? $data['spec'] : null;
     }
 
     /**
@@ -200,25 +194,25 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets ids
+     * Gets id
      *
-     * @return string[]
+     * @return string
      */
-    public function getIds()
+    public function getId()
     {
-        return $this->container['ids'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets ids
+     * Sets id
      *
-     * @param string[] $ids ids
+     * @param string $id id
      *
      * @return $this
      */
-    public function setIds($ids)
+    public function setId($id)
     {
-        $this->container['ids'] = $ids;
+        $this->container['id'] = $id;
 
         return $this;
     }
@@ -248,73 +242,49 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets status
+     * Gets scheduler
      *
      * @return string
      */
-    public function getStatus()
+    public function getScheduler()
     {
-        return $this->container['status'];
+        return $this->container['scheduler'];
     }
 
     /**
-     * Sets status
+     * Sets scheduler
      *
-     * @param string $status status
+     * @param string $scheduler scheduler
      *
      * @return $this
      */
-    public function setStatus($status)
+    public function setScheduler($scheduler)
     {
-        $this->container['status'] = $status;
+        $this->container['scheduler'] = $scheduler;
 
         return $this;
     }
 
     /**
-     * Gets type
+     * Gets spec
      *
      * @return string
      */
-    public function getType()
+    public function getSpec()
     {
-        return $this->container['type'];
+        return $this->container['spec'];
     }
 
     /**
-     * Sets type
+     * Sets spec
      *
-     * @param string $type type
+     * @param string $spec spec
      *
      * @return $this
      */
-    public function setType($type)
+    public function setSpec($spec)
     {
-        $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets vpc_ids
-     *
-     * @return string[]
-     */
-    public function getVpcIds()
-    {
-        return $this->container['vpc_ids'];
-    }
-
-    /**
-     * Sets vpc_ids
-     *
-     * @param string[] $vpc_ids vpc_ids
-     *
-     * @return $this
-     */
-    public function setVpcIds($vpc_ids)
-    {
-        $this->container['vpc_ids'] = $vpc_ids;
+        $this->container['spec'] = $spec;
 
         return $this;
     }

@@ -28,7 +28,6 @@ class CreateGatewayRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'backend_spec' => '\Volcengine\Apig\Model\BackendSpecForCreateGatewayInput',
         'comments' => 'string',
         'log_spec' => '\Volcengine\Apig\Model\LogSpecForCreateGatewayInput',
         'monitor_spec' => '\Volcengine\Apig\Model\MonitorSpecForCreateGatewayInput',
@@ -37,7 +36,7 @@ class CreateGatewayRequest implements ModelInterface, ArrayAccess
         'project_name' => 'string',
         'region' => 'string',
         'resource_spec' => '\Volcengine\Apig\Model\ResourceSpecForCreateGatewayInput',
-        'tags' => '\Volcengine\Apig\Model\TagForCreateGatewayInput[]',
+        'trace_spec' => '\Volcengine\Apig\Model\TraceSpecForCreateGatewayInput',
         'type' => 'string'
     ];
 
@@ -47,7 +46,6 @@ class CreateGatewayRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'backend_spec' => null,
         'comments' => null,
         'log_spec' => null,
         'monitor_spec' => null,
@@ -56,7 +54,7 @@ class CreateGatewayRequest implements ModelInterface, ArrayAccess
         'project_name' => null,
         'region' => null,
         'resource_spec' => null,
-        'tags' => null,
+        'trace_spec' => null,
         'type' => null
     ];
 
@@ -87,7 +85,6 @@ class CreateGatewayRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'backend_spec' => 'BackendSpec',
         'comments' => 'Comments',
         'log_spec' => 'LogSpec',
         'monitor_spec' => 'MonitorSpec',
@@ -96,7 +93,7 @@ class CreateGatewayRequest implements ModelInterface, ArrayAccess
         'project_name' => 'ProjectName',
         'region' => 'Region',
         'resource_spec' => 'ResourceSpec',
-        'tags' => 'Tags',
+        'trace_spec' => 'TraceSpec',
         'type' => 'Type'
     ];
 
@@ -106,7 +103,6 @@ class CreateGatewayRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'backend_spec' => 'setBackendSpec',
         'comments' => 'setComments',
         'log_spec' => 'setLogSpec',
         'monitor_spec' => 'setMonitorSpec',
@@ -115,7 +111,7 @@ class CreateGatewayRequest implements ModelInterface, ArrayAccess
         'project_name' => 'setProjectName',
         'region' => 'setRegion',
         'resource_spec' => 'setResourceSpec',
-        'tags' => 'setTags',
+        'trace_spec' => 'setTraceSpec',
         'type' => 'setType'
     ];
 
@@ -125,7 +121,6 @@ class CreateGatewayRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'backend_spec' => 'getBackendSpec',
         'comments' => 'getComments',
         'log_spec' => 'getLogSpec',
         'monitor_spec' => 'getMonitorSpec',
@@ -134,7 +129,7 @@ class CreateGatewayRequest implements ModelInterface, ArrayAccess
         'project_name' => 'getProjectName',
         'region' => 'getRegion',
         'resource_spec' => 'getResourceSpec',
-        'tags' => 'getTags',
+        'trace_spec' => 'getTraceSpec',
         'type' => 'getType'
     ];
 
@@ -198,7 +193,6 @@ class CreateGatewayRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['backend_spec'] = isset($data['backend_spec']) ? $data['backend_spec'] : null;
         $this->container['comments'] = isset($data['comments']) ? $data['comments'] : null;
         $this->container['log_spec'] = isset($data['log_spec']) ? $data['log_spec'] : null;
         $this->container['monitor_spec'] = isset($data['monitor_spec']) ? $data['monitor_spec'] : null;
@@ -207,7 +201,7 @@ class CreateGatewayRequest implements ModelInterface, ArrayAccess
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['region'] = isset($data['region']) ? $data['region'] : null;
         $this->container['resource_spec'] = isset($data['resource_spec']) ? $data['resource_spec'] : null;
-        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
+        $this->container['trace_spec'] = isset($data['trace_spec']) ? $data['trace_spec'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
@@ -240,30 +234,6 @@ class CreateGatewayRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets backend_spec
-     *
-     * @return \Volcengine\Apig\Model\BackendSpecForCreateGatewayInput
-     */
-    public function getBackendSpec()
-    {
-        return $this->container['backend_spec'];
-    }
-
-    /**
-     * Sets backend_spec
-     *
-     * @param \Volcengine\Apig\Model\BackendSpecForCreateGatewayInput $backend_spec backend_spec
-     *
-     * @return $this
-     */
-    public function setBackendSpec($backend_spec)
-    {
-        $this->container['backend_spec'] = $backend_spec;
-
-        return $this;
-    }
 
     /**
      * Gets comments
@@ -458,25 +428,25 @@ class CreateGatewayRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets tags
+     * Gets trace_spec
      *
-     * @return \Volcengine\Apig\Model\TagForCreateGatewayInput[]
+     * @return \Volcengine\Apig\Model\TraceSpecForCreateGatewayInput
      */
-    public function getTags()
+    public function getTraceSpec()
     {
-        return $this->container['tags'];
+        return $this->container['trace_spec'];
     }
 
     /**
-     * Sets tags
+     * Sets trace_spec
      *
-     * @param \Volcengine\Apig\Model\TagForCreateGatewayInput[] $tags tags
+     * @param \Volcengine\Apig\Model\TraceSpecForCreateGatewayInput $trace_spec trace_spec
      *
      * @return $this
      */
-    public function setTags($tags)
+    public function setTraceSpec($trace_spec)
     {
-        $this->container['tags'] = $tags;
+        $this->container['trace_spec'] = $trace_spec;
 
         return $this;
     }

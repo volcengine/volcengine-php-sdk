@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class TagForListGatewaysInput implements ModelInterface, ArrayAccess
+class ListGatewayLBsRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class TagForListGatewaysInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'TagForListGatewaysInput';
+    protected static $swaggerModelName = 'ListGatewayLBsRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,7 @@ class TagForListGatewaysInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'key' => 'string',
-        'value' => 'string'
+        'id' => 'string'
     ];
 
     /**
@@ -38,8 +37,7 @@ class TagForListGatewaysInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'key' => null,
-        'value' => null
+        'id' => null
     ];
 
     /**
@@ -69,8 +67,7 @@ class TagForListGatewaysInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'key' => 'Key',
-        'value' => 'Value'
+        'id' => 'Id'
     ];
 
     /**
@@ -79,8 +76,7 @@ class TagForListGatewaysInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'key' => 'setKey',
-        'value' => 'setValue'
+        'id' => 'setId'
     ];
 
     /**
@@ -89,8 +85,7 @@ class TagForListGatewaysInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'key' => 'getKey',
-        'value' => 'getValue'
+        'id' => 'getId'
     ];
 
     /**
@@ -153,8 +148,7 @@ class TagForListGatewaysInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['key'] = isset($data['key']) ? $data['key'] : null;
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
     }
 
     /**
@@ -166,6 +160,9 @@ class TagForListGatewaysInput implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -182,49 +179,25 @@ class TagForListGatewaysInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets key
+     * Gets id
      *
      * @return string
      */
-    public function getKey()
+    public function getId()
     {
-        return $this->container['key'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets key
+     * Sets id
      *
-     * @param string $key key
+     * @param string $id id
      *
      * @return $this
      */
-    public function setKey($key)
+    public function setId($id)
     {
-        $this->container['key'] = $key;
-
-        return $this;
-    }
-
-    /**
-     * Gets value
-     *
-     * @return string
-     */
-    public function getValue()
-    {
-        return $this->container['value'];
-    }
-
-    /**
-     * Sets value
-     *
-     * @param string $value value
-     *
-     * @return $this
-     */
-    public function setValue($value)
-    {
-        $this->container['value'] = $value;
+        $this->container['id'] = $id;
 
         return $this;
     }

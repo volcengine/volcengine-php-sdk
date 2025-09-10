@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class TagForListUpstreamsOutput implements ModelInterface, ArrayAccess
+class TLSTraceSpecForListGatewaysOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class TagForListUpstreamsOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'TagForListUpstreamsOutput';
+    protected static $swaggerModelName = 'TLSTraceSpecForListGatewaysOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,8 @@ class TagForListUpstreamsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'key' => 'string',
-        'value' => 'string'
+        'project_id' => 'string',
+        'trace_id' => 'string'
     ];
 
     /**
@@ -38,8 +38,8 @@ class TagForListUpstreamsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'key' => null,
-        'value' => null
+        'project_id' => null,
+        'trace_id' => null
     ];
 
     /**
@@ -69,8 +69,8 @@ class TagForListUpstreamsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'key' => 'Key',
-        'value' => 'Value'
+        'project_id' => 'ProjectId',
+        'trace_id' => 'TraceId'
     ];
 
     /**
@@ -79,8 +79,8 @@ class TagForListUpstreamsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'key' => 'setKey',
-        'value' => 'setValue'
+        'project_id' => 'setProjectId',
+        'trace_id' => 'setTraceId'
     ];
 
     /**
@@ -89,8 +89,8 @@ class TagForListUpstreamsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'key' => 'getKey',
-        'value' => 'getValue'
+        'project_id' => 'getProjectId',
+        'trace_id' => 'getTraceId'
     ];
 
     /**
@@ -153,8 +153,8 @@ class TagForListUpstreamsOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['key'] = isset($data['key']) ? $data['key'] : null;
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
+        $this->container['trace_id'] = isset($data['trace_id']) ? $data['trace_id'] : null;
     }
 
     /**
@@ -182,49 +182,49 @@ class TagForListUpstreamsOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets key
+     * Gets project_id
      *
      * @return string
      */
-    public function getKey()
+    public function getProjectId()
     {
-        return $this->container['key'];
+        return $this->container['project_id'];
     }
 
     /**
-     * Sets key
+     * Sets project_id
      *
-     * @param string $key key
+     * @param string $project_id project_id
      *
      * @return $this
      */
-    public function setKey($key)
+    public function setProjectId($project_id)
     {
-        $this->container['key'] = $key;
+        $this->container['project_id'] = $project_id;
 
         return $this;
     }
 
     /**
-     * Gets value
+     * Gets trace_id
      *
      * @return string
      */
-    public function getValue()
+    public function getTraceId()
     {
-        return $this->container['value'];
+        return $this->container['trace_id'];
     }
 
     /**
-     * Sets value
+     * Sets trace_id
      *
-     * @param string $value value
+     * @param string $trace_id trace_id
      *
      * @return $this
      */
-    public function setValue($value)
+    public function setTraceId($trace_id)
     {
-        $this->container['value'] = $value;
+        $this->container['trace_id'] = $trace_id;
 
         return $this;
     }

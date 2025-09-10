@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class TagForGetGatewayServiceOutput implements ModelInterface, ArrayAccess
+class APMTraceSpecForUpdateGatewayTraceInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class TagForGetGatewayServiceOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'TagForGetGatewayServiceOutput';
+    protected static $swaggerModelName = 'APMTraceSpecForUpdateGatewayTraceInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,7 @@ class TagForGetGatewayServiceOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'key' => 'string',
-        'value' => 'string'
+        'api_key' => 'string'
     ];
 
     /**
@@ -38,8 +37,7 @@ class TagForGetGatewayServiceOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'key' => null,
-        'value' => null
+        'api_key' => null
     ];
 
     /**
@@ -69,8 +67,7 @@ class TagForGetGatewayServiceOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'key' => 'Key',
-        'value' => 'Value'
+        'api_key' => 'APIKey'
     ];
 
     /**
@@ -79,8 +76,7 @@ class TagForGetGatewayServiceOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'key' => 'setKey',
-        'value' => 'setValue'
+        'api_key' => 'setApiKey'
     ];
 
     /**
@@ -89,8 +85,7 @@ class TagForGetGatewayServiceOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'key' => 'getKey',
-        'value' => 'getValue'
+        'api_key' => 'getApiKey'
     ];
 
     /**
@@ -153,8 +148,7 @@ class TagForGetGatewayServiceOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['key'] = isset($data['key']) ? $data['key'] : null;
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        $this->container['api_key'] = isset($data['api_key']) ? $data['api_key'] : null;
     }
 
     /**
@@ -182,49 +176,25 @@ class TagForGetGatewayServiceOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets key
+     * Gets api_key
      *
      * @return string
      */
-    public function getKey()
+    public function getApiKey()
     {
-        return $this->container['key'];
+        return $this->container['api_key'];
     }
 
     /**
-     * Sets key
+     * Sets api_key
      *
-     * @param string $key key
+     * @param string $api_key api_key
      *
      * @return $this
      */
-    public function setKey($key)
+    public function setApiKey($api_key)
     {
-        $this->container['key'] = $key;
-
-        return $this;
-    }
-
-    /**
-     * Gets value
-     *
-     * @return string
-     */
-    public function getValue()
-    {
-        return $this->container['value'];
-    }
-
-    /**
-     * Sets value
-     *
-     * @param string $value value
-     *
-     * @return $this
-     */
-    public function setValue($value)
-    {
-        $this->container['value'] = $value;
+        $this->container['api_key'] = $api_key;
 
         return $this;
     }

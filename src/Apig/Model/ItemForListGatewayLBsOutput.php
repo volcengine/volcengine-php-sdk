@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
+class ItemForListGatewayLBsOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'FilterForListGatewaysInput';
+    protected static $swaggerModelName = 'ItemForListGatewayLBsOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,11 +28,14 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'ids' => 'string[]',
-        'name' => 'string',
+        'ip_list' => '\Volcengine\Apig\Model\IPListForListGatewayLBsOutput[]',
+        'imported_clb_spec' => '\Volcengine\Apig\Model\ImportedCLBSpecForListGatewayLBsOutput',
+        'load_balancer_id' => 'string',
+        'message' => 'string',
+        'ports' => '\Volcengine\Apig\Model\PortForListGatewayLBsOutput[]',
+        'source_type' => 'string',
         'status' => 'string',
-        'type' => 'string',
-        'vpc_ids' => 'string[]'
+        'type' => 'string'
     ];
 
     /**
@@ -41,11 +44,14 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'ids' => null,
-        'name' => null,
+        'ip_list' => null,
+        'imported_clb_spec' => null,
+        'load_balancer_id' => null,
+        'message' => null,
+        'ports' => null,
+        'source_type' => null,
         'status' => null,
-        'type' => null,
-        'vpc_ids' => null
+        'type' => null
     ];
 
     /**
@@ -75,11 +81,14 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'ids' => 'Ids',
-        'name' => 'Name',
+        'ip_list' => 'IPList',
+        'imported_clb_spec' => 'ImportedCLBSpec',
+        'load_balancer_id' => 'LoadBalancerId',
+        'message' => 'Message',
+        'ports' => 'Ports',
+        'source_type' => 'SourceType',
         'status' => 'Status',
-        'type' => 'Type',
-        'vpc_ids' => 'VpcIds'
+        'type' => 'Type'
     ];
 
     /**
@@ -88,11 +97,14 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'ids' => 'setIds',
-        'name' => 'setName',
+        'ip_list' => 'setIpList',
+        'imported_clb_spec' => 'setImportedClbSpec',
+        'load_balancer_id' => 'setLoadBalancerId',
+        'message' => 'setMessage',
+        'ports' => 'setPorts',
+        'source_type' => 'setSourceType',
         'status' => 'setStatus',
-        'type' => 'setType',
-        'vpc_ids' => 'setVpcIds'
+        'type' => 'setType'
     ];
 
     /**
@@ -101,11 +113,14 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'ids' => 'getIds',
-        'name' => 'getName',
+        'ip_list' => 'getIpList',
+        'imported_clb_spec' => 'getImportedClbSpec',
+        'load_balancer_id' => 'getLoadBalancerId',
+        'message' => 'getMessage',
+        'ports' => 'getPorts',
+        'source_type' => 'getSourceType',
         'status' => 'getStatus',
-        'type' => 'getType',
-        'vpc_ids' => 'getVpcIds'
+        'type' => 'getType'
     ];
 
     /**
@@ -168,11 +183,14 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['ids'] = isset($data['ids']) ? $data['ids'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['ip_list'] = isset($data['ip_list']) ? $data['ip_list'] : null;
+        $this->container['imported_clb_spec'] = isset($data['imported_clb_spec']) ? $data['imported_clb_spec'] : null;
+        $this->container['load_balancer_id'] = isset($data['load_balancer_id']) ? $data['load_balancer_id'] : null;
+        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
+        $this->container['ports'] = isset($data['ports']) ? $data['ports'] : null;
+        $this->container['source_type'] = isset($data['source_type']) ? $data['source_type'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['vpc_ids'] = isset($data['vpc_ids']) ? $data['vpc_ids'] : null;
     }
 
     /**
@@ -200,49 +218,145 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets ids
+     * Gets ip_list
      *
-     * @return string[]
+     * @return \Volcengine\Apig\Model\IPListForListGatewayLBsOutput[]
      */
-    public function getIds()
+    public function getIpList()
     {
-        return $this->container['ids'];
+        return $this->container['ip_list'];
     }
 
     /**
-     * Sets ids
+     * Sets ip_list
      *
-     * @param string[] $ids ids
+     * @param \Volcengine\Apig\Model\IPListForListGatewayLBsOutput[] $ip_list ip_list
      *
      * @return $this
      */
-    public function setIds($ids)
+    public function setIpList($ip_list)
     {
-        $this->container['ids'] = $ids;
+        $this->container['ip_list'] = $ip_list;
 
         return $this;
     }
 
     /**
-     * Gets name
+     * Gets imported_clb_spec
      *
-     * @return string
+     * @return \Volcengine\Apig\Model\ImportedCLBSpecForListGatewayLBsOutput
      */
-    public function getName()
+    public function getImportedClbSpec()
     {
-        return $this->container['name'];
+        return $this->container['imported_clb_spec'];
     }
 
     /**
-     * Sets name
+     * Sets imported_clb_spec
      *
-     * @param string $name name
+     * @param \Volcengine\Apig\Model\ImportedCLBSpecForListGatewayLBsOutput $imported_clb_spec imported_clb_spec
      *
      * @return $this
      */
-    public function setName($name)
+    public function setImportedClbSpec($imported_clb_spec)
     {
-        $this->container['name'] = $name;
+        $this->container['imported_clb_spec'] = $imported_clb_spec;
+
+        return $this;
+    }
+
+    /**
+     * Gets load_balancer_id
+     *
+     * @return string
+     */
+    public function getLoadBalancerId()
+    {
+        return $this->container['load_balancer_id'];
+    }
+
+    /**
+     * Sets load_balancer_id
+     *
+     * @param string $load_balancer_id load_balancer_id
+     *
+     * @return $this
+     */
+    public function setLoadBalancerId($load_balancer_id)
+    {
+        $this->container['load_balancer_id'] = $load_balancer_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets message
+     *
+     * @return string
+     */
+    public function getMessage()
+    {
+        return $this->container['message'];
+    }
+
+    /**
+     * Sets message
+     *
+     * @param string $message message
+     *
+     * @return $this
+     */
+    public function setMessage($message)
+    {
+        $this->container['message'] = $message;
+
+        return $this;
+    }
+
+    /**
+     * Gets ports
+     *
+     * @return \Volcengine\Apig\Model\PortForListGatewayLBsOutput[]
+     */
+    public function getPorts()
+    {
+        return $this->container['ports'];
+    }
+
+    /**
+     * Sets ports
+     *
+     * @param \Volcengine\Apig\Model\PortForListGatewayLBsOutput[] $ports ports
+     *
+     * @return $this
+     */
+    public function setPorts($ports)
+    {
+        $this->container['ports'] = $ports;
+
+        return $this;
+    }
+
+    /**
+     * Gets source_type
+     *
+     * @return string
+     */
+    public function getSourceType()
+    {
+        return $this->container['source_type'];
+    }
+
+    /**
+     * Sets source_type
+     *
+     * @param string $source_type source_type
+     *
+     * @return $this
+     */
+    public function setSourceType($source_type)
+    {
+        $this->container['source_type'] = $source_type;
 
         return $this;
     }
@@ -291,30 +405,6 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
     public function setType($type)
     {
         $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets vpc_ids
-     *
-     * @return string[]
-     */
-    public function getVpcIds()
-    {
-        return $this->container['vpc_ids'];
-    }
-
-    /**
-     * Sets vpc_ids
-     *
-     * @param string[] $vpc_ids vpc_ids
-     *
-     * @return $this
-     */
-    public function setVpcIds($vpc_ids)
-    {
-        $this->container['vpc_ids'] = $vpc_ids;
 
         return $this;
     }

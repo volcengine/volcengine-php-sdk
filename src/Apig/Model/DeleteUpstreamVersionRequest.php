@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class BackendSpecForGetGatewayOutput implements ModelInterface, ArrayAccess
+class DeleteUpstreamVersionRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class BackendSpecForGetGatewayOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'BackendSpecForGetGatewayOutput';
+    protected static $swaggerModelName = 'DeleteUpstreamVersionRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,8 @@ class BackendSpecForGetGatewayOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'is_vke_with_flannel_cni_supported' => 'bool',
-        'vke_pod_cidr' => 'string'
+        'upstream_id' => 'string',
+        'upstream_version_name' => 'string'
     ];
 
     /**
@@ -38,8 +38,8 @@ class BackendSpecForGetGatewayOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'is_vke_with_flannel_cni_supported' => null,
-        'vke_pod_cidr' => null
+        'upstream_id' => null,
+        'upstream_version_name' => null
     ];
 
     /**
@@ -69,8 +69,8 @@ class BackendSpecForGetGatewayOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'is_vke_with_flannel_cni_supported' => 'IsVkeWithFlannelCNISupported',
-        'vke_pod_cidr' => 'VkePodCidr'
+        'upstream_id' => 'UpstreamId',
+        'upstream_version_name' => 'UpstreamVersionName'
     ];
 
     /**
@@ -79,8 +79,8 @@ class BackendSpecForGetGatewayOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'is_vke_with_flannel_cni_supported' => 'setIsVkeWithFlannelCniSupported',
-        'vke_pod_cidr' => 'setVkePodCidr'
+        'upstream_id' => 'setUpstreamId',
+        'upstream_version_name' => 'setUpstreamVersionName'
     ];
 
     /**
@@ -89,8 +89,8 @@ class BackendSpecForGetGatewayOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'is_vke_with_flannel_cni_supported' => 'getIsVkeWithFlannelCniSupported',
-        'vke_pod_cidr' => 'getVkePodCidr'
+        'upstream_id' => 'getUpstreamId',
+        'upstream_version_name' => 'getUpstreamVersionName'
     ];
 
     /**
@@ -153,8 +153,8 @@ class BackendSpecForGetGatewayOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['is_vke_with_flannel_cni_supported'] = isset($data['is_vke_with_flannel_cni_supported']) ? $data['is_vke_with_flannel_cni_supported'] : null;
-        $this->container['vke_pod_cidr'] = isset($data['vke_pod_cidr']) ? $data['vke_pod_cidr'] : null;
+        $this->container['upstream_id'] = isset($data['upstream_id']) ? $data['upstream_id'] : null;
+        $this->container['upstream_version_name'] = isset($data['upstream_version_name']) ? $data['upstream_version_name'] : null;
     }
 
     /**
@@ -166,6 +166,12 @@ class BackendSpecForGetGatewayOutput implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['upstream_id'] === null) {
+            $invalidProperties[] = "'upstream_id' can't be null";
+        }
+        if ($this->container['upstream_version_name'] === null) {
+            $invalidProperties[] = "'upstream_version_name' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -182,49 +188,49 @@ class BackendSpecForGetGatewayOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets is_vke_with_flannel_cni_supported
+     * Gets upstream_id
      *
-     * @return bool
+     * @return string
      */
-    public function getIsVkeWithFlannelCniSupported()
+    public function getUpstreamId()
     {
-        return $this->container['is_vke_with_flannel_cni_supported'];
+        return $this->container['upstream_id'];
     }
 
     /**
-     * Sets is_vke_with_flannel_cni_supported
+     * Sets upstream_id
      *
-     * @param bool $is_vke_with_flannel_cni_supported is_vke_with_flannel_cni_supported
+     * @param string $upstream_id upstream_id
      *
      * @return $this
      */
-    public function setIsVkeWithFlannelCniSupported($is_vke_with_flannel_cni_supported)
+    public function setUpstreamId($upstream_id)
     {
-        $this->container['is_vke_with_flannel_cni_supported'] = $is_vke_with_flannel_cni_supported;
+        $this->container['upstream_id'] = $upstream_id;
 
         return $this;
     }
 
     /**
-     * Gets vke_pod_cidr
+     * Gets upstream_version_name
      *
      * @return string
      */
-    public function getVkePodCidr()
+    public function getUpstreamVersionName()
     {
-        return $this->container['vke_pod_cidr'];
+        return $this->container['upstream_version_name'];
     }
 
     /**
-     * Sets vke_pod_cidr
+     * Sets upstream_version_name
      *
-     * @param string $vke_pod_cidr vke_pod_cidr
+     * @param string $upstream_version_name upstream_version_name
      *
      * @return $this
      */
-    public function setVkePodCidr($vke_pod_cidr)
+    public function setUpstreamVersionName($upstream_version_name)
     {
-        $this->container['vke_pod_cidr'] = $vke_pod_cidr;
+        $this->container['upstream_version_name'] = $upstream_version_name;
 
         return $this;
     }

@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class BackendSpecForCreateGatewayInput implements ModelInterface, ArrayAccess
+class DeleteCustomDomainRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class BackendSpecForCreateGatewayInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'BackendSpecForCreateGatewayInput';
+    protected static $swaggerModelName = 'DeleteCustomDomainRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,7 @@ class BackendSpecForCreateGatewayInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'is_vke_with_flannel_cni_supported' => 'bool',
-        'vke_pod_cidr' => 'string'
+        'id' => 'string'
     ];
 
     /**
@@ -38,8 +37,7 @@ class BackendSpecForCreateGatewayInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'is_vke_with_flannel_cni_supported' => null,
-        'vke_pod_cidr' => null
+        'id' => null
     ];
 
     /**
@@ -69,8 +67,7 @@ class BackendSpecForCreateGatewayInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'is_vke_with_flannel_cni_supported' => 'IsVkeWithFlannelCNISupported',
-        'vke_pod_cidr' => 'VkePodCidr'
+        'id' => 'Id'
     ];
 
     /**
@@ -79,8 +76,7 @@ class BackendSpecForCreateGatewayInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'is_vke_with_flannel_cni_supported' => 'setIsVkeWithFlannelCniSupported',
-        'vke_pod_cidr' => 'setVkePodCidr'
+        'id' => 'setId'
     ];
 
     /**
@@ -89,8 +85,7 @@ class BackendSpecForCreateGatewayInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'is_vke_with_flannel_cni_supported' => 'getIsVkeWithFlannelCniSupported',
-        'vke_pod_cidr' => 'getVkePodCidr'
+        'id' => 'getId'
     ];
 
     /**
@@ -153,8 +148,7 @@ class BackendSpecForCreateGatewayInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['is_vke_with_flannel_cni_supported'] = isset($data['is_vke_with_flannel_cni_supported']) ? $data['is_vke_with_flannel_cni_supported'] : null;
-        $this->container['vke_pod_cidr'] = isset($data['vke_pod_cidr']) ? $data['vke_pod_cidr'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
     }
 
     /**
@@ -166,6 +160,9 @@ class BackendSpecForCreateGatewayInput implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -182,49 +179,25 @@ class BackendSpecForCreateGatewayInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets is_vke_with_flannel_cni_supported
-     *
-     * @return bool
-     */
-    public function getIsVkeWithFlannelCniSupported()
-    {
-        return $this->container['is_vke_with_flannel_cni_supported'];
-    }
-
-    /**
-     * Sets is_vke_with_flannel_cni_supported
-     *
-     * @param bool $is_vke_with_flannel_cni_supported is_vke_with_flannel_cni_supported
-     *
-     * @return $this
-     */
-    public function setIsVkeWithFlannelCniSupported($is_vke_with_flannel_cni_supported)
-    {
-        $this->container['is_vke_with_flannel_cni_supported'] = $is_vke_with_flannel_cni_supported;
-
-        return $this;
-    }
-
-    /**
-     * Gets vke_pod_cidr
+     * Gets id
      *
      * @return string
      */
-    public function getVkePodCidr()
+    public function getId()
     {
-        return $this->container['vke_pod_cidr'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets vke_pod_cidr
+     * Sets id
      *
-     * @param string $vke_pod_cidr vke_pod_cidr
+     * @param string $id id
      *
      * @return $this
      */
-    public function setVkePodCidr($vke_pod_cidr)
+    public function setId($id)
     {
-        $this->container['vke_pod_cidr'] = $vke_pod_cidr;
+        $this->container['id'] = $id;
 
         return $this;
     }

@@ -32,6 +32,7 @@ class GatewayServiceForGetGatewayServiceOutput implements ModelInterface, ArrayA
         'comments' => 'string',
         'create_time' => 'string',
         'custom_domains' => '\Volcengine\Apig\Model\CustomDomainForGetGatewayServiceOutput[]',
+        'domain_spec' => '\Volcengine\Apig\Model\DomainSpecForGetGatewayServiceOutput',
         'domains' => '\Volcengine\Apig\Model\DomainForGetGatewayServiceOutput[]',
         'gateway_id' => 'string',
         'gateway_name' => 'string',
@@ -39,8 +40,7 @@ class GatewayServiceForGetGatewayServiceOutput implements ModelInterface, ArrayA
         'message' => 'string',
         'name' => 'string',
         'protocol' => 'string[]',
-        'status' => 'string',
-        'tags' => '\Volcengine\Apig\Model\TagForGetGatewayServiceOutput[]'
+        'status' => 'string'
     ];
 
     /**
@@ -53,6 +53,7 @@ class GatewayServiceForGetGatewayServiceOutput implements ModelInterface, ArrayA
         'comments' => null,
         'create_time' => null,
         'custom_domains' => null,
+        'domain_spec' => null,
         'domains' => null,
         'gateway_id' => null,
         'gateway_name' => null,
@@ -60,8 +61,7 @@ class GatewayServiceForGetGatewayServiceOutput implements ModelInterface, ArrayA
         'message' => null,
         'name' => null,
         'protocol' => null,
-        'status' => null,
-        'tags' => null
+        'status' => null
     ];
 
     /**
@@ -95,6 +95,7 @@ class GatewayServiceForGetGatewayServiceOutput implements ModelInterface, ArrayA
         'comments' => 'Comments',
         'create_time' => 'CreateTime',
         'custom_domains' => 'CustomDomains',
+        'domain_spec' => 'DomainSpec',
         'domains' => 'Domains',
         'gateway_id' => 'GatewayId',
         'gateway_name' => 'GatewayName',
@@ -102,8 +103,7 @@ class GatewayServiceForGetGatewayServiceOutput implements ModelInterface, ArrayA
         'message' => 'Message',
         'name' => 'Name',
         'protocol' => 'Protocol',
-        'status' => 'Status',
-        'tags' => 'Tags'
+        'status' => 'Status'
     ];
 
     /**
@@ -116,6 +116,7 @@ class GatewayServiceForGetGatewayServiceOutput implements ModelInterface, ArrayA
         'comments' => 'setComments',
         'create_time' => 'setCreateTime',
         'custom_domains' => 'setCustomDomains',
+        'domain_spec' => 'setDomainSpec',
         'domains' => 'setDomains',
         'gateway_id' => 'setGatewayId',
         'gateway_name' => 'setGatewayName',
@@ -123,8 +124,7 @@ class GatewayServiceForGetGatewayServiceOutput implements ModelInterface, ArrayA
         'message' => 'setMessage',
         'name' => 'setName',
         'protocol' => 'setProtocol',
-        'status' => 'setStatus',
-        'tags' => 'setTags'
+        'status' => 'setStatus'
     ];
 
     /**
@@ -137,6 +137,7 @@ class GatewayServiceForGetGatewayServiceOutput implements ModelInterface, ArrayA
         'comments' => 'getComments',
         'create_time' => 'getCreateTime',
         'custom_domains' => 'getCustomDomains',
+        'domain_spec' => 'getDomainSpec',
         'domains' => 'getDomains',
         'gateway_id' => 'getGatewayId',
         'gateway_name' => 'getGatewayName',
@@ -144,8 +145,7 @@ class GatewayServiceForGetGatewayServiceOutput implements ModelInterface, ArrayA
         'message' => 'getMessage',
         'name' => 'getName',
         'protocol' => 'getProtocol',
-        'status' => 'getStatus',
-        'tags' => 'getTags'
+        'status' => 'getStatus'
     ];
 
     /**
@@ -212,6 +212,7 @@ class GatewayServiceForGetGatewayServiceOutput implements ModelInterface, ArrayA
         $this->container['comments'] = isset($data['comments']) ? $data['comments'] : null;
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
         $this->container['custom_domains'] = isset($data['custom_domains']) ? $data['custom_domains'] : null;
+        $this->container['domain_spec'] = isset($data['domain_spec']) ? $data['domain_spec'] : null;
         $this->container['domains'] = isset($data['domains']) ? $data['domains'] : null;
         $this->container['gateway_id'] = isset($data['gateway_id']) ? $data['gateway_id'] : null;
         $this->container['gateway_name'] = isset($data['gateway_name']) ? $data['gateway_name'] : null;
@@ -220,7 +221,6 @@ class GatewayServiceForGetGatewayServiceOutput implements ModelInterface, ArrayA
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['protocol'] = isset($data['protocol']) ? $data['protocol'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
     }
 
     /**
@@ -339,6 +339,30 @@ class GatewayServiceForGetGatewayServiceOutput implements ModelInterface, ArrayA
     public function setCustomDomains($custom_domains)
     {
         $this->container['custom_domains'] = $custom_domains;
+
+        return $this;
+    }
+
+    /**
+     * Gets domain_spec
+     *
+     * @return \Volcengine\Apig\Model\DomainSpecForGetGatewayServiceOutput
+     */
+    public function getDomainSpec()
+    {
+        return $this->container['domain_spec'];
+    }
+
+    /**
+     * Sets domain_spec
+     *
+     * @param \Volcengine\Apig\Model\DomainSpecForGetGatewayServiceOutput $domain_spec domain_spec
+     *
+     * @return $this
+     */
+    public function setDomainSpec($domain_spec)
+    {
+        $this->container['domain_spec'] = $domain_spec;
 
         return $this;
     }
@@ -531,30 +555,6 @@ class GatewayServiceForGetGatewayServiceOutput implements ModelInterface, ArrayA
     public function setStatus($status)
     {
         $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
-     * Gets tags
-     *
-     * @return \Volcengine\Apig\Model\TagForGetGatewayServiceOutput[]
-     */
-    public function getTags()
-    {
-        return $this->container['tags'];
-    }
-
-    /**
-     * Sets tags
-     *
-     * @param \Volcengine\Apig\Model\TagForGetGatewayServiceOutput[] $tags tags
-     *
-     * @return $this
-     */
-    public function setTags($tags)
-    {
-        $this->container['tags'] = $tags;
 
         return $this;
     }
