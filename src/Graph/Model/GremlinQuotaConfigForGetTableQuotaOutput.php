@@ -29,6 +29,7 @@ class GremlinQuotaConfigForGetTableQuotaOutput implements ModelInterface, ArrayA
       */
     protected static $swaggerTypes = [
         'caller_psm' => 'string',
+        'fetch_size' => 'int',
         'quota_size' => 'int',
         'template' => 'string'
     ];
@@ -40,6 +41,7 @@ class GremlinQuotaConfigForGetTableQuotaOutput implements ModelInterface, ArrayA
       */
     protected static $swaggerFormats = [
         'caller_psm' => null,
+        'fetch_size' => 'int64',
         'quota_size' => 'int64',
         'template' => null
     ];
@@ -72,6 +74,7 @@ class GremlinQuotaConfigForGetTableQuotaOutput implements ModelInterface, ArrayA
      */
     protected static $attributeMap = [
         'caller_psm' => 'caller_psm',
+        'fetch_size' => 'fetch_size',
         'quota_size' => 'quota_size',
         'template' => 'template'
     ];
@@ -83,6 +86,7 @@ class GremlinQuotaConfigForGetTableQuotaOutput implements ModelInterface, ArrayA
      */
     protected static $setters = [
         'caller_psm' => 'setCallerPsm',
+        'fetch_size' => 'setFetchSize',
         'quota_size' => 'setQuotaSize',
         'template' => 'setTemplate'
     ];
@@ -94,6 +98,7 @@ class GremlinQuotaConfigForGetTableQuotaOutput implements ModelInterface, ArrayA
      */
     protected static $getters = [
         'caller_psm' => 'getCallerPsm',
+        'fetch_size' => 'getFetchSize',
         'quota_size' => 'getQuotaSize',
         'template' => 'getTemplate'
     ];
@@ -159,6 +164,7 @@ class GremlinQuotaConfigForGetTableQuotaOutput implements ModelInterface, ArrayA
     public function __construct(array $data = null)
     {
         $this->container['caller_psm'] = isset($data['caller_psm']) ? $data['caller_psm'] : null;
+        $this->container['fetch_size'] = isset($data['fetch_size']) ? $data['fetch_size'] : null;
         $this->container['quota_size'] = isset($data['quota_size']) ? $data['quota_size'] : null;
         $this->container['template'] = isset($data['template']) ? $data['template'] : null;
     }
@@ -207,6 +213,30 @@ class GremlinQuotaConfigForGetTableQuotaOutput implements ModelInterface, ArrayA
     public function setCallerPsm($caller_psm)
     {
         $this->container['caller_psm'] = $caller_psm;
+
+        return $this;
+    }
+
+    /**
+     * Gets fetch_size
+     *
+     * @return int
+     */
+    public function getFetchSize()
+    {
+        return $this->container['fetch_size'];
+    }
+
+    /**
+     * Sets fetch_size
+     *
+     * @param int $fetch_size fetch_size
+     *
+     * @return $this
+     */
+    public function setFetchSize($fetch_size)
+    {
+        $this->container['fetch_size'] = $fetch_size;
 
         return $this;
     }

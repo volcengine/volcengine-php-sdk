@@ -29,10 +29,18 @@ class GetTableResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'enable_read' => 'bool',
+        'enable_rw_seperate_schedule' => 'bool',
         'enable_write' => 'bool',
+        'idc_replica_nums' => '\Volcengine\Graph\Model\IdcReplicaNumForGetTableOutput[]',
+        'idc_ro_nums' => '\Volcengine\Graph\Model\IdcRoNumForGetTableOutput[]',
+        'io_qos_options' => '\Volcengine\Graph\Model\IoQosOptionsForGetTableOutput',
+        'partition_num' => 'int',
+        'rw_schedulable_idcs' => 'string[]',
         'state' => 'string',
         'table_id' => 'int',
-        'table_name' => 'string'
+        'table_name' => 'string',
+        'table_quota' => '\Volcengine\Graph\Model\TableQuotaForGetTableOutput',
+        'tablet_num' => 'int'
     ];
 
     /**
@@ -42,10 +50,18 @@ class GetTableResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'enable_read' => null,
+        'enable_rw_seperate_schedule' => null,
         'enable_write' => null,
+        'idc_replica_nums' => null,
+        'idc_ro_nums' => null,
+        'io_qos_options' => null,
+        'partition_num' => 'int64',
+        'rw_schedulable_idcs' => null,
         'state' => null,
         'table_id' => 'int64',
-        'table_name' => null
+        'table_name' => null,
+        'table_quota' => null,
+        'tablet_num' => 'int64'
     ];
 
     /**
@@ -76,10 +92,18 @@ class GetTableResponse implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'enable_read' => 'EnableRead',
+        'enable_rw_seperate_schedule' => 'EnableRwSeperateSchedule',
         'enable_write' => 'EnableWrite',
+        'idc_replica_nums' => 'IdcReplicaNums',
+        'idc_ro_nums' => 'IdcRoNums',
+        'io_qos_options' => 'IoQosOptions',
+        'partition_num' => 'PartitionNum',
+        'rw_schedulable_idcs' => 'RwSchedulableIdcs',
         'state' => 'State',
         'table_id' => 'TableId',
-        'table_name' => 'TableName'
+        'table_name' => 'TableName',
+        'table_quota' => 'TableQuota',
+        'tablet_num' => 'TabletNum'
     ];
 
     /**
@@ -89,10 +113,18 @@ class GetTableResponse implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'enable_read' => 'setEnableRead',
+        'enable_rw_seperate_schedule' => 'setEnableRwSeperateSchedule',
         'enable_write' => 'setEnableWrite',
+        'idc_replica_nums' => 'setIdcReplicaNums',
+        'idc_ro_nums' => 'setIdcRoNums',
+        'io_qos_options' => 'setIoQosOptions',
+        'partition_num' => 'setPartitionNum',
+        'rw_schedulable_idcs' => 'setRwSchedulableIdcs',
         'state' => 'setState',
         'table_id' => 'setTableId',
-        'table_name' => 'setTableName'
+        'table_name' => 'setTableName',
+        'table_quota' => 'setTableQuota',
+        'tablet_num' => 'setTabletNum'
     ];
 
     /**
@@ -102,10 +134,18 @@ class GetTableResponse implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'enable_read' => 'getEnableRead',
+        'enable_rw_seperate_schedule' => 'getEnableRwSeperateSchedule',
         'enable_write' => 'getEnableWrite',
+        'idc_replica_nums' => 'getIdcReplicaNums',
+        'idc_ro_nums' => 'getIdcRoNums',
+        'io_qos_options' => 'getIoQosOptions',
+        'partition_num' => 'getPartitionNum',
+        'rw_schedulable_idcs' => 'getRwSchedulableIdcs',
         'state' => 'getState',
         'table_id' => 'getTableId',
-        'table_name' => 'getTableName'
+        'table_name' => 'getTableName',
+        'table_quota' => 'getTableQuota',
+        'tablet_num' => 'getTabletNum'
     ];
 
     /**
@@ -169,10 +209,18 @@ class GetTableResponse implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['enable_read'] = isset($data['enable_read']) ? $data['enable_read'] : null;
+        $this->container['enable_rw_seperate_schedule'] = isset($data['enable_rw_seperate_schedule']) ? $data['enable_rw_seperate_schedule'] : null;
         $this->container['enable_write'] = isset($data['enable_write']) ? $data['enable_write'] : null;
+        $this->container['idc_replica_nums'] = isset($data['idc_replica_nums']) ? $data['idc_replica_nums'] : null;
+        $this->container['idc_ro_nums'] = isset($data['idc_ro_nums']) ? $data['idc_ro_nums'] : null;
+        $this->container['io_qos_options'] = isset($data['io_qos_options']) ? $data['io_qos_options'] : null;
+        $this->container['partition_num'] = isset($data['partition_num']) ? $data['partition_num'] : null;
+        $this->container['rw_schedulable_idcs'] = isset($data['rw_schedulable_idcs']) ? $data['rw_schedulable_idcs'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
         $this->container['table_id'] = isset($data['table_id']) ? $data['table_id'] : null;
         $this->container['table_name'] = isset($data['table_name']) ? $data['table_name'] : null;
+        $this->container['table_quota'] = isset($data['table_quota']) ? $data['table_quota'] : null;
+        $this->container['tablet_num'] = isset($data['tablet_num']) ? $data['tablet_num'] : null;
     }
 
     /**
@@ -224,6 +272,30 @@ class GetTableResponse implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets enable_rw_seperate_schedule
+     *
+     * @return bool
+     */
+    public function getEnableRwSeperateSchedule()
+    {
+        return $this->container['enable_rw_seperate_schedule'];
+    }
+
+    /**
+     * Sets enable_rw_seperate_schedule
+     *
+     * @param bool $enable_rw_seperate_schedule enable_rw_seperate_schedule
+     *
+     * @return $this
+     */
+    public function setEnableRwSeperateSchedule($enable_rw_seperate_schedule)
+    {
+        $this->container['enable_rw_seperate_schedule'] = $enable_rw_seperate_schedule;
+
+        return $this;
+    }
+
+    /**
      * Gets enable_write
      *
      * @return bool
@@ -243,6 +315,126 @@ class GetTableResponse implements ModelInterface, ArrayAccess
     public function setEnableWrite($enable_write)
     {
         $this->container['enable_write'] = $enable_write;
+
+        return $this;
+    }
+
+    /**
+     * Gets idc_replica_nums
+     *
+     * @return \Volcengine\Graph\Model\IdcReplicaNumForGetTableOutput[]
+     */
+    public function getIdcReplicaNums()
+    {
+        return $this->container['idc_replica_nums'];
+    }
+
+    /**
+     * Sets idc_replica_nums
+     *
+     * @param \Volcengine\Graph\Model\IdcReplicaNumForGetTableOutput[] $idc_replica_nums idc_replica_nums
+     *
+     * @return $this
+     */
+    public function setIdcReplicaNums($idc_replica_nums)
+    {
+        $this->container['idc_replica_nums'] = $idc_replica_nums;
+
+        return $this;
+    }
+
+    /**
+     * Gets idc_ro_nums
+     *
+     * @return \Volcengine\Graph\Model\IdcRoNumForGetTableOutput[]
+     */
+    public function getIdcRoNums()
+    {
+        return $this->container['idc_ro_nums'];
+    }
+
+    /**
+     * Sets idc_ro_nums
+     *
+     * @param \Volcengine\Graph\Model\IdcRoNumForGetTableOutput[] $idc_ro_nums idc_ro_nums
+     *
+     * @return $this
+     */
+    public function setIdcRoNums($idc_ro_nums)
+    {
+        $this->container['idc_ro_nums'] = $idc_ro_nums;
+
+        return $this;
+    }
+
+    /**
+     * Gets io_qos_options
+     *
+     * @return \Volcengine\Graph\Model\IoQosOptionsForGetTableOutput
+     */
+    public function getIoQosOptions()
+    {
+        return $this->container['io_qos_options'];
+    }
+
+    /**
+     * Sets io_qos_options
+     *
+     * @param \Volcengine\Graph\Model\IoQosOptionsForGetTableOutput $io_qos_options io_qos_options
+     *
+     * @return $this
+     */
+    public function setIoQosOptions($io_qos_options)
+    {
+        $this->container['io_qos_options'] = $io_qos_options;
+
+        return $this;
+    }
+
+    /**
+     * Gets partition_num
+     *
+     * @return int
+     */
+    public function getPartitionNum()
+    {
+        return $this->container['partition_num'];
+    }
+
+    /**
+     * Sets partition_num
+     *
+     * @param int $partition_num partition_num
+     *
+     * @return $this
+     */
+    public function setPartitionNum($partition_num)
+    {
+        $this->container['partition_num'] = $partition_num;
+
+        return $this;
+    }
+
+    /**
+     * Gets rw_schedulable_idcs
+     *
+     * @return string[]
+     */
+    public function getRwSchedulableIdcs()
+    {
+        return $this->container['rw_schedulable_idcs'];
+    }
+
+    /**
+     * Sets rw_schedulable_idcs
+     *
+     * @param string[] $rw_schedulable_idcs rw_schedulable_idcs
+     *
+     * @return $this
+     */
+    public function setRwSchedulableIdcs($rw_schedulable_idcs)
+    {
+        $this->container['rw_schedulable_idcs'] = $rw_schedulable_idcs;
 
         return $this;
     }
@@ -315,6 +507,54 @@ class GetTableResponse implements ModelInterface, ArrayAccess
     public function setTableName($table_name)
     {
         $this->container['table_name'] = $table_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets table_quota
+     *
+     * @return \Volcengine\Graph\Model\TableQuotaForGetTableOutput
+     */
+    public function getTableQuota()
+    {
+        return $this->container['table_quota'];
+    }
+
+    /**
+     * Sets table_quota
+     *
+     * @param \Volcengine\Graph\Model\TableQuotaForGetTableOutput $table_quota table_quota
+     *
+     * @return $this
+     */
+    public function setTableQuota($table_quota)
+    {
+        $this->container['table_quota'] = $table_quota;
+
+        return $this;
+    }
+
+    /**
+     * Gets tablet_num
+     *
+     * @return int
+     */
+    public function getTabletNum()
+    {
+        return $this->container['tablet_num'];
+    }
+
+    /**
+     * Sets tablet_num
+     *
+     * @param int $tablet_num tablet_num
+     *
+     * @return $this
+     */
+    public function setTabletNum($tablet_num)
+    {
+        $this->container['tablet_num'] = $tablet_num;
 
         return $this;
     }
