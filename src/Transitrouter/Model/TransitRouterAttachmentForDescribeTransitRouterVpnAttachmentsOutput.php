@@ -31,6 +31,7 @@ class TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput implem
         'auto_publish_route_enabled' => 'bool',
         'creation_time' => 'string',
         'description' => 'string',
+        'ipv6_enabled' => 'string',
         'status' => 'string',
         'tags' => '\Volcengine\Transitrouter\Model\TagForDescribeTransitRouterVpnAttachmentsOutput[]',
         'transit_router_attachment_id' => 'string',
@@ -50,6 +51,7 @@ class TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput implem
         'auto_publish_route_enabled' => null,
         'creation_time' => null,
         'description' => null,
+        'ipv6_enabled' => null,
         'status' => null,
         'tags' => null,
         'transit_router_attachment_id' => null,
@@ -90,6 +92,7 @@ class TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput implem
         'auto_publish_route_enabled' => 'AutoPublishRouteEnabled',
         'creation_time' => 'CreationTime',
         'description' => 'Description',
+        'ipv6_enabled' => 'Ipv6Enabled',
         'status' => 'Status',
         'tags' => 'Tags',
         'transit_router_attachment_id' => 'TransitRouterAttachmentId',
@@ -109,6 +112,7 @@ class TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput implem
         'auto_publish_route_enabled' => 'setAutoPublishRouteEnabled',
         'creation_time' => 'setCreationTime',
         'description' => 'setDescription',
+        'ipv6_enabled' => 'setIpv6Enabled',
         'status' => 'setStatus',
         'tags' => 'setTags',
         'transit_router_attachment_id' => 'setTransitRouterAttachmentId',
@@ -128,6 +132,7 @@ class TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput implem
         'auto_publish_route_enabled' => 'getAutoPublishRouteEnabled',
         'creation_time' => 'getCreationTime',
         'description' => 'getDescription',
+        'ipv6_enabled' => 'getIpv6Enabled',
         'status' => 'getStatus',
         'tags' => 'getTags',
         'transit_router_attachment_id' => 'getTransitRouterAttachmentId',
@@ -201,6 +206,7 @@ class TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput implem
         $this->container['auto_publish_route_enabled'] = isset($data['auto_publish_route_enabled']) ? $data['auto_publish_route_enabled'] : null;
         $this->container['creation_time'] = isset($data['creation_time']) ? $data['creation_time'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['ipv6_enabled'] = isset($data['ipv6_enabled']) ? $data['ipv6_enabled'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['transit_router_attachment_id'] = isset($data['transit_router_attachment_id']) ? $data['transit_router_attachment_id'] : null;
@@ -303,6 +309,30 @@ class TransitRouterAttachmentForDescribeTransitRouterVpnAttachmentsOutput implem
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets ipv6_enabled
+     *
+     * @return string
+     */
+    public function getIpv6Enabled()
+    {
+        return $this->container['ipv6_enabled'];
+    }
+
+    /**
+     * Sets ipv6_enabled
+     *
+     * @param string $ipv6_enabled ipv6_enabled
+     *
+     * @return $this
+     */
+    public function setIpv6Enabled($ipv6_enabled)
+    {
+        $this->container['ipv6_enabled'] = $ipv6_enabled;
 
         return $this;
     }

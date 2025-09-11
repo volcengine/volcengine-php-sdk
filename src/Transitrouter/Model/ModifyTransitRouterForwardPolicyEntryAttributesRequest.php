@@ -29,6 +29,7 @@ class ModifyTransitRouterForwardPolicyEntryAttributesRequest implements ModelInt
       */
     protected static $swaggerTypes = [
         'description' => 'string',
+        'destination_cidr_block' => 'string',
         'priority' => 'int',
         'source_cidr_block' => 'string',
         'transit_router_forward_policy_entry_id' => 'string',
@@ -42,6 +43,7 @@ class ModifyTransitRouterForwardPolicyEntryAttributesRequest implements ModelInt
       */
     protected static $swaggerFormats = [
         'description' => null,
+        'destination_cidr_block' => null,
         'priority' => 'int32',
         'source_cidr_block' => null,
         'transit_router_forward_policy_entry_id' => null,
@@ -76,6 +78,7 @@ class ModifyTransitRouterForwardPolicyEntryAttributesRequest implements ModelInt
      */
     protected static $attributeMap = [
         'description' => 'Description',
+        'destination_cidr_block' => 'DestinationCidrBlock',
         'priority' => 'Priority',
         'source_cidr_block' => 'SourceCidrBlock',
         'transit_router_forward_policy_entry_id' => 'TransitRouterForwardPolicyEntryId',
@@ -89,6 +92,7 @@ class ModifyTransitRouterForwardPolicyEntryAttributesRequest implements ModelInt
      */
     protected static $setters = [
         'description' => 'setDescription',
+        'destination_cidr_block' => 'setDestinationCidrBlock',
         'priority' => 'setPriority',
         'source_cidr_block' => 'setSourceCidrBlock',
         'transit_router_forward_policy_entry_id' => 'setTransitRouterForwardPolicyEntryId',
@@ -102,6 +106,7 @@ class ModifyTransitRouterForwardPolicyEntryAttributesRequest implements ModelInt
      */
     protected static $getters = [
         'description' => 'getDescription',
+        'destination_cidr_block' => 'getDestinationCidrBlock',
         'priority' => 'getPriority',
         'source_cidr_block' => 'getSourceCidrBlock',
         'transit_router_forward_policy_entry_id' => 'getTransitRouterForwardPolicyEntryId',
@@ -169,6 +174,7 @@ class ModifyTransitRouterForwardPolicyEntryAttributesRequest implements ModelInt
     public function __construct(array $data = null)
     {
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['destination_cidr_block'] = isset($data['destination_cidr_block']) ? $data['destination_cidr_block'] : null;
         $this->container['priority'] = isset($data['priority']) ? $data['priority'] : null;
         $this->container['source_cidr_block'] = isset($data['source_cidr_block']) ? $data['source_cidr_block'] : null;
         $this->container['transit_router_forward_policy_entry_id'] = isset($data['transit_router_forward_policy_entry_id']) ? $data['transit_router_forward_policy_entry_id'] : null;
@@ -222,6 +228,30 @@ class ModifyTransitRouterForwardPolicyEntryAttributesRequest implements ModelInt
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets destination_cidr_block
+     *
+     * @return string
+     */
+    public function getDestinationCidrBlock()
+    {
+        return $this->container['destination_cidr_block'];
+    }
+
+    /**
+     * Sets destination_cidr_block
+     *
+     * @param string $destination_cidr_block destination_cidr_block
+     *
+     * @return $this
+     */
+    public function setDestinationCidrBlock($destination_cidr_block)
+    {
+        $this->container['destination_cidr_block'] = $destination_cidr_block;
 
         return $this;
     }

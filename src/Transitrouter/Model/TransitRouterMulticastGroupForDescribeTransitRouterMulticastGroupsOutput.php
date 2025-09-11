@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class TransitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachmentsOutput implements ModelInterface, ArrayAccess
+class TransitRouterMulticastGroupForDescribeTransitRouterMulticastGroupsOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class TransitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachm
       *
       * @var string
       */
-    protected static $swaggerModelName = 'TransitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachmentsOutput';
+    protected static $swaggerModelName = 'TransitRouterMulticastGroupForDescribeTransitRouterMulticastGroupsOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,17 +28,20 @@ class TransitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachm
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'account_id' => 'string',
-        'auto_publish_route_enabled' => 'bool',
         'creation_time' => 'string',
-        'description' => 'string',
-        'direct_connect_gateway_id' => 'string',
-        'ipv6_enabled' => 'string',
+        'group_ip_address' => 'string',
+        'group_member' => 'string',
+        'group_source' => 'string',
+        'member_type' => 'string',
+        'network_interface_id' => 'string',
+        'resource_id' => 'string',
+        'resource_type' => 'string',
+        'source_type' => 'string',
         'status' => 'string',
-        'tags' => '\Volcengine\Transitrouter\Model\TagForDescribeTransitRouterDirectConnectGatewayAttachmentsOutput[]',
+        'subnet_id' => 'string',
         'transit_router_attachment_id' => 'string',
-        'transit_router_attachment_name' => 'string',
         'transit_router_id' => 'string',
+        'transit_router_multicast_domain_id' => 'string',
         'update_time' => 'string'
     ];
 
@@ -48,17 +51,20 @@ class TransitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachm
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'account_id' => null,
-        'auto_publish_route_enabled' => null,
         'creation_time' => null,
-        'description' => null,
-        'direct_connect_gateway_id' => null,
-        'ipv6_enabled' => null,
+        'group_ip_address' => null,
+        'group_member' => null,
+        'group_source' => null,
+        'member_type' => null,
+        'network_interface_id' => null,
+        'resource_id' => null,
+        'resource_type' => null,
+        'source_type' => null,
         'status' => null,
-        'tags' => null,
+        'subnet_id' => null,
         'transit_router_attachment_id' => null,
-        'transit_router_attachment_name' => null,
         'transit_router_id' => null,
+        'transit_router_multicast_domain_id' => null,
         'update_time' => null
     ];
 
@@ -89,17 +95,20 @@ class TransitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachm
      * @var string[]
      */
     protected static $attributeMap = [
-        'account_id' => 'AccountId',
-        'auto_publish_route_enabled' => 'AutoPublishRouteEnabled',
         'creation_time' => 'CreationTime',
-        'description' => 'Description',
-        'direct_connect_gateway_id' => 'DirectConnectGatewayId',
-        'ipv6_enabled' => 'Ipv6Enabled',
+        'group_ip_address' => 'GroupIpAddress',
+        'group_member' => 'GroupMember',
+        'group_source' => 'GroupSource',
+        'member_type' => 'MemberType',
+        'network_interface_id' => 'NetworkInterfaceId',
+        'resource_id' => 'ResourceId',
+        'resource_type' => 'ResourceType',
+        'source_type' => 'SourceType',
         'status' => 'Status',
-        'tags' => 'Tags',
+        'subnet_id' => 'SubnetId',
         'transit_router_attachment_id' => 'TransitRouterAttachmentId',
-        'transit_router_attachment_name' => 'TransitRouterAttachmentName',
         'transit_router_id' => 'TransitRouterId',
+        'transit_router_multicast_domain_id' => 'TransitRouterMulticastDomainId',
         'update_time' => 'UpdateTime'
     ];
 
@@ -109,17 +118,20 @@ class TransitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachm
      * @var string[]
      */
     protected static $setters = [
-        'account_id' => 'setAccountId',
-        'auto_publish_route_enabled' => 'setAutoPublishRouteEnabled',
         'creation_time' => 'setCreationTime',
-        'description' => 'setDescription',
-        'direct_connect_gateway_id' => 'setDirectConnectGatewayId',
-        'ipv6_enabled' => 'setIpv6Enabled',
+        'group_ip_address' => 'setGroupIpAddress',
+        'group_member' => 'setGroupMember',
+        'group_source' => 'setGroupSource',
+        'member_type' => 'setMemberType',
+        'network_interface_id' => 'setNetworkInterfaceId',
+        'resource_id' => 'setResourceId',
+        'resource_type' => 'setResourceType',
+        'source_type' => 'setSourceType',
         'status' => 'setStatus',
-        'tags' => 'setTags',
+        'subnet_id' => 'setSubnetId',
         'transit_router_attachment_id' => 'setTransitRouterAttachmentId',
-        'transit_router_attachment_name' => 'setTransitRouterAttachmentName',
         'transit_router_id' => 'setTransitRouterId',
+        'transit_router_multicast_domain_id' => 'setTransitRouterMulticastDomainId',
         'update_time' => 'setUpdateTime'
     ];
 
@@ -129,17 +141,20 @@ class TransitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachm
      * @var string[]
      */
     protected static $getters = [
-        'account_id' => 'getAccountId',
-        'auto_publish_route_enabled' => 'getAutoPublishRouteEnabled',
         'creation_time' => 'getCreationTime',
-        'description' => 'getDescription',
-        'direct_connect_gateway_id' => 'getDirectConnectGatewayId',
-        'ipv6_enabled' => 'getIpv6Enabled',
+        'group_ip_address' => 'getGroupIpAddress',
+        'group_member' => 'getGroupMember',
+        'group_source' => 'getGroupSource',
+        'member_type' => 'getMemberType',
+        'network_interface_id' => 'getNetworkInterfaceId',
+        'resource_id' => 'getResourceId',
+        'resource_type' => 'getResourceType',
+        'source_type' => 'getSourceType',
         'status' => 'getStatus',
-        'tags' => 'getTags',
+        'subnet_id' => 'getSubnetId',
         'transit_router_attachment_id' => 'getTransitRouterAttachmentId',
-        'transit_router_attachment_name' => 'getTransitRouterAttachmentName',
         'transit_router_id' => 'getTransitRouterId',
+        'transit_router_multicast_domain_id' => 'getTransitRouterMulticastDomainId',
         'update_time' => 'getUpdateTime'
     ];
 
@@ -203,17 +218,20 @@ class TransitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachm
      */
     public function __construct(array $data = null)
     {
-        $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
-        $this->container['auto_publish_route_enabled'] = isset($data['auto_publish_route_enabled']) ? $data['auto_publish_route_enabled'] : null;
         $this->container['creation_time'] = isset($data['creation_time']) ? $data['creation_time'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['direct_connect_gateway_id'] = isset($data['direct_connect_gateway_id']) ? $data['direct_connect_gateway_id'] : null;
-        $this->container['ipv6_enabled'] = isset($data['ipv6_enabled']) ? $data['ipv6_enabled'] : null;
+        $this->container['group_ip_address'] = isset($data['group_ip_address']) ? $data['group_ip_address'] : null;
+        $this->container['group_member'] = isset($data['group_member']) ? $data['group_member'] : null;
+        $this->container['group_source'] = isset($data['group_source']) ? $data['group_source'] : null;
+        $this->container['member_type'] = isset($data['member_type']) ? $data['member_type'] : null;
+        $this->container['network_interface_id'] = isset($data['network_interface_id']) ? $data['network_interface_id'] : null;
+        $this->container['resource_id'] = isset($data['resource_id']) ? $data['resource_id'] : null;
+        $this->container['resource_type'] = isset($data['resource_type']) ? $data['resource_type'] : null;
+        $this->container['source_type'] = isset($data['source_type']) ? $data['source_type'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
+        $this->container['subnet_id'] = isset($data['subnet_id']) ? $data['subnet_id'] : null;
         $this->container['transit_router_attachment_id'] = isset($data['transit_router_attachment_id']) ? $data['transit_router_attachment_id'] : null;
-        $this->container['transit_router_attachment_name'] = isset($data['transit_router_attachment_name']) ? $data['transit_router_attachment_name'] : null;
         $this->container['transit_router_id'] = isset($data['transit_router_id']) ? $data['transit_router_id'] : null;
+        $this->container['transit_router_multicast_domain_id'] = isset($data['transit_router_multicast_domain_id']) ? $data['transit_router_multicast_domain_id'] : null;
         $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
     }
 
@@ -242,54 +260,6 @@ class TransitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachm
 
 
     /**
-     * Gets account_id
-     *
-     * @return string
-     */
-    public function getAccountId()
-    {
-        return $this->container['account_id'];
-    }
-
-    /**
-     * Sets account_id
-     *
-     * @param string $account_id account_id
-     *
-     * @return $this
-     */
-    public function setAccountId($account_id)
-    {
-        $this->container['account_id'] = $account_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets auto_publish_route_enabled
-     *
-     * @return bool
-     */
-    public function getAutoPublishRouteEnabled()
-    {
-        return $this->container['auto_publish_route_enabled'];
-    }
-
-    /**
-     * Sets auto_publish_route_enabled
-     *
-     * @param bool $auto_publish_route_enabled auto_publish_route_enabled
-     *
-     * @return $this
-     */
-    public function setAutoPublishRouteEnabled($auto_publish_route_enabled)
-    {
-        $this->container['auto_publish_route_enabled'] = $auto_publish_route_enabled;
-
-        return $this;
-    }
-
-    /**
      * Gets creation_time
      *
      * @return string
@@ -314,73 +284,193 @@ class TransitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachm
     }
 
     /**
-     * Gets description
+     * Gets group_ip_address
      *
      * @return string
      */
-    public function getDescription()
+    public function getGroupIpAddress()
     {
-        return $this->container['description'];
+        return $this->container['group_ip_address'];
     }
 
     /**
-     * Sets description
+     * Sets group_ip_address
      *
-     * @param string $description description
+     * @param string $group_ip_address group_ip_address
      *
      * @return $this
      */
-    public function setDescription($description)
+    public function setGroupIpAddress($group_ip_address)
     {
-        $this->container['description'] = $description;
+        $this->container['group_ip_address'] = $group_ip_address;
 
         return $this;
     }
 
     /**
-     * Gets direct_connect_gateway_id
+     * Gets group_member
      *
      * @return string
      */
-    public function getDirectConnectGatewayId()
+    public function getGroupMember()
     {
-        return $this->container['direct_connect_gateway_id'];
+        return $this->container['group_member'];
     }
 
     /**
-     * Sets direct_connect_gateway_id
+     * Sets group_member
      *
-     * @param string $direct_connect_gateway_id direct_connect_gateway_id
+     * @param string $group_member group_member
      *
      * @return $this
      */
-    public function setDirectConnectGatewayId($direct_connect_gateway_id)
+    public function setGroupMember($group_member)
     {
-        $this->container['direct_connect_gateway_id'] = $direct_connect_gateway_id;
+        $this->container['group_member'] = $group_member;
 
         return $this;
     }
 
     /**
-     * Gets ipv6_enabled
+     * Gets group_source
      *
      * @return string
      */
-    public function getIpv6Enabled()
+    public function getGroupSource()
     {
-        return $this->container['ipv6_enabled'];
+        return $this->container['group_source'];
     }
 
     /**
-     * Sets ipv6_enabled
+     * Sets group_source
      *
-     * @param string $ipv6_enabled ipv6_enabled
+     * @param string $group_source group_source
      *
      * @return $this
      */
-    public function setIpv6Enabled($ipv6_enabled)
+    public function setGroupSource($group_source)
     {
-        $this->container['ipv6_enabled'] = $ipv6_enabled;
+        $this->container['group_source'] = $group_source;
+
+        return $this;
+    }
+
+    /**
+     * Gets member_type
+     *
+     * @return string
+     */
+    public function getMemberType()
+    {
+        return $this->container['member_type'];
+    }
+
+    /**
+     * Sets member_type
+     *
+     * @param string $member_type member_type
+     *
+     * @return $this
+     */
+    public function setMemberType($member_type)
+    {
+        $this->container['member_type'] = $member_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets network_interface_id
+     *
+     * @return string
+     */
+    public function getNetworkInterfaceId()
+    {
+        return $this->container['network_interface_id'];
+    }
+
+    /**
+     * Sets network_interface_id
+     *
+     * @param string $network_interface_id network_interface_id
+     *
+     * @return $this
+     */
+    public function setNetworkInterfaceId($network_interface_id)
+    {
+        $this->container['network_interface_id'] = $network_interface_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets resource_id
+     *
+     * @return string
+     */
+    public function getResourceId()
+    {
+        return $this->container['resource_id'];
+    }
+
+    /**
+     * Sets resource_id
+     *
+     * @param string $resource_id resource_id
+     *
+     * @return $this
+     */
+    public function setResourceId($resource_id)
+    {
+        $this->container['resource_id'] = $resource_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets resource_type
+     *
+     * @return string
+     */
+    public function getResourceType()
+    {
+        return $this->container['resource_type'];
+    }
+
+    /**
+     * Sets resource_type
+     *
+     * @param string $resource_type resource_type
+     *
+     * @return $this
+     */
+    public function setResourceType($resource_type)
+    {
+        $this->container['resource_type'] = $resource_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets source_type
+     *
+     * @return string
+     */
+    public function getSourceType()
+    {
+        return $this->container['source_type'];
+    }
+
+    /**
+     * Sets source_type
+     *
+     * @param string $source_type source_type
+     *
+     * @return $this
+     */
+    public function setSourceType($source_type)
+    {
+        $this->container['source_type'] = $source_type;
 
         return $this;
     }
@@ -410,25 +500,25 @@ class TransitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachm
     }
 
     /**
-     * Gets tags
+     * Gets subnet_id
      *
-     * @return \Volcengine\Transitrouter\Model\TagForDescribeTransitRouterDirectConnectGatewayAttachmentsOutput[]
+     * @return string
      */
-    public function getTags()
+    public function getSubnetId()
     {
-        return $this->container['tags'];
+        return $this->container['subnet_id'];
     }
 
     /**
-     * Sets tags
+     * Sets subnet_id
      *
-     * @param \Volcengine\Transitrouter\Model\TagForDescribeTransitRouterDirectConnectGatewayAttachmentsOutput[] $tags tags
+     * @param string $subnet_id subnet_id
      *
      * @return $this
      */
-    public function setTags($tags)
+    public function setSubnetId($subnet_id)
     {
-        $this->container['tags'] = $tags;
+        $this->container['subnet_id'] = $subnet_id;
 
         return $this;
     }
@@ -458,30 +548,6 @@ class TransitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachm
     }
 
     /**
-     * Gets transit_router_attachment_name
-     *
-     * @return string
-     */
-    public function getTransitRouterAttachmentName()
-    {
-        return $this->container['transit_router_attachment_name'];
-    }
-
-    /**
-     * Sets transit_router_attachment_name
-     *
-     * @param string $transit_router_attachment_name transit_router_attachment_name
-     *
-     * @return $this
-     */
-    public function setTransitRouterAttachmentName($transit_router_attachment_name)
-    {
-        $this->container['transit_router_attachment_name'] = $transit_router_attachment_name;
-
-        return $this;
-    }
-
-    /**
      * Gets transit_router_id
      *
      * @return string
@@ -501,6 +567,30 @@ class TransitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachm
     public function setTransitRouterId($transit_router_id)
     {
         $this->container['transit_router_id'] = $transit_router_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets transit_router_multicast_domain_id
+     *
+     * @return string
+     */
+    public function getTransitRouterMulticastDomainId()
+    {
+        return $this->container['transit_router_multicast_domain_id'];
+    }
+
+    /**
+     * Sets transit_router_multicast_domain_id
+     *
+     * @param string $transit_router_multicast_domain_id transit_router_multicast_domain_id
+     *
+     * @return $this
+     */
+    public function setTransitRouterMulticastDomainId($transit_router_multicast_domain_id)
+    {
+        $this->container['transit_router_multicast_domain_id'] = $transit_router_multicast_domain_id;
 
         return $this;
     }
