@@ -29,6 +29,7 @@ class InputVideoForListAITranslationProjectOutput implements ModelInterface, Arr
       */
     protected static $swaggerTypes = [
         'duration_second' => 'double',
+        'file_name' => 'string',
         'is_audio' => 'bool',
         'uri' => 'string',
         'url' => 'string',
@@ -42,6 +43,7 @@ class InputVideoForListAITranslationProjectOutput implements ModelInterface, Arr
       */
     protected static $swaggerFormats = [
         'duration_second' => 'double',
+        'file_name' => null,
         'is_audio' => null,
         'uri' => null,
         'url' => null,
@@ -76,6 +78,7 @@ class InputVideoForListAITranslationProjectOutput implements ModelInterface, Arr
      */
     protected static $attributeMap = [
         'duration_second' => 'DurationSecond',
+        'file_name' => 'FileName',
         'is_audio' => 'IsAudio',
         'uri' => 'Uri',
         'url' => 'Url',
@@ -89,6 +92,7 @@ class InputVideoForListAITranslationProjectOutput implements ModelInterface, Arr
      */
     protected static $setters = [
         'duration_second' => 'setDurationSecond',
+        'file_name' => 'setFileName',
         'is_audio' => 'setIsAudio',
         'uri' => 'setUri',
         'url' => 'setUrl',
@@ -102,6 +106,7 @@ class InputVideoForListAITranslationProjectOutput implements ModelInterface, Arr
      */
     protected static $getters = [
         'duration_second' => 'getDurationSecond',
+        'file_name' => 'getFileName',
         'is_audio' => 'getIsAudio',
         'uri' => 'getUri',
         'url' => 'getUrl',
@@ -169,6 +174,7 @@ class InputVideoForListAITranslationProjectOutput implements ModelInterface, Arr
     public function __construct(array $data = null)
     {
         $this->container['duration_second'] = isset($data['duration_second']) ? $data['duration_second'] : null;
+        $this->container['file_name'] = isset($data['file_name']) ? $data['file_name'] : null;
         $this->container['is_audio'] = isset($data['is_audio']) ? $data['is_audio'] : null;
         $this->container['uri'] = isset($data['uri']) ? $data['uri'] : null;
         $this->container['url'] = isset($data['url']) ? $data['url'] : null;
@@ -219,6 +225,30 @@ class InputVideoForListAITranslationProjectOutput implements ModelInterface, Arr
     public function setDurationSecond($duration_second)
     {
         $this->container['duration_second'] = $duration_second;
+
+        return $this;
+    }
+
+    /**
+     * Gets file_name
+     *
+     * @return string
+     */
+    public function getFileName()
+    {
+        return $this->container['file_name'];
+    }
+
+    /**
+     * Sets file_name
+     *
+     * @param string $file_name file_name
+     *
+     * @return $this
+     */
+    public function setFileName($file_name)
+    {
+        $this->container['file_name'] = $file_name;
 
         return $this;
     }

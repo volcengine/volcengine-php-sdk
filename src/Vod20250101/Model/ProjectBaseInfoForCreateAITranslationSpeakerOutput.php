@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class OutputVideoForListAITranslationProjectOutput implements ModelInterface, ArrayAccess
+class ProjectBaseInfoForCreateAITranslationSpeakerOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class OutputVideoForListAITranslationProjectOutput implements ModelInterface, Ar
       *
       * @var string
       */
-    protected static $swaggerModelName = 'OutputVideoForListAITranslationProjectOutput';
+    protected static $swaggerModelName = 'ProjectBaseInfoForCreateAITranslationSpeakerOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,8 @@ class OutputVideoForListAITranslationProjectOutput implements ModelInterface, Ar
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'duration_second' => 'double',
-        'file_name' => 'string',
-        'is_audio' => 'bool',
-        'uri' => 'string',
-        'url' => 'string',
-        'vid' => 'string'
+        'project_id' => 'string',
+        'project_version' => 'string'
     ];
 
     /**
@@ -42,12 +38,8 @@ class OutputVideoForListAITranslationProjectOutput implements ModelInterface, Ar
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'duration_second' => 'double',
-        'file_name' => null,
-        'is_audio' => null,
-        'uri' => null,
-        'url' => null,
-        'vid' => null
+        'project_id' => null,
+        'project_version' => null
     ];
 
     /**
@@ -77,12 +69,8 @@ class OutputVideoForListAITranslationProjectOutput implements ModelInterface, Ar
      * @var string[]
      */
     protected static $attributeMap = [
-        'duration_second' => 'DurationSecond',
-        'file_name' => 'FileName',
-        'is_audio' => 'IsAudio',
-        'uri' => 'Uri',
-        'url' => 'Url',
-        'vid' => 'Vid'
+        'project_id' => 'ProjectId',
+        'project_version' => 'ProjectVersion'
     ];
 
     /**
@@ -91,12 +79,8 @@ class OutputVideoForListAITranslationProjectOutput implements ModelInterface, Ar
      * @var string[]
      */
     protected static $setters = [
-        'duration_second' => 'setDurationSecond',
-        'file_name' => 'setFileName',
-        'is_audio' => 'setIsAudio',
-        'uri' => 'setUri',
-        'url' => 'setUrl',
-        'vid' => 'setVid'
+        'project_id' => 'setProjectId',
+        'project_version' => 'setProjectVersion'
     ];
 
     /**
@@ -105,12 +89,8 @@ class OutputVideoForListAITranslationProjectOutput implements ModelInterface, Ar
      * @var string[]
      */
     protected static $getters = [
-        'duration_second' => 'getDurationSecond',
-        'file_name' => 'getFileName',
-        'is_audio' => 'getIsAudio',
-        'uri' => 'getUri',
-        'url' => 'getUrl',
-        'vid' => 'getVid'
+        'project_id' => 'getProjectId',
+        'project_version' => 'getProjectVersion'
     ];
 
     /**
@@ -173,12 +153,8 @@ class OutputVideoForListAITranslationProjectOutput implements ModelInterface, Ar
      */
     public function __construct(array $data = null)
     {
-        $this->container['duration_second'] = isset($data['duration_second']) ? $data['duration_second'] : null;
-        $this->container['file_name'] = isset($data['file_name']) ? $data['file_name'] : null;
-        $this->container['is_audio'] = isset($data['is_audio']) ? $data['is_audio'] : null;
-        $this->container['uri'] = isset($data['uri']) ? $data['uri'] : null;
-        $this->container['url'] = isset($data['url']) ? $data['url'] : null;
-        $this->container['vid'] = isset($data['vid']) ? $data['vid'] : null;
+        $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
+        $this->container['project_version'] = isset($data['project_version']) ? $data['project_version'] : null;
     }
 
     /**
@@ -206,145 +182,49 @@ class OutputVideoForListAITranslationProjectOutput implements ModelInterface, Ar
 
 
     /**
-     * Gets duration_second
-     *
-     * @return double
-     */
-    public function getDurationSecond()
-    {
-        return $this->container['duration_second'];
-    }
-
-    /**
-     * Sets duration_second
-     *
-     * @param double $duration_second duration_second
-     *
-     * @return $this
-     */
-    public function setDurationSecond($duration_second)
-    {
-        $this->container['duration_second'] = $duration_second;
-
-        return $this;
-    }
-
-    /**
-     * Gets file_name
+     * Gets project_id
      *
      * @return string
      */
-    public function getFileName()
+    public function getProjectId()
     {
-        return $this->container['file_name'];
+        return $this->container['project_id'];
     }
 
     /**
-     * Sets file_name
+     * Sets project_id
      *
-     * @param string $file_name file_name
+     * @param string $project_id project_id
      *
      * @return $this
      */
-    public function setFileName($file_name)
+    public function setProjectId($project_id)
     {
-        $this->container['file_name'] = $file_name;
+        $this->container['project_id'] = $project_id;
 
         return $this;
     }
 
     /**
-     * Gets is_audio
-     *
-     * @return bool
-     */
-    public function getIsAudio()
-    {
-        return $this->container['is_audio'];
-    }
-
-    /**
-     * Sets is_audio
-     *
-     * @param bool $is_audio is_audio
-     *
-     * @return $this
-     */
-    public function setIsAudio($is_audio)
-    {
-        $this->container['is_audio'] = $is_audio;
-
-        return $this;
-    }
-
-    /**
-     * Gets uri
+     * Gets project_version
      *
      * @return string
      */
-    public function getUri()
+    public function getProjectVersion()
     {
-        return $this->container['uri'];
+        return $this->container['project_version'];
     }
 
     /**
-     * Sets uri
+     * Sets project_version
      *
-     * @param string $uri uri
+     * @param string $project_version project_version
      *
      * @return $this
      */
-    public function setUri($uri)
+    public function setProjectVersion($project_version)
     {
-        $this->container['uri'] = $uri;
-
-        return $this;
-    }
-
-    /**
-     * Gets url
-     *
-     * @return string
-     */
-    public function getUrl()
-    {
-        return $this->container['url'];
-    }
-
-    /**
-     * Sets url
-     *
-     * @param string $url url
-     *
-     * @return $this
-     */
-    public function setUrl($url)
-    {
-        $this->container['url'] = $url;
-
-        return $this;
-    }
-
-    /**
-     * Gets vid
-     *
-     * @return string
-     */
-    public function getVid()
-    {
-        return $this->container['vid'];
-    }
-
-    /**
-     * Sets vid
-     *
-     * @param string $vid vid
-     *
-     * @return $this
-     */
-    public function setVid($vid)
-    {
-        $this->container['vid'] = $vid;
+        $this->container['project_version'] = $project_version;
 
         return $this;
     }

@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class OutputVideoForListAITranslationProjectOutput implements ModelInterface, ArrayAccess
+class SpeakerForCreateAITranslationSpeakerOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class OutputVideoForListAITranslationProjectOutput implements ModelInterface, Ar
       *
       * @var string
       */
-    protected static $swaggerModelName = 'OutputVideoForListAITranslationProjectOutput';
+    protected static $swaggerModelName = 'SpeakerForCreateAITranslationSpeakerOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,11 @@ class OutputVideoForListAITranslationProjectOutput implements ModelInterface, Ar
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'duration_second' => 'double',
-        'file_name' => 'string',
-        'is_audio' => 'bool',
-        'uri' => 'string',
-        'url' => 'string',
-        'vid' => 'string'
+        'current_voice' => 'string',
+        'id' => 'string',
+        'name' => 'string',
+        'project_id' => 'string',
+        'voice' => 'string'
     ];
 
     /**
@@ -42,12 +41,11 @@ class OutputVideoForListAITranslationProjectOutput implements ModelInterface, Ar
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'duration_second' => 'double',
-        'file_name' => null,
-        'is_audio' => null,
-        'uri' => null,
-        'url' => null,
-        'vid' => null
+        'current_voice' => null,
+        'id' => null,
+        'name' => null,
+        'project_id' => null,
+        'voice' => null
     ];
 
     /**
@@ -77,12 +75,11 @@ class OutputVideoForListAITranslationProjectOutput implements ModelInterface, Ar
      * @var string[]
      */
     protected static $attributeMap = [
-        'duration_second' => 'DurationSecond',
-        'file_name' => 'FileName',
-        'is_audio' => 'IsAudio',
-        'uri' => 'Uri',
-        'url' => 'Url',
-        'vid' => 'Vid'
+        'current_voice' => 'CurrentVoice',
+        'id' => 'Id',
+        'name' => 'Name',
+        'project_id' => 'ProjectId',
+        'voice' => 'Voice'
     ];
 
     /**
@@ -91,12 +88,11 @@ class OutputVideoForListAITranslationProjectOutput implements ModelInterface, Ar
      * @var string[]
      */
     protected static $setters = [
-        'duration_second' => 'setDurationSecond',
-        'file_name' => 'setFileName',
-        'is_audio' => 'setIsAudio',
-        'uri' => 'setUri',
-        'url' => 'setUrl',
-        'vid' => 'setVid'
+        'current_voice' => 'setCurrentVoice',
+        'id' => 'setId',
+        'name' => 'setName',
+        'project_id' => 'setProjectId',
+        'voice' => 'setVoice'
     ];
 
     /**
@@ -105,12 +101,11 @@ class OutputVideoForListAITranslationProjectOutput implements ModelInterface, Ar
      * @var string[]
      */
     protected static $getters = [
-        'duration_second' => 'getDurationSecond',
-        'file_name' => 'getFileName',
-        'is_audio' => 'getIsAudio',
-        'uri' => 'getUri',
-        'url' => 'getUrl',
-        'vid' => 'getVid'
+        'current_voice' => 'getCurrentVoice',
+        'id' => 'getId',
+        'name' => 'getName',
+        'project_id' => 'getProjectId',
+        'voice' => 'getVoice'
     ];
 
     /**
@@ -173,12 +168,11 @@ class OutputVideoForListAITranslationProjectOutput implements ModelInterface, Ar
      */
     public function __construct(array $data = null)
     {
-        $this->container['duration_second'] = isset($data['duration_second']) ? $data['duration_second'] : null;
-        $this->container['file_name'] = isset($data['file_name']) ? $data['file_name'] : null;
-        $this->container['is_audio'] = isset($data['is_audio']) ? $data['is_audio'] : null;
-        $this->container['uri'] = isset($data['uri']) ? $data['uri'] : null;
-        $this->container['url'] = isset($data['url']) ? $data['url'] : null;
-        $this->container['vid'] = isset($data['vid']) ? $data['vid'] : null;
+        $this->container['current_voice'] = isset($data['current_voice']) ? $data['current_voice'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
+        $this->container['voice'] = isset($data['voice']) ? $data['voice'] : null;
     }
 
     /**
@@ -206,145 +200,121 @@ class OutputVideoForListAITranslationProjectOutput implements ModelInterface, Ar
 
 
     /**
-     * Gets duration_second
-     *
-     * @return double
-     */
-    public function getDurationSecond()
-    {
-        return $this->container['duration_second'];
-    }
-
-    /**
-     * Sets duration_second
-     *
-     * @param double $duration_second duration_second
-     *
-     * @return $this
-     */
-    public function setDurationSecond($duration_second)
-    {
-        $this->container['duration_second'] = $duration_second;
-
-        return $this;
-    }
-
-    /**
-     * Gets file_name
+     * Gets current_voice
      *
      * @return string
      */
-    public function getFileName()
+    public function getCurrentVoice()
     {
-        return $this->container['file_name'];
+        return $this->container['current_voice'];
     }
 
     /**
-     * Sets file_name
+     * Sets current_voice
      *
-     * @param string $file_name file_name
+     * @param string $current_voice current_voice
      *
      * @return $this
      */
-    public function setFileName($file_name)
+    public function setCurrentVoice($current_voice)
     {
-        $this->container['file_name'] = $file_name;
+        $this->container['current_voice'] = $current_voice;
 
         return $this;
     }
 
     /**
-     * Gets is_audio
-     *
-     * @return bool
-     */
-    public function getIsAudio()
-    {
-        return $this->container['is_audio'];
-    }
-
-    /**
-     * Sets is_audio
-     *
-     * @param bool $is_audio is_audio
-     *
-     * @return $this
-     */
-    public function setIsAudio($is_audio)
-    {
-        $this->container['is_audio'] = $is_audio;
-
-        return $this;
-    }
-
-    /**
-     * Gets uri
+     * Gets id
      *
      * @return string
      */
-    public function getUri()
+    public function getId()
     {
-        return $this->container['uri'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets uri
+     * Sets id
      *
-     * @param string $uri uri
+     * @param string $id id
      *
      * @return $this
      */
-    public function setUri($uri)
+    public function setId($id)
     {
-        $this->container['uri'] = $uri;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets url
+     * Gets name
      *
      * @return string
      */
-    public function getUrl()
+    public function getName()
     {
-        return $this->container['url'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets url
+     * Sets name
      *
-     * @param string $url url
+     * @param string $name name
      *
      * @return $this
      */
-    public function setUrl($url)
+    public function setName($name)
     {
-        $this->container['url'] = $url;
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets vid
+     * Gets project_id
      *
      * @return string
      */
-    public function getVid()
+    public function getProjectId()
     {
-        return $this->container['vid'];
+        return $this->container['project_id'];
     }
 
     /**
-     * Sets vid
+     * Sets project_id
      *
-     * @param string $vid vid
+     * @param string $project_id project_id
      *
      * @return $this
      */
-    public function setVid($vid)
+    public function setProjectId($project_id)
     {
-        $this->container['vid'] = $vid;
+        $this->container['project_id'] = $project_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets voice
+     *
+     * @return string
+     */
+    public function getVoice()
+    {
+        return $this->container['voice'];
+    }
+
+    /**
+     * Sets voice
+     *
+     * @param string $voice voice
+     *
+     * @return $this
+     */
+    public function setVoice($voice)
+    {
+        $this->container['voice'] = $voice;
 
         return $this;
     }
