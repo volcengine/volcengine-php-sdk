@@ -37,8 +37,10 @@ class CreateResourceGroupRequest implements ModelInterface, ArrayAccess
         'name' => 'string',
         'period' => 'int',
         'period_unit' => 'string',
+        'project_name' => 'string',
         'resource_config' => '\Volcengine\Mlplatform20240701\Model\ResourceConfigForCreateResourceGroupInput',
         'storage_config' => '\Volcengine\Mlplatform20240701\Model\StorageConfigForCreateResourceGroupInput',
+        'v_rdma_enabled' => 'bool',
         'workload_network_config' => '\Volcengine\Mlplatform20240701\Model\WorkloadNetworkConfigForCreateResourceGroupInput',
         'workload_network_mode' => 'string'
     ];
@@ -58,8 +60,10 @@ class CreateResourceGroupRequest implements ModelInterface, ArrayAccess
         'name' => null,
         'period' => 'int32',
         'period_unit' => null,
+        'project_name' => null,
         'resource_config' => null,
         'storage_config' => null,
+        'v_rdma_enabled' => null,
         'workload_network_config' => null,
         'workload_network_mode' => null
     ];
@@ -100,8 +104,10 @@ class CreateResourceGroupRequest implements ModelInterface, ArrayAccess
         'name' => 'Name',
         'period' => 'Period',
         'period_unit' => 'PeriodUnit',
+        'project_name' => 'ProjectName',
         'resource_config' => 'ResourceConfig',
         'storage_config' => 'StorageConfig',
+        'v_rdma_enabled' => 'VRdmaEnabled',
         'workload_network_config' => 'WorkloadNetworkConfig',
         'workload_network_mode' => 'WorkloadNetworkMode'
     ];
@@ -121,8 +127,10 @@ class CreateResourceGroupRequest implements ModelInterface, ArrayAccess
         'name' => 'setName',
         'period' => 'setPeriod',
         'period_unit' => 'setPeriodUnit',
+        'project_name' => 'setProjectName',
         'resource_config' => 'setResourceConfig',
         'storage_config' => 'setStorageConfig',
+        'v_rdma_enabled' => 'setVRdmaEnabled',
         'workload_network_config' => 'setWorkloadNetworkConfig',
         'workload_network_mode' => 'setWorkloadNetworkMode'
     ];
@@ -142,8 +150,10 @@ class CreateResourceGroupRequest implements ModelInterface, ArrayAccess
         'name' => 'getName',
         'period' => 'getPeriod',
         'period_unit' => 'getPeriodUnit',
+        'project_name' => 'getProjectName',
         'resource_config' => 'getResourceConfig',
         'storage_config' => 'getStorageConfig',
+        'v_rdma_enabled' => 'getVRdmaEnabled',
         'workload_network_config' => 'getWorkloadNetworkConfig',
         'workload_network_mode' => 'getWorkloadNetworkMode'
     ];
@@ -249,8 +259,10 @@ class CreateResourceGroupRequest implements ModelInterface, ArrayAccess
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['period'] = isset($data['period']) ? $data['period'] : null;
         $this->container['period_unit'] = isset($data['period_unit']) ? $data['period_unit'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['resource_config'] = isset($data['resource_config']) ? $data['resource_config'] : null;
         $this->container['storage_config'] = isset($data['storage_config']) ? $data['storage_config'] : null;
+        $this->container['v_rdma_enabled'] = isset($data['v_rdma_enabled']) ? $data['v_rdma_enabled'] : null;
         $this->container['workload_network_config'] = isset($data['workload_network_config']) ? $data['workload_network_config'] : null;
         $this->container['workload_network_mode'] = isset($data['workload_network_mode']) ? $data['workload_network_mode'] : null;
     }
@@ -536,6 +548,30 @@ class CreateResourceGroupRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
+
+    /**
      * Gets resource_config
      *
      * @return \Volcengine\Mlplatform20240701\Model\ResourceConfigForCreateResourceGroupInput
@@ -579,6 +615,30 @@ class CreateResourceGroupRequest implements ModelInterface, ArrayAccess
     public function setStorageConfig($storage_config)
     {
         $this->container['storage_config'] = $storage_config;
+
+        return $this;
+    }
+
+    /**
+     * Gets v_rdma_enabled
+     *
+     * @return bool
+     */
+    public function getVRdmaEnabled()
+    {
+        return $this->container['v_rdma_enabled'];
+    }
+
+    /**
+     * Sets v_rdma_enabled
+     *
+     * @param bool $v_rdma_enabled v_rdma_enabled
+     *
+     * @return $this
+     */
+    public function setVRdmaEnabled($v_rdma_enabled)
+    {
+        $this->container['v_rdma_enabled'] = $v_rdma_enabled;
 
         return $this;
     }

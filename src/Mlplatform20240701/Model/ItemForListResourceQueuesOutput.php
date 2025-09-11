@@ -33,6 +33,7 @@ class ItemForListResourceQueuesOutput implements ModelInterface, ArrayAccess
         'description' => 'string',
         'id' => 'string',
         'name' => 'string',
+        'project_name' => 'string',
         'quota_allocated' => '\Volcengine\Mlplatform20240701\Model\QuotaAllocatedForListResourceQueuesOutput',
         'quota_capability' => '\Volcengine\Mlplatform20240701\Model\QuotaCapabilityForListResourceQueuesOutput',
         'resource_group_id' => 'string',
@@ -57,6 +58,7 @@ class ItemForListResourceQueuesOutput implements ModelInterface, ArrayAccess
         'description' => null,
         'id' => null,
         'name' => null,
+        'project_name' => null,
         'quota_allocated' => null,
         'quota_capability' => null,
         'resource_group_id' => null,
@@ -102,6 +104,7 @@ class ItemForListResourceQueuesOutput implements ModelInterface, ArrayAccess
         'description' => 'Description',
         'id' => 'Id',
         'name' => 'Name',
+        'project_name' => 'ProjectName',
         'quota_allocated' => 'QuotaAllocated',
         'quota_capability' => 'QuotaCapability',
         'resource_group_id' => 'ResourceGroupId',
@@ -126,6 +129,7 @@ class ItemForListResourceQueuesOutput implements ModelInterface, ArrayAccess
         'description' => 'setDescription',
         'id' => 'setId',
         'name' => 'setName',
+        'project_name' => 'setProjectName',
         'quota_allocated' => 'setQuotaAllocated',
         'quota_capability' => 'setQuotaCapability',
         'resource_group_id' => 'setResourceGroupId',
@@ -150,6 +154,7 @@ class ItemForListResourceQueuesOutput implements ModelInterface, ArrayAccess
         'description' => 'getDescription',
         'id' => 'getId',
         'name' => 'getName',
+        'project_name' => 'getProjectName',
         'quota_allocated' => 'getQuotaAllocated',
         'quota_capability' => 'getQuotaCapability',
         'resource_group_id' => 'getResourceGroupId',
@@ -243,6 +248,7 @@ class ItemForListResourceQueuesOutput implements ModelInterface, ArrayAccess
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['quota_allocated'] = isset($data['quota_allocated']) ? $data['quota_allocated'] : null;
         $this->container['quota_capability'] = isset($data['quota_capability']) ? $data['quota_capability'] : null;
         $this->container['resource_group_id'] = isset($data['resource_group_id']) ? $data['resource_group_id'] : null;
@@ -413,6 +419,30 @@ class ItemForListResourceQueuesOutput implements ModelInterface, ArrayAccess
     public function setName($name)
     {
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }

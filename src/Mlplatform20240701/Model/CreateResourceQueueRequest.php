@@ -32,6 +32,7 @@ class CreateResourceQueueRequest implements ModelInterface, ArrayAccess
         'description' => 'string',
         'dry_run' => 'bool',
         'name' => 'string',
+        'project_name' => 'string',
         'quota' => '\Volcengine\Mlplatform20240701\Model\QuotaForCreateResourceQueueInput',
         'resource_group_id' => 'string',
         'rules' => '\Volcengine\Mlplatform20240701\Model\RulesForCreateResourceQueueInput',
@@ -50,6 +51,7 @@ class CreateResourceQueueRequest implements ModelInterface, ArrayAccess
         'description' => null,
         'dry_run' => null,
         'name' => null,
+        'project_name' => null,
         'quota' => null,
         'resource_group_id' => null,
         'rules' => null,
@@ -89,6 +91,7 @@ class CreateResourceQueueRequest implements ModelInterface, ArrayAccess
         'description' => 'Description',
         'dry_run' => 'DryRun',
         'name' => 'Name',
+        'project_name' => 'ProjectName',
         'quota' => 'Quota',
         'resource_group_id' => 'ResourceGroupId',
         'rules' => 'Rules',
@@ -107,6 +110,7 @@ class CreateResourceQueueRequest implements ModelInterface, ArrayAccess
         'description' => 'setDescription',
         'dry_run' => 'setDryRun',
         'name' => 'setName',
+        'project_name' => 'setProjectName',
         'quota' => 'setQuota',
         'resource_group_id' => 'setResourceGroupId',
         'rules' => 'setRules',
@@ -125,6 +129,7 @@ class CreateResourceQueueRequest implements ModelInterface, ArrayAccess
         'description' => 'getDescription',
         'dry_run' => 'getDryRun',
         'name' => 'getName',
+        'project_name' => 'getProjectName',
         'quota' => 'getQuota',
         'resource_group_id' => 'getResourceGroupId',
         'rules' => 'getRules',
@@ -197,6 +202,7 @@ class CreateResourceQueueRequest implements ModelInterface, ArrayAccess
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['dry_run'] = isset($data['dry_run']) ? $data['dry_run'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['quota'] = isset($data['quota']) ? $data['quota'] : null;
         $this->container['resource_group_id'] = isset($data['resource_group_id']) ? $data['resource_group_id'] : null;
         $this->container['rules'] = isset($data['rules']) ? $data['rules'] : null;
@@ -327,6 +333,30 @@ class CreateResourceQueueRequest implements ModelInterface, ArrayAccess
     public function setName($name)
     {
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }

@@ -29,14 +29,17 @@ class CreateDevInstanceRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'credential' => '\Volcengine\Mlplatform20240701\Model\CredentialForCreateDevInstanceInput',
+        'default_folder' => 'string',
         'description' => 'string',
         'image' => '\Volcengine\Mlplatform20240701\Model\ImageForCreateDevInstanceInput',
         'name' => 'string',
         'node_affinity_spec' => '\Volcengine\Mlplatform20240701\Model\NodeAffinitySpecForCreateDevInstanceInput',
         'numa_affinity' => 'string',
         'ports' => '\Volcengine\Mlplatform20240701\Model\PortForCreateDevInstanceInput[]',
+        'project_name' => 'string',
         'resource_claim' => '\Volcengine\Mlplatform20240701\Model\ResourceClaimForCreateDevInstanceInput',
         'resource_queue_id' => 'string',
+        'resource_reservation_plan_id' => 'string',
         'ssh_public_key' => 'string',
         'storages' => '\Volcengine\Mlplatform20240701\Model\StorageForCreateDevInstanceInput[]',
         'volume' => '\Volcengine\Mlplatform20240701\Model\VolumeForCreateDevInstanceInput'
@@ -49,14 +52,17 @@ class CreateDevInstanceRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'credential' => null,
+        'default_folder' => null,
         'description' => null,
         'image' => null,
         'name' => null,
         'node_affinity_spec' => null,
         'numa_affinity' => null,
         'ports' => null,
+        'project_name' => null,
         'resource_claim' => null,
         'resource_queue_id' => null,
+        'resource_reservation_plan_id' => null,
         'ssh_public_key' => null,
         'storages' => null,
         'volume' => null
@@ -90,14 +96,17 @@ class CreateDevInstanceRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'credential' => 'Credential',
+        'default_folder' => 'DefaultFolder',
         'description' => 'Description',
         'image' => 'Image',
         'name' => 'Name',
         'node_affinity_spec' => 'NodeAffinitySpec',
         'numa_affinity' => 'NumaAffinity',
         'ports' => 'Ports',
+        'project_name' => 'ProjectName',
         'resource_claim' => 'ResourceClaim',
         'resource_queue_id' => 'ResourceQueueId',
+        'resource_reservation_plan_id' => 'ResourceReservationPlanId',
         'ssh_public_key' => 'SshPublicKey',
         'storages' => 'Storages',
         'volume' => 'Volume'
@@ -110,14 +119,17 @@ class CreateDevInstanceRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'credential' => 'setCredential',
+        'default_folder' => 'setDefaultFolder',
         'description' => 'setDescription',
         'image' => 'setImage',
         'name' => 'setName',
         'node_affinity_spec' => 'setNodeAffinitySpec',
         'numa_affinity' => 'setNumaAffinity',
         'ports' => 'setPorts',
+        'project_name' => 'setProjectName',
         'resource_claim' => 'setResourceClaim',
         'resource_queue_id' => 'setResourceQueueId',
+        'resource_reservation_plan_id' => 'setResourceReservationPlanId',
         'ssh_public_key' => 'setSshPublicKey',
         'storages' => 'setStorages',
         'volume' => 'setVolume'
@@ -130,14 +142,17 @@ class CreateDevInstanceRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'credential' => 'getCredential',
+        'default_folder' => 'getDefaultFolder',
         'description' => 'getDescription',
         'image' => 'getImage',
         'name' => 'getName',
         'node_affinity_spec' => 'getNodeAffinitySpec',
         'numa_affinity' => 'getNumaAffinity',
         'ports' => 'getPorts',
+        'project_name' => 'getProjectName',
         'resource_claim' => 'getResourceClaim',
         'resource_queue_id' => 'getResourceQueueId',
+        'resource_reservation_plan_id' => 'getResourceReservationPlanId',
         'ssh_public_key' => 'getSshPublicKey',
         'storages' => 'getStorages',
         'volume' => 'getVolume'
@@ -204,14 +219,17 @@ class CreateDevInstanceRequest implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['credential'] = isset($data['credential']) ? $data['credential'] : null;
+        $this->container['default_folder'] = isset($data['default_folder']) ? $data['default_folder'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['image'] = isset($data['image']) ? $data['image'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['node_affinity_spec'] = isset($data['node_affinity_spec']) ? $data['node_affinity_spec'] : null;
         $this->container['numa_affinity'] = isset($data['numa_affinity']) ? $data['numa_affinity'] : null;
         $this->container['ports'] = isset($data['ports']) ? $data['ports'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['resource_claim'] = isset($data['resource_claim']) ? $data['resource_claim'] : null;
         $this->container['resource_queue_id'] = isset($data['resource_queue_id']) ? $data['resource_queue_id'] : null;
+        $this->container['resource_reservation_plan_id'] = isset($data['resource_reservation_plan_id']) ? $data['resource_reservation_plan_id'] : null;
         $this->container['ssh_public_key'] = isset($data['ssh_public_key']) ? $data['ssh_public_key'] : null;
         $this->container['storages'] = isset($data['storages']) ? $data['storages'] : null;
         $this->container['volume'] = isset($data['volume']) ? $data['volume'] : null;
@@ -228,9 +246,6 @@ class CreateDevInstanceRequest implements ModelInterface, ArrayAccess
 
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
-        }
-        if ($this->container['resource_queue_id'] === null) {
-            $invalidProperties[] = "'resource_queue_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -267,6 +282,30 @@ class CreateDevInstanceRequest implements ModelInterface, ArrayAccess
     public function setCredential($credential)
     {
         $this->container['credential'] = $credential;
+
+        return $this;
+    }
+
+    /**
+     * Gets default_folder
+     *
+     * @return string
+     */
+    public function getDefaultFolder()
+    {
+        return $this->container['default_folder'];
+    }
+
+    /**
+     * Sets default_folder
+     *
+     * @param string $default_folder default_folder
+     *
+     * @return $this
+     */
+    public function setDefaultFolder($default_folder)
+    {
+        $this->container['default_folder'] = $default_folder;
 
         return $this;
     }
@@ -416,6 +455,30 @@ class CreateDevInstanceRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
+
+    /**
      * Gets resource_claim
      *
      * @return \Volcengine\Mlplatform20240701\Model\ResourceClaimForCreateDevInstanceInput
@@ -459,6 +522,30 @@ class CreateDevInstanceRequest implements ModelInterface, ArrayAccess
     public function setResourceQueueId($resource_queue_id)
     {
         $this->container['resource_queue_id'] = $resource_queue_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets resource_reservation_plan_id
+     *
+     * @return string
+     */
+    public function getResourceReservationPlanId()
+    {
+        return $this->container['resource_reservation_plan_id'];
+    }
+
+    /**
+     * Sets resource_reservation_plan_id
+     *
+     * @param string $resource_reservation_plan_id resource_reservation_plan_id
+     *
+     * @return $this
+     */
+    public function setResourceReservationPlanId($resource_reservation_plan_id)
+    {
+        $this->container['resource_reservation_plan_id'] = $resource_reservation_plan_id;
 
         return $this;
     }

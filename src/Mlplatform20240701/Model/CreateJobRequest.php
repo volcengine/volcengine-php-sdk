@@ -33,6 +33,7 @@ class CreateJobRequest implements ModelInterface, ArrayAccess
         'dry_run' => 'bool',
         'name' => 'string',
         'observable_config' => '\Volcengine\Mlplatform20240701\Model\ObservableConfigForCreateJobInput',
+        'project_name' => 'string',
         'resource_config' => '\Volcengine\Mlplatform20240701\Model\ResourceConfigForCreateJobInput',
         'retry_config' => '\Volcengine\Mlplatform20240701\Model\RetryConfigForCreateJobInput',
         'runtime_config' => '\Volcengine\Mlplatform20240701\Model\RuntimeConfigForCreateJobInput',
@@ -50,6 +51,7 @@ class CreateJobRequest implements ModelInterface, ArrayAccess
         'dry_run' => null,
         'name' => null,
         'observable_config' => null,
+        'project_name' => null,
         'resource_config' => null,
         'retry_config' => null,
         'runtime_config' => null,
@@ -88,6 +90,7 @@ class CreateJobRequest implements ModelInterface, ArrayAccess
         'dry_run' => 'DryRun',
         'name' => 'Name',
         'observable_config' => 'ObservableConfig',
+        'project_name' => 'ProjectName',
         'resource_config' => 'ResourceConfig',
         'retry_config' => 'RetryConfig',
         'runtime_config' => 'RuntimeConfig',
@@ -105,6 +108,7 @@ class CreateJobRequest implements ModelInterface, ArrayAccess
         'dry_run' => 'setDryRun',
         'name' => 'setName',
         'observable_config' => 'setObservableConfig',
+        'project_name' => 'setProjectName',
         'resource_config' => 'setResourceConfig',
         'retry_config' => 'setRetryConfig',
         'runtime_config' => 'setRuntimeConfig',
@@ -122,6 +126,7 @@ class CreateJobRequest implements ModelInterface, ArrayAccess
         'dry_run' => 'getDryRun',
         'name' => 'getName',
         'observable_config' => 'getObservableConfig',
+        'project_name' => 'getProjectName',
         'resource_config' => 'getResourceConfig',
         'retry_config' => 'getRetryConfig',
         'runtime_config' => 'getRuntimeConfig',
@@ -193,6 +198,7 @@ class CreateJobRequest implements ModelInterface, ArrayAccess
         $this->container['dry_run'] = isset($data['dry_run']) ? $data['dry_run'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['observable_config'] = isset($data['observable_config']) ? $data['observable_config'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['resource_config'] = isset($data['resource_config']) ? $data['resource_config'] : null;
         $this->container['retry_config'] = isset($data['retry_config']) ? $data['retry_config'] : null;
         $this->container['runtime_config'] = isset($data['runtime_config']) ? $data['runtime_config'] : null;
@@ -339,6 +345,30 @@ class CreateJobRequest implements ModelInterface, ArrayAccess
     public function setObservableConfig($observable_config)
     {
         $this->container['observable_config'] = $observable_config;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }

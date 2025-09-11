@@ -31,6 +31,7 @@ class ListForListDevInstancesOutput implements ModelInterface, ArrayAccess
         'allow_image_build' => 'bool',
         'create_time' => 'string',
         'creator_trn' => 'string',
+        'default_folder' => 'string',
         'description' => 'string',
         'expected_stop_time' => 'string',
         'id' => 'string',
@@ -42,8 +43,10 @@ class ListForListDevInstancesOutput implements ModelInterface, ArrayAccess
         'numa_affinity' => 'string',
         'numa_status' => 'string',
         'ports' => '\Volcengine\Mlplatform20240701\Model\PortForListDevInstancesOutput[]',
+        'project_name' => 'string',
         'resource_claim' => '\Volcengine\Mlplatform20240701\Model\ResourceClaimForListDevInstancesOutput',
         'resource_queue_id' => 'string',
+        'resource_reservation_plan_id' => 'string',
         'ssh_public_key' => 'string',
         'status' => '\Volcengine\Mlplatform20240701\Model\StatusForListDevInstancesOutput',
         'stop_time' => 'string',
@@ -63,6 +66,7 @@ class ListForListDevInstancesOutput implements ModelInterface, ArrayAccess
         'allow_image_build' => null,
         'create_time' => null,
         'creator_trn' => null,
+        'default_folder' => null,
         'description' => null,
         'expected_stop_time' => null,
         'id' => null,
@@ -74,8 +78,10 @@ class ListForListDevInstancesOutput implements ModelInterface, ArrayAccess
         'numa_affinity' => null,
         'numa_status' => null,
         'ports' => null,
+        'project_name' => null,
         'resource_claim' => null,
         'resource_queue_id' => null,
+        'resource_reservation_plan_id' => null,
         'ssh_public_key' => null,
         'status' => null,
         'stop_time' => null,
@@ -116,6 +122,7 @@ class ListForListDevInstancesOutput implements ModelInterface, ArrayAccess
         'allow_image_build' => 'AllowImageBuild',
         'create_time' => 'CreateTime',
         'creator_trn' => 'CreatorTrn',
+        'default_folder' => 'DefaultFolder',
         'description' => 'Description',
         'expected_stop_time' => 'ExpectedStopTime',
         'id' => 'Id',
@@ -127,8 +134,10 @@ class ListForListDevInstancesOutput implements ModelInterface, ArrayAccess
         'numa_affinity' => 'NumaAffinity',
         'numa_status' => 'NumaStatus',
         'ports' => 'Ports',
+        'project_name' => 'ProjectName',
         'resource_claim' => 'ResourceClaim',
         'resource_queue_id' => 'ResourceQueueId',
+        'resource_reservation_plan_id' => 'ResourceReservationPlanId',
         'ssh_public_key' => 'SshPublicKey',
         'status' => 'Status',
         'stop_time' => 'StopTime',
@@ -148,6 +157,7 @@ class ListForListDevInstancesOutput implements ModelInterface, ArrayAccess
         'allow_image_build' => 'setAllowImageBuild',
         'create_time' => 'setCreateTime',
         'creator_trn' => 'setCreatorTrn',
+        'default_folder' => 'setDefaultFolder',
         'description' => 'setDescription',
         'expected_stop_time' => 'setExpectedStopTime',
         'id' => 'setId',
@@ -159,8 +169,10 @@ class ListForListDevInstancesOutput implements ModelInterface, ArrayAccess
         'numa_affinity' => 'setNumaAffinity',
         'numa_status' => 'setNumaStatus',
         'ports' => 'setPorts',
+        'project_name' => 'setProjectName',
         'resource_claim' => 'setResourceClaim',
         'resource_queue_id' => 'setResourceQueueId',
+        'resource_reservation_plan_id' => 'setResourceReservationPlanId',
         'ssh_public_key' => 'setSshPublicKey',
         'status' => 'setStatus',
         'stop_time' => 'setStopTime',
@@ -180,6 +192,7 @@ class ListForListDevInstancesOutput implements ModelInterface, ArrayAccess
         'allow_image_build' => 'getAllowImageBuild',
         'create_time' => 'getCreateTime',
         'creator_trn' => 'getCreatorTrn',
+        'default_folder' => 'getDefaultFolder',
         'description' => 'getDescription',
         'expected_stop_time' => 'getExpectedStopTime',
         'id' => 'getId',
@@ -191,8 +204,10 @@ class ListForListDevInstancesOutput implements ModelInterface, ArrayAccess
         'numa_affinity' => 'getNumaAffinity',
         'numa_status' => 'getNumaStatus',
         'ports' => 'getPorts',
+        'project_name' => 'getProjectName',
         'resource_claim' => 'getResourceClaim',
         'resource_queue_id' => 'getResourceQueueId',
+        'resource_reservation_plan_id' => 'getResourceReservationPlanId',
         'ssh_public_key' => 'getSshPublicKey',
         'status' => 'getStatus',
         'stop_time' => 'getStopTime',
@@ -266,6 +281,7 @@ class ListForListDevInstancesOutput implements ModelInterface, ArrayAccess
         $this->container['allow_image_build'] = isset($data['allow_image_build']) ? $data['allow_image_build'] : null;
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
         $this->container['creator_trn'] = isset($data['creator_trn']) ? $data['creator_trn'] : null;
+        $this->container['default_folder'] = isset($data['default_folder']) ? $data['default_folder'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['expected_stop_time'] = isset($data['expected_stop_time']) ? $data['expected_stop_time'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
@@ -277,8 +293,10 @@ class ListForListDevInstancesOutput implements ModelInterface, ArrayAccess
         $this->container['numa_affinity'] = isset($data['numa_affinity']) ? $data['numa_affinity'] : null;
         $this->container['numa_status'] = isset($data['numa_status']) ? $data['numa_status'] : null;
         $this->container['ports'] = isset($data['ports']) ? $data['ports'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['resource_claim'] = isset($data['resource_claim']) ? $data['resource_claim'] : null;
         $this->container['resource_queue_id'] = isset($data['resource_queue_id']) ? $data['resource_queue_id'] : null;
+        $this->container['resource_reservation_plan_id'] = isset($data['resource_reservation_plan_id']) ? $data['resource_reservation_plan_id'] : null;
         $this->container['ssh_public_key'] = isset($data['ssh_public_key']) ? $data['ssh_public_key'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['stop_time'] = isset($data['stop_time']) ? $data['stop_time'] : null;
@@ -381,6 +399,30 @@ class ListForListDevInstancesOutput implements ModelInterface, ArrayAccess
     public function setCreatorTrn($creator_trn)
     {
         $this->container['creator_trn'] = $creator_trn;
+
+        return $this;
+    }
+
+    /**
+     * Gets default_folder
+     *
+     * @return string
+     */
+    public function getDefaultFolder()
+    {
+        return $this->container['default_folder'];
+    }
+
+    /**
+     * Sets default_folder
+     *
+     * @param string $default_folder default_folder
+     *
+     * @return $this
+     */
+    public function setDefaultFolder($default_folder)
+    {
+        $this->container['default_folder'] = $default_folder;
 
         return $this;
     }
@@ -650,6 +692,30 @@ class ListForListDevInstancesOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
+
+    /**
      * Gets resource_claim
      *
      * @return \Volcengine\Mlplatform20240701\Model\ResourceClaimForListDevInstancesOutput
@@ -693,6 +759,30 @@ class ListForListDevInstancesOutput implements ModelInterface, ArrayAccess
     public function setResourceQueueId($resource_queue_id)
     {
         $this->container['resource_queue_id'] = $resource_queue_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets resource_reservation_plan_id
+     *
+     * @return string
+     */
+    public function getResourceReservationPlanId()
+    {
+        return $this->container['resource_reservation_plan_id'];
+    }
+
+    /**
+     * Sets resource_reservation_plan_id
+     *
+     * @param string $resource_reservation_plan_id resource_reservation_plan_id
+     *
+     * @return $this
+     */
+    public function setResourceReservationPlanId($resource_reservation_plan_id)
+    {
+        $this->container['resource_reservation_plan_id'] = $resource_reservation_plan_id;
 
         return $this;
     }

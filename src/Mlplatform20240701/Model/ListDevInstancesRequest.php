@@ -34,9 +34,11 @@ class ListDevInstancesRequest implements ModelInterface, ArrayAccess
         'name_contains' => 'string',
         'page_number' => 'int',
         'page_size' => 'int',
+        'project_name' => 'string',
         'relationship' => 'string',
         'resource_group_ids' => 'string[]',
         'resource_queue_ids' => 'string[]',
+        'resource_reservation_plan_ids' => 'string[]',
         'sort_by' => 'string',
         'sort_order' => 'string',
         'states' => 'string[]'
@@ -54,9 +56,11 @@ class ListDevInstancesRequest implements ModelInterface, ArrayAccess
         'name_contains' => null,
         'page_number' => 'int32',
         'page_size' => 'int32',
+        'project_name' => null,
         'relationship' => null,
         'resource_group_ids' => null,
         'resource_queue_ids' => null,
+        'resource_reservation_plan_ids' => null,
         'sort_by' => null,
         'sort_order' => null,
         'states' => null
@@ -95,9 +99,11 @@ class ListDevInstancesRequest implements ModelInterface, ArrayAccess
         'name_contains' => 'NameContains',
         'page_number' => 'PageNumber',
         'page_size' => 'PageSize',
+        'project_name' => 'ProjectName',
         'relationship' => 'Relationship',
         'resource_group_ids' => 'ResourceGroupIds',
         'resource_queue_ids' => 'ResourceQueueIds',
+        'resource_reservation_plan_ids' => 'ResourceReservationPlanIds',
         'sort_by' => 'SortBy',
         'sort_order' => 'SortOrder',
         'states' => 'States'
@@ -115,9 +121,11 @@ class ListDevInstancesRequest implements ModelInterface, ArrayAccess
         'name_contains' => 'setNameContains',
         'page_number' => 'setPageNumber',
         'page_size' => 'setPageSize',
+        'project_name' => 'setProjectName',
         'relationship' => 'setRelationship',
         'resource_group_ids' => 'setResourceGroupIds',
         'resource_queue_ids' => 'setResourceQueueIds',
+        'resource_reservation_plan_ids' => 'setResourceReservationPlanIds',
         'sort_by' => 'setSortBy',
         'sort_order' => 'setSortOrder',
         'states' => 'setStates'
@@ -135,9 +143,11 @@ class ListDevInstancesRequest implements ModelInterface, ArrayAccess
         'name_contains' => 'getNameContains',
         'page_number' => 'getPageNumber',
         'page_size' => 'getPageSize',
+        'project_name' => 'getProjectName',
         'relationship' => 'getRelationship',
         'resource_group_ids' => 'getResourceGroupIds',
         'resource_queue_ids' => 'getResourceQueueIds',
+        'resource_reservation_plan_ids' => 'getResourceReservationPlanIds',
         'sort_by' => 'getSortBy',
         'sort_order' => 'getSortOrder',
         'states' => 'getStates'
@@ -281,9 +291,11 @@ class ListDevInstancesRequest implements ModelInterface, ArrayAccess
         $this->container['name_contains'] = isset($data['name_contains']) ? $data['name_contains'] : null;
         $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['relationship'] = isset($data['relationship']) ? $data['relationship'] : null;
         $this->container['resource_group_ids'] = isset($data['resource_group_ids']) ? $data['resource_group_ids'] : null;
         $this->container['resource_queue_ids'] = isset($data['resource_queue_ids']) ? $data['resource_queue_ids'] : null;
+        $this->container['resource_reservation_plan_ids'] = isset($data['resource_reservation_plan_ids']) ? $data['resource_reservation_plan_ids'] : null;
         $this->container['sort_by'] = isset($data['sort_by']) ? $data['sort_by'] : null;
         $this->container['sort_order'] = isset($data['sort_order']) ? $data['sort_order'] : null;
         $this->container['states'] = isset($data['states']) ? $data['states'] : null;
@@ -482,6 +494,30 @@ class ListDevInstancesRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
+
+    /**
      * Gets relationship
      *
      * @return string
@@ -558,6 +594,30 @@ class ListDevInstancesRequest implements ModelInterface, ArrayAccess
     public function setResourceQueueIds($resource_queue_ids)
     {
         $this->container['resource_queue_ids'] = $resource_queue_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets resource_reservation_plan_ids
+     *
+     * @return string[]
+     */
+    public function getResourceReservationPlanIds()
+    {
+        return $this->container['resource_reservation_plan_ids'];
+    }
+
+    /**
+     * Sets resource_reservation_plan_ids
+     *
+     * @param string[] $resource_reservation_plan_ids resource_reservation_plan_ids
+     *
+     * @return $this
+     */
+    public function setResourceReservationPlanIds($resource_reservation_plan_ids)
+    {
+        $this->container['resource_reservation_plan_ids'] = $resource_reservation_plan_ids;
 
         return $this;
     }
