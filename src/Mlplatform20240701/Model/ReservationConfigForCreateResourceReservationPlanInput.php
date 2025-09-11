@@ -28,6 +28,7 @@ class ReservationConfigForCreateResourceReservationPlanInput implements ModelInt
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'available_resource_id' => 'string',
         'max_duration_hours' => 'int',
         'min_duration_hours' => 'int',
         'recurrence_end_time' => 'string',
@@ -42,6 +43,7 @@ class ReservationConfigForCreateResourceReservationPlanInput implements ModelInt
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'available_resource_id' => null,
         'max_duration_hours' => 'int64',
         'min_duration_hours' => 'int64',
         'recurrence_end_time' => null,
@@ -77,6 +79,7 @@ class ReservationConfigForCreateResourceReservationPlanInput implements ModelInt
      * @var string[]
      */
     protected static $attributeMap = [
+        'available_resource_id' => 'AvailableResourceId',
         'max_duration_hours' => 'MaxDurationHours',
         'min_duration_hours' => 'MinDurationHours',
         'recurrence_end_time' => 'RecurrenceEndTime',
@@ -91,6 +94,7 @@ class ReservationConfigForCreateResourceReservationPlanInput implements ModelInt
      * @var string[]
      */
     protected static $setters = [
+        'available_resource_id' => 'setAvailableResourceId',
         'max_duration_hours' => 'setMaxDurationHours',
         'min_duration_hours' => 'setMinDurationHours',
         'recurrence_end_time' => 'setRecurrenceEndTime',
@@ -105,6 +109,7 @@ class ReservationConfigForCreateResourceReservationPlanInput implements ModelInt
      * @var string[]
      */
     protected static $getters = [
+        'available_resource_id' => 'getAvailableResourceId',
         'max_duration_hours' => 'getMaxDurationHours',
         'min_duration_hours' => 'getMinDurationHours',
         'recurrence_end_time' => 'getRecurrenceEndTime',
@@ -173,6 +178,7 @@ class ReservationConfigForCreateResourceReservationPlanInput implements ModelInt
      */
     public function __construct(array $data = null)
     {
+        $this->container['available_resource_id'] = isset($data['available_resource_id']) ? $data['available_resource_id'] : null;
         $this->container['max_duration_hours'] = isset($data['max_duration_hours']) ? $data['max_duration_hours'] : null;
         $this->container['min_duration_hours'] = isset($data['min_duration_hours']) ? $data['min_duration_hours'] : null;
         $this->container['recurrence_end_time'] = isset($data['recurrence_end_time']) ? $data['recurrence_end_time'] : null;
@@ -204,6 +210,30 @@ class ReservationConfigForCreateResourceReservationPlanInput implements ModelInt
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets available_resource_id
+     *
+     * @return string
+     */
+    public function getAvailableResourceId()
+    {
+        return $this->container['available_resource_id'];
+    }
+
+    /**
+     * Sets available_resource_id
+     *
+     * @param string $available_resource_id available_resource_id
+     *
+     * @return $this
+     */
+    public function setAvailableResourceId($available_resource_id)
+    {
+        $this->container['available_resource_id'] = $available_resource_id;
+
+        return $this;
+    }
 
     /**
      * Gets max_duration_hours

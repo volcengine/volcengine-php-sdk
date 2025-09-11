@@ -33,6 +33,7 @@ class ListResourceQueuesRequest implements ModelInterface, ArrayAccess
         'name_contains' => 'string',
         'page_number' => 'int',
         'page_size' => 'int',
+        'project_name' => 'string',
         'resource_group_ids' => 'string[]',
         'shareable' => 'bool',
         'sort_by' => 'string',
@@ -53,6 +54,7 @@ class ListResourceQueuesRequest implements ModelInterface, ArrayAccess
         'name_contains' => null,
         'page_number' => 'int32',
         'page_size' => 'int32',
+        'project_name' => null,
         'resource_group_ids' => null,
         'shareable' => null,
         'sort_by' => null,
@@ -94,6 +96,7 @@ class ListResourceQueuesRequest implements ModelInterface, ArrayAccess
         'name_contains' => 'NameContains',
         'page_number' => 'PageNumber',
         'page_size' => 'PageSize',
+        'project_name' => 'ProjectName',
         'resource_group_ids' => 'ResourceGroupIds',
         'shareable' => 'Shareable',
         'sort_by' => 'SortBy',
@@ -114,6 +117,7 @@ class ListResourceQueuesRequest implements ModelInterface, ArrayAccess
         'name_contains' => 'setNameContains',
         'page_number' => 'setPageNumber',
         'page_size' => 'setPageSize',
+        'project_name' => 'setProjectName',
         'resource_group_ids' => 'setResourceGroupIds',
         'shareable' => 'setShareable',
         'sort_by' => 'setSortBy',
@@ -134,6 +138,7 @@ class ListResourceQueuesRequest implements ModelInterface, ArrayAccess
         'name_contains' => 'getNameContains',
         'page_number' => 'getPageNumber',
         'page_size' => 'getPageSize',
+        'project_name' => 'getProjectName',
         'resource_group_ids' => 'getResourceGroupIds',
         'shareable' => 'getShareable',
         'sort_by' => 'getSortBy',
@@ -270,6 +275,7 @@ class ListResourceQueuesRequest implements ModelInterface, ArrayAccess
         $this->container['name_contains'] = isset($data['name_contains']) ? $data['name_contains'] : null;
         $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['resource_group_ids'] = isset($data['resource_group_ids']) ? $data['resource_group_ids'] : null;
         $this->container['shareable'] = isset($data['shareable']) ? $data['shareable'] : null;
         $this->container['sort_by'] = isset($data['sort_by']) ? $data['sort_by'] : null;
@@ -452,6 +458,30 @@ class ListResourceQueuesRequest implements ModelInterface, ArrayAccess
     public function setPageSize($page_size)
     {
         $this->container['page_size'] = $page_size;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }

@@ -29,6 +29,7 @@ class DesiredComputeResourceForListResourceReservationRecordsOutput implements M
       */
     protected static $swaggerTypes = [
         'count' => 'int',
+        'gpu_count' => 'int',
         'instance_type_id' => 'string',
         'zone_ids' => 'string[]'
     ];
@@ -40,6 +41,7 @@ class DesiredComputeResourceForListResourceReservationRecordsOutput implements M
       */
     protected static $swaggerFormats = [
         'count' => 'int64',
+        'gpu_count' => 'int64',
         'instance_type_id' => null,
         'zone_ids' => null
     ];
@@ -72,6 +74,7 @@ class DesiredComputeResourceForListResourceReservationRecordsOutput implements M
      */
     protected static $attributeMap = [
         'count' => 'Count',
+        'gpu_count' => 'GpuCount',
         'instance_type_id' => 'InstanceTypeId',
         'zone_ids' => 'ZoneIds'
     ];
@@ -83,6 +86,7 @@ class DesiredComputeResourceForListResourceReservationRecordsOutput implements M
      */
     protected static $setters = [
         'count' => 'setCount',
+        'gpu_count' => 'setGpuCount',
         'instance_type_id' => 'setInstanceTypeId',
         'zone_ids' => 'setZoneIds'
     ];
@@ -94,6 +98,7 @@ class DesiredComputeResourceForListResourceReservationRecordsOutput implements M
      */
     protected static $getters = [
         'count' => 'getCount',
+        'gpu_count' => 'getGpuCount',
         'instance_type_id' => 'getInstanceTypeId',
         'zone_ids' => 'getZoneIds'
     ];
@@ -159,6 +164,7 @@ class DesiredComputeResourceForListResourceReservationRecordsOutput implements M
     public function __construct(array $data = null)
     {
         $this->container['count'] = isset($data['count']) ? $data['count'] : null;
+        $this->container['gpu_count'] = isset($data['gpu_count']) ? $data['gpu_count'] : null;
         $this->container['instance_type_id'] = isset($data['instance_type_id']) ? $data['instance_type_id'] : null;
         $this->container['zone_ids'] = isset($data['zone_ids']) ? $data['zone_ids'] : null;
     }
@@ -207,6 +213,30 @@ class DesiredComputeResourceForListResourceReservationRecordsOutput implements M
     public function setCount($count)
     {
         $this->container['count'] = $count;
+
+        return $this;
+    }
+
+    /**
+     * Gets gpu_count
+     *
+     * @return int
+     */
+    public function getGpuCount()
+    {
+        return $this->container['gpu_count'];
+    }
+
+    /**
+     * Sets gpu_count
+     *
+     * @param int $gpu_count gpu_count
+     *
+     * @return $this
+     */
+    public function setGpuCount($gpu_count)
+    {
+        $this->container['gpu_count'] = $gpu_count;
 
         return $this;
     }

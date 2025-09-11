@@ -36,12 +36,14 @@ class GetResourceGroupResponse implements ModelInterface, ArrayAccess
         'm_gpu_enabled' => 'bool',
         'name' => 'string',
         'period_unit' => 'string',
+        'project_name' => 'string',
         'remain_auto_renew_times' => 'int',
         'renew_type' => 'int',
         'resource_allocated' => '\Volcengine\Mlplatform20240701\Model\ResourceAllocatedForGetResourceGroupOutput',
         'resource_capability' => '\Volcengine\Mlplatform20240701\Model\ResourceCapabilityForGetResourceGroupOutput',
         'status' => '\Volcengine\Mlplatform20240701\Model\StatusForGetResourceGroupOutput',
         'storage_config' => '\Volcengine\Mlplatform20240701\Model\StorageConfigForGetResourceGroupOutput',
+        'v_rdma_enabled' => 'bool',
         'workload_network_config' => '\Volcengine\Mlplatform20240701\Model\WorkloadNetworkConfigForGetResourceGroupOutput',
         'workload_network_mode' => 'string',
         'zone_ids' => 'string[]'
@@ -61,12 +63,14 @@ class GetResourceGroupResponse implements ModelInterface, ArrayAccess
         'm_gpu_enabled' => null,
         'name' => null,
         'period_unit' => null,
+        'project_name' => null,
         'remain_auto_renew_times' => 'int32',
         'renew_type' => 'int32',
         'resource_allocated' => null,
         'resource_capability' => null,
         'status' => null,
         'storage_config' => null,
+        'v_rdma_enabled' => null,
         'workload_network_config' => null,
         'workload_network_mode' => null,
         'zone_ids' => null
@@ -107,12 +111,14 @@ class GetResourceGroupResponse implements ModelInterface, ArrayAccess
         'm_gpu_enabled' => 'MGpuEnabled',
         'name' => 'Name',
         'period_unit' => 'PeriodUnit',
+        'project_name' => 'ProjectName',
         'remain_auto_renew_times' => 'RemainAutoRenewTimes',
         'renew_type' => 'RenewType',
         'resource_allocated' => 'ResourceAllocated',
         'resource_capability' => 'ResourceCapability',
         'status' => 'Status',
         'storage_config' => 'StorageConfig',
+        'v_rdma_enabled' => 'VRdmaEnabled',
         'workload_network_config' => 'WorkloadNetworkConfig',
         'workload_network_mode' => 'WorkloadNetworkMode',
         'zone_ids' => 'ZoneIds'
@@ -132,12 +138,14 @@ class GetResourceGroupResponse implements ModelInterface, ArrayAccess
         'm_gpu_enabled' => 'setMGpuEnabled',
         'name' => 'setName',
         'period_unit' => 'setPeriodUnit',
+        'project_name' => 'setProjectName',
         'remain_auto_renew_times' => 'setRemainAutoRenewTimes',
         'renew_type' => 'setRenewType',
         'resource_allocated' => 'setResourceAllocated',
         'resource_capability' => 'setResourceCapability',
         'status' => 'setStatus',
         'storage_config' => 'setStorageConfig',
+        'v_rdma_enabled' => 'setVRdmaEnabled',
         'workload_network_config' => 'setWorkloadNetworkConfig',
         'workload_network_mode' => 'setWorkloadNetworkMode',
         'zone_ids' => 'setZoneIds'
@@ -157,12 +165,14 @@ class GetResourceGroupResponse implements ModelInterface, ArrayAccess
         'm_gpu_enabled' => 'getMGpuEnabled',
         'name' => 'getName',
         'period_unit' => 'getPeriodUnit',
+        'project_name' => 'getProjectName',
         'remain_auto_renew_times' => 'getRemainAutoRenewTimes',
         'renew_type' => 'getRenewType',
         'resource_allocated' => 'getResourceAllocated',
         'resource_capability' => 'getResourceCapability',
         'status' => 'getStatus',
         'storage_config' => 'getStorageConfig',
+        'v_rdma_enabled' => 'getVRdmaEnabled',
         'workload_network_config' => 'getWorkloadNetworkConfig',
         'workload_network_mode' => 'getWorkloadNetworkMode',
         'zone_ids' => 'getZoneIds'
@@ -236,12 +246,14 @@ class GetResourceGroupResponse implements ModelInterface, ArrayAccess
         $this->container['m_gpu_enabled'] = isset($data['m_gpu_enabled']) ? $data['m_gpu_enabled'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['period_unit'] = isset($data['period_unit']) ? $data['period_unit'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['remain_auto_renew_times'] = isset($data['remain_auto_renew_times']) ? $data['remain_auto_renew_times'] : null;
         $this->container['renew_type'] = isset($data['renew_type']) ? $data['renew_type'] : null;
         $this->container['resource_allocated'] = isset($data['resource_allocated']) ? $data['resource_allocated'] : null;
         $this->container['resource_capability'] = isset($data['resource_capability']) ? $data['resource_capability'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['storage_config'] = isset($data['storage_config']) ? $data['storage_config'] : null;
+        $this->container['v_rdma_enabled'] = isset($data['v_rdma_enabled']) ? $data['v_rdma_enabled'] : null;
         $this->container['workload_network_config'] = isset($data['workload_network_config']) ? $data['workload_network_config'] : null;
         $this->container['workload_network_mode'] = isset($data['workload_network_mode']) ? $data['workload_network_mode'] : null;
         $this->container['zone_ids'] = isset($data['zone_ids']) ? $data['zone_ids'] : null;
@@ -464,6 +476,30 @@ class GetResourceGroupResponse implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
+
+    /**
      * Gets remain_auto_renew_times
      *
      * @return int
@@ -603,6 +639,30 @@ class GetResourceGroupResponse implements ModelInterface, ArrayAccess
     public function setStorageConfig($storage_config)
     {
         $this->container['storage_config'] = $storage_config;
+
+        return $this;
+    }
+
+    /**
+     * Gets v_rdma_enabled
+     *
+     * @return bool
+     */
+    public function getVRdmaEnabled()
+    {
+        return $this->container['v_rdma_enabled'];
+    }
+
+    /**
+     * Sets v_rdma_enabled
+     *
+     * @param bool $v_rdma_enabled v_rdma_enabled
+     *
+     * @return $this
+     */
+    public function setVRdmaEnabled($v_rdma_enabled)
+    {
+        $this->container['v_rdma_enabled'] = $v_rdma_enabled;
 
         return $this;
     }

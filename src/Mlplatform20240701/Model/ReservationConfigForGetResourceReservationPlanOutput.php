@@ -33,7 +33,8 @@ class ReservationConfigForGetResourceReservationPlanOutput implements ModelInter
         'recurrence_end_time' => 'string',
         'recurrence_interval' => 'string',
         'recurrence_start_time' => 'string',
-        'reservation_type' => 'string'
+        'reservation_type' => 'string',
+        'resource_segments' => '\Volcengine\Mlplatform20240701\Model\ResourceSegmentForGetResourceReservationPlanOutput[]'
     ];
 
     /**
@@ -47,7 +48,8 @@ class ReservationConfigForGetResourceReservationPlanOutput implements ModelInter
         'recurrence_end_time' => null,
         'recurrence_interval' => null,
         'recurrence_start_time' => null,
-        'reservation_type' => null
+        'reservation_type' => null,
+        'resource_segments' => null
     ];
 
     /**
@@ -82,7 +84,8 @@ class ReservationConfigForGetResourceReservationPlanOutput implements ModelInter
         'recurrence_end_time' => 'RecurrenceEndTime',
         'recurrence_interval' => 'RecurrenceInterval',
         'recurrence_start_time' => 'RecurrenceStartTime',
-        'reservation_type' => 'ReservationType'
+        'reservation_type' => 'ReservationType',
+        'resource_segments' => 'ResourceSegments'
     ];
 
     /**
@@ -96,7 +99,8 @@ class ReservationConfigForGetResourceReservationPlanOutput implements ModelInter
         'recurrence_end_time' => 'setRecurrenceEndTime',
         'recurrence_interval' => 'setRecurrenceInterval',
         'recurrence_start_time' => 'setRecurrenceStartTime',
-        'reservation_type' => 'setReservationType'
+        'reservation_type' => 'setReservationType',
+        'resource_segments' => 'setResourceSegments'
     ];
 
     /**
@@ -110,7 +114,8 @@ class ReservationConfigForGetResourceReservationPlanOutput implements ModelInter
         'recurrence_end_time' => 'getRecurrenceEndTime',
         'recurrence_interval' => 'getRecurrenceInterval',
         'recurrence_start_time' => 'getRecurrenceStartTime',
-        'reservation_type' => 'getReservationType'
+        'reservation_type' => 'getReservationType',
+        'resource_segments' => 'getResourceSegments'
     ];
 
     /**
@@ -179,6 +184,7 @@ class ReservationConfigForGetResourceReservationPlanOutput implements ModelInter
         $this->container['recurrence_interval'] = isset($data['recurrence_interval']) ? $data['recurrence_interval'] : null;
         $this->container['recurrence_start_time'] = isset($data['recurrence_start_time']) ? $data['recurrence_start_time'] : null;
         $this->container['reservation_type'] = isset($data['reservation_type']) ? $data['reservation_type'] : null;
+        $this->container['resource_segments'] = isset($data['resource_segments']) ? $data['resource_segments'] : null;
     }
 
     /**
@@ -345,6 +351,30 @@ class ReservationConfigForGetResourceReservationPlanOutput implements ModelInter
     public function setReservationType($reservation_type)
     {
         $this->container['reservation_type'] = $reservation_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets resource_segments
+     *
+     * @return \Volcengine\Mlplatform20240701\Model\ResourceSegmentForGetResourceReservationPlanOutput[]
+     */
+    public function getResourceSegments()
+    {
+        return $this->container['resource_segments'];
+    }
+
+    /**
+     * Sets resource_segments
+     *
+     * @param \Volcengine\Mlplatform20240701\Model\ResourceSegmentForGetResourceReservationPlanOutput[] $resource_segments resource_segments
+     *
+     * @return $this
+     */
+    public function setResourceSegments($resource_segments)
+    {
+        $this->container['resource_segments'] = $resource_segments;
 
         return $this;
     }
