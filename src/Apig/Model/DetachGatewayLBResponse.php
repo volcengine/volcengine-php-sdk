@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class TagForCreateUpstreamInput implements ModelInterface, ArrayAccess
+class DetachGatewayLBResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class TagForCreateUpstreamInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'TagForCreateUpstreamInput';
+    protected static $swaggerModelName = 'DetachGatewayLBResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,7 @@ class TagForCreateUpstreamInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'key' => 'string',
-        'value' => 'string'
+        
     ];
 
     /**
@@ -38,8 +37,7 @@ class TagForCreateUpstreamInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'key' => null,
-        'value' => null
+        
     ];
 
     /**
@@ -69,8 +67,7 @@ class TagForCreateUpstreamInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'key' => 'Key',
-        'value' => 'Value'
+        
     ];
 
     /**
@@ -79,8 +76,7 @@ class TagForCreateUpstreamInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'key' => 'setKey',
-        'value' => 'setValue'
+        
     ];
 
     /**
@@ -89,8 +85,7 @@ class TagForCreateUpstreamInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'key' => 'getKey',
-        'value' => 'getValue'
+        
     ];
 
     /**
@@ -153,8 +148,6 @@ class TagForCreateUpstreamInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['key'] = isset($data['key']) ? $data['key'] : null;
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 
     /**
@@ -180,54 +173,6 @@ class TagForCreateUpstreamInput implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets key
-     *
-     * @return string
-     */
-    public function getKey()
-    {
-        return $this->container['key'];
-    }
-
-    /**
-     * Sets key
-     *
-     * @param string $key key
-     *
-     * @return $this
-     */
-    public function setKey($key)
-    {
-        $this->container['key'] = $key;
-
-        return $this;
-    }
-
-    /**
-     * Gets value
-     *
-     * @return string
-     */
-    public function getValue()
-    {
-        return $this->container['value'];
-    }
-
-    /**
-     * Sets value
-     *
-     * @param string $value value
-     *
-     * @return $this
-     */
-    public function setValue($value)
-    {
-        $this->container['value'] = $value;
-
-        return $this;
-    }
     /**
      * Returns true if offset exists. False otherwise.
      *

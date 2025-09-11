@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
+class TraceSpecForGetGatewayOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'FilterForListGatewaysInput';
+    protected static $swaggerModelName = 'TraceSpecForGetGatewayOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,11 +28,10 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'ids' => 'string[]',
-        'name' => 'string',
-        'status' => 'string',
-        'type' => 'string',
-        'vpc_ids' => 'string[]'
+        'apm_trace_spec' => '\Volcengine\Apig\Model\APMTraceSpecForGetGatewayOutput',
+        'enable' => 'bool',
+        'tls_trace_spec' => '\Volcengine\Apig\Model\TLSTraceSpecForGetGatewayOutput',
+        'trace_type' => 'string'
     ];
 
     /**
@@ -41,11 +40,10 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'ids' => null,
-        'name' => null,
-        'status' => null,
-        'type' => null,
-        'vpc_ids' => null
+        'apm_trace_spec' => null,
+        'enable' => null,
+        'tls_trace_spec' => null,
+        'trace_type' => null
     ];
 
     /**
@@ -75,11 +73,10 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'ids' => 'Ids',
-        'name' => 'Name',
-        'status' => 'Status',
-        'type' => 'Type',
-        'vpc_ids' => 'VpcIds'
+        'apm_trace_spec' => 'APMTraceSpec',
+        'enable' => 'Enable',
+        'tls_trace_spec' => 'TLSTraceSpec',
+        'trace_type' => 'TraceType'
     ];
 
     /**
@@ -88,11 +85,10 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'ids' => 'setIds',
-        'name' => 'setName',
-        'status' => 'setStatus',
-        'type' => 'setType',
-        'vpc_ids' => 'setVpcIds'
+        'apm_trace_spec' => 'setApmTraceSpec',
+        'enable' => 'setEnable',
+        'tls_trace_spec' => 'setTlsTraceSpec',
+        'trace_type' => 'setTraceType'
     ];
 
     /**
@@ -101,11 +97,10 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'ids' => 'getIds',
-        'name' => 'getName',
-        'status' => 'getStatus',
-        'type' => 'getType',
-        'vpc_ids' => 'getVpcIds'
+        'apm_trace_spec' => 'getApmTraceSpec',
+        'enable' => 'getEnable',
+        'tls_trace_spec' => 'getTlsTraceSpec',
+        'trace_type' => 'getTraceType'
     ];
 
     /**
@@ -168,11 +163,10 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['ids'] = isset($data['ids']) ? $data['ids'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['vpc_ids'] = isset($data['vpc_ids']) ? $data['vpc_ids'] : null;
+        $this->container['apm_trace_spec'] = isset($data['apm_trace_spec']) ? $data['apm_trace_spec'] : null;
+        $this->container['enable'] = isset($data['enable']) ? $data['enable'] : null;
+        $this->container['tls_trace_spec'] = isset($data['tls_trace_spec']) ? $data['tls_trace_spec'] : null;
+        $this->container['trace_type'] = isset($data['trace_type']) ? $data['trace_type'] : null;
     }
 
     /**
@@ -200,121 +194,97 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets ids
+     * Gets apm_trace_spec
      *
-     * @return string[]
+     * @return \Volcengine\Apig\Model\APMTraceSpecForGetGatewayOutput
      */
-    public function getIds()
+    public function getApmTraceSpec()
     {
-        return $this->container['ids'];
+        return $this->container['apm_trace_spec'];
     }
 
     /**
-     * Sets ids
+     * Sets apm_trace_spec
      *
-     * @param string[] $ids ids
+     * @param \Volcengine\Apig\Model\APMTraceSpecForGetGatewayOutput $apm_trace_spec apm_trace_spec
      *
      * @return $this
      */
-    public function setIds($ids)
+    public function setApmTraceSpec($apm_trace_spec)
     {
-        $this->container['ids'] = $ids;
+        $this->container['apm_trace_spec'] = $apm_trace_spec;
 
         return $this;
     }
 
     /**
-     * Gets name
+     * Gets enable
+     *
+     * @return bool
+     */
+    public function getEnable()
+    {
+        return $this->container['enable'];
+    }
+
+    /**
+     * Sets enable
+     *
+     * @param bool $enable enable
+     *
+     * @return $this
+     */
+    public function setEnable($enable)
+    {
+        $this->container['enable'] = $enable;
+
+        return $this;
+    }
+
+    /**
+     * Gets tls_trace_spec
+     *
+     * @return \Volcengine\Apig\Model\TLSTraceSpecForGetGatewayOutput
+     */
+    public function getTlsTraceSpec()
+    {
+        return $this->container['tls_trace_spec'];
+    }
+
+    /**
+     * Sets tls_trace_spec
+     *
+     * @param \Volcengine\Apig\Model\TLSTraceSpecForGetGatewayOutput $tls_trace_spec tls_trace_spec
+     *
+     * @return $this
+     */
+    public function setTlsTraceSpec($tls_trace_spec)
+    {
+        $this->container['tls_trace_spec'] = $tls_trace_spec;
+
+        return $this;
+    }
+
+    /**
+     * Gets trace_type
      *
      * @return string
      */
-    public function getName()
+    public function getTraceType()
     {
-        return $this->container['name'];
+        return $this->container['trace_type'];
     }
 
     /**
-     * Sets name
+     * Sets trace_type
      *
-     * @param string $name name
+     * @param string $trace_type trace_type
      *
      * @return $this
      */
-    public function setName($name)
+    public function setTraceType($trace_type)
     {
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets status
-     *
-     * @return string
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param string $status status
-     *
-     * @return $this
-     */
-    public function setStatus($status)
-    {
-        $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     *
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param string $type type
-     *
-     * @return $this
-     */
-    public function setType($type)
-    {
-        $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets vpc_ids
-     *
-     * @return string[]
-     */
-    public function getVpcIds()
-    {
-        return $this->container['vpc_ids'];
-    }
-
-    /**
-     * Sets vpc_ids
-     *
-     * @param string[] $vpc_ids vpc_ids
-     *
-     * @return $this
-     */
-    public function setVpcIds($vpc_ids)
-    {
-        $this->container['vpc_ids'] = $vpc_ids;
+        $this->container['trace_type'] = $trace_type;
 
         return $this;
     }

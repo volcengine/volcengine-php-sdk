@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
+class AttachGatewayLBRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'FilterForListGatewaysInput';
+    protected static $swaggerModelName = 'AttachGatewayLBRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,11 +28,8 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'ids' => 'string[]',
-        'name' => 'string',
-        'status' => 'string',
-        'type' => 'string',
-        'vpc_ids' => 'string[]'
+        'gateway_id' => 'string',
+        'imported_clb_spec' => '\Volcengine\Apig\Model\ImportedCLBSpecForAttachGatewayLBInput'
     ];
 
     /**
@@ -41,11 +38,8 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'ids' => null,
-        'name' => null,
-        'status' => null,
-        'type' => null,
-        'vpc_ids' => null
+        'gateway_id' => null,
+        'imported_clb_spec' => null
     ];
 
     /**
@@ -75,11 +69,8 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'ids' => 'Ids',
-        'name' => 'Name',
-        'status' => 'Status',
-        'type' => 'Type',
-        'vpc_ids' => 'VpcIds'
+        'gateway_id' => 'GatewayId',
+        'imported_clb_spec' => 'ImportedCLBSpec'
     ];
 
     /**
@@ -88,11 +79,8 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'ids' => 'setIds',
-        'name' => 'setName',
-        'status' => 'setStatus',
-        'type' => 'setType',
-        'vpc_ids' => 'setVpcIds'
+        'gateway_id' => 'setGatewayId',
+        'imported_clb_spec' => 'setImportedClbSpec'
     ];
 
     /**
@@ -101,11 +89,8 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'ids' => 'getIds',
-        'name' => 'getName',
-        'status' => 'getStatus',
-        'type' => 'getType',
-        'vpc_ids' => 'getVpcIds'
+        'gateway_id' => 'getGatewayId',
+        'imported_clb_spec' => 'getImportedClbSpec'
     ];
 
     /**
@@ -168,11 +153,8 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['ids'] = isset($data['ids']) ? $data['ids'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['vpc_ids'] = isset($data['vpc_ids']) ? $data['vpc_ids'] : null;
+        $this->container['gateway_id'] = isset($data['gateway_id']) ? $data['gateway_id'] : null;
+        $this->container['imported_clb_spec'] = isset($data['imported_clb_spec']) ? $data['imported_clb_spec'] : null;
     }
 
     /**
@@ -184,6 +166,9 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['gateway_id'] === null) {
+            $invalidProperties[] = "'gateway_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -200,121 +185,49 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets ids
-     *
-     * @return string[]
-     */
-    public function getIds()
-    {
-        return $this->container['ids'];
-    }
-
-    /**
-     * Sets ids
-     *
-     * @param string[] $ids ids
-     *
-     * @return $this
-     */
-    public function setIds($ids)
-    {
-        $this->container['ids'] = $ids;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
+     * Gets gateway_id
      *
      * @return string
      */
-    public function getName()
+    public function getGatewayId()
     {
-        return $this->container['name'];
+        return $this->container['gateway_id'];
     }
 
     /**
-     * Sets name
+     * Sets gateway_id
      *
-     * @param string $name name
+     * @param string $gateway_id gateway_id
      *
      * @return $this
      */
-    public function setName($name)
+    public function setGatewayId($gateway_id)
     {
-        $this->container['name'] = $name;
+        $this->container['gateway_id'] = $gateway_id;
 
         return $this;
     }
 
     /**
-     * Gets status
+     * Gets imported_clb_spec
      *
-     * @return string
+     * @return \Volcengine\Apig\Model\ImportedCLBSpecForAttachGatewayLBInput
      */
-    public function getStatus()
+    public function getImportedClbSpec()
     {
-        return $this->container['status'];
+        return $this->container['imported_clb_spec'];
     }
 
     /**
-     * Sets status
+     * Sets imported_clb_spec
      *
-     * @param string $status status
+     * @param \Volcengine\Apig\Model\ImportedCLBSpecForAttachGatewayLBInput $imported_clb_spec imported_clb_spec
      *
      * @return $this
      */
-    public function setStatus($status)
+    public function setImportedClbSpec($imported_clb_spec)
     {
-        $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     *
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param string $type type
-     *
-     * @return $this
-     */
-    public function setType($type)
-    {
-        $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets vpc_ids
-     *
-     * @return string[]
-     */
-    public function getVpcIds()
-    {
-        return $this->container['vpc_ids'];
-    }
-
-    /**
-     * Sets vpc_ids
-     *
-     * @param string[] $vpc_ids vpc_ids
-     *
-     * @return $this
-     */
-    public function setVpcIds($vpc_ids)
-    {
-        $this->container['vpc_ids'] = $vpc_ids;
+        $this->container['imported_clb_spec'] = $imported_clb_spec;
 
         return $this;
     }

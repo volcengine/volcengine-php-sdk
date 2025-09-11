@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
+class UpstreamVersionForUpdateUpstreamVersionInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'FilterForListGatewaysInput';
+    protected static $swaggerModelName = 'UpstreamVersionForUpdateUpstreamVersionInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,11 +28,9 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'ids' => 'string[]',
+        'labels' => '\Volcengine\Apig\Model\LabelForUpdateUpstreamVersionInput[]',
         'name' => 'string',
-        'status' => 'string',
-        'type' => 'string',
-        'vpc_ids' => 'string[]'
+        'update_time' => 'string'
     ];
 
     /**
@@ -41,11 +39,9 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'ids' => null,
+        'labels' => null,
         'name' => null,
-        'status' => null,
-        'type' => null,
-        'vpc_ids' => null
+        'update_time' => null
     ];
 
     /**
@@ -75,11 +71,9 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'ids' => 'Ids',
+        'labels' => 'Labels',
         'name' => 'Name',
-        'status' => 'Status',
-        'type' => 'Type',
-        'vpc_ids' => 'VpcIds'
+        'update_time' => 'UpdateTime'
     ];
 
     /**
@@ -88,11 +82,9 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'ids' => 'setIds',
+        'labels' => 'setLabels',
         'name' => 'setName',
-        'status' => 'setStatus',
-        'type' => 'setType',
-        'vpc_ids' => 'setVpcIds'
+        'update_time' => 'setUpdateTime'
     ];
 
     /**
@@ -101,11 +93,9 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'ids' => 'getIds',
+        'labels' => 'getLabels',
         'name' => 'getName',
-        'status' => 'getStatus',
-        'type' => 'getType',
-        'vpc_ids' => 'getVpcIds'
+        'update_time' => 'getUpdateTime'
     ];
 
     /**
@@ -168,11 +158,9 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['ids'] = isset($data['ids']) ? $data['ids'] : null;
+        $this->container['labels'] = isset($data['labels']) ? $data['labels'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['vpc_ids'] = isset($data['vpc_ids']) ? $data['vpc_ids'] : null;
+        $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
     }
 
     /**
@@ -200,25 +188,25 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets ids
+     * Gets labels
      *
-     * @return string[]
+     * @return \Volcengine\Apig\Model\LabelForUpdateUpstreamVersionInput[]
      */
-    public function getIds()
+    public function getLabels()
     {
-        return $this->container['ids'];
+        return $this->container['labels'];
     }
 
     /**
-     * Sets ids
+     * Sets labels
      *
-     * @param string[] $ids ids
+     * @param \Volcengine\Apig\Model\LabelForUpdateUpstreamVersionInput[] $labels labels
      *
      * @return $this
      */
-    public function setIds($ids)
+    public function setLabels($labels)
     {
-        $this->container['ids'] = $ids;
+        $this->container['labels'] = $labels;
 
         return $this;
     }
@@ -248,73 +236,25 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets status
+     * Gets update_time
      *
      * @return string
      */
-    public function getStatus()
+    public function getUpdateTime()
     {
-        return $this->container['status'];
+        return $this->container['update_time'];
     }
 
     /**
-     * Sets status
+     * Sets update_time
      *
-     * @param string $status status
+     * @param string $update_time update_time
      *
      * @return $this
      */
-    public function setStatus($status)
+    public function setUpdateTime($update_time)
     {
-        $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     *
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param string $type type
-     *
-     * @return $this
-     */
-    public function setType($type)
-    {
-        $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets vpc_ids
-     *
-     * @return string[]
-     */
-    public function getVpcIds()
-    {
-        return $this->container['vpc_ids'];
-    }
-
-    /**
-     * Sets vpc_ids
-     *
-     * @param string[] $vpc_ids vpc_ids
-     *
-     * @return $this
-     */
-    public function setVpcIds($vpc_ids)
-    {
-        $this->container['vpc_ids'] = $vpc_ids;
+        $this->container['update_time'] = $update_time;
 
         return $this;
     }

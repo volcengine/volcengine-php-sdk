@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
+class CreateUpstreamVersionResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'FilterForListGatewaysInput';
+    protected static $swaggerModelName = 'CreateUpstreamVersionResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,11 +28,8 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'ids' => 'string[]',
         'name' => 'string',
-        'status' => 'string',
-        'type' => 'string',
-        'vpc_ids' => 'string[]'
+        'upstream_id' => 'string'
     ];
 
     /**
@@ -41,11 +38,8 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'ids' => null,
         'name' => null,
-        'status' => null,
-        'type' => null,
-        'vpc_ids' => null
+        'upstream_id' => null
     ];
 
     /**
@@ -75,11 +69,8 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'ids' => 'Ids',
         'name' => 'Name',
-        'status' => 'Status',
-        'type' => 'Type',
-        'vpc_ids' => 'VpcIds'
+        'upstream_id' => 'UpstreamId'
     ];
 
     /**
@@ -88,11 +79,8 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'ids' => 'setIds',
         'name' => 'setName',
-        'status' => 'setStatus',
-        'type' => 'setType',
-        'vpc_ids' => 'setVpcIds'
+        'upstream_id' => 'setUpstreamId'
     ];
 
     /**
@@ -101,11 +89,8 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'ids' => 'getIds',
         'name' => 'getName',
-        'status' => 'getStatus',
-        'type' => 'getType',
-        'vpc_ids' => 'getVpcIds'
+        'upstream_id' => 'getUpstreamId'
     ];
 
     /**
@@ -168,11 +153,8 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['ids'] = isset($data['ids']) ? $data['ids'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['vpc_ids'] = isset($data['vpc_ids']) ? $data['vpc_ids'] : null;
+        $this->container['upstream_id'] = isset($data['upstream_id']) ? $data['upstream_id'] : null;
     }
 
     /**
@@ -200,30 +182,6 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets ids
-     *
-     * @return string[]
-     */
-    public function getIds()
-    {
-        return $this->container['ids'];
-    }
-
-    /**
-     * Sets ids
-     *
-     * @param string[] $ids ids
-     *
-     * @return $this
-     */
-    public function setIds($ids)
-    {
-        $this->container['ids'] = $ids;
-
-        return $this;
-    }
-
-    /**
      * Gets name
      *
      * @return string
@@ -248,73 +206,25 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets status
+     * Gets upstream_id
      *
      * @return string
      */
-    public function getStatus()
+    public function getUpstreamId()
     {
-        return $this->container['status'];
+        return $this->container['upstream_id'];
     }
 
     /**
-     * Sets status
+     * Sets upstream_id
      *
-     * @param string $status status
+     * @param string $upstream_id upstream_id
      *
      * @return $this
      */
-    public function setStatus($status)
+    public function setUpstreamId($upstream_id)
     {
-        $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     *
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param string $type type
-     *
-     * @return $this
-     */
-    public function setType($type)
-    {
-        $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets vpc_ids
-     *
-     * @return string[]
-     */
-    public function getVpcIds()
-    {
-        return $this->container['vpc_ids'];
-    }
-
-    /**
-     * Sets vpc_ids
-     *
-     * @param string[] $vpc_ids vpc_ids
-     *
-     * @return $this
-     */
-    public function setVpcIds($vpc_ids)
-    {
-        $this->container['vpc_ids'] = $vpc_ids;
+        $this->container['upstream_id'] = $upstream_id;
 
         return $this;
     }

@@ -32,7 +32,6 @@ class ListUpstreamsRequest implements ModelInterface, ArrayAccess
         'gateway_id' => 'string',
         'page_number' => 'int',
         'page_size' => 'int',
-        'resource_type' => 'string',
         'source_type' => 'string'
     ];
 
@@ -46,7 +45,6 @@ class ListUpstreamsRequest implements ModelInterface, ArrayAccess
         'gateway_id' => null,
         'page_number' => 'int64',
         'page_size' => 'int64',
-        'resource_type' => null,
         'source_type' => null
     ];
 
@@ -81,7 +79,6 @@ class ListUpstreamsRequest implements ModelInterface, ArrayAccess
         'gateway_id' => 'GatewayId',
         'page_number' => 'PageNumber',
         'page_size' => 'PageSize',
-        'resource_type' => 'ResourceType',
         'source_type' => 'SourceType'
     ];
 
@@ -95,7 +92,6 @@ class ListUpstreamsRequest implements ModelInterface, ArrayAccess
         'gateway_id' => 'setGatewayId',
         'page_number' => 'setPageNumber',
         'page_size' => 'setPageSize',
-        'resource_type' => 'setResourceType',
         'source_type' => 'setSourceType'
     ];
 
@@ -109,7 +105,6 @@ class ListUpstreamsRequest implements ModelInterface, ArrayAccess
         'gateway_id' => 'getGatewayId',
         'page_number' => 'getPageNumber',
         'page_size' => 'getPageSize',
-        'resource_type' => 'getResourceType',
         'source_type' => 'getSourceType'
     ];
 
@@ -177,7 +172,6 @@ class ListUpstreamsRequest implements ModelInterface, ArrayAccess
         $this->container['gateway_id'] = isset($data['gateway_id']) ? $data['gateway_id'] : null;
         $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
-        $this->container['resource_type'] = isset($data['resource_type']) ? $data['resource_type'] : null;
         $this->container['source_type'] = isset($data['source_type']) ? $data['source_type'] : null;
     }
 
@@ -297,30 +291,6 @@ class ListUpstreamsRequest implements ModelInterface, ArrayAccess
     public function setPageSize($page_size)
     {
         $this->container['page_size'] = $page_size;
-
-        return $this;
-    }
-
-    /**
-     * Gets resource_type
-     *
-     * @return string
-     */
-    public function getResourceType()
-    {
-        return $this->container['resource_type'];
-    }
-
-    /**
-     * Sets resource_type
-     *
-     * @param string $resource_type resource_type
-     *
-     * @return $this
-     */
-    public function setResourceType($resource_type)
-    {
-        $this->container['resource_type'] = $resource_type;
 
         return $this;
     }

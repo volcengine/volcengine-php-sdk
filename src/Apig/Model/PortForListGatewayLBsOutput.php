@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
+class PortForListGatewayLBsOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'FilterForListGatewaysInput';
+    protected static $swaggerModelName = 'PortForListGatewayLBsOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,11 +28,8 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'ids' => 'string[]',
-        'name' => 'string',
-        'status' => 'string',
-        'type' => 'string',
-        'vpc_ids' => 'string[]'
+        'number' => 'int',
+        'protocol' => 'string'
     ];
 
     /**
@@ -41,11 +38,8 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'ids' => null,
-        'name' => null,
-        'status' => null,
-        'type' => null,
-        'vpc_ids' => null
+        'number' => 'int32',
+        'protocol' => null
     ];
 
     /**
@@ -75,11 +69,8 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'ids' => 'Ids',
-        'name' => 'Name',
-        'status' => 'Status',
-        'type' => 'Type',
-        'vpc_ids' => 'VpcIds'
+        'number' => 'Number',
+        'protocol' => 'Protocol'
     ];
 
     /**
@@ -88,11 +79,8 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'ids' => 'setIds',
-        'name' => 'setName',
-        'status' => 'setStatus',
-        'type' => 'setType',
-        'vpc_ids' => 'setVpcIds'
+        'number' => 'setNumber',
+        'protocol' => 'setProtocol'
     ];
 
     /**
@@ -101,11 +89,8 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'ids' => 'getIds',
-        'name' => 'getName',
-        'status' => 'getStatus',
-        'type' => 'getType',
-        'vpc_ids' => 'getVpcIds'
+        'number' => 'getNumber',
+        'protocol' => 'getProtocol'
     ];
 
     /**
@@ -168,11 +153,8 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['ids'] = isset($data['ids']) ? $data['ids'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['vpc_ids'] = isset($data['vpc_ids']) ? $data['vpc_ids'] : null;
+        $this->container['number'] = isset($data['number']) ? $data['number'] : null;
+        $this->container['protocol'] = isset($data['protocol']) ? $data['protocol'] : null;
     }
 
     /**
@@ -200,121 +182,49 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets ids
+     * Gets number
      *
-     * @return string[]
+     * @return int
      */
-    public function getIds()
+    public function getNumber()
     {
-        return $this->container['ids'];
+        return $this->container['number'];
     }
 
     /**
-     * Sets ids
+     * Sets number
      *
-     * @param string[] $ids ids
+     * @param int $number number
      *
      * @return $this
      */
-    public function setIds($ids)
+    public function setNumber($number)
     {
-        $this->container['ids'] = $ids;
+        $this->container['number'] = $number;
 
         return $this;
     }
 
     /**
-     * Gets name
+     * Gets protocol
      *
      * @return string
      */
-    public function getName()
+    public function getProtocol()
     {
-        return $this->container['name'];
+        return $this->container['protocol'];
     }
 
     /**
-     * Sets name
+     * Sets protocol
      *
-     * @param string $name name
+     * @param string $protocol protocol
      *
      * @return $this
      */
-    public function setName($name)
+    public function setProtocol($protocol)
     {
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets status
-     *
-     * @return string
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param string $status status
-     *
-     * @return $this
-     */
-    public function setStatus($status)
-    {
-        $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     *
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param string $type type
-     *
-     * @return $this
-     */
-    public function setType($type)
-    {
-        $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets vpc_ids
-     *
-     * @return string[]
-     */
-    public function getVpcIds()
-    {
-        return $this->container['vpc_ids'];
-    }
-
-    /**
-     * Sets vpc_ids
-     *
-     * @param string[] $vpc_ids vpc_ids
-     *
-     * @return $this
-     */
-    public function setVpcIds($vpc_ids)
-    {
-        $this->container['vpc_ids'] = $vpc_ids;
+        $this->container['protocol'] = $protocol;
 
         return $this;
     }

@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class TagForCreateGatewayInput implements ModelInterface, ArrayAccess
+class UpdateCustomDomainRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class TagForCreateGatewayInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'TagForCreateGatewayInput';
+    protected static $swaggerModelName = 'UpdateCustomDomainRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,11 @@ class TagForCreateGatewayInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'key' => 'string',
-        'value' => 'string'
+        'certificate_id' => 'string',
+        'comments' => 'string',
+        'id' => 'string',
+        'protocol' => 'string[]',
+        'ssl_redirect' => 'bool'
     ];
 
     /**
@@ -38,8 +41,11 @@ class TagForCreateGatewayInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'key' => null,
-        'value' => null
+        'certificate_id' => null,
+        'comments' => null,
+        'id' => null,
+        'protocol' => null,
+        'ssl_redirect' => null
     ];
 
     /**
@@ -69,8 +75,11 @@ class TagForCreateGatewayInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'key' => 'Key',
-        'value' => 'Value'
+        'certificate_id' => 'CertificateId',
+        'comments' => 'Comments',
+        'id' => 'Id',
+        'protocol' => 'Protocol',
+        'ssl_redirect' => 'SSLRedirect'
     ];
 
     /**
@@ -79,8 +88,11 @@ class TagForCreateGatewayInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'key' => 'setKey',
-        'value' => 'setValue'
+        'certificate_id' => 'setCertificateId',
+        'comments' => 'setComments',
+        'id' => 'setId',
+        'protocol' => 'setProtocol',
+        'ssl_redirect' => 'setSslRedirect'
     ];
 
     /**
@@ -89,8 +101,11 @@ class TagForCreateGatewayInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'key' => 'getKey',
-        'value' => 'getValue'
+        'certificate_id' => 'getCertificateId',
+        'comments' => 'getComments',
+        'id' => 'getId',
+        'protocol' => 'getProtocol',
+        'ssl_redirect' => 'getSslRedirect'
     ];
 
     /**
@@ -153,8 +168,11 @@ class TagForCreateGatewayInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['key'] = isset($data['key']) ? $data['key'] : null;
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        $this->container['certificate_id'] = isset($data['certificate_id']) ? $data['certificate_id'] : null;
+        $this->container['comments'] = isset($data['comments']) ? $data['comments'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['protocol'] = isset($data['protocol']) ? $data['protocol'] : null;
+        $this->container['ssl_redirect'] = isset($data['ssl_redirect']) ? $data['ssl_redirect'] : null;
     }
 
     /**
@@ -166,6 +184,9 @@ class TagForCreateGatewayInput implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -182,49 +203,121 @@ class TagForCreateGatewayInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets key
+     * Gets certificate_id
      *
      * @return string
      */
-    public function getKey()
+    public function getCertificateId()
     {
-        return $this->container['key'];
+        return $this->container['certificate_id'];
     }
 
     /**
-     * Sets key
+     * Sets certificate_id
      *
-     * @param string $key key
+     * @param string $certificate_id certificate_id
      *
      * @return $this
      */
-    public function setKey($key)
+    public function setCertificateId($certificate_id)
     {
-        $this->container['key'] = $key;
+        $this->container['certificate_id'] = $certificate_id;
 
         return $this;
     }
 
     /**
-     * Gets value
+     * Gets comments
      *
      * @return string
      */
-    public function getValue()
+    public function getComments()
     {
-        return $this->container['value'];
+        return $this->container['comments'];
     }
 
     /**
-     * Sets value
+     * Sets comments
      *
-     * @param string $value value
+     * @param string $comments comments
      *
      * @return $this
      */
-    public function setValue($value)
+    public function setComments($comments)
     {
-        $this->container['value'] = $value;
+        $this->container['comments'] = $comments;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string $id id
+     *
+     * @return $this
+     */
+    public function setId($id)
+    {
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets protocol
+     *
+     * @return string[]
+     */
+    public function getProtocol()
+    {
+        return $this->container['protocol'];
+    }
+
+    /**
+     * Sets protocol
+     *
+     * @param string[] $protocol protocol
+     *
+     * @return $this
+     */
+    public function setProtocol($protocol)
+    {
+        $this->container['protocol'] = $protocol;
+
+        return $this;
+    }
+
+    /**
+     * Gets ssl_redirect
+     *
+     * @return bool
+     */
+    public function getSslRedirect()
+    {
+        return $this->container['ssl_redirect'];
+    }
+
+    /**
+     * Sets ssl_redirect
+     *
+     * @param bool $ssl_redirect ssl_redirect
+     *
+     * @return $this
+     */
+    public function setSslRedirect($ssl_redirect)
+    {
+        $this->container['ssl_redirect'] = $ssl_redirect;
 
         return $this;
     }

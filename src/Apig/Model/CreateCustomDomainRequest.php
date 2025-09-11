@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
+class CreateCustomDomainRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'FilterForListGatewaysInput';
+    protected static $swaggerModelName = 'CreateCustomDomainRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,11 +28,12 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'ids' => 'string[]',
-        'name' => 'string',
-        'status' => 'string',
-        'type' => 'string',
-        'vpc_ids' => 'string[]'
+        'certificate_id' => 'string',
+        'comments' => 'string',
+        'domain' => 'string',
+        'protocol' => 'string[]',
+        'ssl_redirect' => 'bool',
+        'service_id' => 'string'
     ];
 
     /**
@@ -41,11 +42,12 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'ids' => null,
-        'name' => null,
-        'status' => null,
-        'type' => null,
-        'vpc_ids' => null
+        'certificate_id' => null,
+        'comments' => null,
+        'domain' => null,
+        'protocol' => null,
+        'ssl_redirect' => null,
+        'service_id' => null
     ];
 
     /**
@@ -75,11 +77,12 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'ids' => 'Ids',
-        'name' => 'Name',
-        'status' => 'Status',
-        'type' => 'Type',
-        'vpc_ids' => 'VpcIds'
+        'certificate_id' => 'CertificateId',
+        'comments' => 'Comments',
+        'domain' => 'Domain',
+        'protocol' => 'Protocol',
+        'ssl_redirect' => 'SSLRedirect',
+        'service_id' => 'ServiceId'
     ];
 
     /**
@@ -88,11 +91,12 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'ids' => 'setIds',
-        'name' => 'setName',
-        'status' => 'setStatus',
-        'type' => 'setType',
-        'vpc_ids' => 'setVpcIds'
+        'certificate_id' => 'setCertificateId',
+        'comments' => 'setComments',
+        'domain' => 'setDomain',
+        'protocol' => 'setProtocol',
+        'ssl_redirect' => 'setSslRedirect',
+        'service_id' => 'setServiceId'
     ];
 
     /**
@@ -101,11 +105,12 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'ids' => 'getIds',
-        'name' => 'getName',
-        'status' => 'getStatus',
-        'type' => 'getType',
-        'vpc_ids' => 'getVpcIds'
+        'certificate_id' => 'getCertificateId',
+        'comments' => 'getComments',
+        'domain' => 'getDomain',
+        'protocol' => 'getProtocol',
+        'ssl_redirect' => 'getSslRedirect',
+        'service_id' => 'getServiceId'
     ];
 
     /**
@@ -168,11 +173,12 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['ids'] = isset($data['ids']) ? $data['ids'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['vpc_ids'] = isset($data['vpc_ids']) ? $data['vpc_ids'] : null;
+        $this->container['certificate_id'] = isset($data['certificate_id']) ? $data['certificate_id'] : null;
+        $this->container['comments'] = isset($data['comments']) ? $data['comments'] : null;
+        $this->container['domain'] = isset($data['domain']) ? $data['domain'] : null;
+        $this->container['protocol'] = isset($data['protocol']) ? $data['protocol'] : null;
+        $this->container['ssl_redirect'] = isset($data['ssl_redirect']) ? $data['ssl_redirect'] : null;
+        $this->container['service_id'] = isset($data['service_id']) ? $data['service_id'] : null;
     }
 
     /**
@@ -184,6 +190,12 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['domain'] === null) {
+            $invalidProperties[] = "'domain' can't be null";
+        }
+        if ($this->container['service_id'] === null) {
+            $invalidProperties[] = "'service_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -200,121 +212,145 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets ids
+     * Gets certificate_id
+     *
+     * @return string
+     */
+    public function getCertificateId()
+    {
+        return $this->container['certificate_id'];
+    }
+
+    /**
+     * Sets certificate_id
+     *
+     * @param string $certificate_id certificate_id
+     *
+     * @return $this
+     */
+    public function setCertificateId($certificate_id)
+    {
+        $this->container['certificate_id'] = $certificate_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets comments
+     *
+     * @return string
+     */
+    public function getComments()
+    {
+        return $this->container['comments'];
+    }
+
+    /**
+     * Sets comments
+     *
+     * @param string $comments comments
+     *
+     * @return $this
+     */
+    public function setComments($comments)
+    {
+        $this->container['comments'] = $comments;
+
+        return $this;
+    }
+
+    /**
+     * Gets domain
+     *
+     * @return string
+     */
+    public function getDomain()
+    {
+        return $this->container['domain'];
+    }
+
+    /**
+     * Sets domain
+     *
+     * @param string $domain domain
+     *
+     * @return $this
+     */
+    public function setDomain($domain)
+    {
+        $this->container['domain'] = $domain;
+
+        return $this;
+    }
+
+    /**
+     * Gets protocol
      *
      * @return string[]
      */
-    public function getIds()
+    public function getProtocol()
     {
-        return $this->container['ids'];
+        return $this->container['protocol'];
     }
 
     /**
-     * Sets ids
+     * Sets protocol
      *
-     * @param string[] $ids ids
+     * @param string[] $protocol protocol
      *
      * @return $this
      */
-    public function setIds($ids)
+    public function setProtocol($protocol)
     {
-        $this->container['ids'] = $ids;
+        $this->container['protocol'] = $protocol;
 
         return $this;
     }
 
     /**
-     * Gets name
+     * Gets ssl_redirect
+     *
+     * @return bool
+     */
+    public function getSslRedirect()
+    {
+        return $this->container['ssl_redirect'];
+    }
+
+    /**
+     * Sets ssl_redirect
+     *
+     * @param bool $ssl_redirect ssl_redirect
+     *
+     * @return $this
+     */
+    public function setSslRedirect($ssl_redirect)
+    {
+        $this->container['ssl_redirect'] = $ssl_redirect;
+
+        return $this;
+    }
+
+    /**
+     * Gets service_id
      *
      * @return string
      */
-    public function getName()
+    public function getServiceId()
     {
-        return $this->container['name'];
+        return $this->container['service_id'];
     }
 
     /**
-     * Sets name
+     * Sets service_id
      *
-     * @param string $name name
+     * @param string $service_id service_id
      *
      * @return $this
      */
-    public function setName($name)
+    public function setServiceId($service_id)
     {
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets status
-     *
-     * @return string
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param string $status status
-     *
-     * @return $this
-     */
-    public function setStatus($status)
-    {
-        $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     *
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param string $type type
-     *
-     * @return $this
-     */
-    public function setType($type)
-    {
-        $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets vpc_ids
-     *
-     * @return string[]
-     */
-    public function getVpcIds()
-    {
-        return $this->container['vpc_ids'];
-    }
-
-    /**
-     * Sets vpc_ids
-     *
-     * @param string[] $vpc_ids vpc_ids
-     *
-     * @return $this
-     */
-    public function setVpcIds($vpc_ids)
-    {
-        $this->container['vpc_ids'] = $vpc_ids;
+        $this->container['service_id'] = $service_id;
 
         return $this;
     }

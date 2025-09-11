@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class TagForGetUpstreamOutput implements ModelInterface, ArrayAccess
+class ListCustomDomainsResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class TagForGetUpstreamOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'TagForGetUpstreamOutput';
+    protected static $swaggerModelName = 'ListCustomDomainsResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,8 @@ class TagForGetUpstreamOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'key' => 'string',
-        'value' => 'string'
+        'items' => '\Volcengine\Apig\Model\ItemForListCustomDomainsOutput[]',
+        'total' => 'int'
     ];
 
     /**
@@ -38,8 +38,8 @@ class TagForGetUpstreamOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'key' => null,
-        'value' => null
+        'items' => null,
+        'total' => 'int64'
     ];
 
     /**
@@ -69,8 +69,8 @@ class TagForGetUpstreamOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'key' => 'Key',
-        'value' => 'Value'
+        'items' => 'Items',
+        'total' => 'Total'
     ];
 
     /**
@@ -79,8 +79,8 @@ class TagForGetUpstreamOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'key' => 'setKey',
-        'value' => 'setValue'
+        'items' => 'setItems',
+        'total' => 'setTotal'
     ];
 
     /**
@@ -89,8 +89,8 @@ class TagForGetUpstreamOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'key' => 'getKey',
-        'value' => 'getValue'
+        'items' => 'getItems',
+        'total' => 'getTotal'
     ];
 
     /**
@@ -153,8 +153,8 @@ class TagForGetUpstreamOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['key'] = isset($data['key']) ? $data['key'] : null;
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        $this->container['items'] = isset($data['items']) ? $data['items'] : null;
+        $this->container['total'] = isset($data['total']) ? $data['total'] : null;
     }
 
     /**
@@ -182,49 +182,49 @@ class TagForGetUpstreamOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets key
+     * Gets items
      *
-     * @return string
+     * @return \Volcengine\Apig\Model\ItemForListCustomDomainsOutput[]
      */
-    public function getKey()
+    public function getItems()
     {
-        return $this->container['key'];
+        return $this->container['items'];
     }
 
     /**
-     * Sets key
+     * Sets items
      *
-     * @param string $key key
+     * @param \Volcengine\Apig\Model\ItemForListCustomDomainsOutput[] $items items
      *
      * @return $this
      */
-    public function setKey($key)
+    public function setItems($items)
     {
-        $this->container['key'] = $key;
+        $this->container['items'] = $items;
 
         return $this;
     }
 
     /**
-     * Gets value
+     * Gets total
      *
-     * @return string
+     * @return int
      */
-    public function getValue()
+    public function getTotal()
     {
-        return $this->container['value'];
+        return $this->container['total'];
     }
 
     /**
-     * Sets value
+     * Sets total
      *
-     * @param string $value value
+     * @param int $total total
      *
      * @return $this
      */
-    public function setValue($value)
+    public function setTotal($total)
     {
-        $this->container['value'] = $value;
+        $this->container['total'] = $total;
 
         return $this;
     }

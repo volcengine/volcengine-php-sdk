@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class TagForGetGatewayOutput implements ModelInterface, ArrayAccess
+class TraceSpecForListGatewaysOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class TagForGetGatewayOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'TagForGetGatewayOutput';
+    protected static $swaggerModelName = 'TraceSpecForListGatewaysOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,10 @@ class TagForGetGatewayOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'key' => 'string',
-        'value' => 'string'
+        'apm_trace_spec' => '\Volcengine\Apig\Model\APMTraceSpecForListGatewaysOutput',
+        'enable' => 'bool',
+        'tls_trace_spec' => '\Volcengine\Apig\Model\TLSTraceSpecForListGatewaysOutput',
+        'trace_type' => 'string'
     ];
 
     /**
@@ -38,8 +40,10 @@ class TagForGetGatewayOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'key' => null,
-        'value' => null
+        'apm_trace_spec' => null,
+        'enable' => null,
+        'tls_trace_spec' => null,
+        'trace_type' => null
     ];
 
     /**
@@ -69,8 +73,10 @@ class TagForGetGatewayOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'key' => 'Key',
-        'value' => 'Value'
+        'apm_trace_spec' => 'APMTraceSpec',
+        'enable' => 'Enable',
+        'tls_trace_spec' => 'TLSTraceSpec',
+        'trace_type' => 'TraceType'
     ];
 
     /**
@@ -79,8 +85,10 @@ class TagForGetGatewayOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'key' => 'setKey',
-        'value' => 'setValue'
+        'apm_trace_spec' => 'setApmTraceSpec',
+        'enable' => 'setEnable',
+        'tls_trace_spec' => 'setTlsTraceSpec',
+        'trace_type' => 'setTraceType'
     ];
 
     /**
@@ -89,8 +97,10 @@ class TagForGetGatewayOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'key' => 'getKey',
-        'value' => 'getValue'
+        'apm_trace_spec' => 'getApmTraceSpec',
+        'enable' => 'getEnable',
+        'tls_trace_spec' => 'getTlsTraceSpec',
+        'trace_type' => 'getTraceType'
     ];
 
     /**
@@ -153,8 +163,10 @@ class TagForGetGatewayOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['key'] = isset($data['key']) ? $data['key'] : null;
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        $this->container['apm_trace_spec'] = isset($data['apm_trace_spec']) ? $data['apm_trace_spec'] : null;
+        $this->container['enable'] = isset($data['enable']) ? $data['enable'] : null;
+        $this->container['tls_trace_spec'] = isset($data['tls_trace_spec']) ? $data['tls_trace_spec'] : null;
+        $this->container['trace_type'] = isset($data['trace_type']) ? $data['trace_type'] : null;
     }
 
     /**
@@ -182,49 +194,97 @@ class TagForGetGatewayOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets key
+     * Gets apm_trace_spec
      *
-     * @return string
+     * @return \Volcengine\Apig\Model\APMTraceSpecForListGatewaysOutput
      */
-    public function getKey()
+    public function getApmTraceSpec()
     {
-        return $this->container['key'];
+        return $this->container['apm_trace_spec'];
     }
 
     /**
-     * Sets key
+     * Sets apm_trace_spec
      *
-     * @param string $key key
+     * @param \Volcengine\Apig\Model\APMTraceSpecForListGatewaysOutput $apm_trace_spec apm_trace_spec
      *
      * @return $this
      */
-    public function setKey($key)
+    public function setApmTraceSpec($apm_trace_spec)
     {
-        $this->container['key'] = $key;
+        $this->container['apm_trace_spec'] = $apm_trace_spec;
 
         return $this;
     }
 
     /**
-     * Gets value
+     * Gets enable
      *
-     * @return string
+     * @return bool
      */
-    public function getValue()
+    public function getEnable()
     {
-        return $this->container['value'];
+        return $this->container['enable'];
     }
 
     /**
-     * Sets value
+     * Sets enable
      *
-     * @param string $value value
+     * @param bool $enable enable
      *
      * @return $this
      */
-    public function setValue($value)
+    public function setEnable($enable)
     {
-        $this->container['value'] = $value;
+        $this->container['enable'] = $enable;
+
+        return $this;
+    }
+
+    /**
+     * Gets tls_trace_spec
+     *
+     * @return \Volcengine\Apig\Model\TLSTraceSpecForListGatewaysOutput
+     */
+    public function getTlsTraceSpec()
+    {
+        return $this->container['tls_trace_spec'];
+    }
+
+    /**
+     * Sets tls_trace_spec
+     *
+     * @param \Volcengine\Apig\Model\TLSTraceSpecForListGatewaysOutput $tls_trace_spec tls_trace_spec
+     *
+     * @return $this
+     */
+    public function setTlsTraceSpec($tls_trace_spec)
+    {
+        $this->container['tls_trace_spec'] = $tls_trace_spec;
+
+        return $this;
+    }
+
+    /**
+     * Gets trace_type
+     *
+     * @return string
+     */
+    public function getTraceType()
+    {
+        return $this->container['trace_type'];
+    }
+
+    /**
+     * Sets trace_type
+     *
+     * @param string $trace_type trace_type
+     *
+     * @return $this
+     */
+    public function setTraceType($trace_type)
+    {
+        $this->container['trace_type'] = $trace_type;
 
         return $this;
     }

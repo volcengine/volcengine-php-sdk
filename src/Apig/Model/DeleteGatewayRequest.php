@@ -28,7 +28,6 @@ class DeleteGatewayRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'force_delete' => 'bool',
         'id' => 'string'
     ];
 
@@ -38,7 +37,6 @@ class DeleteGatewayRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'force_delete' => null,
         'id' => null
     ];
 
@@ -69,7 +67,6 @@ class DeleteGatewayRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'force_delete' => 'ForceDelete',
         'id' => 'Id'
     ];
 
@@ -79,7 +76,6 @@ class DeleteGatewayRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'force_delete' => 'setForceDelete',
         'id' => 'setId'
     ];
 
@@ -89,7 +85,6 @@ class DeleteGatewayRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'force_delete' => 'getForceDelete',
         'id' => 'getId'
     ];
 
@@ -153,7 +148,6 @@ class DeleteGatewayRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['force_delete'] = isset($data['force_delete']) ? $data['force_delete'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
     }
 
@@ -183,30 +177,6 @@ class DeleteGatewayRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets force_delete
-     *
-     * @return bool
-     */
-    public function getForceDelete()
-    {
-        return $this->container['force_delete'];
-    }
-
-    /**
-     * Sets force_delete
-     *
-     * @param bool $force_delete force_delete
-     *
-     * @return $this
-     */
-    public function setForceDelete($force_delete)
-    {
-        $this->container['force_delete'] = $force_delete;
-
-        return $this;
-    }
 
     /**
      * Gets id

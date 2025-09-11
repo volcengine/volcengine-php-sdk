@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
+class GetJwtTokenResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'FilterForListGatewaysInput';
+    protected static $swaggerModelName = 'GetJwtTokenResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,11 +28,7 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'ids' => 'string[]',
-        'name' => 'string',
-        'status' => 'string',
-        'type' => 'string',
-        'vpc_ids' => 'string[]'
+        'jwt_token' => 'string'
     ];
 
     /**
@@ -41,11 +37,7 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'ids' => null,
-        'name' => null,
-        'status' => null,
-        'type' => null,
-        'vpc_ids' => null
+        'jwt_token' => null
     ];
 
     /**
@@ -75,11 +67,7 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'ids' => 'Ids',
-        'name' => 'Name',
-        'status' => 'Status',
-        'type' => 'Type',
-        'vpc_ids' => 'VpcIds'
+        'jwt_token' => 'JwtToken'
     ];
 
     /**
@@ -88,11 +76,7 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'ids' => 'setIds',
-        'name' => 'setName',
-        'status' => 'setStatus',
-        'type' => 'setType',
-        'vpc_ids' => 'setVpcIds'
+        'jwt_token' => 'setJwtToken'
     ];
 
     /**
@@ -101,11 +85,7 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'ids' => 'getIds',
-        'name' => 'getName',
-        'status' => 'getStatus',
-        'type' => 'getType',
-        'vpc_ids' => 'getVpcIds'
+        'jwt_token' => 'getJwtToken'
     ];
 
     /**
@@ -168,11 +148,7 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['ids'] = isset($data['ids']) ? $data['ids'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['vpc_ids'] = isset($data['vpc_ids']) ? $data['vpc_ids'] : null;
+        $this->container['jwt_token'] = isset($data['jwt_token']) ? $data['jwt_token'] : null;
     }
 
     /**
@@ -200,121 +176,25 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets ids
-     *
-     * @return string[]
-     */
-    public function getIds()
-    {
-        return $this->container['ids'];
-    }
-
-    /**
-     * Sets ids
-     *
-     * @param string[] $ids ids
-     *
-     * @return $this
-     */
-    public function setIds($ids)
-    {
-        $this->container['ids'] = $ids;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
+     * Gets jwt_token
      *
      * @return string
      */
-    public function getName()
+    public function getJwtToken()
     {
-        return $this->container['name'];
+        return $this->container['jwt_token'];
     }
 
     /**
-     * Sets name
+     * Sets jwt_token
      *
-     * @param string $name name
+     * @param string $jwt_token jwt_token
      *
      * @return $this
      */
-    public function setName($name)
+    public function setJwtToken($jwt_token)
     {
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets status
-     *
-     * @return string
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param string $status status
-     *
-     * @return $this
-     */
-    public function setStatus($status)
-    {
-        $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     *
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param string $type type
-     *
-     * @return $this
-     */
-    public function setType($type)
-    {
-        $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets vpc_ids
-     *
-     * @return string[]
-     */
-    public function getVpcIds()
-    {
-        return $this->container['vpc_ids'];
-    }
-
-    /**
-     * Sets vpc_ids
-     *
-     * @param string[] $vpc_ids vpc_ids
-     *
-     * @return $this
-     */
-    public function setVpcIds($vpc_ids)
-    {
-        $this->container['vpc_ids'] = $vpc_ids;
+        $this->container['jwt_token'] = $jwt_token;
 
         return $this;
     }

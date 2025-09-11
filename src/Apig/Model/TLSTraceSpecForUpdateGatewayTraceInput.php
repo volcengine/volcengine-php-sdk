@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
+class TLSTraceSpecForUpdateGatewayTraceInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'FilterForListGatewaysInput';
+    protected static $swaggerModelName = 'TLSTraceSpecForUpdateGatewayTraceInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,11 +28,10 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'ids' => 'string[]',
-        'name' => 'string',
-        'status' => 'string',
-        'type' => 'string',
-        'vpc_ids' => 'string[]'
+        'iam_user_ak' => 'string',
+        'iam_user_sk' => 'string',
+        'project_id' => 'string',
+        'trace_id' => 'string'
     ];
 
     /**
@@ -41,11 +40,10 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'ids' => null,
-        'name' => null,
-        'status' => null,
-        'type' => null,
-        'vpc_ids' => null
+        'iam_user_ak' => null,
+        'iam_user_sk' => null,
+        'project_id' => null,
+        'trace_id' => null
     ];
 
     /**
@@ -75,11 +73,10 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'ids' => 'Ids',
-        'name' => 'Name',
-        'status' => 'Status',
-        'type' => 'Type',
-        'vpc_ids' => 'VpcIds'
+        'iam_user_ak' => 'IAMUserAK',
+        'iam_user_sk' => 'IAMUserSK',
+        'project_id' => 'ProjectId',
+        'trace_id' => 'TraceId'
     ];
 
     /**
@@ -88,11 +85,10 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'ids' => 'setIds',
-        'name' => 'setName',
-        'status' => 'setStatus',
-        'type' => 'setType',
-        'vpc_ids' => 'setVpcIds'
+        'iam_user_ak' => 'setIamUserAk',
+        'iam_user_sk' => 'setIamUserSk',
+        'project_id' => 'setProjectId',
+        'trace_id' => 'setTraceId'
     ];
 
     /**
@@ -101,11 +97,10 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'ids' => 'getIds',
-        'name' => 'getName',
-        'status' => 'getStatus',
-        'type' => 'getType',
-        'vpc_ids' => 'getVpcIds'
+        'iam_user_ak' => 'getIamUserAk',
+        'iam_user_sk' => 'getIamUserSk',
+        'project_id' => 'getProjectId',
+        'trace_id' => 'getTraceId'
     ];
 
     /**
@@ -168,11 +163,10 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['ids'] = isset($data['ids']) ? $data['ids'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['vpc_ids'] = isset($data['vpc_ids']) ? $data['vpc_ids'] : null;
+        $this->container['iam_user_ak'] = isset($data['iam_user_ak']) ? $data['iam_user_ak'] : null;
+        $this->container['iam_user_sk'] = isset($data['iam_user_sk']) ? $data['iam_user_sk'] : null;
+        $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
+        $this->container['trace_id'] = isset($data['trace_id']) ? $data['trace_id'] : null;
     }
 
     /**
@@ -200,121 +194,97 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets ids
-     *
-     * @return string[]
-     */
-    public function getIds()
-    {
-        return $this->container['ids'];
-    }
-
-    /**
-     * Sets ids
-     *
-     * @param string[] $ids ids
-     *
-     * @return $this
-     */
-    public function setIds($ids)
-    {
-        $this->container['ids'] = $ids;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
+     * Gets iam_user_ak
      *
      * @return string
      */
-    public function getName()
+    public function getIamUserAk()
     {
-        return $this->container['name'];
+        return $this->container['iam_user_ak'];
     }
 
     /**
-     * Sets name
+     * Sets iam_user_ak
      *
-     * @param string $name name
+     * @param string $iam_user_ak iam_user_ak
      *
      * @return $this
      */
-    public function setName($name)
+    public function setIamUserAk($iam_user_ak)
     {
-        $this->container['name'] = $name;
+        $this->container['iam_user_ak'] = $iam_user_ak;
 
         return $this;
     }
 
     /**
-     * Gets status
+     * Gets iam_user_sk
      *
      * @return string
      */
-    public function getStatus()
+    public function getIamUserSk()
     {
-        return $this->container['status'];
+        return $this->container['iam_user_sk'];
     }
 
     /**
-     * Sets status
+     * Sets iam_user_sk
      *
-     * @param string $status status
+     * @param string $iam_user_sk iam_user_sk
      *
      * @return $this
      */
-    public function setStatus($status)
+    public function setIamUserSk($iam_user_sk)
     {
-        $this->container['status'] = $status;
+        $this->container['iam_user_sk'] = $iam_user_sk;
 
         return $this;
     }
 
     /**
-     * Gets type
+     * Gets project_id
      *
      * @return string
      */
-    public function getType()
+    public function getProjectId()
     {
-        return $this->container['type'];
+        return $this->container['project_id'];
     }
 
     /**
-     * Sets type
+     * Sets project_id
      *
-     * @param string $type type
+     * @param string $project_id project_id
      *
      * @return $this
      */
-    public function setType($type)
+    public function setProjectId($project_id)
     {
-        $this->container['type'] = $type;
+        $this->container['project_id'] = $project_id;
 
         return $this;
     }
 
     /**
-     * Gets vpc_ids
+     * Gets trace_id
      *
-     * @return string[]
+     * @return string
      */
-    public function getVpcIds()
+    public function getTraceId()
     {
-        return $this->container['vpc_ids'];
+        return $this->container['trace_id'];
     }
 
     /**
-     * Sets vpc_ids
+     * Sets trace_id
      *
-     * @param string[] $vpc_ids vpc_ids
+     * @param string $trace_id trace_id
      *
      * @return $this
      */
-    public function setVpcIds($vpc_ids)
+    public function setTraceId($trace_id)
     {
-        $this->container['vpc_ids'] = $vpc_ids;
+        $this->container['trace_id'] = $trace_id;
 
         return $this;
     }
