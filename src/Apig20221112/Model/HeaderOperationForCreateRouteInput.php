@@ -28,7 +28,6 @@ class HeaderOperationForCreateRouteInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'direction_type' => 'string',
         'key' => 'string',
         'operation' => 'string',
         'value' => 'string'
@@ -40,7 +39,6 @@ class HeaderOperationForCreateRouteInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'direction_type' => null,
         'key' => null,
         'operation' => null,
         'value' => null
@@ -73,7 +71,6 @@ class HeaderOperationForCreateRouteInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'direction_type' => 'DirectionType',
         'key' => 'Key',
         'operation' => 'Operation',
         'value' => 'Value'
@@ -85,7 +82,6 @@ class HeaderOperationForCreateRouteInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'direction_type' => 'setDirectionType',
         'key' => 'setKey',
         'operation' => 'setOperation',
         'value' => 'setValue'
@@ -97,7 +93,6 @@ class HeaderOperationForCreateRouteInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'direction_type' => 'getDirectionType',
         'key' => 'getKey',
         'operation' => 'getOperation',
         'value' => 'getValue'
@@ -163,7 +158,6 @@ class HeaderOperationForCreateRouteInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['direction_type'] = isset($data['direction_type']) ? $data['direction_type'] : null;
         $this->container['key'] = isset($data['key']) ? $data['key'] : null;
         $this->container['operation'] = isset($data['operation']) ? $data['operation'] : null;
         $this->container['value'] = isset($data['value']) ? $data['value'] : null;
@@ -192,30 +186,6 @@ class HeaderOperationForCreateRouteInput implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets direction_type
-     *
-     * @return string
-     */
-    public function getDirectionType()
-    {
-        return $this->container['direction_type'];
-    }
-
-    /**
-     * Sets direction_type
-     *
-     * @param string $direction_type direction_type
-     *
-     * @return $this
-     */
-    public function setDirectionType($direction_type)
-    {
-        $this->container['direction_type'] = $direction_type;
-
-        return $this;
-    }
 
     /**
      * Gets key

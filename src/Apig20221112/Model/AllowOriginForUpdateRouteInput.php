@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ListRoutesRequest implements ModelInterface, ArrayAccess
+class AllowOriginForUpdateRouteInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ListRoutesRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ListRoutesRequest';
+    protected static $swaggerModelName = 'AllowOriginForUpdateRouteInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,13 +28,8 @@ class ListRoutesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'filter' => '\Volcengine\Apig20221112\Model\FilterForListRoutesInput',
-        'gateway_id' => 'string',
-        'page_number' => 'int',
-        'page_size' => 'int',
-        'service_id' => 'string',
-        'upstream_id' => 'string',
-        'upstream_version' => 'string'
+        'match_type' => 'string',
+        'value' => 'string'
     ];
 
     /**
@@ -43,13 +38,8 @@ class ListRoutesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'filter' => null,
-        'gateway_id' => null,
-        'page_number' => 'int64',
-        'page_size' => 'int64',
-        'service_id' => null,
-        'upstream_id' => null,
-        'upstream_version' => null
+        'match_type' => null,
+        'value' => null
     ];
 
     /**
@@ -79,13 +69,8 @@ class ListRoutesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'filter' => 'Filter',
-        'gateway_id' => 'GatewayId',
-        'page_number' => 'PageNumber',
-        'page_size' => 'PageSize',
-        'service_id' => 'ServiceId',
-        'upstream_id' => 'UpstreamId',
-        'upstream_version' => 'UpstreamVersion'
+        'match_type' => 'MatchType',
+        'value' => 'Value'
     ];
 
     /**
@@ -94,13 +79,8 @@ class ListRoutesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'filter' => 'setFilter',
-        'gateway_id' => 'setGatewayId',
-        'page_number' => 'setPageNumber',
-        'page_size' => 'setPageSize',
-        'service_id' => 'setServiceId',
-        'upstream_id' => 'setUpstreamId',
-        'upstream_version' => 'setUpstreamVersion'
+        'match_type' => 'setMatchType',
+        'value' => 'setValue'
     ];
 
     /**
@@ -109,13 +89,8 @@ class ListRoutesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'filter' => 'getFilter',
-        'gateway_id' => 'getGatewayId',
-        'page_number' => 'getPageNumber',
-        'page_size' => 'getPageSize',
-        'service_id' => 'getServiceId',
-        'upstream_id' => 'getUpstreamId',
-        'upstream_version' => 'getUpstreamVersion'
+        'match_type' => 'getMatchType',
+        'value' => 'getValue'
     ];
 
     /**
@@ -178,13 +153,8 @@ class ListRoutesRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['filter'] = isset($data['filter']) ? $data['filter'] : null;
-        $this->container['gateway_id'] = isset($data['gateway_id']) ? $data['gateway_id'] : null;
-        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
-        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
-        $this->container['service_id'] = isset($data['service_id']) ? $data['service_id'] : null;
-        $this->container['upstream_id'] = isset($data['upstream_id']) ? $data['upstream_id'] : null;
-        $this->container['upstream_version'] = isset($data['upstream_version']) ? $data['upstream_version'] : null;
+        $this->container['match_type'] = isset($data['match_type']) ? $data['match_type'] : null;
+        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 
     /**
@@ -212,169 +182,49 @@ class ListRoutesRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets filter
-     *
-     * @return \Volcengine\Apig20221112\Model\FilterForListRoutesInput
-     */
-    public function getFilter()
-    {
-        return $this->container['filter'];
-    }
-
-    /**
-     * Sets filter
-     *
-     * @param \Volcengine\Apig20221112\Model\FilterForListRoutesInput $filter filter
-     *
-     * @return $this
-     */
-    public function setFilter($filter)
-    {
-        $this->container['filter'] = $filter;
-
-        return $this;
-    }
-
-    /**
-     * Gets gateway_id
+     * Gets match_type
      *
      * @return string
      */
-    public function getGatewayId()
+    public function getMatchType()
     {
-        return $this->container['gateway_id'];
+        return $this->container['match_type'];
     }
 
     /**
-     * Sets gateway_id
+     * Sets match_type
      *
-     * @param string $gateway_id gateway_id
+     * @param string $match_type match_type
      *
      * @return $this
      */
-    public function setGatewayId($gateway_id)
+    public function setMatchType($match_type)
     {
-        $this->container['gateway_id'] = $gateway_id;
+        $this->container['match_type'] = $match_type;
 
         return $this;
     }
 
     /**
-     * Gets page_number
-     *
-     * @return int
-     */
-    public function getPageNumber()
-    {
-        return $this->container['page_number'];
-    }
-
-    /**
-     * Sets page_number
-     *
-     * @param int $page_number page_number
-     *
-     * @return $this
-     */
-    public function setPageNumber($page_number)
-    {
-        $this->container['page_number'] = $page_number;
-
-        return $this;
-    }
-
-    /**
-     * Gets page_size
-     *
-     * @return int
-     */
-    public function getPageSize()
-    {
-        return $this->container['page_size'];
-    }
-
-    /**
-     * Sets page_size
-     *
-     * @param int $page_size page_size
-     *
-     * @return $this
-     */
-    public function setPageSize($page_size)
-    {
-        $this->container['page_size'] = $page_size;
-
-        return $this;
-    }
-
-    /**
-     * Gets service_id
+     * Gets value
      *
      * @return string
      */
-    public function getServiceId()
+    public function getValue()
     {
-        return $this->container['service_id'];
+        return $this->container['value'];
     }
 
     /**
-     * Sets service_id
+     * Sets value
      *
-     * @param string $service_id service_id
+     * @param string $value value
      *
      * @return $this
      */
-    public function setServiceId($service_id)
+    public function setValue($value)
     {
-        $this->container['service_id'] = $service_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets upstream_id
-     *
-     * @return string
-     */
-    public function getUpstreamId()
-    {
-        return $this->container['upstream_id'];
-    }
-
-    /**
-     * Sets upstream_id
-     *
-     * @param string $upstream_id upstream_id
-     *
-     * @return $this
-     */
-    public function setUpstreamId($upstream_id)
-    {
-        $this->container['upstream_id'] = $upstream_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets upstream_version
-     *
-     * @return string
-     */
-    public function getUpstreamVersion()
-    {
-        return $this->container['upstream_version'];
-    }
-
-    /**
-     * Sets upstream_version
-     *
-     * @param string $upstream_version upstream_version
-     *
-     * @return $this
-     */
-    public function setUpstreamVersion($upstream_version)
-    {
-        $this->container['upstream_version'] = $upstream_version;
+        $this->container['value'] = $value;
 
         return $this;
     }
