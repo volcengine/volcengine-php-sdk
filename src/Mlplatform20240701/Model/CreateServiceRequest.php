@@ -33,6 +33,7 @@ class CreateServiceRequest implements ModelInterface, ArrayAccess
         'description' => 'string',
         'dry_run' => 'bool',
         'ports' => '\Volcengine\Mlplatform20240701\Model\PortForCreateServiceInput[]',
+        'project_name' => 'string',
         'resource_group_id' => 'string',
         'service_name' => 'string',
         'traffic_config' => '\Volcengine\Mlplatform20240701\Model\TrafficConfigForCreateServiceInput'
@@ -49,6 +50,7 @@ class CreateServiceRequest implements ModelInterface, ArrayAccess
         'description' => null,
         'dry_run' => null,
         'ports' => null,
+        'project_name' => null,
         'resource_group_id' => null,
         'service_name' => null,
         'traffic_config' => null
@@ -86,6 +88,7 @@ class CreateServiceRequest implements ModelInterface, ArrayAccess
         'description' => 'Description',
         'dry_run' => 'DryRun',
         'ports' => 'Ports',
+        'project_name' => 'ProjectName',
         'resource_group_id' => 'ResourceGroupId',
         'service_name' => 'ServiceName',
         'traffic_config' => 'TrafficConfig'
@@ -102,6 +105,7 @@ class CreateServiceRequest implements ModelInterface, ArrayAccess
         'description' => 'setDescription',
         'dry_run' => 'setDryRun',
         'ports' => 'setPorts',
+        'project_name' => 'setProjectName',
         'resource_group_id' => 'setResourceGroupId',
         'service_name' => 'setServiceName',
         'traffic_config' => 'setTrafficConfig'
@@ -118,6 +122,7 @@ class CreateServiceRequest implements ModelInterface, ArrayAccess
         'description' => 'getDescription',
         'dry_run' => 'getDryRun',
         'ports' => 'getPorts',
+        'project_name' => 'getProjectName',
         'resource_group_id' => 'getResourceGroupId',
         'service_name' => 'getServiceName',
         'traffic_config' => 'getTrafficConfig'
@@ -188,6 +193,7 @@ class CreateServiceRequest implements ModelInterface, ArrayAccess
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['dry_run'] = isset($data['dry_run']) ? $data['dry_run'] : null;
         $this->container['ports'] = isset($data['ports']) ? $data['ports'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['resource_group_id'] = isset($data['resource_group_id']) ? $data['resource_group_id'] : null;
         $this->container['service_name'] = isset($data['service_name']) ? $data['service_name'] : null;
         $this->container['traffic_config'] = isset($data['traffic_config']) ? $data['traffic_config'] : null;
@@ -339,6 +345,30 @@ class CreateServiceRequest implements ModelInterface, ArrayAccess
     public function setPorts($ports)
     {
         $this->container['ports'] = $ports;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }

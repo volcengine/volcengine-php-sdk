@@ -36,6 +36,7 @@ class GetDeploymentResponse implements ModelInterface, ArrayAccess
         'instance_items' => '\Volcengine\Mlplatform20240701\Model\InstanceItemForGetDeploymentOutput[]',
         'name' => 'string',
         'priority' => 'int',
+        'project_name' => 'string',
         'resource_queue_id' => 'string',
         'roles' => '\Volcengine\Mlplatform20240701\Model\RoleForGetDeploymentOutput[]',
         'service_id' => 'string',
@@ -57,6 +58,7 @@ class GetDeploymentResponse implements ModelInterface, ArrayAccess
         'instance_items' => null,
         'name' => null,
         'priority' => 'int32',
+        'project_name' => null,
         'resource_queue_id' => null,
         'roles' => null,
         'service_id' => null,
@@ -99,6 +101,7 @@ class GetDeploymentResponse implements ModelInterface, ArrayAccess
         'instance_items' => 'InstanceItems',
         'name' => 'Name',
         'priority' => 'Priority',
+        'project_name' => 'ProjectName',
         'resource_queue_id' => 'ResourceQueueId',
         'roles' => 'Roles',
         'service_id' => 'ServiceId',
@@ -120,6 +123,7 @@ class GetDeploymentResponse implements ModelInterface, ArrayAccess
         'instance_items' => 'setInstanceItems',
         'name' => 'setName',
         'priority' => 'setPriority',
+        'project_name' => 'setProjectName',
         'resource_queue_id' => 'setResourceQueueId',
         'roles' => 'setRoles',
         'service_id' => 'setServiceId',
@@ -141,6 +145,7 @@ class GetDeploymentResponse implements ModelInterface, ArrayAccess
         'instance_items' => 'getInstanceItems',
         'name' => 'getName',
         'priority' => 'getPriority',
+        'project_name' => 'getProjectName',
         'resource_queue_id' => 'getResourceQueueId',
         'roles' => 'getRoles',
         'service_id' => 'getServiceId',
@@ -216,6 +221,7 @@ class GetDeploymentResponse implements ModelInterface, ArrayAccess
         $this->container['instance_items'] = isset($data['instance_items']) ? $data['instance_items'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['priority'] = isset($data['priority']) ? $data['priority'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['resource_queue_id'] = isset($data['resource_queue_id']) ? $data['resource_queue_id'] : null;
         $this->container['roles'] = isset($data['roles']) ? $data['roles'] : null;
         $this->container['service_id'] = isset($data['service_id']) ? $data['service_id'] : null;
@@ -435,6 +441,30 @@ class GetDeploymentResponse implements ModelInterface, ArrayAccess
     public function setPriority($priority)
     {
         $this->container['priority'] = $priority;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }

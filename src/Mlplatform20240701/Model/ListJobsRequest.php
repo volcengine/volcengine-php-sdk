@@ -35,6 +35,7 @@ class ListJobsRequest implements ModelInterface, ArrayAccess
         'page_number' => 'int',
         'page_size' => 'int',
         'priority' => 'int',
+        'project_name' => 'string',
         'resource_group_id' => 'string',
         'resource_queue_id' => 'string',
         'resource_reservation_plan_id' => 'string',
@@ -58,6 +59,7 @@ class ListJobsRequest implements ModelInterface, ArrayAccess
         'page_number' => 'int32',
         'page_size' => 'int32',
         'priority' => 'int32',
+        'project_name' => null,
         'resource_group_id' => null,
         'resource_queue_id' => null,
         'resource_reservation_plan_id' => null,
@@ -102,6 +104,7 @@ class ListJobsRequest implements ModelInterface, ArrayAccess
         'page_number' => 'PageNumber',
         'page_size' => 'PageSize',
         'priority' => 'Priority',
+        'project_name' => 'ProjectName',
         'resource_group_id' => 'ResourceGroupId',
         'resource_queue_id' => 'ResourceQueueId',
         'resource_reservation_plan_id' => 'ResourceReservationPlanId',
@@ -125,6 +128,7 @@ class ListJobsRequest implements ModelInterface, ArrayAccess
         'page_number' => 'setPageNumber',
         'page_size' => 'setPageSize',
         'priority' => 'setPriority',
+        'project_name' => 'setProjectName',
         'resource_group_id' => 'setResourceGroupId',
         'resource_queue_id' => 'setResourceQueueId',
         'resource_reservation_plan_id' => 'setResourceReservationPlanId',
@@ -148,6 +152,7 @@ class ListJobsRequest implements ModelInterface, ArrayAccess
         'page_number' => 'getPageNumber',
         'page_size' => 'getPageSize',
         'priority' => 'getPriority',
+        'project_name' => 'getProjectName',
         'resource_group_id' => 'getResourceGroupId',
         'resource_queue_id' => 'getResourceQueueId',
         'resource_reservation_plan_id' => 'getResourceReservationPlanId',
@@ -303,6 +308,7 @@ class ListJobsRequest implements ModelInterface, ArrayAccess
         $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
         $this->container['priority'] = isset($data['priority']) ? $data['priority'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['resource_group_id'] = isset($data['resource_group_id']) ? $data['resource_group_id'] : null;
         $this->container['resource_queue_id'] = isset($data['resource_queue_id']) ? $data['resource_queue_id'] : null;
         $this->container['resource_reservation_plan_id'] = isset($data['resource_reservation_plan_id']) ? $data['resource_reservation_plan_id'] : null;
@@ -542,6 +548,30 @@ class ListJobsRequest implements ModelInterface, ArrayAccess
     public function setPriority($priority)
     {
         $this->container['priority'] = $priority;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }

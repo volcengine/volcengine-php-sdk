@@ -44,6 +44,7 @@ class ItemForListGatewaysOutput implements ModelInterface, ArrayAccess
         'resource_spec' => '\Volcengine\Apig\Model\ResourceSpecForListGatewaysOutput',
         'status' => 'string',
         'tags' => '\Volcengine\Apig\Model\TagForListGatewaysOutput[]',
+        'trace_spec' => '\Volcengine\Apig\Model\TraceSpecForListGatewaysOutput',
         'type' => 'string',
         'version' => 'string'
     ];
@@ -70,6 +71,7 @@ class ItemForListGatewaysOutput implements ModelInterface, ArrayAccess
         'resource_spec' => null,
         'status' => null,
         'tags' => null,
+        'trace_spec' => null,
         'type' => null,
         'version' => null
     ];
@@ -117,6 +119,7 @@ class ItemForListGatewaysOutput implements ModelInterface, ArrayAccess
         'resource_spec' => 'ResourceSpec',
         'status' => 'Status',
         'tags' => 'Tags',
+        'trace_spec' => 'TraceSpec',
         'type' => 'Type',
         'version' => 'Version'
     ];
@@ -143,6 +146,7 @@ class ItemForListGatewaysOutput implements ModelInterface, ArrayAccess
         'resource_spec' => 'setResourceSpec',
         'status' => 'setStatus',
         'tags' => 'setTags',
+        'trace_spec' => 'setTraceSpec',
         'type' => 'setType',
         'version' => 'setVersion'
     ];
@@ -169,6 +173,7 @@ class ItemForListGatewaysOutput implements ModelInterface, ArrayAccess
         'resource_spec' => 'getResourceSpec',
         'status' => 'getStatus',
         'tags' => 'getTags',
+        'trace_spec' => 'getTraceSpec',
         'type' => 'getType',
         'version' => 'getVersion'
     ];
@@ -249,6 +254,7 @@ class ItemForListGatewaysOutput implements ModelInterface, ArrayAccess
         $this->container['resource_spec'] = isset($data['resource_spec']) ? $data['resource_spec'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
+        $this->container['trace_spec'] = isset($data['trace_spec']) ? $data['trace_spec'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['version'] = isset($data['version']) ? $data['version'] : null;
     }
@@ -657,6 +663,30 @@ class ItemForListGatewaysOutput implements ModelInterface, ArrayAccess
     public function setTags($tags)
     {
         $this->container['tags'] = $tags;
+
+        return $this;
+    }
+
+    /**
+     * Gets trace_spec
+     *
+     * @return \Volcengine\Apig\Model\TraceSpecForListGatewaysOutput
+     */
+    public function getTraceSpec()
+    {
+        return $this->container['trace_spec'];
+    }
+
+    /**
+     * Sets trace_spec
+     *
+     * @param \Volcengine\Apig\Model\TraceSpecForListGatewaysOutput $trace_spec trace_spec
+     *
+     * @return $this
+     */
+    public function setTraceSpec($trace_spec)
+    {
+        $this->container['trace_spec'] = $trace_spec;
 
         return $this;
     }

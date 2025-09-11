@@ -29,7 +29,8 @@ class SpeakerForUpdateAITranslationSpeakersInput implements ModelInterface, Arra
       */
     protected static $swaggerTypes = [
         'id' => 'string',
-        'speaker_name' => 'string'
+        'speaker_name' => 'string',
+        'voice' => 'string'
     ];
 
     /**
@@ -39,7 +40,8 @@ class SpeakerForUpdateAITranslationSpeakersInput implements ModelInterface, Arra
       */
     protected static $swaggerFormats = [
         'id' => null,
-        'speaker_name' => null
+        'speaker_name' => null,
+        'voice' => null
     ];
 
     /**
@@ -70,7 +72,8 @@ class SpeakerForUpdateAITranslationSpeakersInput implements ModelInterface, Arra
      */
     protected static $attributeMap = [
         'id' => 'Id',
-        'speaker_name' => 'SpeakerName'
+        'speaker_name' => 'SpeakerName',
+        'voice' => 'Voice'
     ];
 
     /**
@@ -80,7 +83,8 @@ class SpeakerForUpdateAITranslationSpeakersInput implements ModelInterface, Arra
      */
     protected static $setters = [
         'id' => 'setId',
-        'speaker_name' => 'setSpeakerName'
+        'speaker_name' => 'setSpeakerName',
+        'voice' => 'setVoice'
     ];
 
     /**
@@ -90,7 +94,8 @@ class SpeakerForUpdateAITranslationSpeakersInput implements ModelInterface, Arra
      */
     protected static $getters = [
         'id' => 'getId',
-        'speaker_name' => 'getSpeakerName'
+        'speaker_name' => 'getSpeakerName',
+        'voice' => 'getVoice'
     ];
 
     /**
@@ -155,6 +160,7 @@ class SpeakerForUpdateAITranslationSpeakersInput implements ModelInterface, Arra
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['speaker_name'] = isset($data['speaker_name']) ? $data['speaker_name'] : null;
+        $this->container['voice'] = isset($data['voice']) ? $data['voice'] : null;
     }
 
     /**
@@ -225,6 +231,30 @@ class SpeakerForUpdateAITranslationSpeakersInput implements ModelInterface, Arra
     public function setSpeakerName($speaker_name)
     {
         $this->container['speaker_name'] = $speaker_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets voice
+     *
+     * @return string
+     */
+    public function getVoice()
+    {
+        return $this->container['voice'];
+    }
+
+    /**
+     * Sets voice
+     *
+     * @param string $voice voice
+     *
+     * @return $this
+     */
+    public function setVoice($voice)
+    {
+        $this->container['voice'] = $voice;
 
         return $this;
     }

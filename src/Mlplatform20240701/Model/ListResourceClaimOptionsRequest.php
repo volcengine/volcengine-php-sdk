@@ -30,6 +30,7 @@ class ListResourceClaimOptionsRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'preemptible' => 'bool',
         'resource_queue_id' => 'string',
+        'resource_reservation_plan_id' => 'string',
         'support_status' => 'string'
     ];
 
@@ -41,6 +42,7 @@ class ListResourceClaimOptionsRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'preemptible' => null,
         'resource_queue_id' => null,
+        'resource_reservation_plan_id' => null,
         'support_status' => null
     ];
 
@@ -73,6 +75,7 @@ class ListResourceClaimOptionsRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'preemptible' => 'Preemptible',
         'resource_queue_id' => 'ResourceQueueId',
+        'resource_reservation_plan_id' => 'ResourceReservationPlanId',
         'support_status' => 'SupportStatus'
     ];
 
@@ -84,6 +87,7 @@ class ListResourceClaimOptionsRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'preemptible' => 'setPreemptible',
         'resource_queue_id' => 'setResourceQueueId',
+        'resource_reservation_plan_id' => 'setResourceReservationPlanId',
         'support_status' => 'setSupportStatus'
     ];
 
@@ -95,6 +99,7 @@ class ListResourceClaimOptionsRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'preemptible' => 'getPreemptible',
         'resource_queue_id' => 'getResourceQueueId',
+        'resource_reservation_plan_id' => 'getResourceReservationPlanId',
         'support_status' => 'getSupportStatus'
     ];
 
@@ -175,6 +180,7 @@ class ListResourceClaimOptionsRequest implements ModelInterface, ArrayAccess
     {
         $this->container['preemptible'] = isset($data['preemptible']) ? $data['preemptible'] : null;
         $this->container['resource_queue_id'] = isset($data['resource_queue_id']) ? $data['resource_queue_id'] : null;
+        $this->container['resource_reservation_plan_id'] = isset($data['resource_reservation_plan_id']) ? $data['resource_reservation_plan_id'] : null;
         $this->container['support_status'] = isset($data['support_status']) ? $data['support_status'] : null;
     }
 
@@ -254,6 +260,30 @@ class ListResourceClaimOptionsRequest implements ModelInterface, ArrayAccess
     public function setResourceQueueId($resource_queue_id)
     {
         $this->container['resource_queue_id'] = $resource_queue_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets resource_reservation_plan_id
+     *
+     * @return string
+     */
+    public function getResourceReservationPlanId()
+    {
+        return $this->container['resource_reservation_plan_id'];
+    }
+
+    /**
+     * Sets resource_reservation_plan_id
+     *
+     * @param string $resource_reservation_plan_id resource_reservation_plan_id
+     *
+     * @return $this
+     */
+    public function setResourceReservationPlanId($resource_reservation_plan_id)
+    {
+        $this->container['resource_reservation_plan_id'] = $resource_reservation_plan_id;
 
         return $this;
     }

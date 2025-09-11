@@ -32,6 +32,7 @@ class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput imple
         'bandwidth' => 'int',
         'creation_time' => 'string',
         'description' => 'string',
+        'ipv6_enabled' => 'string',
         'peer_transit_router_id' => 'string',
         'peer_transit_router_region_id' => 'string',
         'status' => 'string',
@@ -57,6 +58,7 @@ class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput imple
         'bandwidth' => 'int32',
         'creation_time' => null,
         'description' => null,
+        'ipv6_enabled' => null,
         'peer_transit_router_id' => null,
         'peer_transit_router_region_id' => null,
         'status' => null,
@@ -103,6 +105,7 @@ class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput imple
         'bandwidth' => 'Bandwidth',
         'creation_time' => 'CreationTime',
         'description' => 'Description',
+        'ipv6_enabled' => 'Ipv6Enabled',
         'peer_transit_router_id' => 'PeerTransitRouterId',
         'peer_transit_router_region_id' => 'PeerTransitRouterRegionId',
         'status' => 'Status',
@@ -128,6 +131,7 @@ class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput imple
         'bandwidth' => 'setBandwidth',
         'creation_time' => 'setCreationTime',
         'description' => 'setDescription',
+        'ipv6_enabled' => 'setIpv6Enabled',
         'peer_transit_router_id' => 'setPeerTransitRouterId',
         'peer_transit_router_region_id' => 'setPeerTransitRouterRegionId',
         'status' => 'setStatus',
@@ -153,6 +157,7 @@ class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput imple
         'bandwidth' => 'getBandwidth',
         'creation_time' => 'getCreationTime',
         'description' => 'getDescription',
+        'ipv6_enabled' => 'getIpv6Enabled',
         'peer_transit_router_id' => 'getPeerTransitRouterId',
         'peer_transit_router_region_id' => 'getPeerTransitRouterRegionId',
         'status' => 'getStatus',
@@ -232,6 +237,7 @@ class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput imple
         $this->container['bandwidth'] = isset($data['bandwidth']) ? $data['bandwidth'] : null;
         $this->container['creation_time'] = isset($data['creation_time']) ? $data['creation_time'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['ipv6_enabled'] = isset($data['ipv6_enabled']) ? $data['ipv6_enabled'] : null;
         $this->container['peer_transit_router_id'] = isset($data['peer_transit_router_id']) ? $data['peer_transit_router_id'] : null;
         $this->container['peer_transit_router_region_id'] = isset($data['peer_transit_router_region_id']) ? $data['peer_transit_router_region_id'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
@@ -363,6 +369,30 @@ class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput imple
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets ipv6_enabled
+     *
+     * @return string
+     */
+    public function getIpv6Enabled()
+    {
+        return $this->container['ipv6_enabled'];
+    }
+
+    /**
+     * Sets ipv6_enabled
+     *
+     * @param string $ipv6_enabled ipv6_enabled
+     *
+     * @return $this
+     */
+    public function setIpv6Enabled($ipv6_enabled)
+    {
+        $this->container['ipv6_enabled'] = $ipv6_enabled;
 
         return $this;
     }

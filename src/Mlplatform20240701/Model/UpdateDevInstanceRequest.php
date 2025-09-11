@@ -29,6 +29,7 @@ class UpdateDevInstanceRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'credential' => '\Volcengine\Mlplatform20240701\Model\CredentialForUpdateDevInstanceInput',
+        'default_folder' => 'string',
         'description' => 'string',
         'id' => 'string',
         'name' => 'string',
@@ -37,6 +38,7 @@ class UpdateDevInstanceRequest implements ModelInterface, ArrayAccess
         'ports' => '\Volcengine\Mlplatform20240701\Model\PortForUpdateDevInstanceInput[]',
         'resource_claim' => '\Volcengine\Mlplatform20240701\Model\ResourceClaimForUpdateDevInstanceInput',
         'resource_queue_id' => 'string',
+        'resource_reservation_plan_id' => 'string',
         'ssh_public_key' => 'string',
         'storages' => '\Volcengine\Mlplatform20240701\Model\StorageForUpdateDevInstanceInput[]',
         'volume_size' => 'int'
@@ -49,6 +51,7 @@ class UpdateDevInstanceRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'credential' => null,
+        'default_folder' => null,
         'description' => null,
         'id' => null,
         'name' => null,
@@ -57,6 +60,7 @@ class UpdateDevInstanceRequest implements ModelInterface, ArrayAccess
         'ports' => null,
         'resource_claim' => null,
         'resource_queue_id' => null,
+        'resource_reservation_plan_id' => null,
         'ssh_public_key' => null,
         'storages' => null,
         'volume_size' => 'int32'
@@ -90,6 +94,7 @@ class UpdateDevInstanceRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'credential' => 'Credential',
+        'default_folder' => 'DefaultFolder',
         'description' => 'Description',
         'id' => 'Id',
         'name' => 'Name',
@@ -98,6 +103,7 @@ class UpdateDevInstanceRequest implements ModelInterface, ArrayAccess
         'ports' => 'Ports',
         'resource_claim' => 'ResourceClaim',
         'resource_queue_id' => 'ResourceQueueId',
+        'resource_reservation_plan_id' => 'ResourceReservationPlanId',
         'ssh_public_key' => 'SshPublicKey',
         'storages' => 'Storages',
         'volume_size' => 'VolumeSize'
@@ -110,6 +116,7 @@ class UpdateDevInstanceRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'credential' => 'setCredential',
+        'default_folder' => 'setDefaultFolder',
         'description' => 'setDescription',
         'id' => 'setId',
         'name' => 'setName',
@@ -118,6 +125,7 @@ class UpdateDevInstanceRequest implements ModelInterface, ArrayAccess
         'ports' => 'setPorts',
         'resource_claim' => 'setResourceClaim',
         'resource_queue_id' => 'setResourceQueueId',
+        'resource_reservation_plan_id' => 'setResourceReservationPlanId',
         'ssh_public_key' => 'setSshPublicKey',
         'storages' => 'setStorages',
         'volume_size' => 'setVolumeSize'
@@ -130,6 +138,7 @@ class UpdateDevInstanceRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'credential' => 'getCredential',
+        'default_folder' => 'getDefaultFolder',
         'description' => 'getDescription',
         'id' => 'getId',
         'name' => 'getName',
@@ -138,6 +147,7 @@ class UpdateDevInstanceRequest implements ModelInterface, ArrayAccess
         'ports' => 'getPorts',
         'resource_claim' => 'getResourceClaim',
         'resource_queue_id' => 'getResourceQueueId',
+        'resource_reservation_plan_id' => 'getResourceReservationPlanId',
         'ssh_public_key' => 'getSshPublicKey',
         'storages' => 'getStorages',
         'volume_size' => 'getVolumeSize'
@@ -204,6 +214,7 @@ class UpdateDevInstanceRequest implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['credential'] = isset($data['credential']) ? $data['credential'] : null;
+        $this->container['default_folder'] = isset($data['default_folder']) ? $data['default_folder'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
@@ -212,6 +223,7 @@ class UpdateDevInstanceRequest implements ModelInterface, ArrayAccess
         $this->container['ports'] = isset($data['ports']) ? $data['ports'] : null;
         $this->container['resource_claim'] = isset($data['resource_claim']) ? $data['resource_claim'] : null;
         $this->container['resource_queue_id'] = isset($data['resource_queue_id']) ? $data['resource_queue_id'] : null;
+        $this->container['resource_reservation_plan_id'] = isset($data['resource_reservation_plan_id']) ? $data['resource_reservation_plan_id'] : null;
         $this->container['ssh_public_key'] = isset($data['ssh_public_key']) ? $data['ssh_public_key'] : null;
         $this->container['storages'] = isset($data['storages']) ? $data['storages'] : null;
         $this->container['volume_size'] = isset($data['volume_size']) ? $data['volume_size'] : null;
@@ -264,6 +276,30 @@ class UpdateDevInstanceRequest implements ModelInterface, ArrayAccess
     public function setCredential($credential)
     {
         $this->container['credential'] = $credential;
+
+        return $this;
+    }
+
+    /**
+     * Gets default_folder
+     *
+     * @return string
+     */
+    public function getDefaultFolder()
+    {
+        return $this->container['default_folder'];
+    }
+
+    /**
+     * Sets default_folder
+     *
+     * @param string $default_folder default_folder
+     *
+     * @return $this
+     */
+    public function setDefaultFolder($default_folder)
+    {
+        $this->container['default_folder'] = $default_folder;
 
         return $this;
     }
@@ -456,6 +492,30 @@ class UpdateDevInstanceRequest implements ModelInterface, ArrayAccess
     public function setResourceQueueId($resource_queue_id)
     {
         $this->container['resource_queue_id'] = $resource_queue_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets resource_reservation_plan_id
+     *
+     * @return string
+     */
+    public function getResourceReservationPlanId()
+    {
+        return $this->container['resource_reservation_plan_id'];
+    }
+
+    /**
+     * Sets resource_reservation_plan_id
+     *
+     * @param string $resource_reservation_plan_id resource_reservation_plan_id
+     *
+     * @return $this
+     */
+    public function setResourceReservationPlanId($resource_reservation_plan_id)
+    {
+        $this->container['resource_reservation_plan_id'] = $resource_reservation_plan_id;
 
         return $this;
     }

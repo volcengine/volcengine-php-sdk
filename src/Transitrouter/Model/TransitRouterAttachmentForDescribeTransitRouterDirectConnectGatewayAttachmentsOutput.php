@@ -33,6 +33,7 @@ class TransitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachm
         'creation_time' => 'string',
         'description' => 'string',
         'direct_connect_gateway_id' => 'string',
+        'ipv6_enabled' => 'string',
         'status' => 'string',
         'tags' => '\Volcengine\Transitrouter\Model\TagForDescribeTransitRouterDirectConnectGatewayAttachmentsOutput[]',
         'transit_router_attachment_id' => 'string',
@@ -52,6 +53,7 @@ class TransitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachm
         'creation_time' => null,
         'description' => null,
         'direct_connect_gateway_id' => null,
+        'ipv6_enabled' => null,
         'status' => null,
         'tags' => null,
         'transit_router_attachment_id' => null,
@@ -92,6 +94,7 @@ class TransitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachm
         'creation_time' => 'CreationTime',
         'description' => 'Description',
         'direct_connect_gateway_id' => 'DirectConnectGatewayId',
+        'ipv6_enabled' => 'Ipv6Enabled',
         'status' => 'Status',
         'tags' => 'Tags',
         'transit_router_attachment_id' => 'TransitRouterAttachmentId',
@@ -111,6 +114,7 @@ class TransitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachm
         'creation_time' => 'setCreationTime',
         'description' => 'setDescription',
         'direct_connect_gateway_id' => 'setDirectConnectGatewayId',
+        'ipv6_enabled' => 'setIpv6Enabled',
         'status' => 'setStatus',
         'tags' => 'setTags',
         'transit_router_attachment_id' => 'setTransitRouterAttachmentId',
@@ -130,6 +134,7 @@ class TransitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachm
         'creation_time' => 'getCreationTime',
         'description' => 'getDescription',
         'direct_connect_gateway_id' => 'getDirectConnectGatewayId',
+        'ipv6_enabled' => 'getIpv6Enabled',
         'status' => 'getStatus',
         'tags' => 'getTags',
         'transit_router_attachment_id' => 'getTransitRouterAttachmentId',
@@ -203,6 +208,7 @@ class TransitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachm
         $this->container['creation_time'] = isset($data['creation_time']) ? $data['creation_time'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['direct_connect_gateway_id'] = isset($data['direct_connect_gateway_id']) ? $data['direct_connect_gateway_id'] : null;
+        $this->container['ipv6_enabled'] = isset($data['ipv6_enabled']) ? $data['ipv6_enabled'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['transit_router_attachment_id'] = isset($data['transit_router_attachment_id']) ? $data['transit_router_attachment_id'] : null;
@@ -351,6 +357,30 @@ class TransitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachm
     public function setDirectConnectGatewayId($direct_connect_gateway_id)
     {
         $this->container['direct_connect_gateway_id'] = $direct_connect_gateway_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets ipv6_enabled
+     *
+     * @return string
+     */
+    public function getIpv6Enabled()
+    {
+        return $this->container['ipv6_enabled'];
+    }
+
+    /**
+     * Sets ipv6_enabled
+     *
+     * @param string $ipv6_enabled ipv6_enabled
+     *
+     * @return $this
+     */
+    public function setIpv6Enabled($ipv6_enabled)
+    {
+        $this->container['ipv6_enabled'] = $ipv6_enabled;
 
         return $this;
     }

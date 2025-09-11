@@ -32,7 +32,6 @@ class ListRoutesRequest implements ModelInterface, ArrayAccess
         'gateway_id' => 'string',
         'page_number' => 'int',
         'page_size' => 'int',
-        'resource_type' => 'string',
         'service_id' => 'string',
         'upstream_id' => 'string',
         'upstream_version' => 'string'
@@ -48,7 +47,6 @@ class ListRoutesRequest implements ModelInterface, ArrayAccess
         'gateway_id' => null,
         'page_number' => 'int64',
         'page_size' => 'int64',
-        'resource_type' => null,
         'service_id' => null,
         'upstream_id' => null,
         'upstream_version' => null
@@ -85,7 +83,6 @@ class ListRoutesRequest implements ModelInterface, ArrayAccess
         'gateway_id' => 'GatewayId',
         'page_number' => 'PageNumber',
         'page_size' => 'PageSize',
-        'resource_type' => 'ResourceType',
         'service_id' => 'ServiceId',
         'upstream_id' => 'UpstreamId',
         'upstream_version' => 'UpstreamVersion'
@@ -101,7 +98,6 @@ class ListRoutesRequest implements ModelInterface, ArrayAccess
         'gateway_id' => 'setGatewayId',
         'page_number' => 'setPageNumber',
         'page_size' => 'setPageSize',
-        'resource_type' => 'setResourceType',
         'service_id' => 'setServiceId',
         'upstream_id' => 'setUpstreamId',
         'upstream_version' => 'setUpstreamVersion'
@@ -117,7 +113,6 @@ class ListRoutesRequest implements ModelInterface, ArrayAccess
         'gateway_id' => 'getGatewayId',
         'page_number' => 'getPageNumber',
         'page_size' => 'getPageSize',
-        'resource_type' => 'getResourceType',
         'service_id' => 'getServiceId',
         'upstream_id' => 'getUpstreamId',
         'upstream_version' => 'getUpstreamVersion'
@@ -187,7 +182,6 @@ class ListRoutesRequest implements ModelInterface, ArrayAccess
         $this->container['gateway_id'] = isset($data['gateway_id']) ? $data['gateway_id'] : null;
         $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
-        $this->container['resource_type'] = isset($data['resource_type']) ? $data['resource_type'] : null;
         $this->container['service_id'] = isset($data['service_id']) ? $data['service_id'] : null;
         $this->container['upstream_id'] = isset($data['upstream_id']) ? $data['upstream_id'] : null;
         $this->container['upstream_version'] = isset($data['upstream_version']) ? $data['upstream_version'] : null;
@@ -309,30 +303,6 @@ class ListRoutesRequest implements ModelInterface, ArrayAccess
     public function setPageSize($page_size)
     {
         $this->container['page_size'] = $page_size;
-
-        return $this;
-    }
-
-    /**
-     * Gets resource_type
-     *
-     * @return string
-     */
-    public function getResourceType()
-    {
-        return $this->container['resource_type'];
-    }
-
-    /**
-     * Sets resource_type
-     *
-     * @param string $resource_type resource_type
-     *
-     * @return $this
-     */
-    public function setResourceType($resource_type)
-    {
-        $this->container['resource_type'] = $resource_type;
 
         return $this;
     }

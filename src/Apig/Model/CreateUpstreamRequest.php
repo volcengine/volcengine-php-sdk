@@ -34,9 +34,7 @@ class CreateUpstreamRequest implements ModelInterface, ArrayAccess
         'load_balancer_settings' => '\Volcengine\Apig\Model\LoadBalancerSettingsForCreateUpstreamInput',
         'name' => 'string',
         'protocol' => 'string',
-        'resource_type' => 'string',
         'source_type' => 'string',
-        'tags' => '\Volcengine\Apig\Model\TagForCreateUpstreamInput[]',
         'tls_settings' => '\Volcengine\Apig\Model\TlsSettingsForCreateUpstreamInput',
         'upstream_spec' => '\Volcengine\Apig\Model\UpstreamSpecForCreateUpstreamInput'
     ];
@@ -53,9 +51,7 @@ class CreateUpstreamRequest implements ModelInterface, ArrayAccess
         'load_balancer_settings' => null,
         'name' => null,
         'protocol' => null,
-        'resource_type' => null,
         'source_type' => null,
-        'tags' => null,
         'tls_settings' => null,
         'upstream_spec' => null
     ];
@@ -93,9 +89,7 @@ class CreateUpstreamRequest implements ModelInterface, ArrayAccess
         'load_balancer_settings' => 'LoadBalancerSettings',
         'name' => 'Name',
         'protocol' => 'Protocol',
-        'resource_type' => 'ResourceType',
         'source_type' => 'SourceType',
-        'tags' => 'Tags',
         'tls_settings' => 'TlsSettings',
         'upstream_spec' => 'UpstreamSpec'
     ];
@@ -112,9 +106,7 @@ class CreateUpstreamRequest implements ModelInterface, ArrayAccess
         'load_balancer_settings' => 'setLoadBalancerSettings',
         'name' => 'setName',
         'protocol' => 'setProtocol',
-        'resource_type' => 'setResourceType',
         'source_type' => 'setSourceType',
-        'tags' => 'setTags',
         'tls_settings' => 'setTlsSettings',
         'upstream_spec' => 'setUpstreamSpec'
     ];
@@ -131,9 +123,7 @@ class CreateUpstreamRequest implements ModelInterface, ArrayAccess
         'load_balancer_settings' => 'getLoadBalancerSettings',
         'name' => 'getName',
         'protocol' => 'getProtocol',
-        'resource_type' => 'getResourceType',
         'source_type' => 'getSourceType',
-        'tags' => 'getTags',
         'tls_settings' => 'getTlsSettings',
         'upstream_spec' => 'getUpstreamSpec'
     ];
@@ -204,9 +194,7 @@ class CreateUpstreamRequest implements ModelInterface, ArrayAccess
         $this->container['load_balancer_settings'] = isset($data['load_balancer_settings']) ? $data['load_balancer_settings'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['protocol'] = isset($data['protocol']) ? $data['protocol'] : null;
-        $this->container['resource_type'] = isset($data['resource_type']) ? $data['resource_type'] : null;
         $this->container['source_type'] = isset($data['source_type']) ? $data['source_type'] : null;
-        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['tls_settings'] = isset($data['tls_settings']) ? $data['tls_settings'] : null;
         $this->container['upstream_spec'] = isset($data['upstream_spec']) ? $data['upstream_spec'] : null;
     }
@@ -389,30 +377,6 @@ class CreateUpstreamRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets resource_type
-     *
-     * @return string
-     */
-    public function getResourceType()
-    {
-        return $this->container['resource_type'];
-    }
-
-    /**
-     * Sets resource_type
-     *
-     * @param string $resource_type resource_type
-     *
-     * @return $this
-     */
-    public function setResourceType($resource_type)
-    {
-        $this->container['resource_type'] = $resource_type;
-
-        return $this;
-    }
-
-    /**
      * Gets source_type
      *
      * @return string
@@ -432,30 +396,6 @@ class CreateUpstreamRequest implements ModelInterface, ArrayAccess
     public function setSourceType($source_type)
     {
         $this->container['source_type'] = $source_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets tags
-     *
-     * @return \Volcengine\Apig\Model\TagForCreateUpstreamInput[]
-     */
-    public function getTags()
-    {
-        return $this->container['tags'];
-    }
-
-    /**
-     * Sets tags
-     *
-     * @param \Volcengine\Apig\Model\TagForCreateUpstreamInput[] $tags tags
-     *
-     * @return $this
-     */
-    public function setTags($tags)
-    {
-        $this->container['tags'] = $tags;
 
         return $this;
     }

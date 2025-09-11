@@ -37,6 +37,7 @@ class GetJobResponse implements ModelInterface, ArrayAccess
         'name' => 'string',
         'observable_config' => '\Volcengine\Mlplatform20240701\Model\ObservableConfigForGetJobOutput',
         'private_network_config' => '\Volcengine\Mlplatform20240701\Model\PrivateNetworkConfigForGetJobOutput',
+        'project_name' => 'string',
         'resource_config' => '\Volcengine\Mlplatform20240701\Model\ResourceConfigForGetJobOutput',
         'retry_config' => '\Volcengine\Mlplatform20240701\Model\RetryConfigForGetJobOutput',
         'runtime_config' => '\Volcengine\Mlplatform20240701\Model\RuntimeConfigForGetJobOutput',
@@ -61,6 +62,7 @@ class GetJobResponse implements ModelInterface, ArrayAccess
         'name' => null,
         'observable_config' => null,
         'private_network_config' => null,
+        'project_name' => null,
         'resource_config' => null,
         'retry_config' => null,
         'runtime_config' => null,
@@ -106,6 +108,7 @@ class GetJobResponse implements ModelInterface, ArrayAccess
         'name' => 'Name',
         'observable_config' => 'ObservableConfig',
         'private_network_config' => 'PrivateNetworkConfig',
+        'project_name' => 'ProjectName',
         'resource_config' => 'ResourceConfig',
         'retry_config' => 'RetryConfig',
         'runtime_config' => 'RuntimeConfig',
@@ -130,6 +133,7 @@ class GetJobResponse implements ModelInterface, ArrayAccess
         'name' => 'setName',
         'observable_config' => 'setObservableConfig',
         'private_network_config' => 'setPrivateNetworkConfig',
+        'project_name' => 'setProjectName',
         'resource_config' => 'setResourceConfig',
         'retry_config' => 'setRetryConfig',
         'runtime_config' => 'setRuntimeConfig',
@@ -154,6 +158,7 @@ class GetJobResponse implements ModelInterface, ArrayAccess
         'name' => 'getName',
         'observable_config' => 'getObservableConfig',
         'private_network_config' => 'getPrivateNetworkConfig',
+        'project_name' => 'getProjectName',
         'resource_config' => 'getResourceConfig',
         'retry_config' => 'getRetryConfig',
         'runtime_config' => 'getRuntimeConfig',
@@ -232,6 +237,7 @@ class GetJobResponse implements ModelInterface, ArrayAccess
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['observable_config'] = isset($data['observable_config']) ? $data['observable_config'] : null;
         $this->container['private_network_config'] = isset($data['private_network_config']) ? $data['private_network_config'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['resource_config'] = isset($data['resource_config']) ? $data['resource_config'] : null;
         $this->container['retry_config'] = isset($data['retry_config']) ? $data['retry_config'] : null;
         $this->container['runtime_config'] = isset($data['runtime_config']) ? $data['runtime_config'] : null;
@@ -477,6 +483,30 @@ class GetJobResponse implements ModelInterface, ArrayAccess
     public function setPrivateNetworkConfig($private_network_config)
     {
         $this->container['private_network_config'] = $private_network_config;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }

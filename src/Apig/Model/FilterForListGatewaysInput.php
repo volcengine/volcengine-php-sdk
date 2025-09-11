@@ -31,7 +31,6 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
         'ids' => 'string[]',
         'name' => 'string',
         'status' => 'string',
-        'tags' => '\Volcengine\Apig\Model\TagForListGatewaysInput[]',
         'type' => 'string',
         'vpc_ids' => 'string[]'
     ];
@@ -45,7 +44,6 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
         'ids' => null,
         'name' => null,
         'status' => null,
-        'tags' => null,
         'type' => null,
         'vpc_ids' => null
     ];
@@ -80,7 +78,6 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
         'ids' => 'Ids',
         'name' => 'Name',
         'status' => 'Status',
-        'tags' => 'Tags',
         'type' => 'Type',
         'vpc_ids' => 'VpcIds'
     ];
@@ -94,7 +91,6 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
         'ids' => 'setIds',
         'name' => 'setName',
         'status' => 'setStatus',
-        'tags' => 'setTags',
         'type' => 'setType',
         'vpc_ids' => 'setVpcIds'
     ];
@@ -108,7 +104,6 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
         'ids' => 'getIds',
         'name' => 'getName',
         'status' => 'getStatus',
-        'tags' => 'getTags',
         'type' => 'getType',
         'vpc_ids' => 'getVpcIds'
     ];
@@ -176,7 +171,6 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
         $this->container['ids'] = isset($data['ids']) ? $data['ids'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['vpc_ids'] = isset($data['vpc_ids']) ? $data['vpc_ids'] : null;
     }
@@ -273,30 +267,6 @@ class FilterForListGatewaysInput implements ModelInterface, ArrayAccess
     public function setStatus($status)
     {
         $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
-     * Gets tags
-     *
-     * @return \Volcengine\Apig\Model\TagForListGatewaysInput[]
-     */
-    public function getTags()
-    {
-        return $this->container['tags'];
-    }
-
-    /**
-     * Sets tags
-     *
-     * @param \Volcengine\Apig\Model\TagForListGatewaysInput[] $tags tags
-     *
-     * @return $this
-     */
-    public function setTags($tags)
-    {
-        $this->container['tags'] = $tags;
 
         return $this;
     }

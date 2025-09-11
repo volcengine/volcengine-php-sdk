@@ -36,9 +36,11 @@ class ProjectInfoForGetAITranslationProjectOutput implements ModelInterface, Arr
         'error_msg' => 'string',
         'facial_translation_video' => '\Volcengine\Vod20250101\Model\FacialTranslationVideoForGetAITranslationProjectOutput',
         'foreground_audio' => '\Volcengine\Vod20250101\Model\ForegroundAudioForGetAITranslationProjectOutput',
+        'input_subtitle' => '\Volcengine\Vod20250101\Model\InputSubtitleForGetAITranslationProjectOutput',
         'input_video' => '\Volcengine\Vod20250101\Model\InputVideoForGetAITranslationProjectOutput',
         'input_video_title' => 'string',
         'operator_config' => '\Volcengine\Vod20250101\Model\OperatorConfigForGetAITranslationProjectOutput',
+        'output_subtitle' => '\Volcengine\Vod20250101\Model\OutputSubtitleForGetAITranslationProjectOutput',
         'output_video' => '\Volcengine\Vod20250101\Model\OutputVideoForGetAITranslationProjectOutput',
         'preview_video' => '\Volcengine\Vod20250101\Model\PreviewVideoForGetAITranslationProjectOutput',
         'preview_video_muted' => '\Volcengine\Vod20250101\Model\PreviewVideoMutedForGetAITranslationProjectOutput',
@@ -74,9 +76,11 @@ class ProjectInfoForGetAITranslationProjectOutput implements ModelInterface, Arr
         'error_msg' => null,
         'facial_translation_video' => null,
         'foreground_audio' => null,
+        'input_subtitle' => null,
         'input_video' => null,
         'input_video_title' => null,
         'operator_config' => null,
+        'output_subtitle' => null,
         'output_video' => null,
         'preview_video' => null,
         'preview_video_muted' => null,
@@ -133,9 +137,11 @@ class ProjectInfoForGetAITranslationProjectOutput implements ModelInterface, Arr
         'error_msg' => 'ErrorMsg',
         'facial_translation_video' => 'FacialTranslationVideo',
         'foreground_audio' => 'ForegroundAudio',
+        'input_subtitle' => 'InputSubtitle',
         'input_video' => 'InputVideo',
         'input_video_title' => 'InputVideoTitle',
         'operator_config' => 'OperatorConfig',
+        'output_subtitle' => 'OutputSubtitle',
         'output_video' => 'OutputVideo',
         'preview_video' => 'PreviewVideo',
         'preview_video_muted' => 'PreviewVideoMuted',
@@ -171,9 +177,11 @@ class ProjectInfoForGetAITranslationProjectOutput implements ModelInterface, Arr
         'error_msg' => 'setErrorMsg',
         'facial_translation_video' => 'setFacialTranslationVideo',
         'foreground_audio' => 'setForegroundAudio',
+        'input_subtitle' => 'setInputSubtitle',
         'input_video' => 'setInputVideo',
         'input_video_title' => 'setInputVideoTitle',
         'operator_config' => 'setOperatorConfig',
+        'output_subtitle' => 'setOutputSubtitle',
         'output_video' => 'setOutputVideo',
         'preview_video' => 'setPreviewVideo',
         'preview_video_muted' => 'setPreviewVideoMuted',
@@ -209,9 +217,11 @@ class ProjectInfoForGetAITranslationProjectOutput implements ModelInterface, Arr
         'error_msg' => 'getErrorMsg',
         'facial_translation_video' => 'getFacialTranslationVideo',
         'foreground_audio' => 'getForegroundAudio',
+        'input_subtitle' => 'getInputSubtitle',
         'input_video' => 'getInputVideo',
         'input_video_title' => 'getInputVideoTitle',
         'operator_config' => 'getOperatorConfig',
+        'output_subtitle' => 'getOutputSubtitle',
         'output_video' => 'getOutputVideo',
         'preview_video' => 'getPreviewVideo',
         'preview_video_muted' => 'getPreviewVideoMuted',
@@ -301,9 +311,11 @@ class ProjectInfoForGetAITranslationProjectOutput implements ModelInterface, Arr
         $this->container['error_msg'] = isset($data['error_msg']) ? $data['error_msg'] : null;
         $this->container['facial_translation_video'] = isset($data['facial_translation_video']) ? $data['facial_translation_video'] : null;
         $this->container['foreground_audio'] = isset($data['foreground_audio']) ? $data['foreground_audio'] : null;
+        $this->container['input_subtitle'] = isset($data['input_subtitle']) ? $data['input_subtitle'] : null;
         $this->container['input_video'] = isset($data['input_video']) ? $data['input_video'] : null;
         $this->container['input_video_title'] = isset($data['input_video_title']) ? $data['input_video_title'] : null;
         $this->container['operator_config'] = isset($data['operator_config']) ? $data['operator_config'] : null;
+        $this->container['output_subtitle'] = isset($data['output_subtitle']) ? $data['output_subtitle'] : null;
         $this->container['output_video'] = isset($data['output_video']) ? $data['output_video'] : null;
         $this->container['preview_video'] = isset($data['preview_video']) ? $data['preview_video'] : null;
         $this->container['preview_video_muted'] = isset($data['preview_video_muted']) ? $data['preview_video_muted'] : null;
@@ -542,6 +554,30 @@ class ProjectInfoForGetAITranslationProjectOutput implements ModelInterface, Arr
     }
 
     /**
+     * Gets input_subtitle
+     *
+     * @return \Volcengine\Vod20250101\Model\InputSubtitleForGetAITranslationProjectOutput
+     */
+    public function getInputSubtitle()
+    {
+        return $this->container['input_subtitle'];
+    }
+
+    /**
+     * Sets input_subtitle
+     *
+     * @param \Volcengine\Vod20250101\Model\InputSubtitleForGetAITranslationProjectOutput $input_subtitle input_subtitle
+     *
+     * @return $this
+     */
+    public function setInputSubtitle($input_subtitle)
+    {
+        $this->container['input_subtitle'] = $input_subtitle;
+
+        return $this;
+    }
+
+    /**
      * Gets input_video
      *
      * @return \Volcengine\Vod20250101\Model\InputVideoForGetAITranslationProjectOutput
@@ -609,6 +645,30 @@ class ProjectInfoForGetAITranslationProjectOutput implements ModelInterface, Arr
     public function setOperatorConfig($operator_config)
     {
         $this->container['operator_config'] = $operator_config;
+
+        return $this;
+    }
+
+    /**
+     * Gets output_subtitle
+     *
+     * @return \Volcengine\Vod20250101\Model\OutputSubtitleForGetAITranslationProjectOutput
+     */
+    public function getOutputSubtitle()
+    {
+        return $this->container['output_subtitle'];
+    }
+
+    /**
+     * Sets output_subtitle
+     *
+     * @param \Volcengine\Vod20250101\Model\OutputSubtitleForGetAITranslationProjectOutput $output_subtitle output_subtitle
+     *
+     * @return $this
+     */
+    public function setOutputSubtitle($output_subtitle)
+    {
+        $this->container['output_subtitle'] = $output_subtitle;
 
         return $this;
     }

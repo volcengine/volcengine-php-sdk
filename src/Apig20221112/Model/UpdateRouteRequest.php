@@ -30,6 +30,7 @@ class UpdateRouteRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'advanced_setting' => '\Volcengine\Apig20221112\Model\AdvancedSettingForUpdateRouteInput',
         'enable' => 'bool',
+        'fallback_setting' => '\Volcengine\Apig20221112\Model\FallbackSettingForUpdateRouteInput',
         'id' => 'string',
         'match_rule' => '\Volcengine\Apig20221112\Model\MatchRuleForUpdateRouteInput',
         'name' => 'string',
@@ -45,6 +46,7 @@ class UpdateRouteRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'advanced_setting' => null,
         'enable' => null,
+        'fallback_setting' => null,
         'id' => null,
         'match_rule' => null,
         'name' => null,
@@ -81,6 +83,7 @@ class UpdateRouteRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'advanced_setting' => 'AdvancedSetting',
         'enable' => 'Enable',
+        'fallback_setting' => 'FallbackSetting',
         'id' => 'Id',
         'match_rule' => 'MatchRule',
         'name' => 'Name',
@@ -96,6 +99,7 @@ class UpdateRouteRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'advanced_setting' => 'setAdvancedSetting',
         'enable' => 'setEnable',
+        'fallback_setting' => 'setFallbackSetting',
         'id' => 'setId',
         'match_rule' => 'setMatchRule',
         'name' => 'setName',
@@ -111,6 +115,7 @@ class UpdateRouteRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'advanced_setting' => 'getAdvancedSetting',
         'enable' => 'getEnable',
+        'fallback_setting' => 'getFallbackSetting',
         'id' => 'getId',
         'match_rule' => 'getMatchRule',
         'name' => 'getName',
@@ -180,6 +185,7 @@ class UpdateRouteRequest implements ModelInterface, ArrayAccess
     {
         $this->container['advanced_setting'] = isset($data['advanced_setting']) ? $data['advanced_setting'] : null;
         $this->container['enable'] = isset($data['enable']) ? $data['enable'] : null;
+        $this->container['fallback_setting'] = isset($data['fallback_setting']) ? $data['fallback_setting'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['match_rule'] = isset($data['match_rule']) ? $data['match_rule'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
@@ -261,6 +267,30 @@ class UpdateRouteRequest implements ModelInterface, ArrayAccess
     public function setEnable($enable)
     {
         $this->container['enable'] = $enable;
+
+        return $this;
+    }
+
+    /**
+     * Gets fallback_setting
+     *
+     * @return \Volcengine\Apig20221112\Model\FallbackSettingForUpdateRouteInput
+     */
+    public function getFallbackSetting()
+    {
+        return $this->container['fallback_setting'];
+    }
+
+    /**
+     * Sets fallback_setting
+     *
+     * @param \Volcengine\Apig20221112\Model\FallbackSettingForUpdateRouteInput $fallback_setting fallback_setting
+     *
+     * @return $this
+     */
+    public function setFallbackSetting($fallback_setting)
+    {
+        $this->container['fallback_setting'] = $fallback_setting;
 
         return $this;
     }

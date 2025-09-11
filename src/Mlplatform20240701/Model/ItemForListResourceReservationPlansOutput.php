@@ -34,11 +34,14 @@ class ItemForListResourceReservationPlansOutput implements ModelInterface, Array
         'desired_compute_resource' => '\Volcengine\Mlplatform20240701\Model\DesiredComputeResourceForListResourceReservationPlansOutput',
         'id' => 'string',
         'name' => 'string',
+        'project_name' => 'string',
         'reservation_config' => '\Volcengine\Mlplatform20240701\Model\ReservationConfigForListResourceReservationPlansOutput',
+        'schedule_config' => '\Volcengine\Mlplatform20240701\Model\ScheduleConfigForListResourceReservationPlansOutput',
         'status' => '\Volcengine\Mlplatform20240701\Model\StatusForListResourceReservationPlansOutput',
         'storage_config' => '\Volcengine\Mlplatform20240701\Model\StorageConfigForListResourceReservationPlansOutput',
         'update_time' => 'string',
-        'workload_network_config' => '\Volcengine\Mlplatform20240701\Model\WorkloadNetworkConfigForListResourceReservationPlansOutput'
+        'workload_network_config' => '\Volcengine\Mlplatform20240701\Model\WorkloadNetworkConfigForListResourceReservationPlansOutput',
+        'workload_network_mode' => 'string'
     ];
 
     /**
@@ -53,11 +56,14 @@ class ItemForListResourceReservationPlansOutput implements ModelInterface, Array
         'desired_compute_resource' => null,
         'id' => null,
         'name' => null,
+        'project_name' => null,
         'reservation_config' => null,
+        'schedule_config' => null,
         'status' => null,
         'storage_config' => null,
         'update_time' => null,
-        'workload_network_config' => null
+        'workload_network_config' => null,
+        'workload_network_mode' => null
     ];
 
     /**
@@ -93,11 +99,14 @@ class ItemForListResourceReservationPlansOutput implements ModelInterface, Array
         'desired_compute_resource' => 'DesiredComputeResource',
         'id' => 'Id',
         'name' => 'Name',
+        'project_name' => 'ProjectName',
         'reservation_config' => 'ReservationConfig',
+        'schedule_config' => 'ScheduleConfig',
         'status' => 'Status',
         'storage_config' => 'StorageConfig',
         'update_time' => 'UpdateTime',
-        'workload_network_config' => 'WorkloadNetworkConfig'
+        'workload_network_config' => 'WorkloadNetworkConfig',
+        'workload_network_mode' => 'WorkloadNetworkMode'
     ];
 
     /**
@@ -112,11 +121,14 @@ class ItemForListResourceReservationPlansOutput implements ModelInterface, Array
         'desired_compute_resource' => 'setDesiredComputeResource',
         'id' => 'setId',
         'name' => 'setName',
+        'project_name' => 'setProjectName',
         'reservation_config' => 'setReservationConfig',
+        'schedule_config' => 'setScheduleConfig',
         'status' => 'setStatus',
         'storage_config' => 'setStorageConfig',
         'update_time' => 'setUpdateTime',
-        'workload_network_config' => 'setWorkloadNetworkConfig'
+        'workload_network_config' => 'setWorkloadNetworkConfig',
+        'workload_network_mode' => 'setWorkloadNetworkMode'
     ];
 
     /**
@@ -131,11 +143,14 @@ class ItemForListResourceReservationPlansOutput implements ModelInterface, Array
         'desired_compute_resource' => 'getDesiredComputeResource',
         'id' => 'getId',
         'name' => 'getName',
+        'project_name' => 'getProjectName',
         'reservation_config' => 'getReservationConfig',
+        'schedule_config' => 'getScheduleConfig',
         'status' => 'getStatus',
         'storage_config' => 'getStorageConfig',
         'update_time' => 'getUpdateTime',
-        'workload_network_config' => 'getWorkloadNetworkConfig'
+        'workload_network_config' => 'getWorkloadNetworkConfig',
+        'workload_network_mode' => 'getWorkloadNetworkMode'
     ];
 
     /**
@@ -204,11 +219,14 @@ class ItemForListResourceReservationPlansOutput implements ModelInterface, Array
         $this->container['desired_compute_resource'] = isset($data['desired_compute_resource']) ? $data['desired_compute_resource'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['reservation_config'] = isset($data['reservation_config']) ? $data['reservation_config'] : null;
+        $this->container['schedule_config'] = isset($data['schedule_config']) ? $data['schedule_config'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['storage_config'] = isset($data['storage_config']) ? $data['storage_config'] : null;
         $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
         $this->container['workload_network_config'] = isset($data['workload_network_config']) ? $data['workload_network_config'] : null;
+        $this->container['workload_network_mode'] = isset($data['workload_network_mode']) ? $data['workload_network_mode'] : null;
     }
 
     /**
@@ -380,6 +398,30 @@ class ItemForListResourceReservationPlansOutput implements ModelInterface, Array
     }
 
     /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
+
+    /**
      * Gets reservation_config
      *
      * @return \Volcengine\Mlplatform20240701\Model\ReservationConfigForListResourceReservationPlansOutput
@@ -399,6 +441,30 @@ class ItemForListResourceReservationPlansOutput implements ModelInterface, Array
     public function setReservationConfig($reservation_config)
     {
         $this->container['reservation_config'] = $reservation_config;
+
+        return $this;
+    }
+
+    /**
+     * Gets schedule_config
+     *
+     * @return \Volcengine\Mlplatform20240701\Model\ScheduleConfigForListResourceReservationPlansOutput
+     */
+    public function getScheduleConfig()
+    {
+        return $this->container['schedule_config'];
+    }
+
+    /**
+     * Sets schedule_config
+     *
+     * @param \Volcengine\Mlplatform20240701\Model\ScheduleConfigForListResourceReservationPlansOutput $schedule_config schedule_config
+     *
+     * @return $this
+     */
+    public function setScheduleConfig($schedule_config)
+    {
+        $this->container['schedule_config'] = $schedule_config;
 
         return $this;
     }
@@ -495,6 +561,30 @@ class ItemForListResourceReservationPlansOutput implements ModelInterface, Array
     public function setWorkloadNetworkConfig($workload_network_config)
     {
         $this->container['workload_network_config'] = $workload_network_config;
+
+        return $this;
+    }
+
+    /**
+     * Gets workload_network_mode
+     *
+     * @return string
+     */
+    public function getWorkloadNetworkMode()
+    {
+        return $this->container['workload_network_mode'];
+    }
+
+    /**
+     * Sets workload_network_mode
+     *
+     * @param string $workload_network_mode workload_network_mode
+     *
+     * @return $this
+     */
+    public function setWorkloadNetworkMode($workload_network_mode)
+    {
+        $this->container['workload_network_mode'] = $workload_network_mode;
 
         return $this;
     }
