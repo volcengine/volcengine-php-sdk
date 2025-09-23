@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class SubtitleRecognitionConfigForGetAITranslationProjectOutput implements ModelInterface, ArrayAccess
+class ConvertHighlightCutsForGetExecutionOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class SubtitleRecognitionConfigForGetAITranslationProjectOutput implements Model
       *
       * @var string
       */
-    protected static $swaggerModelName = 'SubtitleRecognitionConfigForGetAITranslationProjectOutput';
+    protected static $swaggerModelName = 'ConvertHighlightCutsForGetExecutionOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,11 +28,8 @@ class SubtitleRecognitionConfigForGetAITranslationProjectOutput implements Model
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'bilingual_subtitle_file_name' => 'string',
-        'recognition_type' => 'string',
-        'source_subtitle_file_name' => 'string',
-        'subtitle_file_name' => 'string',
-        'target_subtitle_file_name' => 'string'
+        'cuts' => 'int[]',
+        'storyboard' => '\Volcengine\Vod20250101\Model\StoryboardForGetExecutionOutput[]'
     ];
 
     /**
@@ -41,11 +38,8 @@ class SubtitleRecognitionConfigForGetAITranslationProjectOutput implements Model
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'bilingual_subtitle_file_name' => null,
-        'recognition_type' => null,
-        'source_subtitle_file_name' => null,
-        'subtitle_file_name' => null,
-        'target_subtitle_file_name' => null
+        'cuts' => 'int32',
+        'storyboard' => null
     ];
 
     /**
@@ -75,11 +69,8 @@ class SubtitleRecognitionConfigForGetAITranslationProjectOutput implements Model
      * @var string[]
      */
     protected static $attributeMap = [
-        'bilingual_subtitle_file_name' => 'BilingualSubtitleFileName',
-        'recognition_type' => 'RecognitionType',
-        'source_subtitle_file_name' => 'SourceSubtitleFileName',
-        'subtitle_file_name' => 'SubtitleFileName',
-        'target_subtitle_file_name' => 'TargetSubtitleFileName'
+        'cuts' => 'Cuts',
+        'storyboard' => 'Storyboard'
     ];
 
     /**
@@ -88,11 +79,8 @@ class SubtitleRecognitionConfigForGetAITranslationProjectOutput implements Model
      * @var string[]
      */
     protected static $setters = [
-        'bilingual_subtitle_file_name' => 'setBilingualSubtitleFileName',
-        'recognition_type' => 'setRecognitionType',
-        'source_subtitle_file_name' => 'setSourceSubtitleFileName',
-        'subtitle_file_name' => 'setSubtitleFileName',
-        'target_subtitle_file_name' => 'setTargetSubtitleFileName'
+        'cuts' => 'setCuts',
+        'storyboard' => 'setStoryboard'
     ];
 
     /**
@@ -101,11 +89,8 @@ class SubtitleRecognitionConfigForGetAITranslationProjectOutput implements Model
      * @var string[]
      */
     protected static $getters = [
-        'bilingual_subtitle_file_name' => 'getBilingualSubtitleFileName',
-        'recognition_type' => 'getRecognitionType',
-        'source_subtitle_file_name' => 'getSourceSubtitleFileName',
-        'subtitle_file_name' => 'getSubtitleFileName',
-        'target_subtitle_file_name' => 'getTargetSubtitleFileName'
+        'cuts' => 'getCuts',
+        'storyboard' => 'getStoryboard'
     ];
 
     /**
@@ -168,11 +153,8 @@ class SubtitleRecognitionConfigForGetAITranslationProjectOutput implements Model
      */
     public function __construct(array $data = null)
     {
-        $this->container['bilingual_subtitle_file_name'] = isset($data['bilingual_subtitle_file_name']) ? $data['bilingual_subtitle_file_name'] : null;
-        $this->container['recognition_type'] = isset($data['recognition_type']) ? $data['recognition_type'] : null;
-        $this->container['source_subtitle_file_name'] = isset($data['source_subtitle_file_name']) ? $data['source_subtitle_file_name'] : null;
-        $this->container['subtitle_file_name'] = isset($data['subtitle_file_name']) ? $data['subtitle_file_name'] : null;
-        $this->container['target_subtitle_file_name'] = isset($data['target_subtitle_file_name']) ? $data['target_subtitle_file_name'] : null;
+        $this->container['cuts'] = isset($data['cuts']) ? $data['cuts'] : null;
+        $this->container['storyboard'] = isset($data['storyboard']) ? $data['storyboard'] : null;
     }
 
     /**
@@ -200,121 +182,49 @@ class SubtitleRecognitionConfigForGetAITranslationProjectOutput implements Model
 
 
     /**
-     * Gets bilingual_subtitle_file_name
+     * Gets cuts
      *
-     * @return string
+     * @return int[]
      */
-    public function getBilingualSubtitleFileName()
+    public function getCuts()
     {
-        return $this->container['bilingual_subtitle_file_name'];
+        return $this->container['cuts'];
     }
 
     /**
-     * Sets bilingual_subtitle_file_name
+     * Sets cuts
      *
-     * @param string $bilingual_subtitle_file_name bilingual_subtitle_file_name
+     * @param int[] $cuts cuts
      *
      * @return $this
      */
-    public function setBilingualSubtitleFileName($bilingual_subtitle_file_name)
+    public function setCuts($cuts)
     {
-        $this->container['bilingual_subtitle_file_name'] = $bilingual_subtitle_file_name;
+        $this->container['cuts'] = $cuts;
 
         return $this;
     }
 
     /**
-     * Gets recognition_type
+     * Gets storyboard
      *
-     * @return string
+     * @return \Volcengine\Vod20250101\Model\StoryboardForGetExecutionOutput[]
      */
-    public function getRecognitionType()
+    public function getStoryboard()
     {
-        return $this->container['recognition_type'];
+        return $this->container['storyboard'];
     }
 
     /**
-     * Sets recognition_type
+     * Sets storyboard
      *
-     * @param string $recognition_type recognition_type
+     * @param \Volcengine\Vod20250101\Model\StoryboardForGetExecutionOutput[] $storyboard storyboard
      *
      * @return $this
      */
-    public function setRecognitionType($recognition_type)
+    public function setStoryboard($storyboard)
     {
-        $this->container['recognition_type'] = $recognition_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets source_subtitle_file_name
-     *
-     * @return string
-     */
-    public function getSourceSubtitleFileName()
-    {
-        return $this->container['source_subtitle_file_name'];
-    }
-
-    /**
-     * Sets source_subtitle_file_name
-     *
-     * @param string $source_subtitle_file_name source_subtitle_file_name
-     *
-     * @return $this
-     */
-    public function setSourceSubtitleFileName($source_subtitle_file_name)
-    {
-        $this->container['source_subtitle_file_name'] = $source_subtitle_file_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets subtitle_file_name
-     *
-     * @return string
-     */
-    public function getSubtitleFileName()
-    {
-        return $this->container['subtitle_file_name'];
-    }
-
-    /**
-     * Sets subtitle_file_name
-     *
-     * @param string $subtitle_file_name subtitle_file_name
-     *
-     * @return $this
-     */
-    public function setSubtitleFileName($subtitle_file_name)
-    {
-        $this->container['subtitle_file_name'] = $subtitle_file_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets target_subtitle_file_name
-     *
-     * @return string
-     */
-    public function getTargetSubtitleFileName()
-    {
-        return $this->container['target_subtitle_file_name'];
-    }
-
-    /**
-     * Sets target_subtitle_file_name
-     *
-     * @param string $target_subtitle_file_name target_subtitle_file_name
-     *
-     * @return $this
-     */
-    public function setTargetSubtitleFileName($target_subtitle_file_name)
-    {
-        $this->container['target_subtitle_file_name'] = $target_subtitle_file_name;
+        $this->container['storyboard'] = $storyboard;
 
         return $this;
     }

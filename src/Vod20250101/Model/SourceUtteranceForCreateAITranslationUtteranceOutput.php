@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class UpdateAITranslationUtterancesRequest implements ModelInterface, ArrayAccess
+class SourceUtteranceForCreateAITranslationUtteranceOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class UpdateAITranslationUtterancesRequest implements ModelInterface, ArrayAcces
       *
       * @var string
       */
-    protected static $swaggerModelName = 'UpdateAITranslationUtterancesRequest';
+    protected static $swaggerModelName = 'SourceUtteranceForCreateAITranslationUtteranceOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,13 +28,16 @@ class UpdateAITranslationUtterancesRequest implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'bilingual_subtitle_file_name' => 'string',
-        'input_subtitle_file_name' => 'string',
-        'output_subtitle_file_name' => 'string',
+        'blueprint_id' => 'string',
+        'clip_id' => 'string',
+        'id' => 'string',
+        'is_facial_translation' => 'bool',
         'project_id' => 'string',
-        'space_name' => 'string',
-        'update_type' => 'string',
-        'utterances' => '\Volcengine\Vod20250101\Model\UtteranceForUpdateAITranslationUtterancesInput[]'
+        'source_id' => 'string',
+        'speaker_id' => 'string',
+        'status' => 'string',
+        'text' => 'string',
+        'translation_type' => 'string'
     ];
 
     /**
@@ -43,13 +46,16 @@ class UpdateAITranslationUtterancesRequest implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'bilingual_subtitle_file_name' => null,
-        'input_subtitle_file_name' => null,
-        'output_subtitle_file_name' => null,
+        'blueprint_id' => null,
+        'clip_id' => null,
+        'id' => null,
+        'is_facial_translation' => null,
         'project_id' => null,
-        'space_name' => null,
-        'update_type' => null,
-        'utterances' => null
+        'source_id' => null,
+        'speaker_id' => null,
+        'status' => null,
+        'text' => null,
+        'translation_type' => null
     ];
 
     /**
@@ -79,13 +85,16 @@ class UpdateAITranslationUtterancesRequest implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $attributeMap = [
-        'bilingual_subtitle_file_name' => 'BilingualSubtitleFileName',
-        'input_subtitle_file_name' => 'InputSubtitleFileName',
-        'output_subtitle_file_name' => 'OutputSubtitleFileName',
+        'blueprint_id' => 'BlueprintId',
+        'clip_id' => 'ClipId',
+        'id' => 'Id',
+        'is_facial_translation' => 'IsFacialTranslation',
         'project_id' => 'ProjectId',
-        'space_name' => 'SpaceName',
-        'update_type' => 'UpdateType',
-        'utterances' => 'Utterances'
+        'source_id' => 'SourceId',
+        'speaker_id' => 'SpeakerId',
+        'status' => 'Status',
+        'text' => 'Text',
+        'translation_type' => 'TranslationType'
     ];
 
     /**
@@ -94,13 +103,16 @@ class UpdateAITranslationUtterancesRequest implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $setters = [
-        'bilingual_subtitle_file_name' => 'setBilingualSubtitleFileName',
-        'input_subtitle_file_name' => 'setInputSubtitleFileName',
-        'output_subtitle_file_name' => 'setOutputSubtitleFileName',
+        'blueprint_id' => 'setBlueprintId',
+        'clip_id' => 'setClipId',
+        'id' => 'setId',
+        'is_facial_translation' => 'setIsFacialTranslation',
         'project_id' => 'setProjectId',
-        'space_name' => 'setSpaceName',
-        'update_type' => 'setUpdateType',
-        'utterances' => 'setUtterances'
+        'source_id' => 'setSourceId',
+        'speaker_id' => 'setSpeakerId',
+        'status' => 'setStatus',
+        'text' => 'setText',
+        'translation_type' => 'setTranslationType'
     ];
 
     /**
@@ -109,13 +121,16 @@ class UpdateAITranslationUtterancesRequest implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $getters = [
-        'bilingual_subtitle_file_name' => 'getBilingualSubtitleFileName',
-        'input_subtitle_file_name' => 'getInputSubtitleFileName',
-        'output_subtitle_file_name' => 'getOutputSubtitleFileName',
+        'blueprint_id' => 'getBlueprintId',
+        'clip_id' => 'getClipId',
+        'id' => 'getId',
+        'is_facial_translation' => 'getIsFacialTranslation',
         'project_id' => 'getProjectId',
-        'space_name' => 'getSpaceName',
-        'update_type' => 'getUpdateType',
-        'utterances' => 'getUtterances'
+        'source_id' => 'getSourceId',
+        'speaker_id' => 'getSpeakerId',
+        'status' => 'getStatus',
+        'text' => 'getText',
+        'translation_type' => 'getTranslationType'
     ];
 
     /**
@@ -178,13 +193,16 @@ class UpdateAITranslationUtterancesRequest implements ModelInterface, ArrayAcces
      */
     public function __construct(array $data = null)
     {
-        $this->container['bilingual_subtitle_file_name'] = isset($data['bilingual_subtitle_file_name']) ? $data['bilingual_subtitle_file_name'] : null;
-        $this->container['input_subtitle_file_name'] = isset($data['input_subtitle_file_name']) ? $data['input_subtitle_file_name'] : null;
-        $this->container['output_subtitle_file_name'] = isset($data['output_subtitle_file_name']) ? $data['output_subtitle_file_name'] : null;
+        $this->container['blueprint_id'] = isset($data['blueprint_id']) ? $data['blueprint_id'] : null;
+        $this->container['clip_id'] = isset($data['clip_id']) ? $data['clip_id'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['is_facial_translation'] = isset($data['is_facial_translation']) ? $data['is_facial_translation'] : null;
         $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
-        $this->container['space_name'] = isset($data['space_name']) ? $data['space_name'] : null;
-        $this->container['update_type'] = isset($data['update_type']) ? $data['update_type'] : null;
-        $this->container['utterances'] = isset($data['utterances']) ? $data['utterances'] : null;
+        $this->container['source_id'] = isset($data['source_id']) ? $data['source_id'] : null;
+        $this->container['speaker_id'] = isset($data['speaker_id']) ? $data['speaker_id'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['text'] = isset($data['text']) ? $data['text'] : null;
+        $this->container['translation_type'] = isset($data['translation_type']) ? $data['translation_type'] : null;
     }
 
     /**
@@ -196,15 +214,6 @@ class UpdateAITranslationUtterancesRequest implements ModelInterface, ArrayAcces
     {
         $invalidProperties = [];
 
-        if ($this->container['project_id'] === null) {
-            $invalidProperties[] = "'project_id' can't be null";
-        }
-        if ($this->container['space_name'] === null) {
-            $invalidProperties[] = "'space_name' can't be null";
-        }
-        if ($this->container['update_type'] === null) {
-            $invalidProperties[] = "'update_type' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -221,73 +230,97 @@ class UpdateAITranslationUtterancesRequest implements ModelInterface, ArrayAcces
 
 
     /**
-     * Gets bilingual_subtitle_file_name
+     * Gets blueprint_id
      *
      * @return string
      */
-    public function getBilingualSubtitleFileName()
+    public function getBlueprintId()
     {
-        return $this->container['bilingual_subtitle_file_name'];
+        return $this->container['blueprint_id'];
     }
 
     /**
-     * Sets bilingual_subtitle_file_name
+     * Sets blueprint_id
      *
-     * @param string $bilingual_subtitle_file_name bilingual_subtitle_file_name
+     * @param string $blueprint_id blueprint_id
      *
      * @return $this
      */
-    public function setBilingualSubtitleFileName($bilingual_subtitle_file_name)
+    public function setBlueprintId($blueprint_id)
     {
-        $this->container['bilingual_subtitle_file_name'] = $bilingual_subtitle_file_name;
+        $this->container['blueprint_id'] = $blueprint_id;
 
         return $this;
     }
 
     /**
-     * Gets input_subtitle_file_name
+     * Gets clip_id
      *
      * @return string
      */
-    public function getInputSubtitleFileName()
+    public function getClipId()
     {
-        return $this->container['input_subtitle_file_name'];
+        return $this->container['clip_id'];
     }
 
     /**
-     * Sets input_subtitle_file_name
+     * Sets clip_id
      *
-     * @param string $input_subtitle_file_name input_subtitle_file_name
+     * @param string $clip_id clip_id
      *
      * @return $this
      */
-    public function setInputSubtitleFileName($input_subtitle_file_name)
+    public function setClipId($clip_id)
     {
-        $this->container['input_subtitle_file_name'] = $input_subtitle_file_name;
+        $this->container['clip_id'] = $clip_id;
 
         return $this;
     }
 
     /**
-     * Gets output_subtitle_file_name
+     * Gets id
      *
      * @return string
      */
-    public function getOutputSubtitleFileName()
+    public function getId()
     {
-        return $this->container['output_subtitle_file_name'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets output_subtitle_file_name
+     * Sets id
      *
-     * @param string $output_subtitle_file_name output_subtitle_file_name
+     * @param string $id id
      *
      * @return $this
      */
-    public function setOutputSubtitleFileName($output_subtitle_file_name)
+    public function setId($id)
     {
-        $this->container['output_subtitle_file_name'] = $output_subtitle_file_name;
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_facial_translation
+     *
+     * @return bool
+     */
+    public function getIsFacialTranslation()
+    {
+        return $this->container['is_facial_translation'];
+    }
+
+    /**
+     * Sets is_facial_translation
+     *
+     * @param bool $is_facial_translation is_facial_translation
+     *
+     * @return $this
+     */
+    public function setIsFacialTranslation($is_facial_translation)
+    {
+        $this->container['is_facial_translation'] = $is_facial_translation;
 
         return $this;
     }
@@ -317,73 +350,121 @@ class UpdateAITranslationUtterancesRequest implements ModelInterface, ArrayAcces
     }
 
     /**
-     * Gets space_name
+     * Gets source_id
      *
      * @return string
      */
-    public function getSpaceName()
+    public function getSourceId()
     {
-        return $this->container['space_name'];
+        return $this->container['source_id'];
     }
 
     /**
-     * Sets space_name
+     * Sets source_id
      *
-     * @param string $space_name space_name
+     * @param string $source_id source_id
      *
      * @return $this
      */
-    public function setSpaceName($space_name)
+    public function setSourceId($source_id)
     {
-        $this->container['space_name'] = $space_name;
+        $this->container['source_id'] = $source_id;
 
         return $this;
     }
 
     /**
-     * Gets update_type
+     * Gets speaker_id
      *
      * @return string
      */
-    public function getUpdateType()
+    public function getSpeakerId()
     {
-        return $this->container['update_type'];
+        return $this->container['speaker_id'];
     }
 
     /**
-     * Sets update_type
+     * Sets speaker_id
      *
-     * @param string $update_type update_type
+     * @param string $speaker_id speaker_id
      *
      * @return $this
      */
-    public function setUpdateType($update_type)
+    public function setSpeakerId($speaker_id)
     {
-        $this->container['update_type'] = $update_type;
+        $this->container['speaker_id'] = $speaker_id;
 
         return $this;
     }
 
     /**
-     * Gets utterances
+     * Gets status
      *
-     * @return \Volcengine\Vod20250101\Model\UtteranceForUpdateAITranslationUtterancesInput[]
+     * @return string
      */
-    public function getUtterances()
+    public function getStatus()
     {
-        return $this->container['utterances'];
+        return $this->container['status'];
     }
 
     /**
-     * Sets utterances
+     * Sets status
      *
-     * @param \Volcengine\Vod20250101\Model\UtteranceForUpdateAITranslationUtterancesInput[] $utterances utterances
+     * @param string $status status
      *
      * @return $this
      */
-    public function setUtterances($utterances)
+    public function setStatus($status)
     {
-        $this->container['utterances'] = $utterances;
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets text
+     *
+     * @return string
+     */
+    public function getText()
+    {
+        return $this->container['text'];
+    }
+
+    /**
+     * Sets text
+     *
+     * @param string $text text
+     *
+     * @return $this
+     */
+    public function setText($text)
+    {
+        $this->container['text'] = $text;
+
+        return $this;
+    }
+
+    /**
+     * Gets translation_type
+     *
+     * @return string
+     */
+    public function getTranslationType()
+    {
+        return $this->container['translation_type'];
+    }
+
+    /**
+     * Sets translation_type
+     *
+     * @param string $translation_type translation_type
+     *
+     * @return $this
+     */
+    public function setTranslationType($translation_type)
+    {
+        $this->container['translation_type'] = $translation_type;
 
         return $this;
     }

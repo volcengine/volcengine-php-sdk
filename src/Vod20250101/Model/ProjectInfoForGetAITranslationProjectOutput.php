@@ -30,6 +30,7 @@ class ProjectInfoForGetAITranslationProjectOutput implements ModelInterface, Arr
     protected static $swaggerTypes = [
         'background_audio' => '\Volcengine\Vod20250101\Model\BackgroundAudioForGetAITranslationProjectOutput',
         'background_clip' => '\Volcengine\Vod20250101\Model\BackgroundClipForGetAITranslationProjectOutput',
+        'bilingual_subtitle' => '\Volcengine\Vod20250101\Model\BilingualSubtitleForGetAITranslationProjectOutput',
         'created_at' => 'string',
         'erased_subtitle_video' => '\Volcengine\Vod20250101\Model\ErasedSubtitleVideoForGetAITranslationProjectOutput',
         'error_code' => 'int',
@@ -70,6 +71,7 @@ class ProjectInfoForGetAITranslationProjectOutput implements ModelInterface, Arr
     protected static $swaggerFormats = [
         'background_audio' => null,
         'background_clip' => null,
+        'bilingual_subtitle' => null,
         'created_at' => null,
         'erased_subtitle_video' => null,
         'error_code' => 'int32',
@@ -131,6 +133,7 @@ class ProjectInfoForGetAITranslationProjectOutput implements ModelInterface, Arr
     protected static $attributeMap = [
         'background_audio' => 'BackgroundAudio',
         'background_clip' => 'BackgroundClip',
+        'bilingual_subtitle' => 'BilingualSubtitle',
         'created_at' => 'CreatedAt',
         'erased_subtitle_video' => 'ErasedSubtitleVideo',
         'error_code' => 'ErrorCode',
@@ -171,6 +174,7 @@ class ProjectInfoForGetAITranslationProjectOutput implements ModelInterface, Arr
     protected static $setters = [
         'background_audio' => 'setBackgroundAudio',
         'background_clip' => 'setBackgroundClip',
+        'bilingual_subtitle' => 'setBilingualSubtitle',
         'created_at' => 'setCreatedAt',
         'erased_subtitle_video' => 'setErasedSubtitleVideo',
         'error_code' => 'setErrorCode',
@@ -211,6 +215,7 @@ class ProjectInfoForGetAITranslationProjectOutput implements ModelInterface, Arr
     protected static $getters = [
         'background_audio' => 'getBackgroundAudio',
         'background_clip' => 'getBackgroundClip',
+        'bilingual_subtitle' => 'getBilingualSubtitle',
         'created_at' => 'getCreatedAt',
         'erased_subtitle_video' => 'getErasedSubtitleVideo',
         'error_code' => 'getErrorCode',
@@ -305,6 +310,7 @@ class ProjectInfoForGetAITranslationProjectOutput implements ModelInterface, Arr
     {
         $this->container['background_audio'] = isset($data['background_audio']) ? $data['background_audio'] : null;
         $this->container['background_clip'] = isset($data['background_clip']) ? $data['background_clip'] : null;
+        $this->container['bilingual_subtitle'] = isset($data['bilingual_subtitle']) ? $data['bilingual_subtitle'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['erased_subtitle_video'] = isset($data['erased_subtitle_video']) ? $data['erased_subtitle_video'] : null;
         $this->container['error_code'] = isset($data['error_code']) ? $data['error_code'] : null;
@@ -405,6 +411,30 @@ class ProjectInfoForGetAITranslationProjectOutput implements ModelInterface, Arr
     public function setBackgroundClip($background_clip)
     {
         $this->container['background_clip'] = $background_clip;
+
+        return $this;
+    }
+
+    /**
+     * Gets bilingual_subtitle
+     *
+     * @return \Volcengine\Vod20250101\Model\BilingualSubtitleForGetAITranslationProjectOutput
+     */
+    public function getBilingualSubtitle()
+    {
+        return $this->container['bilingual_subtitle'];
+    }
+
+    /**
+     * Sets bilingual_subtitle
+     *
+     * @param \Volcengine\Vod20250101\Model\BilingualSubtitleForGetAITranslationProjectOutput $bilingual_subtitle bilingual_subtitle
+     *
+     * @return $this
+     */
+    public function setBilingualSubtitle($bilingual_subtitle)
+    {
+        $this->container['bilingual_subtitle'] = $bilingual_subtitle;
 
         return $this;
     }

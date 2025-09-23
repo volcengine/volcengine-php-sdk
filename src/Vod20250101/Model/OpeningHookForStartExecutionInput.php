@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class SubtitleRecognitionConfigForGetAITranslationProjectOutput implements ModelInterface, ArrayAccess
+class OpeningHookForStartExecutionInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class SubtitleRecognitionConfigForGetAITranslationProjectOutput implements Model
       *
       * @var string
       */
-    protected static $swaggerModelName = 'SubtitleRecognitionConfigForGetAITranslationProjectOutput';
+    protected static $swaggerModelName = 'OpeningHookForStartExecutionInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,11 +28,11 @@ class SubtitleRecognitionConfigForGetAITranslationProjectOutput implements Model
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'bilingual_subtitle_file_name' => 'string',
-        'recognition_type' => 'string',
-        'source_subtitle_file_name' => 'string',
-        'subtitle_file_name' => 'string',
-        'target_subtitle_file_name' => 'string'
+        'max_duration' => 'double',
+        'min_clip_duration' => 'double',
+        'min_duration' => 'double',
+        'min_score' => 'double',
+        'with_opening_hook' => 'bool'
     ];
 
     /**
@@ -41,11 +41,11 @@ class SubtitleRecognitionConfigForGetAITranslationProjectOutput implements Model
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'bilingual_subtitle_file_name' => null,
-        'recognition_type' => null,
-        'source_subtitle_file_name' => null,
-        'subtitle_file_name' => null,
-        'target_subtitle_file_name' => null
+        'max_duration' => 'double',
+        'min_clip_duration' => 'double',
+        'min_duration' => 'double',
+        'min_score' => 'double',
+        'with_opening_hook' => null
     ];
 
     /**
@@ -75,11 +75,11 @@ class SubtitleRecognitionConfigForGetAITranslationProjectOutput implements Model
      * @var string[]
      */
     protected static $attributeMap = [
-        'bilingual_subtitle_file_name' => 'BilingualSubtitleFileName',
-        'recognition_type' => 'RecognitionType',
-        'source_subtitle_file_name' => 'SourceSubtitleFileName',
-        'subtitle_file_name' => 'SubtitleFileName',
-        'target_subtitle_file_name' => 'TargetSubtitleFileName'
+        'max_duration' => 'MaxDuration',
+        'min_clip_duration' => 'MinClipDuration',
+        'min_duration' => 'MinDuration',
+        'min_score' => 'MinScore',
+        'with_opening_hook' => 'WithOpeningHook'
     ];
 
     /**
@@ -88,11 +88,11 @@ class SubtitleRecognitionConfigForGetAITranslationProjectOutput implements Model
      * @var string[]
      */
     protected static $setters = [
-        'bilingual_subtitle_file_name' => 'setBilingualSubtitleFileName',
-        'recognition_type' => 'setRecognitionType',
-        'source_subtitle_file_name' => 'setSourceSubtitleFileName',
-        'subtitle_file_name' => 'setSubtitleFileName',
-        'target_subtitle_file_name' => 'setTargetSubtitleFileName'
+        'max_duration' => 'setMaxDuration',
+        'min_clip_duration' => 'setMinClipDuration',
+        'min_duration' => 'setMinDuration',
+        'min_score' => 'setMinScore',
+        'with_opening_hook' => 'setWithOpeningHook'
     ];
 
     /**
@@ -101,11 +101,11 @@ class SubtitleRecognitionConfigForGetAITranslationProjectOutput implements Model
      * @var string[]
      */
     protected static $getters = [
-        'bilingual_subtitle_file_name' => 'getBilingualSubtitleFileName',
-        'recognition_type' => 'getRecognitionType',
-        'source_subtitle_file_name' => 'getSourceSubtitleFileName',
-        'subtitle_file_name' => 'getSubtitleFileName',
-        'target_subtitle_file_name' => 'getTargetSubtitleFileName'
+        'max_duration' => 'getMaxDuration',
+        'min_clip_duration' => 'getMinClipDuration',
+        'min_duration' => 'getMinDuration',
+        'min_score' => 'getMinScore',
+        'with_opening_hook' => 'getWithOpeningHook'
     ];
 
     /**
@@ -168,11 +168,11 @@ class SubtitleRecognitionConfigForGetAITranslationProjectOutput implements Model
      */
     public function __construct(array $data = null)
     {
-        $this->container['bilingual_subtitle_file_name'] = isset($data['bilingual_subtitle_file_name']) ? $data['bilingual_subtitle_file_name'] : null;
-        $this->container['recognition_type'] = isset($data['recognition_type']) ? $data['recognition_type'] : null;
-        $this->container['source_subtitle_file_name'] = isset($data['source_subtitle_file_name']) ? $data['source_subtitle_file_name'] : null;
-        $this->container['subtitle_file_name'] = isset($data['subtitle_file_name']) ? $data['subtitle_file_name'] : null;
-        $this->container['target_subtitle_file_name'] = isset($data['target_subtitle_file_name']) ? $data['target_subtitle_file_name'] : null;
+        $this->container['max_duration'] = isset($data['max_duration']) ? $data['max_duration'] : null;
+        $this->container['min_clip_duration'] = isset($data['min_clip_duration']) ? $data['min_clip_duration'] : null;
+        $this->container['min_duration'] = isset($data['min_duration']) ? $data['min_duration'] : null;
+        $this->container['min_score'] = isset($data['min_score']) ? $data['min_score'] : null;
+        $this->container['with_opening_hook'] = isset($data['with_opening_hook']) ? $data['with_opening_hook'] : null;
     }
 
     /**
@@ -200,121 +200,121 @@ class SubtitleRecognitionConfigForGetAITranslationProjectOutput implements Model
 
 
     /**
-     * Gets bilingual_subtitle_file_name
+     * Gets max_duration
      *
-     * @return string
+     * @return double
      */
-    public function getBilingualSubtitleFileName()
+    public function getMaxDuration()
     {
-        return $this->container['bilingual_subtitle_file_name'];
+        return $this->container['max_duration'];
     }
 
     /**
-     * Sets bilingual_subtitle_file_name
+     * Sets max_duration
      *
-     * @param string $bilingual_subtitle_file_name bilingual_subtitle_file_name
+     * @param double $max_duration max_duration
      *
      * @return $this
      */
-    public function setBilingualSubtitleFileName($bilingual_subtitle_file_name)
+    public function setMaxDuration($max_duration)
     {
-        $this->container['bilingual_subtitle_file_name'] = $bilingual_subtitle_file_name;
+        $this->container['max_duration'] = $max_duration;
 
         return $this;
     }
 
     /**
-     * Gets recognition_type
+     * Gets min_clip_duration
      *
-     * @return string
+     * @return double
      */
-    public function getRecognitionType()
+    public function getMinClipDuration()
     {
-        return $this->container['recognition_type'];
+        return $this->container['min_clip_duration'];
     }
 
     /**
-     * Sets recognition_type
+     * Sets min_clip_duration
      *
-     * @param string $recognition_type recognition_type
+     * @param double $min_clip_duration min_clip_duration
      *
      * @return $this
      */
-    public function setRecognitionType($recognition_type)
+    public function setMinClipDuration($min_clip_duration)
     {
-        $this->container['recognition_type'] = $recognition_type;
+        $this->container['min_clip_duration'] = $min_clip_duration;
 
         return $this;
     }
 
     /**
-     * Gets source_subtitle_file_name
+     * Gets min_duration
      *
-     * @return string
+     * @return double
      */
-    public function getSourceSubtitleFileName()
+    public function getMinDuration()
     {
-        return $this->container['source_subtitle_file_name'];
+        return $this->container['min_duration'];
     }
 
     /**
-     * Sets source_subtitle_file_name
+     * Sets min_duration
      *
-     * @param string $source_subtitle_file_name source_subtitle_file_name
+     * @param double $min_duration min_duration
      *
      * @return $this
      */
-    public function setSourceSubtitleFileName($source_subtitle_file_name)
+    public function setMinDuration($min_duration)
     {
-        $this->container['source_subtitle_file_name'] = $source_subtitle_file_name;
+        $this->container['min_duration'] = $min_duration;
 
         return $this;
     }
 
     /**
-     * Gets subtitle_file_name
+     * Gets min_score
      *
-     * @return string
+     * @return double
      */
-    public function getSubtitleFileName()
+    public function getMinScore()
     {
-        return $this->container['subtitle_file_name'];
+        return $this->container['min_score'];
     }
 
     /**
-     * Sets subtitle_file_name
+     * Sets min_score
      *
-     * @param string $subtitle_file_name subtitle_file_name
+     * @param double $min_score min_score
      *
      * @return $this
      */
-    public function setSubtitleFileName($subtitle_file_name)
+    public function setMinScore($min_score)
     {
-        $this->container['subtitle_file_name'] = $subtitle_file_name;
+        $this->container['min_score'] = $min_score;
 
         return $this;
     }
 
     /**
-     * Gets target_subtitle_file_name
+     * Gets with_opening_hook
      *
-     * @return string
+     * @return bool
      */
-    public function getTargetSubtitleFileName()
+    public function getWithOpeningHook()
     {
-        return $this->container['target_subtitle_file_name'];
+        return $this->container['with_opening_hook'];
     }
 
     /**
-     * Sets target_subtitle_file_name
+     * Sets with_opening_hook
      *
-     * @param string $target_subtitle_file_name target_subtitle_file_name
+     * @param bool $with_opening_hook with_opening_hook
      *
      * @return $this
      */
-    public function setTargetSubtitleFileName($target_subtitle_file_name)
+    public function setWithOpeningHook($with_opening_hook)
     {
-        $this->container['target_subtitle_file_name'] = $target_subtitle_file_name;
+        $this->container['with_opening_hook'] = $with_opening_hook;
 
         return $this;
     }
