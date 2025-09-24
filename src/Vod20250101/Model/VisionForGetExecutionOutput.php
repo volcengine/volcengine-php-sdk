@@ -29,7 +29,9 @@ class VisionForGetExecutionOutput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'model' => '\Volcengine\Vod20250101\Model\ModelForGetExecutionOutput',
+        'need_asr_speaker' => 'bool',
         'prompt' => 'string',
+        'response_format_type' => 'string',
         'segment' => '\Volcengine\Vod20250101\Model\ConvertSegmentForGetExecutionOutput',
         'snapshot_param' => '\Volcengine\Vod20250101\Model\SnapshotParamForGetExecutionOutput'
     ];
@@ -41,7 +43,9 @@ class VisionForGetExecutionOutput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'model' => null,
+        'need_asr_speaker' => null,
         'prompt' => null,
+        'response_format_type' => null,
         'segment' => null,
         'snapshot_param' => null
     ];
@@ -74,7 +78,9 @@ class VisionForGetExecutionOutput implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'model' => 'Model',
+        'need_asr_speaker' => 'NeedAsrSpeaker',
         'prompt' => 'Prompt',
+        'response_format_type' => 'ResponseFormatType',
         'segment' => 'Segment',
         'snapshot_param' => 'SnapshotParam'
     ];
@@ -86,7 +92,9 @@ class VisionForGetExecutionOutput implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'model' => 'setModel',
+        'need_asr_speaker' => 'setNeedAsrSpeaker',
         'prompt' => 'setPrompt',
+        'response_format_type' => 'setResponseFormatType',
         'segment' => 'setSegment',
         'snapshot_param' => 'setSnapshotParam'
     ];
@@ -98,7 +106,9 @@ class VisionForGetExecutionOutput implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'model' => 'getModel',
+        'need_asr_speaker' => 'getNeedAsrSpeaker',
         'prompt' => 'getPrompt',
+        'response_format_type' => 'getResponseFormatType',
         'segment' => 'getSegment',
         'snapshot_param' => 'getSnapshotParam'
     ];
@@ -164,7 +174,9 @@ class VisionForGetExecutionOutput implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['model'] = isset($data['model']) ? $data['model'] : null;
+        $this->container['need_asr_speaker'] = isset($data['need_asr_speaker']) ? $data['need_asr_speaker'] : null;
         $this->container['prompt'] = isset($data['prompt']) ? $data['prompt'] : null;
+        $this->container['response_format_type'] = isset($data['response_format_type']) ? $data['response_format_type'] : null;
         $this->container['segment'] = isset($data['segment']) ? $data['segment'] : null;
         $this->container['snapshot_param'] = isset($data['snapshot_param']) ? $data['snapshot_param'] : null;
     }
@@ -218,6 +230,30 @@ class VisionForGetExecutionOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets need_asr_speaker
+     *
+     * @return bool
+     */
+    public function getNeedAsrSpeaker()
+    {
+        return $this->container['need_asr_speaker'];
+    }
+
+    /**
+     * Sets need_asr_speaker
+     *
+     * @param bool $need_asr_speaker need_asr_speaker
+     *
+     * @return $this
+     */
+    public function setNeedAsrSpeaker($need_asr_speaker)
+    {
+        $this->container['need_asr_speaker'] = $need_asr_speaker;
+
+        return $this;
+    }
+
+    /**
      * Gets prompt
      *
      * @return string
@@ -237,6 +273,30 @@ class VisionForGetExecutionOutput implements ModelInterface, ArrayAccess
     public function setPrompt($prompt)
     {
         $this->container['prompt'] = $prompt;
+
+        return $this;
+    }
+
+    /**
+     * Gets response_format_type
+     *
+     * @return string
+     */
+    public function getResponseFormatType()
+    {
+        return $this->container['response_format_type'];
+    }
+
+    /**
+     * Sets response_format_type
+     *
+     * @param string $response_format_type response_format_type
+     *
+     * @return $this
+     */
+    public function setResponseFormatType($response_format_type)
+    {
+        $this->container['response_format_type'] = $response_format_type;
 
         return $this;
     }

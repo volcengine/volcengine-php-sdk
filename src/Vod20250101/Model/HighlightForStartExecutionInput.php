@@ -28,7 +28,9 @@ class HighlightForStartExecutionInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'highlight_cuts' => '\Volcengine\Vod20250101\Model\HighlightCutsForStartExecutionInput',
         'mode' => 'string',
+        'opening_hook' => '\Volcengine\Vod20250101\Model\OpeningHookForStartExecutionInput',
         'storyline_cuts' => '\Volcengine\Vod20250101\Model\StorylineCutsForStartExecutionInput'
     ];
 
@@ -38,7 +40,9 @@ class HighlightForStartExecutionInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'highlight_cuts' => null,
         'mode' => null,
+        'opening_hook' => null,
         'storyline_cuts' => null
     ];
 
@@ -69,7 +73,9 @@ class HighlightForStartExecutionInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'highlight_cuts' => 'HighlightCuts',
         'mode' => 'Mode',
+        'opening_hook' => 'OpeningHook',
         'storyline_cuts' => 'StorylineCuts'
     ];
 
@@ -79,7 +85,9 @@ class HighlightForStartExecutionInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'highlight_cuts' => 'setHighlightCuts',
         'mode' => 'setMode',
+        'opening_hook' => 'setOpeningHook',
         'storyline_cuts' => 'setStorylineCuts'
     ];
 
@@ -89,7 +97,9 @@ class HighlightForStartExecutionInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'highlight_cuts' => 'getHighlightCuts',
         'mode' => 'getMode',
+        'opening_hook' => 'getOpeningHook',
         'storyline_cuts' => 'getStorylineCuts'
     ];
 
@@ -153,7 +163,9 @@ class HighlightForStartExecutionInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['highlight_cuts'] = isset($data['highlight_cuts']) ? $data['highlight_cuts'] : null;
         $this->container['mode'] = isset($data['mode']) ? $data['mode'] : null;
+        $this->container['opening_hook'] = isset($data['opening_hook']) ? $data['opening_hook'] : null;
         $this->container['storyline_cuts'] = isset($data['storyline_cuts']) ? $data['storyline_cuts'] : null;
     }
 
@@ -182,6 +194,30 @@ class HighlightForStartExecutionInput implements ModelInterface, ArrayAccess
 
 
     /**
+     * Gets highlight_cuts
+     *
+     * @return \Volcengine\Vod20250101\Model\HighlightCutsForStartExecutionInput
+     */
+    public function getHighlightCuts()
+    {
+        return $this->container['highlight_cuts'];
+    }
+
+    /**
+     * Sets highlight_cuts
+     *
+     * @param \Volcengine\Vod20250101\Model\HighlightCutsForStartExecutionInput $highlight_cuts highlight_cuts
+     *
+     * @return $this
+     */
+    public function setHighlightCuts($highlight_cuts)
+    {
+        $this->container['highlight_cuts'] = $highlight_cuts;
+
+        return $this;
+    }
+
+    /**
      * Gets mode
      *
      * @return string
@@ -201,6 +237,30 @@ class HighlightForStartExecutionInput implements ModelInterface, ArrayAccess
     public function setMode($mode)
     {
         $this->container['mode'] = $mode;
+
+        return $this;
+    }
+
+    /**
+     * Gets opening_hook
+     *
+     * @return \Volcengine\Vod20250101\Model\OpeningHookForStartExecutionInput
+     */
+    public function getOpeningHook()
+    {
+        return $this->container['opening_hook'];
+    }
+
+    /**
+     * Sets opening_hook
+     *
+     * @param \Volcengine\Vod20250101\Model\OpeningHookForStartExecutionInput $opening_hook opening_hook
+     *
+     * @return $this
+     */
+    public function setOpeningHook($opening_hook)
+    {
+        $this->container['opening_hook'] = $opening_hook;
 
         return $this;
     }

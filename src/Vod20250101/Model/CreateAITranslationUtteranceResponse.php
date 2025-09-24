@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class SubtitleRecognitionConfigForGetAITranslationProjectOutput implements ModelInterface, ArrayAccess
+class CreateAITranslationUtteranceResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class SubtitleRecognitionConfigForGetAITranslationProjectOutput implements Model
       *
       * @var string
       */
-    protected static $swaggerModelName = 'SubtitleRecognitionConfigForGetAITranslationProjectOutput';
+    protected static $swaggerModelName = 'CreateAITranslationUtteranceResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,11 +28,10 @@ class SubtitleRecognitionConfigForGetAITranslationProjectOutput implements Model
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'bilingual_subtitle_file_name' => 'string',
-        'recognition_type' => 'string',
-        'source_subtitle_file_name' => 'string',
-        'subtitle_file_name' => 'string',
-        'target_subtitle_file_name' => 'string'
+        'source_clip' => '\Volcengine\Vod20250101\Model\SourceClipForCreateAITranslationUtteranceOutput',
+        'source_utterance' => '\Volcengine\Vod20250101\Model\SourceUtteranceForCreateAITranslationUtteranceOutput',
+        'target_clip' => '\Volcengine\Vod20250101\Model\TargetClipForCreateAITranslationUtteranceOutput',
+        'target_utterance' => '\Volcengine\Vod20250101\Model\TargetUtteranceForCreateAITranslationUtteranceOutput'
     ];
 
     /**
@@ -41,11 +40,10 @@ class SubtitleRecognitionConfigForGetAITranslationProjectOutput implements Model
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'bilingual_subtitle_file_name' => null,
-        'recognition_type' => null,
-        'source_subtitle_file_name' => null,
-        'subtitle_file_name' => null,
-        'target_subtitle_file_name' => null
+        'source_clip' => null,
+        'source_utterance' => null,
+        'target_clip' => null,
+        'target_utterance' => null
     ];
 
     /**
@@ -75,11 +73,10 @@ class SubtitleRecognitionConfigForGetAITranslationProjectOutput implements Model
      * @var string[]
      */
     protected static $attributeMap = [
-        'bilingual_subtitle_file_name' => 'BilingualSubtitleFileName',
-        'recognition_type' => 'RecognitionType',
-        'source_subtitle_file_name' => 'SourceSubtitleFileName',
-        'subtitle_file_name' => 'SubtitleFileName',
-        'target_subtitle_file_name' => 'TargetSubtitleFileName'
+        'source_clip' => 'SourceClip',
+        'source_utterance' => 'SourceUtterance',
+        'target_clip' => 'TargetClip',
+        'target_utterance' => 'TargetUtterance'
     ];
 
     /**
@@ -88,11 +85,10 @@ class SubtitleRecognitionConfigForGetAITranslationProjectOutput implements Model
      * @var string[]
      */
     protected static $setters = [
-        'bilingual_subtitle_file_name' => 'setBilingualSubtitleFileName',
-        'recognition_type' => 'setRecognitionType',
-        'source_subtitle_file_name' => 'setSourceSubtitleFileName',
-        'subtitle_file_name' => 'setSubtitleFileName',
-        'target_subtitle_file_name' => 'setTargetSubtitleFileName'
+        'source_clip' => 'setSourceClip',
+        'source_utterance' => 'setSourceUtterance',
+        'target_clip' => 'setTargetClip',
+        'target_utterance' => 'setTargetUtterance'
     ];
 
     /**
@@ -101,11 +97,10 @@ class SubtitleRecognitionConfigForGetAITranslationProjectOutput implements Model
      * @var string[]
      */
     protected static $getters = [
-        'bilingual_subtitle_file_name' => 'getBilingualSubtitleFileName',
-        'recognition_type' => 'getRecognitionType',
-        'source_subtitle_file_name' => 'getSourceSubtitleFileName',
-        'subtitle_file_name' => 'getSubtitleFileName',
-        'target_subtitle_file_name' => 'getTargetSubtitleFileName'
+        'source_clip' => 'getSourceClip',
+        'source_utterance' => 'getSourceUtterance',
+        'target_clip' => 'getTargetClip',
+        'target_utterance' => 'getTargetUtterance'
     ];
 
     /**
@@ -168,11 +163,10 @@ class SubtitleRecognitionConfigForGetAITranslationProjectOutput implements Model
      */
     public function __construct(array $data = null)
     {
-        $this->container['bilingual_subtitle_file_name'] = isset($data['bilingual_subtitle_file_name']) ? $data['bilingual_subtitle_file_name'] : null;
-        $this->container['recognition_type'] = isset($data['recognition_type']) ? $data['recognition_type'] : null;
-        $this->container['source_subtitle_file_name'] = isset($data['source_subtitle_file_name']) ? $data['source_subtitle_file_name'] : null;
-        $this->container['subtitle_file_name'] = isset($data['subtitle_file_name']) ? $data['subtitle_file_name'] : null;
-        $this->container['target_subtitle_file_name'] = isset($data['target_subtitle_file_name']) ? $data['target_subtitle_file_name'] : null;
+        $this->container['source_clip'] = isset($data['source_clip']) ? $data['source_clip'] : null;
+        $this->container['source_utterance'] = isset($data['source_utterance']) ? $data['source_utterance'] : null;
+        $this->container['target_clip'] = isset($data['target_clip']) ? $data['target_clip'] : null;
+        $this->container['target_utterance'] = isset($data['target_utterance']) ? $data['target_utterance'] : null;
     }
 
     /**
@@ -200,121 +194,97 @@ class SubtitleRecognitionConfigForGetAITranslationProjectOutput implements Model
 
 
     /**
-     * Gets bilingual_subtitle_file_name
+     * Gets source_clip
      *
-     * @return string
+     * @return \Volcengine\Vod20250101\Model\SourceClipForCreateAITranslationUtteranceOutput
      */
-    public function getBilingualSubtitleFileName()
+    public function getSourceClip()
     {
-        return $this->container['bilingual_subtitle_file_name'];
+        return $this->container['source_clip'];
     }
 
     /**
-     * Sets bilingual_subtitle_file_name
+     * Sets source_clip
      *
-     * @param string $bilingual_subtitle_file_name bilingual_subtitle_file_name
+     * @param \Volcengine\Vod20250101\Model\SourceClipForCreateAITranslationUtteranceOutput $source_clip source_clip
      *
      * @return $this
      */
-    public function setBilingualSubtitleFileName($bilingual_subtitle_file_name)
+    public function setSourceClip($source_clip)
     {
-        $this->container['bilingual_subtitle_file_name'] = $bilingual_subtitle_file_name;
+        $this->container['source_clip'] = $source_clip;
 
         return $this;
     }
 
     /**
-     * Gets recognition_type
+     * Gets source_utterance
      *
-     * @return string
+     * @return \Volcengine\Vod20250101\Model\SourceUtteranceForCreateAITranslationUtteranceOutput
      */
-    public function getRecognitionType()
+    public function getSourceUtterance()
     {
-        return $this->container['recognition_type'];
+        return $this->container['source_utterance'];
     }
 
     /**
-     * Sets recognition_type
+     * Sets source_utterance
      *
-     * @param string $recognition_type recognition_type
+     * @param \Volcengine\Vod20250101\Model\SourceUtteranceForCreateAITranslationUtteranceOutput $source_utterance source_utterance
      *
      * @return $this
      */
-    public function setRecognitionType($recognition_type)
+    public function setSourceUtterance($source_utterance)
     {
-        $this->container['recognition_type'] = $recognition_type;
+        $this->container['source_utterance'] = $source_utterance;
 
         return $this;
     }
 
     /**
-     * Gets source_subtitle_file_name
+     * Gets target_clip
      *
-     * @return string
+     * @return \Volcengine\Vod20250101\Model\TargetClipForCreateAITranslationUtteranceOutput
      */
-    public function getSourceSubtitleFileName()
+    public function getTargetClip()
     {
-        return $this->container['source_subtitle_file_name'];
+        return $this->container['target_clip'];
     }
 
     /**
-     * Sets source_subtitle_file_name
+     * Sets target_clip
      *
-     * @param string $source_subtitle_file_name source_subtitle_file_name
+     * @param \Volcengine\Vod20250101\Model\TargetClipForCreateAITranslationUtteranceOutput $target_clip target_clip
      *
      * @return $this
      */
-    public function setSourceSubtitleFileName($source_subtitle_file_name)
+    public function setTargetClip($target_clip)
     {
-        $this->container['source_subtitle_file_name'] = $source_subtitle_file_name;
+        $this->container['target_clip'] = $target_clip;
 
         return $this;
     }
 
     /**
-     * Gets subtitle_file_name
+     * Gets target_utterance
      *
-     * @return string
+     * @return \Volcengine\Vod20250101\Model\TargetUtteranceForCreateAITranslationUtteranceOutput
      */
-    public function getSubtitleFileName()
+    public function getTargetUtterance()
     {
-        return $this->container['subtitle_file_name'];
+        return $this->container['target_utterance'];
     }
 
     /**
-     * Sets subtitle_file_name
+     * Sets target_utterance
      *
-     * @param string $subtitle_file_name subtitle_file_name
+     * @param \Volcengine\Vod20250101\Model\TargetUtteranceForCreateAITranslationUtteranceOutput $target_utterance target_utterance
      *
      * @return $this
      */
-    public function setSubtitleFileName($subtitle_file_name)
+    public function setTargetUtterance($target_utterance)
     {
-        $this->container['subtitle_file_name'] = $subtitle_file_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets target_subtitle_file_name
-     *
-     * @return string
-     */
-    public function getTargetSubtitleFileName()
-    {
-        return $this->container['target_subtitle_file_name'];
-    }
-
-    /**
-     * Sets target_subtitle_file_name
-     *
-     * @param string $target_subtitle_file_name target_subtitle_file_name
-     *
-     * @return $this
-     */
-    public function setTargetSubtitleFileName($target_subtitle_file_name)
-    {
-        $this->container['target_subtitle_file_name'] = $target_subtitle_file_name;
+        $this->container['target_utterance'] = $target_utterance;
 
         return $this;
     }
