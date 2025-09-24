@@ -34,6 +34,7 @@ class DescribeTransitRouterRouteEntriesRequest implements ModelInterface, ArrayA
         'status' => 'string',
         'transit_router_route_entry_ids' => 'string[]',
         'transit_router_route_entry_name' => 'string',
+        'transit_router_route_entry_next_hop_id' => 'string',
         'transit_router_route_entry_next_hop_resource_type' => 'string',
         'transit_router_route_entry_next_hop_type' => 'string',
         'transit_router_route_entry_type' => 'string',
@@ -52,6 +53,7 @@ class DescribeTransitRouterRouteEntriesRequest implements ModelInterface, ArrayA
         'status' => null,
         'transit_router_route_entry_ids' => null,
         'transit_router_route_entry_name' => null,
+        'transit_router_route_entry_next_hop_id' => null,
         'transit_router_route_entry_next_hop_resource_type' => null,
         'transit_router_route_entry_next_hop_type' => null,
         'transit_router_route_entry_type' => null,
@@ -91,6 +93,7 @@ class DescribeTransitRouterRouteEntriesRequest implements ModelInterface, ArrayA
         'status' => 'Status',
         'transit_router_route_entry_ids' => 'TransitRouterRouteEntryIds',
         'transit_router_route_entry_name' => 'TransitRouterRouteEntryName',
+        'transit_router_route_entry_next_hop_id' => 'TransitRouterRouteEntryNextHopId',
         'transit_router_route_entry_next_hop_resource_type' => 'TransitRouterRouteEntryNextHopResourceType',
         'transit_router_route_entry_next_hop_type' => 'TransitRouterRouteEntryNextHopType',
         'transit_router_route_entry_type' => 'TransitRouterRouteEntryType',
@@ -109,6 +112,7 @@ class DescribeTransitRouterRouteEntriesRequest implements ModelInterface, ArrayA
         'status' => 'setStatus',
         'transit_router_route_entry_ids' => 'setTransitRouterRouteEntryIds',
         'transit_router_route_entry_name' => 'setTransitRouterRouteEntryName',
+        'transit_router_route_entry_next_hop_id' => 'setTransitRouterRouteEntryNextHopId',
         'transit_router_route_entry_next_hop_resource_type' => 'setTransitRouterRouteEntryNextHopResourceType',
         'transit_router_route_entry_next_hop_type' => 'setTransitRouterRouteEntryNextHopType',
         'transit_router_route_entry_type' => 'setTransitRouterRouteEntryType',
@@ -127,6 +131,7 @@ class DescribeTransitRouterRouteEntriesRequest implements ModelInterface, ArrayA
         'status' => 'getStatus',
         'transit_router_route_entry_ids' => 'getTransitRouterRouteEntryIds',
         'transit_router_route_entry_name' => 'getTransitRouterRouteEntryName',
+        'transit_router_route_entry_next_hop_id' => 'getTransitRouterRouteEntryNextHopId',
         'transit_router_route_entry_next_hop_resource_type' => 'getTransitRouterRouteEntryNextHopResourceType',
         'transit_router_route_entry_next_hop_type' => 'getTransitRouterRouteEntryNextHopType',
         'transit_router_route_entry_type' => 'getTransitRouterRouteEntryType',
@@ -199,6 +204,7 @@ class DescribeTransitRouterRouteEntriesRequest implements ModelInterface, ArrayA
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['transit_router_route_entry_ids'] = isset($data['transit_router_route_entry_ids']) ? $data['transit_router_route_entry_ids'] : null;
         $this->container['transit_router_route_entry_name'] = isset($data['transit_router_route_entry_name']) ? $data['transit_router_route_entry_name'] : null;
+        $this->container['transit_router_route_entry_next_hop_id'] = isset($data['transit_router_route_entry_next_hop_id']) ? $data['transit_router_route_entry_next_hop_id'] : null;
         $this->container['transit_router_route_entry_next_hop_resource_type'] = isset($data['transit_router_route_entry_next_hop_resource_type']) ? $data['transit_router_route_entry_next_hop_resource_type'] : null;
         $this->container['transit_router_route_entry_next_hop_type'] = isset($data['transit_router_route_entry_next_hop_type']) ? $data['transit_router_route_entry_next_hop_type'] : null;
         $this->container['transit_router_route_entry_type'] = isset($data['transit_router_route_entry_type']) ? $data['transit_router_route_entry_type'] : null;
@@ -372,6 +378,30 @@ class DescribeTransitRouterRouteEntriesRequest implements ModelInterface, ArrayA
     public function setTransitRouterRouteEntryName($transit_router_route_entry_name)
     {
         $this->container['transit_router_route_entry_name'] = $transit_router_route_entry_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets transit_router_route_entry_next_hop_id
+     *
+     * @return string
+     */
+    public function getTransitRouterRouteEntryNextHopId()
+    {
+        return $this->container['transit_router_route_entry_next_hop_id'];
+    }
+
+    /**
+     * Sets transit_router_route_entry_next_hop_id
+     *
+     * @param string $transit_router_route_entry_next_hop_id transit_router_route_entry_next_hop_id
+     *
+     * @return $this
+     */
+    public function setTransitRouterRouteEntryNextHopId($transit_router_route_entry_next_hop_id)
+    {
+        $this->container['transit_router_route_entry_next_hop_id'] = $transit_router_route_entry_next_hop_id;
 
         return $this;
     }

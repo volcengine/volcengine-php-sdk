@@ -36,6 +36,7 @@ class TransitRouterFlowLogForDescribeTransitRouterFlowLogsOutput implements Mode
         'resource_id' => 'string',
         'resource_type' => 'string',
         'status' => 'string',
+        'tags' => '\Volcengine\Transitrouter\Model\TagForDescribeTransitRouterFlowLogsOutput[]',
         'tls_project_id' => 'string',
         'tls_project_name' => 'string',
         'tls_topic_id' => 'string',
@@ -60,6 +61,7 @@ class TransitRouterFlowLogForDescribeTransitRouterFlowLogsOutput implements Mode
         'resource_id' => null,
         'resource_type' => null,
         'status' => null,
+        'tags' => null,
         'tls_project_id' => null,
         'tls_project_name' => null,
         'tls_topic_id' => null,
@@ -105,6 +107,7 @@ class TransitRouterFlowLogForDescribeTransitRouterFlowLogsOutput implements Mode
         'resource_id' => 'ResourceId',
         'resource_type' => 'ResourceType',
         'status' => 'Status',
+        'tags' => 'Tags',
         'tls_project_id' => 'TlsProjectId',
         'tls_project_name' => 'TlsProjectName',
         'tls_topic_id' => 'TlsTopicId',
@@ -129,6 +132,7 @@ class TransitRouterFlowLogForDescribeTransitRouterFlowLogsOutput implements Mode
         'resource_id' => 'setResourceId',
         'resource_type' => 'setResourceType',
         'status' => 'setStatus',
+        'tags' => 'setTags',
         'tls_project_id' => 'setTlsProjectId',
         'tls_project_name' => 'setTlsProjectName',
         'tls_topic_id' => 'setTlsTopicId',
@@ -153,6 +157,7 @@ class TransitRouterFlowLogForDescribeTransitRouterFlowLogsOutput implements Mode
         'resource_id' => 'getResourceId',
         'resource_type' => 'getResourceType',
         'status' => 'getStatus',
+        'tags' => 'getTags',
         'tls_project_id' => 'getTlsProjectId',
         'tls_project_name' => 'getTlsProjectName',
         'tls_topic_id' => 'getTlsTopicId',
@@ -231,6 +236,7 @@ class TransitRouterFlowLogForDescribeTransitRouterFlowLogsOutput implements Mode
         $this->container['resource_id'] = isset($data['resource_id']) ? $data['resource_id'] : null;
         $this->container['resource_type'] = isset($data['resource_type']) ? $data['resource_type'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['tls_project_id'] = isset($data['tls_project_id']) ? $data['tls_project_id'] : null;
         $this->container['tls_project_name'] = isset($data['tls_project_name']) ? $data['tls_project_name'] : null;
         $this->container['tls_topic_id'] = isset($data['tls_topic_id']) ? $data['tls_topic_id'] : null;
@@ -453,6 +459,30 @@ class TransitRouterFlowLogForDescribeTransitRouterFlowLogsOutput implements Mode
     public function setStatus($status)
     {
         $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets tags
+     *
+     * @return \Volcengine\Transitrouter\Model\TagForDescribeTransitRouterFlowLogsOutput[]
+     */
+    public function getTags()
+    {
+        return $this->container['tags'];
+    }
+
+    /**
+     * Sets tags
+     *
+     * @param \Volcengine\Transitrouter\Model\TagForDescribeTransitRouterFlowLogsOutput[] $tags tags
+     *
+     * @return $this
+     */
+    public function setTags($tags)
+    {
+        $this->container['tags'] = $tags;
 
         return $this;
     }
