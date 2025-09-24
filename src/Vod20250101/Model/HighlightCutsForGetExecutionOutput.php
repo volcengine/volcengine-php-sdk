@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class SubtitleRecognitionConfigForGetAITranslationProjectOutput implements ModelInterface, ArrayAccess
+class HighlightCutsForGetExecutionOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class SubtitleRecognitionConfigForGetAITranslationProjectOutput implements Model
       *
       * @var string
       */
-    protected static $swaggerModelName = 'SubtitleRecognitionConfigForGetAITranslationProjectOutput';
+    protected static $swaggerModelName = 'HighlightCutsForGetExecutionOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,11 +28,10 @@ class SubtitleRecognitionConfigForGetAITranslationProjectOutput implements Model
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'bilingual_subtitle_file_name' => 'string',
-        'recognition_type' => 'string',
-        'source_subtitle_file_name' => 'string',
-        'subtitle_file_name' => 'string',
-        'target_subtitle_file_name' => 'string'
+        'max_duration' => 'double',
+        'max_number' => 'int',
+        'min_duration' => 'double',
+        'with_storyboard' => 'bool'
     ];
 
     /**
@@ -41,11 +40,10 @@ class SubtitleRecognitionConfigForGetAITranslationProjectOutput implements Model
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'bilingual_subtitle_file_name' => null,
-        'recognition_type' => null,
-        'source_subtitle_file_name' => null,
-        'subtitle_file_name' => null,
-        'target_subtitle_file_name' => null
+        'max_duration' => 'double',
+        'max_number' => 'int32',
+        'min_duration' => 'double',
+        'with_storyboard' => null
     ];
 
     /**
@@ -75,11 +73,10 @@ class SubtitleRecognitionConfigForGetAITranslationProjectOutput implements Model
      * @var string[]
      */
     protected static $attributeMap = [
-        'bilingual_subtitle_file_name' => 'BilingualSubtitleFileName',
-        'recognition_type' => 'RecognitionType',
-        'source_subtitle_file_name' => 'SourceSubtitleFileName',
-        'subtitle_file_name' => 'SubtitleFileName',
-        'target_subtitle_file_name' => 'TargetSubtitleFileName'
+        'max_duration' => 'MaxDuration',
+        'max_number' => 'MaxNumber',
+        'min_duration' => 'MinDuration',
+        'with_storyboard' => 'WithStoryboard'
     ];
 
     /**
@@ -88,11 +85,10 @@ class SubtitleRecognitionConfigForGetAITranslationProjectOutput implements Model
      * @var string[]
      */
     protected static $setters = [
-        'bilingual_subtitle_file_name' => 'setBilingualSubtitleFileName',
-        'recognition_type' => 'setRecognitionType',
-        'source_subtitle_file_name' => 'setSourceSubtitleFileName',
-        'subtitle_file_name' => 'setSubtitleFileName',
-        'target_subtitle_file_name' => 'setTargetSubtitleFileName'
+        'max_duration' => 'setMaxDuration',
+        'max_number' => 'setMaxNumber',
+        'min_duration' => 'setMinDuration',
+        'with_storyboard' => 'setWithStoryboard'
     ];
 
     /**
@@ -101,11 +97,10 @@ class SubtitleRecognitionConfigForGetAITranslationProjectOutput implements Model
      * @var string[]
      */
     protected static $getters = [
-        'bilingual_subtitle_file_name' => 'getBilingualSubtitleFileName',
-        'recognition_type' => 'getRecognitionType',
-        'source_subtitle_file_name' => 'getSourceSubtitleFileName',
-        'subtitle_file_name' => 'getSubtitleFileName',
-        'target_subtitle_file_name' => 'getTargetSubtitleFileName'
+        'max_duration' => 'getMaxDuration',
+        'max_number' => 'getMaxNumber',
+        'min_duration' => 'getMinDuration',
+        'with_storyboard' => 'getWithStoryboard'
     ];
 
     /**
@@ -168,11 +163,10 @@ class SubtitleRecognitionConfigForGetAITranslationProjectOutput implements Model
      */
     public function __construct(array $data = null)
     {
-        $this->container['bilingual_subtitle_file_name'] = isset($data['bilingual_subtitle_file_name']) ? $data['bilingual_subtitle_file_name'] : null;
-        $this->container['recognition_type'] = isset($data['recognition_type']) ? $data['recognition_type'] : null;
-        $this->container['source_subtitle_file_name'] = isset($data['source_subtitle_file_name']) ? $data['source_subtitle_file_name'] : null;
-        $this->container['subtitle_file_name'] = isset($data['subtitle_file_name']) ? $data['subtitle_file_name'] : null;
-        $this->container['target_subtitle_file_name'] = isset($data['target_subtitle_file_name']) ? $data['target_subtitle_file_name'] : null;
+        $this->container['max_duration'] = isset($data['max_duration']) ? $data['max_duration'] : null;
+        $this->container['max_number'] = isset($data['max_number']) ? $data['max_number'] : null;
+        $this->container['min_duration'] = isset($data['min_duration']) ? $data['min_duration'] : null;
+        $this->container['with_storyboard'] = isset($data['with_storyboard']) ? $data['with_storyboard'] : null;
     }
 
     /**
@@ -200,121 +194,97 @@ class SubtitleRecognitionConfigForGetAITranslationProjectOutput implements Model
 
 
     /**
-     * Gets bilingual_subtitle_file_name
+     * Gets max_duration
      *
-     * @return string
+     * @return double
      */
-    public function getBilingualSubtitleFileName()
+    public function getMaxDuration()
     {
-        return $this->container['bilingual_subtitle_file_name'];
+        return $this->container['max_duration'];
     }
 
     /**
-     * Sets bilingual_subtitle_file_name
+     * Sets max_duration
      *
-     * @param string $bilingual_subtitle_file_name bilingual_subtitle_file_name
+     * @param double $max_duration max_duration
      *
      * @return $this
      */
-    public function setBilingualSubtitleFileName($bilingual_subtitle_file_name)
+    public function setMaxDuration($max_duration)
     {
-        $this->container['bilingual_subtitle_file_name'] = $bilingual_subtitle_file_name;
+        $this->container['max_duration'] = $max_duration;
 
         return $this;
     }
 
     /**
-     * Gets recognition_type
+     * Gets max_number
      *
-     * @return string
+     * @return int
      */
-    public function getRecognitionType()
+    public function getMaxNumber()
     {
-        return $this->container['recognition_type'];
+        return $this->container['max_number'];
     }
 
     /**
-     * Sets recognition_type
+     * Sets max_number
      *
-     * @param string $recognition_type recognition_type
+     * @param int $max_number max_number
      *
      * @return $this
      */
-    public function setRecognitionType($recognition_type)
+    public function setMaxNumber($max_number)
     {
-        $this->container['recognition_type'] = $recognition_type;
+        $this->container['max_number'] = $max_number;
 
         return $this;
     }
 
     /**
-     * Gets source_subtitle_file_name
+     * Gets min_duration
      *
-     * @return string
+     * @return double
      */
-    public function getSourceSubtitleFileName()
+    public function getMinDuration()
     {
-        return $this->container['source_subtitle_file_name'];
+        return $this->container['min_duration'];
     }
 
     /**
-     * Sets source_subtitle_file_name
+     * Sets min_duration
      *
-     * @param string $source_subtitle_file_name source_subtitle_file_name
+     * @param double $min_duration min_duration
      *
      * @return $this
      */
-    public function setSourceSubtitleFileName($source_subtitle_file_name)
+    public function setMinDuration($min_duration)
     {
-        $this->container['source_subtitle_file_name'] = $source_subtitle_file_name;
+        $this->container['min_duration'] = $min_duration;
 
         return $this;
     }
 
     /**
-     * Gets subtitle_file_name
+     * Gets with_storyboard
      *
-     * @return string
+     * @return bool
      */
-    public function getSubtitleFileName()
+    public function getWithStoryboard()
     {
-        return $this->container['subtitle_file_name'];
+        return $this->container['with_storyboard'];
     }
 
     /**
-     * Sets subtitle_file_name
+     * Sets with_storyboard
      *
-     * @param string $subtitle_file_name subtitle_file_name
+     * @param bool $with_storyboard with_storyboard
      *
      * @return $this
      */
-    public function setSubtitleFileName($subtitle_file_name)
+    public function setWithStoryboard($with_storyboard)
     {
-        $this->container['subtitle_file_name'] = $subtitle_file_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets target_subtitle_file_name
-     *
-     * @return string
-     */
-    public function getTargetSubtitleFileName()
-    {
-        return $this->container['target_subtitle_file_name'];
-    }
-
-    /**
-     * Sets target_subtitle_file_name
-     *
-     * @param string $target_subtitle_file_name target_subtitle_file_name
-     *
-     * @return $this
-     */
-    public function setTargetSubtitleFileName($target_subtitle_file_name)
-    {
-        $this->container['target_subtitle_file_name'] = $target_subtitle_file_name;
+        $this->container['with_storyboard'] = $with_storyboard;
 
         return $this;
     }

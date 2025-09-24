@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class SubtitleRecognitionConfigForGetAITranslationProjectOutput implements ModelInterface, ArrayAccess
+class RemoveAITranslationUtteranceRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class SubtitleRecognitionConfigForGetAITranslationProjectOutput implements Model
       *
       * @var string
       */
-    protected static $swaggerModelName = 'SubtitleRecognitionConfigForGetAITranslationProjectOutput';
+    protected static $swaggerModelName = 'RemoveAITranslationUtteranceRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,11 +28,9 @@ class SubtitleRecognitionConfigForGetAITranslationProjectOutput implements Model
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'bilingual_subtitle_file_name' => 'string',
-        'recognition_type' => 'string',
-        'source_subtitle_file_name' => 'string',
-        'subtitle_file_name' => 'string',
-        'target_subtitle_file_name' => 'string'
+        'project_id' => 'string',
+        'space_name' => 'string',
+        'utterance_id' => 'string'
     ];
 
     /**
@@ -41,11 +39,9 @@ class SubtitleRecognitionConfigForGetAITranslationProjectOutput implements Model
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'bilingual_subtitle_file_name' => null,
-        'recognition_type' => null,
-        'source_subtitle_file_name' => null,
-        'subtitle_file_name' => null,
-        'target_subtitle_file_name' => null
+        'project_id' => null,
+        'space_name' => null,
+        'utterance_id' => null
     ];
 
     /**
@@ -75,11 +71,9 @@ class SubtitleRecognitionConfigForGetAITranslationProjectOutput implements Model
      * @var string[]
      */
     protected static $attributeMap = [
-        'bilingual_subtitle_file_name' => 'BilingualSubtitleFileName',
-        'recognition_type' => 'RecognitionType',
-        'source_subtitle_file_name' => 'SourceSubtitleFileName',
-        'subtitle_file_name' => 'SubtitleFileName',
-        'target_subtitle_file_name' => 'TargetSubtitleFileName'
+        'project_id' => 'ProjectId',
+        'space_name' => 'SpaceName',
+        'utterance_id' => 'UtteranceId'
     ];
 
     /**
@@ -88,11 +82,9 @@ class SubtitleRecognitionConfigForGetAITranslationProjectOutput implements Model
      * @var string[]
      */
     protected static $setters = [
-        'bilingual_subtitle_file_name' => 'setBilingualSubtitleFileName',
-        'recognition_type' => 'setRecognitionType',
-        'source_subtitle_file_name' => 'setSourceSubtitleFileName',
-        'subtitle_file_name' => 'setSubtitleFileName',
-        'target_subtitle_file_name' => 'setTargetSubtitleFileName'
+        'project_id' => 'setProjectId',
+        'space_name' => 'setSpaceName',
+        'utterance_id' => 'setUtteranceId'
     ];
 
     /**
@@ -101,11 +93,9 @@ class SubtitleRecognitionConfigForGetAITranslationProjectOutput implements Model
      * @var string[]
      */
     protected static $getters = [
-        'bilingual_subtitle_file_name' => 'getBilingualSubtitleFileName',
-        'recognition_type' => 'getRecognitionType',
-        'source_subtitle_file_name' => 'getSourceSubtitleFileName',
-        'subtitle_file_name' => 'getSubtitleFileName',
-        'target_subtitle_file_name' => 'getTargetSubtitleFileName'
+        'project_id' => 'getProjectId',
+        'space_name' => 'getSpaceName',
+        'utterance_id' => 'getUtteranceId'
     ];
 
     /**
@@ -168,11 +158,9 @@ class SubtitleRecognitionConfigForGetAITranslationProjectOutput implements Model
      */
     public function __construct(array $data = null)
     {
-        $this->container['bilingual_subtitle_file_name'] = isset($data['bilingual_subtitle_file_name']) ? $data['bilingual_subtitle_file_name'] : null;
-        $this->container['recognition_type'] = isset($data['recognition_type']) ? $data['recognition_type'] : null;
-        $this->container['source_subtitle_file_name'] = isset($data['source_subtitle_file_name']) ? $data['source_subtitle_file_name'] : null;
-        $this->container['subtitle_file_name'] = isset($data['subtitle_file_name']) ? $data['subtitle_file_name'] : null;
-        $this->container['target_subtitle_file_name'] = isset($data['target_subtitle_file_name']) ? $data['target_subtitle_file_name'] : null;
+        $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
+        $this->container['space_name'] = isset($data['space_name']) ? $data['space_name'] : null;
+        $this->container['utterance_id'] = isset($data['utterance_id']) ? $data['utterance_id'] : null;
     }
 
     /**
@@ -184,6 +172,15 @@ class SubtitleRecognitionConfigForGetAITranslationProjectOutput implements Model
     {
         $invalidProperties = [];
 
+        if ($this->container['project_id'] === null) {
+            $invalidProperties[] = "'project_id' can't be null";
+        }
+        if ($this->container['space_name'] === null) {
+            $invalidProperties[] = "'space_name' can't be null";
+        }
+        if ($this->container['utterance_id'] === null) {
+            $invalidProperties[] = "'utterance_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -200,121 +197,73 @@ class SubtitleRecognitionConfigForGetAITranslationProjectOutput implements Model
 
 
     /**
-     * Gets bilingual_subtitle_file_name
+     * Gets project_id
      *
      * @return string
      */
-    public function getBilingualSubtitleFileName()
+    public function getProjectId()
     {
-        return $this->container['bilingual_subtitle_file_name'];
+        return $this->container['project_id'];
     }
 
     /**
-     * Sets bilingual_subtitle_file_name
+     * Sets project_id
      *
-     * @param string $bilingual_subtitle_file_name bilingual_subtitle_file_name
+     * @param string $project_id project_id
      *
      * @return $this
      */
-    public function setBilingualSubtitleFileName($bilingual_subtitle_file_name)
+    public function setProjectId($project_id)
     {
-        $this->container['bilingual_subtitle_file_name'] = $bilingual_subtitle_file_name;
+        $this->container['project_id'] = $project_id;
 
         return $this;
     }
 
     /**
-     * Gets recognition_type
+     * Gets space_name
      *
      * @return string
      */
-    public function getRecognitionType()
+    public function getSpaceName()
     {
-        return $this->container['recognition_type'];
+        return $this->container['space_name'];
     }
 
     /**
-     * Sets recognition_type
+     * Sets space_name
      *
-     * @param string $recognition_type recognition_type
+     * @param string $space_name space_name
      *
      * @return $this
      */
-    public function setRecognitionType($recognition_type)
+    public function setSpaceName($space_name)
     {
-        $this->container['recognition_type'] = $recognition_type;
+        $this->container['space_name'] = $space_name;
 
         return $this;
     }
 
     /**
-     * Gets source_subtitle_file_name
+     * Gets utterance_id
      *
      * @return string
      */
-    public function getSourceSubtitleFileName()
+    public function getUtteranceId()
     {
-        return $this->container['source_subtitle_file_name'];
+        return $this->container['utterance_id'];
     }
 
     /**
-     * Sets source_subtitle_file_name
+     * Sets utterance_id
      *
-     * @param string $source_subtitle_file_name source_subtitle_file_name
+     * @param string $utterance_id utterance_id
      *
      * @return $this
      */
-    public function setSourceSubtitleFileName($source_subtitle_file_name)
+    public function setUtteranceId($utterance_id)
     {
-        $this->container['source_subtitle_file_name'] = $source_subtitle_file_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets subtitle_file_name
-     *
-     * @return string
-     */
-    public function getSubtitleFileName()
-    {
-        return $this->container['subtitle_file_name'];
-    }
-
-    /**
-     * Sets subtitle_file_name
-     *
-     * @param string $subtitle_file_name subtitle_file_name
-     *
-     * @return $this
-     */
-    public function setSubtitleFileName($subtitle_file_name)
-    {
-        $this->container['subtitle_file_name'] = $subtitle_file_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets target_subtitle_file_name
-     *
-     * @return string
-     */
-    public function getTargetSubtitleFileName()
-    {
-        return $this->container['target_subtitle_file_name'];
-    }
-
-    /**
-     * Sets target_subtitle_file_name
-     *
-     * @param string $target_subtitle_file_name target_subtitle_file_name
-     *
-     * @return $this
-     */
-    public function setTargetSubtitleFileName($target_subtitle_file_name)
-    {
-        $this->container['target_subtitle_file_name'] = $target_subtitle_file_name;
+        $this->container['utterance_id'] = $utterance_id;
 
         return $this;
     }
