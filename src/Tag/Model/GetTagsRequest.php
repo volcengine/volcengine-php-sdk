@@ -29,6 +29,7 @@ class GetTagsRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'count_resources' => 'bool',
+        'match_type' => 'string',
         'max_results' => 'int',
         'next_token' => 'string',
         'tag_keys' => 'string[]',
@@ -42,6 +43,7 @@ class GetTagsRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'count_resources' => null,
+        'match_type' => null,
         'max_results' => 'int32',
         'next_token' => null,
         'tag_keys' => null,
@@ -76,6 +78,7 @@ class GetTagsRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'count_resources' => 'CountResources',
+        'match_type' => 'MatchType',
         'max_results' => 'MaxResults',
         'next_token' => 'NextToken',
         'tag_keys' => 'TagKeys',
@@ -89,6 +92,7 @@ class GetTagsRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'count_resources' => 'setCountResources',
+        'match_type' => 'setMatchType',
         'max_results' => 'setMaxResults',
         'next_token' => 'setNextToken',
         'tag_keys' => 'setTagKeys',
@@ -102,6 +106,7 @@ class GetTagsRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'count_resources' => 'getCountResources',
+        'match_type' => 'getMatchType',
         'max_results' => 'getMaxResults',
         'next_token' => 'getNextToken',
         'tag_keys' => 'getTagKeys',
@@ -149,8 +154,25 @@ class GetTagsRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const MATCH_TYPE_PREFIX = 'prefix';
+    const MATCH_TYPE_EQUALS = 'equals';
+    const MATCH_TYPE_CONTAIN = 'contain';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getMatchTypeAllowableValues()
+    {
+        return [
+            self::MATCH_TYPE_PREFIX,
+            self::MATCH_TYPE_EQUALS,
+            self::MATCH_TYPE_CONTAIN,
+        ];
+    }
     
 
     /**
@@ -169,6 +191,7 @@ class GetTagsRequest implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['count_resources'] = isset($data['count_resources']) ? $data['count_resources'] : null;
+        $this->container['match_type'] = isset($data['match_type']) ? $data['match_type'] : null;
         $this->container['max_results'] = isset($data['max_results']) ? $data['max_results'] : null;
         $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
         $this->container['tag_keys'] = isset($data['tag_keys']) ? $data['tag_keys'] : null;
@@ -183,6 +206,14 @@ class GetTagsRequest implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getMatchTypeAllowableValues();
+        if (!is_null($this->container['match_type']) && !in_array($this->container['match_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'match_type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -219,6 +250,39 @@ class GetTagsRequest implements ModelInterface, ArrayAccess
     public function setCountResources($count_resources)
     {
         $this->container['count_resources'] = $count_resources;
+
+        return $this;
+    }
+
+    /**
+     * Gets match_type
+     *
+     * @return string
+     */
+    public function getMatchType()
+    {
+        return $this->container['match_type'];
+    }
+
+    /**
+     * Sets match_type
+     *
+     * @param string $match_type match_type
+     *
+     * @return $this
+     */
+    public function setMatchType($match_type)
+    {
+        $allowedValues = $this->getMatchTypeAllowableValues();
+        if (!is_null($match_type) && !in_array($match_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'match_type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['match_type'] = $match_type;
 
         return $this;
     }
