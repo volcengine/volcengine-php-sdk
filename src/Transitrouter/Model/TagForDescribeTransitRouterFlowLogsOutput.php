@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AcceptSharedTransitRouterRequest implements ModelInterface, ArrayAccess
+class TagForDescribeTransitRouterFlowLogsOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AcceptSharedTransitRouterRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AcceptSharedTransitRouterRequest';
+    protected static $swaggerModelName = 'TagForDescribeTransitRouterFlowLogsOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,8 @@ class AcceptSharedTransitRouterRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'transit_router_id' => 'string'
+        'key' => 'string',
+        'value' => 'string'
     ];
 
     /**
@@ -37,7 +38,8 @@ class AcceptSharedTransitRouterRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'transit_router_id' => null
+        'key' => null,
+        'value' => null
     ];
 
     /**
@@ -67,7 +69,8 @@ class AcceptSharedTransitRouterRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'transit_router_id' => 'TransitRouterId'
+        'key' => 'Key',
+        'value' => 'Value'
     ];
 
     /**
@@ -76,7 +79,8 @@ class AcceptSharedTransitRouterRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'transit_router_id' => 'setTransitRouterId'
+        'key' => 'setKey',
+        'value' => 'setValue'
     ];
 
     /**
@@ -85,7 +89,8 @@ class AcceptSharedTransitRouterRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'transit_router_id' => 'getTransitRouterId'
+        'key' => 'getKey',
+        'value' => 'getValue'
     ];
 
     /**
@@ -148,7 +153,8 @@ class AcceptSharedTransitRouterRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['transit_router_id'] = isset($data['transit_router_id']) ? $data['transit_router_id'] : null;
+        $this->container['key'] = isset($data['key']) ? $data['key'] : null;
+        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 
     /**
@@ -160,9 +166,6 @@ class AcceptSharedTransitRouterRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['transit_router_id'] === null) {
-            $invalidProperties[] = "'transit_router_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -179,25 +182,49 @@ class AcceptSharedTransitRouterRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets transit_router_id
+     * Gets key
      *
      * @return string
      */
-    public function getTransitRouterId()
+    public function getKey()
     {
-        return $this->container['transit_router_id'];
+        return $this->container['key'];
     }
 
     /**
-     * Sets transit_router_id
+     * Sets key
      *
-     * @param string $transit_router_id transit_router_id
+     * @param string $key key
      *
      * @return $this
      */
-    public function setTransitRouterId($transit_router_id)
+    public function setKey($key)
     {
-        $this->container['transit_router_id'] = $transit_router_id;
+        $this->container['key'] = $key;
+
+        return $this;
+    }
+
+    /**
+     * Gets value
+     *
+     * @return string
+     */
+    public function getValue()
+    {
+        return $this->container['value'];
+    }
+
+    /**
+     * Sets value
+     *
+     * @param string $value value
+     *
+     * @return $this
+     */
+    public function setValue($value)
+    {
+        $this->container['value'] = $value;
 
         return $this;
     }
