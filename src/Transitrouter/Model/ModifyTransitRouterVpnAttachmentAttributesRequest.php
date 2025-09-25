@@ -29,6 +29,7 @@ class ModifyTransitRouterVpnAttachmentAttributesRequest implements ModelInterfac
       */
     protected static $swaggerTypes = [
         'description' => 'string',
+        'health_check_revoke_route_enabled' => 'string',
         'transit_router_attachment_id' => 'string',
         'transit_router_attachment_name' => 'string'
     ];
@@ -40,6 +41,7 @@ class ModifyTransitRouterVpnAttachmentAttributesRequest implements ModelInterfac
       */
     protected static $swaggerFormats = [
         'description' => null,
+        'health_check_revoke_route_enabled' => null,
         'transit_router_attachment_id' => null,
         'transit_router_attachment_name' => null
     ];
@@ -72,6 +74,7 @@ class ModifyTransitRouterVpnAttachmentAttributesRequest implements ModelInterfac
      */
     protected static $attributeMap = [
         'description' => 'Description',
+        'health_check_revoke_route_enabled' => 'HealthCheckRevokeRouteEnabled',
         'transit_router_attachment_id' => 'TransitRouterAttachmentId',
         'transit_router_attachment_name' => 'TransitRouterAttachmentName'
     ];
@@ -83,6 +86,7 @@ class ModifyTransitRouterVpnAttachmentAttributesRequest implements ModelInterfac
      */
     protected static $setters = [
         'description' => 'setDescription',
+        'health_check_revoke_route_enabled' => 'setHealthCheckRevokeRouteEnabled',
         'transit_router_attachment_id' => 'setTransitRouterAttachmentId',
         'transit_router_attachment_name' => 'setTransitRouterAttachmentName'
     ];
@@ -94,6 +98,7 @@ class ModifyTransitRouterVpnAttachmentAttributesRequest implements ModelInterfac
      */
     protected static $getters = [
         'description' => 'getDescription',
+        'health_check_revoke_route_enabled' => 'getHealthCheckRevokeRouteEnabled',
         'transit_router_attachment_id' => 'getTransitRouterAttachmentId',
         'transit_router_attachment_name' => 'getTransitRouterAttachmentName'
     ];
@@ -159,6 +164,7 @@ class ModifyTransitRouterVpnAttachmentAttributesRequest implements ModelInterfac
     public function __construct(array $data = null)
     {
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['health_check_revoke_route_enabled'] = isset($data['health_check_revoke_route_enabled']) ? $data['health_check_revoke_route_enabled'] : null;
         $this->container['transit_router_attachment_id'] = isset($data['transit_router_attachment_id']) ? $data['transit_router_attachment_id'] : null;
         $this->container['transit_router_attachment_name'] = isset($data['transit_router_attachment_name']) ? $data['transit_router_attachment_name'] : null;
     }
@@ -210,6 +216,30 @@ class ModifyTransitRouterVpnAttachmentAttributesRequest implements ModelInterfac
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets health_check_revoke_route_enabled
+     *
+     * @return string
+     */
+    public function getHealthCheckRevokeRouteEnabled()
+    {
+        return $this->container['health_check_revoke_route_enabled'];
+    }
+
+    /**
+     * Sets health_check_revoke_route_enabled
+     *
+     * @param string $health_check_revoke_route_enabled health_check_revoke_route_enabled
+     *
+     * @return $this
+     */
+    public function setHealthCheckRevokeRouteEnabled($health_check_revoke_route_enabled)
+    {
+        $this->container['health_check_revoke_route_enabled'] = $health_check_revoke_route_enabled;
 
         return $this;
     }

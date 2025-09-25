@@ -28,9 +28,11 @@ class GetTagValuesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'match_type' => 'string',
         'max_results' => 'int',
         'next_token' => 'string',
-        'tag_keys' => 'string[]'
+        'tag_keys' => 'string[]',
+        'tag_value' => 'string'
     ];
 
     /**
@@ -39,9 +41,11 @@ class GetTagValuesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'match_type' => null,
         'max_results' => 'int32',
         'next_token' => null,
-        'tag_keys' => null
+        'tag_keys' => null,
+        'tag_value' => null
     ];
 
     /**
@@ -71,9 +75,11 @@ class GetTagValuesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'match_type' => 'MatchType',
         'max_results' => 'MaxResults',
         'next_token' => 'NextToken',
-        'tag_keys' => 'TagKeys'
+        'tag_keys' => 'TagKeys',
+        'tag_value' => 'TagValue'
     ];
 
     /**
@@ -82,9 +88,11 @@ class GetTagValuesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'match_type' => 'setMatchType',
         'max_results' => 'setMaxResults',
         'next_token' => 'setNextToken',
-        'tag_keys' => 'setTagKeys'
+        'tag_keys' => 'setTagKeys',
+        'tag_value' => 'setTagValue'
     ];
 
     /**
@@ -93,9 +101,11 @@ class GetTagValuesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'match_type' => 'getMatchType',
         'max_results' => 'getMaxResults',
         'next_token' => 'getNextToken',
-        'tag_keys' => 'getTagKeys'
+        'tag_keys' => 'getTagKeys',
+        'tag_value' => 'getTagValue'
     ];
 
     /**
@@ -139,8 +149,25 @@ class GetTagValuesRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const MATCH_TYPE_PREFIX = 'prefix';
+    const MATCH_TYPE_EQUALS = 'equals';
+    const MATCH_TYPE_CONTAIN = 'contain';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getMatchTypeAllowableValues()
+    {
+        return [
+            self::MATCH_TYPE_PREFIX,
+            self::MATCH_TYPE_EQUALS,
+            self::MATCH_TYPE_CONTAIN,
+        ];
+    }
     
 
     /**
@@ -158,9 +185,11 @@ class GetTagValuesRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['match_type'] = isset($data['match_type']) ? $data['match_type'] : null;
         $this->container['max_results'] = isset($data['max_results']) ? $data['max_results'] : null;
         $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
         $this->container['tag_keys'] = isset($data['tag_keys']) ? $data['tag_keys'] : null;
+        $this->container['tag_value'] = isset($data['tag_value']) ? $data['tag_value'] : null;
     }
 
     /**
@@ -171,6 +200,14 @@ class GetTagValuesRequest implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getMatchTypeAllowableValues();
+        if (!is_null($this->container['match_type']) && !in_array($this->container['match_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'match_type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -186,6 +223,39 @@ class GetTagValuesRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets match_type
+     *
+     * @return string
+     */
+    public function getMatchType()
+    {
+        return $this->container['match_type'];
+    }
+
+    /**
+     * Sets match_type
+     *
+     * @param string $match_type match_type
+     *
+     * @return $this
+     */
+    public function setMatchType($match_type)
+    {
+        $allowedValues = $this->getMatchTypeAllowableValues();
+        if (!is_null($match_type) && !in_array($match_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'match_type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['match_type'] = $match_type;
+
+        return $this;
+    }
 
     /**
      * Gets max_results
@@ -255,6 +325,30 @@ class GetTagValuesRequest implements ModelInterface, ArrayAccess
     public function setTagKeys($tag_keys)
     {
         $this->container['tag_keys'] = $tag_keys;
+
+        return $this;
+    }
+
+    /**
+     * Gets tag_value
+     *
+     * @return string
+     */
+    public function getTagValue()
+    {
+        return $this->container['tag_value'];
+    }
+
+    /**
+     * Sets tag_value
+     *
+     * @param string $tag_value tag_value
+     *
+     * @return $this
+     */
+    public function setTagValue($tag_value)
+    {
+        $this->container['tag_value'] = $tag_value;
 
         return $this;
     }
