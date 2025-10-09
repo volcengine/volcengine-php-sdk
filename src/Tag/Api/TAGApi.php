@@ -628,16 +628,16 @@ class TAGApi
             $headers, $httpBody);
     }
 
-    public function getTagKeys($max_results, $next_token, $tag_type)
+    public function getTagKeys($match_type, $max_results, $next_token, $tag_key, $tag_type)
     {
-        list($response) = $this->getTagKeysWithHttpInfo($max_results, $next_token, $tag_type);
+        list($response) = $this->getTagKeysWithHttpInfo($match_type, $max_results, $next_token, $tag_key, $tag_type);
         return $response;
     }
 
-    public function getTagKeysWithHttpInfo($max_results, $next_token, $tag_type)
+    public function getTagKeysWithHttpInfo($match_type, $max_results, $next_token, $tag_key, $tag_type)
     {
         $returnType = '\Volcengine\Tag\Model\GetTagKeysResponse';
-        $request = $this->getTagKeysRequest($max_results, $next_token, $tag_type);
+        $request = $this->getTagKeysRequest($match_type, $max_results, $next_token, $tag_key, $tag_type);
 
         $options = $this->createHttpClientOption();
         try {
@@ -689,9 +689,9 @@ class TAGApi
         ];
     }
 
-    public function getTagKeysAsync($max_results, $next_token, $tag_type)
+    public function getTagKeysAsync($match_type, $max_results, $next_token, $tag_key, $tag_type)
     {
-        return $this->getTagKeysAsyncWithHttpInfo($max_results, $next_token, $tag_type)
+        return $this->getTagKeysAsyncWithHttpInfo($match_type, $max_results, $next_token, $tag_key, $tag_type)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -699,10 +699,10 @@ class TAGApi
             );
     }
 
-    public function getTagKeysAsyncWithHttpInfo($max_results, $next_token, $tag_type)
+    public function getTagKeysAsyncWithHttpInfo($match_type, $max_results, $next_token, $tag_key, $tag_type)
     {
         $returnType = '\Volcengine\Tag\Model\GetTagKeysResponse';
-        $request = $this->getTagKeysRequest($max_results, $next_token, $tag_type);
+        $request = $this->getTagKeysRequest($match_type, $max_results, $next_token, $tag_key, $tag_type);
         $uri = $request->getUri();
 
         return $this->client
@@ -749,8 +749,14 @@ class TAGApi
             );
     }
 
-    protected function getTagKeysRequest($max_results, $next_token, $tag_type)
+    protected function getTagKeysRequest($match_type, $max_results, $next_token, $tag_key, $tag_type)
     {
+        // verify the required parameter 'match_type' is set
+        if ($match_type === null || (is_array($match_type) && count($match_type) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $match_type when calling getTagKeys'
+            );
+        }
         // verify the required parameter 'max_results' is set
         if ($max_results === null || (is_array($max_results) && count($max_results) === 0)) {
             throw new \InvalidArgumentException(
@@ -761,6 +767,12 @@ class TAGApi
         if ($next_token === null || (is_array($next_token) && count($next_token) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $next_token when calling getTagKeys'
+            );
+        }
+        // verify the required parameter 'tag_key' is set
+        if ($tag_key === null || (is_array($tag_key) && count($tag_key) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $tag_key when calling getTagKeys'
             );
         }
         // verify the required parameter 'tag_type' is set
@@ -822,16 +834,16 @@ class TAGApi
             $headers, $httpBody);
     }
 
-    public function getTagValues($max_results, $next_token, $tag_keys)
+    public function getTagValues($match_type, $max_results, $next_token, $tag_keys, $tag_value)
     {
-        list($response) = $this->getTagValuesWithHttpInfo($max_results, $next_token, $tag_keys);
+        list($response) = $this->getTagValuesWithHttpInfo($match_type, $max_results, $next_token, $tag_keys, $tag_value);
         return $response;
     }
 
-    public function getTagValuesWithHttpInfo($max_results, $next_token, $tag_keys)
+    public function getTagValuesWithHttpInfo($match_type, $max_results, $next_token, $tag_keys, $tag_value)
     {
         $returnType = '\Volcengine\Tag\Model\GetTagValuesResponse';
-        $request = $this->getTagValuesRequest($max_results, $next_token, $tag_keys);
+        $request = $this->getTagValuesRequest($match_type, $max_results, $next_token, $tag_keys, $tag_value);
 
         $options = $this->createHttpClientOption();
         try {
@@ -883,9 +895,9 @@ class TAGApi
         ];
     }
 
-    public function getTagValuesAsync($max_results, $next_token, $tag_keys)
+    public function getTagValuesAsync($match_type, $max_results, $next_token, $tag_keys, $tag_value)
     {
-        return $this->getTagValuesAsyncWithHttpInfo($max_results, $next_token, $tag_keys)
+        return $this->getTagValuesAsyncWithHttpInfo($match_type, $max_results, $next_token, $tag_keys, $tag_value)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -893,10 +905,10 @@ class TAGApi
             );
     }
 
-    public function getTagValuesAsyncWithHttpInfo($max_results, $next_token, $tag_keys)
+    public function getTagValuesAsyncWithHttpInfo($match_type, $max_results, $next_token, $tag_keys, $tag_value)
     {
         $returnType = '\Volcengine\Tag\Model\GetTagValuesResponse';
-        $request = $this->getTagValuesRequest($max_results, $next_token, $tag_keys);
+        $request = $this->getTagValuesRequest($match_type, $max_results, $next_token, $tag_keys, $tag_value);
         $uri = $request->getUri();
 
         return $this->client
@@ -943,8 +955,14 @@ class TAGApi
             );
     }
 
-    protected function getTagValuesRequest($max_results, $next_token, $tag_keys)
+    protected function getTagValuesRequest($match_type, $max_results, $next_token, $tag_keys, $tag_value)
     {
+        // verify the required parameter 'match_type' is set
+        if ($match_type === null || (is_array($match_type) && count($match_type) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $match_type when calling getTagValues'
+            );
+        }
         // verify the required parameter 'max_results' is set
         if ($max_results === null || (is_array($max_results) && count($max_results) === 0)) {
             throw new \InvalidArgumentException(
@@ -961,6 +979,12 @@ class TAGApi
         if ($tag_keys === null || (is_array($tag_keys) && count($tag_keys) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $tag_keys when calling getTagValues'
+            );
+        }
+        // verify the required parameter 'tag_value' is set
+        if ($tag_value === null || (is_array($tag_value) && count($tag_value) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $tag_value when calling getTagValues'
             );
         }
 
@@ -1016,16 +1040,16 @@ class TAGApi
             $headers, $httpBody);
     }
 
-    public function getTags($count_resources, $max_results, $next_token, $tag_keys, $tag_type)
+    public function getTags($count_resources, $match_type, $max_results, $next_token, $tag_keys, $tag_type)
     {
-        list($response) = $this->getTagsWithHttpInfo($count_resources, $max_results, $next_token, $tag_keys, $tag_type);
+        list($response) = $this->getTagsWithHttpInfo($count_resources, $match_type, $max_results, $next_token, $tag_keys, $tag_type);
         return $response;
     }
 
-    public function getTagsWithHttpInfo($count_resources, $max_results, $next_token, $tag_keys, $tag_type)
+    public function getTagsWithHttpInfo($count_resources, $match_type, $max_results, $next_token, $tag_keys, $tag_type)
     {
         $returnType = '\Volcengine\Tag\Model\GetTagsResponse';
-        $request = $this->getTagsRequest($count_resources, $max_results, $next_token, $tag_keys, $tag_type);
+        $request = $this->getTagsRequest($count_resources, $match_type, $max_results, $next_token, $tag_keys, $tag_type);
 
         $options = $this->createHttpClientOption();
         try {
@@ -1077,9 +1101,9 @@ class TAGApi
         ];
     }
 
-    public function getTagsAsync($count_resources, $max_results, $next_token, $tag_keys, $tag_type)
+    public function getTagsAsync($count_resources, $match_type, $max_results, $next_token, $tag_keys, $tag_type)
     {
-        return $this->getTagsAsyncWithHttpInfo($count_resources, $max_results, $next_token, $tag_keys, $tag_type)
+        return $this->getTagsAsyncWithHttpInfo($count_resources, $match_type, $max_results, $next_token, $tag_keys, $tag_type)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1087,10 +1111,10 @@ class TAGApi
             );
     }
 
-    public function getTagsAsyncWithHttpInfo($count_resources, $max_results, $next_token, $tag_keys, $tag_type)
+    public function getTagsAsyncWithHttpInfo($count_resources, $match_type, $max_results, $next_token, $tag_keys, $tag_type)
     {
         $returnType = '\Volcengine\Tag\Model\GetTagsResponse';
-        $request = $this->getTagsRequest($count_resources, $max_results, $next_token, $tag_keys, $tag_type);
+        $request = $this->getTagsRequest($count_resources, $match_type, $max_results, $next_token, $tag_keys, $tag_type);
         $uri = $request->getUri();
 
         return $this->client
@@ -1137,12 +1161,18 @@ class TAGApi
             );
     }
 
-    protected function getTagsRequest($count_resources, $max_results, $next_token, $tag_keys, $tag_type)
+    protected function getTagsRequest($count_resources, $match_type, $max_results, $next_token, $tag_keys, $tag_type)
     {
         // verify the required parameter 'count_resources' is set
         if ($count_resources === null || (is_array($count_resources) && count($count_resources) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $count_resources when calling getTags'
+            );
+        }
+        // verify the required parameter 'match_type' is set
+        if ($match_type === null || (is_array($match_type) && count($match_type) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $match_type when calling getTags'
             );
         }
         // verify the required parameter 'max_results' is set

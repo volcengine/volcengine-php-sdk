@@ -32,7 +32,7 @@ class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput imple
         'bandwidth' => 'int',
         'creation_time' => 'string',
         'description' => 'string',
-        'ipv6_enabled' => 'string',
+        'ipv6_enabled' => 'bool',
         'peer_transit_router_id' => 'string',
         'peer_transit_router_region_id' => 'string',
         'status' => 'string',
@@ -376,7 +376,7 @@ class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput imple
     /**
      * Gets ipv6_enabled
      *
-     * @return string
+     * @return bool
      */
     public function getIpv6Enabled()
     {
@@ -386,7 +386,7 @@ class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput imple
     /**
      * Sets ipv6_enabled
      *
-     * @param string $ipv6_enabled ipv6_enabled
+     * @param bool $ipv6_enabled ipv6_enabled
      *
      * @return $this
      */

@@ -28,6 +28,9 @@ class DescribeTransitRouterMulticastGroupsResponse implements ModelInterface, Ar
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'page_number' => 'int',
+        'page_size' => 'int',
+        'total_count' => 'int',
         'transit_router_multicast_groups' => '\Volcengine\Transitrouter\Model\TransitRouterMulticastGroupForDescribeTransitRouterMulticastGroupsOutput[]'
     ];
 
@@ -37,6 +40,9 @@ class DescribeTransitRouterMulticastGroupsResponse implements ModelInterface, Ar
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'page_number' => 'int32',
+        'page_size' => 'int32',
+        'total_count' => 'int32',
         'transit_router_multicast_groups' => null
     ];
 
@@ -67,6 +73,9 @@ class DescribeTransitRouterMulticastGroupsResponse implements ModelInterface, Ar
      * @var string[]
      */
     protected static $attributeMap = [
+        'page_number' => 'PageNumber',
+        'page_size' => 'PageSize',
+        'total_count' => 'TotalCount',
         'transit_router_multicast_groups' => 'TransitRouterMulticastGroups'
     ];
 
@@ -76,6 +85,9 @@ class DescribeTransitRouterMulticastGroupsResponse implements ModelInterface, Ar
      * @var string[]
      */
     protected static $setters = [
+        'page_number' => 'setPageNumber',
+        'page_size' => 'setPageSize',
+        'total_count' => 'setTotalCount',
         'transit_router_multicast_groups' => 'setTransitRouterMulticastGroups'
     ];
 
@@ -85,6 +97,9 @@ class DescribeTransitRouterMulticastGroupsResponse implements ModelInterface, Ar
      * @var string[]
      */
     protected static $getters = [
+        'page_number' => 'getPageNumber',
+        'page_size' => 'getPageSize',
+        'total_count' => 'getTotalCount',
         'transit_router_multicast_groups' => 'getTransitRouterMulticastGroups'
     ];
 
@@ -148,6 +163,9 @@ class DescribeTransitRouterMulticastGroupsResponse implements ModelInterface, Ar
      */
     public function __construct(array $data = null)
     {
+        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
+        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
+        $this->container['total_count'] = isset($data['total_count']) ? $data['total_count'] : null;
         $this->container['transit_router_multicast_groups'] = isset($data['transit_router_multicast_groups']) ? $data['transit_router_multicast_groups'] : null;
     }
 
@@ -174,6 +192,78 @@ class DescribeTransitRouterMulticastGroupsResponse implements ModelInterface, Ar
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets page_number
+     *
+     * @return int
+     */
+    public function getPageNumber()
+    {
+        return $this->container['page_number'];
+    }
+
+    /**
+     * Sets page_number
+     *
+     * @param int $page_number page_number
+     *
+     * @return $this
+     */
+    public function setPageNumber($page_number)
+    {
+        $this->container['page_number'] = $page_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets page_size
+     *
+     * @return int
+     */
+    public function getPageSize()
+    {
+        return $this->container['page_size'];
+    }
+
+    /**
+     * Sets page_size
+     *
+     * @param int $page_size page_size
+     *
+     * @return $this
+     */
+    public function setPageSize($page_size)
+    {
+        $this->container['page_size'] = $page_size;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_count
+     *
+     * @return int
+     */
+    public function getTotalCount()
+    {
+        return $this->container['total_count'];
+    }
+
+    /**
+     * Sets total_count
+     *
+     * @param int $total_count total_count
+     *
+     * @return $this
+     */
+    public function setTotalCount($total_count)
+    {
+        $this->container['total_count'] = $total_count;
+
+        return $this;
+    }
 
     /**
      * Gets transit_router_multicast_groups

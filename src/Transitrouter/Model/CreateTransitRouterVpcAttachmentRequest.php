@@ -28,6 +28,7 @@ class CreateTransitRouterVpcAttachmentRequest implements ModelInterface, ArrayAc
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'appliance_mode_enabled' => 'bool',
         'attach_points' => '\Volcengine\Transitrouter\Model\AttachPointForCreateTransitRouterVpcAttachmentInput[]',
         'auto_publish_route_enabled' => 'bool',
         'client_token' => 'string',
@@ -45,6 +46,7 @@ class CreateTransitRouterVpcAttachmentRequest implements ModelInterface, ArrayAc
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'appliance_mode_enabled' => null,
         'attach_points' => null,
         'auto_publish_route_enabled' => null,
         'client_token' => null,
@@ -83,6 +85,7 @@ class CreateTransitRouterVpcAttachmentRequest implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $attributeMap = [
+        'appliance_mode_enabled' => 'ApplianceModeEnabled',
         'attach_points' => 'AttachPoints',
         'auto_publish_route_enabled' => 'AutoPublishRouteEnabled',
         'client_token' => 'ClientToken',
@@ -100,6 +103,7 @@ class CreateTransitRouterVpcAttachmentRequest implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $setters = [
+        'appliance_mode_enabled' => 'setApplianceModeEnabled',
         'attach_points' => 'setAttachPoints',
         'auto_publish_route_enabled' => 'setAutoPublishRouteEnabled',
         'client_token' => 'setClientToken',
@@ -117,6 +121,7 @@ class CreateTransitRouterVpcAttachmentRequest implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $getters = [
+        'appliance_mode_enabled' => 'getApplianceModeEnabled',
         'attach_points' => 'getAttachPoints',
         'auto_publish_route_enabled' => 'getAutoPublishRouteEnabled',
         'client_token' => 'getClientToken',
@@ -188,6 +193,7 @@ class CreateTransitRouterVpcAttachmentRequest implements ModelInterface, ArrayAc
      */
     public function __construct(array $data = null)
     {
+        $this->container['appliance_mode_enabled'] = isset($data['appliance_mode_enabled']) ? $data['appliance_mode_enabled'] : null;
         $this->container['attach_points'] = isset($data['attach_points']) ? $data['attach_points'] : null;
         $this->container['auto_publish_route_enabled'] = isset($data['auto_publish_route_enabled']) ? $data['auto_publish_route_enabled'] : null;
         $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
@@ -228,6 +234,30 @@ class CreateTransitRouterVpcAttachmentRequest implements ModelInterface, ArrayAc
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets appliance_mode_enabled
+     *
+     * @return bool
+     */
+    public function getApplianceModeEnabled()
+    {
+        return $this->container['appliance_mode_enabled'];
+    }
+
+    /**
+     * Sets appliance_mode_enabled
+     *
+     * @param bool $appliance_mode_enabled appliance_mode_enabled
+     *
+     * @return $this
+     */
+    public function setApplianceModeEnabled($appliance_mode_enabled)
+    {
+        $this->container['appliance_mode_enabled'] = $appliance_mode_enabled;
+
+        return $this;
+    }
 
     /**
      * Gets attach_points

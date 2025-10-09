@@ -28,8 +28,10 @@ class TransitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput implem
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'appliance_mode_enabled' => 'bool',
         'attach_points' => '\Volcengine\Transitrouter\Model\AttachPointForDescribeTransitRouterVpcAttachmentsOutput[]',
         'auto_publish_route_enabled' => 'bool',
+        'bandwidth' => 'int',
         'creation_time' => 'string',
         'description' => 'string',
         'ipv6_enabled' => 'bool',
@@ -48,8 +50,10 @@ class TransitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput implem
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'appliance_mode_enabled' => null,
         'attach_points' => null,
         'auto_publish_route_enabled' => null,
+        'bandwidth' => 'int32',
         'creation_time' => null,
         'description' => null,
         'ipv6_enabled' => null,
@@ -89,8 +93,10 @@ class TransitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput implem
      * @var string[]
      */
     protected static $attributeMap = [
+        'appliance_mode_enabled' => 'ApplianceModeEnabled',
         'attach_points' => 'AttachPoints',
         'auto_publish_route_enabled' => 'AutoPublishRouteEnabled',
+        'bandwidth' => 'Bandwidth',
         'creation_time' => 'CreationTime',
         'description' => 'Description',
         'ipv6_enabled' => 'Ipv6Enabled',
@@ -109,8 +115,10 @@ class TransitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput implem
      * @var string[]
      */
     protected static $setters = [
+        'appliance_mode_enabled' => 'setApplianceModeEnabled',
         'attach_points' => 'setAttachPoints',
         'auto_publish_route_enabled' => 'setAutoPublishRouteEnabled',
+        'bandwidth' => 'setBandwidth',
         'creation_time' => 'setCreationTime',
         'description' => 'setDescription',
         'ipv6_enabled' => 'setIpv6Enabled',
@@ -129,8 +137,10 @@ class TransitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput implem
      * @var string[]
      */
     protected static $getters = [
+        'appliance_mode_enabled' => 'getApplianceModeEnabled',
         'attach_points' => 'getAttachPoints',
         'auto_publish_route_enabled' => 'getAutoPublishRouteEnabled',
+        'bandwidth' => 'getBandwidth',
         'creation_time' => 'getCreationTime',
         'description' => 'getDescription',
         'ipv6_enabled' => 'getIpv6Enabled',
@@ -203,8 +213,10 @@ class TransitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput implem
      */
     public function __construct(array $data = null)
     {
+        $this->container['appliance_mode_enabled'] = isset($data['appliance_mode_enabled']) ? $data['appliance_mode_enabled'] : null;
         $this->container['attach_points'] = isset($data['attach_points']) ? $data['attach_points'] : null;
         $this->container['auto_publish_route_enabled'] = isset($data['auto_publish_route_enabled']) ? $data['auto_publish_route_enabled'] : null;
+        $this->container['bandwidth'] = isset($data['bandwidth']) ? $data['bandwidth'] : null;
         $this->container['creation_time'] = isset($data['creation_time']) ? $data['creation_time'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['ipv6_enabled'] = isset($data['ipv6_enabled']) ? $data['ipv6_enabled'] : null;
@@ -240,6 +252,30 @@ class TransitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput implem
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets appliance_mode_enabled
+     *
+     * @return bool
+     */
+    public function getApplianceModeEnabled()
+    {
+        return $this->container['appliance_mode_enabled'];
+    }
+
+    /**
+     * Sets appliance_mode_enabled
+     *
+     * @param bool $appliance_mode_enabled appliance_mode_enabled
+     *
+     * @return $this
+     */
+    public function setApplianceModeEnabled($appliance_mode_enabled)
+    {
+        $this->container['appliance_mode_enabled'] = $appliance_mode_enabled;
+
+        return $this;
+    }
 
     /**
      * Gets attach_points
@@ -285,6 +321,30 @@ class TransitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput implem
     public function setAutoPublishRouteEnabled($auto_publish_route_enabled)
     {
         $this->container['auto_publish_route_enabled'] = $auto_publish_route_enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets bandwidth
+     *
+     * @return int
+     */
+    public function getBandwidth()
+    {
+        return $this->container['bandwidth'];
+    }
+
+    /**
+     * Sets bandwidth
+     *
+     * @param int $bandwidth bandwidth
+     *
+     * @return $this
+     */
+    public function setBandwidth($bandwidth)
+    {
+        $this->container['bandwidth'] = $bandwidth;
 
         return $this;
     }
