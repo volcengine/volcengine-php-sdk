@@ -37,7 +37,8 @@ class AlterTableRequest implements ModelInterface, ArrayAccess
         'instance_id' => 'string',
         'rw_schedulable_idcs' => 'string[]',
         'state' => 'string',
-        'table_name' => 'string'
+        'table_name' => 'string',
+        'table_quota' => '\Volcengine\Graph\Model\TableQuotaForAlterTableInput'
     ];
 
     /**
@@ -55,7 +56,8 @@ class AlterTableRequest implements ModelInterface, ArrayAccess
         'instance_id' => null,
         'rw_schedulable_idcs' => null,
         'state' => null,
-        'table_name' => null
+        'table_name' => null,
+        'table_quota' => null
     ];
 
     /**
@@ -94,7 +96,8 @@ class AlterTableRequest implements ModelInterface, ArrayAccess
         'instance_id' => 'InstanceId',
         'rw_schedulable_idcs' => 'RwSchedulableIdcs',
         'state' => 'State',
-        'table_name' => 'TableName'
+        'table_name' => 'TableName',
+        'table_quota' => 'TableQuota'
     ];
 
     /**
@@ -112,7 +115,8 @@ class AlterTableRequest implements ModelInterface, ArrayAccess
         'instance_id' => 'setInstanceId',
         'rw_schedulable_idcs' => 'setRwSchedulableIdcs',
         'state' => 'setState',
-        'table_name' => 'setTableName'
+        'table_name' => 'setTableName',
+        'table_quota' => 'setTableQuota'
     ];
 
     /**
@@ -130,7 +134,8 @@ class AlterTableRequest implements ModelInterface, ArrayAccess
         'instance_id' => 'getInstanceId',
         'rw_schedulable_idcs' => 'getRwSchedulableIdcs',
         'state' => 'getState',
-        'table_name' => 'getTableName'
+        'table_name' => 'getTableName',
+        'table_quota' => 'getTableQuota'
     ];
 
     /**
@@ -203,6 +208,7 @@ class AlterTableRequest implements ModelInterface, ArrayAccess
         $this->container['rw_schedulable_idcs'] = isset($data['rw_schedulable_idcs']) ? $data['rw_schedulable_idcs'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
         $this->container['table_name'] = isset($data['table_name']) ? $data['table_name'] : null;
+        $this->container['table_quota'] = isset($data['table_quota']) ? $data['table_quota'] : null;
     }
 
     /**
@@ -471,6 +477,30 @@ class AlterTableRequest implements ModelInterface, ArrayAccess
     public function setTableName($table_name)
     {
         $this->container['table_name'] = $table_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets table_quota
+     *
+     * @return \Volcengine\Graph\Model\TableQuotaForAlterTableInput
+     */
+    public function getTableQuota()
+    {
+        return $this->container['table_quota'];
+    }
+
+    /**
+     * Sets table_quota
+     *
+     * @param \Volcengine\Graph\Model\TableQuotaForAlterTableInput $table_quota table_quota
+     *
+     * @return $this
+     */
+    public function setTableQuota($table_quota)
+    {
+        $this->container['table_quota'] = $table_quota;
 
         return $this;
     }
