@@ -140,11 +140,12 @@ class LogSetupForUpdateClusterConfigInput implements ModelInterface, ArrayAccess
     }
 
     const LOG_TYPE_AUDIT = 'Audit';
+    const LOG_TYPE_KUBE_API_SERVER = 'KubeApiServer';
+    const LOG_TYPE_KUBE_SCHEDULER = 'KubeScheduler';
+    const LOG_TYPE_KUBE_CONTROLLER_MANAGER = 'KubeControllerManager';
     const LOG_TYPE_CLOUD_CONTROLLER_MANAGER = 'CloudControllerManager';
     const LOG_TYPE_ETCD = 'Etcd';
-    const LOG_TYPE_KUBE_API_SERVER = 'KubeApiServer';
-    const LOG_TYPE_KUBE_CONTROLLER_MANAGER = 'KubeControllerManager';
-    const LOG_TYPE_KUBE_SCHEDULER = 'KubeScheduler';
+    const LOG_TYPE_CLUSTER_AUTOSCALER = 'ClusterAutoscaler';
     
 
     
@@ -157,11 +158,12 @@ class LogSetupForUpdateClusterConfigInput implements ModelInterface, ArrayAccess
     {
         return [
             self::LOG_TYPE_AUDIT,
+            self::LOG_TYPE_KUBE_API_SERVER,
+            self::LOG_TYPE_KUBE_SCHEDULER,
+            self::LOG_TYPE_KUBE_CONTROLLER_MANAGER,
             self::LOG_TYPE_CLOUD_CONTROLLER_MANAGER,
             self::LOG_TYPE_ETCD,
-            self::LOG_TYPE_KUBE_API_SERVER,
-            self::LOG_TYPE_KUBE_CONTROLLER_MANAGER,
-            self::LOG_TYPE_KUBE_SCHEDULER,
+            self::LOG_TYPE_CLUSTER_AUTOSCALER,
         ];
     }
     

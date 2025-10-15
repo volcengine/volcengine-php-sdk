@@ -28,8 +28,11 @@ class KubernetesConfigForListNodePoolsOutput implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'auto_sync_disabled' => 'bool',
         'cordon' => 'bool',
+        'kubelet_config' => '\Volcengine\Vke\Model\KubeletConfigForListNodePoolsOutput',
         'labels' => '\Volcengine\Vke\Model\LabelForListNodePoolsOutput[]',
+        'name_prefix' => 'string',
         'taints' => '\Volcengine\Vke\Model\TaintForListNodePoolsOutput[]'
     ];
 
@@ -39,8 +42,11 @@ class KubernetesConfigForListNodePoolsOutput implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'auto_sync_disabled' => null,
         'cordon' => null,
+        'kubelet_config' => null,
         'labels' => null,
+        'name_prefix' => null,
         'taints' => null
     ];
 
@@ -71,8 +77,11 @@ class KubernetesConfigForListNodePoolsOutput implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $attributeMap = [
+        'auto_sync_disabled' => 'AutoSyncDisabled',
         'cordon' => 'Cordon',
+        'kubelet_config' => 'KubeletConfig',
         'labels' => 'Labels',
+        'name_prefix' => 'NamePrefix',
         'taints' => 'Taints'
     ];
 
@@ -82,8 +91,11 @@ class KubernetesConfigForListNodePoolsOutput implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $setters = [
+        'auto_sync_disabled' => 'setAutoSyncDisabled',
         'cordon' => 'setCordon',
+        'kubelet_config' => 'setKubeletConfig',
         'labels' => 'setLabels',
+        'name_prefix' => 'setNamePrefix',
         'taints' => 'setTaints'
     ];
 
@@ -93,8 +105,11 @@ class KubernetesConfigForListNodePoolsOutput implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $getters = [
+        'auto_sync_disabled' => 'getAutoSyncDisabled',
         'cordon' => 'getCordon',
+        'kubelet_config' => 'getKubeletConfig',
         'labels' => 'getLabels',
+        'name_prefix' => 'getNamePrefix',
         'taints' => 'getTaints'
     ];
 
@@ -158,8 +173,11 @@ class KubernetesConfigForListNodePoolsOutput implements ModelInterface, ArrayAcc
      */
     public function __construct(array $data = null)
     {
+        $this->container['auto_sync_disabled'] = isset($data['auto_sync_disabled']) ? $data['auto_sync_disabled'] : null;
         $this->container['cordon'] = isset($data['cordon']) ? $data['cordon'] : null;
+        $this->container['kubelet_config'] = isset($data['kubelet_config']) ? $data['kubelet_config'] : null;
         $this->container['labels'] = isset($data['labels']) ? $data['labels'] : null;
+        $this->container['name_prefix'] = isset($data['name_prefix']) ? $data['name_prefix'] : null;
         $this->container['taints'] = isset($data['taints']) ? $data['taints'] : null;
     }
 
@@ -188,6 +206,30 @@ class KubernetesConfigForListNodePoolsOutput implements ModelInterface, ArrayAcc
 
 
     /**
+     * Gets auto_sync_disabled
+     *
+     * @return bool
+     */
+    public function getAutoSyncDisabled()
+    {
+        return $this->container['auto_sync_disabled'];
+    }
+
+    /**
+     * Sets auto_sync_disabled
+     *
+     * @param bool $auto_sync_disabled auto_sync_disabled
+     *
+     * @return $this
+     */
+    public function setAutoSyncDisabled($auto_sync_disabled)
+    {
+        $this->container['auto_sync_disabled'] = $auto_sync_disabled;
+
+        return $this;
+    }
+
+    /**
      * Gets cordon
      *
      * @return bool
@@ -212,6 +254,30 @@ class KubernetesConfigForListNodePoolsOutput implements ModelInterface, ArrayAcc
     }
 
     /**
+     * Gets kubelet_config
+     *
+     * @return \Volcengine\Vke\Model\KubeletConfigForListNodePoolsOutput
+     */
+    public function getKubeletConfig()
+    {
+        return $this->container['kubelet_config'];
+    }
+
+    /**
+     * Sets kubelet_config
+     *
+     * @param \Volcengine\Vke\Model\KubeletConfigForListNodePoolsOutput $kubelet_config kubelet_config
+     *
+     * @return $this
+     */
+    public function setKubeletConfig($kubelet_config)
+    {
+        $this->container['kubelet_config'] = $kubelet_config;
+
+        return $this;
+    }
+
+    /**
      * Gets labels
      *
      * @return \Volcengine\Vke\Model\LabelForListNodePoolsOutput[]
@@ -231,6 +297,30 @@ class KubernetesConfigForListNodePoolsOutput implements ModelInterface, ArrayAcc
     public function setLabels($labels)
     {
         $this->container['labels'] = $labels;
+
+        return $this;
+    }
+
+    /**
+     * Gets name_prefix
+     *
+     * @return string
+     */
+    public function getNamePrefix()
+    {
+        return $this->container['name_prefix'];
+    }
+
+    /**
+     * Sets name_prefix
+     *
+     * @param string $name_prefix name_prefix
+     *
+     * @return $this
+     */
+    public function setNamePrefix($name_prefix)
+    {
+        $this->container['name_prefix'] = $name_prefix;
 
         return $this;
     }

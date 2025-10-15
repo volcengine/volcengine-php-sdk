@@ -139,8 +139,8 @@ class CreateKubeconfigRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const TYPE__PRIVATE = 'Private';
     const TYPE__PUBLIC = 'Public';
+    const TYPE__PRIVATE = 'Private';
     const TYPE_TARGET_CLUSTER = 'TargetCluster';
     
 
@@ -153,8 +153,8 @@ class CreateKubeconfigRequest implements ModelInterface, ArrayAccess
     public function getTypeAllowableValues()
     {
         return [
-            self::TYPE__PRIVATE,
             self::TYPE__PUBLIC,
+            self::TYPE__PRIVATE,
             self::TYPE_TARGET_CLUSTER,
         ];
     }
@@ -189,6 +189,12 @@ class CreateKubeconfigRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['cluster_id'] === null) {
+            $invalidProperties[] = "'cluster_id' can't be null";
+        }
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
+        }
         $allowedValues = $this->getTypeAllowableValues();
         if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -256,7 +262,7 @@ class CreateKubeconfigRequest implements ModelInterface, ArrayAccess
     public function setType($type)
     {
         $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
+        if (!in_array($type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value for 'type', must be one of '%s'",

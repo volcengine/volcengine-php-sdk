@@ -30,7 +30,8 @@ class DeleteClusterRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'cascading_delete_resources' => 'string[]',
         'force' => 'bool',
-        'id' => 'string'
+        'id' => 'string',
+        'retain_resources' => 'string[]'
     ];
 
     /**
@@ -41,7 +42,8 @@ class DeleteClusterRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'cascading_delete_resources' => null,
         'force' => null,
-        'id' => null
+        'id' => null,
+        'retain_resources' => null
     ];
 
     /**
@@ -73,7 +75,8 @@ class DeleteClusterRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'cascading_delete_resources' => 'CascadingDeleteResources',
         'force' => 'Force',
-        'id' => 'Id'
+        'id' => 'Id',
+        'retain_resources' => 'RetainResources'
     ];
 
     /**
@@ -84,7 +87,8 @@ class DeleteClusterRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'cascading_delete_resources' => 'setCascadingDeleteResources',
         'force' => 'setForce',
-        'id' => 'setId'
+        'id' => 'setId',
+        'retain_resources' => 'setRetainResources'
     ];
 
     /**
@@ -95,7 +99,8 @@ class DeleteClusterRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'cascading_delete_resources' => 'getCascadingDeleteResources',
         'force' => 'getForce',
-        'id' => 'getId'
+        'id' => 'getId',
+        'retain_resources' => 'getRetainResources'
     ];
 
     /**
@@ -139,11 +144,18 @@ class DeleteClusterRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const CASCADING_DELETE_RESOURCES_CLB = 'Clb';
-    const CASCADING_DELETE_RESOURCES_DEFAULT_NODE_POOL_RESOURCE = 'DefaultNodePoolResource';
     const CASCADING_DELETE_RESOURCES_NAT = 'Nat';
+    const CASCADING_DELETE_RESOURCES_CLB = 'Clb';
     const CASCADING_DELETE_RESOURCES_NODE_POOL_RESOURCE = 'NodePoolResource';
+    const CASCADING_DELETE_RESOURCES_DEFAULT_NODE_POOL_RESOURCE = 'DefaultNodePoolResource';
     const CASCADING_DELETE_RESOURCES_TRY_BEST = 'TryBest';
+    const RETAIN_RESOURCES_NAT = 'Nat';
+    const RETAIN_RESOURCES_CLB = 'Clb';
+    const RETAIN_RESOURCES_ALB = 'Alb';
+    const RETAIN_RESOURCES_NODE_POOL_RESOURCE = 'NodePoolResource';
+    const RETAIN_RESOURCES_DEFAULT_NODE_POOL_RESOURCE = 'DefaultNodePoolResource';
+    const RETAIN_RESOURCES_SECURITY_GROUP = 'SecurityGroup';
+    const RETAIN_RESOURCES_ALL = 'All';
     
 
     
@@ -155,11 +167,29 @@ class DeleteClusterRequest implements ModelInterface, ArrayAccess
     public function getCascadingDeleteResourcesAllowableValues()
     {
         return [
-            self::CASCADING_DELETE_RESOURCES_CLB,
-            self::CASCADING_DELETE_RESOURCES_DEFAULT_NODE_POOL_RESOURCE,
             self::CASCADING_DELETE_RESOURCES_NAT,
+            self::CASCADING_DELETE_RESOURCES_CLB,
             self::CASCADING_DELETE_RESOURCES_NODE_POOL_RESOURCE,
+            self::CASCADING_DELETE_RESOURCES_DEFAULT_NODE_POOL_RESOURCE,
             self::CASCADING_DELETE_RESOURCES_TRY_BEST,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getRetainResourcesAllowableValues()
+    {
+        return [
+            self::RETAIN_RESOURCES_NAT,
+            self::RETAIN_RESOURCES_CLB,
+            self::RETAIN_RESOURCES_ALB,
+            self::RETAIN_RESOURCES_NODE_POOL_RESOURCE,
+            self::RETAIN_RESOURCES_DEFAULT_NODE_POOL_RESOURCE,
+            self::RETAIN_RESOURCES_SECURITY_GROUP,
+            self::RETAIN_RESOURCES_ALL,
         ];
     }
     
@@ -182,6 +212,7 @@ class DeleteClusterRequest implements ModelInterface, ArrayAccess
         $this->container['cascading_delete_resources'] = isset($data['cascading_delete_resources']) ? $data['cascading_delete_resources'] : null;
         $this->container['force'] = isset($data['force']) ? $data['force'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['retain_resources'] = isset($data['retain_resources']) ? $data['retain_resources'] : null;
     }
 
     /**
@@ -193,6 +224,9 @@ class DeleteClusterRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -285,6 +319,39 @@ class DeleteClusterRequest implements ModelInterface, ArrayAccess
     public function setId($id)
     {
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets retain_resources
+     *
+     * @return string[]
+     */
+    public function getRetainResources()
+    {
+        return $this->container['retain_resources'];
+    }
+
+    /**
+     * Sets retain_resources
+     *
+     * @param string[] $retain_resources retain_resources
+     *
+     * @return $this
+     */
+    public function setRetainResources($retain_resources)
+    {
+        $allowedValues = $this->getRetainResourcesAllowableValues();
+        if (!is_null($retain_resources) && array_diff($retain_resources, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'retain_resources', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['retain_resources'] = $retain_resources;
 
         return $this;
     }

@@ -139,9 +139,9 @@ class TagResourcesRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const RESOURCE_TYPE_BARE_MACHINE = 'BareMachine';
     const RESOURCE_TYPE_CLUSTER = 'Cluster';
     const RESOURCE_TYPE_NODE_POOL = 'NodePool';
+    const RESOURCE_TYPE_BARE_MACHINE = 'BareMachine';
     
 
     
@@ -153,9 +153,9 @@ class TagResourcesRequest implements ModelInterface, ArrayAccess
     public function getResourceTypeAllowableValues()
     {
         return [
-            self::RESOURCE_TYPE_BARE_MACHINE,
             self::RESOURCE_TYPE_CLUSTER,
             self::RESOURCE_TYPE_NODE_POOL,
+            self::RESOURCE_TYPE_BARE_MACHINE,
         ];
     }
     
@@ -189,6 +189,9 @@ class TagResourcesRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['resource_type'] === null) {
+            $invalidProperties[] = "'resource_type' can't be null";
+        }
         $allowedValues = $this->getResourceTypeAllowableValues();
         if (!is_null($this->container['resource_type']) && !in_array($this->container['resource_type'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -256,7 +259,7 @@ class TagResourcesRequest implements ModelInterface, ArrayAccess
     public function setResourceType($resource_type)
     {
         $allowedValues = $this->getResourceTypeAllowableValues();
-        if (!is_null($resource_type) && !in_array($resource_type, $allowedValues, true)) {
+        if (!in_array($resource_type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value for 'resource_type', must be one of '%s'",

@@ -184,6 +184,15 @@ class ForwardKubernetesApiRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['cluster_id'] === null) {
+            $invalidProperties[] = "'cluster_id' can't be null";
+        }
+        if ($this->container['method'] === null) {
+            $invalidProperties[] = "'method' can't be null";
+        }
+        if ($this->container['path'] === null) {
+            $invalidProperties[] = "'path' can't be null";
+        }
         return $invalidProperties;
     }
 

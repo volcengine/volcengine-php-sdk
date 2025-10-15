@@ -29,7 +29,8 @@ class PublicAccessNetworkConfigForCreateClusterInput implements ModelInterface, 
       */
     protected static $swaggerTypes = [
         'bandwidth' => 'int',
-        'billing_type' => 'int'
+        'billing_type' => 'int',
+        'isp' => 'string'
     ];
 
     /**
@@ -39,7 +40,8 @@ class PublicAccessNetworkConfigForCreateClusterInput implements ModelInterface, 
       */
     protected static $swaggerFormats = [
         'bandwidth' => 'int32',
-        'billing_type' => 'int32'
+        'billing_type' => 'int32',
+        'isp' => null
     ];
 
     /**
@@ -70,7 +72,8 @@ class PublicAccessNetworkConfigForCreateClusterInput implements ModelInterface, 
      */
     protected static $attributeMap = [
         'bandwidth' => 'Bandwidth',
-        'billing_type' => 'BillingType'
+        'billing_type' => 'BillingType',
+        'isp' => 'Isp'
     ];
 
     /**
@@ -80,7 +83,8 @@ class PublicAccessNetworkConfigForCreateClusterInput implements ModelInterface, 
      */
     protected static $setters = [
         'bandwidth' => 'setBandwidth',
-        'billing_type' => 'setBillingType'
+        'billing_type' => 'setBillingType',
+        'isp' => 'setIsp'
     ];
 
     /**
@@ -90,7 +94,8 @@ class PublicAccessNetworkConfigForCreateClusterInput implements ModelInterface, 
      */
     protected static $getters = [
         'bandwidth' => 'getBandwidth',
-        'billing_type' => 'getBillingType'
+        'billing_type' => 'getBillingType',
+        'isp' => 'getIsp'
     ];
 
     /**
@@ -134,8 +139,27 @@ class PublicAccessNetworkConfigForCreateClusterInput implements ModelInterface, 
         return self::$swaggerModelName;
     }
 
+    const ISP_BGP = 'BGP';
+    const ISP_CHINA_MOBILE = 'ChinaMobile';
+    const ISP_CHINA_TELECOM = 'ChinaTelecom';
+    const ISP_CHINA_UNICOM = 'ChinaUnicom';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getIspAllowableValues()
+    {
+        return [
+            self::ISP_BGP,
+            self::ISP_CHINA_MOBILE,
+            self::ISP_CHINA_TELECOM,
+            self::ISP_CHINA_UNICOM,
+        ];
+    }
     
 
     /**
@@ -155,6 +179,7 @@ class PublicAccessNetworkConfigForCreateClusterInput implements ModelInterface, 
     {
         $this->container['bandwidth'] = isset($data['bandwidth']) ? $data['bandwidth'] : null;
         $this->container['billing_type'] = isset($data['billing_type']) ? $data['billing_type'] : null;
+        $this->container['isp'] = isset($data['isp']) ? $data['isp'] : null;
     }
 
     /**
@@ -165,6 +190,14 @@ class PublicAccessNetworkConfigForCreateClusterInput implements ModelInterface, 
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getIspAllowableValues();
+        if (!is_null($this->container['isp']) && !in_array($this->container['isp'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'isp', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -225,6 +258,39 @@ class PublicAccessNetworkConfigForCreateClusterInput implements ModelInterface, 
     public function setBillingType($billing_type)
     {
         $this->container['billing_type'] = $billing_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets isp
+     *
+     * @return string
+     */
+    public function getIsp()
+    {
+        return $this->container['isp'];
+    }
+
+    /**
+     * Sets isp
+     *
+     * @param string $isp isp
+     *
+     * @return $this
+     */
+    public function setIsp($isp)
+    {
+        $allowedValues = $this->getIspAllowableValues();
+        if (!is_null($isp) && !in_array($isp, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'isp', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['isp'] = $isp;
 
         return $this;
     }

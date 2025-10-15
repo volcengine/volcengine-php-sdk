@@ -161,9 +161,9 @@ class FilterForListAddonsInput implements ModelInterface, ArrayAccess
 
     const DEPLOY_MODES_MANAGED = 'Managed';
     const DEPLOY_MODES_UNMANAGED = 'Unmanaged';
-    const DEPLOY_NODE_TYPES_EDGE_NODE = 'EdgeNode';
     const DEPLOY_NODE_TYPES_NODE = 'Node';
     const DEPLOY_NODE_TYPES_VIRTUAL_NODE = 'VirtualNode';
+    const DEPLOY_NODE_TYPES_EDGE_NODE = 'EdgeNode';
     
 
     
@@ -188,9 +188,9 @@ class FilterForListAddonsInput implements ModelInterface, ArrayAccess
     public function getDeployNodeTypesAllowableValues()
     {
         return [
-            self::DEPLOY_NODE_TYPES_EDGE_NODE,
             self::DEPLOY_NODE_TYPES_NODE,
             self::DEPLOY_NODE_TYPES_VIRTUAL_NODE,
+            self::DEPLOY_NODE_TYPES_EDGE_NODE,
         ];
     }
     

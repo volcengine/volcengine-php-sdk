@@ -33,10 +33,13 @@ class UpdateClusterConfigRequest implements ModelInterface, ArrayAccess
         'delete_protection_enabled' => 'bool',
         'description' => 'string',
         'id' => 'string',
+        'irsa_enabled' => 'bool',
         'logging_config' => '\Volcengine\Vke\Model\LoggingConfigForUpdateClusterConfigInput',
-        'monitoring_config' => 'string',
+        'monitoring_config' => '\Volcengine\Vke\Model\MonitoringConfigForUpdateClusterConfigInput',
         'name' => 'string',
-        'pods_config' => '\Volcengine\Vke\Model\PodsConfigForUpdateClusterConfigInput'
+        'pods_config' => '\Volcengine\Vke\Model\PodsConfigForUpdateClusterConfigInput',
+        'register_monitoring_config' => '\Volcengine\Vke\Model\RegisterMonitoringConfigForUpdateClusterConfigInput',
+        'source_region' => 'string'
     ];
 
     /**
@@ -50,10 +53,13 @@ class UpdateClusterConfigRequest implements ModelInterface, ArrayAccess
         'delete_protection_enabled' => null,
         'description' => null,
         'id' => null,
+        'irsa_enabled' => null,
         'logging_config' => null,
         'monitoring_config' => null,
         'name' => null,
-        'pods_config' => null
+        'pods_config' => null,
+        'register_monitoring_config' => null,
+        'source_region' => null
     ];
 
     /**
@@ -88,10 +94,13 @@ class UpdateClusterConfigRequest implements ModelInterface, ArrayAccess
         'delete_protection_enabled' => 'DeleteProtectionEnabled',
         'description' => 'Description',
         'id' => 'Id',
+        'irsa_enabled' => 'IrsaEnabled',
         'logging_config' => 'LoggingConfig',
         'monitoring_config' => 'MonitoringConfig',
         'name' => 'Name',
-        'pods_config' => 'PodsConfig'
+        'pods_config' => 'PodsConfig',
+        'register_monitoring_config' => 'RegisterMonitoringConfig',
+        'source_region' => 'SourceRegion'
     ];
 
     /**
@@ -105,10 +114,13 @@ class UpdateClusterConfigRequest implements ModelInterface, ArrayAccess
         'delete_protection_enabled' => 'setDeleteProtectionEnabled',
         'description' => 'setDescription',
         'id' => 'setId',
+        'irsa_enabled' => 'setIrsaEnabled',
         'logging_config' => 'setLoggingConfig',
         'monitoring_config' => 'setMonitoringConfig',
         'name' => 'setName',
-        'pods_config' => 'setPodsConfig'
+        'pods_config' => 'setPodsConfig',
+        'register_monitoring_config' => 'setRegisterMonitoringConfig',
+        'source_region' => 'setSourceRegion'
     ];
 
     /**
@@ -122,10 +134,13 @@ class UpdateClusterConfigRequest implements ModelInterface, ArrayAccess
         'delete_protection_enabled' => 'getDeleteProtectionEnabled',
         'description' => 'getDescription',
         'id' => 'getId',
+        'irsa_enabled' => 'getIrsaEnabled',
         'logging_config' => 'getLoggingConfig',
         'monitoring_config' => 'getMonitoringConfig',
         'name' => 'getName',
-        'pods_config' => 'getPodsConfig'
+        'pods_config' => 'getPodsConfig',
+        'register_monitoring_config' => 'getRegisterMonitoringConfig',
+        'source_region' => 'getSourceRegion'
     ];
 
     /**
@@ -193,10 +208,13 @@ class UpdateClusterConfigRequest implements ModelInterface, ArrayAccess
         $this->container['delete_protection_enabled'] = isset($data['delete_protection_enabled']) ? $data['delete_protection_enabled'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['irsa_enabled'] = isset($data['irsa_enabled']) ? $data['irsa_enabled'] : null;
         $this->container['logging_config'] = isset($data['logging_config']) ? $data['logging_config'] : null;
         $this->container['monitoring_config'] = isset($data['monitoring_config']) ? $data['monitoring_config'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['pods_config'] = isset($data['pods_config']) ? $data['pods_config'] : null;
+        $this->container['register_monitoring_config'] = isset($data['register_monitoring_config']) ? $data['register_monitoring_config'] : null;
+        $this->container['source_region'] = isset($data['source_region']) ? $data['source_region'] : null;
     }
 
     /**
@@ -208,6 +226,9 @@ class UpdateClusterConfigRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -344,6 +365,30 @@ class UpdateClusterConfigRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets irsa_enabled
+     *
+     * @return bool
+     */
+    public function getIrsaEnabled()
+    {
+        return $this->container['irsa_enabled'];
+    }
+
+    /**
+     * Sets irsa_enabled
+     *
+     * @param bool $irsa_enabled irsa_enabled
+     *
+     * @return $this
+     */
+    public function setIrsaEnabled($irsa_enabled)
+    {
+        $this->container['irsa_enabled'] = $irsa_enabled;
+
+        return $this;
+    }
+
+    /**
      * Gets logging_config
      *
      * @return \Volcengine\Vke\Model\LoggingConfigForUpdateClusterConfigInput
@@ -370,7 +415,7 @@ class UpdateClusterConfigRequest implements ModelInterface, ArrayAccess
     /**
      * Gets monitoring_config
      *
-     * @return string
+     * @return \Volcengine\Vke\Model\MonitoringConfigForUpdateClusterConfigInput
      */
     public function getMonitoringConfig()
     {
@@ -380,7 +425,7 @@ class UpdateClusterConfigRequest implements ModelInterface, ArrayAccess
     /**
      * Sets monitoring_config
      *
-     * @param string $monitoring_config monitoring_config
+     * @param \Volcengine\Vke\Model\MonitoringConfigForUpdateClusterConfigInput $monitoring_config monitoring_config
      *
      * @return $this
      */
@@ -435,6 +480,54 @@ class UpdateClusterConfigRequest implements ModelInterface, ArrayAccess
     public function setPodsConfig($pods_config)
     {
         $this->container['pods_config'] = $pods_config;
+
+        return $this;
+    }
+
+    /**
+     * Gets register_monitoring_config
+     *
+     * @return \Volcengine\Vke\Model\RegisterMonitoringConfigForUpdateClusterConfigInput
+     */
+    public function getRegisterMonitoringConfig()
+    {
+        return $this->container['register_monitoring_config'];
+    }
+
+    /**
+     * Sets register_monitoring_config
+     *
+     * @param \Volcengine\Vke\Model\RegisterMonitoringConfigForUpdateClusterConfigInput $register_monitoring_config register_monitoring_config
+     *
+     * @return $this
+     */
+    public function setRegisterMonitoringConfig($register_monitoring_config)
+    {
+        $this->container['register_monitoring_config'] = $register_monitoring_config;
+
+        return $this;
+    }
+
+    /**
+     * Gets source_region
+     *
+     * @return string
+     */
+    public function getSourceRegion()
+    {
+        return $this->container['source_region'];
+    }
+
+    /**
+     * Sets source_region
+     *
+     * @param string $source_region source_region
+     *
+     * @return $this
+     */
+    public function setSourceRegion($source_region)
+    {
+        $this->container['source_region'] = $source_region;
 
         return $this;
     }

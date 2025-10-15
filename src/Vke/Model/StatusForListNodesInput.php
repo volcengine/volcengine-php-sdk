@@ -134,23 +134,23 @@ class StatusForListNodesInput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const CONDITIONS_TYPE_BALANCE = 'Balance';
-    const CONDITIONS_TYPE_INITIALIZE_FAILED = 'InitializeFailed';
-    const CONDITIONS_TYPE_NOT_READY = 'NotReady';
     const CONDITIONS_TYPE_OK = 'Ok';
-    const CONDITIONS_TYPE_PROGRESSING = 'Progressing';
+    const CONDITIONS_TYPE_UNSCHEDULABLE = 'Unschedulable';
+    const CONDITIONS_TYPE_NOT_READY = 'NotReady';
+    const CONDITIONS_TYPE_INITIALIZE_FAILED = 'InitializeFailed';
     const CONDITIONS_TYPE_RESOURCE_CLEANUP_FAILED = 'ResourceCleanupFailed';
     const CONDITIONS_TYPE_SECURITY = 'Security';
+    const CONDITIONS_TYPE_BALANCE = 'Balance';
     const CONDITIONS_TYPE_UNKNOWN = 'Unknown';
-    const CONDITIONS_TYPE_UNSCHEDULABLE = 'Unschedulable';
+    const CONDITIONS_TYPE_PROGRESSING = 'Progressing';
     const PHASE_CREATING = 'Creating';
-    const PHASE_DELETING = 'Deleting';
-    const PHASE_FAILED = 'Failed';
     const PHASE_RUNNING = 'Running';
-    const PHASE_STARTING = 'Starting';
-    const PHASE_STOPPED = 'Stopped';
-    const PHASE_STOPPING = 'Stopping';
+    const PHASE_DELETING = 'Deleting';
     const PHASE_UPDATING = 'Updating';
+    const PHASE_FAILED = 'Failed';
+    const PHASE_STARTING = 'Starting';
+    const PHASE_STOPPING = 'Stopping';
+    const PHASE_STOPPED = 'Stopped';
     
 
     
@@ -162,15 +162,15 @@ class StatusForListNodesInput implements ModelInterface, ArrayAccess
     public function getConditionsTypeAllowableValues()
     {
         return [
-            self::CONDITIONS_TYPE_BALANCE,
-            self::CONDITIONS_TYPE_INITIALIZE_FAILED,
-            self::CONDITIONS_TYPE_NOT_READY,
             self::CONDITIONS_TYPE_OK,
-            self::CONDITIONS_TYPE_PROGRESSING,
+            self::CONDITIONS_TYPE_UNSCHEDULABLE,
+            self::CONDITIONS_TYPE_NOT_READY,
+            self::CONDITIONS_TYPE_INITIALIZE_FAILED,
             self::CONDITIONS_TYPE_RESOURCE_CLEANUP_FAILED,
             self::CONDITIONS_TYPE_SECURITY,
+            self::CONDITIONS_TYPE_BALANCE,
             self::CONDITIONS_TYPE_UNKNOWN,
-            self::CONDITIONS_TYPE_UNSCHEDULABLE,
+            self::CONDITIONS_TYPE_PROGRESSING,
         ];
     }
     
@@ -183,13 +183,13 @@ class StatusForListNodesInput implements ModelInterface, ArrayAccess
     {
         return [
             self::PHASE_CREATING,
-            self::PHASE_DELETING,
-            self::PHASE_FAILED,
             self::PHASE_RUNNING,
-            self::PHASE_STARTING,
-            self::PHASE_STOPPED,
-            self::PHASE_STOPPING,
+            self::PHASE_DELETING,
             self::PHASE_UPDATING,
+            self::PHASE_FAILED,
+            self::PHASE_STARTING,
+            self::PHASE_STOPPING,
+            self::PHASE_STOPPED,
         ];
     }
     

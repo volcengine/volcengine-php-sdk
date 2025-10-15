@@ -28,8 +28,8 @@ class ItemForListClustersOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'charge_type' => 'string',
         'cluster_config' => '\Volcengine\Vke\Model\ClusterConfigForListClustersOutput',
+        'connector_config' => '\Volcengine\Vke\Model\ConnectorConfigForListClustersOutput',
         'create_client_token' => 'string',
         'create_time' => 'string',
         'delete_protection_enabled' => 'bool',
@@ -37,12 +37,17 @@ class ItemForListClustersOutput implements ModelInterface, ArrayAccess
         'id' => 'string',
         'kubernetes_version' => 'string',
         'logging_config' => '\Volcengine\Vke\Model\LoggingConfigForListClustersOutput',
+        'message' => 'string',
+        'monitoring_config' => '\Volcengine\Vke\Model\MonitoringConfigForListClustersOutput',
         'name' => 'string',
         'node_statistics' => '\Volcengine\Vke\Model\NodeStatisticsForListClustersOutput',
         'pods_config' => '\Volcengine\Vke\Model\PodsConfigForListClustersOutput',
+        'project_name' => 'string',
+        'register_monitoring_config' => '\Volcengine\Vke\Model\RegisterMonitoringConfigForListClustersOutput',
         'services_config' => '\Volcengine\Vke\Model\ServicesConfigForListClustersOutput',
         'status' => '\Volcengine\Vke\Model\StatusForListClustersOutput',
         'tags' => '\Volcengine\Vke\Model\TagForListClustersOutput[]',
+        'type' => 'string',
         'update_client_token' => 'string',
         'update_time' => 'string'
     ];
@@ -53,8 +58,8 @@ class ItemForListClustersOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'charge_type' => null,
         'cluster_config' => null,
+        'connector_config' => null,
         'create_client_token' => null,
         'create_time' => null,
         'delete_protection_enabled' => null,
@@ -62,12 +67,17 @@ class ItemForListClustersOutput implements ModelInterface, ArrayAccess
         'id' => null,
         'kubernetes_version' => null,
         'logging_config' => null,
+        'message' => null,
+        'monitoring_config' => null,
         'name' => null,
         'node_statistics' => null,
         'pods_config' => null,
+        'project_name' => null,
+        'register_monitoring_config' => null,
         'services_config' => null,
         'status' => null,
         'tags' => null,
+        'type' => null,
         'update_client_token' => null,
         'update_time' => null
     ];
@@ -99,8 +109,8 @@ class ItemForListClustersOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'charge_type' => 'ChargeType',
         'cluster_config' => 'ClusterConfig',
+        'connector_config' => 'ConnectorConfig',
         'create_client_token' => 'CreateClientToken',
         'create_time' => 'CreateTime',
         'delete_protection_enabled' => 'DeleteProtectionEnabled',
@@ -108,12 +118,17 @@ class ItemForListClustersOutput implements ModelInterface, ArrayAccess
         'id' => 'Id',
         'kubernetes_version' => 'KubernetesVersion',
         'logging_config' => 'LoggingConfig',
+        'message' => 'Message',
+        'monitoring_config' => 'MonitoringConfig',
         'name' => 'Name',
         'node_statistics' => 'NodeStatistics',
         'pods_config' => 'PodsConfig',
+        'project_name' => 'ProjectName',
+        'register_monitoring_config' => 'RegisterMonitoringConfig',
         'services_config' => 'ServicesConfig',
         'status' => 'Status',
         'tags' => 'Tags',
+        'type' => 'Type',
         'update_client_token' => 'UpdateClientToken',
         'update_time' => 'UpdateTime'
     ];
@@ -124,8 +139,8 @@ class ItemForListClustersOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'charge_type' => 'setChargeType',
         'cluster_config' => 'setClusterConfig',
+        'connector_config' => 'setConnectorConfig',
         'create_client_token' => 'setCreateClientToken',
         'create_time' => 'setCreateTime',
         'delete_protection_enabled' => 'setDeleteProtectionEnabled',
@@ -133,12 +148,17 @@ class ItemForListClustersOutput implements ModelInterface, ArrayAccess
         'id' => 'setId',
         'kubernetes_version' => 'setKubernetesVersion',
         'logging_config' => 'setLoggingConfig',
+        'message' => 'setMessage',
+        'monitoring_config' => 'setMonitoringConfig',
         'name' => 'setName',
         'node_statistics' => 'setNodeStatistics',
         'pods_config' => 'setPodsConfig',
+        'project_name' => 'setProjectName',
+        'register_monitoring_config' => 'setRegisterMonitoringConfig',
         'services_config' => 'setServicesConfig',
         'status' => 'setStatus',
         'tags' => 'setTags',
+        'type' => 'setType',
         'update_client_token' => 'setUpdateClientToken',
         'update_time' => 'setUpdateTime'
     ];
@@ -149,8 +169,8 @@ class ItemForListClustersOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'charge_type' => 'getChargeType',
         'cluster_config' => 'getClusterConfig',
+        'connector_config' => 'getConnectorConfig',
         'create_client_token' => 'getCreateClientToken',
         'create_time' => 'getCreateTime',
         'delete_protection_enabled' => 'getDeleteProtectionEnabled',
@@ -158,12 +178,17 @@ class ItemForListClustersOutput implements ModelInterface, ArrayAccess
         'id' => 'getId',
         'kubernetes_version' => 'getKubernetesVersion',
         'logging_config' => 'getLoggingConfig',
+        'message' => 'getMessage',
+        'monitoring_config' => 'getMonitoringConfig',
         'name' => 'getName',
         'node_statistics' => 'getNodeStatistics',
         'pods_config' => 'getPodsConfig',
+        'project_name' => 'getProjectName',
+        'register_monitoring_config' => 'getRegisterMonitoringConfig',
         'services_config' => 'getServicesConfig',
         'status' => 'getStatus',
         'tags' => 'getTags',
+        'type' => 'getType',
         'update_client_token' => 'getUpdateClientToken',
         'update_time' => 'getUpdateTime'
     ];
@@ -209,8 +234,27 @@ class ItemForListClustersOutput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const TYPE_MANAGED = 'Managed';
+    const TYPE_STANDARD = 'Standard';
+    const TYPE_REGISTERED = 'Registered';
+    const TYPE_ON_PREMISE = 'OnPremise';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_MANAGED,
+            self::TYPE_STANDARD,
+            self::TYPE_REGISTERED,
+            self::TYPE_ON_PREMISE,
+        ];
+    }
     
 
     /**
@@ -228,8 +272,8 @@ class ItemForListClustersOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['charge_type'] = isset($data['charge_type']) ? $data['charge_type'] : null;
         $this->container['cluster_config'] = isset($data['cluster_config']) ? $data['cluster_config'] : null;
+        $this->container['connector_config'] = isset($data['connector_config']) ? $data['connector_config'] : null;
         $this->container['create_client_token'] = isset($data['create_client_token']) ? $data['create_client_token'] : null;
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
         $this->container['delete_protection_enabled'] = isset($data['delete_protection_enabled']) ? $data['delete_protection_enabled'] : null;
@@ -237,12 +281,17 @@ class ItemForListClustersOutput implements ModelInterface, ArrayAccess
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['kubernetes_version'] = isset($data['kubernetes_version']) ? $data['kubernetes_version'] : null;
         $this->container['logging_config'] = isset($data['logging_config']) ? $data['logging_config'] : null;
+        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
+        $this->container['monitoring_config'] = isset($data['monitoring_config']) ? $data['monitoring_config'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['node_statistics'] = isset($data['node_statistics']) ? $data['node_statistics'] : null;
         $this->container['pods_config'] = isset($data['pods_config']) ? $data['pods_config'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['register_monitoring_config'] = isset($data['register_monitoring_config']) ? $data['register_monitoring_config'] : null;
         $this->container['services_config'] = isset($data['services_config']) ? $data['services_config'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['update_client_token'] = isset($data['update_client_token']) ? $data['update_client_token'] : null;
         $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
     }
@@ -255,6 +304,14 @@ class ItemForListClustersOutput implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -270,30 +327,6 @@ class ItemForListClustersOutput implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets charge_type
-     *
-     * @return string
-     */
-    public function getChargeType()
-    {
-        return $this->container['charge_type'];
-    }
-
-    /**
-     * Sets charge_type
-     *
-     * @param string $charge_type charge_type
-     *
-     * @return $this
-     */
-    public function setChargeType($charge_type)
-    {
-        $this->container['charge_type'] = $charge_type;
-
-        return $this;
-    }
 
     /**
      * Gets cluster_config
@@ -315,6 +348,30 @@ class ItemForListClustersOutput implements ModelInterface, ArrayAccess
     public function setClusterConfig($cluster_config)
     {
         $this->container['cluster_config'] = $cluster_config;
+
+        return $this;
+    }
+
+    /**
+     * Gets connector_config
+     *
+     * @return \Volcengine\Vke\Model\ConnectorConfigForListClustersOutput
+     */
+    public function getConnectorConfig()
+    {
+        return $this->container['connector_config'];
+    }
+
+    /**
+     * Sets connector_config
+     *
+     * @param \Volcengine\Vke\Model\ConnectorConfigForListClustersOutput $connector_config connector_config
+     *
+     * @return $this
+     */
+    public function setConnectorConfig($connector_config)
+    {
+        $this->container['connector_config'] = $connector_config;
 
         return $this;
     }
@@ -488,6 +545,54 @@ class ItemForListClustersOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets message
+     *
+     * @return string
+     */
+    public function getMessage()
+    {
+        return $this->container['message'];
+    }
+
+    /**
+     * Sets message
+     *
+     * @param string $message message
+     *
+     * @return $this
+     */
+    public function setMessage($message)
+    {
+        $this->container['message'] = $message;
+
+        return $this;
+    }
+
+    /**
+     * Gets monitoring_config
+     *
+     * @return \Volcengine\Vke\Model\MonitoringConfigForListClustersOutput
+     */
+    public function getMonitoringConfig()
+    {
+        return $this->container['monitoring_config'];
+    }
+
+    /**
+     * Sets monitoring_config
+     *
+     * @param \Volcengine\Vke\Model\MonitoringConfigForListClustersOutput $monitoring_config monitoring_config
+     *
+     * @return $this
+     */
+    public function setMonitoringConfig($monitoring_config)
+    {
+        $this->container['monitoring_config'] = $monitoring_config;
+
+        return $this;
+    }
+
+    /**
      * Gets name
      *
      * @return string
@@ -560,6 +665,54 @@ class ItemForListClustersOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets register_monitoring_config
+     *
+     * @return \Volcengine\Vke\Model\RegisterMonitoringConfigForListClustersOutput
+     */
+    public function getRegisterMonitoringConfig()
+    {
+        return $this->container['register_monitoring_config'];
+    }
+
+    /**
+     * Sets register_monitoring_config
+     *
+     * @param \Volcengine\Vke\Model\RegisterMonitoringConfigForListClustersOutput $register_monitoring_config register_monitoring_config
+     *
+     * @return $this
+     */
+    public function setRegisterMonitoringConfig($register_monitoring_config)
+    {
+        $this->container['register_monitoring_config'] = $register_monitoring_config;
+
+        return $this;
+    }
+
+    /**
      * Gets services_config
      *
      * @return \Volcengine\Vke\Model\ServicesConfigForListClustersOutput
@@ -627,6 +780,39 @@ class ItemForListClustersOutput implements ModelInterface, ArrayAccess
     public function setTags($tags)
     {
         $this->container['tags'] = $tags;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string $type type
+     *
+     * @return $this
+     */
+    public function setType($type)
+    {
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['type'] = $type;
 
         return $this;
     }
