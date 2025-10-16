@@ -134,8 +134,31 @@ class StatusForListNodePoolsOutput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const PHASE_CREATING = 'Creating';
+    const PHASE_RUNNING = 'Running';
+    const PHASE_UPDATING = 'Updating';
+    const PHASE_SCALING = 'Scaling';
+    const PHASE_DELETING = 'Deleting';
+    const PHASE_FAILED = 'Failed';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getPhaseAllowableValues()
+    {
+        return [
+            self::PHASE_CREATING,
+            self::PHASE_RUNNING,
+            self::PHASE_UPDATING,
+            self::PHASE_SCALING,
+            self::PHASE_DELETING,
+            self::PHASE_FAILED,
+        ];
+    }
     
 
     /**
@@ -165,6 +188,14 @@ class StatusForListNodePoolsOutput implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getPhaseAllowableValues();
+        if (!is_null($this->container['phase']) && !in_array($this->container['phase'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'phase', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -224,6 +255,15 @@ class StatusForListNodePoolsOutput implements ModelInterface, ArrayAccess
      */
     public function setPhase($phase)
     {
+        $allowedValues = $this->getPhaseAllowableValues();
+        if (!is_null($phase) && !in_array($phase, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'phase', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['phase'] = $phase;
 
         return $this;

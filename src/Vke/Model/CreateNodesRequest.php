@@ -36,7 +36,10 @@ class CreateNodesRequest implements ModelInterface, ArrayAccess
         'initialize_script' => 'string',
         'instance_ids' => 'string[]',
         'keep_instance_name' => 'bool',
-        'kubernetes_config' => '\Volcengine\Vke\Model\KubernetesConfigForCreateNodesInput'
+        'kubernetes_config' => '\Volcengine\Vke\Model\KubernetesConfigForCreateNodesInput',
+        'node_pool_id' => 'string',
+        'pre_script' => 'string',
+        'skip_replace_system' => 'bool'
     ];
 
     /**
@@ -53,7 +56,10 @@ class CreateNodesRequest implements ModelInterface, ArrayAccess
         'initialize_script' => null,
         'instance_ids' => null,
         'keep_instance_name' => null,
-        'kubernetes_config' => null
+        'kubernetes_config' => null,
+        'node_pool_id' => null,
+        'pre_script' => null,
+        'skip_replace_system' => null
     ];
 
     /**
@@ -91,7 +97,10 @@ class CreateNodesRequest implements ModelInterface, ArrayAccess
         'initialize_script' => 'InitializeScript',
         'instance_ids' => 'InstanceIds',
         'keep_instance_name' => 'KeepInstanceName',
-        'kubernetes_config' => 'KubernetesConfig'
+        'kubernetes_config' => 'KubernetesConfig',
+        'node_pool_id' => 'NodePoolId',
+        'pre_script' => 'PreScript',
+        'skip_replace_system' => 'SkipReplaceSystem'
     ];
 
     /**
@@ -108,7 +117,10 @@ class CreateNodesRequest implements ModelInterface, ArrayAccess
         'initialize_script' => 'setInitializeScript',
         'instance_ids' => 'setInstanceIds',
         'keep_instance_name' => 'setKeepInstanceName',
-        'kubernetes_config' => 'setKubernetesConfig'
+        'kubernetes_config' => 'setKubernetesConfig',
+        'node_pool_id' => 'setNodePoolId',
+        'pre_script' => 'setPreScript',
+        'skip_replace_system' => 'setSkipReplaceSystem'
     ];
 
     /**
@@ -125,7 +137,10 @@ class CreateNodesRequest implements ModelInterface, ArrayAccess
         'initialize_script' => 'getInitializeScript',
         'instance_ids' => 'getInstanceIds',
         'keep_instance_name' => 'getKeepInstanceName',
-        'kubernetes_config' => 'getKubernetesConfig'
+        'kubernetes_config' => 'getKubernetesConfig',
+        'node_pool_id' => 'getNodePoolId',
+        'pre_script' => 'getPreScript',
+        'skip_replace_system' => 'getSkipReplaceSystem'
     ];
 
     /**
@@ -197,6 +212,9 @@ class CreateNodesRequest implements ModelInterface, ArrayAccess
         $this->container['instance_ids'] = isset($data['instance_ids']) ? $data['instance_ids'] : null;
         $this->container['keep_instance_name'] = isset($data['keep_instance_name']) ? $data['keep_instance_name'] : null;
         $this->container['kubernetes_config'] = isset($data['kubernetes_config']) ? $data['kubernetes_config'] : null;
+        $this->container['node_pool_id'] = isset($data['node_pool_id']) ? $data['node_pool_id'] : null;
+        $this->container['pre_script'] = isset($data['pre_script']) ? $data['pre_script'] : null;
+        $this->container['skip_replace_system'] = isset($data['skip_replace_system']) ? $data['skip_replace_system'] : null;
     }
 
     /**
@@ -208,6 +226,9 @@ class CreateNodesRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['cluster_id'] === null) {
+            $invalidProperties[] = "'cluster_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -435,6 +456,78 @@ class CreateNodesRequest implements ModelInterface, ArrayAccess
     public function setKubernetesConfig($kubernetes_config)
     {
         $this->container['kubernetes_config'] = $kubernetes_config;
+
+        return $this;
+    }
+
+    /**
+     * Gets node_pool_id
+     *
+     * @return string
+     */
+    public function getNodePoolId()
+    {
+        return $this->container['node_pool_id'];
+    }
+
+    /**
+     * Sets node_pool_id
+     *
+     * @param string $node_pool_id node_pool_id
+     *
+     * @return $this
+     */
+    public function setNodePoolId($node_pool_id)
+    {
+        $this->container['node_pool_id'] = $node_pool_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets pre_script
+     *
+     * @return string
+     */
+    public function getPreScript()
+    {
+        return $this->container['pre_script'];
+    }
+
+    /**
+     * Sets pre_script
+     *
+     * @param string $pre_script pre_script
+     *
+     * @return $this
+     */
+    public function setPreScript($pre_script)
+    {
+        $this->container['pre_script'] = $pre_script;
+
+        return $this;
+    }
+
+    /**
+     * Gets skip_replace_system
+     *
+     * @return bool
+     */
+    public function getSkipReplaceSystem()
+    {
+        return $this->container['skip_replace_system'];
+    }
+
+    /**
+     * Sets skip_replace_system
+     *
+     * @param bool $skip_replace_system skip_replace_system
+     *
+     * @return $this
+     */
+    public function setSkipReplaceSystem($skip_replace_system)
+    {
+        $this->container['skip_replace_system'] = $skip_replace_system;
 
         return $this;
     }

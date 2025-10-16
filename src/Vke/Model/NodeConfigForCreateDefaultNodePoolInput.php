@@ -30,6 +30,7 @@ class NodeConfigForCreateDefaultNodePoolInput implements ModelInterface, ArrayAc
     protected static $swaggerTypes = [
         'initialize_script' => 'string',
         'name_prefix' => 'string',
+        'pre_script' => 'string',
         'security' => '\Volcengine\Vke\Model\SecurityForCreateDefaultNodePoolInput',
         'tags' => '\Volcengine\Vke\Model\TagForCreateDefaultNodePoolInput[]'
     ];
@@ -42,6 +43,7 @@ class NodeConfigForCreateDefaultNodePoolInput implements ModelInterface, ArrayAc
     protected static $swaggerFormats = [
         'initialize_script' => null,
         'name_prefix' => null,
+        'pre_script' => null,
         'security' => null,
         'tags' => null
     ];
@@ -75,6 +77,7 @@ class NodeConfigForCreateDefaultNodePoolInput implements ModelInterface, ArrayAc
     protected static $attributeMap = [
         'initialize_script' => 'InitializeScript',
         'name_prefix' => 'NamePrefix',
+        'pre_script' => 'PreScript',
         'security' => 'Security',
         'tags' => 'Tags'
     ];
@@ -87,6 +90,7 @@ class NodeConfigForCreateDefaultNodePoolInput implements ModelInterface, ArrayAc
     protected static $setters = [
         'initialize_script' => 'setInitializeScript',
         'name_prefix' => 'setNamePrefix',
+        'pre_script' => 'setPreScript',
         'security' => 'setSecurity',
         'tags' => 'setTags'
     ];
@@ -99,6 +103,7 @@ class NodeConfigForCreateDefaultNodePoolInput implements ModelInterface, ArrayAc
     protected static $getters = [
         'initialize_script' => 'getInitializeScript',
         'name_prefix' => 'getNamePrefix',
+        'pre_script' => 'getPreScript',
         'security' => 'getSecurity',
         'tags' => 'getTags'
     ];
@@ -165,6 +170,7 @@ class NodeConfigForCreateDefaultNodePoolInput implements ModelInterface, ArrayAc
     {
         $this->container['initialize_script'] = isset($data['initialize_script']) ? $data['initialize_script'] : null;
         $this->container['name_prefix'] = isset($data['name_prefix']) ? $data['name_prefix'] : null;
+        $this->container['pre_script'] = isset($data['pre_script']) ? $data['pre_script'] : null;
         $this->container['security'] = isset($data['security']) ? $data['security'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
     }
@@ -237,6 +243,30 @@ class NodeConfigForCreateDefaultNodePoolInput implements ModelInterface, ArrayAc
     public function setNamePrefix($name_prefix)
     {
         $this->container['name_prefix'] = $name_prefix;
+
+        return $this;
+    }
+
+    /**
+     * Gets pre_script
+     *
+     * @return string
+     */
+    public function getPreScript()
+    {
+        return $this->container['pre_script'];
+    }
+
+    /**
+     * Sets pre_script
+     *
+     * @param string $pre_script pre_script
+     *
+     * @return $this
+     */
+    public function setPreScript($pre_script)
+    {
+        $this->container['pre_script'] = $pre_script;
 
         return $this;
     }

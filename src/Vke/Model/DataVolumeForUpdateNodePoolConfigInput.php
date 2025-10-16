@@ -28,8 +28,12 @@ class DataVolumeForUpdateNodePoolConfigInput implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'file_system' => 'string',
         'mount_point' => 'string',
+        'placement_group_id' => 'string',
         'size' => 'int',
+        'snapshot_id' => 'string',
+        'subgroup_number' => 'int',
         'type' => 'string'
     ];
 
@@ -39,8 +43,12 @@ class DataVolumeForUpdateNodePoolConfigInput implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'file_system' => null,
         'mount_point' => null,
+        'placement_group_id' => null,
         'size' => 'int32',
+        'snapshot_id' => null,
+        'subgroup_number' => 'int32',
         'type' => null
     ];
 
@@ -71,8 +79,12 @@ class DataVolumeForUpdateNodePoolConfigInput implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $attributeMap = [
+        'file_system' => 'FileSystem',
         'mount_point' => 'MountPoint',
+        'placement_group_id' => 'PlacementGroupId',
         'size' => 'Size',
+        'snapshot_id' => 'SnapshotId',
+        'subgroup_number' => 'SubgroupNumber',
         'type' => 'Type'
     ];
 
@@ -82,8 +94,12 @@ class DataVolumeForUpdateNodePoolConfigInput implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $setters = [
+        'file_system' => 'setFileSystem',
         'mount_point' => 'setMountPoint',
+        'placement_group_id' => 'setPlacementGroupId',
         'size' => 'setSize',
+        'snapshot_id' => 'setSnapshotId',
+        'subgroup_number' => 'setSubgroupNumber',
         'type' => 'setType'
     ];
 
@@ -93,8 +109,12 @@ class DataVolumeForUpdateNodePoolConfigInput implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $getters = [
+        'file_system' => 'getFileSystem',
         'mount_point' => 'getMountPoint',
+        'placement_group_id' => 'getPlacementGroupId',
         'size' => 'getSize',
+        'snapshot_id' => 'getSnapshotId',
+        'subgroup_number' => 'getSubgroupNumber',
         'type' => 'getType'
     ];
 
@@ -139,13 +159,25 @@ class DataVolumeForUpdateNodePoolConfigInput implements ModelInterface, ArrayAcc
         return self::$swaggerModelName;
     }
 
-    const TYPE_ESSD = 'ESSD';
-    const TYPE_ESSD_FLEX_PL = 'ESSD_FlexPL';
+    const FILE_SYSTEM_EXT4 = 'Ext4';
+    const FILE_SYSTEM_XFS = 'Xfs';
     const TYPE_ESSD_PL0 = 'ESSD_PL0';
-    const TYPE_ESSD_PL1 = 'ESSD_PL1';
-    const TYPE_PTSSD = 'PTSSD';
+    const TYPE_ESSD_FLEX_PL = 'ESSD_FlexPL';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getFileSystemAllowableValues()
+    {
+        return [
+            self::FILE_SYSTEM_EXT4,
+            self::FILE_SYSTEM_XFS,
+        ];
+    }
     
     /**
      * Gets allowable values of the enum
@@ -155,11 +187,8 @@ class DataVolumeForUpdateNodePoolConfigInput implements ModelInterface, ArrayAcc
     public function getTypeAllowableValues()
     {
         return [
-            self::TYPE_ESSD,
-            self::TYPE_ESSD_FLEX_PL,
             self::TYPE_ESSD_PL0,
-            self::TYPE_ESSD_PL1,
-            self::TYPE_PTSSD,
+            self::TYPE_ESSD_FLEX_PL,
         ];
     }
     
@@ -179,8 +208,12 @@ class DataVolumeForUpdateNodePoolConfigInput implements ModelInterface, ArrayAcc
      */
     public function __construct(array $data = null)
     {
+        $this->container['file_system'] = isset($data['file_system']) ? $data['file_system'] : null;
         $this->container['mount_point'] = isset($data['mount_point']) ? $data['mount_point'] : null;
+        $this->container['placement_group_id'] = isset($data['placement_group_id']) ? $data['placement_group_id'] : null;
         $this->container['size'] = isset($data['size']) ? $data['size'] : null;
+        $this->container['snapshot_id'] = isset($data['snapshot_id']) ? $data['snapshot_id'] : null;
+        $this->container['subgroup_number'] = isset($data['subgroup_number']) ? $data['subgroup_number'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
@@ -192,6 +225,14 @@ class DataVolumeForUpdateNodePoolConfigInput implements ModelInterface, ArrayAcc
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getFileSystemAllowableValues();
+        if (!is_null($this->container['file_system']) && !in_array($this->container['file_system'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'file_system', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         $allowedValues = $this->getTypeAllowableValues();
         if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
@@ -215,6 +256,39 @@ class DataVolumeForUpdateNodePoolConfigInput implements ModelInterface, ArrayAcc
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets file_system
+     *
+     * @return string
+     */
+    public function getFileSystem()
+    {
+        return $this->container['file_system'];
+    }
+
+    /**
+     * Sets file_system
+     *
+     * @param string $file_system file_system
+     *
+     * @return $this
+     */
+    public function setFileSystem($file_system)
+    {
+        $allowedValues = $this->getFileSystemAllowableValues();
+        if (!is_null($file_system) && !in_array($file_system, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'file_system', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['file_system'] = $file_system;
+
+        return $this;
+    }
 
     /**
      * Gets mount_point
@@ -241,6 +315,30 @@ class DataVolumeForUpdateNodePoolConfigInput implements ModelInterface, ArrayAcc
     }
 
     /**
+     * Gets placement_group_id
+     *
+     * @return string
+     */
+    public function getPlacementGroupId()
+    {
+        return $this->container['placement_group_id'];
+    }
+
+    /**
+     * Sets placement_group_id
+     *
+     * @param string $placement_group_id placement_group_id
+     *
+     * @return $this
+     */
+    public function setPlacementGroupId($placement_group_id)
+    {
+        $this->container['placement_group_id'] = $placement_group_id;
+
+        return $this;
+    }
+
+    /**
      * Gets size
      *
      * @return int
@@ -260,6 +358,54 @@ class DataVolumeForUpdateNodePoolConfigInput implements ModelInterface, ArrayAcc
     public function setSize($size)
     {
         $this->container['size'] = $size;
+
+        return $this;
+    }
+
+    /**
+     * Gets snapshot_id
+     *
+     * @return string
+     */
+    public function getSnapshotId()
+    {
+        return $this->container['snapshot_id'];
+    }
+
+    /**
+     * Sets snapshot_id
+     *
+     * @param string $snapshot_id snapshot_id
+     *
+     * @return $this
+     */
+    public function setSnapshotId($snapshot_id)
+    {
+        $this->container['snapshot_id'] = $snapshot_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets subgroup_number
+     *
+     * @return int
+     */
+    public function getSubgroupNumber()
+    {
+        return $this->container['subgroup_number'];
+    }
+
+    /**
+     * Sets subgroup_number
+     *
+     * @param int $subgroup_number subgroup_number
+     *
+     * @return $this
+     */
+    public function setSubgroupNumber($subgroup_number)
+    {
+        $this->container['subgroup_number'] = $subgroup_number;
 
         return $this;
     }

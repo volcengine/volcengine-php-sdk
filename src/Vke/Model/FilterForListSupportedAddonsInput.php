@@ -159,27 +159,23 @@ class FilterForListSupportedAddonsInput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const CATEGORIES_MONITOR = 'Monitor';
     const CATEGORIES_DNS = 'Dns';
+    const CATEGORIES_STORAGE = 'Storage';
+    const CATEGORIES_SCHEDULER = 'Scheduler';
+    const CATEGORIES_NETWORK = 'Network';
+    const CATEGORIES_SECURITY = 'Security';
     const CATEGORIES_GPU = 'Gpu';
     const CATEGORIES_IMAGE = 'Image';
-    const CATEGORIES_MONITOR = 'Monitor';
-    const CATEGORIES_NETWORK = 'Network';
-    const CATEGORIES_SCHEDULER = 'Scheduler';
-    const CATEGORIES_SECURITY = 'Security';
-    const CATEGORIES_STORAGE = 'Storage';
-    const DEPLOY_MODES_EITHER = 'Either';
     const DEPLOY_MODES_MANAGED = 'Managed';
     const DEPLOY_MODES_UNMANAGED = 'Unmanaged';
-    const DEPLOY_NODE_TYPES_EDGE_NODE = 'EdgeNode';
     const DEPLOY_NODE_TYPES_NODE = 'Node';
     const DEPLOY_NODE_TYPES_VIRTUAL_NODE = 'VirtualNode';
-    const NECESSARIES_ON_DEMAND = 'OnDemand';
-    const NECESSARIES_RECOMMENDED = 'Recommended';
+    const DEPLOY_NODE_TYPES_EDGE_NODE = 'EdgeNode';
     const NECESSARIES_REQUIRED = 'Required';
-    const POD_NETWORK_MODES_CALICO_BGP = 'CalicoBgp';
-    const POD_NETWORK_MODES_CALICO_VXLAN = 'CalicoVxlan';
+    const NECESSARIES_RECOMMENDED = 'Recommended';
+    const NECESSARIES_ON_DEMAND = 'OnDemand';
     const POD_NETWORK_MODES_FLANNEL = 'Flannel';
-    const POD_NETWORK_MODES_VPC_CNI_DEDICATED = 'VpcCniDedicated';
     const POD_NETWORK_MODES_VPC_CNI_SHARED = 'VpcCniShared';
     
 
@@ -192,14 +188,14 @@ class FilterForListSupportedAddonsInput implements ModelInterface, ArrayAccess
     public function getCategoriesAllowableValues()
     {
         return [
+            self::CATEGORIES_MONITOR,
             self::CATEGORIES_DNS,
+            self::CATEGORIES_STORAGE,
+            self::CATEGORIES_SCHEDULER,
+            self::CATEGORIES_NETWORK,
+            self::CATEGORIES_SECURITY,
             self::CATEGORIES_GPU,
             self::CATEGORIES_IMAGE,
-            self::CATEGORIES_MONITOR,
-            self::CATEGORIES_NETWORK,
-            self::CATEGORIES_SCHEDULER,
-            self::CATEGORIES_SECURITY,
-            self::CATEGORIES_STORAGE,
         ];
     }
     
@@ -211,7 +207,6 @@ class FilterForListSupportedAddonsInput implements ModelInterface, ArrayAccess
     public function getDeployModesAllowableValues()
     {
         return [
-            self::DEPLOY_MODES_EITHER,
             self::DEPLOY_MODES_MANAGED,
             self::DEPLOY_MODES_UNMANAGED,
         ];
@@ -225,9 +220,9 @@ class FilterForListSupportedAddonsInput implements ModelInterface, ArrayAccess
     public function getDeployNodeTypesAllowableValues()
     {
         return [
-            self::DEPLOY_NODE_TYPES_EDGE_NODE,
             self::DEPLOY_NODE_TYPES_NODE,
             self::DEPLOY_NODE_TYPES_VIRTUAL_NODE,
+            self::DEPLOY_NODE_TYPES_EDGE_NODE,
         ];
     }
     
@@ -239,9 +234,9 @@ class FilterForListSupportedAddonsInput implements ModelInterface, ArrayAccess
     public function getNecessariesAllowableValues()
     {
         return [
-            self::NECESSARIES_ON_DEMAND,
-            self::NECESSARIES_RECOMMENDED,
             self::NECESSARIES_REQUIRED,
+            self::NECESSARIES_RECOMMENDED,
+            self::NECESSARIES_ON_DEMAND,
         ];
     }
     
@@ -253,10 +248,7 @@ class FilterForListSupportedAddonsInput implements ModelInterface, ArrayAccess
     public function getPodNetworkModesAllowableValues()
     {
         return [
-            self::POD_NETWORK_MODES_CALICO_BGP,
-            self::POD_NETWORK_MODES_CALICO_VXLAN,
             self::POD_NETWORK_MODES_FLANNEL,
-            self::POD_NETWORK_MODES_VPC_CNI_DEDICATED,
             self::POD_NETWORK_MODES_VPC_CNI_SHARED,
         ];
     }

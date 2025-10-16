@@ -41,6 +41,7 @@ class ItemForListNodesOutput implements ModelInterface, ArrayAccess
         'kubernetes_config' => '\Volcengine\Vke\Model\KubernetesConfigForListNodesOutput',
         'name' => 'string',
         'node_pool_id' => 'string',
+        'pre_script' => 'string',
         'roles' => 'string[]',
         'status' => '\Volcengine\Vke\Model\StatusForListNodesOutput',
         'update_time' => 'string',
@@ -66,6 +67,7 @@ class ItemForListNodesOutput implements ModelInterface, ArrayAccess
         'kubernetes_config' => null,
         'name' => null,
         'node_pool_id' => null,
+        'pre_script' => null,
         'roles' => null,
         'status' => null,
         'update_time' => null,
@@ -112,6 +114,7 @@ class ItemForListNodesOutput implements ModelInterface, ArrayAccess
         'kubernetes_config' => 'KubernetesConfig',
         'name' => 'Name',
         'node_pool_id' => 'NodePoolId',
+        'pre_script' => 'PreScript',
         'roles' => 'Roles',
         'status' => 'Status',
         'update_time' => 'UpdateTime',
@@ -137,6 +140,7 @@ class ItemForListNodesOutput implements ModelInterface, ArrayAccess
         'kubernetes_config' => 'setKubernetesConfig',
         'name' => 'setName',
         'node_pool_id' => 'setNodePoolId',
+        'pre_script' => 'setPreScript',
         'roles' => 'setRoles',
         'status' => 'setStatus',
         'update_time' => 'setUpdateTime',
@@ -162,6 +166,7 @@ class ItemForListNodesOutput implements ModelInterface, ArrayAccess
         'kubernetes_config' => 'getKubernetesConfig',
         'name' => 'getName',
         'node_pool_id' => 'getNodePoolId',
+        'pre_script' => 'getPreScript',
         'roles' => 'getRoles',
         'status' => 'getStatus',
         'update_time' => 'getUpdateTime',
@@ -209,25 +214,8 @@ class ItemForListNodesOutput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const ROLES_ETCD = 'Etcd';
-    const ROLES_MASTER = 'Master';
-    const ROLES_WORKER = 'Worker';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getRolesAllowableValues()
-    {
-        return [
-            self::ROLES_ETCD,
-            self::ROLES_MASTER,
-            self::ROLES_WORKER,
-        ];
-    }
     
 
     /**
@@ -258,6 +246,7 @@ class ItemForListNodesOutput implements ModelInterface, ArrayAccess
         $this->container['kubernetes_config'] = isset($data['kubernetes_config']) ? $data['kubernetes_config'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['node_pool_id'] = isset($data['node_pool_id']) ? $data['node_pool_id'] : null;
+        $this->container['pre_script'] = isset($data['pre_script']) ? $data['pre_script'] : null;
         $this->container['roles'] = isset($data['roles']) ? $data['roles'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
@@ -601,6 +590,30 @@ class ItemForListNodesOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets pre_script
+     *
+     * @return string
+     */
+    public function getPreScript()
+    {
+        return $this->container['pre_script'];
+    }
+
+    /**
+     * Sets pre_script
+     *
+     * @param string $pre_script pre_script
+     *
+     * @return $this
+     */
+    public function setPreScript($pre_script)
+    {
+        $this->container['pre_script'] = $pre_script;
+
+        return $this;
+    }
+
+    /**
      * Gets roles
      *
      * @return string[]
@@ -619,15 +632,6 @@ class ItemForListNodesOutput implements ModelInterface, ArrayAccess
      */
     public function setRoles($roles)
     {
-        $allowedValues = $this->getRolesAllowableValues();
-        if (!is_null($roles) && array_diff($roles, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'roles', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['roles'] = $roles;
 
         return $this;

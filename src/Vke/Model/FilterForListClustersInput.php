@@ -34,6 +34,7 @@ class FilterForListClustersInput implements ModelInterface, ArrayAccess
         'name' => 'string',
         'pods_config_pod_network_mode' => 'string',
         'statuses' => '\Volcengine\Vke\Model\StatusForListClustersInput[]',
+        'types' => 'string[]',
         'update_client_token' => 'string'
     ];
 
@@ -49,6 +50,7 @@ class FilterForListClustersInput implements ModelInterface, ArrayAccess
         'name' => null,
         'pods_config_pod_network_mode' => null,
         'statuses' => null,
+        'types' => null,
         'update_client_token' => null
     ];
 
@@ -85,6 +87,7 @@ class FilterForListClustersInput implements ModelInterface, ArrayAccess
         'name' => 'Name',
         'pods_config_pod_network_mode' => 'PodsConfig.PodNetworkMode',
         'statuses' => 'Statuses',
+        'types' => 'Types',
         'update_client_token' => 'UpdateClientToken'
     ];
 
@@ -100,6 +103,7 @@ class FilterForListClustersInput implements ModelInterface, ArrayAccess
         'name' => 'setName',
         'pods_config_pod_network_mode' => 'setPodsConfigPodNetworkMode',
         'statuses' => 'setStatuses',
+        'types' => 'setTypes',
         'update_client_token' => 'setUpdateClientToken'
     ];
 
@@ -115,6 +119,7 @@ class FilterForListClustersInput implements ModelInterface, ArrayAccess
         'name' => 'getName',
         'pods_config_pod_network_mode' => 'getPodsConfigPodNetworkMode',
         'statuses' => 'getStatuses',
+        'types' => 'getTypes',
         'update_client_token' => 'getUpdateClientToken'
     ];
 
@@ -159,15 +164,12 @@ class FilterForListClustersInput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const PODS_CONFIG_POD_NETWORK_MODE_CALICO_BGP = 'CalicoBgp';
-    const PODS_CONFIG_POD_NETWORK_MODE_CALICO_VXLAN = 'CalicoVxlan';
-    const PODS_CONFIG_POD_NETWORK_MODE_CARMA = 'Carma';
-    const PODS_CONFIG_POD_NETWORK_MODE_CILIUM = 'Cilium';
-    const PODS_CONFIG_POD_NETWORK_MODE__DEFAULT = 'Default';
     const PODS_CONFIG_POD_NETWORK_MODE_FLANNEL = 'Flannel';
-    const PODS_CONFIG_POD_NETWORK_MODE_KUBE_OVN = 'KubeOvn';
-    const PODS_CONFIG_POD_NETWORK_MODE_VPC_CNI_DEDICATED = 'VpcCniDedicated';
     const PODS_CONFIG_POD_NETWORK_MODE_VPC_CNI_SHARED = 'VpcCniShared';
+    const TYPES_MANAGED = 'Managed';
+    const TYPES_STANDARD = 'Standard';
+    const TYPES_REGISTERED = 'Registered';
+    const TYPES_ON_PREMISE = 'OnPremise';
     
 
     
@@ -179,15 +181,23 @@ class FilterForListClustersInput implements ModelInterface, ArrayAccess
     public function getPodsConfigPodNetworkModeAllowableValues()
     {
         return [
-            self::PODS_CONFIG_POD_NETWORK_MODE_CALICO_BGP,
-            self::PODS_CONFIG_POD_NETWORK_MODE_CALICO_VXLAN,
-            self::PODS_CONFIG_POD_NETWORK_MODE_CARMA,
-            self::PODS_CONFIG_POD_NETWORK_MODE_CILIUM,
-            self::PODS_CONFIG_POD_NETWORK_MODE__DEFAULT,
             self::PODS_CONFIG_POD_NETWORK_MODE_FLANNEL,
-            self::PODS_CONFIG_POD_NETWORK_MODE_KUBE_OVN,
-            self::PODS_CONFIG_POD_NETWORK_MODE_VPC_CNI_DEDICATED,
             self::PODS_CONFIG_POD_NETWORK_MODE_VPC_CNI_SHARED,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypesAllowableValues()
+    {
+        return [
+            self::TYPES_MANAGED,
+            self::TYPES_STANDARD,
+            self::TYPES_REGISTERED,
+            self::TYPES_ON_PREMISE,
         ];
     }
     
@@ -213,6 +223,7 @@ class FilterForListClustersInput implements ModelInterface, ArrayAccess
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['pods_config_pod_network_mode'] = isset($data['pods_config_pod_network_mode']) ? $data['pods_config_pod_network_mode'] : null;
         $this->container['statuses'] = isset($data['statuses']) ? $data['statuses'] : null;
+        $this->container['types'] = isset($data['types']) ? $data['types'] : null;
         $this->container['update_client_token'] = isset($data['update_client_token']) ? $data['update_client_token'] : null;
     }
 
@@ -397,6 +408,39 @@ class FilterForListClustersInput implements ModelInterface, ArrayAccess
     public function setStatuses($statuses)
     {
         $this->container['statuses'] = $statuses;
+
+        return $this;
+    }
+
+    /**
+     * Gets types
+     *
+     * @return string[]
+     */
+    public function getTypes()
+    {
+        return $this->container['types'];
+    }
+
+    /**
+     * Sets types
+     *
+     * @param string[] $types types
+     *
+     * @return $this
+     */
+    public function setTypes($types)
+    {
+        $allowedValues = $this->getTypesAllowableValues();
+        if (!is_null($types) && array_diff($types, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'types', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['types'] = $types;
 
         return $this;
     }

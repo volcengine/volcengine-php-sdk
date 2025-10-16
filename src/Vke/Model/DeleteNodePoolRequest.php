@@ -30,7 +30,8 @@ class DeleteNodePoolRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'cascading_delete_resources' => 'string[]',
         'cluster_id' => 'string',
-        'id' => 'string'
+        'id' => 'string',
+        'retain_resources' => 'string[]'
     ];
 
     /**
@@ -41,7 +42,8 @@ class DeleteNodePoolRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'cascading_delete_resources' => null,
         'cluster_id' => null,
-        'id' => null
+        'id' => null,
+        'retain_resources' => null
     ];
 
     /**
@@ -73,7 +75,8 @@ class DeleteNodePoolRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'cascading_delete_resources' => 'CascadingDeleteResources',
         'cluster_id' => 'ClusterId',
-        'id' => 'Id'
+        'id' => 'Id',
+        'retain_resources' => 'RetainResources'
     ];
 
     /**
@@ -84,7 +87,8 @@ class DeleteNodePoolRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'cascading_delete_resources' => 'setCascadingDeleteResources',
         'cluster_id' => 'setClusterId',
-        'id' => 'setId'
+        'id' => 'setId',
+        'retain_resources' => 'setRetainResources'
     ];
 
     /**
@@ -95,7 +99,8 @@ class DeleteNodePoolRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'cascading_delete_resources' => 'getCascadingDeleteResources',
         'cluster_id' => 'getClusterId',
-        'id' => 'getId'
+        'id' => 'getId',
+        'retain_resources' => 'getRetainResources'
     ];
 
     /**
@@ -140,6 +145,7 @@ class DeleteNodePoolRequest implements ModelInterface, ArrayAccess
     }
 
     const CASCADING_DELETE_RESOURCES_ECS = 'Ecs';
+    const RETAIN_RESOURCES_ECS = 'Ecs';
     
 
     
@@ -152,6 +158,18 @@ class DeleteNodePoolRequest implements ModelInterface, ArrayAccess
     {
         return [
             self::CASCADING_DELETE_RESOURCES_ECS,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getRetainResourcesAllowableValues()
+    {
+        return [
+            self::RETAIN_RESOURCES_ECS,
         ];
     }
     
@@ -174,6 +192,7 @@ class DeleteNodePoolRequest implements ModelInterface, ArrayAccess
         $this->container['cascading_delete_resources'] = isset($data['cascading_delete_resources']) ? $data['cascading_delete_resources'] : null;
         $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['retain_resources'] = isset($data['retain_resources']) ? $data['retain_resources'] : null;
     }
 
     /**
@@ -185,6 +204,12 @@ class DeleteNodePoolRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['cluster_id'] === null) {
+            $invalidProperties[] = "'cluster_id' can't be null";
+        }
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -277,6 +302,39 @@ class DeleteNodePoolRequest implements ModelInterface, ArrayAccess
     public function setId($id)
     {
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets retain_resources
+     *
+     * @return string[]
+     */
+    public function getRetainResources()
+    {
+        return $this->container['retain_resources'];
+    }
+
+    /**
+     * Sets retain_resources
+     *
+     * @param string[] $retain_resources retain_resources
+     *
+     * @return $this
+     */
+    public function setRetainResources($retain_resources)
+    {
+        $allowedValues = $this->getRetainResourcesAllowableValues();
+        if (!is_null($retain_resources) && array_diff($retain_resources, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'retain_resources', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['retain_resources'] = $retain_resources;
 
         return $this;
     }

@@ -36,8 +36,13 @@ class NodeConfigForUpdateNodePoolConfigInput implements ModelInterface, ArrayAcc
         'image_id' => 'string',
         'initialize_script' => 'string',
         'instance_type_ids' => 'string[]',
+        'instances_distribution' => '\Volcengine\Vke\Model\InstancesDistributionForUpdateNodePoolConfigInput',
         'name_prefix' => 'string',
         'period' => 'int',
+        'pre_script' => 'string',
+        'project_name' => 'string',
+        'public_access_config' => '\Volcengine\Vke\Model\PublicAccessConfigForUpdateNodePoolConfigInput',
+        'public_access_enabled' => 'bool',
         'security' => '\Volcengine\Vke\Model\SecurityForUpdateNodePoolConfigInput',
         'subnet_ids' => 'string[]',
         'system_volume' => '\Volcengine\Vke\Model\SystemVolumeForUpdateNodePoolConfigInput',
@@ -58,8 +63,13 @@ class NodeConfigForUpdateNodePoolConfigInput implements ModelInterface, ArrayAcc
         'image_id' => null,
         'initialize_script' => null,
         'instance_type_ids' => null,
+        'instances_distribution' => null,
         'name_prefix' => null,
         'period' => 'int32',
+        'pre_script' => null,
+        'project_name' => null,
+        'public_access_config' => null,
+        'public_access_enabled' => null,
         'security' => null,
         'subnet_ids' => null,
         'system_volume' => null,
@@ -101,8 +111,13 @@ class NodeConfigForUpdateNodePoolConfigInput implements ModelInterface, ArrayAcc
         'image_id' => 'ImageId',
         'initialize_script' => 'InitializeScript',
         'instance_type_ids' => 'InstanceTypeIds',
+        'instances_distribution' => 'InstancesDistribution',
         'name_prefix' => 'NamePrefix',
         'period' => 'Period',
+        'pre_script' => 'PreScript',
+        'project_name' => 'ProjectName',
+        'public_access_config' => 'PublicAccessConfig',
+        'public_access_enabled' => 'PublicAccessEnabled',
         'security' => 'Security',
         'subnet_ids' => 'SubnetIds',
         'system_volume' => 'SystemVolume',
@@ -123,8 +138,13 @@ class NodeConfigForUpdateNodePoolConfigInput implements ModelInterface, ArrayAcc
         'image_id' => 'setImageId',
         'initialize_script' => 'setInitializeScript',
         'instance_type_ids' => 'setInstanceTypeIds',
+        'instances_distribution' => 'setInstancesDistribution',
         'name_prefix' => 'setNamePrefix',
         'period' => 'setPeriod',
+        'pre_script' => 'setPreScript',
+        'project_name' => 'setProjectName',
+        'public_access_config' => 'setPublicAccessConfig',
+        'public_access_enabled' => 'setPublicAccessEnabled',
         'security' => 'setSecurity',
         'subnet_ids' => 'setSubnetIds',
         'system_volume' => 'setSystemVolume',
@@ -145,8 +165,13 @@ class NodeConfigForUpdateNodePoolConfigInput implements ModelInterface, ArrayAcc
         'image_id' => 'getImageId',
         'initialize_script' => 'getInitializeScript',
         'instance_type_ids' => 'getInstanceTypeIds',
+        'instances_distribution' => 'getInstancesDistribution',
         'name_prefix' => 'getNamePrefix',
         'period' => 'getPeriod',
+        'pre_script' => 'getPreScript',
+        'project_name' => 'getProjectName',
+        'public_access_config' => 'getPublicAccessConfig',
+        'public_access_enabled' => 'getPublicAccessEnabled',
         'security' => 'getSecurity',
         'subnet_ids' => 'getSubnetIds',
         'system_volume' => 'getSystemVolume',
@@ -221,8 +246,13 @@ class NodeConfigForUpdateNodePoolConfigInput implements ModelInterface, ArrayAcc
         $this->container['image_id'] = isset($data['image_id']) ? $data['image_id'] : null;
         $this->container['initialize_script'] = isset($data['initialize_script']) ? $data['initialize_script'] : null;
         $this->container['instance_type_ids'] = isset($data['instance_type_ids']) ? $data['instance_type_ids'] : null;
+        $this->container['instances_distribution'] = isset($data['instances_distribution']) ? $data['instances_distribution'] : null;
         $this->container['name_prefix'] = isset($data['name_prefix']) ? $data['name_prefix'] : null;
         $this->container['period'] = isset($data['period']) ? $data['period'] : null;
+        $this->container['pre_script'] = isset($data['pre_script']) ? $data['pre_script'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['public_access_config'] = isset($data['public_access_config']) ? $data['public_access_config'] : null;
+        $this->container['public_access_enabled'] = isset($data['public_access_enabled']) ? $data['public_access_enabled'] : null;
         $this->container['security'] = isset($data['security']) ? $data['security'] : null;
         $this->container['subnet_ids'] = isset($data['subnet_ids']) ? $data['subnet_ids'] : null;
         $this->container['system_volume'] = isset($data['system_volume']) ? $data['system_volume'] : null;
@@ -446,6 +476,30 @@ class NodeConfigForUpdateNodePoolConfigInput implements ModelInterface, ArrayAcc
     }
 
     /**
+     * Gets instances_distribution
+     *
+     * @return \Volcengine\Vke\Model\InstancesDistributionForUpdateNodePoolConfigInput
+     */
+    public function getInstancesDistribution()
+    {
+        return $this->container['instances_distribution'];
+    }
+
+    /**
+     * Sets instances_distribution
+     *
+     * @param \Volcengine\Vke\Model\InstancesDistributionForUpdateNodePoolConfigInput $instances_distribution instances_distribution
+     *
+     * @return $this
+     */
+    public function setInstancesDistribution($instances_distribution)
+    {
+        $this->container['instances_distribution'] = $instances_distribution;
+
+        return $this;
+    }
+
+    /**
      * Gets name_prefix
      *
      * @return string
@@ -489,6 +543,102 @@ class NodeConfigForUpdateNodePoolConfigInput implements ModelInterface, ArrayAcc
     public function setPeriod($period)
     {
         $this->container['period'] = $period;
+
+        return $this;
+    }
+
+    /**
+     * Gets pre_script
+     *
+     * @return string
+     */
+    public function getPreScript()
+    {
+        return $this->container['pre_script'];
+    }
+
+    /**
+     * Sets pre_script
+     *
+     * @param string $pre_script pre_script
+     *
+     * @return $this
+     */
+    public function setPreScript($pre_script)
+    {
+        $this->container['pre_script'] = $pre_script;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets public_access_config
+     *
+     * @return \Volcengine\Vke\Model\PublicAccessConfigForUpdateNodePoolConfigInput
+     */
+    public function getPublicAccessConfig()
+    {
+        return $this->container['public_access_config'];
+    }
+
+    /**
+     * Sets public_access_config
+     *
+     * @param \Volcengine\Vke\Model\PublicAccessConfigForUpdateNodePoolConfigInput $public_access_config public_access_config
+     *
+     * @return $this
+     */
+    public function setPublicAccessConfig($public_access_config)
+    {
+        $this->container['public_access_config'] = $public_access_config;
+
+        return $this;
+    }
+
+    /**
+     * Gets public_access_enabled
+     *
+     * @return bool
+     */
+    public function getPublicAccessEnabled()
+    {
+        return $this->container['public_access_enabled'];
+    }
+
+    /**
+     * Sets public_access_enabled
+     *
+     * @param bool $public_access_enabled public_access_enabled
+     *
+     * @return $this
+     */
+    public function setPublicAccessEnabled($public_access_enabled)
+    {
+        $this->container['public_access_enabled'] = $public_access_enabled;
 
         return $this;
     }
