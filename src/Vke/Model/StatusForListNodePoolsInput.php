@@ -134,22 +134,22 @@ class StatusForListNodePoolsInput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const CONDITIONS_TYPE_BALANCE = 'Balance';
-    const CONDITIONS_TYPE_CLUSTER_NOT_RUNNING = 'ClusterNotRunning';
-    const CONDITIONS_TYPE_CLUSTER_VERSION_UPGRADING = 'ClusterVersionUpgrading';
-    const CONDITIONS_TYPE_LIMITED_BY_QUOTA = 'LimitedByQuota';
     const CONDITIONS_TYPE_OK = 'Ok';
-    const CONDITIONS_TYPE_PROGRESSING = 'Progressing';
-    const CONDITIONS_TYPE_RESOURCE_CLEANUP_FAILED = 'ResourceCleanupFailed';
     const CONDITIONS_TYPE_STOCK_OUT = 'StockOut';
-    const CONDITIONS_TYPE_UNKNOWN = 'Unknown';
+    const CONDITIONS_TYPE_LIMITED_BY_QUOTA = 'LimitedByQuota';
+    const CONDITIONS_TYPE_BALANCE = 'Balance';
     const CONDITIONS_TYPE_VERSION_PARTLY_UPGRADED = 'VersionPartlyUpgraded';
+    const CONDITIONS_TYPE_RESOURCE_CLEANUP_FAILED = 'ResourceCleanupFailed';
+    const CONDITIONS_TYPE_CLUSTER_NOT_RUNNING = 'ClusterNotRunning';
+    const CONDITIONS_TYPE_UNKNOWN = 'Unknown';
+    const CONDITIONS_TYPE_PROGRESSING = 'Progressing';
+    const CONDITIONS_TYPE_CLUSTER_VERSION_UPGRADING = 'ClusterVersionUpgrading';
     const PHASE_CREATING = 'Creating';
+    const PHASE_RUNNING = 'Running';
+    const PHASE_UPDATING = 'Updating';
+    const PHASE_SCALING = 'Scaling';
     const PHASE_DELETING = 'Deleting';
     const PHASE_FAILED = 'Failed';
-    const PHASE_RUNNING = 'Running';
-    const PHASE_SCALING = 'Scaling';
-    const PHASE_UPDATING = 'Updating';
     
 
     
@@ -161,16 +161,16 @@ class StatusForListNodePoolsInput implements ModelInterface, ArrayAccess
     public function getConditionsTypeAllowableValues()
     {
         return [
-            self::CONDITIONS_TYPE_BALANCE,
-            self::CONDITIONS_TYPE_CLUSTER_NOT_RUNNING,
-            self::CONDITIONS_TYPE_CLUSTER_VERSION_UPGRADING,
-            self::CONDITIONS_TYPE_LIMITED_BY_QUOTA,
             self::CONDITIONS_TYPE_OK,
-            self::CONDITIONS_TYPE_PROGRESSING,
-            self::CONDITIONS_TYPE_RESOURCE_CLEANUP_FAILED,
             self::CONDITIONS_TYPE_STOCK_OUT,
-            self::CONDITIONS_TYPE_UNKNOWN,
+            self::CONDITIONS_TYPE_LIMITED_BY_QUOTA,
+            self::CONDITIONS_TYPE_BALANCE,
             self::CONDITIONS_TYPE_VERSION_PARTLY_UPGRADED,
+            self::CONDITIONS_TYPE_RESOURCE_CLEANUP_FAILED,
+            self::CONDITIONS_TYPE_CLUSTER_NOT_RUNNING,
+            self::CONDITIONS_TYPE_UNKNOWN,
+            self::CONDITIONS_TYPE_PROGRESSING,
+            self::CONDITIONS_TYPE_CLUSTER_VERSION_UPGRADING,
         ];
     }
     
@@ -183,11 +183,11 @@ class StatusForListNodePoolsInput implements ModelInterface, ArrayAccess
     {
         return [
             self::PHASE_CREATING,
+            self::PHASE_RUNNING,
+            self::PHASE_UPDATING,
+            self::PHASE_SCALING,
             self::PHASE_DELETING,
             self::PHASE_FAILED,
-            self::PHASE_RUNNING,
-            self::PHASE_SCALING,
-            self::PHASE_UPDATING,
         ];
     }
     

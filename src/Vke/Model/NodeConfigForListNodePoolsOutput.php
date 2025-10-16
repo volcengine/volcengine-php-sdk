@@ -32,14 +32,22 @@ class NodeConfigForListNodePoolsOutput implements ModelInterface, ArrayAccess
         'auto_renew' => 'bool',
         'auto_renew_period' => 'int',
         'data_volumes' => '\Volcengine\Vke\Model\DataVolumeForListNodePoolsOutput[]',
+        'deployment_set_group_number' => 'int',
+        'deployment_set_id' => 'string',
         'hpc_cluster_ids' => 'string[]',
         'image_id' => 'string',
         'initialize_script' => 'string',
         'instance_charge_type' => 'string',
         'instance_type_ids' => 'string[]',
+        'instances_distribution' => '\Volcengine\Vke\Model\InstancesDistributionForListNodePoolsOutput',
         'name_prefix' => 'string',
         'period' => 'int',
+        'pre_script' => 'string',
+        'project_name' => 'string',
+        'public_access_config' => '\Volcengine\Vke\Model\PublicAccessConfigForListNodePoolsOutput',
+        'public_access_enabled' => 'bool',
         'security' => '\Volcengine\Vke\Model\SecurityForListNodePoolsOutput',
+        'spot_strategy' => 'string',
         'subnet_ids' => 'string[]',
         'system_volume' => '\Volcengine\Vke\Model\SystemVolumeForListNodePoolsOutput',
         'tags' => '\Volcengine\Vke\Model\TagForListNodePoolsOutput[]'
@@ -55,14 +63,22 @@ class NodeConfigForListNodePoolsOutput implements ModelInterface, ArrayAccess
         'auto_renew' => null,
         'auto_renew_period' => 'int32',
         'data_volumes' => null,
+        'deployment_set_group_number' => 'int32',
+        'deployment_set_id' => null,
         'hpc_cluster_ids' => null,
         'image_id' => null,
         'initialize_script' => null,
         'instance_charge_type' => null,
         'instance_type_ids' => null,
+        'instances_distribution' => null,
         'name_prefix' => null,
         'period' => 'int32',
+        'pre_script' => null,
+        'project_name' => null,
+        'public_access_config' => null,
+        'public_access_enabled' => null,
         'security' => null,
+        'spot_strategy' => null,
         'subnet_ids' => null,
         'system_volume' => null,
         'tags' => null
@@ -99,14 +115,22 @@ class NodeConfigForListNodePoolsOutput implements ModelInterface, ArrayAccess
         'auto_renew' => 'AutoRenew',
         'auto_renew_period' => 'AutoRenewPeriod',
         'data_volumes' => 'DataVolumes',
+        'deployment_set_group_number' => 'DeploymentSetGroupNumber',
+        'deployment_set_id' => 'DeploymentSetId',
         'hpc_cluster_ids' => 'HpcClusterIds',
         'image_id' => 'ImageId',
         'initialize_script' => 'InitializeScript',
         'instance_charge_type' => 'InstanceChargeType',
         'instance_type_ids' => 'InstanceTypeIds',
+        'instances_distribution' => 'InstancesDistribution',
         'name_prefix' => 'NamePrefix',
         'period' => 'Period',
+        'pre_script' => 'PreScript',
+        'project_name' => 'ProjectName',
+        'public_access_config' => 'PublicAccessConfig',
+        'public_access_enabled' => 'PublicAccessEnabled',
         'security' => 'Security',
+        'spot_strategy' => 'SpotStrategy',
         'subnet_ids' => 'SubnetIds',
         'system_volume' => 'SystemVolume',
         'tags' => 'Tags'
@@ -122,14 +146,22 @@ class NodeConfigForListNodePoolsOutput implements ModelInterface, ArrayAccess
         'auto_renew' => 'setAutoRenew',
         'auto_renew_period' => 'setAutoRenewPeriod',
         'data_volumes' => 'setDataVolumes',
+        'deployment_set_group_number' => 'setDeploymentSetGroupNumber',
+        'deployment_set_id' => 'setDeploymentSetId',
         'hpc_cluster_ids' => 'setHpcClusterIds',
         'image_id' => 'setImageId',
         'initialize_script' => 'setInitializeScript',
         'instance_charge_type' => 'setInstanceChargeType',
         'instance_type_ids' => 'setInstanceTypeIds',
+        'instances_distribution' => 'setInstancesDistribution',
         'name_prefix' => 'setNamePrefix',
         'period' => 'setPeriod',
+        'pre_script' => 'setPreScript',
+        'project_name' => 'setProjectName',
+        'public_access_config' => 'setPublicAccessConfig',
+        'public_access_enabled' => 'setPublicAccessEnabled',
         'security' => 'setSecurity',
+        'spot_strategy' => 'setSpotStrategy',
         'subnet_ids' => 'setSubnetIds',
         'system_volume' => 'setSystemVolume',
         'tags' => 'setTags'
@@ -145,14 +177,22 @@ class NodeConfigForListNodePoolsOutput implements ModelInterface, ArrayAccess
         'auto_renew' => 'getAutoRenew',
         'auto_renew_period' => 'getAutoRenewPeriod',
         'data_volumes' => 'getDataVolumes',
+        'deployment_set_group_number' => 'getDeploymentSetGroupNumber',
+        'deployment_set_id' => 'getDeploymentSetId',
         'hpc_cluster_ids' => 'getHpcClusterIds',
         'image_id' => 'getImageId',
         'initialize_script' => 'getInitializeScript',
         'instance_charge_type' => 'getInstanceChargeType',
         'instance_type_ids' => 'getInstanceTypeIds',
+        'instances_distribution' => 'getInstancesDistribution',
         'name_prefix' => 'getNamePrefix',
         'period' => 'getPeriod',
+        'pre_script' => 'getPreScript',
+        'project_name' => 'getProjectName',
+        'public_access_config' => 'getPublicAccessConfig',
+        'public_access_enabled' => 'getPublicAccessEnabled',
         'security' => 'getSecurity',
+        'spot_strategy' => 'getSpotStrategy',
         'subnet_ids' => 'getSubnetIds',
         'system_volume' => 'getSystemVolume',
         'tags' => 'getTags'
@@ -199,8 +239,38 @@ class NodeConfigForListNodePoolsOutput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const INSTANCE_CHARGE_TYPE_POST_PAID = 'PostPaid';
+    const INSTANCE_CHARGE_TYPE_PRE_PAID = 'PrePaid';
+    const SPOT_STRATEGY_NO_SPOT = 'NoSpot';
+    const SPOT_STRATEGY_SPOT_AS_PRICE_GO = 'SpotAsPriceGo';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getInstanceChargeTypeAllowableValues()
+    {
+        return [
+            self::INSTANCE_CHARGE_TYPE_POST_PAID,
+            self::INSTANCE_CHARGE_TYPE_PRE_PAID,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getSpotStrategyAllowableValues()
+    {
+        return [
+            self::SPOT_STRATEGY_NO_SPOT,
+            self::SPOT_STRATEGY_SPOT_AS_PRICE_GO,
+        ];
+    }
     
 
     /**
@@ -222,14 +292,22 @@ class NodeConfigForListNodePoolsOutput implements ModelInterface, ArrayAccess
         $this->container['auto_renew'] = isset($data['auto_renew']) ? $data['auto_renew'] : null;
         $this->container['auto_renew_period'] = isset($data['auto_renew_period']) ? $data['auto_renew_period'] : null;
         $this->container['data_volumes'] = isset($data['data_volumes']) ? $data['data_volumes'] : null;
+        $this->container['deployment_set_group_number'] = isset($data['deployment_set_group_number']) ? $data['deployment_set_group_number'] : null;
+        $this->container['deployment_set_id'] = isset($data['deployment_set_id']) ? $data['deployment_set_id'] : null;
         $this->container['hpc_cluster_ids'] = isset($data['hpc_cluster_ids']) ? $data['hpc_cluster_ids'] : null;
         $this->container['image_id'] = isset($data['image_id']) ? $data['image_id'] : null;
         $this->container['initialize_script'] = isset($data['initialize_script']) ? $data['initialize_script'] : null;
         $this->container['instance_charge_type'] = isset($data['instance_charge_type']) ? $data['instance_charge_type'] : null;
         $this->container['instance_type_ids'] = isset($data['instance_type_ids']) ? $data['instance_type_ids'] : null;
+        $this->container['instances_distribution'] = isset($data['instances_distribution']) ? $data['instances_distribution'] : null;
         $this->container['name_prefix'] = isset($data['name_prefix']) ? $data['name_prefix'] : null;
         $this->container['period'] = isset($data['period']) ? $data['period'] : null;
+        $this->container['pre_script'] = isset($data['pre_script']) ? $data['pre_script'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['public_access_config'] = isset($data['public_access_config']) ? $data['public_access_config'] : null;
+        $this->container['public_access_enabled'] = isset($data['public_access_enabled']) ? $data['public_access_enabled'] : null;
         $this->container['security'] = isset($data['security']) ? $data['security'] : null;
+        $this->container['spot_strategy'] = isset($data['spot_strategy']) ? $data['spot_strategy'] : null;
         $this->container['subnet_ids'] = isset($data['subnet_ids']) ? $data['subnet_ids'] : null;
         $this->container['system_volume'] = isset($data['system_volume']) ? $data['system_volume'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
@@ -243,6 +321,22 @@ class NodeConfigForListNodePoolsOutput implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getInstanceChargeTypeAllowableValues();
+        if (!is_null($this->container['instance_charge_type']) && !in_array($this->container['instance_charge_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'instance_charge_type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getSpotStrategyAllowableValues();
+        if (!is_null($this->container['spot_strategy']) && !in_array($this->container['spot_strategy'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'spot_strategy', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -356,6 +450,54 @@ class NodeConfigForListNodePoolsOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets deployment_set_group_number
+     *
+     * @return int
+     */
+    public function getDeploymentSetGroupNumber()
+    {
+        return $this->container['deployment_set_group_number'];
+    }
+
+    /**
+     * Sets deployment_set_group_number
+     *
+     * @param int $deployment_set_group_number deployment_set_group_number
+     *
+     * @return $this
+     */
+    public function setDeploymentSetGroupNumber($deployment_set_group_number)
+    {
+        $this->container['deployment_set_group_number'] = $deployment_set_group_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets deployment_set_id
+     *
+     * @return string
+     */
+    public function getDeploymentSetId()
+    {
+        return $this->container['deployment_set_id'];
+    }
+
+    /**
+     * Sets deployment_set_id
+     *
+     * @param string $deployment_set_id deployment_set_id
+     *
+     * @return $this
+     */
+    public function setDeploymentSetId($deployment_set_id)
+    {
+        $this->container['deployment_set_id'] = $deployment_set_id;
+
+        return $this;
+    }
+
+    /**
      * Gets hpc_cluster_ids
      *
      * @return string[]
@@ -446,6 +588,15 @@ class NodeConfigForListNodePoolsOutput implements ModelInterface, ArrayAccess
      */
     public function setInstanceChargeType($instance_charge_type)
     {
+        $allowedValues = $this->getInstanceChargeTypeAllowableValues();
+        if (!is_null($instance_charge_type) && !in_array($instance_charge_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'instance_charge_type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['instance_charge_type'] = $instance_charge_type;
 
         return $this;
@@ -471,6 +622,30 @@ class NodeConfigForListNodePoolsOutput implements ModelInterface, ArrayAccess
     public function setInstanceTypeIds($instance_type_ids)
     {
         $this->container['instance_type_ids'] = $instance_type_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets instances_distribution
+     *
+     * @return \Volcengine\Vke\Model\InstancesDistributionForListNodePoolsOutput
+     */
+    public function getInstancesDistribution()
+    {
+        return $this->container['instances_distribution'];
+    }
+
+    /**
+     * Sets instances_distribution
+     *
+     * @param \Volcengine\Vke\Model\InstancesDistributionForListNodePoolsOutput $instances_distribution instances_distribution
+     *
+     * @return $this
+     */
+    public function setInstancesDistribution($instances_distribution)
+    {
+        $this->container['instances_distribution'] = $instances_distribution;
 
         return $this;
     }
@@ -524,6 +699,102 @@ class NodeConfigForListNodePoolsOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets pre_script
+     *
+     * @return string
+     */
+    public function getPreScript()
+    {
+        return $this->container['pre_script'];
+    }
+
+    /**
+     * Sets pre_script
+     *
+     * @param string $pre_script pre_script
+     *
+     * @return $this
+     */
+    public function setPreScript($pre_script)
+    {
+        $this->container['pre_script'] = $pre_script;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets public_access_config
+     *
+     * @return \Volcengine\Vke\Model\PublicAccessConfigForListNodePoolsOutput
+     */
+    public function getPublicAccessConfig()
+    {
+        return $this->container['public_access_config'];
+    }
+
+    /**
+     * Sets public_access_config
+     *
+     * @param \Volcengine\Vke\Model\PublicAccessConfigForListNodePoolsOutput $public_access_config public_access_config
+     *
+     * @return $this
+     */
+    public function setPublicAccessConfig($public_access_config)
+    {
+        $this->container['public_access_config'] = $public_access_config;
+
+        return $this;
+    }
+
+    /**
+     * Gets public_access_enabled
+     *
+     * @return bool
+     */
+    public function getPublicAccessEnabled()
+    {
+        return $this->container['public_access_enabled'];
+    }
+
+    /**
+     * Sets public_access_enabled
+     *
+     * @param bool $public_access_enabled public_access_enabled
+     *
+     * @return $this
+     */
+    public function setPublicAccessEnabled($public_access_enabled)
+    {
+        $this->container['public_access_enabled'] = $public_access_enabled;
+
+        return $this;
+    }
+
+    /**
      * Gets security
      *
      * @return \Volcengine\Vke\Model\SecurityForListNodePoolsOutput
@@ -543,6 +814,39 @@ class NodeConfigForListNodePoolsOutput implements ModelInterface, ArrayAccess
     public function setSecurity($security)
     {
         $this->container['security'] = $security;
+
+        return $this;
+    }
+
+    /**
+     * Gets spot_strategy
+     *
+     * @return string
+     */
+    public function getSpotStrategy()
+    {
+        return $this->container['spot_strategy'];
+    }
+
+    /**
+     * Sets spot_strategy
+     *
+     * @param string $spot_strategy spot_strategy
+     *
+     * @return $this
+     */
+    public function setSpotStrategy($spot_strategy)
+    {
+        $allowedValues = $this->getSpotStrategyAllowableValues();
+        if (!is_null($spot_strategy) && !in_array($spot_strategy, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'spot_strategy', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['spot_strategy'] = $spot_strategy;
 
         return $this;
     }

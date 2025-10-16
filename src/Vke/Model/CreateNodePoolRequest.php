@@ -32,6 +32,7 @@ class CreateNodePoolRequest implements ModelInterface, ArrayAccess
         'client_token' => 'string',
         'cluster_id' => 'string',
         'kubernetes_config' => '\Volcengine\Vke\Model\KubernetesConfigForCreateNodePoolInput',
+        'management' => '\Volcengine\Vke\Model\ManagementForCreateNodePoolInput',
         'name' => 'string',
         'node_config' => '\Volcengine\Vke\Model\NodeConfigForCreateNodePoolInput',
         'tags' => '\Volcengine\Vke\Model\TagForCreateNodePoolInput[]'
@@ -47,6 +48,7 @@ class CreateNodePoolRequest implements ModelInterface, ArrayAccess
         'client_token' => null,
         'cluster_id' => null,
         'kubernetes_config' => null,
+        'management' => null,
         'name' => null,
         'node_config' => null,
         'tags' => null
@@ -83,6 +85,7 @@ class CreateNodePoolRequest implements ModelInterface, ArrayAccess
         'client_token' => 'ClientToken',
         'cluster_id' => 'ClusterId',
         'kubernetes_config' => 'KubernetesConfig',
+        'management' => 'Management',
         'name' => 'Name',
         'node_config' => 'NodeConfig',
         'tags' => 'Tags'
@@ -98,6 +101,7 @@ class CreateNodePoolRequest implements ModelInterface, ArrayAccess
         'client_token' => 'setClientToken',
         'cluster_id' => 'setClusterId',
         'kubernetes_config' => 'setKubernetesConfig',
+        'management' => 'setManagement',
         'name' => 'setName',
         'node_config' => 'setNodeConfig',
         'tags' => 'setTags'
@@ -113,6 +117,7 @@ class CreateNodePoolRequest implements ModelInterface, ArrayAccess
         'client_token' => 'getClientToken',
         'cluster_id' => 'getClusterId',
         'kubernetes_config' => 'getKubernetesConfig',
+        'management' => 'getManagement',
         'name' => 'getName',
         'node_config' => 'getNodeConfig',
         'tags' => 'getTags'
@@ -182,6 +187,7 @@ class CreateNodePoolRequest implements ModelInterface, ArrayAccess
         $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
         $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
         $this->container['kubernetes_config'] = isset($data['kubernetes_config']) ? $data['kubernetes_config'] : null;
+        $this->container['management'] = isset($data['management']) ? $data['management'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['node_config'] = isset($data['node_config']) ? $data['node_config'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
@@ -196,6 +202,12 @@ class CreateNodePoolRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['cluster_id'] === null) {
+            $invalidProperties[] = "'cluster_id' can't be null";
+        }
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -303,6 +315,30 @@ class CreateNodePoolRequest implements ModelInterface, ArrayAccess
     public function setKubernetesConfig($kubernetes_config)
     {
         $this->container['kubernetes_config'] = $kubernetes_config;
+
+        return $this;
+    }
+
+    /**
+     * Gets management
+     *
+     * @return \Volcengine\Vke\Model\ManagementForCreateNodePoolInput
+     */
+    public function getManagement()
+    {
+        return $this->container['management'];
+    }
+
+    /**
+     * Sets management
+     *
+     * @param \Volcengine\Vke\Model\ManagementForCreateNodePoolInput $management management
+     *
+     * @return $this
+     */
+    public function setManagement($management)
+    {
+        $this->container['management'] = $management;
 
         return $this;
     }
