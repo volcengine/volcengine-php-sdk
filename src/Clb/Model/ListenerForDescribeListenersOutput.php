@@ -45,6 +45,7 @@ class ListenerForDescribeListenersOutput implements ModelInterface, ArrayAccess
         'cps' => 'int',
         'create_time' => 'string',
         'description' => 'string',
+        'domain_extensions' => '\Volcengine\Clb\Model\DomainExtensionForDescribeListenersOutput[]',
         'enabled' => 'string',
         'end_port' => 'int',
         'enhanced_scheduler_enable' => 'string',
@@ -100,6 +101,7 @@ class ListenerForDescribeListenersOutput implements ModelInterface, ArrayAccess
         'cps' => null,
         'create_time' => null,
         'description' => null,
+        'domain_extensions' => null,
         'enabled' => null,
         'end_port' => null,
         'enhanced_scheduler_enable' => null,
@@ -176,6 +178,7 @@ class ListenerForDescribeListenersOutput implements ModelInterface, ArrayAccess
         'cps' => 'Cps',
         'create_time' => 'CreateTime',
         'description' => 'Description',
+        'domain_extensions' => 'DomainExtensions',
         'enabled' => 'Enabled',
         'end_port' => 'EndPort',
         'enhanced_scheduler_enable' => 'EnhancedSchedulerEnable',
@@ -231,6 +234,7 @@ class ListenerForDescribeListenersOutput implements ModelInterface, ArrayAccess
         'cps' => 'setCps',
         'create_time' => 'setCreateTime',
         'description' => 'setDescription',
+        'domain_extensions' => 'setDomainExtensions',
         'enabled' => 'setEnabled',
         'end_port' => 'setEndPort',
         'enhanced_scheduler_enable' => 'setEnhancedSchedulerEnable',
@@ -286,6 +290,7 @@ class ListenerForDescribeListenersOutput implements ModelInterface, ArrayAccess
         'cps' => 'getCps',
         'create_time' => 'getCreateTime',
         'description' => 'getDescription',
+        'domain_extensions' => 'getDomainExtensions',
         'enabled' => 'getEnabled',
         'end_port' => 'getEndPort',
         'enhanced_scheduler_enable' => 'getEnhancedSchedulerEnable',
@@ -395,6 +400,7 @@ class ListenerForDescribeListenersOutput implements ModelInterface, ArrayAccess
         $this->container['cps'] = isset($data['cps']) ? $data['cps'] : null;
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['domain_extensions'] = isset($data['domain_extensions']) ? $data['domain_extensions'] : null;
         $this->container['enabled'] = isset($data['enabled']) ? $data['enabled'] : null;
         $this->container['end_port'] = isset($data['end_port']) ? $data['end_port'] : null;
         $this->container['enhanced_scheduler_enable'] = isset($data['enhanced_scheduler_enable']) ? $data['enhanced_scheduler_enable'] : null;
@@ -855,6 +861,30 @@ class ListenerForDescribeListenersOutput implements ModelInterface, ArrayAccess
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets domain_extensions
+     *
+     * @return \Volcengine\Clb\Model\DomainExtensionForDescribeListenersOutput[]
+     */
+    public function getDomainExtensions()
+    {
+        return $this->container['domain_extensions'];
+    }
+
+    /**
+     * Sets domain_extensions
+     *
+     * @param \Volcengine\Clb\Model\DomainExtensionForDescribeListenersOutput[] $domain_extensions domain_extensions
+     *
+     * @return $this
+     */
+    public function setDomainExtensions($domain_extensions)
+    {
+        $this->container['domain_extensions'] = $domain_extensions;
 
         return $this;
     }

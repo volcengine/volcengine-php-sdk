@@ -28,6 +28,7 @@ class DescribeNetworkLoadBalancerAttributesResponse implements ModelInterface, A
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'access_log' => '\Volcengine\Clb\Model\AccessLogForDescribeNetworkLoadBalancerAttributesOutput',
         'account_id' => 'string',
         'billing_status' => 'string',
         'billing_type' => 'int',
@@ -63,6 +64,7 @@ class DescribeNetworkLoadBalancerAttributesResponse implements ModelInterface, A
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'access_log' => null,
         'account_id' => null,
         'billing_status' => null,
         'billing_type' => null,
@@ -119,6 +121,7 @@ class DescribeNetworkLoadBalancerAttributesResponse implements ModelInterface, A
      * @var string[]
      */
     protected static $attributeMap = [
+        'access_log' => 'AccessLog',
         'account_id' => 'AccountId',
         'billing_status' => 'BillingStatus',
         'billing_type' => 'BillingType',
@@ -154,6 +157,7 @@ class DescribeNetworkLoadBalancerAttributesResponse implements ModelInterface, A
      * @var string[]
      */
     protected static $setters = [
+        'access_log' => 'setAccessLog',
         'account_id' => 'setAccountId',
         'billing_status' => 'setBillingStatus',
         'billing_type' => 'setBillingType',
@@ -189,6 +193,7 @@ class DescribeNetworkLoadBalancerAttributesResponse implements ModelInterface, A
      * @var string[]
      */
     protected static $getters = [
+        'access_log' => 'getAccessLog',
         'account_id' => 'getAccountId',
         'billing_status' => 'getBillingStatus',
         'billing_type' => 'getBillingType',
@@ -278,6 +283,7 @@ class DescribeNetworkLoadBalancerAttributesResponse implements ModelInterface, A
      */
     public function __construct(array $data = null)
     {
+        $this->container['access_log'] = isset($data['access_log']) ? $data['access_log'] : null;
         $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
         $this->container['billing_status'] = isset($data['billing_status']) ? $data['billing_status'] : null;
         $this->container['billing_type'] = isset($data['billing_type']) ? $data['billing_type'] : null;
@@ -330,6 +336,30 @@ class DescribeNetworkLoadBalancerAttributesResponse implements ModelInterface, A
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets access_log
+     *
+     * @return \Volcengine\Clb\Model\AccessLogForDescribeNetworkLoadBalancerAttributesOutput
+     */
+    public function getAccessLog()
+    {
+        return $this->container['access_log'];
+    }
+
+    /**
+     * Sets access_log
+     *
+     * @param \Volcengine\Clb\Model\AccessLogForDescribeNetworkLoadBalancerAttributesOutput $access_log access_log
+     *
+     * @return $this
+     */
+    public function setAccessLog($access_log)
+    {
+        $this->container['access_log'] = $access_log;
+
+        return $this;
+    }
 
     /**
      * Gets account_id

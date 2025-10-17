@@ -28,11 +28,13 @@ class DescribeNLBServerGroupsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'instance_ids' => 'string[]',
         'max_results' => 'int',
         'next_token' => 'string',
         'project_name' => 'string',
         'server_group_ids' => 'string[]',
         'server_group_name' => 'string',
+        'server_ips' => 'string[]',
         'tag_filters' => '\Volcengine\Clb\Model\TagFilterForDescribeNLBServerGroupsInput[]',
         'type' => 'string',
         'vpc_id' => 'string'
@@ -44,11 +46,13 @@ class DescribeNLBServerGroupsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'instance_ids' => null,
         'max_results' => null,
         'next_token' => null,
         'project_name' => null,
         'server_group_ids' => null,
         'server_group_name' => null,
+        'server_ips' => null,
         'tag_filters' => null,
         'type' => null,
         'vpc_id' => null
@@ -81,11 +85,13 @@ class DescribeNLBServerGroupsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'instance_ids' => 'InstanceIds',
         'max_results' => 'MaxResults',
         'next_token' => 'NextToken',
         'project_name' => 'ProjectName',
         'server_group_ids' => 'ServerGroupIds',
         'server_group_name' => 'ServerGroupName',
+        'server_ips' => 'ServerIps',
         'tag_filters' => 'TagFilters',
         'type' => 'Type',
         'vpc_id' => 'VpcId'
@@ -97,11 +103,13 @@ class DescribeNLBServerGroupsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'instance_ids' => 'setInstanceIds',
         'max_results' => 'setMaxResults',
         'next_token' => 'setNextToken',
         'project_name' => 'setProjectName',
         'server_group_ids' => 'setServerGroupIds',
         'server_group_name' => 'setServerGroupName',
+        'server_ips' => 'setServerIps',
         'tag_filters' => 'setTagFilters',
         'type' => 'setType',
         'vpc_id' => 'setVpcId'
@@ -113,11 +121,13 @@ class DescribeNLBServerGroupsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'instance_ids' => 'getInstanceIds',
         'max_results' => 'getMaxResults',
         'next_token' => 'getNextToken',
         'project_name' => 'getProjectName',
         'server_group_ids' => 'getServerGroupIds',
         'server_group_name' => 'getServerGroupName',
+        'server_ips' => 'getServerIps',
         'tag_filters' => 'getTagFilters',
         'type' => 'getType',
         'vpc_id' => 'getVpcId'
@@ -183,11 +193,13 @@ class DescribeNLBServerGroupsRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['instance_ids'] = isset($data['instance_ids']) ? $data['instance_ids'] : null;
         $this->container['max_results'] = isset($data['max_results']) ? $data['max_results'] : null;
         $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['server_group_ids'] = isset($data['server_group_ids']) ? $data['server_group_ids'] : null;
         $this->container['server_group_name'] = isset($data['server_group_name']) ? $data['server_group_name'] : null;
+        $this->container['server_ips'] = isset($data['server_ips']) ? $data['server_ips'] : null;
         $this->container['tag_filters'] = isset($data['tag_filters']) ? $data['tag_filters'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['vpc_id'] = isset($data['vpc_id']) ? $data['vpc_id'] : null;
@@ -216,6 +228,30 @@ class DescribeNLBServerGroupsRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets instance_ids
+     *
+     * @return string[]
+     */
+    public function getInstanceIds()
+    {
+        return $this->container['instance_ids'];
+    }
+
+    /**
+     * Sets instance_ids
+     *
+     * @param string[] $instance_ids instance_ids
+     *
+     * @return $this
+     */
+    public function setInstanceIds($instance_ids)
+    {
+        $this->container['instance_ids'] = $instance_ids;
+
+        return $this;
+    }
 
     /**
      * Gets max_results
@@ -333,6 +369,30 @@ class DescribeNLBServerGroupsRequest implements ModelInterface, ArrayAccess
     public function setServerGroupName($server_group_name)
     {
         $this->container['server_group_name'] = $server_group_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets server_ips
+     *
+     * @return string[]
+     */
+    public function getServerIps()
+    {
+        return $this->container['server_ips'];
+    }
+
+    /**
+     * Sets server_ips
+     *
+     * @param string[] $server_ips server_ips
+     *
+     * @return $this
+     */
+    public function setServerIps($server_ips)
+    {
+        $this->container['server_ips'] = $server_ips;
 
         return $this;
     }
