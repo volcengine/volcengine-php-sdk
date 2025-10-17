@@ -30,6 +30,7 @@ class FilterForListKubeconfigsInput implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'cluster_ids' => 'string[]',
         'ids' => 'string[]',
+        'role_ids' => 'int[]',
         'types' => 'string[]',
         'user_ids' => 'int[]'
     ];
@@ -42,8 +43,9 @@ class FilterForListKubeconfigsInput implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'cluster_ids' => null,
         'ids' => null,
+        'role_ids' => 'int32',
         'types' => null,
-        'user_ids' => null
+        'user_ids' => 'int32'
     ];
 
     /**
@@ -75,6 +77,7 @@ class FilterForListKubeconfigsInput implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'cluster_ids' => 'ClusterIds',
         'ids' => 'Ids',
+        'role_ids' => 'RoleIds',
         'types' => 'Types',
         'user_ids' => 'UserIds'
     ];
@@ -87,6 +90,7 @@ class FilterForListKubeconfigsInput implements ModelInterface, ArrayAccess
     protected static $setters = [
         'cluster_ids' => 'setClusterIds',
         'ids' => 'setIds',
+        'role_ids' => 'setRoleIds',
         'types' => 'setTypes',
         'user_ids' => 'setUserIds'
     ];
@@ -99,6 +103,7 @@ class FilterForListKubeconfigsInput implements ModelInterface, ArrayAccess
     protected static $getters = [
         'cluster_ids' => 'getClusterIds',
         'ids' => 'getIds',
+        'role_ids' => 'getRoleIds',
         'types' => 'getTypes',
         'user_ids' => 'getUserIds'
     ];
@@ -165,6 +170,7 @@ class FilterForListKubeconfigsInput implements ModelInterface, ArrayAccess
     {
         $this->container['cluster_ids'] = isset($data['cluster_ids']) ? $data['cluster_ids'] : null;
         $this->container['ids'] = isset($data['ids']) ? $data['ids'] : null;
+        $this->container['role_ids'] = isset($data['role_ids']) ? $data['role_ids'] : null;
         $this->container['types'] = isset($data['types']) ? $data['types'] : null;
         $this->container['user_ids'] = isset($data['user_ids']) ? $data['user_ids'] : null;
     }
@@ -237,6 +243,30 @@ class FilterForListKubeconfigsInput implements ModelInterface, ArrayAccess
     public function setIds($ids)
     {
         $this->container['ids'] = $ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets role_ids
+     *
+     * @return int[]
+     */
+    public function getRoleIds()
+    {
+        return $this->container['role_ids'];
+    }
+
+    /**
+     * Sets role_ids
+     *
+     * @param int[] $role_ids role_ids
+     *
+     * @return $this
+     */
+    public function setRoleIds($role_ids)
+    {
+        $this->container['role_ids'] = $role_ids;
 
         return $this;
     }

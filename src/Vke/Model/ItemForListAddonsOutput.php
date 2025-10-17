@@ -179,8 +179,40 @@ class ItemForListAddonsOutput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const DEPLOY_MODE_MANAGED = 'Managed';
+    const DEPLOY_MODE_UNMANAGED = 'Unmanaged';
+    const DEPLOY_NODE_TYPE_NODE = 'Node';
+    const DEPLOY_NODE_TYPE_VIRTUAL_NODE = 'VirtualNode';
+    const DEPLOY_NODE_TYPE_EDGE_NODE = 'EdgeNode';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getDeployModeAllowableValues()
+    {
+        return [
+            self::DEPLOY_MODE_MANAGED,
+            self::DEPLOY_MODE_UNMANAGED,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getDeployNodeTypeAllowableValues()
+    {
+        return [
+            self::DEPLOY_NODE_TYPE_NODE,
+            self::DEPLOY_NODE_TYPE_VIRTUAL_NODE,
+            self::DEPLOY_NODE_TYPE_EDGE_NODE,
+        ];
+    }
     
 
     /**
@@ -219,6 +251,22 @@ class ItemForListAddonsOutput implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getDeployModeAllowableValues();
+        if (!is_null($this->container['deploy_mode']) && !in_array($this->container['deploy_mode'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'deploy_mode', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getDeployNodeTypeAllowableValues();
+        if (!is_null($this->container['deploy_node_type']) && !in_array($this->container['deploy_node_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'deploy_node_type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -350,6 +398,15 @@ class ItemForListAddonsOutput implements ModelInterface, ArrayAccess
      */
     public function setDeployMode($deploy_mode)
     {
+        $allowedValues = $this->getDeployModeAllowableValues();
+        if (!is_null($deploy_mode) && !in_array($deploy_mode, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'deploy_mode', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['deploy_mode'] = $deploy_mode;
 
         return $this;
@@ -374,6 +431,15 @@ class ItemForListAddonsOutput implements ModelInterface, ArrayAccess
      */
     public function setDeployNodeType($deploy_node_type)
     {
+        $allowedValues = $this->getDeployNodeTypeAllowableValues();
+        if (!is_null($deploy_node_type) && !in_array($deploy_node_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'deploy_node_type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['deploy_node_type'] = $deploy_node_type;
 
         return $this;

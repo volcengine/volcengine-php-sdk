@@ -34,9 +34,9 @@ class CreateClusterRequest implements ModelInterface, ArrayAccess
         'description' => 'string',
         'kubernetes_version' => 'string',
         'logging_config' => '\Volcengine\Vke\Model\LoggingConfigForCreateClusterInput',
-        'monitoring_config' => 'string',
         'name' => 'string',
         'pods_config' => '\Volcengine\Vke\Model\PodsConfigForCreateClusterInput',
+        'project_name' => 'string',
         'services_config' => '\Volcengine\Vke\Model\ServicesConfigForCreateClusterInput',
         'tags' => '\Volcengine\Vke\Model\TagForCreateClusterInput[]'
     ];
@@ -53,9 +53,9 @@ class CreateClusterRequest implements ModelInterface, ArrayAccess
         'description' => null,
         'kubernetes_version' => null,
         'logging_config' => null,
-        'monitoring_config' => null,
         'name' => null,
         'pods_config' => null,
+        'project_name' => null,
         'services_config' => null,
         'tags' => null
     ];
@@ -93,9 +93,9 @@ class CreateClusterRequest implements ModelInterface, ArrayAccess
         'description' => 'Description',
         'kubernetes_version' => 'KubernetesVersion',
         'logging_config' => 'LoggingConfig',
-        'monitoring_config' => 'MonitoringConfig',
         'name' => 'Name',
         'pods_config' => 'PodsConfig',
+        'project_name' => 'ProjectName',
         'services_config' => 'ServicesConfig',
         'tags' => 'Tags'
     ];
@@ -112,9 +112,9 @@ class CreateClusterRequest implements ModelInterface, ArrayAccess
         'description' => 'setDescription',
         'kubernetes_version' => 'setKubernetesVersion',
         'logging_config' => 'setLoggingConfig',
-        'monitoring_config' => 'setMonitoringConfig',
         'name' => 'setName',
         'pods_config' => 'setPodsConfig',
+        'project_name' => 'setProjectName',
         'services_config' => 'setServicesConfig',
         'tags' => 'setTags'
     ];
@@ -131,9 +131,9 @@ class CreateClusterRequest implements ModelInterface, ArrayAccess
         'description' => 'getDescription',
         'kubernetes_version' => 'getKubernetesVersion',
         'logging_config' => 'getLoggingConfig',
-        'monitoring_config' => 'getMonitoringConfig',
         'name' => 'getName',
         'pods_config' => 'getPodsConfig',
+        'project_name' => 'getProjectName',
         'services_config' => 'getServicesConfig',
         'tags' => 'getTags'
     ];
@@ -204,9 +204,9 @@ class CreateClusterRequest implements ModelInterface, ArrayAccess
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['kubernetes_version'] = isset($data['kubernetes_version']) ? $data['kubernetes_version'] : null;
         $this->container['logging_config'] = isset($data['logging_config']) ? $data['logging_config'] : null;
-        $this->container['monitoring_config'] = isset($data['monitoring_config']) ? $data['monitoring_config'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['pods_config'] = isset($data['pods_config']) ? $data['pods_config'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['services_config'] = isset($data['services_config']) ? $data['services_config'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
     }
@@ -220,6 +220,9 @@ class CreateClusterRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -380,30 +383,6 @@ class CreateClusterRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets monitoring_config
-     *
-     * @return string
-     */
-    public function getMonitoringConfig()
-    {
-        return $this->container['monitoring_config'];
-    }
-
-    /**
-     * Sets monitoring_config
-     *
-     * @param string $monitoring_config monitoring_config
-     *
-     * @return $this
-     */
-    public function setMonitoringConfig($monitoring_config)
-    {
-        $this->container['monitoring_config'] = $monitoring_config;
-
-        return $this;
-    }
-
-    /**
      * Gets name
      *
      * @return string
@@ -447,6 +426,30 @@ class CreateClusterRequest implements ModelInterface, ArrayAccess
     public function setPodsConfig($pods_config)
     {
         $this->container['pods_config'] = $pods_config;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }

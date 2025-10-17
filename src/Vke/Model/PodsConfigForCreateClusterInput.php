@@ -139,15 +139,9 @@ class PodsConfigForCreateClusterInput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const POD_NETWORK_MODE_CALICO_BGP = 'CalicoBgp';
-    const POD_NETWORK_MODE_CALICO_VXLAN = 'CalicoVxlan';
-    const POD_NETWORK_MODE_CARMA = 'Carma';
-    const POD_NETWORK_MODE_CILIUM = 'Cilium';
-    const POD_NETWORK_MODE__DEFAULT = 'Default';
     const POD_NETWORK_MODE_FLANNEL = 'Flannel';
-    const POD_NETWORK_MODE_KUBE_OVN = 'KubeOvn';
-    const POD_NETWORK_MODE_VPC_CNI_DEDICATED = 'VpcCniDedicated';
     const POD_NETWORK_MODE_VPC_CNI_SHARED = 'VpcCniShared';
+    const POD_NETWORK_MODE_VPC_CNI_DEDICATED = 'VpcCniDedicated';
     
 
     
@@ -159,15 +153,9 @@ class PodsConfigForCreateClusterInput implements ModelInterface, ArrayAccess
     public function getPodNetworkModeAllowableValues()
     {
         return [
-            self::POD_NETWORK_MODE_CALICO_BGP,
-            self::POD_NETWORK_MODE_CALICO_VXLAN,
-            self::POD_NETWORK_MODE_CARMA,
-            self::POD_NETWORK_MODE_CILIUM,
-            self::POD_NETWORK_MODE__DEFAULT,
             self::POD_NETWORK_MODE_FLANNEL,
-            self::POD_NETWORK_MODE_KUBE_OVN,
-            self::POD_NETWORK_MODE_VPC_CNI_DEDICATED,
             self::POD_NETWORK_MODE_VPC_CNI_SHARED,
+            self::POD_NETWORK_MODE_VPC_CNI_DEDICATED,
         ];
     }
     

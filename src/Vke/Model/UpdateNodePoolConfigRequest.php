@@ -33,6 +33,7 @@ class UpdateNodePoolConfigRequest implements ModelInterface, ArrayAccess
         'cluster_id' => 'string',
         'id' => 'string',
         'kubernetes_config' => '\Volcengine\Vke\Model\KubernetesConfigForUpdateNodePoolConfigInput',
+        'management' => '\Volcengine\Vke\Model\ManagementForUpdateNodePoolConfigInput',
         'name' => 'string',
         'node_config' => '\Volcengine\Vke\Model\NodeConfigForUpdateNodePoolConfigInput'
     ];
@@ -48,6 +49,7 @@ class UpdateNodePoolConfigRequest implements ModelInterface, ArrayAccess
         'cluster_id' => null,
         'id' => null,
         'kubernetes_config' => null,
+        'management' => null,
         'name' => null,
         'node_config' => null
     ];
@@ -84,6 +86,7 @@ class UpdateNodePoolConfigRequest implements ModelInterface, ArrayAccess
         'cluster_id' => 'ClusterId',
         'id' => 'Id',
         'kubernetes_config' => 'KubernetesConfig',
+        'management' => 'Management',
         'name' => 'Name',
         'node_config' => 'NodeConfig'
     ];
@@ -99,6 +102,7 @@ class UpdateNodePoolConfigRequest implements ModelInterface, ArrayAccess
         'cluster_id' => 'setClusterId',
         'id' => 'setId',
         'kubernetes_config' => 'setKubernetesConfig',
+        'management' => 'setManagement',
         'name' => 'setName',
         'node_config' => 'setNodeConfig'
     ];
@@ -114,6 +118,7 @@ class UpdateNodePoolConfigRequest implements ModelInterface, ArrayAccess
         'cluster_id' => 'getClusterId',
         'id' => 'getId',
         'kubernetes_config' => 'getKubernetesConfig',
+        'management' => 'getManagement',
         'name' => 'getName',
         'node_config' => 'getNodeConfig'
     ];
@@ -183,6 +188,7 @@ class UpdateNodePoolConfigRequest implements ModelInterface, ArrayAccess
         $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['kubernetes_config'] = isset($data['kubernetes_config']) ? $data['kubernetes_config'] : null;
+        $this->container['management'] = isset($data['management']) ? $data['management'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['node_config'] = isset($data['node_config']) ? $data['node_config'] : null;
     }
@@ -196,6 +202,12 @@ class UpdateNodePoolConfigRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['cluster_id'] === null) {
+            $invalidProperties[] = "'cluster_id' can't be null";
+        }
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -327,6 +339,30 @@ class UpdateNodePoolConfigRequest implements ModelInterface, ArrayAccess
     public function setKubernetesConfig($kubernetes_config)
     {
         $this->container['kubernetes_config'] = $kubernetes_config;
+
+        return $this;
+    }
+
+    /**
+     * Gets management
+     *
+     * @return \Volcengine\Vke\Model\ManagementForUpdateNodePoolConfigInput
+     */
+    public function getManagement()
+    {
+        return $this->container['management'];
+    }
+
+    /**
+     * Sets management
+     *
+     * @param \Volcengine\Vke\Model\ManagementForUpdateNodePoolConfigInput $management management
+     *
+     * @return $this
+     */
+    public function setManagement($management)
+    {
+        $this->container['management'] = $management;
 
         return $this;
     }

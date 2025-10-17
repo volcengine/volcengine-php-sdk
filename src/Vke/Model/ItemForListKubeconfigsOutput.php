@@ -33,6 +33,7 @@ class ItemForListKubeconfigsOutput implements ModelInterface, ArrayAccess
         'expire_time' => 'string',
         'id' => 'string',
         'kubeconfig' => 'string',
+        'role_id' => 'int',
         'type' => 'string',
         'user_id' => 'int'
     ];
@@ -48,6 +49,7 @@ class ItemForListKubeconfigsOutput implements ModelInterface, ArrayAccess
         'expire_time' => null,
         'id' => null,
         'kubeconfig' => null,
+        'role_id' => 'int64',
         'type' => null,
         'user_id' => 'int64'
     ];
@@ -84,6 +86,7 @@ class ItemForListKubeconfigsOutput implements ModelInterface, ArrayAccess
         'expire_time' => 'ExpireTime',
         'id' => 'Id',
         'kubeconfig' => 'Kubeconfig',
+        'role_id' => 'RoleId',
         'type' => 'Type',
         'user_id' => 'UserId'
     ];
@@ -99,6 +102,7 @@ class ItemForListKubeconfigsOutput implements ModelInterface, ArrayAccess
         'expire_time' => 'setExpireTime',
         'id' => 'setId',
         'kubeconfig' => 'setKubeconfig',
+        'role_id' => 'setRoleId',
         'type' => 'setType',
         'user_id' => 'setUserId'
     ];
@@ -114,6 +118,7 @@ class ItemForListKubeconfigsOutput implements ModelInterface, ArrayAccess
         'expire_time' => 'getExpireTime',
         'id' => 'getId',
         'kubeconfig' => 'getKubeconfig',
+        'role_id' => 'getRoleId',
         'type' => 'getType',
         'user_id' => 'getUserId'
     ];
@@ -183,6 +188,7 @@ class ItemForListKubeconfigsOutput implements ModelInterface, ArrayAccess
         $this->container['expire_time'] = isset($data['expire_time']) ? $data['expire_time'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['kubeconfig'] = isset($data['kubeconfig']) ? $data['kubeconfig'] : null;
+        $this->container['role_id'] = isset($data['role_id']) ? $data['role_id'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['user_id'] = isset($data['user_id']) ? $data['user_id'] : null;
     }
@@ -327,6 +333,30 @@ class ItemForListKubeconfigsOutput implements ModelInterface, ArrayAccess
     public function setKubeconfig($kubeconfig)
     {
         $this->container['kubeconfig'] = $kubeconfig;
+
+        return $this;
+    }
+
+    /**
+     * Gets role_id
+     *
+     * @return int
+     */
+    public function getRoleId()
+    {
+        return $this->container['role_id'];
+    }
+
+    /**
+     * Sets role_id
+     *
+     * @param int $role_id role_id
+     *
+     * @return $this
+     */
+    public function setRoleId($role_id)
+    {
+        $this->container['role_id'] = $role_id;
 
         return $this;
     }

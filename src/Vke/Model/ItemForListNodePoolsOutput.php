@@ -34,6 +34,7 @@ class ItemForListNodePoolsOutput implements ModelInterface, ArrayAccess
         'create_time' => 'string',
         'id' => 'string',
         'kubernetes_config' => '\Volcengine\Vke\Model\KubernetesConfigForListNodePoolsOutput',
+        'management' => '\Volcengine\Vke\Model\ManagementForListNodePoolsOutput',
         'name' => 'string',
         'node_config' => '\Volcengine\Vke\Model\NodeConfigForListNodePoolsOutput',
         'node_statistics' => '\Volcengine\Vke\Model\NodeStatisticsForListNodePoolsOutput',
@@ -55,6 +56,7 @@ class ItemForListNodePoolsOutput implements ModelInterface, ArrayAccess
         'create_time' => null,
         'id' => null,
         'kubernetes_config' => null,
+        'management' => null,
         'name' => null,
         'node_config' => null,
         'node_statistics' => null,
@@ -97,6 +99,7 @@ class ItemForListNodePoolsOutput implements ModelInterface, ArrayAccess
         'create_time' => 'CreateTime',
         'id' => 'Id',
         'kubernetes_config' => 'KubernetesConfig',
+        'management' => 'Management',
         'name' => 'Name',
         'node_config' => 'NodeConfig',
         'node_statistics' => 'NodeStatistics',
@@ -118,6 +121,7 @@ class ItemForListNodePoolsOutput implements ModelInterface, ArrayAccess
         'create_time' => 'setCreateTime',
         'id' => 'setId',
         'kubernetes_config' => 'setKubernetesConfig',
+        'management' => 'setManagement',
         'name' => 'setName',
         'node_config' => 'setNodeConfig',
         'node_statistics' => 'setNodeStatistics',
@@ -139,6 +143,7 @@ class ItemForListNodePoolsOutput implements ModelInterface, ArrayAccess
         'create_time' => 'getCreateTime',
         'id' => 'getId',
         'kubernetes_config' => 'getKubernetesConfig',
+        'management' => 'getManagement',
         'name' => 'getName',
         'node_config' => 'getNodeConfig',
         'node_statistics' => 'getNodeStatistics',
@@ -214,6 +219,7 @@ class ItemForListNodePoolsOutput implements ModelInterface, ArrayAccess
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['kubernetes_config'] = isset($data['kubernetes_config']) ? $data['kubernetes_config'] : null;
+        $this->container['management'] = isset($data['management']) ? $data['management'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['node_config'] = isset($data['node_config']) ? $data['node_config'] : null;
         $this->container['node_statistics'] = isset($data['node_statistics']) ? $data['node_statistics'] : null;
@@ -387,6 +393,30 @@ class ItemForListNodePoolsOutput implements ModelInterface, ArrayAccess
     public function setKubernetesConfig($kubernetes_config)
     {
         $this->container['kubernetes_config'] = $kubernetes_config;
+
+        return $this;
+    }
+
+    /**
+     * Gets management
+     *
+     * @return \Volcengine\Vke\Model\ManagementForListNodePoolsOutput
+     */
+    public function getManagement()
+    {
+        return $this->container['management'];
+    }
+
+    /**
+     * Sets management
+     *
+     * @param \Volcengine\Vke\Model\ManagementForListNodePoolsOutput $management management
+     *
+     * @return $this
+     */
+    public function setManagement($management)
+    {
+        $this->container['management'] = $management;
 
         return $this;
     }

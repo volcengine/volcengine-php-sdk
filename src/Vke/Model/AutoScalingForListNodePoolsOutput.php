@@ -33,6 +33,7 @@ class AutoScalingForListNodePoolsOutput implements ModelInterface, ArrayAccess
         'max_replicas' => 'int',
         'min_replicas' => 'int',
         'priority' => 'int',
+        'scaling_group_id' => 'string',
         'subnet_policy' => 'string'
     ];
 
@@ -47,6 +48,7 @@ class AutoScalingForListNodePoolsOutput implements ModelInterface, ArrayAccess
         'max_replicas' => 'int32',
         'min_replicas' => 'int32',
         'priority' => 'int32',
+        'scaling_group_id' => null,
         'subnet_policy' => null
     ];
 
@@ -82,6 +84,7 @@ class AutoScalingForListNodePoolsOutput implements ModelInterface, ArrayAccess
         'max_replicas' => 'MaxReplicas',
         'min_replicas' => 'MinReplicas',
         'priority' => 'Priority',
+        'scaling_group_id' => 'ScalingGroupId',
         'subnet_policy' => 'SubnetPolicy'
     ];
 
@@ -96,6 +99,7 @@ class AutoScalingForListNodePoolsOutput implements ModelInterface, ArrayAccess
         'max_replicas' => 'setMaxReplicas',
         'min_replicas' => 'setMinReplicas',
         'priority' => 'setPriority',
+        'scaling_group_id' => 'setScalingGroupId',
         'subnet_policy' => 'setSubnetPolicy'
     ];
 
@@ -110,6 +114,7 @@ class AutoScalingForListNodePoolsOutput implements ModelInterface, ArrayAccess
         'max_replicas' => 'getMaxReplicas',
         'min_replicas' => 'getMinReplicas',
         'priority' => 'getPriority',
+        'scaling_group_id' => 'getScalingGroupId',
         'subnet_policy' => 'getSubnetPolicy'
     ];
 
@@ -154,8 +159,23 @@ class AutoScalingForListNodePoolsOutput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const SUBNET_POLICY_ZONE_BALANCE = 'ZoneBalance';
+    const SUBNET_POLICY_PRIORITY = 'Priority';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getSubnetPolicyAllowableValues()
+    {
+        return [
+            self::SUBNET_POLICY_ZONE_BALANCE,
+            self::SUBNET_POLICY_PRIORITY,
+        ];
+    }
     
 
     /**
@@ -178,6 +198,7 @@ class AutoScalingForListNodePoolsOutput implements ModelInterface, ArrayAccess
         $this->container['max_replicas'] = isset($data['max_replicas']) ? $data['max_replicas'] : null;
         $this->container['min_replicas'] = isset($data['min_replicas']) ? $data['min_replicas'] : null;
         $this->container['priority'] = isset($data['priority']) ? $data['priority'] : null;
+        $this->container['scaling_group_id'] = isset($data['scaling_group_id']) ? $data['scaling_group_id'] : null;
         $this->container['subnet_policy'] = isset($data['subnet_policy']) ? $data['subnet_policy'] : null;
     }
 
@@ -189,6 +210,14 @@ class AutoScalingForListNodePoolsOutput implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getSubnetPolicyAllowableValues();
+        if (!is_null($this->container['subnet_policy']) && !in_array($this->container['subnet_policy'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'subnet_policy', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -326,6 +355,30 @@ class AutoScalingForListNodePoolsOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets scaling_group_id
+     *
+     * @return string
+     */
+    public function getScalingGroupId()
+    {
+        return $this->container['scaling_group_id'];
+    }
+
+    /**
+     * Sets scaling_group_id
+     *
+     * @param string $scaling_group_id scaling_group_id
+     *
+     * @return $this
+     */
+    public function setScalingGroupId($scaling_group_id)
+    {
+        $this->container['scaling_group_id'] = $scaling_group_id;
+
+        return $this;
+    }
+
+    /**
      * Gets subnet_policy
      *
      * @return string
@@ -344,6 +397,15 @@ class AutoScalingForListNodePoolsOutput implements ModelInterface, ArrayAccess
      */
     public function setSubnetPolicy($subnet_policy)
     {
+        $allowedValues = $this->getSubnetPolicyAllowableValues();
+        if (!is_null($subnet_policy) && !in_array($subnet_policy, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'subnet_policy', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['subnet_policy'] = $subnet_policy;
 
         return $this;

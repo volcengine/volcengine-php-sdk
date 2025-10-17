@@ -154,8 +154,8 @@ class AutoScalingForCreateNodePoolInput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const SUBNET_POLICY_PRIORITY = 'Priority';
     const SUBNET_POLICY_ZONE_BALANCE = 'ZoneBalance';
+    const SUBNET_POLICY_PRIORITY = 'Priority';
     
 
     
@@ -167,8 +167,8 @@ class AutoScalingForCreateNodePoolInput implements ModelInterface, ArrayAccess
     public function getSubnetPolicyAllowableValues()
     {
         return [
-            self::SUBNET_POLICY_PRIORITY,
             self::SUBNET_POLICY_ZONE_BALANCE,
+            self::SUBNET_POLICY_PRIORITY,
         ];
     }
     

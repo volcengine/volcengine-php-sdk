@@ -29,7 +29,8 @@ class ClusterConfigForUpdateClusterConfigInput implements ModelInterface, ArrayA
       */
     protected static $swaggerTypes = [
         'api_server_public_access_config' => '\Volcengine\Vke\Model\ApiServerPublicAccessConfigForUpdateClusterConfigInput',
-        'api_server_public_access_enabled' => 'bool'
+        'api_server_public_access_enabled' => 'bool',
+        'subnet_ids' => 'string[]'
     ];
 
     /**
@@ -39,7 +40,8 @@ class ClusterConfigForUpdateClusterConfigInput implements ModelInterface, ArrayA
       */
     protected static $swaggerFormats = [
         'api_server_public_access_config' => null,
-        'api_server_public_access_enabled' => null
+        'api_server_public_access_enabled' => null,
+        'subnet_ids' => null
     ];
 
     /**
@@ -70,7 +72,8 @@ class ClusterConfigForUpdateClusterConfigInput implements ModelInterface, ArrayA
      */
     protected static $attributeMap = [
         'api_server_public_access_config' => 'ApiServerPublicAccessConfig',
-        'api_server_public_access_enabled' => 'ApiServerPublicAccessEnabled'
+        'api_server_public_access_enabled' => 'ApiServerPublicAccessEnabled',
+        'subnet_ids' => 'SubnetIds'
     ];
 
     /**
@@ -80,7 +83,8 @@ class ClusterConfigForUpdateClusterConfigInput implements ModelInterface, ArrayA
      */
     protected static $setters = [
         'api_server_public_access_config' => 'setApiServerPublicAccessConfig',
-        'api_server_public_access_enabled' => 'setApiServerPublicAccessEnabled'
+        'api_server_public_access_enabled' => 'setApiServerPublicAccessEnabled',
+        'subnet_ids' => 'setSubnetIds'
     ];
 
     /**
@@ -90,7 +94,8 @@ class ClusterConfigForUpdateClusterConfigInput implements ModelInterface, ArrayA
      */
     protected static $getters = [
         'api_server_public_access_config' => 'getApiServerPublicAccessConfig',
-        'api_server_public_access_enabled' => 'getApiServerPublicAccessEnabled'
+        'api_server_public_access_enabled' => 'getApiServerPublicAccessEnabled',
+        'subnet_ids' => 'getSubnetIds'
     ];
 
     /**
@@ -155,6 +160,7 @@ class ClusterConfigForUpdateClusterConfigInput implements ModelInterface, ArrayA
     {
         $this->container['api_server_public_access_config'] = isset($data['api_server_public_access_config']) ? $data['api_server_public_access_config'] : null;
         $this->container['api_server_public_access_enabled'] = isset($data['api_server_public_access_enabled']) ? $data['api_server_public_access_enabled'] : null;
+        $this->container['subnet_ids'] = isset($data['subnet_ids']) ? $data['subnet_ids'] : null;
     }
 
     /**
@@ -225,6 +231,30 @@ class ClusterConfigForUpdateClusterConfigInput implements ModelInterface, ArrayA
     public function setApiServerPublicAccessEnabled($api_server_public_access_enabled)
     {
         $this->container['api_server_public_access_enabled'] = $api_server_public_access_enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets subnet_ids
+     *
+     * @return string[]
+     */
+    public function getSubnetIds()
+    {
+        return $this->container['subnet_ids'];
+    }
+
+    /**
+     * Sets subnet_ids
+     *
+     * @param string[] $subnet_ids subnet_ids
+     *
+     * @return $this
+     */
+    public function setSubnetIds($subnet_ids)
+    {
+        $this->container['subnet_ids'] = $subnet_ids;
 
         return $this;
     }
