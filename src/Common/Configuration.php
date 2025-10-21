@@ -160,6 +160,18 @@ class Configuration
         return $this->region;
     }
 
+    /**
+     * @param string $scheme
+     */
+    public function setScheme($scheme)
+    {
+        $this->scheme = $scheme;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
     public function getScheme()
     {
         return $this->scheme;
