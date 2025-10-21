@@ -29,6 +29,7 @@ class ScheduledInstancePolicyForListScalingPoliciesOutput implements ModelInterf
       */
     protected static $swaggerTypes = [
         'auto_release_time' => 'string',
+        'best_effort' => 'bool',
         'delivery_type' => 'string',
         'elastic_scheduled_instance_type' => 'string',
         'end_delivery_time' => 'string',
@@ -42,6 +43,7 @@ class ScheduledInstancePolicyForListScalingPoliciesOutput implements ModelInterf
       */
     protected static $swaggerFormats = [
         'auto_release_time' => null,
+        'best_effort' => null,
         'delivery_type' => null,
         'elastic_scheduled_instance_type' => null,
         'end_delivery_time' => null,
@@ -76,6 +78,7 @@ class ScheduledInstancePolicyForListScalingPoliciesOutput implements ModelInterf
      */
     protected static $attributeMap = [
         'auto_release_time' => 'AutoReleaseTime',
+        'best_effort' => 'BestEffort',
         'delivery_type' => 'DeliveryType',
         'elastic_scheduled_instance_type' => 'ElasticScheduledInstanceType',
         'end_delivery_time' => 'EndDeliveryTime',
@@ -89,6 +92,7 @@ class ScheduledInstancePolicyForListScalingPoliciesOutput implements ModelInterf
      */
     protected static $setters = [
         'auto_release_time' => 'setAutoReleaseTime',
+        'best_effort' => 'setBestEffort',
         'delivery_type' => 'setDeliveryType',
         'elastic_scheduled_instance_type' => 'setElasticScheduledInstanceType',
         'end_delivery_time' => 'setEndDeliveryTime',
@@ -102,6 +106,7 @@ class ScheduledInstancePolicyForListScalingPoliciesOutput implements ModelInterf
      */
     protected static $getters = [
         'auto_release_time' => 'getAutoReleaseTime',
+        'best_effort' => 'getBestEffort',
         'delivery_type' => 'getDeliveryType',
         'elastic_scheduled_instance_type' => 'getElasticScheduledInstanceType',
         'end_delivery_time' => 'getEndDeliveryTime',
@@ -199,6 +204,7 @@ class ScheduledInstancePolicyForListScalingPoliciesOutput implements ModelInterf
     public function __construct(array $data = null)
     {
         $this->container['auto_release_time'] = isset($data['auto_release_time']) ? $data['auto_release_time'] : null;
+        $this->container['best_effort'] = isset($data['best_effort']) ? $data['best_effort'] : null;
         $this->container['delivery_type'] = isset($data['delivery_type']) ? $data['delivery_type'] : null;
         $this->container['elastic_scheduled_instance_type'] = isset($data['elastic_scheduled_instance_type']) ? $data['elastic_scheduled_instance_type'] : null;
         $this->container['end_delivery_time'] = isset($data['end_delivery_time']) ? $data['end_delivery_time'] : null;
@@ -265,6 +271,30 @@ class ScheduledInstancePolicyForListScalingPoliciesOutput implements ModelInterf
     public function setAutoReleaseTime($auto_release_time)
     {
         $this->container['auto_release_time'] = $auto_release_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets best_effort
+     *
+     * @return bool
+     */
+    public function getBestEffort()
+    {
+        return $this->container['best_effort'];
+    }
+
+    /**
+     * Sets best_effort
+     *
+     * @param bool $best_effort best_effort
+     *
+     * @return $this
+     */
+    public function setBestEffort($best_effort)
+    {
+        $this->container['best_effort'] = $best_effort;
 
         return $this;
     }
