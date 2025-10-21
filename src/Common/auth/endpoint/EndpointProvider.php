@@ -15,9 +15,9 @@ class ResolvedEndpoint
         $this->host = $host;
     }
 
-    public function urlFor($scheme = 'https')
+    public function urlFor($schema = 'https')
     {
-        return $scheme . '://' . $this->host;
+        return $schema . '://' . $this->host;
     }
 }
 

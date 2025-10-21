@@ -18,7 +18,7 @@ class StsProvider extends Provider
     private $durationSeconds;
     private $host;
     private $region;
-    private $scheme;
+    private $schema;
     private $policy;
     private $headerSelector;
 
@@ -29,7 +29,7 @@ class StsProvider extends Provider
         $accountId,
         $region = 'cn-north-1',
         $durationSeconds = 3600,
-        $scheme = 'https',
+        $schema = 'https',
         $host = 'sts.volcengineapi.com',
         $policy = null,
         HeaderSelector $selector = null
@@ -42,7 +42,7 @@ class StsProvider extends Provider
         $this->durationSeconds = $durationSeconds;
         $this->host = $host;
         $this->region = $region;
-        $this->scheme = $scheme;
+        $this->schema = $schema;
         $this->policy = $policy;
         $this->headerSelector = $selector ?: new HeaderSelector();
     }
@@ -82,7 +82,7 @@ class StsProvider extends Provider
             '', $query, 'GET', '/', $headers);
 
         $request = new Request('GET',
-            $this->scheme . '://' . $this->host . '/' . ($query ? "?{$query}" : ''),
+            $this->schema . '://' . $this->host . '/' . ($query ? "?{$query}" : ''),
             $headers, '');
 
         $client = new Client();

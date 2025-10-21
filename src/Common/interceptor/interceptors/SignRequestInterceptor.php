@@ -23,7 +23,7 @@ class SignRequestInterceptor extends Interceptor
         $request->headers = Utils::signv4($request->ak, $request->sk, $request->region, $request->service,
             $request->httpBody, $request->query, $request->method, '/', $request->headers, $request->sessionToken);
         $realRequest = new \GuzzleHttp\Psr7\Request($request->method,
-            $request->scheme . '://' . $request->host . '/' . ($request->query ? "?{$request->query}" : ''),
+            $request->schema . '://' . $request->host . '/' . ($request->query ? "?{$request->query}" : ''),
             $request->headers, $request->httpBody);
 
         $request->realRequest = $realRequest;

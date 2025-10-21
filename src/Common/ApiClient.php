@@ -100,7 +100,7 @@ class ApiClient
         $request->sk = $this->configuration->getSk();
         $request->sessionToken = $this->configuration->getSessionToken();
         $request->region = $this->configuration->getRegion();
-        $request->scheme = $this->configuration->getScheme();
+        $request->schema = $this->configuration->getSchema();
         $request->endpointProvider = $this->configuration->getEndpointProvider();
         $request->customBootstrapRegion = $this->configuration->getCustomBootstrapRegion();
         $request->useDualStack = $this->configuration->getUseDualStack();

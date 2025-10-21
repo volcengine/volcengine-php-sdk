@@ -21,7 +21,7 @@ class Request
     public $host;
     public $sessionToken;
     public $region;
-    public $scheme;
+    public $schema;
     public $endpointProvider;
     public $customBootstrapRegion;
     public $useDualStack;

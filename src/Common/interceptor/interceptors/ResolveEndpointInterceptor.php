@@ -14,7 +14,7 @@ class ResolveEndpointInterceptor extends Interceptor
     public function intercept(Context $context)
     {
         $host = $context->request->host;
-        $scheme = $context->request->scheme;
+        $schema = $context->request->schema;
         if (!$host) {
             $pathParts = explode('/', $context->request->resourcePath);
             $service = isset($pathParts[3]) ? $pathParts[3] : '';
@@ -25,9 +25,9 @@ class ResolveEndpointInterceptor extends Interceptor
                 $context->request->useDualStack
             );
             $context->request->host = $endpointResolver->host;
-            $prefix = $endpointResolver->urlFor($scheme);
+            $prefix = $endpointResolver->urlFor($schema);
         } else {
-            $prefix = $scheme . '://' . $host;
+            $prefix = $schema . '://' . $host;
         }
 
         $context->request->url = $prefix . $context->request->truePath;

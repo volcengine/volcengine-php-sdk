@@ -17,7 +17,7 @@ class Configuration
 
     protected $region = '';
 
-    protected $scheme = 'https';
+    protected $schema = 'https';
     protected $endpointProvider;
     protected $customBootstrapRegion = '';
     protected $useDualStack = '';
@@ -161,20 +161,20 @@ class Configuration
     }
 
     /**
-     * @param string $scheme
+     * @param string $schema
      */
-    public function setScheme($scheme)
+    public function setSchema($schema)
     {
-        $this->scheme = $scheme;
+        $this->schema = $schema;
         return $this;
     }
 
     /**
      * @return string
      */
-    public function getScheme()
+    public function getSchema()
     {
-        return $this->scheme;
+        return $this->schema;
     }
 
     public function setEndpointProvider($endpointProvider)
