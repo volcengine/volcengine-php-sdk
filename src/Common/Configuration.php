@@ -2,17 +2,42 @@
 
 namespace Volcengine\Common;
 
+use Volcengine\Common\Auth\Endpoint\Providers\DefaultEndpointProvider;
+use Volcengine\Common\Retryer\Retryer;
+
 class Configuration
 {
+    /**
+     * 重试次数 (默认3次)
+     * @var int
+     */
+    protected $retryTimes = 0;
+
     private static $defaultConfiguration;
 
     protected $region = '';
+
+    protected $scheme = 'https';
+    protected $endpointProvider;
+    protected $customBootstrapRegion = '';
+    protected $useDualStack = '';
+    protected $autoRetry = false;
+    protected $retryer;
+    protected $credentialProvider;
+    protected $runtimeOptions = '';
+
+    protected $sessionToken = '';
 
     protected $ak = '';
 
     protected $sk = '';
 
-    protected $host = 'open.volcengineapi.com';
+    protected $host = '';
+
+    protected $verifySsl = true;
+
+    protected $connectTimeout = 30;
+    protected $readTimeout = 30;
 
     protected $userAgent = 'volcstack-php-sdk/1.0.72';
 
@@ -43,6 +68,8 @@ class Configuration
     public function __construct()
     {
         $this->tempFolderPath = sys_get_temp_dir();
+        $this->endpointProvider = new DefaultEndpointProvider();
+        $this->retryer = new Retryer();
     }
 
     /**
@@ -102,6 +129,20 @@ class Configuration
         return $this->sk;
     }
 
+    public function setSessionToken($sessionToken)
+    {
+        $this->sessionToken = $sessionToken;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSessionToken()
+    {
+        return $this->sessionToken;
+    }
+
     /**
      * @param string $region
      */
@@ -117,6 +158,91 @@ class Configuration
     public function getRegion()
     {
         return $this->region;
+    }
+
+    public function getScheme()
+    {
+        return $this->scheme;
+    }
+
+    public function setEndpointProvider($endpointProvider)
+    {
+        $this->endpointProvider = $endpointProvider;
+        return $this;
+    }
+
+    public function getEndpointProvider()
+    {
+        return $this->endpointProvider;
+    }
+
+    public function setRetryer($retryer)
+    {
+        $this->retryer = $retryer;
+        return $this;
+    }
+
+    public function getRetryer()
+    {
+        return $this->retryer;
+    }
+
+    public function getCustomBootstrapRegion()
+    {
+        return $this->customBootstrapRegion;
+    }
+
+    public function getUseDualStack()
+    {
+        return $this->useDualStack;
+    }
+
+    public function getAutoRetry()
+    {
+        return $this->autoRetry;
+    }
+
+    public function getCredentialProvider()
+    {
+        return $this->credentialProvider;
+    }
+
+    public function getRuntimeOptions()
+    {
+        return $this->runtimeOptions;
+    }
+
+    public function setVerifySsl($verifySsl)
+    {
+        $this->verifySsl = $verifySsl;
+        return $this;
+    }
+
+    public function getVerifySsl()
+    {
+        return $this->verifySsl;
+    }
+
+    public function setReadTimeout($time)
+    {
+        $this->readTimeout = $time;
+        return $this;
+    }
+
+    public function getReadTimeout()
+    {
+        return $this->readTimeout;
+    }
+
+    public function setConnectTimeout($time)
+    {
+        $this->connectTimeout = $time;
+        return $this;
+    }
+
+    public function getConnectTimeout()
+    {
+        return $this->connectTimeout;
     }
 
     /**
@@ -140,6 +266,28 @@ class Configuration
     {
         $this->debug = $debug;
         return $this;
+    }
+
+    /**
+     * 设置重试次数
+     *
+     * @param int $times 重试次数
+     * @return $this
+     */
+    public function setRetryTimes($times)
+    {
+        $this->retryer->numMaxRetries = $times;
+        return $this;
+    }
+
+    /**
+     * 获取重试次数
+     *
+     * @return int
+     */
+    public function getRetryTimes()
+    {
+        return $this->retryTimes;
     }
 
     /**
