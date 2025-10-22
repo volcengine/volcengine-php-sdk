@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CreateInstanceRequest implements ModelInterface, ArrayAccess
+class ReplicasToCloseForListTabletTaskOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CreateInstanceRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CreateInstanceRequest';
+    protected static $swaggerModelName = 'ReplicasToCloseForListTabletTaskOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,14 +28,11 @@ class CreateInstanceRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'client_token' => 'string',
-        'deletion_protection' => 'string',
-        'info' => '\Volcengine\Graph\Model\InfoForCreateInstanceInput',
-        'instance_tags' => '\Volcengine\Graph\Model\InstanceTagForCreateInstanceInput[]',
-        'network_descriptions' => '\Volcengine\Graph\Model\NetworkDescriptionForCreateInstanceInput[]',
-        'one_step' => 'bool',
-        'version_set_id' => 'int',
-        'with_graph_rag' => 'bool'
+        'data_version' => 'int',
+        'info' => '\Volcengine\Graph\Model\InfoForListTabletTaskOutput',
+        'replica_id' => 'int',
+        'table_name' => 'string',
+        'tablet_id' => 'int'
     ];
 
     /**
@@ -44,14 +41,11 @@ class CreateInstanceRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'client_token' => null,
-        'deletion_protection' => null,
+        'data_version' => 'int64',
         'info' => null,
-        'instance_tags' => null,
-        'network_descriptions' => null,
-        'one_step' => null,
-        'version_set_id' => 'int32',
-        'with_graph_rag' => null
+        'replica_id' => 'int64',
+        'table_name' => null,
+        'tablet_id' => 'int64'
     ];
 
     /**
@@ -81,14 +75,11 @@ class CreateInstanceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'client_token' => 'ClientToken',
-        'deletion_protection' => 'DeletionProtection',
+        'data_version' => 'DataVersion',
         'info' => 'Info',
-        'instance_tags' => 'InstanceTags',
-        'network_descriptions' => 'NetworkDescriptions',
-        'one_step' => 'OneStep',
-        'version_set_id' => 'VersionSetId',
-        'with_graph_rag' => 'WithGraphRAG'
+        'replica_id' => 'ReplicaId',
+        'table_name' => 'TableName',
+        'tablet_id' => 'TabletId'
     ];
 
     /**
@@ -97,14 +88,11 @@ class CreateInstanceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'client_token' => 'setClientToken',
-        'deletion_protection' => 'setDeletionProtection',
+        'data_version' => 'setDataVersion',
         'info' => 'setInfo',
-        'instance_tags' => 'setInstanceTags',
-        'network_descriptions' => 'setNetworkDescriptions',
-        'one_step' => 'setOneStep',
-        'version_set_id' => 'setVersionSetId',
-        'with_graph_rag' => 'setWithGraphRag'
+        'replica_id' => 'setReplicaId',
+        'table_name' => 'setTableName',
+        'tablet_id' => 'setTabletId'
     ];
 
     /**
@@ -113,14 +101,11 @@ class CreateInstanceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'client_token' => 'getClientToken',
-        'deletion_protection' => 'getDeletionProtection',
+        'data_version' => 'getDataVersion',
         'info' => 'getInfo',
-        'instance_tags' => 'getInstanceTags',
-        'network_descriptions' => 'getNetworkDescriptions',
-        'one_step' => 'getOneStep',
-        'version_set_id' => 'getVersionSetId',
-        'with_graph_rag' => 'getWithGraphRag'
+        'replica_id' => 'getReplicaId',
+        'table_name' => 'getTableName',
+        'tablet_id' => 'getTabletId'
     ];
 
     /**
@@ -183,14 +168,11 @@ class CreateInstanceRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
-        $this->container['deletion_protection'] = isset($data['deletion_protection']) ? $data['deletion_protection'] : null;
+        $this->container['data_version'] = isset($data['data_version']) ? $data['data_version'] : null;
         $this->container['info'] = isset($data['info']) ? $data['info'] : null;
-        $this->container['instance_tags'] = isset($data['instance_tags']) ? $data['instance_tags'] : null;
-        $this->container['network_descriptions'] = isset($data['network_descriptions']) ? $data['network_descriptions'] : null;
-        $this->container['one_step'] = isset($data['one_step']) ? $data['one_step'] : null;
-        $this->container['version_set_id'] = isset($data['version_set_id']) ? $data['version_set_id'] : null;
-        $this->container['with_graph_rag'] = isset($data['with_graph_rag']) ? $data['with_graph_rag'] : null;
+        $this->container['replica_id'] = isset($data['replica_id']) ? $data['replica_id'] : null;
+        $this->container['table_name'] = isset($data['table_name']) ? $data['table_name'] : null;
+        $this->container['tablet_id'] = isset($data['tablet_id']) ? $data['tablet_id'] : null;
     }
 
     /**
@@ -218,49 +200,25 @@ class CreateInstanceRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets client_token
+     * Gets data_version
      *
-     * @return string
+     * @return int
      */
-    public function getClientToken()
+    public function getDataVersion()
     {
-        return $this->container['client_token'];
+        return $this->container['data_version'];
     }
 
     /**
-     * Sets client_token
+     * Sets data_version
      *
-     * @param string $client_token client_token
+     * @param int $data_version data_version
      *
      * @return $this
      */
-    public function setClientToken($client_token)
+    public function setDataVersion($data_version)
     {
-        $this->container['client_token'] = $client_token;
-
-        return $this;
-    }
-
-    /**
-     * Gets deletion_protection
-     *
-     * @return string
-     */
-    public function getDeletionProtection()
-    {
-        return $this->container['deletion_protection'];
-    }
-
-    /**
-     * Sets deletion_protection
-     *
-     * @param string $deletion_protection deletion_protection
-     *
-     * @return $this
-     */
-    public function setDeletionProtection($deletion_protection)
-    {
-        $this->container['deletion_protection'] = $deletion_protection;
+        $this->container['data_version'] = $data_version;
 
         return $this;
     }
@@ -268,7 +226,7 @@ class CreateInstanceRequest implements ModelInterface, ArrayAccess
     /**
      * Gets info
      *
-     * @return \Volcengine\Graph\Model\InfoForCreateInstanceInput
+     * @return \Volcengine\Graph\Model\InfoForListTabletTaskOutput
      */
     public function getInfo()
     {
@@ -278,7 +236,7 @@ class CreateInstanceRequest implements ModelInterface, ArrayAccess
     /**
      * Sets info
      *
-     * @param \Volcengine\Graph\Model\InfoForCreateInstanceInput $info info
+     * @param \Volcengine\Graph\Model\InfoForListTabletTaskOutput $info info
      *
      * @return $this
      */
@@ -290,121 +248,73 @@ class CreateInstanceRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets instance_tags
-     *
-     * @return \Volcengine\Graph\Model\InstanceTagForCreateInstanceInput[]
-     */
-    public function getInstanceTags()
-    {
-        return $this->container['instance_tags'];
-    }
-
-    /**
-     * Sets instance_tags
-     *
-     * @param \Volcengine\Graph\Model\InstanceTagForCreateInstanceInput[] $instance_tags instance_tags
-     *
-     * @return $this
-     */
-    public function setInstanceTags($instance_tags)
-    {
-        $this->container['instance_tags'] = $instance_tags;
-
-        return $this;
-    }
-
-    /**
-     * Gets network_descriptions
-     *
-     * @return \Volcengine\Graph\Model\NetworkDescriptionForCreateInstanceInput[]
-     */
-    public function getNetworkDescriptions()
-    {
-        return $this->container['network_descriptions'];
-    }
-
-    /**
-     * Sets network_descriptions
-     *
-     * @param \Volcengine\Graph\Model\NetworkDescriptionForCreateInstanceInput[] $network_descriptions network_descriptions
-     *
-     * @return $this
-     */
-    public function setNetworkDescriptions($network_descriptions)
-    {
-        $this->container['network_descriptions'] = $network_descriptions;
-
-        return $this;
-    }
-
-    /**
-     * Gets one_step
-     *
-     * @return bool
-     */
-    public function getOneStep()
-    {
-        return $this->container['one_step'];
-    }
-
-    /**
-     * Sets one_step
-     *
-     * @param bool $one_step one_step
-     *
-     * @return $this
-     */
-    public function setOneStep($one_step)
-    {
-        $this->container['one_step'] = $one_step;
-
-        return $this;
-    }
-
-    /**
-     * Gets version_set_id
+     * Gets replica_id
      *
      * @return int
      */
-    public function getVersionSetId()
+    public function getReplicaId()
     {
-        return $this->container['version_set_id'];
+        return $this->container['replica_id'];
     }
 
     /**
-     * Sets version_set_id
+     * Sets replica_id
      *
-     * @param int $version_set_id version_set_id
+     * @param int $replica_id replica_id
      *
      * @return $this
      */
-    public function setVersionSetId($version_set_id)
+    public function setReplicaId($replica_id)
     {
-        $this->container['version_set_id'] = $version_set_id;
+        $this->container['replica_id'] = $replica_id;
 
         return $this;
     }
 
     /**
-     * Gets with_graph_rag
+     * Gets table_name
      *
-     * @return bool
+     * @return string
      */
-    public function getWithGraphRag()
+    public function getTableName()
     {
-        return $this->container['with_graph_rag'];
+        return $this->container['table_name'];
     }
 
     /**
-     * Sets with_graph_rag
+     * Sets table_name
      *
-     * @param bool $with_graph_rag with_graph_rag
+     * @param string $table_name table_name
      *
      * @return $this
      */
-    public function setWithGraphRag($with_graph_rag)
+    public function setTableName($table_name)
     {
-        $this->container['with_graph_rag'] = $with_graph_rag;
+        $this->container['table_name'] = $table_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets tablet_id
+     *
+     * @return int
+     */
+    public function getTabletId()
+    {
+        return $this->container['tablet_id'];
+    }
+
+    /**
+     * Sets tablet_id
+     *
+     * @param int $tablet_id tablet_id
+     *
+     * @return $this
+     */
+    public function setTabletId($tablet_id)
+    {
+        $this->container['tablet_id'] = $tablet_id;
 
         return $this;
     }

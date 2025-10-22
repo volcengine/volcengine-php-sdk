@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CreateInstanceRequest implements ModelInterface, ArrayAccess
+class ImageInfoForListGraphRagServiceOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CreateInstanceRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CreateInstanceRequest';
+    protected static $swaggerModelName = 'ImageInfoForListGraphRagServiceOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,14 +28,11 @@ class CreateInstanceRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'client_token' => 'string',
-        'deletion_protection' => 'string',
-        'info' => '\Volcengine\Graph\Model\InfoForCreateInstanceInput',
-        'instance_tags' => '\Volcengine\Graph\Model\InstanceTagForCreateInstanceInput[]',
-        'network_descriptions' => '\Volcengine\Graph\Model\NetworkDescriptionForCreateInstanceInput[]',
-        'one_step' => 'bool',
-        'version_set_id' => 'int',
-        'with_graph_rag' => 'bool'
+        'bg3_deploy_version' => 'string',
+        'bg3_image_version' => 'string',
+        'ms_deploy_version' => 'string',
+        'ms_image_version' => 'string',
+        'version_set_id' => 'int'
     ];
 
     /**
@@ -44,14 +41,11 @@ class CreateInstanceRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'client_token' => null,
-        'deletion_protection' => null,
-        'info' => null,
-        'instance_tags' => null,
-        'network_descriptions' => null,
-        'one_step' => null,
-        'version_set_id' => 'int32',
-        'with_graph_rag' => null
+        'bg3_deploy_version' => null,
+        'bg3_image_version' => null,
+        'ms_deploy_version' => null,
+        'ms_image_version' => null,
+        'version_set_id' => 'int64'
     ];
 
     /**
@@ -81,14 +75,11 @@ class CreateInstanceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'client_token' => 'ClientToken',
-        'deletion_protection' => 'DeletionProtection',
-        'info' => 'Info',
-        'instance_tags' => 'InstanceTags',
-        'network_descriptions' => 'NetworkDescriptions',
-        'one_step' => 'OneStep',
-        'version_set_id' => 'VersionSetId',
-        'with_graph_rag' => 'WithGraphRAG'
+        'bg3_deploy_version' => 'Bg3DeployVersion',
+        'bg3_image_version' => 'Bg3ImageVersion',
+        'ms_deploy_version' => 'MsDeployVersion',
+        'ms_image_version' => 'MsImageVersion',
+        'version_set_id' => 'VersionSetID'
     ];
 
     /**
@@ -97,14 +88,11 @@ class CreateInstanceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'client_token' => 'setClientToken',
-        'deletion_protection' => 'setDeletionProtection',
-        'info' => 'setInfo',
-        'instance_tags' => 'setInstanceTags',
-        'network_descriptions' => 'setNetworkDescriptions',
-        'one_step' => 'setOneStep',
-        'version_set_id' => 'setVersionSetId',
-        'with_graph_rag' => 'setWithGraphRag'
+        'bg3_deploy_version' => 'setBg3DeployVersion',
+        'bg3_image_version' => 'setBg3ImageVersion',
+        'ms_deploy_version' => 'setMsDeployVersion',
+        'ms_image_version' => 'setMsImageVersion',
+        'version_set_id' => 'setVersionSetId'
     ];
 
     /**
@@ -113,14 +101,11 @@ class CreateInstanceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'client_token' => 'getClientToken',
-        'deletion_protection' => 'getDeletionProtection',
-        'info' => 'getInfo',
-        'instance_tags' => 'getInstanceTags',
-        'network_descriptions' => 'getNetworkDescriptions',
-        'one_step' => 'getOneStep',
-        'version_set_id' => 'getVersionSetId',
-        'with_graph_rag' => 'getWithGraphRag'
+        'bg3_deploy_version' => 'getBg3DeployVersion',
+        'bg3_image_version' => 'getBg3ImageVersion',
+        'ms_deploy_version' => 'getMsDeployVersion',
+        'ms_image_version' => 'getMsImageVersion',
+        'version_set_id' => 'getVersionSetId'
     ];
 
     /**
@@ -183,14 +168,11 @@ class CreateInstanceRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
-        $this->container['deletion_protection'] = isset($data['deletion_protection']) ? $data['deletion_protection'] : null;
-        $this->container['info'] = isset($data['info']) ? $data['info'] : null;
-        $this->container['instance_tags'] = isset($data['instance_tags']) ? $data['instance_tags'] : null;
-        $this->container['network_descriptions'] = isset($data['network_descriptions']) ? $data['network_descriptions'] : null;
-        $this->container['one_step'] = isset($data['one_step']) ? $data['one_step'] : null;
+        $this->container['bg3_deploy_version'] = isset($data['bg3_deploy_version']) ? $data['bg3_deploy_version'] : null;
+        $this->container['bg3_image_version'] = isset($data['bg3_image_version']) ? $data['bg3_image_version'] : null;
+        $this->container['ms_deploy_version'] = isset($data['ms_deploy_version']) ? $data['ms_deploy_version'] : null;
+        $this->container['ms_image_version'] = isset($data['ms_image_version']) ? $data['ms_image_version'] : null;
         $this->container['version_set_id'] = isset($data['version_set_id']) ? $data['version_set_id'] : null;
-        $this->container['with_graph_rag'] = isset($data['with_graph_rag']) ? $data['with_graph_rag'] : null;
     }
 
     /**
@@ -218,145 +200,97 @@ class CreateInstanceRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets client_token
+     * Gets bg3_deploy_version
      *
      * @return string
      */
-    public function getClientToken()
+    public function getBg3DeployVersion()
     {
-        return $this->container['client_token'];
+        return $this->container['bg3_deploy_version'];
     }
 
     /**
-     * Sets client_token
+     * Sets bg3_deploy_version
      *
-     * @param string $client_token client_token
+     * @param string $bg3_deploy_version bg3_deploy_version
      *
      * @return $this
      */
-    public function setClientToken($client_token)
+    public function setBg3DeployVersion($bg3_deploy_version)
     {
-        $this->container['client_token'] = $client_token;
+        $this->container['bg3_deploy_version'] = $bg3_deploy_version;
 
         return $this;
     }
 
     /**
-     * Gets deletion_protection
+     * Gets bg3_image_version
      *
      * @return string
      */
-    public function getDeletionProtection()
+    public function getBg3ImageVersion()
     {
-        return $this->container['deletion_protection'];
+        return $this->container['bg3_image_version'];
     }
 
     /**
-     * Sets deletion_protection
+     * Sets bg3_image_version
      *
-     * @param string $deletion_protection deletion_protection
+     * @param string $bg3_image_version bg3_image_version
      *
      * @return $this
      */
-    public function setDeletionProtection($deletion_protection)
+    public function setBg3ImageVersion($bg3_image_version)
     {
-        $this->container['deletion_protection'] = $deletion_protection;
+        $this->container['bg3_image_version'] = $bg3_image_version;
 
         return $this;
     }
 
     /**
-     * Gets info
+     * Gets ms_deploy_version
      *
-     * @return \Volcengine\Graph\Model\InfoForCreateInstanceInput
+     * @return string
      */
-    public function getInfo()
+    public function getMsDeployVersion()
     {
-        return $this->container['info'];
+        return $this->container['ms_deploy_version'];
     }
 
     /**
-     * Sets info
+     * Sets ms_deploy_version
      *
-     * @param \Volcengine\Graph\Model\InfoForCreateInstanceInput $info info
+     * @param string $ms_deploy_version ms_deploy_version
      *
      * @return $this
      */
-    public function setInfo($info)
+    public function setMsDeployVersion($ms_deploy_version)
     {
-        $this->container['info'] = $info;
+        $this->container['ms_deploy_version'] = $ms_deploy_version;
 
         return $this;
     }
 
     /**
-     * Gets instance_tags
+     * Gets ms_image_version
      *
-     * @return \Volcengine\Graph\Model\InstanceTagForCreateInstanceInput[]
+     * @return string
      */
-    public function getInstanceTags()
+    public function getMsImageVersion()
     {
-        return $this->container['instance_tags'];
+        return $this->container['ms_image_version'];
     }
 
     /**
-     * Sets instance_tags
+     * Sets ms_image_version
      *
-     * @param \Volcengine\Graph\Model\InstanceTagForCreateInstanceInput[] $instance_tags instance_tags
+     * @param string $ms_image_version ms_image_version
      *
      * @return $this
      */
-    public function setInstanceTags($instance_tags)
+    public function setMsImageVersion($ms_image_version)
     {
-        $this->container['instance_tags'] = $instance_tags;
-
-        return $this;
-    }
-
-    /**
-     * Gets network_descriptions
-     *
-     * @return \Volcengine\Graph\Model\NetworkDescriptionForCreateInstanceInput[]
-     */
-    public function getNetworkDescriptions()
-    {
-        return $this->container['network_descriptions'];
-    }
-
-    /**
-     * Sets network_descriptions
-     *
-     * @param \Volcengine\Graph\Model\NetworkDescriptionForCreateInstanceInput[] $network_descriptions network_descriptions
-     *
-     * @return $this
-     */
-    public function setNetworkDescriptions($network_descriptions)
-    {
-        $this->container['network_descriptions'] = $network_descriptions;
-
-        return $this;
-    }
-
-    /**
-     * Gets one_step
-     *
-     * @return bool
-     */
-    public function getOneStep()
-    {
-        return $this->container['one_step'];
-    }
-
-    /**
-     * Sets one_step
-     *
-     * @param bool $one_step one_step
-     *
-     * @return $this
-     */
-    public function setOneStep($one_step)
-    {
-        $this->container['one_step'] = $one_step;
+        $this->container['ms_image_version'] = $ms_image_version;
 
         return $this;
     }
@@ -381,30 +315,6 @@ class CreateInstanceRequest implements ModelInterface, ArrayAccess
     public function setVersionSetId($version_set_id)
     {
         $this->container['version_set_id'] = $version_set_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets with_graph_rag
-     *
-     * @return bool
-     */
-    public function getWithGraphRag()
-    {
-        return $this->container['with_graph_rag'];
-    }
-
-    /**
-     * Sets with_graph_rag
-     *
-     * @param bool $with_graph_rag with_graph_rag
-     *
-     * @return $this
-     */
-    public function setWithGraphRag($with_graph_rag)
-    {
-        $this->container['with_graph_rag'] = $with_graph_rag;
 
         return $this;
     }
