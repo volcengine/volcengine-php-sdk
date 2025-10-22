@@ -158,7 +158,7 @@ class ApiClient
                 $response->getHeaders(),
                 $responseContent);
         }
-        $content = ($content->{'Result'}) ?? null;
+        $content = isset($content->{'Result'}) ? $content->{'Result'} : null;
 
         return [
             ObjectSerializer::deserialize($content, $returnType, []),
