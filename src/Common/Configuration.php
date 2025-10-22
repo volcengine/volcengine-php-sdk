@@ -365,9 +365,7 @@ class Configuration
      */
     public static function getDefaultConfiguration()
     {
-        if (self::$defaultConfiguration === null) {
-            self::$defaultConfiguration = new Configuration();
-        }
+        self::$defaultConfiguration = new Configuration();
 
         return self::$defaultConfiguration;
     }
