@@ -32,6 +32,7 @@ class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
         'code_size' => 'int',
         'code_size_limit' => 'int',
         'command' => 'string',
+        'cpu' => 'int',
         'cpu_strategy' => 'string',
         'creation_time' => 'string',
         'description' => 'string',
@@ -72,6 +73,7 @@ class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
         'code_size' => 'int32',
         'code_size_limit' => 'int32',
         'command' => null,
+        'cpu' => 'int32',
         'cpu_strategy' => null,
         'creation_time' => null,
         'description' => null,
@@ -133,6 +135,7 @@ class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
         'code_size' => 'CodeSize',
         'code_size_limit' => 'CodeSizeLimit',
         'command' => 'Command',
+        'cpu' => 'Cpu',
         'cpu_strategy' => 'CpuStrategy',
         'creation_time' => 'CreationTime',
         'description' => 'Description',
@@ -173,6 +176,7 @@ class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
         'code_size' => 'setCodeSize',
         'code_size_limit' => 'setCodeSizeLimit',
         'command' => 'setCommand',
+        'cpu' => 'setCpu',
         'cpu_strategy' => 'setCpuStrategy',
         'creation_time' => 'setCreationTime',
         'description' => 'setDescription',
@@ -213,6 +217,7 @@ class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
         'code_size' => 'getCodeSize',
         'code_size_limit' => 'getCodeSizeLimit',
         'command' => 'getCommand',
+        'cpu' => 'getCpu',
         'cpu_strategy' => 'getCpuStrategy',
         'creation_time' => 'getCreationTime',
         'description' => 'getDescription',
@@ -307,6 +312,7 @@ class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
         $this->container['code_size'] = isset($data['code_size']) ? $data['code_size'] : null;
         $this->container['code_size_limit'] = isset($data['code_size_limit']) ? $data['code_size_limit'] : null;
         $this->container['command'] = isset($data['command']) ? $data['command'] : null;
+        $this->container['cpu'] = isset($data['cpu']) ? $data['cpu'] : null;
         $this->container['cpu_strategy'] = isset($data['cpu_strategy']) ? $data['cpu_strategy'] : null;
         $this->container['creation_time'] = isset($data['creation_time']) ? $data['creation_time'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
@@ -453,6 +459,30 @@ class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
     public function setCommand($command)
     {
         $this->container['command'] = $command;
+
+        return $this;
+    }
+
+    /**
+     * Gets cpu
+     *
+     * @return int
+     */
+    public function getCpu()
+    {
+        return $this->container['cpu'];
+    }
+
+    /**
+     * Sets cpu
+     *
+     * @param int $cpu cpu
+     *
+     * @return $this
+     */
+    public function setCpu($cpu)
+    {
+        $this->container['cpu'] = $cpu;
 
         return $this;
     }
