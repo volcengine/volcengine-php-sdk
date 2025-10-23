@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ConvertLoadBalancerBillingTypeRequest implements ModelInterface, ArrayAccess
+class ModifyListenerDomainExtensionsRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ConvertLoadBalancerBillingTypeRequest implements ModelInterface, ArrayAcce
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ConvertLoadBalancerBillingTypeRequest';
+    protected static $swaggerModelName = 'ModifyListenerDomainExtensionsRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,10 @@ class ConvertLoadBalancerBillingTypeRequest implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'auto_renewal' => 'bool',
-        'load_balancer_billing_type' => 'int',
-        'load_balancer_id' => 'string',
-        'load_balancer_spec' => 'string',
-        'period' => 'int',
-        'period_unit' => 'string'
+        'add_domain_extensions' => '\Volcengine\Clb\Model\AddDomainExtensionForModifyListenerDomainExtensionsInput[]',
+        'listener_id' => 'string',
+        'modify_domain_extensions' => '\Volcengine\Clb\Model\ModifyDomainExtensionForModifyListenerDomainExtensionsInput[]',
+        'remove_domain_extensions' => '\Volcengine\Clb\Model\RemoveDomainExtensionForModifyListenerDomainExtensionsInput[]'
     ];
 
     /**
@@ -42,12 +40,10 @@ class ConvertLoadBalancerBillingTypeRequest implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'auto_renewal' => null,
-        'load_balancer_billing_type' => null,
-        'load_balancer_id' => null,
-        'load_balancer_spec' => null,
-        'period' => null,
-        'period_unit' => null
+        'add_domain_extensions' => null,
+        'listener_id' => null,
+        'modify_domain_extensions' => null,
+        'remove_domain_extensions' => null
     ];
 
     /**
@@ -77,12 +73,10 @@ class ConvertLoadBalancerBillingTypeRequest implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $attributeMap = [
-        'auto_renewal' => 'AutoRenewal',
-        'load_balancer_billing_type' => 'LoadBalancerBillingType',
-        'load_balancer_id' => 'LoadBalancerId',
-        'load_balancer_spec' => 'LoadBalancerSpec',
-        'period' => 'Period',
-        'period_unit' => 'PeriodUnit'
+        'add_domain_extensions' => 'AddDomainExtensions',
+        'listener_id' => 'ListenerId',
+        'modify_domain_extensions' => 'ModifyDomainExtensions',
+        'remove_domain_extensions' => 'RemoveDomainExtensions'
     ];
 
     /**
@@ -91,12 +85,10 @@ class ConvertLoadBalancerBillingTypeRequest implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $setters = [
-        'auto_renewal' => 'setAutoRenewal',
-        'load_balancer_billing_type' => 'setLoadBalancerBillingType',
-        'load_balancer_id' => 'setLoadBalancerId',
-        'load_balancer_spec' => 'setLoadBalancerSpec',
-        'period' => 'setPeriod',
-        'period_unit' => 'setPeriodUnit'
+        'add_domain_extensions' => 'setAddDomainExtensions',
+        'listener_id' => 'setListenerId',
+        'modify_domain_extensions' => 'setModifyDomainExtensions',
+        'remove_domain_extensions' => 'setRemoveDomainExtensions'
     ];
 
     /**
@@ -105,12 +97,10 @@ class ConvertLoadBalancerBillingTypeRequest implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $getters = [
-        'auto_renewal' => 'getAutoRenewal',
-        'load_balancer_billing_type' => 'getLoadBalancerBillingType',
-        'load_balancer_id' => 'getLoadBalancerId',
-        'load_balancer_spec' => 'getLoadBalancerSpec',
-        'period' => 'getPeriod',
-        'period_unit' => 'getPeriodUnit'
+        'add_domain_extensions' => 'getAddDomainExtensions',
+        'listener_id' => 'getListenerId',
+        'modify_domain_extensions' => 'getModifyDomainExtensions',
+        'remove_domain_extensions' => 'getRemoveDomainExtensions'
     ];
 
     /**
@@ -173,12 +163,10 @@ class ConvertLoadBalancerBillingTypeRequest implements ModelInterface, ArrayAcce
      */
     public function __construct(array $data = null)
     {
-        $this->container['auto_renewal'] = isset($data['auto_renewal']) ? $data['auto_renewal'] : null;
-        $this->container['load_balancer_billing_type'] = isset($data['load_balancer_billing_type']) ? $data['load_balancer_billing_type'] : null;
-        $this->container['load_balancer_id'] = isset($data['load_balancer_id']) ? $data['load_balancer_id'] : null;
-        $this->container['load_balancer_spec'] = isset($data['load_balancer_spec']) ? $data['load_balancer_spec'] : null;
-        $this->container['period'] = isset($data['period']) ? $data['period'] : null;
-        $this->container['period_unit'] = isset($data['period_unit']) ? $data['period_unit'] : null;
+        $this->container['add_domain_extensions'] = isset($data['add_domain_extensions']) ? $data['add_domain_extensions'] : null;
+        $this->container['listener_id'] = isset($data['listener_id']) ? $data['listener_id'] : null;
+        $this->container['modify_domain_extensions'] = isset($data['modify_domain_extensions']) ? $data['modify_domain_extensions'] : null;
+        $this->container['remove_domain_extensions'] = isset($data['remove_domain_extensions']) ? $data['remove_domain_extensions'] : null;
     }
 
     /**
@@ -190,11 +178,8 @@ class ConvertLoadBalancerBillingTypeRequest implements ModelInterface, ArrayAcce
     {
         $invalidProperties = [];
 
-        if ($this->container['load_balancer_billing_type'] === null) {
-            $invalidProperties[] = "'load_balancer_billing_type' can't be null";
-        }
-        if ($this->container['load_balancer_id'] === null) {
-            $invalidProperties[] = "'load_balancer_id' can't be null";
+        if ($this->container['listener_id'] === null) {
+            $invalidProperties[] = "'listener_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -212,145 +197,97 @@ class ConvertLoadBalancerBillingTypeRequest implements ModelInterface, ArrayAcce
 
 
     /**
-     * Gets auto_renewal
+     * Gets add_domain_extensions
      *
-     * @return bool
+     * @return \Volcengine\Clb\Model\AddDomainExtensionForModifyListenerDomainExtensionsInput[]
      */
-    public function getAutoRenewal()
+    public function getAddDomainExtensions()
     {
-        return $this->container['auto_renewal'];
+        return $this->container['add_domain_extensions'];
     }
 
     /**
-     * Sets auto_renewal
+     * Sets add_domain_extensions
      *
-     * @param bool $auto_renewal auto_renewal
+     * @param \Volcengine\Clb\Model\AddDomainExtensionForModifyListenerDomainExtensionsInput[] $add_domain_extensions add_domain_extensions
      *
      * @return $this
      */
-    public function setAutoRenewal($auto_renewal)
+    public function setAddDomainExtensions($add_domain_extensions)
     {
-        $this->container['auto_renewal'] = $auto_renewal;
+        $this->container['add_domain_extensions'] = $add_domain_extensions;
 
         return $this;
     }
 
     /**
-     * Gets load_balancer_billing_type
-     *
-     * @return int
-     */
-    public function getLoadBalancerBillingType()
-    {
-        return $this->container['load_balancer_billing_type'];
-    }
-
-    /**
-     * Sets load_balancer_billing_type
-     *
-     * @param int $load_balancer_billing_type load_balancer_billing_type
-     *
-     * @return $this
-     */
-    public function setLoadBalancerBillingType($load_balancer_billing_type)
-    {
-        $this->container['load_balancer_billing_type'] = $load_balancer_billing_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets load_balancer_id
+     * Gets listener_id
      *
      * @return string
      */
-    public function getLoadBalancerId()
+    public function getListenerId()
     {
-        return $this->container['load_balancer_id'];
+        return $this->container['listener_id'];
     }
 
     /**
-     * Sets load_balancer_id
+     * Sets listener_id
      *
-     * @param string $load_balancer_id load_balancer_id
+     * @param string $listener_id listener_id
      *
      * @return $this
      */
-    public function setLoadBalancerId($load_balancer_id)
+    public function setListenerId($listener_id)
     {
-        $this->container['load_balancer_id'] = $load_balancer_id;
+        $this->container['listener_id'] = $listener_id;
 
         return $this;
     }
 
     /**
-     * Gets load_balancer_spec
+     * Gets modify_domain_extensions
      *
-     * @return string
+     * @return \Volcengine\Clb\Model\ModifyDomainExtensionForModifyListenerDomainExtensionsInput[]
      */
-    public function getLoadBalancerSpec()
+    public function getModifyDomainExtensions()
     {
-        return $this->container['load_balancer_spec'];
+        return $this->container['modify_domain_extensions'];
     }
 
     /**
-     * Sets load_balancer_spec
+     * Sets modify_domain_extensions
      *
-     * @param string $load_balancer_spec load_balancer_spec
+     * @param \Volcengine\Clb\Model\ModifyDomainExtensionForModifyListenerDomainExtensionsInput[] $modify_domain_extensions modify_domain_extensions
      *
      * @return $this
      */
-    public function setLoadBalancerSpec($load_balancer_spec)
+    public function setModifyDomainExtensions($modify_domain_extensions)
     {
-        $this->container['load_balancer_spec'] = $load_balancer_spec;
+        $this->container['modify_domain_extensions'] = $modify_domain_extensions;
 
         return $this;
     }
 
     /**
-     * Gets period
+     * Gets remove_domain_extensions
      *
-     * @return int
+     * @return \Volcengine\Clb\Model\RemoveDomainExtensionForModifyListenerDomainExtensionsInput[]
      */
-    public function getPeriod()
+    public function getRemoveDomainExtensions()
     {
-        return $this->container['period'];
+        return $this->container['remove_domain_extensions'];
     }
 
     /**
-     * Sets period
+     * Sets remove_domain_extensions
      *
-     * @param int $period period
+     * @param \Volcengine\Clb\Model\RemoveDomainExtensionForModifyListenerDomainExtensionsInput[] $remove_domain_extensions remove_domain_extensions
      *
      * @return $this
      */
-    public function setPeriod($period)
+    public function setRemoveDomainExtensions($remove_domain_extensions)
     {
-        $this->container['period'] = $period;
-
-        return $this;
-    }
-
-    /**
-     * Gets period_unit
-     *
-     * @return string
-     */
-    public function getPeriodUnit()
-    {
-        return $this->container['period_unit'];
-    }
-
-    /**
-     * Sets period_unit
-     *
-     * @param string $period_unit period_unit
-     *
-     * @return $this
-     */
-    public function setPeriodUnit($period_unit)
-    {
-        $this->container['period_unit'] = $period_unit;
+        $this->container['remove_domain_extensions'] = $remove_domain_extensions;
 
         return $this;
     }

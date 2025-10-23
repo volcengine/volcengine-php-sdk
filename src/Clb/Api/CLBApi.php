@@ -11221,6 +11221,189 @@ class CLBApi
             $headers, $httpBody);
     }
 
+    public function modifyListenerDomainExtensions($body)
+    {
+        list($response) = $this->modifyListenerDomainExtensionsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function modifyListenerDomainExtensionsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Clb\Model\ModifyListenerDomainExtensionsResponse';
+        $request = $this->modifyListenerDomainExtensionsRequest($body);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+            );
+        }
+
+        $statusCode = $response->getStatusCode();
+
+        if ($statusCode < 200 || $statusCode > 299) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Error connecting to the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $response->getBody()
+            );
+        }
+
+        $responseContent = $response->getBody()->getContents();
+        $content = json_decode($responseContent);
+
+        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Return Error From the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $responseContent);
+        }
+        $content = $content->{'Result'};
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    public function modifyListenerDomainExtensionsAsync($body)
+    {
+        return $this->modifyListenerDomainExtensionsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function modifyListenerDomainExtensionsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Clb\Model\ModifyListenerDomainExtensionsResponse';
+        $request = $this->modifyListenerDomainExtensionsRequest($body);
+        $uri = $request->getUri();
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($uri, $returnType) {
+                    $responseContent = $response->getBody()->getContents();
+                    $content = json_decode($responseContent);
+                    $statusCode = $response->getStatusCode();
+
+                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+                        throw new ApiException(
+                            sprintf(
+                                '[%d] Return Error From the API (%s)',
+                                $statusCode,
+                                $uri
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $responseContent);
+                    }
+                    $content = $content->{'Result'};
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    protected function modifyListenerDomainExtensionsRequest($body)
+    {
+        // verify the required parameter 'body' is set
+        if ($body === null || (is_array($body) && count($body) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $body when calling modifyListenerDomainExtensions'
+            );
+        }
+
+        $resourcePath = '/ModifyListenerDomainExtensions/2020-04-01/clb/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        // format request body
+        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
+            $queryParams = Utils::transRequest($httpBody);
+            $httpBody = '';
+        } else {
+            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
+        }
+
+        $queryParams['Action'] = $paths[1];
+        $queryParams['Version'] = $paths[2];
+        $resourcePath = '/';
+
+        $query = '';
+        ksort($queryParams);  // sort query first
+        foreach ($queryParams as $k => $v) {
+            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
+        }
+        $query = substr($query, 0, -1);
+
+        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
+            $httpBody, $query, $method, $resourcePath, $headers);
+
+        return new Request($method,
+            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers, $httpBody);
+    }
+
     public function modifyLoadBalancerAttributes($body)
     {
         list($response) = $this->modifyLoadBalancerAttributesWithHttpInfo($body);
@@ -12267,6 +12450,189 @@ class CLBApi
         }
 
         $resourcePath = '/ModifyNLBServerGroupAttributes/2020-04-01/clb/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        // format request body
+        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
+            $queryParams = Utils::transRequest($httpBody);
+            $httpBody = '';
+        } else {
+            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
+        }
+
+        $queryParams['Action'] = $paths[1];
+        $queryParams['Version'] = $paths[2];
+        $resourcePath = '/';
+
+        $query = '';
+        ksort($queryParams);  // sort query first
+        foreach ($queryParams as $k => $v) {
+            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
+        }
+        $query = substr($query, 0, -1);
+
+        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
+            $httpBody, $query, $method, $resourcePath, $headers);
+
+        return new Request($method,
+            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers, $httpBody);
+    }
+
+    public function modifyNetworkLoadBalancerAccessLog($body)
+    {
+        list($response) = $this->modifyNetworkLoadBalancerAccessLogWithHttpInfo($body);
+        return $response;
+    }
+
+    public function modifyNetworkLoadBalancerAccessLogWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Clb\Model\ModifyNetworkLoadBalancerAccessLogResponse';
+        $request = $this->modifyNetworkLoadBalancerAccessLogRequest($body);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+            );
+        }
+
+        $statusCode = $response->getStatusCode();
+
+        if ($statusCode < 200 || $statusCode > 299) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Error connecting to the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $response->getBody()
+            );
+        }
+
+        $responseContent = $response->getBody()->getContents();
+        $content = json_decode($responseContent);
+
+        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Return Error From the API (%s)',
+                    $statusCode,
+                    $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                $responseContent);
+        }
+        $content = $content->{'Result'};
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    public function modifyNetworkLoadBalancerAccessLogAsync($body)
+    {
+        return $this->modifyNetworkLoadBalancerAccessLogAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function modifyNetworkLoadBalancerAccessLogAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Clb\Model\ModifyNetworkLoadBalancerAccessLogResponse';
+        $request = $this->modifyNetworkLoadBalancerAccessLogRequest($body);
+        $uri = $request->getUri();
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($uri, $returnType) {
+                    $responseContent = $response->getBody()->getContents();
+                    $content = json_decode($responseContent);
+                    $statusCode = $response->getStatusCode();
+
+                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+                        throw new ApiException(
+                            sprintf(
+                                '[%d] Return Error From the API (%s)',
+                                $statusCode,
+                                $uri
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $responseContent);
+                    }
+                    $content = $content->{'Result'};
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    protected function modifyNetworkLoadBalancerAccessLogRequest($body)
+    {
+        // verify the required parameter 'body' is set
+        if ($body === null || (is_array($body) && count($body) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $body when calling modifyNetworkLoadBalancerAccessLog'
+            );
+        }
+
+        $resourcePath = '/ModifyNetworkLoadBalancerAccessLog/2020-04-01/clb/get/text_plain/';
         $queryParams = [];
         $httpBody = $body;
 

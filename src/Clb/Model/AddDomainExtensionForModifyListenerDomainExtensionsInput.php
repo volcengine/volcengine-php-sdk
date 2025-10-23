@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ConvertLoadBalancerBillingTypeRequest implements ModelInterface, ArrayAccess
+class AddDomainExtensionForModifyListenerDomainExtensionsInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ConvertLoadBalancerBillingTypeRequest implements ModelInterface, ArrayAcce
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ConvertLoadBalancerBillingTypeRequest';
+    protected static $swaggerModelName = 'AddDomainExtensionForModifyListenerDomainExtensionsInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,9 @@ class ConvertLoadBalancerBillingTypeRequest implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'auto_renewal' => 'bool',
-        'load_balancer_billing_type' => 'int',
-        'load_balancer_id' => 'string',
-        'load_balancer_spec' => 'string',
-        'period' => 'int',
-        'period_unit' => 'string'
+        'cert_center_certificate_id' => 'string',
+        'certificate_source' => 'string',
+        'domain' => 'string'
     ];
 
     /**
@@ -42,12 +39,9 @@ class ConvertLoadBalancerBillingTypeRequest implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'auto_renewal' => null,
-        'load_balancer_billing_type' => null,
-        'load_balancer_id' => null,
-        'load_balancer_spec' => null,
-        'period' => null,
-        'period_unit' => null
+        'cert_center_certificate_id' => null,
+        'certificate_source' => null,
+        'domain' => null
     ];
 
     /**
@@ -77,12 +71,9 @@ class ConvertLoadBalancerBillingTypeRequest implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $attributeMap = [
-        'auto_renewal' => 'AutoRenewal',
-        'load_balancer_billing_type' => 'LoadBalancerBillingType',
-        'load_balancer_id' => 'LoadBalancerId',
-        'load_balancer_spec' => 'LoadBalancerSpec',
-        'period' => 'Period',
-        'period_unit' => 'PeriodUnit'
+        'cert_center_certificate_id' => 'CertCenterCertificateId',
+        'certificate_source' => 'CertificateSource',
+        'domain' => 'Domain'
     ];
 
     /**
@@ -91,12 +82,9 @@ class ConvertLoadBalancerBillingTypeRequest implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $setters = [
-        'auto_renewal' => 'setAutoRenewal',
-        'load_balancer_billing_type' => 'setLoadBalancerBillingType',
-        'load_balancer_id' => 'setLoadBalancerId',
-        'load_balancer_spec' => 'setLoadBalancerSpec',
-        'period' => 'setPeriod',
-        'period_unit' => 'setPeriodUnit'
+        'cert_center_certificate_id' => 'setCertCenterCertificateId',
+        'certificate_source' => 'setCertificateSource',
+        'domain' => 'setDomain'
     ];
 
     /**
@@ -105,12 +93,9 @@ class ConvertLoadBalancerBillingTypeRequest implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $getters = [
-        'auto_renewal' => 'getAutoRenewal',
-        'load_balancer_billing_type' => 'getLoadBalancerBillingType',
-        'load_balancer_id' => 'getLoadBalancerId',
-        'load_balancer_spec' => 'getLoadBalancerSpec',
-        'period' => 'getPeriod',
-        'period_unit' => 'getPeriodUnit'
+        'cert_center_certificate_id' => 'getCertCenterCertificateId',
+        'certificate_source' => 'getCertificateSource',
+        'domain' => 'getDomain'
     ];
 
     /**
@@ -173,12 +158,9 @@ class ConvertLoadBalancerBillingTypeRequest implements ModelInterface, ArrayAcce
      */
     public function __construct(array $data = null)
     {
-        $this->container['auto_renewal'] = isset($data['auto_renewal']) ? $data['auto_renewal'] : null;
-        $this->container['load_balancer_billing_type'] = isset($data['load_balancer_billing_type']) ? $data['load_balancer_billing_type'] : null;
-        $this->container['load_balancer_id'] = isset($data['load_balancer_id']) ? $data['load_balancer_id'] : null;
-        $this->container['load_balancer_spec'] = isset($data['load_balancer_spec']) ? $data['load_balancer_spec'] : null;
-        $this->container['period'] = isset($data['period']) ? $data['period'] : null;
-        $this->container['period_unit'] = isset($data['period_unit']) ? $data['period_unit'] : null;
+        $this->container['cert_center_certificate_id'] = isset($data['cert_center_certificate_id']) ? $data['cert_center_certificate_id'] : null;
+        $this->container['certificate_source'] = isset($data['certificate_source']) ? $data['certificate_source'] : null;
+        $this->container['domain'] = isset($data['domain']) ? $data['domain'] : null;
     }
 
     /**
@@ -190,12 +172,6 @@ class ConvertLoadBalancerBillingTypeRequest implements ModelInterface, ArrayAcce
     {
         $invalidProperties = [];
 
-        if ($this->container['load_balancer_billing_type'] === null) {
-            $invalidProperties[] = "'load_balancer_billing_type' can't be null";
-        }
-        if ($this->container['load_balancer_id'] === null) {
-            $invalidProperties[] = "'load_balancer_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -212,145 +188,73 @@ class ConvertLoadBalancerBillingTypeRequest implements ModelInterface, ArrayAcce
 
 
     /**
-     * Gets auto_renewal
-     *
-     * @return bool
-     */
-    public function getAutoRenewal()
-    {
-        return $this->container['auto_renewal'];
-    }
-
-    /**
-     * Sets auto_renewal
-     *
-     * @param bool $auto_renewal auto_renewal
-     *
-     * @return $this
-     */
-    public function setAutoRenewal($auto_renewal)
-    {
-        $this->container['auto_renewal'] = $auto_renewal;
-
-        return $this;
-    }
-
-    /**
-     * Gets load_balancer_billing_type
-     *
-     * @return int
-     */
-    public function getLoadBalancerBillingType()
-    {
-        return $this->container['load_balancer_billing_type'];
-    }
-
-    /**
-     * Sets load_balancer_billing_type
-     *
-     * @param int $load_balancer_billing_type load_balancer_billing_type
-     *
-     * @return $this
-     */
-    public function setLoadBalancerBillingType($load_balancer_billing_type)
-    {
-        $this->container['load_balancer_billing_type'] = $load_balancer_billing_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets load_balancer_id
+     * Gets cert_center_certificate_id
      *
      * @return string
      */
-    public function getLoadBalancerId()
+    public function getCertCenterCertificateId()
     {
-        return $this->container['load_balancer_id'];
+        return $this->container['cert_center_certificate_id'];
     }
 
     /**
-     * Sets load_balancer_id
+     * Sets cert_center_certificate_id
      *
-     * @param string $load_balancer_id load_balancer_id
+     * @param string $cert_center_certificate_id cert_center_certificate_id
      *
      * @return $this
      */
-    public function setLoadBalancerId($load_balancer_id)
+    public function setCertCenterCertificateId($cert_center_certificate_id)
     {
-        $this->container['load_balancer_id'] = $load_balancer_id;
+        $this->container['cert_center_certificate_id'] = $cert_center_certificate_id;
 
         return $this;
     }
 
     /**
-     * Gets load_balancer_spec
+     * Gets certificate_source
      *
      * @return string
      */
-    public function getLoadBalancerSpec()
+    public function getCertificateSource()
     {
-        return $this->container['load_balancer_spec'];
+        return $this->container['certificate_source'];
     }
 
     /**
-     * Sets load_balancer_spec
+     * Sets certificate_source
      *
-     * @param string $load_balancer_spec load_balancer_spec
+     * @param string $certificate_source certificate_source
      *
      * @return $this
      */
-    public function setLoadBalancerSpec($load_balancer_spec)
+    public function setCertificateSource($certificate_source)
     {
-        $this->container['load_balancer_spec'] = $load_balancer_spec;
+        $this->container['certificate_source'] = $certificate_source;
 
         return $this;
     }
 
     /**
-     * Gets period
-     *
-     * @return int
-     */
-    public function getPeriod()
-    {
-        return $this->container['period'];
-    }
-
-    /**
-     * Sets period
-     *
-     * @param int $period period
-     *
-     * @return $this
-     */
-    public function setPeriod($period)
-    {
-        $this->container['period'] = $period;
-
-        return $this;
-    }
-
-    /**
-     * Gets period_unit
+     * Gets domain
      *
      * @return string
      */
-    public function getPeriodUnit()
+    public function getDomain()
     {
-        return $this->container['period_unit'];
+        return $this->container['domain'];
     }
 
     /**
-     * Sets period_unit
+     * Sets domain
      *
-     * @param string $period_unit period_unit
+     * @param string $domain domain
      *
      * @return $this
      */
-    public function setPeriodUnit($period_unit)
+    public function setDomain($domain)
     {
-        $this->container['period_unit'] = $period_unit;
+        $this->container['domain'] = $domain;
 
         return $this;
     }

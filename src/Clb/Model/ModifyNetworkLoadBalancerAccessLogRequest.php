@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ConvertLoadBalancerBillingTypeRequest implements ModelInterface, ArrayAccess
+class ModifyNetworkLoadBalancerAccessLogRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ConvertLoadBalancerBillingTypeRequest implements ModelInterface, ArrayAcce
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ConvertLoadBalancerBillingTypeRequest';
+    protected static $swaggerModelName = 'ModifyNetworkLoadBalancerAccessLogRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,10 @@ class ConvertLoadBalancerBillingTypeRequest implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'auto_renewal' => 'bool',
-        'load_balancer_billing_type' => 'int',
+        'access_log_enabled' => 'bool',
         'load_balancer_id' => 'string',
-        'load_balancer_spec' => 'string',
-        'period' => 'int',
-        'period_unit' => 'string'
+        'project_name' => 'string',
+        'topic_name' => 'string'
     ];
 
     /**
@@ -42,12 +40,10 @@ class ConvertLoadBalancerBillingTypeRequest implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'auto_renewal' => null,
-        'load_balancer_billing_type' => null,
+        'access_log_enabled' => null,
         'load_balancer_id' => null,
-        'load_balancer_spec' => null,
-        'period' => null,
-        'period_unit' => null
+        'project_name' => null,
+        'topic_name' => null
     ];
 
     /**
@@ -77,12 +73,10 @@ class ConvertLoadBalancerBillingTypeRequest implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $attributeMap = [
-        'auto_renewal' => 'AutoRenewal',
-        'load_balancer_billing_type' => 'LoadBalancerBillingType',
+        'access_log_enabled' => 'AccessLogEnabled',
         'load_balancer_id' => 'LoadBalancerId',
-        'load_balancer_spec' => 'LoadBalancerSpec',
-        'period' => 'Period',
-        'period_unit' => 'PeriodUnit'
+        'project_name' => 'ProjectName',
+        'topic_name' => 'TopicName'
     ];
 
     /**
@@ -91,12 +85,10 @@ class ConvertLoadBalancerBillingTypeRequest implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $setters = [
-        'auto_renewal' => 'setAutoRenewal',
-        'load_balancer_billing_type' => 'setLoadBalancerBillingType',
+        'access_log_enabled' => 'setAccessLogEnabled',
         'load_balancer_id' => 'setLoadBalancerId',
-        'load_balancer_spec' => 'setLoadBalancerSpec',
-        'period' => 'setPeriod',
-        'period_unit' => 'setPeriodUnit'
+        'project_name' => 'setProjectName',
+        'topic_name' => 'setTopicName'
     ];
 
     /**
@@ -105,12 +97,10 @@ class ConvertLoadBalancerBillingTypeRequest implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $getters = [
-        'auto_renewal' => 'getAutoRenewal',
-        'load_balancer_billing_type' => 'getLoadBalancerBillingType',
+        'access_log_enabled' => 'getAccessLogEnabled',
         'load_balancer_id' => 'getLoadBalancerId',
-        'load_balancer_spec' => 'getLoadBalancerSpec',
-        'period' => 'getPeriod',
-        'period_unit' => 'getPeriodUnit'
+        'project_name' => 'getProjectName',
+        'topic_name' => 'getTopicName'
     ];
 
     /**
@@ -173,12 +163,10 @@ class ConvertLoadBalancerBillingTypeRequest implements ModelInterface, ArrayAcce
      */
     public function __construct(array $data = null)
     {
-        $this->container['auto_renewal'] = isset($data['auto_renewal']) ? $data['auto_renewal'] : null;
-        $this->container['load_balancer_billing_type'] = isset($data['load_balancer_billing_type']) ? $data['load_balancer_billing_type'] : null;
+        $this->container['access_log_enabled'] = isset($data['access_log_enabled']) ? $data['access_log_enabled'] : null;
         $this->container['load_balancer_id'] = isset($data['load_balancer_id']) ? $data['load_balancer_id'] : null;
-        $this->container['load_balancer_spec'] = isset($data['load_balancer_spec']) ? $data['load_balancer_spec'] : null;
-        $this->container['period'] = isset($data['period']) ? $data['period'] : null;
-        $this->container['period_unit'] = isset($data['period_unit']) ? $data['period_unit'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['topic_name'] = isset($data['topic_name']) ? $data['topic_name'] : null;
     }
 
     /**
@@ -190,9 +178,6 @@ class ConvertLoadBalancerBillingTypeRequest implements ModelInterface, ArrayAcce
     {
         $invalidProperties = [];
 
-        if ($this->container['load_balancer_billing_type'] === null) {
-            $invalidProperties[] = "'load_balancer_billing_type' can't be null";
-        }
         if ($this->container['load_balancer_id'] === null) {
             $invalidProperties[] = "'load_balancer_id' can't be null";
         }
@@ -212,49 +197,25 @@ class ConvertLoadBalancerBillingTypeRequest implements ModelInterface, ArrayAcce
 
 
     /**
-     * Gets auto_renewal
+     * Gets access_log_enabled
      *
      * @return bool
      */
-    public function getAutoRenewal()
+    public function getAccessLogEnabled()
     {
-        return $this->container['auto_renewal'];
+        return $this->container['access_log_enabled'];
     }
 
     /**
-     * Sets auto_renewal
+     * Sets access_log_enabled
      *
-     * @param bool $auto_renewal auto_renewal
+     * @param bool $access_log_enabled access_log_enabled
      *
      * @return $this
      */
-    public function setAutoRenewal($auto_renewal)
+    public function setAccessLogEnabled($access_log_enabled)
     {
-        $this->container['auto_renewal'] = $auto_renewal;
-
-        return $this;
-    }
-
-    /**
-     * Gets load_balancer_billing_type
-     *
-     * @return int
-     */
-    public function getLoadBalancerBillingType()
-    {
-        return $this->container['load_balancer_billing_type'];
-    }
-
-    /**
-     * Sets load_balancer_billing_type
-     *
-     * @param int $load_balancer_billing_type load_balancer_billing_type
-     *
-     * @return $this
-     */
-    public function setLoadBalancerBillingType($load_balancer_billing_type)
-    {
-        $this->container['load_balancer_billing_type'] = $load_balancer_billing_type;
+        $this->container['access_log_enabled'] = $access_log_enabled;
 
         return $this;
     }
@@ -284,73 +245,49 @@ class ConvertLoadBalancerBillingTypeRequest implements ModelInterface, ArrayAcce
     }
 
     /**
-     * Gets load_balancer_spec
+     * Gets project_name
      *
      * @return string
      */
-    public function getLoadBalancerSpec()
+    public function getProjectName()
     {
-        return $this->container['load_balancer_spec'];
+        return $this->container['project_name'];
     }
 
     /**
-     * Sets load_balancer_spec
+     * Sets project_name
      *
-     * @param string $load_balancer_spec load_balancer_spec
+     * @param string $project_name project_name
      *
      * @return $this
      */
-    public function setLoadBalancerSpec($load_balancer_spec)
+    public function setProjectName($project_name)
     {
-        $this->container['load_balancer_spec'] = $load_balancer_spec;
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }
 
     /**
-     * Gets period
-     *
-     * @return int
-     */
-    public function getPeriod()
-    {
-        return $this->container['period'];
-    }
-
-    /**
-     * Sets period
-     *
-     * @param int $period period
-     *
-     * @return $this
-     */
-    public function setPeriod($period)
-    {
-        $this->container['period'] = $period;
-
-        return $this;
-    }
-
-    /**
-     * Gets period_unit
+     * Gets topic_name
      *
      * @return string
      */
-    public function getPeriodUnit()
+    public function getTopicName()
     {
-        return $this->container['period_unit'];
+        return $this->container['topic_name'];
     }
 
     /**
-     * Sets period_unit
+     * Sets topic_name
      *
-     * @param string $period_unit period_unit
+     * @param string $topic_name topic_name
      *
      * @return $this
      */
-    public function setPeriodUnit($period_unit)
+    public function setTopicName($topic_name)
     {
-        $this->container['period_unit'] = $period_unit;
+        $this->container['topic_name'] = $topic_name;
 
         return $this;
     }
