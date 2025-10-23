@@ -20,6 +20,13 @@ class SignRequestInterceptor extends Interceptor
          * @var Request $request
          */
         $request = $context->request;
+        if (strpos($request->host, 'http') !== false) {
+            // 字符串包含"http"
+            $a = explode('://', $request->host);
+            $request->schema = $a[0];
+            $request->host = $a[1];
+            $request->headers['Host'] = $request->host;
+        }
         $request->headers = Utils::signv4($request->ak, $request->sk, $request->region, $request->service,
             $request->httpBody, $request->query, $request->method, '/', $request->headers, $request->sessionToken);
         $realRequest = new \GuzzleHttp\Psr7\Request($request->method,

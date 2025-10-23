@@ -224,7 +224,7 @@ class ApiClient
             $retries,
             Request $request,
             $response = null,
-            RequestException $e = null
+            $e = null
         ) {
             //如果没有打开autoRetry，直接返回false
             if (!$this->configuration->getAutoRetry()) {
