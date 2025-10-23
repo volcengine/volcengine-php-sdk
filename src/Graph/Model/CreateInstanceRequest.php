@@ -34,7 +34,8 @@ class CreateInstanceRequest implements ModelInterface, ArrayAccess
         'instance_tags' => '\Volcengine\Graph\Model\InstanceTagForCreateInstanceInput[]',
         'network_descriptions' => '\Volcengine\Graph\Model\NetworkDescriptionForCreateInstanceInput[]',
         'one_step' => 'bool',
-        'version_set_id' => 'int'
+        'version_set_id' => 'int',
+        'with_graph_rag' => 'bool'
     ];
 
     /**
@@ -49,7 +50,8 @@ class CreateInstanceRequest implements ModelInterface, ArrayAccess
         'instance_tags' => null,
         'network_descriptions' => null,
         'one_step' => null,
-        'version_set_id' => 'int32'
+        'version_set_id' => 'int32',
+        'with_graph_rag' => null
     ];
 
     /**
@@ -85,7 +87,8 @@ class CreateInstanceRequest implements ModelInterface, ArrayAccess
         'instance_tags' => 'InstanceTags',
         'network_descriptions' => 'NetworkDescriptions',
         'one_step' => 'OneStep',
-        'version_set_id' => 'VersionSetId'
+        'version_set_id' => 'VersionSetId',
+        'with_graph_rag' => 'WithGraphRAG'
     ];
 
     /**
@@ -100,7 +103,8 @@ class CreateInstanceRequest implements ModelInterface, ArrayAccess
         'instance_tags' => 'setInstanceTags',
         'network_descriptions' => 'setNetworkDescriptions',
         'one_step' => 'setOneStep',
-        'version_set_id' => 'setVersionSetId'
+        'version_set_id' => 'setVersionSetId',
+        'with_graph_rag' => 'setWithGraphRag'
     ];
 
     /**
@@ -115,7 +119,8 @@ class CreateInstanceRequest implements ModelInterface, ArrayAccess
         'instance_tags' => 'getInstanceTags',
         'network_descriptions' => 'getNetworkDescriptions',
         'one_step' => 'getOneStep',
-        'version_set_id' => 'getVersionSetId'
+        'version_set_id' => 'getVersionSetId',
+        'with_graph_rag' => 'getWithGraphRag'
     ];
 
     /**
@@ -185,6 +190,7 @@ class CreateInstanceRequest implements ModelInterface, ArrayAccess
         $this->container['network_descriptions'] = isset($data['network_descriptions']) ? $data['network_descriptions'] : null;
         $this->container['one_step'] = isset($data['one_step']) ? $data['one_step'] : null;
         $this->container['version_set_id'] = isset($data['version_set_id']) ? $data['version_set_id'] : null;
+        $this->container['with_graph_rag'] = isset($data['with_graph_rag']) ? $data['with_graph_rag'] : null;
     }
 
     /**
@@ -375,6 +381,30 @@ class CreateInstanceRequest implements ModelInterface, ArrayAccess
     public function setVersionSetId($version_set_id)
     {
         $this->container['version_set_id'] = $version_set_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets with_graph_rag
+     *
+     * @return bool
+     */
+    public function getWithGraphRag()
+    {
+        return $this->container['with_graph_rag'];
+    }
+
+    /**
+     * Sets with_graph_rag
+     *
+     * @param bool $with_graph_rag with_graph_rag
+     *
+     * @return $this
+     */
+    public function setWithGraphRag($with_graph_rag)
+    {
+        $this->container['with_graph_rag'] = $with_graph_rag;
 
         return $this;
     }

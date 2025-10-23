@@ -28,6 +28,7 @@ class ConvertLoadBalancerBillingTypeRequest implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'auto_renewal' => 'bool',
         'load_balancer_billing_type' => 'int',
         'load_balancer_id' => 'string',
         'load_balancer_spec' => 'string',
@@ -41,6 +42,7 @@ class ConvertLoadBalancerBillingTypeRequest implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'auto_renewal' => null,
         'load_balancer_billing_type' => null,
         'load_balancer_id' => null,
         'load_balancer_spec' => null,
@@ -75,6 +77,7 @@ class ConvertLoadBalancerBillingTypeRequest implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $attributeMap = [
+        'auto_renewal' => 'AutoRenewal',
         'load_balancer_billing_type' => 'LoadBalancerBillingType',
         'load_balancer_id' => 'LoadBalancerId',
         'load_balancer_spec' => 'LoadBalancerSpec',
@@ -88,6 +91,7 @@ class ConvertLoadBalancerBillingTypeRequest implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $setters = [
+        'auto_renewal' => 'setAutoRenewal',
         'load_balancer_billing_type' => 'setLoadBalancerBillingType',
         'load_balancer_id' => 'setLoadBalancerId',
         'load_balancer_spec' => 'setLoadBalancerSpec',
@@ -101,6 +105,7 @@ class ConvertLoadBalancerBillingTypeRequest implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $getters = [
+        'auto_renewal' => 'getAutoRenewal',
         'load_balancer_billing_type' => 'getLoadBalancerBillingType',
         'load_balancer_id' => 'getLoadBalancerId',
         'load_balancer_spec' => 'getLoadBalancerSpec',
@@ -168,6 +173,7 @@ class ConvertLoadBalancerBillingTypeRequest implements ModelInterface, ArrayAcce
      */
     public function __construct(array $data = null)
     {
+        $this->container['auto_renewal'] = isset($data['auto_renewal']) ? $data['auto_renewal'] : null;
         $this->container['load_balancer_billing_type'] = isset($data['load_balancer_billing_type']) ? $data['load_balancer_billing_type'] : null;
         $this->container['load_balancer_id'] = isset($data['load_balancer_id']) ? $data['load_balancer_id'] : null;
         $this->container['load_balancer_spec'] = isset($data['load_balancer_spec']) ? $data['load_balancer_spec'] : null;
@@ -204,6 +210,30 @@ class ConvertLoadBalancerBillingTypeRequest implements ModelInterface, ArrayAcce
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets auto_renewal
+     *
+     * @return bool
+     */
+    public function getAutoRenewal()
+    {
+        return $this->container['auto_renewal'];
+    }
+
+    /**
+     * Sets auto_renewal
+     *
+     * @param bool $auto_renewal auto_renewal
+     *
+     * @return $this
+     */
+    public function setAutoRenewal($auto_renewal)
+    {
+        $this->container['auto_renewal'] = $auto_renewal;
+
+        return $this;
+    }
 
     /**
      * Gets load_balancer_billing_type

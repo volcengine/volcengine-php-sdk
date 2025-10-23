@@ -32,8 +32,10 @@ class CreateFunctionResponse implements ModelInterface, ArrayAccess
         'code_size' => 'int',
         'code_size_limit' => 'int',
         'command' => 'string',
+        'cpu' => 'int',
         'creation_time' => 'string',
         'description' => 'string',
+        'enable_apmplus' => 'bool',
         'envs' => '\Volcengine\Vefaas\Model\EnvForCreateFunctionOutput[]',
         'exclusive_mode' => 'bool',
         'function_type' => 'string',
@@ -69,8 +71,10 @@ class CreateFunctionResponse implements ModelInterface, ArrayAccess
         'code_size' => 'int32',
         'code_size_limit' => 'int32',
         'command' => null,
+        'cpu' => 'int32',
         'creation_time' => null,
         'description' => null,
+        'enable_apmplus' => null,
         'envs' => null,
         'exclusive_mode' => null,
         'function_type' => null,
@@ -127,8 +131,10 @@ class CreateFunctionResponse implements ModelInterface, ArrayAccess
         'code_size' => 'CodeSize',
         'code_size_limit' => 'CodeSizeLimit',
         'command' => 'Command',
+        'cpu' => 'Cpu',
         'creation_time' => 'CreationTime',
         'description' => 'Description',
+        'enable_apmplus' => 'EnableApmplus',
         'envs' => 'Envs',
         'exclusive_mode' => 'ExclusiveMode',
         'function_type' => 'FunctionType',
@@ -164,8 +170,10 @@ class CreateFunctionResponse implements ModelInterface, ArrayAccess
         'code_size' => 'setCodeSize',
         'code_size_limit' => 'setCodeSizeLimit',
         'command' => 'setCommand',
+        'cpu' => 'setCpu',
         'creation_time' => 'setCreationTime',
         'description' => 'setDescription',
+        'enable_apmplus' => 'setEnableApmplus',
         'envs' => 'setEnvs',
         'exclusive_mode' => 'setExclusiveMode',
         'function_type' => 'setFunctionType',
@@ -201,8 +209,10 @@ class CreateFunctionResponse implements ModelInterface, ArrayAccess
         'code_size' => 'getCodeSize',
         'code_size_limit' => 'getCodeSizeLimit',
         'command' => 'getCommand',
+        'cpu' => 'getCpu',
         'creation_time' => 'getCreationTime',
         'description' => 'getDescription',
+        'enable_apmplus' => 'getEnableApmplus',
         'envs' => 'getEnvs',
         'exclusive_mode' => 'getExclusiveMode',
         'function_type' => 'getFunctionType',
@@ -292,8 +302,10 @@ class CreateFunctionResponse implements ModelInterface, ArrayAccess
         $this->container['code_size'] = isset($data['code_size']) ? $data['code_size'] : null;
         $this->container['code_size_limit'] = isset($data['code_size_limit']) ? $data['code_size_limit'] : null;
         $this->container['command'] = isset($data['command']) ? $data['command'] : null;
+        $this->container['cpu'] = isset($data['cpu']) ? $data['cpu'] : null;
         $this->container['creation_time'] = isset($data['creation_time']) ? $data['creation_time'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['enable_apmplus'] = isset($data['enable_apmplus']) ? $data['enable_apmplus'] : null;
         $this->container['envs'] = isset($data['envs']) ? $data['envs'] : null;
         $this->container['exclusive_mode'] = isset($data['exclusive_mode']) ? $data['exclusive_mode'] : null;
         $this->container['function_type'] = isset($data['function_type']) ? $data['function_type'] : null;
@@ -440,6 +452,30 @@ class CreateFunctionResponse implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets cpu
+     *
+     * @return int
+     */
+    public function getCpu()
+    {
+        return $this->container['cpu'];
+    }
+
+    /**
+     * Sets cpu
+     *
+     * @param int $cpu cpu
+     *
+     * @return $this
+     */
+    public function setCpu($cpu)
+    {
+        $this->container['cpu'] = $cpu;
+
+        return $this;
+    }
+
+    /**
      * Gets creation_time
      *
      * @return string
@@ -483,6 +519,30 @@ class CreateFunctionResponse implements ModelInterface, ArrayAccess
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets enable_apmplus
+     *
+     * @return bool
+     */
+    public function getEnableApmplus()
+    {
+        return $this->container['enable_apmplus'];
+    }
+
+    /**
+     * Sets enable_apmplus
+     *
+     * @param bool $enable_apmplus enable_apmplus
+     *
+     * @return $this
+     */
+    public function setEnableApmplus($enable_apmplus)
+    {
+        $this->container['enable_apmplus'] = $enable_apmplus;
 
         return $this;
     }
