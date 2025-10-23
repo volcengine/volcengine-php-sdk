@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class TranslationConfigForSubmitAITranslationWorkflowInput implements ModelInterface, ArrayAccess
+class ProcessConfigForUpdateAITranslationProjectConfigInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class TranslationConfigForSubmitAITranslationWorkflowInput implements ModelInter
       *
       * @var string
       */
-    protected static $swaggerModelName = 'TranslationConfigForSubmitAITranslationWorkflowInput';
+    protected static $swaggerModelName = 'ProcessConfigForUpdateAITranslationProjectConfigInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,8 @@ class TranslationConfigForSubmitAITranslationWorkflowInput implements ModelInter
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'source_language' => 'string',
-        'target_language' => 'string',
-        'termbase_config' => '\Volcengine\Vod20250101\Model\TermbaseConfigForSubmitAITranslationWorkflowInput',
-        'translation_type_list' => 'string[]'
+        'disable_smart_subtitle_rewrite' => 'bool',
+        'disable_subtitle_punct_split' => 'bool'
     ];
 
     /**
@@ -40,10 +38,8 @@ class TranslationConfigForSubmitAITranslationWorkflowInput implements ModelInter
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'source_language' => null,
-        'target_language' => null,
-        'termbase_config' => null,
-        'translation_type_list' => null
+        'disable_smart_subtitle_rewrite' => null,
+        'disable_subtitle_punct_split' => null
     ];
 
     /**
@@ -73,10 +69,8 @@ class TranslationConfigForSubmitAITranslationWorkflowInput implements ModelInter
      * @var string[]
      */
     protected static $attributeMap = [
-        'source_language' => 'SourceLanguage',
-        'target_language' => 'TargetLanguage',
-        'termbase_config' => 'TermbaseConfig',
-        'translation_type_list' => 'TranslationTypeList'
+        'disable_smart_subtitle_rewrite' => 'DisableSmartSubtitleRewrite',
+        'disable_subtitle_punct_split' => 'DisableSubtitlePunctSplit'
     ];
 
     /**
@@ -85,10 +79,8 @@ class TranslationConfigForSubmitAITranslationWorkflowInput implements ModelInter
      * @var string[]
      */
     protected static $setters = [
-        'source_language' => 'setSourceLanguage',
-        'target_language' => 'setTargetLanguage',
-        'termbase_config' => 'setTermbaseConfig',
-        'translation_type_list' => 'setTranslationTypeList'
+        'disable_smart_subtitle_rewrite' => 'setDisableSmartSubtitleRewrite',
+        'disable_subtitle_punct_split' => 'setDisableSubtitlePunctSplit'
     ];
 
     /**
@@ -97,10 +89,8 @@ class TranslationConfigForSubmitAITranslationWorkflowInput implements ModelInter
      * @var string[]
      */
     protected static $getters = [
-        'source_language' => 'getSourceLanguage',
-        'target_language' => 'getTargetLanguage',
-        'termbase_config' => 'getTermbaseConfig',
-        'translation_type_list' => 'getTranslationTypeList'
+        'disable_smart_subtitle_rewrite' => 'getDisableSmartSubtitleRewrite',
+        'disable_subtitle_punct_split' => 'getDisableSubtitlePunctSplit'
     ];
 
     /**
@@ -163,10 +153,8 @@ class TranslationConfigForSubmitAITranslationWorkflowInput implements ModelInter
      */
     public function __construct(array $data = null)
     {
-        $this->container['source_language'] = isset($data['source_language']) ? $data['source_language'] : null;
-        $this->container['target_language'] = isset($data['target_language']) ? $data['target_language'] : null;
-        $this->container['termbase_config'] = isset($data['termbase_config']) ? $data['termbase_config'] : null;
-        $this->container['translation_type_list'] = isset($data['translation_type_list']) ? $data['translation_type_list'] : null;
+        $this->container['disable_smart_subtitle_rewrite'] = isset($data['disable_smart_subtitle_rewrite']) ? $data['disable_smart_subtitle_rewrite'] : null;
+        $this->container['disable_subtitle_punct_split'] = isset($data['disable_subtitle_punct_split']) ? $data['disable_subtitle_punct_split'] : null;
     }
 
     /**
@@ -194,97 +182,49 @@ class TranslationConfigForSubmitAITranslationWorkflowInput implements ModelInter
 
 
     /**
-     * Gets source_language
+     * Gets disable_smart_subtitle_rewrite
      *
-     * @return string
+     * @return bool
      */
-    public function getSourceLanguage()
+    public function getDisableSmartSubtitleRewrite()
     {
-        return $this->container['source_language'];
+        return $this->container['disable_smart_subtitle_rewrite'];
     }
 
     /**
-     * Sets source_language
+     * Sets disable_smart_subtitle_rewrite
      *
-     * @param string $source_language source_language
+     * @param bool $disable_smart_subtitle_rewrite disable_smart_subtitle_rewrite
      *
      * @return $this
      */
-    public function setSourceLanguage($source_language)
+    public function setDisableSmartSubtitleRewrite($disable_smart_subtitle_rewrite)
     {
-        $this->container['source_language'] = $source_language;
+        $this->container['disable_smart_subtitle_rewrite'] = $disable_smart_subtitle_rewrite;
 
         return $this;
     }
 
     /**
-     * Gets target_language
+     * Gets disable_subtitle_punct_split
      *
-     * @return string
+     * @return bool
      */
-    public function getTargetLanguage()
+    public function getDisableSubtitlePunctSplit()
     {
-        return $this->container['target_language'];
+        return $this->container['disable_subtitle_punct_split'];
     }
 
     /**
-     * Sets target_language
+     * Sets disable_subtitle_punct_split
      *
-     * @param string $target_language target_language
+     * @param bool $disable_subtitle_punct_split disable_subtitle_punct_split
      *
      * @return $this
      */
-    public function setTargetLanguage($target_language)
+    public function setDisableSubtitlePunctSplit($disable_subtitle_punct_split)
     {
-        $this->container['target_language'] = $target_language;
-
-        return $this;
-    }
-
-    /**
-     * Gets termbase_config
-     *
-     * @return \Volcengine\Vod20250101\Model\TermbaseConfigForSubmitAITranslationWorkflowInput
-     */
-    public function getTermbaseConfig()
-    {
-        return $this->container['termbase_config'];
-    }
-
-    /**
-     * Sets termbase_config
-     *
-     * @param \Volcengine\Vod20250101\Model\TermbaseConfigForSubmitAITranslationWorkflowInput $termbase_config termbase_config
-     *
-     * @return $this
-     */
-    public function setTermbaseConfig($termbase_config)
-    {
-        $this->container['termbase_config'] = $termbase_config;
-
-        return $this;
-    }
-
-    /**
-     * Gets translation_type_list
-     *
-     * @return string[]
-     */
-    public function getTranslationTypeList()
-    {
-        return $this->container['translation_type_list'];
-    }
-
-    /**
-     * Sets translation_type_list
-     *
-     * @param string[] $translation_type_list translation_type_list
-     *
-     * @return $this
-     */
-    public function setTranslationTypeList($translation_type_list)
-    {
-        $this->container['translation_type_list'] = $translation_type_list;
+        $this->container['disable_subtitle_punct_split'] = $disable_subtitle_punct_split;
 
         return $this;
     }

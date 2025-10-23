@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class TranslationConfigForSubmitAITranslationWorkflowInput implements ModelInterface, ArrayAccess
+class UpdateAITranslationProjectConfigRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class TranslationConfigForSubmitAITranslationWorkflowInput implements ModelInter
       *
       * @var string
       */
-    protected static $swaggerModelName = 'TranslationConfigForSubmitAITranslationWorkflowInput';
+    protected static $swaggerModelName = 'UpdateAITranslationProjectConfigRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,10 @@ class TranslationConfigForSubmitAITranslationWorkflowInput implements ModelInter
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'source_language' => 'string',
-        'target_language' => 'string',
-        'termbase_config' => '\Volcengine\Vod20250101\Model\TermbaseConfigForSubmitAITranslationWorkflowInput',
-        'translation_type_list' => 'string[]'
+        'process_config' => '\Volcengine\Vod20250101\Model\ProcessConfigForUpdateAITranslationProjectConfigInput',
+        'project_id' => 'string',
+        'space_name' => 'string',
+        'update_config_type' => 'string'
     ];
 
     /**
@@ -40,10 +40,10 @@ class TranslationConfigForSubmitAITranslationWorkflowInput implements ModelInter
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'source_language' => null,
-        'target_language' => null,
-        'termbase_config' => null,
-        'translation_type_list' => null
+        'process_config' => null,
+        'project_id' => null,
+        'space_name' => null,
+        'update_config_type' => null
     ];
 
     /**
@@ -73,10 +73,10 @@ class TranslationConfigForSubmitAITranslationWorkflowInput implements ModelInter
      * @var string[]
      */
     protected static $attributeMap = [
-        'source_language' => 'SourceLanguage',
-        'target_language' => 'TargetLanguage',
-        'termbase_config' => 'TermbaseConfig',
-        'translation_type_list' => 'TranslationTypeList'
+        'process_config' => 'ProcessConfig',
+        'project_id' => 'ProjectId',
+        'space_name' => 'SpaceName',
+        'update_config_type' => 'UpdateConfigType'
     ];
 
     /**
@@ -85,10 +85,10 @@ class TranslationConfigForSubmitAITranslationWorkflowInput implements ModelInter
      * @var string[]
      */
     protected static $setters = [
-        'source_language' => 'setSourceLanguage',
-        'target_language' => 'setTargetLanguage',
-        'termbase_config' => 'setTermbaseConfig',
-        'translation_type_list' => 'setTranslationTypeList'
+        'process_config' => 'setProcessConfig',
+        'project_id' => 'setProjectId',
+        'space_name' => 'setSpaceName',
+        'update_config_type' => 'setUpdateConfigType'
     ];
 
     /**
@@ -97,10 +97,10 @@ class TranslationConfigForSubmitAITranslationWorkflowInput implements ModelInter
      * @var string[]
      */
     protected static $getters = [
-        'source_language' => 'getSourceLanguage',
-        'target_language' => 'getTargetLanguage',
-        'termbase_config' => 'getTermbaseConfig',
-        'translation_type_list' => 'getTranslationTypeList'
+        'process_config' => 'getProcessConfig',
+        'project_id' => 'getProjectId',
+        'space_name' => 'getSpaceName',
+        'update_config_type' => 'getUpdateConfigType'
     ];
 
     /**
@@ -163,10 +163,10 @@ class TranslationConfigForSubmitAITranslationWorkflowInput implements ModelInter
      */
     public function __construct(array $data = null)
     {
-        $this->container['source_language'] = isset($data['source_language']) ? $data['source_language'] : null;
-        $this->container['target_language'] = isset($data['target_language']) ? $data['target_language'] : null;
-        $this->container['termbase_config'] = isset($data['termbase_config']) ? $data['termbase_config'] : null;
-        $this->container['translation_type_list'] = isset($data['translation_type_list']) ? $data['translation_type_list'] : null;
+        $this->container['process_config'] = isset($data['process_config']) ? $data['process_config'] : null;
+        $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
+        $this->container['space_name'] = isset($data['space_name']) ? $data['space_name'] : null;
+        $this->container['update_config_type'] = isset($data['update_config_type']) ? $data['update_config_type'] : null;
     }
 
     /**
@@ -178,6 +178,15 @@ class TranslationConfigForSubmitAITranslationWorkflowInput implements ModelInter
     {
         $invalidProperties = [];
 
+        if ($this->container['project_id'] === null) {
+            $invalidProperties[] = "'project_id' can't be null";
+        }
+        if ($this->container['space_name'] === null) {
+            $invalidProperties[] = "'space_name' can't be null";
+        }
+        if ($this->container['update_config_type'] === null) {
+            $invalidProperties[] = "'update_config_type' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -194,97 +203,97 @@ class TranslationConfigForSubmitAITranslationWorkflowInput implements ModelInter
 
 
     /**
-     * Gets source_language
+     * Gets process_config
+     *
+     * @return \Volcengine\Vod20250101\Model\ProcessConfigForUpdateAITranslationProjectConfigInput
+     */
+    public function getProcessConfig()
+    {
+        return $this->container['process_config'];
+    }
+
+    /**
+     * Sets process_config
+     *
+     * @param \Volcengine\Vod20250101\Model\ProcessConfigForUpdateAITranslationProjectConfigInput $process_config process_config
+     *
+     * @return $this
+     */
+    public function setProcessConfig($process_config)
+    {
+        $this->container['process_config'] = $process_config;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_id
      *
      * @return string
      */
-    public function getSourceLanguage()
+    public function getProjectId()
     {
-        return $this->container['source_language'];
+        return $this->container['project_id'];
     }
 
     /**
-     * Sets source_language
+     * Sets project_id
      *
-     * @param string $source_language source_language
+     * @param string $project_id project_id
      *
      * @return $this
      */
-    public function setSourceLanguage($source_language)
+    public function setProjectId($project_id)
     {
-        $this->container['source_language'] = $source_language;
+        $this->container['project_id'] = $project_id;
 
         return $this;
     }
 
     /**
-     * Gets target_language
+     * Gets space_name
      *
      * @return string
      */
-    public function getTargetLanguage()
+    public function getSpaceName()
     {
-        return $this->container['target_language'];
+        return $this->container['space_name'];
     }
 
     /**
-     * Sets target_language
+     * Sets space_name
      *
-     * @param string $target_language target_language
+     * @param string $space_name space_name
      *
      * @return $this
      */
-    public function setTargetLanguage($target_language)
+    public function setSpaceName($space_name)
     {
-        $this->container['target_language'] = $target_language;
+        $this->container['space_name'] = $space_name;
 
         return $this;
     }
 
     /**
-     * Gets termbase_config
+     * Gets update_config_type
      *
-     * @return \Volcengine\Vod20250101\Model\TermbaseConfigForSubmitAITranslationWorkflowInput
+     * @return string
      */
-    public function getTermbaseConfig()
+    public function getUpdateConfigType()
     {
-        return $this->container['termbase_config'];
+        return $this->container['update_config_type'];
     }
 
     /**
-     * Sets termbase_config
+     * Sets update_config_type
      *
-     * @param \Volcengine\Vod20250101\Model\TermbaseConfigForSubmitAITranslationWorkflowInput $termbase_config termbase_config
+     * @param string $update_config_type update_config_type
      *
      * @return $this
      */
-    public function setTermbaseConfig($termbase_config)
+    public function setUpdateConfigType($update_config_type)
     {
-        $this->container['termbase_config'] = $termbase_config;
-
-        return $this;
-    }
-
-    /**
-     * Gets translation_type_list
-     *
-     * @return string[]
-     */
-    public function getTranslationTypeList()
-    {
-        return $this->container['translation_type_list'];
-    }
-
-    /**
-     * Sets translation_type_list
-     *
-     * @param string[] $translation_type_list translation_type_list
-     *
-     * @return $this
-     */
-    public function setTranslationTypeList($translation_type_list)
-    {
-        $this->container['translation_type_list'] = $translation_type_list;
+        $this->container['update_config_type'] = $update_config_type;
 
         return $this;
     }

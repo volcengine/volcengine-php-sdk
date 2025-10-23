@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class TranslationConfigForSubmitAITranslationWorkflowInput implements ModelInterface, ArrayAccess
+class CreateAITermbaseRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class TranslationConfigForSubmitAITranslationWorkflowInput implements ModelInter
       *
       * @var string
       */
-    protected static $swaggerModelName = 'TranslationConfigForSubmitAITranslationWorkflowInput';
+    protected static $swaggerModelName = 'CreateAITermbaseRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,12 @@ class TranslationConfigForSubmitAITranslationWorkflowInput implements ModelInter
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'description' => 'string',
+        'name' => 'string',
+        'scenario' => '\Volcengine\Vod20250101\Model\ScenarioForCreateAITermbaseInput',
         'source_language' => 'string',
-        'target_language' => 'string',
-        'termbase_config' => '\Volcengine\Vod20250101\Model\TermbaseConfigForSubmitAITranslationWorkflowInput',
-        'translation_type_list' => 'string[]'
+        'space_name' => 'string',
+        'target_language' => 'string'
     ];
 
     /**
@@ -40,10 +42,12 @@ class TranslationConfigForSubmitAITranslationWorkflowInput implements ModelInter
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'description' => null,
+        'name' => null,
+        'scenario' => null,
         'source_language' => null,
-        'target_language' => null,
-        'termbase_config' => null,
-        'translation_type_list' => null
+        'space_name' => null,
+        'target_language' => null
     ];
 
     /**
@@ -73,10 +77,12 @@ class TranslationConfigForSubmitAITranslationWorkflowInput implements ModelInter
      * @var string[]
      */
     protected static $attributeMap = [
+        'description' => 'Description',
+        'name' => 'Name',
+        'scenario' => 'Scenario',
         'source_language' => 'SourceLanguage',
-        'target_language' => 'TargetLanguage',
-        'termbase_config' => 'TermbaseConfig',
-        'translation_type_list' => 'TranslationTypeList'
+        'space_name' => 'SpaceName',
+        'target_language' => 'TargetLanguage'
     ];
 
     /**
@@ -85,10 +91,12 @@ class TranslationConfigForSubmitAITranslationWorkflowInput implements ModelInter
      * @var string[]
      */
     protected static $setters = [
+        'description' => 'setDescription',
+        'name' => 'setName',
+        'scenario' => 'setScenario',
         'source_language' => 'setSourceLanguage',
-        'target_language' => 'setTargetLanguage',
-        'termbase_config' => 'setTermbaseConfig',
-        'translation_type_list' => 'setTranslationTypeList'
+        'space_name' => 'setSpaceName',
+        'target_language' => 'setTargetLanguage'
     ];
 
     /**
@@ -97,10 +105,12 @@ class TranslationConfigForSubmitAITranslationWorkflowInput implements ModelInter
      * @var string[]
      */
     protected static $getters = [
+        'description' => 'getDescription',
+        'name' => 'getName',
+        'scenario' => 'getScenario',
         'source_language' => 'getSourceLanguage',
-        'target_language' => 'getTargetLanguage',
-        'termbase_config' => 'getTermbaseConfig',
-        'translation_type_list' => 'getTranslationTypeList'
+        'space_name' => 'getSpaceName',
+        'target_language' => 'getTargetLanguage'
     ];
 
     /**
@@ -163,10 +173,12 @@ class TranslationConfigForSubmitAITranslationWorkflowInput implements ModelInter
      */
     public function __construct(array $data = null)
     {
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['scenario'] = isset($data['scenario']) ? $data['scenario'] : null;
         $this->container['source_language'] = isset($data['source_language']) ? $data['source_language'] : null;
+        $this->container['space_name'] = isset($data['space_name']) ? $data['space_name'] : null;
         $this->container['target_language'] = isset($data['target_language']) ? $data['target_language'] : null;
-        $this->container['termbase_config'] = isset($data['termbase_config']) ? $data['termbase_config'] : null;
-        $this->container['translation_type_list'] = isset($data['translation_type_list']) ? $data['translation_type_list'] : null;
     }
 
     /**
@@ -178,6 +190,15 @@ class TranslationConfigForSubmitAITranslationWorkflowInput implements ModelInter
     {
         $invalidProperties = [];
 
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
+        if ($this->container['source_language'] === null) {
+            $invalidProperties[] = "'source_language' can't be null";
+        }
+        if ($this->container['space_name'] === null) {
+            $invalidProperties[] = "'space_name' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -192,6 +213,78 @@ class TranslationConfigForSubmitAITranslationWorkflowInput implements ModelInter
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string $description description
+     *
+     * @return $this
+     */
+    public function setDescription($description)
+    {
+        $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name name
+     *
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets scenario
+     *
+     * @return \Volcengine\Vod20250101\Model\ScenarioForCreateAITermbaseInput
+     */
+    public function getScenario()
+    {
+        return $this->container['scenario'];
+    }
+
+    /**
+     * Sets scenario
+     *
+     * @param \Volcengine\Vod20250101\Model\ScenarioForCreateAITermbaseInput $scenario scenario
+     *
+     * @return $this
+     */
+    public function setScenario($scenario)
+    {
+        $this->container['scenario'] = $scenario;
+
+        return $this;
+    }
 
     /**
      * Gets source_language
@@ -218,6 +311,30 @@ class TranslationConfigForSubmitAITranslationWorkflowInput implements ModelInter
     }
 
     /**
+     * Gets space_name
+     *
+     * @return string
+     */
+    public function getSpaceName()
+    {
+        return $this->container['space_name'];
+    }
+
+    /**
+     * Sets space_name
+     *
+     * @param string $space_name space_name
+     *
+     * @return $this
+     */
+    public function setSpaceName($space_name)
+    {
+        $this->container['space_name'] = $space_name;
+
+        return $this;
+    }
+
+    /**
      * Gets target_language
      *
      * @return string
@@ -237,54 +354,6 @@ class TranslationConfigForSubmitAITranslationWorkflowInput implements ModelInter
     public function setTargetLanguage($target_language)
     {
         $this->container['target_language'] = $target_language;
-
-        return $this;
-    }
-
-    /**
-     * Gets termbase_config
-     *
-     * @return \Volcengine\Vod20250101\Model\TermbaseConfigForSubmitAITranslationWorkflowInput
-     */
-    public function getTermbaseConfig()
-    {
-        return $this->container['termbase_config'];
-    }
-
-    /**
-     * Sets termbase_config
-     *
-     * @param \Volcengine\Vod20250101\Model\TermbaseConfigForSubmitAITranslationWorkflowInput $termbase_config termbase_config
-     *
-     * @return $this
-     */
-    public function setTermbaseConfig($termbase_config)
-    {
-        $this->container['termbase_config'] = $termbase_config;
-
-        return $this;
-    }
-
-    /**
-     * Gets translation_type_list
-     *
-     * @return string[]
-     */
-    public function getTranslationTypeList()
-    {
-        return $this->container['translation_type_list'];
-    }
-
-    /**
-     * Sets translation_type_list
-     *
-     * @param string[] $translation_type_list translation_type_list
-     *
-     * @return $this
-     */
-    public function setTranslationTypeList($translation_type_list)
-    {
-        $this->container['translation_type_list'] = $translation_type_list;
 
         return $this;
     }
