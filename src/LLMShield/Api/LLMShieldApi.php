@@ -148,9 +148,16 @@ class LLMShieldApi
                     $buffer = "";
                     while (!$stream->eof()) {
                         $buffer .= $stream->read(1);
-                        if (substr($buffer,-2) == "\n\n") {
-                            $responseContent = $buffer;
-                            $buffer = "";
+                        $lines = explode("\n\n", $buffer);
+                        foreach ($lines as $key => $line) {
+                            $buffer = $line;
+                            if (count($lines) === $key + 1) {
+                                break;
+                            }
+                            if ($line === "data:[DONE]") {
+                                break;
+                            }
+                            $responseContent = substr($line, 5);
                             $content = json_decode($responseContent);
                             $statusCode = $response->getStatusCode();
                             if (isset($content->{'ResponseMetadata'}->{'Error'})) {
