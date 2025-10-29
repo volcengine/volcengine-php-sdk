@@ -15,12 +15,12 @@ class Configuration
 
     private static $defaultConfiguration;
 
-    protected $region = '';
+    protected $region = 'cn-beijing';
 
     protected $schema = 'https';
     protected $endpointProvider;
     protected $customBootstrapRegion = '';
-    protected $useDualStack = '';
+    protected $useDualStack = false;
     protected $autoRetry = false;
     protected $retryer;
     protected $credentialProvider;
@@ -204,9 +204,21 @@ class Configuration
         return $this->customBootstrapRegion;
     }
 
+    public function setCustomBootstrapRegion($customBootstrapRegion)
+    {
+        $this->customBootstrapRegion = $customBootstrapRegion;
+        return $this;
+    }
+
     public function getUseDualStack()
     {
         return $this->useDualStack;
+    }
+
+    public function setUseDualStack($useDualStack)
+    {
+        $this->useDualStack = $useDualStack;
+        return $this;
     }
 
     public function getAutoRetry()
