@@ -30,7 +30,7 @@ class CreateAITermbaseRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'description' => 'string',
         'name' => 'string',
-        'scenario' => '\Volcengine\Vod20250101\Model\ScenarioForCreateAITermbaseInput',
+        'scenario' => 'string',
         'source_language' => 'string',
         'space_name' => 'string',
         'target_language' => 'string'
@@ -193,6 +193,9 @@ class CreateAITermbaseRequest implements ModelInterface, ArrayAccess
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
         }
+        if ($this->container['scenario'] === null) {
+            $invalidProperties[] = "'scenario' can't be null";
+        }
         if ($this->container['source_language'] === null) {
             $invalidProperties[] = "'source_language' can't be null";
         }
@@ -265,7 +268,7 @@ class CreateAITermbaseRequest implements ModelInterface, ArrayAccess
     /**
      * Gets scenario
      *
-     * @return \Volcengine\Vod20250101\Model\ScenarioForCreateAITermbaseInput
+     * @return string
      */
     public function getScenario()
     {
@@ -275,7 +278,7 @@ class CreateAITermbaseRequest implements ModelInterface, ArrayAccess
     /**
      * Sets scenario
      *
-     * @param \Volcengine\Vod20250101\Model\ScenarioForCreateAITermbaseInput $scenario scenario
+     * @param string $scenario scenario
      *
      * @return $this
      */
