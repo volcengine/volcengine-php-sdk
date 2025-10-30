@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Vod20250101\Model;
+namespace Volcengine\Organization\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ScenarioForCreateAITermbaseInput implements ModelInterface, ArrayAccess
+class DeleteOrganizationalUnitResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ScenarioForCreateAITermbaseInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ScenarioForCreateAITermbaseInput';
+    protected static $swaggerModelName = 'DeleteOrganizationalUnitResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

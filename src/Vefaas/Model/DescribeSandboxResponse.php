@@ -42,6 +42,8 @@ class DescribeSandboxResponse implements ModelInterface, ArrayAccess
         'instance_type' => 'string',
         'max_concurrency' => 'int',
         'memory_mb' => 'int',
+        'metadata' => 'map[string,string]',
+        'metadata_list' => '\Volcengine\Vefaas\Model\MetadataListForDescribeSandboxOutput[]',
         'pending' => 'bool',
         'request_timeout' => 'int',
         'revision_number' => 'int',
@@ -68,6 +70,8 @@ class DescribeSandboxResponse implements ModelInterface, ArrayAccess
         'instance_type' => null,
         'max_concurrency' => 'int32',
         'memory_mb' => 'int32',
+        'metadata' => null,
+        'metadata_list' => null,
         'pending' => null,
         'request_timeout' => 'int32',
         'revision_number' => 'int32',
@@ -115,6 +119,8 @@ class DescribeSandboxResponse implements ModelInterface, ArrayAccess
         'instance_type' => 'InstanceType',
         'max_concurrency' => 'MaxConcurrency',
         'memory_mb' => 'MemoryMB',
+        'metadata' => 'Metadata',
+        'metadata_list' => 'MetadataList',
         'pending' => 'Pending',
         'request_timeout' => 'RequestTimeout',
         'revision_number' => 'RevisionNumber',
@@ -141,6 +147,8 @@ class DescribeSandboxResponse implements ModelInterface, ArrayAccess
         'instance_type' => 'setInstanceType',
         'max_concurrency' => 'setMaxConcurrency',
         'memory_mb' => 'setMemoryMb',
+        'metadata' => 'setMetadata',
+        'metadata_list' => 'setMetadataList',
         'pending' => 'setPending',
         'request_timeout' => 'setRequestTimeout',
         'revision_number' => 'setRevisionNumber',
@@ -167,6 +175,8 @@ class DescribeSandboxResponse implements ModelInterface, ArrayAccess
         'instance_type' => 'getInstanceType',
         'max_concurrency' => 'getMaxConcurrency',
         'memory_mb' => 'getMemoryMb',
+        'metadata' => 'getMetadata',
+        'metadata_list' => 'getMetadataList',
         'pending' => 'getPending',
         'request_timeout' => 'getRequestTimeout',
         'revision_number' => 'getRevisionNumber',
@@ -247,6 +257,8 @@ class DescribeSandboxResponse implements ModelInterface, ArrayAccess
         $this->container['instance_type'] = isset($data['instance_type']) ? $data['instance_type'] : null;
         $this->container['max_concurrency'] = isset($data['max_concurrency']) ? $data['max_concurrency'] : null;
         $this->container['memory_mb'] = isset($data['memory_mb']) ? $data['memory_mb'] : null;
+        $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
+        $this->container['metadata_list'] = isset($data['metadata_list']) ? $data['metadata_list'] : null;
         $this->container['pending'] = isset($data['pending']) ? $data['pending'] : null;
         $this->container['request_timeout'] = isset($data['request_timeout']) ? $data['request_timeout'] : null;
         $this->container['revision_number'] = isset($data['revision_number']) ? $data['revision_number'] : null;
@@ -609,6 +621,54 @@ class DescribeSandboxResponse implements ModelInterface, ArrayAccess
     public function setMemoryMb($memory_mb)
     {
         $this->container['memory_mb'] = $memory_mb;
+
+        return $this;
+    }
+
+    /**
+     * Gets metadata
+     *
+     * @return map[string,string]
+     */
+    public function getMetadata()
+    {
+        return $this->container['metadata'];
+    }
+
+    /**
+     * Sets metadata
+     *
+     * @param map[string,string] $metadata metadata
+     *
+     * @return $this
+     */
+    public function setMetadata($metadata)
+    {
+        $this->container['metadata'] = $metadata;
+
+        return $this;
+    }
+
+    /**
+     * Gets metadata_list
+     *
+     * @return \Volcengine\Vefaas\Model\MetadataListForDescribeSandboxOutput[]
+     */
+    public function getMetadataList()
+    {
+        return $this->container['metadata_list'];
+    }
+
+    /**
+     * Sets metadata_list
+     *
+     * @param \Volcengine\Vefaas\Model\MetadataListForDescribeSandboxOutput[] $metadata_list metadata_list
+     *
+     * @return $this
+     */
+    public function setMetadataList($metadata_list)
+    {
+        $this->container['metadata_list'] = $metadata_list;
 
         return $this;
     }
