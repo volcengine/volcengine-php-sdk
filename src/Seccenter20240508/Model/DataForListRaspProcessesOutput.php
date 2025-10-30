@@ -61,7 +61,7 @@ class DataForListRaspProcessesOutput implements ModelInterface, ArrayAccess
         'hostname' => null,
         'id' => null,
         'inner_ip_list' => null,
-        'inspect_port' => 'int32',
+        'inspect_port' => 'int64',
         'outer_ip_list' => null,
         'pid' => null,
         'platform' => null,
@@ -70,7 +70,7 @@ class DataForListRaspProcessesOutput implements ModelInterface, ArrayAccess
         'reason' => null,
         'related_config_id' => null,
         'runtime' => null,
-        'start_time_unix' => 'int32',
+        'start_time_unix' => 'int64',
         'status' => null
     ];
 

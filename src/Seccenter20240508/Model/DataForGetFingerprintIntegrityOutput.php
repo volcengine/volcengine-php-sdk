@@ -57,12 +57,12 @@ class DataForGetFingerprintIntegrityOutput implements ModelInterface, ArrayAcces
         'exe' => null,
         'hostname' => null,
         'id' => null,
-        'modify_time' => 'int32',
+        'modify_time' => 'int64',
         'name' => null,
         'origin_digest' => null,
         'primary_ip_address' => null,
-        'start_time' => 'int32',
-        'update_time' => 'int32',
+        'start_time' => 'int64',
+        'update_time' => 'int64',
         'version' => null
     ];
 

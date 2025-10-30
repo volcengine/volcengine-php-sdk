@@ -43,8 +43,8 @@ class AuthInfoForGetMultiLevelInstitutionDetailOutput implements ModelInterface,
     protected static $swaggerFormats = [
         'app_sec_open' => null,
         'cluster_sec_open' => null,
-        'expire_time' => 'int32',
-        'last_active_time' => 'int32',
+        'expire_time' => 'int64',
+        'last_active_time' => 'int64',
         'protect_host' => null
     ];
 

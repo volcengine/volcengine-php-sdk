@@ -38,8 +38,8 @@ class GetRaspConfigStatisticsResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'process_white_list_count' => 'int32',
-        'rasp_close_count' => 'int32'
+        'process_white_list_count' => 'int64',
+        'rasp_close_count' => 'int64'
     ];
 
     /**

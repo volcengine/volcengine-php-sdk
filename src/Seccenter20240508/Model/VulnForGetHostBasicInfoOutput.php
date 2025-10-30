@@ -41,11 +41,11 @@ class VulnForGetHostBasicInfoOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'critical' => 'int32',
-        'high' => 'int32',
-        'low' => 'int32',
-        'medium' => 'int32',
-        'unknown' => 'int32'
+        'critical' => 'int64',
+        'high' => 'int64',
+        'low' => 'int64',
+        'medium' => 'int64',
+        'unknown' => 'int64'
     ];
 
     /**

@@ -41,7 +41,7 @@ class ProcListForListEndpointHandleMethodsOutput implements ModelInterface, Arra
     protected static $swaggerFormats = [
         'cmdline' => null,
         'exe' => null,
-        'pid' => 'int32'
+        'pid' => 'int64'
     ];
 
     /**

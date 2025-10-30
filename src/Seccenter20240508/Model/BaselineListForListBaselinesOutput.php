@@ -45,14 +45,14 @@ class BaselineListForListBaselinesOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'affected_host' => 'int32',
-        'baseline_id' => 'int32',
+        'affected_host' => 'int64',
+        'baseline_id' => 'int64',
         'baseline_name' => null,
         'baseline_name_en' => null,
-        'check_list_num' => 'int32',
-        'detect_progress' => 'int32',
+        'check_list_num' => 'int64',
+        'detect_progress' => 'int64',
         'detect_status' => null,
-        'last_detected_time' => 'int32',
+        'last_detected_time' => 'int64',
         'risk_num' => null
     ];
 

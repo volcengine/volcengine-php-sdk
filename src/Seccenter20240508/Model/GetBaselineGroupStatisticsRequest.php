@@ -46,9 +46,9 @@ class GetBaselineGroupStatisticsRequest implements ModelInterface, ArrayAccess
         'agent_id' => null,
         'asset_id' => null,
         'asset_type' => null,
-        'baseline_id' => 'int32',
+        'baseline_id' => 'int64',
         'cluster_id' => null,
-        'group_id' => 'int32',
+        'group_id' => 'int64',
         'top_group_id' => null
     ];
 

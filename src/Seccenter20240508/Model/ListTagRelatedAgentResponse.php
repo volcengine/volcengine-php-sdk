@@ -39,7 +39,7 @@ class ListTagRelatedAgentResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'agent_id_list' => null,
-        'host_num' => 'int32'
+        'host_num' => 'int64'
     ];
 
     /**

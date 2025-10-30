@@ -55,21 +55,21 @@ class GetVirusTaskInfoResponse implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'action' => null,
         'config' => null,
-        'create_time' => 'int32',
-        'distributed_count' => 'int32',
+        'create_time' => 'int64',
+        'distributed_count' => 'int64',
         'id_count' => 'double',
         'id_list' => null,
-        'sub_task_created' => 'int32',
-        'sub_task_failed' => 'int32',
-        'sub_task_running' => 'int32',
-        'sub_task_succeed' => 'int32',
+        'sub_task_created' => 'int64',
+        'sub_task_failed' => 'int64',
+        'sub_task_running' => 'int64',
+        'sub_task_succeed' => 'int64',
         'tag' => null,
         'task_id' => null,
         'task_name' => null,
         'task_status' => null,
         'task_type' => null,
         'task_user' => null,
-        'update_time' => 'int32'
+        'update_time' => 'int64'
     ];
 
     /**

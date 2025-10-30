@@ -58,18 +58,18 @@ class GetRaspProcessDetailResponse implements ModelInterface, ArrayAccess
         'environ_list' => null,
         'exe_name' => null,
         'exe_path' => null,
-        'inspect_port' => 'int32',
+        'inspect_port' => 'int64',
         'pid' => null,
         'process_state' => null,
-        'protect_time' => 'int32',
+        'protect_time' => 'int64',
         'reason' => null,
         'relate_rasp_config_name' => null,
         'related_config_id' => null,
         'runtime' => null,
         'runtime_version' => null,
-        'start_time_unix' => 'int32',
+        'start_time_unix' => 'int64',
         'status' => null,
-        'update_time' => 'int32'
+        'update_time' => 'int64'
     ];
 
     /**

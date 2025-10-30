@@ -42,7 +42,7 @@ class DataForListAgentProxyServersOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'client_number' => 'int32',
+        'client_number' => 'int64',
         'hostname' => null,
         'private_ip' => null,
         'public_ip' => null,

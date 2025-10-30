@@ -80,11 +80,11 @@ class DataForGetFingerprintPortOutput implements ModelInterface, ArrayAccess
         'primary_ip_address' => null,
         'sip' => null,
         'sport' => null,
-        'start_time' => 'int32',
+        'start_time' => 'int64',
         'state' => null,
-        'type' => 'int32',
+        'type' => 'int64',
         'uid' => null,
-        'update_time' => 'int32',
+        'update_time' => 'int64',
         'username' => null
     ];
 

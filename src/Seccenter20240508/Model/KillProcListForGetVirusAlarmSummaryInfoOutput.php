@@ -39,7 +39,7 @@ class KillProcListForGetVirusAlarmSummaryInfoOutput implements ModelInterface, A
       */
     protected static $swaggerFormats = [
         'cmdline' => null,
-        'pid' => 'int32'
+        'pid' => 'int64'
     ];
 
     /**

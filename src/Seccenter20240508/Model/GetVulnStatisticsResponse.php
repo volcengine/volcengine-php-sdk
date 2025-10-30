@@ -50,19 +50,19 @@ class GetVulnStatisticsResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'auto_update_time' => 'int32',
-        'danger' => 'int32',
-        'high' => 'int32',
+        'auto_update_time' => 'int64',
+        'danger' => 'int64',
+        'high' => 'int64',
         'if_auto_update' => null,
         'if_large_agent' => null,
-        'ignore' => 'int32',
-        'increase' => 'int32',
-        'low' => 'int32',
-        'mid' => 'int32',
-        'processed' => 'int32',
-        'unknown' => 'int32',
-        'unprocessed' => 'int32',
-        'vuln_lib_version' => 'int32',
+        'ignore' => 'int64',
+        'increase' => 'int64',
+        'low' => 'int64',
+        'mid' => 'int64',
+        'processed' => 'int64',
+        'unknown' => 'int64',
+        'unprocessed' => 'int64',
+        'vuln_lib_version' => 'int64',
         'vuln_type' => null
     ];
 

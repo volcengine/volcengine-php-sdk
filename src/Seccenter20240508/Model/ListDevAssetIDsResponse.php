@@ -39,7 +39,7 @@ class ListDevAssetIDsResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'asset_ids' => null,
-        'total' => 'int32'
+        'total' => 'int64'
     ];
 
     /**

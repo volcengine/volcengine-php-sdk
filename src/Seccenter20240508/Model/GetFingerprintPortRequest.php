@@ -64,15 +64,15 @@ class GetFingerprintPortRequest implements ModelInterface, ArrayAccess
         'hostname' => null,
         'ip' => null,
         'leaf_group_ids' => null,
-        'page_number' => 'int32',
-        'page_size' => 'int32',
+        'page_number' => 'int64',
+        'page_size' => 'int64',
         'sip' => null,
         'sort_by' => null,
         'sort_order' => null,
         'sport' => null,
         'tags' => null,
         'top_group_id' => null,
-        'type' => 'int32',
+        'type' => 'int64',
         'username' => null
     ];
 

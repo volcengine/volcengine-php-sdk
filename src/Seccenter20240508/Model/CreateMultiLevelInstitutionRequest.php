@@ -47,10 +47,10 @@ class CreateMultiLevelInstitutionRequest implements ModelInterface, ArrayAccess
         'account_id' => null,
         'app_sec' => null,
         'cluster_sec' => null,
-        'expire_time' => 'int32',
+        'expire_time' => 'int64',
         'institution_id' => null,
         'institution_name' => null,
-        'licenses' => 'int32',
+        'licenses' => 'int64',
         'remark' => null
     ];
 

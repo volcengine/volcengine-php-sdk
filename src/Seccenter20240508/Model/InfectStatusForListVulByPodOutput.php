@@ -39,9 +39,9 @@ class InfectStatusForListVulByPodOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'ignore' => 'int32',
-        'processed' => 'int32',
-        'un_processed' => 'int32'
+        'ignore' => 'int64',
+        'processed' => 'int64',
+        'un_processed' => 'int64'
     ];
 
     /**

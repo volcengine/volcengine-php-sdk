@@ -41,7 +41,7 @@ class InjectConfigListForListRaspConfigsOutput implements ModelInterface, ArrayA
     protected static $swaggerFormats = [
         'match_content' => null,
         'match_key' => null,
-        'match_type' => 'int32'
+        'match_type' => 'int64'
     ];
 
     /**

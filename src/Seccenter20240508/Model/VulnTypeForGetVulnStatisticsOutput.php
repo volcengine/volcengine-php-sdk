@@ -42,12 +42,12 @@ class VulnTypeForGetVulnStatisticsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'app' => 'int32',
-        'dev_linux' => 'int32',
-        'dev_py' => 'int32',
-        'linux' => 'int32',
-        'webcms' => 'int32',
-        'windows' => 'int32'
+        'app' => 'int64',
+        'dev_linux' => 'int64',
+        'dev_py' => 'int64',
+        'linux' => 'int64',
+        'webcms' => 'int64',
+        'windows' => 'int64'
     ];
 
     /**

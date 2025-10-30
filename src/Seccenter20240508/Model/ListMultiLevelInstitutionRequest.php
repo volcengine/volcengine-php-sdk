@@ -46,8 +46,8 @@ class ListMultiLevelInstitutionRequest implements ModelInterface, ArrayAccess
         'account_id' => null,
         'institution_name' => null,
         'institution_status' => null,
-        'page_number' => 'int32',
-        'page_size' => 'int32',
+        'page_number' => 'int64',
+        'page_size' => 'int64',
         'sort_by' => null,
         'sort_order' => null
     ];

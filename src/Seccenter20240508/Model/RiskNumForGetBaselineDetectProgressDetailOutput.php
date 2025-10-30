@@ -41,11 +41,11 @@ class RiskNumForGetBaselineDetectProgressDetailOutput implements ModelInterface,
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'failed_num' => 'int32',
-        'high_num' => 'int32',
-        'low_num' => 'int32',
-        'medium_num' => 'int32',
-        'pass_num' => 'int32'
+        'failed_num' => 'int64',
+        'high_num' => 'int64',
+        'low_num' => 'int64',
+        'medium_num' => 'int64',
+        'pass_num' => 'int64'
     ];
 
     /**

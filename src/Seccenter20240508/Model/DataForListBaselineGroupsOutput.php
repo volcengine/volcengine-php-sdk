@@ -39,7 +39,7 @@ class DataForListBaselineGroupsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'group_id' => 'int32',
+        'group_id' => 'int64',
         'group_name' => null,
         'group_name_en' => null
     ];

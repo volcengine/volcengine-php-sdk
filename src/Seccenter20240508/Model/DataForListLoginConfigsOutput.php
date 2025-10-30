@@ -62,7 +62,7 @@ class DataForListLoginConfigsOutput implements ModelInterface, ArrayAccess
         'single_hostname' => null,
         'time_intervals' => null,
         'top_group_id' => null,
-        'update_time' => 'int32',
+        'update_time' => 'int64',
         'update_user' => null
     ];
 

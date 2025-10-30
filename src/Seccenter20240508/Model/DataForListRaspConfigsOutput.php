@@ -62,13 +62,13 @@ class DataForListRaspConfigsOutput implements ModelInterface, ArrayAccess
         'local_project_inject' => null,
         'name' => null,
         'protect_method' => null,
-        'protected_agent_count' => 'int32',
-        'protected_process_count' => 'int32',
+        'protected_agent_count' => 'int64',
+        'protected_process_count' => 'int64',
         'range' => null,
         'runtime' => null,
         'switch' => null,
-        'to_be_protected_agent_count' => 'int32',
-        'to_be_protected_process_count' => 'int32',
+        'to_be_protected_agent_count' => 'int64',
+        'to_be_protected_process_count' => 'int64',
         'top_group_id' => null
     ];
 

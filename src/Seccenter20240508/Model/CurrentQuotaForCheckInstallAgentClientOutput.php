@@ -38,8 +38,8 @@ class CurrentQuotaForCheckInstallAgentClientOutput implements ModelInterface, Ar
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'core' => 'int32',
-        'hosts_count' => 'int32'
+        'core' => 'int64',
+        'hosts_count' => 'int64'
     ];
 
     /**

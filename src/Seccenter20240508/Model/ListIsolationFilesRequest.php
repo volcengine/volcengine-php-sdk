@@ -60,13 +60,13 @@ class ListIsolationFilesRequest implements ModelInterface, ArrayAccess
         'hostname' => null,
         'ip' => null,
         'leaf_group_ids' => null,
-        'page_number' => 'int32',
-        'page_size' => 'int32',
+        'page_number' => 'int64',
+        'page_size' => 'int64',
         'sort_by' => null,
         'sort_order' => null,
-        'status' => 'int32',
-        'time_end' => 'int32',
-        'time_start' => 'int32',
+        'status' => 'int64',
+        'time_end' => 'int64',
+        'time_start' => 'int64',
         'top_group_id' => null
     ];
 

@@ -52,7 +52,7 @@ class ContainerInfoForGetHidsAlarmSummaryInfoOutput implements ModelInterface, A
       */
     protected static $swaggerFormats = [
         'container_create_time' => null,
-        'container_create_timestamp' => 'int32',
+        'container_create_timestamp' => 'int64',
         'container_host_name' => null,
         'container_id' => null,
         'container_ip' => null,

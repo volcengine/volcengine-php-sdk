@@ -43,7 +43,7 @@ class VolumeForGetDevDetailOutput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'id' => null,
-        'size' => 'int32',
+        'size' => 'int64',
         'state' => null,
         'state_hint' => null,
         'type' => null,

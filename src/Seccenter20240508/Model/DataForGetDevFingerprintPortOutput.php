@@ -65,10 +65,10 @@ class DataForGetDevFingerprintPortOutput implements ModelInterface, ArrayAccess
         'public_ip' => null,
         'sip' => null,
         'sport' => null,
-        'start_time' => 'int32',
+        'start_time' => 'int64',
         'status' => null,
         'uid' => null,
-        'update_time' => 'int32',
+        'update_time' => 'int64',
         'username' => null
     ];
 

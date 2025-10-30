@@ -40,10 +40,10 @@ class CheckInstallRaspResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'chosen_count' => 'int32',
+        'chosen_count' => 'int64',
         'hit_limit' => null,
-        'left_authorization_count' => 'int32',
-        'open_count' => 'int32'
+        'left_authorization_count' => 'int64',
+        'open_count' => 'int64'
     ];
 
     /**

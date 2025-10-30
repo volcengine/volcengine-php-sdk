@@ -38,7 +38,7 @@ class DataForGetFingerprintAppGroupOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'count' => 'int32',
+        'count' => 'int64',
         'name' => null
     ];
 
