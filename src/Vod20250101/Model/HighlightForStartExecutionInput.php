@@ -28,6 +28,7 @@ class HighlightForStartExecutionInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'edit' => '\Volcengine\Vod20250101\Model\EditForStartExecutionInput',
         'highlight_cuts' => '\Volcengine\Vod20250101\Model\HighlightCutsForStartExecutionInput',
         'mode' => 'string',
         'opening_hook' => '\Volcengine\Vod20250101\Model\OpeningHookForStartExecutionInput',
@@ -40,6 +41,7 @@ class HighlightForStartExecutionInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'edit' => null,
         'highlight_cuts' => null,
         'mode' => null,
         'opening_hook' => null,
@@ -73,6 +75,7 @@ class HighlightForStartExecutionInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'edit' => 'Edit',
         'highlight_cuts' => 'HighlightCuts',
         'mode' => 'Mode',
         'opening_hook' => 'OpeningHook',
@@ -85,6 +88,7 @@ class HighlightForStartExecutionInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'edit' => 'setEdit',
         'highlight_cuts' => 'setHighlightCuts',
         'mode' => 'setMode',
         'opening_hook' => 'setOpeningHook',
@@ -97,6 +101,7 @@ class HighlightForStartExecutionInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'edit' => 'getEdit',
         'highlight_cuts' => 'getHighlightCuts',
         'mode' => 'getMode',
         'opening_hook' => 'getOpeningHook',
@@ -163,6 +168,7 @@ class HighlightForStartExecutionInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['edit'] = isset($data['edit']) ? $data['edit'] : null;
         $this->container['highlight_cuts'] = isset($data['highlight_cuts']) ? $data['highlight_cuts'] : null;
         $this->container['mode'] = isset($data['mode']) ? $data['mode'] : null;
         $this->container['opening_hook'] = isset($data['opening_hook']) ? $data['opening_hook'] : null;
@@ -192,6 +198,30 @@ class HighlightForStartExecutionInput implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets edit
+     *
+     * @return \Volcengine\Vod20250101\Model\EditForStartExecutionInput
+     */
+    public function getEdit()
+    {
+        return $this->container['edit'];
+    }
+
+    /**
+     * Sets edit
+     *
+     * @param \Volcengine\Vod20250101\Model\EditForStartExecutionInput $edit edit
+     *
+     * @return $this
+     */
+    public function setEdit($edit)
+    {
+        $this->container['edit'] = $edit;
+
+        return $this;
+    }
 
     /**
      * Gets highlight_cuts

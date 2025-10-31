@@ -29,9 +29,7 @@ class ConvertOutputForGetExecutionOutput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'task' => '\Volcengine\Vod20250101\Model\ConvertTaskForGetExecutionOutput',
-        'template' => '\Volcengine\Vod20250101\Model\ConvertTemplateForGetExecutionOutput',
-        'type' => 'string',
-        'workflow' => '\Volcengine\Vod20250101\Model\ConvertWorkflowForGetExecutionOutput'
+        'type' => 'string'
     ];
 
     /**
@@ -41,9 +39,7 @@ class ConvertOutputForGetExecutionOutput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'task' => null,
-        'template' => null,
-        'type' => null,
-        'workflow' => null
+        'type' => null
     ];
 
     /**
@@ -74,9 +70,7 @@ class ConvertOutputForGetExecutionOutput implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'task' => 'Task',
-        'template' => 'Template',
-        'type' => 'Type',
-        'workflow' => 'Workflow'
+        'type' => 'Type'
     ];
 
     /**
@@ -86,9 +80,7 @@ class ConvertOutputForGetExecutionOutput implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'task' => 'setTask',
-        'template' => 'setTemplate',
-        'type' => 'setType',
-        'workflow' => 'setWorkflow'
+        'type' => 'setType'
     ];
 
     /**
@@ -98,9 +90,7 @@ class ConvertOutputForGetExecutionOutput implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'task' => 'getTask',
-        'template' => 'getTemplate',
-        'type' => 'getType',
-        'workflow' => 'getWorkflow'
+        'type' => 'getType'
     ];
 
     /**
@@ -164,9 +154,7 @@ class ConvertOutputForGetExecutionOutput implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['task'] = isset($data['task']) ? $data['task'] : null;
-        $this->container['template'] = isset($data['template']) ? $data['template'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['workflow'] = isset($data['workflow']) ? $data['workflow'] : null;
     }
 
     /**
@@ -218,30 +206,6 @@ class ConvertOutputForGetExecutionOutput implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets template
-     *
-     * @return \Volcengine\Vod20250101\Model\ConvertTemplateForGetExecutionOutput
-     */
-    public function getTemplate()
-    {
-        return $this->container['template'];
-    }
-
-    /**
-     * Sets template
-     *
-     * @param \Volcengine\Vod20250101\Model\ConvertTemplateForGetExecutionOutput $template template
-     *
-     * @return $this
-     */
-    public function setTemplate($template)
-    {
-        $this->container['template'] = $template;
-
-        return $this;
-    }
-
-    /**
      * Gets type
      *
      * @return string
@@ -261,30 +225,6 @@ class ConvertOutputForGetExecutionOutput implements ModelInterface, ArrayAccess
     public function setType($type)
     {
         $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets workflow
-     *
-     * @return \Volcengine\Vod20250101\Model\ConvertWorkflowForGetExecutionOutput
-     */
-    public function getWorkflow()
-    {
-        return $this->container['workflow'];
-    }
-
-    /**
-     * Sets workflow
-     *
-     * @param \Volcengine\Vod20250101\Model\ConvertWorkflowForGetExecutionOutput $workflow workflow
-     *
-     * @return $this
-     */
-    public function setWorkflow($workflow)
-    {
-        $this->container['workflow'] = $workflow;
 
         return $this;
     }

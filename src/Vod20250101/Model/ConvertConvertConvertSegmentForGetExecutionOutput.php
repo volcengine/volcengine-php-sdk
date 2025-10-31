@@ -28,10 +28,14 @@ class ConvertConvertConvertSegmentForGetExecutionOutput implements ModelInterfac
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'description' => 'string',
         'end' => 'double',
-        'file' => '\Volcengine\Vod20250101\Model\FileForGetExecutionOutput',
-        'frames' => 'int[]',
-        'start' => 'double'
+        'location' => 'string',
+        'ocr' => 'string',
+        'score' => 'double',
+        'shot' => 'string',
+        'start' => 'double',
+        'video_index' => 'int'
     ];
 
     /**
@@ -40,10 +44,14 @@ class ConvertConvertConvertSegmentForGetExecutionOutput implements ModelInterfac
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'description' => null,
         'end' => 'double',
-        'file' => null,
-        'frames' => 'int32',
-        'start' => 'double'
+        'location' => null,
+        'ocr' => null,
+        'score' => 'double',
+        'shot' => null,
+        'start' => 'double',
+        'video_index' => 'int32'
     ];
 
     /**
@@ -73,10 +81,14 @@ class ConvertConvertConvertSegmentForGetExecutionOutput implements ModelInterfac
      * @var string[]
      */
     protected static $attributeMap = [
+        'description' => 'Description',
         'end' => 'End',
-        'file' => 'File',
-        'frames' => 'Frames',
-        'start' => 'Start'
+        'location' => 'Location',
+        'ocr' => 'Ocr',
+        'score' => 'Score',
+        'shot' => 'Shot',
+        'start' => 'Start',
+        'video_index' => 'VideoIndex'
     ];
 
     /**
@@ -85,10 +97,14 @@ class ConvertConvertConvertSegmentForGetExecutionOutput implements ModelInterfac
      * @var string[]
      */
     protected static $setters = [
+        'description' => 'setDescription',
         'end' => 'setEnd',
-        'file' => 'setFile',
-        'frames' => 'setFrames',
-        'start' => 'setStart'
+        'location' => 'setLocation',
+        'ocr' => 'setOcr',
+        'score' => 'setScore',
+        'shot' => 'setShot',
+        'start' => 'setStart',
+        'video_index' => 'setVideoIndex'
     ];
 
     /**
@@ -97,10 +113,14 @@ class ConvertConvertConvertSegmentForGetExecutionOutput implements ModelInterfac
      * @var string[]
      */
     protected static $getters = [
+        'description' => 'getDescription',
         'end' => 'getEnd',
-        'file' => 'getFile',
-        'frames' => 'getFrames',
-        'start' => 'getStart'
+        'location' => 'getLocation',
+        'ocr' => 'getOcr',
+        'score' => 'getScore',
+        'shot' => 'getShot',
+        'start' => 'getStart',
+        'video_index' => 'getVideoIndex'
     ];
 
     /**
@@ -163,10 +183,14 @@ class ConvertConvertConvertSegmentForGetExecutionOutput implements ModelInterfac
      */
     public function __construct(array $data = null)
     {
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['end'] = isset($data['end']) ? $data['end'] : null;
-        $this->container['file'] = isset($data['file']) ? $data['file'] : null;
-        $this->container['frames'] = isset($data['frames']) ? $data['frames'] : null;
+        $this->container['location'] = isset($data['location']) ? $data['location'] : null;
+        $this->container['ocr'] = isset($data['ocr']) ? $data['ocr'] : null;
+        $this->container['score'] = isset($data['score']) ? $data['score'] : null;
+        $this->container['shot'] = isset($data['shot']) ? $data['shot'] : null;
         $this->container['start'] = isset($data['start']) ? $data['start'] : null;
+        $this->container['video_index'] = isset($data['video_index']) ? $data['video_index'] : null;
     }
 
     /**
@@ -194,6 +218,30 @@ class ConvertConvertConvertSegmentForGetExecutionOutput implements ModelInterfac
 
 
     /**
+     * Gets description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string $description description
+     *
+     * @return $this
+     */
+    public function setDescription($description)
+    {
+        $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
      * Gets end
      *
      * @return double
@@ -218,49 +266,97 @@ class ConvertConvertConvertSegmentForGetExecutionOutput implements ModelInterfac
     }
 
     /**
-     * Gets file
+     * Gets location
      *
-     * @return \Volcengine\Vod20250101\Model\FileForGetExecutionOutput
+     * @return string
      */
-    public function getFile()
+    public function getLocation()
     {
-        return $this->container['file'];
+        return $this->container['location'];
     }
 
     /**
-     * Sets file
+     * Sets location
      *
-     * @param \Volcengine\Vod20250101\Model\FileForGetExecutionOutput $file file
+     * @param string $location location
      *
      * @return $this
      */
-    public function setFile($file)
+    public function setLocation($location)
     {
-        $this->container['file'] = $file;
+        $this->container['location'] = $location;
 
         return $this;
     }
 
     /**
-     * Gets frames
+     * Gets ocr
      *
-     * @return int[]
+     * @return string
      */
-    public function getFrames()
+    public function getOcr()
     {
-        return $this->container['frames'];
+        return $this->container['ocr'];
     }
 
     /**
-     * Sets frames
+     * Sets ocr
      *
-     * @param int[] $frames frames
+     * @param string $ocr ocr
      *
      * @return $this
      */
-    public function setFrames($frames)
+    public function setOcr($ocr)
     {
-        $this->container['frames'] = $frames;
+        $this->container['ocr'] = $ocr;
+
+        return $this;
+    }
+
+    /**
+     * Gets score
+     *
+     * @return double
+     */
+    public function getScore()
+    {
+        return $this->container['score'];
+    }
+
+    /**
+     * Sets score
+     *
+     * @param double $score score
+     *
+     * @return $this
+     */
+    public function setScore($score)
+    {
+        $this->container['score'] = $score;
+
+        return $this;
+    }
+
+    /**
+     * Gets shot
+     *
+     * @return string
+     */
+    public function getShot()
+    {
+        return $this->container['shot'];
+    }
+
+    /**
+     * Sets shot
+     *
+     * @param string $shot shot
+     *
+     * @return $this
+     */
+    public function setShot($shot)
+    {
+        $this->container['shot'] = $shot;
 
         return $this;
     }
@@ -285,6 +381,30 @@ class ConvertConvertConvertSegmentForGetExecutionOutput implements ModelInterfac
     public function setStart($start)
     {
         $this->container['start'] = $start;
+
+        return $this;
+    }
+
+    /**
+     * Gets video_index
+     *
+     * @return int
+     */
+    public function getVideoIndex()
+    {
+        return $this->container['video_index'];
+    }
+
+    /**
+     * Sets video_index
+     *
+     * @param int $video_index video_index
+     *
+     * @return $this
+     */
+    public function setVideoIndex($video_index)
+    {
+        $this->container['video_index'] = $video_index;
 
         return $this;
     }

@@ -29,8 +29,10 @@ class EraseForStartExecutionInput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'auto' => '\Volcengine\Vod20250101\Model\AutoForStartExecutionInput',
+        'erase_option' => '\Volcengine\Vod20250101\Model\EraseOptionForStartExecutionInput',
         'manual' => '\Volcengine\Vod20250101\Model\ManualForStartExecutionInput',
         'mode' => 'string',
+        'new_vid' => 'bool',
         'with_erase_info' => 'bool'
     ];
 
@@ -41,8 +43,10 @@ class EraseForStartExecutionInput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'auto' => null,
+        'erase_option' => null,
         'manual' => null,
         'mode' => null,
+        'new_vid' => null,
         'with_erase_info' => null
     ];
 
@@ -74,8 +78,10 @@ class EraseForStartExecutionInput implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'auto' => 'Auto',
+        'erase_option' => 'EraseOption',
         'manual' => 'Manual',
         'mode' => 'Mode',
+        'new_vid' => 'NewVid',
         'with_erase_info' => 'WithEraseInfo'
     ];
 
@@ -86,8 +92,10 @@ class EraseForStartExecutionInput implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'auto' => 'setAuto',
+        'erase_option' => 'setEraseOption',
         'manual' => 'setManual',
         'mode' => 'setMode',
+        'new_vid' => 'setNewVid',
         'with_erase_info' => 'setWithEraseInfo'
     ];
 
@@ -98,8 +106,10 @@ class EraseForStartExecutionInput implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'auto' => 'getAuto',
+        'erase_option' => 'getEraseOption',
         'manual' => 'getManual',
         'mode' => 'getMode',
+        'new_vid' => 'getNewVid',
         'with_erase_info' => 'getWithEraseInfo'
     ];
 
@@ -164,8 +174,10 @@ class EraseForStartExecutionInput implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['auto'] = isset($data['auto']) ? $data['auto'] : null;
+        $this->container['erase_option'] = isset($data['erase_option']) ? $data['erase_option'] : null;
         $this->container['manual'] = isset($data['manual']) ? $data['manual'] : null;
         $this->container['mode'] = isset($data['mode']) ? $data['mode'] : null;
+        $this->container['new_vid'] = isset($data['new_vid']) ? $data['new_vid'] : null;
         $this->container['with_erase_info'] = isset($data['with_erase_info']) ? $data['with_erase_info'] : null;
     }
 
@@ -218,6 +230,30 @@ class EraseForStartExecutionInput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets erase_option
+     *
+     * @return \Volcengine\Vod20250101\Model\EraseOptionForStartExecutionInput
+     */
+    public function getEraseOption()
+    {
+        return $this->container['erase_option'];
+    }
+
+    /**
+     * Sets erase_option
+     *
+     * @param \Volcengine\Vod20250101\Model\EraseOptionForStartExecutionInput $erase_option erase_option
+     *
+     * @return $this
+     */
+    public function setEraseOption($erase_option)
+    {
+        $this->container['erase_option'] = $erase_option;
+
+        return $this;
+    }
+
+    /**
      * Gets manual
      *
      * @return \Volcengine\Vod20250101\Model\ManualForStartExecutionInput
@@ -261,6 +297,30 @@ class EraseForStartExecutionInput implements ModelInterface, ArrayAccess
     public function setMode($mode)
     {
         $this->container['mode'] = $mode;
+
+        return $this;
+    }
+
+    /**
+     * Gets new_vid
+     *
+     * @return bool
+     */
+    public function getNewVid()
+    {
+        return $this->container['new_vid'];
+    }
+
+    /**
+     * Sets new_vid
+     *
+     * @param bool $new_vid new_vid
+     *
+     * @return $this
+     */
+    public function setNewVid($new_vid)
+    {
+        $this->container['new_vid'] = $new_vid;
 
         return $this;
     }
