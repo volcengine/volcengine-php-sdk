@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ManualRenewReservedStorageCapacityResponse implements ModelInterface, ArrayAccess
+class CalculatePriceV2Response implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ManualRenewReservedStorageCapacityResponse implements ModelInterface, Arra
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ManualRenewReservedStorageCapacityResponse';
+    protected static $swaggerModelName = 'CalculatePriceV2Response';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,10 @@ class ManualRenewReservedStorageCapacityResponse implements ModelInterface, Arra
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'reserved_storage_capacity_id' => 'string'
+        'config_items' => '\Volcengine\Storageebs\Model\ConfigItemForCalculatePriceV2Output[]',
+        'discount_amount' => 'string',
+        'original_amount' => 'string',
+        'payable_amount' => 'string'
     ];
 
     /**
@@ -37,7 +40,10 @@ class ManualRenewReservedStorageCapacityResponse implements ModelInterface, Arra
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'reserved_storage_capacity_id' => null
+        'config_items' => null,
+        'discount_amount' => null,
+        'original_amount' => null,
+        'payable_amount' => null
     ];
 
     /**
@@ -67,7 +73,10 @@ class ManualRenewReservedStorageCapacityResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $attributeMap = [
-        'reserved_storage_capacity_id' => 'ReservedStorageCapacityId'
+        'config_items' => 'ConfigItems',
+        'discount_amount' => 'DiscountAmount',
+        'original_amount' => 'OriginalAmount',
+        'payable_amount' => 'PayableAmount'
     ];
 
     /**
@@ -76,7 +85,10 @@ class ManualRenewReservedStorageCapacityResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $setters = [
-        'reserved_storage_capacity_id' => 'setReservedStorageCapacityId'
+        'config_items' => 'setConfigItems',
+        'discount_amount' => 'setDiscountAmount',
+        'original_amount' => 'setOriginalAmount',
+        'payable_amount' => 'setPayableAmount'
     ];
 
     /**
@@ -85,7 +97,10 @@ class ManualRenewReservedStorageCapacityResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $getters = [
-        'reserved_storage_capacity_id' => 'getReservedStorageCapacityId'
+        'config_items' => 'getConfigItems',
+        'discount_amount' => 'getDiscountAmount',
+        'original_amount' => 'getOriginalAmount',
+        'payable_amount' => 'getPayableAmount'
     ];
 
     /**
@@ -148,7 +163,10 @@ class ManualRenewReservedStorageCapacityResponse implements ModelInterface, Arra
      */
     public function __construct(array $data = null)
     {
-        $this->container['reserved_storage_capacity_id'] = isset($data['reserved_storage_capacity_id']) ? $data['reserved_storage_capacity_id'] : null;
+        $this->container['config_items'] = isset($data['config_items']) ? $data['config_items'] : null;
+        $this->container['discount_amount'] = isset($data['discount_amount']) ? $data['discount_amount'] : null;
+        $this->container['original_amount'] = isset($data['original_amount']) ? $data['original_amount'] : null;
+        $this->container['payable_amount'] = isset($data['payable_amount']) ? $data['payable_amount'] : null;
     }
 
     /**
@@ -176,25 +194,97 @@ class ManualRenewReservedStorageCapacityResponse implements ModelInterface, Arra
 
 
     /**
-     * Gets reserved_storage_capacity_id
+     * Gets config_items
      *
-     * @return string
+     * @return \Volcengine\Storageebs\Model\ConfigItemForCalculatePriceV2Output[]
      */
-    public function getReservedStorageCapacityId()
+    public function getConfigItems()
     {
-        return $this->container['reserved_storage_capacity_id'];
+        return $this->container['config_items'];
     }
 
     /**
-     * Sets reserved_storage_capacity_id
+     * Sets config_items
      *
-     * @param string $reserved_storage_capacity_id reserved_storage_capacity_id
+     * @param \Volcengine\Storageebs\Model\ConfigItemForCalculatePriceV2Output[] $config_items config_items
      *
      * @return $this
      */
-    public function setReservedStorageCapacityId($reserved_storage_capacity_id)
+    public function setConfigItems($config_items)
     {
-        $this->container['reserved_storage_capacity_id'] = $reserved_storage_capacity_id;
+        $this->container['config_items'] = $config_items;
+
+        return $this;
+    }
+
+    /**
+     * Gets discount_amount
+     *
+     * @return string
+     */
+    public function getDiscountAmount()
+    {
+        return $this->container['discount_amount'];
+    }
+
+    /**
+     * Sets discount_amount
+     *
+     * @param string $discount_amount discount_amount
+     *
+     * @return $this
+     */
+    public function setDiscountAmount($discount_amount)
+    {
+        $this->container['discount_amount'] = $discount_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets original_amount
+     *
+     * @return string
+     */
+    public function getOriginalAmount()
+    {
+        return $this->container['original_amount'];
+    }
+
+    /**
+     * Sets original_amount
+     *
+     * @param string $original_amount original_amount
+     *
+     * @return $this
+     */
+    public function setOriginalAmount($original_amount)
+    {
+        $this->container['original_amount'] = $original_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets payable_amount
+     *
+     * @return string
+     */
+    public function getPayableAmount()
+    {
+        return $this->container['payable_amount'];
+    }
+
+    /**
+     * Sets payable_amount
+     *
+     * @param string $payable_amount payable_amount
+     *
+     * @return $this
+     */
+    public function setPayableAmount($payable_amount)
+    {
+        $this->container['payable_amount'] = $payable_amount;
 
         return $this;
     }

@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CheckUserRscPermitRequest implements ModelInterface, ArrayAccess
+class ExtraPerformanceForCalculatePriceV2Input implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CheckUserRscPermitRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CheckUserRscPermitRequest';
+    protected static $swaggerModelName = 'ExtraPerformanceForCalculatePriceV2Input';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,8 @@ class CheckUserRscPermitRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'account_id' => 'string'
+        'extra_performance_type' => 'string',
+        'extra_performance_value' => 'int'
     ];
 
     /**
@@ -37,7 +38,8 @@ class CheckUserRscPermitRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'account_id' => null
+        'extra_performance_type' => null,
+        'extra_performance_value' => 'int32'
     ];
 
     /**
@@ -67,7 +69,8 @@ class CheckUserRscPermitRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'account_id' => 'AccountId'
+        'extra_performance_type' => 'ExtraPerformanceType',
+        'extra_performance_value' => 'ExtraPerformanceValue'
     ];
 
     /**
@@ -76,7 +79,8 @@ class CheckUserRscPermitRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'account_id' => 'setAccountId'
+        'extra_performance_type' => 'setExtraPerformanceType',
+        'extra_performance_value' => 'setExtraPerformanceValue'
     ];
 
     /**
@@ -85,7 +89,8 @@ class CheckUserRscPermitRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'account_id' => 'getAccountId'
+        'extra_performance_type' => 'getExtraPerformanceType',
+        'extra_performance_value' => 'getExtraPerformanceValue'
     ];
 
     /**
@@ -148,7 +153,8 @@ class CheckUserRscPermitRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
+        $this->container['extra_performance_type'] = isset($data['extra_performance_type']) ? $data['extra_performance_type'] : null;
+        $this->container['extra_performance_value'] = isset($data['extra_performance_value']) ? $data['extra_performance_value'] : null;
     }
 
     /**
@@ -176,25 +182,49 @@ class CheckUserRscPermitRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets account_id
+     * Gets extra_performance_type
      *
      * @return string
      */
-    public function getAccountId()
+    public function getExtraPerformanceType()
     {
-        return $this->container['account_id'];
+        return $this->container['extra_performance_type'];
     }
 
     /**
-     * Sets account_id
+     * Sets extra_performance_type
      *
-     * @param string $account_id account_id
+     * @param string $extra_performance_type extra_performance_type
      *
      * @return $this
      */
-    public function setAccountId($account_id)
+    public function setExtraPerformanceType($extra_performance_type)
     {
-        $this->container['account_id'] = $account_id;
+        $this->container['extra_performance_type'] = $extra_performance_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets extra_performance_value
+     *
+     * @return int
+     */
+    public function getExtraPerformanceValue()
+    {
+        return $this->container['extra_performance_value'];
+    }
+
+    /**
+     * Sets extra_performance_value
+     *
+     * @param int $extra_performance_value extra_performance_value
+     *
+     * @return $this
+     */
+    public function setExtraPerformanceValue($extra_performance_value)
+    {
+        $this->container['extra_performance_value'] = $extra_performance_value;
 
         return $this;
     }
