@@ -61,7 +61,7 @@ class LLMShieldApi
             $query,
             Method,
             $path,
-            $headers,
+            $headers
         );
         $request = new Request(Method, $url, $headers, $requestBody);
         return $request;
@@ -85,9 +85,19 @@ class LLMShieldApi
                     $responseContent = $response->getBody()->getContents();
                     $content = json_decode($responseContent);
                     $statusCode = $response->getStatusCode();
-//                    echo $responseContent . "\n";
-//                    echo $statusCode . "\n";
-//                    echo $responseContent . "\n";
+
+                    if ($statusCode < 200 || $statusCode > 299) {
+                        throw new ApiException(
+                            sprintf(
+                                '[%d] Error connecting to the API (%s)',
+                                $statusCode,
+                                $url
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $response->getBody()
+                        );
+                    }
 
                     if (isset($content->{'ResponseMetadata'}->{'Error'})) {
                         throw new ApiException(
@@ -107,18 +117,12 @@ class LLMShieldApi
                         $response->getHeaders()
                     ];
                 },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
+                function ($e) {
                     throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
+                        "[{$e->getCode()}] {$e->getMessage()}",
+                        $e->getCode(),
+                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                        $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
                     );
                 }
             );
@@ -160,6 +164,20 @@ class LLMShieldApi
                             $responseContent = substr($line, 5);
                             $content = json_decode($responseContent);
                             $statusCode = $response->getStatusCode();
+
+                            if ($statusCode < 200 || $statusCode > 299) {
+                                throw new ApiException(
+                                    sprintf(
+                                        '[%d] Error connecting to the API (%s)',
+                                        $statusCode,
+                                        $url
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $response->getBody()
+                                );
+                            }
+
                             if (isset($content->{'ResponseMetadata'}->{'Error'})) {
                                 throw new ApiException(
                                     sprintf(
@@ -181,18 +199,12 @@ class LLMShieldApi
                     }
                     return $response;
                 },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
+                function ($e) {
                     throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
+                        "[{$e->getCode()}] {$e->getMessage()}",
+                        $e->getCode(),
+                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                        $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
                     );
                 }
             );
