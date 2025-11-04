@@ -31,8 +31,7 @@ class PortForUpdateDevInstanceInput implements ModelInterface, ArrayAccess
         'enable_public_network_access' => 'bool',
         'external_port' => 'int',
         'internal_port' => 'int',
-        'name' => 'string',
-        'type' => 'string'
+        'name' => 'string'
     ];
 
     /**
@@ -44,8 +43,7 @@ class PortForUpdateDevInstanceInput implements ModelInterface, ArrayAccess
         'enable_public_network_access' => null,
         'external_port' => 'int32',
         'internal_port' => 'int32',
-        'name' => null,
-        'type' => null
+        'name' => null
     ];
 
     /**
@@ -78,8 +76,7 @@ class PortForUpdateDevInstanceInput implements ModelInterface, ArrayAccess
         'enable_public_network_access' => 'EnablePublicNetworkAccess',
         'external_port' => 'ExternalPort',
         'internal_port' => 'InternalPort',
-        'name' => 'Name',
-        'type' => 'Type'
+        'name' => 'Name'
     ];
 
     /**
@@ -91,8 +88,7 @@ class PortForUpdateDevInstanceInput implements ModelInterface, ArrayAccess
         'enable_public_network_access' => 'setEnablePublicNetworkAccess',
         'external_port' => 'setExternalPort',
         'internal_port' => 'setInternalPort',
-        'name' => 'setName',
-        'type' => 'setType'
+        'name' => 'setName'
     ];
 
     /**
@@ -104,8 +100,7 @@ class PortForUpdateDevInstanceInput implements ModelInterface, ArrayAccess
         'enable_public_network_access' => 'getEnablePublicNetworkAccess',
         'external_port' => 'getExternalPort',
         'internal_port' => 'getInternalPort',
-        'name' => 'getName',
-        'type' => 'getType'
+        'name' => 'getName'
     ];
 
     /**
@@ -149,23 +144,8 @@ class PortForUpdateDevInstanceInput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const TYPE_SYSTEM = 'system';
-    const TYPE_CUSTOM = 'custom';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTypeAllowableValues()
-    {
-        return [
-            self::TYPE_SYSTEM,
-            self::TYPE_CUSTOM,
-        ];
-    }
     
 
     /**
@@ -187,7 +167,6 @@ class PortForUpdateDevInstanceInput implements ModelInterface, ArrayAccess
         $this->container['external_port'] = isset($data['external_port']) ? $data['external_port'] : null;
         $this->container['internal_port'] = isset($data['internal_port']) ? $data['internal_port'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
     /**
@@ -198,14 +177,6 @@ class PortForUpdateDevInstanceInput implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -314,39 +285,6 @@ class PortForUpdateDevInstanceInput implements ModelInterface, ArrayAccess
     public function setName($name)
     {
         $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     *
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param string $type type
-     *
-     * @return $this
-     */
-    public function setType($type)
-    {
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['type'] = $type;
 
         return $this;
     }

@@ -28,7 +28,7 @@ class CredentialForCreateDevInstanceInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'access_key' => 'string',
+        'access_key_id' => 'string',
         'secret_access_key' => 'string'
     ];
 
@@ -38,7 +38,7 @@ class CredentialForCreateDevInstanceInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'access_key' => null,
+        'access_key_id' => null,
         'secret_access_key' => null
     ];
 
@@ -69,7 +69,7 @@ class CredentialForCreateDevInstanceInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'access_key' => 'AccessKey',
+        'access_key_id' => 'AccessKeyId',
         'secret_access_key' => 'SecretAccessKey'
     ];
 
@@ -79,7 +79,7 @@ class CredentialForCreateDevInstanceInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'access_key' => 'setAccessKey',
+        'access_key_id' => 'setAccessKeyId',
         'secret_access_key' => 'setSecretAccessKey'
     ];
 
@@ -89,7 +89,7 @@ class CredentialForCreateDevInstanceInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'access_key' => 'getAccessKey',
+        'access_key_id' => 'getAccessKeyId',
         'secret_access_key' => 'getSecretAccessKey'
     ];
 
@@ -153,7 +153,7 @@ class CredentialForCreateDevInstanceInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['access_key'] = isset($data['access_key']) ? $data['access_key'] : null;
+        $this->container['access_key_id'] = isset($data['access_key_id']) ? $data['access_key_id'] : null;
         $this->container['secret_access_key'] = isset($data['secret_access_key']) ? $data['secret_access_key'] : null;
     }
 
@@ -182,25 +182,25 @@ class CredentialForCreateDevInstanceInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets access_key
+     * Gets access_key_id
      *
      * @return string
      */
-    public function getAccessKey()
+    public function getAccessKeyId()
     {
-        return $this->container['access_key'];
+        return $this->container['access_key_id'];
     }
 
     /**
-     * Sets access_key
+     * Sets access_key_id
      *
-     * @param string $access_key access_key
+     * @param string $access_key_id access_key_id
      *
      * @return $this
      */
-    public function setAccessKey($access_key)
+    public function setAccessKeyId($access_key_id)
     {
-        $this->container['access_key'] = $access_key;
+        $this->container['access_key_id'] = $access_key_id;
 
         return $this;
     }
