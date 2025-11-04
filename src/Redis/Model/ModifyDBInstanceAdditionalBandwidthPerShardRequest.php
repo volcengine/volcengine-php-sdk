@@ -29,6 +29,8 @@ class ModifyDBInstanceAdditionalBandwidthPerShardRequest implements ModelInterfa
       */
     protected static $swaggerTypes = [
         'additional_bandwidth' => 'int',
+        'additional_read_bandwidth' => 'int',
+        'additional_write_bandwidth' => 'int',
         'client_token' => 'string',
         'instance_id' => 'string'
     ];
@@ -40,6 +42,8 @@ class ModifyDBInstanceAdditionalBandwidthPerShardRequest implements ModelInterfa
       */
     protected static $swaggerFormats = [
         'additional_bandwidth' => 'int32',
+        'additional_read_bandwidth' => 'int32',
+        'additional_write_bandwidth' => 'int32',
         'client_token' => null,
         'instance_id' => null
     ];
@@ -72,6 +76,8 @@ class ModifyDBInstanceAdditionalBandwidthPerShardRequest implements ModelInterfa
      */
     protected static $attributeMap = [
         'additional_bandwidth' => 'AdditionalBandwidth',
+        'additional_read_bandwidth' => 'AdditionalReadBandwidth',
+        'additional_write_bandwidth' => 'AdditionalWriteBandwidth',
         'client_token' => 'ClientToken',
         'instance_id' => 'InstanceId'
     ];
@@ -83,6 +89,8 @@ class ModifyDBInstanceAdditionalBandwidthPerShardRequest implements ModelInterfa
      */
     protected static $setters = [
         'additional_bandwidth' => 'setAdditionalBandwidth',
+        'additional_read_bandwidth' => 'setAdditionalReadBandwidth',
+        'additional_write_bandwidth' => 'setAdditionalWriteBandwidth',
         'client_token' => 'setClientToken',
         'instance_id' => 'setInstanceId'
     ];
@@ -94,6 +102,8 @@ class ModifyDBInstanceAdditionalBandwidthPerShardRequest implements ModelInterfa
      */
     protected static $getters = [
         'additional_bandwidth' => 'getAdditionalBandwidth',
+        'additional_read_bandwidth' => 'getAdditionalReadBandwidth',
+        'additional_write_bandwidth' => 'getAdditionalWriteBandwidth',
         'client_token' => 'getClientToken',
         'instance_id' => 'getInstanceId'
     ];
@@ -159,6 +169,8 @@ class ModifyDBInstanceAdditionalBandwidthPerShardRequest implements ModelInterfa
     public function __construct(array $data = null)
     {
         $this->container['additional_bandwidth'] = isset($data['additional_bandwidth']) ? $data['additional_bandwidth'] : null;
+        $this->container['additional_read_bandwidth'] = isset($data['additional_read_bandwidth']) ? $data['additional_read_bandwidth'] : null;
+        $this->container['additional_write_bandwidth'] = isset($data['additional_write_bandwidth']) ? $data['additional_write_bandwidth'] : null;
         $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
     }
@@ -172,9 +184,6 @@ class ModifyDBInstanceAdditionalBandwidthPerShardRequest implements ModelInterfa
     {
         $invalidProperties = [];
 
-        if ($this->container['additional_bandwidth'] === null) {
-            $invalidProperties[] = "'additional_bandwidth' can't be null";
-        }
         if ($this->container['instance_id'] === null) {
             $invalidProperties[] = "'instance_id' can't be null";
         }
@@ -213,6 +222,54 @@ class ModifyDBInstanceAdditionalBandwidthPerShardRequest implements ModelInterfa
     public function setAdditionalBandwidth($additional_bandwidth)
     {
         $this->container['additional_bandwidth'] = $additional_bandwidth;
+
+        return $this;
+    }
+
+    /**
+     * Gets additional_read_bandwidth
+     *
+     * @return int
+     */
+    public function getAdditionalReadBandwidth()
+    {
+        return $this->container['additional_read_bandwidth'];
+    }
+
+    /**
+     * Sets additional_read_bandwidth
+     *
+     * @param int $additional_read_bandwidth additional_read_bandwidth
+     *
+     * @return $this
+     */
+    public function setAdditionalReadBandwidth($additional_read_bandwidth)
+    {
+        $this->container['additional_read_bandwidth'] = $additional_read_bandwidth;
+
+        return $this;
+    }
+
+    /**
+     * Gets additional_write_bandwidth
+     *
+     * @return int
+     */
+    public function getAdditionalWriteBandwidth()
+    {
+        return $this->container['additional_write_bandwidth'];
+    }
+
+    /**
+     * Sets additional_write_bandwidth
+     *
+     * @param int $additional_write_bandwidth additional_write_bandwidth
+     *
+     * @return $this
+     */
+    public function setAdditionalWriteBandwidth($additional_write_bandwidth)
+    {
+        $this->container['additional_write_bandwidth'] = $additional_write_bandwidth;
 
         return $this;
     }
