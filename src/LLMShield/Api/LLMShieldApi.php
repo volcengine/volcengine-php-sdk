@@ -4,8 +4,8 @@ namespace Volcengine\LLMShield\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Request;
-use Volcengine\Common\ApiException;
-use Volcengine\Common\Utils;
+use Volcengine\LLMShield\Common\ApiException;
+use Volcengine\LLMShield\Common\Utils;
 use Volcengine\LLMShield\Model\GenerateStreamV2Request;
 use Volcengine\LLMShield\Model\GenerateStreamV2Response;
 use Volcengine\LLMShield\Model\ModerateV2Request;
