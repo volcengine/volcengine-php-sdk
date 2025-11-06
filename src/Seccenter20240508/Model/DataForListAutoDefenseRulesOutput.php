@@ -49,16 +49,16 @@ class DataForListAutoDefenseRulesOutput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'action' => null,
-        'create_time' => 'int32',
+        'create_time' => 'int64',
         'create_user' => null,
-        'data_type' => 'int32',
+        'data_type' => 'int64',
         'enable' => null,
         'range' => null,
         'rule_desc' => null,
         'rule_id' => null,
         'rule_type' => null,
         'type' => null,
-        'update_time' => 'int32',
+        'update_time' => 'int64',
         'update_user' => null
     ];
 

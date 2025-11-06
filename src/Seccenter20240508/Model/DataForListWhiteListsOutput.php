@@ -50,7 +50,7 @@ class DataForListWhiteListsOutput implements ModelInterface, ArrayAccess
         'name' => null,
         'range' => null,
         'rule_list' => null,
-        'update_time' => 'int32',
+        'update_time' => 'int64',
         'user' => null
     ];
 

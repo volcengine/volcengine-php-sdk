@@ -44,7 +44,7 @@ class UpdateCommonAlarmStatusRequest implements ModelInterface, ArrayAccess
         'alarm_id_list' => null,
         'conditions' => null,
         'custom_tag_list' => null,
-        'handle_method' => 'int32',
+        'handle_method' => 'int64',
         'type' => null
     ];
 

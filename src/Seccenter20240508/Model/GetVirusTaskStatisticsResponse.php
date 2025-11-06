@@ -39,9 +39,9 @@ class GetVirusTaskStatisticsResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'fininshed_task_num' => 'int32',
-        'last_scan_time' => 'int32',
-        'running_task_num' => 'int32'
+        'fininshed_task_num' => 'int64',
+        'last_scan_time' => 'int64',
+        'running_task_num' => 'int64'
     ];
 
     /**

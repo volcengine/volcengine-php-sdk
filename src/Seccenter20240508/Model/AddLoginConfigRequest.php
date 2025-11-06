@@ -35,6 +35,7 @@ class AddLoginConfigRequest implements ModelInterface, ArrayAccess
         'leaf_group_ids' => 'string[]',
         'legal_user' => 'string[]',
         'login_config_rules' => 'string[]',
+        'login_locations' => '\Volcengine\Seccenter20240508\Model\LoginLocationForAddLoginConfigInput[]',
         'time_intervals' => 'string[]',
         'top_group_id' => 'string'
     ];
@@ -52,6 +53,7 @@ class AddLoginConfigRequest implements ModelInterface, ArrayAccess
         'leaf_group_ids' => null,
         'legal_user' => null,
         'login_config_rules' => null,
+        'login_locations' => null,
         'time_intervals' => null,
         'top_group_id' => null
     ];
@@ -90,6 +92,7 @@ class AddLoginConfigRequest implements ModelInterface, ArrayAccess
         'leaf_group_ids' => 'LeafGroupIDs',
         'legal_user' => 'LegalUser',
         'login_config_rules' => 'LoginConfigRules',
+        'login_locations' => 'LoginLocations',
         'time_intervals' => 'TimeIntervals',
         'top_group_id' => 'TopGroupID'
     ];
@@ -107,6 +110,7 @@ class AddLoginConfigRequest implements ModelInterface, ArrayAccess
         'leaf_group_ids' => 'setLeafGroupIds',
         'legal_user' => 'setLegalUser',
         'login_config_rules' => 'setLoginConfigRules',
+        'login_locations' => 'setLoginLocations',
         'time_intervals' => 'setTimeIntervals',
         'top_group_id' => 'setTopGroupId'
     ];
@@ -124,6 +128,7 @@ class AddLoginConfigRequest implements ModelInterface, ArrayAccess
         'leaf_group_ids' => 'getLeafGroupIds',
         'legal_user' => 'getLegalUser',
         'login_config_rules' => 'getLoginConfigRules',
+        'login_locations' => 'getLoginLocations',
         'time_intervals' => 'getTimeIntervals',
         'top_group_id' => 'getTopGroupId'
     ];
@@ -195,6 +200,7 @@ class AddLoginConfigRequest implements ModelInterface, ArrayAccess
         $this->container['leaf_group_ids'] = isset($data['leaf_group_ids']) ? $data['leaf_group_ids'] : null;
         $this->container['legal_user'] = isset($data['legal_user']) ? $data['legal_user'] : null;
         $this->container['login_config_rules'] = isset($data['login_config_rules']) ? $data['login_config_rules'] : null;
+        $this->container['login_locations'] = isset($data['login_locations']) ? $data['login_locations'] : null;
         $this->container['time_intervals'] = isset($data['time_intervals']) ? $data['time_intervals'] : null;
         $this->container['top_group_id'] = isset($data['top_group_id']) ? $data['top_group_id'] : null;
     }
@@ -387,6 +393,30 @@ class AddLoginConfigRequest implements ModelInterface, ArrayAccess
     public function setLoginConfigRules($login_config_rules)
     {
         $this->container['login_config_rules'] = $login_config_rules;
+
+        return $this;
+    }
+
+    /**
+     * Gets login_locations
+     *
+     * @return \Volcengine\Seccenter20240508\Model\LoginLocationForAddLoginConfigInput[]
+     */
+    public function getLoginLocations()
+    {
+        return $this->container['login_locations'];
+    }
+
+    /**
+     * Sets login_locations
+     *
+     * @param \Volcengine\Seccenter20240508\Model\LoginLocationForAddLoginConfigInput[] $login_locations login_locations
+     *
+     * @return $this
+     */
+    public function setLoginLocations($login_locations)
+    {
+        $this->container['login_locations'] = $login_locations;
 
         return $this;
     }

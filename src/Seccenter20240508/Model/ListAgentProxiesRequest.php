@@ -45,8 +45,8 @@ class ListAgentProxiesRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'address' => null,
         'name' => null,
-        'page_number' => 'int32',
-        'page_size' => 'int32',
+        'page_number' => 'int64',
+        'page_size' => 'int64',
         'slim' => null,
         'sort_by' => null,
         'sort_order' => null

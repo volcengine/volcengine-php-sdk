@@ -65,13 +65,13 @@ class DataForListIsolationFilesOutput implements ModelInterface, ArrayAccess
         'filebox_id' => null,
         'group_id' => null,
         'host' => null,
-        'insert_time' => 'int32',
+        'insert_time' => 'int64',
         'is_upload' => null,
         'saved_file_name' => null,
-        'status' => 'int32',
+        'status' => 'int64',
         'task_id' => null,
         'top_group_id' => null,
-        'update_time' => 'int32'
+        'update_time' => 'int64'
     ];
 
     /**

@@ -42,12 +42,12 @@ class BaseInfoForGetMultiLevelInstitutionDetailOutput implements ModelInterface,
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'create_time' => 'int32',
+        'create_time' => 'int64',
         'elkeidup_id' => null,
         'institution_id' => null,
         'institution_name' => null,
         'remark' => null,
-        'update_time' => 'int32'
+        'update_time' => 'int64'
     ];
 
     /**

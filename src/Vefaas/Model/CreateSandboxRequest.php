@@ -37,7 +37,8 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
         'memory_mb' => 'int',
         'metadata' => 'map[string,string]',
         'request_timeout' => 'int',
-        'timeout' => 'int'
+        'timeout' => 'int',
+        'timeout_unit' => 'string'
     ];
 
     /**
@@ -55,7 +56,8 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
         'memory_mb' => 'int32',
         'metadata' => null,
         'request_timeout' => 'int32',
-        'timeout' => 'int32'
+        'timeout' => 'int32',
+        'timeout_unit' => null
     ];
 
     /**
@@ -94,7 +96,8 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
         'memory_mb' => 'MemoryMB',
         'metadata' => 'Metadata',
         'request_timeout' => 'RequestTimeout',
-        'timeout' => 'Timeout'
+        'timeout' => 'Timeout',
+        'timeout_unit' => 'TimeoutUnit'
     ];
 
     /**
@@ -112,7 +115,8 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
         'memory_mb' => 'setMemoryMb',
         'metadata' => 'setMetadata',
         'request_timeout' => 'setRequestTimeout',
-        'timeout' => 'setTimeout'
+        'timeout' => 'setTimeout',
+        'timeout_unit' => 'setTimeoutUnit'
     ];
 
     /**
@@ -130,7 +134,8 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
         'memory_mb' => 'getMemoryMb',
         'metadata' => 'getMetadata',
         'request_timeout' => 'getRequestTimeout',
-        'timeout' => 'getTimeout'
+        'timeout' => 'getTimeout',
+        'timeout_unit' => 'getTimeoutUnit'
     ];
 
     /**
@@ -203,6 +208,7 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
         $this->container['request_timeout'] = isset($data['request_timeout']) ? $data['request_timeout'] : null;
         $this->container['timeout'] = isset($data['timeout']) ? $data['timeout'] : null;
+        $this->container['timeout_unit'] = isset($data['timeout_unit']) ? $data['timeout_unit'] : null;
     }
 
     /**
@@ -468,6 +474,30 @@ class CreateSandboxRequest implements ModelInterface, ArrayAccess
     public function setTimeout($timeout)
     {
         $this->container['timeout'] = $timeout;
+
+        return $this;
+    }
+
+    /**
+     * Gets timeout_unit
+     *
+     * @return string
+     */
+    public function getTimeoutUnit()
+    {
+        return $this->container['timeout_unit'];
+    }
+
+    /**
+     * Sets timeout_unit
+     *
+     * @param string $timeout_unit timeout_unit
+     *
+     * @return $this
+     */
+    public function setTimeoutUnit($timeout_unit)
+    {
+        $this->container['timeout_unit'] = $timeout_unit;
 
         return $this;
     }

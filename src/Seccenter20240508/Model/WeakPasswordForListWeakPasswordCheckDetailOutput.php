@@ -54,7 +54,7 @@ class WeakPasswordForListWeakPasswordCheckDetailOutput implements ModelInterface
         'primary_ip_address' => null,
         'weak_password' => null,
         'weak_username' => null,
-        'check_id' => 'int32',
+        'check_id' => 'int64',
         'description_cn' => null
     ];
 

@@ -34,8 +34,9 @@ class GetExecutionResponse implements ModelInterface, ArrayAccess
         'meta' => '\Volcengine\Vod20250101\Model\MetaForGetExecutionOutput',
         'multi_inputs' => '\Volcengine\Vod20250101\Model\MultiInputForGetExecutionOutput[]',
         'operation' => '\Volcengine\Vod20250101\Model\ConvertOperationForGetExecutionOutput',
-        'output' => '\Volcengine\Vod20250101\Model\ConvertOutputForGetExecutionOutput',
+        'output' => '\Volcengine\Vod20250101\Model\ConvertConvertOutputForGetExecutionOutput',
         'run_id' => 'string',
+        'space_name' => 'string',
         'status' => 'string'
     ];
 
@@ -53,6 +54,7 @@ class GetExecutionResponse implements ModelInterface, ArrayAccess
         'operation' => null,
         'output' => null,
         'run_id' => null,
+        'space_name' => null,
         'status' => null
     ];
 
@@ -91,6 +93,7 @@ class GetExecutionResponse implements ModelInterface, ArrayAccess
         'operation' => 'Operation',
         'output' => 'Output',
         'run_id' => 'RunId',
+        'space_name' => 'SpaceName',
         'status' => 'Status'
     ];
 
@@ -108,6 +111,7 @@ class GetExecutionResponse implements ModelInterface, ArrayAccess
         'operation' => 'setOperation',
         'output' => 'setOutput',
         'run_id' => 'setRunId',
+        'space_name' => 'setSpaceName',
         'status' => 'setStatus'
     ];
 
@@ -125,6 +129,7 @@ class GetExecutionResponse implements ModelInterface, ArrayAccess
         'operation' => 'getOperation',
         'output' => 'getOutput',
         'run_id' => 'getRunId',
+        'space_name' => 'getSpaceName',
         'status' => 'getStatus'
     ];
 
@@ -196,6 +201,7 @@ class GetExecutionResponse implements ModelInterface, ArrayAccess
         $this->container['operation'] = isset($data['operation']) ? $data['operation'] : null;
         $this->container['output'] = isset($data['output']) ? $data['output'] : null;
         $this->container['run_id'] = isset($data['run_id']) ? $data['run_id'] : null;
+        $this->container['space_name'] = isset($data['space_name']) ? $data['space_name'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }
 
@@ -370,7 +376,7 @@ class GetExecutionResponse implements ModelInterface, ArrayAccess
     /**
      * Gets output
      *
-     * @return \Volcengine\Vod20250101\Model\ConvertOutputForGetExecutionOutput
+     * @return \Volcengine\Vod20250101\Model\ConvertConvertOutputForGetExecutionOutput
      */
     public function getOutput()
     {
@@ -380,7 +386,7 @@ class GetExecutionResponse implements ModelInterface, ArrayAccess
     /**
      * Sets output
      *
-     * @param \Volcengine\Vod20250101\Model\ConvertOutputForGetExecutionOutput $output output
+     * @param \Volcengine\Vod20250101\Model\ConvertConvertOutputForGetExecutionOutput $output output
      *
      * @return $this
      */
@@ -411,6 +417,30 @@ class GetExecutionResponse implements ModelInterface, ArrayAccess
     public function setRunId($run_id)
     {
         $this->container['run_id'] = $run_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets space_name
+     *
+     * @return string
+     */
+    public function getSpaceName()
+    {
+        return $this->container['space_name'];
+    }
+
+    /**
+     * Sets space_name
+     *
+     * @param string $space_name space_name
+     *
+     * @return $this
+     */
+    public function setSpaceName($space_name)
+    {
+        $this->container['space_name'] = $space_name;
 
         return $this;
     }

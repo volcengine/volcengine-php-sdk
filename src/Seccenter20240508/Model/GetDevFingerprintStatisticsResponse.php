@@ -39,9 +39,9 @@ class GetDevFingerprintStatisticsResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'port' => 'int32',
-        'process' => 'int32',
-        'software' => 'int32'
+        'port' => 'int64',
+        'process' => 'int64',
+        'software' => 'int64'
     ];
 
     /**

@@ -28,11 +28,11 @@ class VisionForStartExecutionInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'model' => '\Volcengine\Vod20250101\Model\ModelForStartExecutionInput',
+        'model' => '\Volcengine\Vod20250101\Model\ConvertModelForStartExecutionInput',
         'need_asr_speaker' => 'bool',
         'prompt' => 'string',
         'response_format_type' => 'string',
-        'segment' => '\Volcengine\Vod20250101\Model\ConvertSegmentForStartExecutionInput',
+        'segment' => '\Volcengine\Vod20250101\Model\ConvertConvertSegmentForStartExecutionInput',
         'snapshot_param' => '\Volcengine\Vod20250101\Model\SnapshotParamForStartExecutionInput'
     ];
 
@@ -208,7 +208,7 @@ class VisionForStartExecutionInput implements ModelInterface, ArrayAccess
     /**
      * Gets model
      *
-     * @return \Volcengine\Vod20250101\Model\ModelForStartExecutionInput
+     * @return \Volcengine\Vod20250101\Model\ConvertModelForStartExecutionInput
      */
     public function getModel()
     {
@@ -218,7 +218,7 @@ class VisionForStartExecutionInput implements ModelInterface, ArrayAccess
     /**
      * Sets model
      *
-     * @param \Volcengine\Vod20250101\Model\ModelForStartExecutionInput $model model
+     * @param \Volcengine\Vod20250101\Model\ConvertModelForStartExecutionInput $model model
      *
      * @return $this
      */
@@ -304,7 +304,7 @@ class VisionForStartExecutionInput implements ModelInterface, ArrayAccess
     /**
      * Gets segment
      *
-     * @return \Volcengine\Vod20250101\Model\ConvertSegmentForStartExecutionInput
+     * @return \Volcengine\Vod20250101\Model\ConvertConvertSegmentForStartExecutionInput
      */
     public function getSegment()
     {
@@ -314,7 +314,7 @@ class VisionForStartExecutionInput implements ModelInterface, ArrayAccess
     /**
      * Sets segment
      *
-     * @param \Volcengine\Vod20250101\Model\ConvertSegmentForStartExecutionInput $segment segment
+     * @param \Volcengine\Vod20250101\Model\ConvertConvertSegmentForStartExecutionInput $segment segment
      *
      * @return $this
      */

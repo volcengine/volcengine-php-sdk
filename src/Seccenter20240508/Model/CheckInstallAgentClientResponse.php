@@ -30,6 +30,10 @@ class CheckInstallAgentClientResponse implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'auto_agent_ids' => 'string[]',
         'auto_count' => 'int',
+        'auto_enable_count' => 'int',
+        'auto_enable_ids' => 'string[]',
+        'auto_install_and_enable_count' => 'int',
+        'auto_install_and_enable_ids' => 'string[]',
         'current_quota' => '\Volcengine\Seccenter20240508\Model\CurrentQuotaForCheckInstallAgentClientOutput',
         'hit_limit' => 'bool',
         'manual_count' => 'int',
@@ -43,10 +47,14 @@ class CheckInstallAgentClientResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'auto_agent_ids' => null,
-        'auto_count' => 'int32',
+        'auto_count' => 'int64',
+        'auto_enable_count' => 'int64',
+        'auto_enable_ids' => null,
+        'auto_install_and_enable_count' => 'int64',
+        'auto_install_and_enable_ids' => null,
         'current_quota' => null,
         'hit_limit' => null,
-        'manual_count' => 'int32',
+        'manual_count' => 'int64',
         'request_quota' => null
     ];
 
@@ -79,6 +87,10 @@ class CheckInstallAgentClientResponse implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'auto_agent_ids' => 'AutoAgentIDs',
         'auto_count' => 'AutoCount',
+        'auto_enable_count' => 'AutoEnableCount',
+        'auto_enable_ids' => 'AutoEnableIDs',
+        'auto_install_and_enable_count' => 'AutoInstallAndEnableCount',
+        'auto_install_and_enable_ids' => 'AutoInstallAndEnableIDs',
         'current_quota' => 'CurrentQuota',
         'hit_limit' => 'HitLimit',
         'manual_count' => 'ManualCount',
@@ -93,6 +105,10 @@ class CheckInstallAgentClientResponse implements ModelInterface, ArrayAccess
     protected static $setters = [
         'auto_agent_ids' => 'setAutoAgentIds',
         'auto_count' => 'setAutoCount',
+        'auto_enable_count' => 'setAutoEnableCount',
+        'auto_enable_ids' => 'setAutoEnableIds',
+        'auto_install_and_enable_count' => 'setAutoInstallAndEnableCount',
+        'auto_install_and_enable_ids' => 'setAutoInstallAndEnableIds',
         'current_quota' => 'setCurrentQuota',
         'hit_limit' => 'setHitLimit',
         'manual_count' => 'setManualCount',
@@ -107,6 +123,10 @@ class CheckInstallAgentClientResponse implements ModelInterface, ArrayAccess
     protected static $getters = [
         'auto_agent_ids' => 'getAutoAgentIds',
         'auto_count' => 'getAutoCount',
+        'auto_enable_count' => 'getAutoEnableCount',
+        'auto_enable_ids' => 'getAutoEnableIds',
+        'auto_install_and_enable_count' => 'getAutoInstallAndEnableCount',
+        'auto_install_and_enable_ids' => 'getAutoInstallAndEnableIds',
         'current_quota' => 'getCurrentQuota',
         'hit_limit' => 'getHitLimit',
         'manual_count' => 'getManualCount',
@@ -175,6 +195,10 @@ class CheckInstallAgentClientResponse implements ModelInterface, ArrayAccess
     {
         $this->container['auto_agent_ids'] = isset($data['auto_agent_ids']) ? $data['auto_agent_ids'] : null;
         $this->container['auto_count'] = isset($data['auto_count']) ? $data['auto_count'] : null;
+        $this->container['auto_enable_count'] = isset($data['auto_enable_count']) ? $data['auto_enable_count'] : null;
+        $this->container['auto_enable_ids'] = isset($data['auto_enable_ids']) ? $data['auto_enable_ids'] : null;
+        $this->container['auto_install_and_enable_count'] = isset($data['auto_install_and_enable_count']) ? $data['auto_install_and_enable_count'] : null;
+        $this->container['auto_install_and_enable_ids'] = isset($data['auto_install_and_enable_ids']) ? $data['auto_install_and_enable_ids'] : null;
         $this->container['current_quota'] = isset($data['current_quota']) ? $data['current_quota'] : null;
         $this->container['hit_limit'] = isset($data['hit_limit']) ? $data['hit_limit'] : null;
         $this->container['manual_count'] = isset($data['manual_count']) ? $data['manual_count'] : null;
@@ -249,6 +273,102 @@ class CheckInstallAgentClientResponse implements ModelInterface, ArrayAccess
     public function setAutoCount($auto_count)
     {
         $this->container['auto_count'] = $auto_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets auto_enable_count
+     *
+     * @return int
+     */
+    public function getAutoEnableCount()
+    {
+        return $this->container['auto_enable_count'];
+    }
+
+    /**
+     * Sets auto_enable_count
+     *
+     * @param int $auto_enable_count auto_enable_count
+     *
+     * @return $this
+     */
+    public function setAutoEnableCount($auto_enable_count)
+    {
+        $this->container['auto_enable_count'] = $auto_enable_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets auto_enable_ids
+     *
+     * @return string[]
+     */
+    public function getAutoEnableIds()
+    {
+        return $this->container['auto_enable_ids'];
+    }
+
+    /**
+     * Sets auto_enable_ids
+     *
+     * @param string[] $auto_enable_ids auto_enable_ids
+     *
+     * @return $this
+     */
+    public function setAutoEnableIds($auto_enable_ids)
+    {
+        $this->container['auto_enable_ids'] = $auto_enable_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets auto_install_and_enable_count
+     *
+     * @return int
+     */
+    public function getAutoInstallAndEnableCount()
+    {
+        return $this->container['auto_install_and_enable_count'];
+    }
+
+    /**
+     * Sets auto_install_and_enable_count
+     *
+     * @param int $auto_install_and_enable_count auto_install_and_enable_count
+     *
+     * @return $this
+     */
+    public function setAutoInstallAndEnableCount($auto_install_and_enable_count)
+    {
+        $this->container['auto_install_and_enable_count'] = $auto_install_and_enable_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets auto_install_and_enable_ids
+     *
+     * @return string[]
+     */
+    public function getAutoInstallAndEnableIds()
+    {
+        return $this->container['auto_install_and_enable_ids'];
+    }
+
+    /**
+     * Sets auto_install_and_enable_ids
+     *
+     * @param string[] $auto_install_and_enable_ids auto_install_and_enable_ids
+     *
+     * @return $this
+     */
+    public function setAutoInstallAndEnableIds($auto_install_and_enable_ids)
+    {
+        $this->container['auto_install_and_enable_ids'] = $auto_install_and_enable_ids;
 
         return $this;
     }

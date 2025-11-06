@@ -55,7 +55,7 @@ class DataForGetAutoIsolateAgentListOutput implements ModelInterface, ArrayAcces
         'intranet_ipv4' => null,
         'intranet_ipv6' => null,
         'tags' => null,
-        'update_time' => 'int32'
+        'update_time' => 'int64'
     ];
 
     /**

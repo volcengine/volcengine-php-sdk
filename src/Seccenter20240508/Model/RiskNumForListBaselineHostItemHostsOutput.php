@@ -39,9 +39,9 @@ class RiskNumForListBaselineHostItemHostsOutput implements ModelInterface, Array
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'high_num' => 'int32',
-        'low_num' => 'int32',
-        'medium_num' => 'int32'
+        'high_num' => 'int64',
+        'low_num' => 'int64',
+        'medium_num' => 'int64'
     ];
 
     /**

@@ -44,8 +44,8 @@ class DownloadBaselineCheckHostsRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'asset_id_list' => null,
         'asset_type' => null,
-        'baseline_id' => 'int32',
-        'check_id' => 'int32',
+        'baseline_id' => 'int64',
+        'check_id' => 'int64',
         'conditions' => null,
         'id_list' => null
     ];

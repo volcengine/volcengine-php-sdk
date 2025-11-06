@@ -60,8 +60,8 @@ class ConditionsForListWhiteListsInput implements ModelInterface, ArrayAccess
         'range' => null,
         'range_include_global' => null,
         'top_group_id' => null,
-        'update_time_end' => 'int32',
-        'update_time_start' => 'int32',
+        'update_time_end' => 'int64',
+        'update_time_start' => 'int64',
         'user' => null,
         'white_list_id' => null
     ];

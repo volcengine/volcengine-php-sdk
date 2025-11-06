@@ -40,10 +40,10 @@ class RiskForListMultiLevelAssetHostsOutput implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'alarm' => 'int32',
-        'baseline' => 'int32',
-        'virus' => 'int32',
-        'vuln' => 'int32'
+        'alarm' => 'int64',
+        'baseline' => 'int64',
+        'virus' => 'int64',
+        'vuln' => 'int64'
     ];
 
     /**

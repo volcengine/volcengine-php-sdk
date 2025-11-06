@@ -39,9 +39,9 @@ class GetRaspAuthorizationStatisticsResponse implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'authorization_count' => 'int32',
-        'expire_time' => 'int32',
-        'left_authorization_count' => 'int32'
+        'authorization_count' => 'int64',
+        'expire_time' => 'int64',
+        'left_authorization_count' => 'int64'
     ];
 
     /**

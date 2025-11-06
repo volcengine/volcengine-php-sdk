@@ -53,15 +53,15 @@ class DataForListVulnHostsOutput implements ModelInterface, ArrayAccess
         'agent_tags' => null,
         'asset_id' => null,
         'asset_name' => null,
-        'control_time' => 'int32',
-        'create_time' => 'int32',
+        'control_time' => 'int64',
+        'create_time' => 'int64',
         'cwpp_id' => null,
         'eip_address' => null,
         'host_name' => null,
         'operate_reason' => null,
         'primary_ip_address' => null,
         'status' => null,
-        'update_time' => 'int32'
+        'update_time' => 'int64'
     ];
 
     /**

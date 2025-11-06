@@ -64,7 +64,7 @@ class AlarmDescForGetRaspAlarmSummaryInfoOutput implements ModelInterface, Array
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'alarm_handle_result' => 'int32',
+        'alarm_handle_result' => 'int64',
         'alarm_id' => null,
         'alert_desc' => null,
         'alert_detail' => null,
@@ -79,17 +79,17 @@ class AlarmDescForGetRaspAlarmSummaryInfoOutput implements ModelInterface, Array
         'desc' => null,
         'docker' => null,
         'error_reason' => null,
-        'handle_time' => 'int32',
+        'handle_time' => 'int64',
         'handle_user' => null,
         'hids_level' => null,
-        'insert_time' => 'int32',
+        'insert_time' => 'int64',
         'kube_level' => null,
         'rasp_config_name' => null,
         'rasp_level' => null,
         'related_config_id' => null,
         'risk_desc' => null,
         'rule_name' => null,
-        'status' => 'int32',
+        'status' => 'int64',
         'suggestion' => null,
         'trace_id' => null
     ];

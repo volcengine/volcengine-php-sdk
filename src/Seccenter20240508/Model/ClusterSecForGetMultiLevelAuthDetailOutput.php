@@ -39,9 +39,9 @@ class ClusterSecForGetMultiLevelAuthDetailOutput implements ModelInterface, Arra
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'expire_time' => 'int32',
-        'total_count' => 'int32',
-        'used_count' => 'int32'
+        'expire_time' => 'int64',
+        'total_count' => 'int64',
+        'used_count' => 'int64'
     ];
 
     /**

@@ -48,12 +48,12 @@ class DataForListCleanHistoryOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'clean_time' => 'int32',
+        'clean_time' => 'int64',
         'cloud_provider' => null,
         'group_name' => null,
         'host_id' => null,
         'host_name' => null,
-        'offline_time' => 'int32',
+        'offline_time' => 'int64',
         'platform' => null,
         'private_ip' => null,
         'public_ip' => null,

@@ -29,7 +29,7 @@ class ConvertStorylineCutsForGetExecutionOutput implements ModelInterface, Array
       */
     protected static $swaggerTypes = [
         'cut_segments' => '\Volcengine\Vod20250101\Model\CutSegmentForGetExecutionOutput[]',
-        'segments' => '\Volcengine\Vod20250101\Model\ConvertConvertSegmentForGetExecutionOutput[]',
+        'segments' => '\Volcengine\Vod20250101\Model\ConvertConvertConvertSegmentForGetExecutionOutput[]',
         'storylines' => '\Volcengine\Vod20250101\Model\ConvertStorylineForGetExecutionOutput[]'
     ];
 
@@ -214,7 +214,7 @@ class ConvertStorylineCutsForGetExecutionOutput implements ModelInterface, Array
     /**
      * Gets segments
      *
-     * @return \Volcengine\Vod20250101\Model\ConvertConvertSegmentForGetExecutionOutput[]
+     * @return \Volcengine\Vod20250101\Model\ConvertConvertConvertSegmentForGetExecutionOutput[]
      */
     public function getSegments()
     {
@@ -224,7 +224,7 @@ class ConvertStorylineCutsForGetExecutionOutput implements ModelInterface, Array
     /**
      * Sets segments
      *
-     * @param \Volcengine\Vod20250101\Model\ConvertConvertSegmentForGetExecutionOutput[] $segments segments
+     * @param \Volcengine\Vod20250101\Model\ConvertConvertConvertSegmentForGetExecutionOutput[] $segments segments
      *
      * @return $this
      */

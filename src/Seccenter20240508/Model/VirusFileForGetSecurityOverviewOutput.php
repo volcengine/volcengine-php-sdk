@@ -38,8 +38,8 @@ class VirusFileForGetSecurityOverviewOutput implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'risk_count' => 'int32',
-        'subject_count' => 'int32'
+        'risk_count' => 'int64',
+        'subject_count' => 'int64'
     ];
 
     /**

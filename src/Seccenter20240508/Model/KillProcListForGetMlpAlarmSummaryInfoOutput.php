@@ -39,7 +39,7 @@ class KillProcListForGetMlpAlarmSummaryInfoOutput implements ModelInterface, Arr
       */
     protected static $swaggerFormats = [
         'cmdline' => null,
-        'pid' => 'int32'
+        'pid' => 'int64'
     ];
 
     /**

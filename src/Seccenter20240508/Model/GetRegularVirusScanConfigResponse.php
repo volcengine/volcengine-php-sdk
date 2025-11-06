@@ -60,7 +60,7 @@ class GetRegularVirusScanConfigResponse implements ModelInterface, ArrayAccess
         'file_path' => null,
         'leaf_group_ids' => null,
         'operate_user' => null,
-        'scan_interval' => 'int32',
+        'scan_interval' => 'int64',
         'scan_switch_on' => null,
         'task_end_time' => null,
         'task_start_time' => null,

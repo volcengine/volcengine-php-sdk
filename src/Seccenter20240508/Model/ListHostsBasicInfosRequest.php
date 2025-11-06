@@ -44,8 +44,8 @@ class ListHostsBasicInfosRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'conditions' => null,
         'id_list' => null,
-        'page_number' => 'int32',
-        'page_size' => 'int32',
+        'page_number' => 'int64',
+        'page_size' => 'int64',
         'sort_by' => null,
         'sort_order' => null
     ];

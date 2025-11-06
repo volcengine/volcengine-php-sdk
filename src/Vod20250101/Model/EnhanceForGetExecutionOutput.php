@@ -28,7 +28,9 @@ class EnhanceForGetExecutionOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'template_id' => 'string'
+        'modules' => '\Volcengine\Vod20250101\Model\ModuleForGetExecutionOutput[]',
+        'moe_enhance' => '\Volcengine\Vod20250101\Model\MoeEnhanceForGetExecutionOutput',
+        'type' => 'string'
     ];
 
     /**
@@ -37,7 +39,9 @@ class EnhanceForGetExecutionOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'template_id' => null
+        'modules' => null,
+        'moe_enhance' => null,
+        'type' => null
     ];
 
     /**
@@ -67,7 +71,9 @@ class EnhanceForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'template_id' => 'TemplateId'
+        'modules' => 'Modules',
+        'moe_enhance' => 'MoeEnhance',
+        'type' => 'Type'
     ];
 
     /**
@@ -76,7 +82,9 @@ class EnhanceForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'template_id' => 'setTemplateId'
+        'modules' => 'setModules',
+        'moe_enhance' => 'setMoeEnhance',
+        'type' => 'setType'
     ];
 
     /**
@@ -85,7 +93,9 @@ class EnhanceForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'template_id' => 'getTemplateId'
+        'modules' => 'getModules',
+        'moe_enhance' => 'getMoeEnhance',
+        'type' => 'getType'
     ];
 
     /**
@@ -148,7 +158,9 @@ class EnhanceForGetExecutionOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['template_id'] = isset($data['template_id']) ? $data['template_id'] : null;
+        $this->container['modules'] = isset($data['modules']) ? $data['modules'] : null;
+        $this->container['moe_enhance'] = isset($data['moe_enhance']) ? $data['moe_enhance'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
     /**
@@ -176,25 +188,73 @@ class EnhanceForGetExecutionOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets template_id
+     * Gets modules
      *
-     * @return string
+     * @return \Volcengine\Vod20250101\Model\ModuleForGetExecutionOutput[]
      */
-    public function getTemplateId()
+    public function getModules()
     {
-        return $this->container['template_id'];
+        return $this->container['modules'];
     }
 
     /**
-     * Sets template_id
+     * Sets modules
      *
-     * @param string $template_id template_id
+     * @param \Volcengine\Vod20250101\Model\ModuleForGetExecutionOutput[] $modules modules
      *
      * @return $this
      */
-    public function setTemplateId($template_id)
+    public function setModules($modules)
     {
-        $this->container['template_id'] = $template_id;
+        $this->container['modules'] = $modules;
+
+        return $this;
+    }
+
+    /**
+     * Gets moe_enhance
+     *
+     * @return \Volcengine\Vod20250101\Model\MoeEnhanceForGetExecutionOutput
+     */
+    public function getMoeEnhance()
+    {
+        return $this->container['moe_enhance'];
+    }
+
+    /**
+     * Sets moe_enhance
+     *
+     * @param \Volcengine\Vod20250101\Model\MoeEnhanceForGetExecutionOutput $moe_enhance moe_enhance
+     *
+     * @return $this
+     */
+    public function setMoeEnhance($moe_enhance)
+    {
+        $this->container['moe_enhance'] = $moe_enhance;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string $type type
+     *
+     * @return $this
+     */
+    public function setType($type)
+    {
+        $this->container['type'] = $type;
 
         return $this;
     }
