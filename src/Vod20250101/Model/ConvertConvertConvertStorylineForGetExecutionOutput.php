@@ -29,7 +29,7 @@ class ConvertConvertConvertStorylineForGetExecutionOutput implements ModelInterf
       */
     protected static $swaggerTypes = [
         'all_tags' => '\Volcengine\Vod20250101\Model\AllTagForGetExecutionOutput[]',
-        'clips' => '\Volcengine\Vod20250101\Model\ConvertClipForGetExecutionOutput[]',
+        'clips' => '\Volcengine\Vod20250101\Model\ConvertConvertConvertClipForGetExecutionOutput[]',
         'duration' => 'double',
         'storylines' => '\Volcengine\Vod20250101\Model\ConvertConvertStorylineForGetExecutionOutput[]',
         'summaries' => 'string[]',
@@ -232,7 +232,7 @@ class ConvertConvertConvertStorylineForGetExecutionOutput implements ModelInterf
     /**
      * Gets clips
      *
-     * @return \Volcengine\Vod20250101\Model\ConvertClipForGetExecutionOutput[]
+     * @return \Volcengine\Vod20250101\Model\ConvertConvertConvertClipForGetExecutionOutput[]
      */
     public function getClips()
     {
@@ -242,7 +242,7 @@ class ConvertConvertConvertStorylineForGetExecutionOutput implements ModelInterf
     /**
      * Sets clips
      *
-     * @param \Volcengine\Vod20250101\Model\ConvertClipForGetExecutionOutput[] $clips clips
+     * @param \Volcengine\Vod20250101\Model\ConvertConvertConvertClipForGetExecutionOutput[] $clips clips
      *
      * @return $this
      */

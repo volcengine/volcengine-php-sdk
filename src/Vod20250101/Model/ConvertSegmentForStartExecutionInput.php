@@ -28,8 +28,9 @@ class ConvertSegmentForStartExecutionInput implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'end' => 'double',
-        'start' => 'double'
+        'max_duration' => 'double',
+        'min_duration' => 'double',
+        'threshold' => 'double'
     ];
 
     /**
@@ -38,8 +39,9 @@ class ConvertSegmentForStartExecutionInput implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'end' => 'double',
-        'start' => 'double'
+        'max_duration' => 'double',
+        'min_duration' => 'double',
+        'threshold' => 'double'
     ];
 
     /**
@@ -69,8 +71,9 @@ class ConvertSegmentForStartExecutionInput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $attributeMap = [
-        'end' => 'End',
-        'start' => 'Start'
+        'max_duration' => 'MaxDuration',
+        'min_duration' => 'MinDuration',
+        'threshold' => 'Threshold'
     ];
 
     /**
@@ -79,8 +82,9 @@ class ConvertSegmentForStartExecutionInput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $setters = [
-        'end' => 'setEnd',
-        'start' => 'setStart'
+        'max_duration' => 'setMaxDuration',
+        'min_duration' => 'setMinDuration',
+        'threshold' => 'setThreshold'
     ];
 
     /**
@@ -89,8 +93,9 @@ class ConvertSegmentForStartExecutionInput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $getters = [
-        'end' => 'getEnd',
-        'start' => 'getStart'
+        'max_duration' => 'getMaxDuration',
+        'min_duration' => 'getMinDuration',
+        'threshold' => 'getThreshold'
     ];
 
     /**
@@ -153,8 +158,9 @@ class ConvertSegmentForStartExecutionInput implements ModelInterface, ArrayAcces
      */
     public function __construct(array $data = null)
     {
-        $this->container['end'] = isset($data['end']) ? $data['end'] : null;
-        $this->container['start'] = isset($data['start']) ? $data['start'] : null;
+        $this->container['max_duration'] = isset($data['max_duration']) ? $data['max_duration'] : null;
+        $this->container['min_duration'] = isset($data['min_duration']) ? $data['min_duration'] : null;
+        $this->container['threshold'] = isset($data['threshold']) ? $data['threshold'] : null;
     }
 
     /**
@@ -182,49 +188,73 @@ class ConvertSegmentForStartExecutionInput implements ModelInterface, ArrayAcces
 
 
     /**
-     * Gets end
+     * Gets max_duration
      *
      * @return double
      */
-    public function getEnd()
+    public function getMaxDuration()
     {
-        return $this->container['end'];
+        return $this->container['max_duration'];
     }
 
     /**
-     * Sets end
+     * Sets max_duration
      *
-     * @param double $end end
+     * @param double $max_duration max_duration
      *
      * @return $this
      */
-    public function setEnd($end)
+    public function setMaxDuration($max_duration)
     {
-        $this->container['end'] = $end;
+        $this->container['max_duration'] = $max_duration;
 
         return $this;
     }
 
     /**
-     * Gets start
+     * Gets min_duration
      *
      * @return double
      */
-    public function getStart()
+    public function getMinDuration()
     {
-        return $this->container['start'];
+        return $this->container['min_duration'];
     }
 
     /**
-     * Sets start
+     * Sets min_duration
      *
-     * @param double $start start
+     * @param double $min_duration min_duration
      *
      * @return $this
      */
-    public function setStart($start)
+    public function setMinDuration($min_duration)
     {
-        $this->container['start'] = $start;
+        $this->container['min_duration'] = $min_duration;
+
+        return $this;
+    }
+
+    /**
+     * Gets threshold
+     *
+     * @return double
+     */
+    public function getThreshold()
+    {
+        return $this->container['threshold'];
+    }
+
+    /**
+     * Sets threshold
+     *
+     * @param double $threshold threshold
+     *
+     * @return $this
+     */
+    public function setThreshold($threshold)
+    {
+        $this->container['threshold'] = $threshold;
 
         return $this;
     }

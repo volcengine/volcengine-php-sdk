@@ -30,7 +30,7 @@ class ConvertVisionForGetExecutionOutput implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'content' => 'string',
         'duration' => 'double',
-        'model' => '\Volcengine\Vod20250101\Model\ConvertModelForGetExecutionOutput',
+        'model' => '\Volcengine\Vod20250101\Model\ConvertConvertModelForGetExecutionOutput',
         'snapshots_number' => 'int'
     ];
 
@@ -244,7 +244,7 @@ class ConvertVisionForGetExecutionOutput implements ModelInterface, ArrayAccess
     /**
      * Gets model
      *
-     * @return \Volcengine\Vod20250101\Model\ConvertModelForGetExecutionOutput
+     * @return \Volcengine\Vod20250101\Model\ConvertConvertModelForGetExecutionOutput
      */
     public function getModel()
     {
@@ -254,7 +254,7 @@ class ConvertVisionForGetExecutionOutput implements ModelInterface, ArrayAccess
     /**
      * Sets model
      *
-     * @param \Volcengine\Vod20250101\Model\ConvertModelForGetExecutionOutput $model model
+     * @param \Volcengine\Vod20250101\Model\ConvertConvertModelForGetExecutionOutput $model model
      *
      * @return $this
      */

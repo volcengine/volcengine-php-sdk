@@ -29,8 +29,7 @@ class ClipForGetExecutionOutput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'end' => 'double',
-        'start' => 'double',
-        'video_index' => 'int'
+        'start' => 'double'
     ];
 
     /**
@@ -40,8 +39,7 @@ class ClipForGetExecutionOutput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'end' => 'double',
-        'start' => 'double',
-        'video_index' => 'int32'
+        'start' => 'double'
     ];
 
     /**
@@ -72,8 +70,7 @@ class ClipForGetExecutionOutput implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'end' => 'End',
-        'start' => 'Start',
-        'video_index' => 'VideoIndex'
+        'start' => 'Start'
     ];
 
     /**
@@ -83,8 +80,7 @@ class ClipForGetExecutionOutput implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'end' => 'setEnd',
-        'start' => 'setStart',
-        'video_index' => 'setVideoIndex'
+        'start' => 'setStart'
     ];
 
     /**
@@ -94,8 +90,7 @@ class ClipForGetExecutionOutput implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'end' => 'getEnd',
-        'start' => 'getStart',
-        'video_index' => 'getVideoIndex'
+        'start' => 'getStart'
     ];
 
     /**
@@ -160,7 +155,6 @@ class ClipForGetExecutionOutput implements ModelInterface, ArrayAccess
     {
         $this->container['end'] = isset($data['end']) ? $data['end'] : null;
         $this->container['start'] = isset($data['start']) ? $data['start'] : null;
-        $this->container['video_index'] = isset($data['video_index']) ? $data['video_index'] : null;
     }
 
     /**
@@ -231,30 +225,6 @@ class ClipForGetExecutionOutput implements ModelInterface, ArrayAccess
     public function setStart($start)
     {
         $this->container['start'] = $start;
-
-        return $this;
-    }
-
-    /**
-     * Gets video_index
-     *
-     * @return int
-     */
-    public function getVideoIndex()
-    {
-        return $this->container['video_index'];
-    }
-
-    /**
-     * Sets video_index
-     *
-     * @param int $video_index video_index
-     *
-     * @return $this
-     */
-    public function setVideoIndex($video_index)
-    {
-        $this->container['video_index'] = $video_index;
 
         return $this;
     }

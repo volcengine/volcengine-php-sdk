@@ -28,7 +28,7 @@ class ConvertHighlightCutsForGetExecutionOutput implements ModelInterface, Array
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'cuts' => 'int[]',
+        'cuts' => '\Volcengine\Vod20250101\Model\CutForGetExecutionOutput[]',
         'storyboard' => '\Volcengine\Vod20250101\Model\StoryboardForGetExecutionOutput[]'
     ];
 
@@ -38,7 +38,7 @@ class ConvertHighlightCutsForGetExecutionOutput implements ModelInterface, Array
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'cuts' => 'int32',
+        'cuts' => null,
         'storyboard' => null
     ];
 
@@ -184,7 +184,7 @@ class ConvertHighlightCutsForGetExecutionOutput implements ModelInterface, Array
     /**
      * Gets cuts
      *
-     * @return int[]
+     * @return \Volcengine\Vod20250101\Model\CutForGetExecutionOutput[]
      */
     public function getCuts()
     {
@@ -194,7 +194,7 @@ class ConvertHighlightCutsForGetExecutionOutput implements ModelInterface, Array
     /**
      * Sets cuts
      *
-     * @param int[] $cuts cuts
+     * @param \Volcengine\Vod20250101\Model\CutForGetExecutionOutput[] $cuts cuts
      *
      * @return $this
      */

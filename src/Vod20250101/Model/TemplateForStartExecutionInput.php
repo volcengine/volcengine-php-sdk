@@ -29,7 +29,7 @@ class TemplateForStartExecutionInput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'byte_hd' => '\Volcengine\Vod20250101\Model\ByteHDForStartExecutionInput',
-        'enhance' => '\Volcengine\Vod20250101\Model\EnhanceForStartExecutionInput',
+        'enhance' => '\Volcengine\Vod20250101\Model\ConvertEnhanceForStartExecutionInput',
         'transcode_audio' => '\Volcengine\Vod20250101\Model\TranscodeAudioForStartExecutionInput',
         'transcode_video' => '\Volcengine\Vod20250101\Model\TranscodeVideoForStartExecutionInput',
         'type' => 'string'
@@ -226,7 +226,7 @@ class TemplateForStartExecutionInput implements ModelInterface, ArrayAccess
     /**
      * Gets enhance
      *
-     * @return \Volcengine\Vod20250101\Model\EnhanceForStartExecutionInput
+     * @return \Volcengine\Vod20250101\Model\ConvertEnhanceForStartExecutionInput
      */
     public function getEnhance()
     {
@@ -236,7 +236,7 @@ class TemplateForStartExecutionInput implements ModelInterface, ArrayAccess
     /**
      * Sets enhance
      *
-     * @param \Volcengine\Vod20250101\Model\EnhanceForStartExecutionInput $enhance enhance
+     * @param \Volcengine\Vod20250101\Model\ConvertEnhanceForStartExecutionInput $enhance enhance
      *
      * @return $this
      */
