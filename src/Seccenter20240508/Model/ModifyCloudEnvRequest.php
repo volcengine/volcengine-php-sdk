@@ -41,7 +41,7 @@ class ModifyCloudEnvRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'comment' => null,
         'id' => null,
-        'sync_period' => 'int32'
+        'sync_period' => 'int64'
     ];
 
     /**

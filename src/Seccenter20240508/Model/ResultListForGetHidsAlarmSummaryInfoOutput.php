@@ -89,7 +89,7 @@ class ResultListForGetHidsAlarmSummaryInfoOutput implements ModelInterface, Arra
         'name' => null,
         'permission' => null,
         'pgid' => null,
-        'pid' => 'int32',
+        'pid' => 'int64',
         'port' => null,
         'ppid' => null,
         'restart' => null,

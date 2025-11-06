@@ -50,14 +50,14 @@ class ListWeakPasswordCheckDetailRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'agent_id' => null,
-        'baseline_id' => 'int32',
+        'baseline_id' => 'int64',
         'check_name' => null,
         'cloud_providers' => null,
         'hostname' => null,
         'ip' => null,
         'leaf_group_ids' => null,
-        'page_number' => 'int32',
-        'page_size' => 'int32',
+        'page_number' => 'int64',
+        'page_size' => 'int64',
         'sort_by' => null,
         'sort_order' => null,
         'tag' => null,

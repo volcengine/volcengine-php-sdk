@@ -39,7 +39,7 @@ class ListLayeredGroupRelatedHostResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'agent_ids' => null,
-        'total' => 'int32'
+        'total' => 'int64'
     ];
 
     /**

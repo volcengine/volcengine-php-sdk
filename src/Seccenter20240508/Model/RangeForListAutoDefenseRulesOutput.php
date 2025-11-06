@@ -42,7 +42,7 @@ class RangeForListAutoDefenseRulesOutput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'host_list' => null,
-        'host_num' => 'int32',
+        'host_num' => 'int64',
         'if_all_host' => null,
         'leaf_group_id_list' => null,
         'single_group_path' => null

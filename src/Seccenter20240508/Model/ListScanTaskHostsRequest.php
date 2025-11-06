@@ -48,8 +48,8 @@ class ListScanTaskHostsRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'action' => null,
         'file_path' => null,
-        'page_number' => 'int32',
-        'page_size' => 'int32',
+        'page_number' => 'int64',
+        'page_size' => 'int64',
         'sort_by' => null,
         'sort_order' => null,
         'task_name' => null,

@@ -47,8 +47,8 @@ class BaselineChecklistWhiteRequest implements ModelInterface, ArrayAccess
         'agent_id_list' => null,
         'asset_id_list' => null,
         'asset_type' => null,
-        'baseline_id' => 'int32',
-        'checklist_id_list' => 'int32',
+        'baseline_id' => 'int64',
+        'checklist_id_list' => 'int64',
         'conditions' => null,
         'if_white' => null,
         'whitelist_detail' => null

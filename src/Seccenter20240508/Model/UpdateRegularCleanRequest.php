@@ -38,7 +38,7 @@ class UpdateRegularCleanRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'clean_days' => 'int32',
+        'clean_days' => 'int64',
         'switch' => null
     ];
 

@@ -41,8 +41,8 @@ class GetMlpUpdateSoftwareTaskDetailResponse implements ModelInterface, ArrayAcc
       */
     protected static $swaggerFormats = [
         'account_id' => null,
-        'last_check_time' => 'int32',
-        'progress' => 'int32',
+        'last_check_time' => 'int64',
+        'progress' => 'int64',
         'task_id' => null
     ];
 

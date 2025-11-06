@@ -44,14 +44,14 @@ class GetRaspProtectStatisticsResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'hit_white_process_count' => 'int32',
-        'process_count' => 'int32',
-        'protect_abnormal_process_count' => 'int32',
-        'protected_process_count' => 'int32',
-        'rasp_close_count' => 'int32',
-        'rasp_open_count' => 'int32',
-        'rasp_open_fail_count' => 'int32',
-        'to_be_protected_process_count' => 'int32'
+        'hit_white_process_count' => 'int64',
+        'process_count' => 'int64',
+        'protect_abnormal_process_count' => 'int64',
+        'protected_process_count' => 'int64',
+        'rasp_close_count' => 'int64',
+        'rasp_open_count' => 'int64',
+        'rasp_open_fail_count' => 'int64',
+        'to_be_protected_process_count' => 'int64'
     ];
 
     /**

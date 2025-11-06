@@ -48,18 +48,18 @@ class GetHidsAlarmStatisticsResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'alarm_critical_count' => 'int32',
-        'alarm_high_count' => 'int32',
-        'alarm_low_count' => 'int32',
-        'alarm_medium_count' => 'int32',
-        'alarm_processed_count' => 'int32',
-        'alarm_total' => 'int32',
-        'alarm_white_count' => 'int32',
-        'isolate_file_count' => 'int32',
-        'isolate_today_count' => 'int32',
-        'precision_defense_count' => 'int32',
-        'precision_defense_today_count' => 'int32',
-        'unhandled_today_count' => 'int32'
+        'alarm_critical_count' => 'int64',
+        'alarm_high_count' => 'int64',
+        'alarm_low_count' => 'int64',
+        'alarm_medium_count' => 'int64',
+        'alarm_processed_count' => 'int64',
+        'alarm_total' => 'int64',
+        'alarm_white_count' => 'int64',
+        'isolate_file_count' => 'int64',
+        'isolate_today_count' => 'int64',
+        'precision_defense_count' => 'int64',
+        'precision_defense_today_count' => 'int64',
+        'unhandled_today_count' => 'int64'
     ];
 
     /**

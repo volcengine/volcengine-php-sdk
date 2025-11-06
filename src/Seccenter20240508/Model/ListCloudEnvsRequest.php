@@ -48,12 +48,12 @@ class ListCloudEnvsRequest implements ModelInterface, ArrayAccess
         'access_key' => null,
         'cloud_platform' => null,
         'comment' => null,
-        'page_number' => 'int32',
-        'page_size' => 'int32',
+        'page_number' => 'int64',
+        'page_size' => 'int64',
         'sort_by' => null,
         'sort_order' => null,
-        'status' => 'int32',
-        'sync_status' => 'int32'
+        'status' => 'int64',
+        'sync_status' => 'int64'
     ];
 
     /**

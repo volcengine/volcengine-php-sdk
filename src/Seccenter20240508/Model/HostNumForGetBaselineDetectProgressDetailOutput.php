@@ -38,8 +38,8 @@ class HostNumForGetBaselineDetectProgressDetailOutput implements ModelInterface,
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'finished' => 'int32',
-        'total' => 'int32'
+        'finished' => 'int64',
+        'total' => 'int64'
     ];
 
     /**

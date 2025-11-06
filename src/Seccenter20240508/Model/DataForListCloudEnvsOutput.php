@@ -51,9 +51,9 @@ class DataForListCloudEnvsOutput implements ModelInterface, ArrayAccess
         'error_msg' => null,
         'id' => null,
         'key_type' => null,
-        'status' => 'int32',
-        'sync_period' => 'int32',
-        'sync_status' => 'int32'
+        'status' => 'int64',
+        'sync_period' => 'int64',
+        'sync_status' => 'int64'
     ];
 
     /**

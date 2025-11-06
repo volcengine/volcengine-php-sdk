@@ -46,9 +46,9 @@ class DataForMultiCloudAccessStatisticsOutput implements ModelInterface, ArrayAc
         'can_install_agent' => null,
         'can_sync' => null,
         'cloud_platform' => null,
-        'count' => 'int32',
+        'count' => 'int64',
         'is_active' => null,
-        'last_sync_time' => 'int32',
+        'last_sync_time' => 'int64',
         'name' => null
     ];
 

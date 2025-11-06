@@ -39,8 +39,8 @@ class GetGroupCheckStatusResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'last_check_time' => 'int32',
-        'progress' => 'int32',
+        'last_check_time' => 'int64',
+        'progress' => 'int64',
         'status' => null
     ];
 

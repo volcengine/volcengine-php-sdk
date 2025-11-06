@@ -42,7 +42,7 @@ class ConfigurationForGetMultiLevelInstitutionDetailOutput implements ModelInter
     protected static $swaggerFormats = [
         'institution_status' => null,
         'report_content' => null,
-        'report_period' => 'int32',
+        'report_period' => 'int64',
         'report_switch_open' => null
     ];
 

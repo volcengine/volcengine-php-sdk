@@ -40,10 +40,10 @@ class GetFingerprintRefreshStatusResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'cooldown_time' => 'int32',
-        'percent' => 'int32',
+        'cooldown_time' => 'int64',
+        'percent' => 'int64',
         'status' => null,
-        'update_time' => 'int32'
+        'update_time' => 'int64'
     ];
 
     /**

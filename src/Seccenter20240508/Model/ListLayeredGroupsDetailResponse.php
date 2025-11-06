@@ -39,7 +39,7 @@ class ListLayeredGroupsDetailResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'groups' => null,
-        'total' => 'int32'
+        'total' => 'int64'
     ];
 
     /**

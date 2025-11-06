@@ -51,10 +51,10 @@ class HistoryForListInstallCommandsOutput implements ModelInterface, ArrayAccess
         'cloud_provider' => null,
         'command' => null,
         'command_id' => null,
-        'expire_time' => 'int32',
+        'expire_time' => 'int64',
         'group_id' => null,
         'group_name' => null,
-        'host_engine' => 'int32',
+        'host_engine' => 'int64',
         'installation_method' => null,
         'os' => null,
         'proxy_name' => null

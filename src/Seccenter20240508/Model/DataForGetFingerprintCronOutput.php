@@ -59,8 +59,8 @@ class DataForGetFingerprintCronOutput implements ModelInterface, ArrayAccess
         'path' => null,
         'primary_ip_address' => null,
         'schedule' => null,
-        'start_time' => 'int32',
-        'update_time' => 'int32',
+        'start_time' => 'int64',
+        'update_time' => 'int64',
         'username' => null
     ];
 

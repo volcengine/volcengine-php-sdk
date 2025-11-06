@@ -49,14 +49,14 @@ class DataForGetIntrusionRealTimeUpdatesOutput implements ModelInterface, ArrayA
     protected static $swaggerFormats = [
         'agent_id' => null,
         'alarm_id' => null,
-        'alarm_time' => 'int32',
+        'alarm_time' => 'int64',
         'alarm_type' => null,
         'alert_detail' => null,
         'cluster_id' => null,
         'data_type' => null,
         'harm_level' => null,
         'name' => null,
-        'status' => 'int32',
+        'status' => 'int64',
         'trace_id' => null
     ];
 

@@ -28,15 +28,17 @@ class GetTLSInfoResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'alarm_topic_config' => '\Volcengine\Seccenter20240508\Model\AlarmTopicConfigForGetTLSInfoOutput',
         'authorized' => 'bool',
+        'login_topic_config' => '\Volcengine\Seccenter20240508\Model\LoginTopicConfigForGetTLSInfoOutput',
         'open' => 'bool',
+        'port_change_topic_config' => '\Volcengine\Seccenter20240508\Model\PortChangeTopicConfigForGetTLSInfoOutput',
+        'process_start_topic_config' => '\Volcengine\Seccenter20240508\Model\ProcessStartTopicConfigForGetTLSInfoOutput',
         'project_id' => 'string',
         'quota_total' => 'int',
         'quota_used' => 'int',
-        'storage_days' => 'int',
         'threshold' => 'int',
-        'topic_id' => 'string',
-        'vuln_topic_id' => 'string'
+        'vuln_topic_config' => '\Volcengine\Seccenter20240508\Model\VulnTopicConfigForGetTLSInfoOutput'
     ];
 
     /**
@@ -45,15 +47,17 @@ class GetTLSInfoResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'alarm_topic_config' => null,
         'authorized' => null,
+        'login_topic_config' => null,
         'open' => null,
+        'port_change_topic_config' => null,
+        'process_start_topic_config' => null,
         'project_id' => null,
-        'quota_total' => 'int32',
-        'quota_used' => 'int32',
-        'storage_days' => 'int32',
-        'threshold' => 'int32',
-        'topic_id' => null,
-        'vuln_topic_id' => null
+        'quota_total' => 'int64',
+        'quota_used' => 'int64',
+        'threshold' => 'int64',
+        'vuln_topic_config' => null
     ];
 
     /**
@@ -83,15 +87,17 @@ class GetTLSInfoResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'alarm_topic_config' => 'AlarmTopicConfig',
         'authorized' => 'Authorized',
+        'login_topic_config' => 'LoginTopicConfig',
         'open' => 'Open',
-        'project_id' => 'ProjectId',
+        'port_change_topic_config' => 'PortChangeTopicConfig',
+        'process_start_topic_config' => 'ProcessStartTopicConfig',
+        'project_id' => 'ProjectID',
         'quota_total' => 'QuotaTotal',
         'quota_used' => 'QuotaUsed',
-        'storage_days' => 'StorageDays',
         'threshold' => 'Threshold',
-        'topic_id' => 'TopicId',
-        'vuln_topic_id' => 'VulnTopicId'
+        'vuln_topic_config' => 'VulnTopicConfig'
     ];
 
     /**
@@ -100,15 +106,17 @@ class GetTLSInfoResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'alarm_topic_config' => 'setAlarmTopicConfig',
         'authorized' => 'setAuthorized',
+        'login_topic_config' => 'setLoginTopicConfig',
         'open' => 'setOpen',
+        'port_change_topic_config' => 'setPortChangeTopicConfig',
+        'process_start_topic_config' => 'setProcessStartTopicConfig',
         'project_id' => 'setProjectId',
         'quota_total' => 'setQuotaTotal',
         'quota_used' => 'setQuotaUsed',
-        'storage_days' => 'setStorageDays',
         'threshold' => 'setThreshold',
-        'topic_id' => 'setTopicId',
-        'vuln_topic_id' => 'setVulnTopicId'
+        'vuln_topic_config' => 'setVulnTopicConfig'
     ];
 
     /**
@@ -117,15 +125,17 @@ class GetTLSInfoResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'alarm_topic_config' => 'getAlarmTopicConfig',
         'authorized' => 'getAuthorized',
+        'login_topic_config' => 'getLoginTopicConfig',
         'open' => 'getOpen',
+        'port_change_topic_config' => 'getPortChangeTopicConfig',
+        'process_start_topic_config' => 'getProcessStartTopicConfig',
         'project_id' => 'getProjectId',
         'quota_total' => 'getQuotaTotal',
         'quota_used' => 'getQuotaUsed',
-        'storage_days' => 'getStorageDays',
         'threshold' => 'getThreshold',
-        'topic_id' => 'getTopicId',
-        'vuln_topic_id' => 'getVulnTopicId'
+        'vuln_topic_config' => 'getVulnTopicConfig'
     ];
 
     /**
@@ -188,15 +198,17 @@ class GetTLSInfoResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['alarm_topic_config'] = isset($data['alarm_topic_config']) ? $data['alarm_topic_config'] : null;
         $this->container['authorized'] = isset($data['authorized']) ? $data['authorized'] : null;
+        $this->container['login_topic_config'] = isset($data['login_topic_config']) ? $data['login_topic_config'] : null;
         $this->container['open'] = isset($data['open']) ? $data['open'] : null;
+        $this->container['port_change_topic_config'] = isset($data['port_change_topic_config']) ? $data['port_change_topic_config'] : null;
+        $this->container['process_start_topic_config'] = isset($data['process_start_topic_config']) ? $data['process_start_topic_config'] : null;
         $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
         $this->container['quota_total'] = isset($data['quota_total']) ? $data['quota_total'] : null;
         $this->container['quota_used'] = isset($data['quota_used']) ? $data['quota_used'] : null;
-        $this->container['storage_days'] = isset($data['storage_days']) ? $data['storage_days'] : null;
         $this->container['threshold'] = isset($data['threshold']) ? $data['threshold'] : null;
-        $this->container['topic_id'] = isset($data['topic_id']) ? $data['topic_id'] : null;
-        $this->container['vuln_topic_id'] = isset($data['vuln_topic_id']) ? $data['vuln_topic_id'] : null;
+        $this->container['vuln_topic_config'] = isset($data['vuln_topic_config']) ? $data['vuln_topic_config'] : null;
     }
 
     /**
@@ -224,6 +236,30 @@ class GetTLSInfoResponse implements ModelInterface, ArrayAccess
 
 
     /**
+     * Gets alarm_topic_config
+     *
+     * @return \Volcengine\Seccenter20240508\Model\AlarmTopicConfigForGetTLSInfoOutput
+     */
+    public function getAlarmTopicConfig()
+    {
+        return $this->container['alarm_topic_config'];
+    }
+
+    /**
+     * Sets alarm_topic_config
+     *
+     * @param \Volcengine\Seccenter20240508\Model\AlarmTopicConfigForGetTLSInfoOutput $alarm_topic_config alarm_topic_config
+     *
+     * @return $this
+     */
+    public function setAlarmTopicConfig($alarm_topic_config)
+    {
+        $this->container['alarm_topic_config'] = $alarm_topic_config;
+
+        return $this;
+    }
+
+    /**
      * Gets authorized
      *
      * @return bool
@@ -248,6 +284,30 @@ class GetTLSInfoResponse implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets login_topic_config
+     *
+     * @return \Volcengine\Seccenter20240508\Model\LoginTopicConfigForGetTLSInfoOutput
+     */
+    public function getLoginTopicConfig()
+    {
+        return $this->container['login_topic_config'];
+    }
+
+    /**
+     * Sets login_topic_config
+     *
+     * @param \Volcengine\Seccenter20240508\Model\LoginTopicConfigForGetTLSInfoOutput $login_topic_config login_topic_config
+     *
+     * @return $this
+     */
+    public function setLoginTopicConfig($login_topic_config)
+    {
+        $this->container['login_topic_config'] = $login_topic_config;
+
+        return $this;
+    }
+
+    /**
      * Gets open
      *
      * @return bool
@@ -267,6 +327,54 @@ class GetTLSInfoResponse implements ModelInterface, ArrayAccess
     public function setOpen($open)
     {
         $this->container['open'] = $open;
+
+        return $this;
+    }
+
+    /**
+     * Gets port_change_topic_config
+     *
+     * @return \Volcengine\Seccenter20240508\Model\PortChangeTopicConfigForGetTLSInfoOutput
+     */
+    public function getPortChangeTopicConfig()
+    {
+        return $this->container['port_change_topic_config'];
+    }
+
+    /**
+     * Sets port_change_topic_config
+     *
+     * @param \Volcengine\Seccenter20240508\Model\PortChangeTopicConfigForGetTLSInfoOutput $port_change_topic_config port_change_topic_config
+     *
+     * @return $this
+     */
+    public function setPortChangeTopicConfig($port_change_topic_config)
+    {
+        $this->container['port_change_topic_config'] = $port_change_topic_config;
+
+        return $this;
+    }
+
+    /**
+     * Gets process_start_topic_config
+     *
+     * @return \Volcengine\Seccenter20240508\Model\ProcessStartTopicConfigForGetTLSInfoOutput
+     */
+    public function getProcessStartTopicConfig()
+    {
+        return $this->container['process_start_topic_config'];
+    }
+
+    /**
+     * Sets process_start_topic_config
+     *
+     * @param \Volcengine\Seccenter20240508\Model\ProcessStartTopicConfigForGetTLSInfoOutput $process_start_topic_config process_start_topic_config
+     *
+     * @return $this
+     */
+    public function setProcessStartTopicConfig($process_start_topic_config)
+    {
+        $this->container['process_start_topic_config'] = $process_start_topic_config;
 
         return $this;
     }
@@ -344,30 +452,6 @@ class GetTLSInfoResponse implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets storage_days
-     *
-     * @return int
-     */
-    public function getStorageDays()
-    {
-        return $this->container['storage_days'];
-    }
-
-    /**
-     * Sets storage_days
-     *
-     * @param int $storage_days storage_days
-     *
-     * @return $this
-     */
-    public function setStorageDays($storage_days)
-    {
-        $this->container['storage_days'] = $storage_days;
-
-        return $this;
-    }
-
-    /**
      * Gets threshold
      *
      * @return int
@@ -392,49 +476,25 @@ class GetTLSInfoResponse implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets topic_id
+     * Gets vuln_topic_config
      *
-     * @return string
+     * @return \Volcengine\Seccenter20240508\Model\VulnTopicConfigForGetTLSInfoOutput
      */
-    public function getTopicId()
+    public function getVulnTopicConfig()
     {
-        return $this->container['topic_id'];
+        return $this->container['vuln_topic_config'];
     }
 
     /**
-     * Sets topic_id
+     * Sets vuln_topic_config
      *
-     * @param string $topic_id topic_id
+     * @param \Volcengine\Seccenter20240508\Model\VulnTopicConfigForGetTLSInfoOutput $vuln_topic_config vuln_topic_config
      *
      * @return $this
      */
-    public function setTopicId($topic_id)
+    public function setVulnTopicConfig($vuln_topic_config)
     {
-        $this->container['topic_id'] = $topic_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets vuln_topic_id
-     *
-     * @return string
-     */
-    public function getVulnTopicId()
-    {
-        return $this->container['vuln_topic_id'];
-    }
-
-    /**
-     * Sets vuln_topic_id
-     *
-     * @param string $vuln_topic_id vuln_topic_id
-     *
-     * @return $this
-     */
-    public function setVulnTopicId($vuln_topic_id)
-    {
-        $this->container['vuln_topic_id'] = $vuln_topic_id;
+        $this->container['vuln_topic_config'] = $vuln_topic_config;
 
         return $this;
     }

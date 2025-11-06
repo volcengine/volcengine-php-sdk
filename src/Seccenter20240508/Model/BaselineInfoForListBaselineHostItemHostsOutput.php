@@ -66,7 +66,7 @@ class BaselineInfoForListBaselineHostItemHostsOutput implements ModelInterface, 
         'node_id' => null,
         'node_ip' => null,
         'node_name' => null,
-        'pass_num' => 'int32',
+        'pass_num' => 'int64',
         'primary_ip_address' => null,
         'region' => null,
         'risk_num' => null

@@ -31,6 +31,7 @@ class GetFingerprintStatisticsResponse implements ModelInterface, ArrayAccess
         'app' => 'int',
         'container' => 'int',
         'cron' => 'int',
+        'env' => 'int',
         'integrity' => 'int',
         'kmod' => 'int',
         'port' => 'int',
@@ -47,17 +48,18 @@ class GetFingerprintStatisticsResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'app' => 'int32',
-        'container' => 'int32',
-        'cron' => 'int32',
-        'integrity' => 'int32',
-        'kmod' => 'int32',
-        'port' => 'int32',
-        'process' => 'int32',
-        'service' => 'int32',
-        'software' => 'int32',
-        'user' => 'int32',
-        'web' => 'int32'
+        'app' => 'int64',
+        'container' => 'int64',
+        'cron' => 'int64',
+        'env' => 'int64',
+        'integrity' => 'int64',
+        'kmod' => 'int64',
+        'port' => 'int64',
+        'process' => 'int64',
+        'service' => 'int64',
+        'software' => 'int64',
+        'user' => 'int64',
+        'web' => 'int64'
     ];
 
     /**
@@ -90,6 +92,7 @@ class GetFingerprintStatisticsResponse implements ModelInterface, ArrayAccess
         'app' => 'App',
         'container' => 'Container',
         'cron' => 'Cron',
+        'env' => 'Env',
         'integrity' => 'Integrity',
         'kmod' => 'Kmod',
         'port' => 'Port',
@@ -109,6 +112,7 @@ class GetFingerprintStatisticsResponse implements ModelInterface, ArrayAccess
         'app' => 'setApp',
         'container' => 'setContainer',
         'cron' => 'setCron',
+        'env' => 'setEnv',
         'integrity' => 'setIntegrity',
         'kmod' => 'setKmod',
         'port' => 'setPort',
@@ -128,6 +132,7 @@ class GetFingerprintStatisticsResponse implements ModelInterface, ArrayAccess
         'app' => 'getApp',
         'container' => 'getContainer',
         'cron' => 'getCron',
+        'env' => 'getEnv',
         'integrity' => 'getIntegrity',
         'kmod' => 'getKmod',
         'port' => 'getPort',
@@ -201,6 +206,7 @@ class GetFingerprintStatisticsResponse implements ModelInterface, ArrayAccess
         $this->container['app'] = isset($data['app']) ? $data['app'] : null;
         $this->container['container'] = isset($data['container']) ? $data['container'] : null;
         $this->container['cron'] = isset($data['cron']) ? $data['cron'] : null;
+        $this->container['env'] = isset($data['env']) ? $data['env'] : null;
         $this->container['integrity'] = isset($data['integrity']) ? $data['integrity'] : null;
         $this->container['kmod'] = isset($data['kmod']) ? $data['kmod'] : null;
         $this->container['port'] = isset($data['port']) ? $data['port'] : null;
@@ -303,6 +309,30 @@ class GetFingerprintStatisticsResponse implements ModelInterface, ArrayAccess
     public function setCron($cron)
     {
         $this->container['cron'] = $cron;
+
+        return $this;
+    }
+
+    /**
+     * Gets env
+     *
+     * @return int
+     */
+    public function getEnv()
+    {
+        return $this->container['env'];
+    }
+
+    /**
+     * Sets env
+     *
+     * @param int $env env
+     *
+     * @return $this
+     */
+    public function setEnv($env)
+    {
+        $this->container['env'] = $env;
 
         return $this;
     }

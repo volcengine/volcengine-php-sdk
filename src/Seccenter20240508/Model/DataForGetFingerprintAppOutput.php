@@ -66,9 +66,9 @@ class DataForGetFingerprintAppOutput implements ModelInterface, ArrayAccess
         'name' => null,
         'pid' => null,
         'primary_ip_address' => null,
-        'start_time' => 'int32',
+        'start_time' => 'int64',
         'type' => null,
-        'update_time' => 'int32',
+        'update_time' => 'int64',
         'version' => null
     ];
 

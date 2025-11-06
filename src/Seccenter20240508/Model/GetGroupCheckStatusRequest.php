@@ -39,8 +39,8 @@ class GetGroupCheckStatusRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'baseline_id' => 'int32',
-        'group_id' => 'int32',
+        'baseline_id' => 'int64',
+        'group_id' => 'int64',
         'top_group_id' => null
     ];
 

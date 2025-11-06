@@ -41,11 +41,11 @@ class HostOverviewForGetMultiLevelInstitutionDetailOutput implements ModelInterf
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'host_num' => 'int32',
-        'offline' => 'int32',
-        'protecting' => 'int32',
-        'protection_exception' => 'int32',
-        'unprotected' => 'int32'
+        'host_num' => 'int64',
+        'offline' => 'int64',
+        'protecting' => 'int64',
+        'protection_exception' => 'int64',
+        'unprotected' => 'int64'
     ];
 
     /**

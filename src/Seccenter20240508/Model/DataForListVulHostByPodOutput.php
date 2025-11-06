@@ -49,15 +49,15 @@ class DataForListVulHostByPodOutput implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'agent_id' => null,
         'agent_tags' => null,
-        'control_time' => 'int32',
-        'create_time' => 'int32',
+        'control_time' => 'int64',
+        'create_time' => 'int64',
         'cwpp_id' => null,
         'eip_address' => null,
         'host_name' => null,
         'operate_reason' => null,
         'primary_ip_address' => null,
         'status' => null,
-        'update_time' => 'int32'
+        'update_time' => 'int64'
     ];
 
     /**

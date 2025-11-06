@@ -65,14 +65,14 @@ class DataForGetFingerprintUserOutput implements ModelInterface, ArrayAccess
         'id' => null,
         'info' => null,
         'last_login_ip' => null,
-        'last_login_time' => 'int32',
+        'last_login_time' => 'int64',
         'password' => null,
         'primary_ip_address' => null,
         'shell' => null,
-        'start_time' => 'int32',
+        'start_time' => 'int64',
         'sudoers' => null,
         'uid' => null,
-        'update_time' => 'int32',
+        'update_time' => 'int64',
         'username' => null
     ];
 

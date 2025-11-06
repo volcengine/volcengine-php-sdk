@@ -49,10 +49,10 @@ class DetectBaselineRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'asset_ids' => null,
         'asset_type' => null,
-        'baseline_list' => 'int32',
-        'check_list' => 'int32',
+        'baseline_list' => 'int64',
+        'check_list' => 'int64',
         'conditions' => null,
-        'group_id' => 'int32',
+        'group_id' => 'int64',
         'host_list' => null,
         'if_all_host' => null,
         'if_all_mlp' => null,

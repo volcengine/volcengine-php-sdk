@@ -48,17 +48,17 @@ class GetBaselineGroupStatisticsResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'checklist_num' => 'int32',
-        'high_risk_num' => 'int32',
-        'host_num' => 'int32',
-        'last_check_time' => 'int32',
-        'low_risk_num' => 'int32',
-        'mid_risk_num' => 'int32',
-        'pass_host_num' => 'int32',
-        'pass_num' => 'int32',
-        'pass_rate' => 'int32',
-        'risk_host_num' => 'int32',
-        'risk_num' => 'int32',
+        'checklist_num' => 'int64',
+        'high_risk_num' => 'int64',
+        'host_num' => 'int64',
+        'last_check_time' => 'int64',
+        'low_risk_num' => 'int64',
+        'mid_risk_num' => 'int64',
+        'pass_host_num' => 'int64',
+        'pass_num' => 'int64',
+        'pass_rate' => 'int64',
+        'risk_host_num' => 'int64',
+        'risk_num' => 'int64',
         'status' => null
     ];
 

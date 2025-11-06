@@ -49,17 +49,17 @@ class DataForListAssetCenterDevsOutput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'account_id' => null,
-        'alarm' => 'int32',
+        'alarm' => 'int64',
         'asset_id' => null,
         'asset_name' => null,
         'asset_type' => null,
         'asset_uk' => null,
-        'baseline' => 'int32',
+        'baseline' => 'int64',
         'ip' => null,
         'platform' => null,
         'region' => null,
         'status' => null,
-        'vul' => 'int32'
+        'vul' => 'int64'
     ];
 
     /**

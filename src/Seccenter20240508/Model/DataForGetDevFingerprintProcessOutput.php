@@ -66,11 +66,11 @@ class DataForGetDevFingerprintProcessOutput implements ModelInterface, ArrayAcce
         'ppid' => null,
         'private_ip' => null,
         'public_ip' => null,
-        'start_time' => 'int32',
+        'start_time' => 'int64',
         'state' => null,
         'status' => null,
         'uid' => null,
-        'update_time' => 'int32',
+        'update_time' => 'int64',
         'username' => null
     ];
 

@@ -46,7 +46,7 @@ class BatchDetectWeakPasswordRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'agent_id' => null,
-        'baseline_id' => 'int32',
+        'baseline_id' => 'int64',
         'cloud_providers' => null,
         'hostname' => null,
         'id_list' => null,

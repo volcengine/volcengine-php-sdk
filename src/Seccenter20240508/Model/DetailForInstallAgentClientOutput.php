@@ -40,7 +40,7 @@ class DetailForInstallAgentClientOutput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'agent_id' => null,
-        'code' => 'int32',
+        'code' => 'int64',
         'msg' => null
     ];
 
