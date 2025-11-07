@@ -39,7 +39,7 @@ class KillProcListForGetRaspAlarmSummaryInfoOutput implements ModelInterface, Ar
       */
     protected static $swaggerFormats = [
         'cmdline' => null,
-        'pid' => 'int32'
+        'pid' => 'int64'
     ];
 
     /**

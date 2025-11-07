@@ -43,10 +43,10 @@ class ListBaselineCheckItemsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'baseline_id' => 'int32',
+        'baseline_id' => 'int64',
         'check_name' => null,
-        'page_number' => 'int32',
-        'page_size' => 'int32',
+        'page_number' => 'int64',
+        'page_size' => 'int64',
         'sort_by' => null,
         'sort_order' => null,
         'top_group_id' => null

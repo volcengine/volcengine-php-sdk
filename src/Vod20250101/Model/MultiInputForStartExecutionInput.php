@@ -30,6 +30,7 @@ class MultiInputForStartExecutionInput implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'direct_url' => '\Volcengine\Vod20250101\Model\DirectUrlForStartExecutionInput',
         'file_id' => '\Volcengine\Vod20250101\Model\FileIdForStartExecutionInput',
+        'schema' => 'string',
         'tag' => 'string',
         'type' => 'string',
         'vid' => 'string'
@@ -43,6 +44,7 @@ class MultiInputForStartExecutionInput implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'direct_url' => null,
         'file_id' => null,
+        'schema' => null,
         'tag' => null,
         'type' => null,
         'vid' => null
@@ -77,6 +79,7 @@ class MultiInputForStartExecutionInput implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'direct_url' => 'DirectUrl',
         'file_id' => 'FileId',
+        'schema' => 'Schema',
         'tag' => 'Tag',
         'type' => 'Type',
         'vid' => 'Vid'
@@ -90,6 +93,7 @@ class MultiInputForStartExecutionInput implements ModelInterface, ArrayAccess
     protected static $setters = [
         'direct_url' => 'setDirectUrl',
         'file_id' => 'setFileId',
+        'schema' => 'setSchema',
         'tag' => 'setTag',
         'type' => 'setType',
         'vid' => 'setVid'
@@ -103,6 +107,7 @@ class MultiInputForStartExecutionInput implements ModelInterface, ArrayAccess
     protected static $getters = [
         'direct_url' => 'getDirectUrl',
         'file_id' => 'getFileId',
+        'schema' => 'getSchema',
         'tag' => 'getTag',
         'type' => 'getType',
         'vid' => 'getVid'
@@ -170,6 +175,7 @@ class MultiInputForStartExecutionInput implements ModelInterface, ArrayAccess
     {
         $this->container['direct_url'] = isset($data['direct_url']) ? $data['direct_url'] : null;
         $this->container['file_id'] = isset($data['file_id']) ? $data['file_id'] : null;
+        $this->container['schema'] = isset($data['schema']) ? $data['schema'] : null;
         $this->container['tag'] = isset($data['tag']) ? $data['tag'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['vid'] = isset($data['vid']) ? $data['vid'] : null;
@@ -243,6 +249,30 @@ class MultiInputForStartExecutionInput implements ModelInterface, ArrayAccess
     public function setFileId($file_id)
     {
         $this->container['file_id'] = $file_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets schema
+     *
+     * @return string
+     */
+    public function getSchema()
+    {
+        return $this->container['schema'];
+    }
+
+    /**
+     * Sets schema
+     *
+     * @param string $schema schema
+     *
+     * @return $this
+     */
+    public function setSchema($schema)
+    {
+        $this->container['schema'] = $schema;
 
         return $this;
     }

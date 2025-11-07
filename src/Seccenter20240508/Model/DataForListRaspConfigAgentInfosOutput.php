@@ -64,20 +64,20 @@ class DataForListRaspConfigAgentInfosOutput implements ModelInterface, ArrayAcce
         'enable_status' => null,
         'group_id' => null,
         'group_path' => null,
-        'hit_white_process_count' => 'int32',
-        'insert_time' => 'int32',
+        'hit_white_process_count' => 'int64',
+        'insert_time' => 'int64',
         'manual_close' => null,
         'platform' => null,
-        'process_count' => 'int32',
-        'protect_abnormal_process_count' => 'int32',
-        'protected_process_count' => 'int32',
+        'process_count' => 'int64',
+        'protect_abnormal_process_count' => 'int64',
+        'protected_process_count' => 'int64',
         'rasp_configs' => null,
         'reason' => null,
         'relate_config_name_list' => null,
         'tags' => null,
-        'to_be_protected_process_count' => 'int32',
+        'to_be_protected_process_count' => 'int64',
         'top_group_id' => null,
-        'update_time' => 'int32'
+        'update_time' => 'int64'
     ];
 
     /**

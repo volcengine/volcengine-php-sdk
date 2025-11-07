@@ -28,6 +28,7 @@ class ModifyTransitRouterVpcAttachmentAttributesRequest implements ModelInterfac
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'appliance_mode_enabled' => 'bool',
         'attach_points' => '\Volcengine\Transitrouter\Model\AttachPointForModifyTransitRouterVpcAttachmentAttributesInput[]',
         'auto_publish_route_enabled' => 'bool',
         'description' => 'string',
@@ -42,6 +43,7 @@ class ModifyTransitRouterVpcAttachmentAttributesRequest implements ModelInterfac
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'appliance_mode_enabled' => null,
         'attach_points' => null,
         'auto_publish_route_enabled' => null,
         'description' => null,
@@ -77,6 +79,7 @@ class ModifyTransitRouterVpcAttachmentAttributesRequest implements ModelInterfac
      * @var string[]
      */
     protected static $attributeMap = [
+        'appliance_mode_enabled' => 'ApplianceModeEnabled',
         'attach_points' => 'AttachPoints',
         'auto_publish_route_enabled' => 'AutoPublishRouteEnabled',
         'description' => 'Description',
@@ -91,6 +94,7 @@ class ModifyTransitRouterVpcAttachmentAttributesRequest implements ModelInterfac
      * @var string[]
      */
     protected static $setters = [
+        'appliance_mode_enabled' => 'setApplianceModeEnabled',
         'attach_points' => 'setAttachPoints',
         'auto_publish_route_enabled' => 'setAutoPublishRouteEnabled',
         'description' => 'setDescription',
@@ -105,6 +109,7 @@ class ModifyTransitRouterVpcAttachmentAttributesRequest implements ModelInterfac
      * @var string[]
      */
     protected static $getters = [
+        'appliance_mode_enabled' => 'getApplianceModeEnabled',
         'attach_points' => 'getAttachPoints',
         'auto_publish_route_enabled' => 'getAutoPublishRouteEnabled',
         'description' => 'getDescription',
@@ -173,6 +178,7 @@ class ModifyTransitRouterVpcAttachmentAttributesRequest implements ModelInterfac
      */
     public function __construct(array $data = null)
     {
+        $this->container['appliance_mode_enabled'] = isset($data['appliance_mode_enabled']) ? $data['appliance_mode_enabled'] : null;
         $this->container['attach_points'] = isset($data['attach_points']) ? $data['attach_points'] : null;
         $this->container['auto_publish_route_enabled'] = isset($data['auto_publish_route_enabled']) ? $data['auto_publish_route_enabled'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
@@ -207,6 +213,30 @@ class ModifyTransitRouterVpcAttachmentAttributesRequest implements ModelInterfac
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets appliance_mode_enabled
+     *
+     * @return bool
+     */
+    public function getApplianceModeEnabled()
+    {
+        return $this->container['appliance_mode_enabled'];
+    }
+
+    /**
+     * Sets appliance_mode_enabled
+     *
+     * @param bool $appliance_mode_enabled appliance_mode_enabled
+     *
+     * @return $this
+     */
+    public function setApplianceModeEnabled($appliance_mode_enabled)
+    {
+        $this->container['appliance_mode_enabled'] = $appliance_mode_enabled;
+
+        return $this;
+    }
 
     /**
      * Gets attach_points

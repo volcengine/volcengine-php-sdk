@@ -134,22 +134,21 @@ class StatusForListAddonsInput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const CONDITIONS_TYPE_CLUSTER_NOT_RUNNING = 'ClusterNotRunning';
-    const CONDITIONS_TYPE_CLUSTER_VERSION_UPGRADING = 'ClusterVersionUpgrading';
-    const CONDITIONS_TYPE_CRASH_LOOP_BACK_OFF = 'CrashLoopBackOff';
-    const CONDITIONS_TYPE_DEGRADED = 'Degraded';
-    const CONDITIONS_TYPE_IMAGE_PULL_BACK_OFF = 'ImagePullBackOff';
-    const CONDITIONS_TYPE_NAME_CONFLICT = 'NameConflict';
-    const CONDITIONS_TYPE_OK = 'Ok';
-    const CONDITIONS_TYPE_PROGRESSING = 'Progressing';
-    const CONDITIONS_TYPE_RESOURCE_CLEANUP_FAILED = 'ResourceCleanupFailed';
-    const CONDITIONS_TYPE_SCHEDULING_FAILED = 'SchedulingFailed';
     const CONDITIONS_TYPE_UNKNOWN = 'Unknown';
+    const CONDITIONS_TYPE_CLUSTER_NOT_RUNNING = 'ClusterNotRunning';
+    const CONDITIONS_TYPE_CRASH_LOOP_BACK_OFF = 'CrashLoopBackOff';
+    const CONDITIONS_TYPE_IMAGE_PULL_BACK_OFF = 'ImagePullBackOff';
+    const CONDITIONS_TYPE_SCHEDULING_FAILED = 'SchedulingFailed';
+    const CONDITIONS_TYPE_NAME_CONFLICT = 'NameConflict';
+    const CONDITIONS_TYPE_RESOURCE_CLEANUP_FAILED = 'ResourceCleanupFailed';
+    const CONDITIONS_TYPE_CLUSTER_VERSION_UPGRADING = 'ClusterVersionUpgrading';
+    const CONDITIONS_TYPE_OK = 'Ok';
+    const CONDITIONS_TYPE_DEGRADED = 'Degraded';
+    const CONDITIONS_TYPE_PROGRESSING = 'Progressing';
+    const PHASE_RUNNING = 'Running';
+    const PHASE_FAILED = 'Failed';
     const PHASE_CREATING = 'Creating';
     const PHASE_DELETING = 'Deleting';
-    const PHASE_FAILED = 'Failed';
-    const PHASE_NONE = 'None';
-    const PHASE_RUNNING = 'Running';
     const PHASE_UPDATING = 'Updating';
     
 
@@ -162,17 +161,17 @@ class StatusForListAddonsInput implements ModelInterface, ArrayAccess
     public function getConditionsTypeAllowableValues()
     {
         return [
-            self::CONDITIONS_TYPE_CLUSTER_NOT_RUNNING,
-            self::CONDITIONS_TYPE_CLUSTER_VERSION_UPGRADING,
-            self::CONDITIONS_TYPE_CRASH_LOOP_BACK_OFF,
-            self::CONDITIONS_TYPE_DEGRADED,
-            self::CONDITIONS_TYPE_IMAGE_PULL_BACK_OFF,
-            self::CONDITIONS_TYPE_NAME_CONFLICT,
-            self::CONDITIONS_TYPE_OK,
-            self::CONDITIONS_TYPE_PROGRESSING,
-            self::CONDITIONS_TYPE_RESOURCE_CLEANUP_FAILED,
-            self::CONDITIONS_TYPE_SCHEDULING_FAILED,
             self::CONDITIONS_TYPE_UNKNOWN,
+            self::CONDITIONS_TYPE_CLUSTER_NOT_RUNNING,
+            self::CONDITIONS_TYPE_CRASH_LOOP_BACK_OFF,
+            self::CONDITIONS_TYPE_IMAGE_PULL_BACK_OFF,
+            self::CONDITIONS_TYPE_SCHEDULING_FAILED,
+            self::CONDITIONS_TYPE_NAME_CONFLICT,
+            self::CONDITIONS_TYPE_RESOURCE_CLEANUP_FAILED,
+            self::CONDITIONS_TYPE_CLUSTER_VERSION_UPGRADING,
+            self::CONDITIONS_TYPE_OK,
+            self::CONDITIONS_TYPE_DEGRADED,
+            self::CONDITIONS_TYPE_PROGRESSING,
         ];
     }
     
@@ -184,11 +183,10 @@ class StatusForListAddonsInput implements ModelInterface, ArrayAccess
     public function getPhaseAllowableValues()
     {
         return [
+            self::PHASE_RUNNING,
+            self::PHASE_FAILED,
             self::PHASE_CREATING,
             self::PHASE_DELETING,
-            self::PHASE_FAILED,
-            self::PHASE_NONE,
-            self::PHASE_RUNNING,
             self::PHASE_UPDATING,
         ];
     }

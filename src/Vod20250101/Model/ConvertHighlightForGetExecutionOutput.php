@@ -28,8 +28,10 @@ class ConvertHighlightForGetExecutionOutput implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'clips' => '\Volcengine\Vod20250101\Model\ClipForGetExecutionOutput[]',
+        'clips' => '\Volcengine\Vod20250101\Model\ConvertClipForGetExecutionOutput[]',
         'duration' => 'double',
+        'edits' => '\Volcengine\Vod20250101\Model\ConvertEditForGetExecutionOutput[]',
+        'highlight_cuts' => '\Volcengine\Vod20250101\Model\ConvertHighlightCutsForGetExecutionOutput',
         'storyline_cuts' => '\Volcengine\Vod20250101\Model\ConvertStorylineCutsForGetExecutionOutput'
     ];
 
@@ -41,6 +43,8 @@ class ConvertHighlightForGetExecutionOutput implements ModelInterface, ArrayAcce
     protected static $swaggerFormats = [
         'clips' => null,
         'duration' => 'double',
+        'edits' => null,
+        'highlight_cuts' => null,
         'storyline_cuts' => null
     ];
 
@@ -73,6 +77,8 @@ class ConvertHighlightForGetExecutionOutput implements ModelInterface, ArrayAcce
     protected static $attributeMap = [
         'clips' => 'Clips',
         'duration' => 'Duration',
+        'edits' => 'Edits',
+        'highlight_cuts' => 'HighlightCuts',
         'storyline_cuts' => 'StorylineCuts'
     ];
 
@@ -84,6 +90,8 @@ class ConvertHighlightForGetExecutionOutput implements ModelInterface, ArrayAcce
     protected static $setters = [
         'clips' => 'setClips',
         'duration' => 'setDuration',
+        'edits' => 'setEdits',
+        'highlight_cuts' => 'setHighlightCuts',
         'storyline_cuts' => 'setStorylineCuts'
     ];
 
@@ -95,6 +103,8 @@ class ConvertHighlightForGetExecutionOutput implements ModelInterface, ArrayAcce
     protected static $getters = [
         'clips' => 'getClips',
         'duration' => 'getDuration',
+        'edits' => 'getEdits',
+        'highlight_cuts' => 'getHighlightCuts',
         'storyline_cuts' => 'getStorylineCuts'
     ];
 
@@ -160,6 +170,8 @@ class ConvertHighlightForGetExecutionOutput implements ModelInterface, ArrayAcce
     {
         $this->container['clips'] = isset($data['clips']) ? $data['clips'] : null;
         $this->container['duration'] = isset($data['duration']) ? $data['duration'] : null;
+        $this->container['edits'] = isset($data['edits']) ? $data['edits'] : null;
+        $this->container['highlight_cuts'] = isset($data['highlight_cuts']) ? $data['highlight_cuts'] : null;
         $this->container['storyline_cuts'] = isset($data['storyline_cuts']) ? $data['storyline_cuts'] : null;
     }
 
@@ -190,7 +202,7 @@ class ConvertHighlightForGetExecutionOutput implements ModelInterface, ArrayAcce
     /**
      * Gets clips
      *
-     * @return \Volcengine\Vod20250101\Model\ClipForGetExecutionOutput[]
+     * @return \Volcengine\Vod20250101\Model\ConvertClipForGetExecutionOutput[]
      */
     public function getClips()
     {
@@ -200,7 +212,7 @@ class ConvertHighlightForGetExecutionOutput implements ModelInterface, ArrayAcce
     /**
      * Sets clips
      *
-     * @param \Volcengine\Vod20250101\Model\ClipForGetExecutionOutput[] $clips clips
+     * @param \Volcengine\Vod20250101\Model\ConvertClipForGetExecutionOutput[] $clips clips
      *
      * @return $this
      */
@@ -231,6 +243,54 @@ class ConvertHighlightForGetExecutionOutput implements ModelInterface, ArrayAcce
     public function setDuration($duration)
     {
         $this->container['duration'] = $duration;
+
+        return $this;
+    }
+
+    /**
+     * Gets edits
+     *
+     * @return \Volcengine\Vod20250101\Model\ConvertEditForGetExecutionOutput[]
+     */
+    public function getEdits()
+    {
+        return $this->container['edits'];
+    }
+
+    /**
+     * Sets edits
+     *
+     * @param \Volcengine\Vod20250101\Model\ConvertEditForGetExecutionOutput[] $edits edits
+     *
+     * @return $this
+     */
+    public function setEdits($edits)
+    {
+        $this->container['edits'] = $edits;
+
+        return $this;
+    }
+
+    /**
+     * Gets highlight_cuts
+     *
+     * @return \Volcengine\Vod20250101\Model\ConvertHighlightCutsForGetExecutionOutput
+     */
+    public function getHighlightCuts()
+    {
+        return $this->container['highlight_cuts'];
+    }
+
+    /**
+     * Sets highlight_cuts
+     *
+     * @param \Volcengine\Vod20250101\Model\ConvertHighlightCutsForGetExecutionOutput $highlight_cuts highlight_cuts
+     *
+     * @return $this
+     */
+    public function setHighlightCuts($highlight_cuts)
+    {
+        $this->container['highlight_cuts'] = $highlight_cuts;
 
         return $this;
     }

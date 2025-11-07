@@ -28,6 +28,7 @@ class UpdateAITranslationUtterancesRequest implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'bilingual_subtitle_file_name' => 'string',
         'input_subtitle_file_name' => 'string',
         'output_subtitle_file_name' => 'string',
         'project_id' => 'string',
@@ -42,6 +43,7 @@ class UpdateAITranslationUtterancesRequest implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'bilingual_subtitle_file_name' => null,
         'input_subtitle_file_name' => null,
         'output_subtitle_file_name' => null,
         'project_id' => null,
@@ -77,6 +79,7 @@ class UpdateAITranslationUtterancesRequest implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $attributeMap = [
+        'bilingual_subtitle_file_name' => 'BilingualSubtitleFileName',
         'input_subtitle_file_name' => 'InputSubtitleFileName',
         'output_subtitle_file_name' => 'OutputSubtitleFileName',
         'project_id' => 'ProjectId',
@@ -91,6 +94,7 @@ class UpdateAITranslationUtterancesRequest implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $setters = [
+        'bilingual_subtitle_file_name' => 'setBilingualSubtitleFileName',
         'input_subtitle_file_name' => 'setInputSubtitleFileName',
         'output_subtitle_file_name' => 'setOutputSubtitleFileName',
         'project_id' => 'setProjectId',
@@ -105,6 +109,7 @@ class UpdateAITranslationUtterancesRequest implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $getters = [
+        'bilingual_subtitle_file_name' => 'getBilingualSubtitleFileName',
         'input_subtitle_file_name' => 'getInputSubtitleFileName',
         'output_subtitle_file_name' => 'getOutputSubtitleFileName',
         'project_id' => 'getProjectId',
@@ -173,6 +178,7 @@ class UpdateAITranslationUtterancesRequest implements ModelInterface, ArrayAcces
      */
     public function __construct(array $data = null)
     {
+        $this->container['bilingual_subtitle_file_name'] = isset($data['bilingual_subtitle_file_name']) ? $data['bilingual_subtitle_file_name'] : null;
         $this->container['input_subtitle_file_name'] = isset($data['input_subtitle_file_name']) ? $data['input_subtitle_file_name'] : null;
         $this->container['output_subtitle_file_name'] = isset($data['output_subtitle_file_name']) ? $data['output_subtitle_file_name'] : null;
         $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
@@ -213,6 +219,30 @@ class UpdateAITranslationUtterancesRequest implements ModelInterface, ArrayAcces
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets bilingual_subtitle_file_name
+     *
+     * @return string
+     */
+    public function getBilingualSubtitleFileName()
+    {
+        return $this->container['bilingual_subtitle_file_name'];
+    }
+
+    /**
+     * Sets bilingual_subtitle_file_name
+     *
+     * @param string $bilingual_subtitle_file_name bilingual_subtitle_file_name
+     *
+     * @return $this
+     */
+    public function setBilingualSubtitleFileName($bilingual_subtitle_file_name)
+    {
+        $this->container['bilingual_subtitle_file_name'] = $bilingual_subtitle_file_name;
+
+        return $this;
+    }
 
     /**
      * Gets input_subtitle_file_name

@@ -30,9 +30,11 @@ class TransitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachm
     protected static $swaggerTypes = [
         'account_id' => 'string',
         'auto_publish_route_enabled' => 'bool',
+        'bandwidth' => 'int',
         'creation_time' => 'string',
         'description' => 'string',
         'direct_connect_gateway_id' => 'string',
+        'ipv6_enabled' => 'bool',
         'status' => 'string',
         'tags' => '\Volcengine\Transitrouter\Model\TagForDescribeTransitRouterDirectConnectGatewayAttachmentsOutput[]',
         'transit_router_attachment_id' => 'string',
@@ -49,9 +51,11 @@ class TransitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachm
     protected static $swaggerFormats = [
         'account_id' => null,
         'auto_publish_route_enabled' => null,
+        'bandwidth' => 'int32',
         'creation_time' => null,
         'description' => null,
         'direct_connect_gateway_id' => null,
+        'ipv6_enabled' => null,
         'status' => null,
         'tags' => null,
         'transit_router_attachment_id' => null,
@@ -89,9 +93,11 @@ class TransitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachm
     protected static $attributeMap = [
         'account_id' => 'AccountId',
         'auto_publish_route_enabled' => 'AutoPublishRouteEnabled',
+        'bandwidth' => 'Bandwidth',
         'creation_time' => 'CreationTime',
         'description' => 'Description',
         'direct_connect_gateway_id' => 'DirectConnectGatewayId',
+        'ipv6_enabled' => 'Ipv6Enabled',
         'status' => 'Status',
         'tags' => 'Tags',
         'transit_router_attachment_id' => 'TransitRouterAttachmentId',
@@ -108,9 +114,11 @@ class TransitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachm
     protected static $setters = [
         'account_id' => 'setAccountId',
         'auto_publish_route_enabled' => 'setAutoPublishRouteEnabled',
+        'bandwidth' => 'setBandwidth',
         'creation_time' => 'setCreationTime',
         'description' => 'setDescription',
         'direct_connect_gateway_id' => 'setDirectConnectGatewayId',
+        'ipv6_enabled' => 'setIpv6Enabled',
         'status' => 'setStatus',
         'tags' => 'setTags',
         'transit_router_attachment_id' => 'setTransitRouterAttachmentId',
@@ -127,9 +135,11 @@ class TransitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachm
     protected static $getters = [
         'account_id' => 'getAccountId',
         'auto_publish_route_enabled' => 'getAutoPublishRouteEnabled',
+        'bandwidth' => 'getBandwidth',
         'creation_time' => 'getCreationTime',
         'description' => 'getDescription',
         'direct_connect_gateway_id' => 'getDirectConnectGatewayId',
+        'ipv6_enabled' => 'getIpv6Enabled',
         'status' => 'getStatus',
         'tags' => 'getTags',
         'transit_router_attachment_id' => 'getTransitRouterAttachmentId',
@@ -200,9 +210,11 @@ class TransitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachm
     {
         $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
         $this->container['auto_publish_route_enabled'] = isset($data['auto_publish_route_enabled']) ? $data['auto_publish_route_enabled'] : null;
+        $this->container['bandwidth'] = isset($data['bandwidth']) ? $data['bandwidth'] : null;
         $this->container['creation_time'] = isset($data['creation_time']) ? $data['creation_time'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['direct_connect_gateway_id'] = isset($data['direct_connect_gateway_id']) ? $data['direct_connect_gateway_id'] : null;
+        $this->container['ipv6_enabled'] = isset($data['ipv6_enabled']) ? $data['ipv6_enabled'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['transit_router_attachment_id'] = isset($data['transit_router_attachment_id']) ? $data['transit_router_attachment_id'] : null;
@@ -284,6 +296,30 @@ class TransitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachm
     }
 
     /**
+     * Gets bandwidth
+     *
+     * @return int
+     */
+    public function getBandwidth()
+    {
+        return $this->container['bandwidth'];
+    }
+
+    /**
+     * Sets bandwidth
+     *
+     * @param int $bandwidth bandwidth
+     *
+     * @return $this
+     */
+    public function setBandwidth($bandwidth)
+    {
+        $this->container['bandwidth'] = $bandwidth;
+
+        return $this;
+    }
+
+    /**
      * Gets creation_time
      *
      * @return string
@@ -351,6 +387,30 @@ class TransitRouterAttachmentForDescribeTransitRouterDirectConnectGatewayAttachm
     public function setDirectConnectGatewayId($direct_connect_gateway_id)
     {
         $this->container['direct_connect_gateway_id'] = $direct_connect_gateway_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets ipv6_enabled
+     *
+     * @return bool
+     */
+    public function getIpv6Enabled()
+    {
+        return $this->container['ipv6_enabled'];
+    }
+
+    /**
+     * Sets ipv6_enabled
+     *
+     * @param bool $ipv6_enabled ipv6_enabled
+     *
+     * @return $this
+     */
+    public function setIpv6Enabled($ipv6_enabled)
+    {
+        $this->container['ipv6_enabled'] = $ipv6_enabled;
 
         return $this;
     }

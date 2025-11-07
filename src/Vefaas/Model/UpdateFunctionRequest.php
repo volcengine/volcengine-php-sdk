@@ -28,8 +28,10 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'command' => 'string',
         'cpu_milli' => 'int',
         'description' => 'string',
+        'enable_apmplus' => 'bool',
         'envs' => '\Volcengine\Vefaas\Model\EnvForUpdateFunctionInput[]',
         'exclusive_mode' => 'bool',
         'id' => 'string',
@@ -55,8 +57,10 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'command' => null,
         'cpu_milli' => 'int32',
         'description' => null,
+        'enable_apmplus' => null,
         'envs' => null,
         'exclusive_mode' => null,
         'id' => null,
@@ -103,8 +107,10 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'command' => 'Command',
         'cpu_milli' => 'CpuMilli',
         'description' => 'Description',
+        'enable_apmplus' => 'EnableApmplus',
         'envs' => 'Envs',
         'exclusive_mode' => 'ExclusiveMode',
         'id' => 'Id',
@@ -130,8 +136,10 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'command' => 'setCommand',
         'cpu_milli' => 'setCpuMilli',
         'description' => 'setDescription',
+        'enable_apmplus' => 'setEnableApmplus',
         'envs' => 'setEnvs',
         'exclusive_mode' => 'setExclusiveMode',
         'id' => 'setId',
@@ -157,8 +165,10 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'command' => 'getCommand',
         'cpu_milli' => 'getCpuMilli',
         'description' => 'getDescription',
+        'enable_apmplus' => 'getEnableApmplus',
         'envs' => 'getEnvs',
         'exclusive_mode' => 'getExclusiveMode',
         'id' => 'getId',
@@ -238,8 +248,10 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['command'] = isset($data['command']) ? $data['command'] : null;
         $this->container['cpu_milli'] = isset($data['cpu_milli']) ? $data['cpu_milli'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['enable_apmplus'] = isset($data['enable_apmplus']) ? $data['enable_apmplus'] : null;
         $this->container['envs'] = isset($data['envs']) ? $data['envs'] : null;
         $this->container['exclusive_mode'] = isset($data['exclusive_mode']) ? $data['exclusive_mode'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
@@ -287,6 +299,30 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
 
 
     /**
+     * Gets command
+     *
+     * @return string
+     */
+    public function getCommand()
+    {
+        return $this->container['command'];
+    }
+
+    /**
+     * Sets command
+     *
+     * @param string $command command
+     *
+     * @return $this
+     */
+    public function setCommand($command)
+    {
+        $this->container['command'] = $command;
+
+        return $this;
+    }
+
+    /**
      * Gets cpu_milli
      *
      * @return int
@@ -330,6 +366,30 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets enable_apmplus
+     *
+     * @return bool
+     */
+    public function getEnableApmplus()
+    {
+        return $this->container['enable_apmplus'];
+    }
+
+    /**
+     * Sets enable_apmplus
+     *
+     * @param bool $enable_apmplus enable_apmplus
+     *
+     * @return $this
+     */
+    public function setEnableApmplus($enable_apmplus)
+    {
+        $this->container['enable_apmplus'] = $enable_apmplus;
 
         return $this;
     }

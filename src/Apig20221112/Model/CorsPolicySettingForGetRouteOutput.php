@@ -28,7 +28,13 @@ class CorsPolicySettingForGetRouteOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'enable' => 'bool'
+        'allow_credentials' => 'bool',
+        'allow_headers' => 'string[]',
+        'allow_methods' => 'string[]',
+        'allow_origins' => '\Volcengine\Apig20221112\Model\AllowOriginForGetRouteOutput[]',
+        'enable' => 'bool',
+        'expose_headers' => 'string[]',
+        'max_age' => 'int'
     ];
 
     /**
@@ -37,7 +43,13 @@ class CorsPolicySettingForGetRouteOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'enable' => null
+        'allow_credentials' => null,
+        'allow_headers' => null,
+        'allow_methods' => null,
+        'allow_origins' => null,
+        'enable' => null,
+        'expose_headers' => null,
+        'max_age' => 'int64'
     ];
 
     /**
@@ -67,7 +79,13 @@ class CorsPolicySettingForGetRouteOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'enable' => 'Enable'
+        'allow_credentials' => 'AllowCredentials',
+        'allow_headers' => 'AllowHeaders',
+        'allow_methods' => 'AllowMethods',
+        'allow_origins' => 'AllowOrigins',
+        'enable' => 'Enable',
+        'expose_headers' => 'ExposeHeaders',
+        'max_age' => 'MaxAge'
     ];
 
     /**
@@ -76,7 +94,13 @@ class CorsPolicySettingForGetRouteOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'enable' => 'setEnable'
+        'allow_credentials' => 'setAllowCredentials',
+        'allow_headers' => 'setAllowHeaders',
+        'allow_methods' => 'setAllowMethods',
+        'allow_origins' => 'setAllowOrigins',
+        'enable' => 'setEnable',
+        'expose_headers' => 'setExposeHeaders',
+        'max_age' => 'setMaxAge'
     ];
 
     /**
@@ -85,7 +109,13 @@ class CorsPolicySettingForGetRouteOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'enable' => 'getEnable'
+        'allow_credentials' => 'getAllowCredentials',
+        'allow_headers' => 'getAllowHeaders',
+        'allow_methods' => 'getAllowMethods',
+        'allow_origins' => 'getAllowOrigins',
+        'enable' => 'getEnable',
+        'expose_headers' => 'getExposeHeaders',
+        'max_age' => 'getMaxAge'
     ];
 
     /**
@@ -148,7 +178,13 @@ class CorsPolicySettingForGetRouteOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['allow_credentials'] = isset($data['allow_credentials']) ? $data['allow_credentials'] : null;
+        $this->container['allow_headers'] = isset($data['allow_headers']) ? $data['allow_headers'] : null;
+        $this->container['allow_methods'] = isset($data['allow_methods']) ? $data['allow_methods'] : null;
+        $this->container['allow_origins'] = isset($data['allow_origins']) ? $data['allow_origins'] : null;
         $this->container['enable'] = isset($data['enable']) ? $data['enable'] : null;
+        $this->container['expose_headers'] = isset($data['expose_headers']) ? $data['expose_headers'] : null;
+        $this->container['max_age'] = isset($data['max_age']) ? $data['max_age'] : null;
     }
 
     /**
@@ -176,6 +212,102 @@ class CorsPolicySettingForGetRouteOutput implements ModelInterface, ArrayAccess
 
 
     /**
+     * Gets allow_credentials
+     *
+     * @return bool
+     */
+    public function getAllowCredentials()
+    {
+        return $this->container['allow_credentials'];
+    }
+
+    /**
+     * Sets allow_credentials
+     *
+     * @param bool $allow_credentials allow_credentials
+     *
+     * @return $this
+     */
+    public function setAllowCredentials($allow_credentials)
+    {
+        $this->container['allow_credentials'] = $allow_credentials;
+
+        return $this;
+    }
+
+    /**
+     * Gets allow_headers
+     *
+     * @return string[]
+     */
+    public function getAllowHeaders()
+    {
+        return $this->container['allow_headers'];
+    }
+
+    /**
+     * Sets allow_headers
+     *
+     * @param string[] $allow_headers allow_headers
+     *
+     * @return $this
+     */
+    public function setAllowHeaders($allow_headers)
+    {
+        $this->container['allow_headers'] = $allow_headers;
+
+        return $this;
+    }
+
+    /**
+     * Gets allow_methods
+     *
+     * @return string[]
+     */
+    public function getAllowMethods()
+    {
+        return $this->container['allow_methods'];
+    }
+
+    /**
+     * Sets allow_methods
+     *
+     * @param string[] $allow_methods allow_methods
+     *
+     * @return $this
+     */
+    public function setAllowMethods($allow_methods)
+    {
+        $this->container['allow_methods'] = $allow_methods;
+
+        return $this;
+    }
+
+    /**
+     * Gets allow_origins
+     *
+     * @return \Volcengine\Apig20221112\Model\AllowOriginForGetRouteOutput[]
+     */
+    public function getAllowOrigins()
+    {
+        return $this->container['allow_origins'];
+    }
+
+    /**
+     * Sets allow_origins
+     *
+     * @param \Volcengine\Apig20221112\Model\AllowOriginForGetRouteOutput[] $allow_origins allow_origins
+     *
+     * @return $this
+     */
+    public function setAllowOrigins($allow_origins)
+    {
+        $this->container['allow_origins'] = $allow_origins;
+
+        return $this;
+    }
+
+    /**
      * Gets enable
      *
      * @return bool
@@ -195,6 +327,54 @@ class CorsPolicySettingForGetRouteOutput implements ModelInterface, ArrayAccess
     public function setEnable($enable)
     {
         $this->container['enable'] = $enable;
+
+        return $this;
+    }
+
+    /**
+     * Gets expose_headers
+     *
+     * @return string[]
+     */
+    public function getExposeHeaders()
+    {
+        return $this->container['expose_headers'];
+    }
+
+    /**
+     * Sets expose_headers
+     *
+     * @param string[] $expose_headers expose_headers
+     *
+     * @return $this
+     */
+    public function setExposeHeaders($expose_headers)
+    {
+        $this->container['expose_headers'] = $expose_headers;
+
+        return $this;
+    }
+
+    /**
+     * Gets max_age
+     *
+     * @return int
+     */
+    public function getMaxAge()
+    {
+        return $this->container['max_age'];
+    }
+
+    /**
+     * Sets max_age
+     *
+     * @param int $max_age max_age
+     *
+     * @return $this
+     */
+    public function setMaxAge($max_age)
+    {
+        $this->container['max_age'] = $max_age;
 
         return $this;
     }

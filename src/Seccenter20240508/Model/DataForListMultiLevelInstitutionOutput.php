@@ -54,18 +54,18 @@ class DataForListMultiLevelInstitutionOutput implements ModelInterface, ArrayAcc
         'account_id' => null,
         'app_sec_open' => null,
         'cluster_sec_open' => null,
-        'create_time' => 'int32',
-        'expire_time' => 'int32',
-        'host_total_count' => 'int32',
-        'host_used_count' => 'int32',
+        'create_time' => 'int64',
+        'expire_time' => 'int64',
+        'host_total_count' => 'int64',
+        'host_used_count' => 'int64',
         'id' => null,
         'institution_id' => null,
         'institution_name' => null,
         'institution_status' => null,
-        'last_active_time' => 'int32',
+        'last_active_time' => 'int64',
         'remark' => null,
         'report_switch_open' => null,
-        'update_time' => 'int32'
+        'update_time' => 'int64'
     ];
 
     /**

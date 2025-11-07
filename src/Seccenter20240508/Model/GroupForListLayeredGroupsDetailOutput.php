@@ -49,8 +49,8 @@ class GroupForListLayeredGroupsDetailOutput implements ModelInterface, ArrayAcce
         'group_id' => null,
         'group_name' => null,
         'group_path' => null,
-        'host_count' => 'int32',
-        'level' => 'int32',
+        'host_count' => 'int64',
+        'level' => 'int64',
         'parent_id' => null,
         'top_group_id' => null,
         'group_id_path' => null

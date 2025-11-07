@@ -40,8 +40,8 @@ class UninstallAgentClientResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'detail' => null,
-        'failure_count' => 'int32',
-        'success_count' => 'int32'
+        'failure_count' => 'int64',
+        'success_count' => 'int64'
     ];
 
     /**

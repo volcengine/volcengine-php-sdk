@@ -46,7 +46,7 @@ class ListInstallCommandsRequest implements ModelInterface, ArrayAccess
         'auto_protect' => null,
         'cloud_provider' => null,
         'group_id' => null,
-        'host_engine' => 'int32',
+        'host_engine' => 'int64',
         'installation_method' => null,
         'os' => null,
         'proxy_name' => null

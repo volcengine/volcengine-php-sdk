@@ -61,8 +61,8 @@ class GetFingerprintServiceRequest implements ModelInterface, ArrayAccess
         'ip' => null,
         'leaf_group_ids' => null,
         'name' => null,
-        'page_number' => 'int32',
-        'page_size' => 'int32',
+        'page_number' => 'int64',
+        'page_size' => 'int64',
         'path' => null,
         'restart' => null,
         'sort_by' => null,
@@ -209,23 +209,8 @@ class GetFingerprintServiceRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const RESTART_FALSE = 'false';
-    const RESTART_TRUE = 'true';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getRestartAllowableValues()
-    {
-        return [
-            self::RESTART_FALSE,
-            self::RESTART_TRUE,
-        ];
-    }
     
 
     /**
@@ -277,14 +262,6 @@ class GetFingerprintServiceRequest implements ModelInterface, ArrayAccess
         if ($this->container['page_size'] === null) {
             $invalidProperties[] = "'page_size' can't be null";
         }
-        $allowedValues = $this->getRestartAllowableValues();
-        if (!is_null($this->container['restart']) && !in_array($this->container['restart'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'restart', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -583,15 +560,6 @@ class GetFingerprintServiceRequest implements ModelInterface, ArrayAccess
      */
     public function setRestart($restart)
     {
-        $allowedValues = $this->getRestartAllowableValues();
-        if (!is_null($restart) && !in_array($restart, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'restart', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['restart'] = $restart;
 
         return $this;

@@ -28,6 +28,7 @@ class DescribeTransitRouterForwardPolicyEntriesRequest implements ModelInterface
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'destination_cidr_block' => 'string',
         'page_number' => 'int',
         'page_size' => 'int',
         'source_cidr_block' => 'string',
@@ -42,6 +43,7 @@ class DescribeTransitRouterForwardPolicyEntriesRequest implements ModelInterface
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'destination_cidr_block' => null,
         'page_number' => 'int32',
         'page_size' => 'int32',
         'source_cidr_block' => null,
@@ -77,6 +79,7 @@ class DescribeTransitRouterForwardPolicyEntriesRequest implements ModelInterface
      * @var string[]
      */
     protected static $attributeMap = [
+        'destination_cidr_block' => 'DestinationCidrBlock',
         'page_number' => 'PageNumber',
         'page_size' => 'PageSize',
         'source_cidr_block' => 'SourceCidrBlock',
@@ -91,6 +94,7 @@ class DescribeTransitRouterForwardPolicyEntriesRequest implements ModelInterface
      * @var string[]
      */
     protected static $setters = [
+        'destination_cidr_block' => 'setDestinationCidrBlock',
         'page_number' => 'setPageNumber',
         'page_size' => 'setPageSize',
         'source_cidr_block' => 'setSourceCidrBlock',
@@ -105,6 +109,7 @@ class DescribeTransitRouterForwardPolicyEntriesRequest implements ModelInterface
      * @var string[]
      */
     protected static $getters = [
+        'destination_cidr_block' => 'getDestinationCidrBlock',
         'page_number' => 'getPageNumber',
         'page_size' => 'getPageSize',
         'source_cidr_block' => 'getSourceCidrBlock',
@@ -173,6 +178,7 @@ class DescribeTransitRouterForwardPolicyEntriesRequest implements ModelInterface
      */
     public function __construct(array $data = null)
     {
+        $this->container['destination_cidr_block'] = isset($data['destination_cidr_block']) ? $data['destination_cidr_block'] : null;
         $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
         $this->container['source_cidr_block'] = isset($data['source_cidr_block']) ? $data['source_cidr_block'] : null;
@@ -207,6 +213,30 @@ class DescribeTransitRouterForwardPolicyEntriesRequest implements ModelInterface
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets destination_cidr_block
+     *
+     * @return string
+     */
+    public function getDestinationCidrBlock()
+    {
+        return $this->container['destination_cidr_block'];
+    }
+
+    /**
+     * Sets destination_cidr_block
+     *
+     * @param string $destination_cidr_block destination_cidr_block
+     *
+     * @return $this
+     */
+    public function setDestinationCidrBlock($destination_cidr_block)
+    {
+        $this->container['destination_cidr_block'] = $destination_cidr_block;
+
+        return $this;
+    }
 
     /**
      * Gets page_number

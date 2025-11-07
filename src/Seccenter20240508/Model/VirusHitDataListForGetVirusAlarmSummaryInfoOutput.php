@@ -39,8 +39,8 @@ class VirusHitDataListForGetVirusAlarmSummaryInfoOutput implements ModelInterfac
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'hit_len' => 'int32',
-        'offset' => 'int32',
+        'hit_len' => 'int64',
+        'offset' => 'int64',
         'rule_id' => null
     ];
 

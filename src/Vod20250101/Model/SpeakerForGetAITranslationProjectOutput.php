@@ -28,6 +28,7 @@ class SpeakerForGetAITranslationProjectOutput implements ModelInterface, ArrayAc
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'current_voice' => 'string',
         'id' => 'string',
         'name' => 'string',
         'project_id' => 'string',
@@ -40,6 +41,7 @@ class SpeakerForGetAITranslationProjectOutput implements ModelInterface, ArrayAc
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'current_voice' => null,
         'id' => null,
         'name' => null,
         'project_id' => null,
@@ -73,6 +75,7 @@ class SpeakerForGetAITranslationProjectOutput implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $attributeMap = [
+        'current_voice' => 'CurrentVoice',
         'id' => 'Id',
         'name' => 'Name',
         'project_id' => 'ProjectId',
@@ -85,6 +88,7 @@ class SpeakerForGetAITranslationProjectOutput implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $setters = [
+        'current_voice' => 'setCurrentVoice',
         'id' => 'setId',
         'name' => 'setName',
         'project_id' => 'setProjectId',
@@ -97,6 +101,7 @@ class SpeakerForGetAITranslationProjectOutput implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $getters = [
+        'current_voice' => 'getCurrentVoice',
         'id' => 'getId',
         'name' => 'getName',
         'project_id' => 'getProjectId',
@@ -163,6 +168,7 @@ class SpeakerForGetAITranslationProjectOutput implements ModelInterface, ArrayAc
      */
     public function __construct(array $data = null)
     {
+        $this->container['current_voice'] = isset($data['current_voice']) ? $data['current_voice'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
@@ -192,6 +198,30 @@ class SpeakerForGetAITranslationProjectOutput implements ModelInterface, ArrayAc
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets current_voice
+     *
+     * @return string
+     */
+    public function getCurrentVoice()
+    {
+        return $this->container['current_voice'];
+    }
+
+    /**
+     * Sets current_voice
+     *
+     * @param string $current_voice current_voice
+     *
+     * @return $this
+     */
+    public function setCurrentVoice($current_voice)
+    {
+        $this->container['current_voice'] = $current_voice;
+
+        return $this;
+    }
 
     /**
      * Gets id

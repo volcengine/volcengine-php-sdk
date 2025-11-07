@@ -38,6 +38,7 @@ class GetServiceResponse implements ModelInterface, ArrayAccess
         'id' => 'string',
         'name' => 'string',
         'ports' => '\Volcengine\Mlplatform20240701\Model\PortForGetServiceOutput[]',
+        'project_name' => 'string',
         'status' => '\Volcengine\Mlplatform20240701\Model\ConvertStatusForGetServiceOutput',
         'traffic_config' => '\Volcengine\Mlplatform20240701\Model\ConvertTrafficConfigForGetServiceOutput',
         'update_time' => 'string',
@@ -60,6 +61,7 @@ class GetServiceResponse implements ModelInterface, ArrayAccess
         'id' => null,
         'name' => null,
         'ports' => null,
+        'project_name' => null,
         'status' => null,
         'traffic_config' => null,
         'update_time' => null,
@@ -103,6 +105,7 @@ class GetServiceResponse implements ModelInterface, ArrayAccess
         'id' => 'Id',
         'name' => 'Name',
         'ports' => 'Ports',
+        'project_name' => 'ProjectName',
         'status' => 'Status',
         'traffic_config' => 'TrafficConfig',
         'update_time' => 'UpdateTime',
@@ -125,6 +128,7 @@ class GetServiceResponse implements ModelInterface, ArrayAccess
         'id' => 'setId',
         'name' => 'setName',
         'ports' => 'setPorts',
+        'project_name' => 'setProjectName',
         'status' => 'setStatus',
         'traffic_config' => 'setTrafficConfig',
         'update_time' => 'setUpdateTime',
@@ -147,6 +151,7 @@ class GetServiceResponse implements ModelInterface, ArrayAccess
         'id' => 'getId',
         'name' => 'getName',
         'ports' => 'getPorts',
+        'project_name' => 'getProjectName',
         'status' => 'getStatus',
         'traffic_config' => 'getTrafficConfig',
         'update_time' => 'getUpdateTime',
@@ -223,6 +228,7 @@ class GetServiceResponse implements ModelInterface, ArrayAccess
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['ports'] = isset($data['ports']) ? $data['ports'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['traffic_config'] = isset($data['traffic_config']) ? $data['traffic_config'] : null;
         $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
@@ -489,6 +495,30 @@ class GetServiceResponse implements ModelInterface, ArrayAccess
     public function setPorts($ports)
     {
         $this->container['ports'] = $ports;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }

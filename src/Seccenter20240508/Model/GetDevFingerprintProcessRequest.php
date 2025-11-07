@@ -61,12 +61,12 @@ class GetDevFingerprintProcessRequest implements ModelInterface, ArrayAccess
         'common' => null,
         'exe' => null,
         'integrity' => null,
-        'page_number' => 'int32',
-        'page_size' => 'int32',
+        'page_number' => 'int64',
+        'page_size' => 'int64',
         'sort_by' => null,
         'sort_order' => null,
-        'start_time_end' => 'int32',
-        'start_time_start' => 'int32',
+        'start_time_end' => 'int64',
+        'start_time_start' => 'int64',
         'username' => null
     ];
 

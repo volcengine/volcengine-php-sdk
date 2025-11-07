@@ -41,11 +41,11 @@ class ThreatenForGetMultiLevelInstitutionDetailOutput implements ModelInterface,
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'alert' => 'int32',
-        'baseline' => 'int32',
-        'hosts' => 'int32',
-        'virus' => 'int32',
-        'vuln' => 'int32'
+        'alert' => 'int64',
+        'baseline' => 'int64',
+        'hosts' => 'int64',
+        'virus' => 'int64',
+        'vuln' => 'int64'
     ];
 
     /**

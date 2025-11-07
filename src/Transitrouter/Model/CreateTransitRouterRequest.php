@@ -31,6 +31,7 @@ class CreateTransitRouterRequest implements ModelInterface, ArrayAccess
         'asn' => 'int',
         'client_token' => 'string',
         'description' => 'string',
+        'multicast_enabled' => 'bool',
         'project_name' => 'string',
         'tags' => '\Volcengine\Transitrouter\Model\TagForCreateTransitRouterInput[]',
         'transit_router_name' => 'string'
@@ -45,6 +46,7 @@ class CreateTransitRouterRequest implements ModelInterface, ArrayAccess
         'asn' => 'int64',
         'client_token' => null,
         'description' => null,
+        'multicast_enabled' => null,
         'project_name' => null,
         'tags' => null,
         'transit_router_name' => null
@@ -80,6 +82,7 @@ class CreateTransitRouterRequest implements ModelInterface, ArrayAccess
         'asn' => 'Asn',
         'client_token' => 'ClientToken',
         'description' => 'Description',
+        'multicast_enabled' => 'MulticastEnabled',
         'project_name' => 'ProjectName',
         'tags' => 'Tags',
         'transit_router_name' => 'TransitRouterName'
@@ -94,6 +97,7 @@ class CreateTransitRouterRequest implements ModelInterface, ArrayAccess
         'asn' => 'setAsn',
         'client_token' => 'setClientToken',
         'description' => 'setDescription',
+        'multicast_enabled' => 'setMulticastEnabled',
         'project_name' => 'setProjectName',
         'tags' => 'setTags',
         'transit_router_name' => 'setTransitRouterName'
@@ -108,6 +112,7 @@ class CreateTransitRouterRequest implements ModelInterface, ArrayAccess
         'asn' => 'getAsn',
         'client_token' => 'getClientToken',
         'description' => 'getDescription',
+        'multicast_enabled' => 'getMulticastEnabled',
         'project_name' => 'getProjectName',
         'tags' => 'getTags',
         'transit_router_name' => 'getTransitRouterName'
@@ -176,6 +181,7 @@ class CreateTransitRouterRequest implements ModelInterface, ArrayAccess
         $this->container['asn'] = isset($data['asn']) ? $data['asn'] : null;
         $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['multicast_enabled'] = isset($data['multicast_enabled']) ? $data['multicast_enabled'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['transit_router_name'] = isset($data['transit_router_name']) ? $data['transit_router_name'] : null;
@@ -273,6 +279,30 @@ class CreateTransitRouterRequest implements ModelInterface, ArrayAccess
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets multicast_enabled
+     *
+     * @return bool
+     */
+    public function getMulticastEnabled()
+    {
+        return $this->container['multicast_enabled'];
+    }
+
+    /**
+     * Sets multicast_enabled
+     *
+     * @param bool $multicast_enabled multicast_enabled
+     *
+     * @return $this
+     */
+    public function setMulticastEnabled($multicast_enabled)
+    {
+        $this->container['multicast_enabled'] = $multicast_enabled;
 
         return $this;
     }

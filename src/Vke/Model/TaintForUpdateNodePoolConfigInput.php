@@ -139,9 +139,9 @@ class TaintForUpdateNodePoolConfigInput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const EFFECT_NO_EXECUTE = 'NoExecute';
     const EFFECT_NO_SCHEDULE = 'NoSchedule';
     const EFFECT_PREFER_NO_SCHEDULE = 'PreferNoSchedule';
+    const EFFECT_NO_EXECUTE = 'NoExecute';
     
 
     
@@ -153,9 +153,9 @@ class TaintForUpdateNodePoolConfigInput implements ModelInterface, ArrayAccess
     public function getEffectAllowableValues()
     {
         return [
-            self::EFFECT_NO_EXECUTE,
             self::EFFECT_NO_SCHEDULE,
             self::EFFECT_PREFER_NO_SCHEDULE,
+            self::EFFECT_NO_EXECUTE,
         ];
     }
     

@@ -40,7 +40,7 @@ class DataForUpdateMlpAlarmStatusOutput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'alarm_id' => null,
-        'code' => 'int32',
+        'code' => 'int64',
         'msg' => null
     ];
 

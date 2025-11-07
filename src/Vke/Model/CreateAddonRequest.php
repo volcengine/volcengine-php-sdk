@@ -161,9 +161,9 @@ class CreateAddonRequest implements ModelInterface, ArrayAccess
 
     const DEPLOY_MODE_MANAGED = 'Managed';
     const DEPLOY_MODE_UNMANAGED = 'Unmanaged';
-    const DEPLOY_NODE_TYPE_EDGE_NODE = 'EdgeNode';
     const DEPLOY_NODE_TYPE_NODE = 'Node';
     const DEPLOY_NODE_TYPE_VIRTUAL_NODE = 'VirtualNode';
+    const DEPLOY_NODE_TYPE_EDGE_NODE = 'EdgeNode';
     
 
     
@@ -188,9 +188,9 @@ class CreateAddonRequest implements ModelInterface, ArrayAccess
     public function getDeployNodeTypeAllowableValues()
     {
         return [
-            self::DEPLOY_NODE_TYPE_EDGE_NODE,
             self::DEPLOY_NODE_TYPE_NODE,
             self::DEPLOY_NODE_TYPE_VIRTUAL_NODE,
+            self::DEPLOY_NODE_TYPE_EDGE_NODE,
         ];
     }
     
@@ -228,6 +228,9 @@ class CreateAddonRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['cluster_id'] === null) {
+            $invalidProperties[] = "'cluster_id' can't be null";
+        }
         $allowedValues = $this->getDeployModeAllowableValues();
         if (!is_null($this->container['deploy_mode']) && !in_array($this->container['deploy_mode'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -244,6 +247,9 @@ class CreateAddonRequest implements ModelInterface, ArrayAccess
             );
         }
 
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
         return $invalidProperties;
     }
 

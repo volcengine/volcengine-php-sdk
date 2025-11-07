@@ -39,7 +39,7 @@ class SwitchCloudEnvSyncRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'id' => null,
-        'status' => 'int32'
+        'status' => 'int64'
     ];
 
     /**

@@ -30,9 +30,11 @@ class ConfigForCreateDevInstanceInput implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'cfs' => '\Volcengine\Mlplatform20240701\Model\CfsForCreateDevInstanceInput',
         'nas' => '\Volcengine\Mlplatform20240701\Model\NasForCreateDevInstanceInput',
+        'nas_ap' => '\Volcengine\Mlplatform20240701\Model\NasAPForCreateDevInstanceInput',
         'sfcs' => '\Volcengine\Mlplatform20240701\Model\SfcsForCreateDevInstanceInput',
         'tos' => '\Volcengine\Mlplatform20240701\Model\TosForCreateDevInstanceInput',
-        'vepfs' => '\Volcengine\Mlplatform20240701\Model\VepfsForCreateDevInstanceInput'
+        'vepfs' => '\Volcengine\Mlplatform20240701\Model\VepfsForCreateDevInstanceInput',
+        'vepfs_ap' => '\Volcengine\Mlplatform20240701\Model\VepfsAPForCreateDevInstanceInput'
     ];
 
     /**
@@ -43,9 +45,11 @@ class ConfigForCreateDevInstanceInput implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'cfs' => null,
         'nas' => null,
+        'nas_ap' => null,
         'sfcs' => null,
         'tos' => null,
-        'vepfs' => null
+        'vepfs' => null,
+        'vepfs_ap' => null
     ];
 
     /**
@@ -77,9 +81,11 @@ class ConfigForCreateDevInstanceInput implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'cfs' => 'Cfs',
         'nas' => 'Nas',
+        'nas_ap' => 'NasAP',
         'sfcs' => 'Sfcs',
         'tos' => 'Tos',
-        'vepfs' => 'Vepfs'
+        'vepfs' => 'Vepfs',
+        'vepfs_ap' => 'VepfsAP'
     ];
 
     /**
@@ -90,9 +96,11 @@ class ConfigForCreateDevInstanceInput implements ModelInterface, ArrayAccess
     protected static $setters = [
         'cfs' => 'setCfs',
         'nas' => 'setNas',
+        'nas_ap' => 'setNasAp',
         'sfcs' => 'setSfcs',
         'tos' => 'setTos',
-        'vepfs' => 'setVepfs'
+        'vepfs' => 'setVepfs',
+        'vepfs_ap' => 'setVepfsAp'
     ];
 
     /**
@@ -103,9 +111,11 @@ class ConfigForCreateDevInstanceInput implements ModelInterface, ArrayAccess
     protected static $getters = [
         'cfs' => 'getCfs',
         'nas' => 'getNas',
+        'nas_ap' => 'getNasAp',
         'sfcs' => 'getSfcs',
         'tos' => 'getTos',
-        'vepfs' => 'getVepfs'
+        'vepfs' => 'getVepfs',
+        'vepfs_ap' => 'getVepfsAp'
     ];
 
     /**
@@ -170,9 +180,11 @@ class ConfigForCreateDevInstanceInput implements ModelInterface, ArrayAccess
     {
         $this->container['cfs'] = isset($data['cfs']) ? $data['cfs'] : null;
         $this->container['nas'] = isset($data['nas']) ? $data['nas'] : null;
+        $this->container['nas_ap'] = isset($data['nas_ap']) ? $data['nas_ap'] : null;
         $this->container['sfcs'] = isset($data['sfcs']) ? $data['sfcs'] : null;
         $this->container['tos'] = isset($data['tos']) ? $data['tos'] : null;
         $this->container['vepfs'] = isset($data['vepfs']) ? $data['vepfs'] : null;
+        $this->container['vepfs_ap'] = isset($data['vepfs_ap']) ? $data['vepfs_ap'] : null;
     }
 
     /**
@@ -248,6 +260,30 @@ class ConfigForCreateDevInstanceInput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets nas_ap
+     *
+     * @return \Volcengine\Mlplatform20240701\Model\NasAPForCreateDevInstanceInput
+     */
+    public function getNasAp()
+    {
+        return $this->container['nas_ap'];
+    }
+
+    /**
+     * Sets nas_ap
+     *
+     * @param \Volcengine\Mlplatform20240701\Model\NasAPForCreateDevInstanceInput $nas_ap nas_ap
+     *
+     * @return $this
+     */
+    public function setNasAp($nas_ap)
+    {
+        $this->container['nas_ap'] = $nas_ap;
+
+        return $this;
+    }
+
+    /**
      * Gets sfcs
      *
      * @return \Volcengine\Mlplatform20240701\Model\SfcsForCreateDevInstanceInput
@@ -315,6 +351,30 @@ class ConfigForCreateDevInstanceInput implements ModelInterface, ArrayAccess
     public function setVepfs($vepfs)
     {
         $this->container['vepfs'] = $vepfs;
+
+        return $this;
+    }
+
+    /**
+     * Gets vepfs_ap
+     *
+     * @return \Volcengine\Mlplatform20240701\Model\VepfsAPForCreateDevInstanceInput
+     */
+    public function getVepfsAp()
+    {
+        return $this->container['vepfs_ap'];
+    }
+
+    /**
+     * Sets vepfs_ap
+     *
+     * @param \Volcengine\Mlplatform20240701\Model\VepfsAPForCreateDevInstanceInput $vepfs_ap vepfs_ap
+     *
+     * @return $this
+     */
+    public function setVepfsAp($vepfs_ap)
+    {
+        $this->container['vepfs_ap'] = $vepfs_ap;
 
         return $this;
     }

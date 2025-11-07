@@ -44,7 +44,7 @@ class DataForListBaselineCheckResOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'checklist_id' => 'int32',
+        'checklist_id' => 'int64',
         'checklist_name' => null,
         'checklist_status' => null,
         'detect_status' => null,

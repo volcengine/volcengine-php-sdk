@@ -38,8 +38,8 @@ class GetIntrusionRiskTrendsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'end_time' => 'int32',
-        'start_time' => 'int32'
+        'end_time' => 'int64',
+        'start_time' => 'int64'
     ];
 
     /**

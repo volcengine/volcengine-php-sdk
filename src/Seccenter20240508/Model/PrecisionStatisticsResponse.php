@@ -40,8 +40,8 @@ class PrecisionStatisticsResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'distribution' => null,
-        'today_new_count' => 'int32',
-        'total_count' => 'int32'
+        'today_new_count' => 'int64',
+        'total_count' => 'int64'
     ];
 
     /**

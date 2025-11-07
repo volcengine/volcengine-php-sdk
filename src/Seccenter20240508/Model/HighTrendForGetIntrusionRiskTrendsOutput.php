@@ -38,8 +38,8 @@ class HighTrendForGetIntrusionRiskTrendsOutput implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'time_stamp' => 'int32',
-        'value' => 'int32'
+        'time_stamp' => 'int64',
+        'value' => 'int64'
     ];
 
     /**

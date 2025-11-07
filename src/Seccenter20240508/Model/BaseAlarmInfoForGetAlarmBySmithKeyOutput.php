@@ -51,17 +51,17 @@ class BaseAlarmInfoForGetAlarmBySmithKeyOutput implements ModelInterface, ArrayA
     protected static $swaggerFormats = [
         'alarm_type' => null,
         'attack_id_list' => null,
-        'create_time' => 'int32',
+        'create_time' => 'int64',
         'desc' => null,
         'docker' => null,
-        'handle_time' => 'int32',
+        'handle_time' => 'int64',
         'handle_user' => null,
         'level' => null,
         'name' => null,
-        'status' => 'int32',
+        'status' => 'int64',
         'suggest' => null,
         'trace_id' => null,
-        'update_time' => 'int32'
+        'update_time' => 'int64'
     ];
 
     /**

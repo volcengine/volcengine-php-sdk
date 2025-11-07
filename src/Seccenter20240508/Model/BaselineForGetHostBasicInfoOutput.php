@@ -40,10 +40,10 @@ class BaselineForGetHostBasicInfoOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'high' => 'int32',
-        'low' => 'int32',
-        'medium' => 'int32',
-        'pass' => 'int32'
+        'high' => 'int64',
+        'low' => 'int64',
+        'medium' => 'int64',
+        'pass' => 'int64'
     ];
 
     /**

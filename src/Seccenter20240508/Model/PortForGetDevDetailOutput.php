@@ -49,9 +49,9 @@ class PortForGetDevDetailOutput implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'enable_public_network_access' => null,
         'external_ip' => null,
-        'external_port' => 'int32',
+        'external_port' => 'int64',
         'internal_ip' => null,
-        'internal_port' => 'int32',
+        'internal_port' => 'int64',
         'name' => null,
         'private_endpoint_url' => null,
         'public_endpoint_url' => null,

@@ -28,6 +28,8 @@ class ProcessConfigForSubmitAITranslationWorkflowInput implements ModelInterface
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'disable_smart_subtitle_rewrite' => 'bool',
+        'disable_subtitle_punct_split' => 'bool',
         'suspension_stage_list' => 'string[]'
     ];
 
@@ -37,6 +39,8 @@ class ProcessConfigForSubmitAITranslationWorkflowInput implements ModelInterface
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'disable_smart_subtitle_rewrite' => null,
+        'disable_subtitle_punct_split' => null,
         'suspension_stage_list' => null
     ];
 
@@ -67,6 +71,8 @@ class ProcessConfigForSubmitAITranslationWorkflowInput implements ModelInterface
      * @var string[]
      */
     protected static $attributeMap = [
+        'disable_smart_subtitle_rewrite' => 'DisableSmartSubtitleRewrite',
+        'disable_subtitle_punct_split' => 'DisableSubtitlePunctSplit',
         'suspension_stage_list' => 'SuspensionStageList'
     ];
 
@@ -76,6 +82,8 @@ class ProcessConfigForSubmitAITranslationWorkflowInput implements ModelInterface
      * @var string[]
      */
     protected static $setters = [
+        'disable_smart_subtitle_rewrite' => 'setDisableSmartSubtitleRewrite',
+        'disable_subtitle_punct_split' => 'setDisableSubtitlePunctSplit',
         'suspension_stage_list' => 'setSuspensionStageList'
     ];
 
@@ -85,6 +93,8 @@ class ProcessConfigForSubmitAITranslationWorkflowInput implements ModelInterface
      * @var string[]
      */
     protected static $getters = [
+        'disable_smart_subtitle_rewrite' => 'getDisableSmartSubtitleRewrite',
+        'disable_subtitle_punct_split' => 'getDisableSubtitlePunctSplit',
         'suspension_stage_list' => 'getSuspensionStageList'
     ];
 
@@ -148,6 +158,8 @@ class ProcessConfigForSubmitAITranslationWorkflowInput implements ModelInterface
      */
     public function __construct(array $data = null)
     {
+        $this->container['disable_smart_subtitle_rewrite'] = isset($data['disable_smart_subtitle_rewrite']) ? $data['disable_smart_subtitle_rewrite'] : null;
+        $this->container['disable_subtitle_punct_split'] = isset($data['disable_subtitle_punct_split']) ? $data['disable_subtitle_punct_split'] : null;
         $this->container['suspension_stage_list'] = isset($data['suspension_stage_list']) ? $data['suspension_stage_list'] : null;
     }
 
@@ -174,6 +186,54 @@ class ProcessConfigForSubmitAITranslationWorkflowInput implements ModelInterface
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets disable_smart_subtitle_rewrite
+     *
+     * @return bool
+     */
+    public function getDisableSmartSubtitleRewrite()
+    {
+        return $this->container['disable_smart_subtitle_rewrite'];
+    }
+
+    /**
+     * Sets disable_smart_subtitle_rewrite
+     *
+     * @param bool $disable_smart_subtitle_rewrite disable_smart_subtitle_rewrite
+     *
+     * @return $this
+     */
+    public function setDisableSmartSubtitleRewrite($disable_smart_subtitle_rewrite)
+    {
+        $this->container['disable_smart_subtitle_rewrite'] = $disable_smart_subtitle_rewrite;
+
+        return $this;
+    }
+
+    /**
+     * Gets disable_subtitle_punct_split
+     *
+     * @return bool
+     */
+    public function getDisableSubtitlePunctSplit()
+    {
+        return $this->container['disable_subtitle_punct_split'];
+    }
+
+    /**
+     * Sets disable_subtitle_punct_split
+     *
+     * @param bool $disable_subtitle_punct_split disable_subtitle_punct_split
+     *
+     * @return $this
+     */
+    public function setDisableSubtitlePunctSplit($disable_subtitle_punct_split)
+    {
+        $this->container['disable_subtitle_punct_split'] = $disable_subtitle_punct_split;
+
+        return $this;
+    }
 
     /**
      * Gets suspension_stage_list

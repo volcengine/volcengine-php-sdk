@@ -31,6 +31,7 @@ class ListClustersRequest implements ModelInterface, ArrayAccess
         'filter' => '\Volcengine\Vke\Model\FilterForListClustersInput',
         'page_number' => 'int',
         'page_size' => 'int',
+        'project_name' => 'string',
         'tags' => '\Volcengine\Vke\Model\TagForListClustersInput[]'
     ];
 
@@ -43,6 +44,7 @@ class ListClustersRequest implements ModelInterface, ArrayAccess
         'filter' => null,
         'page_number' => 'int32',
         'page_size' => 'int32',
+        'project_name' => null,
         'tags' => null
     ];
 
@@ -76,6 +78,7 @@ class ListClustersRequest implements ModelInterface, ArrayAccess
         'filter' => 'Filter',
         'page_number' => 'PageNumber',
         'page_size' => 'PageSize',
+        'project_name' => 'ProjectName',
         'tags' => 'Tags'
     ];
 
@@ -88,6 +91,7 @@ class ListClustersRequest implements ModelInterface, ArrayAccess
         'filter' => 'setFilter',
         'page_number' => 'setPageNumber',
         'page_size' => 'setPageSize',
+        'project_name' => 'setProjectName',
         'tags' => 'setTags'
     ];
 
@@ -100,6 +104,7 @@ class ListClustersRequest implements ModelInterface, ArrayAccess
         'filter' => 'getFilter',
         'page_number' => 'getPageNumber',
         'page_size' => 'getPageSize',
+        'project_name' => 'getProjectName',
         'tags' => 'getTags'
     ];
 
@@ -166,6 +171,7 @@ class ListClustersRequest implements ModelInterface, ArrayAccess
         $this->container['filter'] = isset($data['filter']) ? $data['filter'] : null;
         $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
     }
 
@@ -261,6 +267,30 @@ class ListClustersRequest implements ModelInterface, ArrayAccess
     public function setPageSize($page_size)
     {
         $this->container['page_size'] = $page_size;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }

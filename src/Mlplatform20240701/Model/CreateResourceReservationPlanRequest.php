@@ -32,9 +32,12 @@ class CreateResourceReservationPlanRequest implements ModelInterface, ArrayAcces
         'description' => 'string',
         'dry_run' => 'bool',
         'name' => 'string',
+        'project_name' => 'string',
         'reservation_config' => '\Volcengine\Mlplatform20240701\Model\ReservationConfigForCreateResourceReservationPlanInput',
+        'schedule_config' => '\Volcengine\Mlplatform20240701\Model\ScheduleConfigForCreateResourceReservationPlanInput',
         'storage_config' => '\Volcengine\Mlplatform20240701\Model\StorageConfigForCreateResourceReservationPlanInput',
-        'workload_network_config' => '\Volcengine\Mlplatform20240701\Model\WorkloadNetworkConfigForCreateResourceReservationPlanInput'
+        'workload_network_config' => '\Volcengine\Mlplatform20240701\Model\WorkloadNetworkConfigForCreateResourceReservationPlanInput',
+        'workload_network_mode' => 'string'
     ];
 
     /**
@@ -47,9 +50,12 @@ class CreateResourceReservationPlanRequest implements ModelInterface, ArrayAcces
         'description' => null,
         'dry_run' => null,
         'name' => null,
+        'project_name' => null,
         'reservation_config' => null,
+        'schedule_config' => null,
         'storage_config' => null,
-        'workload_network_config' => null
+        'workload_network_config' => null,
+        'workload_network_mode' => null
     ];
 
     /**
@@ -83,9 +89,12 @@ class CreateResourceReservationPlanRequest implements ModelInterface, ArrayAcces
         'description' => 'Description',
         'dry_run' => 'DryRun',
         'name' => 'Name',
+        'project_name' => 'ProjectName',
         'reservation_config' => 'ReservationConfig',
+        'schedule_config' => 'ScheduleConfig',
         'storage_config' => 'StorageConfig',
-        'workload_network_config' => 'WorkloadNetworkConfig'
+        'workload_network_config' => 'WorkloadNetworkConfig',
+        'workload_network_mode' => 'WorkloadNetworkMode'
     ];
 
     /**
@@ -98,9 +107,12 @@ class CreateResourceReservationPlanRequest implements ModelInterface, ArrayAcces
         'description' => 'setDescription',
         'dry_run' => 'setDryRun',
         'name' => 'setName',
+        'project_name' => 'setProjectName',
         'reservation_config' => 'setReservationConfig',
+        'schedule_config' => 'setScheduleConfig',
         'storage_config' => 'setStorageConfig',
-        'workload_network_config' => 'setWorkloadNetworkConfig'
+        'workload_network_config' => 'setWorkloadNetworkConfig',
+        'workload_network_mode' => 'setWorkloadNetworkMode'
     ];
 
     /**
@@ -113,9 +125,12 @@ class CreateResourceReservationPlanRequest implements ModelInterface, ArrayAcces
         'description' => 'getDescription',
         'dry_run' => 'getDryRun',
         'name' => 'getName',
+        'project_name' => 'getProjectName',
         'reservation_config' => 'getReservationConfig',
+        'schedule_config' => 'getScheduleConfig',
         'storage_config' => 'getStorageConfig',
-        'workload_network_config' => 'getWorkloadNetworkConfig'
+        'workload_network_config' => 'getWorkloadNetworkConfig',
+        'workload_network_mode' => 'getWorkloadNetworkMode'
     ];
 
     /**
@@ -182,9 +197,12 @@ class CreateResourceReservationPlanRequest implements ModelInterface, ArrayAcces
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['dry_run'] = isset($data['dry_run']) ? $data['dry_run'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['reservation_config'] = isset($data['reservation_config']) ? $data['reservation_config'] : null;
+        $this->container['schedule_config'] = isset($data['schedule_config']) ? $data['schedule_config'] : null;
         $this->container['storage_config'] = isset($data['storage_config']) ? $data['storage_config'] : null;
         $this->container['workload_network_config'] = isset($data['workload_network_config']) ? $data['workload_network_config'] : null;
+        $this->container['workload_network_mode'] = isset($data['workload_network_mode']) ? $data['workload_network_mode'] : null;
     }
 
     /**
@@ -311,6 +329,30 @@ class CreateResourceReservationPlanRequest implements ModelInterface, ArrayAcces
     }
 
     /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
+
+    /**
      * Gets reservation_config
      *
      * @return \Volcengine\Mlplatform20240701\Model\ReservationConfigForCreateResourceReservationPlanInput
@@ -330,6 +372,30 @@ class CreateResourceReservationPlanRequest implements ModelInterface, ArrayAcces
     public function setReservationConfig($reservation_config)
     {
         $this->container['reservation_config'] = $reservation_config;
+
+        return $this;
+    }
+
+    /**
+     * Gets schedule_config
+     *
+     * @return \Volcengine\Mlplatform20240701\Model\ScheduleConfigForCreateResourceReservationPlanInput
+     */
+    public function getScheduleConfig()
+    {
+        return $this->container['schedule_config'];
+    }
+
+    /**
+     * Sets schedule_config
+     *
+     * @param \Volcengine\Mlplatform20240701\Model\ScheduleConfigForCreateResourceReservationPlanInput $schedule_config schedule_config
+     *
+     * @return $this
+     */
+    public function setScheduleConfig($schedule_config)
+    {
+        $this->container['schedule_config'] = $schedule_config;
 
         return $this;
     }
@@ -378,6 +444,30 @@ class CreateResourceReservationPlanRequest implements ModelInterface, ArrayAcces
     public function setWorkloadNetworkConfig($workload_network_config)
     {
         $this->container['workload_network_config'] = $workload_network_config;
+
+        return $this;
+    }
+
+    /**
+     * Gets workload_network_mode
+     *
+     * @return string
+     */
+    public function getWorkloadNetworkMode()
+    {
+        return $this->container['workload_network_mode'];
+    }
+
+    /**
+     * Sets workload_network_mode
+     *
+     * @param string $workload_network_mode workload_network_mode
+     *
+     * @return $this
+     */
+    public function setWorkloadNetworkMode($workload_network_mode)
+    {
+        $this->container['workload_network_mode'] = $workload_network_mode;
 
         return $this;
     }

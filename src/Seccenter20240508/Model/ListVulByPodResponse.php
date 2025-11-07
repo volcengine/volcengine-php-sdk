@@ -41,9 +41,9 @@ class ListVulByPodResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'data' => null,
-        'page_number' => 'int32',
-        'page_size' => 'int32',
-        'total_count' => 'int32'
+        'page_number' => 'int64',
+        'page_size' => 'int64',
+        'total_count' => 'int64'
     ];
 
     /**

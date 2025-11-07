@@ -34,7 +34,9 @@ class TransitRouterForDescribeTransitRoutersOutput implements ModelInterface, Ar
         'creation_time' => 'string',
         'deleted_time' => 'string',
         'description' => 'string',
+        'grant_source_type' => 'string',
         'grant_status' => 'string',
+        'multicast_enabled' => 'bool',
         'overdue_time' => 'string',
         'project_name' => 'string',
         'status' => 'string',
@@ -56,7 +58,9 @@ class TransitRouterForDescribeTransitRoutersOutput implements ModelInterface, Ar
         'creation_time' => null,
         'deleted_time' => null,
         'description' => null,
+        'grant_source_type' => null,
         'grant_status' => null,
+        'multicast_enabled' => null,
         'overdue_time' => null,
         'project_name' => null,
         'status' => null,
@@ -99,7 +103,9 @@ class TransitRouterForDescribeTransitRoutersOutput implements ModelInterface, Ar
         'creation_time' => 'CreationTime',
         'deleted_time' => 'DeletedTime',
         'description' => 'Description',
+        'grant_source_type' => 'GrantSourceType',
         'grant_status' => 'GrantStatus',
+        'multicast_enabled' => 'MulticastEnabled',
         'overdue_time' => 'OverdueTime',
         'project_name' => 'ProjectName',
         'status' => 'Status',
@@ -121,7 +127,9 @@ class TransitRouterForDescribeTransitRoutersOutput implements ModelInterface, Ar
         'creation_time' => 'setCreationTime',
         'deleted_time' => 'setDeletedTime',
         'description' => 'setDescription',
+        'grant_source_type' => 'setGrantSourceType',
         'grant_status' => 'setGrantStatus',
+        'multicast_enabled' => 'setMulticastEnabled',
         'overdue_time' => 'setOverdueTime',
         'project_name' => 'setProjectName',
         'status' => 'setStatus',
@@ -143,7 +151,9 @@ class TransitRouterForDescribeTransitRoutersOutput implements ModelInterface, Ar
         'creation_time' => 'getCreationTime',
         'deleted_time' => 'getDeletedTime',
         'description' => 'getDescription',
+        'grant_source_type' => 'getGrantSourceType',
         'grant_status' => 'getGrantStatus',
+        'multicast_enabled' => 'getMulticastEnabled',
         'overdue_time' => 'getOverdueTime',
         'project_name' => 'getProjectName',
         'status' => 'getStatus',
@@ -219,7 +229,9 @@ class TransitRouterForDescribeTransitRoutersOutput implements ModelInterface, Ar
         $this->container['creation_time'] = isset($data['creation_time']) ? $data['creation_time'] : null;
         $this->container['deleted_time'] = isset($data['deleted_time']) ? $data['deleted_time'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['grant_source_type'] = isset($data['grant_source_type']) ? $data['grant_source_type'] : null;
         $this->container['grant_status'] = isset($data['grant_status']) ? $data['grant_status'] : null;
+        $this->container['multicast_enabled'] = isset($data['multicast_enabled']) ? $data['multicast_enabled'] : null;
         $this->container['overdue_time'] = isset($data['overdue_time']) ? $data['overdue_time'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
@@ -398,6 +410,30 @@ class TransitRouterForDescribeTransitRoutersOutput implements ModelInterface, Ar
     }
 
     /**
+     * Gets grant_source_type
+     *
+     * @return string
+     */
+    public function getGrantSourceType()
+    {
+        return $this->container['grant_source_type'];
+    }
+
+    /**
+     * Sets grant_source_type
+     *
+     * @param string $grant_source_type grant_source_type
+     *
+     * @return $this
+     */
+    public function setGrantSourceType($grant_source_type)
+    {
+        $this->container['grant_source_type'] = $grant_source_type;
+
+        return $this;
+    }
+
+    /**
      * Gets grant_status
      *
      * @return string
@@ -417,6 +453,30 @@ class TransitRouterForDescribeTransitRoutersOutput implements ModelInterface, Ar
     public function setGrantStatus($grant_status)
     {
         $this->container['grant_status'] = $grant_status;
+
+        return $this;
+    }
+
+    /**
+     * Gets multicast_enabled
+     *
+     * @return bool
+     */
+    public function getMulticastEnabled()
+    {
+        return $this->container['multicast_enabled'];
+    }
+
+    /**
+     * Sets multicast_enabled
+     *
+     * @param bool $multicast_enabled multicast_enabled
+     *
+     * @return $this
+     */
+    public function setMulticastEnabled($multicast_enabled)
+    {
+        $this->container['multicast_enabled'] = $multicast_enabled;
 
         return $this;
     }

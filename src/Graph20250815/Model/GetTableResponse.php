@@ -31,8 +31,8 @@ class GetTableResponse implements ModelInterface, ArrayAccess
         'enable_read' => 'bool',
         'enable_write' => 'bool',
         'state' => 'string',
-        'tabel_name' => 'string',
-        'table_id' => 'int'
+        'table_id' => 'int',
+        'table_name' => 'string'
     ];
 
     /**
@@ -44,8 +44,8 @@ class GetTableResponse implements ModelInterface, ArrayAccess
         'enable_read' => null,
         'enable_write' => null,
         'state' => null,
-        'tabel_name' => null,
-        'table_id' => 'int64'
+        'table_id' => 'int64',
+        'table_name' => null
     ];
 
     /**
@@ -78,8 +78,8 @@ class GetTableResponse implements ModelInterface, ArrayAccess
         'enable_read' => 'EnableRead',
         'enable_write' => 'EnableWrite',
         'state' => 'State',
-        'tabel_name' => 'TabelName',
-        'table_id' => 'TableId'
+        'table_id' => 'TableId',
+        'table_name' => 'TableName'
     ];
 
     /**
@@ -91,8 +91,8 @@ class GetTableResponse implements ModelInterface, ArrayAccess
         'enable_read' => 'setEnableRead',
         'enable_write' => 'setEnableWrite',
         'state' => 'setState',
-        'tabel_name' => 'setTabelName',
-        'table_id' => 'setTableId'
+        'table_id' => 'setTableId',
+        'table_name' => 'setTableName'
     ];
 
     /**
@@ -104,8 +104,8 @@ class GetTableResponse implements ModelInterface, ArrayAccess
         'enable_read' => 'getEnableRead',
         'enable_write' => 'getEnableWrite',
         'state' => 'getState',
-        'tabel_name' => 'getTabelName',
-        'table_id' => 'getTableId'
+        'table_id' => 'getTableId',
+        'table_name' => 'getTableName'
     ];
 
     /**
@@ -171,8 +171,8 @@ class GetTableResponse implements ModelInterface, ArrayAccess
         $this->container['enable_read'] = isset($data['enable_read']) ? $data['enable_read'] : null;
         $this->container['enable_write'] = isset($data['enable_write']) ? $data['enable_write'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
-        $this->container['tabel_name'] = isset($data['tabel_name']) ? $data['tabel_name'] : null;
         $this->container['table_id'] = isset($data['table_id']) ? $data['table_id'] : null;
+        $this->container['table_name'] = isset($data['table_name']) ? $data['table_name'] : null;
     }
 
     /**
@@ -272,30 +272,6 @@ class GetTableResponse implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets tabel_name
-     *
-     * @return string
-     */
-    public function getTabelName()
-    {
-        return $this->container['tabel_name'];
-    }
-
-    /**
-     * Sets tabel_name
-     *
-     * @param string $tabel_name tabel_name
-     *
-     * @return $this
-     */
-    public function setTabelName($tabel_name)
-    {
-        $this->container['tabel_name'] = $tabel_name;
-
-        return $this;
-    }
-
-    /**
      * Gets table_id
      *
      * @return int
@@ -315,6 +291,30 @@ class GetTableResponse implements ModelInterface, ArrayAccess
     public function setTableId($table_id)
     {
         $this->container['table_id'] = $table_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets table_name
+     *
+     * @return string
+     */
+    public function getTableName()
+    {
+        return $this->container['table_name'];
+    }
+
+    /**
+     * Sets table_name
+     *
+     * @param string $table_name table_name
+     *
+     * @return $this
+     */
+    public function setTableName($table_name)
+    {
+        $this->container['table_name'] = $table_name;
 
         return $this;
     }

@@ -28,8 +28,13 @@ class ModifyTLSConfigRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'alarm_topic_config' => '\Volcengine\Seccenter20240508\Model\AlarmTopicConfigForModifyTLSConfigInput',
+        'login_topic_config' => '\Volcengine\Seccenter20240508\Model\LoginTopicConfigForModifyTLSConfigInput',
+        'port_change_topic_config' => '\Volcengine\Seccenter20240508\Model\PortChangeTopicConfigForModifyTLSConfigInput',
+        'process_start_topic_config' => '\Volcengine\Seccenter20240508\Model\ProcessStartTopicConfigForModifyTLSConfigInput',
         'storage_days' => 'int',
-        'threshold' => 'int'
+        'threshold' => 'int',
+        'vuln_topic_config' => '\Volcengine\Seccenter20240508\Model\VulnTopicConfigForModifyTLSConfigInput'
     ];
 
     /**
@@ -38,8 +43,13 @@ class ModifyTLSConfigRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'storage_days' => 'int32',
-        'threshold' => 'int32'
+        'alarm_topic_config' => null,
+        'login_topic_config' => null,
+        'port_change_topic_config' => null,
+        'process_start_topic_config' => null,
+        'storage_days' => 'int64',
+        'threshold' => 'int64',
+        'vuln_topic_config' => null
     ];
 
     /**
@@ -69,8 +79,13 @@ class ModifyTLSConfigRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'alarm_topic_config' => 'AlarmTopicConfig',
+        'login_topic_config' => 'LoginTopicConfig',
+        'port_change_topic_config' => 'PortChangeTopicConfig',
+        'process_start_topic_config' => 'ProcessStartTopicConfig',
         'storage_days' => 'StorageDays',
-        'threshold' => 'Threshold'
+        'threshold' => 'Threshold',
+        'vuln_topic_config' => 'VulnTopicConfig'
     ];
 
     /**
@@ -79,8 +94,13 @@ class ModifyTLSConfigRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'alarm_topic_config' => 'setAlarmTopicConfig',
+        'login_topic_config' => 'setLoginTopicConfig',
+        'port_change_topic_config' => 'setPortChangeTopicConfig',
+        'process_start_topic_config' => 'setProcessStartTopicConfig',
         'storage_days' => 'setStorageDays',
-        'threshold' => 'setThreshold'
+        'threshold' => 'setThreshold',
+        'vuln_topic_config' => 'setVulnTopicConfig'
     ];
 
     /**
@@ -89,8 +109,13 @@ class ModifyTLSConfigRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'alarm_topic_config' => 'getAlarmTopicConfig',
+        'login_topic_config' => 'getLoginTopicConfig',
+        'port_change_topic_config' => 'getPortChangeTopicConfig',
+        'process_start_topic_config' => 'getProcessStartTopicConfig',
         'storage_days' => 'getStorageDays',
-        'threshold' => 'getThreshold'
+        'threshold' => 'getThreshold',
+        'vuln_topic_config' => 'getVulnTopicConfig'
     ];
 
     /**
@@ -153,8 +178,13 @@ class ModifyTLSConfigRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['alarm_topic_config'] = isset($data['alarm_topic_config']) ? $data['alarm_topic_config'] : null;
+        $this->container['login_topic_config'] = isset($data['login_topic_config']) ? $data['login_topic_config'] : null;
+        $this->container['port_change_topic_config'] = isset($data['port_change_topic_config']) ? $data['port_change_topic_config'] : null;
+        $this->container['process_start_topic_config'] = isset($data['process_start_topic_config']) ? $data['process_start_topic_config'] : null;
         $this->container['storage_days'] = isset($data['storage_days']) ? $data['storage_days'] : null;
         $this->container['threshold'] = isset($data['threshold']) ? $data['threshold'] : null;
+        $this->container['vuln_topic_config'] = isset($data['vuln_topic_config']) ? $data['vuln_topic_config'] : null;
     }
 
     /**
@@ -180,6 +210,102 @@ class ModifyTLSConfigRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets alarm_topic_config
+     *
+     * @return \Volcengine\Seccenter20240508\Model\AlarmTopicConfigForModifyTLSConfigInput
+     */
+    public function getAlarmTopicConfig()
+    {
+        return $this->container['alarm_topic_config'];
+    }
+
+    /**
+     * Sets alarm_topic_config
+     *
+     * @param \Volcengine\Seccenter20240508\Model\AlarmTopicConfigForModifyTLSConfigInput $alarm_topic_config alarm_topic_config
+     *
+     * @return $this
+     */
+    public function setAlarmTopicConfig($alarm_topic_config)
+    {
+        $this->container['alarm_topic_config'] = $alarm_topic_config;
+
+        return $this;
+    }
+
+    /**
+     * Gets login_topic_config
+     *
+     * @return \Volcengine\Seccenter20240508\Model\LoginTopicConfigForModifyTLSConfigInput
+     */
+    public function getLoginTopicConfig()
+    {
+        return $this->container['login_topic_config'];
+    }
+
+    /**
+     * Sets login_topic_config
+     *
+     * @param \Volcengine\Seccenter20240508\Model\LoginTopicConfigForModifyTLSConfigInput $login_topic_config login_topic_config
+     *
+     * @return $this
+     */
+    public function setLoginTopicConfig($login_topic_config)
+    {
+        $this->container['login_topic_config'] = $login_topic_config;
+
+        return $this;
+    }
+
+    /**
+     * Gets port_change_topic_config
+     *
+     * @return \Volcengine\Seccenter20240508\Model\PortChangeTopicConfigForModifyTLSConfigInput
+     */
+    public function getPortChangeTopicConfig()
+    {
+        return $this->container['port_change_topic_config'];
+    }
+
+    /**
+     * Sets port_change_topic_config
+     *
+     * @param \Volcengine\Seccenter20240508\Model\PortChangeTopicConfigForModifyTLSConfigInput $port_change_topic_config port_change_topic_config
+     *
+     * @return $this
+     */
+    public function setPortChangeTopicConfig($port_change_topic_config)
+    {
+        $this->container['port_change_topic_config'] = $port_change_topic_config;
+
+        return $this;
+    }
+
+    /**
+     * Gets process_start_topic_config
+     *
+     * @return \Volcengine\Seccenter20240508\Model\ProcessStartTopicConfigForModifyTLSConfigInput
+     */
+    public function getProcessStartTopicConfig()
+    {
+        return $this->container['process_start_topic_config'];
+    }
+
+    /**
+     * Sets process_start_topic_config
+     *
+     * @param \Volcengine\Seccenter20240508\Model\ProcessStartTopicConfigForModifyTLSConfigInput $process_start_topic_config process_start_topic_config
+     *
+     * @return $this
+     */
+    public function setProcessStartTopicConfig($process_start_topic_config)
+    {
+        $this->container['process_start_topic_config'] = $process_start_topic_config;
+
+        return $this;
+    }
 
     /**
      * Gets storage_days
@@ -225,6 +351,30 @@ class ModifyTLSConfigRequest implements ModelInterface, ArrayAccess
     public function setThreshold($threshold)
     {
         $this->container['threshold'] = $threshold;
+
+        return $this;
+    }
+
+    /**
+     * Gets vuln_topic_config
+     *
+     * @return \Volcengine\Seccenter20240508\Model\VulnTopicConfigForModifyTLSConfigInput
+     */
+    public function getVulnTopicConfig()
+    {
+        return $this->container['vuln_topic_config'];
+    }
+
+    /**
+     * Sets vuln_topic_config
+     *
+     * @param \Volcengine\Seccenter20240508\Model\VulnTopicConfigForModifyTLSConfigInput $vuln_topic_config vuln_topic_config
+     *
+     * @return $this
+     */
+    public function setVulnTopicConfig($vuln_topic_config)
+    {
+        $this->container['vuln_topic_config'] = $vuln_topic_config;
 
         return $this;
     }

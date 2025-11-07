@@ -39,7 +39,7 @@ class DistributionForPrecisionStatisticsOutput implements ModelInterface, ArrayA
       */
     protected static $swaggerFormats = [
         'key' => null,
-        'value' => 'int32'
+        'value' => 'int64'
     ];
 
     /**

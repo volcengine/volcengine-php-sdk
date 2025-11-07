@@ -28,7 +28,9 @@ class SystemVolumeForListNodePoolsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'placement_group_id' => 'string',
         'size' => 'int',
+        'subgroup_number' => 'int',
         'type' => 'string'
     ];
 
@@ -38,7 +40,9 @@ class SystemVolumeForListNodePoolsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'placement_group_id' => null,
         'size' => 'int32',
+        'subgroup_number' => 'int32',
         'type' => null
     ];
 
@@ -69,7 +73,9 @@ class SystemVolumeForListNodePoolsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'placement_group_id' => 'PlacementGroupId',
         'size' => 'Size',
+        'subgroup_number' => 'SubgroupNumber',
         'type' => 'Type'
     ];
 
@@ -79,7 +85,9 @@ class SystemVolumeForListNodePoolsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'placement_group_id' => 'setPlacementGroupId',
         'size' => 'setSize',
+        'subgroup_number' => 'setSubgroupNumber',
         'type' => 'setType'
     ];
 
@@ -89,7 +97,9 @@ class SystemVolumeForListNodePoolsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'placement_group_id' => 'getPlacementGroupId',
         'size' => 'getSize',
+        'subgroup_number' => 'getSubgroupNumber',
         'type' => 'getType'
     ];
 
@@ -134,8 +144,23 @@ class SystemVolumeForListNodePoolsOutput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const TYPE_ESSD_PL0 = 'ESSD_PL0';
+    const TYPE_ESSD_FLEX_PL = 'ESSD_FlexPL';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_ESSD_PL0,
+            self::TYPE_ESSD_FLEX_PL,
+        ];
+    }
     
 
     /**
@@ -153,7 +178,9 @@ class SystemVolumeForListNodePoolsOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['placement_group_id'] = isset($data['placement_group_id']) ? $data['placement_group_id'] : null;
         $this->container['size'] = isset($data['size']) ? $data['size'] : null;
+        $this->container['subgroup_number'] = isset($data['subgroup_number']) ? $data['subgroup_number'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
@@ -165,6 +192,14 @@ class SystemVolumeForListNodePoolsOutput implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -180,6 +215,30 @@ class SystemVolumeForListNodePoolsOutput implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets placement_group_id
+     *
+     * @return string
+     */
+    public function getPlacementGroupId()
+    {
+        return $this->container['placement_group_id'];
+    }
+
+    /**
+     * Sets placement_group_id
+     *
+     * @param string $placement_group_id placement_group_id
+     *
+     * @return $this
+     */
+    public function setPlacementGroupId($placement_group_id)
+    {
+        $this->container['placement_group_id'] = $placement_group_id;
+
+        return $this;
+    }
 
     /**
      * Gets size
@@ -206,6 +265,30 @@ class SystemVolumeForListNodePoolsOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets subgroup_number
+     *
+     * @return int
+     */
+    public function getSubgroupNumber()
+    {
+        return $this->container['subgroup_number'];
+    }
+
+    /**
+     * Sets subgroup_number
+     *
+     * @param int $subgroup_number subgroup_number
+     *
+     * @return $this
+     */
+    public function setSubgroupNumber($subgroup_number)
+    {
+        $this->container['subgroup_number'] = $subgroup_number;
+
+        return $this;
+    }
+
+    /**
      * Gets type
      *
      * @return string
@@ -224,6 +307,15 @@ class SystemVolumeForListNodePoolsOutput implements ModelInterface, ArrayAccess
      */
     public function setType($type)
     {
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['type'] = $type;
 
         return $this;

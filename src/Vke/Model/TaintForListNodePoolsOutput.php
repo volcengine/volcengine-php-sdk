@@ -139,8 +139,25 @@ class TaintForListNodePoolsOutput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const EFFECT_NO_SCHEDULE = 'NoSchedule';
+    const EFFECT_PREFER_NO_SCHEDULE = 'PreferNoSchedule';
+    const EFFECT_NO_EXECUTE = 'NoExecute';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getEffectAllowableValues()
+    {
+        return [
+            self::EFFECT_NO_SCHEDULE,
+            self::EFFECT_PREFER_NO_SCHEDULE,
+            self::EFFECT_NO_EXECUTE,
+        ];
+    }
     
 
     /**
@@ -171,6 +188,14 @@ class TaintForListNodePoolsOutput implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getEffectAllowableValues();
+        if (!is_null($this->container['effect']) && !in_array($this->container['effect'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'effect', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -206,6 +231,15 @@ class TaintForListNodePoolsOutput implements ModelInterface, ArrayAccess
      */
     public function setEffect($effect)
     {
+        $allowedValues = $this->getEffectAllowableValues();
+        if (!is_null($effect) && !in_array($effect, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'effect', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['effect'] = $effect;
 
         return $this;

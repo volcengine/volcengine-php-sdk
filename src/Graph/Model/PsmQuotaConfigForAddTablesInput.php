@@ -29,7 +29,9 @@ class PsmQuotaConfigForAddTablesInput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'caller_psm' => 'string',
+        'read_fetch_size' => 'int',
         'read_quota_size' => 'int',
+        'write_fetch_size' => 'int',
         'write_quota_size' => 'int'
     ];
 
@@ -40,7 +42,9 @@ class PsmQuotaConfigForAddTablesInput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'caller_psm' => null,
+        'read_fetch_size' => 'int64',
         'read_quota_size' => 'int64',
+        'write_fetch_size' => 'int64',
         'write_quota_size' => 'int64'
     ];
 
@@ -72,7 +76,9 @@ class PsmQuotaConfigForAddTablesInput implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'caller_psm' => 'caller_psm',
+        'read_fetch_size' => 'read_fetch_size',
         'read_quota_size' => 'read_quota_size',
+        'write_fetch_size' => 'write_fetch_size',
         'write_quota_size' => 'write_quota_size'
     ];
 
@@ -83,7 +89,9 @@ class PsmQuotaConfigForAddTablesInput implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'caller_psm' => 'setCallerPsm',
+        'read_fetch_size' => 'setReadFetchSize',
         'read_quota_size' => 'setReadQuotaSize',
+        'write_fetch_size' => 'setWriteFetchSize',
         'write_quota_size' => 'setWriteQuotaSize'
     ];
 
@@ -94,7 +102,9 @@ class PsmQuotaConfigForAddTablesInput implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'caller_psm' => 'getCallerPsm',
+        'read_fetch_size' => 'getReadFetchSize',
         'read_quota_size' => 'getReadQuotaSize',
+        'write_fetch_size' => 'getWriteFetchSize',
         'write_quota_size' => 'getWriteQuotaSize'
     ];
 
@@ -159,7 +169,9 @@ class PsmQuotaConfigForAddTablesInput implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['caller_psm'] = isset($data['caller_psm']) ? $data['caller_psm'] : null;
+        $this->container['read_fetch_size'] = isset($data['read_fetch_size']) ? $data['read_fetch_size'] : null;
         $this->container['read_quota_size'] = isset($data['read_quota_size']) ? $data['read_quota_size'] : null;
+        $this->container['write_fetch_size'] = isset($data['write_fetch_size']) ? $data['write_fetch_size'] : null;
         $this->container['write_quota_size'] = isset($data['write_quota_size']) ? $data['write_quota_size'] : null;
     }
 
@@ -212,6 +224,30 @@ class PsmQuotaConfigForAddTablesInput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets read_fetch_size
+     *
+     * @return int
+     */
+    public function getReadFetchSize()
+    {
+        return $this->container['read_fetch_size'];
+    }
+
+    /**
+     * Sets read_fetch_size
+     *
+     * @param int $read_fetch_size read_fetch_size
+     *
+     * @return $this
+     */
+    public function setReadFetchSize($read_fetch_size)
+    {
+        $this->container['read_fetch_size'] = $read_fetch_size;
+
+        return $this;
+    }
+
+    /**
      * Gets read_quota_size
      *
      * @return int
@@ -231,6 +267,30 @@ class PsmQuotaConfigForAddTablesInput implements ModelInterface, ArrayAccess
     public function setReadQuotaSize($read_quota_size)
     {
         $this->container['read_quota_size'] = $read_quota_size;
+
+        return $this;
+    }
+
+    /**
+     * Gets write_fetch_size
+     *
+     * @return int
+     */
+    public function getWriteFetchSize()
+    {
+        return $this->container['write_fetch_size'];
+    }
+
+    /**
+     * Sets write_fetch_size
+     *
+     * @param int $write_fetch_size write_fetch_size
+     *
+     * @return $this
+     */
+    public function setWriteFetchSize($write_fetch_size)
+    {
+        $this->container['write_fetch_size'] = $write_fetch_size;
 
         return $this;
     }

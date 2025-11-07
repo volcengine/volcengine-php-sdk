@@ -33,6 +33,7 @@ class CreateFunctionRequest implements ModelInterface, ArrayAccess
         'cpu_milli' => 'int',
         'cpu_strategy' => 'string',
         'description' => 'string',
+        'enable_apmplus' => 'bool',
         'envs' => '\Volcengine\Vefaas\Model\EnvForCreateFunctionInput[]',
         'exclusive_mode' => 'bool',
         'initializer_sec' => 'int',
@@ -41,6 +42,7 @@ class CreateFunctionRequest implements ModelInterface, ArrayAccess
         'memory_mb' => 'int',
         'name' => 'string',
         'nas_storage' => '\Volcengine\Vefaas\Model\NasStorageForCreateFunctionInput',
+        'port' => 'int',
         'project_name' => 'string',
         'request_timeout' => 'int',
         'role' => 'string',
@@ -65,6 +67,7 @@ class CreateFunctionRequest implements ModelInterface, ArrayAccess
         'cpu_milli' => 'int32',
         'cpu_strategy' => null,
         'description' => null,
+        'enable_apmplus' => null,
         'envs' => null,
         'exclusive_mode' => null,
         'initializer_sec' => 'int32',
@@ -73,6 +76,7 @@ class CreateFunctionRequest implements ModelInterface, ArrayAccess
         'memory_mb' => 'int32',
         'name' => null,
         'nas_storage' => null,
+        'port' => 'int32',
         'project_name' => null,
         'request_timeout' => 'int32',
         'role' => null,
@@ -118,6 +122,7 @@ class CreateFunctionRequest implements ModelInterface, ArrayAccess
         'cpu_milli' => 'CpuMilli',
         'cpu_strategy' => 'CpuStrategy',
         'description' => 'Description',
+        'enable_apmplus' => 'EnableApmplus',
         'envs' => 'Envs',
         'exclusive_mode' => 'ExclusiveMode',
         'initializer_sec' => 'InitializerSec',
@@ -126,6 +131,7 @@ class CreateFunctionRequest implements ModelInterface, ArrayAccess
         'memory_mb' => 'MemoryMB',
         'name' => 'Name',
         'nas_storage' => 'NasStorage',
+        'port' => 'Port',
         'project_name' => 'ProjectName',
         'request_timeout' => 'RequestTimeout',
         'role' => 'Role',
@@ -150,6 +156,7 @@ class CreateFunctionRequest implements ModelInterface, ArrayAccess
         'cpu_milli' => 'setCpuMilli',
         'cpu_strategy' => 'setCpuStrategy',
         'description' => 'setDescription',
+        'enable_apmplus' => 'setEnableApmplus',
         'envs' => 'setEnvs',
         'exclusive_mode' => 'setExclusiveMode',
         'initializer_sec' => 'setInitializerSec',
@@ -158,6 +165,7 @@ class CreateFunctionRequest implements ModelInterface, ArrayAccess
         'memory_mb' => 'setMemoryMb',
         'name' => 'setName',
         'nas_storage' => 'setNasStorage',
+        'port' => 'setPort',
         'project_name' => 'setProjectName',
         'request_timeout' => 'setRequestTimeout',
         'role' => 'setRole',
@@ -182,6 +190,7 @@ class CreateFunctionRequest implements ModelInterface, ArrayAccess
         'cpu_milli' => 'getCpuMilli',
         'cpu_strategy' => 'getCpuStrategy',
         'description' => 'getDescription',
+        'enable_apmplus' => 'getEnableApmplus',
         'envs' => 'getEnvs',
         'exclusive_mode' => 'getExclusiveMode',
         'initializer_sec' => 'getInitializerSec',
@@ -190,6 +199,7 @@ class CreateFunctionRequest implements ModelInterface, ArrayAccess
         'memory_mb' => 'getMemoryMb',
         'name' => 'getName',
         'nas_storage' => 'getNasStorage',
+        'port' => 'getPort',
         'project_name' => 'getProjectName',
         'request_timeout' => 'getRequestTimeout',
         'role' => 'getRole',
@@ -268,6 +278,7 @@ class CreateFunctionRequest implements ModelInterface, ArrayAccess
         $this->container['cpu_milli'] = isset($data['cpu_milli']) ? $data['cpu_milli'] : null;
         $this->container['cpu_strategy'] = isset($data['cpu_strategy']) ? $data['cpu_strategy'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['enable_apmplus'] = isset($data['enable_apmplus']) ? $data['enable_apmplus'] : null;
         $this->container['envs'] = isset($data['envs']) ? $data['envs'] : null;
         $this->container['exclusive_mode'] = isset($data['exclusive_mode']) ? $data['exclusive_mode'] : null;
         $this->container['initializer_sec'] = isset($data['initializer_sec']) ? $data['initializer_sec'] : null;
@@ -276,6 +287,7 @@ class CreateFunctionRequest implements ModelInterface, ArrayAccess
         $this->container['memory_mb'] = isset($data['memory_mb']) ? $data['memory_mb'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['nas_storage'] = isset($data['nas_storage']) ? $data['nas_storage'] : null;
+        $this->container['port'] = isset($data['port']) ? $data['port'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['request_timeout'] = isset($data['request_timeout']) ? $data['request_timeout'] : null;
         $this->container['role'] = isset($data['role']) ? $data['role'] : null;
@@ -435,6 +447,30 @@ class CreateFunctionRequest implements ModelInterface, ArrayAccess
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets enable_apmplus
+     *
+     * @return bool
+     */
+    public function getEnableApmplus()
+    {
+        return $this->container['enable_apmplus'];
+    }
+
+    /**
+     * Sets enable_apmplus
+     *
+     * @param bool $enable_apmplus enable_apmplus
+     *
+     * @return $this
+     */
+    public function setEnableApmplus($enable_apmplus)
+    {
+        $this->container['enable_apmplus'] = $enable_apmplus;
 
         return $this;
     }
@@ -627,6 +663,30 @@ class CreateFunctionRequest implements ModelInterface, ArrayAccess
     public function setNasStorage($nas_storage)
     {
         $this->container['nas_storage'] = $nas_storage;
+
+        return $this;
+    }
+
+    /**
+     * Gets port
+     *
+     * @return int
+     */
+    public function getPort()
+    {
+        return $this->container['port'];
+    }
+
+    /**
+     * Sets port
+     *
+     * @param int $port port
+     *
+     * @return $this
+     */
+    public function setPort($port)
+    {
+        $this->container['port'] = $port;
 
         return $this;
     }

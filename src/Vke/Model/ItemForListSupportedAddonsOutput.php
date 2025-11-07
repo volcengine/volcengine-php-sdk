@@ -159,73 +159,8 @@ class ItemForListSupportedAddonsOutput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const CATEGORIES_DNS = 'Dns';
-    const CATEGORIES_GPU = 'Gpu';
-    const CATEGORIES_IMAGE = 'Image';
-    const CATEGORIES_MONITOR = 'Monitor';
-    const CATEGORIES_NETWORK = 'Network';
-    const CATEGORIES_SCHEDULER = 'Scheduler';
-    const CATEGORIES_SECURITY = 'Security';
-    const CATEGORIES_STORAGE = 'Storage';
-    const DEPLOY_NODE_TYPES_EDGE_NODE = 'EdgeNode';
-    const DEPLOY_NODE_TYPES_NODE = 'Node';
-    const DEPLOY_NODE_TYPES_VIRTUAL_NODE = 'VirtualNode';
-    const POD_NETWORK_MODES_CALICO_BGP = 'CalicoBgp';
-    const POD_NETWORK_MODES_CALICO_VXLAN = 'CalicoVxlan';
-    const POD_NETWORK_MODES_FLANNEL = 'Flannel';
-    const POD_NETWORK_MODES_VPC_CNI_DEDICATED = 'VpcCniDedicated';
-    const POD_NETWORK_MODES_VPC_CNI_SHARED = 'VpcCniShared';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getCategoriesAllowableValues()
-    {
-        return [
-            self::CATEGORIES_DNS,
-            self::CATEGORIES_GPU,
-            self::CATEGORIES_IMAGE,
-            self::CATEGORIES_MONITOR,
-            self::CATEGORIES_NETWORK,
-            self::CATEGORIES_SCHEDULER,
-            self::CATEGORIES_SECURITY,
-            self::CATEGORIES_STORAGE,
-        ];
-    }
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getDeployNodeTypesAllowableValues()
-    {
-        return [
-            self::DEPLOY_NODE_TYPES_EDGE_NODE,
-            self::DEPLOY_NODE_TYPES_NODE,
-            self::DEPLOY_NODE_TYPES_VIRTUAL_NODE,
-        ];
-    }
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getPodNetworkModesAllowableValues()
-    {
-        return [
-            self::POD_NETWORK_MODES_CALICO_BGP,
-            self::POD_NETWORK_MODES_CALICO_VXLAN,
-            self::POD_NETWORK_MODES_FLANNEL,
-            self::POD_NETWORK_MODES_VPC_CNI_DEDICATED,
-            self::POD_NETWORK_MODES_VPC_CNI_SHARED,
-        ];
-    }
     
 
     /**
@@ -295,15 +230,6 @@ class ItemForListSupportedAddonsOutput implements ModelInterface, ArrayAccess
      */
     public function setCategories($categories)
     {
-        $allowedValues = $this->getCategoriesAllowableValues();
-        if (!is_null($categories) && array_diff($categories, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'categories', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['categories'] = $categories;
 
         return $this;
@@ -352,15 +278,6 @@ class ItemForListSupportedAddonsOutput implements ModelInterface, ArrayAccess
      */
     public function setDeployNodeTypes($deploy_node_types)
     {
-        $allowedValues = $this->getDeployNodeTypesAllowableValues();
-        if (!is_null($deploy_node_types) && array_diff($deploy_node_types, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'deploy_node_types', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['deploy_node_types'] = $deploy_node_types;
 
         return $this;
@@ -433,15 +350,6 @@ class ItemForListSupportedAddonsOutput implements ModelInterface, ArrayAccess
      */
     public function setPodNetworkModes($pod_network_modes)
     {
-        $allowedValues = $this->getPodNetworkModesAllowableValues();
-        if (!is_null($pod_network_modes) && array_diff($pod_network_modes, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'pod_network_modes', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['pod_network_modes'] = $pod_network_modes;
 
         return $this;

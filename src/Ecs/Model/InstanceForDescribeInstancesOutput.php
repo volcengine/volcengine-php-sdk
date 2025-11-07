@@ -40,7 +40,6 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
         'elastic_scheduled_instance_type' => 'string',
         'enable_jumbo_frame' => 'bool',
         'expired_at' => 'string',
-        'host_name' => 'string',
         'hostname' => 'string',
         'hpc_cluster_id' => 'string',
         'image_id' => 'string',
@@ -90,7 +89,6 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
         'elastic_scheduled_instance_type' => null,
         'enable_jumbo_frame' => null,
         'expired_at' => null,
-        'host_name' => null,
         'hostname' => null,
         'hpc_cluster_id' => null,
         'image_id' => null,
@@ -161,7 +159,6 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
         'elastic_scheduled_instance_type' => 'ElasticScheduledInstanceType',
         'enable_jumbo_frame' => 'EnableJumboFrame',
         'expired_at' => 'ExpiredAt',
-        'host_name' => 'HostName',
         'hostname' => 'Hostname',
         'hpc_cluster_id' => 'HpcClusterId',
         'image_id' => 'ImageId',
@@ -211,7 +208,6 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
         'elastic_scheduled_instance_type' => 'setElasticScheduledInstanceType',
         'enable_jumbo_frame' => 'setEnableJumboFrame',
         'expired_at' => 'setExpiredAt',
-        'host_name' => 'setHostName',
         'hostname' => 'setHostname',
         'hpc_cluster_id' => 'setHpcClusterId',
         'image_id' => 'setImageId',
@@ -261,7 +257,6 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
         'elastic_scheduled_instance_type' => 'getElasticScheduledInstanceType',
         'enable_jumbo_frame' => 'getEnableJumboFrame',
         'expired_at' => 'getExpiredAt',
-        'host_name' => 'getHostName',
         'hostname' => 'getHostname',
         'hpc_cluster_id' => 'getHpcClusterId',
         'image_id' => 'getImageId',
@@ -365,7 +360,6 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
         $this->container['elastic_scheduled_instance_type'] = isset($data['elastic_scheduled_instance_type']) ? $data['elastic_scheduled_instance_type'] : null;
         $this->container['enable_jumbo_frame'] = isset($data['enable_jumbo_frame']) ? $data['enable_jumbo_frame'] : null;
         $this->container['expired_at'] = isset($data['expired_at']) ? $data['expired_at'] : null;
-        $this->container['host_name'] = isset($data['host_name']) ? $data['host_name'] : null;
         $this->container['hostname'] = isset($data['hostname']) ? $data['hostname'] : null;
         $this->container['hpc_cluster_id'] = isset($data['hpc_cluster_id']) ? $data['hpc_cluster_id'] : null;
         $this->container['image_id'] = isset($data['image_id']) ? $data['image_id'] : null;
@@ -705,30 +699,6 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
     public function setExpiredAt($expired_at)
     {
         $this->container['expired_at'] = $expired_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets host_name
-     *
-     * @return string
-     */
-    public function getHostName()
-    {
-        return $this->container['host_name'];
-    }
-
-    /**
-     * Sets host_name
-     *
-     * @param string $host_name host_name
-     *
-     * @return $this
-     */
-    public function setHostName($host_name)
-    {
-        $this->container['host_name'] = $host_name;
 
         return $this;
     }

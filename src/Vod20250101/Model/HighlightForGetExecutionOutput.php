@@ -28,7 +28,10 @@ class HighlightForGetExecutionOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'edit' => '\Volcengine\Vod20250101\Model\EditForGetExecutionOutput',
+        'highlight_cuts' => '\Volcengine\Vod20250101\Model\HighlightCutsForGetExecutionOutput',
         'mode' => 'string',
+        'opening_hook' => '\Volcengine\Vod20250101\Model\OpeningHookForGetExecutionOutput',
         'storyline_cuts' => '\Volcengine\Vod20250101\Model\StorylineCutsForGetExecutionOutput'
     ];
 
@@ -38,7 +41,10 @@ class HighlightForGetExecutionOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'edit' => null,
+        'highlight_cuts' => null,
         'mode' => null,
+        'opening_hook' => null,
         'storyline_cuts' => null
     ];
 
@@ -69,7 +75,10 @@ class HighlightForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'edit' => 'Edit',
+        'highlight_cuts' => 'HighlightCuts',
         'mode' => 'Mode',
+        'opening_hook' => 'OpeningHook',
         'storyline_cuts' => 'StorylineCuts'
     ];
 
@@ -79,7 +88,10 @@ class HighlightForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'edit' => 'setEdit',
+        'highlight_cuts' => 'setHighlightCuts',
         'mode' => 'setMode',
+        'opening_hook' => 'setOpeningHook',
         'storyline_cuts' => 'setStorylineCuts'
     ];
 
@@ -89,7 +101,10 @@ class HighlightForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'edit' => 'getEdit',
+        'highlight_cuts' => 'getHighlightCuts',
         'mode' => 'getMode',
+        'opening_hook' => 'getOpeningHook',
         'storyline_cuts' => 'getStorylineCuts'
     ];
 
@@ -153,7 +168,10 @@ class HighlightForGetExecutionOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['edit'] = isset($data['edit']) ? $data['edit'] : null;
+        $this->container['highlight_cuts'] = isset($data['highlight_cuts']) ? $data['highlight_cuts'] : null;
         $this->container['mode'] = isset($data['mode']) ? $data['mode'] : null;
+        $this->container['opening_hook'] = isset($data['opening_hook']) ? $data['opening_hook'] : null;
         $this->container['storyline_cuts'] = isset($data['storyline_cuts']) ? $data['storyline_cuts'] : null;
     }
 
@@ -182,6 +200,54 @@ class HighlightForGetExecutionOutput implements ModelInterface, ArrayAccess
 
 
     /**
+     * Gets edit
+     *
+     * @return \Volcengine\Vod20250101\Model\EditForGetExecutionOutput
+     */
+    public function getEdit()
+    {
+        return $this->container['edit'];
+    }
+
+    /**
+     * Sets edit
+     *
+     * @param \Volcengine\Vod20250101\Model\EditForGetExecutionOutput $edit edit
+     *
+     * @return $this
+     */
+    public function setEdit($edit)
+    {
+        $this->container['edit'] = $edit;
+
+        return $this;
+    }
+
+    /**
+     * Gets highlight_cuts
+     *
+     * @return \Volcengine\Vod20250101\Model\HighlightCutsForGetExecutionOutput
+     */
+    public function getHighlightCuts()
+    {
+        return $this->container['highlight_cuts'];
+    }
+
+    /**
+     * Sets highlight_cuts
+     *
+     * @param \Volcengine\Vod20250101\Model\HighlightCutsForGetExecutionOutput $highlight_cuts highlight_cuts
+     *
+     * @return $this
+     */
+    public function setHighlightCuts($highlight_cuts)
+    {
+        $this->container['highlight_cuts'] = $highlight_cuts;
+
+        return $this;
+    }
+
+    /**
      * Gets mode
      *
      * @return string
@@ -201,6 +267,30 @@ class HighlightForGetExecutionOutput implements ModelInterface, ArrayAccess
     public function setMode($mode)
     {
         $this->container['mode'] = $mode;
+
+        return $this;
+    }
+
+    /**
+     * Gets opening_hook
+     *
+     * @return \Volcengine\Vod20250101\Model\OpeningHookForGetExecutionOutput
+     */
+    public function getOpeningHook()
+    {
+        return $this->container['opening_hook'];
+    }
+
+    /**
+     * Sets opening_hook
+     *
+     * @param \Volcengine\Vod20250101\Model\OpeningHookForGetExecutionOutput $opening_hook opening_hook
+     *
+     * @return $this
+     */
+    public function setOpeningHook($opening_hook)
+    {
+        $this->container['opening_hook'] = $opening_hook;
 
         return $this;
     }

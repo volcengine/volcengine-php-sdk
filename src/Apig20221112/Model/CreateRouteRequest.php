@@ -30,12 +30,11 @@ class CreateRouteRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'advanced_setting' => '\Volcengine\Apig20221112\Model\AdvancedSettingForCreateRouteInput',
         'enable' => 'bool',
+        'fallback_setting' => '\Volcengine\Apig20221112\Model\FallbackSettingForCreateRouteInput',
         'match_rule' => '\Volcengine\Apig20221112\Model\MatchRuleForCreateRouteInput',
         'name' => 'string',
         'priority' => 'int',
-        'resource_type' => 'string',
         'service_id' => 'string',
-        'tags' => '\Volcengine\Apig20221112\Model\TagForCreateRouteInput[]',
         'upstream_list' => '\Volcengine\Apig20221112\Model\UpstreamListForCreateRouteInput[]'
     ];
 
@@ -47,12 +46,11 @@ class CreateRouteRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'advanced_setting' => null,
         'enable' => null,
+        'fallback_setting' => null,
         'match_rule' => null,
         'name' => null,
         'priority' => 'int64',
-        'resource_type' => null,
         'service_id' => null,
-        'tags' => null,
         'upstream_list' => null
     ];
 
@@ -85,12 +83,11 @@ class CreateRouteRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'advanced_setting' => 'AdvancedSetting',
         'enable' => 'Enable',
+        'fallback_setting' => 'FallbackSetting',
         'match_rule' => 'MatchRule',
         'name' => 'Name',
         'priority' => 'Priority',
-        'resource_type' => 'ResourceType',
         'service_id' => 'ServiceId',
-        'tags' => 'Tags',
         'upstream_list' => 'UpstreamList'
     ];
 
@@ -102,12 +99,11 @@ class CreateRouteRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'advanced_setting' => 'setAdvancedSetting',
         'enable' => 'setEnable',
+        'fallback_setting' => 'setFallbackSetting',
         'match_rule' => 'setMatchRule',
         'name' => 'setName',
         'priority' => 'setPriority',
-        'resource_type' => 'setResourceType',
         'service_id' => 'setServiceId',
-        'tags' => 'setTags',
         'upstream_list' => 'setUpstreamList'
     ];
 
@@ -119,12 +115,11 @@ class CreateRouteRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'advanced_setting' => 'getAdvancedSetting',
         'enable' => 'getEnable',
+        'fallback_setting' => 'getFallbackSetting',
         'match_rule' => 'getMatchRule',
         'name' => 'getName',
         'priority' => 'getPriority',
-        'resource_type' => 'getResourceType',
         'service_id' => 'getServiceId',
-        'tags' => 'getTags',
         'upstream_list' => 'getUpstreamList'
     ];
 
@@ -190,12 +185,11 @@ class CreateRouteRequest implements ModelInterface, ArrayAccess
     {
         $this->container['advanced_setting'] = isset($data['advanced_setting']) ? $data['advanced_setting'] : null;
         $this->container['enable'] = isset($data['enable']) ? $data['enable'] : null;
+        $this->container['fallback_setting'] = isset($data['fallback_setting']) ? $data['fallback_setting'] : null;
         $this->container['match_rule'] = isset($data['match_rule']) ? $data['match_rule'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['priority'] = isset($data['priority']) ? $data['priority'] : null;
-        $this->container['resource_type'] = isset($data['resource_type']) ? $data['resource_type'] : null;
         $this->container['service_id'] = isset($data['service_id']) ? $data['service_id'] : null;
-        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['upstream_list'] = isset($data['upstream_list']) ? $data['upstream_list'] : null;
     }
 
@@ -278,6 +272,30 @@ class CreateRouteRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets fallback_setting
+     *
+     * @return \Volcengine\Apig20221112\Model\FallbackSettingForCreateRouteInput
+     */
+    public function getFallbackSetting()
+    {
+        return $this->container['fallback_setting'];
+    }
+
+    /**
+     * Sets fallback_setting
+     *
+     * @param \Volcengine\Apig20221112\Model\FallbackSettingForCreateRouteInput $fallback_setting fallback_setting
+     *
+     * @return $this
+     */
+    public function setFallbackSetting($fallback_setting)
+    {
+        $this->container['fallback_setting'] = $fallback_setting;
+
+        return $this;
+    }
+
+    /**
      * Gets match_rule
      *
      * @return \Volcengine\Apig20221112\Model\MatchRuleForCreateRouteInput
@@ -350,30 +368,6 @@ class CreateRouteRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets resource_type
-     *
-     * @return string
-     */
-    public function getResourceType()
-    {
-        return $this->container['resource_type'];
-    }
-
-    /**
-     * Sets resource_type
-     *
-     * @param string $resource_type resource_type
-     *
-     * @return $this
-     */
-    public function setResourceType($resource_type)
-    {
-        $this->container['resource_type'] = $resource_type;
-
-        return $this;
-    }
-
-    /**
      * Gets service_id
      *
      * @return string
@@ -393,30 +387,6 @@ class CreateRouteRequest implements ModelInterface, ArrayAccess
     public function setServiceId($service_id)
     {
         $this->container['service_id'] = $service_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets tags
-     *
-     * @return \Volcengine\Apig20221112\Model\TagForCreateRouteInput[]
-     */
-    public function getTags()
-    {
-        return $this->container['tags'];
-    }
-
-    /**
-     * Sets tags
-     *
-     * @param \Volcengine\Apig20221112\Model\TagForCreateRouteInput[] $tags tags
-     *
-     * @return $this
-     */
-    public function setTags($tags)
-    {
-        $this->container['tags'] = $tags;
 
         return $this;
     }

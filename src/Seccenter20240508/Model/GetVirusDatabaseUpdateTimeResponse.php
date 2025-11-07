@@ -37,7 +37,7 @@ class GetVirusDatabaseUpdateTimeResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'update_time' => 'int32'
+        'update_time' => 'int64'
     ];
 
     /**

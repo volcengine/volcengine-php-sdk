@@ -43,9 +43,9 @@ class GetHidsAlarmStatisticsRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'agent_id' => null,
         'cluster_id' => null,
-        'end_time' => 'int32',
+        'end_time' => 'int64',
         'mlp_instance_id' => null,
-        'start_time' => 'int32'
+        'start_time' => 'int64'
     ];
 
     /**

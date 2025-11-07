@@ -52,11 +52,11 @@ class BaselineInfoForListBaselineCheckItemsOutput implements ModelInterface, Arr
       */
     protected static $swaggerFormats = [
         'baseline_check' => null,
-        'baseline_id' => 'int32',
-        'check_id' => 'int32',
+        'baseline_id' => 'int64',
+        'check_id' => 'int64',
         'description' => null,
         'description_cn' => null,
-        'pass_rate' => 'int32',
+        'pass_rate' => 'int64',
         'security' => null,
         'solution' => null,
         'solution_cn' => null,
@@ -65,7 +65,7 @@ class BaselineInfoForListBaselineCheckItemsOutput implements ModelInterface, Arr
         'title_cn' => null,
         'type' => null,
         'type_cn' => null,
-        'update_time' => 'int32'
+        'update_time' => 'int64'
     ];
 
     /**

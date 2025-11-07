@@ -184,6 +184,9 @@ class CreateDefaultNodePoolRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['cluster_id'] === null) {
+            $invalidProperties[] = "'cluster_id' can't be null";
+        }
         return $invalidProperties;
     }
 

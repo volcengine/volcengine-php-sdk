@@ -48,18 +48,18 @@ class GetHostAssetOverviewResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'alarm' => 'int32',
-        'baseline' => 'int32',
-        'cpu' => 'int32',
-        'host_num' => 'int32',
-        'offline' => 'int32',
-        'protecting' => 'int32',
-        'protection_exception' => 'int32',
-        'risk' => 'int32',
-        'unprotected' => 'int32',
-        'unprotected_cpu' => 'int32',
-        'virus' => 'int32',
-        'vuln' => 'int32'
+        'alarm' => 'int64',
+        'baseline' => 'int64',
+        'cpu' => 'int64',
+        'host_num' => 'int64',
+        'offline' => 'int64',
+        'protecting' => 'int64',
+        'protection_exception' => 'int64',
+        'risk' => 'int64',
+        'unprotected' => 'int64',
+        'unprotected_cpu' => 'int64',
+        'virus' => 'int64',
+        'vuln' => 'int64'
     ];
 
     /**

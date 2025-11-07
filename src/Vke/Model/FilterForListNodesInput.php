@@ -31,6 +31,7 @@ class FilterForListNodesInput implements ModelInterface, ArrayAccess
         'cluster_ids' => 'string[]',
         'create_client_token' => 'string',
         'ids' => 'string[]',
+        'instance_ids' => 'string[]',
         'name' => 'string',
         'node_pool_ids' => 'string[]',
         'statuses' => '\Volcengine\Vke\Model\StatusForListNodesInput[]',
@@ -46,6 +47,7 @@ class FilterForListNodesInput implements ModelInterface, ArrayAccess
         'cluster_ids' => null,
         'create_client_token' => null,
         'ids' => null,
+        'instance_ids' => null,
         'name' => null,
         'node_pool_ids' => null,
         'statuses' => null,
@@ -82,6 +84,7 @@ class FilterForListNodesInput implements ModelInterface, ArrayAccess
         'cluster_ids' => 'ClusterIds',
         'create_client_token' => 'CreateClientToken',
         'ids' => 'Ids',
+        'instance_ids' => 'InstanceIds',
         'name' => 'Name',
         'node_pool_ids' => 'NodePoolIds',
         'statuses' => 'Statuses',
@@ -97,6 +100,7 @@ class FilterForListNodesInput implements ModelInterface, ArrayAccess
         'cluster_ids' => 'setClusterIds',
         'create_client_token' => 'setCreateClientToken',
         'ids' => 'setIds',
+        'instance_ids' => 'setInstanceIds',
         'name' => 'setName',
         'node_pool_ids' => 'setNodePoolIds',
         'statuses' => 'setStatuses',
@@ -112,6 +116,7 @@ class FilterForListNodesInput implements ModelInterface, ArrayAccess
         'cluster_ids' => 'getClusterIds',
         'create_client_token' => 'getCreateClientToken',
         'ids' => 'getIds',
+        'instance_ids' => 'getInstanceIds',
         'name' => 'getName',
         'node_pool_ids' => 'getNodePoolIds',
         'statuses' => 'getStatuses',
@@ -181,6 +186,7 @@ class FilterForListNodesInput implements ModelInterface, ArrayAccess
         $this->container['cluster_ids'] = isset($data['cluster_ids']) ? $data['cluster_ids'] : null;
         $this->container['create_client_token'] = isset($data['create_client_token']) ? $data['create_client_token'] : null;
         $this->container['ids'] = isset($data['ids']) ? $data['ids'] : null;
+        $this->container['instance_ids'] = isset($data['instance_ids']) ? $data['instance_ids'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['node_pool_ids'] = isset($data['node_pool_ids']) ? $data['node_pool_ids'] : null;
         $this->container['statuses'] = isset($data['statuses']) ? $data['statuses'] : null;
@@ -279,6 +285,30 @@ class FilterForListNodesInput implements ModelInterface, ArrayAccess
     public function setIds($ids)
     {
         $this->container['ids'] = $ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets instance_ids
+     *
+     * @return string[]
+     */
+    public function getInstanceIds()
+    {
+        return $this->container['instance_ids'];
+    }
+
+    /**
+     * Sets instance_ids
+     *
+     * @param string[] $instance_ids instance_ids
+     *
+     * @return $this
+     */
+    public function setInstanceIds($instance_ids)
+    {
+        $this->container['instance_ids'] = $instance_ids;
 
         return $this;
     }

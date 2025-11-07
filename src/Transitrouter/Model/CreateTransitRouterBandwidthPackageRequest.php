@@ -32,6 +32,7 @@ class CreateTransitRouterBandwidthPackageRequest implements ModelInterface, Arra
         'billing_type' => 'int',
         'client_token' => 'string',
         'description' => 'string',
+        'line_operator' => 'string',
         'local_geographic_region_set_id' => 'string',
         'peer_geographic_region_set_id' => 'string',
         'period' => 'int',
@@ -51,6 +52,7 @@ class CreateTransitRouterBandwidthPackageRequest implements ModelInterface, Arra
         'billing_type' => 'int32',
         'client_token' => null,
         'description' => null,
+        'line_operator' => null,
         'local_geographic_region_set_id' => null,
         'peer_geographic_region_set_id' => null,
         'period' => 'int32',
@@ -91,6 +93,7 @@ class CreateTransitRouterBandwidthPackageRequest implements ModelInterface, Arra
         'billing_type' => 'BillingType',
         'client_token' => 'ClientToken',
         'description' => 'Description',
+        'line_operator' => 'LineOperator',
         'local_geographic_region_set_id' => 'LocalGeographicRegionSetId',
         'peer_geographic_region_set_id' => 'PeerGeographicRegionSetId',
         'period' => 'Period',
@@ -110,6 +113,7 @@ class CreateTransitRouterBandwidthPackageRequest implements ModelInterface, Arra
         'billing_type' => 'setBillingType',
         'client_token' => 'setClientToken',
         'description' => 'setDescription',
+        'line_operator' => 'setLineOperator',
         'local_geographic_region_set_id' => 'setLocalGeographicRegionSetId',
         'peer_geographic_region_set_id' => 'setPeerGeographicRegionSetId',
         'period' => 'setPeriod',
@@ -129,6 +133,7 @@ class CreateTransitRouterBandwidthPackageRequest implements ModelInterface, Arra
         'billing_type' => 'getBillingType',
         'client_token' => 'getClientToken',
         'description' => 'getDescription',
+        'line_operator' => 'getLineOperator',
         'local_geographic_region_set_id' => 'getLocalGeographicRegionSetId',
         'peer_geographic_region_set_id' => 'getPeerGeographicRegionSetId',
         'period' => 'getPeriod',
@@ -202,6 +207,7 @@ class CreateTransitRouterBandwidthPackageRequest implements ModelInterface, Arra
         $this->container['billing_type'] = isset($data['billing_type']) ? $data['billing_type'] : null;
         $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['line_operator'] = isset($data['line_operator']) ? $data['line_operator'] : null;
         $this->container['local_geographic_region_set_id'] = isset($data['local_geographic_region_set_id']) ? $data['local_geographic_region_set_id'] : null;
         $this->container['peer_geographic_region_set_id'] = isset($data['peer_geographic_region_set_id']) ? $data['peer_geographic_region_set_id'] : null;
         $this->container['period'] = isset($data['period']) ? $data['period'] : null;
@@ -333,6 +339,30 @@ class CreateTransitRouterBandwidthPackageRequest implements ModelInterface, Arra
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets line_operator
+     *
+     * @return string
+     */
+    public function getLineOperator()
+    {
+        return $this->container['line_operator'];
+    }
+
+    /**
+     * Sets line_operator
+     *
+     * @param string $line_operator line_operator
+     *
+     * @return $this
+     */
+    public function setLineOperator($line_operator)
+    {
+        $this->container['line_operator'] = $line_operator;
 
         return $this;
     }

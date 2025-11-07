@@ -34,6 +34,7 @@ class ItemForListJobsOutput implements ModelInterface, ArrayAccess
         'id' => 'string',
         'initial_id' => 'string',
         'name' => 'string',
+        'project_name' => 'string',
         'resource_config' => '\Volcengine\Mlplatform20240701\Model\ResourceConfigForListJobsOutput',
         'status' => '\Volcengine\Mlplatform20240701\Model\StatusForListJobsOutput',
         'stop_reason' => 'string',
@@ -52,6 +53,7 @@ class ItemForListJobsOutput implements ModelInterface, ArrayAccess
         'id' => null,
         'initial_id' => null,
         'name' => null,
+        'project_name' => null,
         'resource_config' => null,
         'status' => null,
         'stop_reason' => null,
@@ -91,6 +93,7 @@ class ItemForListJobsOutput implements ModelInterface, ArrayAccess
         'id' => 'Id',
         'initial_id' => 'InitialId',
         'name' => 'Name',
+        'project_name' => 'ProjectName',
         'resource_config' => 'ResourceConfig',
         'status' => 'Status',
         'stop_reason' => 'StopReason',
@@ -109,6 +112,7 @@ class ItemForListJobsOutput implements ModelInterface, ArrayAccess
         'id' => 'setId',
         'initial_id' => 'setInitialId',
         'name' => 'setName',
+        'project_name' => 'setProjectName',
         'resource_config' => 'setResourceConfig',
         'status' => 'setStatus',
         'stop_reason' => 'setStopReason',
@@ -127,6 +131,7 @@ class ItemForListJobsOutput implements ModelInterface, ArrayAccess
         'id' => 'getId',
         'initial_id' => 'getInitialId',
         'name' => 'getName',
+        'project_name' => 'getProjectName',
         'resource_config' => 'getResourceConfig',
         'status' => 'getStatus',
         'stop_reason' => 'getStopReason',
@@ -199,6 +204,7 @@ class ItemForListJobsOutput implements ModelInterface, ArrayAccess
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['initial_id'] = isset($data['initial_id']) ? $data['initial_id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['resource_config'] = isset($data['resource_config']) ? $data['resource_config'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['stop_reason'] = isset($data['stop_reason']) ? $data['stop_reason'] : null;
@@ -369,6 +375,30 @@ class ItemForListJobsOutput implements ModelInterface, ArrayAccess
     public function setName($name)
     {
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }

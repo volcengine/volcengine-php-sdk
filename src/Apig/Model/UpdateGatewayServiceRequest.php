@@ -30,6 +30,7 @@ class UpdateGatewayServiceRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'auth_spec' => '\Volcengine\Apig\Model\AuthSpecForUpdateGatewayServiceInput',
         'comments' => 'string',
+        'domain_spec' => '\Volcengine\Apig\Model\DomainSpecForUpdateGatewayServiceInput',
         'id' => 'string',
         'protocol' => 'string[]'
     ];
@@ -42,6 +43,7 @@ class UpdateGatewayServiceRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'auth_spec' => null,
         'comments' => null,
+        'domain_spec' => null,
         'id' => null,
         'protocol' => null
     ];
@@ -75,6 +77,7 @@ class UpdateGatewayServiceRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'auth_spec' => 'AuthSpec',
         'comments' => 'Comments',
+        'domain_spec' => 'DomainSpec',
         'id' => 'Id',
         'protocol' => 'Protocol'
     ];
@@ -87,6 +90,7 @@ class UpdateGatewayServiceRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'auth_spec' => 'setAuthSpec',
         'comments' => 'setComments',
+        'domain_spec' => 'setDomainSpec',
         'id' => 'setId',
         'protocol' => 'setProtocol'
     ];
@@ -99,6 +103,7 @@ class UpdateGatewayServiceRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'auth_spec' => 'getAuthSpec',
         'comments' => 'getComments',
+        'domain_spec' => 'getDomainSpec',
         'id' => 'getId',
         'protocol' => 'getProtocol'
     ];
@@ -165,6 +170,7 @@ class UpdateGatewayServiceRequest implements ModelInterface, ArrayAccess
     {
         $this->container['auth_spec'] = isset($data['auth_spec']) ? $data['auth_spec'] : null;
         $this->container['comments'] = isset($data['comments']) ? $data['comments'] : null;
+        $this->container['domain_spec'] = isset($data['domain_spec']) ? $data['domain_spec'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['protocol'] = isset($data['protocol']) ? $data['protocol'] : null;
     }
@@ -240,6 +246,30 @@ class UpdateGatewayServiceRequest implements ModelInterface, ArrayAccess
     public function setComments($comments)
     {
         $this->container['comments'] = $comments;
+
+        return $this;
+    }
+
+    /**
+     * Gets domain_spec
+     *
+     * @return \Volcengine\Apig\Model\DomainSpecForUpdateGatewayServiceInput
+     */
+    public function getDomainSpec()
+    {
+        return $this->container['domain_spec'];
+    }
+
+    /**
+     * Sets domain_spec
+     *
+     * @param \Volcengine\Apig\Model\DomainSpecForUpdateGatewayServiceInput $domain_spec domain_spec
+     *
+     * @return $this
+     */
+    public function setDomainSpec($domain_spec)
+    {
+        $this->container['domain_spec'] = $domain_spec;
 
         return $this;
     }

@@ -28,8 +28,11 @@ class SubtitleRecognitionConfigForGetAITranslationProjectOutput implements Model
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'bilingual_subtitle_file_name' => 'string',
         'recognition_type' => 'string',
-        'subtitle_file_name' => 'string'
+        'source_subtitle_file_name' => 'string',
+        'subtitle_file_name' => 'string',
+        'target_subtitle_file_name' => 'string'
     ];
 
     /**
@@ -38,8 +41,11 @@ class SubtitleRecognitionConfigForGetAITranslationProjectOutput implements Model
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'bilingual_subtitle_file_name' => null,
         'recognition_type' => null,
-        'subtitle_file_name' => null
+        'source_subtitle_file_name' => null,
+        'subtitle_file_name' => null,
+        'target_subtitle_file_name' => null
     ];
 
     /**
@@ -69,8 +75,11 @@ class SubtitleRecognitionConfigForGetAITranslationProjectOutput implements Model
      * @var string[]
      */
     protected static $attributeMap = [
+        'bilingual_subtitle_file_name' => 'BilingualSubtitleFileName',
         'recognition_type' => 'RecognitionType',
-        'subtitle_file_name' => 'SubtitleFileName'
+        'source_subtitle_file_name' => 'SourceSubtitleFileName',
+        'subtitle_file_name' => 'SubtitleFileName',
+        'target_subtitle_file_name' => 'TargetSubtitleFileName'
     ];
 
     /**
@@ -79,8 +88,11 @@ class SubtitleRecognitionConfigForGetAITranslationProjectOutput implements Model
      * @var string[]
      */
     protected static $setters = [
+        'bilingual_subtitle_file_name' => 'setBilingualSubtitleFileName',
         'recognition_type' => 'setRecognitionType',
-        'subtitle_file_name' => 'setSubtitleFileName'
+        'source_subtitle_file_name' => 'setSourceSubtitleFileName',
+        'subtitle_file_name' => 'setSubtitleFileName',
+        'target_subtitle_file_name' => 'setTargetSubtitleFileName'
     ];
 
     /**
@@ -89,8 +101,11 @@ class SubtitleRecognitionConfigForGetAITranslationProjectOutput implements Model
      * @var string[]
      */
     protected static $getters = [
+        'bilingual_subtitle_file_name' => 'getBilingualSubtitleFileName',
         'recognition_type' => 'getRecognitionType',
-        'subtitle_file_name' => 'getSubtitleFileName'
+        'source_subtitle_file_name' => 'getSourceSubtitleFileName',
+        'subtitle_file_name' => 'getSubtitleFileName',
+        'target_subtitle_file_name' => 'getTargetSubtitleFileName'
     ];
 
     /**
@@ -153,8 +168,11 @@ class SubtitleRecognitionConfigForGetAITranslationProjectOutput implements Model
      */
     public function __construct(array $data = null)
     {
+        $this->container['bilingual_subtitle_file_name'] = isset($data['bilingual_subtitle_file_name']) ? $data['bilingual_subtitle_file_name'] : null;
         $this->container['recognition_type'] = isset($data['recognition_type']) ? $data['recognition_type'] : null;
+        $this->container['source_subtitle_file_name'] = isset($data['source_subtitle_file_name']) ? $data['source_subtitle_file_name'] : null;
         $this->container['subtitle_file_name'] = isset($data['subtitle_file_name']) ? $data['subtitle_file_name'] : null;
+        $this->container['target_subtitle_file_name'] = isset($data['target_subtitle_file_name']) ? $data['target_subtitle_file_name'] : null;
     }
 
     /**
@@ -182,6 +200,30 @@ class SubtitleRecognitionConfigForGetAITranslationProjectOutput implements Model
 
 
     /**
+     * Gets bilingual_subtitle_file_name
+     *
+     * @return string
+     */
+    public function getBilingualSubtitleFileName()
+    {
+        return $this->container['bilingual_subtitle_file_name'];
+    }
+
+    /**
+     * Sets bilingual_subtitle_file_name
+     *
+     * @param string $bilingual_subtitle_file_name bilingual_subtitle_file_name
+     *
+     * @return $this
+     */
+    public function setBilingualSubtitleFileName($bilingual_subtitle_file_name)
+    {
+        $this->container['bilingual_subtitle_file_name'] = $bilingual_subtitle_file_name;
+
+        return $this;
+    }
+
+    /**
      * Gets recognition_type
      *
      * @return string
@@ -206,6 +248,30 @@ class SubtitleRecognitionConfigForGetAITranslationProjectOutput implements Model
     }
 
     /**
+     * Gets source_subtitle_file_name
+     *
+     * @return string
+     */
+    public function getSourceSubtitleFileName()
+    {
+        return $this->container['source_subtitle_file_name'];
+    }
+
+    /**
+     * Sets source_subtitle_file_name
+     *
+     * @param string $source_subtitle_file_name source_subtitle_file_name
+     *
+     * @return $this
+     */
+    public function setSourceSubtitleFileName($source_subtitle_file_name)
+    {
+        $this->container['source_subtitle_file_name'] = $source_subtitle_file_name;
+
+        return $this;
+    }
+
+    /**
      * Gets subtitle_file_name
      *
      * @return string
@@ -225,6 +291,30 @@ class SubtitleRecognitionConfigForGetAITranslationProjectOutput implements Model
     public function setSubtitleFileName($subtitle_file_name)
     {
         $this->container['subtitle_file_name'] = $subtitle_file_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets target_subtitle_file_name
+     *
+     * @return string
+     */
+    public function getTargetSubtitleFileName()
+    {
+        return $this->container['target_subtitle_file_name'];
+    }
+
+    /**
+     * Sets target_subtitle_file_name
+     *
+     * @param string $target_subtitle_file_name target_subtitle_file_name
+     *
+     * @return $this
+     */
+    public function setTargetSubtitleFileName($target_subtitle_file_name)
+    {
+        $this->container['target_subtitle_file_name'] = $target_subtitle_file_name;
 
         return $this;
     }

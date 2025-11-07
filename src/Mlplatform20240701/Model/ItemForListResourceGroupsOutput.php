@@ -34,10 +34,12 @@ class ItemForListResourceGroupsOutput implements ModelInterface, ArrayAccess
         'id' => 'string',
         'name' => 'string',
         'period_unit' => 'string',
+        'project_name' => 'string',
         'resource_allocated' => '\Volcengine\Mlplatform20240701\Model\ResourceAllocatedForListResourceGroupsOutput',
         'resource_capability' => '\Volcengine\Mlplatform20240701\Model\ResourceCapabilityForListResourceGroupsOutput',
         'status' => '\Volcengine\Mlplatform20240701\Model\StatusForListResourceGroupsOutput',
         'storage_config' => '\Volcengine\Mlplatform20240701\Model\StorageConfigForListResourceGroupsOutput',
+        'v_rdma_enabled' => 'bool',
         'workload_network_config' => '\Volcengine\Mlplatform20240701\Model\WorkloadNetworkConfigForListResourceGroupsOutput',
         'workload_network_mode' => 'string',
         'zone_ids' => 'string[]'
@@ -55,10 +57,12 @@ class ItemForListResourceGroupsOutput implements ModelInterface, ArrayAccess
         'id' => null,
         'name' => null,
         'period_unit' => null,
+        'project_name' => null,
         'resource_allocated' => null,
         'resource_capability' => null,
         'status' => null,
         'storage_config' => null,
+        'v_rdma_enabled' => null,
         'workload_network_config' => null,
         'workload_network_mode' => null,
         'zone_ids' => null
@@ -97,10 +101,12 @@ class ItemForListResourceGroupsOutput implements ModelInterface, ArrayAccess
         'id' => 'Id',
         'name' => 'Name',
         'period_unit' => 'PeriodUnit',
+        'project_name' => 'ProjectName',
         'resource_allocated' => 'ResourceAllocated',
         'resource_capability' => 'ResourceCapability',
         'status' => 'Status',
         'storage_config' => 'StorageConfig',
+        'v_rdma_enabled' => 'VRdmaEnabled',
         'workload_network_config' => 'WorkloadNetworkConfig',
         'workload_network_mode' => 'WorkloadNetworkMode',
         'zone_ids' => 'ZoneIds'
@@ -118,10 +124,12 @@ class ItemForListResourceGroupsOutput implements ModelInterface, ArrayAccess
         'id' => 'setId',
         'name' => 'setName',
         'period_unit' => 'setPeriodUnit',
+        'project_name' => 'setProjectName',
         'resource_allocated' => 'setResourceAllocated',
         'resource_capability' => 'setResourceCapability',
         'status' => 'setStatus',
         'storage_config' => 'setStorageConfig',
+        'v_rdma_enabled' => 'setVRdmaEnabled',
         'workload_network_config' => 'setWorkloadNetworkConfig',
         'workload_network_mode' => 'setWorkloadNetworkMode',
         'zone_ids' => 'setZoneIds'
@@ -139,10 +147,12 @@ class ItemForListResourceGroupsOutput implements ModelInterface, ArrayAccess
         'id' => 'getId',
         'name' => 'getName',
         'period_unit' => 'getPeriodUnit',
+        'project_name' => 'getProjectName',
         'resource_allocated' => 'getResourceAllocated',
         'resource_capability' => 'getResourceCapability',
         'status' => 'getStatus',
         'storage_config' => 'getStorageConfig',
+        'v_rdma_enabled' => 'getVRdmaEnabled',
         'workload_network_config' => 'getWorkloadNetworkConfig',
         'workload_network_mode' => 'getWorkloadNetworkMode',
         'zone_ids' => 'getZoneIds'
@@ -214,10 +224,12 @@ class ItemForListResourceGroupsOutput implements ModelInterface, ArrayAccess
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['period_unit'] = isset($data['period_unit']) ? $data['period_unit'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['resource_allocated'] = isset($data['resource_allocated']) ? $data['resource_allocated'] : null;
         $this->container['resource_capability'] = isset($data['resource_capability']) ? $data['resource_capability'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['storage_config'] = isset($data['storage_config']) ? $data['storage_config'] : null;
+        $this->container['v_rdma_enabled'] = isset($data['v_rdma_enabled']) ? $data['v_rdma_enabled'] : null;
         $this->container['workload_network_config'] = isset($data['workload_network_config']) ? $data['workload_network_config'] : null;
         $this->container['workload_network_mode'] = isset($data['workload_network_mode']) ? $data['workload_network_mode'] : null;
         $this->container['zone_ids'] = isset($data['zone_ids']) ? $data['zone_ids'] : null;
@@ -392,6 +404,30 @@ class ItemForListResourceGroupsOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
+
+    /**
      * Gets resource_allocated
      *
      * @return \Volcengine\Mlplatform20240701\Model\ResourceAllocatedForListResourceGroupsOutput
@@ -483,6 +519,30 @@ class ItemForListResourceGroupsOutput implements ModelInterface, ArrayAccess
     public function setStorageConfig($storage_config)
     {
         $this->container['storage_config'] = $storage_config;
+
+        return $this;
+    }
+
+    /**
+     * Gets v_rdma_enabled
+     *
+     * @return bool
+     */
+    public function getVRdmaEnabled()
+    {
+        return $this->container['v_rdma_enabled'];
+    }
+
+    /**
+     * Sets v_rdma_enabled
+     *
+     * @param bool $v_rdma_enabled v_rdma_enabled
+     *
+     * @return $this
+     */
+    public function setVRdmaEnabled($v_rdma_enabled)
+    {
+        $this->container['v_rdma_enabled'] = $v_rdma_enabled;
 
         return $this;
     }

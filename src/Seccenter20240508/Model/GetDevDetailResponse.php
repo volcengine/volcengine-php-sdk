@@ -54,7 +54,7 @@ class GetDevDetailResponse implements ModelInterface, ArrayAccess
         'account_id' => null,
         'asset_id' => null,
         'asset_name' => null,
-        'create_time' => 'int32',
+        'create_time' => 'int64',
         'flavor_id' => null,
         'image_id' => null,
         'platform' => null,

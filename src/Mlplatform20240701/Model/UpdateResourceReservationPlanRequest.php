@@ -32,8 +32,10 @@ class UpdateResourceReservationPlanRequest implements ModelInterface, ArrayAcces
         'dry_run' => 'bool',
         'id' => 'string',
         'name' => 'string',
+        'schedule_config' => '\Volcengine\Mlplatform20240701\Model\ScheduleConfigForUpdateResourceReservationPlanInput',
         'storage_config' => '\Volcengine\Mlplatform20240701\Model\StorageConfigForUpdateResourceReservationPlanInput',
-        'workload_network_config' => '\Volcengine\Mlplatform20240701\Model\WorkloadNetworkConfigForUpdateResourceReservationPlanInput'
+        'workload_network_config' => '\Volcengine\Mlplatform20240701\Model\WorkloadNetworkConfigForUpdateResourceReservationPlanInput',
+        'workload_network_mode' => 'string'
     ];
 
     /**
@@ -46,8 +48,10 @@ class UpdateResourceReservationPlanRequest implements ModelInterface, ArrayAcces
         'dry_run' => null,
         'id' => null,
         'name' => null,
+        'schedule_config' => null,
         'storage_config' => null,
-        'workload_network_config' => null
+        'workload_network_config' => null,
+        'workload_network_mode' => null
     ];
 
     /**
@@ -81,8 +85,10 @@ class UpdateResourceReservationPlanRequest implements ModelInterface, ArrayAcces
         'dry_run' => 'DryRun',
         'id' => 'Id',
         'name' => 'Name',
+        'schedule_config' => 'ScheduleConfig',
         'storage_config' => 'StorageConfig',
-        'workload_network_config' => 'WorkloadNetworkConfig'
+        'workload_network_config' => 'WorkloadNetworkConfig',
+        'workload_network_mode' => 'WorkloadNetworkMode'
     ];
 
     /**
@@ -95,8 +101,10 @@ class UpdateResourceReservationPlanRequest implements ModelInterface, ArrayAcces
         'dry_run' => 'setDryRun',
         'id' => 'setId',
         'name' => 'setName',
+        'schedule_config' => 'setScheduleConfig',
         'storage_config' => 'setStorageConfig',
-        'workload_network_config' => 'setWorkloadNetworkConfig'
+        'workload_network_config' => 'setWorkloadNetworkConfig',
+        'workload_network_mode' => 'setWorkloadNetworkMode'
     ];
 
     /**
@@ -109,8 +117,10 @@ class UpdateResourceReservationPlanRequest implements ModelInterface, ArrayAcces
         'dry_run' => 'getDryRun',
         'id' => 'getId',
         'name' => 'getName',
+        'schedule_config' => 'getScheduleConfig',
         'storage_config' => 'getStorageConfig',
-        'workload_network_config' => 'getWorkloadNetworkConfig'
+        'workload_network_config' => 'getWorkloadNetworkConfig',
+        'workload_network_mode' => 'getWorkloadNetworkMode'
     ];
 
     /**
@@ -177,8 +187,10 @@ class UpdateResourceReservationPlanRequest implements ModelInterface, ArrayAcces
         $this->container['dry_run'] = isset($data['dry_run']) ? $data['dry_run'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['schedule_config'] = isset($data['schedule_config']) ? $data['schedule_config'] : null;
         $this->container['storage_config'] = isset($data['storage_config']) ? $data['storage_config'] : null;
         $this->container['workload_network_config'] = isset($data['workload_network_config']) ? $data['workload_network_config'] : null;
+        $this->container['workload_network_mode'] = isset($data['workload_network_mode']) ? $data['workload_network_mode'] : null;
     }
 
     /**
@@ -305,6 +317,30 @@ class UpdateResourceReservationPlanRequest implements ModelInterface, ArrayAcces
     }
 
     /**
+     * Gets schedule_config
+     *
+     * @return \Volcengine\Mlplatform20240701\Model\ScheduleConfigForUpdateResourceReservationPlanInput
+     */
+    public function getScheduleConfig()
+    {
+        return $this->container['schedule_config'];
+    }
+
+    /**
+     * Sets schedule_config
+     *
+     * @param \Volcengine\Mlplatform20240701\Model\ScheduleConfigForUpdateResourceReservationPlanInput $schedule_config schedule_config
+     *
+     * @return $this
+     */
+    public function setScheduleConfig($schedule_config)
+    {
+        $this->container['schedule_config'] = $schedule_config;
+
+        return $this;
+    }
+
+    /**
      * Gets storage_config
      *
      * @return \Volcengine\Mlplatform20240701\Model\StorageConfigForUpdateResourceReservationPlanInput
@@ -348,6 +384,30 @@ class UpdateResourceReservationPlanRequest implements ModelInterface, ArrayAcces
     public function setWorkloadNetworkConfig($workload_network_config)
     {
         $this->container['workload_network_config'] = $workload_network_config;
+
+        return $this;
+    }
+
+    /**
+     * Gets workload_network_mode
+     *
+     * @return string
+     */
+    public function getWorkloadNetworkMode()
+    {
+        return $this->container['workload_network_mode'];
+    }
+
+    /**
+     * Sets workload_network_mode
+     *
+     * @param string $workload_network_mode workload_network_mode
+     *
+     * @return $this
+     */
+    public function setWorkloadNetworkMode($workload_network_mode)
+    {
+        $this->container['workload_network_mode'] = $workload_network_mode;
 
         return $this;
     }

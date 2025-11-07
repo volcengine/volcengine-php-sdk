@@ -39,7 +39,7 @@ class Configuration
     protected $connectTimeout = 30;
     protected $readTimeout = 30;
 
-    protected $userAgent = 'volcstack-php-sdk/1.0.72';
+    protected $userAgent = 'volcstack-php-sdk/1.0.84';
 
     /**
      * Debug switch (default set to false)
