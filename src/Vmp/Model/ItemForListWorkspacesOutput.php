@@ -38,8 +38,11 @@ class ItemForListWorkspacesOutput implements ModelInterface, ArrayAccess
         'name' => 'string',
         'overdue_reclaim_time' => 'string',
         'project_name' => 'string',
+        'prometheus_push_endpoint' => 'string',
         'prometheus_push_intranet_endpoint' => 'string',
+        'prometheus_query_endpoint' => 'string',
         'prometheus_query_intranet_endpoint' => 'string',
+        'prometheus_write_endpoint' => 'string',
         'prometheus_write_intranet_endpoint' => 'string',
         'public_access_enabled' => 'bool',
         'region' => 'string',
@@ -55,7 +58,7 @@ class ItemForListWorkspacesOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'account_id' => 'int32',
+        'account_id' => 'int64',
         'account_name' => null,
         'create_time' => null,
         'delete_protection_enabled' => null,
@@ -65,8 +68,11 @@ class ItemForListWorkspacesOutput implements ModelInterface, ArrayAccess
         'name' => null,
         'overdue_reclaim_time' => null,
         'project_name' => null,
+        'prometheus_push_endpoint' => null,
         'prometheus_push_intranet_endpoint' => null,
+        'prometheus_query_endpoint' => null,
         'prometheus_query_intranet_endpoint' => null,
+        'prometheus_write_endpoint' => null,
         'prometheus_write_intranet_endpoint' => null,
         'public_access_enabled' => null,
         'region' => null,
@@ -113,8 +119,11 @@ class ItemForListWorkspacesOutput implements ModelInterface, ArrayAccess
         'name' => 'Name',
         'overdue_reclaim_time' => 'OverdueReclaimTime',
         'project_name' => 'ProjectName',
+        'prometheus_push_endpoint' => 'PrometheusPushEndpoint',
         'prometheus_push_intranet_endpoint' => 'PrometheusPushIntranetEndpoint',
+        'prometheus_query_endpoint' => 'PrometheusQueryEndpoint',
         'prometheus_query_intranet_endpoint' => 'PrometheusQueryIntranetEndpoint',
+        'prometheus_write_endpoint' => 'PrometheusWriteEndpoint',
         'prometheus_write_intranet_endpoint' => 'PrometheusWriteIntranetEndpoint',
         'public_access_enabled' => 'PublicAccessEnabled',
         'region' => 'Region',
@@ -140,8 +149,11 @@ class ItemForListWorkspacesOutput implements ModelInterface, ArrayAccess
         'name' => 'setName',
         'overdue_reclaim_time' => 'setOverdueReclaimTime',
         'project_name' => 'setProjectName',
+        'prometheus_push_endpoint' => 'setPrometheusPushEndpoint',
         'prometheus_push_intranet_endpoint' => 'setPrometheusPushIntranetEndpoint',
+        'prometheus_query_endpoint' => 'setPrometheusQueryEndpoint',
         'prometheus_query_intranet_endpoint' => 'setPrometheusQueryIntranetEndpoint',
+        'prometheus_write_endpoint' => 'setPrometheusWriteEndpoint',
         'prometheus_write_intranet_endpoint' => 'setPrometheusWriteIntranetEndpoint',
         'public_access_enabled' => 'setPublicAccessEnabled',
         'region' => 'setRegion',
@@ -167,8 +179,11 @@ class ItemForListWorkspacesOutput implements ModelInterface, ArrayAccess
         'name' => 'getName',
         'overdue_reclaim_time' => 'getOverdueReclaimTime',
         'project_name' => 'getProjectName',
+        'prometheus_push_endpoint' => 'getPrometheusPushEndpoint',
         'prometheus_push_intranet_endpoint' => 'getPrometheusPushIntranetEndpoint',
+        'prometheus_query_endpoint' => 'getPrometheusQueryEndpoint',
         'prometheus_query_intranet_endpoint' => 'getPrometheusQueryIntranetEndpoint',
+        'prometheus_write_endpoint' => 'getPrometheusWriteEndpoint',
         'prometheus_write_intranet_endpoint' => 'getPrometheusWriteIntranetEndpoint',
         'public_access_enabled' => 'getPublicAccessEnabled',
         'region' => 'getRegion',
@@ -248,8 +263,11 @@ class ItemForListWorkspacesOutput implements ModelInterface, ArrayAccess
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['overdue_reclaim_time'] = isset($data['overdue_reclaim_time']) ? $data['overdue_reclaim_time'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['prometheus_push_endpoint'] = isset($data['prometheus_push_endpoint']) ? $data['prometheus_push_endpoint'] : null;
         $this->container['prometheus_push_intranet_endpoint'] = isset($data['prometheus_push_intranet_endpoint']) ? $data['prometheus_push_intranet_endpoint'] : null;
+        $this->container['prometheus_query_endpoint'] = isset($data['prometheus_query_endpoint']) ? $data['prometheus_query_endpoint'] : null;
         $this->container['prometheus_query_intranet_endpoint'] = isset($data['prometheus_query_intranet_endpoint']) ? $data['prometheus_query_intranet_endpoint'] : null;
+        $this->container['prometheus_write_endpoint'] = isset($data['prometheus_write_endpoint']) ? $data['prometheus_write_endpoint'] : null;
         $this->container['prometheus_write_intranet_endpoint'] = isset($data['prometheus_write_intranet_endpoint']) ? $data['prometheus_write_intranet_endpoint'] : null;
         $this->container['public_access_enabled'] = isset($data['public_access_enabled']) ? $data['public_access_enabled'] : null;
         $this->container['region'] = isset($data['region']) ? $data['region'] : null;
@@ -524,6 +542,30 @@ class ItemForListWorkspacesOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets prometheus_push_endpoint
+     *
+     * @return string
+     */
+    public function getPrometheusPushEndpoint()
+    {
+        return $this->container['prometheus_push_endpoint'];
+    }
+
+    /**
+     * Sets prometheus_push_endpoint
+     *
+     * @param string $prometheus_push_endpoint prometheus_push_endpoint
+     *
+     * @return $this
+     */
+    public function setPrometheusPushEndpoint($prometheus_push_endpoint)
+    {
+        $this->container['prometheus_push_endpoint'] = $prometheus_push_endpoint;
+
+        return $this;
+    }
+
+    /**
      * Gets prometheus_push_intranet_endpoint
      *
      * @return string
@@ -548,6 +590,30 @@ class ItemForListWorkspacesOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets prometheus_query_endpoint
+     *
+     * @return string
+     */
+    public function getPrometheusQueryEndpoint()
+    {
+        return $this->container['prometheus_query_endpoint'];
+    }
+
+    /**
+     * Sets prometheus_query_endpoint
+     *
+     * @param string $prometheus_query_endpoint prometheus_query_endpoint
+     *
+     * @return $this
+     */
+    public function setPrometheusQueryEndpoint($prometheus_query_endpoint)
+    {
+        $this->container['prometheus_query_endpoint'] = $prometheus_query_endpoint;
+
+        return $this;
+    }
+
+    /**
      * Gets prometheus_query_intranet_endpoint
      *
      * @return string
@@ -567,6 +633,30 @@ class ItemForListWorkspacesOutput implements ModelInterface, ArrayAccess
     public function setPrometheusQueryIntranetEndpoint($prometheus_query_intranet_endpoint)
     {
         $this->container['prometheus_query_intranet_endpoint'] = $prometheus_query_intranet_endpoint;
+
+        return $this;
+    }
+
+    /**
+     * Gets prometheus_write_endpoint
+     *
+     * @return string
+     */
+    public function getPrometheusWriteEndpoint()
+    {
+        return $this->container['prometheus_write_endpoint'];
+    }
+
+    /**
+     * Sets prometheus_write_endpoint
+     *
+     * @param string $prometheus_write_endpoint prometheus_write_endpoint
+     *
+     * @return $this
+     */
+    public function setPrometheusWriteEndpoint($prometheus_write_endpoint)
+    {
+        $this->container['prometheus_write_endpoint'] = $prometheus_write_endpoint;
 
         return $this;
     }

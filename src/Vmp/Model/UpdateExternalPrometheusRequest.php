@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class GetContactResponse implements ModelInterface, ArrayAccess
+class UpdateExternalPrometheusRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class GetContactResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetContactResponse';
+    protected static $swaggerModelName = 'UpdateExternalPrometheusRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,17 +28,16 @@ class GetContactResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'contact_group_ids' => 'string[]',
-        'create_time' => 'string',
-        'ding_talk_bot_webhook' => '\Volcengine\Vmp\Model\DingTalkBotWebhookForGetContactOutput',
-        'email' => 'string',
-        'email_active' => 'bool',
+        'auth_type' => 'string',
+        'custom_headers' => '\Volcengine\Vmp\Model\CustomHeadersForUpdateExternalPrometheusInput',
+        'description' => 'string',
+        'encrypted_bearer_token' => 'string',
+        'encrypted_password' => 'string',
         'id' => 'string',
-        'lark_bot' => '\Volcengine\Vmp\Model\LarkBotForGetContactOutput',
-        'lark_bot_webhook' => '\Volcengine\Vmp\Model\LarkBotWebhookForGetContactOutput',
+        'max_query_rate' => 'int',
         'name' => 'string',
-        'we_com_bot_webhook' => '\Volcengine\Vmp\Model\WeComBotWebhookForGetContactOutput',
-        'webhook' => '\Volcengine\Vmp\Model\WebhookForGetContactOutput'
+        'url' => 'string',
+        'username' => 'string'
     ];
 
     /**
@@ -47,17 +46,16 @@ class GetContactResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'contact_group_ids' => null,
-        'create_time' => null,
-        'ding_talk_bot_webhook' => null,
-        'email' => null,
-        'email_active' => null,
+        'auth_type' => null,
+        'custom_headers' => null,
+        'description' => null,
+        'encrypted_bearer_token' => null,
+        'encrypted_password' => null,
         'id' => null,
-        'lark_bot' => null,
-        'lark_bot_webhook' => null,
+        'max_query_rate' => 'int64',
         'name' => null,
-        'we_com_bot_webhook' => null,
-        'webhook' => null
+        'url' => null,
+        'username' => null
     ];
 
     /**
@@ -87,17 +85,16 @@ class GetContactResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'contact_group_ids' => 'ContactGroupIds',
-        'create_time' => 'CreateTime',
-        'ding_talk_bot_webhook' => 'DingTalkBotWebhook',
-        'email' => 'Email',
-        'email_active' => 'EmailActive',
+        'auth_type' => 'AuthType',
+        'custom_headers' => 'CustomHeaders',
+        'description' => 'Description',
+        'encrypted_bearer_token' => 'EncryptedBearerToken',
+        'encrypted_password' => 'EncryptedPassword',
         'id' => 'Id',
-        'lark_bot' => 'LarkBot',
-        'lark_bot_webhook' => 'LarkBotWebhook',
+        'max_query_rate' => 'MaxQueryRate',
         'name' => 'Name',
-        'we_com_bot_webhook' => 'WeComBotWebhook',
-        'webhook' => 'Webhook'
+        'url' => 'URL',
+        'username' => 'Username'
     ];
 
     /**
@@ -106,17 +103,16 @@ class GetContactResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'contact_group_ids' => 'setContactGroupIds',
-        'create_time' => 'setCreateTime',
-        'ding_talk_bot_webhook' => 'setDingTalkBotWebhook',
-        'email' => 'setEmail',
-        'email_active' => 'setEmailActive',
+        'auth_type' => 'setAuthType',
+        'custom_headers' => 'setCustomHeaders',
+        'description' => 'setDescription',
+        'encrypted_bearer_token' => 'setEncryptedBearerToken',
+        'encrypted_password' => 'setEncryptedPassword',
         'id' => 'setId',
-        'lark_bot' => 'setLarkBot',
-        'lark_bot_webhook' => 'setLarkBotWebhook',
+        'max_query_rate' => 'setMaxQueryRate',
         'name' => 'setName',
-        'we_com_bot_webhook' => 'setWeComBotWebhook',
-        'webhook' => 'setWebhook'
+        'url' => 'setUrl',
+        'username' => 'setUsername'
     ];
 
     /**
@@ -125,17 +121,16 @@ class GetContactResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'contact_group_ids' => 'getContactGroupIds',
-        'create_time' => 'getCreateTime',
-        'ding_talk_bot_webhook' => 'getDingTalkBotWebhook',
-        'email' => 'getEmail',
-        'email_active' => 'getEmailActive',
+        'auth_type' => 'getAuthType',
+        'custom_headers' => 'getCustomHeaders',
+        'description' => 'getDescription',
+        'encrypted_bearer_token' => 'getEncryptedBearerToken',
+        'encrypted_password' => 'getEncryptedPassword',
         'id' => 'getId',
-        'lark_bot' => 'getLarkBot',
-        'lark_bot_webhook' => 'getLarkBotWebhook',
+        'max_query_rate' => 'getMaxQueryRate',
         'name' => 'getName',
-        'we_com_bot_webhook' => 'getWeComBotWebhook',
-        'webhook' => 'getWebhook'
+        'url' => 'getUrl',
+        'username' => 'getUsername'
     ];
 
     /**
@@ -198,17 +193,16 @@ class GetContactResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['contact_group_ids'] = isset($data['contact_group_ids']) ? $data['contact_group_ids'] : null;
-        $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
-        $this->container['ding_talk_bot_webhook'] = isset($data['ding_talk_bot_webhook']) ? $data['ding_talk_bot_webhook'] : null;
-        $this->container['email'] = isset($data['email']) ? $data['email'] : null;
-        $this->container['email_active'] = isset($data['email_active']) ? $data['email_active'] : null;
+        $this->container['auth_type'] = isset($data['auth_type']) ? $data['auth_type'] : null;
+        $this->container['custom_headers'] = isset($data['custom_headers']) ? $data['custom_headers'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['encrypted_bearer_token'] = isset($data['encrypted_bearer_token']) ? $data['encrypted_bearer_token'] : null;
+        $this->container['encrypted_password'] = isset($data['encrypted_password']) ? $data['encrypted_password'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['lark_bot'] = isset($data['lark_bot']) ? $data['lark_bot'] : null;
-        $this->container['lark_bot_webhook'] = isset($data['lark_bot_webhook']) ? $data['lark_bot_webhook'] : null;
+        $this->container['max_query_rate'] = isset($data['max_query_rate']) ? $data['max_query_rate'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['we_com_bot_webhook'] = isset($data['we_com_bot_webhook']) ? $data['we_com_bot_webhook'] : null;
-        $this->container['webhook'] = isset($data['webhook']) ? $data['webhook'] : null;
+        $this->container['url'] = isset($data['url']) ? $data['url'] : null;
+        $this->container['username'] = isset($data['username']) ? $data['username'] : null;
     }
 
     /**
@@ -220,6 +214,9 @@ class GetContactResponse implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -236,121 +233,121 @@ class GetContactResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets contact_group_ids
-     *
-     * @return string[]
-     */
-    public function getContactGroupIds()
-    {
-        return $this->container['contact_group_ids'];
-    }
-
-    /**
-     * Sets contact_group_ids
-     *
-     * @param string[] $contact_group_ids contact_group_ids
-     *
-     * @return $this
-     */
-    public function setContactGroupIds($contact_group_ids)
-    {
-        $this->container['contact_group_ids'] = $contact_group_ids;
-
-        return $this;
-    }
-
-    /**
-     * Gets create_time
+     * Gets auth_type
      *
      * @return string
      */
-    public function getCreateTime()
+    public function getAuthType()
     {
-        return $this->container['create_time'];
+        return $this->container['auth_type'];
     }
 
     /**
-     * Sets create_time
+     * Sets auth_type
      *
-     * @param string $create_time create_time
+     * @param string $auth_type auth_type
      *
      * @return $this
      */
-    public function setCreateTime($create_time)
+    public function setAuthType($auth_type)
     {
-        $this->container['create_time'] = $create_time;
+        $this->container['auth_type'] = $auth_type;
 
         return $this;
     }
 
     /**
-     * Gets ding_talk_bot_webhook
+     * Gets custom_headers
      *
-     * @return \Volcengine\Vmp\Model\DingTalkBotWebhookForGetContactOutput
+     * @return \Volcengine\Vmp\Model\CustomHeadersForUpdateExternalPrometheusInput
      */
-    public function getDingTalkBotWebhook()
+    public function getCustomHeaders()
     {
-        return $this->container['ding_talk_bot_webhook'];
+        return $this->container['custom_headers'];
     }
 
     /**
-     * Sets ding_talk_bot_webhook
+     * Sets custom_headers
      *
-     * @param \Volcengine\Vmp\Model\DingTalkBotWebhookForGetContactOutput $ding_talk_bot_webhook ding_talk_bot_webhook
+     * @param \Volcengine\Vmp\Model\CustomHeadersForUpdateExternalPrometheusInput $custom_headers custom_headers
      *
      * @return $this
      */
-    public function setDingTalkBotWebhook($ding_talk_bot_webhook)
+    public function setCustomHeaders($custom_headers)
     {
-        $this->container['ding_talk_bot_webhook'] = $ding_talk_bot_webhook;
+        $this->container['custom_headers'] = $custom_headers;
 
         return $this;
     }
 
     /**
-     * Gets email
+     * Gets description
      *
      * @return string
      */
-    public function getEmail()
+    public function getDescription()
     {
-        return $this->container['email'];
+        return $this->container['description'];
     }
 
     /**
-     * Sets email
+     * Sets description
      *
-     * @param string $email email
+     * @param string $description description
      *
      * @return $this
      */
-    public function setEmail($email)
+    public function setDescription($description)
     {
-        $this->container['email'] = $email;
+        $this->container['description'] = $description;
 
         return $this;
     }
 
     /**
-     * Gets email_active
+     * Gets encrypted_bearer_token
      *
-     * @return bool
+     * @return string
      */
-    public function getEmailActive()
+    public function getEncryptedBearerToken()
     {
-        return $this->container['email_active'];
+        return $this->container['encrypted_bearer_token'];
     }
 
     /**
-     * Sets email_active
+     * Sets encrypted_bearer_token
      *
-     * @param bool $email_active email_active
+     * @param string $encrypted_bearer_token encrypted_bearer_token
      *
      * @return $this
      */
-    public function setEmailActive($email_active)
+    public function setEncryptedBearerToken($encrypted_bearer_token)
     {
-        $this->container['email_active'] = $email_active;
+        $this->container['encrypted_bearer_token'] = $encrypted_bearer_token;
+
+        return $this;
+    }
+
+    /**
+     * Gets encrypted_password
+     *
+     * @return string
+     */
+    public function getEncryptedPassword()
+    {
+        return $this->container['encrypted_password'];
+    }
+
+    /**
+     * Sets encrypted_password
+     *
+     * @param string $encrypted_password encrypted_password
+     *
+     * @return $this
+     */
+    public function setEncryptedPassword($encrypted_password)
+    {
+        $this->container['encrypted_password'] = $encrypted_password;
 
         return $this;
     }
@@ -380,49 +377,25 @@ class GetContactResponse implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets lark_bot
+     * Gets max_query_rate
      *
-     * @return \Volcengine\Vmp\Model\LarkBotForGetContactOutput
+     * @return int
      */
-    public function getLarkBot()
+    public function getMaxQueryRate()
     {
-        return $this->container['lark_bot'];
+        return $this->container['max_query_rate'];
     }
 
     /**
-     * Sets lark_bot
+     * Sets max_query_rate
      *
-     * @param \Volcengine\Vmp\Model\LarkBotForGetContactOutput $lark_bot lark_bot
+     * @param int $max_query_rate max_query_rate
      *
      * @return $this
      */
-    public function setLarkBot($lark_bot)
+    public function setMaxQueryRate($max_query_rate)
     {
-        $this->container['lark_bot'] = $lark_bot;
-
-        return $this;
-    }
-
-    /**
-     * Gets lark_bot_webhook
-     *
-     * @return \Volcengine\Vmp\Model\LarkBotWebhookForGetContactOutput
-     */
-    public function getLarkBotWebhook()
-    {
-        return $this->container['lark_bot_webhook'];
-    }
-
-    /**
-     * Sets lark_bot_webhook
-     *
-     * @param \Volcengine\Vmp\Model\LarkBotWebhookForGetContactOutput $lark_bot_webhook lark_bot_webhook
-     *
-     * @return $this
-     */
-    public function setLarkBotWebhook($lark_bot_webhook)
-    {
-        $this->container['lark_bot_webhook'] = $lark_bot_webhook;
+        $this->container['max_query_rate'] = $max_query_rate;
 
         return $this;
     }
@@ -452,49 +425,49 @@ class GetContactResponse implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets we_com_bot_webhook
+     * Gets url
      *
-     * @return \Volcengine\Vmp\Model\WeComBotWebhookForGetContactOutput
+     * @return string
      */
-    public function getWeComBotWebhook()
+    public function getUrl()
     {
-        return $this->container['we_com_bot_webhook'];
+        return $this->container['url'];
     }
 
     /**
-     * Sets we_com_bot_webhook
+     * Sets url
      *
-     * @param \Volcengine\Vmp\Model\WeComBotWebhookForGetContactOutput $we_com_bot_webhook we_com_bot_webhook
+     * @param string $url url
      *
      * @return $this
      */
-    public function setWeComBotWebhook($we_com_bot_webhook)
+    public function setUrl($url)
     {
-        $this->container['we_com_bot_webhook'] = $we_com_bot_webhook;
+        $this->container['url'] = $url;
 
         return $this;
     }
 
     /**
-     * Gets webhook
+     * Gets username
      *
-     * @return \Volcengine\Vmp\Model\WebhookForGetContactOutput
+     * @return string
      */
-    public function getWebhook()
+    public function getUsername()
     {
-        return $this->container['webhook'];
+        return $this->container['username'];
     }
 
     /**
-     * Sets webhook
+     * Sets username
      *
-     * @param \Volcengine\Vmp\Model\WebhookForGetContactOutput $webhook webhook
+     * @param string $username username
      *
      * @return $this
      */
-    public function setWebhook($webhook)
+    public function setUsername($username)
     {
-        $this->container['webhook'] = $webhook;
+        $this->container['username'] = $username;
 
         return $this;
     }
