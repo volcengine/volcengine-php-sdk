@@ -26,6 +26,9 @@ class BuildRequestInterceptor extends Interceptor
         if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
             $queryParams = Utils::transRequest($httpBody);
             $httpBody = '';
+        } elseif ($method == 'POST' && $headers['Content-Type'] === 'application/x-www-form-urlencoded') {
+            $queryParams = Utils::transRequest($httpBody);
+            $httpBody = '';
         } else {
             $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
         }

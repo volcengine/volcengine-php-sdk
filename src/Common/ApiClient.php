@@ -73,7 +73,7 @@ class ApiClient
         return $this;
     }
 
-    private function __callApi(
+    public function callApi(
         $body,
         $resourcePath,
         $method,
@@ -271,23 +271,6 @@ class ApiClient
         return function ($retries) {
             return $this->configuration->getRetryer()->getBackoffDelay($retries);
         };
-    }
-
-    public function callApi(
-        $body,
-        $resourcePath,
-        $method,
-        $headerParams = null,
-        $responseType = null
-    )
-    {
-        return $this->__callApi(
-            $body,
-            $resourcePath,
-            $method,
-            $headerParams,
-            $responseType
-        );
     }
 }
 
