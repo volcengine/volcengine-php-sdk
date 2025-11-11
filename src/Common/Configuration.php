@@ -311,7 +311,7 @@ class Configuration
      */
     public function getRetryTimes()
     {
-        return $this->retryTimes;
+        return $this->retryer->numMaxRetries;
     }
 
     /**
