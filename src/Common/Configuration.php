@@ -3,16 +3,9 @@
 namespace Volcengine\Common;
 
 use Volcengine\Common\Auth\Endpoint\Providers\DefaultEndpointProvider;
-use Volcengine\Common\Retryer\Retryer;
 
 class Configuration
 {
-    /**
-     * 重试次数 (默认3次)
-     * @var int
-     */
-    protected $retryTimes = 0;
-
     private static $defaultConfiguration;
 
     protected $region = 'cn-beijing';
@@ -22,7 +15,6 @@ class Configuration
     protected $customBootstrapRegion = '';
     protected $useDualStack = false;
     protected $autoRetry = false;
-    protected $retryer;
     protected $credentialProvider;
     protected $runtimeOptions = '';
 
@@ -69,7 +61,6 @@ class Configuration
     {
         $this->tempFolderPath = sys_get_temp_dir();
         $this->endpointProvider = new DefaultEndpointProvider();
-        $this->retryer = new Retryer();
     }
 
     /**
@@ -188,17 +179,6 @@ class Configuration
         return $this->endpointProvider;
     }
 
-    public function setRetryer($retryer)
-    {
-        $this->retryer = $retryer;
-        return $this;
-    }
-
-    public function getRetryer()
-    {
-        return $this->retryer;
-    }
-
     public function getCustomBootstrapRegion()
     {
         return $this->customBootstrapRegion;
@@ -290,28 +270,6 @@ class Configuration
     {
         $this->debug = $debug;
         return $this;
-    }
-
-    /**
-     * 设置重试次数
-     *
-     * @param int $times 重试次数
-     * @return $this
-     */
-    public function setRetryTimes($times)
-    {
-        $this->retryer->numMaxRetries = $times;
-        return $this;
-    }
-
-    /**
-     * 获取重试次数
-     *
-     * @return int
-     */
-    public function getRetryTimes()
-    {
-        return $this->retryer->numMaxRetries;
     }
 
     /**
