@@ -85,9 +85,16 @@ class StsProvider extends Provider
             $this->schema . '://' . $this->host . '/' . ($query ? "?{$query}" : ''),
             $headers, '');
 
-        $client = new Client();
+        $client = new Client([
+            'timeout' => 30,
+            'connect_timeout' => 5,
+            'verify' => true,
+        ]);
         try {
-            $response = $client->send($request, []);
+            $response = $client->send($request, [
+                'timeout' => 30,
+                'connect_timeout' => 5,
+            ]);
         } catch (RequestException $e) {
             throw new ApiException(
                 "[{$e->getCode()}] {$e->getMessage()}",

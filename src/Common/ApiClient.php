@@ -172,11 +172,13 @@ class ApiClient
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+                $resp = $e->getResponse();
+                $respBody = $resp ? (string)$resp->getBody() : '';
                 throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}{$e->getResponse()->getBody()->getContents()}",
+                    "[{$e->getCode()}] {$e->getMessage()}{$respBody}",
                     $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                    $resp ? $resp->getHeaders() : null,
+                    $respBody
                 );
             }
             $statusCode = $response->getStatusCode();
@@ -228,12 +230,11 @@ class ApiClient
 
         //如果两者不一样,client的配置和全局configuration配置不同
         //配置verify
-        if ($this->configuration->getVerifySsl() != $clientConfig['verify']) {
-            //并且client的verify不等于默认值true，这个时候全局参数就应该以verify为准
-            if ($clientConfig['verify'] != true) {
-                $config['verify'] = $clientConfig['verify'];
+        $clientVerify = isset($clientConfig['verify']) ? $clientConfig['verify'] : true;
+        if ($this->configuration->getVerifySsl() != $clientVerify) {
+            if ($clientVerify != true) {
+                $config['verify'] = $clientVerify;
             } else {
-                //否则以configuration全局为准
                 $config['verify'] = $this->configuration->getVerifySsl();
             }
         }

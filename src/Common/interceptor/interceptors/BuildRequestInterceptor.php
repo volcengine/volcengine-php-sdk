@@ -22,11 +22,13 @@ class BuildRequestInterceptor extends Interceptor
         $resourcePath = $request->resourcePath;
         $paths = explode("/", $resourcePath);
         $service = $paths[3];
+        $queryParams = [];
         // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
+        $ct = isset($headers['Content-Type']) ? $headers['Content-Type'] : 'application/json';
+        if ($method == 'GET' && $ct === 'text/plain') {
             $queryParams = Utils::transRequest($httpBody);
             $httpBody = '';
-        } elseif ($method == 'POST' && $headers['Content-Type'] === 'application/x-www-form-urlencoded') {
+        } elseif ($method == 'POST' && $ct === 'application/x-www-form-urlencoded') {
             $queryParams = Utils::transRequest($httpBody);
             $httpBody = '';
         } else {
