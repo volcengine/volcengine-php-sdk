@@ -81,9 +81,9 @@ class CLOUDTRAIL20180101Api
         return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
-    public function createTrailAsync($event_rw, $event_sources, $tls_project_name, $tls_project_region, $tls_project_topic_project, $tls_topic_name, $tos_bucket_name, $tos_bucket_project, $tos_bucket_region, $tos_key_prefix, $trail_name, $trail_type)
+    public function createTrailAsync($body)
     {
-        return $this->createTrailAsyncWithHttpInfo($event_rw, $event_sources, $tls_project_name, $tls_project_region, $tls_project_topic_project, $tls_topic_name, $tos_bucket_name, $tos_bucket_project, $tos_bucket_region, $tos_key_prefix, $trail_name, $trail_type)
+        return $this->createTrailAsyncWithHttpInfo($body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -91,54 +91,11 @@ class CLOUDTRAIL20180101Api
             );
     }
 
-    public function createTrailAsyncWithHttpInfo($event_rw, $event_sources, $tls_project_name, $tls_project_region, $tls_project_topic_project, $tls_topic_name, $tos_bucket_name, $tos_bucket_project, $tos_bucket_region, $tos_key_prefix, $trail_name, $trail_type)
+    public function createTrailAsyncWithHttpInfo($body)
     {
         $returnType = '\Volcengine\Cloudtrail20180101\Model\CreateTrailResponse';
-        $request = $this->createTrailRequest($event_rw, $event_sources, $tls_project_name, $tls_project_region, $tls_project_topic_project, $tls_topic_name, $tos_bucket_name, $tos_bucket_project, $tos_bucket_region, $tos_key_prefix, $trail_name, $trail_type);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        $request = $this->createTrailRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function createTrailRequest($body)
@@ -257,9 +214,9 @@ class CLOUDTRAIL20180101Api
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
-    public function deleteTrail($trail_name)
+    public function deleteTrail($body)
     {
-        list($response) = $this->deleteTrailWithHttpInfo($trail_name);
+        list($response) = $this->deleteTrailWithHttpInfo($body);
         return $response;
     }
 
@@ -271,9 +228,9 @@ class CLOUDTRAIL20180101Api
         return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
-    public function deleteTrailAsync($trail_name)
+    public function deleteTrailAsync($body)
     {
-        return $this->deleteTrailAsyncWithHttpInfo($trail_name)
+        return $this->deleteTrailAsyncWithHttpInfo($body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -281,54 +238,11 @@ class CLOUDTRAIL20180101Api
             );
     }
 
-    public function deleteTrailAsyncWithHttpInfo($trail_name)
+    public function deleteTrailAsyncWithHttpInfo($body)
     {
         $returnType = '\Volcengine\Cloudtrail20180101\Model\DeleteTrailResponse';
-        $request = $this->deleteTrailRequest($trail_name);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        $request = $this->deleteTrailRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function deleteTrailRequest($body)
@@ -384,9 +298,9 @@ class CLOUDTRAIL20180101Api
         return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
-    public function describeTrailsAsync($include_organization_trail, $trail_names)
+    public function describeTrailsAsync($body)
     {
-        return $this->describeTrailsAsyncWithHttpInfo($include_organization_trail, $trail_names)
+        return $this->describeTrailsAsyncWithHttpInfo($body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -394,54 +308,11 @@ class CLOUDTRAIL20180101Api
             );
     }
 
-    public function describeTrailsAsyncWithHttpInfo($include_organization_trail, $trail_names)
+    public function describeTrailsAsyncWithHttpInfo($body)
     {
         $returnType = '\Volcengine\Cloudtrail20180101\Model\DescribeTrailsResponse';
-        $request = $this->describeTrailsRequest($include_organization_trail, $trail_names);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        $request = $this->describeTrailsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function describeTrailsRequest($body)
@@ -490,9 +361,9 @@ class CLOUDTRAIL20180101Api
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
-    public function startLogging($trail_name)
+    public function startLogging($body)
     {
-        list($response) = $this->startLoggingWithHttpInfo($trail_name);
+        list($response) = $this->startLoggingWithHttpInfo($body);
         return $response;
     }
 
@@ -504,9 +375,9 @@ class CLOUDTRAIL20180101Api
         return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
-    public function startLoggingAsync($trail_name)
+    public function startLoggingAsync($body)
     {
-        return $this->startLoggingAsyncWithHttpInfo($trail_name)
+        return $this->startLoggingAsyncWithHttpInfo($body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -514,54 +385,11 @@ class CLOUDTRAIL20180101Api
             );
     }
 
-    public function startLoggingAsyncWithHttpInfo($trail_name)
+    public function startLoggingAsyncWithHttpInfo($body)
     {
         $returnType = '\Volcengine\Cloudtrail20180101\Model\StartLoggingResponse';
-        $request = $this->startLoggingRequest($trail_name);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        $request = $this->startLoggingRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function startLoggingRequest($body)
@@ -603,9 +431,9 @@ class CLOUDTRAIL20180101Api
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
-    public function stopLogging($trail_name)
+    public function stopLogging($body)
     {
-        list($response) = $this->stopLoggingWithHttpInfo($trail_name);
+        list($response) = $this->stopLoggingWithHttpInfo($body);
         return $response;
     }
 
@@ -617,9 +445,9 @@ class CLOUDTRAIL20180101Api
         return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
-    public function stopLoggingAsync($trail_name)
+    public function stopLoggingAsync($body)
     {
-        return $this->stopLoggingAsyncWithHttpInfo($trail_name)
+        return $this->stopLoggingAsyncWithHttpInfo($body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -627,54 +455,11 @@ class CLOUDTRAIL20180101Api
             );
     }
 
-    public function stopLoggingAsyncWithHttpInfo($trail_name)
+    public function stopLoggingAsyncWithHttpInfo($body)
     {
         $returnType = '\Volcengine\Cloudtrail20180101\Model\StopLoggingResponse';
-        $request = $this->stopLoggingRequest($trail_name);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        $request = $this->stopLoggingRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function stopLoggingRequest($body)
@@ -716,9 +501,9 @@ class CLOUDTRAIL20180101Api
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
-    public function updateTrail($event_rw, $event_sources, $tls_project_name, $tls_project_region, $tls_project_topic_project, $tls_topic_name, $tos_bucket_name, $tos_bucket_project, $tos_bucket_region, $tos_key_prefix, $trail_name, $trail_type)
+    public function updateTrail($body)
     {
-        list($response) = $this->updateTrailWithHttpInfo($event_rw, $event_sources, $tls_project_name, $tls_project_region, $tls_project_topic_project, $tls_topic_name, $tos_bucket_name, $tos_bucket_project, $tos_bucket_region, $tos_key_prefix, $trail_name, $trail_type);
+        list($response) = $this->updateTrailWithHttpInfo($body);
         return $response;
     }
 
@@ -730,9 +515,9 @@ class CLOUDTRAIL20180101Api
         return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
-    public function updateTrailAsync($event_rw, $event_sources, $tls_project_name, $tls_project_region, $tls_project_topic_project, $tls_topic_name, $tos_bucket_name, $tos_bucket_project, $tos_bucket_region, $tos_key_prefix, $trail_name, $trail_type)
+    public function updateTrailAsync($body)
     {
-        return $this->updateTrailAsyncWithHttpInfo($event_rw, $event_sources, $tls_project_name, $tls_project_region, $tls_project_topic_project, $tls_topic_name, $tos_bucket_name, $tos_bucket_project, $tos_bucket_region, $tos_key_prefix, $trail_name, $trail_type)
+        return $this->updateTrailAsyncWithHttpInfo($body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -740,54 +525,11 @@ class CLOUDTRAIL20180101Api
             );
     }
 
-    public function updateTrailAsyncWithHttpInfo($event_rw, $event_sources, $tls_project_name, $tls_project_region, $tls_project_topic_project, $tls_topic_name, $tos_bucket_name, $tos_bucket_project, $tos_bucket_region, $tos_key_prefix, $trail_name, $trail_type)
+    public function updateTrailAsyncWithHttpInfo($body)
     {
         $returnType = '\Volcengine\Cloudtrail20180101\Model\UpdateTrailResponse';
-        $request = $this->updateTrailRequest($event_rw, $event_sources, $tls_project_name, $tls_project_region, $tls_project_topic_project, $tls_topic_name, $tos_bucket_name, $tos_bucket_project, $tos_bucket_region, $tos_key_prefix, $trail_name, $trail_type);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        $request = $this->updateTrailRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function updateTrailRequest($body)

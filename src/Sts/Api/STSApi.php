@@ -82,9 +82,9 @@ class STSApi
         return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
-    public function assumeRoleAsync($duration_seconds, $policy, $role_session_name, $role_trn, $tags)
+    public function assumeRoleAsync($body)
     {
-        return $this->assumeRoleAsyncWithHttpInfo($duration_seconds, $policy, $role_session_name, $role_trn, $tags)
+        return $this->assumeRoleAsyncWithHttpInfo($body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -92,54 +92,11 @@ class STSApi
             );
     }
 
-    public function assumeRoleAsyncWithHttpInfo($duration_seconds, $policy, $role_session_name, $role_trn, $tags)
+    public function assumeRoleAsyncWithHttpInfo($body)
     {
         $returnType = '\Volcengine\Sts\Model\AssumeRoleResponse';
-        $request = $this->assumeRoleRequest($duration_seconds, $policy, $role_session_name, $role_trn, $tags);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        $request = $this->assumeRoleRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function assumeRoleRequest($body)
@@ -237,50 +194,7 @@ class STSApi
     {
         $returnType = '\Volcengine\Sts\Model\GetCallerIdentityResponse';
         $request = $this->getCallerIdentityRequest();
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body = null, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function getCallerIdentityRequest()

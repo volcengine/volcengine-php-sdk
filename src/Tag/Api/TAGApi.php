@@ -68,9 +68,9 @@ class TAGApi
         return $this->config;
     }
 
-    public function createTags($tags)
+    public function createTags($body)
     {
-        list($response) = $this->createTagsWithHttpInfo($tags);
+        list($response) = $this->createTagsWithHttpInfo($body);
         return $response;
     }
 
@@ -82,9 +82,9 @@ class TAGApi
         return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
-    public function createTagsAsync($tags)
+    public function createTagsAsync($body)
     {
-        return $this->createTagsAsyncWithHttpInfo($tags)
+        return $this->createTagsAsyncWithHttpInfo($body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -92,60 +92,17 @@ class TAGApi
             );
     }
 
-    public function createTagsAsyncWithHttpInfo($tags)
+    public function createTagsAsyncWithHttpInfo($body)
     {
         $returnType = '\Volcengine\Tag\Model\CreateTagsResponse';
-        $request = $this->createTagsRequest($tags);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        $request = $this->createTagsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
-    protected function createTagsRequest($tags)
+    protected function createTagsRequest($body)
     {
         // verify the required parameter 'tags' is set
-        if ($tags === null || (is_array($tags) && count($tags) === 0)) {
+        if ($body === null || (is_array($body) && count($body) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $tags when calling createTags'
             );
@@ -179,9 +136,9 @@ class TAGApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
-    public function deleteTags($tags)
+    public function deleteTags($body)
     {
-        list($response) = $this->deleteTagsWithHttpInfo($tags);
+        list($response) = $this->deleteTagsWithHttpInfo($body);
         return $response;
     }
 
@@ -193,9 +150,9 @@ class TAGApi
         return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
-    public function deleteTagsAsync($tags)
+    public function deleteTagsAsync($body)
     {
-        return $this->deleteTagsAsyncWithHttpInfo($tags)
+        return $this->deleteTagsAsyncWithHttpInfo($body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -203,54 +160,11 @@ class TAGApi
             );
     }
 
-    public function deleteTagsAsyncWithHttpInfo($tags)
+    public function deleteTagsAsyncWithHttpInfo($body)
     {
         $returnType = '\Volcengine\Tag\Model\DeleteTagsResponse';
-        $request = $this->deleteTagsRequest($tags);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        $request = $this->deleteTagsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function deleteTagsRequest($tags)
@@ -290,9 +204,9 @@ class TAGApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
-    public function getResources($max_results, $next_token, $resource_trn_list, $resource_type_filters, $tag_filters)
+    public function getResources($body)
     {
-        list($response) = $this->getResourcesWithHttpInfo($max_results, $next_token, $resource_trn_list, $resource_type_filters, $tag_filters);
+        list($response) = $this->getResourcesWithHttpInfo($body);
         return $response;
     }
 
@@ -304,9 +218,9 @@ class TAGApi
         return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
-    public function getResourcesAsync($max_results, $next_token, $resource_trn_list, $resource_type_filters, $tag_filters)
+    public function getResourcesAsync($body)
     {
-        return $this->getResourcesAsyncWithHttpInfo($max_results, $next_token, $resource_trn_list, $resource_type_filters, $tag_filters)
+        return $this->getResourcesAsyncWithHttpInfo($body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -314,54 +228,11 @@ class TAGApi
             );
     }
 
-    public function getResourcesAsyncWithHttpInfo($max_results, $next_token, $resource_trn_list, $resource_type_filters, $tag_filters)
+    public function getResourcesAsyncWithHttpInfo($body)
     {
         $returnType = '\Volcengine\Tag\Model\GetResourcesResponse';
-        $request = $this->getResourcesRequest($max_results, $next_token, $resource_trn_list, $resource_type_filters, $tag_filters);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        $request = $this->getResourcesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function getResourcesRequest($body)
@@ -445,9 +316,9 @@ class TAGApi
         return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
-    public function getTagKeysAsync($match_type, $max_results, $next_token, $tag_key, $tag_type)
+    public function getTagKeysAsync($body)
     {
-        return $this->getTagKeysAsyncWithHttpInfo($match_type, $max_results, $next_token, $tag_key, $tag_type)
+        return $this->getTagKeysAsyncWithHttpInfo($body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -455,54 +326,11 @@ class TAGApi
             );
     }
 
-    public function getTagKeysAsyncWithHttpInfo($match_type, $max_results, $next_token, $tag_key, $tag_type)
+    public function getTagKeysAsyncWithHttpInfo($body)
     {
         $returnType = '\Volcengine\Tag\Model\GetTagKeysResponse';
-        $request = $this->getTagKeysRequest($match_type, $max_results, $next_token, $tag_key, $tag_type);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        $request = $this->getTagKeysRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function getTagKeysRequest($body)
@@ -586,9 +414,9 @@ class TAGApi
         return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
-    public function getTagValuesAsync($match_type, $max_results, $next_token, $tag_keys, $tag_value)
+    public function getTagValuesAsync($body)
     {
-        return $this->getTagValuesAsyncWithHttpInfo($match_type, $max_results, $next_token, $tag_keys, $tag_value)
+        return $this->getTagValuesAsyncWithHttpInfo($body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -596,54 +424,11 @@ class TAGApi
             );
     }
 
-    public function getTagValuesAsyncWithHttpInfo($match_type, $max_results, $next_token, $tag_keys, $tag_value)
+    public function getTagValuesAsyncWithHttpInfo($body)
     {
         $returnType = '\Volcengine\Tag\Model\GetTagValuesResponse';
-        $request = $this->getTagValuesRequest($match_type, $max_results, $next_token, $tag_keys, $tag_value);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        $request = $this->getTagValuesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function getTagValuesRequest($body)
@@ -713,9 +498,9 @@ class TAGApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
-    public function getTags($count_resources, $match_type, $max_results, $next_token, $tag_keys, $tag_type)
+    public function getTags($body)
     {
-        list($response) = $this->getTagsWithHttpInfo($count_resources, $match_type, $max_results, $next_token, $tag_keys, $tag_type);
+        list($response) = $this->getTagsWithHttpInfo($body);
         return $response;
     }
 
@@ -727,9 +512,9 @@ class TAGApi
         return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
-    public function getTagsAsync($count_resources, $match_type, $max_results, $next_token, $tag_keys, $tag_type)
+    public function getTagsAsync($body)
     {
-        return $this->getTagsAsyncWithHttpInfo($count_resources, $match_type, $max_results, $next_token, $tag_keys, $tag_type)
+        return $this->getTagsAsyncWithHttpInfo($body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -737,54 +522,11 @@ class TAGApi
             );
     }
 
-    public function getTagsAsyncWithHttpInfo($count_resources, $match_type, $max_results, $next_token, $tag_keys, $tag_type)
+    public function getTagsAsyncWithHttpInfo($body)
     {
         $returnType = '\Volcengine\Tag\Model\GetTagsResponse';
-        $request = $this->getTagsRequest($count_resources, $match_type, $max_results, $next_token, $tag_keys, $tag_type);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        $request = $this->getTagsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function getTagsRequest($body)
@@ -875,9 +617,9 @@ class TAGApi
         return $this->apiClient->callApi($body = null, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
-    public function listResourceTypesAsync()
+    public function listResourceTypesAsync($body = null)
     {
-        return $this->listResourceTypesAsyncWithHttpInfo()
+        return $this->listResourceTypesAsyncWithHttpInfo($body = null)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -885,54 +627,11 @@ class TAGApi
             );
     }
 
-    public function listResourceTypesAsyncWithHttpInfo()
+    public function listResourceTypesAsyncWithHttpInfo($body = null)
     {
         $returnType = '\Volcengine\Tag\Model\ListResourceTypesResponse';
         $request = $this->listResourceTypesRequest();
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body = null, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function listResourceTypesRequest()
@@ -980,9 +679,9 @@ class TAGApi
         return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
-    public function tagResourcesAsync($resource_trn_list, $tags)
+    public function tagResourcesAsync($body)
     {
-        return $this->tagResourcesAsyncWithHttpInfo($resource_trn_list, $tags)
+        return $this->tagResourcesAsyncWithHttpInfo($body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -990,54 +689,11 @@ class TAGApi
             );
     }
 
-    public function tagResourcesAsyncWithHttpInfo($resource_trn_list, $tags)
+    public function tagResourcesAsyncWithHttpInfo($body)
     {
         $returnType = '\Volcengine\Tag\Model\TagResourcesResponse';
-        $request = $this->tagResourcesRequest($resource_trn_list, $tags);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        $request = $this->tagResourcesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function tagResourcesRequest($body)
@@ -1086,9 +742,9 @@ class TAGApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
-    public function untagResources($resource_trn_list, $tag_keys)
+    public function untagResources($body)
     {
-        list($response) = $this->untagResourcesWithHttpInfo($resource_trn_list, $tag_keys);
+        list($response) = $this->untagResourcesWithHttpInfo($body);
         return $response;
     }
 
@@ -1100,9 +756,9 @@ class TAGApi
         return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
-    public function untagResourcesAsync($resource_trn_list, $tag_keys)
+    public function untagResourcesAsync($body)
     {
-        return $this->untagResourcesAsyncWithHttpInfo($resource_trn_list, $tag_keys)
+        return $this->untagResourcesAsyncWithHttpInfo($body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1110,54 +766,11 @@ class TAGApi
             );
     }
 
-    public function untagResourcesAsyncWithHttpInfo($resource_trn_list, $tag_keys)
+    public function untagResourcesAsyncWithHttpInfo($body)
     {
         $returnType = '\Volcengine\Tag\Model\UntagResourcesResponse';
-        $request = $this->untagResourcesRequest($resource_trn_list, $tag_keys);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        $request = $this->untagResourcesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function untagResourcesRequest($body)

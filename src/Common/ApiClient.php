@@ -78,7 +78,8 @@ class ApiClient
         $resourcePath,
         $method,
         $headerParams = null,
-        $responseType = null
+        $responseType = null,
+        $async = false
     )
     {
 
@@ -115,54 +116,108 @@ class ApiClient
         $returnType = $request->returnType;
         $this->setNewClientConfig();
         $request = $realRequest;
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}{$e->getResponse()->getBody()->getContents()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-        $statusCode = $response->getStatusCode();
 
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)(%s)',
+        //异步和同步处理方式不一样
+        if ($async) {
+            $uri = $request->getUri();
+            return $this->client
+                ->sendAsync($request, $options)
+                ->then(
+                    function ($response) use ($uri, $returnType) {
+                        $responseContent = $response->getBody()->getContents();
+                        $content = json_decode($responseContent);
+                        $statusCode = $response->getStatusCode();
+
+                        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+                            throw new ApiException(
+                                sprintf(
+                                    '[%d] Return Error From the API (%s)(%s)',
+                                    $statusCode,
+                                    $uri,
+                                    $response->getBody()
+                                ),
+                                $statusCode,
+                                $response->getHeaders(),
+                                $responseContent);
+                        }
+                        $content = $content->{'Result'};
+
+                        return [
+                            ObjectSerializer::deserialize($content, $returnType, []),
+                            $response->getStatusCode(),
+                            $response->getHeaders()
+                        ];
+                    },
+                    function ($exception) {
+                        $response = $exception->getResponse();
+                        $statusCode = $response->getStatusCode();
+                        throw new ApiException(
+                            sprintf(
+                                '[%d] Error connecting to the API (%s)(%s)',
+                                $statusCode,
+                                $exception->getRequest()->getUri(),
+                                $response->getBody()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $response->getBody()
+                        );
+                    }
+                )->then(
+                    function ($response) {
+                        return $response[0];
+                    }
+                );
+        } else {
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}{$e->getResponse()->getBody()->getContents()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)(%s)',
+                        $statusCode,
+                        $request->getUri(),
+                        $response->getBody()
+                    ),
                     $statusCode,
-                    $request->getUri(),
+                    $response->getHeaders(),
                     $response->getBody()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
+                );
+            }
 
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
+            $responseContent = $response->getBody()->getContents();
+            $content = json_decode($responseContent);
 
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)(%s)',
+            if (isset($content->{'ResponseMetadata'}->{'Error'})) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Return Error From the API (%s)(%s)',
+                        $statusCode,
+                        $request->getUri(),
+                        $response->getBody()
+                    ),
                     $statusCode,
-                    $request->getUri(),
-                    $response->getBody()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = isset($content->{'Result'}) ? $content->{'Result'} : null;
+                    $response->getHeaders(),
+                    $responseContent);
+            }
+            $content = isset($content->{'Result'}) ? $content->{'Result'} : null;
 
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+        }
     }
 
     public function setNewClientConfig()
@@ -238,13 +293,14 @@ class ApiClient
             if ($statusCode < 200 || $statusCode > 299) {
                 new ApiLogger(
                     sprintf(
-                        '[%d] Error connecting to the API (%s)',
+                        '[%d] Error connecting to the API (%s)(%s)',
                         $statusCode,
-                        $request->getUri()
+                        $request->getUri(),
+                        $response->getBody()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()->getContents()
+                    $response->getBody()
                 );
             }
 
