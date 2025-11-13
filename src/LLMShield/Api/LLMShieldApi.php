@@ -28,17 +28,34 @@ class LLMShieldApi
     protected $client;
     protected $timeout;
     protected $service;
+    private $proxy; // 代理地址（格式：http://ip:port 或 socks5://ip:port）
 
-    function __construct($endpoint, $ak, $sk, $appid, $region, $timeout = 60, $service = Service)
+    function __construct($endpoint, $ak, $sk, $appid, $region, ?string $proxy = null, $timeout = 60, $service = Service)
     {
         $this->endpoint = $endpoint;
         $this->ak = $ak;
         $this->sk = $sk;
         $this->appid = $appid;
         $this->region = $region;
-        $this->client = new Client;
         $this->timeout = $timeout;
         $this->service = $service;
+        $this->proxy = $proxy;
+
+        // 若传入代理，检测有效性后添加到配置
+        if ($this->proxy) {
+            // 检测代理是否有效
+            if ($this->isProxyValid($this->proxy)) {
+                $config['proxy'] = $this->formatProxyConfig($this->proxy);
+                $this->client = new Client($config);
+            } else {
+                trigger_error("proxy address invalid: {$this->proxy}, no use proxy", E_USER_WARNING);
+                $this->proxy = null; // 标记代理无效
+            }
+        }
+
+        if ($this->proxy) {
+            $this->client = new Client();
+        }
     }
 
     protected function getRequest(
