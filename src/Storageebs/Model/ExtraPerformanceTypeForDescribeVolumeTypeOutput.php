@@ -28,8 +28,6 @@ class ExtraPerformanceTypeForDescribeVolumeTypeOutput implements ModelInterface,
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'base_qos_type' => 'string',
-        'conversion_ratio' => 'string',
         'id' => 'string',
         'max_iops' => 'string',
         'max_throughput' => 'string'
@@ -41,8 +39,6 @@ class ExtraPerformanceTypeForDescribeVolumeTypeOutput implements ModelInterface,
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'base_qos_type' => null,
-        'conversion_ratio' => null,
         'id' => null,
         'max_iops' => null,
         'max_throughput' => null
@@ -75,8 +71,6 @@ class ExtraPerformanceTypeForDescribeVolumeTypeOutput implements ModelInterface,
      * @var string[]
      */
     protected static $attributeMap = [
-        'base_qos_type' => 'BaseQosType',
-        'conversion_ratio' => 'ConversionRatio',
         'id' => 'Id',
         'max_iops' => 'MaxIops',
         'max_throughput' => 'MaxThroughput'
@@ -88,8 +82,6 @@ class ExtraPerformanceTypeForDescribeVolumeTypeOutput implements ModelInterface,
      * @var string[]
      */
     protected static $setters = [
-        'base_qos_type' => 'setBaseQosType',
-        'conversion_ratio' => 'setConversionRatio',
         'id' => 'setId',
         'max_iops' => 'setMaxIops',
         'max_throughput' => 'setMaxThroughput'
@@ -101,8 +93,6 @@ class ExtraPerformanceTypeForDescribeVolumeTypeOutput implements ModelInterface,
      * @var string[]
      */
     protected static $getters = [
-        'base_qos_type' => 'getBaseQosType',
-        'conversion_ratio' => 'getConversionRatio',
         'id' => 'getId',
         'max_iops' => 'getMaxIops',
         'max_throughput' => 'getMaxThroughput'
@@ -168,8 +158,6 @@ class ExtraPerformanceTypeForDescribeVolumeTypeOutput implements ModelInterface,
      */
     public function __construct(array $data = null)
     {
-        $this->container['base_qos_type'] = isset($data['base_qos_type']) ? $data['base_qos_type'] : null;
-        $this->container['conversion_ratio'] = isset($data['conversion_ratio']) ? $data['conversion_ratio'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['max_iops'] = isset($data['max_iops']) ? $data['max_iops'] : null;
         $this->container['max_throughput'] = isset($data['max_throughput']) ? $data['max_throughput'] : null;
@@ -198,54 +186,6 @@ class ExtraPerformanceTypeForDescribeVolumeTypeOutput implements ModelInterface,
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets base_qos_type
-     *
-     * @return string
-     */
-    public function getBaseQosType()
-    {
-        return $this->container['base_qos_type'];
-    }
-
-    /**
-     * Sets base_qos_type
-     *
-     * @param string $base_qos_type base_qos_type
-     *
-     * @return $this
-     */
-    public function setBaseQosType($base_qos_type)
-    {
-        $this->container['base_qos_type'] = $base_qos_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets conversion_ratio
-     *
-     * @return string
-     */
-    public function getConversionRatio()
-    {
-        return $this->container['conversion_ratio'];
-    }
-
-    /**
-     * Sets conversion_ratio
-     *
-     * @param string $conversion_ratio conversion_ratio
-     *
-     * @return $this
-     */
-    public function setConversionRatio($conversion_ratio)
-    {
-        $this->container['conversion_ratio'] = $conversion_ratio;
-
-        return $this;
-    }
 
     /**
      * Gets id

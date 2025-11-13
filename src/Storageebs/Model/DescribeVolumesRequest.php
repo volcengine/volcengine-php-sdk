@@ -34,6 +34,7 @@ class DescribeVolumesRequest implements ModelInterface, ArrayAccess
         'page_number' => 'int',
         'page_size' => 'int',
         'project_name' => 'string',
+        'sys_tag_visible' => 'bool',
         'tag_filters' => '\Volcengine\Storageebs\Model\TagFilterForDescribeVolumesInput[]',
         'volume_ids' => 'string[]',
         'volume_name' => 'string',
@@ -54,6 +55,7 @@ class DescribeVolumesRequest implements ModelInterface, ArrayAccess
         'page_number' => 'int32',
         'page_size' => 'int32',
         'project_name' => null,
+        'sys_tag_visible' => null,
         'tag_filters' => null,
         'volume_ids' => null,
         'volume_name' => null,
@@ -95,6 +97,7 @@ class DescribeVolumesRequest implements ModelInterface, ArrayAccess
         'page_number' => 'PageNumber',
         'page_size' => 'PageSize',
         'project_name' => 'ProjectName',
+        'sys_tag_visible' => 'SysTagVisible',
         'tag_filters' => 'TagFilters',
         'volume_ids' => 'VolumeIds',
         'volume_name' => 'VolumeName',
@@ -115,6 +118,7 @@ class DescribeVolumesRequest implements ModelInterface, ArrayAccess
         'page_number' => 'setPageNumber',
         'page_size' => 'setPageSize',
         'project_name' => 'setProjectName',
+        'sys_tag_visible' => 'setSysTagVisible',
         'tag_filters' => 'setTagFilters',
         'volume_ids' => 'setVolumeIds',
         'volume_name' => 'setVolumeName',
@@ -135,6 +139,7 @@ class DescribeVolumesRequest implements ModelInterface, ArrayAccess
         'page_number' => 'getPageNumber',
         'page_size' => 'getPageSize',
         'project_name' => 'getProjectName',
+        'sys_tag_visible' => 'getSysTagVisible',
         'tag_filters' => 'getTagFilters',
         'volume_ids' => 'getVolumeIds',
         'volume_name' => 'getVolumeName',
@@ -209,6 +214,7 @@ class DescribeVolumesRequest implements ModelInterface, ArrayAccess
         $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['sys_tag_visible'] = isset($data['sys_tag_visible']) ? $data['sys_tag_visible'] : null;
         $this->container['tag_filters'] = isset($data['tag_filters']) ? $data['tag_filters'] : null;
         $this->container['volume_ids'] = isset($data['volume_ids']) ? $data['volume_ids'] : null;
         $this->container['volume_name'] = isset($data['volume_name']) ? $data['volume_name'] : null;
@@ -381,6 +387,30 @@ class DescribeVolumesRequest implements ModelInterface, ArrayAccess
     public function setProjectName($project_name)
     {
         $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets sys_tag_visible
+     *
+     * @return bool
+     */
+    public function getSysTagVisible()
+    {
+        return $this->container['sys_tag_visible'];
+    }
+
+    /**
+     * Sets sys_tag_visible
+     *
+     * @param bool $sys_tag_visible sys_tag_visible
+     *
+     * @return $this
+     */
+    public function setSysTagVisible($sys_tag_visible)
+    {
+        $this->container['sys_tag_visible'] = $sys_tag_visible;
 
         return $this;
     }

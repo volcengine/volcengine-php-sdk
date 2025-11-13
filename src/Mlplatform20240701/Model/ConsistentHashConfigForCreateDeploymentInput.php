@@ -134,21 +134,8 @@ class ConsistentHashConfigForCreateDeploymentInput implements ModelInterface, Ar
         return self::$swaggerModelName;
     }
 
-    const HASH_KEY_TYPE_HTTP_HEADER_NAME = 'HttpHeaderName';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getHashKeyTypeAllowableValues()
-    {
-        return [
-            self::HASH_KEY_TYPE_HTTP_HEADER_NAME,
-        ];
-    }
     
 
     /**
@@ -178,14 +165,6 @@ class ConsistentHashConfigForCreateDeploymentInput implements ModelInterface, Ar
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getHashKeyTypeAllowableValues();
-        if (!is_null($this->container['hash_key_type']) && !in_array($this->container['hash_key_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'hash_key_type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -221,15 +200,6 @@ class ConsistentHashConfigForCreateDeploymentInput implements ModelInterface, Ar
      */
     public function setHashKeyType($hash_key_type)
     {
-        $allowedValues = $this->getHashKeyTypeAllowableValues();
-        if (!is_null($hash_key_type) && !in_array($hash_key_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'hash_key_type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['hash_key_type'] = $hash_key_type;
 
         return $this;

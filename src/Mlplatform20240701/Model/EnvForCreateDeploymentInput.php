@@ -28,6 +28,7 @@ class EnvForCreateDeploymentInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'is_private' => 'bool',
         'name' => 'string',
         'value' => 'string'
     ];
@@ -38,6 +39,7 @@ class EnvForCreateDeploymentInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'is_private' => null,
         'name' => null,
         'value' => null
     ];
@@ -69,6 +71,7 @@ class EnvForCreateDeploymentInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'is_private' => 'IsPrivate',
         'name' => 'Name',
         'value' => 'Value'
     ];
@@ -79,6 +82,7 @@ class EnvForCreateDeploymentInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'is_private' => 'setIsPrivate',
         'name' => 'setName',
         'value' => 'setValue'
     ];
@@ -89,6 +93,7 @@ class EnvForCreateDeploymentInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'is_private' => 'getIsPrivate',
         'name' => 'getName',
         'value' => 'getValue'
     ];
@@ -153,6 +158,7 @@ class EnvForCreateDeploymentInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['is_private'] = isset($data['is_private']) ? $data['is_private'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
@@ -180,6 +186,30 @@ class EnvForCreateDeploymentInput implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets is_private
+     *
+     * @return bool
+     */
+    public function getIsPrivate()
+    {
+        return $this->container['is_private'];
+    }
+
+    /**
+     * Sets is_private
+     *
+     * @param bool $is_private is_private
+     *
+     * @return $this
+     */
+    public function setIsPrivate($is_private)
+    {
+        $this->container['is_private'] = $is_private;
+
+        return $this;
+    }
 
     /**
      * Gets name

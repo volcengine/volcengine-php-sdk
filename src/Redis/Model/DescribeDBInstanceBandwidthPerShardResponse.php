@@ -29,6 +29,8 @@ class DescribeDBInstanceBandwidthPerShardResponse implements ModelInterface, Arr
       */
     protected static $swaggerTypes = [
         'additional_bandwidth_per_shard' => 'int',
+        'additional_read_bandwidth_per_shard' => 'int',
+        'additional_write_bandwidth_per_shard' => 'int',
         'default_bandwidth_per_shard' => 'int'
     ];
 
@@ -39,6 +41,8 @@ class DescribeDBInstanceBandwidthPerShardResponse implements ModelInterface, Arr
       */
     protected static $swaggerFormats = [
         'additional_bandwidth_per_shard' => 'int32',
+        'additional_read_bandwidth_per_shard' => 'int32',
+        'additional_write_bandwidth_per_shard' => 'int32',
         'default_bandwidth_per_shard' => 'int32'
     ];
 
@@ -70,6 +74,8 @@ class DescribeDBInstanceBandwidthPerShardResponse implements ModelInterface, Arr
      */
     protected static $attributeMap = [
         'additional_bandwidth_per_shard' => 'AdditionalBandwidthPerShard',
+        'additional_read_bandwidth_per_shard' => 'AdditionalReadBandwidthPerShard',
+        'additional_write_bandwidth_per_shard' => 'AdditionalWriteBandwidthPerShard',
         'default_bandwidth_per_shard' => 'DefaultBandwidthPerShard'
     ];
 
@@ -80,6 +86,8 @@ class DescribeDBInstanceBandwidthPerShardResponse implements ModelInterface, Arr
      */
     protected static $setters = [
         'additional_bandwidth_per_shard' => 'setAdditionalBandwidthPerShard',
+        'additional_read_bandwidth_per_shard' => 'setAdditionalReadBandwidthPerShard',
+        'additional_write_bandwidth_per_shard' => 'setAdditionalWriteBandwidthPerShard',
         'default_bandwidth_per_shard' => 'setDefaultBandwidthPerShard'
     ];
 
@@ -90,6 +98,8 @@ class DescribeDBInstanceBandwidthPerShardResponse implements ModelInterface, Arr
      */
     protected static $getters = [
         'additional_bandwidth_per_shard' => 'getAdditionalBandwidthPerShard',
+        'additional_read_bandwidth_per_shard' => 'getAdditionalReadBandwidthPerShard',
+        'additional_write_bandwidth_per_shard' => 'getAdditionalWriteBandwidthPerShard',
         'default_bandwidth_per_shard' => 'getDefaultBandwidthPerShard'
     ];
 
@@ -154,6 +164,8 @@ class DescribeDBInstanceBandwidthPerShardResponse implements ModelInterface, Arr
     public function __construct(array $data = null)
     {
         $this->container['additional_bandwidth_per_shard'] = isset($data['additional_bandwidth_per_shard']) ? $data['additional_bandwidth_per_shard'] : null;
+        $this->container['additional_read_bandwidth_per_shard'] = isset($data['additional_read_bandwidth_per_shard']) ? $data['additional_read_bandwidth_per_shard'] : null;
+        $this->container['additional_write_bandwidth_per_shard'] = isset($data['additional_write_bandwidth_per_shard']) ? $data['additional_write_bandwidth_per_shard'] : null;
         $this->container['default_bandwidth_per_shard'] = isset($data['default_bandwidth_per_shard']) ? $data['default_bandwidth_per_shard'] : null;
     }
 
@@ -201,6 +213,54 @@ class DescribeDBInstanceBandwidthPerShardResponse implements ModelInterface, Arr
     public function setAdditionalBandwidthPerShard($additional_bandwidth_per_shard)
     {
         $this->container['additional_bandwidth_per_shard'] = $additional_bandwidth_per_shard;
+
+        return $this;
+    }
+
+    /**
+     * Gets additional_read_bandwidth_per_shard
+     *
+     * @return int
+     */
+    public function getAdditionalReadBandwidthPerShard()
+    {
+        return $this->container['additional_read_bandwidth_per_shard'];
+    }
+
+    /**
+     * Sets additional_read_bandwidth_per_shard
+     *
+     * @param int $additional_read_bandwidth_per_shard additional_read_bandwidth_per_shard
+     *
+     * @return $this
+     */
+    public function setAdditionalReadBandwidthPerShard($additional_read_bandwidth_per_shard)
+    {
+        $this->container['additional_read_bandwidth_per_shard'] = $additional_read_bandwidth_per_shard;
+
+        return $this;
+    }
+
+    /**
+     * Gets additional_write_bandwidth_per_shard
+     *
+     * @return int
+     */
+    public function getAdditionalWriteBandwidthPerShard()
+    {
+        return $this->container['additional_write_bandwidth_per_shard'];
+    }
+
+    /**
+     * Sets additional_write_bandwidth_per_shard
+     *
+     * @param int $additional_write_bandwidth_per_shard additional_write_bandwidth_per_shard
+     *
+     * @return $this
+     */
+    public function setAdditionalWriteBandwidthPerShard($additional_write_bandwidth_per_shard)
+    {
+        $this->container['additional_write_bandwidth_per_shard'] = $additional_write_bandwidth_per_shard;
 
         return $this;
     }

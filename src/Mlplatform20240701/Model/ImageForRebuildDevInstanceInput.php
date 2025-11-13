@@ -28,7 +28,8 @@ class ImageForRebuildDevInstanceInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'credential' => '\Volcengine\Mlplatform20240701\Model\CredentialForRebuildDevInstanceInput',
+        'id' => 'string',
+        'image_credential' => '\Volcengine\Mlplatform20240701\Model\ImageCredentialForRebuildDevInstanceInput',
         'type' => 'string',
         'url' => 'string'
     ];
@@ -39,7 +40,8 @@ class ImageForRebuildDevInstanceInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'credential' => null,
+        'id' => null,
+        'image_credential' => null,
         'type' => null,
         'url' => null
     ];
@@ -71,7 +73,8 @@ class ImageForRebuildDevInstanceInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'credential' => 'Credential',
+        'id' => 'Id',
+        'image_credential' => 'ImageCredential',
         'type' => 'Type',
         'url' => 'Url'
     ];
@@ -82,7 +85,8 @@ class ImageForRebuildDevInstanceInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'credential' => 'setCredential',
+        'id' => 'setId',
+        'image_credential' => 'setImageCredential',
         'type' => 'setType',
         'url' => 'setUrl'
     ];
@@ -93,7 +97,8 @@ class ImageForRebuildDevInstanceInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'credential' => 'getCredential',
+        'id' => 'getId',
+        'image_credential' => 'getImageCredential',
         'type' => 'getType',
         'url' => 'getUrl'
     ];
@@ -158,7 +163,8 @@ class ImageForRebuildDevInstanceInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['credential'] = isset($data['credential']) ? $data['credential'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['image_credential'] = isset($data['image_credential']) ? $data['image_credential'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['url'] = isset($data['url']) ? $data['url'] : null;
     }
@@ -188,25 +194,49 @@ class ImageForRebuildDevInstanceInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets credential
+     * Gets id
      *
-     * @return \Volcengine\Mlplatform20240701\Model\CredentialForRebuildDevInstanceInput
+     * @return string
      */
-    public function getCredential()
+    public function getId()
     {
-        return $this->container['credential'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets credential
+     * Sets id
      *
-     * @param \Volcengine\Mlplatform20240701\Model\CredentialForRebuildDevInstanceInput $credential credential
+     * @param string $id id
      *
      * @return $this
      */
-    public function setCredential($credential)
+    public function setId($id)
     {
-        $this->container['credential'] = $credential;
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets image_credential
+     *
+     * @return \Volcengine\Mlplatform20240701\Model\ImageCredentialForRebuildDevInstanceInput
+     */
+    public function getImageCredential()
+    {
+        return $this->container['image_credential'];
+    }
+
+    /**
+     * Sets image_credential
+     *
+     * @param \Volcengine\Mlplatform20240701\Model\ImageCredentialForRebuildDevInstanceInput $image_credential image_credential
+     *
+     * @return $this
+     */
+    public function setImageCredential($image_credential)
+    {
+        $this->container['image_credential'] = $image_credential;
 
         return $this;
     }

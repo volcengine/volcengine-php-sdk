@@ -34,6 +34,7 @@ class GetContactResponse implements ModelInterface, ArrayAccess
         'email' => 'string',
         'email_active' => 'bool',
         'id' => 'string',
+        'lark_bot' => '\Volcengine\Vmp\Model\LarkBotForGetContactOutput',
         'lark_bot_webhook' => '\Volcengine\Vmp\Model\LarkBotWebhookForGetContactOutput',
         'name' => 'string',
         'we_com_bot_webhook' => '\Volcengine\Vmp\Model\WeComBotWebhookForGetContactOutput',
@@ -52,6 +53,7 @@ class GetContactResponse implements ModelInterface, ArrayAccess
         'email' => null,
         'email_active' => null,
         'id' => null,
+        'lark_bot' => null,
         'lark_bot_webhook' => null,
         'name' => null,
         'we_com_bot_webhook' => null,
@@ -91,6 +93,7 @@ class GetContactResponse implements ModelInterface, ArrayAccess
         'email' => 'Email',
         'email_active' => 'EmailActive',
         'id' => 'Id',
+        'lark_bot' => 'LarkBot',
         'lark_bot_webhook' => 'LarkBotWebhook',
         'name' => 'Name',
         'we_com_bot_webhook' => 'WeComBotWebhook',
@@ -109,6 +112,7 @@ class GetContactResponse implements ModelInterface, ArrayAccess
         'email' => 'setEmail',
         'email_active' => 'setEmailActive',
         'id' => 'setId',
+        'lark_bot' => 'setLarkBot',
         'lark_bot_webhook' => 'setLarkBotWebhook',
         'name' => 'setName',
         'we_com_bot_webhook' => 'setWeComBotWebhook',
@@ -127,6 +131,7 @@ class GetContactResponse implements ModelInterface, ArrayAccess
         'email' => 'getEmail',
         'email_active' => 'getEmailActive',
         'id' => 'getId',
+        'lark_bot' => 'getLarkBot',
         'lark_bot_webhook' => 'getLarkBotWebhook',
         'name' => 'getName',
         'we_com_bot_webhook' => 'getWeComBotWebhook',
@@ -199,6 +204,7 @@ class GetContactResponse implements ModelInterface, ArrayAccess
         $this->container['email'] = isset($data['email']) ? $data['email'] : null;
         $this->container['email_active'] = isset($data['email_active']) ? $data['email_active'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['lark_bot'] = isset($data['lark_bot']) ? $data['lark_bot'] : null;
         $this->container['lark_bot_webhook'] = isset($data['lark_bot_webhook']) ? $data['lark_bot_webhook'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['we_com_bot_webhook'] = isset($data['we_com_bot_webhook']) ? $data['we_com_bot_webhook'] : null;
@@ -369,6 +375,30 @@ class GetContactResponse implements ModelInterface, ArrayAccess
     public function setId($id)
     {
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets lark_bot
+     *
+     * @return \Volcengine\Vmp\Model\LarkBotForGetContactOutput
+     */
+    public function getLarkBot()
+    {
+        return $this->container['lark_bot'];
+    }
+
+    /**
+     * Sets lark_bot
+     *
+     * @param \Volcengine\Vmp\Model\LarkBotForGetContactOutput $lark_bot lark_bot
+     *
+     * @return $this
+     */
+    public function setLarkBot($lark_bot)
+    {
+        $this->container['lark_bot'] = $lark_bot;
 
         return $this;
     }

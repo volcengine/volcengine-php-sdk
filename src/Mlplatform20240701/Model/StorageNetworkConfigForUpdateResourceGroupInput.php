@@ -29,6 +29,7 @@ class StorageNetworkConfigForUpdateResourceGroupInput implements ModelInterface,
       */
     protected static $swaggerTypes = [
         'security_group_ids' => 'string[]',
+        'subnet_id' => 'string',
         'subnet_ids' => 'string[]',
         'vpc_id' => 'string'
     ];
@@ -40,6 +41,7 @@ class StorageNetworkConfigForUpdateResourceGroupInput implements ModelInterface,
       */
     protected static $swaggerFormats = [
         'security_group_ids' => null,
+        'subnet_id' => null,
         'subnet_ids' => null,
         'vpc_id' => null
     ];
@@ -72,6 +74,7 @@ class StorageNetworkConfigForUpdateResourceGroupInput implements ModelInterface,
      */
     protected static $attributeMap = [
         'security_group_ids' => 'SecurityGroupIds',
+        'subnet_id' => 'SubnetId',
         'subnet_ids' => 'SubnetIds',
         'vpc_id' => 'VpcId'
     ];
@@ -83,6 +86,7 @@ class StorageNetworkConfigForUpdateResourceGroupInput implements ModelInterface,
      */
     protected static $setters = [
         'security_group_ids' => 'setSecurityGroupIds',
+        'subnet_id' => 'setSubnetId',
         'subnet_ids' => 'setSubnetIds',
         'vpc_id' => 'setVpcId'
     ];
@@ -94,6 +98,7 @@ class StorageNetworkConfigForUpdateResourceGroupInput implements ModelInterface,
      */
     protected static $getters = [
         'security_group_ids' => 'getSecurityGroupIds',
+        'subnet_id' => 'getSubnetId',
         'subnet_ids' => 'getSubnetIds',
         'vpc_id' => 'getVpcId'
     ];
@@ -159,6 +164,7 @@ class StorageNetworkConfigForUpdateResourceGroupInput implements ModelInterface,
     public function __construct(array $data = null)
     {
         $this->container['security_group_ids'] = isset($data['security_group_ids']) ? $data['security_group_ids'] : null;
+        $this->container['subnet_id'] = isset($data['subnet_id']) ? $data['subnet_id'] : null;
         $this->container['subnet_ids'] = isset($data['subnet_ids']) ? $data['subnet_ids'] : null;
         $this->container['vpc_id'] = isset($data['vpc_id']) ? $data['vpc_id'] : null;
     }
@@ -207,6 +213,30 @@ class StorageNetworkConfigForUpdateResourceGroupInput implements ModelInterface,
     public function setSecurityGroupIds($security_group_ids)
     {
         $this->container['security_group_ids'] = $security_group_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets subnet_id
+     *
+     * @return string
+     */
+    public function getSubnetId()
+    {
+        return $this->container['subnet_id'];
+    }
+
+    /**
+     * Sets subnet_id
+     *
+     * @param string $subnet_id subnet_id
+     *
+     * @return $this
+     */
+    public function setSubnetId($subnet_id)
+    {
+        $this->container['subnet_id'] = $subnet_id;
 
         return $this;
     }

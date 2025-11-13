@@ -32,6 +32,8 @@ class ListWorkspacesRequest implements ModelInterface, ArrayAccess
         'page_number' => 'int',
         'page_size' => 'int',
         'project_name' => 'string',
+        'show_aggregate_query_workspaces' => 'bool',
+        'show_external_prom_workspaces' => 'bool',
         'tag_filters' => '\Volcengine\Vmp\Model\TagFilterForListWorkspacesInput[]'
     ];
 
@@ -45,6 +47,8 @@ class ListWorkspacesRequest implements ModelInterface, ArrayAccess
         'page_number' => 'int64',
         'page_size' => 'int64',
         'project_name' => null,
+        'show_aggregate_query_workspaces' => null,
+        'show_external_prom_workspaces' => null,
         'tag_filters' => null
     ];
 
@@ -79,6 +83,8 @@ class ListWorkspacesRequest implements ModelInterface, ArrayAccess
         'page_number' => 'PageNumber',
         'page_size' => 'PageSize',
         'project_name' => 'ProjectName',
+        'show_aggregate_query_workspaces' => 'ShowAggregateQueryWorkspaces',
+        'show_external_prom_workspaces' => 'ShowExternalPromWorkspaces',
         'tag_filters' => 'TagFilters'
     ];
 
@@ -92,6 +98,8 @@ class ListWorkspacesRequest implements ModelInterface, ArrayAccess
         'page_number' => 'setPageNumber',
         'page_size' => 'setPageSize',
         'project_name' => 'setProjectName',
+        'show_aggregate_query_workspaces' => 'setShowAggregateQueryWorkspaces',
+        'show_external_prom_workspaces' => 'setShowExternalPromWorkspaces',
         'tag_filters' => 'setTagFilters'
     ];
 
@@ -105,6 +113,8 @@ class ListWorkspacesRequest implements ModelInterface, ArrayAccess
         'page_number' => 'getPageNumber',
         'page_size' => 'getPageSize',
         'project_name' => 'getProjectName',
+        'show_aggregate_query_workspaces' => 'getShowAggregateQueryWorkspaces',
+        'show_external_prom_workspaces' => 'getShowExternalPromWorkspaces',
         'tag_filters' => 'getTagFilters'
     ];
 
@@ -172,6 +182,8 @@ class ListWorkspacesRequest implements ModelInterface, ArrayAccess
         $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['show_aggregate_query_workspaces'] = isset($data['show_aggregate_query_workspaces']) ? $data['show_aggregate_query_workspaces'] : null;
+        $this->container['show_external_prom_workspaces'] = isset($data['show_external_prom_workspaces']) ? $data['show_external_prom_workspaces'] : null;
         $this->container['tag_filters'] = isset($data['tag_filters']) ? $data['tag_filters'] : null;
     }
 
@@ -291,6 +303,54 @@ class ListWorkspacesRequest implements ModelInterface, ArrayAccess
     public function setProjectName($project_name)
     {
         $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets show_aggregate_query_workspaces
+     *
+     * @return bool
+     */
+    public function getShowAggregateQueryWorkspaces()
+    {
+        return $this->container['show_aggregate_query_workspaces'];
+    }
+
+    /**
+     * Sets show_aggregate_query_workspaces
+     *
+     * @param bool $show_aggregate_query_workspaces show_aggregate_query_workspaces
+     *
+     * @return $this
+     */
+    public function setShowAggregateQueryWorkspaces($show_aggregate_query_workspaces)
+    {
+        $this->container['show_aggregate_query_workspaces'] = $show_aggregate_query_workspaces;
+
+        return $this;
+    }
+
+    /**
+     * Gets show_external_prom_workspaces
+     *
+     * @return bool
+     */
+    public function getShowExternalPromWorkspaces()
+    {
+        return $this->container['show_external_prom_workspaces'];
+    }
+
+    /**
+     * Sets show_external_prom_workspaces
+     *
+     * @param bool $show_external_prom_workspaces show_external_prom_workspaces
+     *
+     * @return $this
+     */
+    public function setShowExternalPromWorkspaces($show_external_prom_workspaces)
+    {
+        $this->container['show_external_prom_workspaces'] = $show_external_prom_workspaces;
 
         return $this;
     }
