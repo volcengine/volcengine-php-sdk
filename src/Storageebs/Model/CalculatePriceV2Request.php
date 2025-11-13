@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AutoRenewReservedStorageCapacityResponse implements ModelInterface, ArrayAccess
+class CalculatePriceV2Request implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AutoRenewReservedStorageCapacityResponse implements ModelInterface, ArrayA
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AutoRenewReservedStorageCapacityResponse';
+    protected static $swaggerModelName = 'CalculatePriceV2Request';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,8 @@ class AutoRenewReservedStorageCapacityResponse implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'account_id' => 'int',
+        'calculate_price_infos' => '\Volcengine\Storageebs\Model\CalculatePriceInfoForCalculatePriceV2Input[]'
     ];
 
     /**
@@ -37,7 +38,8 @@ class AutoRenewReservedStorageCapacityResponse implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'account_id' => 'int64',
+        'calculate_price_infos' => null
     ];
 
     /**
@@ -67,7 +69,8 @@ class AutoRenewReservedStorageCapacityResponse implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'account_id' => 'AccountId',
+        'calculate_price_infos' => 'CalculatePriceInfos'
     ];
 
     /**
@@ -76,7 +79,8 @@ class AutoRenewReservedStorageCapacityResponse implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $setters = [
-        
+        'account_id' => 'setAccountId',
+        'calculate_price_infos' => 'setCalculatePriceInfos'
     ];
 
     /**
@@ -85,7 +89,8 @@ class AutoRenewReservedStorageCapacityResponse implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $getters = [
-        
+        'account_id' => 'getAccountId',
+        'calculate_price_infos' => 'getCalculatePriceInfos'
     ];
 
     /**
@@ -148,6 +153,8 @@ class AutoRenewReservedStorageCapacityResponse implements ModelInterface, ArrayA
      */
     public function __construct(array $data = null)
     {
+        $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
+        $this->container['calculate_price_infos'] = isset($data['calculate_price_infos']) ? $data['calculate_price_infos'] : null;
     }
 
     /**
@@ -173,6 +180,54 @@ class AutoRenewReservedStorageCapacityResponse implements ModelInterface, ArrayA
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets account_id
+     *
+     * @return int
+     */
+    public function getAccountId()
+    {
+        return $this->container['account_id'];
+    }
+
+    /**
+     * Sets account_id
+     *
+     * @param int $account_id account_id
+     *
+     * @return $this
+     */
+    public function setAccountId($account_id)
+    {
+        $this->container['account_id'] = $account_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets calculate_price_infos
+     *
+     * @return \Volcengine\Storageebs\Model\CalculatePriceInfoForCalculatePriceV2Input[]
+     */
+    public function getCalculatePriceInfos()
+    {
+        return $this->container['calculate_price_infos'];
+    }
+
+    /**
+     * Sets calculate_price_infos
+     *
+     * @param \Volcengine\Storageebs\Model\CalculatePriceInfoForCalculatePriceV2Input[] $calculate_price_infos calculate_price_infos
+     *
+     * @return $this
+     */
+    public function setCalculatePriceInfos($calculate_price_infos)
+    {
+        $this->container['calculate_price_infos'] = $calculate_price_infos;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

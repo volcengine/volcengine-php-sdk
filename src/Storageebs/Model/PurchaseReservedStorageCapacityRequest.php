@@ -32,7 +32,6 @@ class PurchaseReservedStorageCapacityRequest implements ModelInterface, ArrayAcc
         'effective_at' => 'string',
         'period' => 'int',
         'period_unit' => 'string',
-        'rsc_auto_renew' => 'bool',
         'reserved_capacity' => 'int',
         'reserved_storage_capacity_name' => 'string',
         'volume_type' => 'string',
@@ -49,7 +48,6 @@ class PurchaseReservedStorageCapacityRequest implements ModelInterface, ArrayAcc
         'effective_at' => null,
         'period' => 'int32',
         'period_unit' => null,
-        'rsc_auto_renew' => null,
         'reserved_capacity' => 'int32',
         'reserved_storage_capacity_name' => null,
         'volume_type' => null,
@@ -87,7 +85,6 @@ class PurchaseReservedStorageCapacityRequest implements ModelInterface, ArrayAcc
         'effective_at' => 'EffectiveAt',
         'period' => 'Period',
         'period_unit' => 'PeriodUnit',
-        'rsc_auto_renew' => 'RSCAutoRenew',
         'reserved_capacity' => 'ReservedCapacity',
         'reserved_storage_capacity_name' => 'ReservedStorageCapacityName',
         'volume_type' => 'VolumeType',
@@ -104,7 +101,6 @@ class PurchaseReservedStorageCapacityRequest implements ModelInterface, ArrayAcc
         'effective_at' => 'setEffectiveAt',
         'period' => 'setPeriod',
         'period_unit' => 'setPeriodUnit',
-        'rsc_auto_renew' => 'setRscAutoRenew',
         'reserved_capacity' => 'setReservedCapacity',
         'reserved_storage_capacity_name' => 'setReservedStorageCapacityName',
         'volume_type' => 'setVolumeType',
@@ -121,7 +117,6 @@ class PurchaseReservedStorageCapacityRequest implements ModelInterface, ArrayAcc
         'effective_at' => 'getEffectiveAt',
         'period' => 'getPeriod',
         'period_unit' => 'getPeriodUnit',
-        'rsc_auto_renew' => 'getRscAutoRenew',
         'reserved_capacity' => 'getReservedCapacity',
         'reserved_storage_capacity_name' => 'getReservedStorageCapacityName',
         'volume_type' => 'getVolumeType',
@@ -192,7 +187,6 @@ class PurchaseReservedStorageCapacityRequest implements ModelInterface, ArrayAcc
         $this->container['effective_at'] = isset($data['effective_at']) ? $data['effective_at'] : null;
         $this->container['period'] = isset($data['period']) ? $data['period'] : null;
         $this->container['period_unit'] = isset($data['period_unit']) ? $data['period_unit'] : null;
-        $this->container['rsc_auto_renew'] = isset($data['rsc_auto_renew']) ? $data['rsc_auto_renew'] : null;
         $this->container['reserved_capacity'] = isset($data['reserved_capacity']) ? $data['reserved_capacity'] : null;
         $this->container['reserved_storage_capacity_name'] = isset($data['reserved_storage_capacity_name']) ? $data['reserved_storage_capacity_name'] : null;
         $this->container['volume_type'] = isset($data['volume_type']) ? $data['volume_type'] : null;
@@ -315,30 +309,6 @@ class PurchaseReservedStorageCapacityRequest implements ModelInterface, ArrayAcc
     public function setPeriodUnit($period_unit)
     {
         $this->container['period_unit'] = $period_unit;
-
-        return $this;
-    }
-
-    /**
-     * Gets rsc_auto_renew
-     *
-     * @return bool
-     */
-    public function getRscAutoRenew()
-    {
-        return $this->container['rsc_auto_renew'];
-    }
-
-    /**
-     * Sets rsc_auto_renew
-     *
-     * @param bool $rsc_auto_renew rsc_auto_renew
-     *
-     * @return $this
-     */
-    public function setRscAutoRenew($rsc_auto_renew)
-    {
-        $this->container['rsc_auto_renew'] = $rsc_auto_renew;
 
         return $this;
     }

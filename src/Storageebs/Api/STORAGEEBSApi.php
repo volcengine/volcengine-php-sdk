@@ -424,16 +424,16 @@ class STORAGEEBSApi
             $headers, $httpBody);
     }
 
-    public function autoRenewReservedStorageCapacity($body)
+    public function calculatePriceV2($body)
     {
-        list($response) = $this->autoRenewReservedStorageCapacityWithHttpInfo($body);
+        list($response) = $this->calculatePriceV2WithHttpInfo($body);
         return $response;
     }
 
-    public function autoRenewReservedStorageCapacityWithHttpInfo($body)
+    public function calculatePriceV2WithHttpInfo($body)
     {
-        $returnType = '\Volcengine\Storageebs\Model\AutoRenewReservedStorageCapacityResponse';
-        $request = $this->autoRenewReservedStorageCapacityRequest($body);
+        $returnType = '\Volcengine\Storageebs\Model\CalculatePriceV2Response';
+        $request = $this->calculatePriceV2Request($body);
 
         $options = $this->createHttpClientOption();
         try {
@@ -485,9 +485,9 @@ class STORAGEEBSApi
         ];
     }
 
-    public function autoRenewReservedStorageCapacityAsync($body)
+    public function calculatePriceV2Async($body)
     {
-        return $this->autoRenewReservedStorageCapacityAsyncWithHttpInfo($body)
+        return $this->calculatePriceV2AsyncWithHttpInfo($body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -495,10 +495,10 @@ class STORAGEEBSApi
             );
     }
 
-    public function autoRenewReservedStorageCapacityAsyncWithHttpInfo($body)
+    public function calculatePriceV2AsyncWithHttpInfo($body)
     {
-        $returnType = '\Volcengine\Storageebs\Model\AutoRenewReservedStorageCapacityResponse';
-        $request = $this->autoRenewReservedStorageCapacityRequest($body);
+        $returnType = '\Volcengine\Storageebs\Model\CalculatePriceV2Response';
+        $request = $this->calculatePriceV2Request($body);
         $uri = $request->getUri();
 
         return $this->client
@@ -545,22 +545,22 @@ class STORAGEEBSApi
             );
     }
 
-    protected function autoRenewReservedStorageCapacityRequest($body)
+    protected function calculatePriceV2Request($body)
     {
         // verify the required parameter 'body' is set
         if ($body === null || (is_array($body) && count($body) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $body when calling autoRenewReservedStorageCapacity'
+                'Missing the required parameter $body when calling calculatePriceV2'
             );
         }
 
-        $resourcePath = '/AutoRenewReservedStorageCapacity/2020-04-01/storage_ebs/get/text_plain/';
+        $resourcePath = '/CalculatePriceV2/2020-04-01/storage_ebs/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
         $headers = $this->headerSelector->selectHeaders(
             ['application/json'],
-            ['text/plain']
+            ['application/json']
         );
 
         $defaultHeaders = [];
@@ -738,189 +738,6 @@ class STORAGEEBSApi
         }
 
         $resourcePath = '/CancelAutoSnapshotPolicy/2020-04-01/storage_ebs/get/text_plain/';
-        $queryParams = [];
-        $httpBody = $body;
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json'],
-            ['text/plain']
-        );
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-        if ($this->config->getHost()) {
-            $defaultHeaders['Host'] = $this->config->getHost();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headers
-        );
-
-        $paths = explode("/", $resourcePath);
-        $service = $paths[3];
-        $method = strtoupper($paths[4]);
-
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
-    }
-
-    public function checkUserRscPermit($body)
-    {
-        list($response) = $this->checkUserRscPermitWithHttpInfo($body);
-        return $response;
-    }
-
-    public function checkUserRscPermitWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\Storageebs\Model\CheckUserRscPermitResponse';
-        $request = $this->checkUserRscPermitRequest($body);
-
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
-    }
-
-    public function checkUserRscPermitAsync($body)
-    {
-        return $this->checkUserRscPermitAsyncWithHttpInfo($body)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    public function checkUserRscPermitAsyncWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\Storageebs\Model\CheckUserRscPermitResponse';
-        $request = $this->checkUserRscPermitRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    protected function checkUserRscPermitRequest($body)
-    {
-        // verify the required parameter 'body' is set
-        if ($body === null || (is_array($body) && count($body) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $body when calling checkUserRscPermit'
-            );
-        }
-
-        $resourcePath = '/CheckUserRscPermit/2020-04-01/storage_ebs/get/text_plain/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -1286,13 +1103,13 @@ class STORAGEEBSApi
             );
         }
 
-        $resourcePath = '/CreatePlacementGroup/2020-04-01/storage_ebs/get/text_plain/';
+        $resourcePath = '/CreatePlacementGroup/2020-04-01/storage_ebs/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
         $headers = $this->headerSelector->selectHeaders(
             ['application/json'],
-            ['text/plain']
+            ['application/json']
         );
 
         $defaultHeaders = [];
@@ -2384,13 +2201,13 @@ class STORAGEEBSApi
             );
         }
 
-        $resourcePath = '/DeletePlacementGroup/2020-04-01/storage_ebs/get/text_plain/';
+        $resourcePath = '/DeletePlacementGroup/2020-04-01/storage_ebs/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
         $headers = $this->headerSelector->selectHeaders(
             ['application/json'],
-            ['text/plain']
+            ['application/json']
         );
 
         $defaultHeaders = [];
@@ -5548,189 +5365,6 @@ class STORAGEEBSApi
             $headers, $httpBody);
     }
 
-    public function manualRenewReservedStorageCapacity($body)
-    {
-        list($response) = $this->manualRenewReservedStorageCapacityWithHttpInfo($body);
-        return $response;
-    }
-
-    public function manualRenewReservedStorageCapacityWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\Storageebs\Model\ManualRenewReservedStorageCapacityResponse';
-        $request = $this->manualRenewReservedStorageCapacityRequest($body);
-
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
-    }
-
-    public function manualRenewReservedStorageCapacityAsync($body)
-    {
-        return $this->manualRenewReservedStorageCapacityAsyncWithHttpInfo($body)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    public function manualRenewReservedStorageCapacityAsyncWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\Storageebs\Model\ManualRenewReservedStorageCapacityResponse';
-        $request = $this->manualRenewReservedStorageCapacityRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    protected function manualRenewReservedStorageCapacityRequest($body)
-    {
-        // verify the required parameter 'body' is set
-        if ($body === null || (is_array($body) && count($body) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $body when calling manualRenewReservedStorageCapacity'
-            );
-        }
-
-        $resourcePath = '/ManualRenewReservedStorageCapacity/2020-04-01/storage_ebs/get/text_plain/';
-        $queryParams = [];
-        $httpBody = $body;
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json'],
-            ['text/plain']
-        );
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-        if ($this->config->getHost()) {
-            $defaultHeaders['Host'] = $this->config->getHost();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headers
-        );
-
-        $paths = explode("/", $resourcePath);
-        $service = $paths[3];
-        $method = strtoupper($paths[4]);
-
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
-    }
-
     public function modifyAutoSnapshotPolicy($body)
     {
         list($response) = $this->modifyAutoSnapshotPolicyWithHttpInfo($body);
@@ -6044,13 +5678,13 @@ class STORAGEEBSApi
             );
         }
 
-        $resourcePath = '/ModifyPlacementGroup/2020-04-01/storage_ebs/get/text_plain/';
+        $resourcePath = '/ModifyPlacementGroup/2020-04-01/storage_ebs/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
         $headers = $this->headerSelector->selectHeaders(
             ['application/json'],
-            ['text/plain']
+            ['application/json']
         );
 
         $defaultHeaders = [];
@@ -6227,13 +5861,13 @@ class STORAGEEBSApi
             );
         }
 
-        $resourcePath = '/ModifyReservedStorageCapacityEffectiveAt/2020-04-01/storage_ebs/get/text_plain/';
+        $resourcePath = '/ModifyReservedStorageCapacityEffectiveAt/2020-04-01/storage_ebs/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
         $headers = $this->headerSelector->selectHeaders(
             ['application/json'],
-            ['text/plain']
+            ['application/json']
         );
 
         $defaultHeaders = [];
@@ -7875,189 +7509,6 @@ class STORAGEEBSApi
         }
 
         $resourcePath = '/RollbackVolume/2020-04-01/storage_ebs/get/text_plain/';
-        $queryParams = [];
-        $httpBody = $body;
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json'],
-            ['text/plain']
-        );
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-        if ($this->config->getHost()) {
-            $defaultHeaders['Host'] = $this->config->getHost();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headers
-        );
-
-        $paths = explode("/", $resourcePath);
-        $service = $paths[3];
-        $method = strtoupper($paths[4]);
-
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
-    }
-
-    public function servicePurchaseRscPreorder($body)
-    {
-        list($response) = $this->servicePurchaseRscPreorderWithHttpInfo($body);
-        return $response;
-    }
-
-    public function servicePurchaseRscPreorderWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\Storageebs\Model\ServicePurchaseRscPreorderResponse';
-        $request = $this->servicePurchaseRscPreorderRequest($body);
-
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
-    }
-
-    public function servicePurchaseRscPreorderAsync($body)
-    {
-        return $this->servicePurchaseRscPreorderAsyncWithHttpInfo($body)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    public function servicePurchaseRscPreorderAsyncWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\Storageebs\Model\ServicePurchaseRscPreorderResponse';
-        $request = $this->servicePurchaseRscPreorderRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    protected function servicePurchaseRscPreorderRequest($body)
-    {
-        // verify the required parameter 'body' is set
-        if ($body === null || (is_array($body) && count($body) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $body when calling servicePurchaseRscPreorder'
-            );
-        }
-
-        $resourcePath = '/ServicePurchaseRscPreorder/2020-04-01/storage_ebs/get/text_plain/';
         $queryParams = [];
         $httpBody = $body;
 

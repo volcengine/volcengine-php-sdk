@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AttachmentForDescribeVolumesOutput implements ModelInterface, ArrayAccess
+class ConfigItemForCalculatePriceV2Output implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AttachmentForDescribeVolumesOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AttachmentForDescribeVolumesOutput';
+    protected static $swaggerModelName = 'ConfigItemForCalculatePriceV2Output';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,12 @@ class AttachmentForDescribeVolumesOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'attach_status' => 'string',
-        'attached_time' => 'string',
-        'instance_id' => 'string'
+        'charge_items' => '\Volcengine\Storageebs\Model\ChargeItemForCalculatePriceV2Output[]',
+        'configuration_code' => 'string',
+        'discount_amount' => 'string',
+        'original_amount' => 'string',
+        'payable_amount' => 'string',
+        'product' => 'string'
     ];
 
     /**
@@ -39,9 +42,12 @@ class AttachmentForDescribeVolumesOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'attach_status' => null,
-        'attached_time' => null,
-        'instance_id' => null
+        'charge_items' => null,
+        'configuration_code' => null,
+        'discount_amount' => null,
+        'original_amount' => null,
+        'payable_amount' => null,
+        'product' => null
     ];
 
     /**
@@ -71,9 +77,12 @@ class AttachmentForDescribeVolumesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'attach_status' => 'AttachStatus',
-        'attached_time' => 'AttachedTime',
-        'instance_id' => 'InstanceId'
+        'charge_items' => 'ChargeItems',
+        'configuration_code' => 'ConfigurationCode',
+        'discount_amount' => 'DiscountAmount',
+        'original_amount' => 'OriginalAmount',
+        'payable_amount' => 'PayableAmount',
+        'product' => 'Product'
     ];
 
     /**
@@ -82,9 +91,12 @@ class AttachmentForDescribeVolumesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'attach_status' => 'setAttachStatus',
-        'attached_time' => 'setAttachedTime',
-        'instance_id' => 'setInstanceId'
+        'charge_items' => 'setChargeItems',
+        'configuration_code' => 'setConfigurationCode',
+        'discount_amount' => 'setDiscountAmount',
+        'original_amount' => 'setOriginalAmount',
+        'payable_amount' => 'setPayableAmount',
+        'product' => 'setProduct'
     ];
 
     /**
@@ -93,9 +105,12 @@ class AttachmentForDescribeVolumesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'attach_status' => 'getAttachStatus',
-        'attached_time' => 'getAttachedTime',
-        'instance_id' => 'getInstanceId'
+        'charge_items' => 'getChargeItems',
+        'configuration_code' => 'getConfigurationCode',
+        'discount_amount' => 'getDiscountAmount',
+        'original_amount' => 'getOriginalAmount',
+        'payable_amount' => 'getPayableAmount',
+        'product' => 'getProduct'
     ];
 
     /**
@@ -158,9 +173,12 @@ class AttachmentForDescribeVolumesOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['attach_status'] = isset($data['attach_status']) ? $data['attach_status'] : null;
-        $this->container['attached_time'] = isset($data['attached_time']) ? $data['attached_time'] : null;
-        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
+        $this->container['charge_items'] = isset($data['charge_items']) ? $data['charge_items'] : null;
+        $this->container['configuration_code'] = isset($data['configuration_code']) ? $data['configuration_code'] : null;
+        $this->container['discount_amount'] = isset($data['discount_amount']) ? $data['discount_amount'] : null;
+        $this->container['original_amount'] = isset($data['original_amount']) ? $data['original_amount'] : null;
+        $this->container['payable_amount'] = isset($data['payable_amount']) ? $data['payable_amount'] : null;
+        $this->container['product'] = isset($data['product']) ? $data['product'] : null;
     }
 
     /**
@@ -188,73 +206,145 @@ class AttachmentForDescribeVolumesOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets attach_status
+     * Gets charge_items
      *
-     * @return string
+     * @return \Volcengine\Storageebs\Model\ChargeItemForCalculatePriceV2Output[]
      */
-    public function getAttachStatus()
+    public function getChargeItems()
     {
-        return $this->container['attach_status'];
+        return $this->container['charge_items'];
     }
 
     /**
-     * Sets attach_status
+     * Sets charge_items
      *
-     * @param string $attach_status attach_status
+     * @param \Volcengine\Storageebs\Model\ChargeItemForCalculatePriceV2Output[] $charge_items charge_items
      *
      * @return $this
      */
-    public function setAttachStatus($attach_status)
+    public function setChargeItems($charge_items)
     {
-        $this->container['attach_status'] = $attach_status;
+        $this->container['charge_items'] = $charge_items;
 
         return $this;
     }
 
     /**
-     * Gets attached_time
+     * Gets configuration_code
      *
      * @return string
      */
-    public function getAttachedTime()
+    public function getConfigurationCode()
     {
-        return $this->container['attached_time'];
+        return $this->container['configuration_code'];
     }
 
     /**
-     * Sets attached_time
+     * Sets configuration_code
      *
-     * @param string $attached_time attached_time
+     * @param string $configuration_code configuration_code
      *
      * @return $this
      */
-    public function setAttachedTime($attached_time)
+    public function setConfigurationCode($configuration_code)
     {
-        $this->container['attached_time'] = $attached_time;
+        $this->container['configuration_code'] = $configuration_code;
 
         return $this;
     }
 
     /**
-     * Gets instance_id
+     * Gets discount_amount
      *
      * @return string
      */
-    public function getInstanceId()
+    public function getDiscountAmount()
     {
-        return $this->container['instance_id'];
+        return $this->container['discount_amount'];
     }
 
     /**
-     * Sets instance_id
+     * Sets discount_amount
      *
-     * @param string $instance_id instance_id
+     * @param string $discount_amount discount_amount
      *
      * @return $this
      */
-    public function setInstanceId($instance_id)
+    public function setDiscountAmount($discount_amount)
     {
-        $this->container['instance_id'] = $instance_id;
+        $this->container['discount_amount'] = $discount_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets original_amount
+     *
+     * @return string
+     */
+    public function getOriginalAmount()
+    {
+        return $this->container['original_amount'];
+    }
+
+    /**
+     * Sets original_amount
+     *
+     * @param string $original_amount original_amount
+     *
+     * @return $this
+     */
+    public function setOriginalAmount($original_amount)
+    {
+        $this->container['original_amount'] = $original_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets payable_amount
+     *
+     * @return string
+     */
+    public function getPayableAmount()
+    {
+        return $this->container['payable_amount'];
+    }
+
+    /**
+     * Sets payable_amount
+     *
+     * @param string $payable_amount payable_amount
+     *
+     * @return $this
+     */
+    public function setPayableAmount($payable_amount)
+    {
+        $this->container['payable_amount'] = $payable_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets product
+     *
+     * @return string
+     */
+    public function getProduct()
+    {
+        return $this->container['product'];
+    }
+
+    /**
+     * Sets product
+     *
+     * @param string $product product
+     *
+     * @return $this
+     */
+    public function setProduct($product)
+    {
+        $this->container['product'] = $product;
 
         return $this;
     }

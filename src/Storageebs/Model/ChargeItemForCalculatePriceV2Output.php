@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AutoRenewReservedStorageCapacityRequest implements ModelInterface, ArrayAccess
+class ChargeItemForCalculatePriceV2Output implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AutoRenewReservedStorageCapacityRequest implements ModelInterface, ArrayAc
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AutoRenewReservedStorageCapacityRequest';
+    protected static $swaggerModelName = 'ChargeItemForCalculatePriceV2Output';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,10 @@ class AutoRenewReservedStorageCapacityRequest implements ModelInterface, ArrayAc
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'period' => 'int',
-        'period_unit' => 'string',
-        'rsc_auto_renew' => 'bool',
-        'rscid' => 'string'
+        'charge_item_code' => 'string',
+        'discount_amount' => 'string',
+        'original_amount' => 'string',
+        'payable_amount' => 'string'
     ];
 
     /**
@@ -40,10 +40,10 @@ class AutoRenewReservedStorageCapacityRequest implements ModelInterface, ArrayAc
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'period' => 'int32',
-        'period_unit' => null,
-        'rsc_auto_renew' => null,
-        'rscid' => null
+        'charge_item_code' => null,
+        'discount_amount' => null,
+        'original_amount' => null,
+        'payable_amount' => null
     ];
 
     /**
@@ -73,10 +73,10 @@ class AutoRenewReservedStorageCapacityRequest implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $attributeMap = [
-        'period' => 'Period',
-        'period_unit' => 'PeriodUnit',
-        'rsc_auto_renew' => 'RSCAutoRenew',
-        'rscid' => 'RSCId'
+        'charge_item_code' => 'ChargeItemCode',
+        'discount_amount' => 'DiscountAmount',
+        'original_amount' => 'OriginalAmount',
+        'payable_amount' => 'PayableAmount'
     ];
 
     /**
@@ -85,10 +85,10 @@ class AutoRenewReservedStorageCapacityRequest implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $setters = [
-        'period' => 'setPeriod',
-        'period_unit' => 'setPeriodUnit',
-        'rsc_auto_renew' => 'setRscAutoRenew',
-        'rscid' => 'setRscid'
+        'charge_item_code' => 'setChargeItemCode',
+        'discount_amount' => 'setDiscountAmount',
+        'original_amount' => 'setOriginalAmount',
+        'payable_amount' => 'setPayableAmount'
     ];
 
     /**
@@ -97,10 +97,10 @@ class AutoRenewReservedStorageCapacityRequest implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $getters = [
-        'period' => 'getPeriod',
-        'period_unit' => 'getPeriodUnit',
-        'rsc_auto_renew' => 'getRscAutoRenew',
-        'rscid' => 'getRscid'
+        'charge_item_code' => 'getChargeItemCode',
+        'discount_amount' => 'getDiscountAmount',
+        'original_amount' => 'getOriginalAmount',
+        'payable_amount' => 'getPayableAmount'
     ];
 
     /**
@@ -163,10 +163,10 @@ class AutoRenewReservedStorageCapacityRequest implements ModelInterface, ArrayAc
      */
     public function __construct(array $data = null)
     {
-        $this->container['period'] = isset($data['period']) ? $data['period'] : null;
-        $this->container['period_unit'] = isset($data['period_unit']) ? $data['period_unit'] : null;
-        $this->container['rsc_auto_renew'] = isset($data['rsc_auto_renew']) ? $data['rsc_auto_renew'] : null;
-        $this->container['rscid'] = isset($data['rscid']) ? $data['rscid'] : null;
+        $this->container['charge_item_code'] = isset($data['charge_item_code']) ? $data['charge_item_code'] : null;
+        $this->container['discount_amount'] = isset($data['discount_amount']) ? $data['discount_amount'] : null;
+        $this->container['original_amount'] = isset($data['original_amount']) ? $data['original_amount'] : null;
+        $this->container['payable_amount'] = isset($data['payable_amount']) ? $data['payable_amount'] : null;
     }
 
     /**
@@ -178,9 +178,6 @@ class AutoRenewReservedStorageCapacityRequest implements ModelInterface, ArrayAc
     {
         $invalidProperties = [];
 
-        if ($this->container['rscid'] === null) {
-            $invalidProperties[] = "'rscid' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -197,97 +194,97 @@ class AutoRenewReservedStorageCapacityRequest implements ModelInterface, ArrayAc
 
 
     /**
-     * Gets period
-     *
-     * @return int
-     */
-    public function getPeriod()
-    {
-        return $this->container['period'];
-    }
-
-    /**
-     * Sets period
-     *
-     * @param int $period period
-     *
-     * @return $this
-     */
-    public function setPeriod($period)
-    {
-        $this->container['period'] = $period;
-
-        return $this;
-    }
-
-    /**
-     * Gets period_unit
+     * Gets charge_item_code
      *
      * @return string
      */
-    public function getPeriodUnit()
+    public function getChargeItemCode()
     {
-        return $this->container['period_unit'];
+        return $this->container['charge_item_code'];
     }
 
     /**
-     * Sets period_unit
+     * Sets charge_item_code
      *
-     * @param string $period_unit period_unit
+     * @param string $charge_item_code charge_item_code
      *
      * @return $this
      */
-    public function setPeriodUnit($period_unit)
+    public function setChargeItemCode($charge_item_code)
     {
-        $this->container['period_unit'] = $period_unit;
+        $this->container['charge_item_code'] = $charge_item_code;
 
         return $this;
     }
 
     /**
-     * Gets rsc_auto_renew
-     *
-     * @return bool
-     */
-    public function getRscAutoRenew()
-    {
-        return $this->container['rsc_auto_renew'];
-    }
-
-    /**
-     * Sets rsc_auto_renew
-     *
-     * @param bool $rsc_auto_renew rsc_auto_renew
-     *
-     * @return $this
-     */
-    public function setRscAutoRenew($rsc_auto_renew)
-    {
-        $this->container['rsc_auto_renew'] = $rsc_auto_renew;
-
-        return $this;
-    }
-
-    /**
-     * Gets rscid
+     * Gets discount_amount
      *
      * @return string
      */
-    public function getRscid()
+    public function getDiscountAmount()
     {
-        return $this->container['rscid'];
+        return $this->container['discount_amount'];
     }
 
     /**
-     * Sets rscid
+     * Sets discount_amount
      *
-     * @param string $rscid rscid
+     * @param string $discount_amount discount_amount
      *
      * @return $this
      */
-    public function setRscid($rscid)
+    public function setDiscountAmount($discount_amount)
     {
-        $this->container['rscid'] = $rscid;
+        $this->container['discount_amount'] = $discount_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets original_amount
+     *
+     * @return string
+     */
+    public function getOriginalAmount()
+    {
+        return $this->container['original_amount'];
+    }
+
+    /**
+     * Sets original_amount
+     *
+     * @param string $original_amount original_amount
+     *
+     * @return $this
+     */
+    public function setOriginalAmount($original_amount)
+    {
+        $this->container['original_amount'] = $original_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets payable_amount
+     *
+     * @return string
+     */
+    public function getPayableAmount()
+    {
+        return $this->container['payable_amount'];
+    }
+
+    /**
+     * Sets payable_amount
+     *
+     * @param string $payable_amount payable_amount
+     *
+     * @return $this
+     */
+    public function setPayableAmount($payable_amount)
+    {
+        $this->container['payable_amount'] = $payable_amount;
 
         return $this;
     }

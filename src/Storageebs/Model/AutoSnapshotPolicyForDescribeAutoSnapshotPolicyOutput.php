@@ -31,9 +31,6 @@ class AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput implements ModelInte
         'auto_snapshot_policy_id' => 'string',
         'auto_snapshot_policy_name' => 'string',
         'created_at' => 'string',
-        'destination_region' => 'string',
-        'destination_retention_days' => 'int',
-        'enable_copy' => 'bool',
         'project_name' => 'string',
         'repeat_days' => 'int',
         'repeat_weekdays' => 'string[]',
@@ -54,9 +51,6 @@ class AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput implements ModelInte
         'auto_snapshot_policy_id' => null,
         'auto_snapshot_policy_name' => null,
         'created_at' => null,
-        'destination_region' => null,
-        'destination_retention_days' => 'int32',
-        'enable_copy' => null,
         'project_name' => null,
         'repeat_days' => 'int32',
         'repeat_weekdays' => null,
@@ -98,9 +92,6 @@ class AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput implements ModelInte
         'auto_snapshot_policy_id' => 'AutoSnapshotPolicyId',
         'auto_snapshot_policy_name' => 'AutoSnapshotPolicyName',
         'created_at' => 'CreatedAt',
-        'destination_region' => 'DestinationRegion',
-        'destination_retention_days' => 'DestinationRetentionDays',
-        'enable_copy' => 'EnableCopy',
         'project_name' => 'ProjectName',
         'repeat_days' => 'RepeatDays',
         'repeat_weekdays' => 'RepeatWeekdays',
@@ -121,9 +112,6 @@ class AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput implements ModelInte
         'auto_snapshot_policy_id' => 'setAutoSnapshotPolicyId',
         'auto_snapshot_policy_name' => 'setAutoSnapshotPolicyName',
         'created_at' => 'setCreatedAt',
-        'destination_region' => 'setDestinationRegion',
-        'destination_retention_days' => 'setDestinationRetentionDays',
-        'enable_copy' => 'setEnableCopy',
         'project_name' => 'setProjectName',
         'repeat_days' => 'setRepeatDays',
         'repeat_weekdays' => 'setRepeatWeekdays',
@@ -144,9 +132,6 @@ class AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput implements ModelInte
         'auto_snapshot_policy_id' => 'getAutoSnapshotPolicyId',
         'auto_snapshot_policy_name' => 'getAutoSnapshotPolicyName',
         'created_at' => 'getCreatedAt',
-        'destination_region' => 'getDestinationRegion',
-        'destination_retention_days' => 'getDestinationRetentionDays',
-        'enable_copy' => 'getEnableCopy',
         'project_name' => 'getProjectName',
         'repeat_days' => 'getRepeatDays',
         'repeat_weekdays' => 'getRepeatWeekdays',
@@ -221,9 +206,6 @@ class AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput implements ModelInte
         $this->container['auto_snapshot_policy_id'] = isset($data['auto_snapshot_policy_id']) ? $data['auto_snapshot_policy_id'] : null;
         $this->container['auto_snapshot_policy_name'] = isset($data['auto_snapshot_policy_name']) ? $data['auto_snapshot_policy_name'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
-        $this->container['destination_region'] = isset($data['destination_region']) ? $data['destination_region'] : null;
-        $this->container['destination_retention_days'] = isset($data['destination_retention_days']) ? $data['destination_retention_days'] : null;
-        $this->container['enable_copy'] = isset($data['enable_copy']) ? $data['enable_copy'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['repeat_days'] = isset($data['repeat_days']) ? $data['repeat_days'] : null;
         $this->container['repeat_weekdays'] = isset($data['repeat_weekdays']) ? $data['repeat_weekdays'] : null;
@@ -327,78 +309,6 @@ class AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput implements ModelInte
     public function setCreatedAt($created_at)
     {
         $this->container['created_at'] = $created_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets destination_region
-     *
-     * @return string
-     */
-    public function getDestinationRegion()
-    {
-        return $this->container['destination_region'];
-    }
-
-    /**
-     * Sets destination_region
-     *
-     * @param string $destination_region destination_region
-     *
-     * @return $this
-     */
-    public function setDestinationRegion($destination_region)
-    {
-        $this->container['destination_region'] = $destination_region;
-
-        return $this;
-    }
-
-    /**
-     * Gets destination_retention_days
-     *
-     * @return int
-     */
-    public function getDestinationRetentionDays()
-    {
-        return $this->container['destination_retention_days'];
-    }
-
-    /**
-     * Sets destination_retention_days
-     *
-     * @param int $destination_retention_days destination_retention_days
-     *
-     * @return $this
-     */
-    public function setDestinationRetentionDays($destination_retention_days)
-    {
-        $this->container['destination_retention_days'] = $destination_retention_days;
-
-        return $this;
-    }
-
-    /**
-     * Gets enable_copy
-     *
-     * @return bool
-     */
-    public function getEnableCopy()
-    {
-        return $this->container['enable_copy'];
-    }
-
-    /**
-     * Sets enable_copy
-     *
-     * @param bool $enable_copy enable_copy
-     *
-     * @return $this
-     */
-    public function setEnableCopy($enable_copy)
-    {
-        $this->container['enable_copy'] = $enable_copy;
 
         return $this;
     }
