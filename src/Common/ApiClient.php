@@ -73,6 +73,50 @@ class ApiClient
         return $this;
     }
 
+    private function createContextAndRequest($body, $resourcePath, $method, $headerParams, $responseType)
+    {
+        $context = new Context();
+        $request = new \Volcengine\Common\Interceptor\Interceptors\Request();
+        $headerParams = $headerParams ?: [];
+        $headerParams = array_merge($this->defaultHeaders, $headerParams);
+
+        // 基础请求属性
+        $request->resourcePath = $resourcePath;
+        $request->method = $method;
+        $request->headers = $headerParams;
+        $request->body = $body;
+        $request->returnType = $responseType;
+
+        // 服务端点配置
+        $request->host = $this->configuration->getHost();
+        $request->url = '';
+        $request->truePath = '/';
+        $request->service = '';
+        $request->md = '';
+
+        // 认证信息
+        $request->ak = $this->configuration->getAk();
+        $request->sk = $this->configuration->getSk();
+        $request->sessionToken = $this->configuration->getSessionToken();
+
+        // 区域和网络配置
+        $request->region = $this->configuration->getRegion();
+        $request->schema = $this->configuration->getSchema();
+        $request->endpointProvider = $this->configuration->getEndpointProvider();
+        $request->customBootstrapRegion = $this->configuration->getCustomBootstrapRegion();
+        $request->useDualStack = $this->configuration->getUseDualStack();
+
+        // 调试和凭证配置
+        $request->getDebug = $this->configuration->getDebug();
+        $request->getDebugFile = $this->configuration->getDebugFile();
+        $request->credentialProvider = $this->configuration->getCredentialProvider();
+        $request->runtimeOptions = $this->configuration->getRuntimeOptions();
+
+        $context->setRequest($request);
+        return $context;
+    }
+
+
     public function callApi(
         $body,
         $resourcePath,
@@ -82,38 +126,11 @@ class ApiClient
         $async = false
     )
     {
-
-        $context = new Context();
-        $request = new \Volcengine\Common\Interceptor\Interceptors\Request();
-        $headerParams = $headerParams ?: [];
-        $headerParams = array_merge($this->defaultHeaders, $headerParams);
-        $request->resourcePath = $resourcePath;
-        $request->method = $method;
-        $request->headers = $headerParams;
-        $request->body = $body;
-        $request->returnType = $responseType;
-        $request->host = $this->configuration->getHost();
-        $request->url = '';
-        $request->truePath = '/';
-        $request->service = '';
-        $request->md = '';
-        $request->ak = $this->configuration->getAk();
-        $request->sk = $this->configuration->getSk();
-        $request->sessionToken = $this->configuration->getSessionToken();
-        $request->region = $this->configuration->getRegion();
-        $request->schema = $this->configuration->getSchema();
-        $request->endpointProvider = $this->configuration->getEndpointProvider();
-        $request->customBootstrapRegion = $this->configuration->getCustomBootstrapRegion();
-        $request->useDualStack = $this->configuration->getUseDualStack();
-        $request->getDebug = $this->configuration->getDebug();
-        $request->getDebugFile = $this->configuration->getDebugFile();
-        $request->credentialProvider = $this->configuration->getCredentialProvider();
-        $request->runtimeOptions = $this->configuration->getRuntimeOptions();
-        $context->setRequest($request);
+        $context = $this->createContextAndRequest($body, $resourcePath, $method, $headerParams, $responseType);
         $this->interceptorChain->executeRequest($context);
-        $realRequest = $request->realRequest;
-        $options = $request->options;
-        $returnType = $request->returnType;
+        $realRequest = $context->getRequest()->realRequest;
+        $options = $context->getRequest()->options;
+        $returnType = $context->getRequest()->returnType;
         $this->setNewClientConfig();
         $request = $realRequest;
 
@@ -140,10 +157,14 @@ class ApiClient
                                 $response->getHeaders(),
                                 $responseContent);
                         }
+                        $metaData = $content->{'ResponseMetadata'};
                         $content = $content->{'Result'};
-
+                        $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+                        if (is_object($deserializedContent)) {
+                            $deserializedContent->offsetSet('ResponseMetadata', $metaData);
+                        }
                         return [
-                            ObjectSerializer::deserialize($content, $returnType, []),
+                            $deserializedContent,
                             $response->getStatusCode(),
                             $response->getHeaders()
                         ];
@@ -162,10 +183,6 @@ class ApiClient
                             $response->getHeaders(),
                             $response->getBody()
                         );
-                    }
-                )->then(
-                    function ($response) {
-                        return $response[0];
                     }
                 );
         } else {
@@ -212,10 +229,14 @@ class ApiClient
                     $response->getHeaders(),
                     $responseContent);
             }
+            $metaData = $content->{'ResponseMetadata'};
             $content = isset($content->{'Result'}) ? $content->{'Result'} : null;
-
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if (is_object($deserializedContent)) {
+                $deserializedContent->offsetSet('ResponseMetadata', $metaData);
+            }
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                $deserializedContent,
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];

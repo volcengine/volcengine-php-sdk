@@ -172,23 +172,6 @@ class IAMApi
 
     protected function addSAMLProviderCertificateRequest($body)
     {
-        $attributes = $body::getters();
-        $saml_provider_name = $body->{$attributes['saml_provider_name']}();
-        $x509_certificate = $body->{$attributes['x509_certificate']}();
-
-        // verify the required parameter 'saml_provider_name' is set
-        if ($saml_provider_name === null || (is_array($saml_provider_name) && count($saml_provider_name) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $saml_provider_name when calling addSAMLProviderCertificate'
-            );
-        }
-        // verify the required parameter 'x509_certificate' is set
-        if ($x509_certificate === null || (is_array($x509_certificate) && count($x509_certificate) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $x509_certificate when calling addSAMLProviderCertificate'
-            );
-        }
-
         $resourcePath = '/AddSAMLProviderCertificate/2018-01-01/iam/post/application_x-www-form-urlencoded/';
         $queryParams = [];
 
@@ -1091,43 +1074,6 @@ class IAMApi
 
     protected function createSAMLProviderRequest($body)
     {
-        $attributes = $body::getters();
-        $description = $body->{$attributes['description']}();
-        $encoded_saml_metadata_document = $body->{$attributes['encoded_saml_metadata_document']}();
-        $saml_provider_name = $body->{$attributes['saml_provider_name']}();
-        $sso_type = $body->{$attributes['sso_type']}();
-        $status = $body->{$attributes['status']}();
-        // verify the required parameter 'description' is set
-        if ($description === null || (is_array($description) && count($description) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $description when calling createSAMLProvider'
-            );
-        }
-        // verify the required parameter 'encoded_saml_metadata_document' is set
-        if ($encoded_saml_metadata_document === null || (is_array($encoded_saml_metadata_document) && count($encoded_saml_metadata_document) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $encoded_saml_metadata_document when calling createSAMLProvider'
-            );
-        }
-        // verify the required parameter 'saml_provider_name' is set
-        if ($saml_provider_name === null || (is_array($saml_provider_name) && count($saml_provider_name) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $saml_provider_name when calling createSAMLProvider'
-            );
-        }
-        // verify the required parameter 'sso_type' is set
-        if ($sso_type === null || (is_array($sso_type) && count($sso_type) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $sso_type when calling createSAMLProvider'
-            );
-        }
-        // verify the required parameter 'status' is set
-        if ($status === null || (is_array($status) && count($status) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $status when calling createSAMLProvider'
-            );
-        }
-
         $resourcePath = '/CreateSAMLProvider/2018-01-01/iam/post/application_x-www-form-urlencoded/';
         $queryParams = [];
 
@@ -4900,92 +4846,6 @@ class IAMApi
 
     protected function updateOAuthProviderRequest($body)
     {
-        $attributes = $body::getters();
-        $authorize_template = $body->{$attributes['authorize_template']}();
-        $authorize_url = $body->{$attributes['authorize_url']}();
-        $client_id = $body->{$attributes['client_id']}();
-        $client_secret = $body->{$attributes['client_secret']}();
-        $description = $body->{$attributes['description']}();
-        $identity_map_type = $body->{$attributes['identity_map_type']}();
-        $idp_identity_key = $body->{$attributes['idp_identity_key']}();
-        $o_auth_provider_name = $body->{$attributes['o_auth_provider_name']}();
-        $scope = $body->{$attributes['scope']}();
-        $status = $body->{$attributes['status']}();
-        $token_url = $body->{$attributes['token_url']}();
-        $user_info_url = $body->{$attributes['user_info_url']}();
-        // verify the required parameter 'authorize_template' is set
-        if ($authorize_template === null || (is_array($authorize_template) && count($authorize_template) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $authorize_template when calling updateOAuthProvider'
-            );
-        }
-        // verify the required parameter 'authorize_url' is set
-        if ($authorize_url === null || (is_array($authorize_url) && count($authorize_url) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $authorize_url when calling updateOAuthProvider'
-            );
-        }
-        // verify the required parameter 'client_id' is set
-        if ($client_id === null || (is_array($client_id) && count($client_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $client_id when calling updateOAuthProvider'
-            );
-        }
-        // verify the required parameter 'client_secret' is set
-        if ($client_secret === null || (is_array($client_secret) && count($client_secret) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $client_secret when calling updateOAuthProvider'
-            );
-        }
-        // verify the required parameter 'description' is set
-        if ($description === null || (is_array($description) && count($description) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $description when calling updateOAuthProvider'
-            );
-        }
-        // verify the required parameter 'identity_map_type' is set
-        if ($identity_map_type === null || (is_array($identity_map_type) && count($identity_map_type) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $identity_map_type when calling updateOAuthProvider'
-            );
-        }
-        // verify the required parameter 'idp_identity_key' is set
-        if ($idp_identity_key === null || (is_array($idp_identity_key) && count($idp_identity_key) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $idp_identity_key when calling updateOAuthProvider'
-            );
-        }
-        // verify the required parameter 'o_auth_provider_name' is set
-        if ($o_auth_provider_name === null || (is_array($o_auth_provider_name) && count($o_auth_provider_name) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $o_auth_provider_name when calling updateOAuthProvider'
-            );
-        }
-        // verify the required parameter 'scope' is set
-        if ($scope === null || (is_array($scope) && count($scope) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $scope when calling updateOAuthProvider'
-            );
-        }
-        // verify the required parameter 'status' is set
-        if ($status === null || (is_array($status) && count($status) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $status when calling updateOAuthProvider'
-            );
-        }
-        // verify the required parameter 'token_url' is set
-        if ($token_url === null || (is_array($token_url) && count($token_url) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $token_url when calling updateOAuthProvider'
-            );
-        }
-        // verify the required parameter 'user_info_url' is set
-        if ($user_info_url === null || (is_array($user_info_url) && count($user_info_url) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $user_info_url when calling updateOAuthProvider'
-            );
-        }
-
         $resourcePath = '/UpdateOAuthProvider/2018-01-01/iam/post/application_x-www-form-urlencoded/';
         $queryParams = [];
 
@@ -5258,36 +5118,6 @@ class IAMApi
 
     protected function updateSAMLProviderRequest($body)
     {
-        $attributes = $body::getters();
-        $description = $body->{$attributes['description']}();
-        $new_encoded_saml_metadata_document = $body->{$attributes['new_encoded_saml_metadata_document']}();
-        $saml_provider_name = $body->{$attributes['saml_provider_name']}();
-        $status = $body->{$attributes['status']}();
-        // verify the required parameter 'description' is set
-        if ($description === null || (is_array($description) && count($description) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $description when calling updateSAMLProvider'
-            );
-        }
-        // verify the required parameter 'new_encoded_saml_metadata_document' is set
-        if ($new_encoded_saml_metadata_document === null || (is_array($new_encoded_saml_metadata_document) && count($new_encoded_saml_metadata_document) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $new_encoded_saml_metadata_document when calling updateSAMLProvider'
-            );
-        }
-        // verify the required parameter 'saml_provider_name' is set
-        if ($saml_provider_name === null || (is_array($saml_provider_name) && count($saml_provider_name) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $saml_provider_name when calling updateSAMLProvider'
-            );
-        }
-        // verify the required parameter 'status' is set
-        if ($status === null || (is_array($status) && count($status) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $status when calling updateSAMLProvider'
-            );
-        }
-
         $resourcePath = '/UpdateSAMLProvider/2018-01-01/iam/post/application_x-www-form-urlencoded/';
         $queryParams = [];
 

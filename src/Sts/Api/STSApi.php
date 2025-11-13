@@ -101,43 +101,6 @@ class STSApi
 
     protected function assumeRoleRequest($body)
     {
-        $attributes = $body::getters();
-        $duration_seconds = $body->{$attributes['duration_seconds']}();
-        $policy = $body->{$attributes['policy']}();
-        $role_session_name = $body->{$attributes['role_session_name']}();
-        $role_trn = $body->{$attributes['role_trn']}();
-        $tags = $body->{$attributes['tags']}();
-        // verify the required parameter 'duration_seconds' is set
-        if ($duration_seconds === null || (is_array($duration_seconds) && count($duration_seconds) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $duration_seconds when calling assumeRole'
-            );
-        }
-        // verify the required parameter 'policy' is set
-        if ($policy === null || (is_array($policy) && count($policy) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $policy when calling assumeRole'
-            );
-        }
-        // verify the required parameter 'role_session_name' is set
-        if ($role_session_name === null || (is_array($role_session_name) && count($role_session_name) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $role_session_name when calling assumeRole'
-            );
-        }
-        // verify the required parameter 'role_trn' is set
-        if ($role_trn === null || (is_array($role_trn) && count($role_trn) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $role_trn when calling assumeRole'
-            );
-        }
-        // verify the required parameter 'tags' is set
-        if ($tags === null || (is_array($tags) && count($tags) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $tags when calling assumeRole'
-            );
-        }
-
         $resourcePath = '/AssumeRole/2018-01-01/sts/post/application_x-www-form-urlencoded/';
         $queryParams = [];
 

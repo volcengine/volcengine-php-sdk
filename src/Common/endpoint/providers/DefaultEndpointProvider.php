@@ -1,9 +1,9 @@
 <?php
 
-namespace Volcengine\Common\Auth\Endpoint\Providers;
+namespace Volcengine\Common\endpoint\providers;
 
-use Volcengine\Common\Auth\Endpoint\EndpointProvider;
-use Volcengine\Common\Auth\Endpoint\ResolvedEndpoint;
+use Volcengine\Common\endpoint\EndpointProvider;
+use Volcengine\Common\endpoint\ResolvedEndpoint;
 
 
 class DefaultEndpointProvider extends EndpointProvider

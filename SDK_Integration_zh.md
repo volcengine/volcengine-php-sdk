@@ -73,6 +73,7 @@ $body->setClientToken("token-123456789")
 
 try {
     $result = $apiInstance->createVpc($body);
+    $responseMetaData = $result->offsetGet('ResponseMetadata');  //包含了返回的请求信息，action + version + RequestId + service + Region
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling VPCApi->createVpc: ', $e->getMessage(), PHP_EOL;
@@ -137,7 +138,7 @@ try {
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$sts = new \Volcengine\Common\Auth\Providers\StsProvider(
+$sts = new \Volcengine\Common\auth\providers\StsProvider(
     "Your ak", # 必填，子账号的ak
     "Your sk", # 必填，子账号的sk
     "Your role name",  # 必填，子账号的角色TRN，如trn:iam::2110400000:role/role123  ,此处填写role123
@@ -213,7 +214,7 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
 **Endpoint默认寻址逻辑**
 
 1. 是否自动寻址Region  
-   内置自动寻址Region列表代码:[./src/Common/auth/endpoint/providers/DefaultEndpointProvider.php](./src/Common/auth/endpoint/providers/DefaultEndpointProvider.php#L24)  
+   内置自动寻址Region列表代码:[./src/Common/endpoint/providers/DefaultEndpointProvider.php](src/Common/endpoint/providers/DefaultEndpointProvider.php#L24)  
    SDK 仅对部分预设区域（如
    cn-beijing-autodriving、ap-southeast-2）或用户配置的区域执行自动寻址；其他区域默认返回Endpoint：open.volcengineapi.com。  
    用户可通过环境变量 VOLC_BOOTSTRAP_REGION_LIST_CONF 或代码中自定义 customBootstrapRegion 来扩展控制区域列表。

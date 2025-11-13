@@ -2,7 +2,7 @@
 
 namespace Volcengine\Common;
 
-use Volcengine\Common\Auth\Endpoint\Providers\DefaultEndpointProvider;
+use Volcengine\Common\endpoint\providers\DefaultEndpointProvider;
 
 class Configuration
 {

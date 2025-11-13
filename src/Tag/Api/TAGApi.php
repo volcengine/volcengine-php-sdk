@@ -237,43 +237,6 @@ class TAGApi
 
     protected function getResourcesRequest($body)
     {
-        $attributes = $body::getters();
-        $max_results = $body->{$attributes['max_results']}();
-        $next_token = $body->{$attributes['next_token']}();
-        $resource_trn_list = $body->{$attributes['resource_trn_list']}();
-        $resource_type_filters = $body->{$attributes['resource_type_filters']}();
-        $tag_filters = $body->{$attributes['tag_filters']}();
-        // verify the required parameter 'max_results' is set
-        if ($max_results === null || (is_array($max_results) && count($max_results) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $max_results when calling getResources'
-            );
-        }
-        // verify the required parameter 'next_token' is set
-        if ($next_token === null || (is_array($next_token) && count($next_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $next_token when calling getResources'
-            );
-        }
-        // verify the required parameter 'resource_trn_list' is set
-        if ($resource_trn_list === null || (is_array($resource_trn_list) && count($resource_trn_list) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $resource_trn_list when calling getResources'
-            );
-        }
-        // verify the required parameter 'resource_type_filters' is set
-        if ($resource_type_filters === null || (is_array($resource_type_filters) && count($resource_type_filters) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $resource_type_filters when calling getResources'
-            );
-        }
-        // verify the required parameter 'tag_filters' is set
-        if ($tag_filters === null || (is_array($tag_filters) && count($tag_filters) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $tag_filters when calling getResources'
-            );
-        }
-
         $resourcePath = '/GetResources/2022-06-01/tag/post/application_x-www-form-urlencoded/';
         $queryParams = [];
 
@@ -335,43 +298,6 @@ class TAGApi
 
     protected function getTagKeysRequest($body)
     {
-        $attributes = $body::getters();
-        $match_type = $body->{$attributes['match_type']}();
-        $max_results = $body->{$attributes['max_results']}();
-        $next_token = $body->{$attributes['next_token']}();
-        $tag_key = $body->{$attributes['tag_key']}();
-        $tag_type = $body->{$attributes['tag_type']}();
-        // verify the required parameter 'match_type' is set
-        if ($match_type === null || (is_array($match_type) && count($match_type) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $match_type when calling getTagKeys'
-            );
-        }
-        // verify the required parameter 'max_results' is set
-        if ($max_results === null || (is_array($max_results) && count($max_results) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $max_results when calling getTagKeys'
-            );
-        }
-        // verify the required parameter 'next_token' is set
-        if ($next_token === null || (is_array($next_token) && count($next_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $next_token when calling getTagKeys'
-            );
-        }
-        // verify the required parameter 'tag_key' is set
-        if ($tag_key === null || (is_array($tag_key) && count($tag_key) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $tag_key when calling getTagKeys'
-            );
-        }
-        // verify the required parameter 'tag_type' is set
-        if ($tag_type === null || (is_array($tag_type) && count($tag_type) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $tag_type when calling getTagKeys'
-            );
-        }
-
         $resourcePath = '/GetTagKeys/2022-06-01/tag/post/application_x-www-form-urlencoded/';
         $queryParams = [];
 
@@ -433,43 +359,6 @@ class TAGApi
 
     protected function getTagValuesRequest($body)
     {
-        $attributes = $body::getters();
-        $match_type = $body->{$attributes['match_type']}();
-        $max_results = $body->{$attributes['max_results']}();
-        $next_token = $body->{$attributes['next_token']}();
-        $tag_keys = $body->{$attributes['tag_keys']}();
-        $tag_value = $body->{$attributes['tag_value']}();
-        // verify the required parameter 'match_type' is set
-        if ($match_type === null || (is_array($match_type) && count($match_type) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $match_type when calling getTagValues'
-            );
-        }
-        // verify the required parameter 'max_results' is set
-        if ($max_results === null || (is_array($max_results) && count($max_results) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $max_results when calling getTagValues'
-            );
-        }
-        // verify the required parameter 'next_token' is set
-        if ($next_token === null || (is_array($next_token) && count($next_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $next_token when calling getTagValues'
-            );
-        }
-        // verify the required parameter 'tag_keys' is set
-        if ($tag_keys === null || (is_array($tag_keys) && count($tag_keys) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $tag_keys when calling getTagValues'
-            );
-        }
-        // verify the required parameter 'tag_value' is set
-        if ($tag_value === null || (is_array($tag_value) && count($tag_value) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $tag_value when calling getTagValues'
-            );
-        }
-
         $resourcePath = '/GetTagValues/2022-06-01/tag/post/application_x-www-form-urlencoded/';
         $queryParams = [];
 
@@ -531,50 +420,6 @@ class TAGApi
 
     protected function getTagsRequest($body)
     {
-        $attributes = $body::getters();
-        $count_resources = $body->{$attributes['count_resources']}();
-        $match_type = $body->{$attributes['match_type']}();
-        $max_results = $body->{$attributes['max_results']}();
-        $next_token = $body->{$attributes['next_token']}();
-        $tag_keys = $body->{$attributes['tag_keys']}();
-        $tag_type = $body->{$attributes['tag_type']}();
-        // verify the required parameter 'count_resources' is set
-        if ($count_resources === null || (is_array($count_resources) && count($count_resources) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $count_resources when calling getTags'
-            );
-        }
-        // verify the required parameter 'match_type' is set
-        if ($match_type === null || (is_array($match_type) && count($match_type) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $match_type when calling getTags'
-            );
-        }
-        // verify the required parameter 'max_results' is set
-        if ($max_results === null || (is_array($max_results) && count($max_results) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $max_results when calling getTags'
-            );
-        }
-        // verify the required parameter 'next_token' is set
-        if ($next_token === null || (is_array($next_token) && count($next_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $next_token when calling getTags'
-            );
-        }
-        // verify the required parameter 'tag_keys' is set
-        if ($tag_keys === null || (is_array($tag_keys) && count($tag_keys) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $tag_keys when calling getTags'
-            );
-        }
-        // verify the required parameter 'tag_type' is set
-        if ($tag_type === null || (is_array($tag_type) && count($tag_type) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $tag_type when calling getTags'
-            );
-        }
-
         $resourcePath = '/GetTags/2022-06-01/tag/post/application_x-www-form-urlencoded/';
         $queryParams = [];
 
@@ -698,22 +543,6 @@ class TAGApi
 
     protected function tagResourcesRequest($body)
     {
-        $attributes = $body::getters();
-        $resource_trn_list = $body->{$attributes['resource_trn_list']}();
-        $tags = $body->{$attributes['tags']}();
-        // verify the required parameter 'resource_trn_list' is set
-        if ($resource_trn_list === null || (is_array($resource_trn_list) && count($resource_trn_list) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $resource_trn_list when calling tagResources'
-            );
-        }
-        // verify the required parameter 'tags' is set
-        if ($tags === null || (is_array($tags) && count($tags) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $tags when calling tagResources'
-            );
-        }
-
         $resourcePath = '/TagResources/2022-06-01/tag/post/application_x-www-form-urlencoded/';
         $queryParams = [];
 
@@ -775,23 +604,6 @@ class TAGApi
 
     protected function untagResourcesRequest($body)
     {
-        $attributes = $body::getters();
-
-        $resource_trn_list = $body->{$attributes['resource_trn_list']}();
-        $tag_keys = $body->{$attributes['tag_keys']}();
-        // verify the required parameter 'resource_trn_list' is set
-        if ($resource_trn_list === null || (is_array($resource_trn_list) && count($resource_trn_list) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $resource_trn_list when calling untagResources'
-            );
-        }
-        // verify the required parameter 'tag_keys' is set
-        if ($tag_keys === null || (is_array($tag_keys) && count($tag_keys) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $tag_keys when calling untagResources'
-            );
-        }
-
         $resourcePath = '/UntagResources/2022-06-01/tag/post/application_x-www-form-urlencoded/';
         $queryParams = [];
 

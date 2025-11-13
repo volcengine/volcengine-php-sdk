@@ -100,92 +100,6 @@ class CLOUDTRAIL20180101Api
 
     protected function createTrailRequest($body)
     {
-        $attributes = $body::getters();
-        $event_rw = $body->{$attributes['event_rw']}();
-        $event_sources = $body->{$attributes['event_sources']}();
-        $trail_name = $body->{$attributes['trail_name']}();
-        $trail_type = $body->{$attributes['trail_type']}();
-        $tls_project_name = $body->{$attributes['tls_project_name']}();
-        $tls_project_region = $body->{$attributes['tls_project_region']}();
-        $tls_project_topic_project = $body->{$attributes['tls_project_topic_project']}();
-        $tls_topic_name = $body->{$attributes['tls_topic_name']}();
-        $tos_bucket_name = $body->{$attributes['tos_bucket_name']}();
-        $tos_bucket_project = $body->{$attributes['tos_bucket_project']}();
-        $tos_bucket_region = $body->{$attributes['tos_bucket_region']}();
-        $tos_key_prefix = $body->{$attributes['tos_key_prefix']}();
-        // verify the required parameter 'event_rw' is set
-        if ($event_rw === null || (is_array($event_rw) && count($event_rw) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $event_rw when calling createTrail'
-            );
-        }
-        // verify the required parameter 'event_sources' is set
-        if ($event_sources === null || (is_array($event_sources) && count($event_sources) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $event_sources when calling createTrail'
-            );
-        }
-        // verify the required parameter 'tls_project_name' is set
-        if ($tls_project_name === null || (is_array($tls_project_name) && count($tls_project_name) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $tls_project_name when calling createTrail'
-            );
-        }
-        // verify the required parameter 'tls_project_region' is set
-        if ($tls_project_region === null || (is_array($tls_project_region) && count($tls_project_region) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $tls_project_region when calling createTrail'
-            );
-        }
-        // verify the required parameter 'tls_project_topic_project' is set
-        if ($tls_project_topic_project === null || (is_array($tls_project_topic_project) && count($tls_project_topic_project) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $tls_project_topic_project when calling createTrail'
-            );
-        }
-        // verify the required parameter 'tls_topic_name' is set
-        if ($tls_topic_name === null || (is_array($tls_topic_name) && count($tls_topic_name) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $tls_topic_name when calling createTrail'
-            );
-        }
-        // verify the required parameter 'tos_bucket_name' is set
-        if ($tos_bucket_name === null || (is_array($tos_bucket_name) && count($tos_bucket_name) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $tos_bucket_name when calling createTrail'
-            );
-        }
-        // verify the required parameter 'tos_bucket_project' is set
-        if ($tos_bucket_project === null || (is_array($tos_bucket_project) && count($tos_bucket_project) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $tos_bucket_project when calling createTrail'
-            );
-        }
-        // verify the required parameter 'tos_bucket_region' is set
-        if ($tos_bucket_region === null || (is_array($tos_bucket_region) && count($tos_bucket_region) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $tos_bucket_region when calling createTrail'
-            );
-        }
-        // verify the required parameter 'tos_key_prefix' is set
-        if ($tos_key_prefix === null || (is_array($tos_key_prefix) && count($tos_key_prefix) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $tos_key_prefix when calling createTrail'
-            );
-        }
-        // verify the required parameter 'trail_name' is set
-        if ($trail_name === null || (is_array($trail_name) && count($trail_name) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $trail_name when calling createTrail'
-            );
-        }
-        // verify the required parameter 'trail_type' is set
-        if ($trail_type === null || (is_array($trail_type) && count($trail_type) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $trail_type when calling createTrail'
-            );
-        }
-
         $resourcePath = '/CreateTrail/2018-01-01/cloud_trail/post/application_x-www-form-urlencoded/';
         $queryParams = [];
 
@@ -247,15 +161,6 @@ class CLOUDTRAIL20180101Api
 
     protected function deleteTrailRequest($body)
     {
-        $attributes = $body::getters();
-        $trail_name = $body->{$attributes['trail_name']}();
-        // verify the required parameter 'trail_name' is set
-        if ($trail_name === null || (is_array($trail_name) && count($trail_name) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $trail_name when calling deleteTrail'
-            );
-        }
-
         $resourcePath = '/DeleteTrail/2018-01-01/cloud_trail/post/application_x-www-form-urlencoded/';
         $queryParams = [];
 
@@ -317,22 +222,6 @@ class CLOUDTRAIL20180101Api
 
     protected function describeTrailsRequest($body)
     {
-        $attributes = $body::getters();
-        $include_organization_trail = $body->{$attributes['include_organization_trail']}();
-        $trail_names = $body->{$attributes['trail_names']}();
-        // verify the required parameter 'include_organization_trail' is set
-        if ($include_organization_trail === null || (is_array($include_organization_trail) && count($include_organization_trail) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $include_organization_trail when calling describeTrails'
-            );
-        }
-        // verify the required parameter 'trail_names' is set
-        if ($trail_names === null || (is_array($trail_names) && count($trail_names) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $trail_names when calling describeTrails'
-            );
-        }
-
         $resourcePath = '/DescribeTrails/2018-01-01/cloud_trail/post/application_x-www-form-urlencoded/';
         $queryParams = [];
 
@@ -394,15 +283,6 @@ class CLOUDTRAIL20180101Api
 
     protected function startLoggingRequest($body)
     {
-        $attributes = $body::getters();
-        $trail_name = $body->{$attributes['trail_name']}();
-        // verify the required parameter 'trail_name' is set
-        if ($trail_name === null || (is_array($trail_name) && count($trail_name) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $trail_name when calling startLogging'
-            );
-        }
-
         $resourcePath = '/StartLogging/2018-01-01/cloud_trail/post/application_x-www-form-urlencoded/';
         $queryParams = [];
 
@@ -464,15 +344,6 @@ class CLOUDTRAIL20180101Api
 
     protected function stopLoggingRequest($body)
     {
-        $attributes = $body::getters();
-        $trail_name = $body->{$attributes['trail_name']}();
-        // verify the required parameter 'trail_name' is set
-        if ($trail_name === null || (is_array($trail_name) && count($trail_name) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $trail_name when calling stopLogging'
-            );
-        }
-
         $resourcePath = '/StopLogging/2018-01-01/cloud_trail/post/application_x-www-form-urlencoded/';
         $queryParams = [];
 
@@ -534,92 +405,6 @@ class CLOUDTRAIL20180101Api
 
     protected function updateTrailRequest($body)
     {
-        $attributes = $body::getters();
-        $event_rw = $body->{$attributes['event_rw']}();
-        $event_sources = $body->{$attributes['event_sources']}();
-        $tls_project_name = $body->{$attributes['tls_project_name']}();
-        $tls_project_region = $body->{$attributes['tls_project_region']}();
-        $tls_project_topic_project = $body->{$attributes['tls_project_topic_project']}();
-        $tls_topic_name = $body->{$attributes['tls_topic_name']}();
-        $tos_bucket_name = $body->{$attributes['tos_bucket_name']}();
-        $tos_bucket_project = $body->{$attributes['tos_bucket_project']}();
-        $tos_bucket_region = $body->{$attributes['tos_bucket_region']}();
-        $tos_key_prefix = $body->{$attributes['tos_key_prefix']}();
-        $trail_name = $body->{$attributes['trail_name']}();
-        $trail_type = $body->{$attributes['trail_type']}();
-        // verify the required parameter 'event_rw' is set
-        if ($event_rw === null || (is_array($event_rw) && count($event_rw) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $event_rw when calling updateTrail'
-            );
-        }
-        // verify the required parameter 'event_sources' is set
-        if ($event_sources === null || (is_array($event_sources) && count($event_sources) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $event_sources when calling updateTrail'
-            );
-        }
-        // verify the required parameter 'tls_project_name' is set
-        if ($tls_project_name === null || (is_array($tls_project_name) && count($tls_project_name) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $tls_project_name when calling updateTrail'
-            );
-        }
-        // verify the required parameter 'tls_project_region' is set
-        if ($tls_project_region === null || (is_array($tls_project_region) && count($tls_project_region) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $tls_project_region when calling updateTrail'
-            );
-        }
-        // verify the required parameter 'tls_project_topic_project' is set
-        if ($tls_project_topic_project === null || (is_array($tls_project_topic_project) && count($tls_project_topic_project) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $tls_project_topic_project when calling updateTrail'
-            );
-        }
-        // verify the required parameter 'tls_topic_name' is set
-        if ($tls_topic_name === null || (is_array($tls_topic_name) && count($tls_topic_name) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $tls_topic_name when calling updateTrail'
-            );
-        }
-        // verify the required parameter 'tos_bucket_name' is set
-        if ($tos_bucket_name === null || (is_array($tos_bucket_name) && count($tos_bucket_name) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $tos_bucket_name when calling updateTrail'
-            );
-        }
-        // verify the required parameter 'tos_bucket_project' is set
-        if ($tos_bucket_project === null || (is_array($tos_bucket_project) && count($tos_bucket_project) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $tos_bucket_project when calling updateTrail'
-            );
-        }
-        // verify the required parameter 'tos_bucket_region' is set
-        if ($tos_bucket_region === null || (is_array($tos_bucket_region) && count($tos_bucket_region) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $tos_bucket_region when calling updateTrail'
-            );
-        }
-        // verify the required parameter 'tos_key_prefix' is set
-        if ($tos_key_prefix === null || (is_array($tos_key_prefix) && count($tos_key_prefix) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $tos_key_prefix when calling updateTrail'
-            );
-        }
-        // verify the required parameter 'trail_name' is set
-        if ($trail_name === null || (is_array($trail_name) && count($trail_name) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $trail_name when calling updateTrail'
-            );
-        }
-        // verify the required parameter 'trail_type' is set
-        if ($trail_type === null || (is_array($trail_type) && count($trail_type) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $trail_type when calling updateTrail'
-            );
-        }
-
         $resourcePath = '/UpdateTrail/2018-01-01/cloud_trail/post/application_x-www-form-urlencoded/';
         $queryParams = [];
 
