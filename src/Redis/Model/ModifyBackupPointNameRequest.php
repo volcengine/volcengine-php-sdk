@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class DescribeDBInstanceBandwidthPerShardResponse implements ModelInterface, ArrayAccess
+class ModifyBackupPointNameRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class DescribeDBInstanceBandwidthPerShardResponse implements ModelInterface, Arr
       *
       * @var string
       */
-    protected static $swaggerModelName = 'DescribeDBInstanceBandwidthPerShardResponse';
+    protected static $swaggerModelName = 'ModifyBackupPointNameRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,9 @@ class DescribeDBInstanceBandwidthPerShardResponse implements ModelInterface, Arr
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'additional_bandwidth_per_shard' => 'int',
-        'additional_read_bandwidth_per_shard' => 'int',
-        'additional_write_bandwidth_per_shard' => 'int',
-        'default_bandwidth_per_shard' => 'int'
+        'backup_point_id' => 'string',
+        'backup_point_name' => 'string',
+        'client_token' => 'string'
     ];
 
     /**
@@ -40,10 +39,9 @@ class DescribeDBInstanceBandwidthPerShardResponse implements ModelInterface, Arr
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'additional_bandwidth_per_shard' => 'int32',
-        'additional_read_bandwidth_per_shard' => 'int32',
-        'additional_write_bandwidth_per_shard' => 'int32',
-        'default_bandwidth_per_shard' => 'int32'
+        'backup_point_id' => null,
+        'backup_point_name' => null,
+        'client_token' => null
     ];
 
     /**
@@ -73,10 +71,9 @@ class DescribeDBInstanceBandwidthPerShardResponse implements ModelInterface, Arr
      * @var string[]
      */
     protected static $attributeMap = [
-        'additional_bandwidth_per_shard' => 'AdditionalBandwidthPerShard',
-        'additional_read_bandwidth_per_shard' => 'AdditionalReadBandwidthPerShard',
-        'additional_write_bandwidth_per_shard' => 'AdditionalWriteBandwidthPerShard',
-        'default_bandwidth_per_shard' => 'DefaultBandwidthPerShard'
+        'backup_point_id' => 'BackupPointID',
+        'backup_point_name' => 'BackupPointName',
+        'client_token' => 'ClientToken'
     ];
 
     /**
@@ -85,10 +82,9 @@ class DescribeDBInstanceBandwidthPerShardResponse implements ModelInterface, Arr
      * @var string[]
      */
     protected static $setters = [
-        'additional_bandwidth_per_shard' => 'setAdditionalBandwidthPerShard',
-        'additional_read_bandwidth_per_shard' => 'setAdditionalReadBandwidthPerShard',
-        'additional_write_bandwidth_per_shard' => 'setAdditionalWriteBandwidthPerShard',
-        'default_bandwidth_per_shard' => 'setDefaultBandwidthPerShard'
+        'backup_point_id' => 'setBackupPointId',
+        'backup_point_name' => 'setBackupPointName',
+        'client_token' => 'setClientToken'
     ];
 
     /**
@@ -97,10 +93,9 @@ class DescribeDBInstanceBandwidthPerShardResponse implements ModelInterface, Arr
      * @var string[]
      */
     protected static $getters = [
-        'additional_bandwidth_per_shard' => 'getAdditionalBandwidthPerShard',
-        'additional_read_bandwidth_per_shard' => 'getAdditionalReadBandwidthPerShard',
-        'additional_write_bandwidth_per_shard' => 'getAdditionalWriteBandwidthPerShard',
-        'default_bandwidth_per_shard' => 'getDefaultBandwidthPerShard'
+        'backup_point_id' => 'getBackupPointId',
+        'backup_point_name' => 'getBackupPointName',
+        'client_token' => 'getClientToken'
     ];
 
     /**
@@ -163,10 +158,9 @@ class DescribeDBInstanceBandwidthPerShardResponse implements ModelInterface, Arr
      */
     public function __construct(array $data = null)
     {
-        $this->container['additional_bandwidth_per_shard'] = isset($data['additional_bandwidth_per_shard']) ? $data['additional_bandwidth_per_shard'] : null;
-        $this->container['additional_read_bandwidth_per_shard'] = isset($data['additional_read_bandwidth_per_shard']) ? $data['additional_read_bandwidth_per_shard'] : null;
-        $this->container['additional_write_bandwidth_per_shard'] = isset($data['additional_write_bandwidth_per_shard']) ? $data['additional_write_bandwidth_per_shard'] : null;
-        $this->container['default_bandwidth_per_shard'] = isset($data['default_bandwidth_per_shard']) ? $data['default_bandwidth_per_shard'] : null;
+        $this->container['backup_point_id'] = isset($data['backup_point_id']) ? $data['backup_point_id'] : null;
+        $this->container['backup_point_name'] = isset($data['backup_point_name']) ? $data['backup_point_name'] : null;
+        $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
     }
 
     /**
@@ -178,6 +172,12 @@ class DescribeDBInstanceBandwidthPerShardResponse implements ModelInterface, Arr
     {
         $invalidProperties = [];
 
+        if ($this->container['backup_point_id'] === null) {
+            $invalidProperties[] = "'backup_point_id' can't be null";
+        }
+        if ($this->container['backup_point_name'] === null) {
+            $invalidProperties[] = "'backup_point_name' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -194,97 +194,73 @@ class DescribeDBInstanceBandwidthPerShardResponse implements ModelInterface, Arr
 
 
     /**
-     * Gets additional_bandwidth_per_shard
+     * Gets backup_point_id
      *
-     * @return int
+     * @return string
      */
-    public function getAdditionalBandwidthPerShard()
+    public function getBackupPointId()
     {
-        return $this->container['additional_bandwidth_per_shard'];
+        return $this->container['backup_point_id'];
     }
 
     /**
-     * Sets additional_bandwidth_per_shard
+     * Sets backup_point_id
      *
-     * @param int $additional_bandwidth_per_shard additional_bandwidth_per_shard
+     * @param string $backup_point_id backup_point_id
      *
      * @return $this
      */
-    public function setAdditionalBandwidthPerShard($additional_bandwidth_per_shard)
+    public function setBackupPointId($backup_point_id)
     {
-        $this->container['additional_bandwidth_per_shard'] = $additional_bandwidth_per_shard;
+        $this->container['backup_point_id'] = $backup_point_id;
 
         return $this;
     }
 
     /**
-     * Gets additional_read_bandwidth_per_shard
+     * Gets backup_point_name
      *
-     * @return int
+     * @return string
      */
-    public function getAdditionalReadBandwidthPerShard()
+    public function getBackupPointName()
     {
-        return $this->container['additional_read_bandwidth_per_shard'];
+        return $this->container['backup_point_name'];
     }
 
     /**
-     * Sets additional_read_bandwidth_per_shard
+     * Sets backup_point_name
      *
-     * @param int $additional_read_bandwidth_per_shard additional_read_bandwidth_per_shard
+     * @param string $backup_point_name backup_point_name
      *
      * @return $this
      */
-    public function setAdditionalReadBandwidthPerShard($additional_read_bandwidth_per_shard)
+    public function setBackupPointName($backup_point_name)
     {
-        $this->container['additional_read_bandwidth_per_shard'] = $additional_read_bandwidth_per_shard;
+        $this->container['backup_point_name'] = $backup_point_name;
 
         return $this;
     }
 
     /**
-     * Gets additional_write_bandwidth_per_shard
+     * Gets client_token
      *
-     * @return int
+     * @return string
      */
-    public function getAdditionalWriteBandwidthPerShard()
+    public function getClientToken()
     {
-        return $this->container['additional_write_bandwidth_per_shard'];
+        return $this->container['client_token'];
     }
 
     /**
-     * Sets additional_write_bandwidth_per_shard
+     * Sets client_token
      *
-     * @param int $additional_write_bandwidth_per_shard additional_write_bandwidth_per_shard
+     * @param string $client_token client_token
      *
      * @return $this
      */
-    public function setAdditionalWriteBandwidthPerShard($additional_write_bandwidth_per_shard)
+    public function setClientToken($client_token)
     {
-        $this->container['additional_write_bandwidth_per_shard'] = $additional_write_bandwidth_per_shard;
-
-        return $this;
-    }
-
-    /**
-     * Gets default_bandwidth_per_shard
-     *
-     * @return int
-     */
-    public function getDefaultBandwidthPerShard()
-    {
-        return $this->container['default_bandwidth_per_shard'];
-    }
-
-    /**
-     * Sets default_bandwidth_per_shard
-     *
-     * @param int $default_bandwidth_per_shard default_bandwidth_per_shard
-     *
-     * @return $this
-     */
-    public function setDefaultBandwidthPerShard($default_bandwidth_per_shard)
-    {
-        $this->container['default_bandwidth_per_shard'] = $default_bandwidth_per_shard;
+        $this->container['client_token'] = $client_token;
 
         return $this;
     }
