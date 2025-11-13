@@ -29,7 +29,8 @@ class ApigConfigForCreateDeploymentInput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'instance_id' => 'string',
-        'upstream_config' => '\Volcengine\Mlplatform20240701\Model\UpstreamConfigForCreateDeploymentInput'
+        'upstream_config' => '\Volcengine\Mlplatform20240701\Model\UpstreamConfigForCreateDeploymentInput',
+        'use_public_instance' => 'bool'
     ];
 
     /**
@@ -39,7 +40,8 @@ class ApigConfigForCreateDeploymentInput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'instance_id' => null,
-        'upstream_config' => null
+        'upstream_config' => null,
+        'use_public_instance' => null
     ];
 
     /**
@@ -70,7 +72,8 @@ class ApigConfigForCreateDeploymentInput implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'instance_id' => 'InstanceID',
-        'upstream_config' => 'UpstreamConfig'
+        'upstream_config' => 'UpstreamConfig',
+        'use_public_instance' => 'UsePublicInstance'
     ];
 
     /**
@@ -80,7 +83,8 @@ class ApigConfigForCreateDeploymentInput implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'instance_id' => 'setInstanceId',
-        'upstream_config' => 'setUpstreamConfig'
+        'upstream_config' => 'setUpstreamConfig',
+        'use_public_instance' => 'setUsePublicInstance'
     ];
 
     /**
@@ -90,7 +94,8 @@ class ApigConfigForCreateDeploymentInput implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'instance_id' => 'getInstanceId',
-        'upstream_config' => 'getUpstreamConfig'
+        'upstream_config' => 'getUpstreamConfig',
+        'use_public_instance' => 'getUsePublicInstance'
     ];
 
     /**
@@ -155,6 +160,7 @@ class ApigConfigForCreateDeploymentInput implements ModelInterface, ArrayAccess
     {
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
         $this->container['upstream_config'] = isset($data['upstream_config']) ? $data['upstream_config'] : null;
+        $this->container['use_public_instance'] = isset($data['use_public_instance']) ? $data['use_public_instance'] : null;
     }
 
     /**
@@ -225,6 +231,30 @@ class ApigConfigForCreateDeploymentInput implements ModelInterface, ArrayAccess
     public function setUpstreamConfig($upstream_config)
     {
         $this->container['upstream_config'] = $upstream_config;
+
+        return $this;
+    }
+
+    /**
+     * Gets use_public_instance
+     *
+     * @return bool
+     */
+    public function getUsePublicInstance()
+    {
+        return $this->container['use_public_instance'];
+    }
+
+    /**
+     * Sets use_public_instance
+     *
+     * @param bool $use_public_instance use_public_instance
+     *
+     * @return $this
+     */
+    public function setUsePublicInstance($use_public_instance)
+    {
+        $this->container['use_public_instance'] = $use_public_instance;
 
         return $this;
     }

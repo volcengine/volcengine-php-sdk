@@ -28,9 +28,12 @@ class VepfsForUpdateResourceGroupInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'available_num' => 'int',
         'enable_prefetch' => 'bool',
         'file_system_ids' => 'string[]',
-        'mount_service_id' => 'string'
+        'mount_service_id' => 'string',
+        'total_num' => 'int',
+        'unavailable_num' => 'int'
     ];
 
     /**
@@ -39,9 +42,12 @@ class VepfsForUpdateResourceGroupInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'available_num' => 'int32',
         'enable_prefetch' => null,
         'file_system_ids' => null,
-        'mount_service_id' => null
+        'mount_service_id' => null,
+        'total_num' => 'int32',
+        'unavailable_num' => 'int32'
     ];
 
     /**
@@ -71,9 +77,12 @@ class VepfsForUpdateResourceGroupInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'available_num' => 'AvailableNum',
         'enable_prefetch' => 'EnablePrefetch',
         'file_system_ids' => 'FileSystemIds',
-        'mount_service_id' => 'MountServiceId'
+        'mount_service_id' => 'MountServiceId',
+        'total_num' => 'TotalNum',
+        'unavailable_num' => 'UnavailableNum'
     ];
 
     /**
@@ -82,9 +91,12 @@ class VepfsForUpdateResourceGroupInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'available_num' => 'setAvailableNum',
         'enable_prefetch' => 'setEnablePrefetch',
         'file_system_ids' => 'setFileSystemIds',
-        'mount_service_id' => 'setMountServiceId'
+        'mount_service_id' => 'setMountServiceId',
+        'total_num' => 'setTotalNum',
+        'unavailable_num' => 'setUnavailableNum'
     ];
 
     /**
@@ -93,9 +105,12 @@ class VepfsForUpdateResourceGroupInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'available_num' => 'getAvailableNum',
         'enable_prefetch' => 'getEnablePrefetch',
         'file_system_ids' => 'getFileSystemIds',
-        'mount_service_id' => 'getMountServiceId'
+        'mount_service_id' => 'getMountServiceId',
+        'total_num' => 'getTotalNum',
+        'unavailable_num' => 'getUnavailableNum'
     ];
 
     /**
@@ -158,9 +173,12 @@ class VepfsForUpdateResourceGroupInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['available_num'] = isset($data['available_num']) ? $data['available_num'] : null;
         $this->container['enable_prefetch'] = isset($data['enable_prefetch']) ? $data['enable_prefetch'] : null;
         $this->container['file_system_ids'] = isset($data['file_system_ids']) ? $data['file_system_ids'] : null;
         $this->container['mount_service_id'] = isset($data['mount_service_id']) ? $data['mount_service_id'] : null;
+        $this->container['total_num'] = isset($data['total_num']) ? $data['total_num'] : null;
+        $this->container['unavailable_num'] = isset($data['unavailable_num']) ? $data['unavailable_num'] : null;
     }
 
     /**
@@ -186,6 +204,30 @@ class VepfsForUpdateResourceGroupInput implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets available_num
+     *
+     * @return int
+     */
+    public function getAvailableNum()
+    {
+        return $this->container['available_num'];
+    }
+
+    /**
+     * Sets available_num
+     *
+     * @param int $available_num available_num
+     *
+     * @return $this
+     */
+    public function setAvailableNum($available_num)
+    {
+        $this->container['available_num'] = $available_num;
+
+        return $this;
+    }
 
     /**
      * Gets enable_prefetch
@@ -255,6 +297,54 @@ class VepfsForUpdateResourceGroupInput implements ModelInterface, ArrayAccess
     public function setMountServiceId($mount_service_id)
     {
         $this->container['mount_service_id'] = $mount_service_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_num
+     *
+     * @return int
+     */
+    public function getTotalNum()
+    {
+        return $this->container['total_num'];
+    }
+
+    /**
+     * Sets total_num
+     *
+     * @param int $total_num total_num
+     *
+     * @return $this
+     */
+    public function setTotalNum($total_num)
+    {
+        $this->container['total_num'] = $total_num;
+
+        return $this;
+    }
+
+    /**
+     * Gets unavailable_num
+     *
+     * @return int
+     */
+    public function getUnavailableNum()
+    {
+        return $this->container['unavailable_num'];
+    }
+
+    /**
+     * Sets unavailable_num
+     *
+     * @param int $unavailable_num unavailable_num
+     *
+     * @return $this
+     */
+    public function setUnavailableNum($unavailable_num)
+    {
+        $this->container['unavailable_num'] = $unavailable_num;
 
         return $this;
     }

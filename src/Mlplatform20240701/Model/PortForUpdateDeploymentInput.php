@@ -31,6 +31,7 @@ class PortForUpdateDeploymentInput implements ModelInterface, ArrayAccess
         'expose_port' => 'string',
         'listen_port' => 'string',
         'path' => 'string',
+        'source' => 'string',
         'type' => 'string'
     ];
 
@@ -43,6 +44,7 @@ class PortForUpdateDeploymentInput implements ModelInterface, ArrayAccess
         'expose_port' => null,
         'listen_port' => null,
         'path' => null,
+        'source' => null,
         'type' => null
     ];
 
@@ -76,6 +78,7 @@ class PortForUpdateDeploymentInput implements ModelInterface, ArrayAccess
         'expose_port' => 'ExposePort',
         'listen_port' => 'ListenPort',
         'path' => 'Path',
+        'source' => 'Source',
         'type' => 'Type'
     ];
 
@@ -88,6 +91,7 @@ class PortForUpdateDeploymentInput implements ModelInterface, ArrayAccess
         'expose_port' => 'setExposePort',
         'listen_port' => 'setListenPort',
         'path' => 'setPath',
+        'source' => 'setSource',
         'type' => 'setType'
     ];
 
@@ -100,6 +104,7 @@ class PortForUpdateDeploymentInput implements ModelInterface, ArrayAccess
         'expose_port' => 'getExposePort',
         'listen_port' => 'getListenPort',
         'path' => 'getPath',
+        'source' => 'getSource',
         'type' => 'getType'
     ];
 
@@ -144,29 +149,8 @@ class PortForUpdateDeploymentInput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const TYPE_HTTP11 = 'HTTP/1.1';
-    const TYPE_HTTP2 = 'HTTP2';
-    const TYPE_GRPC = 'GRPC';
-    const TYPE_METRICS = 'Metrics';
-    const TYPE_OTHER = 'Other';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTypeAllowableValues()
-    {
-        return [
-            self::TYPE_HTTP11,
-            self::TYPE_HTTP2,
-            self::TYPE_GRPC,
-            self::TYPE_METRICS,
-            self::TYPE_OTHER,
-        ];
-    }
     
 
     /**
@@ -187,6 +171,7 @@ class PortForUpdateDeploymentInput implements ModelInterface, ArrayAccess
         $this->container['expose_port'] = isset($data['expose_port']) ? $data['expose_port'] : null;
         $this->container['listen_port'] = isset($data['listen_port']) ? $data['listen_port'] : null;
         $this->container['path'] = isset($data['path']) ? $data['path'] : null;
+        $this->container['source'] = isset($data['source']) ? $data['source'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
@@ -198,14 +183,6 @@ class PortForUpdateDeploymentInput implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -295,6 +272,30 @@ class PortForUpdateDeploymentInput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets source
+     *
+     * @return string
+     */
+    public function getSource()
+    {
+        return $this->container['source'];
+    }
+
+    /**
+     * Sets source
+     *
+     * @param string $source source
+     *
+     * @return $this
+     */
+    public function setSource($source)
+    {
+        $this->container['source'] = $source;
+
+        return $this;
+    }
+
+    /**
      * Gets type
      *
      * @return string
@@ -313,15 +314,6 @@ class PortForUpdateDeploymentInput implements ModelInterface, ArrayAccess
      */
     public function setType($type)
     {
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['type'] = $type;
 
         return $this;

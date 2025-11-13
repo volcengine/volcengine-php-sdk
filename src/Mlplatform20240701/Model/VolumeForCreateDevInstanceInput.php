@@ -29,7 +29,7 @@ class VolumeForCreateDevInstanceInput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'size' => 'int',
-        'volume_type_id' => 'string'
+        'type' => 'string'
     ];
 
     /**
@@ -39,7 +39,7 @@ class VolumeForCreateDevInstanceInput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'size' => 'int32',
-        'volume_type_id' => null
+        'type' => null
     ];
 
     /**
@@ -70,7 +70,7 @@ class VolumeForCreateDevInstanceInput implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'size' => 'Size',
-        'volume_type_id' => 'VolumeTypeId'
+        'type' => 'Type'
     ];
 
     /**
@@ -80,7 +80,7 @@ class VolumeForCreateDevInstanceInput implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'size' => 'setSize',
-        'volume_type_id' => 'setVolumeTypeId'
+        'type' => 'setType'
     ];
 
     /**
@@ -90,7 +90,7 @@ class VolumeForCreateDevInstanceInput implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'size' => 'getSize',
-        'volume_type_id' => 'getVolumeTypeId'
+        'type' => 'getType'
     ];
 
     /**
@@ -154,7 +154,7 @@ class VolumeForCreateDevInstanceInput implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['size'] = isset($data['size']) ? $data['size'] : null;
-        $this->container['volume_type_id'] = isset($data['volume_type_id']) ? $data['volume_type_id'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
     /**
@@ -206,25 +206,25 @@ class VolumeForCreateDevInstanceInput implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets volume_type_id
+     * Gets type
      *
      * @return string
      */
-    public function getVolumeTypeId()
+    public function getType()
     {
-        return $this->container['volume_type_id'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets volume_type_id
+     * Sets type
      *
-     * @param string $volume_type_id volume_type_id
+     * @param string $type type
      *
      * @return $this
      */
-    public function setVolumeTypeId($volume_type_id)
+    public function setType($type)
     {
-        $this->container['volume_type_id'] = $volume_type_id;
+        $this->container['type'] = $type;
 
         return $this;
     }

@@ -30,6 +30,7 @@ class GetResourceReservationPlanResponse implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'create_time' => 'string',
         'creator_trn' => 'string',
+        'custom_compute_resource' => '\Volcengine\Mlplatform20240701\Model\CustomComputeResourceForGetResourceReservationPlanOutput[]',
         'description' => 'string',
         'desired_compute_resource' => '\Volcengine\Mlplatform20240701\Model\DesiredComputeResourceForGetResourceReservationPlanOutput',
         'id' => 'string',
@@ -52,6 +53,7 @@ class GetResourceReservationPlanResponse implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'create_time' => null,
         'creator_trn' => null,
+        'custom_compute_resource' => null,
         'description' => null,
         'desired_compute_resource' => null,
         'id' => null,
@@ -95,6 +97,7 @@ class GetResourceReservationPlanResponse implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'create_time' => 'CreateTime',
         'creator_trn' => 'CreatorTrn',
+        'custom_compute_resource' => 'CustomComputeResource',
         'description' => 'Description',
         'desired_compute_resource' => 'DesiredComputeResource',
         'id' => 'Id',
@@ -117,6 +120,7 @@ class GetResourceReservationPlanResponse implements ModelInterface, ArrayAccess
     protected static $setters = [
         'create_time' => 'setCreateTime',
         'creator_trn' => 'setCreatorTrn',
+        'custom_compute_resource' => 'setCustomComputeResource',
         'description' => 'setDescription',
         'desired_compute_resource' => 'setDesiredComputeResource',
         'id' => 'setId',
@@ -139,6 +143,7 @@ class GetResourceReservationPlanResponse implements ModelInterface, ArrayAccess
     protected static $getters = [
         'create_time' => 'getCreateTime',
         'creator_trn' => 'getCreatorTrn',
+        'custom_compute_resource' => 'getCustomComputeResource',
         'description' => 'getDescription',
         'desired_compute_resource' => 'getDesiredComputeResource',
         'id' => 'getId',
@@ -215,6 +220,7 @@ class GetResourceReservationPlanResponse implements ModelInterface, ArrayAccess
     {
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
         $this->container['creator_trn'] = isset($data['creator_trn']) ? $data['creator_trn'] : null;
+        $this->container['custom_compute_resource'] = isset($data['custom_compute_resource']) ? $data['custom_compute_resource'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['desired_compute_resource'] = isset($data['desired_compute_resource']) ? $data['desired_compute_resource'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
@@ -297,6 +303,30 @@ class GetResourceReservationPlanResponse implements ModelInterface, ArrayAccess
     public function setCreatorTrn($creator_trn)
     {
         $this->container['creator_trn'] = $creator_trn;
+
+        return $this;
+    }
+
+    /**
+     * Gets custom_compute_resource
+     *
+     * @return \Volcengine\Mlplatform20240701\Model\CustomComputeResourceForGetResourceReservationPlanOutput[]
+     */
+    public function getCustomComputeResource()
+    {
+        return $this->container['custom_compute_resource'];
+    }
+
+    /**
+     * Sets custom_compute_resource
+     *
+     * @param \Volcengine\Mlplatform20240701\Model\CustomComputeResourceForGetResourceReservationPlanOutput[] $custom_compute_resource custom_compute_resource
+     *
+     * @return $this
+     */
+    public function setCustomComputeResource($custom_compute_resource)
+    {
+        $this->container['custom_compute_resource'] = $custom_compute_resource;
 
         return $this;
     }
