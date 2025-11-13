@@ -47,7 +47,7 @@ class DataForListScanSubTasksOutput implements ModelInterface, ArrayAccess
         'hostname' => null,
         'status' => null,
         'task_id' => null,
-        'update_time' => 'int32'
+        'update_time' => 'int64'
     ];
 
     /**

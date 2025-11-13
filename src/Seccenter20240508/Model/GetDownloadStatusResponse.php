@@ -40,8 +40,8 @@ class GetDownloadStatusResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'export_count' => 'int32',
-        'export_total' => 'int32',
+        'export_count' => 'int64',
+        'export_total' => 'int64',
         'file_name' => null,
         'status' => null
     ];

@@ -42,9 +42,9 @@ class DataForListAlarmArchiveRecordsOutput implements ModelInterface, ArrayAcces
       */
     protected static $swaggerFormats = [
         'account_id' => null,
-        'alarm_count' => 'int32',
+        'alarm_count' => 'int64',
         'alarm_type' => null,
-        'archive_time' => 'int32',
+        'archive_time' => 'int64',
         'file_name' => null
     ];
 

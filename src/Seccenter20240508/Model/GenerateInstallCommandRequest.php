@@ -46,9 +46,9 @@ class GenerateInstallCommandRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'auto_protect' => null,
         'cloud_provider' => null,
-        'expire_time' => 'int32',
+        'expire_time' => 'int64',
         'group_id' => null,
-        'host_engine' => 'int32',
+        'host_engine' => 'int64',
         'installation_method' => null,
         'os' => null,
         'proxy_name' => null

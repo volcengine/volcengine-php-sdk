@@ -33,7 +33,8 @@ class NodeForGetExecutionOutput implements ModelInterface, ArrayAccess
         'multi_inputs' => '\Volcengine\Vod20250101\Model\MultiInputForGetExecutionOutput[]',
         'name' => 'string',
         'operation' => '\Volcengine\Vod20250101\Model\OperationForGetExecutionOutput',
-        'policy' => '\Volcengine\Vod20250101\Model\PolicyForGetExecutionOutput'
+        'policy' => '\Volcengine\Vod20250101\Model\PolicyForGetExecutionOutput',
+        'space_name' => 'string'
     ];
 
     /**
@@ -47,7 +48,8 @@ class NodeForGetExecutionOutput implements ModelInterface, ArrayAccess
         'multi_inputs' => null,
         'name' => null,
         'operation' => null,
-        'policy' => null
+        'policy' => null,
+        'space_name' => null
     ];
 
     /**
@@ -82,7 +84,8 @@ class NodeForGetExecutionOutput implements ModelInterface, ArrayAccess
         'multi_inputs' => 'MultiInputs',
         'name' => 'Name',
         'operation' => 'Operation',
-        'policy' => 'Policy'
+        'policy' => 'Policy',
+        'space_name' => 'SpaceName'
     ];
 
     /**
@@ -96,7 +99,8 @@ class NodeForGetExecutionOutput implements ModelInterface, ArrayAccess
         'multi_inputs' => 'setMultiInputs',
         'name' => 'setName',
         'operation' => 'setOperation',
-        'policy' => 'setPolicy'
+        'policy' => 'setPolicy',
+        'space_name' => 'setSpaceName'
     ];
 
     /**
@@ -110,7 +114,8 @@ class NodeForGetExecutionOutput implements ModelInterface, ArrayAccess
         'multi_inputs' => 'getMultiInputs',
         'name' => 'getName',
         'operation' => 'getOperation',
-        'policy' => 'getPolicy'
+        'policy' => 'getPolicy',
+        'space_name' => 'getSpaceName'
     ];
 
     /**
@@ -179,6 +184,7 @@ class NodeForGetExecutionOutput implements ModelInterface, ArrayAccess
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['operation'] = isset($data['operation']) ? $data['operation'] : null;
         $this->container['policy'] = isset($data['policy']) ? $data['policy'] : null;
+        $this->container['space_name'] = isset($data['space_name']) ? $data['space_name'] : null;
     }
 
     /**
@@ -345,6 +351,30 @@ class NodeForGetExecutionOutput implements ModelInterface, ArrayAccess
     public function setPolicy($policy)
     {
         $this->container['policy'] = $policy;
+
+        return $this;
+    }
+
+    /**
+     * Gets space_name
+     *
+     * @return string
+     */
+    public function getSpaceName()
+    {
+        return $this->container['space_name'];
+    }
+
+    /**
+     * Sets space_name
+     *
+     * @param string $space_name space_name
+     *
+     * @return $this
+     */
+    public function setSpaceName($space_name)
+    {
+        $this->container['space_name'] = $space_name;
 
         return $this;
     }

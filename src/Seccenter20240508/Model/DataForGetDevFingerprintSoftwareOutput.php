@@ -55,10 +55,10 @@ class DataForGetDevFingerprintSoftwareOutput implements ModelInterface, ArrayAcc
         'name' => null,
         'private_ip' => null,
         'public_ip' => null,
-        'start_time' => 'int32',
+        'start_time' => 'int64',
         'status' => null,
         'type' => null,
-        'update_time' => 'int32',
+        'update_time' => 'int64',
         'version' => null
     ];
 

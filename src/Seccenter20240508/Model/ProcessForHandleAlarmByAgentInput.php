@@ -41,7 +41,7 @@ class ProcessForHandleAlarmByAgentInput implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'cmdline' => null,
         'exe' => null,
-        'pid' => 'int32'
+        'pid' => 'int64'
     ];
 
     /**

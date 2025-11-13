@@ -43,6 +43,7 @@ class DataForGetFingerprintProcessOutput implements ModelInterface, ArrayAccess
         'hostname' => 'string',
         'id' => 'string',
         'integrity' => 'bool',
+        'pexe' => 'string',
         'pid' => 'string',
         'ppid' => 'string',
         'primary_ip_address' => 'string',
@@ -74,13 +75,14 @@ class DataForGetFingerprintProcessOutput implements ModelInterface, ArrayAccess
         'hostname' => null,
         'id' => null,
         'integrity' => null,
+        'pexe' => null,
         'pid' => null,
         'ppid' => null,
         'primary_ip_address' => null,
-        'start_time' => 'int32',
+        'start_time' => 'int64',
         'state' => null,
         'uid' => null,
-        'update_time' => 'int32',
+        'update_time' => 'int64',
         'username' => null
     ];
 
@@ -126,6 +128,7 @@ class DataForGetFingerprintProcessOutput implements ModelInterface, ArrayAccess
         'hostname' => 'Hostname',
         'id' => 'ID',
         'integrity' => 'Integrity',
+        'pexe' => 'Pexe',
         'pid' => 'Pid',
         'ppid' => 'Ppid',
         'primary_ip_address' => 'PrimaryIpAddress',
@@ -157,6 +160,7 @@ class DataForGetFingerprintProcessOutput implements ModelInterface, ArrayAccess
         'hostname' => 'setHostname',
         'id' => 'setId',
         'integrity' => 'setIntegrity',
+        'pexe' => 'setPexe',
         'pid' => 'setPid',
         'ppid' => 'setPpid',
         'primary_ip_address' => 'setPrimaryIpAddress',
@@ -188,6 +192,7 @@ class DataForGetFingerprintProcessOutput implements ModelInterface, ArrayAccess
         'hostname' => 'getHostname',
         'id' => 'getId',
         'integrity' => 'getIntegrity',
+        'pexe' => 'getPexe',
         'pid' => 'getPid',
         'ppid' => 'getPpid',
         'primary_ip_address' => 'getPrimaryIpAddress',
@@ -273,6 +278,7 @@ class DataForGetFingerprintProcessOutput implements ModelInterface, ArrayAccess
         $this->container['hostname'] = isset($data['hostname']) ? $data['hostname'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['integrity'] = isset($data['integrity']) ? $data['integrity'] : null;
+        $this->container['pexe'] = isset($data['pexe']) ? $data['pexe'] : null;
         $this->container['pid'] = isset($data['pid']) ? $data['pid'] : null;
         $this->container['ppid'] = isset($data['ppid']) ? $data['ppid'] : null;
         $this->container['primary_ip_address'] = isset($data['primary_ip_address']) ? $data['primary_ip_address'] : null;
@@ -663,6 +669,30 @@ class DataForGetFingerprintProcessOutput implements ModelInterface, ArrayAccess
     public function setIntegrity($integrity)
     {
         $this->container['integrity'] = $integrity;
+
+        return $this;
+    }
+
+    /**
+     * Gets pexe
+     *
+     * @return string
+     */
+    public function getPexe()
+    {
+        return $this->container['pexe'];
+    }
+
+    /**
+     * Sets pexe
+     *
+     * @param string $pexe pexe
+     *
+     * @return $this
+     */
+    public function setPexe($pexe)
+    {
+        $this->container['pexe'] = $pexe;
 
         return $this;
     }

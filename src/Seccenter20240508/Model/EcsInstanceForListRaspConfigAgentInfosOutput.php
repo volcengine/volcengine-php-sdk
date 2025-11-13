@@ -31,6 +31,7 @@ class EcsInstanceForListRaspConfigAgentInfosOutput implements ModelInterface, Ar
         'access_key' => 'string',
         'account_id' => 'string',
         'cpu' => 'int',
+        'created_at' => 'string',
         'ecs_update_at' => 'string',
         'eip_address' => 'string',
         'host_name' => 'string',
@@ -43,6 +44,7 @@ class EcsInstanceForListRaspConfigAgentInfosOutput implements ModelInterface, Ar
         'platform_version' => 'string',
         'primary_ip_address' => 'string',
         'region' => 'string',
+        'security_enhancement_strategy' => 'string',
         'status' => 'string',
         'visibility' => 'string',
         'vpc_id' => 'string',
@@ -58,19 +60,21 @@ class EcsInstanceForListRaspConfigAgentInfosOutput implements ModelInterface, Ar
     protected static $swaggerFormats = [
         'access_key' => null,
         'account_id' => null,
-        'cpu' => 'int32',
+        'cpu' => 'int64',
+        'created_at' => null,
         'ecs_update_at' => null,
         'eip_address' => null,
         'host_name' => null,
         'ip_list' => null,
         'instance_name' => null,
-        'mem' => 'int32',
+        'mem' => 'int64',
         'os_name' => null,
         'os_type' => null,
         'platform' => null,
         'platform_version' => null,
         'primary_ip_address' => null,
         'region' => null,
+        'security_enhancement_strategy' => null,
         'status' => null,
         'visibility' => null,
         'vpc_id' => null,
@@ -108,6 +112,7 @@ class EcsInstanceForListRaspConfigAgentInfosOutput implements ModelInterface, Ar
         'access_key' => 'AccessKey',
         'account_id' => 'AccountID',
         'cpu' => 'Cpu',
+        'created_at' => 'CreatedAt',
         'ecs_update_at' => 'ECSUpdateAt',
         'eip_address' => 'EipAddress',
         'host_name' => 'HostName',
@@ -120,6 +125,7 @@ class EcsInstanceForListRaspConfigAgentInfosOutput implements ModelInterface, Ar
         'platform_version' => 'PlatformVersion',
         'primary_ip_address' => 'PrimaryIpAddress',
         'region' => 'Region',
+        'security_enhancement_strategy' => 'SecurityEnhancementStrategy',
         'status' => 'Status',
         'visibility' => 'Visibility',
         'vpc_id' => 'VpcId',
@@ -136,6 +142,7 @@ class EcsInstanceForListRaspConfigAgentInfosOutput implements ModelInterface, Ar
         'access_key' => 'setAccessKey',
         'account_id' => 'setAccountId',
         'cpu' => 'setCpu',
+        'created_at' => 'setCreatedAt',
         'ecs_update_at' => 'setEcsUpdateAt',
         'eip_address' => 'setEipAddress',
         'host_name' => 'setHostName',
@@ -148,6 +155,7 @@ class EcsInstanceForListRaspConfigAgentInfosOutput implements ModelInterface, Ar
         'platform_version' => 'setPlatformVersion',
         'primary_ip_address' => 'setPrimaryIpAddress',
         'region' => 'setRegion',
+        'security_enhancement_strategy' => 'setSecurityEnhancementStrategy',
         'status' => 'setStatus',
         'visibility' => 'setVisibility',
         'vpc_id' => 'setVpcId',
@@ -164,6 +172,7 @@ class EcsInstanceForListRaspConfigAgentInfosOutput implements ModelInterface, Ar
         'access_key' => 'getAccessKey',
         'account_id' => 'getAccountId',
         'cpu' => 'getCpu',
+        'created_at' => 'getCreatedAt',
         'ecs_update_at' => 'getEcsUpdateAt',
         'eip_address' => 'getEipAddress',
         'host_name' => 'getHostName',
@@ -176,6 +185,7 @@ class EcsInstanceForListRaspConfigAgentInfosOutput implements ModelInterface, Ar
         'platform_version' => 'getPlatformVersion',
         'primary_ip_address' => 'getPrimaryIpAddress',
         'region' => 'getRegion',
+        'security_enhancement_strategy' => 'getSecurityEnhancementStrategy',
         'status' => 'getStatus',
         'visibility' => 'getVisibility',
         'vpc_id' => 'getVpcId',
@@ -246,6 +256,7 @@ class EcsInstanceForListRaspConfigAgentInfosOutput implements ModelInterface, Ar
         $this->container['access_key'] = isset($data['access_key']) ? $data['access_key'] : null;
         $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
         $this->container['cpu'] = isset($data['cpu']) ? $data['cpu'] : null;
+        $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['ecs_update_at'] = isset($data['ecs_update_at']) ? $data['ecs_update_at'] : null;
         $this->container['eip_address'] = isset($data['eip_address']) ? $data['eip_address'] : null;
         $this->container['host_name'] = isset($data['host_name']) ? $data['host_name'] : null;
@@ -258,6 +269,7 @@ class EcsInstanceForListRaspConfigAgentInfosOutput implements ModelInterface, Ar
         $this->container['platform_version'] = isset($data['platform_version']) ? $data['platform_version'] : null;
         $this->container['primary_ip_address'] = isset($data['primary_ip_address']) ? $data['primary_ip_address'] : null;
         $this->container['region'] = isset($data['region']) ? $data['region'] : null;
+        $this->container['security_enhancement_strategy'] = isset($data['security_enhancement_strategy']) ? $data['security_enhancement_strategy'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['visibility'] = isset($data['visibility']) ? $data['visibility'] : null;
         $this->container['vpc_id'] = isset($data['vpc_id']) ? $data['vpc_id'] : null;
@@ -357,6 +369,30 @@ class EcsInstanceForListRaspConfigAgentInfosOutput implements ModelInterface, Ar
     public function setCpu($cpu)
     {
         $this->container['cpu'] = $cpu;
+
+        return $this;
+    }
+
+    /**
+     * Gets created_at
+     *
+     * @return string
+     */
+    public function getCreatedAt()
+    {
+        return $this->container['created_at'];
+    }
+
+    /**
+     * Sets created_at
+     *
+     * @param string $created_at created_at
+     *
+     * @return $this
+     */
+    public function setCreatedAt($created_at)
+    {
+        $this->container['created_at'] = $created_at;
 
         return $this;
     }
@@ -645,6 +681,30 @@ class EcsInstanceForListRaspConfigAgentInfosOutput implements ModelInterface, Ar
     public function setRegion($region)
     {
         $this->container['region'] = $region;
+
+        return $this;
+    }
+
+    /**
+     * Gets security_enhancement_strategy
+     *
+     * @return string
+     */
+    public function getSecurityEnhancementStrategy()
+    {
+        return $this->container['security_enhancement_strategy'];
+    }
+
+    /**
+     * Sets security_enhancement_strategy
+     *
+     * @param string $security_enhancement_strategy security_enhancement_strategy
+     *
+     * @return $this
+     */
+    public function setSecurityEnhancementStrategy($security_enhancement_strategy)
+    {
+        $this->container['security_enhancement_strategy'] = $security_enhancement_strategy;
 
         return $this;
     }

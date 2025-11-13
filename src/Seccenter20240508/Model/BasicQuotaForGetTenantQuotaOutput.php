@@ -41,11 +41,11 @@ class BasicQuotaForGetTenantQuotaOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'expire_time' => 'int32',
+        'expire_time' => 'int64',
         'paid_type' => null,
-        'total_count' => 'int32',
-        'used_count' => 'int32',
-        'version' => 'int32'
+        'total_count' => 'int64',
+        'used_count' => 'int64',
+        'version' => 'int64'
     ];
 
     /**

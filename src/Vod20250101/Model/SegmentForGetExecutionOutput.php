@@ -28,7 +28,11 @@ class SegmentForGetExecutionOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'no_file' => 'bool'
+        'clip_fade' => 'bool',
+        'max_duration' => 'double',
+        'min_duration' => 'double',
+        'no_file' => 'bool',
+        'threshold' => 'double'
     ];
 
     /**
@@ -37,7 +41,11 @@ class SegmentForGetExecutionOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'no_file' => null
+        'clip_fade' => null,
+        'max_duration' => 'double',
+        'min_duration' => 'double',
+        'no_file' => null,
+        'threshold' => 'double'
     ];
 
     /**
@@ -67,7 +75,11 @@ class SegmentForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'no_file' => 'NoFile'
+        'clip_fade' => 'ClipFade',
+        'max_duration' => 'MaxDuration',
+        'min_duration' => 'MinDuration',
+        'no_file' => 'NoFile',
+        'threshold' => 'Threshold'
     ];
 
     /**
@@ -76,7 +88,11 @@ class SegmentForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'no_file' => 'setNoFile'
+        'clip_fade' => 'setClipFade',
+        'max_duration' => 'setMaxDuration',
+        'min_duration' => 'setMinDuration',
+        'no_file' => 'setNoFile',
+        'threshold' => 'setThreshold'
     ];
 
     /**
@@ -85,7 +101,11 @@ class SegmentForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'no_file' => 'getNoFile'
+        'clip_fade' => 'getClipFade',
+        'max_duration' => 'getMaxDuration',
+        'min_duration' => 'getMinDuration',
+        'no_file' => 'getNoFile',
+        'threshold' => 'getThreshold'
     ];
 
     /**
@@ -148,7 +168,11 @@ class SegmentForGetExecutionOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['clip_fade'] = isset($data['clip_fade']) ? $data['clip_fade'] : null;
+        $this->container['max_duration'] = isset($data['max_duration']) ? $data['max_duration'] : null;
+        $this->container['min_duration'] = isset($data['min_duration']) ? $data['min_duration'] : null;
         $this->container['no_file'] = isset($data['no_file']) ? $data['no_file'] : null;
+        $this->container['threshold'] = isset($data['threshold']) ? $data['threshold'] : null;
     }
 
     /**
@@ -176,6 +200,78 @@ class SegmentForGetExecutionOutput implements ModelInterface, ArrayAccess
 
 
     /**
+     * Gets clip_fade
+     *
+     * @return bool
+     */
+    public function getClipFade()
+    {
+        return $this->container['clip_fade'];
+    }
+
+    /**
+     * Sets clip_fade
+     *
+     * @param bool $clip_fade clip_fade
+     *
+     * @return $this
+     */
+    public function setClipFade($clip_fade)
+    {
+        $this->container['clip_fade'] = $clip_fade;
+
+        return $this;
+    }
+
+    /**
+     * Gets max_duration
+     *
+     * @return double
+     */
+    public function getMaxDuration()
+    {
+        return $this->container['max_duration'];
+    }
+
+    /**
+     * Sets max_duration
+     *
+     * @param double $max_duration max_duration
+     *
+     * @return $this
+     */
+    public function setMaxDuration($max_duration)
+    {
+        $this->container['max_duration'] = $max_duration;
+
+        return $this;
+    }
+
+    /**
+     * Gets min_duration
+     *
+     * @return double
+     */
+    public function getMinDuration()
+    {
+        return $this->container['min_duration'];
+    }
+
+    /**
+     * Sets min_duration
+     *
+     * @param double $min_duration min_duration
+     *
+     * @return $this
+     */
+    public function setMinDuration($min_duration)
+    {
+        $this->container['min_duration'] = $min_duration;
+
+        return $this;
+    }
+
+    /**
      * Gets no_file
      *
      * @return bool
@@ -195,6 +291,30 @@ class SegmentForGetExecutionOutput implements ModelInterface, ArrayAccess
     public function setNoFile($no_file)
     {
         $this->container['no_file'] = $no_file;
+
+        return $this;
+    }
+
+    /**
+     * Gets threshold
+     *
+     * @return double
+     */
+    public function getThreshold()
+    {
+        return $this->container['threshold'];
+    }
+
+    /**
+     * Sets threshold
+     *
+     * @param double $threshold threshold
+     *
+     * @return $this
+     */
+    public function setThreshold($threshold)
+    {
+        $this->container['threshold'] = $threshold;
 
         return $this;
     }

@@ -43,13 +43,13 @@ class GetDevAssetOverviewResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'alarm' => 'int32',
-        'baseline' => 'int32',
-        'has_risk' => 'int32',
-        'running' => 'int32',
-        'stopped' => 'int32',
-        'total' => 'int32',
-        'vul' => 'int32'
+        'alarm' => 'int64',
+        'baseline' => 'int64',
+        'has_risk' => 'int64',
+        'running' => 'int64',
+        'stopped' => 'int64',
+        'total' => 'int64',
+        'vul' => 'int64'
     ];
 
     /**

@@ -41,7 +41,7 @@ class FilterForListRaspConfigsOutput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'hook_func' => null,
-        'hook_param' => 'int32',
+        'hook_param' => 'int64',
         'rules' => null,
         'runtime' => null
     ];

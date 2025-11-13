@@ -28,8 +28,10 @@ class ConvertConvertConvertConvertSegmentForGetExecutionOutput implements ModelI
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'duration' => 'double',
-        'segments' => '\Volcengine\Vod20250101\Model\ConvertConvertConvertSegmentForGetExecutionOutput[]'
+        'end' => 'double',
+        'file' => '\Volcengine\Vod20250101\Model\ConvertEditForGetExecutionOutput',
+        'frames' => 'int[]',
+        'start' => 'double'
     ];
 
     /**
@@ -38,8 +40,10 @@ class ConvertConvertConvertConvertSegmentForGetExecutionOutput implements ModelI
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'duration' => 'double',
-        'segments' => null
+        'end' => 'double',
+        'file' => null,
+        'frames' => 'int32',
+        'start' => 'double'
     ];
 
     /**
@@ -69,8 +73,10 @@ class ConvertConvertConvertConvertSegmentForGetExecutionOutput implements ModelI
      * @var string[]
      */
     protected static $attributeMap = [
-        'duration' => 'Duration',
-        'segments' => 'Segments'
+        'end' => 'End',
+        'file' => 'File',
+        'frames' => 'Frames',
+        'start' => 'Start'
     ];
 
     /**
@@ -79,8 +85,10 @@ class ConvertConvertConvertConvertSegmentForGetExecutionOutput implements ModelI
      * @var string[]
      */
     protected static $setters = [
-        'duration' => 'setDuration',
-        'segments' => 'setSegments'
+        'end' => 'setEnd',
+        'file' => 'setFile',
+        'frames' => 'setFrames',
+        'start' => 'setStart'
     ];
 
     /**
@@ -89,8 +97,10 @@ class ConvertConvertConvertConvertSegmentForGetExecutionOutput implements ModelI
      * @var string[]
      */
     protected static $getters = [
-        'duration' => 'getDuration',
-        'segments' => 'getSegments'
+        'end' => 'getEnd',
+        'file' => 'getFile',
+        'frames' => 'getFrames',
+        'start' => 'getStart'
     ];
 
     /**
@@ -153,8 +163,10 @@ class ConvertConvertConvertConvertSegmentForGetExecutionOutput implements ModelI
      */
     public function __construct(array $data = null)
     {
-        $this->container['duration'] = isset($data['duration']) ? $data['duration'] : null;
-        $this->container['segments'] = isset($data['segments']) ? $data['segments'] : null;
+        $this->container['end'] = isset($data['end']) ? $data['end'] : null;
+        $this->container['file'] = isset($data['file']) ? $data['file'] : null;
+        $this->container['frames'] = isset($data['frames']) ? $data['frames'] : null;
+        $this->container['start'] = isset($data['start']) ? $data['start'] : null;
     }
 
     /**
@@ -182,49 +194,97 @@ class ConvertConvertConvertConvertSegmentForGetExecutionOutput implements ModelI
 
 
     /**
-     * Gets duration
+     * Gets end
      *
      * @return double
      */
-    public function getDuration()
+    public function getEnd()
     {
-        return $this->container['duration'];
+        return $this->container['end'];
     }
 
     /**
-     * Sets duration
+     * Sets end
      *
-     * @param double $duration duration
+     * @param double $end end
      *
      * @return $this
      */
-    public function setDuration($duration)
+    public function setEnd($end)
     {
-        $this->container['duration'] = $duration;
+        $this->container['end'] = $end;
 
         return $this;
     }
 
     /**
-     * Gets segments
+     * Gets file
      *
-     * @return \Volcengine\Vod20250101\Model\ConvertConvertConvertSegmentForGetExecutionOutput[]
+     * @return \Volcengine\Vod20250101\Model\ConvertEditForGetExecutionOutput
      */
-    public function getSegments()
+    public function getFile()
     {
-        return $this->container['segments'];
+        return $this->container['file'];
     }
 
     /**
-     * Sets segments
+     * Sets file
      *
-     * @param \Volcengine\Vod20250101\Model\ConvertConvertConvertSegmentForGetExecutionOutput[] $segments segments
+     * @param \Volcengine\Vod20250101\Model\ConvertEditForGetExecutionOutput $file file
      *
      * @return $this
      */
-    public function setSegments($segments)
+    public function setFile($file)
     {
-        $this->container['segments'] = $segments;
+        $this->container['file'] = $file;
+
+        return $this;
+    }
+
+    /**
+     * Gets frames
+     *
+     * @return int[]
+     */
+    public function getFrames()
+    {
+        return $this->container['frames'];
+    }
+
+    /**
+     * Sets frames
+     *
+     * @param int[] $frames frames
+     *
+     * @return $this
+     */
+    public function setFrames($frames)
+    {
+        $this->container['frames'] = $frames;
+
+        return $this;
+    }
+
+    /**
+     * Gets start
+     *
+     * @return double
+     */
+    public function getStart()
+    {
+        return $this->container['start'];
+    }
+
+    /**
+     * Sets start
+     *
+     * @param double $start start
+     *
+     * @return $this
+     */
+    public function setStart($start)
+    {
+        $this->container['start'] = $start;
 
         return $this;
     }

@@ -38,8 +38,8 @@ class ProgressDetailForGetBaselineDetectProgressDetailOutput implements ModelInt
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'progress' => 'int32',
-        'time_left' => 'int32'
+        'progress' => 'int64',
+        'time_left' => 'int64'
     ];
 
     /**

@@ -46,8 +46,8 @@ class ListAutoDefenseHostsRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'agent_id_list' => null,
         'leaf_group_ids' => null,
-        'page_number' => 'int32',
-        'page_size' => 'int32',
+        'page_number' => 'int64',
+        'page_size' => 'int64',
         'rule_id' => null,
         'sort_by' => null,
         'sort_order' => null,

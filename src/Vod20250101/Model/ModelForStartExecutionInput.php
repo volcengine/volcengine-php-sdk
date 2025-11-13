@@ -28,10 +28,8 @@ class ModelForStartExecutionInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'asr_app_id' => 'string',
-        'asr_app_type' => 'string',
-        'doubao_text_endpoint' => 'string',
-        'doubao_vision_endpoint' => 'string'
+        'temperature' => 'double',
+        'top_p' => 'double'
     ];
 
     /**
@@ -40,10 +38,8 @@ class ModelForStartExecutionInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'asr_app_id' => null,
-        'asr_app_type' => null,
-        'doubao_text_endpoint' => null,
-        'doubao_vision_endpoint' => null
+        'temperature' => 'double',
+        'top_p' => 'double'
     ];
 
     /**
@@ -73,10 +69,8 @@ class ModelForStartExecutionInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'asr_app_id' => 'AsrAppId',
-        'asr_app_type' => 'AsrAppType',
-        'doubao_text_endpoint' => 'DoubaoTextEndpoint',
-        'doubao_vision_endpoint' => 'DoubaoVisionEndpoint'
+        'temperature' => 'Temperature',
+        'top_p' => 'TopP'
     ];
 
     /**
@@ -85,10 +79,8 @@ class ModelForStartExecutionInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'asr_app_id' => 'setAsrAppId',
-        'asr_app_type' => 'setAsrAppType',
-        'doubao_text_endpoint' => 'setDoubaoTextEndpoint',
-        'doubao_vision_endpoint' => 'setDoubaoVisionEndpoint'
+        'temperature' => 'setTemperature',
+        'top_p' => 'setTopP'
     ];
 
     /**
@@ -97,10 +89,8 @@ class ModelForStartExecutionInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'asr_app_id' => 'getAsrAppId',
-        'asr_app_type' => 'getAsrAppType',
-        'doubao_text_endpoint' => 'getDoubaoTextEndpoint',
-        'doubao_vision_endpoint' => 'getDoubaoVisionEndpoint'
+        'temperature' => 'getTemperature',
+        'top_p' => 'getTopP'
     ];
 
     /**
@@ -163,10 +153,8 @@ class ModelForStartExecutionInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['asr_app_id'] = isset($data['asr_app_id']) ? $data['asr_app_id'] : null;
-        $this->container['asr_app_type'] = isset($data['asr_app_type']) ? $data['asr_app_type'] : null;
-        $this->container['doubao_text_endpoint'] = isset($data['doubao_text_endpoint']) ? $data['doubao_text_endpoint'] : null;
-        $this->container['doubao_vision_endpoint'] = isset($data['doubao_vision_endpoint']) ? $data['doubao_vision_endpoint'] : null;
+        $this->container['temperature'] = isset($data['temperature']) ? $data['temperature'] : null;
+        $this->container['top_p'] = isset($data['top_p']) ? $data['top_p'] : null;
     }
 
     /**
@@ -194,97 +182,49 @@ class ModelForStartExecutionInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets asr_app_id
+     * Gets temperature
      *
-     * @return string
+     * @return double
      */
-    public function getAsrAppId()
+    public function getTemperature()
     {
-        return $this->container['asr_app_id'];
+        return $this->container['temperature'];
     }
 
     /**
-     * Sets asr_app_id
+     * Sets temperature
      *
-     * @param string $asr_app_id asr_app_id
+     * @param double $temperature temperature
      *
      * @return $this
      */
-    public function setAsrAppId($asr_app_id)
+    public function setTemperature($temperature)
     {
-        $this->container['asr_app_id'] = $asr_app_id;
+        $this->container['temperature'] = $temperature;
 
         return $this;
     }
 
     /**
-     * Gets asr_app_type
+     * Gets top_p
      *
-     * @return string
+     * @return double
      */
-    public function getAsrAppType()
+    public function getTopP()
     {
-        return $this->container['asr_app_type'];
+        return $this->container['top_p'];
     }
 
     /**
-     * Sets asr_app_type
+     * Sets top_p
      *
-     * @param string $asr_app_type asr_app_type
+     * @param double $top_p top_p
      *
      * @return $this
      */
-    public function setAsrAppType($asr_app_type)
+    public function setTopP($top_p)
     {
-        $this->container['asr_app_type'] = $asr_app_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets doubao_text_endpoint
-     *
-     * @return string
-     */
-    public function getDoubaoTextEndpoint()
-    {
-        return $this->container['doubao_text_endpoint'];
-    }
-
-    /**
-     * Sets doubao_text_endpoint
-     *
-     * @param string $doubao_text_endpoint doubao_text_endpoint
-     *
-     * @return $this
-     */
-    public function setDoubaoTextEndpoint($doubao_text_endpoint)
-    {
-        $this->container['doubao_text_endpoint'] = $doubao_text_endpoint;
-
-        return $this;
-    }
-
-    /**
-     * Gets doubao_vision_endpoint
-     *
-     * @return string
-     */
-    public function getDoubaoVisionEndpoint()
-    {
-        return $this->container['doubao_vision_endpoint'];
-    }
-
-    /**
-     * Sets doubao_vision_endpoint
-     *
-     * @param string $doubao_vision_endpoint doubao_vision_endpoint
-     *
-     * @return $this
-     */
-    public function setDoubaoVisionEndpoint($doubao_vision_endpoint)
-    {
-        $this->container['doubao_vision_endpoint'] = $doubao_vision_endpoint;
+        $this->container['top_p'] = $top_p;
 
         return $this;
     }

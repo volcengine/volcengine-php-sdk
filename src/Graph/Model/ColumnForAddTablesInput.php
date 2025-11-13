@@ -31,7 +31,8 @@ class ColumnForAddTablesInput implements ModelInterface, ArrayAccess
         'column_name' => 'string',
         'default_value' => 'string',
         'enable_default_value' => 'bool',
-        'schema_column_type' => 'string'
+        'schema_column_type' => 'string',
+        'vector_size' => 'int'
     ];
 
     /**
@@ -43,7 +44,8 @@ class ColumnForAddTablesInput implements ModelInterface, ArrayAccess
         'column_name' => null,
         'default_value' => null,
         'enable_default_value' => null,
-        'schema_column_type' => null
+        'schema_column_type' => null,
+        'vector_size' => 'int32'
     ];
 
     /**
@@ -76,7 +78,8 @@ class ColumnForAddTablesInput implements ModelInterface, ArrayAccess
         'column_name' => 'column_name',
         'default_value' => 'default_value',
         'enable_default_value' => 'enable_default_value',
-        'schema_column_type' => 'schema_column_type'
+        'schema_column_type' => 'schema_column_type',
+        'vector_size' => 'vector_size'
     ];
 
     /**
@@ -88,7 +91,8 @@ class ColumnForAddTablesInput implements ModelInterface, ArrayAccess
         'column_name' => 'setColumnName',
         'default_value' => 'setDefaultValue',
         'enable_default_value' => 'setEnableDefaultValue',
-        'schema_column_type' => 'setSchemaColumnType'
+        'schema_column_type' => 'setSchemaColumnType',
+        'vector_size' => 'setVectorSize'
     ];
 
     /**
@@ -100,7 +104,8 @@ class ColumnForAddTablesInput implements ModelInterface, ArrayAccess
         'column_name' => 'getColumnName',
         'default_value' => 'getDefaultValue',
         'enable_default_value' => 'getEnableDefaultValue',
-        'schema_column_type' => 'getSchemaColumnType'
+        'schema_column_type' => 'getSchemaColumnType',
+        'vector_size' => 'getVectorSize'
     ];
 
     /**
@@ -167,6 +172,7 @@ class ColumnForAddTablesInput implements ModelInterface, ArrayAccess
         $this->container['default_value'] = isset($data['default_value']) ? $data['default_value'] : null;
         $this->container['enable_default_value'] = isset($data['enable_default_value']) ? $data['enable_default_value'] : null;
         $this->container['schema_column_type'] = isset($data['schema_column_type']) ? $data['schema_column_type'] : null;
+        $this->container['vector_size'] = isset($data['vector_size']) ? $data['vector_size'] : null;
     }
 
     /**
@@ -285,6 +291,30 @@ class ColumnForAddTablesInput implements ModelInterface, ArrayAccess
     public function setSchemaColumnType($schema_column_type)
     {
         $this->container['schema_column_type'] = $schema_column_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets vector_size
+     *
+     * @return int
+     */
+    public function getVectorSize()
+    {
+        return $this->container['vector_size'];
+    }
+
+    /**
+     * Sets vector_size
+     *
+     * @param int $vector_size vector_size
+     *
+     * @return $this
+     */
+    public function setVectorSize($vector_size)
+    {
+        $this->container['vector_size'] = $vector_size;
 
         return $this;
     }

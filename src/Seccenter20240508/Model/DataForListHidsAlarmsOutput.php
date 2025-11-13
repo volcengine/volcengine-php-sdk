@@ -81,10 +81,10 @@ class DataForListHidsAlarmsOutput implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'agent_group' => null,
         'agent_id' => null,
-        'alarm_handle_result' => 'int32',
+        'alarm_handle_result' => 'int64',
         'alarm_hostname' => null,
         'alarm_id' => null,
-        'alarm_time' => 'int32',
+        'alarm_time' => 'int64',
         'alert_tags' => null,
         'args' => null,
         'args_list' => null,
@@ -101,7 +101,7 @@ class DataForListHidsAlarmsOutput implements ModelInterface, ArrayAccess
         'file_hash' => null,
         'file_path' => null,
         'group_path' => null,
-        'handle_time' => 'int32',
+        'handle_time' => 'int64',
         'host' => null,
         'image_name' => null,
         'in_docker' => null,
@@ -119,7 +119,7 @@ class DataForListHidsAlarmsOutput implements ModelInterface, ArrayAccess
         'sid' => null,
         'stack_trace_format' => null,
         'stack_trace_hash' => null,
-        'status' => 'int32',
+        'status' => 'int64',
         'trace_id' => null,
         'type' => null
     ];

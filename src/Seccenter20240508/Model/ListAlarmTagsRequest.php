@@ -28,9 +28,9 @@ class ListAlarmTagsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'alarm_id_list' => 'string',
+        'alarm_id_list' => 'string[]',
         'alarm_type' => 'string',
-        'alert_tags' => 'string',
+        'alert_tags' => 'string[]',
         'top_group_id' => 'string'
     ];
 
@@ -196,7 +196,7 @@ class ListAlarmTagsRequest implements ModelInterface, ArrayAccess
     /**
      * Gets alarm_id_list
      *
-     * @return string
+     * @return string[]
      */
     public function getAlarmIdList()
     {
@@ -206,7 +206,7 @@ class ListAlarmTagsRequest implements ModelInterface, ArrayAccess
     /**
      * Sets alarm_id_list
      *
-     * @param string $alarm_id_list alarm_id_list
+     * @param string[] $alarm_id_list alarm_id_list
      *
      * @return $this
      */
@@ -244,7 +244,7 @@ class ListAlarmTagsRequest implements ModelInterface, ArrayAccess
     /**
      * Gets alert_tags
      *
-     * @return string
+     * @return string[]
      */
     public function getAlertTags()
     {
@@ -254,7 +254,7 @@ class ListAlarmTagsRequest implements ModelInterface, ArrayAccess
     /**
      * Sets alert_tags
      *
-     * @param string $alert_tags alert_tags
+     * @param string[] $alert_tags alert_tags
      *
      * @return $this
      */

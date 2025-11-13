@@ -28,11 +28,11 @@ class VisionForGetExecutionOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'model' => '\Volcengine\Vod20250101\Model\ModelForGetExecutionOutput',
+        'model' => '\Volcengine\Vod20250101\Model\ConvertModelForGetExecutionOutput',
         'need_asr_speaker' => 'bool',
         'prompt' => 'string',
         'response_format_type' => 'string',
-        'segment' => '\Volcengine\Vod20250101\Model\ConvertSegmentForGetExecutionOutput',
+        'segment' => '\Volcengine\Vod20250101\Model\ConvertConvertSegmentForGetExecutionOutput',
         'snapshot_param' => '\Volcengine\Vod20250101\Model\SnapshotParamForGetExecutionOutput'
     ];
 
@@ -208,7 +208,7 @@ class VisionForGetExecutionOutput implements ModelInterface, ArrayAccess
     /**
      * Gets model
      *
-     * @return \Volcengine\Vod20250101\Model\ModelForGetExecutionOutput
+     * @return \Volcengine\Vod20250101\Model\ConvertModelForGetExecutionOutput
      */
     public function getModel()
     {
@@ -218,7 +218,7 @@ class VisionForGetExecutionOutput implements ModelInterface, ArrayAccess
     /**
      * Sets model
      *
-     * @param \Volcengine\Vod20250101\Model\ModelForGetExecutionOutput $model model
+     * @param \Volcengine\Vod20250101\Model\ConvertModelForGetExecutionOutput $model model
      *
      * @return $this
      */
@@ -304,7 +304,7 @@ class VisionForGetExecutionOutput implements ModelInterface, ArrayAccess
     /**
      * Gets segment
      *
-     * @return \Volcengine\Vod20250101\Model\ConvertSegmentForGetExecutionOutput
+     * @return \Volcengine\Vod20250101\Model\ConvertConvertSegmentForGetExecutionOutput
      */
     public function getSegment()
     {
@@ -314,7 +314,7 @@ class VisionForGetExecutionOutput implements ModelInterface, ArrayAccess
     /**
      * Sets segment
      *
-     * @param \Volcengine\Vod20250101\Model\ConvertSegmentForGetExecutionOutput $segment segment
+     * @param \Volcengine\Vod20250101\Model\ConvertConvertSegmentForGetExecutionOutput $segment segment
      *
      * @return $this
      */

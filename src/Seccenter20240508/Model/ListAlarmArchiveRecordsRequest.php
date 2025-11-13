@@ -44,12 +44,12 @@ class ListAlarmArchiveRecordsRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'alarm_type' => null,
-        'page_number' => 'int32',
-        'page_size' => 'int32',
+        'page_number' => 'int64',
+        'page_size' => 'int64',
         'sort_by' => null,
         'sort_order' => null,
-        'time_end' => 'int32',
-        'time_start' => 'int32'
+        'time_end' => 'int64',
+        'time_start' => 'int64'
     ];
 
     /**

@@ -46,9 +46,9 @@ class ExportBaselineCheckListRequest implements ModelInterface, ArrayAccess
         'agent_id' => null,
         'asset_id' => null,
         'asset_type' => null,
-        'baseline_id' => 'int32',
+        'baseline_id' => 'int64',
         'conditions' => null,
-        'id_list' => 'int32',
+        'id_list' => 'int64',
         'top_group_id' => null
     ];
 

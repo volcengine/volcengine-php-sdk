@@ -38,7 +38,7 @@ class DataForListTagsDetailOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'tag_host_num' => 'int32',
+        'tag_host_num' => 'int64',
         'tag_name' => null
     ];
 

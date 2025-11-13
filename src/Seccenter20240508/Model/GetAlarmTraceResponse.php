@@ -45,11 +45,11 @@ class GetAlarmTraceResponse implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'c2_list' => null,
         'full_data' => null,
-        'insert_time' => 'int32',
+        'insert_time' => 'int64',
         'status' => null,
         'trace_id' => null,
         'trace_res' => null,
-        'update_time' => 'int32'
+        'update_time' => 'int64'
     ];
 
     /**

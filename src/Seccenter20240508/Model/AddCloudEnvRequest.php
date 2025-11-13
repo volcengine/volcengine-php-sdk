@@ -47,7 +47,7 @@ class AddCloudEnvRequest implements ModelInterface, ArrayAccess
         'comment' => null,
         'key_type' => null,
         'secret_key' => null,
-        'sync_period' => 'int32'
+        'sync_period' => 'int64'
     ];
 
     /**

@@ -30,12 +30,14 @@ class DataForGetFingerprintServiceOutput implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'agent_id' => 'string',
         'agent_tags' => 'string[]',
+        'boot_state' => 'string',
         'checksum' => 'string',
         'command' => 'string',
         'eip_address' => 'string',
         'hostname' => 'string',
         'id' => 'string',
         'name' => 'string',
+        'on_boot' => 'string',
         'primary_ip_address' => 'string',
         'restart' => 'string',
         'start_time' => 'int',
@@ -52,17 +54,19 @@ class DataForGetFingerprintServiceOutput implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'agent_id' => null,
         'agent_tags' => null,
+        'boot_state' => null,
         'checksum' => null,
         'command' => null,
         'eip_address' => null,
         'hostname' => null,
         'id' => null,
         'name' => null,
+        'on_boot' => null,
         'primary_ip_address' => null,
         'restart' => null,
-        'start_time' => 'int32',
+        'start_time' => 'int64',
         'type' => null,
-        'update_time' => 'int32',
+        'update_time' => 'int64',
         'working_directory' => null
     ];
 
@@ -95,12 +99,14 @@ class DataForGetFingerprintServiceOutput implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'agent_id' => 'AgentID',
         'agent_tags' => 'AgentTags',
+        'boot_state' => 'BootState',
         'checksum' => 'Checksum',
         'command' => 'Command',
         'eip_address' => 'EipAddress',
         'hostname' => 'Hostname',
         'id' => 'ID',
         'name' => 'Name',
+        'on_boot' => 'OnBoot',
         'primary_ip_address' => 'PrimaryIpAddress',
         'restart' => 'Restart',
         'start_time' => 'StartTime',
@@ -117,12 +123,14 @@ class DataForGetFingerprintServiceOutput implements ModelInterface, ArrayAccess
     protected static $setters = [
         'agent_id' => 'setAgentId',
         'agent_tags' => 'setAgentTags',
+        'boot_state' => 'setBootState',
         'checksum' => 'setChecksum',
         'command' => 'setCommand',
         'eip_address' => 'setEipAddress',
         'hostname' => 'setHostname',
         'id' => 'setId',
         'name' => 'setName',
+        'on_boot' => 'setOnBoot',
         'primary_ip_address' => 'setPrimaryIpAddress',
         'restart' => 'setRestart',
         'start_time' => 'setStartTime',
@@ -139,12 +147,14 @@ class DataForGetFingerprintServiceOutput implements ModelInterface, ArrayAccess
     protected static $getters = [
         'agent_id' => 'getAgentId',
         'agent_tags' => 'getAgentTags',
+        'boot_state' => 'getBootState',
         'checksum' => 'getChecksum',
         'command' => 'getCommand',
         'eip_address' => 'getEipAddress',
         'hostname' => 'getHostname',
         'id' => 'getId',
         'name' => 'getName',
+        'on_boot' => 'getOnBoot',
         'primary_ip_address' => 'getPrimaryIpAddress',
         'restart' => 'getRestart',
         'start_time' => 'getStartTime',
@@ -215,12 +225,14 @@ class DataForGetFingerprintServiceOutput implements ModelInterface, ArrayAccess
     {
         $this->container['agent_id'] = isset($data['agent_id']) ? $data['agent_id'] : null;
         $this->container['agent_tags'] = isset($data['agent_tags']) ? $data['agent_tags'] : null;
+        $this->container['boot_state'] = isset($data['boot_state']) ? $data['boot_state'] : null;
         $this->container['checksum'] = isset($data['checksum']) ? $data['checksum'] : null;
         $this->container['command'] = isset($data['command']) ? $data['command'] : null;
         $this->container['eip_address'] = isset($data['eip_address']) ? $data['eip_address'] : null;
         $this->container['hostname'] = isset($data['hostname']) ? $data['hostname'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['on_boot'] = isset($data['on_boot']) ? $data['on_boot'] : null;
         $this->container['primary_ip_address'] = isset($data['primary_ip_address']) ? $data['primary_ip_address'] : null;
         $this->container['restart'] = isset($data['restart']) ? $data['restart'] : null;
         $this->container['start_time'] = isset($data['start_time']) ? $data['start_time'] : null;
@@ -297,6 +309,30 @@ class DataForGetFingerprintServiceOutput implements ModelInterface, ArrayAccess
     public function setAgentTags($agent_tags)
     {
         $this->container['agent_tags'] = $agent_tags;
+
+        return $this;
+    }
+
+    /**
+     * Gets boot_state
+     *
+     * @return string
+     */
+    public function getBootState()
+    {
+        return $this->container['boot_state'];
+    }
+
+    /**
+     * Sets boot_state
+     *
+     * @param string $boot_state boot_state
+     *
+     * @return $this
+     */
+    public function setBootState($boot_state)
+    {
+        $this->container['boot_state'] = $boot_state;
 
         return $this;
     }
@@ -441,6 +477,30 @@ class DataForGetFingerprintServiceOutput implements ModelInterface, ArrayAccess
     public function setName($name)
     {
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets on_boot
+     *
+     * @return string
+     */
+    public function getOnBoot()
+    {
+        return $this->container['on_boot'];
+    }
+
+    /**
+     * Sets on_boot
+     *
+     * @param string $on_boot on_boot
+     *
+     * @return $this
+     */
+    public function setOnBoot($on_boot)
+    {
+        $this->container['on_boot'] = $on_boot;
 
         return $this;
     }

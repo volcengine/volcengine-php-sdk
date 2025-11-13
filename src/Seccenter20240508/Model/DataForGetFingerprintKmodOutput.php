@@ -60,9 +60,9 @@ class DataForGetFingerprintKmodOutput implements ModelInterface, ArrayAccess
         'primary_ip_address' => null,
         'refcount' => null,
         'size' => null,
-        'start_time' => 'int32',
+        'start_time' => 'int64',
         'state' => null,
-        'update_time' => 'int32',
+        'update_time' => 'int64',
         'used_by' => null
     ];
 

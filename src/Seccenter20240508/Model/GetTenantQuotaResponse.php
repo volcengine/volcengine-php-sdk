@@ -46,11 +46,11 @@ class GetTenantQuotaResponse implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'account_id' => null,
         'basic_quota' => null,
-        'expire_time' => 'int32',
+        'expire_time' => 'int64',
         'id' => null,
-        'insert_time' => 'int32',
+        'insert_time' => 'int64',
         'labels' => null,
-        'update_time' => 'int32',
+        'update_time' => 'int64',
         'value_added' => null
     ];
 
