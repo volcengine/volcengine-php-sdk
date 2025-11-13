@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class GetContactResponse implements ModelInterface, ArrayAccess
+class WorkspacesDetailForGetAggregateWorkspaceOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class GetContactResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetContactResponse';
+    protected static $swaggerModelName = 'WorkspacesDetailForGetAggregateWorkspaceOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,17 +28,16 @@ class GetContactResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'contact_group_ids' => 'string[]',
+        'account_id' => 'int',
+        'account_name' => 'string',
         'create_time' => 'string',
-        'ding_talk_bot_webhook' => '\Volcengine\Vmp\Model\DingTalkBotWebhookForGetContactOutput',
-        'email' => 'string',
-        'email_active' => 'bool',
+        'description' => 'string',
         'id' => 'string',
-        'lark_bot' => '\Volcengine\Vmp\Model\LarkBotForGetContactOutput',
-        'lark_bot_webhook' => '\Volcengine\Vmp\Model\LarkBotWebhookForGetContactOutput',
+        'instance_type' => '\Volcengine\Vmp\Model\InstanceTypeForGetAggregateWorkspaceOutput',
         'name' => 'string',
-        'we_com_bot_webhook' => '\Volcengine\Vmp\Model\WeComBotWebhookForGetContactOutput',
-        'webhook' => '\Volcengine\Vmp\Model\WebhookForGetContactOutput'
+        'region' => 'string',
+        'status' => 'string',
+        'type' => 'string'
     ];
 
     /**
@@ -47,17 +46,16 @@ class GetContactResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'contact_group_ids' => null,
+        'account_id' => 'int32',
+        'account_name' => null,
         'create_time' => null,
-        'ding_talk_bot_webhook' => null,
-        'email' => null,
-        'email_active' => null,
+        'description' => null,
         'id' => null,
-        'lark_bot' => null,
-        'lark_bot_webhook' => null,
+        'instance_type' => null,
         'name' => null,
-        'we_com_bot_webhook' => null,
-        'webhook' => null
+        'region' => null,
+        'status' => null,
+        'type' => null
     ];
 
     /**
@@ -87,17 +85,16 @@ class GetContactResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'contact_group_ids' => 'ContactGroupIds',
+        'account_id' => 'AccountId',
+        'account_name' => 'AccountName',
         'create_time' => 'CreateTime',
-        'ding_talk_bot_webhook' => 'DingTalkBotWebhook',
-        'email' => 'Email',
-        'email_active' => 'EmailActive',
+        'description' => 'Description',
         'id' => 'Id',
-        'lark_bot' => 'LarkBot',
-        'lark_bot_webhook' => 'LarkBotWebhook',
+        'instance_type' => 'InstanceType',
         'name' => 'Name',
-        'we_com_bot_webhook' => 'WeComBotWebhook',
-        'webhook' => 'Webhook'
+        'region' => 'Region',
+        'status' => 'Status',
+        'type' => 'Type'
     ];
 
     /**
@@ -106,17 +103,16 @@ class GetContactResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'contact_group_ids' => 'setContactGroupIds',
+        'account_id' => 'setAccountId',
+        'account_name' => 'setAccountName',
         'create_time' => 'setCreateTime',
-        'ding_talk_bot_webhook' => 'setDingTalkBotWebhook',
-        'email' => 'setEmail',
-        'email_active' => 'setEmailActive',
+        'description' => 'setDescription',
         'id' => 'setId',
-        'lark_bot' => 'setLarkBot',
-        'lark_bot_webhook' => 'setLarkBotWebhook',
+        'instance_type' => 'setInstanceType',
         'name' => 'setName',
-        'we_com_bot_webhook' => 'setWeComBotWebhook',
-        'webhook' => 'setWebhook'
+        'region' => 'setRegion',
+        'status' => 'setStatus',
+        'type' => 'setType'
     ];
 
     /**
@@ -125,17 +121,16 @@ class GetContactResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'contact_group_ids' => 'getContactGroupIds',
+        'account_id' => 'getAccountId',
+        'account_name' => 'getAccountName',
         'create_time' => 'getCreateTime',
-        'ding_talk_bot_webhook' => 'getDingTalkBotWebhook',
-        'email' => 'getEmail',
-        'email_active' => 'getEmailActive',
+        'description' => 'getDescription',
         'id' => 'getId',
-        'lark_bot' => 'getLarkBot',
-        'lark_bot_webhook' => 'getLarkBotWebhook',
+        'instance_type' => 'getInstanceType',
         'name' => 'getName',
-        'we_com_bot_webhook' => 'getWeComBotWebhook',
-        'webhook' => 'getWebhook'
+        'region' => 'getRegion',
+        'status' => 'getStatus',
+        'type' => 'getType'
     ];
 
     /**
@@ -198,17 +193,16 @@ class GetContactResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['contact_group_ids'] = isset($data['contact_group_ids']) ? $data['contact_group_ids'] : null;
+        $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
+        $this->container['account_name'] = isset($data['account_name']) ? $data['account_name'] : null;
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
-        $this->container['ding_talk_bot_webhook'] = isset($data['ding_talk_bot_webhook']) ? $data['ding_talk_bot_webhook'] : null;
-        $this->container['email'] = isset($data['email']) ? $data['email'] : null;
-        $this->container['email_active'] = isset($data['email_active']) ? $data['email_active'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['lark_bot'] = isset($data['lark_bot']) ? $data['lark_bot'] : null;
-        $this->container['lark_bot_webhook'] = isset($data['lark_bot_webhook']) ? $data['lark_bot_webhook'] : null;
+        $this->container['instance_type'] = isset($data['instance_type']) ? $data['instance_type'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['we_com_bot_webhook'] = isset($data['we_com_bot_webhook']) ? $data['we_com_bot_webhook'] : null;
-        $this->container['webhook'] = isset($data['webhook']) ? $data['webhook'] : null;
+        $this->container['region'] = isset($data['region']) ? $data['region'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
     /**
@@ -236,25 +230,49 @@ class GetContactResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets contact_group_ids
+     * Gets account_id
      *
-     * @return string[]
+     * @return int
      */
-    public function getContactGroupIds()
+    public function getAccountId()
     {
-        return $this->container['contact_group_ids'];
+        return $this->container['account_id'];
     }
 
     /**
-     * Sets contact_group_ids
+     * Sets account_id
      *
-     * @param string[] $contact_group_ids contact_group_ids
+     * @param int $account_id account_id
      *
      * @return $this
      */
-    public function setContactGroupIds($contact_group_ids)
+    public function setAccountId($account_id)
     {
-        $this->container['contact_group_ids'] = $contact_group_ids;
+        $this->container['account_id'] = $account_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets account_name
+     *
+     * @return string
+     */
+    public function getAccountName()
+    {
+        return $this->container['account_name'];
+    }
+
+    /**
+     * Sets account_name
+     *
+     * @param string $account_name account_name
+     *
+     * @return $this
+     */
+    public function setAccountName($account_name)
+    {
+        $this->container['account_name'] = $account_name;
 
         return $this;
     }
@@ -284,73 +302,25 @@ class GetContactResponse implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets ding_talk_bot_webhook
-     *
-     * @return \Volcengine\Vmp\Model\DingTalkBotWebhookForGetContactOutput
-     */
-    public function getDingTalkBotWebhook()
-    {
-        return $this->container['ding_talk_bot_webhook'];
-    }
-
-    /**
-     * Sets ding_talk_bot_webhook
-     *
-     * @param \Volcengine\Vmp\Model\DingTalkBotWebhookForGetContactOutput $ding_talk_bot_webhook ding_talk_bot_webhook
-     *
-     * @return $this
-     */
-    public function setDingTalkBotWebhook($ding_talk_bot_webhook)
-    {
-        $this->container['ding_talk_bot_webhook'] = $ding_talk_bot_webhook;
-
-        return $this;
-    }
-
-    /**
-     * Gets email
+     * Gets description
      *
      * @return string
      */
-    public function getEmail()
+    public function getDescription()
     {
-        return $this->container['email'];
+        return $this->container['description'];
     }
 
     /**
-     * Sets email
+     * Sets description
      *
-     * @param string $email email
+     * @param string $description description
      *
      * @return $this
      */
-    public function setEmail($email)
+    public function setDescription($description)
     {
-        $this->container['email'] = $email;
-
-        return $this;
-    }
-
-    /**
-     * Gets email_active
-     *
-     * @return bool
-     */
-    public function getEmailActive()
-    {
-        return $this->container['email_active'];
-    }
-
-    /**
-     * Sets email_active
-     *
-     * @param bool $email_active email_active
-     *
-     * @return $this
-     */
-    public function setEmailActive($email_active)
-    {
-        $this->container['email_active'] = $email_active;
+        $this->container['description'] = $description;
 
         return $this;
     }
@@ -380,49 +350,25 @@ class GetContactResponse implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets lark_bot
+     * Gets instance_type
      *
-     * @return \Volcengine\Vmp\Model\LarkBotForGetContactOutput
+     * @return \Volcengine\Vmp\Model\InstanceTypeForGetAggregateWorkspaceOutput
      */
-    public function getLarkBot()
+    public function getInstanceType()
     {
-        return $this->container['lark_bot'];
+        return $this->container['instance_type'];
     }
 
     /**
-     * Sets lark_bot
+     * Sets instance_type
      *
-     * @param \Volcengine\Vmp\Model\LarkBotForGetContactOutput $lark_bot lark_bot
+     * @param \Volcengine\Vmp\Model\InstanceTypeForGetAggregateWorkspaceOutput $instance_type instance_type
      *
      * @return $this
      */
-    public function setLarkBot($lark_bot)
+    public function setInstanceType($instance_type)
     {
-        $this->container['lark_bot'] = $lark_bot;
-
-        return $this;
-    }
-
-    /**
-     * Gets lark_bot_webhook
-     *
-     * @return \Volcengine\Vmp\Model\LarkBotWebhookForGetContactOutput
-     */
-    public function getLarkBotWebhook()
-    {
-        return $this->container['lark_bot_webhook'];
-    }
-
-    /**
-     * Sets lark_bot_webhook
-     *
-     * @param \Volcengine\Vmp\Model\LarkBotWebhookForGetContactOutput $lark_bot_webhook lark_bot_webhook
-     *
-     * @return $this
-     */
-    public function setLarkBotWebhook($lark_bot_webhook)
-    {
-        $this->container['lark_bot_webhook'] = $lark_bot_webhook;
+        $this->container['instance_type'] = $instance_type;
 
         return $this;
     }
@@ -452,49 +398,73 @@ class GetContactResponse implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets we_com_bot_webhook
+     * Gets region
      *
-     * @return \Volcengine\Vmp\Model\WeComBotWebhookForGetContactOutput
+     * @return string
      */
-    public function getWeComBotWebhook()
+    public function getRegion()
     {
-        return $this->container['we_com_bot_webhook'];
+        return $this->container['region'];
     }
 
     /**
-     * Sets we_com_bot_webhook
+     * Sets region
      *
-     * @param \Volcengine\Vmp\Model\WeComBotWebhookForGetContactOutput $we_com_bot_webhook we_com_bot_webhook
+     * @param string $region region
      *
      * @return $this
      */
-    public function setWeComBotWebhook($we_com_bot_webhook)
+    public function setRegion($region)
     {
-        $this->container['we_com_bot_webhook'] = $we_com_bot_webhook;
+        $this->container['region'] = $region;
 
         return $this;
     }
 
     /**
-     * Gets webhook
+     * Gets status
      *
-     * @return \Volcengine\Vmp\Model\WebhookForGetContactOutput
+     * @return string
      */
-    public function getWebhook()
+    public function getStatus()
     {
-        return $this->container['webhook'];
+        return $this->container['status'];
     }
 
     /**
-     * Sets webhook
+     * Sets status
      *
-     * @param \Volcengine\Vmp\Model\WebhookForGetContactOutput $webhook webhook
+     * @param string $status status
      *
      * @return $this
      */
-    public function setWebhook($webhook)
+    public function setStatus($status)
     {
-        $this->container['webhook'] = $webhook;
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string $type type
+     *
+     * @return $this
+     */
+    public function setType($type)
+    {
+        $this->container['type'] = $type;
 
         return $this;
     }
