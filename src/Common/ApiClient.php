@@ -3,11 +3,6 @@ namespace Volcengine\Common;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
-use GuzzleHttp\Handler\CurlHandler;
-use GuzzleHttp\HandlerStack;
-use GuzzleHttp\Middleware;
-use GuzzleHttp\Psr7\Request;
-use GuzzleHttp\RedirectMiddleware;
 use Volcengine\Common\Interceptor\InterceptorChain;
 use Volcengine\Common\Interceptor\Interceptors\BuildRequestInterceptor;
 use Volcengine\Common\Interceptor\Interceptors\Context;
@@ -80,37 +75,28 @@ class ApiClient
         $headerParams = $headerParams ?: [];
         $headerParams = array_merge($this->defaultHeaders, $headerParams);
 
-        // 基础请求属性
         $request->resourcePath = $resourcePath;
         $request->method = $method;
         $request->headers = $headerParams;
         $request->body = $body;
         $request->returnType = $responseType;
 
-        // 服务端点配置
         $request->host = $this->configuration->getHost();
-        $request->url = '';
         $request->truePath = '/';
         $request->service = '';
-        $request->md = '';
 
-        // 认证信息
         $request->ak = $this->configuration->getAk();
         $request->sk = $this->configuration->getSk();
         $request->sessionToken = $this->configuration->getSessionToken();
 
-        // 区域和网络配置
         $request->region = $this->configuration->getRegion();
         $request->schema = $this->configuration->getSchema();
         $request->endpointProvider = $this->configuration->getEndpointProvider();
         $request->customBootstrapRegion = $this->configuration->getCustomBootstrapRegion();
         $request->useDualStack = $this->configuration->getUseDualStack();
 
-        // 调试和凭证配置
         $request->getDebug = $this->configuration->getDebug();
         $request->getDebugFile = $this->configuration->getDebugFile();
-        $request->credentialProvider = $this->configuration->getCredentialProvider();
-        $request->runtimeOptions = $this->configuration->getRuntimeOptions();
 
         $context->setRequest($request);
         return $context;
@@ -158,7 +144,7 @@ class ApiClient
                                 $responseContent);
                         }
                         $metaData = $content->{'ResponseMetadata'};
-                        $content = $content->{'Result'};
+                        $content = isset($content->{'Result'}) ? $content->{'Result'} : "";
                         $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
                         if (is_object($deserializedContent)) {
                             $deserializedContent->offsetSet('ResponseMetadata', $metaData);
@@ -230,7 +216,7 @@ class ApiClient
                     $responseContent);
             }
             $metaData = $content->{'ResponseMetadata'};
-            $content = isset($content->{'Result'}) ? $content->{'Result'} : null;
+            $content = isset($content->{'Result'}) ? $content->{'Result'} : "";
             $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
             if (is_object($deserializedContent)) {
                 $deserializedContent->offsetSet('ResponseMetadata', $metaData);
@@ -277,67 +263,8 @@ class ApiClient
                 $config['connect_timeout'] = $this->configuration->getConnectTimeout();
             }
         }
-        $this->client = new Client(array_merge($clientConfig, $config));
-    }
-
-    /**
-     * retryDecider
-     * 返回一个匿名函数, 匿名函数若返回false 表示不重试，反之则表示继续重试
-     */
-    public function retryDecider()
-    {
-        return function (
-            $retries,
-            Request $request,
-            $response = null,
-            $e = null
-        ) {
-            //如果没有打开autoRetry，直接返回false
-            if (!$this->configuration->getAutoRetry()) {
-                return false;
-            }
-
-            $status = $this->configuration->getRetryer()->shouldRetry($response, $retries, $e);
-            //如果返回的是false，代表不需要重试了的
-            if (!$status) {
-                return $status;
-            }
-            if ($e !== null) {
-                new ApiLogger(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-            if ($statusCode < 200 || $statusCode > 299) {
-                new ApiLogger(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)(%s)',
-                        $statusCode,
-                        $request->getUri(),
-                        $response->getBody()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            return $status;
-        };
-    }
-
-    /**
-     * 返回一个匿名函数，该匿名函数返回下次重试的时间（毫秒）
-     */
-    public function retryDelay()
-    {
-        return function ($retries) {
-            return $this->configuration->getRetryer()->getBackoffDelay($retries);
-        };
+        $handler = isset($clientConfig['handler']) ? $clientConfig['handler'] : \GuzzleHttp\HandlerStack::create();
+        $this->client = new Client(array_merge($clientConfig, $config, ['handler' => $handler]));
     }
 }
 

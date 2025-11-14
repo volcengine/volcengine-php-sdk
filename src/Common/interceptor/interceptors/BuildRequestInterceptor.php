@@ -2,6 +2,7 @@
 
 namespace Volcengine\Common\Interceptor\Interceptors;
 
+use Volcengine\Common\ApiException;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\Utils;
 
@@ -21,6 +22,9 @@ class BuildRequestInterceptor extends Interceptor
         $httpBody = $body;
         $resourcePath = $request->resourcePath;
         $paths = explode("/", $resourcePath);
+        if (count($paths) < 5) {
+            throw new ApiException('Invalid resourcePath: ' . $resourcePath);
+        }
         $service = $paths[3];
         $queryParams = [];
         // format request body

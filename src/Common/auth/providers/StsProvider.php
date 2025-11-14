@@ -21,6 +21,7 @@ class StsProvider extends Provider
     private $schema;
     private $policy;
     private $headerSelector;
+    private $config;
 
     public function __construct(
         $ak,
@@ -45,6 +46,7 @@ class StsProvider extends Provider
         $this->schema = $schema;
         $this->policy = $policy;
         $this->headerSelector = $selector ?: new HeaderSelector();
+        $this->config = \Volcengine\Common\Configuration::getDefaultConfiguration();
     }
 
     public function getCredentials()
@@ -54,7 +56,7 @@ class StsProvider extends Provider
             ['text/plain']
         );
         $defaultHeaders = [];
-        $defaultHeaders['User-Agent'] = "volcstack-php-sdk/1.0.72";
+        $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         $headers = array_merge(
             $defaultHeaders,
             $headers
