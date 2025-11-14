@@ -12,7 +12,6 @@
     - [自定义RegionId](#自定义regionid)
     - [自动化Endpoint寻址](#自动化endpoint寻址)
         - [Endpoint默认寻址](#endpoint默认寻址)
-- [Http连接池配置](#http连接池配置)
 - [Https请求配置](#https请求配置)
     - [指定scheme](#指定scheme)
     - [忽略SSL验证](#忽略ssl验证)
@@ -214,7 +213,7 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
 **Endpoint默认寻址逻辑**
 
 1. 是否自动寻址Region  
-   内置自动寻址Region列表代码:[./src/Common/endpoint/providers/DefaultEndpointProvider.php](src/Common/endpoint/providers/DefaultEndpointProvider.php#L24)  
+   内置自动寻址Region列表代码:[./src/Common/endpoint/providers/DefaultEndpointProvider.php](src/Common/endpoint/providers/DefaultEndpointProvider.php)  
    SDK 仅对部分预设区域（如
    cn-beijing-autodriving、ap-southeast-2）或用户配置的区域执行自动寻址；其他区域默认返回Endpoint：open.volcengineapi.com。  
    用户可通过环境变量 VOLC_BOOTSTRAP_REGION_LIST_CONF 或代码中自定义 customBootstrapRegion 来扩展控制区域列表。
