@@ -32,7 +32,6 @@ class DescribeVolumeTypeRequest implements ModelInterface, ArrayAccess
         'order_by' => 'string',
         'page_number' => 'int',
         'page_size' => 'int',
-        'resource_class' => 'string',
         'volume_type_ids' => 'string[]',
         'zone_id' => 'string'
     ];
@@ -47,7 +46,6 @@ class DescribeVolumeTypeRequest implements ModelInterface, ArrayAccess
         'order_by' => null,
         'page_number' => 'int32',
         'page_size' => 'int32',
-        'resource_class' => null,
         'volume_type_ids' => null,
         'zone_id' => null
     ];
@@ -83,7 +81,6 @@ class DescribeVolumeTypeRequest implements ModelInterface, ArrayAccess
         'order_by' => 'OrderBy',
         'page_number' => 'PageNumber',
         'page_size' => 'PageSize',
-        'resource_class' => 'ResourceClass',
         'volume_type_ids' => 'VolumeTypeIds',
         'zone_id' => 'ZoneId'
     ];
@@ -98,7 +95,6 @@ class DescribeVolumeTypeRequest implements ModelInterface, ArrayAccess
         'order_by' => 'setOrderBy',
         'page_number' => 'setPageNumber',
         'page_size' => 'setPageSize',
-        'resource_class' => 'setResourceClass',
         'volume_type_ids' => 'setVolumeTypeIds',
         'zone_id' => 'setZoneId'
     ];
@@ -113,7 +109,6 @@ class DescribeVolumeTypeRequest implements ModelInterface, ArrayAccess
         'order_by' => 'getOrderBy',
         'page_number' => 'getPageNumber',
         'page_size' => 'getPageSize',
-        'resource_class' => 'getResourceClass',
         'volume_type_ids' => 'getVolumeTypeIds',
         'zone_id' => 'getZoneId'
     ];
@@ -182,7 +177,6 @@ class DescribeVolumeTypeRequest implements ModelInterface, ArrayAccess
         $this->container['order_by'] = isset($data['order_by']) ? $data['order_by'] : null;
         $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
-        $this->container['resource_class'] = isset($data['resource_class']) ? $data['resource_class'] : null;
         $this->container['volume_type_ids'] = isset($data['volume_type_ids']) ? $data['volume_type_ids'] : null;
         $this->container['zone_id'] = isset($data['zone_id']) ? $data['zone_id'] : null;
     }
@@ -303,30 +297,6 @@ class DescribeVolumeTypeRequest implements ModelInterface, ArrayAccess
     public function setPageSize($page_size)
     {
         $this->container['page_size'] = $page_size;
-
-        return $this;
-    }
-
-    /**
-     * Gets resource_class
-     *
-     * @return string
-     */
-    public function getResourceClass()
-    {
-        return $this->container['resource_class'];
-    }
-
-    /**
-     * Sets resource_class
-     *
-     * @param string $resource_class resource_class
-     *
-     * @return $this
-     */
-    public function setResourceClass($resource_class)
-    {
-        $this->container['resource_class'] = $resource_class;
 
         return $this;
     }

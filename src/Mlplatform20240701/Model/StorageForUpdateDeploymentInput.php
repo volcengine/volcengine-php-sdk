@@ -28,10 +28,42 @@ class StorageForUpdateDeploymentInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'config' => '\Volcengine\Mlplatform20240701\Model\ConfigForUpdateDeploymentInput',
+        'advanced_options' => '\Volcengine\Mlplatform20240701\Model\AdvancedOptionsForUpdateDeploymentInput',
+        'annotation_id' => 'string',
+        'asset_id' => 'string',
+        'asset_name' => 'string',
+        'asset_version' => 'string',
+        'bucket' => 'string',
+        'cache_policy_id' => 'string',
+        'cloudfs_type' => 'string',
+        'credential' => '\Volcengine\Mlplatform20240701\Model\ConvertCredentialForUpdateDeploymentInput',
+        'dataset_id' => 'string',
+        'external_cfs' => 'bool',
+        'external_sfcs' => 'bool',
+        'external_tos' => 'bool',
+        'fs_name' => 'string',
+        'meta_url' => 'string',
+        'mount_options' => 'string[]',
         'mount_path' => 'string',
+        'nas_access_point_options' => '\Volcengine\Mlplatform20240701\Model\NasAccessPointOptionsForUpdateDeploymentInput',
+        'nas_addr' => 'string',
+        'nas_id' => 'string',
+        'nas_name' => 'string',
+        'ns_id' => 'string',
+        'prefix' => 'string',
         'read_only' => 'bool',
-        'type' => 'string'
+        'role_name' => 'string',
+        'sfcs_advanced_options' => '\Volcengine\Mlplatform20240701\Model\SfcsAdvancedOptionsForUpdateDeploymentInput',
+        'sfcs_id' => 'string',
+        'sub_path' => 'string',
+        'tenant_account' => 'int',
+        'type' => 'string',
+        'use_as_default_mount_path' => 'bool',
+        'use_eic' => 'bool',
+        'vepfs_access_point_options' => '\Volcengine\Mlplatform20240701\Model\VepfsAccessPointOptionsForUpdateDeploymentInput',
+        'vepfs_host_path' => 'string',
+        'vepfs_id' => 'string',
+        'vepfs_name' => 'string'
     ];
 
     /**
@@ -40,10 +72,42 @@ class StorageForUpdateDeploymentInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'config' => null,
+        'advanced_options' => null,
+        'annotation_id' => null,
+        'asset_id' => null,
+        'asset_name' => null,
+        'asset_version' => null,
+        'bucket' => null,
+        'cache_policy_id' => null,
+        'cloudfs_type' => null,
+        'credential' => null,
+        'dataset_id' => null,
+        'external_cfs' => null,
+        'external_sfcs' => null,
+        'external_tos' => null,
+        'fs_name' => null,
+        'meta_url' => null,
+        'mount_options' => null,
         'mount_path' => null,
+        'nas_access_point_options' => null,
+        'nas_addr' => null,
+        'nas_id' => null,
+        'nas_name' => null,
+        'ns_id' => null,
+        'prefix' => null,
         'read_only' => null,
-        'type' => null
+        'role_name' => null,
+        'sfcs_advanced_options' => null,
+        'sfcs_id' => null,
+        'sub_path' => null,
+        'tenant_account' => 'int64',
+        'type' => null,
+        'use_as_default_mount_path' => null,
+        'use_eic' => null,
+        'vepfs_access_point_options' => null,
+        'vepfs_host_path' => null,
+        'vepfs_id' => null,
+        'vepfs_name' => null
     ];
 
     /**
@@ -73,10 +137,42 @@ class StorageForUpdateDeploymentInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'config' => 'Config',
+        'advanced_options' => 'AdvancedOptions',
+        'annotation_id' => 'AnnotationId',
+        'asset_id' => 'AssetId',
+        'asset_name' => 'AssetName',
+        'asset_version' => 'AssetVersion',
+        'bucket' => 'Bucket',
+        'cache_policy_id' => 'CachePolicyId',
+        'cloudfs_type' => 'CloudfsType',
+        'credential' => 'Credential',
+        'dataset_id' => 'DatasetId',
+        'external_cfs' => 'ExternalCFS',
+        'external_sfcs' => 'ExternalSfcs',
+        'external_tos' => 'ExternalTos',
+        'fs_name' => 'FsName',
+        'meta_url' => 'MetaURL',
+        'mount_options' => 'MountOptions',
         'mount_path' => 'MountPath',
+        'nas_access_point_options' => 'NasAccessPointOptions',
+        'nas_addr' => 'NasAddr',
+        'nas_id' => 'NasId',
+        'nas_name' => 'NasName',
+        'ns_id' => 'NsId',
+        'prefix' => 'Prefix',
         'read_only' => 'ReadOnly',
-        'type' => 'Type'
+        'role_name' => 'RoleName',
+        'sfcs_advanced_options' => 'SfcsAdvancedOptions',
+        'sfcs_id' => 'SfcsId',
+        'sub_path' => 'SubPath',
+        'tenant_account' => 'TenantAccount',
+        'type' => 'Type',
+        'use_as_default_mount_path' => 'UseAsDefaultMountPath',
+        'use_eic' => 'UseEic',
+        'vepfs_access_point_options' => 'VepfsAccessPointOptions',
+        'vepfs_host_path' => 'VepfsHostPath',
+        'vepfs_id' => 'VepfsId',
+        'vepfs_name' => 'VepfsName'
     ];
 
     /**
@@ -85,10 +181,42 @@ class StorageForUpdateDeploymentInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'config' => 'setConfig',
+        'advanced_options' => 'setAdvancedOptions',
+        'annotation_id' => 'setAnnotationId',
+        'asset_id' => 'setAssetId',
+        'asset_name' => 'setAssetName',
+        'asset_version' => 'setAssetVersion',
+        'bucket' => 'setBucket',
+        'cache_policy_id' => 'setCachePolicyId',
+        'cloudfs_type' => 'setCloudfsType',
+        'credential' => 'setCredential',
+        'dataset_id' => 'setDatasetId',
+        'external_cfs' => 'setExternalCfs',
+        'external_sfcs' => 'setExternalSfcs',
+        'external_tos' => 'setExternalTos',
+        'fs_name' => 'setFsName',
+        'meta_url' => 'setMetaUrl',
+        'mount_options' => 'setMountOptions',
         'mount_path' => 'setMountPath',
+        'nas_access_point_options' => 'setNasAccessPointOptions',
+        'nas_addr' => 'setNasAddr',
+        'nas_id' => 'setNasId',
+        'nas_name' => 'setNasName',
+        'ns_id' => 'setNsId',
+        'prefix' => 'setPrefix',
         'read_only' => 'setReadOnly',
-        'type' => 'setType'
+        'role_name' => 'setRoleName',
+        'sfcs_advanced_options' => 'setSfcsAdvancedOptions',
+        'sfcs_id' => 'setSfcsId',
+        'sub_path' => 'setSubPath',
+        'tenant_account' => 'setTenantAccount',
+        'type' => 'setType',
+        'use_as_default_mount_path' => 'setUseAsDefaultMountPath',
+        'use_eic' => 'setUseEic',
+        'vepfs_access_point_options' => 'setVepfsAccessPointOptions',
+        'vepfs_host_path' => 'setVepfsHostPath',
+        'vepfs_id' => 'setVepfsId',
+        'vepfs_name' => 'setVepfsName'
     ];
 
     /**
@@ -97,10 +225,42 @@ class StorageForUpdateDeploymentInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'config' => 'getConfig',
+        'advanced_options' => 'getAdvancedOptions',
+        'annotation_id' => 'getAnnotationId',
+        'asset_id' => 'getAssetId',
+        'asset_name' => 'getAssetName',
+        'asset_version' => 'getAssetVersion',
+        'bucket' => 'getBucket',
+        'cache_policy_id' => 'getCachePolicyId',
+        'cloudfs_type' => 'getCloudfsType',
+        'credential' => 'getCredential',
+        'dataset_id' => 'getDatasetId',
+        'external_cfs' => 'getExternalCfs',
+        'external_sfcs' => 'getExternalSfcs',
+        'external_tos' => 'getExternalTos',
+        'fs_name' => 'getFsName',
+        'meta_url' => 'getMetaUrl',
+        'mount_options' => 'getMountOptions',
         'mount_path' => 'getMountPath',
+        'nas_access_point_options' => 'getNasAccessPointOptions',
+        'nas_addr' => 'getNasAddr',
+        'nas_id' => 'getNasId',
+        'nas_name' => 'getNasName',
+        'ns_id' => 'getNsId',
+        'prefix' => 'getPrefix',
         'read_only' => 'getReadOnly',
-        'type' => 'getType'
+        'role_name' => 'getRoleName',
+        'sfcs_advanced_options' => 'getSfcsAdvancedOptions',
+        'sfcs_id' => 'getSfcsId',
+        'sub_path' => 'getSubPath',
+        'tenant_account' => 'getTenantAccount',
+        'type' => 'getType',
+        'use_as_default_mount_path' => 'getUseAsDefaultMountPath',
+        'use_eic' => 'getUseEic',
+        'vepfs_access_point_options' => 'getVepfsAccessPointOptions',
+        'vepfs_host_path' => 'getVepfsHostPath',
+        'vepfs_id' => 'getVepfsId',
+        'vepfs_name' => 'getVepfsName'
     ];
 
     /**
@@ -163,10 +323,42 @@ class StorageForUpdateDeploymentInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['config'] = isset($data['config']) ? $data['config'] : null;
+        $this->container['advanced_options'] = isset($data['advanced_options']) ? $data['advanced_options'] : null;
+        $this->container['annotation_id'] = isset($data['annotation_id']) ? $data['annotation_id'] : null;
+        $this->container['asset_id'] = isset($data['asset_id']) ? $data['asset_id'] : null;
+        $this->container['asset_name'] = isset($data['asset_name']) ? $data['asset_name'] : null;
+        $this->container['asset_version'] = isset($data['asset_version']) ? $data['asset_version'] : null;
+        $this->container['bucket'] = isset($data['bucket']) ? $data['bucket'] : null;
+        $this->container['cache_policy_id'] = isset($data['cache_policy_id']) ? $data['cache_policy_id'] : null;
+        $this->container['cloudfs_type'] = isset($data['cloudfs_type']) ? $data['cloudfs_type'] : null;
+        $this->container['credential'] = isset($data['credential']) ? $data['credential'] : null;
+        $this->container['dataset_id'] = isset($data['dataset_id']) ? $data['dataset_id'] : null;
+        $this->container['external_cfs'] = isset($data['external_cfs']) ? $data['external_cfs'] : null;
+        $this->container['external_sfcs'] = isset($data['external_sfcs']) ? $data['external_sfcs'] : null;
+        $this->container['external_tos'] = isset($data['external_tos']) ? $data['external_tos'] : null;
+        $this->container['fs_name'] = isset($data['fs_name']) ? $data['fs_name'] : null;
+        $this->container['meta_url'] = isset($data['meta_url']) ? $data['meta_url'] : null;
+        $this->container['mount_options'] = isset($data['mount_options']) ? $data['mount_options'] : null;
         $this->container['mount_path'] = isset($data['mount_path']) ? $data['mount_path'] : null;
+        $this->container['nas_access_point_options'] = isset($data['nas_access_point_options']) ? $data['nas_access_point_options'] : null;
+        $this->container['nas_addr'] = isset($data['nas_addr']) ? $data['nas_addr'] : null;
+        $this->container['nas_id'] = isset($data['nas_id']) ? $data['nas_id'] : null;
+        $this->container['nas_name'] = isset($data['nas_name']) ? $data['nas_name'] : null;
+        $this->container['ns_id'] = isset($data['ns_id']) ? $data['ns_id'] : null;
+        $this->container['prefix'] = isset($data['prefix']) ? $data['prefix'] : null;
         $this->container['read_only'] = isset($data['read_only']) ? $data['read_only'] : null;
+        $this->container['role_name'] = isset($data['role_name']) ? $data['role_name'] : null;
+        $this->container['sfcs_advanced_options'] = isset($data['sfcs_advanced_options']) ? $data['sfcs_advanced_options'] : null;
+        $this->container['sfcs_id'] = isset($data['sfcs_id']) ? $data['sfcs_id'] : null;
+        $this->container['sub_path'] = isset($data['sub_path']) ? $data['sub_path'] : null;
+        $this->container['tenant_account'] = isset($data['tenant_account']) ? $data['tenant_account'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['use_as_default_mount_path'] = isset($data['use_as_default_mount_path']) ? $data['use_as_default_mount_path'] : null;
+        $this->container['use_eic'] = isset($data['use_eic']) ? $data['use_eic'] : null;
+        $this->container['vepfs_access_point_options'] = isset($data['vepfs_access_point_options']) ? $data['vepfs_access_point_options'] : null;
+        $this->container['vepfs_host_path'] = isset($data['vepfs_host_path']) ? $data['vepfs_host_path'] : null;
+        $this->container['vepfs_id'] = isset($data['vepfs_id']) ? $data['vepfs_id'] : null;
+        $this->container['vepfs_name'] = isset($data['vepfs_name']) ? $data['vepfs_name'] : null;
     }
 
     /**
@@ -194,25 +386,385 @@ class StorageForUpdateDeploymentInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets config
+     * Gets advanced_options
      *
-     * @return \Volcengine\Mlplatform20240701\Model\ConfigForUpdateDeploymentInput
+     * @return \Volcengine\Mlplatform20240701\Model\AdvancedOptionsForUpdateDeploymentInput
      */
-    public function getConfig()
+    public function getAdvancedOptions()
     {
-        return $this->container['config'];
+        return $this->container['advanced_options'];
     }
 
     /**
-     * Sets config
+     * Sets advanced_options
      *
-     * @param \Volcengine\Mlplatform20240701\Model\ConfigForUpdateDeploymentInput $config config
+     * @param \Volcengine\Mlplatform20240701\Model\AdvancedOptionsForUpdateDeploymentInput $advanced_options advanced_options
      *
      * @return $this
      */
-    public function setConfig($config)
+    public function setAdvancedOptions($advanced_options)
     {
-        $this->container['config'] = $config;
+        $this->container['advanced_options'] = $advanced_options;
+
+        return $this;
+    }
+
+    /**
+     * Gets annotation_id
+     *
+     * @return string
+     */
+    public function getAnnotationId()
+    {
+        return $this->container['annotation_id'];
+    }
+
+    /**
+     * Sets annotation_id
+     *
+     * @param string $annotation_id annotation_id
+     *
+     * @return $this
+     */
+    public function setAnnotationId($annotation_id)
+    {
+        $this->container['annotation_id'] = $annotation_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets asset_id
+     *
+     * @return string
+     */
+    public function getAssetId()
+    {
+        return $this->container['asset_id'];
+    }
+
+    /**
+     * Sets asset_id
+     *
+     * @param string $asset_id asset_id
+     *
+     * @return $this
+     */
+    public function setAssetId($asset_id)
+    {
+        $this->container['asset_id'] = $asset_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets asset_name
+     *
+     * @return string
+     */
+    public function getAssetName()
+    {
+        return $this->container['asset_name'];
+    }
+
+    /**
+     * Sets asset_name
+     *
+     * @param string $asset_name asset_name
+     *
+     * @return $this
+     */
+    public function setAssetName($asset_name)
+    {
+        $this->container['asset_name'] = $asset_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets asset_version
+     *
+     * @return string
+     */
+    public function getAssetVersion()
+    {
+        return $this->container['asset_version'];
+    }
+
+    /**
+     * Sets asset_version
+     *
+     * @param string $asset_version asset_version
+     *
+     * @return $this
+     */
+    public function setAssetVersion($asset_version)
+    {
+        $this->container['asset_version'] = $asset_version;
+
+        return $this;
+    }
+
+    /**
+     * Gets bucket
+     *
+     * @return string
+     */
+    public function getBucket()
+    {
+        return $this->container['bucket'];
+    }
+
+    /**
+     * Sets bucket
+     *
+     * @param string $bucket bucket
+     *
+     * @return $this
+     */
+    public function setBucket($bucket)
+    {
+        $this->container['bucket'] = $bucket;
+
+        return $this;
+    }
+
+    /**
+     * Gets cache_policy_id
+     *
+     * @return string
+     */
+    public function getCachePolicyId()
+    {
+        return $this->container['cache_policy_id'];
+    }
+
+    /**
+     * Sets cache_policy_id
+     *
+     * @param string $cache_policy_id cache_policy_id
+     *
+     * @return $this
+     */
+    public function setCachePolicyId($cache_policy_id)
+    {
+        $this->container['cache_policy_id'] = $cache_policy_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets cloudfs_type
+     *
+     * @return string
+     */
+    public function getCloudfsType()
+    {
+        return $this->container['cloudfs_type'];
+    }
+
+    /**
+     * Sets cloudfs_type
+     *
+     * @param string $cloudfs_type cloudfs_type
+     *
+     * @return $this
+     */
+    public function setCloudfsType($cloudfs_type)
+    {
+        $this->container['cloudfs_type'] = $cloudfs_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets credential
+     *
+     * @return \Volcengine\Mlplatform20240701\Model\ConvertCredentialForUpdateDeploymentInput
+     */
+    public function getCredential()
+    {
+        return $this->container['credential'];
+    }
+
+    /**
+     * Sets credential
+     *
+     * @param \Volcengine\Mlplatform20240701\Model\ConvertCredentialForUpdateDeploymentInput $credential credential
+     *
+     * @return $this
+     */
+    public function setCredential($credential)
+    {
+        $this->container['credential'] = $credential;
+
+        return $this;
+    }
+
+    /**
+     * Gets dataset_id
+     *
+     * @return string
+     */
+    public function getDatasetId()
+    {
+        return $this->container['dataset_id'];
+    }
+
+    /**
+     * Sets dataset_id
+     *
+     * @param string $dataset_id dataset_id
+     *
+     * @return $this
+     */
+    public function setDatasetId($dataset_id)
+    {
+        $this->container['dataset_id'] = $dataset_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets external_cfs
+     *
+     * @return bool
+     */
+    public function getExternalCfs()
+    {
+        return $this->container['external_cfs'];
+    }
+
+    /**
+     * Sets external_cfs
+     *
+     * @param bool $external_cfs external_cfs
+     *
+     * @return $this
+     */
+    public function setExternalCfs($external_cfs)
+    {
+        $this->container['external_cfs'] = $external_cfs;
+
+        return $this;
+    }
+
+    /**
+     * Gets external_sfcs
+     *
+     * @return bool
+     */
+    public function getExternalSfcs()
+    {
+        return $this->container['external_sfcs'];
+    }
+
+    /**
+     * Sets external_sfcs
+     *
+     * @param bool $external_sfcs external_sfcs
+     *
+     * @return $this
+     */
+    public function setExternalSfcs($external_sfcs)
+    {
+        $this->container['external_sfcs'] = $external_sfcs;
+
+        return $this;
+    }
+
+    /**
+     * Gets external_tos
+     *
+     * @return bool
+     */
+    public function getExternalTos()
+    {
+        return $this->container['external_tos'];
+    }
+
+    /**
+     * Sets external_tos
+     *
+     * @param bool $external_tos external_tos
+     *
+     * @return $this
+     */
+    public function setExternalTos($external_tos)
+    {
+        $this->container['external_tos'] = $external_tos;
+
+        return $this;
+    }
+
+    /**
+     * Gets fs_name
+     *
+     * @return string
+     */
+    public function getFsName()
+    {
+        return $this->container['fs_name'];
+    }
+
+    /**
+     * Sets fs_name
+     *
+     * @param string $fs_name fs_name
+     *
+     * @return $this
+     */
+    public function setFsName($fs_name)
+    {
+        $this->container['fs_name'] = $fs_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets meta_url
+     *
+     * @return string
+     */
+    public function getMetaUrl()
+    {
+        return $this->container['meta_url'];
+    }
+
+    /**
+     * Sets meta_url
+     *
+     * @param string $meta_url meta_url
+     *
+     * @return $this
+     */
+    public function setMetaUrl($meta_url)
+    {
+        $this->container['meta_url'] = $meta_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets mount_options
+     *
+     * @return string[]
+     */
+    public function getMountOptions()
+    {
+        return $this->container['mount_options'];
+    }
+
+    /**
+     * Sets mount_options
+     *
+     * @param string[] $mount_options mount_options
+     *
+     * @return $this
+     */
+    public function setMountOptions($mount_options)
+    {
+        $this->container['mount_options'] = $mount_options;
 
         return $this;
     }
@@ -242,6 +794,150 @@ class StorageForUpdateDeploymentInput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets nas_access_point_options
+     *
+     * @return \Volcengine\Mlplatform20240701\Model\NasAccessPointOptionsForUpdateDeploymentInput
+     */
+    public function getNasAccessPointOptions()
+    {
+        return $this->container['nas_access_point_options'];
+    }
+
+    /**
+     * Sets nas_access_point_options
+     *
+     * @param \Volcengine\Mlplatform20240701\Model\NasAccessPointOptionsForUpdateDeploymentInput $nas_access_point_options nas_access_point_options
+     *
+     * @return $this
+     */
+    public function setNasAccessPointOptions($nas_access_point_options)
+    {
+        $this->container['nas_access_point_options'] = $nas_access_point_options;
+
+        return $this;
+    }
+
+    /**
+     * Gets nas_addr
+     *
+     * @return string
+     */
+    public function getNasAddr()
+    {
+        return $this->container['nas_addr'];
+    }
+
+    /**
+     * Sets nas_addr
+     *
+     * @param string $nas_addr nas_addr
+     *
+     * @return $this
+     */
+    public function setNasAddr($nas_addr)
+    {
+        $this->container['nas_addr'] = $nas_addr;
+
+        return $this;
+    }
+
+    /**
+     * Gets nas_id
+     *
+     * @return string
+     */
+    public function getNasId()
+    {
+        return $this->container['nas_id'];
+    }
+
+    /**
+     * Sets nas_id
+     *
+     * @param string $nas_id nas_id
+     *
+     * @return $this
+     */
+    public function setNasId($nas_id)
+    {
+        $this->container['nas_id'] = $nas_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets nas_name
+     *
+     * @return string
+     */
+    public function getNasName()
+    {
+        return $this->container['nas_name'];
+    }
+
+    /**
+     * Sets nas_name
+     *
+     * @param string $nas_name nas_name
+     *
+     * @return $this
+     */
+    public function setNasName($nas_name)
+    {
+        $this->container['nas_name'] = $nas_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets ns_id
+     *
+     * @return string
+     */
+    public function getNsId()
+    {
+        return $this->container['ns_id'];
+    }
+
+    /**
+     * Sets ns_id
+     *
+     * @param string $ns_id ns_id
+     *
+     * @return $this
+     */
+    public function setNsId($ns_id)
+    {
+        $this->container['ns_id'] = $ns_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets prefix
+     *
+     * @return string
+     */
+    public function getPrefix()
+    {
+        return $this->container['prefix'];
+    }
+
+    /**
+     * Sets prefix
+     *
+     * @param string $prefix prefix
+     *
+     * @return $this
+     */
+    public function setPrefix($prefix)
+    {
+        $this->container['prefix'] = $prefix;
+
+        return $this;
+    }
+
+    /**
      * Gets read_only
      *
      * @return bool
@@ -266,6 +962,126 @@ class StorageForUpdateDeploymentInput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets role_name
+     *
+     * @return string
+     */
+    public function getRoleName()
+    {
+        return $this->container['role_name'];
+    }
+
+    /**
+     * Sets role_name
+     *
+     * @param string $role_name role_name
+     *
+     * @return $this
+     */
+    public function setRoleName($role_name)
+    {
+        $this->container['role_name'] = $role_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets sfcs_advanced_options
+     *
+     * @return \Volcengine\Mlplatform20240701\Model\SfcsAdvancedOptionsForUpdateDeploymentInput
+     */
+    public function getSfcsAdvancedOptions()
+    {
+        return $this->container['sfcs_advanced_options'];
+    }
+
+    /**
+     * Sets sfcs_advanced_options
+     *
+     * @param \Volcengine\Mlplatform20240701\Model\SfcsAdvancedOptionsForUpdateDeploymentInput $sfcs_advanced_options sfcs_advanced_options
+     *
+     * @return $this
+     */
+    public function setSfcsAdvancedOptions($sfcs_advanced_options)
+    {
+        $this->container['sfcs_advanced_options'] = $sfcs_advanced_options;
+
+        return $this;
+    }
+
+    /**
+     * Gets sfcs_id
+     *
+     * @return string
+     */
+    public function getSfcsId()
+    {
+        return $this->container['sfcs_id'];
+    }
+
+    /**
+     * Sets sfcs_id
+     *
+     * @param string $sfcs_id sfcs_id
+     *
+     * @return $this
+     */
+    public function setSfcsId($sfcs_id)
+    {
+        $this->container['sfcs_id'] = $sfcs_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets sub_path
+     *
+     * @return string
+     */
+    public function getSubPath()
+    {
+        return $this->container['sub_path'];
+    }
+
+    /**
+     * Sets sub_path
+     *
+     * @param string $sub_path sub_path
+     *
+     * @return $this
+     */
+    public function setSubPath($sub_path)
+    {
+        $this->container['sub_path'] = $sub_path;
+
+        return $this;
+    }
+
+    /**
+     * Gets tenant_account
+     *
+     * @return int
+     */
+    public function getTenantAccount()
+    {
+        return $this->container['tenant_account'];
+    }
+
+    /**
+     * Sets tenant_account
+     *
+     * @param int $tenant_account tenant_account
+     *
+     * @return $this
+     */
+    public function setTenantAccount($tenant_account)
+    {
+        $this->container['tenant_account'] = $tenant_account;
+
+        return $this;
+    }
+
+    /**
      * Gets type
      *
      * @return string
@@ -285,6 +1101,150 @@ class StorageForUpdateDeploymentInput implements ModelInterface, ArrayAccess
     public function setType($type)
     {
         $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets use_as_default_mount_path
+     *
+     * @return bool
+     */
+    public function getUseAsDefaultMountPath()
+    {
+        return $this->container['use_as_default_mount_path'];
+    }
+
+    /**
+     * Sets use_as_default_mount_path
+     *
+     * @param bool $use_as_default_mount_path use_as_default_mount_path
+     *
+     * @return $this
+     */
+    public function setUseAsDefaultMountPath($use_as_default_mount_path)
+    {
+        $this->container['use_as_default_mount_path'] = $use_as_default_mount_path;
+
+        return $this;
+    }
+
+    /**
+     * Gets use_eic
+     *
+     * @return bool
+     */
+    public function getUseEic()
+    {
+        return $this->container['use_eic'];
+    }
+
+    /**
+     * Sets use_eic
+     *
+     * @param bool $use_eic use_eic
+     *
+     * @return $this
+     */
+    public function setUseEic($use_eic)
+    {
+        $this->container['use_eic'] = $use_eic;
+
+        return $this;
+    }
+
+    /**
+     * Gets vepfs_access_point_options
+     *
+     * @return \Volcengine\Mlplatform20240701\Model\VepfsAccessPointOptionsForUpdateDeploymentInput
+     */
+    public function getVepfsAccessPointOptions()
+    {
+        return $this->container['vepfs_access_point_options'];
+    }
+
+    /**
+     * Sets vepfs_access_point_options
+     *
+     * @param \Volcengine\Mlplatform20240701\Model\VepfsAccessPointOptionsForUpdateDeploymentInput $vepfs_access_point_options vepfs_access_point_options
+     *
+     * @return $this
+     */
+    public function setVepfsAccessPointOptions($vepfs_access_point_options)
+    {
+        $this->container['vepfs_access_point_options'] = $vepfs_access_point_options;
+
+        return $this;
+    }
+
+    /**
+     * Gets vepfs_host_path
+     *
+     * @return string
+     */
+    public function getVepfsHostPath()
+    {
+        return $this->container['vepfs_host_path'];
+    }
+
+    /**
+     * Sets vepfs_host_path
+     *
+     * @param string $vepfs_host_path vepfs_host_path
+     *
+     * @return $this
+     */
+    public function setVepfsHostPath($vepfs_host_path)
+    {
+        $this->container['vepfs_host_path'] = $vepfs_host_path;
+
+        return $this;
+    }
+
+    /**
+     * Gets vepfs_id
+     *
+     * @return string
+     */
+    public function getVepfsId()
+    {
+        return $this->container['vepfs_id'];
+    }
+
+    /**
+     * Sets vepfs_id
+     *
+     * @param string $vepfs_id vepfs_id
+     *
+     * @return $this
+     */
+    public function setVepfsId($vepfs_id)
+    {
+        $this->container['vepfs_id'] = $vepfs_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets vepfs_name
+     *
+     * @return string
+     */
+    public function getVepfsName()
+    {
+        return $this->container['vepfs_name'];
+    }
+
+    /**
+     * Sets vepfs_name
+     *
+     * @param string $vepfs_name vepfs_name
+     *
+     * @return $this
+     */
+    public function setVepfsName($vepfs_name)
+    {
+        $this->container['vepfs_name'] = $vepfs_name;
 
         return $this;
     }

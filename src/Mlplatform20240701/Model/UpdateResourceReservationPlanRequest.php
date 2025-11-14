@@ -31,6 +31,7 @@ class UpdateResourceReservationPlanRequest implements ModelInterface, ArrayAcces
         'description' => 'string',
         'dry_run' => 'bool',
         'id' => 'string',
+        'matching_reservation_plan_time_config' => '\Volcengine\Mlplatform20240701\Model\MatchingReservationPlanTimeConfigForUpdateResourceReservationPlanInput',
         'name' => 'string',
         'schedule_config' => '\Volcengine\Mlplatform20240701\Model\ScheduleConfigForUpdateResourceReservationPlanInput',
         'storage_config' => '\Volcengine\Mlplatform20240701\Model\StorageConfigForUpdateResourceReservationPlanInput',
@@ -47,6 +48,7 @@ class UpdateResourceReservationPlanRequest implements ModelInterface, ArrayAcces
         'description' => null,
         'dry_run' => null,
         'id' => null,
+        'matching_reservation_plan_time_config' => null,
         'name' => null,
         'schedule_config' => null,
         'storage_config' => null,
@@ -84,6 +86,7 @@ class UpdateResourceReservationPlanRequest implements ModelInterface, ArrayAcces
         'description' => 'Description',
         'dry_run' => 'DryRun',
         'id' => 'Id',
+        'matching_reservation_plan_time_config' => 'MatchingReservationPlanTimeConfig',
         'name' => 'Name',
         'schedule_config' => 'ScheduleConfig',
         'storage_config' => 'StorageConfig',
@@ -100,6 +103,7 @@ class UpdateResourceReservationPlanRequest implements ModelInterface, ArrayAcces
         'description' => 'setDescription',
         'dry_run' => 'setDryRun',
         'id' => 'setId',
+        'matching_reservation_plan_time_config' => 'setMatchingReservationPlanTimeConfig',
         'name' => 'setName',
         'schedule_config' => 'setScheduleConfig',
         'storage_config' => 'setStorageConfig',
@@ -116,6 +120,7 @@ class UpdateResourceReservationPlanRequest implements ModelInterface, ArrayAcces
         'description' => 'getDescription',
         'dry_run' => 'getDryRun',
         'id' => 'getId',
+        'matching_reservation_plan_time_config' => 'getMatchingReservationPlanTimeConfig',
         'name' => 'getName',
         'schedule_config' => 'getScheduleConfig',
         'storage_config' => 'getStorageConfig',
@@ -186,6 +191,7 @@ class UpdateResourceReservationPlanRequest implements ModelInterface, ArrayAcces
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['dry_run'] = isset($data['dry_run']) ? $data['dry_run'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['matching_reservation_plan_time_config'] = isset($data['matching_reservation_plan_time_config']) ? $data['matching_reservation_plan_time_config'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['schedule_config'] = isset($data['schedule_config']) ? $data['schedule_config'] : null;
         $this->container['storage_config'] = isset($data['storage_config']) ? $data['storage_config'] : null;
@@ -288,6 +294,30 @@ class UpdateResourceReservationPlanRequest implements ModelInterface, ArrayAcces
     public function setId($id)
     {
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets matching_reservation_plan_time_config
+     *
+     * @return \Volcengine\Mlplatform20240701\Model\MatchingReservationPlanTimeConfigForUpdateResourceReservationPlanInput
+     */
+    public function getMatchingReservationPlanTimeConfig()
+    {
+        return $this->container['matching_reservation_plan_time_config'];
+    }
+
+    /**
+     * Sets matching_reservation_plan_time_config
+     *
+     * @param \Volcengine\Mlplatform20240701\Model\MatchingReservationPlanTimeConfigForUpdateResourceReservationPlanInput $matching_reservation_plan_time_config matching_reservation_plan_time_config
+     *
+     * @return $this
+     */
+    public function setMatchingReservationPlanTimeConfig($matching_reservation_plan_time_config)
+    {
+        $this->container['matching_reservation_plan_time_config'] = $matching_reservation_plan_time_config;
 
         return $this;
     }

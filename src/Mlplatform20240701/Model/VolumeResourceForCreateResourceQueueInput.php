@@ -28,8 +28,9 @@ class VolumeResourceForCreateResourceQueueInput implements ModelInterface, Array
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'size' => 'int',
-        'volume_type_id' => 'string',
+        'id' => 'string',
+        'name' => 'string',
+        'num' => 'int',
         'zone_id' => 'string'
     ];
 
@@ -39,8 +40,9 @@ class VolumeResourceForCreateResourceQueueInput implements ModelInterface, Array
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'size' => 'int32',
-        'volume_type_id' => null,
+        'id' => null,
+        'name' => null,
+        'num' => 'int32',
         'zone_id' => null
     ];
 
@@ -71,8 +73,9 @@ class VolumeResourceForCreateResourceQueueInput implements ModelInterface, Array
      * @var string[]
      */
     protected static $attributeMap = [
-        'size' => 'Size',
-        'volume_type_id' => 'VolumeTypeId',
+        'id' => 'Id',
+        'name' => 'Name',
+        'num' => 'Num',
         'zone_id' => 'ZoneId'
     ];
 
@@ -82,8 +85,9 @@ class VolumeResourceForCreateResourceQueueInput implements ModelInterface, Array
      * @var string[]
      */
     protected static $setters = [
-        'size' => 'setSize',
-        'volume_type_id' => 'setVolumeTypeId',
+        'id' => 'setId',
+        'name' => 'setName',
+        'num' => 'setNum',
         'zone_id' => 'setZoneId'
     ];
 
@@ -93,8 +97,9 @@ class VolumeResourceForCreateResourceQueueInput implements ModelInterface, Array
      * @var string[]
      */
     protected static $getters = [
-        'size' => 'getSize',
-        'volume_type_id' => 'getVolumeTypeId',
+        'id' => 'getId',
+        'name' => 'getName',
+        'num' => 'getNum',
         'zone_id' => 'getZoneId'
     ];
 
@@ -158,8 +163,9 @@ class VolumeResourceForCreateResourceQueueInput implements ModelInterface, Array
      */
     public function __construct(array $data = null)
     {
-        $this->container['size'] = isset($data['size']) ? $data['size'] : null;
-        $this->container['volume_type_id'] = isset($data['volume_type_id']) ? $data['volume_type_id'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['num'] = isset($data['num']) ? $data['num'] : null;
         $this->container['zone_id'] = isset($data['zone_id']) ? $data['zone_id'] : null;
     }
 
@@ -188,49 +194,73 @@ class VolumeResourceForCreateResourceQueueInput implements ModelInterface, Array
 
 
     /**
-     * Gets size
+     * Gets id
      *
-     * @return int
+     * @return string
      */
-    public function getSize()
+    public function getId()
     {
-        return $this->container['size'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets size
+     * Sets id
      *
-     * @param int $size size
+     * @param string $id id
      *
      * @return $this
      */
-    public function setSize($size)
+    public function setId($id)
     {
-        $this->container['size'] = $size;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets volume_type_id
+     * Gets name
      *
      * @return string
      */
-    public function getVolumeTypeId()
+    public function getName()
     {
-        return $this->container['volume_type_id'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets volume_type_id
+     * Sets name
      *
-     * @param string $volume_type_id volume_type_id
+     * @param string $name name
      *
      * @return $this
      */
-    public function setVolumeTypeId($volume_type_id)
+    public function setName($name)
     {
-        $this->container['volume_type_id'] = $volume_type_id;
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets num
+     *
+     * @return int
+     */
+    public function getNum()
+    {
+        return $this->container['num'];
+    }
+
+    /**
+     * Sets num
+     *
+     * @param int $num num
+     *
+     * @return $this
+     */
+    public function setNum($num)
+    {
+        $this->container['num'] = $num;
 
         return $this;
     }

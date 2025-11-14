@@ -28,7 +28,6 @@ class VolumeForDescribeVolumesOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'attachments' => '\Volcengine\Storageebs\Model\AttachmentForDescribeVolumesOutput[]',
         'auto_snapshot_policy_id' => 'string',
         'auto_snapshot_policy_name' => 'string',
         'baseline_performance' => '\Volcengine\Storageebs\Model\BaselinePerformanceForDescribeVolumesOutput',
@@ -36,13 +35,9 @@ class VolumeForDescribeVolumesOutput implements ModelInterface, ArrayAccess
         'created_at' => 'string',
         'delete_with_instance' => 'bool',
         'description' => 'string',
-        'device_name' => 'string',
         'error_detail' => 'string',
         'expired_time' => 'string',
         'extra_performance' => '\Volcengine\Storageebs\Model\ExtraPerformanceForDescribeVolumesOutput',
-        'extra_performance_iops' => 'int',
-        'extra_performance_throughput_mb' => 'int',
-        'extra_performance_type_id' => 'string',
         'image_id' => 'string',
         'instance_id' => 'string',
         'kind' => 'string',
@@ -56,7 +51,7 @@ class VolumeForDescribeVolumesOutput implements ModelInterface, ArrayAccess
         'snapshot_count' => 'int',
         'source_snapshot_id' => 'string',
         'status' => 'string',
-        'subgroup_number' => 'string',
+        'subgroup_number' => 'int',
         'tags' => '\Volcengine\Storageebs\Model\TagForDescribeVolumesOutput[]',
         'total_performance' => '\Volcengine\Storageebs\Model\TotalPerformanceForDescribeVolumesOutput',
         'trade_status' => 'int',
@@ -73,7 +68,6 @@ class VolumeForDescribeVolumesOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'attachments' => null,
         'auto_snapshot_policy_id' => null,
         'auto_snapshot_policy_name' => null,
         'baseline_performance' => null,
@@ -81,13 +75,9 @@ class VolumeForDescribeVolumesOutput implements ModelInterface, ArrayAccess
         'created_at' => null,
         'delete_with_instance' => null,
         'description' => null,
-        'device_name' => null,
         'error_detail' => null,
         'expired_time' => null,
         'extra_performance' => null,
-        'extra_performance_iops' => 'int32',
-        'extra_performance_throughput_mb' => 'int32',
-        'extra_performance_type_id' => null,
         'image_id' => null,
         'instance_id' => null,
         'kind' => null,
@@ -101,7 +91,7 @@ class VolumeForDescribeVolumesOutput implements ModelInterface, ArrayAccess
         'snapshot_count' => 'int32',
         'source_snapshot_id' => null,
         'status' => null,
-        'subgroup_number' => null,
+        'subgroup_number' => 'int32',
         'tags' => null,
         'total_performance' => null,
         'trade_status' => 'int32',
@@ -139,7 +129,6 @@ class VolumeForDescribeVolumesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'attachments' => 'Attachments',
         'auto_snapshot_policy_id' => 'AutoSnapshotPolicyId',
         'auto_snapshot_policy_name' => 'AutoSnapshotPolicyName',
         'baseline_performance' => 'BaselinePerformance',
@@ -147,13 +136,9 @@ class VolumeForDescribeVolumesOutput implements ModelInterface, ArrayAccess
         'created_at' => 'CreatedAt',
         'delete_with_instance' => 'DeleteWithInstance',
         'description' => 'Description',
-        'device_name' => 'DeviceName',
         'error_detail' => 'ErrorDetail',
         'expired_time' => 'ExpiredTime',
         'extra_performance' => 'ExtraPerformance',
-        'extra_performance_iops' => 'ExtraPerformanceIOPS',
-        'extra_performance_throughput_mb' => 'ExtraPerformanceThroughputMB',
-        'extra_performance_type_id' => 'ExtraPerformanceTypeId',
         'image_id' => 'ImageId',
         'instance_id' => 'InstanceId',
         'kind' => 'Kind',
@@ -184,7 +169,6 @@ class VolumeForDescribeVolumesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'attachments' => 'setAttachments',
         'auto_snapshot_policy_id' => 'setAutoSnapshotPolicyId',
         'auto_snapshot_policy_name' => 'setAutoSnapshotPolicyName',
         'baseline_performance' => 'setBaselinePerformance',
@@ -192,13 +176,9 @@ class VolumeForDescribeVolumesOutput implements ModelInterface, ArrayAccess
         'created_at' => 'setCreatedAt',
         'delete_with_instance' => 'setDeleteWithInstance',
         'description' => 'setDescription',
-        'device_name' => 'setDeviceName',
         'error_detail' => 'setErrorDetail',
         'expired_time' => 'setExpiredTime',
         'extra_performance' => 'setExtraPerformance',
-        'extra_performance_iops' => 'setExtraPerformanceIops',
-        'extra_performance_throughput_mb' => 'setExtraPerformanceThroughputMb',
-        'extra_performance_type_id' => 'setExtraPerformanceTypeId',
         'image_id' => 'setImageId',
         'instance_id' => 'setInstanceId',
         'kind' => 'setKind',
@@ -229,7 +209,6 @@ class VolumeForDescribeVolumesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'attachments' => 'getAttachments',
         'auto_snapshot_policy_id' => 'getAutoSnapshotPolicyId',
         'auto_snapshot_policy_name' => 'getAutoSnapshotPolicyName',
         'baseline_performance' => 'getBaselinePerformance',
@@ -237,13 +216,9 @@ class VolumeForDescribeVolumesOutput implements ModelInterface, ArrayAccess
         'created_at' => 'getCreatedAt',
         'delete_with_instance' => 'getDeleteWithInstance',
         'description' => 'getDescription',
-        'device_name' => 'getDeviceName',
         'error_detail' => 'getErrorDetail',
         'expired_time' => 'getExpiredTime',
         'extra_performance' => 'getExtraPerformance',
-        'extra_performance_iops' => 'getExtraPerformanceIops',
-        'extra_performance_throughput_mb' => 'getExtraPerformanceThroughputMb',
-        'extra_performance_type_id' => 'getExtraPerformanceTypeId',
         'image_id' => 'getImageId',
         'instance_id' => 'getInstanceId',
         'kind' => 'getKind',
@@ -328,7 +303,6 @@ class VolumeForDescribeVolumesOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['attachments'] = isset($data['attachments']) ? $data['attachments'] : null;
         $this->container['auto_snapshot_policy_id'] = isset($data['auto_snapshot_policy_id']) ? $data['auto_snapshot_policy_id'] : null;
         $this->container['auto_snapshot_policy_name'] = isset($data['auto_snapshot_policy_name']) ? $data['auto_snapshot_policy_name'] : null;
         $this->container['baseline_performance'] = isset($data['baseline_performance']) ? $data['baseline_performance'] : null;
@@ -336,13 +310,9 @@ class VolumeForDescribeVolumesOutput implements ModelInterface, ArrayAccess
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['delete_with_instance'] = isset($data['delete_with_instance']) ? $data['delete_with_instance'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['device_name'] = isset($data['device_name']) ? $data['device_name'] : null;
         $this->container['error_detail'] = isset($data['error_detail']) ? $data['error_detail'] : null;
         $this->container['expired_time'] = isset($data['expired_time']) ? $data['expired_time'] : null;
         $this->container['extra_performance'] = isset($data['extra_performance']) ? $data['extra_performance'] : null;
-        $this->container['extra_performance_iops'] = isset($data['extra_performance_iops']) ? $data['extra_performance_iops'] : null;
-        $this->container['extra_performance_throughput_mb'] = isset($data['extra_performance_throughput_mb']) ? $data['extra_performance_throughput_mb'] : null;
-        $this->container['extra_performance_type_id'] = isset($data['extra_performance_type_id']) ? $data['extra_performance_type_id'] : null;
         $this->container['image_id'] = isset($data['image_id']) ? $data['image_id'] : null;
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
         $this->container['kind'] = isset($data['kind']) ? $data['kind'] : null;
@@ -390,30 +360,6 @@ class VolumeForDescribeVolumesOutput implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets attachments
-     *
-     * @return \Volcengine\Storageebs\Model\AttachmentForDescribeVolumesOutput[]
-     */
-    public function getAttachments()
-    {
-        return $this->container['attachments'];
-    }
-
-    /**
-     * Sets attachments
-     *
-     * @param \Volcengine\Storageebs\Model\AttachmentForDescribeVolumesOutput[] $attachments attachments
-     *
-     * @return $this
-     */
-    public function setAttachments($attachments)
-    {
-        $this->container['attachments'] = $attachments;
-
-        return $this;
-    }
 
     /**
      * Gets auto_snapshot_policy_id
@@ -584,30 +530,6 @@ class VolumeForDescribeVolumesOutput implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets device_name
-     *
-     * @return string
-     */
-    public function getDeviceName()
-    {
-        return $this->container['device_name'];
-    }
-
-    /**
-     * Sets device_name
-     *
-     * @param string $device_name device_name
-     *
-     * @return $this
-     */
-    public function setDeviceName($device_name)
-    {
-        $this->container['device_name'] = $device_name;
-
-        return $this;
-    }
-
-    /**
      * Gets error_detail
      *
      * @return string
@@ -675,78 +597,6 @@ class VolumeForDescribeVolumesOutput implements ModelInterface, ArrayAccess
     public function setExtraPerformance($extra_performance)
     {
         $this->container['extra_performance'] = $extra_performance;
-
-        return $this;
-    }
-
-    /**
-     * Gets extra_performance_iops
-     *
-     * @return int
-     */
-    public function getExtraPerformanceIops()
-    {
-        return $this->container['extra_performance_iops'];
-    }
-
-    /**
-     * Sets extra_performance_iops
-     *
-     * @param int $extra_performance_iops extra_performance_iops
-     *
-     * @return $this
-     */
-    public function setExtraPerformanceIops($extra_performance_iops)
-    {
-        $this->container['extra_performance_iops'] = $extra_performance_iops;
-
-        return $this;
-    }
-
-    /**
-     * Gets extra_performance_throughput_mb
-     *
-     * @return int
-     */
-    public function getExtraPerformanceThroughputMb()
-    {
-        return $this->container['extra_performance_throughput_mb'];
-    }
-
-    /**
-     * Sets extra_performance_throughput_mb
-     *
-     * @param int $extra_performance_throughput_mb extra_performance_throughput_mb
-     *
-     * @return $this
-     */
-    public function setExtraPerformanceThroughputMb($extra_performance_throughput_mb)
-    {
-        $this->container['extra_performance_throughput_mb'] = $extra_performance_throughput_mb;
-
-        return $this;
-    }
-
-    /**
-     * Gets extra_performance_type_id
-     *
-     * @return string
-     */
-    public function getExtraPerformanceTypeId()
-    {
-        return $this->container['extra_performance_type_id'];
-    }
-
-    /**
-     * Sets extra_performance_type_id
-     *
-     * @param string $extra_performance_type_id extra_performance_type_id
-     *
-     * @return $this
-     */
-    public function setExtraPerformanceTypeId($extra_performance_type_id)
-    {
-        $this->container['extra_performance_type_id'] = $extra_performance_type_id;
 
         return $this;
     }
@@ -1066,7 +916,7 @@ class VolumeForDescribeVolumesOutput implements ModelInterface, ArrayAccess
     /**
      * Gets subgroup_number
      *
-     * @return string
+     * @return int
      */
     public function getSubgroupNumber()
     {
@@ -1076,7 +926,7 @@ class VolumeForDescribeVolumesOutput implements ModelInterface, ArrayAccess
     /**
      * Sets subgroup_number
      *
-     * @param string $subgroup_number subgroup_number
+     * @param int $subgroup_number subgroup_number
      *
      * @return $this
      */

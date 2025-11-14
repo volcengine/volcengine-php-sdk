@@ -29,6 +29,7 @@ class CreateResourceReservationPlanRequest implements ModelInterface, ArrayAcces
       */
     protected static $swaggerTypes = [
         'compute_resource' => '\Volcengine\Mlplatform20240701\Model\ComputeResourceForCreateResourceReservationPlanInput',
+        'custom_compute_resource' => '\Volcengine\Mlplatform20240701\Model\CustomComputeResourceForCreateResourceReservationPlanInput[]',
         'description' => 'string',
         'dry_run' => 'bool',
         'name' => 'string',
@@ -47,6 +48,7 @@ class CreateResourceReservationPlanRequest implements ModelInterface, ArrayAcces
       */
     protected static $swaggerFormats = [
         'compute_resource' => null,
+        'custom_compute_resource' => null,
         'description' => null,
         'dry_run' => null,
         'name' => null,
@@ -86,6 +88,7 @@ class CreateResourceReservationPlanRequest implements ModelInterface, ArrayAcces
      */
     protected static $attributeMap = [
         'compute_resource' => 'ComputeResource',
+        'custom_compute_resource' => 'CustomComputeResource',
         'description' => 'Description',
         'dry_run' => 'DryRun',
         'name' => 'Name',
@@ -104,6 +107,7 @@ class CreateResourceReservationPlanRequest implements ModelInterface, ArrayAcces
      */
     protected static $setters = [
         'compute_resource' => 'setComputeResource',
+        'custom_compute_resource' => 'setCustomComputeResource',
         'description' => 'setDescription',
         'dry_run' => 'setDryRun',
         'name' => 'setName',
@@ -122,6 +126,7 @@ class CreateResourceReservationPlanRequest implements ModelInterface, ArrayAcces
      */
     protected static $getters = [
         'compute_resource' => 'getComputeResource',
+        'custom_compute_resource' => 'getCustomComputeResource',
         'description' => 'getDescription',
         'dry_run' => 'getDryRun',
         'name' => 'getName',
@@ -194,6 +199,7 @@ class CreateResourceReservationPlanRequest implements ModelInterface, ArrayAcces
     public function __construct(array $data = null)
     {
         $this->container['compute_resource'] = isset($data['compute_resource']) ? $data['compute_resource'] : null;
+        $this->container['custom_compute_resource'] = isset($data['custom_compute_resource']) ? $data['custom_compute_resource'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['dry_run'] = isset($data['dry_run']) ? $data['dry_run'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
@@ -252,6 +258,30 @@ class CreateResourceReservationPlanRequest implements ModelInterface, ArrayAcces
     public function setComputeResource($compute_resource)
     {
         $this->container['compute_resource'] = $compute_resource;
+
+        return $this;
+    }
+
+    /**
+     * Gets custom_compute_resource
+     *
+     * @return \Volcengine\Mlplatform20240701\Model\CustomComputeResourceForCreateResourceReservationPlanInput[]
+     */
+    public function getCustomComputeResource()
+    {
+        return $this->container['custom_compute_resource'];
+    }
+
+    /**
+     * Sets custom_compute_resource
+     *
+     * @param \Volcengine\Mlplatform20240701\Model\CustomComputeResourceForCreateResourceReservationPlanInput[] $custom_compute_resource custom_compute_resource
+     *
+     * @return $this
+     */
+    public function setCustomComputeResource($custom_compute_resource)
+    {
+        $this->container['custom_compute_resource'] = $custom_compute_resource;
 
         return $this;
     }

@@ -32,9 +32,7 @@ class RscInfoForDescribeReservedStorageCapacityOutput implements ModelInterface,
         'expired_time' => 'string',
         'id' => 'string',
         'name' => 'string',
-        'rsc_auto_renew_period' => 'int',
         'remaining_size' => 'int',
-        'renewal_status' => 'string',
         'size' => 'int',
         'status' => 'string',
         'take_effect_time' => 'string',
@@ -52,9 +50,7 @@ class RscInfoForDescribeReservedStorageCapacityOutput implements ModelInterface,
         'expired_time' => null,
         'id' => null,
         'name' => null,
-        'rsc_auto_renew_period' => 'int32',
         'remaining_size' => 'int32',
-        'renewal_status' => null,
         'size' => 'int64',
         'status' => null,
         'take_effect_time' => null,
@@ -93,9 +89,7 @@ class RscInfoForDescribeReservedStorageCapacityOutput implements ModelInterface,
         'expired_time' => 'ExpiredTime',
         'id' => 'Id',
         'name' => 'Name',
-        'rsc_auto_renew_period' => 'RSCAutoRenewPeriod',
         'remaining_size' => 'RemainingSize',
-        'renewal_status' => 'RenewalStatus',
         'size' => 'Size',
         'status' => 'Status',
         'take_effect_time' => 'TakeEffectTime',
@@ -113,9 +107,7 @@ class RscInfoForDescribeReservedStorageCapacityOutput implements ModelInterface,
         'expired_time' => 'setExpiredTime',
         'id' => 'setId',
         'name' => 'setName',
-        'rsc_auto_renew_period' => 'setRscAutoRenewPeriod',
         'remaining_size' => 'setRemainingSize',
-        'renewal_status' => 'setRenewalStatus',
         'size' => 'setSize',
         'status' => 'setStatus',
         'take_effect_time' => 'setTakeEffectTime',
@@ -133,9 +125,7 @@ class RscInfoForDescribeReservedStorageCapacityOutput implements ModelInterface,
         'expired_time' => 'getExpiredTime',
         'id' => 'getId',
         'name' => 'getName',
-        'rsc_auto_renew_period' => 'getRscAutoRenewPeriod',
         'remaining_size' => 'getRemainingSize',
-        'renewal_status' => 'getRenewalStatus',
         'size' => 'getSize',
         'status' => 'getStatus',
         'take_effect_time' => 'getTakeEffectTime',
@@ -207,9 +197,7 @@ class RscInfoForDescribeReservedStorageCapacityOutput implements ModelInterface,
         $this->container['expired_time'] = isset($data['expired_time']) ? $data['expired_time'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['rsc_auto_renew_period'] = isset($data['rsc_auto_renew_period']) ? $data['rsc_auto_renew_period'] : null;
         $this->container['remaining_size'] = isset($data['remaining_size']) ? $data['remaining_size'] : null;
-        $this->container['renewal_status'] = isset($data['renewal_status']) ? $data['renewal_status'] : null;
         $this->container['size'] = isset($data['size']) ? $data['size'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['take_effect_time'] = isset($data['take_effect_time']) ? $data['take_effect_time'] : null;
@@ -338,30 +326,6 @@ class RscInfoForDescribeReservedStorageCapacityOutput implements ModelInterface,
     }
 
     /**
-     * Gets rsc_auto_renew_period
-     *
-     * @return int
-     */
-    public function getRscAutoRenewPeriod()
-    {
-        return $this->container['rsc_auto_renew_period'];
-    }
-
-    /**
-     * Sets rsc_auto_renew_period
-     *
-     * @param int $rsc_auto_renew_period rsc_auto_renew_period
-     *
-     * @return $this
-     */
-    public function setRscAutoRenewPeriod($rsc_auto_renew_period)
-    {
-        $this->container['rsc_auto_renew_period'] = $rsc_auto_renew_period;
-
-        return $this;
-    }
-
-    /**
      * Gets remaining_size
      *
      * @return int
@@ -381,30 +345,6 @@ class RscInfoForDescribeReservedStorageCapacityOutput implements ModelInterface,
     public function setRemainingSize($remaining_size)
     {
         $this->container['remaining_size'] = $remaining_size;
-
-        return $this;
-    }
-
-    /**
-     * Gets renewal_status
-     *
-     * @return string
-     */
-    public function getRenewalStatus()
-    {
-        return $this->container['renewal_status'];
-    }
-
-    /**
-     * Sets renewal_status
-     *
-     * @param string $renewal_status renewal_status
-     *
-     * @return $this
-     */
-    public function setRenewalStatus($renewal_status)
-    {
-        $this->container['renewal_status'] = $renewal_status;
 
         return $this;
     }

@@ -134,27 +134,8 @@ class UpstreamConfigForCreateDeploymentInput implements ModelInterface, ArrayAcc
         return self::$swaggerModelName;
     }
 
-    const LOAD_BALANCE_POLICY_ROUND_ROBIN = 'ROUND_ROBIN';
-    const LOAD_BALANCE_POLICY_LEAST_CONN = 'LEAST_CONN';
-    const LOAD_BALANCE_POLICY_RANDOM = 'RANDOM';
-    const LOAD_BALANCE_POLICY_CONSISTENT_HASH = 'CONSISTENT_HASH';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getLoadBalancePolicyAllowableValues()
-    {
-        return [
-            self::LOAD_BALANCE_POLICY_ROUND_ROBIN,
-            self::LOAD_BALANCE_POLICY_LEAST_CONN,
-            self::LOAD_BALANCE_POLICY_RANDOM,
-            self::LOAD_BALANCE_POLICY_CONSISTENT_HASH,
-        ];
-    }
     
 
     /**
@@ -184,14 +165,6 @@ class UpstreamConfigForCreateDeploymentInput implements ModelInterface, ArrayAcc
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getLoadBalancePolicyAllowableValues();
-        if (!is_null($this->container['load_balance_policy']) && !in_array($this->container['load_balance_policy'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'load_balance_policy', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -251,15 +224,6 @@ class UpstreamConfigForCreateDeploymentInput implements ModelInterface, ArrayAcc
      */
     public function setLoadBalancePolicy($load_balance_policy)
     {
-        $allowedValues = $this->getLoadBalancePolicyAllowableValues();
-        if (!is_null($load_balance_policy) && !in_array($load_balance_policy, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'load_balance_policy', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['load_balance_policy'] = $load_balance_policy;
 
         return $this;

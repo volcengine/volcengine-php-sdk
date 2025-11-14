@@ -30,6 +30,8 @@ class ReservationConfigForCreateResourceReservationPlanInput implements ModelInt
     protected static $swaggerTypes = [
         'available_resource_id' => 'string',
         'max_duration_hours' => 'int',
+        'max_task_lifetime_seconds' => 'int',
+        'min_continuous_resource_duration_seconds' => 'int',
         'min_duration_hours' => 'int',
         'recurrence_end_time' => 'string',
         'recurrence_interval' => 'string',
@@ -45,6 +47,8 @@ class ReservationConfigForCreateResourceReservationPlanInput implements ModelInt
     protected static $swaggerFormats = [
         'available_resource_id' => null,
         'max_duration_hours' => 'int64',
+        'max_task_lifetime_seconds' => 'int64',
+        'min_continuous_resource_duration_seconds' => 'int64',
         'min_duration_hours' => 'int64',
         'recurrence_end_time' => null,
         'recurrence_interval' => null,
@@ -81,6 +85,8 @@ class ReservationConfigForCreateResourceReservationPlanInput implements ModelInt
     protected static $attributeMap = [
         'available_resource_id' => 'AvailableResourceId',
         'max_duration_hours' => 'MaxDurationHours',
+        'max_task_lifetime_seconds' => 'MaxTaskLifetimeSeconds',
+        'min_continuous_resource_duration_seconds' => 'MinContinuousResourceDurationSeconds',
         'min_duration_hours' => 'MinDurationHours',
         'recurrence_end_time' => 'RecurrenceEndTime',
         'recurrence_interval' => 'RecurrenceInterval',
@@ -96,6 +102,8 @@ class ReservationConfigForCreateResourceReservationPlanInput implements ModelInt
     protected static $setters = [
         'available_resource_id' => 'setAvailableResourceId',
         'max_duration_hours' => 'setMaxDurationHours',
+        'max_task_lifetime_seconds' => 'setMaxTaskLifetimeSeconds',
+        'min_continuous_resource_duration_seconds' => 'setMinContinuousResourceDurationSeconds',
         'min_duration_hours' => 'setMinDurationHours',
         'recurrence_end_time' => 'setRecurrenceEndTime',
         'recurrence_interval' => 'setRecurrenceInterval',
@@ -111,6 +119,8 @@ class ReservationConfigForCreateResourceReservationPlanInput implements ModelInt
     protected static $getters = [
         'available_resource_id' => 'getAvailableResourceId',
         'max_duration_hours' => 'getMaxDurationHours',
+        'max_task_lifetime_seconds' => 'getMaxTaskLifetimeSeconds',
+        'min_continuous_resource_duration_seconds' => 'getMinContinuousResourceDurationSeconds',
         'min_duration_hours' => 'getMinDurationHours',
         'recurrence_end_time' => 'getRecurrenceEndTime',
         'recurrence_interval' => 'getRecurrenceInterval',
@@ -180,6 +190,8 @@ class ReservationConfigForCreateResourceReservationPlanInput implements ModelInt
     {
         $this->container['available_resource_id'] = isset($data['available_resource_id']) ? $data['available_resource_id'] : null;
         $this->container['max_duration_hours'] = isset($data['max_duration_hours']) ? $data['max_duration_hours'] : null;
+        $this->container['max_task_lifetime_seconds'] = isset($data['max_task_lifetime_seconds']) ? $data['max_task_lifetime_seconds'] : null;
+        $this->container['min_continuous_resource_duration_seconds'] = isset($data['min_continuous_resource_duration_seconds']) ? $data['min_continuous_resource_duration_seconds'] : null;
         $this->container['min_duration_hours'] = isset($data['min_duration_hours']) ? $data['min_duration_hours'] : null;
         $this->container['recurrence_end_time'] = isset($data['recurrence_end_time']) ? $data['recurrence_end_time'] : null;
         $this->container['recurrence_interval'] = isset($data['recurrence_interval']) ? $data['recurrence_interval'] : null;
@@ -255,6 +267,54 @@ class ReservationConfigForCreateResourceReservationPlanInput implements ModelInt
     public function setMaxDurationHours($max_duration_hours)
     {
         $this->container['max_duration_hours'] = $max_duration_hours;
+
+        return $this;
+    }
+
+    /**
+     * Gets max_task_lifetime_seconds
+     *
+     * @return int
+     */
+    public function getMaxTaskLifetimeSeconds()
+    {
+        return $this->container['max_task_lifetime_seconds'];
+    }
+
+    /**
+     * Sets max_task_lifetime_seconds
+     *
+     * @param int $max_task_lifetime_seconds max_task_lifetime_seconds
+     *
+     * @return $this
+     */
+    public function setMaxTaskLifetimeSeconds($max_task_lifetime_seconds)
+    {
+        $this->container['max_task_lifetime_seconds'] = $max_task_lifetime_seconds;
+
+        return $this;
+    }
+
+    /**
+     * Gets min_continuous_resource_duration_seconds
+     *
+     * @return int
+     */
+    public function getMinContinuousResourceDurationSeconds()
+    {
+        return $this->container['min_continuous_resource_duration_seconds'];
+    }
+
+    /**
+     * Sets min_continuous_resource_duration_seconds
+     *
+     * @param int $min_continuous_resource_duration_seconds min_continuous_resource_duration_seconds
+     *
+     * @return $this
+     */
+    public function setMinContinuousResourceDurationSeconds($min_continuous_resource_duration_seconds)
+    {
+        $this->container['min_continuous_resource_duration_seconds'] = $min_continuous_resource_duration_seconds;
 
         return $this;
     }
