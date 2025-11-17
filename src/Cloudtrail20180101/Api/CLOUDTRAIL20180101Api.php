@@ -17,6 +17,7 @@ use Volcengine\Common\Configuration;
 use Volcengine\Common\HeaderSelector;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\Utils;
+use Volcengine\Common\ApiClient;
 
 class CLOUDTRAIL20180101Api
 {
@@ -36,18 +37,27 @@ class CLOUDTRAIL20180101Api
     protected $headerSelector;
 
     /**
-     * @param ClientInterface $client
-     * @param Configuration   $config
-     * @param HeaderSelector  $selector
+     * @var ApiClient
+     */
+    protected $apiClient;
+
+    /**
+     * @param ClientInterface|null $client
+     * @param Configuration|null $config
+     * @param HeaderSelector|null $selector
+     * @param ApiClient|null $apiClient
      */
     public function __construct(
         ClientInterface $client = null,
-        Configuration $config = null,
-        HeaderSelector $selector = null
-    ) {
+        Configuration   $config = null,
+        HeaderSelector  $selector = null,
+        ApiClient       $apiClient = null
+    )
+    {
         $this->client = $client ?: new Client();
         $this->config = $config ?: new Configuration();
         $this->headerSelector = $selector ?: new HeaderSelector();
+        $this->apiClient = $apiClient ?: new ApiClient($this->config, $this->client);
     }
 
     /**
@@ -58,70 +68,22 @@ class CLOUDTRAIL20180101Api
         return $this->config;
     }
 
-    public function createTrail($event_rw, $event_sources, $tls_project_name, $tls_project_region, $tls_project_topic_project, $tls_topic_name, $tos_bucket_name, $tos_bucket_project, $tos_bucket_region, $tos_key_prefix, $trail_name, $trail_type)
+    public function createTrail($body)
     {
-        list($response) = $this->createTrailWithHttpInfo($event_rw, $event_sources, $tls_project_name, $tls_project_region, $tls_project_topic_project, $tls_topic_name, $tos_bucket_name, $tos_bucket_project, $tos_bucket_region, $tos_key_prefix, $trail_name, $trail_type);
+        list($response) = $this->createTrailWithHttpInfo($body);
         return $response;
     }
 
-    public function createTrailWithHttpInfo($event_rw, $event_sources, $tls_project_name, $tls_project_region, $tls_project_topic_project, $tls_topic_name, $tos_bucket_name, $tos_bucket_project, $tos_bucket_region, $tos_key_prefix, $trail_name, $trail_type)
+    public function createTrailWithHttpInfo($body)
     {
         $returnType = '\Volcengine\Cloudtrail20180101\Model\CreateTrailResponse';
-        $request = $this->createTrailRequest($event_rw, $event_sources, $tls_project_name, $tls_project_region, $tls_project_topic_project, $tls_topic_name, $tos_bucket_name, $tos_bucket_project, $tos_bucket_region, $tos_key_prefix, $trail_name, $trail_type);
-
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        $request = $this->createTrailRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
-    public function createTrailAsync($event_rw, $event_sources, $tls_project_name, $tls_project_region, $tls_project_topic_project, $tls_topic_name, $tos_bucket_name, $tos_bucket_project, $tos_bucket_region, $tos_key_prefix, $trail_name, $trail_type)
+    public function createTrailAsync($body)
     {
-        return $this->createTrailAsyncWithHttpInfo($event_rw, $event_sources, $tls_project_name, $tls_project_region, $tls_project_topic_project, $tls_topic_name, $tos_bucket_name, $tos_bucket_project, $tos_bucket_region, $tos_key_prefix, $trail_name, $trail_type)
+        return $this->createTrailAsyncWithHttpInfo($body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -129,131 +91,15 @@ class CLOUDTRAIL20180101Api
             );
     }
 
-    public function createTrailAsyncWithHttpInfo($event_rw, $event_sources, $tls_project_name, $tls_project_region, $tls_project_topic_project, $tls_topic_name, $tos_bucket_name, $tos_bucket_project, $tos_bucket_region, $tos_key_prefix, $trail_name, $trail_type)
+    public function createTrailAsyncWithHttpInfo($body)
     {
         $returnType = '\Volcengine\Cloudtrail20180101\Model\CreateTrailResponse';
-        $request = $this->createTrailRequest($event_rw, $event_sources, $tls_project_name, $tls_project_region, $tls_project_topic_project, $tls_topic_name, $tos_bucket_name, $tos_bucket_project, $tos_bucket_region, $tos_key_prefix, $trail_name, $trail_type);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        $request = $this->createTrailRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
-    protected function createTrailRequest($event_rw, $event_sources, $tls_project_name, $tls_project_region, $tls_project_topic_project, $tls_topic_name, $tos_bucket_name, $tos_bucket_project, $tos_bucket_region, $tos_key_prefix, $trail_name, $trail_type)
+    protected function createTrailRequest($body)
     {
-        // verify the required parameter 'event_rw' is set
-        if ($event_rw === null || (is_array($event_rw) && count($event_rw) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $event_rw when calling createTrail'
-            );
-        }
-        // verify the required parameter 'event_sources' is set
-        if ($event_sources === null || (is_array($event_sources) && count($event_sources) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $event_sources when calling createTrail'
-            );
-        }
-        // verify the required parameter 'tls_project_name' is set
-        if ($tls_project_name === null || (is_array($tls_project_name) && count($tls_project_name) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $tls_project_name when calling createTrail'
-            );
-        }
-        // verify the required parameter 'tls_project_region' is set
-        if ($tls_project_region === null || (is_array($tls_project_region) && count($tls_project_region) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $tls_project_region when calling createTrail'
-            );
-        }
-        // verify the required parameter 'tls_project_topic_project' is set
-        if ($tls_project_topic_project === null || (is_array($tls_project_topic_project) && count($tls_project_topic_project) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $tls_project_topic_project when calling createTrail'
-            );
-        }
-        // verify the required parameter 'tls_topic_name' is set
-        if ($tls_topic_name === null || (is_array($tls_topic_name) && count($tls_topic_name) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $tls_topic_name when calling createTrail'
-            );
-        }
-        // verify the required parameter 'tos_bucket_name' is set
-        if ($tos_bucket_name === null || (is_array($tos_bucket_name) && count($tos_bucket_name) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $tos_bucket_name when calling createTrail'
-            );
-        }
-        // verify the required parameter 'tos_bucket_project' is set
-        if ($tos_bucket_project === null || (is_array($tos_bucket_project) && count($tos_bucket_project) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $tos_bucket_project when calling createTrail'
-            );
-        }
-        // verify the required parameter 'tos_bucket_region' is set
-        if ($tos_bucket_region === null || (is_array($tos_bucket_region) && count($tos_bucket_region) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $tos_bucket_region when calling createTrail'
-            );
-        }
-        // verify the required parameter 'tos_key_prefix' is set
-        if ($tos_key_prefix === null || (is_array($tos_key_prefix) && count($tos_key_prefix) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $tos_key_prefix when calling createTrail'
-            );
-        }
-        // verify the required parameter 'trail_name' is set
-        if ($trail_name === null || (is_array($trail_name) && count($trail_name) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $trail_name when calling createTrail'
-            );
-        }
-        // verify the required parameter 'trail_type' is set
-        if ($trail_type === null || (is_array($trail_type) && count($trail_type) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $trail_type when calling createTrail'
-            );
-        }
-
         $resourcePath = '/CreateTrail/2018-01-01/cloud_trail/post/application_x-www-form-urlencoded/';
         $queryParams = [];
 
@@ -279,97 +125,26 @@ class CLOUDTRAIL20180101Api
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
-    public function deleteTrail($trail_name)
+    public function deleteTrail($body)
     {
-        list($response) = $this->deleteTrailWithHttpInfo($trail_name);
+        list($response) = $this->deleteTrailWithHttpInfo($body);
         return $response;
     }
 
-    public function deleteTrailWithHttpInfo($trail_name)
+    public function deleteTrailWithHttpInfo($body)
     {
         $returnType = '\Volcengine\Cloudtrail20180101\Model\DeleteTrailResponse';
-        $request = $this->deleteTrailRequest($trail_name);
+        $request = $this->deleteTrailRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
-    public function deleteTrailAsync($trail_name)
+    public function deleteTrailAsync($body)
     {
-        return $this->deleteTrailAsyncWithHttpInfo($trail_name)
+        return $this->deleteTrailAsyncWithHttpInfo($body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -377,65 +152,15 @@ class CLOUDTRAIL20180101Api
             );
     }
 
-    public function deleteTrailAsyncWithHttpInfo($trail_name)
+    public function deleteTrailAsyncWithHttpInfo($body)
     {
         $returnType = '\Volcengine\Cloudtrail20180101\Model\DeleteTrailResponse';
-        $request = $this->deleteTrailRequest($trail_name);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        $request = $this->deleteTrailRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
-    protected function deleteTrailRequest($trail_name)
+    protected function deleteTrailRequest($body)
     {
-        // verify the required parameter 'trail_name' is set
-        if ($trail_name === null || (is_array($trail_name) && count($trail_name) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $trail_name when calling deleteTrail'
-            );
-        }
-
         $resourcePath = '/DeleteTrail/2018-01-01/cloud_trail/post/application_x-www-form-urlencoded/';
         $queryParams = [];
 
@@ -461,97 +186,26 @@ class CLOUDTRAIL20180101Api
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
-    public function describeTrails($include_organization_trail, $trail_names)
+    public function describeTrails($body)
     {
-        list($response) = $this->describeTrailsWithHttpInfo($include_organization_trail, $trail_names);
+        list($response) = $this->describeTrailsWithHttpInfo($body);
         return $response;
     }
 
-    public function describeTrailsWithHttpInfo($include_organization_trail, $trail_names)
+    public function describeTrailsWithHttpInfo($body)
     {
         $returnType = '\Volcengine\Cloudtrail20180101\Model\DescribeTrailsResponse';
-        $request = $this->describeTrailsRequest($include_organization_trail, $trail_names);
+        $request = $this->describeTrailsRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
-    public function describeTrailsAsync($include_organization_trail, $trail_names)
+    public function describeTrailsAsync($body)
     {
-        return $this->describeTrailsAsyncWithHttpInfo($include_organization_trail, $trail_names)
+        return $this->describeTrailsAsyncWithHttpInfo($body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -559,71 +213,15 @@ class CLOUDTRAIL20180101Api
             );
     }
 
-    public function describeTrailsAsyncWithHttpInfo($include_organization_trail, $trail_names)
+    public function describeTrailsAsyncWithHttpInfo($body)
     {
         $returnType = '\Volcengine\Cloudtrail20180101\Model\DescribeTrailsResponse';
-        $request = $this->describeTrailsRequest($include_organization_trail, $trail_names);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        $request = $this->describeTrailsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
-    protected function describeTrailsRequest($include_organization_trail, $trail_names)
+    protected function describeTrailsRequest($body)
     {
-        // verify the required parameter 'include_organization_trail' is set
-        if ($include_organization_trail === null || (is_array($include_organization_trail) && count($include_organization_trail) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $include_organization_trail when calling describeTrails'
-            );
-        }
-        // verify the required parameter 'trail_names' is set
-        if ($trail_names === null || (is_array($trail_names) && count($trail_names) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $trail_names when calling describeTrails'
-            );
-        }
-
         $resourcePath = '/DescribeTrails/2018-01-01/cloud_trail/post/application_x-www-form-urlencoded/';
         $queryParams = [];
 
@@ -649,97 +247,26 @@ class CLOUDTRAIL20180101Api
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
-    public function startLogging($trail_name)
+    public function startLogging($body)
     {
-        list($response) = $this->startLoggingWithHttpInfo($trail_name);
+        list($response) = $this->startLoggingWithHttpInfo($body);
         return $response;
     }
 
-    public function startLoggingWithHttpInfo($trail_name)
+    public function startLoggingWithHttpInfo($body)
     {
         $returnType = '\Volcengine\Cloudtrail20180101\Model\StartLoggingResponse';
-        $request = $this->startLoggingRequest($trail_name);
+        $request = $this->startLoggingRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
-    public function startLoggingAsync($trail_name)
+    public function startLoggingAsync($body)
     {
-        return $this->startLoggingAsyncWithHttpInfo($trail_name)
+        return $this->startLoggingAsyncWithHttpInfo($body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -747,65 +274,15 @@ class CLOUDTRAIL20180101Api
             );
     }
 
-    public function startLoggingAsyncWithHttpInfo($trail_name)
+    public function startLoggingAsyncWithHttpInfo($body)
     {
         $returnType = '\Volcengine\Cloudtrail20180101\Model\StartLoggingResponse';
-        $request = $this->startLoggingRequest($trail_name);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        $request = $this->startLoggingRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
-    protected function startLoggingRequest($trail_name)
+    protected function startLoggingRequest($body)
     {
-        // verify the required parameter 'trail_name' is set
-        if ($trail_name === null || (is_array($trail_name) && count($trail_name) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $trail_name when calling startLogging'
-            );
-        }
-
         $resourcePath = '/StartLogging/2018-01-01/cloud_trail/post/application_x-www-form-urlencoded/';
         $queryParams = [];
 
@@ -831,97 +308,26 @@ class CLOUDTRAIL20180101Api
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
-    public function stopLogging($trail_name)
+    public function stopLogging($body)
     {
-        list($response) = $this->stopLoggingWithHttpInfo($trail_name);
+        list($response) = $this->stopLoggingWithHttpInfo($body);
         return $response;
     }
 
-    public function stopLoggingWithHttpInfo($trail_name)
+    public function stopLoggingWithHttpInfo($body)
     {
         $returnType = '\Volcengine\Cloudtrail20180101\Model\StopLoggingResponse';
-        $request = $this->stopLoggingRequest($trail_name);
+        $request = $this->stopLoggingRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
-    public function stopLoggingAsync($trail_name)
+    public function stopLoggingAsync($body)
     {
-        return $this->stopLoggingAsyncWithHttpInfo($trail_name)
+        return $this->stopLoggingAsyncWithHttpInfo($body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -929,65 +335,15 @@ class CLOUDTRAIL20180101Api
             );
     }
 
-    public function stopLoggingAsyncWithHttpInfo($trail_name)
+    public function stopLoggingAsyncWithHttpInfo($body)
     {
         $returnType = '\Volcengine\Cloudtrail20180101\Model\StopLoggingResponse';
-        $request = $this->stopLoggingRequest($trail_name);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        $request = $this->stopLoggingRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
-    protected function stopLoggingRequest($trail_name)
+    protected function stopLoggingRequest($body)
     {
-        // verify the required parameter 'trail_name' is set
-        if ($trail_name === null || (is_array($trail_name) && count($trail_name) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $trail_name when calling stopLogging'
-            );
-        }
-
         $resourcePath = '/StopLogging/2018-01-01/cloud_trail/post/application_x-www-form-urlencoded/';
         $queryParams = [];
 
@@ -1013,97 +369,26 @@ class CLOUDTRAIL20180101Api
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
-    public function updateTrail($event_rw, $event_sources, $tls_project_name, $tls_project_region, $tls_project_topic_project, $tls_topic_name, $tos_bucket_name, $tos_bucket_project, $tos_bucket_region, $tos_key_prefix, $trail_name, $trail_type)
+    public function updateTrail($body)
     {
-        list($response) = $this->updateTrailWithHttpInfo($event_rw, $event_sources, $tls_project_name, $tls_project_region, $tls_project_topic_project, $tls_topic_name, $tos_bucket_name, $tos_bucket_project, $tos_bucket_region, $tos_key_prefix, $trail_name, $trail_type);
+        list($response) = $this->updateTrailWithHttpInfo($body);
         return $response;
     }
 
-    public function updateTrailWithHttpInfo($event_rw, $event_sources, $tls_project_name, $tls_project_region, $tls_project_topic_project, $tls_topic_name, $tos_bucket_name, $tos_bucket_project, $tos_bucket_region, $tos_key_prefix, $trail_name, $trail_type)
+    public function updateTrailWithHttpInfo($body)
     {
         $returnType = '\Volcengine\Cloudtrail20180101\Model\UpdateTrailResponse';
-        $request = $this->updateTrailRequest($event_rw, $event_sources, $tls_project_name, $tls_project_region, $tls_project_topic_project, $tls_topic_name, $tos_bucket_name, $tos_bucket_project, $tos_bucket_region, $tos_key_prefix, $trail_name, $trail_type);
+        $request = $this->updateTrailRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
-    public function updateTrailAsync($event_rw, $event_sources, $tls_project_name, $tls_project_region, $tls_project_topic_project, $tls_topic_name, $tos_bucket_name, $tos_bucket_project, $tos_bucket_region, $tos_key_prefix, $trail_name, $trail_type)
+    public function updateTrailAsync($body)
     {
-        return $this->updateTrailAsyncWithHttpInfo($event_rw, $event_sources, $tls_project_name, $tls_project_region, $tls_project_topic_project, $tls_topic_name, $tos_bucket_name, $tos_bucket_project, $tos_bucket_region, $tos_key_prefix, $trail_name, $trail_type)
+        return $this->updateTrailAsyncWithHttpInfo($body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1111,131 +396,15 @@ class CLOUDTRAIL20180101Api
             );
     }
 
-    public function updateTrailAsyncWithHttpInfo($event_rw, $event_sources, $tls_project_name, $tls_project_region, $tls_project_topic_project, $tls_topic_name, $tos_bucket_name, $tos_bucket_project, $tos_bucket_region, $tos_key_prefix, $trail_name, $trail_type)
+    public function updateTrailAsyncWithHttpInfo($body)
     {
         $returnType = '\Volcengine\Cloudtrail20180101\Model\UpdateTrailResponse';
-        $request = $this->updateTrailRequest($event_rw, $event_sources, $tls_project_name, $tls_project_region, $tls_project_topic_project, $tls_topic_name, $tos_bucket_name, $tos_bucket_project, $tos_bucket_region, $tos_key_prefix, $trail_name, $trail_type);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        $request = $this->updateTrailRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
-    protected function updateTrailRequest($event_rw, $event_sources, $tls_project_name, $tls_project_region, $tls_project_topic_project, $tls_topic_name, $tos_bucket_name, $tos_bucket_project, $tos_bucket_region, $tos_key_prefix, $trail_name, $trail_type)
+    protected function updateTrailRequest($body)
     {
-        // verify the required parameter 'event_rw' is set
-        if ($event_rw === null || (is_array($event_rw) && count($event_rw) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $event_rw when calling updateTrail'
-            );
-        }
-        // verify the required parameter 'event_sources' is set
-        if ($event_sources === null || (is_array($event_sources) && count($event_sources) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $event_sources when calling updateTrail'
-            );
-        }
-        // verify the required parameter 'tls_project_name' is set
-        if ($tls_project_name === null || (is_array($tls_project_name) && count($tls_project_name) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $tls_project_name when calling updateTrail'
-            );
-        }
-        // verify the required parameter 'tls_project_region' is set
-        if ($tls_project_region === null || (is_array($tls_project_region) && count($tls_project_region) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $tls_project_region when calling updateTrail'
-            );
-        }
-        // verify the required parameter 'tls_project_topic_project' is set
-        if ($tls_project_topic_project === null || (is_array($tls_project_topic_project) && count($tls_project_topic_project) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $tls_project_topic_project when calling updateTrail'
-            );
-        }
-        // verify the required parameter 'tls_topic_name' is set
-        if ($tls_topic_name === null || (is_array($tls_topic_name) && count($tls_topic_name) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $tls_topic_name when calling updateTrail'
-            );
-        }
-        // verify the required parameter 'tos_bucket_name' is set
-        if ($tos_bucket_name === null || (is_array($tos_bucket_name) && count($tos_bucket_name) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $tos_bucket_name when calling updateTrail'
-            );
-        }
-        // verify the required parameter 'tos_bucket_project' is set
-        if ($tos_bucket_project === null || (is_array($tos_bucket_project) && count($tos_bucket_project) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $tos_bucket_project when calling updateTrail'
-            );
-        }
-        // verify the required parameter 'tos_bucket_region' is set
-        if ($tos_bucket_region === null || (is_array($tos_bucket_region) && count($tos_bucket_region) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $tos_bucket_region when calling updateTrail'
-            );
-        }
-        // verify the required parameter 'tos_key_prefix' is set
-        if ($tos_key_prefix === null || (is_array($tos_key_prefix) && count($tos_key_prefix) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $tos_key_prefix when calling updateTrail'
-            );
-        }
-        // verify the required parameter 'trail_name' is set
-        if ($trail_name === null || (is_array($trail_name) && count($trail_name) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $trail_name when calling updateTrail'
-            );
-        }
-        // verify the required parameter 'trail_type' is set
-        if ($trail_type === null || (is_array($trail_type) && count($trail_type) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $trail_type when calling updateTrail'
-            );
-        }
-
         $resourcePath = '/UpdateTrail/2018-01-01/cloud_trail/post/application_x-www-form-urlencoded/';
         $queryParams = [];
 
@@ -1261,31 +430,7 @@ class CLOUDTRAIL20180101Api
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
 
