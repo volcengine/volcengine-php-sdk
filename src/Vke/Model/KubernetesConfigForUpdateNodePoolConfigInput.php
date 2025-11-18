@@ -33,6 +33,8 @@ class KubernetesConfigForUpdateNodePoolConfigInput implements ModelInterface, Ar
         'kubelet_config' => '\Volcengine\Vke\Model\KubeletConfigForUpdateNodePoolConfigInput',
         'labels' => '\Volcengine\Vke\Model\LabelForUpdateNodePoolConfigInput[]',
         'name_prefix' => 'string',
+        'name_suffix' => 'string',
+        'name_use_hostname' => 'bool',
         'taints' => '\Volcengine\Vke\Model\TaintForUpdateNodePoolConfigInput[]'
     ];
 
@@ -47,6 +49,8 @@ class KubernetesConfigForUpdateNodePoolConfigInput implements ModelInterface, Ar
         'kubelet_config' => null,
         'labels' => null,
         'name_prefix' => null,
+        'name_suffix' => null,
+        'name_use_hostname' => null,
         'taints' => null
     ];
 
@@ -82,6 +86,8 @@ class KubernetesConfigForUpdateNodePoolConfigInput implements ModelInterface, Ar
         'kubelet_config' => 'KubeletConfig',
         'labels' => 'Labels',
         'name_prefix' => 'NamePrefix',
+        'name_suffix' => 'NameSuffix',
+        'name_use_hostname' => 'NameUseHostname',
         'taints' => 'Taints'
     ];
 
@@ -96,6 +102,8 @@ class KubernetesConfigForUpdateNodePoolConfigInput implements ModelInterface, Ar
         'kubelet_config' => 'setKubeletConfig',
         'labels' => 'setLabels',
         'name_prefix' => 'setNamePrefix',
+        'name_suffix' => 'setNameSuffix',
+        'name_use_hostname' => 'setNameUseHostname',
         'taints' => 'setTaints'
     ];
 
@@ -110,6 +118,8 @@ class KubernetesConfigForUpdateNodePoolConfigInput implements ModelInterface, Ar
         'kubelet_config' => 'getKubeletConfig',
         'labels' => 'getLabels',
         'name_prefix' => 'getNamePrefix',
+        'name_suffix' => 'getNameSuffix',
+        'name_use_hostname' => 'getNameUseHostname',
         'taints' => 'getTaints'
     ];
 
@@ -178,6 +188,8 @@ class KubernetesConfigForUpdateNodePoolConfigInput implements ModelInterface, Ar
         $this->container['kubelet_config'] = isset($data['kubelet_config']) ? $data['kubelet_config'] : null;
         $this->container['labels'] = isset($data['labels']) ? $data['labels'] : null;
         $this->container['name_prefix'] = isset($data['name_prefix']) ? $data['name_prefix'] : null;
+        $this->container['name_suffix'] = isset($data['name_suffix']) ? $data['name_suffix'] : null;
+        $this->container['name_use_hostname'] = isset($data['name_use_hostname']) ? $data['name_use_hostname'] : null;
         $this->container['taints'] = isset($data['taints']) ? $data['taints'] : null;
     }
 
@@ -321,6 +333,54 @@ class KubernetesConfigForUpdateNodePoolConfigInput implements ModelInterface, Ar
     public function setNamePrefix($name_prefix)
     {
         $this->container['name_prefix'] = $name_prefix;
+
+        return $this;
+    }
+
+    /**
+     * Gets name_suffix
+     *
+     * @return string
+     */
+    public function getNameSuffix()
+    {
+        return $this->container['name_suffix'];
+    }
+
+    /**
+     * Sets name_suffix
+     *
+     * @param string $name_suffix name_suffix
+     *
+     * @return $this
+     */
+    public function setNameSuffix($name_suffix)
+    {
+        $this->container['name_suffix'] = $name_suffix;
+
+        return $this;
+    }
+
+    /**
+     * Gets name_use_hostname
+     *
+     * @return bool
+     */
+    public function getNameUseHostname()
+    {
+        return $this->container['name_use_hostname'];
+    }
+
+    /**
+     * Sets name_use_hostname
+     *
+     * @param bool $name_use_hostname name_use_hostname
+     *
+     * @return $this
+     */
+    public function setNameUseHostname($name_use_hostname)
+    {
+        $this->container['name_use_hostname'] = $name_use_hostname;
 
         return $this;
     }
