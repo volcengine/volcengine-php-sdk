@@ -189,15 +189,16 @@ class ListResourceQueuesRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const CHARGE_TYPE_PAUSED = 'Paused';
-    const CHARGE_TYPE_RUNNING = 'Running';
-    const CHARGE_TYPE_CLOSED = 'Closed';
-    const CHARGE_TYPE_CLOSING = 'Closing';
+    const CHARGE_TYPE_PRE_PAID = 'PrePaid';
+    const CHARGE_TYPE_POST_PAID = 'PostPaid';
+    const CHARGE_TYPE_ON_DEMAND = 'OnDemand';
     const SORT_BY_CREATE_TIME = 'CreateTime';
     const SORT_ORDER_ASCEND = 'Ascend';
     const SORT_ORDER_DESCEND = 'Descend';
-    const STATUS_PRE_PAID = 'PrePaid';
-    const STATUS_POST_PAID = 'PostPaid';
+    const STATUS_PAUSED = 'Paused';
+    const STATUS_RUNNING = 'Running';
+    const STATUS_CLOSED = 'Closed';
+    const STATUS_CLOSING = 'Closing';
     
 
     
@@ -209,10 +210,9 @@ class ListResourceQueuesRequest implements ModelInterface, ArrayAccess
     public function getChargeTypeAllowableValues()
     {
         return [
-            self::CHARGE_TYPE_PAUSED,
-            self::CHARGE_TYPE_RUNNING,
-            self::CHARGE_TYPE_CLOSED,
-            self::CHARGE_TYPE_CLOSING,
+            self::CHARGE_TYPE_PRE_PAID,
+            self::CHARGE_TYPE_POST_PAID,
+            self::CHARGE_TYPE_ON_DEMAND,
         ];
     }
     
@@ -249,8 +249,10 @@ class ListResourceQueuesRequest implements ModelInterface, ArrayAccess
     public function getStatusAllowableValues()
     {
         return [
-            self::STATUS_PRE_PAID,
-            self::STATUS_POST_PAID,
+            self::STATUS_PAUSED,
+            self::STATUS_RUNNING,
+            self::STATUS_CLOSED,
+            self::STATUS_CLOSING,
         ];
     }
     

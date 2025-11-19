@@ -29,7 +29,8 @@ class VepfsAPForCreateJobInput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'access_point_id' => 'string',
-        'id' => 'string'
+        'id' => 'string',
+        'use_eic' => 'bool'
     ];
 
     /**
@@ -39,7 +40,8 @@ class VepfsAPForCreateJobInput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'access_point_id' => null,
-        'id' => null
+        'id' => null,
+        'use_eic' => null
     ];
 
     /**
@@ -70,7 +72,8 @@ class VepfsAPForCreateJobInput implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'access_point_id' => 'AccessPointId',
-        'id' => 'Id'
+        'id' => 'Id',
+        'use_eic' => 'UseEic'
     ];
 
     /**
@@ -80,7 +83,8 @@ class VepfsAPForCreateJobInput implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'access_point_id' => 'setAccessPointId',
-        'id' => 'setId'
+        'id' => 'setId',
+        'use_eic' => 'setUseEic'
     ];
 
     /**
@@ -90,7 +94,8 @@ class VepfsAPForCreateJobInput implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'access_point_id' => 'getAccessPointId',
-        'id' => 'getId'
+        'id' => 'getId',
+        'use_eic' => 'getUseEic'
     ];
 
     /**
@@ -155,6 +160,7 @@ class VepfsAPForCreateJobInput implements ModelInterface, ArrayAccess
     {
         $this->container['access_point_id'] = isset($data['access_point_id']) ? $data['access_point_id'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['use_eic'] = isset($data['use_eic']) ? $data['use_eic'] : null;
     }
 
     /**
@@ -225,6 +231,30 @@ class VepfsAPForCreateJobInput implements ModelInterface, ArrayAccess
     public function setId($id)
     {
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets use_eic
+     *
+     * @return bool
+     */
+    public function getUseEic()
+    {
+        return $this->container['use_eic'];
+    }
+
+    /**
+     * Sets use_eic
+     *
+     * @param bool $use_eic use_eic
+     *
+     * @return $this
+     */
+    public function setUseEic($use_eic)
+    {
+        $this->container['use_eic'] = $use_eic;
 
         return $this;
     }

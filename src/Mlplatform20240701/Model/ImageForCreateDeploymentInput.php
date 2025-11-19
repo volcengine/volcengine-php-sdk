@@ -28,12 +28,9 @@ class ImageForCreateDeploymentInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'description' => 'string',
-        'id' => 'string',
-        'image_credential' => '\Volcengine\Mlplatform20240701\Model\ImageCredentialForCreateDeploymentInput',
+        'credential' => '\Volcengine\Mlplatform20240701\Model\ConvertCredentialForCreateDeploymentInput',
         'type' => 'string',
-        'url' => 'string',
-        'version' => 'string'
+        'url' => 'string'
     ];
 
     /**
@@ -42,12 +39,9 @@ class ImageForCreateDeploymentInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'description' => null,
-        'id' => null,
-        'image_credential' => null,
+        'credential' => null,
         'type' => null,
-        'url' => null,
-        'version' => null
+        'url' => null
     ];
 
     /**
@@ -77,12 +71,9 @@ class ImageForCreateDeploymentInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'description' => 'Description',
-        'id' => 'Id',
-        'image_credential' => 'ImageCredential',
+        'credential' => 'Credential',
         'type' => 'Type',
-        'url' => 'Url',
-        'version' => 'Version'
+        'url' => 'Url'
     ];
 
     /**
@@ -91,12 +82,9 @@ class ImageForCreateDeploymentInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'description' => 'setDescription',
-        'id' => 'setId',
-        'image_credential' => 'setImageCredential',
+        'credential' => 'setCredential',
         'type' => 'setType',
-        'url' => 'setUrl',
-        'version' => 'setVersion'
+        'url' => 'setUrl'
     ];
 
     /**
@@ -105,12 +93,9 @@ class ImageForCreateDeploymentInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'description' => 'getDescription',
-        'id' => 'getId',
-        'image_credential' => 'getImageCredential',
+        'credential' => 'getCredential',
         'type' => 'getType',
-        'url' => 'getUrl',
-        'version' => 'getVersion'
+        'url' => 'getUrl'
     ];
 
     /**
@@ -173,12 +158,9 @@ class ImageForCreateDeploymentInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['image_credential'] = isset($data['image_credential']) ? $data['image_credential'] : null;
+        $this->container['credential'] = isset($data['credential']) ? $data['credential'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['url'] = isset($data['url']) ? $data['url'] : null;
-        $this->container['version'] = isset($data['version']) ? $data['version'] : null;
     }
 
     /**
@@ -206,73 +188,25 @@ class ImageForCreateDeploymentInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets description
+     * Gets credential
      *
-     * @return string
+     * @return \Volcengine\Mlplatform20240701\Model\ConvertCredentialForCreateDeploymentInput
      */
-    public function getDescription()
+    public function getCredential()
     {
-        return $this->container['description'];
+        return $this->container['credential'];
     }
 
     /**
-     * Sets description
+     * Sets credential
      *
-     * @param string $description description
+     * @param \Volcengine\Mlplatform20240701\Model\ConvertCredentialForCreateDeploymentInput $credential credential
      *
      * @return $this
      */
-    public function setDescription($description)
+    public function setCredential($credential)
     {
-        $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets id
-     *
-     * @return string
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string $id id
-     *
-     * @return $this
-     */
-    public function setId($id)
-    {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets image_credential
-     *
-     * @return \Volcengine\Mlplatform20240701\Model\ImageCredentialForCreateDeploymentInput
-     */
-    public function getImageCredential()
-    {
-        return $this->container['image_credential'];
-    }
-
-    /**
-     * Sets image_credential
-     *
-     * @param \Volcengine\Mlplatform20240701\Model\ImageCredentialForCreateDeploymentInput $image_credential image_credential
-     *
-     * @return $this
-     */
-    public function setImageCredential($image_credential)
-    {
-        $this->container['image_credential'] = $image_credential;
+        $this->container['credential'] = $credential;
 
         return $this;
     }
@@ -321,30 +255,6 @@ class ImageForCreateDeploymentInput implements ModelInterface, ArrayAccess
     public function setUrl($url)
     {
         $this->container['url'] = $url;
-
-        return $this;
-    }
-
-    /**
-     * Gets version
-     *
-     * @return string
-     */
-    public function getVersion()
-    {
-        return $this->container['version'];
-    }
-
-    /**
-     * Sets version
-     *
-     * @param string $version version
-     *
-     * @return $this
-     */
-    public function setVersion($version)
-    {
-        $this->container['version'] = $version;
 
         return $this;
     }

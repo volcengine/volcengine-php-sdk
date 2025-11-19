@@ -28,15 +28,8 @@ class ModelForCreateDeploymentInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'format' => 'string',
         'model_id' => 'string',
-        'model_version_id' => 'string',
-        'name' => 'string',
-        'path' => 'string',
-        'source' => 'string',
-        'tensor_config' => '\Volcengine\Mlplatform20240701\Model\TensorConfigForCreateDeploymentInput',
-        'type' => 'string',
-        'version' => 'string'
+        'model_version_id' => 'string'
     ];
 
     /**
@@ -45,15 +38,8 @@ class ModelForCreateDeploymentInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'format' => null,
         'model_id' => null,
-        'model_version_id' => null,
-        'name' => null,
-        'path' => null,
-        'source' => null,
-        'tensor_config' => null,
-        'type' => null,
-        'version' => null
+        'model_version_id' => null
     ];
 
     /**
@@ -83,15 +69,8 @@ class ModelForCreateDeploymentInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'format' => 'Format',
         'model_id' => 'ModelID',
-        'model_version_id' => 'ModelVersionID',
-        'name' => 'Name',
-        'path' => 'Path',
-        'source' => 'Source',
-        'tensor_config' => 'TensorConfig',
-        'type' => 'Type',
-        'version' => 'Version'
+        'model_version_id' => 'ModelVersionID'
     ];
 
     /**
@@ -100,15 +79,8 @@ class ModelForCreateDeploymentInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'format' => 'setFormat',
         'model_id' => 'setModelId',
-        'model_version_id' => 'setModelVersionId',
-        'name' => 'setName',
-        'path' => 'setPath',
-        'source' => 'setSource',
-        'tensor_config' => 'setTensorConfig',
-        'type' => 'setType',
-        'version' => 'setVersion'
+        'model_version_id' => 'setModelVersionId'
     ];
 
     /**
@@ -117,15 +89,8 @@ class ModelForCreateDeploymentInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'format' => 'getFormat',
         'model_id' => 'getModelId',
-        'model_version_id' => 'getModelVersionId',
-        'name' => 'getName',
-        'path' => 'getPath',
-        'source' => 'getSource',
-        'tensor_config' => 'getTensorConfig',
-        'type' => 'getType',
-        'version' => 'getVersion'
+        'model_version_id' => 'getModelVersionId'
     ];
 
     /**
@@ -188,15 +153,8 @@ class ModelForCreateDeploymentInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['format'] = isset($data['format']) ? $data['format'] : null;
         $this->container['model_id'] = isset($data['model_id']) ? $data['model_id'] : null;
         $this->container['model_version_id'] = isset($data['model_version_id']) ? $data['model_version_id'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['path'] = isset($data['path']) ? $data['path'] : null;
-        $this->container['source'] = isset($data['source']) ? $data['source'] : null;
-        $this->container['tensor_config'] = isset($data['tensor_config']) ? $data['tensor_config'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['version'] = isset($data['version']) ? $data['version'] : null;
     }
 
     /**
@@ -222,30 +180,6 @@ class ModelForCreateDeploymentInput implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets format
-     *
-     * @return string
-     */
-    public function getFormat()
-    {
-        return $this->container['format'];
-    }
-
-    /**
-     * Sets format
-     *
-     * @param string $format format
-     *
-     * @return $this
-     */
-    public function setFormat($format)
-    {
-        $this->container['format'] = $format;
-
-        return $this;
-    }
 
     /**
      * Gets model_id
@@ -291,150 +225,6 @@ class ModelForCreateDeploymentInput implements ModelInterface, ArrayAccess
     public function setModelVersionId($model_version_id)
     {
         $this->container['model_version_id'] = $model_version_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string $name name
-     *
-     * @return $this
-     */
-    public function setName($name)
-    {
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets path
-     *
-     * @return string
-     */
-    public function getPath()
-    {
-        return $this->container['path'];
-    }
-
-    /**
-     * Sets path
-     *
-     * @param string $path path
-     *
-     * @return $this
-     */
-    public function setPath($path)
-    {
-        $this->container['path'] = $path;
-
-        return $this;
-    }
-
-    /**
-     * Gets source
-     *
-     * @return string
-     */
-    public function getSource()
-    {
-        return $this->container['source'];
-    }
-
-    /**
-     * Sets source
-     *
-     * @param string $source source
-     *
-     * @return $this
-     */
-    public function setSource($source)
-    {
-        $this->container['source'] = $source;
-
-        return $this;
-    }
-
-    /**
-     * Gets tensor_config
-     *
-     * @return \Volcengine\Mlplatform20240701\Model\TensorConfigForCreateDeploymentInput
-     */
-    public function getTensorConfig()
-    {
-        return $this->container['tensor_config'];
-    }
-
-    /**
-     * Sets tensor_config
-     *
-     * @param \Volcengine\Mlplatform20240701\Model\TensorConfigForCreateDeploymentInput $tensor_config tensor_config
-     *
-     * @return $this
-     */
-    public function setTensorConfig($tensor_config)
-    {
-        $this->container['tensor_config'] = $tensor_config;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     *
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param string $type type
-     *
-     * @return $this
-     */
-    public function setType($type)
-    {
-        $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets version
-     *
-     * @return string
-     */
-    public function getVersion()
-    {
-        return $this->container['version'];
-    }
-
-    /**
-     * Sets version
-     *
-     * @param string $version version
-     *
-     * @return $this
-     */
-    public function setVersion($version)
-    {
-        $this->container['version'] = $version;
 
         return $this;
     }

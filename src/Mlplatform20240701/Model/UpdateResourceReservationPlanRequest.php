@@ -28,11 +28,13 @@ class UpdateResourceReservationPlanRequest implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'compute_resource' => '\Volcengine\Mlplatform20240701\Model\ComputeResourceForUpdateResourceReservationPlanInput',
         'description' => 'string',
         'dry_run' => 'bool',
         'id' => 'string',
         'matching_reservation_plan_time_config' => '\Volcengine\Mlplatform20240701\Model\MatchingReservationPlanTimeConfigForUpdateResourceReservationPlanInput',
         'name' => 'string',
+        'reservation_config' => '\Volcengine\Mlplatform20240701\Model\ReservationConfigForUpdateResourceReservationPlanInput',
         'schedule_config' => '\Volcengine\Mlplatform20240701\Model\ScheduleConfigForUpdateResourceReservationPlanInput',
         'storage_config' => '\Volcengine\Mlplatform20240701\Model\StorageConfigForUpdateResourceReservationPlanInput',
         'workload_network_config' => '\Volcengine\Mlplatform20240701\Model\WorkloadNetworkConfigForUpdateResourceReservationPlanInput',
@@ -45,11 +47,13 @@ class UpdateResourceReservationPlanRequest implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'compute_resource' => null,
         'description' => null,
         'dry_run' => null,
         'id' => null,
         'matching_reservation_plan_time_config' => null,
         'name' => null,
+        'reservation_config' => null,
         'schedule_config' => null,
         'storage_config' => null,
         'workload_network_config' => null,
@@ -83,11 +87,13 @@ class UpdateResourceReservationPlanRequest implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $attributeMap = [
+        'compute_resource' => 'ComputeResource',
         'description' => 'Description',
         'dry_run' => 'DryRun',
         'id' => 'Id',
         'matching_reservation_plan_time_config' => 'MatchingReservationPlanTimeConfig',
         'name' => 'Name',
+        'reservation_config' => 'ReservationConfig',
         'schedule_config' => 'ScheduleConfig',
         'storage_config' => 'StorageConfig',
         'workload_network_config' => 'WorkloadNetworkConfig',
@@ -100,11 +106,13 @@ class UpdateResourceReservationPlanRequest implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $setters = [
+        'compute_resource' => 'setComputeResource',
         'description' => 'setDescription',
         'dry_run' => 'setDryRun',
         'id' => 'setId',
         'matching_reservation_plan_time_config' => 'setMatchingReservationPlanTimeConfig',
         'name' => 'setName',
+        'reservation_config' => 'setReservationConfig',
         'schedule_config' => 'setScheduleConfig',
         'storage_config' => 'setStorageConfig',
         'workload_network_config' => 'setWorkloadNetworkConfig',
@@ -117,11 +125,13 @@ class UpdateResourceReservationPlanRequest implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $getters = [
+        'compute_resource' => 'getComputeResource',
         'description' => 'getDescription',
         'dry_run' => 'getDryRun',
         'id' => 'getId',
         'matching_reservation_plan_time_config' => 'getMatchingReservationPlanTimeConfig',
         'name' => 'getName',
+        'reservation_config' => 'getReservationConfig',
         'schedule_config' => 'getScheduleConfig',
         'storage_config' => 'getStorageConfig',
         'workload_network_config' => 'getWorkloadNetworkConfig',
@@ -188,11 +198,13 @@ class UpdateResourceReservationPlanRequest implements ModelInterface, ArrayAcces
      */
     public function __construct(array $data = null)
     {
+        $this->container['compute_resource'] = isset($data['compute_resource']) ? $data['compute_resource'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['dry_run'] = isset($data['dry_run']) ? $data['dry_run'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['matching_reservation_plan_time_config'] = isset($data['matching_reservation_plan_time_config']) ? $data['matching_reservation_plan_time_config'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['reservation_config'] = isset($data['reservation_config']) ? $data['reservation_config'] : null;
         $this->container['schedule_config'] = isset($data['schedule_config']) ? $data['schedule_config'] : null;
         $this->container['storage_config'] = isset($data['storage_config']) ? $data['storage_config'] : null;
         $this->container['workload_network_config'] = isset($data['workload_network_config']) ? $data['workload_network_config'] : null;
@@ -225,6 +237,30 @@ class UpdateResourceReservationPlanRequest implements ModelInterface, ArrayAcces
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets compute_resource
+     *
+     * @return \Volcengine\Mlplatform20240701\Model\ComputeResourceForUpdateResourceReservationPlanInput
+     */
+    public function getComputeResource()
+    {
+        return $this->container['compute_resource'];
+    }
+
+    /**
+     * Sets compute_resource
+     *
+     * @param \Volcengine\Mlplatform20240701\Model\ComputeResourceForUpdateResourceReservationPlanInput $compute_resource compute_resource
+     *
+     * @return $this
+     */
+    public function setComputeResource($compute_resource)
+    {
+        $this->container['compute_resource'] = $compute_resource;
+
+        return $this;
+    }
 
     /**
      * Gets description
@@ -342,6 +378,30 @@ class UpdateResourceReservationPlanRequest implements ModelInterface, ArrayAcces
     public function setName($name)
     {
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets reservation_config
+     *
+     * @return \Volcengine\Mlplatform20240701\Model\ReservationConfigForUpdateResourceReservationPlanInput
+     */
+    public function getReservationConfig()
+    {
+        return $this->container['reservation_config'];
+    }
+
+    /**
+     * Sets reservation_config
+     *
+     * @param \Volcengine\Mlplatform20240701\Model\ReservationConfigForUpdateResourceReservationPlanInput $reservation_config reservation_config
+     *
+     * @return $this
+     */
+    public function setReservationConfig($reservation_config)
+    {
+        $this->container['reservation_config'] = $reservation_config;
 
         return $this;
     }

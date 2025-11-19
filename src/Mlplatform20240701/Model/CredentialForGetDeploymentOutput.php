@@ -29,7 +29,8 @@ class CredentialForGetDeploymentOutput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'access_key' => 'string',
-        'secret_access_key' => 'string'
+        'secret_access_key' => 'string',
+        'use_service_linked_role' => 'bool'
     ];
 
     /**
@@ -39,7 +40,8 @@ class CredentialForGetDeploymentOutput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'access_key' => null,
-        'secret_access_key' => null
+        'secret_access_key' => null,
+        'use_service_linked_role' => null
     ];
 
     /**
@@ -70,7 +72,8 @@ class CredentialForGetDeploymentOutput implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'access_key' => 'AccessKey',
-        'secret_access_key' => 'SecretAccessKey'
+        'secret_access_key' => 'SecretAccessKey',
+        'use_service_linked_role' => 'UseServiceLinkedRole'
     ];
 
     /**
@@ -80,7 +83,8 @@ class CredentialForGetDeploymentOutput implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'access_key' => 'setAccessKey',
-        'secret_access_key' => 'setSecretAccessKey'
+        'secret_access_key' => 'setSecretAccessKey',
+        'use_service_linked_role' => 'setUseServiceLinkedRole'
     ];
 
     /**
@@ -90,7 +94,8 @@ class CredentialForGetDeploymentOutput implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'access_key' => 'getAccessKey',
-        'secret_access_key' => 'getSecretAccessKey'
+        'secret_access_key' => 'getSecretAccessKey',
+        'use_service_linked_role' => 'getUseServiceLinkedRole'
     ];
 
     /**
@@ -155,6 +160,7 @@ class CredentialForGetDeploymentOutput implements ModelInterface, ArrayAccess
     {
         $this->container['access_key'] = isset($data['access_key']) ? $data['access_key'] : null;
         $this->container['secret_access_key'] = isset($data['secret_access_key']) ? $data['secret_access_key'] : null;
+        $this->container['use_service_linked_role'] = isset($data['use_service_linked_role']) ? $data['use_service_linked_role'] : null;
     }
 
     /**
@@ -225,6 +231,30 @@ class CredentialForGetDeploymentOutput implements ModelInterface, ArrayAccess
     public function setSecretAccessKey($secret_access_key)
     {
         $this->container['secret_access_key'] = $secret_access_key;
+
+        return $this;
+    }
+
+    /**
+     * Gets use_service_linked_role
+     *
+     * @return bool
+     */
+    public function getUseServiceLinkedRole()
+    {
+        return $this->container['use_service_linked_role'];
+    }
+
+    /**
+     * Sets use_service_linked_role
+     *
+     * @param bool $use_service_linked_role use_service_linked_role
+     *
+     * @return $this
+     */
+    public function setUseServiceLinkedRole($use_service_linked_role)
+    {
+        $this->container['use_service_linked_role'] = $use_service_linked_role;
 
         return $this;
     }

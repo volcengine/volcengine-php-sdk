@@ -144,8 +144,23 @@ class HTTPGetForUpdateDeploymentInput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const SCHEME_HTTP = 'HTTP';
+    const SCHEME_HTTPS = 'HTTPS';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getSchemeAllowableValues()
+    {
+        return [
+            self::SCHEME_HTTP,
+            self::SCHEME_HTTPS,
+        ];
+    }
     
 
     /**
@@ -177,6 +192,14 @@ class HTTPGetForUpdateDeploymentInput implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getSchemeAllowableValues();
+        if (!is_null($this->container['scheme']) && !in_array($this->container['scheme'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'scheme', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -284,6 +307,15 @@ class HTTPGetForUpdateDeploymentInput implements ModelInterface, ArrayAccess
      */
     public function setScheme($scheme)
     {
+        $allowedValues = $this->getSchemeAllowableValues();
+        if (!is_null($scheme) && !in_array($scheme, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'scheme', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['scheme'] = $scheme;
 
         return $this;

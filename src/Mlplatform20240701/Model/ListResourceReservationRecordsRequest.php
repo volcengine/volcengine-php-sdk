@@ -28,6 +28,9 @@ class ListResourceReservationRecordsRequest implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'activation_end_time' => 'string',
+        'activation_start_time' => 'string',
+        'job_id' => 'string',
         'page_number' => 'int',
         'page_size' => 'int',
         'reservation_plan_id' => 'string',
@@ -42,6 +45,9 @@ class ListResourceReservationRecordsRequest implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'activation_end_time' => null,
+        'activation_start_time' => null,
+        'job_id' => null,
         'page_number' => 'int32',
         'page_size' => 'int32',
         'reservation_plan_id' => null,
@@ -77,6 +83,9 @@ class ListResourceReservationRecordsRequest implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $attributeMap = [
+        'activation_end_time' => 'ActivationEndTime',
+        'activation_start_time' => 'ActivationStartTime',
+        'job_id' => 'JobId',
         'page_number' => 'PageNumber',
         'page_size' => 'PageSize',
         'reservation_plan_id' => 'ReservationPlanId',
@@ -91,6 +100,9 @@ class ListResourceReservationRecordsRequest implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $setters = [
+        'activation_end_time' => 'setActivationEndTime',
+        'activation_start_time' => 'setActivationStartTime',
+        'job_id' => 'setJobId',
         'page_number' => 'setPageNumber',
         'page_size' => 'setPageSize',
         'reservation_plan_id' => 'setReservationPlanId',
@@ -105,6 +117,9 @@ class ListResourceReservationRecordsRequest implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $getters = [
+        'activation_end_time' => 'getActivationEndTime',
+        'activation_start_time' => 'getActivationStartTime',
+        'job_id' => 'getJobId',
         'page_number' => 'getPageNumber',
         'page_size' => 'getPageSize',
         'reservation_plan_id' => 'getReservationPlanId',
@@ -201,6 +216,9 @@ class ListResourceReservationRecordsRequest implements ModelInterface, ArrayAcce
      */
     public function __construct(array $data = null)
     {
+        $this->container['activation_end_time'] = isset($data['activation_end_time']) ? $data['activation_end_time'] : null;
+        $this->container['activation_start_time'] = isset($data['activation_start_time']) ? $data['activation_start_time'] : null;
+        $this->container['job_id'] = isset($data['job_id']) ? $data['job_id'] : null;
         $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
         $this->container['reservation_plan_id'] = isset($data['reservation_plan_id']) ? $data['reservation_plan_id'] : null;
@@ -218,9 +236,6 @@ class ListResourceReservationRecordsRequest implements ModelInterface, ArrayAcce
     {
         $invalidProperties = [];
 
-        if ($this->container['reservation_plan_id'] === null) {
-            $invalidProperties[] = "'reservation_plan_id' can't be null";
-        }
         $allowedValues = $this->getSortByAllowableValues();
         if (!is_null($this->container['sort_by']) && !in_array($this->container['sort_by'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -251,6 +266,78 @@ class ListResourceReservationRecordsRequest implements ModelInterface, ArrayAcce
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets activation_end_time
+     *
+     * @return string
+     */
+    public function getActivationEndTime()
+    {
+        return $this->container['activation_end_time'];
+    }
+
+    /**
+     * Sets activation_end_time
+     *
+     * @param string $activation_end_time activation_end_time
+     *
+     * @return $this
+     */
+    public function setActivationEndTime($activation_end_time)
+    {
+        $this->container['activation_end_time'] = $activation_end_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets activation_start_time
+     *
+     * @return string
+     */
+    public function getActivationStartTime()
+    {
+        return $this->container['activation_start_time'];
+    }
+
+    /**
+     * Sets activation_start_time
+     *
+     * @param string $activation_start_time activation_start_time
+     *
+     * @return $this
+     */
+    public function setActivationStartTime($activation_start_time)
+    {
+        $this->container['activation_start_time'] = $activation_start_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets job_id
+     *
+     * @return string
+     */
+    public function getJobId()
+    {
+        return $this->container['job_id'];
+    }
+
+    /**
+     * Sets job_id
+     *
+     * @param string $job_id job_id
+     *
+     * @return $this
+     */
+    public function setJobId($job_id)
+    {
+        $this->container['job_id'] = $job_id;
+
+        return $this;
+    }
 
     /**
      * Gets page_number
