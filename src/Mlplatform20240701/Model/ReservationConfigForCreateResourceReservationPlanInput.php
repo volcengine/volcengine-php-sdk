@@ -35,6 +35,7 @@ class ReservationConfigForCreateResourceReservationPlanInput implements ModelInt
         'min_duration_hours' => 'int',
         'recurrence_end_time' => 'string',
         'recurrence_interval' => 'string',
+        'recurrence_resource_segments' => '\Volcengine\Mlplatform20240701\Model\RecurrenceResourceSegmentForCreateResourceReservationPlanInput[]',
         'recurrence_start_time' => 'string',
         'reservation_type' => 'string'
     ];
@@ -52,6 +53,7 @@ class ReservationConfigForCreateResourceReservationPlanInput implements ModelInt
         'min_duration_hours' => 'int64',
         'recurrence_end_time' => null,
         'recurrence_interval' => null,
+        'recurrence_resource_segments' => null,
         'recurrence_start_time' => null,
         'reservation_type' => null
     ];
@@ -90,6 +92,7 @@ class ReservationConfigForCreateResourceReservationPlanInput implements ModelInt
         'min_duration_hours' => 'MinDurationHours',
         'recurrence_end_time' => 'RecurrenceEndTime',
         'recurrence_interval' => 'RecurrenceInterval',
+        'recurrence_resource_segments' => 'RecurrenceResourceSegments',
         'recurrence_start_time' => 'RecurrenceStartTime',
         'reservation_type' => 'ReservationType'
     ];
@@ -107,6 +110,7 @@ class ReservationConfigForCreateResourceReservationPlanInput implements ModelInt
         'min_duration_hours' => 'setMinDurationHours',
         'recurrence_end_time' => 'setRecurrenceEndTime',
         'recurrence_interval' => 'setRecurrenceInterval',
+        'recurrence_resource_segments' => 'setRecurrenceResourceSegments',
         'recurrence_start_time' => 'setRecurrenceStartTime',
         'reservation_type' => 'setReservationType'
     ];
@@ -124,6 +128,7 @@ class ReservationConfigForCreateResourceReservationPlanInput implements ModelInt
         'min_duration_hours' => 'getMinDurationHours',
         'recurrence_end_time' => 'getRecurrenceEndTime',
         'recurrence_interval' => 'getRecurrenceInterval',
+        'recurrence_resource_segments' => 'getRecurrenceResourceSegments',
         'recurrence_start_time' => 'getRecurrenceStartTime',
         'reservation_type' => 'getReservationType'
     ];
@@ -195,6 +200,7 @@ class ReservationConfigForCreateResourceReservationPlanInput implements ModelInt
         $this->container['min_duration_hours'] = isset($data['min_duration_hours']) ? $data['min_duration_hours'] : null;
         $this->container['recurrence_end_time'] = isset($data['recurrence_end_time']) ? $data['recurrence_end_time'] : null;
         $this->container['recurrence_interval'] = isset($data['recurrence_interval']) ? $data['recurrence_interval'] : null;
+        $this->container['recurrence_resource_segments'] = isset($data['recurrence_resource_segments']) ? $data['recurrence_resource_segments'] : null;
         $this->container['recurrence_start_time'] = isset($data['recurrence_start_time']) ? $data['recurrence_start_time'] : null;
         $this->container['reservation_type'] = isset($data['reservation_type']) ? $data['reservation_type'] : null;
     }
@@ -387,6 +393,30 @@ class ReservationConfigForCreateResourceReservationPlanInput implements ModelInt
     public function setRecurrenceInterval($recurrence_interval)
     {
         $this->container['recurrence_interval'] = $recurrence_interval;
+
+        return $this;
+    }
+
+    /**
+     * Gets recurrence_resource_segments
+     *
+     * @return \Volcengine\Mlplatform20240701\Model\RecurrenceResourceSegmentForCreateResourceReservationPlanInput[]
+     */
+    public function getRecurrenceResourceSegments()
+    {
+        return $this->container['recurrence_resource_segments'];
+    }
+
+    /**
+     * Sets recurrence_resource_segments
+     *
+     * @param \Volcengine\Mlplatform20240701\Model\RecurrenceResourceSegmentForCreateResourceReservationPlanInput[] $recurrence_resource_segments recurrence_resource_segments
+     *
+     * @return $this
+     */
+    public function setRecurrenceResourceSegments($recurrence_resource_segments)
+    {
+        $this->container['recurrence_resource_segments'] = $recurrence_resource_segments;
 
         return $this;
     }

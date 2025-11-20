@@ -28,8 +28,8 @@ class ConvertCredentialForUpdateDeploymentInput implements ModelInterface, Array
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'access_key_id' => 'string',
-        'secret_access_key' => 'string'
+        'registry_token' => 'string',
+        'registry_username' => 'string'
     ];
 
     /**
@@ -38,8 +38,8 @@ class ConvertCredentialForUpdateDeploymentInput implements ModelInterface, Array
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'access_key_id' => null,
-        'secret_access_key' => null
+        'registry_token' => null,
+        'registry_username' => null
     ];
 
     /**
@@ -69,8 +69,8 @@ class ConvertCredentialForUpdateDeploymentInput implements ModelInterface, Array
      * @var string[]
      */
     protected static $attributeMap = [
-        'access_key_id' => 'AccessKeyId',
-        'secret_access_key' => 'SecretAccessKey'
+        'registry_token' => 'RegistryToken',
+        'registry_username' => 'RegistryUsername'
     ];
 
     /**
@@ -79,8 +79,8 @@ class ConvertCredentialForUpdateDeploymentInput implements ModelInterface, Array
      * @var string[]
      */
     protected static $setters = [
-        'access_key_id' => 'setAccessKeyId',
-        'secret_access_key' => 'setSecretAccessKey'
+        'registry_token' => 'setRegistryToken',
+        'registry_username' => 'setRegistryUsername'
     ];
 
     /**
@@ -89,8 +89,8 @@ class ConvertCredentialForUpdateDeploymentInput implements ModelInterface, Array
      * @var string[]
      */
     protected static $getters = [
-        'access_key_id' => 'getAccessKeyId',
-        'secret_access_key' => 'getSecretAccessKey'
+        'registry_token' => 'getRegistryToken',
+        'registry_username' => 'getRegistryUsername'
     ];
 
     /**
@@ -153,8 +153,8 @@ class ConvertCredentialForUpdateDeploymentInput implements ModelInterface, Array
      */
     public function __construct(array $data = null)
     {
-        $this->container['access_key_id'] = isset($data['access_key_id']) ? $data['access_key_id'] : null;
-        $this->container['secret_access_key'] = isset($data['secret_access_key']) ? $data['secret_access_key'] : null;
+        $this->container['registry_token'] = isset($data['registry_token']) ? $data['registry_token'] : null;
+        $this->container['registry_username'] = isset($data['registry_username']) ? $data['registry_username'] : null;
     }
 
     /**
@@ -182,49 +182,49 @@ class ConvertCredentialForUpdateDeploymentInput implements ModelInterface, Array
 
 
     /**
-     * Gets access_key_id
+     * Gets registry_token
      *
      * @return string
      */
-    public function getAccessKeyId()
+    public function getRegistryToken()
     {
-        return $this->container['access_key_id'];
+        return $this->container['registry_token'];
     }
 
     /**
-     * Sets access_key_id
+     * Sets registry_token
      *
-     * @param string $access_key_id access_key_id
+     * @param string $registry_token registry_token
      *
      * @return $this
      */
-    public function setAccessKeyId($access_key_id)
+    public function setRegistryToken($registry_token)
     {
-        $this->container['access_key_id'] = $access_key_id;
+        $this->container['registry_token'] = $registry_token;
 
         return $this;
     }
 
     /**
-     * Gets secret_access_key
+     * Gets registry_username
      *
      * @return string
      */
-    public function getSecretAccessKey()
+    public function getRegistryUsername()
     {
-        return $this->container['secret_access_key'];
+        return $this->container['registry_username'];
     }
 
     /**
-     * Sets secret_access_key
+     * Sets registry_username
      *
-     * @param string $secret_access_key secret_access_key
+     * @param string $registry_username registry_username
      *
      * @return $this
      */
-    public function setSecretAccessKey($secret_access_key)
+    public function setRegistryUsername($registry_username)
     {
-        $this->container['secret_access_key'] = $secret_access_key;
+        $this->container['registry_username'] = $registry_username;
 
         return $this;
     }

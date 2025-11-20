@@ -32,12 +32,16 @@ class NodeConfigForUpdateNodePoolConfigInput implements ModelInterface, ArrayAcc
         'auto_renew' => 'bool',
         'auto_renew_period' => 'int',
         'data_volumes' => '\Volcengine\Vke\Model\DataVolumeForUpdateNodePoolConfigInput[]',
+        'hostname' => 'string',
         'hpc_cluster_ids' => 'string[]',
         'image_id' => 'string',
         'initialize_script' => 'string',
+        'instance_charge_type' => 'string',
+        'instance_name' => 'string',
         'instance_type_ids' => 'string[]',
         'instances_distribution' => '\Volcengine\Vke\Model\InstancesDistributionForUpdateNodePoolConfigInput',
         'name_prefix' => 'string',
+        'network_traffic_mode' => 'string',
         'period' => 'int',
         'pre_script' => 'string',
         'project_name' => 'string',
@@ -59,12 +63,16 @@ class NodeConfigForUpdateNodePoolConfigInput implements ModelInterface, ArrayAcc
         'auto_renew' => null,
         'auto_renew_period' => 'int32',
         'data_volumes' => null,
+        'hostname' => null,
         'hpc_cluster_ids' => null,
         'image_id' => null,
         'initialize_script' => null,
+        'instance_charge_type' => null,
+        'instance_name' => null,
         'instance_type_ids' => null,
         'instances_distribution' => null,
         'name_prefix' => null,
+        'network_traffic_mode' => null,
         'period' => 'int32',
         'pre_script' => null,
         'project_name' => null,
@@ -107,12 +115,16 @@ class NodeConfigForUpdateNodePoolConfigInput implements ModelInterface, ArrayAcc
         'auto_renew' => 'AutoRenew',
         'auto_renew_period' => 'AutoRenewPeriod',
         'data_volumes' => 'DataVolumes',
+        'hostname' => 'Hostname',
         'hpc_cluster_ids' => 'HpcClusterIds',
         'image_id' => 'ImageId',
         'initialize_script' => 'InitializeScript',
+        'instance_charge_type' => 'InstanceChargeType',
+        'instance_name' => 'InstanceName',
         'instance_type_ids' => 'InstanceTypeIds',
         'instances_distribution' => 'InstancesDistribution',
         'name_prefix' => 'NamePrefix',
+        'network_traffic_mode' => 'NetworkTrafficMode',
         'period' => 'Period',
         'pre_script' => 'PreScript',
         'project_name' => 'ProjectName',
@@ -134,12 +146,16 @@ class NodeConfigForUpdateNodePoolConfigInput implements ModelInterface, ArrayAcc
         'auto_renew' => 'setAutoRenew',
         'auto_renew_period' => 'setAutoRenewPeriod',
         'data_volumes' => 'setDataVolumes',
+        'hostname' => 'setHostname',
         'hpc_cluster_ids' => 'setHpcClusterIds',
         'image_id' => 'setImageId',
         'initialize_script' => 'setInitializeScript',
+        'instance_charge_type' => 'setInstanceChargeType',
+        'instance_name' => 'setInstanceName',
         'instance_type_ids' => 'setInstanceTypeIds',
         'instances_distribution' => 'setInstancesDistribution',
         'name_prefix' => 'setNamePrefix',
+        'network_traffic_mode' => 'setNetworkTrafficMode',
         'period' => 'setPeriod',
         'pre_script' => 'setPreScript',
         'project_name' => 'setProjectName',
@@ -161,12 +177,16 @@ class NodeConfigForUpdateNodePoolConfigInput implements ModelInterface, ArrayAcc
         'auto_renew' => 'getAutoRenew',
         'auto_renew_period' => 'getAutoRenewPeriod',
         'data_volumes' => 'getDataVolumes',
+        'hostname' => 'getHostname',
         'hpc_cluster_ids' => 'getHpcClusterIds',
         'image_id' => 'getImageId',
         'initialize_script' => 'getInitializeScript',
+        'instance_charge_type' => 'getInstanceChargeType',
+        'instance_name' => 'getInstanceName',
         'instance_type_ids' => 'getInstanceTypeIds',
         'instances_distribution' => 'getInstancesDistribution',
         'name_prefix' => 'getNamePrefix',
+        'network_traffic_mode' => 'getNetworkTrafficMode',
         'period' => 'getPeriod',
         'pre_script' => 'getPreScript',
         'project_name' => 'getProjectName',
@@ -219,8 +239,23 @@ class NodeConfigForUpdateNodePoolConfigInput implements ModelInterface, ArrayAcc
         return self::$swaggerModelName;
     }
 
+    const INSTANCE_CHARGE_TYPE_POST_PAID = 'PostPaid';
+    const INSTANCE_CHARGE_TYPE_PRE_PAID = 'PrePaid';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getInstanceChargeTypeAllowableValues()
+    {
+        return [
+            self::INSTANCE_CHARGE_TYPE_POST_PAID,
+            self::INSTANCE_CHARGE_TYPE_PRE_PAID,
+        ];
+    }
     
 
     /**
@@ -242,12 +277,16 @@ class NodeConfigForUpdateNodePoolConfigInput implements ModelInterface, ArrayAcc
         $this->container['auto_renew'] = isset($data['auto_renew']) ? $data['auto_renew'] : null;
         $this->container['auto_renew_period'] = isset($data['auto_renew_period']) ? $data['auto_renew_period'] : null;
         $this->container['data_volumes'] = isset($data['data_volumes']) ? $data['data_volumes'] : null;
+        $this->container['hostname'] = isset($data['hostname']) ? $data['hostname'] : null;
         $this->container['hpc_cluster_ids'] = isset($data['hpc_cluster_ids']) ? $data['hpc_cluster_ids'] : null;
         $this->container['image_id'] = isset($data['image_id']) ? $data['image_id'] : null;
         $this->container['initialize_script'] = isset($data['initialize_script']) ? $data['initialize_script'] : null;
+        $this->container['instance_charge_type'] = isset($data['instance_charge_type']) ? $data['instance_charge_type'] : null;
+        $this->container['instance_name'] = isset($data['instance_name']) ? $data['instance_name'] : null;
         $this->container['instance_type_ids'] = isset($data['instance_type_ids']) ? $data['instance_type_ids'] : null;
         $this->container['instances_distribution'] = isset($data['instances_distribution']) ? $data['instances_distribution'] : null;
         $this->container['name_prefix'] = isset($data['name_prefix']) ? $data['name_prefix'] : null;
+        $this->container['network_traffic_mode'] = isset($data['network_traffic_mode']) ? $data['network_traffic_mode'] : null;
         $this->container['period'] = isset($data['period']) ? $data['period'] : null;
         $this->container['pre_script'] = isset($data['pre_script']) ? $data['pre_script'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
@@ -267,6 +306,14 @@ class NodeConfigForUpdateNodePoolConfigInput implements ModelInterface, ArrayAcc
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getInstanceChargeTypeAllowableValues();
+        if (!is_null($this->container['instance_charge_type']) && !in_array($this->container['instance_charge_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'instance_charge_type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -380,6 +427,30 @@ class NodeConfigForUpdateNodePoolConfigInput implements ModelInterface, ArrayAcc
     }
 
     /**
+     * Gets hostname
+     *
+     * @return string
+     */
+    public function getHostname()
+    {
+        return $this->container['hostname'];
+    }
+
+    /**
+     * Sets hostname
+     *
+     * @param string $hostname hostname
+     *
+     * @return $this
+     */
+    public function setHostname($hostname)
+    {
+        $this->container['hostname'] = $hostname;
+
+        return $this;
+    }
+
+    /**
      * Gets hpc_cluster_ids
      *
      * @return string[]
@@ -452,6 +523,63 @@ class NodeConfigForUpdateNodePoolConfigInput implements ModelInterface, ArrayAcc
     }
 
     /**
+     * Gets instance_charge_type
+     *
+     * @return string
+     */
+    public function getInstanceChargeType()
+    {
+        return $this->container['instance_charge_type'];
+    }
+
+    /**
+     * Sets instance_charge_type
+     *
+     * @param string $instance_charge_type instance_charge_type
+     *
+     * @return $this
+     */
+    public function setInstanceChargeType($instance_charge_type)
+    {
+        $allowedValues = $this->getInstanceChargeTypeAllowableValues();
+        if (!is_null($instance_charge_type) && !in_array($instance_charge_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'instance_charge_type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['instance_charge_type'] = $instance_charge_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets instance_name
+     *
+     * @return string
+     */
+    public function getInstanceName()
+    {
+        return $this->container['instance_name'];
+    }
+
+    /**
+     * Sets instance_name
+     *
+     * @param string $instance_name instance_name
+     *
+     * @return $this
+     */
+    public function setInstanceName($instance_name)
+    {
+        $this->container['instance_name'] = $instance_name;
+
+        return $this;
+    }
+
+    /**
      * Gets instance_type_ids
      *
      * @return string[]
@@ -519,6 +647,30 @@ class NodeConfigForUpdateNodePoolConfigInput implements ModelInterface, ArrayAcc
     public function setNamePrefix($name_prefix)
     {
         $this->container['name_prefix'] = $name_prefix;
+
+        return $this;
+    }
+
+    /**
+     * Gets network_traffic_mode
+     *
+     * @return string
+     */
+    public function getNetworkTrafficMode()
+    {
+        return $this->container['network_traffic_mode'];
+    }
+
+    /**
+     * Sets network_traffic_mode
+     *
+     * @param string $network_traffic_mode network_traffic_mode
+     *
+     * @return $this
+     */
+    public function setNetworkTrafficMode($network_traffic_mode)
+    {
+        $this->container['network_traffic_mode'] = $network_traffic_mode;
 
         return $this;
     }

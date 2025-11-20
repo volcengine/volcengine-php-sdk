@@ -28,8 +28,9 @@ class CredentialForListDevInstancesOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'registry_token' => 'string',
-        'registry_username' => 'string'
+        'access_key' => 'string',
+        'secret_access_key' => 'string',
+        'use_service_linked_role' => 'bool'
     ];
 
     /**
@@ -38,8 +39,9 @@ class CredentialForListDevInstancesOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'registry_token' => null,
-        'registry_username' => null
+        'access_key' => null,
+        'secret_access_key' => null,
+        'use_service_linked_role' => null
     ];
 
     /**
@@ -69,8 +71,9 @@ class CredentialForListDevInstancesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'registry_token' => 'RegistryToken',
-        'registry_username' => 'RegistryUsername'
+        'access_key' => 'AccessKey',
+        'secret_access_key' => 'SecretAccessKey',
+        'use_service_linked_role' => 'UseServiceLinkedRole'
     ];
 
     /**
@@ -79,8 +82,9 @@ class CredentialForListDevInstancesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'registry_token' => 'setRegistryToken',
-        'registry_username' => 'setRegistryUsername'
+        'access_key' => 'setAccessKey',
+        'secret_access_key' => 'setSecretAccessKey',
+        'use_service_linked_role' => 'setUseServiceLinkedRole'
     ];
 
     /**
@@ -89,8 +93,9 @@ class CredentialForListDevInstancesOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'registry_token' => 'getRegistryToken',
-        'registry_username' => 'getRegistryUsername'
+        'access_key' => 'getAccessKey',
+        'secret_access_key' => 'getSecretAccessKey',
+        'use_service_linked_role' => 'getUseServiceLinkedRole'
     ];
 
     /**
@@ -153,8 +158,9 @@ class CredentialForListDevInstancesOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['registry_token'] = isset($data['registry_token']) ? $data['registry_token'] : null;
-        $this->container['registry_username'] = isset($data['registry_username']) ? $data['registry_username'] : null;
+        $this->container['access_key'] = isset($data['access_key']) ? $data['access_key'] : null;
+        $this->container['secret_access_key'] = isset($data['secret_access_key']) ? $data['secret_access_key'] : null;
+        $this->container['use_service_linked_role'] = isset($data['use_service_linked_role']) ? $data['use_service_linked_role'] : null;
     }
 
     /**
@@ -182,49 +188,73 @@ class CredentialForListDevInstancesOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets registry_token
+     * Gets access_key
      *
      * @return string
      */
-    public function getRegistryToken()
+    public function getAccessKey()
     {
-        return $this->container['registry_token'];
+        return $this->container['access_key'];
     }
 
     /**
-     * Sets registry_token
+     * Sets access_key
      *
-     * @param string $registry_token registry_token
+     * @param string $access_key access_key
      *
      * @return $this
      */
-    public function setRegistryToken($registry_token)
+    public function setAccessKey($access_key)
     {
-        $this->container['registry_token'] = $registry_token;
+        $this->container['access_key'] = $access_key;
 
         return $this;
     }
 
     /**
-     * Gets registry_username
+     * Gets secret_access_key
      *
      * @return string
      */
-    public function getRegistryUsername()
+    public function getSecretAccessKey()
     {
-        return $this->container['registry_username'];
+        return $this->container['secret_access_key'];
     }
 
     /**
-     * Sets registry_username
+     * Sets secret_access_key
      *
-     * @param string $registry_username registry_username
+     * @param string $secret_access_key secret_access_key
      *
      * @return $this
      */
-    public function setRegistryUsername($registry_username)
+    public function setSecretAccessKey($secret_access_key)
     {
-        $this->container['registry_username'] = $registry_username;
+        $this->container['secret_access_key'] = $secret_access_key;
+
+        return $this;
+    }
+
+    /**
+     * Gets use_service_linked_role
+     *
+     * @return bool
+     */
+    public function getUseServiceLinkedRole()
+    {
+        return $this->container['use_service_linked_role'];
+    }
+
+    /**
+     * Sets use_service_linked_role
+     *
+     * @param bool $use_service_linked_role use_service_linked_role
+     *
+     * @return $this
+     */
+    public function setUseServiceLinkedRole($use_service_linked_role)
+    {
+        $this->container['use_service_linked_role'] = $use_service_linked_role;
 
         return $this;
     }

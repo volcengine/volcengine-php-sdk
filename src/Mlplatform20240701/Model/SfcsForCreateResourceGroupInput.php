@@ -28,14 +28,9 @@ class SfcsForCreateResourceGroupInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'replicas' => 'int',
-        'sfcs_description' => 'string',
-        'sfcs_existed' => 'bool',
-        'sfcs_id' => 'string',
-        'sfcs_name' => 'string',
-        'sfcs_resource_group_id' => 'string',
-        'sfcs_status' => 'string',
-        'sfcs_zone_id' => 'string'
+        'description' => 'string',
+        'name' => 'string',
+        'replicas' => 'int'
     ];
 
     /**
@@ -44,14 +39,9 @@ class SfcsForCreateResourceGroupInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'replicas' => 'int64',
-        'sfcs_description' => null,
-        'sfcs_existed' => null,
-        'sfcs_id' => null,
-        'sfcs_name' => null,
-        'sfcs_resource_group_id' => null,
-        'sfcs_status' => null,
-        'sfcs_zone_id' => null
+        'description' => null,
+        'name' => null,
+        'replicas' => 'int64'
     ];
 
     /**
@@ -81,14 +71,9 @@ class SfcsForCreateResourceGroupInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'replicas' => 'Replicas',
-        'sfcs_description' => 'SfcsDescription',
-        'sfcs_existed' => 'SfcsExisted',
-        'sfcs_id' => 'SfcsId',
-        'sfcs_name' => 'SfcsName',
-        'sfcs_resource_group_id' => 'SfcsResourceGroupId',
-        'sfcs_status' => 'SfcsStatus',
-        'sfcs_zone_id' => 'SfcsZoneId'
+        'description' => 'Description',
+        'name' => 'Name',
+        'replicas' => 'Replicas'
     ];
 
     /**
@@ -97,14 +82,9 @@ class SfcsForCreateResourceGroupInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'replicas' => 'setReplicas',
-        'sfcs_description' => 'setSfcsDescription',
-        'sfcs_existed' => 'setSfcsExisted',
-        'sfcs_id' => 'setSfcsId',
-        'sfcs_name' => 'setSfcsName',
-        'sfcs_resource_group_id' => 'setSfcsResourceGroupId',
-        'sfcs_status' => 'setSfcsStatus',
-        'sfcs_zone_id' => 'setSfcsZoneId'
+        'description' => 'setDescription',
+        'name' => 'setName',
+        'replicas' => 'setReplicas'
     ];
 
     /**
@@ -113,14 +93,9 @@ class SfcsForCreateResourceGroupInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'replicas' => 'getReplicas',
-        'sfcs_description' => 'getSfcsDescription',
-        'sfcs_existed' => 'getSfcsExisted',
-        'sfcs_id' => 'getSfcsId',
-        'sfcs_name' => 'getSfcsName',
-        'sfcs_resource_group_id' => 'getSfcsResourceGroupId',
-        'sfcs_status' => 'getSfcsStatus',
-        'sfcs_zone_id' => 'getSfcsZoneId'
+        'description' => 'getDescription',
+        'name' => 'getName',
+        'replicas' => 'getReplicas'
     ];
 
     /**
@@ -183,14 +158,9 @@ class SfcsForCreateResourceGroupInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['replicas'] = isset($data['replicas']) ? $data['replicas'] : null;
-        $this->container['sfcs_description'] = isset($data['sfcs_description']) ? $data['sfcs_description'] : null;
-        $this->container['sfcs_existed'] = isset($data['sfcs_existed']) ? $data['sfcs_existed'] : null;
-        $this->container['sfcs_id'] = isset($data['sfcs_id']) ? $data['sfcs_id'] : null;
-        $this->container['sfcs_name'] = isset($data['sfcs_name']) ? $data['sfcs_name'] : null;
-        $this->container['sfcs_resource_group_id'] = isset($data['sfcs_resource_group_id']) ? $data['sfcs_resource_group_id'] : null;
-        $this->container['sfcs_status'] = isset($data['sfcs_status']) ? $data['sfcs_status'] : null;
-        $this->container['sfcs_zone_id'] = isset($data['sfcs_zone_id']) ? $data['sfcs_zone_id'] : null;
     }
 
     /**
@@ -218,6 +188,54 @@ class SfcsForCreateResourceGroupInput implements ModelInterface, ArrayAccess
 
 
     /**
+     * Gets description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string $description description
+     *
+     * @return $this
+     */
+    public function setDescription($description)
+    {
+        $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name name
+     *
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
      * Gets replicas
      *
      * @return int
@@ -237,174 +255,6 @@ class SfcsForCreateResourceGroupInput implements ModelInterface, ArrayAccess
     public function setReplicas($replicas)
     {
         $this->container['replicas'] = $replicas;
-
-        return $this;
-    }
-
-    /**
-     * Gets sfcs_description
-     *
-     * @return string
-     */
-    public function getSfcsDescription()
-    {
-        return $this->container['sfcs_description'];
-    }
-
-    /**
-     * Sets sfcs_description
-     *
-     * @param string $sfcs_description sfcs_description
-     *
-     * @return $this
-     */
-    public function setSfcsDescription($sfcs_description)
-    {
-        $this->container['sfcs_description'] = $sfcs_description;
-
-        return $this;
-    }
-
-    /**
-     * Gets sfcs_existed
-     *
-     * @return bool
-     */
-    public function getSfcsExisted()
-    {
-        return $this->container['sfcs_existed'];
-    }
-
-    /**
-     * Sets sfcs_existed
-     *
-     * @param bool $sfcs_existed sfcs_existed
-     *
-     * @return $this
-     */
-    public function setSfcsExisted($sfcs_existed)
-    {
-        $this->container['sfcs_existed'] = $sfcs_existed;
-
-        return $this;
-    }
-
-    /**
-     * Gets sfcs_id
-     *
-     * @return string
-     */
-    public function getSfcsId()
-    {
-        return $this->container['sfcs_id'];
-    }
-
-    /**
-     * Sets sfcs_id
-     *
-     * @param string $sfcs_id sfcs_id
-     *
-     * @return $this
-     */
-    public function setSfcsId($sfcs_id)
-    {
-        $this->container['sfcs_id'] = $sfcs_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets sfcs_name
-     *
-     * @return string
-     */
-    public function getSfcsName()
-    {
-        return $this->container['sfcs_name'];
-    }
-
-    /**
-     * Sets sfcs_name
-     *
-     * @param string $sfcs_name sfcs_name
-     *
-     * @return $this
-     */
-    public function setSfcsName($sfcs_name)
-    {
-        $this->container['sfcs_name'] = $sfcs_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets sfcs_resource_group_id
-     *
-     * @return string
-     */
-    public function getSfcsResourceGroupId()
-    {
-        return $this->container['sfcs_resource_group_id'];
-    }
-
-    /**
-     * Sets sfcs_resource_group_id
-     *
-     * @param string $sfcs_resource_group_id sfcs_resource_group_id
-     *
-     * @return $this
-     */
-    public function setSfcsResourceGroupId($sfcs_resource_group_id)
-    {
-        $this->container['sfcs_resource_group_id'] = $sfcs_resource_group_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets sfcs_status
-     *
-     * @return string
-     */
-    public function getSfcsStatus()
-    {
-        return $this->container['sfcs_status'];
-    }
-
-    /**
-     * Sets sfcs_status
-     *
-     * @param string $sfcs_status sfcs_status
-     *
-     * @return $this
-     */
-    public function setSfcsStatus($sfcs_status)
-    {
-        $this->container['sfcs_status'] = $sfcs_status;
-
-        return $this;
-    }
-
-    /**
-     * Gets sfcs_zone_id
-     *
-     * @return string
-     */
-    public function getSfcsZoneId()
-    {
-        return $this->container['sfcs_zone_id'];
-    }
-
-    /**
-     * Sets sfcs_zone_id
-     *
-     * @param string $sfcs_zone_id sfcs_zone_id
-     *
-     * @return $this
-     */
-    public function setSfcsZoneId($sfcs_zone_id)
-    {
-        $this->container['sfcs_zone_id'] = $sfcs_zone_id;
 
         return $this;
     }

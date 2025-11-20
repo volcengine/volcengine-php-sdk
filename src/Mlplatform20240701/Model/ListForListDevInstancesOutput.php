@@ -31,6 +31,7 @@ class ListForListDevInstancesOutput implements ModelInterface, ArrayAccess
         'allow_image_build' => 'bool',
         'create_time' => 'string',
         'creator_trn' => 'string',
+        'credential' => '\Volcengine\Mlplatform20240701\Model\CredentialForListDevInstancesOutput',
         'default_folder' => 'string',
         'description' => 'string',
         'expected_stop_time' => 'string',
@@ -66,6 +67,7 @@ class ListForListDevInstancesOutput implements ModelInterface, ArrayAccess
         'allow_image_build' => null,
         'create_time' => null,
         'creator_trn' => null,
+        'credential' => null,
         'default_folder' => null,
         'description' => null,
         'expected_stop_time' => null,
@@ -122,6 +124,7 @@ class ListForListDevInstancesOutput implements ModelInterface, ArrayAccess
         'allow_image_build' => 'AllowImageBuild',
         'create_time' => 'CreateTime',
         'creator_trn' => 'CreatorTrn',
+        'credential' => 'Credential',
         'default_folder' => 'DefaultFolder',
         'description' => 'Description',
         'expected_stop_time' => 'ExpectedStopTime',
@@ -157,6 +160,7 @@ class ListForListDevInstancesOutput implements ModelInterface, ArrayAccess
         'allow_image_build' => 'setAllowImageBuild',
         'create_time' => 'setCreateTime',
         'creator_trn' => 'setCreatorTrn',
+        'credential' => 'setCredential',
         'default_folder' => 'setDefaultFolder',
         'description' => 'setDescription',
         'expected_stop_time' => 'setExpectedStopTime',
@@ -192,6 +196,7 @@ class ListForListDevInstancesOutput implements ModelInterface, ArrayAccess
         'allow_image_build' => 'getAllowImageBuild',
         'create_time' => 'getCreateTime',
         'creator_trn' => 'getCreatorTrn',
+        'credential' => 'getCredential',
         'default_folder' => 'getDefaultFolder',
         'description' => 'getDescription',
         'expected_stop_time' => 'getExpectedStopTime',
@@ -281,6 +286,7 @@ class ListForListDevInstancesOutput implements ModelInterface, ArrayAccess
         $this->container['allow_image_build'] = isset($data['allow_image_build']) ? $data['allow_image_build'] : null;
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
         $this->container['creator_trn'] = isset($data['creator_trn']) ? $data['creator_trn'] : null;
+        $this->container['credential'] = isset($data['credential']) ? $data['credential'] : null;
         $this->container['default_folder'] = isset($data['default_folder']) ? $data['default_folder'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['expected_stop_time'] = isset($data['expected_stop_time']) ? $data['expected_stop_time'] : null;
@@ -399,6 +405,30 @@ class ListForListDevInstancesOutput implements ModelInterface, ArrayAccess
     public function setCreatorTrn($creator_trn)
     {
         $this->container['creator_trn'] = $creator_trn;
+
+        return $this;
+    }
+
+    /**
+     * Gets credential
+     *
+     * @return \Volcengine\Mlplatform20240701\Model\CredentialForListDevInstancesOutput
+     */
+    public function getCredential()
+    {
+        return $this->container['credential'];
+    }
+
+    /**
+     * Sets credential
+     *
+     * @param \Volcengine\Mlplatform20240701\Model\CredentialForListDevInstancesOutput $credential credential
+     *
+     * @return $this
+     */
+    public function setCredential($credential)
+    {
+        $this->container['credential'] = $credential;
 
         return $this;
     }

@@ -28,7 +28,7 @@ class ImageForGetDevInstanceOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'credential' => '\Volcengine\Mlplatform20240701\Model\CredentialForGetDevInstanceOutput',
+        'credential' => '\Volcengine\Mlplatform20240701\Model\ConvertCredentialForGetDevInstanceOutput',
         'type' => 'string',
         'url' => 'string'
     ];
@@ -190,7 +190,7 @@ class ImageForGetDevInstanceOutput implements ModelInterface, ArrayAccess
     /**
      * Gets credential
      *
-     * @return \Volcengine\Mlplatform20240701\Model\CredentialForGetDevInstanceOutput
+     * @return \Volcengine\Mlplatform20240701\Model\ConvertCredentialForGetDevInstanceOutput
      */
     public function getCredential()
     {
@@ -200,7 +200,7 @@ class ImageForGetDevInstanceOutput implements ModelInterface, ArrayAccess
     /**
      * Sets credential
      *
-     * @param \Volcengine\Mlplatform20240701\Model\CredentialForGetDevInstanceOutput $credential credential
+     * @param \Volcengine\Mlplatform20240701\Model\ConvertCredentialForGetDevInstanceOutput $credential credential
      *
      * @return $this
      */

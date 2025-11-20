@@ -28,11 +28,15 @@ class ReadinessProbeForUpdateDeploymentInput implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'command' => 'string',
         'enabled' => 'bool',
+        'exec' => '\Volcengine\Mlplatform20240701\Model\ExecForUpdateDeploymentInput',
         'failure_threshold' => 'int',
+        'http_get' => '\Volcengine\Mlplatform20240701\Model\HTTPGetForUpdateDeploymentInput',
         'initial_delay_seconds' => 'int',
-        'period_seconds' => 'int'
+        'period_seconds' => 'int',
+        'success_threshold' => 'int',
+        'tcp_socket' => '\Volcengine\Mlplatform20240701\Model\TCPSocketForUpdateDeploymentInput',
+        'timeout_seconds' => 'int'
     ];
 
     /**
@@ -41,11 +45,15 @@ class ReadinessProbeForUpdateDeploymentInput implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'command' => null,
         'enabled' => null,
+        'exec' => null,
         'failure_threshold' => 'int32',
+        'http_get' => null,
         'initial_delay_seconds' => 'int32',
-        'period_seconds' => 'int32'
+        'period_seconds' => 'int32',
+        'success_threshold' => 'int32',
+        'tcp_socket' => null,
+        'timeout_seconds' => 'int32'
     ];
 
     /**
@@ -75,11 +83,15 @@ class ReadinessProbeForUpdateDeploymentInput implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $attributeMap = [
-        'command' => 'Command',
         'enabled' => 'Enabled',
+        'exec' => 'Exec',
         'failure_threshold' => 'FailureThreshold',
+        'http_get' => 'HTTPGet',
         'initial_delay_seconds' => 'InitialDelaySeconds',
-        'period_seconds' => 'PeriodSeconds'
+        'period_seconds' => 'PeriodSeconds',
+        'success_threshold' => 'SuccessThreshold',
+        'tcp_socket' => 'TCPSocket',
+        'timeout_seconds' => 'TimeoutSeconds'
     ];
 
     /**
@@ -88,11 +100,15 @@ class ReadinessProbeForUpdateDeploymentInput implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $setters = [
-        'command' => 'setCommand',
         'enabled' => 'setEnabled',
+        'exec' => 'setExec',
         'failure_threshold' => 'setFailureThreshold',
+        'http_get' => 'setHttpGet',
         'initial_delay_seconds' => 'setInitialDelaySeconds',
-        'period_seconds' => 'setPeriodSeconds'
+        'period_seconds' => 'setPeriodSeconds',
+        'success_threshold' => 'setSuccessThreshold',
+        'tcp_socket' => 'setTcpSocket',
+        'timeout_seconds' => 'setTimeoutSeconds'
     ];
 
     /**
@@ -101,11 +117,15 @@ class ReadinessProbeForUpdateDeploymentInput implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $getters = [
-        'command' => 'getCommand',
         'enabled' => 'getEnabled',
+        'exec' => 'getExec',
         'failure_threshold' => 'getFailureThreshold',
+        'http_get' => 'getHttpGet',
         'initial_delay_seconds' => 'getInitialDelaySeconds',
-        'period_seconds' => 'getPeriodSeconds'
+        'period_seconds' => 'getPeriodSeconds',
+        'success_threshold' => 'getSuccessThreshold',
+        'tcp_socket' => 'getTcpSocket',
+        'timeout_seconds' => 'getTimeoutSeconds'
     ];
 
     /**
@@ -168,11 +188,15 @@ class ReadinessProbeForUpdateDeploymentInput implements ModelInterface, ArrayAcc
      */
     public function __construct(array $data = null)
     {
-        $this->container['command'] = isset($data['command']) ? $data['command'] : null;
         $this->container['enabled'] = isset($data['enabled']) ? $data['enabled'] : null;
+        $this->container['exec'] = isset($data['exec']) ? $data['exec'] : null;
         $this->container['failure_threshold'] = isset($data['failure_threshold']) ? $data['failure_threshold'] : null;
+        $this->container['http_get'] = isset($data['http_get']) ? $data['http_get'] : null;
         $this->container['initial_delay_seconds'] = isset($data['initial_delay_seconds']) ? $data['initial_delay_seconds'] : null;
         $this->container['period_seconds'] = isset($data['period_seconds']) ? $data['period_seconds'] : null;
+        $this->container['success_threshold'] = isset($data['success_threshold']) ? $data['success_threshold'] : null;
+        $this->container['tcp_socket'] = isset($data['tcp_socket']) ? $data['tcp_socket'] : null;
+        $this->container['timeout_seconds'] = isset($data['timeout_seconds']) ? $data['timeout_seconds'] : null;
     }
 
     /**
@@ -200,30 +224,6 @@ class ReadinessProbeForUpdateDeploymentInput implements ModelInterface, ArrayAcc
 
 
     /**
-     * Gets command
-     *
-     * @return string
-     */
-    public function getCommand()
-    {
-        return $this->container['command'];
-    }
-
-    /**
-     * Sets command
-     *
-     * @param string $command command
-     *
-     * @return $this
-     */
-    public function setCommand($command)
-    {
-        $this->container['command'] = $command;
-
-        return $this;
-    }
-
-    /**
      * Gets enabled
      *
      * @return bool
@@ -248,6 +248,30 @@ class ReadinessProbeForUpdateDeploymentInput implements ModelInterface, ArrayAcc
     }
 
     /**
+     * Gets exec
+     *
+     * @return \Volcengine\Mlplatform20240701\Model\ExecForUpdateDeploymentInput
+     */
+    public function getExec()
+    {
+        return $this->container['exec'];
+    }
+
+    /**
+     * Sets exec
+     *
+     * @param \Volcengine\Mlplatform20240701\Model\ExecForUpdateDeploymentInput $exec exec
+     *
+     * @return $this
+     */
+    public function setExec($exec)
+    {
+        $this->container['exec'] = $exec;
+
+        return $this;
+    }
+
+    /**
      * Gets failure_threshold
      *
      * @return int
@@ -267,6 +291,30 @@ class ReadinessProbeForUpdateDeploymentInput implements ModelInterface, ArrayAcc
     public function setFailureThreshold($failure_threshold)
     {
         $this->container['failure_threshold'] = $failure_threshold;
+
+        return $this;
+    }
+
+    /**
+     * Gets http_get
+     *
+     * @return \Volcengine\Mlplatform20240701\Model\HTTPGetForUpdateDeploymentInput
+     */
+    public function getHttpGet()
+    {
+        return $this->container['http_get'];
+    }
+
+    /**
+     * Sets http_get
+     *
+     * @param \Volcengine\Mlplatform20240701\Model\HTTPGetForUpdateDeploymentInput $http_get http_get
+     *
+     * @return $this
+     */
+    public function setHttpGet($http_get)
+    {
+        $this->container['http_get'] = $http_get;
 
         return $this;
     }
@@ -315,6 +363,78 @@ class ReadinessProbeForUpdateDeploymentInput implements ModelInterface, ArrayAcc
     public function setPeriodSeconds($period_seconds)
     {
         $this->container['period_seconds'] = $period_seconds;
+
+        return $this;
+    }
+
+    /**
+     * Gets success_threshold
+     *
+     * @return int
+     */
+    public function getSuccessThreshold()
+    {
+        return $this->container['success_threshold'];
+    }
+
+    /**
+     * Sets success_threshold
+     *
+     * @param int $success_threshold success_threshold
+     *
+     * @return $this
+     */
+    public function setSuccessThreshold($success_threshold)
+    {
+        $this->container['success_threshold'] = $success_threshold;
+
+        return $this;
+    }
+
+    /**
+     * Gets tcp_socket
+     *
+     * @return \Volcengine\Mlplatform20240701\Model\TCPSocketForUpdateDeploymentInput
+     */
+    public function getTcpSocket()
+    {
+        return $this->container['tcp_socket'];
+    }
+
+    /**
+     * Sets tcp_socket
+     *
+     * @param \Volcengine\Mlplatform20240701\Model\TCPSocketForUpdateDeploymentInput $tcp_socket tcp_socket
+     *
+     * @return $this
+     */
+    public function setTcpSocket($tcp_socket)
+    {
+        $this->container['tcp_socket'] = $tcp_socket;
+
+        return $this;
+    }
+
+    /**
+     * Gets timeout_seconds
+     *
+     * @return int
+     */
+    public function getTimeoutSeconds()
+    {
+        return $this->container['timeout_seconds'];
+    }
+
+    /**
+     * Sets timeout_seconds
+     *
+     * @param int $timeout_seconds timeout_seconds
+     *
+     * @return $this
+     */
+    public function setTimeoutSeconds($timeout_seconds)
+    {
+        $this->container['timeout_seconds'] = $timeout_seconds;
 
         return $this;
     }

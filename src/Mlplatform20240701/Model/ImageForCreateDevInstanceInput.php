@@ -28,8 +28,7 @@ class ImageForCreateDevInstanceInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'string',
-        'image_credential' => '\Volcengine\Mlplatform20240701\Model\ImageCredentialForCreateDevInstanceInput',
+        'credential' => '\Volcengine\Mlplatform20240701\Model\ConvertCredentialForCreateDevInstanceInput',
         'type' => 'string',
         'url' => 'string'
     ];
@@ -40,8 +39,7 @@ class ImageForCreateDevInstanceInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => null,
-        'image_credential' => null,
+        'credential' => null,
         'type' => null,
         'url' => null
     ];
@@ -73,8 +71,7 @@ class ImageForCreateDevInstanceInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'Id',
-        'image_credential' => 'ImageCredential',
+        'credential' => 'Credential',
         'type' => 'Type',
         'url' => 'Url'
     ];
@@ -85,8 +82,7 @@ class ImageForCreateDevInstanceInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'image_credential' => 'setImageCredential',
+        'credential' => 'setCredential',
         'type' => 'setType',
         'url' => 'setUrl'
     ];
@@ -97,8 +93,7 @@ class ImageForCreateDevInstanceInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'image_credential' => 'getImageCredential',
+        'credential' => 'getCredential',
         'type' => 'getType',
         'url' => 'getUrl'
     ];
@@ -163,8 +158,7 @@ class ImageForCreateDevInstanceInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['image_credential'] = isset($data['image_credential']) ? $data['image_credential'] : null;
+        $this->container['credential'] = isset($data['credential']) ? $data['credential'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['url'] = isset($data['url']) ? $data['url'] : null;
     }
@@ -194,49 +188,25 @@ class ImageForCreateDevInstanceInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets id
+     * Gets credential
      *
-     * @return string
+     * @return \Volcengine\Mlplatform20240701\Model\ConvertCredentialForCreateDevInstanceInput
      */
-    public function getId()
+    public function getCredential()
     {
-        return $this->container['id'];
+        return $this->container['credential'];
     }
 
     /**
-     * Sets id
+     * Sets credential
      *
-     * @param string $id id
+     * @param \Volcengine\Mlplatform20240701\Model\ConvertCredentialForCreateDevInstanceInput $credential credential
      *
      * @return $this
      */
-    public function setId($id)
+    public function setCredential($credential)
     {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets image_credential
-     *
-     * @return \Volcengine\Mlplatform20240701\Model\ImageCredentialForCreateDevInstanceInput
-     */
-    public function getImageCredential()
-    {
-        return $this->container['image_credential'];
-    }
-
-    /**
-     * Sets image_credential
-     *
-     * @param \Volcengine\Mlplatform20240701\Model\ImageCredentialForCreateDevInstanceInput $image_credential image_credential
-     *
-     * @return $this
-     */
-    public function setImageCredential($image_credential)
-    {
-        $this->container['image_credential'] = $image_credential;
+        $this->container['credential'] = $credential;
 
         return $this;
     }
