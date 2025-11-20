@@ -29,7 +29,7 @@ class NodeAffinitySpecForUpdateDevInstanceInput implements ModelInterface, Array
       */
     protected static $swaggerTypes = [
         'gpucpu_node_preference' => 'string',
-        'source' => 'string'
+        'strategy_type' => 'string'
     ];
 
     /**
@@ -39,7 +39,7 @@ class NodeAffinitySpecForUpdateDevInstanceInput implements ModelInterface, Array
       */
     protected static $swaggerFormats = [
         'gpucpu_node_preference' => null,
-        'source' => null
+        'strategy_type' => null
     ];
 
     /**
@@ -70,7 +70,7 @@ class NodeAffinitySpecForUpdateDevInstanceInput implements ModelInterface, Array
      */
     protected static $attributeMap = [
         'gpucpu_node_preference' => 'GPUCPUNodePreference',
-        'source' => 'Source'
+        'strategy_type' => 'StrategyType'
     ];
 
     /**
@@ -80,7 +80,7 @@ class NodeAffinitySpecForUpdateDevInstanceInput implements ModelInterface, Array
      */
     protected static $setters = [
         'gpucpu_node_preference' => 'setGpucpuNodePreference',
-        'source' => 'setSource'
+        'strategy_type' => 'setStrategyType'
     ];
 
     /**
@@ -90,7 +90,7 @@ class NodeAffinitySpecForUpdateDevInstanceInput implements ModelInterface, Array
      */
     protected static $getters = [
         'gpucpu_node_preference' => 'getGpucpuNodePreference',
-        'source' => 'getSource'
+        'strategy_type' => 'getStrategyType'
     ];
 
     /**
@@ -134,8 +134,27 @@ class NodeAffinitySpecForUpdateDevInstanceInput implements ModelInterface, Array
         return self::$swaggerModelName;
     }
 
+    const GPUCPU_NODE_PREFERENCE_GPU_REQUIRED = 'GPURequired';
+    const GPUCPU_NODE_PREFERENCE_GPU_PREFERRED = 'GPUPreferred';
+    const GPUCPU_NODE_PREFERENCE_CPU_REQUIRED = 'CPURequired';
+    const GPUCPU_NODE_PREFERENCE_CPU_PREFERRED = 'CPUPreferred';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getGpucpuNodePreferenceAllowableValues()
+    {
+        return [
+            self::GPUCPU_NODE_PREFERENCE_GPU_REQUIRED,
+            self::GPUCPU_NODE_PREFERENCE_GPU_PREFERRED,
+            self::GPUCPU_NODE_PREFERENCE_CPU_REQUIRED,
+            self::GPUCPU_NODE_PREFERENCE_CPU_PREFERRED,
+        ];
+    }
     
 
     /**
@@ -154,7 +173,7 @@ class NodeAffinitySpecForUpdateDevInstanceInput implements ModelInterface, Array
     public function __construct(array $data = null)
     {
         $this->container['gpucpu_node_preference'] = isset($data['gpucpu_node_preference']) ? $data['gpucpu_node_preference'] : null;
-        $this->container['source'] = isset($data['source']) ? $data['source'] : null;
+        $this->container['strategy_type'] = isset($data['strategy_type']) ? $data['strategy_type'] : null;
     }
 
     /**
@@ -165,6 +184,14 @@ class NodeAffinitySpecForUpdateDevInstanceInput implements ModelInterface, Array
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getGpucpuNodePreferenceAllowableValues();
+        if (!is_null($this->container['gpucpu_node_preference']) && !in_array($this->container['gpucpu_node_preference'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'gpucpu_node_preference', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -200,31 +227,40 @@ class NodeAffinitySpecForUpdateDevInstanceInput implements ModelInterface, Array
      */
     public function setGpucpuNodePreference($gpucpu_node_preference)
     {
+        $allowedValues = $this->getGpucpuNodePreferenceAllowableValues();
+        if (!is_null($gpucpu_node_preference) && !in_array($gpucpu_node_preference, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'gpucpu_node_preference', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['gpucpu_node_preference'] = $gpucpu_node_preference;
 
         return $this;
     }
 
     /**
-     * Gets source
+     * Gets strategy_type
      *
      * @return string
      */
-    public function getSource()
+    public function getStrategyType()
     {
-        return $this->container['source'];
+        return $this->container['strategy_type'];
     }
 
     /**
-     * Sets source
+     * Sets strategy_type
      *
-     * @param string $source source
+     * @param string $strategy_type strategy_type
      *
      * @return $this
      */
-    public function setSource($source)
+    public function setStrategyType($strategy_type)
     {
-        $this->container['source'] = $source;
+        $this->container['strategy_type'] = $strategy_type;
 
         return $this;
     }

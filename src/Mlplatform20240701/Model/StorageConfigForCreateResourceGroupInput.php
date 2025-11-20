@@ -28,6 +28,7 @@ class StorageConfigForCreateResourceGroupInput implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'eic' => '\Volcengine\Mlplatform20240701\Model\EicForCreateResourceGroupInput',
         'sfcs' => '\Volcengine\Mlplatform20240701\Model\SfcsForCreateResourceGroupInput',
         'storage_network_config' => '\Volcengine\Mlplatform20240701\Model\StorageNetworkConfigForCreateResourceGroupInput',
         'vepfs' => '\Volcengine\Mlplatform20240701\Model\VepfsForCreateResourceGroupInput'
@@ -39,6 +40,7 @@ class StorageConfigForCreateResourceGroupInput implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'eic' => null,
         'sfcs' => null,
         'storage_network_config' => null,
         'vepfs' => null
@@ -71,6 +73,7 @@ class StorageConfigForCreateResourceGroupInput implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $attributeMap = [
+        'eic' => 'Eic',
         'sfcs' => 'Sfcs',
         'storage_network_config' => 'StorageNetworkConfig',
         'vepfs' => 'Vepfs'
@@ -82,6 +85,7 @@ class StorageConfigForCreateResourceGroupInput implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $setters = [
+        'eic' => 'setEic',
         'sfcs' => 'setSfcs',
         'storage_network_config' => 'setStorageNetworkConfig',
         'vepfs' => 'setVepfs'
@@ -93,6 +97,7 @@ class StorageConfigForCreateResourceGroupInput implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $getters = [
+        'eic' => 'getEic',
         'sfcs' => 'getSfcs',
         'storage_network_config' => 'getStorageNetworkConfig',
         'vepfs' => 'getVepfs'
@@ -158,6 +163,7 @@ class StorageConfigForCreateResourceGroupInput implements ModelInterface, ArrayA
      */
     public function __construct(array $data = null)
     {
+        $this->container['eic'] = isset($data['eic']) ? $data['eic'] : null;
         $this->container['sfcs'] = isset($data['sfcs']) ? $data['sfcs'] : null;
         $this->container['storage_network_config'] = isset($data['storage_network_config']) ? $data['storage_network_config'] : null;
         $this->container['vepfs'] = isset($data['vepfs']) ? $data['vepfs'] : null;
@@ -186,6 +192,30 @@ class StorageConfigForCreateResourceGroupInput implements ModelInterface, ArrayA
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets eic
+     *
+     * @return \Volcengine\Mlplatform20240701\Model\EicForCreateResourceGroupInput
+     */
+    public function getEic()
+    {
+        return $this->container['eic'];
+    }
+
+    /**
+     * Sets eic
+     *
+     * @param \Volcengine\Mlplatform20240701\Model\EicForCreateResourceGroupInput $eic eic
+     *
+     * @return $this
+     */
+    public function setEic($eic)
+    {
+        $this->container['eic'] = $eic;
+
+        return $this;
+    }
 
     /**
      * Gets sfcs

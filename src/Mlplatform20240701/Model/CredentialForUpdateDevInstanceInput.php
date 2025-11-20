@@ -28,8 +28,9 @@ class CredentialForUpdateDevInstanceInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'access_key_id' => 'string',
-        'secret_access_key' => 'string'
+        'access_key' => 'string',
+        'secret_access_key' => 'string',
+        'use_service_linked_role' => 'bool'
     ];
 
     /**
@@ -38,8 +39,9 @@ class CredentialForUpdateDevInstanceInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'access_key_id' => null,
-        'secret_access_key' => null
+        'access_key' => null,
+        'secret_access_key' => null,
+        'use_service_linked_role' => null
     ];
 
     /**
@@ -69,8 +71,9 @@ class CredentialForUpdateDevInstanceInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'access_key_id' => 'AccessKeyId',
-        'secret_access_key' => 'SecretAccessKey'
+        'access_key' => 'AccessKey',
+        'secret_access_key' => 'SecretAccessKey',
+        'use_service_linked_role' => 'UseServiceLinkedRole'
     ];
 
     /**
@@ -79,8 +82,9 @@ class CredentialForUpdateDevInstanceInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'access_key_id' => 'setAccessKeyId',
-        'secret_access_key' => 'setSecretAccessKey'
+        'access_key' => 'setAccessKey',
+        'secret_access_key' => 'setSecretAccessKey',
+        'use_service_linked_role' => 'setUseServiceLinkedRole'
     ];
 
     /**
@@ -89,8 +93,9 @@ class CredentialForUpdateDevInstanceInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'access_key_id' => 'getAccessKeyId',
-        'secret_access_key' => 'getSecretAccessKey'
+        'access_key' => 'getAccessKey',
+        'secret_access_key' => 'getSecretAccessKey',
+        'use_service_linked_role' => 'getUseServiceLinkedRole'
     ];
 
     /**
@@ -153,8 +158,9 @@ class CredentialForUpdateDevInstanceInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['access_key_id'] = isset($data['access_key_id']) ? $data['access_key_id'] : null;
+        $this->container['access_key'] = isset($data['access_key']) ? $data['access_key'] : null;
         $this->container['secret_access_key'] = isset($data['secret_access_key']) ? $data['secret_access_key'] : null;
+        $this->container['use_service_linked_role'] = isset($data['use_service_linked_role']) ? $data['use_service_linked_role'] : null;
     }
 
     /**
@@ -182,25 +188,25 @@ class CredentialForUpdateDevInstanceInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets access_key_id
+     * Gets access_key
      *
      * @return string
      */
-    public function getAccessKeyId()
+    public function getAccessKey()
     {
-        return $this->container['access_key_id'];
+        return $this->container['access_key'];
     }
 
     /**
-     * Sets access_key_id
+     * Sets access_key
      *
-     * @param string $access_key_id access_key_id
+     * @param string $access_key access_key
      *
      * @return $this
      */
-    public function setAccessKeyId($access_key_id)
+    public function setAccessKey($access_key)
     {
-        $this->container['access_key_id'] = $access_key_id;
+        $this->container['access_key'] = $access_key;
 
         return $this;
     }
@@ -225,6 +231,30 @@ class CredentialForUpdateDevInstanceInput implements ModelInterface, ArrayAccess
     public function setSecretAccessKey($secret_access_key)
     {
         $this->container['secret_access_key'] = $secret_access_key;
+
+        return $this;
+    }
+
+    /**
+     * Gets use_service_linked_role
+     *
+     * @return bool
+     */
+    public function getUseServiceLinkedRole()
+    {
+        return $this->container['use_service_linked_role'];
+    }
+
+    /**
+     * Sets use_service_linked_role
+     *
+     * @param bool $use_service_linked_role use_service_linked_role
+     *
+     * @return $this
+     */
+    public function setUseServiceLinkedRole($use_service_linked_role)
+    {
+        $this->container['use_service_linked_role'] = $use_service_linked_role;
 
         return $this;
     }
