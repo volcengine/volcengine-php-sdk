@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ClusterConfigForUpdateClusterConfigInput implements ModelInterface, ArrayAccess
+class ClusterConnectorConfigRequestForUpdateClusterConfigInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ClusterConfigForUpdateClusterConfigInput implements ModelInterface, ArrayA
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ClusterConfigForUpdateClusterConfigInput';
+    protected static $swaggerModelName = 'ClusterConnectorConfigRequestForUpdateClusterConfigInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,11 +28,10 @@ class ClusterConfigForUpdateClusterConfigInput implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'api_server_public_access_config' => '\Volcengine\Vke\Model\ApiServerPublicAccessConfigForUpdateClusterConfigInput',
-        'api_server_public_access_enabled' => 'bool',
-        'cluster_connector_config_request' => '\Volcengine\Vke\Model\ClusterConnectorConfigRequestForUpdateClusterConfigInput',
-        'resource_public_access_default_enabled' => 'bool',
-        'subnet_ids' => 'string[]'
+        'provider' => 'string',
+        'proxy_config' => '\Volcengine\Vke\Model\ProxyConfigForUpdateClusterConfigInput',
+        'target_kube_config' => 'string',
+        'type' => 'string'
     ];
 
     /**
@@ -41,11 +40,10 @@ class ClusterConfigForUpdateClusterConfigInput implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'api_server_public_access_config' => null,
-        'api_server_public_access_enabled' => null,
-        'cluster_connector_config_request' => null,
-        'resource_public_access_default_enabled' => null,
-        'subnet_ids' => null
+        'provider' => null,
+        'proxy_config' => null,
+        'target_kube_config' => null,
+        'type' => null
     ];
 
     /**
@@ -75,11 +73,10 @@ class ClusterConfigForUpdateClusterConfigInput implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $attributeMap = [
-        'api_server_public_access_config' => 'ApiServerPublicAccessConfig',
-        'api_server_public_access_enabled' => 'ApiServerPublicAccessEnabled',
-        'cluster_connector_config_request' => 'ClusterConnectorConfigRequest',
-        'resource_public_access_default_enabled' => 'ResourcePublicAccessDefaultEnabled',
-        'subnet_ids' => 'SubnetIds'
+        'provider' => 'Provider',
+        'proxy_config' => 'ProxyConfig',
+        'target_kube_config' => 'TargetKubeConfig',
+        'type' => 'Type'
     ];
 
     /**
@@ -88,11 +85,10 @@ class ClusterConfigForUpdateClusterConfigInput implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $setters = [
-        'api_server_public_access_config' => 'setApiServerPublicAccessConfig',
-        'api_server_public_access_enabled' => 'setApiServerPublicAccessEnabled',
-        'cluster_connector_config_request' => 'setClusterConnectorConfigRequest',
-        'resource_public_access_default_enabled' => 'setResourcePublicAccessDefaultEnabled',
-        'subnet_ids' => 'setSubnetIds'
+        'provider' => 'setProvider',
+        'proxy_config' => 'setProxyConfig',
+        'target_kube_config' => 'setTargetKubeConfig',
+        'type' => 'setType'
     ];
 
     /**
@@ -101,11 +97,10 @@ class ClusterConfigForUpdateClusterConfigInput implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $getters = [
-        'api_server_public_access_config' => 'getApiServerPublicAccessConfig',
-        'api_server_public_access_enabled' => 'getApiServerPublicAccessEnabled',
-        'cluster_connector_config_request' => 'getClusterConnectorConfigRequest',
-        'resource_public_access_default_enabled' => 'getResourcePublicAccessDefaultEnabled',
-        'subnet_ids' => 'getSubnetIds'
+        'provider' => 'getProvider',
+        'proxy_config' => 'getProxyConfig',
+        'target_kube_config' => 'getTargetKubeConfig',
+        'type' => 'getType'
     ];
 
     /**
@@ -149,8 +144,48 @@ class ClusterConfigForUpdateClusterConfigInput implements ModelInterface, ArrayA
         return self::$swaggerModelName;
     }
 
+    const PROVIDER_ACK = 'Ack';
+    const PROVIDER_TKE = 'Tke';
+    const PROVIDER_CCE = 'Cce';
+    const PROVIDER_GKE = 'Gke';
+    const PROVIDER_EKS = 'Eks';
+    const PROVIDER_BAIDU_CCE = 'BaiduCce';
+    const PROVIDER_NONE = 'None';
+    const TYPE_DIRECT = 'Direct';
+    const TYPE_PROXY = 'Proxy';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getProviderAllowableValues()
+    {
+        return [
+            self::PROVIDER_ACK,
+            self::PROVIDER_TKE,
+            self::PROVIDER_CCE,
+            self::PROVIDER_GKE,
+            self::PROVIDER_EKS,
+            self::PROVIDER_BAIDU_CCE,
+            self::PROVIDER_NONE,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_DIRECT,
+            self::TYPE_PROXY,
+        ];
+    }
     
 
     /**
@@ -168,11 +203,10 @@ class ClusterConfigForUpdateClusterConfigInput implements ModelInterface, ArrayA
      */
     public function __construct(array $data = null)
     {
-        $this->container['api_server_public_access_config'] = isset($data['api_server_public_access_config']) ? $data['api_server_public_access_config'] : null;
-        $this->container['api_server_public_access_enabled'] = isset($data['api_server_public_access_enabled']) ? $data['api_server_public_access_enabled'] : null;
-        $this->container['cluster_connector_config_request'] = isset($data['cluster_connector_config_request']) ? $data['cluster_connector_config_request'] : null;
-        $this->container['resource_public_access_default_enabled'] = isset($data['resource_public_access_default_enabled']) ? $data['resource_public_access_default_enabled'] : null;
-        $this->container['subnet_ids'] = isset($data['subnet_ids']) ? $data['subnet_ids'] : null;
+        $this->container['provider'] = isset($data['provider']) ? $data['provider'] : null;
+        $this->container['proxy_config'] = isset($data['proxy_config']) ? $data['proxy_config'] : null;
+        $this->container['target_kube_config'] = isset($data['target_kube_config']) ? $data['target_kube_config'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
     /**
@@ -183,6 +217,22 @@ class ClusterConfigForUpdateClusterConfigInput implements ModelInterface, ArrayA
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getProviderAllowableValues();
+        if (!is_null($this->container['provider']) && !in_array($this->container['provider'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'provider', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -200,121 +250,115 @@ class ClusterConfigForUpdateClusterConfigInput implements ModelInterface, ArrayA
 
 
     /**
-     * Gets api_server_public_access_config
+     * Gets provider
      *
-     * @return \Volcengine\Vke\Model\ApiServerPublicAccessConfigForUpdateClusterConfigInput
+     * @return string
      */
-    public function getApiServerPublicAccessConfig()
+    public function getProvider()
     {
-        return $this->container['api_server_public_access_config'];
+        return $this->container['provider'];
     }
 
     /**
-     * Sets api_server_public_access_config
+     * Sets provider
      *
-     * @param \Volcengine\Vke\Model\ApiServerPublicAccessConfigForUpdateClusterConfigInput $api_server_public_access_config api_server_public_access_config
+     * @param string $provider provider
      *
      * @return $this
      */
-    public function setApiServerPublicAccessConfig($api_server_public_access_config)
+    public function setProvider($provider)
     {
-        $this->container['api_server_public_access_config'] = $api_server_public_access_config;
+        $allowedValues = $this->getProviderAllowableValues();
+        if (!is_null($provider) && !in_array($provider, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'provider', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['provider'] = $provider;
 
         return $this;
     }
 
     /**
-     * Gets api_server_public_access_enabled
+     * Gets proxy_config
      *
-     * @return bool
+     * @return \Volcengine\Vke\Model\ProxyConfigForUpdateClusterConfigInput
      */
-    public function getApiServerPublicAccessEnabled()
+    public function getProxyConfig()
     {
-        return $this->container['api_server_public_access_enabled'];
+        return $this->container['proxy_config'];
     }
 
     /**
-     * Sets api_server_public_access_enabled
+     * Sets proxy_config
      *
-     * @param bool $api_server_public_access_enabled api_server_public_access_enabled
+     * @param \Volcengine\Vke\Model\ProxyConfigForUpdateClusterConfigInput $proxy_config proxy_config
      *
      * @return $this
      */
-    public function setApiServerPublicAccessEnabled($api_server_public_access_enabled)
+    public function setProxyConfig($proxy_config)
     {
-        $this->container['api_server_public_access_enabled'] = $api_server_public_access_enabled;
+        $this->container['proxy_config'] = $proxy_config;
 
         return $this;
     }
 
     /**
-     * Gets cluster_connector_config_request
+     * Gets target_kube_config
      *
-     * @return \Volcengine\Vke\Model\ClusterConnectorConfigRequestForUpdateClusterConfigInput
+     * @return string
      */
-    public function getClusterConnectorConfigRequest()
+    public function getTargetKubeConfig()
     {
-        return $this->container['cluster_connector_config_request'];
+        return $this->container['target_kube_config'];
     }
 
     /**
-     * Sets cluster_connector_config_request
+     * Sets target_kube_config
      *
-     * @param \Volcengine\Vke\Model\ClusterConnectorConfigRequestForUpdateClusterConfigInput $cluster_connector_config_request cluster_connector_config_request
+     * @param string $target_kube_config target_kube_config
      *
      * @return $this
      */
-    public function setClusterConnectorConfigRequest($cluster_connector_config_request)
+    public function setTargetKubeConfig($target_kube_config)
     {
-        $this->container['cluster_connector_config_request'] = $cluster_connector_config_request;
+        $this->container['target_kube_config'] = $target_kube_config;
 
         return $this;
     }
 
     /**
-     * Gets resource_public_access_default_enabled
+     * Gets type
      *
-     * @return bool
+     * @return string
      */
-    public function getResourcePublicAccessDefaultEnabled()
+    public function getType()
     {
-        return $this->container['resource_public_access_default_enabled'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets resource_public_access_default_enabled
+     * Sets type
      *
-     * @param bool $resource_public_access_default_enabled resource_public_access_default_enabled
+     * @param string $type type
      *
      * @return $this
      */
-    public function setResourcePublicAccessDefaultEnabled($resource_public_access_default_enabled)
+    public function setType($type)
     {
-        $this->container['resource_public_access_default_enabled'] = $resource_public_access_default_enabled;
-
-        return $this;
-    }
-
-    /**
-     * Gets subnet_ids
-     *
-     * @return string[]
-     */
-    public function getSubnetIds()
-    {
-        return $this->container['subnet_ids'];
-    }
-
-    /**
-     * Sets subnet_ids
-     *
-     * @param string[] $subnet_ids subnet_ids
-     *
-     * @return $this
-     */
-    public function setSubnetIds($subnet_ids)
-    {
-        $this->container['subnet_ids'] = $subnet_ids;
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['type'] = $type;
 
         return $this;
     }

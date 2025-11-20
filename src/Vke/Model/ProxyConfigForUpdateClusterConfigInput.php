@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class KubernetesConfigForCreateNodePoolInput implements ModelInterface, ArrayAccess
+class ProxyConfigForUpdateClusterConfigInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class KubernetesConfigForCreateNodePoolInput implements ModelInterface, ArrayAcc
       *
       * @var string
       */
-    protected static $swaggerModelName = 'KubernetesConfigForCreateNodePoolInput';
+    protected static $swaggerModelName = 'ProxyConfigForUpdateClusterConfigInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,14 +28,11 @@ class KubernetesConfigForCreateNodePoolInput implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'auto_sync_disabled' => 'bool',
-        'cordon' => 'bool',
-        'kubelet_config' => '\Volcengine\Vke\Model\KubeletConfigForCreateNodePoolInput',
-        'labels' => '\Volcengine\Vke\Model\LabelForCreateNodePoolInput[]',
-        'name_prefix' => 'string',
-        'name_suffix' => 'string',
-        'name_use_hostname' => 'bool',
-        'taints' => '\Volcengine\Vke\Model\TaintForCreateNodePoolInput[]'
+        'acl_enabled' => 'bool',
+        'acl_ip_whitelist' => 'string[]',
+        'api_server_public_access_config' => '\Volcengine\Vke\Model\ApiServerPublicAccessConfigForUpdateClusterConfigInput',
+        'api_server_public_access_enabled' => 'bool',
+        'subnet_ids' => 'string[]'
     ];
 
     /**
@@ -44,14 +41,11 @@ class KubernetesConfigForCreateNodePoolInput implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'auto_sync_disabled' => null,
-        'cordon' => null,
-        'kubelet_config' => null,
-        'labels' => null,
-        'name_prefix' => null,
-        'name_suffix' => null,
-        'name_use_hostname' => null,
-        'taints' => null
+        'acl_enabled' => null,
+        'acl_ip_whitelist' => null,
+        'api_server_public_access_config' => null,
+        'api_server_public_access_enabled' => null,
+        'subnet_ids' => null
     ];
 
     /**
@@ -81,14 +75,11 @@ class KubernetesConfigForCreateNodePoolInput implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $attributeMap = [
-        'auto_sync_disabled' => 'AutoSyncDisabled',
-        'cordon' => 'Cordon',
-        'kubelet_config' => 'KubeletConfig',
-        'labels' => 'Labels',
-        'name_prefix' => 'NamePrefix',
-        'name_suffix' => 'NameSuffix',
-        'name_use_hostname' => 'NameUseHostname',
-        'taints' => 'Taints'
+        'acl_enabled' => 'AclEnabled',
+        'acl_ip_whitelist' => 'AclIpWhitelist',
+        'api_server_public_access_config' => 'ApiServerPublicAccessConfig',
+        'api_server_public_access_enabled' => 'ApiServerPublicAccessEnabled',
+        'subnet_ids' => 'SubnetIds'
     ];
 
     /**
@@ -97,14 +88,11 @@ class KubernetesConfigForCreateNodePoolInput implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $setters = [
-        'auto_sync_disabled' => 'setAutoSyncDisabled',
-        'cordon' => 'setCordon',
-        'kubelet_config' => 'setKubeletConfig',
-        'labels' => 'setLabels',
-        'name_prefix' => 'setNamePrefix',
-        'name_suffix' => 'setNameSuffix',
-        'name_use_hostname' => 'setNameUseHostname',
-        'taints' => 'setTaints'
+        'acl_enabled' => 'setAclEnabled',
+        'acl_ip_whitelist' => 'setAclIpWhitelist',
+        'api_server_public_access_config' => 'setApiServerPublicAccessConfig',
+        'api_server_public_access_enabled' => 'setApiServerPublicAccessEnabled',
+        'subnet_ids' => 'setSubnetIds'
     ];
 
     /**
@@ -113,14 +101,11 @@ class KubernetesConfigForCreateNodePoolInput implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $getters = [
-        'auto_sync_disabled' => 'getAutoSyncDisabled',
-        'cordon' => 'getCordon',
-        'kubelet_config' => 'getKubeletConfig',
-        'labels' => 'getLabels',
-        'name_prefix' => 'getNamePrefix',
-        'name_suffix' => 'getNameSuffix',
-        'name_use_hostname' => 'getNameUseHostname',
-        'taints' => 'getTaints'
+        'acl_enabled' => 'getAclEnabled',
+        'acl_ip_whitelist' => 'getAclIpWhitelist',
+        'api_server_public_access_config' => 'getApiServerPublicAccessConfig',
+        'api_server_public_access_enabled' => 'getApiServerPublicAccessEnabled',
+        'subnet_ids' => 'getSubnetIds'
     ];
 
     /**
@@ -183,14 +168,11 @@ class KubernetesConfigForCreateNodePoolInput implements ModelInterface, ArrayAcc
      */
     public function __construct(array $data = null)
     {
-        $this->container['auto_sync_disabled'] = isset($data['auto_sync_disabled']) ? $data['auto_sync_disabled'] : null;
-        $this->container['cordon'] = isset($data['cordon']) ? $data['cordon'] : null;
-        $this->container['kubelet_config'] = isset($data['kubelet_config']) ? $data['kubelet_config'] : null;
-        $this->container['labels'] = isset($data['labels']) ? $data['labels'] : null;
-        $this->container['name_prefix'] = isset($data['name_prefix']) ? $data['name_prefix'] : null;
-        $this->container['name_suffix'] = isset($data['name_suffix']) ? $data['name_suffix'] : null;
-        $this->container['name_use_hostname'] = isset($data['name_use_hostname']) ? $data['name_use_hostname'] : null;
-        $this->container['taints'] = isset($data['taints']) ? $data['taints'] : null;
+        $this->container['acl_enabled'] = isset($data['acl_enabled']) ? $data['acl_enabled'] : null;
+        $this->container['acl_ip_whitelist'] = isset($data['acl_ip_whitelist']) ? $data['acl_ip_whitelist'] : null;
+        $this->container['api_server_public_access_config'] = isset($data['api_server_public_access_config']) ? $data['api_server_public_access_config'] : null;
+        $this->container['api_server_public_access_enabled'] = isset($data['api_server_public_access_enabled']) ? $data['api_server_public_access_enabled'] : null;
+        $this->container['subnet_ids'] = isset($data['subnet_ids']) ? $data['subnet_ids'] : null;
     }
 
     /**
@@ -218,193 +200,121 @@ class KubernetesConfigForCreateNodePoolInput implements ModelInterface, ArrayAcc
 
 
     /**
-     * Gets auto_sync_disabled
+     * Gets acl_enabled
      *
      * @return bool
      */
-    public function getAutoSyncDisabled()
+    public function getAclEnabled()
     {
-        return $this->container['auto_sync_disabled'];
+        return $this->container['acl_enabled'];
     }
 
     /**
-     * Sets auto_sync_disabled
+     * Sets acl_enabled
      *
-     * @param bool $auto_sync_disabled auto_sync_disabled
+     * @param bool $acl_enabled acl_enabled
      *
      * @return $this
      */
-    public function setAutoSyncDisabled($auto_sync_disabled)
+    public function setAclEnabled($acl_enabled)
     {
-        $this->container['auto_sync_disabled'] = $auto_sync_disabled;
+        $this->container['acl_enabled'] = $acl_enabled;
 
         return $this;
     }
 
     /**
-     * Gets cordon
+     * Gets acl_ip_whitelist
+     *
+     * @return string[]
+     */
+    public function getAclIpWhitelist()
+    {
+        return $this->container['acl_ip_whitelist'];
+    }
+
+    /**
+     * Sets acl_ip_whitelist
+     *
+     * @param string[] $acl_ip_whitelist acl_ip_whitelist
+     *
+     * @return $this
+     */
+    public function setAclIpWhitelist($acl_ip_whitelist)
+    {
+        $this->container['acl_ip_whitelist'] = $acl_ip_whitelist;
+
+        return $this;
+    }
+
+    /**
+     * Gets api_server_public_access_config
+     *
+     * @return \Volcengine\Vke\Model\ApiServerPublicAccessConfigForUpdateClusterConfigInput
+     */
+    public function getApiServerPublicAccessConfig()
+    {
+        return $this->container['api_server_public_access_config'];
+    }
+
+    /**
+     * Sets api_server_public_access_config
+     *
+     * @param \Volcengine\Vke\Model\ApiServerPublicAccessConfigForUpdateClusterConfigInput $api_server_public_access_config api_server_public_access_config
+     *
+     * @return $this
+     */
+    public function setApiServerPublicAccessConfig($api_server_public_access_config)
+    {
+        $this->container['api_server_public_access_config'] = $api_server_public_access_config;
+
+        return $this;
+    }
+
+    /**
+     * Gets api_server_public_access_enabled
      *
      * @return bool
      */
-    public function getCordon()
+    public function getApiServerPublicAccessEnabled()
     {
-        return $this->container['cordon'];
+        return $this->container['api_server_public_access_enabled'];
     }
 
     /**
-     * Sets cordon
+     * Sets api_server_public_access_enabled
      *
-     * @param bool $cordon cordon
+     * @param bool $api_server_public_access_enabled api_server_public_access_enabled
      *
      * @return $this
      */
-    public function setCordon($cordon)
+    public function setApiServerPublicAccessEnabled($api_server_public_access_enabled)
     {
-        $this->container['cordon'] = $cordon;
+        $this->container['api_server_public_access_enabled'] = $api_server_public_access_enabled;
 
         return $this;
     }
 
     /**
-     * Gets kubelet_config
+     * Gets subnet_ids
      *
-     * @return \Volcengine\Vke\Model\KubeletConfigForCreateNodePoolInput
+     * @return string[]
      */
-    public function getKubeletConfig()
+    public function getSubnetIds()
     {
-        return $this->container['kubelet_config'];
+        return $this->container['subnet_ids'];
     }
 
     /**
-     * Sets kubelet_config
+     * Sets subnet_ids
      *
-     * @param \Volcengine\Vke\Model\KubeletConfigForCreateNodePoolInput $kubelet_config kubelet_config
+     * @param string[] $subnet_ids subnet_ids
      *
      * @return $this
      */
-    public function setKubeletConfig($kubelet_config)
+    public function setSubnetIds($subnet_ids)
     {
-        $this->container['kubelet_config'] = $kubelet_config;
-
-        return $this;
-    }
-
-    /**
-     * Gets labels
-     *
-     * @return \Volcengine\Vke\Model\LabelForCreateNodePoolInput[]
-     */
-    public function getLabels()
-    {
-        return $this->container['labels'];
-    }
-
-    /**
-     * Sets labels
-     *
-     * @param \Volcengine\Vke\Model\LabelForCreateNodePoolInput[] $labels labels
-     *
-     * @return $this
-     */
-    public function setLabels($labels)
-    {
-        $this->container['labels'] = $labels;
-
-        return $this;
-    }
-
-    /**
-     * Gets name_prefix
-     *
-     * @return string
-     */
-    public function getNamePrefix()
-    {
-        return $this->container['name_prefix'];
-    }
-
-    /**
-     * Sets name_prefix
-     *
-     * @param string $name_prefix name_prefix
-     *
-     * @return $this
-     */
-    public function setNamePrefix($name_prefix)
-    {
-        $this->container['name_prefix'] = $name_prefix;
-
-        return $this;
-    }
-
-    /**
-     * Gets name_suffix
-     *
-     * @return string
-     */
-    public function getNameSuffix()
-    {
-        return $this->container['name_suffix'];
-    }
-
-    /**
-     * Sets name_suffix
-     *
-     * @param string $name_suffix name_suffix
-     *
-     * @return $this
-     */
-    public function setNameSuffix($name_suffix)
-    {
-        $this->container['name_suffix'] = $name_suffix;
-
-        return $this;
-    }
-
-    /**
-     * Gets name_use_hostname
-     *
-     * @return bool
-     */
-    public function getNameUseHostname()
-    {
-        return $this->container['name_use_hostname'];
-    }
-
-    /**
-     * Sets name_use_hostname
-     *
-     * @param bool $name_use_hostname name_use_hostname
-     *
-     * @return $this
-     */
-    public function setNameUseHostname($name_use_hostname)
-    {
-        $this->container['name_use_hostname'] = $name_use_hostname;
-
-        return $this;
-    }
-
-    /**
-     * Gets taints
-     *
-     * @return \Volcengine\Vke\Model\TaintForCreateNodePoolInput[]
-     */
-    public function getTaints()
-    {
-        return $this->container['taints'];
-    }
-
-    /**
-     * Sets taints
-     *
-     * @param \Volcengine\Vke\Model\TaintForCreateNodePoolInput[] $taints taints
-     *
-     * @return $this
-     */
-    public function setTaints($taints)
-    {
-        $this->container['taints'] = $taints;
+        $this->container['subnet_ids'] = $subnet_ids;
 
         return $this;
     }
