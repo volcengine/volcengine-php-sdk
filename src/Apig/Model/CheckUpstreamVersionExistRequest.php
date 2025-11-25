@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
+class CheckUpstreamVersionExistRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'FilterForListGatewayServicesInput';
+    protected static $swaggerModelName = 'CheckUpstreamVersionExistRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,8 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'name' => 'string',
-        'service_type' => 'string',
-        'status' => 'string'
+        'upstream_id' => 'string',
+        'upstream_version_name' => 'string'
     ];
 
     /**
@@ -39,9 +38,8 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'name' => null,
-        'service_type' => null,
-        'status' => null
+        'upstream_id' => null,
+        'upstream_version_name' => null
     ];
 
     /**
@@ -71,9 +69,8 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'Name',
-        'service_type' => 'ServiceType',
-        'status' => 'Status'
+        'upstream_id' => 'UpstreamId',
+        'upstream_version_name' => 'UpstreamVersionName'
     ];
 
     /**
@@ -82,9 +79,8 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-        'service_type' => 'setServiceType',
-        'status' => 'setStatus'
+        'upstream_id' => 'setUpstreamId',
+        'upstream_version_name' => 'setUpstreamVersionName'
     ];
 
     /**
@@ -93,9 +89,8 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-        'service_type' => 'getServiceType',
-        'status' => 'getStatus'
+        'upstream_id' => 'getUpstreamId',
+        'upstream_version_name' => 'getUpstreamVersionName'
     ];
 
     /**
@@ -158,9 +153,8 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['service_type'] = isset($data['service_type']) ? $data['service_type'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['upstream_id'] = isset($data['upstream_id']) ? $data['upstream_id'] : null;
+        $this->container['upstream_version_name'] = isset($data['upstream_version_name']) ? $data['upstream_version_name'] : null;
     }
 
     /**
@@ -172,6 +166,12 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['upstream_id'] === null) {
+            $invalidProperties[] = "'upstream_id' can't be null";
+        }
+        if ($this->container['upstream_version_name'] === null) {
+            $invalidProperties[] = "'upstream_version_name' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -188,73 +188,49 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets name
+     * Gets upstream_id
      *
      * @return string
      */
-    public function getName()
+    public function getUpstreamId()
     {
-        return $this->container['name'];
+        return $this->container['upstream_id'];
     }
 
     /**
-     * Sets name
+     * Sets upstream_id
      *
-     * @param string $name name
+     * @param string $upstream_id upstream_id
      *
      * @return $this
      */
-    public function setName($name)
+    public function setUpstreamId($upstream_id)
     {
-        $this->container['name'] = $name;
+        $this->container['upstream_id'] = $upstream_id;
 
         return $this;
     }
 
     /**
-     * Gets service_type
+     * Gets upstream_version_name
      *
      * @return string
      */
-    public function getServiceType()
+    public function getUpstreamVersionName()
     {
-        return $this->container['service_type'];
+        return $this->container['upstream_version_name'];
     }
 
     /**
-     * Sets service_type
+     * Sets upstream_version_name
      *
-     * @param string $service_type service_type
+     * @param string $upstream_version_name upstream_version_name
      *
      * @return $this
      */
-    public function setServiceType($service_type)
+    public function setUpstreamVersionName($upstream_version_name)
     {
-        $this->container['service_type'] = $service_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets status
-     *
-     * @return string
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param string $status status
-     *
-     * @return $this
-     */
-    public function setStatus($status)
-    {
-        $this->container['status'] = $status;
+        $this->container['upstream_version_name'] = $upstream_version_name;
 
         return $this;
     }

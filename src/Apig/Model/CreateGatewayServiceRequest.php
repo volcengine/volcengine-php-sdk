@@ -30,9 +30,13 @@ class CreateGatewayServiceRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'auth_spec' => '\Volcengine\Apig\Model\AuthSpecForCreateGatewayServiceInput',
         'comments' => 'string',
+        'custom_domains' => '\Volcengine\Apig\Model\CustomDomainForCreateGatewayServiceInput[]',
+        'domain_type' => 'string',
         'gateway_id' => 'string',
         'protocol' => 'string[]',
-        'service_name' => 'string'
+        'service_name' => 'string',
+        'service_network_spec' => '\Volcengine\Apig\Model\ServiceNetworkSpecForCreateGatewayServiceInput',
+        'service_type' => 'string'
     ];
 
     /**
@@ -43,9 +47,13 @@ class CreateGatewayServiceRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'auth_spec' => null,
         'comments' => null,
+        'custom_domains' => null,
+        'domain_type' => null,
         'gateway_id' => null,
         'protocol' => null,
-        'service_name' => null
+        'service_name' => null,
+        'service_network_spec' => null,
+        'service_type' => null
     ];
 
     /**
@@ -77,9 +85,13 @@ class CreateGatewayServiceRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'auth_spec' => 'AuthSpec',
         'comments' => 'Comments',
+        'custom_domains' => 'CustomDomains',
+        'domain_type' => 'DomainType',
         'gateway_id' => 'GatewayId',
         'protocol' => 'Protocol',
-        'service_name' => 'ServiceName'
+        'service_name' => 'ServiceName',
+        'service_network_spec' => 'ServiceNetworkSpec',
+        'service_type' => 'ServiceType'
     ];
 
     /**
@@ -90,9 +102,13 @@ class CreateGatewayServiceRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'auth_spec' => 'setAuthSpec',
         'comments' => 'setComments',
+        'custom_domains' => 'setCustomDomains',
+        'domain_type' => 'setDomainType',
         'gateway_id' => 'setGatewayId',
         'protocol' => 'setProtocol',
-        'service_name' => 'setServiceName'
+        'service_name' => 'setServiceName',
+        'service_network_spec' => 'setServiceNetworkSpec',
+        'service_type' => 'setServiceType'
     ];
 
     /**
@@ -103,9 +119,13 @@ class CreateGatewayServiceRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'auth_spec' => 'getAuthSpec',
         'comments' => 'getComments',
+        'custom_domains' => 'getCustomDomains',
+        'domain_type' => 'getDomainType',
         'gateway_id' => 'getGatewayId',
         'protocol' => 'getProtocol',
-        'service_name' => 'getServiceName'
+        'service_name' => 'getServiceName',
+        'service_network_spec' => 'getServiceNetworkSpec',
+        'service_type' => 'getServiceType'
     ];
 
     /**
@@ -170,9 +190,13 @@ class CreateGatewayServiceRequest implements ModelInterface, ArrayAccess
     {
         $this->container['auth_spec'] = isset($data['auth_spec']) ? $data['auth_spec'] : null;
         $this->container['comments'] = isset($data['comments']) ? $data['comments'] : null;
+        $this->container['custom_domains'] = isset($data['custom_domains']) ? $data['custom_domains'] : null;
+        $this->container['domain_type'] = isset($data['domain_type']) ? $data['domain_type'] : null;
         $this->container['gateway_id'] = isset($data['gateway_id']) ? $data['gateway_id'] : null;
         $this->container['protocol'] = isset($data['protocol']) ? $data['protocol'] : null;
         $this->container['service_name'] = isset($data['service_name']) ? $data['service_name'] : null;
+        $this->container['service_network_spec'] = isset($data['service_network_spec']) ? $data['service_network_spec'] : null;
+        $this->container['service_type'] = isset($data['service_type']) ? $data['service_type'] : null;
     }
 
     /**
@@ -254,6 +278,54 @@ class CreateGatewayServiceRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets custom_domains
+     *
+     * @return \Volcengine\Apig\Model\CustomDomainForCreateGatewayServiceInput[]
+     */
+    public function getCustomDomains()
+    {
+        return $this->container['custom_domains'];
+    }
+
+    /**
+     * Sets custom_domains
+     *
+     * @param \Volcengine\Apig\Model\CustomDomainForCreateGatewayServiceInput[] $custom_domains custom_domains
+     *
+     * @return $this
+     */
+    public function setCustomDomains($custom_domains)
+    {
+        $this->container['custom_domains'] = $custom_domains;
+
+        return $this;
+    }
+
+    /**
+     * Gets domain_type
+     *
+     * @return string
+     */
+    public function getDomainType()
+    {
+        return $this->container['domain_type'];
+    }
+
+    /**
+     * Sets domain_type
+     *
+     * @param string $domain_type domain_type
+     *
+     * @return $this
+     */
+    public function setDomainType($domain_type)
+    {
+        $this->container['domain_type'] = $domain_type;
+
+        return $this;
+    }
+
+    /**
      * Gets gateway_id
      *
      * @return string
@@ -321,6 +393,54 @@ class CreateGatewayServiceRequest implements ModelInterface, ArrayAccess
     public function setServiceName($service_name)
     {
         $this->container['service_name'] = $service_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets service_network_spec
+     *
+     * @return \Volcengine\Apig\Model\ServiceNetworkSpecForCreateGatewayServiceInput
+     */
+    public function getServiceNetworkSpec()
+    {
+        return $this->container['service_network_spec'];
+    }
+
+    /**
+     * Sets service_network_spec
+     *
+     * @param \Volcengine\Apig\Model\ServiceNetworkSpecForCreateGatewayServiceInput $service_network_spec service_network_spec
+     *
+     * @return $this
+     */
+    public function setServiceNetworkSpec($service_network_spec)
+    {
+        $this->container['service_network_spec'] = $service_network_spec;
+
+        return $this;
+    }
+
+    /**
+     * Gets service_type
+     *
+     * @return string
+     */
+    public function getServiceType()
+    {
+        return $this->container['service_type'];
+    }
+
+    /**
+     * Sets service_type
+     *
+     * @param string $service_type service_type
+     *
+     * @return $this
+     */
+    public function setServiceType($service_type)
+    {
+        $this->container['service_type'] = $service_type;
 
         return $this;
     }

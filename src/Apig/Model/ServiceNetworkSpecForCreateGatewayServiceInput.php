@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
+class ServiceNetworkSpecForCreateGatewayServiceInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'FilterForListGatewayServicesInput';
+    protected static $swaggerModelName = 'ServiceNetworkSpecForCreateGatewayServiceInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,9 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'name' => 'string',
-        'service_type' => 'string',
-        'status' => 'string'
+        'enable_private_network' => 'bool',
+        'enable_public_network' => 'bool',
+        'private_network_ip' => 'string[]'
     ];
 
     /**
@@ -39,9 +39,9 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'name' => null,
-        'service_type' => null,
-        'status' => null
+        'enable_private_network' => null,
+        'enable_public_network' => null,
+        'private_network_ip' => null
     ];
 
     /**
@@ -71,9 +71,9 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'Name',
-        'service_type' => 'ServiceType',
-        'status' => 'Status'
+        'enable_private_network' => 'EnablePrivateNetwork',
+        'enable_public_network' => 'EnablePublicNetwork',
+        'private_network_ip' => 'PrivateNetworkIP'
     ];
 
     /**
@@ -82,9 +82,9 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-        'service_type' => 'setServiceType',
-        'status' => 'setStatus'
+        'enable_private_network' => 'setEnablePrivateNetwork',
+        'enable_public_network' => 'setEnablePublicNetwork',
+        'private_network_ip' => 'setPrivateNetworkIp'
     ];
 
     /**
@@ -93,9 +93,9 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-        'service_type' => 'getServiceType',
-        'status' => 'getStatus'
+        'enable_private_network' => 'getEnablePrivateNetwork',
+        'enable_public_network' => 'getEnablePublicNetwork',
+        'private_network_ip' => 'getPrivateNetworkIp'
     ];
 
     /**
@@ -158,9 +158,9 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['service_type'] = isset($data['service_type']) ? $data['service_type'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['enable_private_network'] = isset($data['enable_private_network']) ? $data['enable_private_network'] : null;
+        $this->container['enable_public_network'] = isset($data['enable_public_network']) ? $data['enable_public_network'] : null;
+        $this->container['private_network_ip'] = isset($data['private_network_ip']) ? $data['private_network_ip'] : null;
     }
 
     /**
@@ -188,73 +188,73 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets name
+     * Gets enable_private_network
      *
-     * @return string
+     * @return bool
      */
-    public function getName()
+    public function getEnablePrivateNetwork()
     {
-        return $this->container['name'];
+        return $this->container['enable_private_network'];
     }
 
     /**
-     * Sets name
+     * Sets enable_private_network
      *
-     * @param string $name name
+     * @param bool $enable_private_network enable_private_network
      *
      * @return $this
      */
-    public function setName($name)
+    public function setEnablePrivateNetwork($enable_private_network)
     {
-        $this->container['name'] = $name;
+        $this->container['enable_private_network'] = $enable_private_network;
 
         return $this;
     }
 
     /**
-     * Gets service_type
+     * Gets enable_public_network
      *
-     * @return string
+     * @return bool
      */
-    public function getServiceType()
+    public function getEnablePublicNetwork()
     {
-        return $this->container['service_type'];
+        return $this->container['enable_public_network'];
     }
 
     /**
-     * Sets service_type
+     * Sets enable_public_network
      *
-     * @param string $service_type service_type
+     * @param bool $enable_public_network enable_public_network
      *
      * @return $this
      */
-    public function setServiceType($service_type)
+    public function setEnablePublicNetwork($enable_public_network)
     {
-        $this->container['service_type'] = $service_type;
+        $this->container['enable_public_network'] = $enable_public_network;
 
         return $this;
     }
 
     /**
-     * Gets status
+     * Gets private_network_ip
      *
-     * @return string
+     * @return string[]
      */
-    public function getStatus()
+    public function getPrivateNetworkIp()
     {
-        return $this->container['status'];
+        return $this->container['private_network_ip'];
     }
 
     /**
-     * Sets status
+     * Sets private_network_ip
      *
-     * @param string $status status
+     * @param string[] $private_network_ip private_network_ip
      *
      * @return $this
      */
-    public function setStatus($status)
+    public function setPrivateNetworkIp($private_network_ip)
     {
-        $this->container['status'] = $status;
+        $this->container['private_network_ip'] = $private_network_ip;
 
         return $this;
     }

@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
+class CustomDomainForCreateGatewayServiceInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'FilterForListGatewayServicesInput';
+    protected static $swaggerModelName = 'CustomDomainForCreateGatewayServiceInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,12 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'name' => 'string',
-        'service_type' => 'string',
-        'status' => 'string'
+        'certificate_id' => 'string',
+        'comments' => 'string',
+        'domain' => 'string',
+        'protocol' => 'string[]',
+        'ssl_redirect' => 'bool',
+        'tags' => '\Volcengine\Apig\Model\TagForCreateGatewayServiceInput[]'
     ];
 
     /**
@@ -39,9 +42,12 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'name' => null,
-        'service_type' => null,
-        'status' => null
+        'certificate_id' => null,
+        'comments' => null,
+        'domain' => null,
+        'protocol' => null,
+        'ssl_redirect' => null,
+        'tags' => null
     ];
 
     /**
@@ -71,9 +77,12 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'Name',
-        'service_type' => 'ServiceType',
-        'status' => 'Status'
+        'certificate_id' => 'CertificateId',
+        'comments' => 'Comments',
+        'domain' => 'Domain',
+        'protocol' => 'Protocol',
+        'ssl_redirect' => 'SSLRedirect',
+        'tags' => 'Tags'
     ];
 
     /**
@@ -82,9 +91,12 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-        'service_type' => 'setServiceType',
-        'status' => 'setStatus'
+        'certificate_id' => 'setCertificateId',
+        'comments' => 'setComments',
+        'domain' => 'setDomain',
+        'protocol' => 'setProtocol',
+        'ssl_redirect' => 'setSslRedirect',
+        'tags' => 'setTags'
     ];
 
     /**
@@ -93,9 +105,12 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-        'service_type' => 'getServiceType',
-        'status' => 'getStatus'
+        'certificate_id' => 'getCertificateId',
+        'comments' => 'getComments',
+        'domain' => 'getDomain',
+        'protocol' => 'getProtocol',
+        'ssl_redirect' => 'getSslRedirect',
+        'tags' => 'getTags'
     ];
 
     /**
@@ -158,9 +173,12 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['service_type'] = isset($data['service_type']) ? $data['service_type'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['certificate_id'] = isset($data['certificate_id']) ? $data['certificate_id'] : null;
+        $this->container['comments'] = isset($data['comments']) ? $data['comments'] : null;
+        $this->container['domain'] = isset($data['domain']) ? $data['domain'] : null;
+        $this->container['protocol'] = isset($data['protocol']) ? $data['protocol'] : null;
+        $this->container['ssl_redirect'] = isset($data['ssl_redirect']) ? $data['ssl_redirect'] : null;
+        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
     }
 
     /**
@@ -188,73 +206,145 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets name
+     * Gets certificate_id
      *
      * @return string
      */
-    public function getName()
+    public function getCertificateId()
     {
-        return $this->container['name'];
+        return $this->container['certificate_id'];
     }
 
     /**
-     * Sets name
+     * Sets certificate_id
      *
-     * @param string $name name
+     * @param string $certificate_id certificate_id
      *
      * @return $this
      */
-    public function setName($name)
+    public function setCertificateId($certificate_id)
     {
-        $this->container['name'] = $name;
+        $this->container['certificate_id'] = $certificate_id;
 
         return $this;
     }
 
     /**
-     * Gets service_type
+     * Gets comments
      *
      * @return string
      */
-    public function getServiceType()
+    public function getComments()
     {
-        return $this->container['service_type'];
+        return $this->container['comments'];
     }
 
     /**
-     * Sets service_type
+     * Sets comments
      *
-     * @param string $service_type service_type
+     * @param string $comments comments
      *
      * @return $this
      */
-    public function setServiceType($service_type)
+    public function setComments($comments)
     {
-        $this->container['service_type'] = $service_type;
+        $this->container['comments'] = $comments;
 
         return $this;
     }
 
     /**
-     * Gets status
+     * Gets domain
      *
      * @return string
      */
-    public function getStatus()
+    public function getDomain()
     {
-        return $this->container['status'];
+        return $this->container['domain'];
     }
 
     /**
-     * Sets status
+     * Sets domain
      *
-     * @param string $status status
+     * @param string $domain domain
      *
      * @return $this
      */
-    public function setStatus($status)
+    public function setDomain($domain)
     {
-        $this->container['status'] = $status;
+        $this->container['domain'] = $domain;
+
+        return $this;
+    }
+
+    /**
+     * Gets protocol
+     *
+     * @return string[]
+     */
+    public function getProtocol()
+    {
+        return $this->container['protocol'];
+    }
+
+    /**
+     * Sets protocol
+     *
+     * @param string[] $protocol protocol
+     *
+     * @return $this
+     */
+    public function setProtocol($protocol)
+    {
+        $this->container['protocol'] = $protocol;
+
+        return $this;
+    }
+
+    /**
+     * Gets ssl_redirect
+     *
+     * @return bool
+     */
+    public function getSslRedirect()
+    {
+        return $this->container['ssl_redirect'];
+    }
+
+    /**
+     * Sets ssl_redirect
+     *
+     * @param bool $ssl_redirect ssl_redirect
+     *
+     * @return $this
+     */
+    public function setSslRedirect($ssl_redirect)
+    {
+        $this->container['ssl_redirect'] = $ssl_redirect;
+
+        return $this;
+    }
+
+    /**
+     * Gets tags
+     *
+     * @return \Volcengine\Apig\Model\TagForCreateGatewayServiceInput[]
+     */
+    public function getTags()
+    {
+        return $this->container['tags'];
+    }
+
+    /**
+     * Sets tags
+     *
+     * @param \Volcengine\Apig\Model\TagForCreateGatewayServiceInput[] $tags tags
+     *
+     * @return $this
+     */
+    public function setTags($tags)
+    {
+        $this->container['tags'] = $tags;
 
         return $this;
     }

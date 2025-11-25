@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
+class CheckGatewayServiceExistRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'FilterForListGatewayServicesInput';
+    protected static $swaggerModelName = 'CheckGatewayServiceExistRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,8 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'name' => 'string',
-        'service_type' => 'string',
-        'status' => 'string'
+        'gateway_id' => 'string',
+        'name' => 'string'
     ];
 
     /**
@@ -39,9 +38,8 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'name' => null,
-        'service_type' => null,
-        'status' => null
+        'gateway_id' => null,
+        'name' => null
     ];
 
     /**
@@ -71,9 +69,8 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'Name',
-        'service_type' => 'ServiceType',
-        'status' => 'Status'
+        'gateway_id' => 'GatewayId',
+        'name' => 'Name'
     ];
 
     /**
@@ -82,9 +79,8 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-        'service_type' => 'setServiceType',
-        'status' => 'setStatus'
+        'gateway_id' => 'setGatewayId',
+        'name' => 'setName'
     ];
 
     /**
@@ -93,9 +89,8 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-        'service_type' => 'getServiceType',
-        'status' => 'getStatus'
+        'gateway_id' => 'getGatewayId',
+        'name' => 'getName'
     ];
 
     /**
@@ -158,9 +153,8 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['gateway_id'] = isset($data['gateway_id']) ? $data['gateway_id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['service_type'] = isset($data['service_type']) ? $data['service_type'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }
 
     /**
@@ -172,6 +166,12 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['gateway_id'] === null) {
+            $invalidProperties[] = "'gateway_id' can't be null";
+        }
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -186,6 +186,30 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets gateway_id
+     *
+     * @return string
+     */
+    public function getGatewayId()
+    {
+        return $this->container['gateway_id'];
+    }
+
+    /**
+     * Sets gateway_id
+     *
+     * @param string $gateway_id gateway_id
+     *
+     * @return $this
+     */
+    public function setGatewayId($gateway_id)
+    {
+        $this->container['gateway_id'] = $gateway_id;
+
+        return $this;
+    }
 
     /**
      * Gets name
@@ -207,54 +231,6 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
     public function setName($name)
     {
         $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets service_type
-     *
-     * @return string
-     */
-    public function getServiceType()
-    {
-        return $this->container['service_type'];
-    }
-
-    /**
-     * Sets service_type
-     *
-     * @param string $service_type service_type
-     *
-     * @return $this
-     */
-    public function setServiceType($service_type)
-    {
-        $this->container['service_type'] = $service_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets status
-     *
-     * @return string
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param string $status status
-     *
-     * @return $this
-     */
-    public function setStatus($status)
-    {
-        $this->container['status'] = $status;
 
         return $this;
     }

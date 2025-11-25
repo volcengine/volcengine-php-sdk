@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
+class CheckConsumerCredentialExistResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'FilterForListGatewayServicesInput';
+    protected static $swaggerModelName = 'CheckConsumerCredentialExistResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,9 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'name' => 'string',
-        'service_type' => 'string',
-        'status' => 'string'
+        'consumer_id' => 'string',
+        'exist' => 'bool',
+        'id' => 'string'
     ];
 
     /**
@@ -39,9 +39,9 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'name' => null,
-        'service_type' => null,
-        'status' => null
+        'consumer_id' => null,
+        'exist' => null,
+        'id' => null
     ];
 
     /**
@@ -71,9 +71,9 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'Name',
-        'service_type' => 'ServiceType',
-        'status' => 'Status'
+        'consumer_id' => 'ConsumerId',
+        'exist' => 'Exist',
+        'id' => 'Id'
     ];
 
     /**
@@ -82,9 +82,9 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-        'service_type' => 'setServiceType',
-        'status' => 'setStatus'
+        'consumer_id' => 'setConsumerId',
+        'exist' => 'setExist',
+        'id' => 'setId'
     ];
 
     /**
@@ -93,9 +93,9 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-        'service_type' => 'getServiceType',
-        'status' => 'getStatus'
+        'consumer_id' => 'getConsumerId',
+        'exist' => 'getExist',
+        'id' => 'getId'
     ];
 
     /**
@@ -158,9 +158,9 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['service_type'] = isset($data['service_type']) ? $data['service_type'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['consumer_id'] = isset($data['consumer_id']) ? $data['consumer_id'] : null;
+        $this->container['exist'] = isset($data['exist']) ? $data['exist'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
     }
 
     /**
@@ -188,73 +188,73 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets name
+     * Gets consumer_id
      *
      * @return string
      */
-    public function getName()
+    public function getConsumerId()
     {
-        return $this->container['name'];
+        return $this->container['consumer_id'];
     }
 
     /**
-     * Sets name
+     * Sets consumer_id
      *
-     * @param string $name name
+     * @param string $consumer_id consumer_id
      *
      * @return $this
      */
-    public function setName($name)
+    public function setConsumerId($consumer_id)
     {
-        $this->container['name'] = $name;
+        $this->container['consumer_id'] = $consumer_id;
 
         return $this;
     }
 
     /**
-     * Gets service_type
+     * Gets exist
      *
-     * @return string
+     * @return bool
      */
-    public function getServiceType()
+    public function getExist()
     {
-        return $this->container['service_type'];
+        return $this->container['exist'];
     }
 
     /**
-     * Sets service_type
+     * Sets exist
      *
-     * @param string $service_type service_type
+     * @param bool $exist exist
      *
      * @return $this
      */
-    public function setServiceType($service_type)
+    public function setExist($exist)
     {
-        $this->container['service_type'] = $service_type;
+        $this->container['exist'] = $exist;
 
         return $this;
     }
 
     /**
-     * Gets status
+     * Gets id
      *
      * @return string
      */
-    public function getStatus()
+    public function getId()
     {
-        return $this->container['status'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets status
+     * Sets id
      *
-     * @param string $status status
+     * @param string $id id
      *
      * @return $this
      */
-    public function setStatus($status)
+    public function setId($id)
     {
-        $this->container['status'] = $status;
+        $this->container['id'] = $id;
 
         return $this;
     }

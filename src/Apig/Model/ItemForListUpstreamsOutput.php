@@ -31,6 +31,7 @@ class ItemForListUpstreamsOutput implements ModelInterface, ArrayAccess
         'backend_target_list' => '\Volcengine\Apig\Model\BackendTargetListForListUpstreamsOutput[]',
         'circuit_breaking_settings' => '\Volcengine\Apig\Model\CircuitBreakingSettingsForListUpstreamsOutput',
         'comments' => 'string',
+        'connection_pool_settings' => '\Volcengine\Apig\Model\ConnectionPoolSettingsForListUpstreamsOutput',
         'create_time' => 'string',
         'gateway_id' => 'string',
         'id' => 'string',
@@ -53,6 +54,7 @@ class ItemForListUpstreamsOutput implements ModelInterface, ArrayAccess
         'backend_target_list' => null,
         'circuit_breaking_settings' => null,
         'comments' => null,
+        'connection_pool_settings' => null,
         'create_time' => null,
         'gateway_id' => null,
         'id' => null,
@@ -96,6 +98,7 @@ class ItemForListUpstreamsOutput implements ModelInterface, ArrayAccess
         'backend_target_list' => 'BackendTargetList',
         'circuit_breaking_settings' => 'CircuitBreakingSettings',
         'comments' => 'Comments',
+        'connection_pool_settings' => 'ConnectionPoolSettings',
         'create_time' => 'CreateTime',
         'gateway_id' => 'GatewayId',
         'id' => 'Id',
@@ -118,6 +121,7 @@ class ItemForListUpstreamsOutput implements ModelInterface, ArrayAccess
         'backend_target_list' => 'setBackendTargetList',
         'circuit_breaking_settings' => 'setCircuitBreakingSettings',
         'comments' => 'setComments',
+        'connection_pool_settings' => 'setConnectionPoolSettings',
         'create_time' => 'setCreateTime',
         'gateway_id' => 'setGatewayId',
         'id' => 'setId',
@@ -140,6 +144,7 @@ class ItemForListUpstreamsOutput implements ModelInterface, ArrayAccess
         'backend_target_list' => 'getBackendTargetList',
         'circuit_breaking_settings' => 'getCircuitBreakingSettings',
         'comments' => 'getComments',
+        'connection_pool_settings' => 'getConnectionPoolSettings',
         'create_time' => 'getCreateTime',
         'gateway_id' => 'getGatewayId',
         'id' => 'getId',
@@ -216,6 +221,7 @@ class ItemForListUpstreamsOutput implements ModelInterface, ArrayAccess
         $this->container['backend_target_list'] = isset($data['backend_target_list']) ? $data['backend_target_list'] : null;
         $this->container['circuit_breaking_settings'] = isset($data['circuit_breaking_settings']) ? $data['circuit_breaking_settings'] : null;
         $this->container['comments'] = isset($data['comments']) ? $data['comments'] : null;
+        $this->container['connection_pool_settings'] = isset($data['connection_pool_settings']) ? $data['connection_pool_settings'] : null;
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
         $this->container['gateway_id'] = isset($data['gateway_id']) ? $data['gateway_id'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
@@ -321,6 +327,30 @@ class ItemForListUpstreamsOutput implements ModelInterface, ArrayAccess
     public function setComments($comments)
     {
         $this->container['comments'] = $comments;
+
+        return $this;
+    }
+
+    /**
+     * Gets connection_pool_settings
+     *
+     * @return \Volcengine\Apig\Model\ConnectionPoolSettingsForListUpstreamsOutput
+     */
+    public function getConnectionPoolSettings()
+    {
+        return $this->container['connection_pool_settings'];
+    }
+
+    /**
+     * Sets connection_pool_settings
+     *
+     * @param \Volcengine\Apig\Model\ConnectionPoolSettingsForListUpstreamsOutput $connection_pool_settings connection_pool_settings
+     *
+     * @return $this
+     */
+    public function setConnectionPoolSettings($connection_pool_settings)
+    {
+        $this->container['connection_pool_settings'] = $connection_pool_settings;
 
         return $this;
     }

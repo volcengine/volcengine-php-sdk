@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
+class CheckConsumerCredentialExistRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'FilterForListGatewayServicesInput';
+    protected static $swaggerModelName = 'CheckConsumerCredentialExistRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,11 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'name' => 'string',
-        'service_type' => 'string',
-        'status' => 'string'
+        'credential_type' => 'string',
+        'gateway_id' => 'string',
+        'hmac_auth_credential' => '\Volcengine\Apig\Model\HmacAuthCredentialForCheckConsumerCredentialExistInput',
+        'key_auth_credential' => '\Volcengine\Apig\Model\KeyAuthCredentialForCheckConsumerCredentialExistInput',
+        'oauth2_credential' => '\Volcengine\Apig\Model\Oauth2CredentialForCheckConsumerCredentialExistInput'
     ];
 
     /**
@@ -39,9 +41,11 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'name' => null,
-        'service_type' => null,
-        'status' => null
+        'credential_type' => null,
+        'gateway_id' => null,
+        'hmac_auth_credential' => null,
+        'key_auth_credential' => null,
+        'oauth2_credential' => null
     ];
 
     /**
@@ -71,9 +75,11 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'Name',
-        'service_type' => 'ServiceType',
-        'status' => 'Status'
+        'credential_type' => 'CredentialType',
+        'gateway_id' => 'GatewayId',
+        'hmac_auth_credential' => 'HmacAuthCredential',
+        'key_auth_credential' => 'KeyAuthCredential',
+        'oauth2_credential' => 'Oauth2Credential'
     ];
 
     /**
@@ -82,9 +88,11 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-        'service_type' => 'setServiceType',
-        'status' => 'setStatus'
+        'credential_type' => 'setCredentialType',
+        'gateway_id' => 'setGatewayId',
+        'hmac_auth_credential' => 'setHmacAuthCredential',
+        'key_auth_credential' => 'setKeyAuthCredential',
+        'oauth2_credential' => 'setOauth2Credential'
     ];
 
     /**
@@ -93,9 +101,11 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-        'service_type' => 'getServiceType',
-        'status' => 'getStatus'
+        'credential_type' => 'getCredentialType',
+        'gateway_id' => 'getGatewayId',
+        'hmac_auth_credential' => 'getHmacAuthCredential',
+        'key_auth_credential' => 'getKeyAuthCredential',
+        'oauth2_credential' => 'getOauth2Credential'
     ];
 
     /**
@@ -158,9 +168,11 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['service_type'] = isset($data['service_type']) ? $data['service_type'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['credential_type'] = isset($data['credential_type']) ? $data['credential_type'] : null;
+        $this->container['gateway_id'] = isset($data['gateway_id']) ? $data['gateway_id'] : null;
+        $this->container['hmac_auth_credential'] = isset($data['hmac_auth_credential']) ? $data['hmac_auth_credential'] : null;
+        $this->container['key_auth_credential'] = isset($data['key_auth_credential']) ? $data['key_auth_credential'] : null;
+        $this->container['oauth2_credential'] = isset($data['oauth2_credential']) ? $data['oauth2_credential'] : null;
     }
 
     /**
@@ -172,6 +184,12 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['credential_type'] === null) {
+            $invalidProperties[] = "'credential_type' can't be null";
+        }
+        if ($this->container['gateway_id'] === null) {
+            $invalidProperties[] = "'gateway_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -188,73 +206,121 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets name
+     * Gets credential_type
      *
      * @return string
      */
-    public function getName()
+    public function getCredentialType()
     {
-        return $this->container['name'];
+        return $this->container['credential_type'];
     }
 
     /**
-     * Sets name
+     * Sets credential_type
      *
-     * @param string $name name
+     * @param string $credential_type credential_type
      *
      * @return $this
      */
-    public function setName($name)
+    public function setCredentialType($credential_type)
     {
-        $this->container['name'] = $name;
+        $this->container['credential_type'] = $credential_type;
 
         return $this;
     }
 
     /**
-     * Gets service_type
+     * Gets gateway_id
      *
      * @return string
      */
-    public function getServiceType()
+    public function getGatewayId()
     {
-        return $this->container['service_type'];
+        return $this->container['gateway_id'];
     }
 
     /**
-     * Sets service_type
+     * Sets gateway_id
      *
-     * @param string $service_type service_type
+     * @param string $gateway_id gateway_id
      *
      * @return $this
      */
-    public function setServiceType($service_type)
+    public function setGatewayId($gateway_id)
     {
-        $this->container['service_type'] = $service_type;
+        $this->container['gateway_id'] = $gateway_id;
 
         return $this;
     }
 
     /**
-     * Gets status
+     * Gets hmac_auth_credential
      *
-     * @return string
+     * @return \Volcengine\Apig\Model\HmacAuthCredentialForCheckConsumerCredentialExistInput
      */
-    public function getStatus()
+    public function getHmacAuthCredential()
     {
-        return $this->container['status'];
+        return $this->container['hmac_auth_credential'];
     }
 
     /**
-     * Sets status
+     * Sets hmac_auth_credential
      *
-     * @param string $status status
+     * @param \Volcengine\Apig\Model\HmacAuthCredentialForCheckConsumerCredentialExistInput $hmac_auth_credential hmac_auth_credential
      *
      * @return $this
      */
-    public function setStatus($status)
+    public function setHmacAuthCredential($hmac_auth_credential)
     {
-        $this->container['status'] = $status;
+        $this->container['hmac_auth_credential'] = $hmac_auth_credential;
+
+        return $this;
+    }
+
+    /**
+     * Gets key_auth_credential
+     *
+     * @return \Volcengine\Apig\Model\KeyAuthCredentialForCheckConsumerCredentialExistInput
+     */
+    public function getKeyAuthCredential()
+    {
+        return $this->container['key_auth_credential'];
+    }
+
+    /**
+     * Sets key_auth_credential
+     *
+     * @param \Volcengine\Apig\Model\KeyAuthCredentialForCheckConsumerCredentialExistInput $key_auth_credential key_auth_credential
+     *
+     * @return $this
+     */
+    public function setKeyAuthCredential($key_auth_credential)
+    {
+        $this->container['key_auth_credential'] = $key_auth_credential;
+
+        return $this;
+    }
+
+    /**
+     * Gets oauth2_credential
+     *
+     * @return \Volcengine\Apig\Model\Oauth2CredentialForCheckConsumerCredentialExistInput
+     */
+    public function getOauth2Credential()
+    {
+        return $this->container['oauth2_credential'];
+    }
+
+    /**
+     * Sets oauth2_credential
+     *
+     * @param \Volcengine\Apig\Model\Oauth2CredentialForCheckConsumerCredentialExistInput $oauth2_credential oauth2_credential
+     *
+     * @return $this
+     */
+    public function setOauth2Credential($oauth2_credential)
+    {
+        $this->container['oauth2_credential'] = $oauth2_credential;
 
         return $this;
     }

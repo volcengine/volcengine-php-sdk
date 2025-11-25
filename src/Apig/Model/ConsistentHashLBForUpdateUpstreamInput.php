@@ -29,6 +29,7 @@ class ConsistentHashLBForUpdateUpstreamInput implements ModelInterface, ArrayAcc
       */
     protected static $swaggerTypes = [
         'http_cookie' => '\Volcengine\Apig\Model\HTTPCookieForUpdateUpstreamInput',
+        'hash_balance_factor' => 'int',
         'hash_key' => 'string',
         'http_header_name' => 'string',
         'http_query_parameter_name' => 'string',
@@ -42,6 +43,7 @@ class ConsistentHashLBForUpdateUpstreamInput implements ModelInterface, ArrayAcc
       */
     protected static $swaggerFormats = [
         'http_cookie' => null,
+        'hash_balance_factor' => 'int32',
         'hash_key' => null,
         'http_header_name' => null,
         'http_query_parameter_name' => null,
@@ -76,6 +78,7 @@ class ConsistentHashLBForUpdateUpstreamInput implements ModelInterface, ArrayAcc
      */
     protected static $attributeMap = [
         'http_cookie' => 'HTTPCookie',
+        'hash_balance_factor' => 'HashBalanceFactor',
         'hash_key' => 'HashKey',
         'http_header_name' => 'HttpHeaderName',
         'http_query_parameter_name' => 'HttpQueryParameterName',
@@ -89,6 +92,7 @@ class ConsistentHashLBForUpdateUpstreamInput implements ModelInterface, ArrayAcc
      */
     protected static $setters = [
         'http_cookie' => 'setHttpCookie',
+        'hash_balance_factor' => 'setHashBalanceFactor',
         'hash_key' => 'setHashKey',
         'http_header_name' => 'setHttpHeaderName',
         'http_query_parameter_name' => 'setHttpQueryParameterName',
@@ -102,6 +106,7 @@ class ConsistentHashLBForUpdateUpstreamInput implements ModelInterface, ArrayAcc
      */
     protected static $getters = [
         'http_cookie' => 'getHttpCookie',
+        'hash_balance_factor' => 'getHashBalanceFactor',
         'hash_key' => 'getHashKey',
         'http_header_name' => 'getHttpHeaderName',
         'http_query_parameter_name' => 'getHttpQueryParameterName',
@@ -169,6 +174,7 @@ class ConsistentHashLBForUpdateUpstreamInput implements ModelInterface, ArrayAcc
     public function __construct(array $data = null)
     {
         $this->container['http_cookie'] = isset($data['http_cookie']) ? $data['http_cookie'] : null;
+        $this->container['hash_balance_factor'] = isset($data['hash_balance_factor']) ? $data['hash_balance_factor'] : null;
         $this->container['hash_key'] = isset($data['hash_key']) ? $data['hash_key'] : null;
         $this->container['http_header_name'] = isset($data['http_header_name']) ? $data['http_header_name'] : null;
         $this->container['http_query_parameter_name'] = isset($data['http_query_parameter_name']) ? $data['http_query_parameter_name'] : null;
@@ -219,6 +225,30 @@ class ConsistentHashLBForUpdateUpstreamInput implements ModelInterface, ArrayAcc
     public function setHttpCookie($http_cookie)
     {
         $this->container['http_cookie'] = $http_cookie;
+
+        return $this;
+    }
+
+    /**
+     * Gets hash_balance_factor
+     *
+     * @return int
+     */
+    public function getHashBalanceFactor()
+    {
+        return $this->container['hash_balance_factor'];
+    }
+
+    /**
+     * Sets hash_balance_factor
+     *
+     * @param int $hash_balance_factor hash_balance_factor
+     *
+     * @return $this
+     */
+    public function setHashBalanceFactor($hash_balance_factor)
+    {
+        $this->container['hash_balance_factor'] = $hash_balance_factor;
 
         return $this;
     }

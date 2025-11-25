@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
+class CheckCustomDomainExistRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'FilterForListGatewayServicesInput';
+    protected static $swaggerModelName = 'CheckCustomDomainExistRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,8 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'name' => 'string',
-        'service_type' => 'string',
-        'status' => 'string'
+        'domain' => 'string',
+        'gateway_id' => 'string'
     ];
 
     /**
@@ -39,9 +38,8 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'name' => null,
-        'service_type' => null,
-        'status' => null
+        'domain' => null,
+        'gateway_id' => null
     ];
 
     /**
@@ -71,9 +69,8 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'Name',
-        'service_type' => 'ServiceType',
-        'status' => 'Status'
+        'domain' => 'Domain',
+        'gateway_id' => 'GatewayId'
     ];
 
     /**
@@ -82,9 +79,8 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-        'service_type' => 'setServiceType',
-        'status' => 'setStatus'
+        'domain' => 'setDomain',
+        'gateway_id' => 'setGatewayId'
     ];
 
     /**
@@ -93,9 +89,8 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-        'service_type' => 'getServiceType',
-        'status' => 'getStatus'
+        'domain' => 'getDomain',
+        'gateway_id' => 'getGatewayId'
     ];
 
     /**
@@ -158,9 +153,8 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['service_type'] = isset($data['service_type']) ? $data['service_type'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['domain'] = isset($data['domain']) ? $data['domain'] : null;
+        $this->container['gateway_id'] = isset($data['gateway_id']) ? $data['gateway_id'] : null;
     }
 
     /**
@@ -172,6 +166,12 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['domain'] === null) {
+            $invalidProperties[] = "'domain' can't be null";
+        }
+        if ($this->container['gateway_id'] === null) {
+            $invalidProperties[] = "'gateway_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -188,73 +188,49 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets name
+     * Gets domain
      *
      * @return string
      */
-    public function getName()
+    public function getDomain()
     {
-        return $this->container['name'];
+        return $this->container['domain'];
     }
 
     /**
-     * Sets name
+     * Sets domain
      *
-     * @param string $name name
+     * @param string $domain domain
      *
      * @return $this
      */
-    public function setName($name)
+    public function setDomain($domain)
     {
-        $this->container['name'] = $name;
+        $this->container['domain'] = $domain;
 
         return $this;
     }
 
     /**
-     * Gets service_type
+     * Gets gateway_id
      *
      * @return string
      */
-    public function getServiceType()
+    public function getGatewayId()
     {
-        return $this->container['service_type'];
+        return $this->container['gateway_id'];
     }
 
     /**
-     * Sets service_type
+     * Sets gateway_id
      *
-     * @param string $service_type service_type
+     * @param string $gateway_id gateway_id
      *
      * @return $this
      */
-    public function setServiceType($service_type)
+    public function setGatewayId($gateway_id)
     {
-        $this->container['service_type'] = $service_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets status
-     *
-     * @return string
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param string $status status
-     *
-     * @return $this
-     */
-    public function setStatus($status)
-    {
-        $this->container['status'] = $status;
+        $this->container['gateway_id'] = $gateway_id;
 
         return $this;
     }

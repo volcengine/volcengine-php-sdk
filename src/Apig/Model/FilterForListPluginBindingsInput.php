@@ -29,6 +29,7 @@ class FilterForListPluginBindingsInput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'enable' => 'bool',
+        'gateway_id' => 'string',
         'name' => 'string',
         'scope' => 'string'
     ];
@@ -40,6 +41,7 @@ class FilterForListPluginBindingsInput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'enable' => null,
+        'gateway_id' => null,
         'name' => null,
         'scope' => null
     ];
@@ -72,6 +74,7 @@ class FilterForListPluginBindingsInput implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'enable' => 'Enable',
+        'gateway_id' => 'GatewayId',
         'name' => 'Name',
         'scope' => 'Scope'
     ];
@@ -83,6 +86,7 @@ class FilterForListPluginBindingsInput implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'enable' => 'setEnable',
+        'gateway_id' => 'setGatewayId',
         'name' => 'setName',
         'scope' => 'setScope'
     ];
@@ -94,6 +98,7 @@ class FilterForListPluginBindingsInput implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'enable' => 'getEnable',
+        'gateway_id' => 'getGatewayId',
         'name' => 'getName',
         'scope' => 'getScope'
     ];
@@ -159,6 +164,7 @@ class FilterForListPluginBindingsInput implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['enable'] = isset($data['enable']) ? $data['enable'] : null;
+        $this->container['gateway_id'] = isset($data['gateway_id']) ? $data['gateway_id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['scope'] = isset($data['scope']) ? $data['scope'] : null;
     }
@@ -207,6 +213,30 @@ class FilterForListPluginBindingsInput implements ModelInterface, ArrayAccess
     public function setEnable($enable)
     {
         $this->container['enable'] = $enable;
+
+        return $this;
+    }
+
+    /**
+     * Gets gateway_id
+     *
+     * @return string
+     */
+    public function getGatewayId()
+    {
+        return $this->container['gateway_id'];
+    }
+
+    /**
+     * Sets gateway_id
+     *
+     * @param string $gateway_id gateway_id
+     *
+     * @return $this
+     */
+    public function setGatewayId($gateway_id)
+    {
+        $this->container['gateway_id'] = $gateway_id;
 
         return $this;
     }

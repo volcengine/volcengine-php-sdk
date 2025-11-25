@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
+class TagForCreateGatewayServiceInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'FilterForListGatewayServicesInput';
+    protected static $swaggerModelName = 'TagForCreateGatewayServiceInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,8 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'name' => 'string',
-        'service_type' => 'string',
-        'status' => 'string'
+        'key' => 'string',
+        'value' => 'string'
     ];
 
     /**
@@ -39,9 +38,8 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'name' => null,
-        'service_type' => null,
-        'status' => null
+        'key' => null,
+        'value' => null
     ];
 
     /**
@@ -71,9 +69,8 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'Name',
-        'service_type' => 'ServiceType',
-        'status' => 'Status'
+        'key' => 'Key',
+        'value' => 'Value'
     ];
 
     /**
@@ -82,9 +79,8 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-        'service_type' => 'setServiceType',
-        'status' => 'setStatus'
+        'key' => 'setKey',
+        'value' => 'setValue'
     ];
 
     /**
@@ -93,9 +89,8 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-        'service_type' => 'getServiceType',
-        'status' => 'getStatus'
+        'key' => 'getKey',
+        'value' => 'getValue'
     ];
 
     /**
@@ -158,9 +153,8 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['service_type'] = isset($data['service_type']) ? $data['service_type'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['key'] = isset($data['key']) ? $data['key'] : null;
+        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 
     /**
@@ -188,73 +182,49 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets name
+     * Gets key
      *
      * @return string
      */
-    public function getName()
+    public function getKey()
     {
-        return $this->container['name'];
+        return $this->container['key'];
     }
 
     /**
-     * Sets name
+     * Sets key
      *
-     * @param string $name name
+     * @param string $key key
      *
      * @return $this
      */
-    public function setName($name)
+    public function setKey($key)
     {
-        $this->container['name'] = $name;
+        $this->container['key'] = $key;
 
         return $this;
     }
 
     /**
-     * Gets service_type
+     * Gets value
      *
      * @return string
      */
-    public function getServiceType()
+    public function getValue()
     {
-        return $this->container['service_type'];
+        return $this->container['value'];
     }
 
     /**
-     * Sets service_type
+     * Sets value
      *
-     * @param string $service_type service_type
+     * @param string $value value
      *
      * @return $this
      */
-    public function setServiceType($service_type)
+    public function setValue($value)
     {
-        $this->container['service_type'] = $service_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets status
-     *
-     * @return string
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param string $status status
-     *
-     * @return $this
-     */
-    public function setStatus($status)
-    {
-        $this->container['status'] = $status;
+        $this->container['value'] = $value;
 
         return $this;
     }

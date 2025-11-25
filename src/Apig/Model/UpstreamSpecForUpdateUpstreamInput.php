@@ -29,6 +29,7 @@ class UpstreamSpecForUpdateUpstreamInput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'ai_provider' => '\Volcengine\Apig\Model\AIProviderForUpdateUpstreamInput',
+        'domain' => '\Volcengine\Apig\Model\DomainForUpdateUpstreamInput',
         'ecs_list' => '\Volcengine\Apig\Model\EcsListForUpdateUpstreamInput[]',
         'k8_s_service' => '\Volcengine\Apig\Model\K8SServiceForUpdateUpstreamInput',
         'nacos_service' => '\Volcengine\Apig\Model\NacosServiceForUpdateUpstreamInput',
@@ -42,6 +43,7 @@ class UpstreamSpecForUpdateUpstreamInput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'ai_provider' => null,
+        'domain' => null,
         'ecs_list' => null,
         'k8_s_service' => null,
         'nacos_service' => null,
@@ -76,6 +78,7 @@ class UpstreamSpecForUpdateUpstreamInput implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'ai_provider' => 'AIProvider',
+        'domain' => 'Domain',
         'ecs_list' => 'EcsList',
         'k8_s_service' => 'K8SService',
         'nacos_service' => 'NacosService',
@@ -89,6 +92,7 @@ class UpstreamSpecForUpdateUpstreamInput implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'ai_provider' => 'setAiProvider',
+        'domain' => 'setDomain',
         'ecs_list' => 'setEcsList',
         'k8_s_service' => 'setK8SService',
         'nacos_service' => 'setNacosService',
@@ -102,6 +106,7 @@ class UpstreamSpecForUpdateUpstreamInput implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'ai_provider' => 'getAiProvider',
+        'domain' => 'getDomain',
         'ecs_list' => 'getEcsList',
         'k8_s_service' => 'getK8SService',
         'nacos_service' => 'getNacosService',
@@ -169,6 +174,7 @@ class UpstreamSpecForUpdateUpstreamInput implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['ai_provider'] = isset($data['ai_provider']) ? $data['ai_provider'] : null;
+        $this->container['domain'] = isset($data['domain']) ? $data['domain'] : null;
         $this->container['ecs_list'] = isset($data['ecs_list']) ? $data['ecs_list'] : null;
         $this->container['k8_s_service'] = isset($data['k8_s_service']) ? $data['k8_s_service'] : null;
         $this->container['nacos_service'] = isset($data['nacos_service']) ? $data['nacos_service'] : null;
@@ -219,6 +225,30 @@ class UpstreamSpecForUpdateUpstreamInput implements ModelInterface, ArrayAccess
     public function setAiProvider($ai_provider)
     {
         $this->container['ai_provider'] = $ai_provider;
+
+        return $this;
+    }
+
+    /**
+     * Gets domain
+     *
+     * @return \Volcengine\Apig\Model\DomainForUpdateUpstreamInput
+     */
+    public function getDomain()
+    {
+        return $this->container['domain'];
+    }
+
+    /**
+     * Sets domain
+     *
+     * @param \Volcengine\Apig\Model\DomainForUpdateUpstreamInput $domain domain
+     *
+     * @return $this
+     */
+    public function setDomain($domain)
+    {
+        $this->container['domain'] = $domain;
 
         return $this;
     }
