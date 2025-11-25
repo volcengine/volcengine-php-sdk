@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class StartScreenShotRequest implements ModelInterface, ArrayAccess
+class StartRecordingRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class StartScreenShotRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'StartScreenShotRequest';
+    protected static $swaggerModelName = 'StartRecordingRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -29,16 +29,10 @@ class StartScreenShotRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'duration_limit' => 'int',
-        'file_type' => 'string',
-        'interval' => 'int',
-        'pod_id_list' => 'string[]',
+        'is_saved_on_pod' => 'bool',
+        'pod_id' => 'string',
         'product_id' => 'string',
-        'quality' => 'int',
-        'rotation' => 'int',
-        'round_id' => 'string',
-        'scale' => 'double',
-        'tos_info' => '\Volcengine\Acep\Model\TosInfoForStartScreenShotInput',
-        'upload_type' => 'int'
+        'round_id' => 'string'
     ];
 
     /**
@@ -48,16 +42,10 @@ class StartScreenShotRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'duration_limit' => 'int32',
-        'file_type' => null,
-        'interval' => 'int32',
-        'pod_id_list' => null,
+        'is_saved_on_pod' => null,
+        'pod_id' => null,
         'product_id' => null,
-        'quality' => 'int32',
-        'rotation' => 'int32',
-        'round_id' => null,
-        'scale' => 'double',
-        'tos_info' => null,
-        'upload_type' => 'int32'
+        'round_id' => null
     ];
 
     /**
@@ -88,16 +76,10 @@ class StartScreenShotRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'duration_limit' => 'DurationLimit',
-        'file_type' => 'FileType',
-        'interval' => 'Interval',
-        'pod_id_list' => 'PodIdList',
+        'is_saved_on_pod' => 'IsSavedOnPod',
+        'pod_id' => 'PodId',
         'product_id' => 'ProductId',
-        'quality' => 'Quality',
-        'rotation' => 'Rotation',
-        'round_id' => 'RoundId',
-        'scale' => 'Scale',
-        'tos_info' => 'TosInfo',
-        'upload_type' => 'UploadType'
+        'round_id' => 'RoundId'
     ];
 
     /**
@@ -107,16 +89,10 @@ class StartScreenShotRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'duration_limit' => 'setDurationLimit',
-        'file_type' => 'setFileType',
-        'interval' => 'setInterval',
-        'pod_id_list' => 'setPodIdList',
+        'is_saved_on_pod' => 'setIsSavedOnPod',
+        'pod_id' => 'setPodId',
         'product_id' => 'setProductId',
-        'quality' => 'setQuality',
-        'rotation' => 'setRotation',
-        'round_id' => 'setRoundId',
-        'scale' => 'setScale',
-        'tos_info' => 'setTosInfo',
-        'upload_type' => 'setUploadType'
+        'round_id' => 'setRoundId'
     ];
 
     /**
@@ -126,16 +102,10 @@ class StartScreenShotRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'duration_limit' => 'getDurationLimit',
-        'file_type' => 'getFileType',
-        'interval' => 'getInterval',
-        'pod_id_list' => 'getPodIdList',
+        'is_saved_on_pod' => 'getIsSavedOnPod',
+        'pod_id' => 'getPodId',
         'product_id' => 'getProductId',
-        'quality' => 'getQuality',
-        'rotation' => 'getRotation',
-        'round_id' => 'getRoundId',
-        'scale' => 'getScale',
-        'tos_info' => 'getTosInfo',
-        'upload_type' => 'getUploadType'
+        'round_id' => 'getRoundId'
     ];
 
     /**
@@ -199,16 +169,10 @@ class StartScreenShotRequest implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['duration_limit'] = isset($data['duration_limit']) ? $data['duration_limit'] : null;
-        $this->container['file_type'] = isset($data['file_type']) ? $data['file_type'] : null;
-        $this->container['interval'] = isset($data['interval']) ? $data['interval'] : null;
-        $this->container['pod_id_list'] = isset($data['pod_id_list']) ? $data['pod_id_list'] : null;
+        $this->container['is_saved_on_pod'] = isset($data['is_saved_on_pod']) ? $data['is_saved_on_pod'] : null;
+        $this->container['pod_id'] = isset($data['pod_id']) ? $data['pod_id'] : null;
         $this->container['product_id'] = isset($data['product_id']) ? $data['product_id'] : null;
-        $this->container['quality'] = isset($data['quality']) ? $data['quality'] : null;
-        $this->container['rotation'] = isset($data['rotation']) ? $data['rotation'] : null;
         $this->container['round_id'] = isset($data['round_id']) ? $data['round_id'] : null;
-        $this->container['scale'] = isset($data['scale']) ? $data['scale'] : null;
-        $this->container['tos_info'] = isset($data['tos_info']) ? $data['tos_info'] : null;
-        $this->container['upload_type'] = isset($data['upload_type']) ? $data['upload_type'] : null;
     }
 
     /**
@@ -220,8 +184,17 @@ class StartScreenShotRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['duration_limit'] === null) {
+            $invalidProperties[] = "'duration_limit' can't be null";
+        }
+        if ($this->container['pod_id'] === null) {
+            $invalidProperties[] = "'pod_id' can't be null";
+        }
         if ($this->container['product_id'] === null) {
             $invalidProperties[] = "'product_id' can't be null";
+        }
+        if ($this->container['round_id'] === null) {
+            $invalidProperties[] = "'round_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -263,73 +236,49 @@ class StartScreenShotRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets file_type
+     * Gets is_saved_on_pod
+     *
+     * @return bool
+     */
+    public function getIsSavedOnPod()
+    {
+        return $this->container['is_saved_on_pod'];
+    }
+
+    /**
+     * Sets is_saved_on_pod
+     *
+     * @param bool $is_saved_on_pod is_saved_on_pod
+     *
+     * @return $this
+     */
+    public function setIsSavedOnPod($is_saved_on_pod)
+    {
+        $this->container['is_saved_on_pod'] = $is_saved_on_pod;
+
+        return $this;
+    }
+
+    /**
+     * Gets pod_id
      *
      * @return string
      */
-    public function getFileType()
+    public function getPodId()
     {
-        return $this->container['file_type'];
+        return $this->container['pod_id'];
     }
 
     /**
-     * Sets file_type
+     * Sets pod_id
      *
-     * @param string $file_type file_type
+     * @param string $pod_id pod_id
      *
      * @return $this
      */
-    public function setFileType($file_type)
+    public function setPodId($pod_id)
     {
-        $this->container['file_type'] = $file_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets interval
-     *
-     * @return int
-     */
-    public function getInterval()
-    {
-        return $this->container['interval'];
-    }
-
-    /**
-     * Sets interval
-     *
-     * @param int $interval interval
-     *
-     * @return $this
-     */
-    public function setInterval($interval)
-    {
-        $this->container['interval'] = $interval;
-
-        return $this;
-    }
-
-    /**
-     * Gets pod_id_list
-     *
-     * @return string[]
-     */
-    public function getPodIdList()
-    {
-        return $this->container['pod_id_list'];
-    }
-
-    /**
-     * Sets pod_id_list
-     *
-     * @param string[] $pod_id_list pod_id_list
-     *
-     * @return $this
-     */
-    public function setPodIdList($pod_id_list)
-    {
-        $this->container['pod_id_list'] = $pod_id_list;
+        $this->container['pod_id'] = $pod_id;
 
         return $this;
     }
@@ -359,54 +308,6 @@ class StartScreenShotRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets quality
-     *
-     * @return int
-     */
-    public function getQuality()
-    {
-        return $this->container['quality'];
-    }
-
-    /**
-     * Sets quality
-     *
-     * @param int $quality quality
-     *
-     * @return $this
-     */
-    public function setQuality($quality)
-    {
-        $this->container['quality'] = $quality;
-
-        return $this;
-    }
-
-    /**
-     * Gets rotation
-     *
-     * @return int
-     */
-    public function getRotation()
-    {
-        return $this->container['rotation'];
-    }
-
-    /**
-     * Sets rotation
-     *
-     * @param int $rotation rotation
-     *
-     * @return $this
-     */
-    public function setRotation($rotation)
-    {
-        $this->container['rotation'] = $rotation;
-
-        return $this;
-    }
-
-    /**
      * Gets round_id
      *
      * @return string
@@ -426,78 +327,6 @@ class StartScreenShotRequest implements ModelInterface, ArrayAccess
     public function setRoundId($round_id)
     {
         $this->container['round_id'] = $round_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets scale
-     *
-     * @return double
-     */
-    public function getScale()
-    {
-        return $this->container['scale'];
-    }
-
-    /**
-     * Sets scale
-     *
-     * @param double $scale scale
-     *
-     * @return $this
-     */
-    public function setScale($scale)
-    {
-        $this->container['scale'] = $scale;
-
-        return $this;
-    }
-
-    /**
-     * Gets tos_info
-     *
-     * @return \Volcengine\Acep\Model\TosInfoForStartScreenShotInput
-     */
-    public function getTosInfo()
-    {
-        return $this->container['tos_info'];
-    }
-
-    /**
-     * Sets tos_info
-     *
-     * @param \Volcengine\Acep\Model\TosInfoForStartScreenShotInput $tos_info tos_info
-     *
-     * @return $this
-     */
-    public function setTosInfo($tos_info)
-    {
-        $this->container['tos_info'] = $tos_info;
-
-        return $this;
-    }
-
-    /**
-     * Gets upload_type
-     *
-     * @return int
-     */
-    public function getUploadType()
-    {
-        return $this->container['upload_type'];
-    }
-
-    /**
-     * Sets upload_type
-     *
-     * @param int $upload_type upload_type
-     *
-     * @return $this
-     */
-    public function setUploadType($upload_type)
-    {
-        $this->container['upload_type'] = $upload_type;
 
         return $this;
     }
