@@ -31,7 +31,6 @@ class RetryPolicySettingForGetRouteOutput implements ModelInterface, ArrayAccess
         'attempts' => 'int',
         'enable' => 'bool',
         'http_codes' => 'string[]',
-        'per_try_timeout' => 'int',
         'retry_on' => 'string[]'
     ];
 
@@ -44,7 +43,6 @@ class RetryPolicySettingForGetRouteOutput implements ModelInterface, ArrayAccess
         'attempts' => 'int64',
         'enable' => null,
         'http_codes' => null,
-        'per_try_timeout' => 'int64',
         'retry_on' => null
     ];
 
@@ -78,7 +76,6 @@ class RetryPolicySettingForGetRouteOutput implements ModelInterface, ArrayAccess
         'attempts' => 'Attempts',
         'enable' => 'Enable',
         'http_codes' => 'HttpCodes',
-        'per_try_timeout' => 'PerTryTimeout',
         'retry_on' => 'RetryOn'
     ];
 
@@ -91,7 +88,6 @@ class RetryPolicySettingForGetRouteOutput implements ModelInterface, ArrayAccess
         'attempts' => 'setAttempts',
         'enable' => 'setEnable',
         'http_codes' => 'setHttpCodes',
-        'per_try_timeout' => 'setPerTryTimeout',
         'retry_on' => 'setRetryOn'
     ];
 
@@ -104,7 +100,6 @@ class RetryPolicySettingForGetRouteOutput implements ModelInterface, ArrayAccess
         'attempts' => 'getAttempts',
         'enable' => 'getEnable',
         'http_codes' => 'getHttpCodes',
-        'per_try_timeout' => 'getPerTryTimeout',
         'retry_on' => 'getRetryOn'
     ];
 
@@ -171,7 +166,6 @@ class RetryPolicySettingForGetRouteOutput implements ModelInterface, ArrayAccess
         $this->container['attempts'] = isset($data['attempts']) ? $data['attempts'] : null;
         $this->container['enable'] = isset($data['enable']) ? $data['enable'] : null;
         $this->container['http_codes'] = isset($data['http_codes']) ? $data['http_codes'] : null;
-        $this->container['per_try_timeout'] = isset($data['per_try_timeout']) ? $data['per_try_timeout'] : null;
         $this->container['retry_on'] = isset($data['retry_on']) ? $data['retry_on'] : null;
     }
 
@@ -267,30 +261,6 @@ class RetryPolicySettingForGetRouteOutput implements ModelInterface, ArrayAccess
     public function setHttpCodes($http_codes)
     {
         $this->container['http_codes'] = $http_codes;
-
-        return $this;
-    }
-
-    /**
-     * Gets per_try_timeout
-     *
-     * @return int
-     */
-    public function getPerTryTimeout()
-    {
-        return $this->container['per_try_timeout'];
-    }
-
-    /**
-     * Sets per_try_timeout
-     *
-     * @param int $per_try_timeout per_try_timeout
-     *
-     * @return $this
-     */
-    public function setPerTryTimeout($per_try_timeout)
-    {
-        $this->container['per_try_timeout'] = $per_try_timeout;
 
         return $this;
     }

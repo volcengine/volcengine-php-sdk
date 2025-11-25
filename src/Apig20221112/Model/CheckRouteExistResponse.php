@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class RetryPolicySettingForUpdateRouteInput implements ModelInterface, ArrayAccess
+class CheckRouteExistResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class RetryPolicySettingForUpdateRouteInput implements ModelInterface, ArrayAcce
       *
       * @var string
       */
-    protected static $swaggerModelName = 'RetryPolicySettingForUpdateRouteInput';
+    protected static $swaggerModelName = 'CheckRouteExistResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,8 @@ class RetryPolicySettingForUpdateRouteInput implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'attempts' => 'int',
-        'enable' => 'bool',
-        'http_codes' => 'string[]',
-        'retry_on' => 'string[]'
+        'exist' => 'bool',
+        'id' => 'string'
     ];
 
     /**
@@ -40,10 +38,8 @@ class RetryPolicySettingForUpdateRouteInput implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'attempts' => 'int64',
-        'enable' => null,
-        'http_codes' => null,
-        'retry_on' => null
+        'exist' => null,
+        'id' => null
     ];
 
     /**
@@ -73,10 +69,8 @@ class RetryPolicySettingForUpdateRouteInput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $attributeMap = [
-        'attempts' => 'Attempts',
-        'enable' => 'Enable',
-        'http_codes' => 'HttpCodes',
-        'retry_on' => 'RetryOn'
+        'exist' => 'Exist',
+        'id' => 'Id'
     ];
 
     /**
@@ -85,10 +79,8 @@ class RetryPolicySettingForUpdateRouteInput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $setters = [
-        'attempts' => 'setAttempts',
-        'enable' => 'setEnable',
-        'http_codes' => 'setHttpCodes',
-        'retry_on' => 'setRetryOn'
+        'exist' => 'setExist',
+        'id' => 'setId'
     ];
 
     /**
@@ -97,10 +89,8 @@ class RetryPolicySettingForUpdateRouteInput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $getters = [
-        'attempts' => 'getAttempts',
-        'enable' => 'getEnable',
-        'http_codes' => 'getHttpCodes',
-        'retry_on' => 'getRetryOn'
+        'exist' => 'getExist',
+        'id' => 'getId'
     ];
 
     /**
@@ -163,10 +153,8 @@ class RetryPolicySettingForUpdateRouteInput implements ModelInterface, ArrayAcce
      */
     public function __construct(array $data = null)
     {
-        $this->container['attempts'] = isset($data['attempts']) ? $data['attempts'] : null;
-        $this->container['enable'] = isset($data['enable']) ? $data['enable'] : null;
-        $this->container['http_codes'] = isset($data['http_codes']) ? $data['http_codes'] : null;
-        $this->container['retry_on'] = isset($data['retry_on']) ? $data['retry_on'] : null;
+        $this->container['exist'] = isset($data['exist']) ? $data['exist'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
     }
 
     /**
@@ -194,97 +182,49 @@ class RetryPolicySettingForUpdateRouteInput implements ModelInterface, ArrayAcce
 
 
     /**
-     * Gets attempts
-     *
-     * @return int
-     */
-    public function getAttempts()
-    {
-        return $this->container['attempts'];
-    }
-
-    /**
-     * Sets attempts
-     *
-     * @param int $attempts attempts
-     *
-     * @return $this
-     */
-    public function setAttempts($attempts)
-    {
-        $this->container['attempts'] = $attempts;
-
-        return $this;
-    }
-
-    /**
-     * Gets enable
+     * Gets exist
      *
      * @return bool
      */
-    public function getEnable()
+    public function getExist()
     {
-        return $this->container['enable'];
+        return $this->container['exist'];
     }
 
     /**
-     * Sets enable
+     * Sets exist
      *
-     * @param bool $enable enable
+     * @param bool $exist exist
      *
      * @return $this
      */
-    public function setEnable($enable)
+    public function setExist($exist)
     {
-        $this->container['enable'] = $enable;
+        $this->container['exist'] = $exist;
 
         return $this;
     }
 
     /**
-     * Gets http_codes
+     * Gets id
      *
-     * @return string[]
+     * @return string
      */
-    public function getHttpCodes()
+    public function getId()
     {
-        return $this->container['http_codes'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets http_codes
+     * Sets id
      *
-     * @param string[] $http_codes http_codes
+     * @param string $id id
      *
      * @return $this
      */
-    public function setHttpCodes($http_codes)
+    public function setId($id)
     {
-        $this->container['http_codes'] = $http_codes;
-
-        return $this;
-    }
-
-    /**
-     * Gets retry_on
-     *
-     * @return string[]
-     */
-    public function getRetryOn()
-    {
-        return $this->container['retry_on'];
-    }
-
-    /**
-     * Sets retry_on
-     *
-     * @param string[] $retry_on retry_on
-     *
-     * @return $this
-     */
-    public function setRetryOn($retry_on)
-    {
-        $this->container['retry_on'] = $retry_on;
+        $this->container['id'] = $id;
 
         return $this;
     }

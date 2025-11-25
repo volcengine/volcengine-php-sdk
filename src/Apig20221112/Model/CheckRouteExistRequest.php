@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class RetryPolicySettingForUpdateRouteInput implements ModelInterface, ArrayAccess
+class CheckRouteExistRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class RetryPolicySettingForUpdateRouteInput implements ModelInterface, ArrayAcce
       *
       * @var string
       */
-    protected static $swaggerModelName = 'RetryPolicySettingForUpdateRouteInput';
+    protected static $swaggerModelName = 'CheckRouteExistRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,8 @@ class RetryPolicySettingForUpdateRouteInput implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'attempts' => 'int',
-        'enable' => 'bool',
-        'http_codes' => 'string[]',
-        'retry_on' => 'string[]'
+        'name' => 'string',
+        'service_id' => 'string'
     ];
 
     /**
@@ -40,10 +38,8 @@ class RetryPolicySettingForUpdateRouteInput implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'attempts' => 'int64',
-        'enable' => null,
-        'http_codes' => null,
-        'retry_on' => null
+        'name' => null,
+        'service_id' => null
     ];
 
     /**
@@ -73,10 +69,8 @@ class RetryPolicySettingForUpdateRouteInput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $attributeMap = [
-        'attempts' => 'Attempts',
-        'enable' => 'Enable',
-        'http_codes' => 'HttpCodes',
-        'retry_on' => 'RetryOn'
+        'name' => 'Name',
+        'service_id' => 'ServiceId'
     ];
 
     /**
@@ -85,10 +79,8 @@ class RetryPolicySettingForUpdateRouteInput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $setters = [
-        'attempts' => 'setAttempts',
-        'enable' => 'setEnable',
-        'http_codes' => 'setHttpCodes',
-        'retry_on' => 'setRetryOn'
+        'name' => 'setName',
+        'service_id' => 'setServiceId'
     ];
 
     /**
@@ -97,10 +89,8 @@ class RetryPolicySettingForUpdateRouteInput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $getters = [
-        'attempts' => 'getAttempts',
-        'enable' => 'getEnable',
-        'http_codes' => 'getHttpCodes',
-        'retry_on' => 'getRetryOn'
+        'name' => 'getName',
+        'service_id' => 'getServiceId'
     ];
 
     /**
@@ -163,10 +153,8 @@ class RetryPolicySettingForUpdateRouteInput implements ModelInterface, ArrayAcce
      */
     public function __construct(array $data = null)
     {
-        $this->container['attempts'] = isset($data['attempts']) ? $data['attempts'] : null;
-        $this->container['enable'] = isset($data['enable']) ? $data['enable'] : null;
-        $this->container['http_codes'] = isset($data['http_codes']) ? $data['http_codes'] : null;
-        $this->container['retry_on'] = isset($data['retry_on']) ? $data['retry_on'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['service_id'] = isset($data['service_id']) ? $data['service_id'] : null;
     }
 
     /**
@@ -178,6 +166,12 @@ class RetryPolicySettingForUpdateRouteInput implements ModelInterface, ArrayAcce
     {
         $invalidProperties = [];
 
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
+        if ($this->container['service_id'] === null) {
+            $invalidProperties[] = "'service_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -194,97 +188,49 @@ class RetryPolicySettingForUpdateRouteInput implements ModelInterface, ArrayAcce
 
 
     /**
-     * Gets attempts
+     * Gets name
      *
-     * @return int
+     * @return string
      */
-    public function getAttempts()
+    public function getName()
     {
-        return $this->container['attempts'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets attempts
+     * Sets name
      *
-     * @param int $attempts attempts
+     * @param string $name name
      *
      * @return $this
      */
-    public function setAttempts($attempts)
+    public function setName($name)
     {
-        $this->container['attempts'] = $attempts;
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets enable
+     * Gets service_id
      *
-     * @return bool
+     * @return string
      */
-    public function getEnable()
+    public function getServiceId()
     {
-        return $this->container['enable'];
+        return $this->container['service_id'];
     }
 
     /**
-     * Sets enable
+     * Sets service_id
      *
-     * @param bool $enable enable
+     * @param string $service_id service_id
      *
      * @return $this
      */
-    public function setEnable($enable)
+    public function setServiceId($service_id)
     {
-        $this->container['enable'] = $enable;
-
-        return $this;
-    }
-
-    /**
-     * Gets http_codes
-     *
-     * @return string[]
-     */
-    public function getHttpCodes()
-    {
-        return $this->container['http_codes'];
-    }
-
-    /**
-     * Sets http_codes
-     *
-     * @param string[] $http_codes http_codes
-     *
-     * @return $this
-     */
-    public function setHttpCodes($http_codes)
-    {
-        $this->container['http_codes'] = $http_codes;
-
-        return $this;
-    }
-
-    /**
-     * Gets retry_on
-     *
-     * @return string[]
-     */
-    public function getRetryOn()
-    {
-        return $this->container['retry_on'];
-    }
-
-    /**
-     * Sets retry_on
-     *
-     * @param string[] $retry_on retry_on
-     *
-     * @return $this
-     */
-    public function setRetryOn($retry_on)
-    {
-        $this->container['retry_on'] = $retry_on;
+        $this->container['service_id'] = $service_id;
 
         return $this;
     }
