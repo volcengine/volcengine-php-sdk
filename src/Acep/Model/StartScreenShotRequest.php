@@ -35,6 +35,7 @@ class StartScreenShotRequest implements ModelInterface, ArrayAccess
         'product_id' => 'string',
         'quality' => 'int',
         'rotation' => 'int',
+        'round_id' => 'string',
         'scale' => 'double',
         'tos_info' => '\Volcengine\Acep\Model\TosInfoForStartScreenShotInput',
         'upload_type' => 'int'
@@ -53,6 +54,7 @@ class StartScreenShotRequest implements ModelInterface, ArrayAccess
         'product_id' => null,
         'quality' => 'int32',
         'rotation' => 'int32',
+        'round_id' => null,
         'scale' => 'double',
         'tos_info' => null,
         'upload_type' => 'int32'
@@ -92,6 +94,7 @@ class StartScreenShotRequest implements ModelInterface, ArrayAccess
         'product_id' => 'ProductId',
         'quality' => 'Quality',
         'rotation' => 'Rotation',
+        'round_id' => 'RoundId',
         'scale' => 'Scale',
         'tos_info' => 'TosInfo',
         'upload_type' => 'UploadType'
@@ -110,6 +113,7 @@ class StartScreenShotRequest implements ModelInterface, ArrayAccess
         'product_id' => 'setProductId',
         'quality' => 'setQuality',
         'rotation' => 'setRotation',
+        'round_id' => 'setRoundId',
         'scale' => 'setScale',
         'tos_info' => 'setTosInfo',
         'upload_type' => 'setUploadType'
@@ -128,6 +132,7 @@ class StartScreenShotRequest implements ModelInterface, ArrayAccess
         'product_id' => 'getProductId',
         'quality' => 'getQuality',
         'rotation' => 'getRotation',
+        'round_id' => 'getRoundId',
         'scale' => 'getScale',
         'tos_info' => 'getTosInfo',
         'upload_type' => 'getUploadType'
@@ -200,6 +205,7 @@ class StartScreenShotRequest implements ModelInterface, ArrayAccess
         $this->container['product_id'] = isset($data['product_id']) ? $data['product_id'] : null;
         $this->container['quality'] = isset($data['quality']) ? $data['quality'] : null;
         $this->container['rotation'] = isset($data['rotation']) ? $data['rotation'] : null;
+        $this->container['round_id'] = isset($data['round_id']) ? $data['round_id'] : null;
         $this->container['scale'] = isset($data['scale']) ? $data['scale'] : null;
         $this->container['tos_info'] = isset($data['tos_info']) ? $data['tos_info'] : null;
         $this->container['upload_type'] = isset($data['upload_type']) ? $data['upload_type'] : null;
@@ -396,6 +402,30 @@ class StartScreenShotRequest implements ModelInterface, ArrayAccess
     public function setRotation($rotation)
     {
         $this->container['rotation'] = $rotation;
+
+        return $this;
+    }
+
+    /**
+     * Gets round_id
+     *
+     * @return string
+     */
+    public function getRoundId()
+    {
+        return $this->container['round_id'];
+    }
+
+    /**
+     * Sets round_id
+     *
+     * @param string $round_id round_id
+     *
+     * @return $this
+     */
+    public function setRoundId($round_id)
+    {
+        $this->container['round_id'] = $round_id;
 
         return $this;
     }

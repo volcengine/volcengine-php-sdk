@@ -28,6 +28,7 @@ class GetRevisionResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'async_task_config' => '\Volcengine\Vefaas\Model\AsyncTaskConfigForGetRevisionOutput',
         'code_size' => 'int',
         'code_size_limit' => 'int',
         'creation_time' => 'string',
@@ -63,6 +64,7 @@ class GetRevisionResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'async_task_config' => null,
         'code_size' => 'int32',
         'code_size_limit' => 'int32',
         'creation_time' => null,
@@ -119,6 +121,7 @@ class GetRevisionResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'async_task_config' => 'AsyncTaskConfig',
         'code_size' => 'CodeSize',
         'code_size_limit' => 'CodeSizeLimit',
         'creation_time' => 'CreationTime',
@@ -154,6 +157,7 @@ class GetRevisionResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'async_task_config' => 'setAsyncTaskConfig',
         'code_size' => 'setCodeSize',
         'code_size_limit' => 'setCodeSizeLimit',
         'creation_time' => 'setCreationTime',
@@ -189,6 +193,7 @@ class GetRevisionResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'async_task_config' => 'getAsyncTaskConfig',
         'code_size' => 'getCodeSize',
         'code_size_limit' => 'getCodeSizeLimit',
         'creation_time' => 'getCreationTime',
@@ -278,6 +283,7 @@ class GetRevisionResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['async_task_config'] = isset($data['async_task_config']) ? $data['async_task_config'] : null;
         $this->container['code_size'] = isset($data['code_size']) ? $data['code_size'] : null;
         $this->container['code_size_limit'] = isset($data['code_size_limit']) ? $data['code_size_limit'] : null;
         $this->container['creation_time'] = isset($data['creation_time']) ? $data['creation_time'] : null;
@@ -330,6 +336,30 @@ class GetRevisionResponse implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets async_task_config
+     *
+     * @return \Volcengine\Vefaas\Model\AsyncTaskConfigForGetRevisionOutput
+     */
+    public function getAsyncTaskConfig()
+    {
+        return $this->container['async_task_config'];
+    }
+
+    /**
+     * Sets async_task_config
+     *
+     * @param \Volcengine\Vefaas\Model\AsyncTaskConfigForGetRevisionOutput $async_task_config async_task_config
+     *
+     * @return $this
+     */
+    public function setAsyncTaskConfig($async_task_config)
+    {
+        $this->container['async_task_config'] = $async_task_config;
+
+        return $this;
+    }
 
     /**
      * Gets code_size

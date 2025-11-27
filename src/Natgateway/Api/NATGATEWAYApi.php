@@ -17,6 +17,7 @@ use Volcengine\Common\Configuration;
 use Volcengine\Common\HeaderSelector;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\Utils;
+use Volcengine\Common\ApiClient;
 
 class NATGATEWAYApi
 {
@@ -36,18 +37,27 @@ class NATGATEWAYApi
     protected $headerSelector;
 
     /**
-     * @param ClientInterface $client
-     * @param Configuration   $config
-     * @param HeaderSelector  $selector
+     * @var ApiClient
+     */
+    protected $apiClient;
+
+    /**
+     * @param ClientInterface|null $client
+     * @param Configuration|null $config
+     * @param HeaderSelector|null $selector
+     * @param ApiClient|null $apiClient
      */
     public function __construct(
         ClientInterface $client = null,
-        Configuration $config = null,
-        HeaderSelector $selector = null
-    ) {
+        Configuration   $config = null,
+        HeaderSelector  $selector = null,
+        ApiClient       $apiClient = null
+    )
+    {
         $this->client = $client ?: new Client();
         $this->config = $config ?: new Configuration();
         $this->headerSelector = $selector ?: new HeaderSelector();
+        $this->apiClient = $apiClient ?: new ApiClient($this->config, $this->client);
     }
 
     /**
@@ -69,54 +79,7 @@ class NATGATEWAYApi
         $returnType = '\Volcengine\Natgateway\Model\CreateDnatEntryResponse';
         $request = $this->createDnatEntryRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function createDnatEntryAsync($body)
@@ -133,50 +96,7 @@ class NATGATEWAYApi
     {
         $returnType = '\Volcengine\Natgateway\Model\CreateDnatEntryResponse';
         $request = $this->createDnatEntryRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function createDnatEntryRequest($body)
@@ -214,31 +134,7 @@ class NATGATEWAYApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function createNatGateway($body)
@@ -252,54 +148,7 @@ class NATGATEWAYApi
         $returnType = '\Volcengine\Natgateway\Model\CreateNatGatewayResponse';
         $request = $this->createNatGatewayRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function createNatGatewayAsync($body)
@@ -316,50 +165,7 @@ class NATGATEWAYApi
     {
         $returnType = '\Volcengine\Natgateway\Model\CreateNatGatewayResponse';
         $request = $this->createNatGatewayRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function createNatGatewayRequest($body)
@@ -397,31 +203,7 @@ class NATGATEWAYApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function createNatIp($body)
@@ -435,54 +217,7 @@ class NATGATEWAYApi
         $returnType = '\Volcengine\Natgateway\Model\CreateNatIpResponse';
         $request = $this->createNatIpRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function createNatIpAsync($body)
@@ -499,50 +234,7 @@ class NATGATEWAYApi
     {
         $returnType = '\Volcengine\Natgateway\Model\CreateNatIpResponse';
         $request = $this->createNatIpRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function createNatIpRequest($body)
@@ -580,31 +272,7 @@ class NATGATEWAYApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function createNatIpLimitRule($body)
@@ -618,54 +286,7 @@ class NATGATEWAYApi
         $returnType = '\Volcengine\Natgateway\Model\CreateNatIpLimitRuleResponse';
         $request = $this->createNatIpLimitRuleRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function createNatIpLimitRuleAsync($body)
@@ -682,50 +303,7 @@ class NATGATEWAYApi
     {
         $returnType = '\Volcengine\Natgateway\Model\CreateNatIpLimitRuleResponse';
         $request = $this->createNatIpLimitRuleRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function createNatIpLimitRuleRequest($body)
@@ -763,31 +341,7 @@ class NATGATEWAYApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function createSnatEntry($body)
@@ -801,54 +355,7 @@ class NATGATEWAYApi
         $returnType = '\Volcengine\Natgateway\Model\CreateSnatEntryResponse';
         $request = $this->createSnatEntryRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function createSnatEntryAsync($body)
@@ -865,50 +372,7 @@ class NATGATEWAYApi
     {
         $returnType = '\Volcengine\Natgateway\Model\CreateSnatEntryResponse';
         $request = $this->createSnatEntryRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function createSnatEntryRequest($body)
@@ -946,31 +410,7 @@ class NATGATEWAYApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function deleteDnatEntry($body)
@@ -984,54 +424,7 @@ class NATGATEWAYApi
         $returnType = '\Volcengine\Natgateway\Model\DeleteDnatEntryResponse';
         $request = $this->deleteDnatEntryRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function deleteDnatEntryAsync($body)
@@ -1048,50 +441,7 @@ class NATGATEWAYApi
     {
         $returnType = '\Volcengine\Natgateway\Model\DeleteDnatEntryResponse';
         $request = $this->deleteDnatEntryRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function deleteDnatEntryRequest($body)
@@ -1129,31 +479,7 @@ class NATGATEWAYApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function deleteNatGateway($body)
@@ -1167,54 +493,7 @@ class NATGATEWAYApi
         $returnType = '\Volcengine\Natgateway\Model\DeleteNatGatewayResponse';
         $request = $this->deleteNatGatewayRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function deleteNatGatewayAsync($body)
@@ -1231,50 +510,7 @@ class NATGATEWAYApi
     {
         $returnType = '\Volcengine\Natgateway\Model\DeleteNatGatewayResponse';
         $request = $this->deleteNatGatewayRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function deleteNatGatewayRequest($body)
@@ -1312,31 +548,7 @@ class NATGATEWAYApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function deleteNatIp($body)
@@ -1350,54 +562,7 @@ class NATGATEWAYApi
         $returnType = '\Volcengine\Natgateway\Model\DeleteNatIpResponse';
         $request = $this->deleteNatIpRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function deleteNatIpAsync($body)
@@ -1414,50 +579,7 @@ class NATGATEWAYApi
     {
         $returnType = '\Volcengine\Natgateway\Model\DeleteNatIpResponse';
         $request = $this->deleteNatIpRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function deleteNatIpRequest($body)
@@ -1495,31 +617,7 @@ class NATGATEWAYApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function deleteNatIpLimitRule($body)
@@ -1533,54 +631,7 @@ class NATGATEWAYApi
         $returnType = '\Volcengine\Natgateway\Model\DeleteNatIpLimitRuleResponse';
         $request = $this->deleteNatIpLimitRuleRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function deleteNatIpLimitRuleAsync($body)
@@ -1597,50 +648,7 @@ class NATGATEWAYApi
     {
         $returnType = '\Volcengine\Natgateway\Model\DeleteNatIpLimitRuleResponse';
         $request = $this->deleteNatIpLimitRuleRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function deleteNatIpLimitRuleRequest($body)
@@ -1678,31 +686,7 @@ class NATGATEWAYApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function deleteSnatEntry($body)
@@ -1716,54 +700,7 @@ class NATGATEWAYApi
         $returnType = '\Volcengine\Natgateway\Model\DeleteSnatEntryResponse';
         $request = $this->deleteSnatEntryRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function deleteSnatEntryAsync($body)
@@ -1780,50 +717,7 @@ class NATGATEWAYApi
     {
         $returnType = '\Volcengine\Natgateway\Model\DeleteSnatEntryResponse';
         $request = $this->deleteSnatEntryRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function deleteSnatEntryRequest($body)
@@ -1861,31 +755,7 @@ class NATGATEWAYApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function describeDnatEntries($body)
@@ -1899,54 +769,7 @@ class NATGATEWAYApi
         $returnType = '\Volcengine\Natgateway\Model\DescribeDnatEntriesResponse';
         $request = $this->describeDnatEntriesRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function describeDnatEntriesAsync($body)
@@ -1963,50 +786,7 @@ class NATGATEWAYApi
     {
         $returnType = '\Volcengine\Natgateway\Model\DescribeDnatEntriesResponse';
         $request = $this->describeDnatEntriesRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function describeDnatEntriesRequest($body)
@@ -2044,31 +824,7 @@ class NATGATEWAYApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function describeDnatEntryAttributes($body)
@@ -2082,54 +838,7 @@ class NATGATEWAYApi
         $returnType = '\Volcengine\Natgateway\Model\DescribeDnatEntryAttributesResponse';
         $request = $this->describeDnatEntryAttributesRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function describeDnatEntryAttributesAsync($body)
@@ -2146,50 +855,7 @@ class NATGATEWAYApi
     {
         $returnType = '\Volcengine\Natgateway\Model\DescribeDnatEntryAttributesResponse';
         $request = $this->describeDnatEntryAttributesRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function describeDnatEntryAttributesRequest($body)
@@ -2227,31 +893,7 @@ class NATGATEWAYApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function describeNatGatewayAttributes($body)
@@ -2265,54 +907,7 @@ class NATGATEWAYApi
         $returnType = '\Volcengine\Natgateway\Model\DescribeNatGatewayAttributesResponse';
         $request = $this->describeNatGatewayAttributesRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function describeNatGatewayAttributesAsync($body)
@@ -2329,50 +924,7 @@ class NATGATEWAYApi
     {
         $returnType = '\Volcengine\Natgateway\Model\DescribeNatGatewayAttributesResponse';
         $request = $this->describeNatGatewayAttributesRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function describeNatGatewayAttributesRequest($body)
@@ -2410,31 +962,7 @@ class NATGATEWAYApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function describeNatGateways($body)
@@ -2448,54 +976,7 @@ class NATGATEWAYApi
         $returnType = '\Volcengine\Natgateway\Model\DescribeNatGatewaysResponse';
         $request = $this->describeNatGatewaysRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function describeNatGatewaysAsync($body)
@@ -2512,50 +993,7 @@ class NATGATEWAYApi
     {
         $returnType = '\Volcengine\Natgateway\Model\DescribeNatGatewaysResponse';
         $request = $this->describeNatGatewaysRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function describeNatGatewaysRequest($body)
@@ -2593,31 +1031,7 @@ class NATGATEWAYApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function describeNatIpAttributes($body)
@@ -2631,54 +1045,7 @@ class NATGATEWAYApi
         $returnType = '\Volcengine\Natgateway\Model\DescribeNatIpAttributesResponse';
         $request = $this->describeNatIpAttributesRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function describeNatIpAttributesAsync($body)
@@ -2695,50 +1062,7 @@ class NATGATEWAYApi
     {
         $returnType = '\Volcengine\Natgateway\Model\DescribeNatIpAttributesResponse';
         $request = $this->describeNatIpAttributesRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function describeNatIpAttributesRequest($body)
@@ -2776,31 +1100,7 @@ class NATGATEWAYApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function describeNatIpLimitRules($body)
@@ -2814,54 +1114,7 @@ class NATGATEWAYApi
         $returnType = '\Volcengine\Natgateway\Model\DescribeNatIpLimitRulesResponse';
         $request = $this->describeNatIpLimitRulesRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function describeNatIpLimitRulesAsync($body)
@@ -2878,50 +1131,7 @@ class NATGATEWAYApi
     {
         $returnType = '\Volcengine\Natgateway\Model\DescribeNatIpLimitRulesResponse';
         $request = $this->describeNatIpLimitRulesRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function describeNatIpLimitRulesRequest($body)
@@ -2959,31 +1169,7 @@ class NATGATEWAYApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function describeNatIps($body)
@@ -2997,54 +1183,7 @@ class NATGATEWAYApi
         $returnType = '\Volcengine\Natgateway\Model\DescribeNatIpsResponse';
         $request = $this->describeNatIpsRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function describeNatIpsAsync($body)
@@ -3061,50 +1200,7 @@ class NATGATEWAYApi
     {
         $returnType = '\Volcengine\Natgateway\Model\DescribeNatIpsResponse';
         $request = $this->describeNatIpsRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function describeNatIpsRequest($body)
@@ -3142,31 +1238,7 @@ class NATGATEWAYApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function describeSnatEntries($body)
@@ -3180,54 +1252,7 @@ class NATGATEWAYApi
         $returnType = '\Volcengine\Natgateway\Model\DescribeSnatEntriesResponse';
         $request = $this->describeSnatEntriesRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function describeSnatEntriesAsync($body)
@@ -3244,50 +1269,7 @@ class NATGATEWAYApi
     {
         $returnType = '\Volcengine\Natgateway\Model\DescribeSnatEntriesResponse';
         $request = $this->describeSnatEntriesRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function describeSnatEntriesRequest($body)
@@ -3325,31 +1307,7 @@ class NATGATEWAYApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function describeSnatEntryAttributes($body)
@@ -3363,54 +1321,7 @@ class NATGATEWAYApi
         $returnType = '\Volcengine\Natgateway\Model\DescribeSnatEntryAttributesResponse';
         $request = $this->describeSnatEntryAttributesRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function describeSnatEntryAttributesAsync($body)
@@ -3427,50 +1338,7 @@ class NATGATEWAYApi
     {
         $returnType = '\Volcengine\Natgateway\Model\DescribeSnatEntryAttributesResponse';
         $request = $this->describeSnatEntryAttributesRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function describeSnatEntryAttributesRequest($body)
@@ -3508,31 +1376,7 @@ class NATGATEWAYApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function listNatGatewayAvailableZones($body)
@@ -3546,54 +1390,7 @@ class NATGATEWAYApi
         $returnType = '\Volcengine\Natgateway\Model\ListNatGatewayAvailableZonesResponse';
         $request = $this->listNatGatewayAvailableZonesRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function listNatGatewayAvailableZonesAsync($body)
@@ -3610,50 +1407,7 @@ class NATGATEWAYApi
     {
         $returnType = '\Volcengine\Natgateway\Model\ListNatGatewayAvailableZonesResponse';
         $request = $this->listNatGatewayAvailableZonesRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function listNatGatewayAvailableZonesRequest($body)
@@ -3691,31 +1445,7 @@ class NATGATEWAYApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function listTagsForResources($body)
@@ -3729,54 +1459,7 @@ class NATGATEWAYApi
         $returnType = '\Volcengine\Natgateway\Model\ListTagsForResourcesResponse';
         $request = $this->listTagsForResourcesRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function listTagsForResourcesAsync($body)
@@ -3793,50 +1476,7 @@ class NATGATEWAYApi
     {
         $returnType = '\Volcengine\Natgateway\Model\ListTagsForResourcesResponse';
         $request = $this->listTagsForResourcesRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function listTagsForResourcesRequest($body)
@@ -3874,31 +1514,7 @@ class NATGATEWAYApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function modifyDnatEntryAttributes($body)
@@ -3912,54 +1528,7 @@ class NATGATEWAYApi
         $returnType = '\Volcengine\Natgateway\Model\ModifyDnatEntryAttributesResponse';
         $request = $this->modifyDnatEntryAttributesRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function modifyDnatEntryAttributesAsync($body)
@@ -3976,50 +1545,7 @@ class NATGATEWAYApi
     {
         $returnType = '\Volcengine\Natgateway\Model\ModifyDnatEntryAttributesResponse';
         $request = $this->modifyDnatEntryAttributesRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function modifyDnatEntryAttributesRequest($body)
@@ -4057,31 +1583,7 @@ class NATGATEWAYApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function modifyNatGatewayAttributes($body)
@@ -4095,54 +1597,7 @@ class NATGATEWAYApi
         $returnType = '\Volcengine\Natgateway\Model\ModifyNatGatewayAttributesResponse';
         $request = $this->modifyNatGatewayAttributesRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function modifyNatGatewayAttributesAsync($body)
@@ -4159,50 +1614,7 @@ class NATGATEWAYApi
     {
         $returnType = '\Volcengine\Natgateway\Model\ModifyNatGatewayAttributesResponse';
         $request = $this->modifyNatGatewayAttributesRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function modifyNatGatewayAttributesRequest($body)
@@ -4240,31 +1652,7 @@ class NATGATEWAYApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function modifyNatIpAttributes($body)
@@ -4278,54 +1666,7 @@ class NATGATEWAYApi
         $returnType = '\Volcengine\Natgateway\Model\ModifyNatIpAttributesResponse';
         $request = $this->modifyNatIpAttributesRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function modifyNatIpAttributesAsync($body)
@@ -4342,50 +1683,7 @@ class NATGATEWAYApi
     {
         $returnType = '\Volcengine\Natgateway\Model\ModifyNatIpAttributesResponse';
         $request = $this->modifyNatIpAttributesRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function modifyNatIpAttributesRequest($body)
@@ -4423,31 +1721,7 @@ class NATGATEWAYApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function modifyNatIpLimitRuleAttributes($body)
@@ -4461,54 +1735,7 @@ class NATGATEWAYApi
         $returnType = '\Volcengine\Natgateway\Model\ModifyNatIpLimitRuleAttributesResponse';
         $request = $this->modifyNatIpLimitRuleAttributesRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function modifyNatIpLimitRuleAttributesAsync($body)
@@ -4525,50 +1752,7 @@ class NATGATEWAYApi
     {
         $returnType = '\Volcengine\Natgateway\Model\ModifyNatIpLimitRuleAttributesResponse';
         $request = $this->modifyNatIpLimitRuleAttributesRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function modifyNatIpLimitRuleAttributesRequest($body)
@@ -4606,31 +1790,7 @@ class NATGATEWAYApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function modifySnatEntryAttributes($body)
@@ -4644,54 +1804,7 @@ class NATGATEWAYApi
         $returnType = '\Volcengine\Natgateway\Model\ModifySnatEntryAttributesResponse';
         $request = $this->modifySnatEntryAttributesRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function modifySnatEntryAttributesAsync($body)
@@ -4708,50 +1821,7 @@ class NATGATEWAYApi
     {
         $returnType = '\Volcengine\Natgateway\Model\ModifySnatEntryAttributesResponse';
         $request = $this->modifySnatEntryAttributesRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function modifySnatEntryAttributesRequest($body)
@@ -4789,31 +1859,7 @@ class NATGATEWAYApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function tagResources($body)
@@ -4827,54 +1873,7 @@ class NATGATEWAYApi
         $returnType = '\Volcengine\Natgateway\Model\TagResourcesResponse';
         $request = $this->tagResourcesRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function tagResourcesAsync($body)
@@ -4891,50 +1890,7 @@ class NATGATEWAYApi
     {
         $returnType = '\Volcengine\Natgateway\Model\TagResourcesResponse';
         $request = $this->tagResourcesRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function tagResourcesRequest($body)
@@ -4972,31 +1928,7 @@ class NATGATEWAYApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function untagResources($body)
@@ -5010,54 +1942,7 @@ class NATGATEWAYApi
         $returnType = '\Volcengine\Natgateway\Model\UntagResourcesResponse';
         $request = $this->untagResourcesRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function untagResourcesAsync($body)
@@ -5074,50 +1959,7 @@ class NATGATEWAYApi
     {
         $returnType = '\Volcengine\Natgateway\Model\UntagResourcesResponse';
         $request = $this->untagResourcesRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function untagResourcesRequest($body)
@@ -5155,31 +1997,7 @@ class NATGATEWAYApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
 

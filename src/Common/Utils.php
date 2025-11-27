@@ -39,12 +39,15 @@ class Utils
         return $result;
     }
 
-    public static function signv4($ak, $sk, $region, $service, $body, $query, $method, $path, $headers)
+    public static function signv4($ak, $sk, $region, $service, $body, $query, $method, $path, $headers, $token = null)
     {
         if ($path === '') {
             $path = '/';
         }
 
+        if ($token != null) {
+            $headers['X-Security-Token'] = $token;
+        }
         $ldt = gmdate('Ymd\THis\Z');
         $sdt = substr($ldt, 0, 8);
         $headers['X-Date'] = $ldt;

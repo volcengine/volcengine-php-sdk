@@ -2,17 +2,34 @@
 
 namespace Volcengine\Common;
 
+use Volcengine\Common\endpoint\providers\DefaultEndpointProvider;
+
 class Configuration
 {
     private static $defaultConfiguration;
 
-    protected $region = '';
+    protected $region = 'cn-beijing';
+
+    protected $schema = 'https';
+    protected $endpointProvider;
+    protected $customBootstrapRegion = '';
+    protected $useDualStack = false;
+    protected $autoRetry = false;
+    protected $credentialProvider;
+    protected $runtimeOptions = '';
+
+    protected $sessionToken = '';
 
     protected $ak = '';
 
     protected $sk = '';
 
-    protected $host = 'open.volcengineapi.com';
+    protected $host = '';
+
+    protected $verifySsl = true;
+
+    protected $connectTimeout = 30;
+    protected $readTimeout = 30;
 
     protected $userAgent = 'volcstack-php-sdk/1.0.87';
 
@@ -43,6 +60,7 @@ class Configuration
     public function __construct()
     {
         $this->tempFolderPath = sys_get_temp_dir();
+        $this->endpointProvider = new DefaultEndpointProvider();
     }
 
     /**
@@ -102,6 +120,20 @@ class Configuration
         return $this->sk;
     }
 
+    public function setSessionToken($sessionToken)
+    {
+        $this->sessionToken = $sessionToken;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSessionToken()
+    {
+        return $this->sessionToken;
+    }
+
     /**
      * @param string $region
      */
@@ -117,6 +149,104 @@ class Configuration
     public function getRegion()
     {
         return $this->region;
+    }
+
+    /**
+     * @param string $schema
+     */
+    public function setSchema($schema)
+    {
+        $this->schema = $schema;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSchema()
+    {
+        return $this->schema;
+    }
+
+    public function setEndpointProvider($endpointProvider)
+    {
+        $this->endpointProvider = $endpointProvider;
+        return $this;
+    }
+
+    public function getEndpointProvider()
+    {
+        return $this->endpointProvider;
+    }
+
+    public function getCustomBootstrapRegion()
+    {
+        return $this->customBootstrapRegion;
+    }
+
+    public function setCustomBootstrapRegion($customBootstrapRegion)
+    {
+        $this->customBootstrapRegion = $customBootstrapRegion;
+        return $this;
+    }
+
+    public function getUseDualStack()
+    {
+        return $this->useDualStack;
+    }
+
+    public function setUseDualStack($useDualStack)
+    {
+        $this->useDualStack = $useDualStack;
+        return $this;
+    }
+
+    public function getAutoRetry()
+    {
+        return $this->autoRetry;
+    }
+
+    public function getCredentialProvider()
+    {
+        return $this->credentialProvider;
+    }
+
+    public function getRuntimeOptions()
+    {
+        return $this->runtimeOptions;
+    }
+
+    public function setVerifySsl($verifySsl)
+    {
+        $this->verifySsl = $verifySsl;
+        return $this;
+    }
+
+    public function getVerifySsl()
+    {
+        return $this->verifySsl;
+    }
+
+    public function setReadTimeout($time)
+    {
+        $this->readTimeout = $time;
+        return $this;
+    }
+
+    public function getReadTimeout()
+    {
+        return $this->readTimeout;
+    }
+
+    public function setConnectTimeout($time)
+    {
+        $this->connectTimeout = $time;
+        return $this;
+    }
+
+    public function getConnectTimeout()
+    {
+        return $this->connectTimeout;
     }
 
     /**
@@ -205,9 +335,7 @@ class Configuration
      */
     public static function getDefaultConfiguration()
     {
-        if (self::$defaultConfiguration === null) {
-            self::$defaultConfiguration = new Configuration();
-        }
+        self::$defaultConfiguration = new Configuration();
 
         return self::$defaultConfiguration;
     }

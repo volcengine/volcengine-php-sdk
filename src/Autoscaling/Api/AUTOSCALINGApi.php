@@ -17,6 +17,7 @@ use Volcengine\Common\Configuration;
 use Volcengine\Common\HeaderSelector;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\Utils;
+use Volcengine\Common\ApiClient;
 
 class AUTOSCALINGApi
 {
@@ -36,18 +37,27 @@ class AUTOSCALINGApi
     protected $headerSelector;
 
     /**
-     * @param ClientInterface $client
-     * @param Configuration   $config
-     * @param HeaderSelector  $selector
+     * @var ApiClient
+     */
+    protected $apiClient;
+
+    /**
+     * @param ClientInterface|null $client
+     * @param Configuration|null $config
+     * @param HeaderSelector|null $selector
+     * @param ApiClient|null $apiClient
      */
     public function __construct(
         ClientInterface $client = null,
-        Configuration $config = null,
-        HeaderSelector $selector = null
-    ) {
+        Configuration   $config = null,
+        HeaderSelector  $selector = null,
+        ApiClient       $apiClient = null
+    )
+    {
         $this->client = $client ?: new Client();
         $this->config = $config ?: new Configuration();
         $this->headerSelector = $selector ?: new HeaderSelector();
+        $this->apiClient = $apiClient ?: new ApiClient($this->config, $this->client);
     }
 
     /**
@@ -69,54 +79,7 @@ class AUTOSCALINGApi
         $returnType = '\Volcengine\Autoscaling\Model\AttachInstancesResponse';
         $request = $this->attachInstancesRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function attachInstancesAsync($body)
@@ -133,50 +96,7 @@ class AUTOSCALINGApi
     {
         $returnType = '\Volcengine\Autoscaling\Model\AttachInstancesResponse';
         $request = $this->attachInstancesRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function attachInstancesRequest($body)
@@ -214,31 +134,7 @@ class AUTOSCALINGApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function attachServerGroups($body)
@@ -252,54 +148,7 @@ class AUTOSCALINGApi
         $returnType = '\Volcengine\Autoscaling\Model\AttachServerGroupsResponse';
         $request = $this->attachServerGroupsRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function attachServerGroupsAsync($body)
@@ -316,50 +165,7 @@ class AUTOSCALINGApi
     {
         $returnType = '\Volcengine\Autoscaling\Model\AttachServerGroupsResponse';
         $request = $this->attachServerGroupsRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function attachServerGroupsRequest($body)
@@ -397,31 +203,7 @@ class AUTOSCALINGApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function completeLifecycleActivity($body)
@@ -435,54 +217,7 @@ class AUTOSCALINGApi
         $returnType = '\Volcengine\Autoscaling\Model\CompleteLifecycleActivityResponse';
         $request = $this->completeLifecycleActivityRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function completeLifecycleActivityAsync($body)
@@ -499,50 +234,7 @@ class AUTOSCALINGApi
     {
         $returnType = '\Volcengine\Autoscaling\Model\CompleteLifecycleActivityResponse';
         $request = $this->completeLifecycleActivityRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function completeLifecycleActivityRequest($body)
@@ -580,31 +272,7 @@ class AUTOSCALINGApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function createLifecycleHook($body)
@@ -618,54 +286,7 @@ class AUTOSCALINGApi
         $returnType = '\Volcengine\Autoscaling\Model\CreateLifecycleHookResponse';
         $request = $this->createLifecycleHookRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function createLifecycleHookAsync($body)
@@ -682,50 +303,7 @@ class AUTOSCALINGApi
     {
         $returnType = '\Volcengine\Autoscaling\Model\CreateLifecycleHookResponse';
         $request = $this->createLifecycleHookRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function createLifecycleHookRequest($body)
@@ -763,31 +341,7 @@ class AUTOSCALINGApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function createNotificationConfiguration($body)
@@ -801,54 +355,7 @@ class AUTOSCALINGApi
         $returnType = '\Volcengine\Autoscaling\Model\CreateNotificationConfigurationResponse';
         $request = $this->createNotificationConfigurationRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function createNotificationConfigurationAsync($body)
@@ -865,50 +372,7 @@ class AUTOSCALINGApi
     {
         $returnType = '\Volcengine\Autoscaling\Model\CreateNotificationConfigurationResponse';
         $request = $this->createNotificationConfigurationRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function createNotificationConfigurationRequest($body)
@@ -946,31 +410,7 @@ class AUTOSCALINGApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function createScalingConfiguration($body)
@@ -984,54 +424,7 @@ class AUTOSCALINGApi
         $returnType = '\Volcengine\Autoscaling\Model\CreateScalingConfigurationResponse';
         $request = $this->createScalingConfigurationRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function createScalingConfigurationAsync($body)
@@ -1048,50 +441,7 @@ class AUTOSCALINGApi
     {
         $returnType = '\Volcengine\Autoscaling\Model\CreateScalingConfigurationResponse';
         $request = $this->createScalingConfigurationRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function createScalingConfigurationRequest($body)
@@ -1129,31 +479,7 @@ class AUTOSCALINGApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function createScalingGroup($body)
@@ -1167,54 +493,7 @@ class AUTOSCALINGApi
         $returnType = '\Volcengine\Autoscaling\Model\CreateScalingGroupResponse';
         $request = $this->createScalingGroupRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function createScalingGroupAsync($body)
@@ -1231,50 +510,7 @@ class AUTOSCALINGApi
     {
         $returnType = '\Volcengine\Autoscaling\Model\CreateScalingGroupResponse';
         $request = $this->createScalingGroupRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function createScalingGroupRequest($body)
@@ -1312,31 +548,7 @@ class AUTOSCALINGApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function createScalingPolicy($body)
@@ -1350,54 +562,7 @@ class AUTOSCALINGApi
         $returnType = '\Volcengine\Autoscaling\Model\CreateScalingPolicyResponse';
         $request = $this->createScalingPolicyRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function createScalingPolicyAsync($body)
@@ -1414,50 +579,7 @@ class AUTOSCALINGApi
     {
         $returnType = '\Volcengine\Autoscaling\Model\CreateScalingPolicyResponse';
         $request = $this->createScalingPolicyRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function createScalingPolicyRequest($body)
@@ -1495,31 +617,7 @@ class AUTOSCALINGApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function deleteLifecycleHook($body)
@@ -1533,54 +631,7 @@ class AUTOSCALINGApi
         $returnType = '\Volcengine\Autoscaling\Model\DeleteLifecycleHookResponse';
         $request = $this->deleteLifecycleHookRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function deleteLifecycleHookAsync($body)
@@ -1597,50 +648,7 @@ class AUTOSCALINGApi
     {
         $returnType = '\Volcengine\Autoscaling\Model\DeleteLifecycleHookResponse';
         $request = $this->deleteLifecycleHookRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function deleteLifecycleHookRequest($body)
@@ -1678,31 +686,7 @@ class AUTOSCALINGApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function deleteNotificationConfiguration($body)
@@ -1716,54 +700,7 @@ class AUTOSCALINGApi
         $returnType = '\Volcengine\Autoscaling\Model\DeleteNotificationConfigurationResponse';
         $request = $this->deleteNotificationConfigurationRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function deleteNotificationConfigurationAsync($body)
@@ -1780,50 +717,7 @@ class AUTOSCALINGApi
     {
         $returnType = '\Volcengine\Autoscaling\Model\DeleteNotificationConfigurationResponse';
         $request = $this->deleteNotificationConfigurationRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function deleteNotificationConfigurationRequest($body)
@@ -1861,31 +755,7 @@ class AUTOSCALINGApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function deleteScalingConfiguration($body)
@@ -1899,54 +769,7 @@ class AUTOSCALINGApi
         $returnType = '\Volcengine\Autoscaling\Model\DeleteScalingConfigurationResponse';
         $request = $this->deleteScalingConfigurationRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function deleteScalingConfigurationAsync($body)
@@ -1963,50 +786,7 @@ class AUTOSCALINGApi
     {
         $returnType = '\Volcengine\Autoscaling\Model\DeleteScalingConfigurationResponse';
         $request = $this->deleteScalingConfigurationRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function deleteScalingConfigurationRequest($body)
@@ -2044,31 +824,7 @@ class AUTOSCALINGApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function deleteScalingGroup($body)
@@ -2082,54 +838,7 @@ class AUTOSCALINGApi
         $returnType = '\Volcengine\Autoscaling\Model\DeleteScalingGroupResponse';
         $request = $this->deleteScalingGroupRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function deleteScalingGroupAsync($body)
@@ -2146,50 +855,7 @@ class AUTOSCALINGApi
     {
         $returnType = '\Volcengine\Autoscaling\Model\DeleteScalingGroupResponse';
         $request = $this->deleteScalingGroupRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function deleteScalingGroupRequest($body)
@@ -2227,31 +893,7 @@ class AUTOSCALINGApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function deleteScalingPolicy($body)
@@ -2265,54 +907,7 @@ class AUTOSCALINGApi
         $returnType = '\Volcengine\Autoscaling\Model\DeleteScalingPolicyResponse';
         $request = $this->deleteScalingPolicyRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function deleteScalingPolicyAsync($body)
@@ -2329,50 +924,7 @@ class AUTOSCALINGApi
     {
         $returnType = '\Volcengine\Autoscaling\Model\DeleteScalingPolicyResponse';
         $request = $this->deleteScalingPolicyRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function deleteScalingPolicyRequest($body)
@@ -2410,31 +962,7 @@ class AUTOSCALINGApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function describeLifecycleActivities($body)
@@ -2448,54 +976,7 @@ class AUTOSCALINGApi
         $returnType = '\Volcengine\Autoscaling\Model\DescribeLifecycleActivitiesResponse';
         $request = $this->describeLifecycleActivitiesRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function describeLifecycleActivitiesAsync($body)
@@ -2512,50 +993,7 @@ class AUTOSCALINGApi
     {
         $returnType = '\Volcengine\Autoscaling\Model\DescribeLifecycleActivitiesResponse';
         $request = $this->describeLifecycleActivitiesRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function describeLifecycleActivitiesRequest($body)
@@ -2593,31 +1031,7 @@ class AUTOSCALINGApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function describeLifecycleHooks($body)
@@ -2631,54 +1045,7 @@ class AUTOSCALINGApi
         $returnType = '\Volcengine\Autoscaling\Model\DescribeLifecycleHooksResponse';
         $request = $this->describeLifecycleHooksRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function describeLifecycleHooksAsync($body)
@@ -2695,50 +1062,7 @@ class AUTOSCALINGApi
     {
         $returnType = '\Volcengine\Autoscaling\Model\DescribeLifecycleHooksResponse';
         $request = $this->describeLifecycleHooksRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function describeLifecycleHooksRequest($body)
@@ -2776,31 +1100,7 @@ class AUTOSCALINGApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function describeNotificationConfigurations($body)
@@ -2814,54 +1114,7 @@ class AUTOSCALINGApi
         $returnType = '\Volcengine\Autoscaling\Model\DescribeNotificationConfigurationsResponse';
         $request = $this->describeNotificationConfigurationsRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function describeNotificationConfigurationsAsync($body)
@@ -2878,50 +1131,7 @@ class AUTOSCALINGApi
     {
         $returnType = '\Volcengine\Autoscaling\Model\DescribeNotificationConfigurationsResponse';
         $request = $this->describeNotificationConfigurationsRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function describeNotificationConfigurationsRequest($body)
@@ -2959,31 +1169,7 @@ class AUTOSCALINGApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function describeScalingActivities($body)
@@ -2997,54 +1183,7 @@ class AUTOSCALINGApi
         $returnType = '\Volcengine\Autoscaling\Model\DescribeScalingActivitiesResponse';
         $request = $this->describeScalingActivitiesRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function describeScalingActivitiesAsync($body)
@@ -3061,50 +1200,7 @@ class AUTOSCALINGApi
     {
         $returnType = '\Volcengine\Autoscaling\Model\DescribeScalingActivitiesResponse';
         $request = $this->describeScalingActivitiesRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function describeScalingActivitiesRequest($body)
@@ -3142,31 +1238,7 @@ class AUTOSCALINGApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function describeScalingConfigurations($body)
@@ -3180,54 +1252,7 @@ class AUTOSCALINGApi
         $returnType = '\Volcengine\Autoscaling\Model\DescribeScalingConfigurationsResponse';
         $request = $this->describeScalingConfigurationsRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function describeScalingConfigurationsAsync($body)
@@ -3244,50 +1269,7 @@ class AUTOSCALINGApi
     {
         $returnType = '\Volcengine\Autoscaling\Model\DescribeScalingConfigurationsResponse';
         $request = $this->describeScalingConfigurationsRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function describeScalingConfigurationsRequest($body)
@@ -3325,31 +1307,7 @@ class AUTOSCALINGApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function describeScalingGroups($body)
@@ -3363,54 +1321,7 @@ class AUTOSCALINGApi
         $returnType = '\Volcengine\Autoscaling\Model\DescribeScalingGroupsResponse';
         $request = $this->describeScalingGroupsRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function describeScalingGroupsAsync($body)
@@ -3427,50 +1338,7 @@ class AUTOSCALINGApi
     {
         $returnType = '\Volcengine\Autoscaling\Model\DescribeScalingGroupsResponse';
         $request = $this->describeScalingGroupsRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function describeScalingGroupsRequest($body)
@@ -3508,31 +1376,7 @@ class AUTOSCALINGApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function describeScalingInstances($body)
@@ -3546,54 +1390,7 @@ class AUTOSCALINGApi
         $returnType = '\Volcengine\Autoscaling\Model\DescribeScalingInstancesResponse';
         $request = $this->describeScalingInstancesRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function describeScalingInstancesAsync($body)
@@ -3610,50 +1407,7 @@ class AUTOSCALINGApi
     {
         $returnType = '\Volcengine\Autoscaling\Model\DescribeScalingInstancesResponse';
         $request = $this->describeScalingInstancesRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function describeScalingInstancesRequest($body)
@@ -3691,31 +1445,7 @@ class AUTOSCALINGApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function describeScalingPolicies($body)
@@ -3729,54 +1459,7 @@ class AUTOSCALINGApi
         $returnType = '\Volcengine\Autoscaling\Model\DescribeScalingPoliciesResponse';
         $request = $this->describeScalingPoliciesRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function describeScalingPoliciesAsync($body)
@@ -3793,50 +1476,7 @@ class AUTOSCALINGApi
     {
         $returnType = '\Volcengine\Autoscaling\Model\DescribeScalingPoliciesResponse';
         $request = $this->describeScalingPoliciesRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function describeScalingPoliciesRequest($body)
@@ -3874,31 +1514,7 @@ class AUTOSCALINGApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function detachInstances($body)
@@ -3912,54 +1528,7 @@ class AUTOSCALINGApi
         $returnType = '\Volcengine\Autoscaling\Model\DetachInstancesResponse';
         $request = $this->detachInstancesRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function detachInstancesAsync($body)
@@ -3976,50 +1545,7 @@ class AUTOSCALINGApi
     {
         $returnType = '\Volcengine\Autoscaling\Model\DetachInstancesResponse';
         $request = $this->detachInstancesRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function detachInstancesRequest($body)
@@ -4057,31 +1583,7 @@ class AUTOSCALINGApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function detachServerGroups($body)
@@ -4095,54 +1597,7 @@ class AUTOSCALINGApi
         $returnType = '\Volcengine\Autoscaling\Model\DetachServerGroupsResponse';
         $request = $this->detachServerGroupsRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function detachServerGroupsAsync($body)
@@ -4159,50 +1614,7 @@ class AUTOSCALINGApi
     {
         $returnType = '\Volcengine\Autoscaling\Model\DetachServerGroupsResponse';
         $request = $this->detachServerGroupsRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function detachServerGroupsRequest($body)
@@ -4240,31 +1652,7 @@ class AUTOSCALINGApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function disableScalingGroup($body)
@@ -4278,54 +1666,7 @@ class AUTOSCALINGApi
         $returnType = '\Volcengine\Autoscaling\Model\DisableScalingGroupResponse';
         $request = $this->disableScalingGroupRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function disableScalingGroupAsync($body)
@@ -4342,50 +1683,7 @@ class AUTOSCALINGApi
     {
         $returnType = '\Volcengine\Autoscaling\Model\DisableScalingGroupResponse';
         $request = $this->disableScalingGroupRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function disableScalingGroupRequest($body)
@@ -4423,31 +1721,7 @@ class AUTOSCALINGApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function disableScalingPolicy($body)
@@ -4461,54 +1735,7 @@ class AUTOSCALINGApi
         $returnType = '\Volcengine\Autoscaling\Model\DisableScalingPolicyResponse';
         $request = $this->disableScalingPolicyRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function disableScalingPolicyAsync($body)
@@ -4525,50 +1752,7 @@ class AUTOSCALINGApi
     {
         $returnType = '\Volcengine\Autoscaling\Model\DisableScalingPolicyResponse';
         $request = $this->disableScalingPolicyRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function disableScalingPolicyRequest($body)
@@ -4606,31 +1790,7 @@ class AUTOSCALINGApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function enableScalingConfiguration($body)
@@ -4644,54 +1804,7 @@ class AUTOSCALINGApi
         $returnType = '\Volcengine\Autoscaling\Model\EnableScalingConfigurationResponse';
         $request = $this->enableScalingConfigurationRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function enableScalingConfigurationAsync($body)
@@ -4708,50 +1821,7 @@ class AUTOSCALINGApi
     {
         $returnType = '\Volcengine\Autoscaling\Model\EnableScalingConfigurationResponse';
         $request = $this->enableScalingConfigurationRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function enableScalingConfigurationRequest($body)
@@ -4789,31 +1859,7 @@ class AUTOSCALINGApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function enableScalingGroup($body)
@@ -4827,54 +1873,7 @@ class AUTOSCALINGApi
         $returnType = '\Volcengine\Autoscaling\Model\EnableScalingGroupResponse';
         $request = $this->enableScalingGroupRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function enableScalingGroupAsync($body)
@@ -4891,50 +1890,7 @@ class AUTOSCALINGApi
     {
         $returnType = '\Volcengine\Autoscaling\Model\EnableScalingGroupResponse';
         $request = $this->enableScalingGroupRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function enableScalingGroupRequest($body)
@@ -4972,31 +1928,7 @@ class AUTOSCALINGApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function enableScalingPolicy($body)
@@ -5010,54 +1942,7 @@ class AUTOSCALINGApi
         $returnType = '\Volcengine\Autoscaling\Model\EnableScalingPolicyResponse';
         $request = $this->enableScalingPolicyRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function enableScalingPolicyAsync($body)
@@ -5074,50 +1959,7 @@ class AUTOSCALINGApi
     {
         $returnType = '\Volcengine\Autoscaling\Model\EnableScalingPolicyResponse';
         $request = $this->enableScalingPolicyRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function enableScalingPolicyRequest($body)
@@ -5155,31 +1997,7 @@ class AUTOSCALINGApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function enterStandby($body)
@@ -5193,54 +2011,7 @@ class AUTOSCALINGApi
         $returnType = '\Volcengine\Autoscaling\Model\EnterStandbyResponse';
         $request = $this->enterStandbyRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function enterStandbyAsync($body)
@@ -5257,50 +2028,7 @@ class AUTOSCALINGApi
     {
         $returnType = '\Volcengine\Autoscaling\Model\EnterStandbyResponse';
         $request = $this->enterStandbyRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function enterStandbyRequest($body)
@@ -5338,31 +2066,7 @@ class AUTOSCALINGApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function exitStandby($body)
@@ -5376,54 +2080,7 @@ class AUTOSCALINGApi
         $returnType = '\Volcengine\Autoscaling\Model\ExitStandbyResponse';
         $request = $this->exitStandbyRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function exitStandbyAsync($body)
@@ -5440,50 +2097,7 @@ class AUTOSCALINGApi
     {
         $returnType = '\Volcengine\Autoscaling\Model\ExitStandbyResponse';
         $request = $this->exitStandbyRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function exitStandbyRequest($body)
@@ -5521,31 +2135,7 @@ class AUTOSCALINGApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function listTagResources($body)
@@ -5559,54 +2149,7 @@ class AUTOSCALINGApi
         $returnType = '\Volcengine\Autoscaling\Model\ListTagResourcesResponse';
         $request = $this->listTagResourcesRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function listTagResourcesAsync($body)
@@ -5623,50 +2166,7 @@ class AUTOSCALINGApi
     {
         $returnType = '\Volcengine\Autoscaling\Model\ListTagResourcesResponse';
         $request = $this->listTagResourcesRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function listTagResourcesRequest($body)
@@ -5704,31 +2204,7 @@ class AUTOSCALINGApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function modifyLifecycleHook($body)
@@ -5742,54 +2218,7 @@ class AUTOSCALINGApi
         $returnType = '\Volcengine\Autoscaling\Model\ModifyLifecycleHookResponse';
         $request = $this->modifyLifecycleHookRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function modifyLifecycleHookAsync($body)
@@ -5806,50 +2235,7 @@ class AUTOSCALINGApi
     {
         $returnType = '\Volcengine\Autoscaling\Model\ModifyLifecycleHookResponse';
         $request = $this->modifyLifecycleHookRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function modifyLifecycleHookRequest($body)
@@ -5887,31 +2273,7 @@ class AUTOSCALINGApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function modifyNotificationConfiguration($body)
@@ -5925,54 +2287,7 @@ class AUTOSCALINGApi
         $returnType = '\Volcengine\Autoscaling\Model\ModifyNotificationConfigurationResponse';
         $request = $this->modifyNotificationConfigurationRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function modifyNotificationConfigurationAsync($body)
@@ -5989,50 +2304,7 @@ class AUTOSCALINGApi
     {
         $returnType = '\Volcengine\Autoscaling\Model\ModifyNotificationConfigurationResponse';
         $request = $this->modifyNotificationConfigurationRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function modifyNotificationConfigurationRequest($body)
@@ -6070,31 +2342,7 @@ class AUTOSCALINGApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function modifyScalingConfiguration($body)
@@ -6108,54 +2356,7 @@ class AUTOSCALINGApi
         $returnType = '\Volcengine\Autoscaling\Model\ModifyScalingConfigurationResponse';
         $request = $this->modifyScalingConfigurationRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function modifyScalingConfigurationAsync($body)
@@ -6172,50 +2373,7 @@ class AUTOSCALINGApi
     {
         $returnType = '\Volcengine\Autoscaling\Model\ModifyScalingConfigurationResponse';
         $request = $this->modifyScalingConfigurationRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function modifyScalingConfigurationRequest($body)
@@ -6253,31 +2411,7 @@ class AUTOSCALINGApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function modifyScalingGroup($body)
@@ -6291,54 +2425,7 @@ class AUTOSCALINGApi
         $returnType = '\Volcengine\Autoscaling\Model\ModifyScalingGroupResponse';
         $request = $this->modifyScalingGroupRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function modifyScalingGroupAsync($body)
@@ -6355,50 +2442,7 @@ class AUTOSCALINGApi
     {
         $returnType = '\Volcengine\Autoscaling\Model\ModifyScalingGroupResponse';
         $request = $this->modifyScalingGroupRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function modifyScalingGroupRequest($body)
@@ -6436,31 +2480,7 @@ class AUTOSCALINGApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function modifyScalingPolicy($body)
@@ -6474,54 +2494,7 @@ class AUTOSCALINGApi
         $returnType = '\Volcengine\Autoscaling\Model\ModifyScalingPolicyResponse';
         $request = $this->modifyScalingPolicyRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function modifyScalingPolicyAsync($body)
@@ -6538,50 +2511,7 @@ class AUTOSCALINGApi
     {
         $returnType = '\Volcengine\Autoscaling\Model\ModifyScalingPolicyResponse';
         $request = $this->modifyScalingPolicyRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function modifyScalingPolicyRequest($body)
@@ -6619,31 +2549,7 @@ class AUTOSCALINGApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function removeInstances($body)
@@ -6657,54 +2563,7 @@ class AUTOSCALINGApi
         $returnType = '\Volcengine\Autoscaling\Model\RemoveInstancesResponse';
         $request = $this->removeInstancesRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function removeInstancesAsync($body)
@@ -6721,50 +2580,7 @@ class AUTOSCALINGApi
     {
         $returnType = '\Volcengine\Autoscaling\Model\RemoveInstancesResponse';
         $request = $this->removeInstancesRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function removeInstancesRequest($body)
@@ -6802,31 +2618,7 @@ class AUTOSCALINGApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function resumeProcesses($body)
@@ -6840,54 +2632,7 @@ class AUTOSCALINGApi
         $returnType = '\Volcengine\Autoscaling\Model\ResumeProcessesResponse';
         $request = $this->resumeProcessesRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function resumeProcessesAsync($body)
@@ -6904,50 +2649,7 @@ class AUTOSCALINGApi
     {
         $returnType = '\Volcengine\Autoscaling\Model\ResumeProcessesResponse';
         $request = $this->resumeProcessesRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function resumeProcessesRequest($body)
@@ -6985,31 +2687,7 @@ class AUTOSCALINGApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function setInstancesProtection($body)
@@ -7023,54 +2701,7 @@ class AUTOSCALINGApi
         $returnType = '\Volcengine\Autoscaling\Model\SetInstancesProtectionResponse';
         $request = $this->setInstancesProtectionRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function setInstancesProtectionAsync($body)
@@ -7087,50 +2718,7 @@ class AUTOSCALINGApi
     {
         $returnType = '\Volcengine\Autoscaling\Model\SetInstancesProtectionResponse';
         $request = $this->setInstancesProtectionRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function setInstancesProtectionRequest($body)
@@ -7168,31 +2756,7 @@ class AUTOSCALINGApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function suspendProcesses($body)
@@ -7206,54 +2770,7 @@ class AUTOSCALINGApi
         $returnType = '\Volcengine\Autoscaling\Model\SuspendProcessesResponse';
         $request = $this->suspendProcessesRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function suspendProcessesAsync($body)
@@ -7270,50 +2787,7 @@ class AUTOSCALINGApi
     {
         $returnType = '\Volcengine\Autoscaling\Model\SuspendProcessesResponse';
         $request = $this->suspendProcessesRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function suspendProcessesRequest($body)
@@ -7351,31 +2825,7 @@ class AUTOSCALINGApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function tagResources($body)
@@ -7389,54 +2839,7 @@ class AUTOSCALINGApi
         $returnType = '\Volcengine\Autoscaling\Model\TagResourcesResponse';
         $request = $this->tagResourcesRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function tagResourcesAsync($body)
@@ -7453,50 +2856,7 @@ class AUTOSCALINGApi
     {
         $returnType = '\Volcengine\Autoscaling\Model\TagResourcesResponse';
         $request = $this->tagResourcesRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function tagResourcesRequest($body)
@@ -7534,31 +2894,7 @@ class AUTOSCALINGApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function untagResources($body)
@@ -7572,54 +2908,7 @@ class AUTOSCALINGApi
         $returnType = '\Volcengine\Autoscaling\Model\UntagResourcesResponse';
         $request = $this->untagResourcesRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function untagResourcesAsync($body)
@@ -7636,50 +2925,7 @@ class AUTOSCALINGApi
     {
         $returnType = '\Volcengine\Autoscaling\Model\UntagResourcesResponse';
         $request = $this->untagResourcesRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function untagResourcesRequest($body)
@@ -7717,31 +2963,7 @@ class AUTOSCALINGApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
 

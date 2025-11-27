@@ -17,6 +17,7 @@ use Volcengine\Common\Configuration;
 use Volcengine\Common\HeaderSelector;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\Utils;
+use Volcengine\Common\ApiClient;
 
 class GRAPHApi
 {
@@ -36,18 +37,27 @@ class GRAPHApi
     protected $headerSelector;
 
     /**
-     * @param ClientInterface $client
-     * @param Configuration   $config
-     * @param HeaderSelector  $selector
+     * @var ApiClient
+     */
+    protected $apiClient;
+
+    /**
+     * @param ClientInterface|null $client
+     * @param Configuration|null $config
+     * @param HeaderSelector|null $selector
+     * @param ApiClient|null $apiClient
      */
     public function __construct(
         ClientInterface $client = null,
-        Configuration $config = null,
-        HeaderSelector $selector = null
-    ) {
+        Configuration   $config = null,
+        HeaderSelector  $selector = null,
+        ApiClient       $apiClient = null
+    )
+    {
         $this->client = $client ?: new Client();
         $this->config = $config ?: new Configuration();
         $this->headerSelector = $selector ?: new HeaderSelector();
+        $this->apiClient = $apiClient ?: new ApiClient($this->config, $this->client);
     }
 
     /**
@@ -69,54 +79,7 @@ class GRAPHApi
         $returnType = '\Volcengine\Graph\Model\AddTablesResponse';
         $request = $this->addTablesRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function addTablesAsync($body)
@@ -133,50 +96,7 @@ class GRAPHApi
     {
         $returnType = '\Volcengine\Graph\Model\AddTablesResponse';
         $request = $this->addTablesRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function addTablesRequest($body)
@@ -214,31 +134,7 @@ class GRAPHApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function alterTable($body)
@@ -252,54 +148,7 @@ class GRAPHApi
         $returnType = '\Volcengine\Graph\Model\AlterTableResponse';
         $request = $this->alterTableRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function alterTableAsync($body)
@@ -316,50 +165,7 @@ class GRAPHApi
     {
         $returnType = '\Volcengine\Graph\Model\AlterTableResponse';
         $request = $this->alterTableRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function alterTableRequest($body)
@@ -397,31 +203,7 @@ class GRAPHApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function calcTableLimits($body)
@@ -435,54 +217,7 @@ class GRAPHApi
         $returnType = '\Volcengine\Graph\Model\CalcTableLimitsResponse';
         $request = $this->calcTableLimitsRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function calcTableLimitsAsync($body)
@@ -499,50 +234,7 @@ class GRAPHApi
     {
         $returnType = '\Volcengine\Graph\Model\CalcTableLimitsResponse';
         $request = $this->calcTableLimitsRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function calcTableLimitsRequest($body)
@@ -580,31 +272,7 @@ class GRAPHApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function createInstance($body)
@@ -618,54 +286,7 @@ class GRAPHApi
         $returnType = '\Volcengine\Graph\Model\CreateInstanceResponse';
         $request = $this->createInstanceRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function createInstanceAsync($body)
@@ -682,50 +303,7 @@ class GRAPHApi
     {
         $returnType = '\Volcengine\Graph\Model\CreateInstanceResponse';
         $request = $this->createInstanceRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function createInstanceRequest($body)
@@ -763,31 +341,7 @@ class GRAPHApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function decodeRawKey($body)
@@ -801,54 +355,7 @@ class GRAPHApi
         $returnType = '\Volcengine\Graph\Model\DecodeRawKeyResponse';
         $request = $this->decodeRawKeyRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function decodeRawKeyAsync($body)
@@ -865,50 +372,7 @@ class GRAPHApi
     {
         $returnType = '\Volcengine\Graph\Model\DecodeRawKeyResponse';
         $request = $this->decodeRawKeyRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function decodeRawKeyRequest($body)
@@ -946,31 +410,7 @@ class GRAPHApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function describeInstance($body)
@@ -984,54 +424,7 @@ class GRAPHApi
         $returnType = '\Volcengine\Graph\Model\DescribeInstanceResponse';
         $request = $this->describeInstanceRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function describeInstanceAsync($body)
@@ -1048,50 +441,7 @@ class GRAPHApi
     {
         $returnType = '\Volcengine\Graph\Model\DescribeInstanceResponse';
         $request = $this->describeInstanceRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function describeInstanceRequest($body)
@@ -1129,31 +479,7 @@ class GRAPHApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function describeVegraphConfigInK8s($body)
@@ -1167,54 +493,7 @@ class GRAPHApi
         $returnType = '\Volcengine\Graph\Model\DescribeVegraphConfigInK8sResponse';
         $request = $this->describeVegraphConfigInK8sRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function describeVegraphConfigInK8sAsync($body)
@@ -1231,50 +510,7 @@ class GRAPHApi
     {
         $returnType = '\Volcengine\Graph\Model\DescribeVegraphConfigInK8sResponse';
         $request = $this->describeVegraphConfigInK8sRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function describeVegraphConfigInK8sRequest($body)
@@ -1312,31 +548,7 @@ class GRAPHApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function describeVegraphConfigInMetamysql($body)
@@ -1350,54 +562,7 @@ class GRAPHApi
         $returnType = '\Volcengine\Graph\Model\DescribeVegraphConfigInMetamysqlResponse';
         $request = $this->describeVegraphConfigInMetamysqlRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function describeVegraphConfigInMetamysqlAsync($body)
@@ -1414,50 +579,7 @@ class GRAPHApi
     {
         $returnType = '\Volcengine\Graph\Model\DescribeVegraphConfigInMetamysqlResponse';
         $request = $this->describeVegraphConfigInMetamysqlRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function describeVegraphConfigInMetamysqlRequest($body)
@@ -1495,31 +617,7 @@ class GRAPHApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function describeZones($body)
@@ -1533,54 +631,7 @@ class GRAPHApi
         $returnType = '\Volcengine\Graph\Model\DescribeZonesResponse';
         $request = $this->describeZonesRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function describeZonesAsync($body)
@@ -1597,50 +648,7 @@ class GRAPHApi
     {
         $returnType = '\Volcengine\Graph\Model\DescribeZonesResponse';
         $request = $this->describeZonesRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function describeZonesRequest($body)
@@ -1678,31 +686,7 @@ class GRAPHApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function destroyInstance($body)
@@ -1716,54 +700,7 @@ class GRAPHApi
         $returnType = '\Volcengine\Graph\Model\DestroyInstanceResponse';
         $request = $this->destroyInstanceRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function destroyInstanceAsync($body)
@@ -1780,50 +717,7 @@ class GRAPHApi
     {
         $returnType = '\Volcengine\Graph\Model\DestroyInstanceResponse';
         $request = $this->destroyInstanceRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function destroyInstanceRequest($body)
@@ -1861,31 +755,7 @@ class GRAPHApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function executeMetaserviceCli($body)
@@ -1899,54 +769,7 @@ class GRAPHApi
         $returnType = '\Volcengine\Graph\Model\ExecuteMetaserviceCliResponse';
         $request = $this->executeMetaserviceCliRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function executeMetaserviceCliAsync($body)
@@ -1963,50 +786,7 @@ class GRAPHApi
     {
         $returnType = '\Volcengine\Graph\Model\ExecuteMetaserviceCliResponse';
         $request = $this->executeMetaserviceCliRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function executeMetaserviceCliRequest($body)
@@ -2044,31 +824,7 @@ class GRAPHApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function getAddTablesTicketOptions($body)
@@ -2082,54 +838,7 @@ class GRAPHApi
         $returnType = '\Volcengine\Graph\Model\GetAddTablesTicketOptionsResponse';
         $request = $this->getAddTablesTicketOptionsRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function getAddTablesTicketOptionsAsync($body)
@@ -2146,50 +855,7 @@ class GRAPHApi
     {
         $returnType = '\Volcengine\Graph\Model\GetAddTablesTicketOptionsResponse';
         $request = $this->getAddTablesTicketOptionsRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function getAddTablesTicketOptionsRequest($body)
@@ -2227,31 +893,7 @@ class GRAPHApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function getConfChecker($body)
@@ -2265,54 +907,7 @@ class GRAPHApi
         $returnType = '\Volcengine\Graph\Model\GetConfCheckerResponse';
         $request = $this->getConfCheckerRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function getConfCheckerAsync($body)
@@ -2329,50 +924,7 @@ class GRAPHApi
     {
         $returnType = '\Volcengine\Graph\Model\GetConfCheckerResponse';
         $request = $this->getConfCheckerRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function getConfCheckerRequest($body)
@@ -2410,31 +962,7 @@ class GRAPHApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function getInstanceSpecScope($body)
@@ -2448,54 +976,7 @@ class GRAPHApi
         $returnType = '\Volcengine\Graph\Model\GetInstanceSpecScopeResponse';
         $request = $this->getInstanceSpecScopeRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function getInstanceSpecScopeAsync($body)
@@ -2512,50 +993,7 @@ class GRAPHApi
     {
         $returnType = '\Volcengine\Graph\Model\GetInstanceSpecScopeResponse';
         $request = $this->getInstanceSpecScopeRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function getInstanceSpecScopeRequest($body)
@@ -2593,31 +1031,7 @@ class GRAPHApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function getTable($body)
@@ -2631,54 +1045,7 @@ class GRAPHApi
         $returnType = '\Volcengine\Graph\Model\GetTableResponse';
         $request = $this->getTableRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function getTableAsync($body)
@@ -2695,50 +1062,7 @@ class GRAPHApi
     {
         $returnType = '\Volcengine\Graph\Model\GetTableResponse';
         $request = $this->getTableRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function getTableRequest($body)
@@ -2776,31 +1100,7 @@ class GRAPHApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function getTableConfig($body)
@@ -2814,54 +1114,7 @@ class GRAPHApi
         $returnType = '\Volcengine\Graph\Model\GetTableConfigResponse';
         $request = $this->getTableConfigRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function getTableConfigAsync($body)
@@ -2878,50 +1131,7 @@ class GRAPHApi
     {
         $returnType = '\Volcengine\Graph\Model\GetTableConfigResponse';
         $request = $this->getTableConfigRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function getTableConfigRequest($body)
@@ -2959,31 +1169,7 @@ class GRAPHApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function getTableIOQosOptions($body)
@@ -2997,54 +1183,7 @@ class GRAPHApi
         $returnType = '\Volcengine\Graph\Model\GetTableIOQosOptionsResponse';
         $request = $this->getTableIOQosOptionsRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function getTableIOQosOptionsAsync($body)
@@ -3061,50 +1200,7 @@ class GRAPHApi
     {
         $returnType = '\Volcengine\Graph\Model\GetTableIOQosOptionsResponse';
         $request = $this->getTableIOQosOptionsRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function getTableIOQosOptionsRequest($body)
@@ -3142,31 +1238,7 @@ class GRAPHApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function getTableLimit($body)
@@ -3180,54 +1252,7 @@ class GRAPHApi
         $returnType = '\Volcengine\Graph\Model\GetTableLimitResponse';
         $request = $this->getTableLimitRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function getTableLimitAsync($body)
@@ -3244,50 +1269,7 @@ class GRAPHApi
     {
         $returnType = '\Volcengine\Graph\Model\GetTableLimitResponse';
         $request = $this->getTableLimitRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function getTableLimitRequest($body)
@@ -3325,31 +1307,7 @@ class GRAPHApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function getTableQuota($body)
@@ -3363,54 +1321,7 @@ class GRAPHApi
         $returnType = '\Volcengine\Graph\Model\GetTableQuotaResponse';
         $request = $this->getTableQuotaRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function getTableQuotaAsync($body)
@@ -3427,50 +1338,7 @@ class GRAPHApi
     {
         $returnType = '\Volcengine\Graph\Model\GetTableQuotaResponse';
         $request = $this->getTableQuotaRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function getTableQuotaRequest($body)
@@ -3508,31 +1376,7 @@ class GRAPHApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function getTableSchema($body)
@@ -3546,54 +1390,7 @@ class GRAPHApi
         $returnType = '\Volcengine\Graph\Model\GetTableSchemaResponse';
         $request = $this->getTableSchemaRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function getTableSchemaAsync($body)
@@ -3610,50 +1407,7 @@ class GRAPHApi
     {
         $returnType = '\Volcengine\Graph\Model\GetTableSchemaResponse';
         $request = $this->getTableSchemaRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function getTableSchemaRequest($body)
@@ -3691,31 +1445,7 @@ class GRAPHApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function getVegraphNetworkResource($body)
@@ -3729,54 +1459,7 @@ class GRAPHApi
         $returnType = '\Volcengine\Graph\Model\GetVegraphNetworkResourceResponse';
         $request = $this->getVegraphNetworkResourceRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function getVegraphNetworkResourceAsync($body)
@@ -3793,50 +1476,7 @@ class GRAPHApi
     {
         $returnType = '\Volcengine\Graph\Model\GetVegraphNetworkResourceResponse';
         $request = $this->getVegraphNetworkResourceRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function getVegraphNetworkResourceRequest($body)
@@ -3874,31 +1514,7 @@ class GRAPHApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function getVegraphReadAndWriteStatus($body)
@@ -3912,54 +1528,7 @@ class GRAPHApi
         $returnType = '\Volcengine\Graph\Model\GetVegraphReadAndWriteStatusResponse';
         $request = $this->getVegraphReadAndWriteStatusRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function getVegraphReadAndWriteStatusAsync($body)
@@ -3976,50 +1545,7 @@ class GRAPHApi
     {
         $returnType = '\Volcengine\Graph\Model\GetVegraphReadAndWriteStatusResponse';
         $request = $this->getVegraphReadAndWriteStatusRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function getVegraphReadAndWriteStatusRequest($body)
@@ -4057,31 +1583,7 @@ class GRAPHApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function getVersionSetAndComponentsInfo($body)
@@ -4095,54 +1597,7 @@ class GRAPHApi
         $returnType = '\Volcengine\Graph\Model\GetVersionSetAndComponentsInfoResponse';
         $request = $this->getVersionSetAndComponentsInfoRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function getVersionSetAndComponentsInfoAsync($body)
@@ -4159,50 +1614,7 @@ class GRAPHApi
     {
         $returnType = '\Volcengine\Graph\Model\GetVersionSetAndComponentsInfoResponse';
         $request = $this->getVersionSetAndComponentsInfoRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function getVersionSetAndComponentsInfoRequest($body)
@@ -4240,31 +1652,7 @@ class GRAPHApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function graphragAddKnowledgeBase($body)
@@ -4278,54 +1666,7 @@ class GRAPHApi
         $returnType = '\Volcengine\Graph\Model\GraphragAddKnowledgeBaseResponse';
         $request = $this->graphragAddKnowledgeBaseRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function graphragAddKnowledgeBaseAsync($body)
@@ -4342,50 +1683,7 @@ class GRAPHApi
     {
         $returnType = '\Volcengine\Graph\Model\GraphragAddKnowledgeBaseResponse';
         $request = $this->graphragAddKnowledgeBaseRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function graphragAddKnowledgeBaseRequest($body)
@@ -4423,31 +1721,7 @@ class GRAPHApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function listClusterTables($body)
@@ -4461,54 +1735,7 @@ class GRAPHApi
         $returnType = '\Volcengine\Graph\Model\ListClusterTablesResponse';
         $request = $this->listClusterTablesRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function listClusterTablesAsync($body)
@@ -4525,50 +1752,7 @@ class GRAPHApi
     {
         $returnType = '\Volcengine\Graph\Model\ListClusterTablesResponse';
         $request = $this->listClusterTablesRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function listClusterTablesRequest($body)
@@ -4606,31 +1790,7 @@ class GRAPHApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function listGraphRagService($body)
@@ -4644,54 +1804,7 @@ class GRAPHApi
         $returnType = '\Volcengine\Graph\Model\ListGraphRagServiceResponse';
         $request = $this->listGraphRagServiceRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function listGraphRagServiceAsync($body)
@@ -4708,50 +1821,7 @@ class GRAPHApi
     {
         $returnType = '\Volcengine\Graph\Model\ListGraphRagServiceResponse';
         $request = $this->listGraphRagServiceRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function listGraphRagServiceRequest($body)
@@ -4789,31 +1859,7 @@ class GRAPHApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function listInstance($body)
@@ -4827,54 +1873,7 @@ class GRAPHApi
         $returnType = '\Volcengine\Graph\Model\ListInstanceResponse';
         $request = $this->listInstanceRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function listInstanceAsync($body)
@@ -4891,50 +1890,7 @@ class GRAPHApi
     {
         $returnType = '\Volcengine\Graph\Model\ListInstanceResponse';
         $request = $this->listInstanceRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function listInstanceRequest($body)
@@ -4972,31 +1928,7 @@ class GRAPHApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function listTabletServer($body)
@@ -5010,54 +1942,7 @@ class GRAPHApi
         $returnType = '\Volcengine\Graph\Model\ListTabletServerResponse';
         $request = $this->listTabletServerRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function listTabletServerAsync($body)
@@ -5074,50 +1959,7 @@ class GRAPHApi
     {
         $returnType = '\Volcengine\Graph\Model\ListTabletServerResponse';
         $request = $this->listTabletServerRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function listTabletServerRequest($body)
@@ -5155,31 +1997,7 @@ class GRAPHApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function listTabletTask($body)
@@ -5193,54 +2011,7 @@ class GRAPHApi
         $returnType = '\Volcengine\Graph\Model\ListTabletTaskResponse';
         $request = $this->listTabletTaskRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function listTabletTaskAsync($body)
@@ -5257,50 +2028,7 @@ class GRAPHApi
     {
         $returnType = '\Volcengine\Graph\Model\ListTabletTaskResponse';
         $request = $this->listTabletTaskRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function listTabletTaskRequest($body)
@@ -5338,31 +2066,7 @@ class GRAPHApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function listTablets($body)
@@ -5376,54 +2080,7 @@ class GRAPHApi
         $returnType = '\Volcengine\Graph\Model\ListTabletsResponse';
         $request = $this->listTabletsRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function listTabletsAsync($body)
@@ -5440,50 +2097,7 @@ class GRAPHApi
     {
         $returnType = '\Volcengine\Graph\Model\ListTabletsResponse';
         $request = $this->listTabletsRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function listTabletsRequest($body)
@@ -5521,31 +2135,7 @@ class GRAPHApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function migrateTabletReplica($body)
@@ -5559,54 +2149,7 @@ class GRAPHApi
         $returnType = '\Volcengine\Graph\Model\MigrateTabletReplicaResponse';
         $request = $this->migrateTabletReplicaRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function migrateTabletReplicaAsync($body)
@@ -5623,50 +2166,7 @@ class GRAPHApi
     {
         $returnType = '\Volcengine\Graph\Model\MigrateTabletReplicaResponse';
         $request = $this->migrateTabletReplicaRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function migrateTabletReplicaRequest($body)
@@ -5704,31 +2204,7 @@ class GRAPHApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function modifyDBInstanceDeletionProtectionPolicy($body)
@@ -5742,54 +2218,7 @@ class GRAPHApi
         $returnType = '\Volcengine\Graph\Model\ModifyDBInstanceDeletionProtectionPolicyResponse';
         $request = $this->modifyDBInstanceDeletionProtectionPolicyRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function modifyDBInstanceDeletionProtectionPolicyAsync($body)
@@ -5806,50 +2235,7 @@ class GRAPHApi
     {
         $returnType = '\Volcengine\Graph\Model\ModifyDBInstanceDeletionProtectionPolicyResponse';
         $request = $this->modifyDBInstanceDeletionProtectionPolicyRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function modifyDBInstanceDeletionProtectionPolicyRequest($body)
@@ -5887,31 +2273,7 @@ class GRAPHApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function modifySchema($body)
@@ -5925,54 +2287,7 @@ class GRAPHApi
         $returnType = '\Volcengine\Graph\Model\ModifySchemaResponse';
         $request = $this->modifySchemaRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function modifySchemaAsync($body)
@@ -5989,50 +2304,7 @@ class GRAPHApi
     {
         $returnType = '\Volcengine\Graph\Model\ModifySchemaResponse';
         $request = $this->modifySchemaRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function modifySchemaRequest($body)
@@ -6070,31 +2342,7 @@ class GRAPHApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function setVegraphReadAndWriteStatus($body)
@@ -6108,54 +2356,7 @@ class GRAPHApi
         $returnType = '\Volcengine\Graph\Model\SetVegraphReadAndWriteStatusResponse';
         $request = $this->setVegraphReadAndWriteStatusRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function setVegraphReadAndWriteStatusAsync($body)
@@ -6172,50 +2373,7 @@ class GRAPHApi
     {
         $returnType = '\Volcengine\Graph\Model\SetVegraphReadAndWriteStatusResponse';
         $request = $this->setVegraphReadAndWriteStatusRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function setVegraphReadAndWriteStatusRequest($body)
@@ -6253,31 +2411,7 @@ class GRAPHApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function truncateTable($body)
@@ -6291,54 +2425,7 @@ class GRAPHApi
         $returnType = '\Volcengine\Graph\Model\TruncateTableResponse';
         $request = $this->truncateTableRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function truncateTableAsync($body)
@@ -6355,50 +2442,7 @@ class GRAPHApi
     {
         $returnType = '\Volcengine\Graph\Model\TruncateTableResponse';
         $request = $this->truncateTableRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function truncateTableRequest($body)
@@ -6436,31 +2480,7 @@ class GRAPHApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function updateConfChecker($body)
@@ -6474,54 +2494,7 @@ class GRAPHApi
         $returnType = '\Volcengine\Graph\Model\UpdateConfCheckerResponse';
         $request = $this->updateConfCheckerRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function updateConfCheckerAsync($body)
@@ -6538,50 +2511,7 @@ class GRAPHApi
     {
         $returnType = '\Volcengine\Graph\Model\UpdateConfCheckerResponse';
         $request = $this->updateConfCheckerRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function updateConfCheckerRequest($body)
@@ -6619,31 +2549,7 @@ class GRAPHApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function updateGremlinKeywordBlackListConf($body)
@@ -6657,54 +2563,7 @@ class GRAPHApi
         $returnType = '\Volcengine\Graph\Model\UpdateGremlinKeywordBlackListConfResponse';
         $request = $this->updateGremlinKeywordBlackListConfRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function updateGremlinKeywordBlackListConfAsync($body)
@@ -6721,50 +2580,7 @@ class GRAPHApi
     {
         $returnType = '\Volcengine\Graph\Model\UpdateGremlinKeywordBlackListConfResponse';
         $request = $this->updateGremlinKeywordBlackListConfRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function updateGremlinKeywordBlackListConfRequest($body)
@@ -6802,31 +2618,7 @@ class GRAPHApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function updateKeyBlackListConf($body)
@@ -6840,54 +2632,7 @@ class GRAPHApi
         $returnType = '\Volcengine\Graph\Model\UpdateKeyBlackListConfResponse';
         $request = $this->updateKeyBlackListConfRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function updateKeyBlackListConfAsync($body)
@@ -6904,50 +2649,7 @@ class GRAPHApi
     {
         $returnType = '\Volcengine\Graph\Model\UpdateKeyBlackListConfResponse';
         $request = $this->updateKeyBlackListConfRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function updateKeyBlackListConfRequest($body)
@@ -6985,31 +2687,7 @@ class GRAPHApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function updateTabletReadBlackListConf($body)
@@ -7023,54 +2701,7 @@ class GRAPHApi
         $returnType = '\Volcengine\Graph\Model\UpdateTabletReadBlackListConfResponse';
         $request = $this->updateTabletReadBlackListConfRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function updateTabletReadBlackListConfAsync($body)
@@ -7087,50 +2718,7 @@ class GRAPHApi
     {
         $returnType = '\Volcengine\Graph\Model\UpdateTabletReadBlackListConfResponse';
         $request = $this->updateTabletReadBlackListConfRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function updateTabletReadBlackListConfRequest($body)
@@ -7168,31 +2756,7 @@ class GRAPHApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function updateTabletWriteBlackListConf($body)
@@ -7206,54 +2770,7 @@ class GRAPHApi
         $returnType = '\Volcengine\Graph\Model\UpdateTabletWriteBlackListConfResponse';
         $request = $this->updateTabletWriteBlackListConfRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function updateTabletWriteBlackListConfAsync($body)
@@ -7270,50 +2787,7 @@ class GRAPHApi
     {
         $returnType = '\Volcengine\Graph\Model\UpdateTabletWriteBlackListConfResponse';
         $request = $this->updateTabletWriteBlackListConfRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function updateTabletWriteBlackListConfRequest($body)
@@ -7351,31 +2825,7 @@ class GRAPHApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function validateConfChecker($body)
@@ -7389,54 +2839,7 @@ class GRAPHApi
         $returnType = '\Volcengine\Graph\Model\ValidateConfCheckerResponse';
         $request = $this->validateConfCheckerRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function validateConfCheckerAsync($body)
@@ -7453,50 +2856,7 @@ class GRAPHApi
     {
         $returnType = '\Volcengine\Graph\Model\ValidateConfCheckerResponse';
         $request = $this->validateConfCheckerRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function validateConfCheckerRequest($body)
@@ -7534,31 +2894,7 @@ class GRAPHApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
 

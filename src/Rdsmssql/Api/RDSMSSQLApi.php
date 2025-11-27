@@ -17,6 +17,7 @@ use Volcengine\Common\Configuration;
 use Volcengine\Common\HeaderSelector;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\Utils;
+use Volcengine\Common\ApiClient;
 
 class RDSMSSQLApi
 {
@@ -36,18 +37,27 @@ class RDSMSSQLApi
     protected $headerSelector;
 
     /**
-     * @param ClientInterface $client
-     * @param Configuration   $config
-     * @param HeaderSelector  $selector
+     * @var ApiClient
+     */
+    protected $apiClient;
+
+    /**
+     * @param ClientInterface|null $client
+     * @param Configuration|null $config
+     * @param HeaderSelector|null $selector
+     * @param ApiClient|null $apiClient
      */
     public function __construct(
         ClientInterface $client = null,
-        Configuration $config = null,
-        HeaderSelector $selector = null
-    ) {
+        Configuration   $config = null,
+        HeaderSelector  $selector = null,
+        ApiClient       $apiClient = null
+    )
+    {
         $this->client = $client ?: new Client();
         $this->config = $config ?: new Configuration();
         $this->headerSelector = $selector ?: new HeaderSelector();
+        $this->apiClient = $apiClient ?: new ApiClient($this->config, $this->client);
     }
 
     /**
@@ -69,54 +79,7 @@ class RDSMSSQLApi
         $returnType = '\Volcengine\Rdsmssql\Model\CreateBackupResponse';
         $request = $this->createBackupRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function createBackupAsync($body)
@@ -133,50 +96,7 @@ class RDSMSSQLApi
     {
         $returnType = '\Volcengine\Rdsmssql\Model\CreateBackupResponse';
         $request = $this->createBackupRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function createBackupRequest($body)
@@ -214,31 +134,7 @@ class RDSMSSQLApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function createDBInstance($body)
@@ -252,54 +148,7 @@ class RDSMSSQLApi
         $returnType = '\Volcengine\Rdsmssql\Model\CreateDBInstanceResponse';
         $request = $this->createDBInstanceRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function createDBInstanceAsync($body)
@@ -316,50 +165,7 @@ class RDSMSSQLApi
     {
         $returnType = '\Volcengine\Rdsmssql\Model\CreateDBInstanceResponse';
         $request = $this->createDBInstanceRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function createDBInstanceRequest($body)
@@ -397,31 +203,7 @@ class RDSMSSQLApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function createTosRestore($body)
@@ -435,54 +217,7 @@ class RDSMSSQLApi
         $returnType = '\Volcengine\Rdsmssql\Model\CreateTosRestoreResponse';
         $request = $this->createTosRestoreRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function createTosRestoreAsync($body)
@@ -499,50 +234,7 @@ class RDSMSSQLApi
     {
         $returnType = '\Volcengine\Rdsmssql\Model\CreateTosRestoreResponse';
         $request = $this->createTosRestoreRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function createTosRestoreRequest($body)
@@ -580,31 +272,7 @@ class RDSMSSQLApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function deleteBackup($body)
@@ -618,54 +286,7 @@ class RDSMSSQLApi
         $returnType = '\Volcengine\Rdsmssql\Model\DeleteBackupResponse';
         $request = $this->deleteBackupRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function deleteBackupAsync($body)
@@ -682,50 +303,7 @@ class RDSMSSQLApi
     {
         $returnType = '\Volcengine\Rdsmssql\Model\DeleteBackupResponse';
         $request = $this->deleteBackupRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function deleteBackupRequest($body)
@@ -763,31 +341,7 @@ class RDSMSSQLApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function deleteDBInstance($body)
@@ -801,54 +355,7 @@ class RDSMSSQLApi
         $returnType = '\Volcengine\Rdsmssql\Model\DeleteDBInstanceResponse';
         $request = $this->deleteDBInstanceRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function deleteDBInstanceAsync($body)
@@ -865,50 +372,7 @@ class RDSMSSQLApi
     {
         $returnType = '\Volcengine\Rdsmssql\Model\DeleteDBInstanceResponse';
         $request = $this->deleteDBInstanceRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function deleteDBInstanceRequest($body)
@@ -946,31 +410,7 @@ class RDSMSSQLApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function describeAvailabilityZones($body)
@@ -984,54 +424,7 @@ class RDSMSSQLApi
         $returnType = '\Volcengine\Rdsmssql\Model\DescribeAvailabilityZonesResponse';
         $request = $this->describeAvailabilityZonesRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function describeAvailabilityZonesAsync($body)
@@ -1048,50 +441,7 @@ class RDSMSSQLApi
     {
         $returnType = '\Volcengine\Rdsmssql\Model\DescribeAvailabilityZonesResponse';
         $request = $this->describeAvailabilityZonesRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function describeAvailabilityZonesRequest($body)
@@ -1129,31 +479,7 @@ class RDSMSSQLApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function describeAvailableCrossRegion($body)
@@ -1167,54 +493,7 @@ class RDSMSSQLApi
         $returnType = '\Volcengine\Rdsmssql\Model\DescribeAvailableCrossRegionResponse';
         $request = $this->describeAvailableCrossRegionRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function describeAvailableCrossRegionAsync($body)
@@ -1231,50 +510,7 @@ class RDSMSSQLApi
     {
         $returnType = '\Volcengine\Rdsmssql\Model\DescribeAvailableCrossRegionResponse';
         $request = $this->describeAvailableCrossRegionRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function describeAvailableCrossRegionRequest($body)
@@ -1312,31 +548,7 @@ class RDSMSSQLApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function describeBackupDetail($body)
@@ -1350,54 +562,7 @@ class RDSMSSQLApi
         $returnType = '\Volcengine\Rdsmssql\Model\DescribeBackupDetailResponse';
         $request = $this->describeBackupDetailRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function describeBackupDetailAsync($body)
@@ -1414,50 +579,7 @@ class RDSMSSQLApi
     {
         $returnType = '\Volcengine\Rdsmssql\Model\DescribeBackupDetailResponse';
         $request = $this->describeBackupDetailRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function describeBackupDetailRequest($body)
@@ -1495,31 +617,7 @@ class RDSMSSQLApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function describeBackups($body)
@@ -1533,54 +631,7 @@ class RDSMSSQLApi
         $returnType = '\Volcengine\Rdsmssql\Model\DescribeBackupsResponse';
         $request = $this->describeBackupsRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function describeBackupsAsync($body)
@@ -1597,50 +648,7 @@ class RDSMSSQLApi
     {
         $returnType = '\Volcengine\Rdsmssql\Model\DescribeBackupsResponse';
         $request = $this->describeBackupsRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function describeBackupsRequest($body)
@@ -1678,31 +686,7 @@ class RDSMSSQLApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function describeCrossBackupPolicy($body)
@@ -1716,54 +700,7 @@ class RDSMSSQLApi
         $returnType = '\Volcengine\Rdsmssql\Model\DescribeCrossBackupPolicyResponse';
         $request = $this->describeCrossBackupPolicyRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function describeCrossBackupPolicyAsync($body)
@@ -1780,50 +717,7 @@ class RDSMSSQLApi
     {
         $returnType = '\Volcengine\Rdsmssql\Model\DescribeCrossBackupPolicyResponse';
         $request = $this->describeCrossBackupPolicyRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function describeCrossBackupPolicyRequest($body)
@@ -1861,31 +755,7 @@ class RDSMSSQLApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function describeDBInstanceDetail($body)
@@ -1899,54 +769,7 @@ class RDSMSSQLApi
         $returnType = '\Volcengine\Rdsmssql\Model\DescribeDBInstanceDetailResponse';
         $request = $this->describeDBInstanceDetailRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function describeDBInstanceDetailAsync($body)
@@ -1963,50 +786,7 @@ class RDSMSSQLApi
     {
         $returnType = '\Volcengine\Rdsmssql\Model\DescribeDBInstanceDetailResponse';
         $request = $this->describeDBInstanceDetailRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function describeDBInstanceDetailRequest($body)
@@ -2044,31 +824,7 @@ class RDSMSSQLApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function describeDBInstanceParameters($body)
@@ -2082,54 +838,7 @@ class RDSMSSQLApi
         $returnType = '\Volcengine\Rdsmssql\Model\DescribeDBInstanceParametersResponse';
         $request = $this->describeDBInstanceParametersRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function describeDBInstanceParametersAsync($body)
@@ -2146,50 +855,7 @@ class RDSMSSQLApi
     {
         $returnType = '\Volcengine\Rdsmssql\Model\DescribeDBInstanceParametersResponse';
         $request = $this->describeDBInstanceParametersRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function describeDBInstanceParametersRequest($body)
@@ -2227,31 +893,7 @@ class RDSMSSQLApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function describeDBInstanceSpecs($body)
@@ -2265,54 +907,7 @@ class RDSMSSQLApi
         $returnType = '\Volcengine\Rdsmssql\Model\DescribeDBInstanceSpecsResponse';
         $request = $this->describeDBInstanceSpecsRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function describeDBInstanceSpecsAsync($body)
@@ -2329,50 +924,7 @@ class RDSMSSQLApi
     {
         $returnType = '\Volcengine\Rdsmssql\Model\DescribeDBInstanceSpecsResponse';
         $request = $this->describeDBInstanceSpecsRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function describeDBInstanceSpecsRequest($body)
@@ -2410,31 +962,7 @@ class RDSMSSQLApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function describeDBInstances($body)
@@ -2448,54 +976,7 @@ class RDSMSSQLApi
         $returnType = '\Volcengine\Rdsmssql\Model\DescribeDBInstancesResponse';
         $request = $this->describeDBInstancesRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function describeDBInstancesAsync($body)
@@ -2512,50 +993,7 @@ class RDSMSSQLApi
     {
         $returnType = '\Volcengine\Rdsmssql\Model\DescribeDBInstancesResponse';
         $request = $this->describeDBInstancesRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function describeDBInstancesRequest($body)
@@ -2593,31 +1031,7 @@ class RDSMSSQLApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function describeRegions($body)
@@ -2631,54 +1045,7 @@ class RDSMSSQLApi
         $returnType = '\Volcengine\Rdsmssql\Model\DescribeRegionsResponse';
         $request = $this->describeRegionsRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function describeRegionsAsync($body)
@@ -2695,50 +1062,7 @@ class RDSMSSQLApi
     {
         $returnType = '\Volcengine\Rdsmssql\Model\DescribeRegionsResponse';
         $request = $this->describeRegionsRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function describeRegionsRequest($body)
@@ -2776,31 +1100,7 @@ class RDSMSSQLApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function describeTosRestoreTaskDetail($body)
@@ -2814,54 +1114,7 @@ class RDSMSSQLApi
         $returnType = '\Volcengine\Rdsmssql\Model\DescribeTosRestoreTaskDetailResponse';
         $request = $this->describeTosRestoreTaskDetailRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function describeTosRestoreTaskDetailAsync($body)
@@ -2878,50 +1131,7 @@ class RDSMSSQLApi
     {
         $returnType = '\Volcengine\Rdsmssql\Model\DescribeTosRestoreTaskDetailResponse';
         $request = $this->describeTosRestoreTaskDetailRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function describeTosRestoreTaskDetailRequest($body)
@@ -2959,31 +1169,7 @@ class RDSMSSQLApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function describeTosRestoreTasks($body)
@@ -2997,54 +1183,7 @@ class RDSMSSQLApi
         $returnType = '\Volcengine\Rdsmssql\Model\DescribeTosRestoreTasksResponse';
         $request = $this->describeTosRestoreTasksRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function describeTosRestoreTasksAsync($body)
@@ -3061,50 +1200,7 @@ class RDSMSSQLApi
     {
         $returnType = '\Volcengine\Rdsmssql\Model\DescribeTosRestoreTasksResponse';
         $request = $this->describeTosRestoreTasksRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function describeTosRestoreTasksRequest($body)
@@ -3142,31 +1238,7 @@ class RDSMSSQLApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function downloadBackup($body)
@@ -3180,54 +1252,7 @@ class RDSMSSQLApi
         $returnType = '\Volcengine\Rdsmssql\Model\DownloadBackupResponse';
         $request = $this->downloadBackupRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function downloadBackupAsync($body)
@@ -3244,50 +1269,7 @@ class RDSMSSQLApi
     {
         $returnType = '\Volcengine\Rdsmssql\Model\DownloadBackupResponse';
         $request = $this->downloadBackupRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function downloadBackupRequest($body)
@@ -3325,31 +1307,7 @@ class RDSMSSQLApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function modifyBackupPolicy($body)
@@ -3363,54 +1321,7 @@ class RDSMSSQLApi
         $returnType = '\Volcengine\Rdsmssql\Model\ModifyBackupPolicyResponse';
         $request = $this->modifyBackupPolicyRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function modifyBackupPolicyAsync($body)
@@ -3427,50 +1338,7 @@ class RDSMSSQLApi
     {
         $returnType = '\Volcengine\Rdsmssql\Model\ModifyBackupPolicyResponse';
         $request = $this->modifyBackupPolicyRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function modifyBackupPolicyRequest($body)
@@ -3508,31 +1376,7 @@ class RDSMSSQLApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function modifyCrossBackupPolicy($body)
@@ -3546,54 +1390,7 @@ class RDSMSSQLApi
         $returnType = '\Volcengine\Rdsmssql\Model\ModifyCrossBackupPolicyResponse';
         $request = $this->modifyCrossBackupPolicyRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function modifyCrossBackupPolicyAsync($body)
@@ -3610,50 +1407,7 @@ class RDSMSSQLApi
     {
         $returnType = '\Volcengine\Rdsmssql\Model\ModifyCrossBackupPolicyResponse';
         $request = $this->modifyCrossBackupPolicyRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function modifyCrossBackupPolicyRequest($body)
@@ -3691,31 +1445,7 @@ class RDSMSSQLApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function modifyDBFailover($body)
@@ -3729,54 +1459,7 @@ class RDSMSSQLApi
         $returnType = '\Volcengine\Rdsmssql\Model\ModifyDBFailoverResponse';
         $request = $this->modifyDBFailoverRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function modifyDBFailoverAsync($body)
@@ -3793,50 +1476,7 @@ class RDSMSSQLApi
     {
         $returnType = '\Volcengine\Rdsmssql\Model\ModifyDBFailoverResponse';
         $request = $this->modifyDBFailoverRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function modifyDBFailoverRequest($body)
@@ -3874,31 +1514,7 @@ class RDSMSSQLApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function modifyDBInstanceName($body)
@@ -3912,54 +1528,7 @@ class RDSMSSQLApi
         $returnType = '\Volcengine\Rdsmssql\Model\ModifyDBInstanceNameResponse';
         $request = $this->modifyDBInstanceNameRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function modifyDBInstanceNameAsync($body)
@@ -3976,50 +1545,7 @@ class RDSMSSQLApi
     {
         $returnType = '\Volcengine\Rdsmssql\Model\ModifyDBInstanceNameResponse';
         $request = $this->modifyDBInstanceNameRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function modifyDBInstanceNameRequest($body)
@@ -4057,31 +1583,7 @@ class RDSMSSQLApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function modifyInstanceAdvancedFeatures($body)
@@ -4095,54 +1597,7 @@ class RDSMSSQLApi
         $returnType = '\Volcengine\Rdsmssql\Model\ModifyInstanceAdvancedFeaturesResponse';
         $request = $this->modifyInstanceAdvancedFeaturesRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function modifyInstanceAdvancedFeaturesAsync($body)
@@ -4159,50 +1614,7 @@ class RDSMSSQLApi
     {
         $returnType = '\Volcengine\Rdsmssql\Model\ModifyInstanceAdvancedFeaturesResponse';
         $request = $this->modifyInstanceAdvancedFeaturesRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function modifyInstanceAdvancedFeaturesRequest($body)
@@ -4240,31 +1652,7 @@ class RDSMSSQLApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function restartDBInstance($body)
@@ -4278,54 +1666,7 @@ class RDSMSSQLApi
         $returnType = '\Volcengine\Rdsmssql\Model\RestartDBInstanceResponse';
         $request = $this->restartDBInstanceRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function restartDBInstanceAsync($body)
@@ -4342,50 +1683,7 @@ class RDSMSSQLApi
     {
         $returnType = '\Volcengine\Rdsmssql\Model\RestartDBInstanceResponse';
         $request = $this->restartDBInstanceRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function restartDBInstanceRequest($body)
@@ -4423,31 +1721,7 @@ class RDSMSSQLApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
     public function restoreToExistedInstance($body)
@@ -4461,54 +1735,7 @@ class RDSMSSQLApi
         $returnType = '\Volcengine\Rdsmssql\Model\RestoreToExistedInstanceResponse';
         $request = $this->restoreToExistedInstanceRequest($body);
 
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-            );
-        }
-
-        $statusCode = $response->getStatusCode();
-
-        if ($statusCode < 200 || $statusCode > 299) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Error connecting to the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $response->getBody()
-            );
-        }
-
-        $responseContent = $response->getBody()->getContents();
-        $content = json_decode($responseContent);
-
-        if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-            throw new ApiException(
-                sprintf(
-                    '[%d] Return Error From the API (%s)',
-                    $statusCode,
-                    $request->getUri()
-                ),
-                $statusCode,
-                $response->getHeaders(),
-                $responseContent);
-        }
-        $content = $content->{'Result'};
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
     }
 
     public function restoreToExistedInstanceAsync($body)
@@ -4525,50 +1752,7 @@ class RDSMSSQLApi
     {
         $returnType = '\Volcengine\Rdsmssql\Model\RestoreToExistedInstanceResponse';
         $request = $this->restoreToExistedInstanceRequest($body);
-        $uri = $request->getUri();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($uri, $returnType) {
-                    $responseContent = $response->getBody()->getContents();
-                    $content = json_decode($responseContent);
-                    $statusCode = $response->getStatusCode();
-
-                    if (isset($content->{'ResponseMetadata'}->{'Error'})) {
-                        throw new ApiException(
-                            sprintf(
-                                '[%d] Return Error From the API (%s)',
-                                $statusCode,
-                                $uri
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $responseContent);
-                    }
-                    $content = $content->{'Result'};
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
     }
 
     protected function restoreToExistedInstanceRequest($body)
@@ -4606,31 +1790,7 @@ class RDSMSSQLApi
         $service = $paths[3];
         $method = strtoupper($paths[4]);
 
-        // format request body
-        if ($method == 'GET' && $headers['Content-Type'] === 'text/plain') {
-            $queryParams = Utils::transRequest($httpBody);
-            $httpBody = '';
-        } else {
-            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body));
-        }
-
-        $queryParams['Action'] = $paths[1];
-        $queryParams['Version'] = $paths[2];
-        $resourcePath = '/';
-
-        $query = '';
-        ksort($queryParams);  // sort query first
-        foreach ($queryParams as $k => $v) {
-            $query .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-        }
-        $query = substr($query, 0, -1);
-
-        $headers = Utils::signv4($this->config->getAk(), $this->config->getSk(), $this->config->getRegion(), $service,
-            $httpBody, $query, $method, $resourcePath, $headers);
-
-        return new Request($method,
-            'https://' . $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers, $httpBody);
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
 

@@ -40,6 +40,7 @@ class TaskForStartExecutionInput implements ModelInterface, ArrayAccess
         'storyline' => '\Volcengine\Vod20250101\Model\StorylineForStartExecutionInput',
         'type' => 'string',
         'video_generation' => '\Volcengine\Vod20250101\Model\VideoGenerationForStartExecutionInput',
+        'video_matting' => '\Volcengine\Vod20250101\Model\VideoMattingForStartExecutionInput',
         'video_summary' => '\Volcengine\Vod20250101\Model\VideoSummaryForStartExecutionInput',
         'video_understanding' => '\Volcengine\Vod20250101\Model\VideoUnderstandingForStartExecutionInput',
         'vision' => '\Volcengine\Vod20250101\Model\VisionForStartExecutionInput'
@@ -63,6 +64,7 @@ class TaskForStartExecutionInput implements ModelInterface, ArrayAccess
         'storyline' => null,
         'type' => null,
         'video_generation' => null,
+        'video_matting' => null,
         'video_summary' => null,
         'video_understanding' => null,
         'vision' => null
@@ -107,6 +109,7 @@ class TaskForStartExecutionInput implements ModelInterface, ArrayAccess
         'storyline' => 'Storyline',
         'type' => 'Type',
         'video_generation' => 'VideoGeneration',
+        'video_matting' => 'VideoMatting',
         'video_summary' => 'VideoSummary',
         'video_understanding' => 'VideoUnderstanding',
         'vision' => 'Vision'
@@ -130,6 +133,7 @@ class TaskForStartExecutionInput implements ModelInterface, ArrayAccess
         'storyline' => 'setStoryline',
         'type' => 'setType',
         'video_generation' => 'setVideoGeneration',
+        'video_matting' => 'setVideoMatting',
         'video_summary' => 'setVideoSummary',
         'video_understanding' => 'setVideoUnderstanding',
         'vision' => 'setVision'
@@ -153,6 +157,7 @@ class TaskForStartExecutionInput implements ModelInterface, ArrayAccess
         'storyline' => 'getStoryline',
         'type' => 'getType',
         'video_generation' => 'getVideoGeneration',
+        'video_matting' => 'getVideoMatting',
         'video_summary' => 'getVideoSummary',
         'video_understanding' => 'getVideoUnderstanding',
         'vision' => 'getVision'
@@ -230,6 +235,7 @@ class TaskForStartExecutionInput implements ModelInterface, ArrayAccess
         $this->container['storyline'] = isset($data['storyline']) ? $data['storyline'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['video_generation'] = isset($data['video_generation']) ? $data['video_generation'] : null;
+        $this->container['video_matting'] = isset($data['video_matting']) ? $data['video_matting'] : null;
         $this->container['video_summary'] = isset($data['video_summary']) ? $data['video_summary'] : null;
         $this->container['video_understanding'] = isset($data['video_understanding']) ? $data['video_understanding'] : null;
         $this->container['vision'] = isset($data['vision']) ? $data['vision'] : null;
@@ -543,6 +549,30 @@ class TaskForStartExecutionInput implements ModelInterface, ArrayAccess
     public function setVideoGeneration($video_generation)
     {
         $this->container['video_generation'] = $video_generation;
+
+        return $this;
+    }
+
+    /**
+     * Gets video_matting
+     *
+     * @return \Volcengine\Vod20250101\Model\VideoMattingForStartExecutionInput
+     */
+    public function getVideoMatting()
+    {
+        return $this->container['video_matting'];
+    }
+
+    /**
+     * Sets video_matting
+     *
+     * @param \Volcengine\Vod20250101\Model\VideoMattingForStartExecutionInput $video_matting video_matting
+     *
+     * @return $this
+     */
+    public function setVideoMatting($video_matting)
+    {
+        $this->container['video_matting'] = $video_matting;
 
         return $this;
     }

@@ -33,10 +33,13 @@ class ItemForListResourceReservationRecordsOutput implements ModelInterface, Arr
         'delivered_compute_resource' => '\Volcengine\Mlplatform20240701\Model\DeliveredComputeResourceForListResourceReservationRecordsOutput',
         'desired_compute_resource' => '\Volcengine\Mlplatform20240701\Model\DesiredComputeResourceForListResourceReservationRecordsOutput',
         'id' => 'string',
+        'locked_compute_resource' => '\Volcengine\Mlplatform20240701\Model\LockedComputeResourceForListResourceReservationRecordsOutput',
+        'min_compute_resource' => '\Volcengine\Mlplatform20240701\Model\MinComputeResourceForListResourceReservationRecordsOutput',
         'resource_end_time' => 'string',
         'resource_start_time' => 'string',
         'resource_zone_id' => 'string',
-        'status' => '\Volcengine\Mlplatform20240701\Model\StatusForListResourceReservationRecordsOutput'
+        'status' => '\Volcengine\Mlplatform20240701\Model\StatusForListResourceReservationRecordsOutput',
+        'target_compute_resource' => '\Volcengine\Mlplatform20240701\Model\TargetComputeResourceForListResourceReservationRecordsOutput'
     ];
 
     /**
@@ -50,10 +53,13 @@ class ItemForListResourceReservationRecordsOutput implements ModelInterface, Arr
         'delivered_compute_resource' => null,
         'desired_compute_resource' => null,
         'id' => null,
+        'locked_compute_resource' => null,
+        'min_compute_resource' => null,
         'resource_end_time' => null,
         'resource_start_time' => null,
         'resource_zone_id' => null,
-        'status' => null
+        'status' => null,
+        'target_compute_resource' => null
     ];
 
     /**
@@ -88,10 +94,13 @@ class ItemForListResourceReservationRecordsOutput implements ModelInterface, Arr
         'delivered_compute_resource' => 'DeliveredComputeResource',
         'desired_compute_resource' => 'DesiredComputeResource',
         'id' => 'Id',
+        'locked_compute_resource' => 'LockedComputeResource',
+        'min_compute_resource' => 'MinComputeResource',
         'resource_end_time' => 'ResourceEndTime',
         'resource_start_time' => 'ResourceStartTime',
         'resource_zone_id' => 'ResourceZoneId',
-        'status' => 'Status'
+        'status' => 'Status',
+        'target_compute_resource' => 'TargetComputeResource'
     ];
 
     /**
@@ -105,10 +114,13 @@ class ItemForListResourceReservationRecordsOutput implements ModelInterface, Arr
         'delivered_compute_resource' => 'setDeliveredComputeResource',
         'desired_compute_resource' => 'setDesiredComputeResource',
         'id' => 'setId',
+        'locked_compute_resource' => 'setLockedComputeResource',
+        'min_compute_resource' => 'setMinComputeResource',
         'resource_end_time' => 'setResourceEndTime',
         'resource_start_time' => 'setResourceStartTime',
         'resource_zone_id' => 'setResourceZoneId',
-        'status' => 'setStatus'
+        'status' => 'setStatus',
+        'target_compute_resource' => 'setTargetComputeResource'
     ];
 
     /**
@@ -122,10 +134,13 @@ class ItemForListResourceReservationRecordsOutput implements ModelInterface, Arr
         'delivered_compute_resource' => 'getDeliveredComputeResource',
         'desired_compute_resource' => 'getDesiredComputeResource',
         'id' => 'getId',
+        'locked_compute_resource' => 'getLockedComputeResource',
+        'min_compute_resource' => 'getMinComputeResource',
         'resource_end_time' => 'getResourceEndTime',
         'resource_start_time' => 'getResourceStartTime',
         'resource_zone_id' => 'getResourceZoneId',
-        'status' => 'getStatus'
+        'status' => 'getStatus',
+        'target_compute_resource' => 'getTargetComputeResource'
     ];
 
     /**
@@ -193,10 +208,13 @@ class ItemForListResourceReservationRecordsOutput implements ModelInterface, Arr
         $this->container['delivered_compute_resource'] = isset($data['delivered_compute_resource']) ? $data['delivered_compute_resource'] : null;
         $this->container['desired_compute_resource'] = isset($data['desired_compute_resource']) ? $data['desired_compute_resource'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['locked_compute_resource'] = isset($data['locked_compute_resource']) ? $data['locked_compute_resource'] : null;
+        $this->container['min_compute_resource'] = isset($data['min_compute_resource']) ? $data['min_compute_resource'] : null;
         $this->container['resource_end_time'] = isset($data['resource_end_time']) ? $data['resource_end_time'] : null;
         $this->container['resource_start_time'] = isset($data['resource_start_time']) ? $data['resource_start_time'] : null;
         $this->container['resource_zone_id'] = isset($data['resource_zone_id']) ? $data['resource_zone_id'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['target_compute_resource'] = isset($data['target_compute_resource']) ? $data['target_compute_resource'] : null;
     }
 
     /**
@@ -344,6 +362,54 @@ class ItemForListResourceReservationRecordsOutput implements ModelInterface, Arr
     }
 
     /**
+     * Gets locked_compute_resource
+     *
+     * @return \Volcengine\Mlplatform20240701\Model\LockedComputeResourceForListResourceReservationRecordsOutput
+     */
+    public function getLockedComputeResource()
+    {
+        return $this->container['locked_compute_resource'];
+    }
+
+    /**
+     * Sets locked_compute_resource
+     *
+     * @param \Volcengine\Mlplatform20240701\Model\LockedComputeResourceForListResourceReservationRecordsOutput $locked_compute_resource locked_compute_resource
+     *
+     * @return $this
+     */
+    public function setLockedComputeResource($locked_compute_resource)
+    {
+        $this->container['locked_compute_resource'] = $locked_compute_resource;
+
+        return $this;
+    }
+
+    /**
+     * Gets min_compute_resource
+     *
+     * @return \Volcengine\Mlplatform20240701\Model\MinComputeResourceForListResourceReservationRecordsOutput
+     */
+    public function getMinComputeResource()
+    {
+        return $this->container['min_compute_resource'];
+    }
+
+    /**
+     * Sets min_compute_resource
+     *
+     * @param \Volcengine\Mlplatform20240701\Model\MinComputeResourceForListResourceReservationRecordsOutput $min_compute_resource min_compute_resource
+     *
+     * @return $this
+     */
+    public function setMinComputeResource($min_compute_resource)
+    {
+        $this->container['min_compute_resource'] = $min_compute_resource;
+
+        return $this;
+    }
+
+    /**
      * Gets resource_end_time
      *
      * @return string
@@ -435,6 +501,30 @@ class ItemForListResourceReservationRecordsOutput implements ModelInterface, Arr
     public function setStatus($status)
     {
         $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets target_compute_resource
+     *
+     * @return \Volcengine\Mlplatform20240701\Model\TargetComputeResourceForListResourceReservationRecordsOutput
+     */
+    public function getTargetComputeResource()
+    {
+        return $this->container['target_compute_resource'];
+    }
+
+    /**
+     * Sets target_compute_resource
+     *
+     * @param \Volcengine\Mlplatform20240701\Model\TargetComputeResourceForListResourceReservationRecordsOutput $target_compute_resource target_compute_resource
+     *
+     * @return $this
+     */
+    public function setTargetComputeResource($target_compute_resource)
+    {
+        $this->container['target_compute_resource'] = $target_compute_resource;
 
         return $this;
     }

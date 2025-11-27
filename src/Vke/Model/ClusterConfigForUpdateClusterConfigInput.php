@@ -30,6 +30,8 @@ class ClusterConfigForUpdateClusterConfigInput implements ModelInterface, ArrayA
     protected static $swaggerTypes = [
         'api_server_public_access_config' => '\Volcengine\Vke\Model\ApiServerPublicAccessConfigForUpdateClusterConfigInput',
         'api_server_public_access_enabled' => 'bool',
+        'cluster_connector_config_request' => '\Volcengine\Vke\Model\ClusterConnectorConfigRequestForUpdateClusterConfigInput',
+        'resource_public_access_default_enabled' => 'bool',
         'subnet_ids' => 'string[]'
     ];
 
@@ -41,6 +43,8 @@ class ClusterConfigForUpdateClusterConfigInput implements ModelInterface, ArrayA
     protected static $swaggerFormats = [
         'api_server_public_access_config' => null,
         'api_server_public_access_enabled' => null,
+        'cluster_connector_config_request' => null,
+        'resource_public_access_default_enabled' => null,
         'subnet_ids' => null
     ];
 
@@ -73,6 +77,8 @@ class ClusterConfigForUpdateClusterConfigInput implements ModelInterface, ArrayA
     protected static $attributeMap = [
         'api_server_public_access_config' => 'ApiServerPublicAccessConfig',
         'api_server_public_access_enabled' => 'ApiServerPublicAccessEnabled',
+        'cluster_connector_config_request' => 'ClusterConnectorConfigRequest',
+        'resource_public_access_default_enabled' => 'ResourcePublicAccessDefaultEnabled',
         'subnet_ids' => 'SubnetIds'
     ];
 
@@ -84,6 +90,8 @@ class ClusterConfigForUpdateClusterConfigInput implements ModelInterface, ArrayA
     protected static $setters = [
         'api_server_public_access_config' => 'setApiServerPublicAccessConfig',
         'api_server_public_access_enabled' => 'setApiServerPublicAccessEnabled',
+        'cluster_connector_config_request' => 'setClusterConnectorConfigRequest',
+        'resource_public_access_default_enabled' => 'setResourcePublicAccessDefaultEnabled',
         'subnet_ids' => 'setSubnetIds'
     ];
 
@@ -95,6 +103,8 @@ class ClusterConfigForUpdateClusterConfigInput implements ModelInterface, ArrayA
     protected static $getters = [
         'api_server_public_access_config' => 'getApiServerPublicAccessConfig',
         'api_server_public_access_enabled' => 'getApiServerPublicAccessEnabled',
+        'cluster_connector_config_request' => 'getClusterConnectorConfigRequest',
+        'resource_public_access_default_enabled' => 'getResourcePublicAccessDefaultEnabled',
         'subnet_ids' => 'getSubnetIds'
     ];
 
@@ -160,6 +170,8 @@ class ClusterConfigForUpdateClusterConfigInput implements ModelInterface, ArrayA
     {
         $this->container['api_server_public_access_config'] = isset($data['api_server_public_access_config']) ? $data['api_server_public_access_config'] : null;
         $this->container['api_server_public_access_enabled'] = isset($data['api_server_public_access_enabled']) ? $data['api_server_public_access_enabled'] : null;
+        $this->container['cluster_connector_config_request'] = isset($data['cluster_connector_config_request']) ? $data['cluster_connector_config_request'] : null;
+        $this->container['resource_public_access_default_enabled'] = isset($data['resource_public_access_default_enabled']) ? $data['resource_public_access_default_enabled'] : null;
         $this->container['subnet_ids'] = isset($data['subnet_ids']) ? $data['subnet_ids'] : null;
     }
 
@@ -231,6 +243,54 @@ class ClusterConfigForUpdateClusterConfigInput implements ModelInterface, ArrayA
     public function setApiServerPublicAccessEnabled($api_server_public_access_enabled)
     {
         $this->container['api_server_public_access_enabled'] = $api_server_public_access_enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets cluster_connector_config_request
+     *
+     * @return \Volcengine\Vke\Model\ClusterConnectorConfigRequestForUpdateClusterConfigInput
+     */
+    public function getClusterConnectorConfigRequest()
+    {
+        return $this->container['cluster_connector_config_request'];
+    }
+
+    /**
+     * Sets cluster_connector_config_request
+     *
+     * @param \Volcengine\Vke\Model\ClusterConnectorConfigRequestForUpdateClusterConfigInput $cluster_connector_config_request cluster_connector_config_request
+     *
+     * @return $this
+     */
+    public function setClusterConnectorConfigRequest($cluster_connector_config_request)
+    {
+        $this->container['cluster_connector_config_request'] = $cluster_connector_config_request;
+
+        return $this;
+    }
+
+    /**
+     * Gets resource_public_access_default_enabled
+     *
+     * @return bool
+     */
+    public function getResourcePublicAccessDefaultEnabled()
+    {
+        return $this->container['resource_public_access_default_enabled'];
+    }
+
+    /**
+     * Sets resource_public_access_default_enabled
+     *
+     * @param bool $resource_public_access_default_enabled resource_public_access_default_enabled
+     *
+     * @return $this
+     */
+    public function setResourcePublicAccessDefaultEnabled($resource_public_access_default_enabled)
+    {
+        $this->container['resource_public_access_default_enabled'] = $resource_public_access_default_enabled;
 
         return $this;
     }

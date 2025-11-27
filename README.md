@@ -57,7 +57,7 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
     ->setSk("Your SK")
     ->setRegion("cn-beijing");
 
-$apiInstance = new \Volcengine\Vpc\API\VPCApi(
+$apiInstance = new \Volcengine\Vpc\Api\VPCApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),

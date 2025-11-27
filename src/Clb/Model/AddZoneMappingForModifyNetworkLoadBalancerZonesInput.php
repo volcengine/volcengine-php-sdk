@@ -29,6 +29,8 @@ class AddZoneMappingForModifyNetworkLoadBalancerZonesInput implements ModelInter
       */
     protected static $swaggerTypes = [
         'eip_id' => 'string',
+        'eip_isp' => 'string',
+        'eip_specific_egress' => 'string',
         'ipv4_address' => 'string',
         'subnet_id' => 'string',
         'zone_id' => 'string'
@@ -41,6 +43,8 @@ class AddZoneMappingForModifyNetworkLoadBalancerZonesInput implements ModelInter
       */
     protected static $swaggerFormats = [
         'eip_id' => null,
+        'eip_isp' => null,
+        'eip_specific_egress' => null,
         'ipv4_address' => null,
         'subnet_id' => null,
         'zone_id' => null
@@ -74,6 +78,8 @@ class AddZoneMappingForModifyNetworkLoadBalancerZonesInput implements ModelInter
      */
     protected static $attributeMap = [
         'eip_id' => 'EipId',
+        'eip_isp' => 'EipIsp',
+        'eip_specific_egress' => 'EipSpecificEgress',
         'ipv4_address' => 'Ipv4Address',
         'subnet_id' => 'SubnetId',
         'zone_id' => 'ZoneId'
@@ -86,6 +92,8 @@ class AddZoneMappingForModifyNetworkLoadBalancerZonesInput implements ModelInter
      */
     protected static $setters = [
         'eip_id' => 'setEipId',
+        'eip_isp' => 'setEipIsp',
+        'eip_specific_egress' => 'setEipSpecificEgress',
         'ipv4_address' => 'setIpv4Address',
         'subnet_id' => 'setSubnetId',
         'zone_id' => 'setZoneId'
@@ -98,6 +106,8 @@ class AddZoneMappingForModifyNetworkLoadBalancerZonesInput implements ModelInter
      */
     protected static $getters = [
         'eip_id' => 'getEipId',
+        'eip_isp' => 'getEipIsp',
+        'eip_specific_egress' => 'getEipSpecificEgress',
         'ipv4_address' => 'getIpv4Address',
         'subnet_id' => 'getSubnetId',
         'zone_id' => 'getZoneId'
@@ -164,6 +174,8 @@ class AddZoneMappingForModifyNetworkLoadBalancerZonesInput implements ModelInter
     public function __construct(array $data = null)
     {
         $this->container['eip_id'] = isset($data['eip_id']) ? $data['eip_id'] : null;
+        $this->container['eip_isp'] = isset($data['eip_isp']) ? $data['eip_isp'] : null;
+        $this->container['eip_specific_egress'] = isset($data['eip_specific_egress']) ? $data['eip_specific_egress'] : null;
         $this->container['ipv4_address'] = isset($data['ipv4_address']) ? $data['ipv4_address'] : null;
         $this->container['subnet_id'] = isset($data['subnet_id']) ? $data['subnet_id'] : null;
         $this->container['zone_id'] = isset($data['zone_id']) ? $data['zone_id'] : null;
@@ -213,6 +225,54 @@ class AddZoneMappingForModifyNetworkLoadBalancerZonesInput implements ModelInter
     public function setEipId($eip_id)
     {
         $this->container['eip_id'] = $eip_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets eip_isp
+     *
+     * @return string
+     */
+    public function getEipIsp()
+    {
+        return $this->container['eip_isp'];
+    }
+
+    /**
+     * Sets eip_isp
+     *
+     * @param string $eip_isp eip_isp
+     *
+     * @return $this
+     */
+    public function setEipIsp($eip_isp)
+    {
+        $this->container['eip_isp'] = $eip_isp;
+
+        return $this;
+    }
+
+    /**
+     * Gets eip_specific_egress
+     *
+     * @return string
+     */
+    public function getEipSpecificEgress()
+    {
+        return $this->container['eip_specific_egress'];
+    }
+
+    /**
+     * Sets eip_specific_egress
+     *
+     * @param string $eip_specific_egress eip_specific_egress
+     *
+     * @return $this
+     */
+    public function setEipSpecificEgress($eip_specific_egress)
+    {
+        $this->container['eip_specific_egress'] = $eip_specific_egress;
 
         return $this;
     }

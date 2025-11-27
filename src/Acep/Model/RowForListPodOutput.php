@@ -37,6 +37,7 @@ class RowForListPodOutput implements ModelInterface, ArrayAccess
         'authority_status' => 'int',
         'configuration' => '\Volcengine\Acep\Model\ConfigurationForListPodOutput',
         'create_at' => 'int',
+        'custom_route_id' => 'string',
         'dnsid' => 'string',
         'data_size' => 'string',
         'data_size_used' => 'string',
@@ -73,6 +74,7 @@ class RowForListPodOutput implements ModelInterface, ArrayAccess
         'authority_status' => 'int32',
         'configuration' => null,
         'create_at' => 'int64',
+        'custom_route_id' => null,
         'dnsid' => null,
         'data_size' => null,
         'data_size_used' => null,
@@ -130,6 +132,7 @@ class RowForListPodOutput implements ModelInterface, ArrayAccess
         'authority_status' => 'AuthorityStatus',
         'configuration' => 'Configuration',
         'create_at' => 'CreateAt',
+        'custom_route_id' => 'CustomRouteId',
         'dnsid' => 'DNSId',
         'data_size' => 'DataSize',
         'data_size_used' => 'DataSizeUsed',
@@ -166,6 +169,7 @@ class RowForListPodOutput implements ModelInterface, ArrayAccess
         'authority_status' => 'setAuthorityStatus',
         'configuration' => 'setConfiguration',
         'create_at' => 'setCreateAt',
+        'custom_route_id' => 'setCustomRouteId',
         'dnsid' => 'setDnsid',
         'data_size' => 'setDataSize',
         'data_size_used' => 'setDataSizeUsed',
@@ -202,6 +206,7 @@ class RowForListPodOutput implements ModelInterface, ArrayAccess
         'authority_status' => 'getAuthorityStatus',
         'configuration' => 'getConfiguration',
         'create_at' => 'getCreateAt',
+        'custom_route_id' => 'getCustomRouteId',
         'dnsid' => 'getDnsid',
         'data_size' => 'getDataSize',
         'data_size_used' => 'getDataSizeUsed',
@@ -292,6 +297,7 @@ class RowForListPodOutput implements ModelInterface, ArrayAccess
         $this->container['authority_status'] = isset($data['authority_status']) ? $data['authority_status'] : null;
         $this->container['configuration'] = isset($data['configuration']) ? $data['configuration'] : null;
         $this->container['create_at'] = isset($data['create_at']) ? $data['create_at'] : null;
+        $this->container['custom_route_id'] = isset($data['custom_route_id']) ? $data['custom_route_id'] : null;
         $this->container['dnsid'] = isset($data['dnsid']) ? $data['dnsid'] : null;
         $this->container['data_size'] = isset($data['data_size']) ? $data['data_size'] : null;
         $this->container['data_size_used'] = isset($data['data_size_used']) ? $data['data_size_used'] : null;
@@ -549,6 +555,30 @@ class RowForListPodOutput implements ModelInterface, ArrayAccess
     public function setCreateAt($create_at)
     {
         $this->container['create_at'] = $create_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets custom_route_id
+     *
+     * @return string
+     */
+    public function getCustomRouteId()
+    {
+        return $this->container['custom_route_id'];
+    }
+
+    /**
+     * Sets custom_route_id
+     *
+     * @param string $custom_route_id custom_route_id
+     *
+     * @return $this
+     */
+    public function setCustomRouteId($custom_route_id)
+    {
+        $this->container['custom_route_id'] = $custom_route_id;
 
         return $this;
     }
