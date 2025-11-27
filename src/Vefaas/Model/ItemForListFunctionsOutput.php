@@ -36,6 +36,7 @@ class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
         'cpu_strategy' => 'string',
         'creation_time' => 'string',
         'description' => 'string',
+        'enable_apmplus' => 'string',
         'envs' => '\Volcengine\Vefaas\Model\EnvForListFunctionsOutput[]',
         'exclusive_mode' => 'bool',
         'function_type' => 'string',
@@ -77,6 +78,7 @@ class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
         'cpu_strategy' => null,
         'creation_time' => null,
         'description' => null,
+        'enable_apmplus' => null,
         'envs' => null,
         'exclusive_mode' => null,
         'function_type' => null,
@@ -139,6 +141,7 @@ class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
         'cpu_strategy' => 'CpuStrategy',
         'creation_time' => 'CreationTime',
         'description' => 'Description',
+        'enable_apmplus' => 'EnableApmplus',
         'envs' => 'Envs',
         'exclusive_mode' => 'ExclusiveMode',
         'function_type' => 'FunctionType',
@@ -180,6 +183,7 @@ class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
         'cpu_strategy' => 'setCpuStrategy',
         'creation_time' => 'setCreationTime',
         'description' => 'setDescription',
+        'enable_apmplus' => 'setEnableApmplus',
         'envs' => 'setEnvs',
         'exclusive_mode' => 'setExclusiveMode',
         'function_type' => 'setFunctionType',
@@ -221,6 +225,7 @@ class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
         'cpu_strategy' => 'getCpuStrategy',
         'creation_time' => 'getCreationTime',
         'description' => 'getDescription',
+        'enable_apmplus' => 'getEnableApmplus',
         'envs' => 'getEnvs',
         'exclusive_mode' => 'getExclusiveMode',
         'function_type' => 'getFunctionType',
@@ -316,6 +321,7 @@ class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
         $this->container['cpu_strategy'] = isset($data['cpu_strategy']) ? $data['cpu_strategy'] : null;
         $this->container['creation_time'] = isset($data['creation_time']) ? $data['creation_time'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['enable_apmplus'] = isset($data['enable_apmplus']) ? $data['enable_apmplus'] : null;
         $this->container['envs'] = isset($data['envs']) ? $data['envs'] : null;
         $this->container['exclusive_mode'] = isset($data['exclusive_mode']) ? $data['exclusive_mode'] : null;
         $this->container['function_type'] = isset($data['function_type']) ? $data['function_type'] : null;
@@ -555,6 +561,30 @@ class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets enable_apmplus
+     *
+     * @return string
+     */
+    public function getEnableApmplus()
+    {
+        return $this->container['enable_apmplus'];
+    }
+
+    /**
+     * Sets enable_apmplus
+     *
+     * @param string $enable_apmplus enable_apmplus
+     *
+     * @return $this
+     */
+    public function setEnableApmplus($enable_apmplus)
+    {
+        $this->container['enable_apmplus'] = $enable_apmplus;
 
         return $this;
     }

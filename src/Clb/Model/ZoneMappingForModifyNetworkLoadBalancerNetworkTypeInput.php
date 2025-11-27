@@ -29,6 +29,8 @@ class ZoneMappingForModifyNetworkLoadBalancerNetworkTypeInput implements ModelIn
       */
     protected static $swaggerTypes = [
         'eip_id' => 'string',
+        'eip_isp' => 'string',
+        'eip_specific_egress' => 'string',
         'zone_id' => 'string'
     ];
 
@@ -39,6 +41,8 @@ class ZoneMappingForModifyNetworkLoadBalancerNetworkTypeInput implements ModelIn
       */
     protected static $swaggerFormats = [
         'eip_id' => null,
+        'eip_isp' => null,
+        'eip_specific_egress' => null,
         'zone_id' => null
     ];
 
@@ -70,6 +74,8 @@ class ZoneMappingForModifyNetworkLoadBalancerNetworkTypeInput implements ModelIn
      */
     protected static $attributeMap = [
         'eip_id' => 'EipId',
+        'eip_isp' => 'EipIsp',
+        'eip_specific_egress' => 'EipSpecificEgress',
         'zone_id' => 'ZoneId'
     ];
 
@@ -80,6 +86,8 @@ class ZoneMappingForModifyNetworkLoadBalancerNetworkTypeInput implements ModelIn
      */
     protected static $setters = [
         'eip_id' => 'setEipId',
+        'eip_isp' => 'setEipIsp',
+        'eip_specific_egress' => 'setEipSpecificEgress',
         'zone_id' => 'setZoneId'
     ];
 
@@ -90,6 +98,8 @@ class ZoneMappingForModifyNetworkLoadBalancerNetworkTypeInput implements ModelIn
      */
     protected static $getters = [
         'eip_id' => 'getEipId',
+        'eip_isp' => 'getEipIsp',
+        'eip_specific_egress' => 'getEipSpecificEgress',
         'zone_id' => 'getZoneId'
     ];
 
@@ -154,6 +164,8 @@ class ZoneMappingForModifyNetworkLoadBalancerNetworkTypeInput implements ModelIn
     public function __construct(array $data = null)
     {
         $this->container['eip_id'] = isset($data['eip_id']) ? $data['eip_id'] : null;
+        $this->container['eip_isp'] = isset($data['eip_isp']) ? $data['eip_isp'] : null;
+        $this->container['eip_specific_egress'] = isset($data['eip_specific_egress']) ? $data['eip_specific_egress'] : null;
         $this->container['zone_id'] = isset($data['zone_id']) ? $data['zone_id'] : null;
     }
 
@@ -201,6 +213,54 @@ class ZoneMappingForModifyNetworkLoadBalancerNetworkTypeInput implements ModelIn
     public function setEipId($eip_id)
     {
         $this->container['eip_id'] = $eip_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets eip_isp
+     *
+     * @return string
+     */
+    public function getEipIsp()
+    {
+        return $this->container['eip_isp'];
+    }
+
+    /**
+     * Sets eip_isp
+     *
+     * @param string $eip_isp eip_isp
+     *
+     * @return $this
+     */
+    public function setEipIsp($eip_isp)
+    {
+        $this->container['eip_isp'] = $eip_isp;
+
+        return $this;
+    }
+
+    /**
+     * Gets eip_specific_egress
+     *
+     * @return string
+     */
+    public function getEipSpecificEgress()
+    {
+        return $this->container['eip_specific_egress'];
+    }
+
+    /**
+     * Sets eip_specific_egress
+     *
+     * @param string $eip_specific_egress eip_specific_egress
+     *
+     * @return $this
+     */
+    public function setEipSpecificEgress($eip_specific_egress)
+    {
+        $this->container['eip_specific_egress'] = $eip_specific_egress;
 
         return $this;
     }

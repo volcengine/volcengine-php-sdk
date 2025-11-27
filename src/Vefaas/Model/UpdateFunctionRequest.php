@@ -28,6 +28,7 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'async_task_config' => '\Volcengine\Vefaas\Model\AsyncTaskConfigForUpdateFunctionInput',
         'command' => 'string',
         'cpu_milli' => 'int',
         'description' => 'string',
@@ -57,6 +58,7 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'async_task_config' => null,
         'command' => null,
         'cpu_milli' => 'int32',
         'description' => null,
@@ -107,6 +109,7 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'async_task_config' => 'AsyncTaskConfig',
         'command' => 'Command',
         'cpu_milli' => 'CpuMilli',
         'description' => 'Description',
@@ -136,6 +139,7 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'async_task_config' => 'setAsyncTaskConfig',
         'command' => 'setCommand',
         'cpu_milli' => 'setCpuMilli',
         'description' => 'setDescription',
@@ -165,6 +169,7 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'async_task_config' => 'getAsyncTaskConfig',
         'command' => 'getCommand',
         'cpu_milli' => 'getCpuMilli',
         'description' => 'getDescription',
@@ -248,6 +253,7 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['async_task_config'] = isset($data['async_task_config']) ? $data['async_task_config'] : null;
         $this->container['command'] = isset($data['command']) ? $data['command'] : null;
         $this->container['cpu_milli'] = isset($data['cpu_milli']) ? $data['cpu_milli'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
@@ -297,6 +303,30 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets async_task_config
+     *
+     * @return \Volcengine\Vefaas\Model\AsyncTaskConfigForUpdateFunctionInput
+     */
+    public function getAsyncTaskConfig()
+    {
+        return $this->container['async_task_config'];
+    }
+
+    /**
+     * Sets async_task_config
+     *
+     * @param \Volcengine\Vefaas\Model\AsyncTaskConfigForUpdateFunctionInput $async_task_config async_task_config
+     *
+     * @return $this
+     */
+    public function setAsyncTaskConfig($async_task_config)
+    {
+        $this->container['async_task_config'] = $async_task_config;
+
+        return $this;
+    }
 
     /**
      * Gets command
