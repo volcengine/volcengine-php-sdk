@@ -28,6 +28,7 @@ class UpdateFunctionResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'async_task_config' => '\Volcengine\Vefaas\Model\AsyncTaskConfigForUpdateFunctionOutput',
         'cell' => 'string',
         'code_size' => 'int',
         'code_size_limit' => 'int',
@@ -69,6 +70,7 @@ class UpdateFunctionResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'async_task_config' => null,
         'cell' => null,
         'code_size' => 'int32',
         'code_size_limit' => 'int32',
@@ -131,6 +133,7 @@ class UpdateFunctionResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'async_task_config' => 'AsyncTaskConfig',
         'cell' => 'Cell',
         'code_size' => 'CodeSize',
         'code_size_limit' => 'CodeSizeLimit',
@@ -172,6 +175,7 @@ class UpdateFunctionResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'async_task_config' => 'setAsyncTaskConfig',
         'cell' => 'setCell',
         'code_size' => 'setCodeSize',
         'code_size_limit' => 'setCodeSizeLimit',
@@ -213,6 +217,7 @@ class UpdateFunctionResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'async_task_config' => 'getAsyncTaskConfig',
         'cell' => 'getCell',
         'code_size' => 'getCodeSize',
         'code_size_limit' => 'getCodeSizeLimit',
@@ -308,6 +313,7 @@ class UpdateFunctionResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['async_task_config'] = isset($data['async_task_config']) ? $data['async_task_config'] : null;
         $this->container['cell'] = isset($data['cell']) ? $data['cell'] : null;
         $this->container['code_size'] = isset($data['code_size']) ? $data['code_size'] : null;
         $this->container['code_size_limit'] = isset($data['code_size_limit']) ? $data['code_size_limit'] : null;
@@ -366,6 +372,30 @@ class UpdateFunctionResponse implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets async_task_config
+     *
+     * @return \Volcengine\Vefaas\Model\AsyncTaskConfigForUpdateFunctionOutput
+     */
+    public function getAsyncTaskConfig()
+    {
+        return $this->container['async_task_config'];
+    }
+
+    /**
+     * Sets async_task_config
+     *
+     * @param \Volcengine\Vefaas\Model\AsyncTaskConfigForUpdateFunctionOutput $async_task_config async_task_config
+     *
+     * @return $this
+     */
+    public function setAsyncTaskConfig($async_task_config)
+    {
+        $this->container['async_task_config'] = $async_task_config;
+
+        return $this;
+    }
 
     /**
      * Gets cell

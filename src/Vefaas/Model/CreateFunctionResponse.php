@@ -28,11 +28,13 @@ class CreateFunctionResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'async_task_config' => '\Volcengine\Vefaas\Model\AsyncTaskConfigForCreateFunctionOutput',
         'cell' => 'string',
         'code_size' => 'int',
         'code_size_limit' => 'int',
         'command' => 'string',
         'cpu' => 'int',
+        'cpu_strategy' => 'string',
         'creation_time' => 'string',
         'description' => 'string',
         'enable_apmplus' => 'bool',
@@ -48,10 +50,12 @@ class CreateFunctionResponse implements ModelInterface, ArrayAccess
         'name' => 'string',
         'nas_storage' => '\Volcengine\Vefaas\Model\NasStorageForCreateFunctionOutput',
         'owner' => 'string',
+        'port' => 'int',
         'project_name' => 'string',
         'request_timeout' => 'int',
         'role' => 'string',
         'runtime' => 'string',
+        'source' => 'string',
         'source_location' => 'string',
         'source_type' => 'string',
         'tags' => '\Volcengine\Vefaas\Model\TagForCreateFunctionOutput[]',
@@ -67,11 +71,13 @@ class CreateFunctionResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'async_task_config' => null,
         'cell' => null,
         'code_size' => 'int32',
         'code_size_limit' => 'int32',
         'command' => null,
         'cpu' => 'int32',
+        'cpu_strategy' => null,
         'creation_time' => null,
         'description' => null,
         'enable_apmplus' => null,
@@ -87,10 +93,12 @@ class CreateFunctionResponse implements ModelInterface, ArrayAccess
         'name' => null,
         'nas_storage' => null,
         'owner' => null,
+        'port' => 'int32',
         'project_name' => null,
         'request_timeout' => 'int32',
         'role' => null,
         'runtime' => null,
+        'source' => null,
         'source_location' => null,
         'source_type' => null,
         'tags' => null,
@@ -127,11 +135,13 @@ class CreateFunctionResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'async_task_config' => 'AsyncTaskConfig',
         'cell' => 'Cell',
         'code_size' => 'CodeSize',
         'code_size_limit' => 'CodeSizeLimit',
         'command' => 'Command',
         'cpu' => 'Cpu',
+        'cpu_strategy' => 'CpuStrategy',
         'creation_time' => 'CreationTime',
         'description' => 'Description',
         'enable_apmplus' => 'EnableApmplus',
@@ -147,10 +157,12 @@ class CreateFunctionResponse implements ModelInterface, ArrayAccess
         'name' => 'Name',
         'nas_storage' => 'NasStorage',
         'owner' => 'Owner',
+        'port' => 'Port',
         'project_name' => 'ProjectName',
         'request_timeout' => 'RequestTimeout',
         'role' => 'Role',
         'runtime' => 'Runtime',
+        'source' => 'Source',
         'source_location' => 'SourceLocation',
         'source_type' => 'SourceType',
         'tags' => 'Tags',
@@ -166,11 +178,13 @@ class CreateFunctionResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'async_task_config' => 'setAsyncTaskConfig',
         'cell' => 'setCell',
         'code_size' => 'setCodeSize',
         'code_size_limit' => 'setCodeSizeLimit',
         'command' => 'setCommand',
         'cpu' => 'setCpu',
+        'cpu_strategy' => 'setCpuStrategy',
         'creation_time' => 'setCreationTime',
         'description' => 'setDescription',
         'enable_apmplus' => 'setEnableApmplus',
@@ -186,10 +200,12 @@ class CreateFunctionResponse implements ModelInterface, ArrayAccess
         'name' => 'setName',
         'nas_storage' => 'setNasStorage',
         'owner' => 'setOwner',
+        'port' => 'setPort',
         'project_name' => 'setProjectName',
         'request_timeout' => 'setRequestTimeout',
         'role' => 'setRole',
         'runtime' => 'setRuntime',
+        'source' => 'setSource',
         'source_location' => 'setSourceLocation',
         'source_type' => 'setSourceType',
         'tags' => 'setTags',
@@ -205,11 +221,13 @@ class CreateFunctionResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'async_task_config' => 'getAsyncTaskConfig',
         'cell' => 'getCell',
         'code_size' => 'getCodeSize',
         'code_size_limit' => 'getCodeSizeLimit',
         'command' => 'getCommand',
         'cpu' => 'getCpu',
+        'cpu_strategy' => 'getCpuStrategy',
         'creation_time' => 'getCreationTime',
         'description' => 'getDescription',
         'enable_apmplus' => 'getEnableApmplus',
@@ -225,10 +243,12 @@ class CreateFunctionResponse implements ModelInterface, ArrayAccess
         'name' => 'getName',
         'nas_storage' => 'getNasStorage',
         'owner' => 'getOwner',
+        'port' => 'getPort',
         'project_name' => 'getProjectName',
         'request_timeout' => 'getRequestTimeout',
         'role' => 'getRole',
         'runtime' => 'getRuntime',
+        'source' => 'getSource',
         'source_location' => 'getSourceLocation',
         'source_type' => 'getSourceType',
         'tags' => 'getTags',
@@ -298,11 +318,13 @@ class CreateFunctionResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['async_task_config'] = isset($data['async_task_config']) ? $data['async_task_config'] : null;
         $this->container['cell'] = isset($data['cell']) ? $data['cell'] : null;
         $this->container['code_size'] = isset($data['code_size']) ? $data['code_size'] : null;
         $this->container['code_size_limit'] = isset($data['code_size_limit']) ? $data['code_size_limit'] : null;
         $this->container['command'] = isset($data['command']) ? $data['command'] : null;
         $this->container['cpu'] = isset($data['cpu']) ? $data['cpu'] : null;
+        $this->container['cpu_strategy'] = isset($data['cpu_strategy']) ? $data['cpu_strategy'] : null;
         $this->container['creation_time'] = isset($data['creation_time']) ? $data['creation_time'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['enable_apmplus'] = isset($data['enable_apmplus']) ? $data['enable_apmplus'] : null;
@@ -318,10 +340,12 @@ class CreateFunctionResponse implements ModelInterface, ArrayAccess
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['nas_storage'] = isset($data['nas_storage']) ? $data['nas_storage'] : null;
         $this->container['owner'] = isset($data['owner']) ? $data['owner'] : null;
+        $this->container['port'] = isset($data['port']) ? $data['port'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['request_timeout'] = isset($data['request_timeout']) ? $data['request_timeout'] : null;
         $this->container['role'] = isset($data['role']) ? $data['role'] : null;
         $this->container['runtime'] = isset($data['runtime']) ? $data['runtime'] : null;
+        $this->container['source'] = isset($data['source']) ? $data['source'] : null;
         $this->container['source_location'] = isset($data['source_location']) ? $data['source_location'] : null;
         $this->container['source_type'] = isset($data['source_type']) ? $data['source_type'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
@@ -354,6 +378,30 @@ class CreateFunctionResponse implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets async_task_config
+     *
+     * @return \Volcengine\Vefaas\Model\AsyncTaskConfigForCreateFunctionOutput
+     */
+    public function getAsyncTaskConfig()
+    {
+        return $this->container['async_task_config'];
+    }
+
+    /**
+     * Sets async_task_config
+     *
+     * @param \Volcengine\Vefaas\Model\AsyncTaskConfigForCreateFunctionOutput $async_task_config async_task_config
+     *
+     * @return $this
+     */
+    public function setAsyncTaskConfig($async_task_config)
+    {
+        $this->container['async_task_config'] = $async_task_config;
+
+        return $this;
+    }
 
     /**
      * Gets cell
@@ -471,6 +519,30 @@ class CreateFunctionResponse implements ModelInterface, ArrayAccess
     public function setCpu($cpu)
     {
         $this->container['cpu'] = $cpu;
+
+        return $this;
+    }
+
+    /**
+     * Gets cpu_strategy
+     *
+     * @return string
+     */
+    public function getCpuStrategy()
+    {
+        return $this->container['cpu_strategy'];
+    }
+
+    /**
+     * Sets cpu_strategy
+     *
+     * @param string $cpu_strategy cpu_strategy
+     *
+     * @return $this
+     */
+    public function setCpuStrategy($cpu_strategy)
+    {
+        $this->container['cpu_strategy'] = $cpu_strategy;
 
         return $this;
     }
@@ -836,6 +908,30 @@ class CreateFunctionResponse implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets port
+     *
+     * @return int
+     */
+    public function getPort()
+    {
+        return $this->container['port'];
+    }
+
+    /**
+     * Sets port
+     *
+     * @param int $port port
+     *
+     * @return $this
+     */
+    public function setPort($port)
+    {
+        $this->container['port'] = $port;
+
+        return $this;
+    }
+
+    /**
      * Gets project_name
      *
      * @return string
@@ -927,6 +1023,30 @@ class CreateFunctionResponse implements ModelInterface, ArrayAccess
     public function setRuntime($runtime)
     {
         $this->container['runtime'] = $runtime;
+
+        return $this;
+    }
+
+    /**
+     * Gets source
+     *
+     * @return string
+     */
+    public function getSource()
+    {
+        return $this->container['source'];
+    }
+
+    /**
+     * Sets source
+     *
+     * @param string $source source
+     *
+     * @return $this
+     */
+    public function setSource($source)
+    {
+        $this->container['source'] = $source;
 
         return $this;
     }
