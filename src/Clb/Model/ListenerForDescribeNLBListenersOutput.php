@@ -29,7 +29,11 @@ class ListenerForDescribeNLBListenersOutput implements ModelInterface, ArrayAcce
       */
     protected static $swaggerTypes = [
         'account_id' => 'string',
+        'ca_certificate_id' => 'string',
+        'ca_certificate_source' => 'string',
+        'ca_enabled' => 'bool',
         'certificate_id' => 'string',
+        'certificate_source' => 'string',
         'connection_timeout' => 'int',
         'create_time' => 'string',
         'description' => 'string',
@@ -38,6 +42,7 @@ class ListenerForDescribeNLBListenersOutput implements ModelInterface, ArrayAcce
         'listener_id' => 'string',
         'listener_name' => 'string',
         'load_balancer_id' => 'string',
+        'pca_certificate_id' => 'string',
         'port' => 'int',
         'protocol' => 'string',
         'security_policy_id' => 'string',
@@ -56,7 +61,11 @@ class ListenerForDescribeNLBListenersOutput implements ModelInterface, ArrayAcce
       */
     protected static $swaggerFormats = [
         'account_id' => null,
+        'ca_certificate_id' => null,
+        'ca_certificate_source' => null,
+        'ca_enabled' => null,
         'certificate_id' => null,
+        'certificate_source' => null,
         'connection_timeout' => null,
         'create_time' => null,
         'description' => null,
@@ -65,6 +74,7 @@ class ListenerForDescribeNLBListenersOutput implements ModelInterface, ArrayAcce
         'listener_id' => null,
         'listener_name' => null,
         'load_balancer_id' => null,
+        'pca_certificate_id' => null,
         'port' => null,
         'protocol' => null,
         'security_policy_id' => null,
@@ -104,7 +114,11 @@ class ListenerForDescribeNLBListenersOutput implements ModelInterface, ArrayAcce
      */
     protected static $attributeMap = [
         'account_id' => 'AccountId',
+        'ca_certificate_id' => 'CACertificateId',
+        'ca_certificate_source' => 'CACertificateSource',
+        'ca_enabled' => 'CAEnabled',
         'certificate_id' => 'CertificateId',
+        'certificate_source' => 'CertificateSource',
         'connection_timeout' => 'ConnectionTimeout',
         'create_time' => 'CreateTime',
         'description' => 'Description',
@@ -113,6 +127,7 @@ class ListenerForDescribeNLBListenersOutput implements ModelInterface, ArrayAcce
         'listener_id' => 'ListenerId',
         'listener_name' => 'ListenerName',
         'load_balancer_id' => 'LoadBalancerId',
+        'pca_certificate_id' => 'PCACertificateId',
         'port' => 'Port',
         'protocol' => 'Protocol',
         'security_policy_id' => 'SecurityPolicyId',
@@ -131,7 +146,11 @@ class ListenerForDescribeNLBListenersOutput implements ModelInterface, ArrayAcce
      */
     protected static $setters = [
         'account_id' => 'setAccountId',
+        'ca_certificate_id' => 'setCaCertificateId',
+        'ca_certificate_source' => 'setCaCertificateSource',
+        'ca_enabled' => 'setCaEnabled',
         'certificate_id' => 'setCertificateId',
+        'certificate_source' => 'setCertificateSource',
         'connection_timeout' => 'setConnectionTimeout',
         'create_time' => 'setCreateTime',
         'description' => 'setDescription',
@@ -140,6 +159,7 @@ class ListenerForDescribeNLBListenersOutput implements ModelInterface, ArrayAcce
         'listener_id' => 'setListenerId',
         'listener_name' => 'setListenerName',
         'load_balancer_id' => 'setLoadBalancerId',
+        'pca_certificate_id' => 'setPcaCertificateId',
         'port' => 'setPort',
         'protocol' => 'setProtocol',
         'security_policy_id' => 'setSecurityPolicyId',
@@ -158,7 +178,11 @@ class ListenerForDescribeNLBListenersOutput implements ModelInterface, ArrayAcce
      */
     protected static $getters = [
         'account_id' => 'getAccountId',
+        'ca_certificate_id' => 'getCaCertificateId',
+        'ca_certificate_source' => 'getCaCertificateSource',
+        'ca_enabled' => 'getCaEnabled',
         'certificate_id' => 'getCertificateId',
+        'certificate_source' => 'getCertificateSource',
         'connection_timeout' => 'getConnectionTimeout',
         'create_time' => 'getCreateTime',
         'description' => 'getDescription',
@@ -167,6 +191,7 @@ class ListenerForDescribeNLBListenersOutput implements ModelInterface, ArrayAcce
         'listener_id' => 'getListenerId',
         'listener_name' => 'getListenerName',
         'load_balancer_id' => 'getLoadBalancerId',
+        'pca_certificate_id' => 'getPcaCertificateId',
         'port' => 'getPort',
         'protocol' => 'getProtocol',
         'security_policy_id' => 'getSecurityPolicyId',
@@ -239,7 +264,11 @@ class ListenerForDescribeNLBListenersOutput implements ModelInterface, ArrayAcce
     public function __construct(array $data = null)
     {
         $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
+        $this->container['ca_certificate_id'] = isset($data['ca_certificate_id']) ? $data['ca_certificate_id'] : null;
+        $this->container['ca_certificate_source'] = isset($data['ca_certificate_source']) ? $data['ca_certificate_source'] : null;
+        $this->container['ca_enabled'] = isset($data['ca_enabled']) ? $data['ca_enabled'] : null;
         $this->container['certificate_id'] = isset($data['certificate_id']) ? $data['certificate_id'] : null;
+        $this->container['certificate_source'] = isset($data['certificate_source']) ? $data['certificate_source'] : null;
         $this->container['connection_timeout'] = isset($data['connection_timeout']) ? $data['connection_timeout'] : null;
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
@@ -248,6 +277,7 @@ class ListenerForDescribeNLBListenersOutput implements ModelInterface, ArrayAcce
         $this->container['listener_id'] = isset($data['listener_id']) ? $data['listener_id'] : null;
         $this->container['listener_name'] = isset($data['listener_name']) ? $data['listener_name'] : null;
         $this->container['load_balancer_id'] = isset($data['load_balancer_id']) ? $data['load_balancer_id'] : null;
+        $this->container['pca_certificate_id'] = isset($data['pca_certificate_id']) ? $data['pca_certificate_id'] : null;
         $this->container['port'] = isset($data['port']) ? $data['port'] : null;
         $this->container['protocol'] = isset($data['protocol']) ? $data['protocol'] : null;
         $this->container['security_policy_id'] = isset($data['security_policy_id']) ? $data['security_policy_id'] : null;
@@ -308,6 +338,78 @@ class ListenerForDescribeNLBListenersOutput implements ModelInterface, ArrayAcce
     }
 
     /**
+     * Gets ca_certificate_id
+     *
+     * @return string
+     */
+    public function getCaCertificateId()
+    {
+        return $this->container['ca_certificate_id'];
+    }
+
+    /**
+     * Sets ca_certificate_id
+     *
+     * @param string $ca_certificate_id ca_certificate_id
+     *
+     * @return $this
+     */
+    public function setCaCertificateId($ca_certificate_id)
+    {
+        $this->container['ca_certificate_id'] = $ca_certificate_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets ca_certificate_source
+     *
+     * @return string
+     */
+    public function getCaCertificateSource()
+    {
+        return $this->container['ca_certificate_source'];
+    }
+
+    /**
+     * Sets ca_certificate_source
+     *
+     * @param string $ca_certificate_source ca_certificate_source
+     *
+     * @return $this
+     */
+    public function setCaCertificateSource($ca_certificate_source)
+    {
+        $this->container['ca_certificate_source'] = $ca_certificate_source;
+
+        return $this;
+    }
+
+    /**
+     * Gets ca_enabled
+     *
+     * @return bool
+     */
+    public function getCaEnabled()
+    {
+        return $this->container['ca_enabled'];
+    }
+
+    /**
+     * Sets ca_enabled
+     *
+     * @param bool $ca_enabled ca_enabled
+     *
+     * @return $this
+     */
+    public function setCaEnabled($ca_enabled)
+    {
+        $this->container['ca_enabled'] = $ca_enabled;
+
+        return $this;
+    }
+
+    /**
      * Gets certificate_id
      *
      * @return string
@@ -327,6 +429,30 @@ class ListenerForDescribeNLBListenersOutput implements ModelInterface, ArrayAcce
     public function setCertificateId($certificate_id)
     {
         $this->container['certificate_id'] = $certificate_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets certificate_source
+     *
+     * @return string
+     */
+    public function getCertificateSource()
+    {
+        return $this->container['certificate_source'];
+    }
+
+    /**
+     * Sets certificate_source
+     *
+     * @param string $certificate_source certificate_source
+     *
+     * @return $this
+     */
+    public function setCertificateSource($certificate_source)
+    {
+        $this->container['certificate_source'] = $certificate_source;
 
         return $this;
     }
@@ -519,6 +645,30 @@ class ListenerForDescribeNLBListenersOutput implements ModelInterface, ArrayAcce
     public function setLoadBalancerId($load_balancer_id)
     {
         $this->container['load_balancer_id'] = $load_balancer_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets pca_certificate_id
+     *
+     * @return string
+     */
+    public function getPcaCertificateId()
+    {
+        return $this->container['pca_certificate_id'];
+    }
+
+    /**
+     * Sets pca_certificate_id
+     *
+     * @param string $pca_certificate_id pca_certificate_id
+     *
+     * @return $this
+     */
+    public function setPcaCertificateId($pca_certificate_id)
+    {
+        $this->container['pca_certificate_id'] = $pca_certificate_id;
 
         return $this;
     }
