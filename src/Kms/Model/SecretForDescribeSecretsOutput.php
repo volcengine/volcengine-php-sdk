@@ -35,6 +35,7 @@ class SecretForDescribeSecretsOutput implements ModelInterface, ArrayAccess
         'id' => 'string',
         'last_rotation_time' => 'string',
         'managed' => 'bool',
+        'owning_service' => 'string',
         'project_name' => 'string',
         'rotation_interval' => 'int',
         'rotation_state' => 'string',
@@ -61,6 +62,7 @@ class SecretForDescribeSecretsOutput implements ModelInterface, ArrayAccess
         'id' => null,
         'last_rotation_time' => null,
         'managed' => null,
+        'owning_service' => null,
         'project_name' => null,
         'rotation_interval' => 'int32',
         'rotation_state' => null,
@@ -108,6 +110,7 @@ class SecretForDescribeSecretsOutput implements ModelInterface, ArrayAccess
         'id' => 'ID',
         'last_rotation_time' => 'LastRotationTime',
         'managed' => 'Managed',
+        'owning_service' => 'OwningService',
         'project_name' => 'ProjectName',
         'rotation_interval' => 'RotationInterval',
         'rotation_state' => 'RotationState',
@@ -134,6 +137,7 @@ class SecretForDescribeSecretsOutput implements ModelInterface, ArrayAccess
         'id' => 'setId',
         'last_rotation_time' => 'setLastRotationTime',
         'managed' => 'setManaged',
+        'owning_service' => 'setOwningService',
         'project_name' => 'setProjectName',
         'rotation_interval' => 'setRotationInterval',
         'rotation_state' => 'setRotationState',
@@ -160,6 +164,7 @@ class SecretForDescribeSecretsOutput implements ModelInterface, ArrayAccess
         'id' => 'getId',
         'last_rotation_time' => 'getLastRotationTime',
         'managed' => 'getManaged',
+        'owning_service' => 'getOwningService',
         'project_name' => 'getProjectName',
         'rotation_interval' => 'getRotationInterval',
         'rotation_state' => 'getRotationState',
@@ -278,6 +283,7 @@ class SecretForDescribeSecretsOutput implements ModelInterface, ArrayAccess
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['last_rotation_time'] = isset($data['last_rotation_time']) ? $data['last_rotation_time'] : null;
         $this->container['managed'] = isset($data['managed']) ? $data['managed'] : null;
+        $this->container['owning_service'] = isset($data['owning_service']) ? $data['owning_service'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['rotation_interval'] = isset($data['rotation_interval']) ? $data['rotation_interval'] : null;
         $this->container['rotation_state'] = isset($data['rotation_state']) ? $data['rotation_state'] : null;
@@ -495,6 +501,30 @@ class SecretForDescribeSecretsOutput implements ModelInterface, ArrayAccess
     public function setManaged($managed)
     {
         $this->container['managed'] = $managed;
+
+        return $this;
+    }
+
+    /**
+     * Gets owning_service
+     *
+     * @return string
+     */
+    public function getOwningService()
+    {
+        return $this->container['owning_service'];
+    }
+
+    /**
+     * Sets owning_service
+     *
+     * @param string $owning_service owning_service
+     *
+     * @return $this
+     */
+    public function setOwningService($owning_service)
+    {
+        $this->container['owning_service'] = $owning_service;
 
         return $this;
     }
