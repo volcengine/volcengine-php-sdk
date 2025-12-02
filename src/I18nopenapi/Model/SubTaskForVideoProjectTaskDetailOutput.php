@@ -30,12 +30,27 @@ class SubTaskForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAcc
     protected static $swaggerTypes = [
         'create_time' => 'string',
         'current_stage' => 'string',
+        'default_style' => 'string',
+        'episode_num' => 'int',
         'id' => 'string',
         'op_status' => 'string',
         'source_language' => 'string',
+        'source_subtitle_file_info' => '\Volcengine\I18nopenapi\Model\SourceSubtitleFileInfoForVideoProjectTaskDetailOutput',
         'status' => 'string',
+        'subtask_type' => 'int',
+        'suppression_status' => 'int',
+        'suppression_video_info' => '\Volcengine\I18nopenapi\Model\SuppressionVideoInfoForVideoProjectTaskDetailOutput',
+        'target_language' => 'string',
+        'target_subtitle_file_info' => '\Volcengine\I18nopenapi\Model\TargetSubtitleFileInfoForVideoProjectTaskDetailOutput',
+        'text_ai_remove' => 'bool',
+        'translate_ocr_text' => 'bool',
         'update_time' => 'string',
-        'use_dub_task' => 'string'
+        'use_dub_task' => 'string',
+        'use_mt' => 'bool',
+        'use_ocr' => 'bool',
+        'vid_with_ai_remove' => 'string',
+        'video_id' => 'string',
+        'workflow' => 'int'
     ];
 
     /**
@@ -46,12 +61,27 @@ class SubTaskForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAcc
     protected static $swaggerFormats = [
         'create_time' => null,
         'current_stage' => null,
+        'default_style' => null,
+        'episode_num' => 'int32',
         'id' => null,
         'op_status' => null,
         'source_language' => null,
+        'source_subtitle_file_info' => null,
         'status' => null,
+        'subtask_type' => 'int32',
+        'suppression_status' => 'int32',
+        'suppression_video_info' => null,
+        'target_language' => null,
+        'target_subtitle_file_info' => null,
+        'text_ai_remove' => null,
+        'translate_ocr_text' => null,
         'update_time' => null,
-        'use_dub_task' => null
+        'use_dub_task' => null,
+        'use_mt' => null,
+        'use_ocr' => null,
+        'vid_with_ai_remove' => null,
+        'video_id' => null,
+        'workflow' => 'int32'
     ];
 
     /**
@@ -83,12 +113,27 @@ class SubTaskForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAcc
     protected static $attributeMap = [
         'create_time' => 'createTime',
         'current_stage' => 'currentStage',
+        'default_style' => 'defaultStyle',
+        'episode_num' => 'episodeNum',
         'id' => 'id',
         'op_status' => 'opStatus',
         'source_language' => 'sourceLanguage',
+        'source_subtitle_file_info' => 'sourceSubtitleFileInfo',
         'status' => 'status',
+        'subtask_type' => 'subtaskType',
+        'suppression_status' => 'suppressionStatus',
+        'suppression_video_info' => 'suppressionVideoInfo',
+        'target_language' => 'targetLanguage',
+        'target_subtitle_file_info' => 'targetSubtitleFileInfo',
+        'text_ai_remove' => 'textAiRemove',
+        'translate_ocr_text' => 'translateOcrText',
         'update_time' => 'updateTime',
-        'use_dub_task' => 'useDubTask'
+        'use_dub_task' => 'useDubTask',
+        'use_mt' => 'useMt',
+        'use_ocr' => 'useOcr',
+        'vid_with_ai_remove' => 'vidWithAiRemove',
+        'video_id' => 'videoId',
+        'workflow' => 'workflow'
     ];
 
     /**
@@ -99,12 +144,27 @@ class SubTaskForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAcc
     protected static $setters = [
         'create_time' => 'setCreateTime',
         'current_stage' => 'setCurrentStage',
+        'default_style' => 'setDefaultStyle',
+        'episode_num' => 'setEpisodeNum',
         'id' => 'setId',
         'op_status' => 'setOpStatus',
         'source_language' => 'setSourceLanguage',
+        'source_subtitle_file_info' => 'setSourceSubtitleFileInfo',
         'status' => 'setStatus',
+        'subtask_type' => 'setSubtaskType',
+        'suppression_status' => 'setSuppressionStatus',
+        'suppression_video_info' => 'setSuppressionVideoInfo',
+        'target_language' => 'setTargetLanguage',
+        'target_subtitle_file_info' => 'setTargetSubtitleFileInfo',
+        'text_ai_remove' => 'setTextAiRemove',
+        'translate_ocr_text' => 'setTranslateOcrText',
         'update_time' => 'setUpdateTime',
-        'use_dub_task' => 'setUseDubTask'
+        'use_dub_task' => 'setUseDubTask',
+        'use_mt' => 'setUseMt',
+        'use_ocr' => 'setUseOcr',
+        'vid_with_ai_remove' => 'setVidWithAiRemove',
+        'video_id' => 'setVideoId',
+        'workflow' => 'setWorkflow'
     ];
 
     /**
@@ -115,12 +175,27 @@ class SubTaskForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAcc
     protected static $getters = [
         'create_time' => 'getCreateTime',
         'current_stage' => 'getCurrentStage',
+        'default_style' => 'getDefaultStyle',
+        'episode_num' => 'getEpisodeNum',
         'id' => 'getId',
         'op_status' => 'getOpStatus',
         'source_language' => 'getSourceLanguage',
+        'source_subtitle_file_info' => 'getSourceSubtitleFileInfo',
         'status' => 'getStatus',
+        'subtask_type' => 'getSubtaskType',
+        'suppression_status' => 'getSuppressionStatus',
+        'suppression_video_info' => 'getSuppressionVideoInfo',
+        'target_language' => 'getTargetLanguage',
+        'target_subtitle_file_info' => 'getTargetSubtitleFileInfo',
+        'text_ai_remove' => 'getTextAiRemove',
+        'translate_ocr_text' => 'getTranslateOcrText',
         'update_time' => 'getUpdateTime',
-        'use_dub_task' => 'getUseDubTask'
+        'use_dub_task' => 'getUseDubTask',
+        'use_mt' => 'getUseMt',
+        'use_ocr' => 'getUseOcr',
+        'vid_with_ai_remove' => 'getVidWithAiRemove',
+        'video_id' => 'getVideoId',
+        'workflow' => 'getWorkflow'
     ];
 
     /**
@@ -185,12 +260,27 @@ class SubTaskForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAcc
     {
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
         $this->container['current_stage'] = isset($data['current_stage']) ? $data['current_stage'] : null;
+        $this->container['default_style'] = isset($data['default_style']) ? $data['default_style'] : null;
+        $this->container['episode_num'] = isset($data['episode_num']) ? $data['episode_num'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['op_status'] = isset($data['op_status']) ? $data['op_status'] : null;
         $this->container['source_language'] = isset($data['source_language']) ? $data['source_language'] : null;
+        $this->container['source_subtitle_file_info'] = isset($data['source_subtitle_file_info']) ? $data['source_subtitle_file_info'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['subtask_type'] = isset($data['subtask_type']) ? $data['subtask_type'] : null;
+        $this->container['suppression_status'] = isset($data['suppression_status']) ? $data['suppression_status'] : null;
+        $this->container['suppression_video_info'] = isset($data['suppression_video_info']) ? $data['suppression_video_info'] : null;
+        $this->container['target_language'] = isset($data['target_language']) ? $data['target_language'] : null;
+        $this->container['target_subtitle_file_info'] = isset($data['target_subtitle_file_info']) ? $data['target_subtitle_file_info'] : null;
+        $this->container['text_ai_remove'] = isset($data['text_ai_remove']) ? $data['text_ai_remove'] : null;
+        $this->container['translate_ocr_text'] = isset($data['translate_ocr_text']) ? $data['translate_ocr_text'] : null;
         $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
         $this->container['use_dub_task'] = isset($data['use_dub_task']) ? $data['use_dub_task'] : null;
+        $this->container['use_mt'] = isset($data['use_mt']) ? $data['use_mt'] : null;
+        $this->container['use_ocr'] = isset($data['use_ocr']) ? $data['use_ocr'] : null;
+        $this->container['vid_with_ai_remove'] = isset($data['vid_with_ai_remove']) ? $data['vid_with_ai_remove'] : null;
+        $this->container['video_id'] = isset($data['video_id']) ? $data['video_id'] : null;
+        $this->container['workflow'] = isset($data['workflow']) ? $data['workflow'] : null;
     }
 
     /**
@@ -261,6 +351,54 @@ class SubTaskForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAcc
     public function setCurrentStage($current_stage)
     {
         $this->container['current_stage'] = $current_stage;
+
+        return $this;
+    }
+
+    /**
+     * Gets default_style
+     *
+     * @return string
+     */
+    public function getDefaultStyle()
+    {
+        return $this->container['default_style'];
+    }
+
+    /**
+     * Sets default_style
+     *
+     * @param string $default_style default_style
+     *
+     * @return $this
+     */
+    public function setDefaultStyle($default_style)
+    {
+        $this->container['default_style'] = $default_style;
+
+        return $this;
+    }
+
+    /**
+     * Gets episode_num
+     *
+     * @return int
+     */
+    public function getEpisodeNum()
+    {
+        return $this->container['episode_num'];
+    }
+
+    /**
+     * Sets episode_num
+     *
+     * @param int $episode_num episode_num
+     *
+     * @return $this
+     */
+    public function setEpisodeNum($episode_num)
+    {
+        $this->container['episode_num'] = $episode_num;
 
         return $this;
     }
@@ -338,6 +476,30 @@ class SubTaskForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAcc
     }
 
     /**
+     * Gets source_subtitle_file_info
+     *
+     * @return \Volcengine\I18nopenapi\Model\SourceSubtitleFileInfoForVideoProjectTaskDetailOutput
+     */
+    public function getSourceSubtitleFileInfo()
+    {
+        return $this->container['source_subtitle_file_info'];
+    }
+
+    /**
+     * Sets source_subtitle_file_info
+     *
+     * @param \Volcengine\I18nopenapi\Model\SourceSubtitleFileInfoForVideoProjectTaskDetailOutput $source_subtitle_file_info source_subtitle_file_info
+     *
+     * @return $this
+     */
+    public function setSourceSubtitleFileInfo($source_subtitle_file_info)
+    {
+        $this->container['source_subtitle_file_info'] = $source_subtitle_file_info;
+
+        return $this;
+    }
+
+    /**
      * Gets status
      *
      * @return string
@@ -357,6 +519,174 @@ class SubTaskForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAcc
     public function setStatus($status)
     {
         $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets subtask_type
+     *
+     * @return int
+     */
+    public function getSubtaskType()
+    {
+        return $this->container['subtask_type'];
+    }
+
+    /**
+     * Sets subtask_type
+     *
+     * @param int $subtask_type subtask_type
+     *
+     * @return $this
+     */
+    public function setSubtaskType($subtask_type)
+    {
+        $this->container['subtask_type'] = $subtask_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets suppression_status
+     *
+     * @return int
+     */
+    public function getSuppressionStatus()
+    {
+        return $this->container['suppression_status'];
+    }
+
+    /**
+     * Sets suppression_status
+     *
+     * @param int $suppression_status suppression_status
+     *
+     * @return $this
+     */
+    public function setSuppressionStatus($suppression_status)
+    {
+        $this->container['suppression_status'] = $suppression_status;
+
+        return $this;
+    }
+
+    /**
+     * Gets suppression_video_info
+     *
+     * @return \Volcengine\I18nopenapi\Model\SuppressionVideoInfoForVideoProjectTaskDetailOutput
+     */
+    public function getSuppressionVideoInfo()
+    {
+        return $this->container['suppression_video_info'];
+    }
+
+    /**
+     * Sets suppression_video_info
+     *
+     * @param \Volcengine\I18nopenapi\Model\SuppressionVideoInfoForVideoProjectTaskDetailOutput $suppression_video_info suppression_video_info
+     *
+     * @return $this
+     */
+    public function setSuppressionVideoInfo($suppression_video_info)
+    {
+        $this->container['suppression_video_info'] = $suppression_video_info;
+
+        return $this;
+    }
+
+    /**
+     * Gets target_language
+     *
+     * @return string
+     */
+    public function getTargetLanguage()
+    {
+        return $this->container['target_language'];
+    }
+
+    /**
+     * Sets target_language
+     *
+     * @param string $target_language target_language
+     *
+     * @return $this
+     */
+    public function setTargetLanguage($target_language)
+    {
+        $this->container['target_language'] = $target_language;
+
+        return $this;
+    }
+
+    /**
+     * Gets target_subtitle_file_info
+     *
+     * @return \Volcengine\I18nopenapi\Model\TargetSubtitleFileInfoForVideoProjectTaskDetailOutput
+     */
+    public function getTargetSubtitleFileInfo()
+    {
+        return $this->container['target_subtitle_file_info'];
+    }
+
+    /**
+     * Sets target_subtitle_file_info
+     *
+     * @param \Volcengine\I18nopenapi\Model\TargetSubtitleFileInfoForVideoProjectTaskDetailOutput $target_subtitle_file_info target_subtitle_file_info
+     *
+     * @return $this
+     */
+    public function setTargetSubtitleFileInfo($target_subtitle_file_info)
+    {
+        $this->container['target_subtitle_file_info'] = $target_subtitle_file_info;
+
+        return $this;
+    }
+
+    /**
+     * Gets text_ai_remove
+     *
+     * @return bool
+     */
+    public function getTextAiRemove()
+    {
+        return $this->container['text_ai_remove'];
+    }
+
+    /**
+     * Sets text_ai_remove
+     *
+     * @param bool $text_ai_remove text_ai_remove
+     *
+     * @return $this
+     */
+    public function setTextAiRemove($text_ai_remove)
+    {
+        $this->container['text_ai_remove'] = $text_ai_remove;
+
+        return $this;
+    }
+
+    /**
+     * Gets translate_ocr_text
+     *
+     * @return bool
+     */
+    public function getTranslateOcrText()
+    {
+        return $this->container['translate_ocr_text'];
+    }
+
+    /**
+     * Sets translate_ocr_text
+     *
+     * @param bool $translate_ocr_text translate_ocr_text
+     *
+     * @return $this
+     */
+    public function setTranslateOcrText($translate_ocr_text)
+    {
+        $this->container['translate_ocr_text'] = $translate_ocr_text;
 
         return $this;
     }
@@ -405,6 +735,126 @@ class SubTaskForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAcc
     public function setUseDubTask($use_dub_task)
     {
         $this->container['use_dub_task'] = $use_dub_task;
+
+        return $this;
+    }
+
+    /**
+     * Gets use_mt
+     *
+     * @return bool
+     */
+    public function getUseMt()
+    {
+        return $this->container['use_mt'];
+    }
+
+    /**
+     * Sets use_mt
+     *
+     * @param bool $use_mt use_mt
+     *
+     * @return $this
+     */
+    public function setUseMt($use_mt)
+    {
+        $this->container['use_mt'] = $use_mt;
+
+        return $this;
+    }
+
+    /**
+     * Gets use_ocr
+     *
+     * @return bool
+     */
+    public function getUseOcr()
+    {
+        return $this->container['use_ocr'];
+    }
+
+    /**
+     * Sets use_ocr
+     *
+     * @param bool $use_ocr use_ocr
+     *
+     * @return $this
+     */
+    public function setUseOcr($use_ocr)
+    {
+        $this->container['use_ocr'] = $use_ocr;
+
+        return $this;
+    }
+
+    /**
+     * Gets vid_with_ai_remove
+     *
+     * @return string
+     */
+    public function getVidWithAiRemove()
+    {
+        return $this->container['vid_with_ai_remove'];
+    }
+
+    /**
+     * Sets vid_with_ai_remove
+     *
+     * @param string $vid_with_ai_remove vid_with_ai_remove
+     *
+     * @return $this
+     */
+    public function setVidWithAiRemove($vid_with_ai_remove)
+    {
+        $this->container['vid_with_ai_remove'] = $vid_with_ai_remove;
+
+        return $this;
+    }
+
+    /**
+     * Gets video_id
+     *
+     * @return string
+     */
+    public function getVideoId()
+    {
+        return $this->container['video_id'];
+    }
+
+    /**
+     * Sets video_id
+     *
+     * @param string $video_id video_id
+     *
+     * @return $this
+     */
+    public function setVideoId($video_id)
+    {
+        $this->container['video_id'] = $video_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets workflow
+     *
+     * @return int
+     */
+    public function getWorkflow()
+    {
+        return $this->container['workflow'];
+    }
+
+    /**
+     * Sets workflow
+     *
+     * @param int $workflow workflow
+     *
+     * @return $this
+     */
+    public function setWorkflow($workflow)
+    {
+        $this->container['workflow'] = $workflow;
 
         return $this;
     }

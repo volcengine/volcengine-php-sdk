@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class DataForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
+class VideoProjectSerialTaskCreateRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class DataForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'dataForVideoProjectTaskDetailOutput';
+    protected static $swaggerModelName = 'VideoProjectSerialTaskCreateRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,9 @@ class DataForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'sub_tasks' => '\Volcengine\I18nopenapi\Model\SubTaskForVideoProjectTaskDetailOutput[]',
-        'task' => '\Volcengine\I18nopenapi\Model\TaskForVideoProjectTaskDetailOutput',
-        'video_details' => '\Volcengine\I18nopenapi\Model\VideoDetailForVideoProjectTaskDetailOutput[]',
-        'video_details_with_ai_remove' => '\Volcengine\I18nopenapi\Model\VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput[]'
+        'project_id' => 'int',
+        'serial_info' => '\Volcengine\I18nopenapi\Model\SerialInfoForVideoProjectSerialTaskCreateInput[]',
+        'task_info' => '\Volcengine\I18nopenapi\Model\TaskInfoForVideoProjectSerialTaskCreateInput'
     ];
 
     /**
@@ -40,10 +39,9 @@ class DataForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'sub_tasks' => null,
-        'task' => null,
-        'video_details' => null,
-        'video_details_with_ai_remove' => null
+        'project_id' => 'int64',
+        'serial_info' => null,
+        'task_info' => null
     ];
 
     /**
@@ -73,10 +71,9 @@ class DataForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'sub_tasks' => 'subTasks',
-        'task' => 'task',
-        'video_details' => 'videoDetails',
-        'video_details_with_ai_remove' => 'videoDetailsWithAiRemove'
+        'project_id' => 'projectId',
+        'serial_info' => 'serialInfo',
+        'task_info' => 'taskInfo'
     ];
 
     /**
@@ -85,10 +82,9 @@ class DataForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'sub_tasks' => 'setSubTasks',
-        'task' => 'setTask',
-        'video_details' => 'setVideoDetails',
-        'video_details_with_ai_remove' => 'setVideoDetailsWithAiRemove'
+        'project_id' => 'setProjectId',
+        'serial_info' => 'setSerialInfo',
+        'task_info' => 'setTaskInfo'
     ];
 
     /**
@@ -97,10 +93,9 @@ class DataForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'sub_tasks' => 'getSubTasks',
-        'task' => 'getTask',
-        'video_details' => 'getVideoDetails',
-        'video_details_with_ai_remove' => 'getVideoDetailsWithAiRemove'
+        'project_id' => 'getProjectId',
+        'serial_info' => 'getSerialInfo',
+        'task_info' => 'getTaskInfo'
     ];
 
     /**
@@ -163,10 +158,9 @@ class DataForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['sub_tasks'] = isset($data['sub_tasks']) ? $data['sub_tasks'] : null;
-        $this->container['task'] = isset($data['task']) ? $data['task'] : null;
-        $this->container['video_details'] = isset($data['video_details']) ? $data['video_details'] : null;
-        $this->container['video_details_with_ai_remove'] = isset($data['video_details_with_ai_remove']) ? $data['video_details_with_ai_remove'] : null;
+        $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
+        $this->container['serial_info'] = isset($data['serial_info']) ? $data['serial_info'] : null;
+        $this->container['task_info'] = isset($data['task_info']) ? $data['task_info'] : null;
     }
 
     /**
@@ -178,6 +172,9 @@ class DataForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['project_id'] === null) {
+            $invalidProperties[] = "'project_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -194,97 +191,73 @@ class DataForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets sub_tasks
+     * Gets project_id
      *
-     * @return \Volcengine\I18nopenapi\Model\SubTaskForVideoProjectTaskDetailOutput[]
+     * @return int
      */
-    public function getSubTasks()
+    public function getProjectId()
     {
-        return $this->container['sub_tasks'];
+        return $this->container['project_id'];
     }
 
     /**
-     * Sets sub_tasks
+     * Sets project_id
      *
-     * @param \Volcengine\I18nopenapi\Model\SubTaskForVideoProjectTaskDetailOutput[] $sub_tasks sub_tasks
+     * @param int $project_id project_id
      *
      * @return $this
      */
-    public function setSubTasks($sub_tasks)
+    public function setProjectId($project_id)
     {
-        $this->container['sub_tasks'] = $sub_tasks;
+        $this->container['project_id'] = $project_id;
 
         return $this;
     }
 
     /**
-     * Gets task
+     * Gets serial_info
      *
-     * @return \Volcengine\I18nopenapi\Model\TaskForVideoProjectTaskDetailOutput
+     * @return \Volcengine\I18nopenapi\Model\SerialInfoForVideoProjectSerialTaskCreateInput[]
      */
-    public function getTask()
+    public function getSerialInfo()
     {
-        return $this->container['task'];
+        return $this->container['serial_info'];
     }
 
     /**
-     * Sets task
+     * Sets serial_info
      *
-     * @param \Volcengine\I18nopenapi\Model\TaskForVideoProjectTaskDetailOutput $task task
+     * @param \Volcengine\I18nopenapi\Model\SerialInfoForVideoProjectSerialTaskCreateInput[] $serial_info serial_info
      *
      * @return $this
      */
-    public function setTask($task)
+    public function setSerialInfo($serial_info)
     {
-        $this->container['task'] = $task;
+        $this->container['serial_info'] = $serial_info;
 
         return $this;
     }
 
     /**
-     * Gets video_details
+     * Gets task_info
      *
-     * @return \Volcengine\I18nopenapi\Model\VideoDetailForVideoProjectTaskDetailOutput[]
+     * @return \Volcengine\I18nopenapi\Model\TaskInfoForVideoProjectSerialTaskCreateInput
      */
-    public function getVideoDetails()
+    public function getTaskInfo()
     {
-        return $this->container['video_details'];
+        return $this->container['task_info'];
     }
 
     /**
-     * Sets video_details
+     * Sets task_info
      *
-     * @param \Volcengine\I18nopenapi\Model\VideoDetailForVideoProjectTaskDetailOutput[] $video_details video_details
+     * @param \Volcengine\I18nopenapi\Model\TaskInfoForVideoProjectSerialTaskCreateInput $task_info task_info
      *
      * @return $this
      */
-    public function setVideoDetails($video_details)
+    public function setTaskInfo($task_info)
     {
-        $this->container['video_details'] = $video_details;
-
-        return $this;
-    }
-
-    /**
-     * Gets video_details_with_ai_remove
-     *
-     * @return \Volcengine\I18nopenapi\Model\VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput[]
-     */
-    public function getVideoDetailsWithAiRemove()
-    {
-        return $this->container['video_details_with_ai_remove'];
-    }
-
-    /**
-     * Sets video_details_with_ai_remove
-     *
-     * @param \Volcengine\I18nopenapi\Model\VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput[] $video_details_with_ai_remove video_details_with_ai_remove
-     *
-     * @return $this
-     */
-    public function setVideoDetailsWithAiRemove($video_details_with_ai_remove)
-    {
-        $this->container['video_details_with_ai_remove'] = $video_details_with_ai_remove;
+        $this->container['task_info'] = $task_info;
 
         return $this;
     }

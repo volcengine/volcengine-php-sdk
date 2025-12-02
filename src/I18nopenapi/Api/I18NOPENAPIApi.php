@@ -688,6 +688,68 @@ class I18NOPENAPIApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function videoProjectSerialTaskCreate($body = null)
+    {
+        list($response) = $this->videoProjectSerialTaskCreateWithHttpInfo($body);
+        return $response;
+    }
+
+    public function videoProjectSerialTaskCreateWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\VideoProjectSerialTaskCreateResponse';
+        $request = $this->videoProjectSerialTaskCreateRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function videoProjectSerialTaskCreateAsync($body = null)
+    {
+        return $this->videoProjectSerialTaskCreateAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function videoProjectSerialTaskCreateAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\VideoProjectSerialTaskCreateResponse';
+        $request = $this->videoProjectSerialTaskCreateRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function videoProjectSerialTaskCreateRequest($body)
+    {
+        $resourcePath = '/VideoProjectSerialTaskCreate/2021-05-21/i18n_openapi/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function videoProjectTaskDetail($body = null)
     {
         list($response) = $this->videoProjectTaskDetailWithHttpInfo($body);
