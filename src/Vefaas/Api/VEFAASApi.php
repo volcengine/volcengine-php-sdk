@@ -130,6 +130,68 @@ class VEFAASApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function cancelSandboxImagePrecacheTicket($body = null)
+    {
+        list($response) = $this->cancelSandboxImagePrecacheTicketWithHttpInfo($body);
+        return $response;
+    }
+
+    public function cancelSandboxImagePrecacheTicketWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vefaas\Model\CancelSandboxImagePrecacheTicketResponse';
+        $request = $this->cancelSandboxImagePrecacheTicketRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function cancelSandboxImagePrecacheTicketAsync($body = null)
+    {
+        return $this->cancelSandboxImagePrecacheTicketAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function cancelSandboxImagePrecacheTicketAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vefaas\Model\CancelSandboxImagePrecacheTicketResponse';
+        $request = $this->cancelSandboxImagePrecacheTicketRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function cancelSandboxImagePrecacheTicketRequest($body)
+    {
+        $resourcePath = '/CancelSandboxImagePrecacheTicket/2024-06-06/vefaas/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function createDependencyInstallTask($body = null)
     {
         list($response) = $this->createDependencyInstallTaskWithHttpInfo($body);
@@ -846,6 +908,68 @@ class VEFAASApi
     protected function genWebshellEndpointRequest($body)
     {
         $resourcePath = '/GenWebshellEndpoint/2024-06-06/vefaas/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function getAvailabilityZones($body = null)
+    {
+        list($response) = $this->getAvailabilityZonesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getAvailabilityZonesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vefaas\Model\GetAvailabilityZonesResponse';
+        $request = $this->getAvailabilityZonesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getAvailabilityZonesAsync($body = null)
+    {
+        return $this->getAvailabilityZonesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getAvailabilityZonesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vefaas\Model\GetAvailabilityZonesResponse';
+        $request = $this->getAvailabilityZonesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getAvailabilityZonesRequest($body)
+    {
+        $resourcePath = '/GetAvailabilityZones/2024-06-06/vefaas/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -2148,6 +2272,68 @@ class VEFAASApi
     protected function listRevisionsRequest($body)
     {
         $resourcePath = '/ListRevisions/2024-06-06/vefaas/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listSandboxImagePrecacheTickets($body = null)
+    {
+        list($response) = $this->listSandboxImagePrecacheTicketsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listSandboxImagePrecacheTicketsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vefaas\Model\ListSandboxImagePrecacheTicketsResponse';
+        $request = $this->listSandboxImagePrecacheTicketsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listSandboxImagePrecacheTicketsAsync($body = null)
+    {
+        return $this->listSandboxImagePrecacheTicketsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listSandboxImagePrecacheTicketsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Vefaas\Model\ListSandboxImagePrecacheTicketsResponse';
+        $request = $this->listSandboxImagePrecacheTicketsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listSandboxImagePrecacheTicketsRequest($body)
+    {
+        $resourcePath = '/ListSandboxImagePrecacheTickets/2024-06-06/vefaas/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
