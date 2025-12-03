@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class NoDataForUpdateRuleInput implements ModelInterface, ArrayAccess
+class TagConditionForListObjectGroupsOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class NoDataForUpdateRuleInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'NoDataForUpdateRuleInput';
+    protected static $swaggerModelName = 'TagConditionForListObjectGroupsOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,8 @@ class NoDataForUpdateRuleInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'enable' => 'bool',
-        'evaluation_count' => 'int',
-        'level' => 'string'
+        'condition' => 'string',
+        'tags' => '\Volcengine\Cloudmonitor\Model\TagForListObjectGroupsOutput[]'
     ];
 
     /**
@@ -39,9 +38,8 @@ class NoDataForUpdateRuleInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'enable' => null,
-        'evaluation_count' => 'int32',
-        'level' => null
+        'condition' => null,
+        'tags' => null
     ];
 
     /**
@@ -71,9 +69,8 @@ class NoDataForUpdateRuleInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'enable' => 'Enable',
-        'evaluation_count' => 'EvaluationCount',
-        'level' => 'Level'
+        'condition' => 'Condition',
+        'tags' => 'Tags'
     ];
 
     /**
@@ -82,9 +79,8 @@ class NoDataForUpdateRuleInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'enable' => 'setEnable',
-        'evaluation_count' => 'setEvaluationCount',
-        'level' => 'setLevel'
+        'condition' => 'setCondition',
+        'tags' => 'setTags'
     ];
 
     /**
@@ -93,9 +89,8 @@ class NoDataForUpdateRuleInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'enable' => 'getEnable',
-        'evaluation_count' => 'getEvaluationCount',
-        'level' => 'getLevel'
+        'condition' => 'getCondition',
+        'tags' => 'getTags'
     ];
 
     /**
@@ -158,9 +153,8 @@ class NoDataForUpdateRuleInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['enable'] = isset($data['enable']) ? $data['enable'] : null;
-        $this->container['evaluation_count'] = isset($data['evaluation_count']) ? $data['evaluation_count'] : null;
-        $this->container['level'] = isset($data['level']) ? $data['level'] : null;
+        $this->container['condition'] = isset($data['condition']) ? $data['condition'] : null;
+        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
     }
 
     /**
@@ -188,73 +182,49 @@ class NoDataForUpdateRuleInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets enable
-     *
-     * @return bool
-     */
-    public function getEnable()
-    {
-        return $this->container['enable'];
-    }
-
-    /**
-     * Sets enable
-     *
-     * @param bool $enable enable
-     *
-     * @return $this
-     */
-    public function setEnable($enable)
-    {
-        $this->container['enable'] = $enable;
-
-        return $this;
-    }
-
-    /**
-     * Gets evaluation_count
-     *
-     * @return int
-     */
-    public function getEvaluationCount()
-    {
-        return $this->container['evaluation_count'];
-    }
-
-    /**
-     * Sets evaluation_count
-     *
-     * @param int $evaluation_count evaluation_count
-     *
-     * @return $this
-     */
-    public function setEvaluationCount($evaluation_count)
-    {
-        $this->container['evaluation_count'] = $evaluation_count;
-
-        return $this;
-    }
-
-    /**
-     * Gets level
+     * Gets condition
      *
      * @return string
      */
-    public function getLevel()
+    public function getCondition()
     {
-        return $this->container['level'];
+        return $this->container['condition'];
     }
 
     /**
-     * Sets level
+     * Sets condition
      *
-     * @param string $level level
+     * @param string $condition condition
      *
      * @return $this
      */
-    public function setLevel($level)
+    public function setCondition($condition)
     {
-        $this->container['level'] = $level;
+        $this->container['condition'] = $condition;
+
+        return $this;
+    }
+
+    /**
+     * Gets tags
+     *
+     * @return \Volcengine\Cloudmonitor\Model\TagForListObjectGroupsOutput[]
+     */
+    public function getTags()
+    {
+        return $this->container['tags'];
+    }
+
+    /**
+     * Sets tags
+     *
+     * @param \Volcengine\Cloudmonitor\Model\TagForListObjectGroupsOutput[] $tags tags
+     *
+     * @return $this
+     */
+    public function setTags($tags)
+    {
+        $this->container['tags'] = $tags;
 
         return $this;
     }

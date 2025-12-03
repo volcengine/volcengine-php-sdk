@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class NoDataForUpdateRuleInput implements ModelInterface, ArrayAccess
+class MetaConditionForListObjectGroupsOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class NoDataForUpdateRuleInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'NoDataForUpdateRuleInput';
+    protected static $swaggerModelName = 'MetaConditionForListObjectGroupsOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,9 @@ class NoDataForUpdateRuleInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'enable' => 'bool',
-        'evaluation_count' => 'int',
-        'level' => 'string'
+        'all_dimensions' => 'bool',
+        'condition' => 'string',
+        'metas' => '\Volcengine\Cloudmonitor\Model\MetaForListObjectGroupsOutput[]'
     ];
 
     /**
@@ -39,9 +39,9 @@ class NoDataForUpdateRuleInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'enable' => null,
-        'evaluation_count' => 'int32',
-        'level' => null
+        'all_dimensions' => null,
+        'condition' => null,
+        'metas' => null
     ];
 
     /**
@@ -71,9 +71,9 @@ class NoDataForUpdateRuleInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'enable' => 'Enable',
-        'evaluation_count' => 'EvaluationCount',
-        'level' => 'Level'
+        'all_dimensions' => 'AllDimensions',
+        'condition' => 'Condition',
+        'metas' => 'Metas'
     ];
 
     /**
@@ -82,9 +82,9 @@ class NoDataForUpdateRuleInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'enable' => 'setEnable',
-        'evaluation_count' => 'setEvaluationCount',
-        'level' => 'setLevel'
+        'all_dimensions' => 'setAllDimensions',
+        'condition' => 'setCondition',
+        'metas' => 'setMetas'
     ];
 
     /**
@@ -93,9 +93,9 @@ class NoDataForUpdateRuleInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'enable' => 'getEnable',
-        'evaluation_count' => 'getEvaluationCount',
-        'level' => 'getLevel'
+        'all_dimensions' => 'getAllDimensions',
+        'condition' => 'getCondition',
+        'metas' => 'getMetas'
     ];
 
     /**
@@ -158,9 +158,9 @@ class NoDataForUpdateRuleInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['enable'] = isset($data['enable']) ? $data['enable'] : null;
-        $this->container['evaluation_count'] = isset($data['evaluation_count']) ? $data['evaluation_count'] : null;
-        $this->container['level'] = isset($data['level']) ? $data['level'] : null;
+        $this->container['all_dimensions'] = isset($data['all_dimensions']) ? $data['all_dimensions'] : null;
+        $this->container['condition'] = isset($data['condition']) ? $data['condition'] : null;
+        $this->container['metas'] = isset($data['metas']) ? $data['metas'] : null;
     }
 
     /**
@@ -188,73 +188,73 @@ class NoDataForUpdateRuleInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets enable
+     * Gets all_dimensions
      *
      * @return bool
      */
-    public function getEnable()
+    public function getAllDimensions()
     {
-        return $this->container['enable'];
+        return $this->container['all_dimensions'];
     }
 
     /**
-     * Sets enable
+     * Sets all_dimensions
      *
-     * @param bool $enable enable
+     * @param bool $all_dimensions all_dimensions
      *
      * @return $this
      */
-    public function setEnable($enable)
+    public function setAllDimensions($all_dimensions)
     {
-        $this->container['enable'] = $enable;
+        $this->container['all_dimensions'] = $all_dimensions;
 
         return $this;
     }
 
     /**
-     * Gets evaluation_count
-     *
-     * @return int
-     */
-    public function getEvaluationCount()
-    {
-        return $this->container['evaluation_count'];
-    }
-
-    /**
-     * Sets evaluation_count
-     *
-     * @param int $evaluation_count evaluation_count
-     *
-     * @return $this
-     */
-    public function setEvaluationCount($evaluation_count)
-    {
-        $this->container['evaluation_count'] = $evaluation_count;
-
-        return $this;
-    }
-
-    /**
-     * Gets level
+     * Gets condition
      *
      * @return string
      */
-    public function getLevel()
+    public function getCondition()
     {
-        return $this->container['level'];
+        return $this->container['condition'];
     }
 
     /**
-     * Sets level
+     * Sets condition
      *
-     * @param string $level level
+     * @param string $condition condition
      *
      * @return $this
      */
-    public function setLevel($level)
+    public function setCondition($condition)
     {
-        $this->container['level'] = $level;
+        $this->container['condition'] = $condition;
+
+        return $this;
+    }
+
+    /**
+     * Gets metas
+     *
+     * @return \Volcengine\Cloudmonitor\Model\MetaForListObjectGroupsOutput[]
+     */
+    public function getMetas()
+    {
+        return $this->container['metas'];
+    }
+
+    /**
+     * Sets metas
+     *
+     * @param \Volcengine\Cloudmonitor\Model\MetaForListObjectGroupsOutput[] $metas metas
+     *
+     * @return $this
+     */
+    public function setMetas($metas)
+    {
+        $this->container['metas'] = $metas;
 
         return $this;
     }
