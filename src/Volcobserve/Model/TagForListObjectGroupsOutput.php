@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ObjectForListObjectGroupsOutput implements ModelInterface, ArrayAccess
+class TagForListObjectGroupsOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ObjectForListObjectGroupsOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ObjectForListObjectGroupsOutput';
+    protected static $swaggerModelName = 'TagForListObjectGroupsOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,13 +28,9 @@ class ObjectForListObjectGroupsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'dimension_conditions' => '\Volcengine\Volcobserve\Model\DimensionConditionsForListObjectGroupsOutput',
-        'dimensions' => 'map[string,string[]]',
-        'id' => 'string',
-        'namespace' => 'string',
-        'region' => 'string',
-        'rules' => '\Volcengine\Volcobserve\Model\RuleForListObjectGroupsOutput[]',
-        'type' => 'string'
+        'comparator' => 'string',
+        'key' => 'string',
+        'values' => 'string[]'
     ];
 
     /**
@@ -43,13 +39,9 @@ class ObjectForListObjectGroupsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'dimension_conditions' => null,
-        'dimensions' => null,
-        'id' => null,
-        'namespace' => null,
-        'region' => null,
-        'rules' => null,
-        'type' => null
+        'comparator' => null,
+        'key' => null,
+        'values' => null
     ];
 
     /**
@@ -79,13 +71,9 @@ class ObjectForListObjectGroupsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'dimension_conditions' => 'DimensionConditions',
-        'dimensions' => 'Dimensions',
-        'id' => 'Id',
-        'namespace' => 'Namespace',
-        'region' => 'Region',
-        'rules' => 'Rules',
-        'type' => 'Type'
+        'comparator' => 'Comparator',
+        'key' => 'Key',
+        'values' => 'Values'
     ];
 
     /**
@@ -94,13 +82,9 @@ class ObjectForListObjectGroupsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'dimension_conditions' => 'setDimensionConditions',
-        'dimensions' => 'setDimensions',
-        'id' => 'setId',
-        'namespace' => 'setNamespace',
-        'region' => 'setRegion',
-        'rules' => 'setRules',
-        'type' => 'setType'
+        'comparator' => 'setComparator',
+        'key' => 'setKey',
+        'values' => 'setValues'
     ];
 
     /**
@@ -109,13 +93,9 @@ class ObjectForListObjectGroupsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'dimension_conditions' => 'getDimensionConditions',
-        'dimensions' => 'getDimensions',
-        'id' => 'getId',
-        'namespace' => 'getNamespace',
-        'region' => 'getRegion',
-        'rules' => 'getRules',
-        'type' => 'getType'
+        'comparator' => 'getComparator',
+        'key' => 'getKey',
+        'values' => 'getValues'
     ];
 
     /**
@@ -178,13 +158,9 @@ class ObjectForListObjectGroupsOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['dimension_conditions'] = isset($data['dimension_conditions']) ? $data['dimension_conditions'] : null;
-        $this->container['dimensions'] = isset($data['dimensions']) ? $data['dimensions'] : null;
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['namespace'] = isset($data['namespace']) ? $data['namespace'] : null;
-        $this->container['region'] = isset($data['region']) ? $data['region'] : null;
-        $this->container['rules'] = isset($data['rules']) ? $data['rules'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['comparator'] = isset($data['comparator']) ? $data['comparator'] : null;
+        $this->container['key'] = isset($data['key']) ? $data['key'] : null;
+        $this->container['values'] = isset($data['values']) ? $data['values'] : null;
     }
 
     /**
@@ -212,169 +188,73 @@ class ObjectForListObjectGroupsOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets dimension_conditions
-     *
-     * @return \Volcengine\Volcobserve\Model\DimensionConditionsForListObjectGroupsOutput
-     */
-    public function getDimensionConditions()
-    {
-        return $this->container['dimension_conditions'];
-    }
-
-    /**
-     * Sets dimension_conditions
-     *
-     * @param \Volcengine\Volcobserve\Model\DimensionConditionsForListObjectGroupsOutput $dimension_conditions dimension_conditions
-     *
-     * @return $this
-     */
-    public function setDimensionConditions($dimension_conditions)
-    {
-        $this->container['dimension_conditions'] = $dimension_conditions;
-
-        return $this;
-    }
-
-    /**
-     * Gets dimensions
-     *
-     * @return map[string,string[]]
-     */
-    public function getDimensions()
-    {
-        return $this->container['dimensions'];
-    }
-
-    /**
-     * Sets dimensions
-     *
-     * @param map[string,string[]] $dimensions dimensions
-     *
-     * @return $this
-     */
-    public function setDimensions($dimensions)
-    {
-        $this->container['dimensions'] = $dimensions;
-
-        return $this;
-    }
-
-    /**
-     * Gets id
+     * Gets comparator
      *
      * @return string
      */
-    public function getId()
+    public function getComparator()
     {
-        return $this->container['id'];
+        return $this->container['comparator'];
     }
 
     /**
-     * Sets id
+     * Sets comparator
      *
-     * @param string $id id
+     * @param string $comparator comparator
      *
      * @return $this
      */
-    public function setId($id)
+    public function setComparator($comparator)
     {
-        $this->container['id'] = $id;
+        $this->container['comparator'] = $comparator;
 
         return $this;
     }
 
     /**
-     * Gets namespace
+     * Gets key
      *
      * @return string
      */
-    public function getNamespace()
+    public function getKey()
     {
-        return $this->container['namespace'];
+        return $this->container['key'];
     }
 
     /**
-     * Sets namespace
+     * Sets key
      *
-     * @param string $namespace namespace
+     * @param string $key key
      *
      * @return $this
      */
-    public function setNamespace($namespace)
+    public function setKey($key)
     {
-        $this->container['namespace'] = $namespace;
+        $this->container['key'] = $key;
 
         return $this;
     }
 
     /**
-     * Gets region
+     * Gets values
      *
-     * @return string
+     * @return string[]
      */
-    public function getRegion()
+    public function getValues()
     {
-        return $this->container['region'];
+        return $this->container['values'];
     }
 
     /**
-     * Sets region
+     * Sets values
      *
-     * @param string $region region
+     * @param string[] $values values
      *
      * @return $this
      */
-    public function setRegion($region)
+    public function setValues($values)
     {
-        $this->container['region'] = $region;
-
-        return $this;
-    }
-
-    /**
-     * Gets rules
-     *
-     * @return \Volcengine\Volcobserve\Model\RuleForListObjectGroupsOutput[]
-     */
-    public function getRules()
-    {
-        return $this->container['rules'];
-    }
-
-    /**
-     * Sets rules
-     *
-     * @param \Volcengine\Volcobserve\Model\RuleForListObjectGroupsOutput[] $rules rules
-     *
-     * @return $this
-     */
-    public function setRules($rules)
-    {
-        $this->container['rules'] = $rules;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     *
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param string $type type
-     *
-     * @return $this
-     */
-    public function setType($type)
-    {
-        $this->container['type'] = $type;
+        $this->container['values'] = $values;
 
         return $this;
     }

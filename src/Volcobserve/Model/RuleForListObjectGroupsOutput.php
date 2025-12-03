@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ObjectForListObjectGroupsOutput implements ModelInterface, ArrayAccess
+class RuleForListObjectGroupsOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ObjectForListObjectGroupsOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ObjectForListObjectGroupsOutput';
+    protected static $swaggerModelName = 'RuleForListObjectGroupsOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,13 +28,10 @@ class ObjectForListObjectGroupsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'dimension_conditions' => '\Volcengine\Volcobserve\Model\DimensionConditionsForListObjectGroupsOutput',
-        'dimensions' => 'map[string,string[]]',
+        'alert_template_id' => 'string',
         'id' => 'string',
-        'namespace' => 'string',
-        'region' => 'string',
-        'rules' => '\Volcengine\Volcobserve\Model\RuleForListObjectGroupsOutput[]',
-        'type' => 'string'
+        'name' => 'string',
+        'template_rule_id' => 'string'
     ];
 
     /**
@@ -43,13 +40,10 @@ class ObjectForListObjectGroupsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'dimension_conditions' => null,
-        'dimensions' => null,
+        'alert_template_id' => null,
         'id' => null,
-        'namespace' => null,
-        'region' => null,
-        'rules' => null,
-        'type' => null
+        'name' => null,
+        'template_rule_id' => null
     ];
 
     /**
@@ -79,13 +73,10 @@ class ObjectForListObjectGroupsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'dimension_conditions' => 'DimensionConditions',
-        'dimensions' => 'Dimensions',
+        'alert_template_id' => 'AlertTemplateId',
         'id' => 'Id',
-        'namespace' => 'Namespace',
-        'region' => 'Region',
-        'rules' => 'Rules',
-        'type' => 'Type'
+        'name' => 'Name',
+        'template_rule_id' => 'TemplateRuleId'
     ];
 
     /**
@@ -94,13 +85,10 @@ class ObjectForListObjectGroupsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'dimension_conditions' => 'setDimensionConditions',
-        'dimensions' => 'setDimensions',
+        'alert_template_id' => 'setAlertTemplateId',
         'id' => 'setId',
-        'namespace' => 'setNamespace',
-        'region' => 'setRegion',
-        'rules' => 'setRules',
-        'type' => 'setType'
+        'name' => 'setName',
+        'template_rule_id' => 'setTemplateRuleId'
     ];
 
     /**
@@ -109,13 +97,10 @@ class ObjectForListObjectGroupsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'dimension_conditions' => 'getDimensionConditions',
-        'dimensions' => 'getDimensions',
+        'alert_template_id' => 'getAlertTemplateId',
         'id' => 'getId',
-        'namespace' => 'getNamespace',
-        'region' => 'getRegion',
-        'rules' => 'getRules',
-        'type' => 'getType'
+        'name' => 'getName',
+        'template_rule_id' => 'getTemplateRuleId'
     ];
 
     /**
@@ -178,13 +163,10 @@ class ObjectForListObjectGroupsOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['dimension_conditions'] = isset($data['dimension_conditions']) ? $data['dimension_conditions'] : null;
-        $this->container['dimensions'] = isset($data['dimensions']) ? $data['dimensions'] : null;
+        $this->container['alert_template_id'] = isset($data['alert_template_id']) ? $data['alert_template_id'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['namespace'] = isset($data['namespace']) ? $data['namespace'] : null;
-        $this->container['region'] = isset($data['region']) ? $data['region'] : null;
-        $this->container['rules'] = isset($data['rules']) ? $data['rules'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['template_rule_id'] = isset($data['template_rule_id']) ? $data['template_rule_id'] : null;
     }
 
     /**
@@ -212,49 +194,25 @@ class ObjectForListObjectGroupsOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets dimension_conditions
+     * Gets alert_template_id
      *
-     * @return \Volcengine\Volcobserve\Model\DimensionConditionsForListObjectGroupsOutput
+     * @return string
      */
-    public function getDimensionConditions()
+    public function getAlertTemplateId()
     {
-        return $this->container['dimension_conditions'];
+        return $this->container['alert_template_id'];
     }
 
     /**
-     * Sets dimension_conditions
+     * Sets alert_template_id
      *
-     * @param \Volcengine\Volcobserve\Model\DimensionConditionsForListObjectGroupsOutput $dimension_conditions dimension_conditions
+     * @param string $alert_template_id alert_template_id
      *
      * @return $this
      */
-    public function setDimensionConditions($dimension_conditions)
+    public function setAlertTemplateId($alert_template_id)
     {
-        $this->container['dimension_conditions'] = $dimension_conditions;
-
-        return $this;
-    }
-
-    /**
-     * Gets dimensions
-     *
-     * @return map[string,string[]]
-     */
-    public function getDimensions()
-    {
-        return $this->container['dimensions'];
-    }
-
-    /**
-     * Sets dimensions
-     *
-     * @param map[string,string[]] $dimensions dimensions
-     *
-     * @return $this
-     */
-    public function setDimensions($dimensions)
-    {
-        $this->container['dimensions'] = $dimensions;
+        $this->container['alert_template_id'] = $alert_template_id;
 
         return $this;
     }
@@ -284,97 +242,49 @@ class ObjectForListObjectGroupsOutput implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets namespace
+     * Gets name
      *
      * @return string
      */
-    public function getNamespace()
+    public function getName()
     {
-        return $this->container['namespace'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets namespace
+     * Sets name
      *
-     * @param string $namespace namespace
+     * @param string $name name
      *
      * @return $this
      */
-    public function setNamespace($namespace)
+    public function setName($name)
     {
-        $this->container['namespace'] = $namespace;
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets region
+     * Gets template_rule_id
      *
      * @return string
      */
-    public function getRegion()
+    public function getTemplateRuleId()
     {
-        return $this->container['region'];
+        return $this->container['template_rule_id'];
     }
 
     /**
-     * Sets region
+     * Sets template_rule_id
      *
-     * @param string $region region
+     * @param string $template_rule_id template_rule_id
      *
      * @return $this
      */
-    public function setRegion($region)
+    public function setTemplateRuleId($template_rule_id)
     {
-        $this->container['region'] = $region;
-
-        return $this;
-    }
-
-    /**
-     * Gets rules
-     *
-     * @return \Volcengine\Volcobserve\Model\RuleForListObjectGroupsOutput[]
-     */
-    public function getRules()
-    {
-        return $this->container['rules'];
-    }
-
-    /**
-     * Sets rules
-     *
-     * @param \Volcengine\Volcobserve\Model\RuleForListObjectGroupsOutput[] $rules rules
-     *
-     * @return $this
-     */
-    public function setRules($rules)
-    {
-        $this->container['rules'] = $rules;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     *
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param string $type type
-     *
-     * @return $this
-     */
-    public function setType($type)
-    {
-        $this->container['type'] = $type;
+        $this->container['template_rule_id'] = $template_rule_id;
 
         return $this;
     }
