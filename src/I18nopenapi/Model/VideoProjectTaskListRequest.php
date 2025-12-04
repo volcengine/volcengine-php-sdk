@@ -32,6 +32,7 @@ class VideoProjectTaskListRequest implements ModelInterface, ArrayAccess
         'limit' => 'int',
         'offset' => 'int',
         'project_id' => 'string',
+        'source_languages' => 'string',
         'start_time' => 'int',
         'status' => 'string',
         'subtask_id' => 'string',
@@ -39,7 +40,7 @@ class VideoProjectTaskListRequest implements ModelInterface, ArrayAccess
         'task_ids' => 'string',
         'task_name' => 'string',
         'task_type' => 'string',
-        'task_types' => 'int'
+        'task_types' => 'string'
     ];
 
     /**
@@ -52,6 +53,7 @@ class VideoProjectTaskListRequest implements ModelInterface, ArrayAccess
         'limit' => 'int32',
         'offset' => 'int32',
         'project_id' => null,
+        'source_languages' => null,
         'start_time' => 'int32',
         'status' => null,
         'subtask_id' => null,
@@ -59,7 +61,7 @@ class VideoProjectTaskListRequest implements ModelInterface, ArrayAccess
         'task_ids' => null,
         'task_name' => null,
         'task_type' => null,
-        'task_types' => 'int32'
+        'task_types' => null
     ];
 
     /**
@@ -93,6 +95,7 @@ class VideoProjectTaskListRequest implements ModelInterface, ArrayAccess
         'limit' => 'limit',
         'offset' => 'offset',
         'project_id' => 'projectId',
+        'source_languages' => 'sourceLanguages',
         'start_time' => 'startTime',
         'status' => 'status',
         'subtask_id' => 'subtaskId',
@@ -113,6 +116,7 @@ class VideoProjectTaskListRequest implements ModelInterface, ArrayAccess
         'limit' => 'setLimit',
         'offset' => 'setOffset',
         'project_id' => 'setProjectId',
+        'source_languages' => 'setSourceLanguages',
         'start_time' => 'setStartTime',
         'status' => 'setStatus',
         'subtask_id' => 'setSubtaskId',
@@ -133,6 +137,7 @@ class VideoProjectTaskListRequest implements ModelInterface, ArrayAccess
         'limit' => 'getLimit',
         'offset' => 'getOffset',
         'project_id' => 'getProjectId',
+        'source_languages' => 'getSourceLanguages',
         'start_time' => 'getStartTime',
         'status' => 'getStatus',
         'subtask_id' => 'getSubtaskId',
@@ -207,6 +212,7 @@ class VideoProjectTaskListRequest implements ModelInterface, ArrayAccess
         $this->container['limit'] = isset($data['limit']) ? $data['limit'] : null;
         $this->container['offset'] = isset($data['offset']) ? $data['offset'] : null;
         $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
+        $this->container['source_languages'] = isset($data['source_languages']) ? $data['source_languages'] : null;
         $this->container['start_time'] = isset($data['start_time']) ? $data['start_time'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['subtask_id'] = isset($data['subtask_id']) ? $data['subtask_id'] : null;
@@ -336,6 +342,30 @@ class VideoProjectTaskListRequest implements ModelInterface, ArrayAccess
     public function setProjectId($project_id)
     {
         $this->container['project_id'] = $project_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets source_languages
+     *
+     * @return string
+     */
+    public function getSourceLanguages()
+    {
+        return $this->container['source_languages'];
+    }
+
+    /**
+     * Sets source_languages
+     *
+     * @param string $source_languages source_languages
+     *
+     * @return $this
+     */
+    public function setSourceLanguages($source_languages)
+    {
+        $this->container['source_languages'] = $source_languages;
 
         return $this;
     }
@@ -511,7 +541,7 @@ class VideoProjectTaskListRequest implements ModelInterface, ArrayAccess
     /**
      * Gets task_types
      *
-     * @return int
+     * @return string
      */
     public function getTaskTypes()
     {
@@ -521,7 +551,7 @@ class VideoProjectTaskListRequest implements ModelInterface, ArrayAccess
     /**
      * Sets task_types
      *
-     * @param int $task_types task_types
+     * @param string $task_types task_types
      *
      * @return $this
      */

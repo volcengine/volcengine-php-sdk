@@ -28,8 +28,7 @@ class VideoProjectCreateResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'project_id' => 'int',
-        'project_name' => 'string'
+        'data' => '\Volcengine\I18nopenapi\Model\DataForVideoProjectCreateOutput'
     ];
 
     /**
@@ -38,8 +37,7 @@ class VideoProjectCreateResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'project_id' => 'int32',
-        'project_name' => null
+        'data' => null
     ];
 
     /**
@@ -69,8 +67,7 @@ class VideoProjectCreateResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'project_id' => 'projectId',
-        'project_name' => 'projectName'
+        'data' => 'data'
     ];
 
     /**
@@ -79,8 +76,7 @@ class VideoProjectCreateResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'project_id' => 'setProjectId',
-        'project_name' => 'setProjectName'
+        'data' => 'setData'
     ];
 
     /**
@@ -89,8 +85,7 @@ class VideoProjectCreateResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'project_id' => 'getProjectId',
-        'project_name' => 'getProjectName'
+        'data' => 'getData'
     ];
 
     /**
@@ -153,8 +148,7 @@ class VideoProjectCreateResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
-        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
     }
 
     /**
@@ -182,49 +176,25 @@ class VideoProjectCreateResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets project_id
+     * Gets data
      *
-     * @return int
+     * @return \Volcengine\I18nopenapi\Model\DataForVideoProjectCreateOutput
      */
-    public function getProjectId()
+    public function getData()
     {
-        return $this->container['project_id'];
+        return $this->container['data'];
     }
 
     /**
-     * Sets project_id
+     * Sets data
      *
-     * @param int $project_id project_id
+     * @param \Volcengine\I18nopenapi\Model\DataForVideoProjectCreateOutput $data data
      *
      * @return $this
      */
-    public function setProjectId($project_id)
+    public function setData($data)
     {
-        $this->container['project_id'] = $project_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets project_name
-     *
-     * @return string
-     */
-    public function getProjectName()
-    {
-        return $this->container['project_name'];
-    }
-
-    /**
-     * Sets project_name
-     *
-     * @param string $project_name project_name
-     *
-     * @return $this
-     */
-    public function setProjectName($project_name)
-    {
-        $this->container['project_name'] = $project_name;
+        $this->container['data'] = $data;
 
         return $this;
     }

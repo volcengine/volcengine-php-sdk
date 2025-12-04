@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class DataForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
+class SubtitleForVideoProjectSerialTaskCreateInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class DataForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'dataForVideoProjectTaskDetailOutput';
+    protected static $swaggerModelName = 'subtitleForVideoProjectSerialTaskCreateInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,9 @@ class DataForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'sub_tasks' => '\Volcengine\I18nopenapi\Model\SubTaskForVideoProjectTaskDetailOutput[]',
-        'task' => '\Volcengine\I18nopenapi\Model\TaskForVideoProjectTaskDetailOutput',
-        'video_details' => '\Volcengine\I18nopenapi\Model\VideoDetailForVideoProjectTaskDetailOutput[]',
-        'video_details_with_ai_remove' => '\Volcengine\I18nopenapi\Model\VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput[]'
+        'file_type' => 'int',
+        'name' => 'string',
+        'uri' => 'string'
     ];
 
     /**
@@ -40,10 +39,9 @@ class DataForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'sub_tasks' => null,
-        'task' => null,
-        'video_details' => null,
-        'video_details_with_ai_remove' => null
+        'file_type' => 'int32',
+        'name' => null,
+        'uri' => null
     ];
 
     /**
@@ -73,10 +71,9 @@ class DataForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'sub_tasks' => 'subTasks',
-        'task' => 'task',
-        'video_details' => 'videoDetails',
-        'video_details_with_ai_remove' => 'videoDetailsWithAiRemove'
+        'file_type' => 'fileType',
+        'name' => 'name',
+        'uri' => 'uri'
     ];
 
     /**
@@ -85,10 +82,9 @@ class DataForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'sub_tasks' => 'setSubTasks',
-        'task' => 'setTask',
-        'video_details' => 'setVideoDetails',
-        'video_details_with_ai_remove' => 'setVideoDetailsWithAiRemove'
+        'file_type' => 'setFileType',
+        'name' => 'setName',
+        'uri' => 'setUri'
     ];
 
     /**
@@ -97,10 +93,9 @@ class DataForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'sub_tasks' => 'getSubTasks',
-        'task' => 'getTask',
-        'video_details' => 'getVideoDetails',
-        'video_details_with_ai_remove' => 'getVideoDetailsWithAiRemove'
+        'file_type' => 'getFileType',
+        'name' => 'getName',
+        'uri' => 'getUri'
     ];
 
     /**
@@ -163,10 +158,9 @@ class DataForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['sub_tasks'] = isset($data['sub_tasks']) ? $data['sub_tasks'] : null;
-        $this->container['task'] = isset($data['task']) ? $data['task'] : null;
-        $this->container['video_details'] = isset($data['video_details']) ? $data['video_details'] : null;
-        $this->container['video_details_with_ai_remove'] = isset($data['video_details_with_ai_remove']) ? $data['video_details_with_ai_remove'] : null;
+        $this->container['file_type'] = isset($data['file_type']) ? $data['file_type'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['uri'] = isset($data['uri']) ? $data['uri'] : null;
     }
 
     /**
@@ -194,97 +188,73 @@ class DataForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets sub_tasks
+     * Gets file_type
      *
-     * @return \Volcengine\I18nopenapi\Model\SubTaskForVideoProjectTaskDetailOutput[]
+     * @return int
      */
-    public function getSubTasks()
+    public function getFileType()
     {
-        return $this->container['sub_tasks'];
+        return $this->container['file_type'];
     }
 
     /**
-     * Sets sub_tasks
+     * Sets file_type
      *
-     * @param \Volcengine\I18nopenapi\Model\SubTaskForVideoProjectTaskDetailOutput[] $sub_tasks sub_tasks
+     * @param int $file_type file_type
      *
      * @return $this
      */
-    public function setSubTasks($sub_tasks)
+    public function setFileType($file_type)
     {
-        $this->container['sub_tasks'] = $sub_tasks;
+        $this->container['file_type'] = $file_type;
 
         return $this;
     }
 
     /**
-     * Gets task
+     * Gets name
      *
-     * @return \Volcengine\I18nopenapi\Model\TaskForVideoProjectTaskDetailOutput
+     * @return string
      */
-    public function getTask()
+    public function getName()
     {
-        return $this->container['task'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets task
+     * Sets name
      *
-     * @param \Volcengine\I18nopenapi\Model\TaskForVideoProjectTaskDetailOutput $task task
+     * @param string $name name
      *
      * @return $this
      */
-    public function setTask($task)
+    public function setName($name)
     {
-        $this->container['task'] = $task;
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets video_details
+     * Gets uri
      *
-     * @return \Volcengine\I18nopenapi\Model\VideoDetailForVideoProjectTaskDetailOutput[]
+     * @return string
      */
-    public function getVideoDetails()
+    public function getUri()
     {
-        return $this->container['video_details'];
+        return $this->container['uri'];
     }
 
     /**
-     * Sets video_details
+     * Sets uri
      *
-     * @param \Volcengine\I18nopenapi\Model\VideoDetailForVideoProjectTaskDetailOutput[] $video_details video_details
+     * @param string $uri uri
      *
      * @return $this
      */
-    public function setVideoDetails($video_details)
+    public function setUri($uri)
     {
-        $this->container['video_details'] = $video_details;
-
-        return $this;
-    }
-
-    /**
-     * Gets video_details_with_ai_remove
-     *
-     * @return \Volcengine\I18nopenapi\Model\VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput[]
-     */
-    public function getVideoDetailsWithAiRemove()
-    {
-        return $this->container['video_details_with_ai_remove'];
-    }
-
-    /**
-     * Sets video_details_with_ai_remove
-     *
-     * @param \Volcengine\I18nopenapi\Model\VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput[] $video_details_with_ai_remove video_details_with_ai_remove
-     *
-     * @return $this
-     */
-    public function setVideoDetailsWithAiRemove($video_details_with_ai_remove)
-    {
-        $this->container['video_details_with_ai_remove'] = $video_details_with_ai_remove;
+        $this->container['uri'] = $uri;
 
         return $this;
     }

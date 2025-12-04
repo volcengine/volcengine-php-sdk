@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class VideoDetailsForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
+class VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class VideoDetailsForVideoProjectTaskDetailOutput implements ModelInterface, Arr
       *
       * @var string
       */
-    protected static $swaggerModelName = 'videoDetailsForVideoProjectTaskDetailOutput';
+    protected static $swaggerModelName = 'videoDetailsWithAiRemoveForVideoProjectTaskDetailOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,6 +28,8 @@ class VideoDetailsForVideoProjectTaskDetailOutput implements ModelInterface, Arr
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'audio_url' => 'string',
+        'compressed_video_url' => 'string',
         'create_time' => 'string',
         'creator' => '\Volcengine\I18nopenapi\Model\CreatorForVideoProjectTaskDetailOutput',
         'duration' => 'string',
@@ -48,6 +50,8 @@ class VideoDetailsForVideoProjectTaskDetailOutput implements ModelInterface, Arr
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'audio_url' => null,
+        'compressed_video_url' => null,
         'create_time' => null,
         'creator' => null,
         'duration' => null,
@@ -89,6 +93,8 @@ class VideoDetailsForVideoProjectTaskDetailOutput implements ModelInterface, Arr
      * @var string[]
      */
     protected static $attributeMap = [
+        'audio_url' => 'audioUrl',
+        'compressed_video_url' => 'compressedVideoUrl',
         'create_time' => 'createTime',
         'creator' => 'creator',
         'duration' => 'duration',
@@ -109,6 +115,8 @@ class VideoDetailsForVideoProjectTaskDetailOutput implements ModelInterface, Arr
      * @var string[]
      */
     protected static $setters = [
+        'audio_url' => 'setAudioUrl',
+        'compressed_video_url' => 'setCompressedVideoUrl',
         'create_time' => 'setCreateTime',
         'creator' => 'setCreator',
         'duration' => 'setDuration',
@@ -129,6 +137,8 @@ class VideoDetailsForVideoProjectTaskDetailOutput implements ModelInterface, Arr
      * @var string[]
      */
     protected static $getters = [
+        'audio_url' => 'getAudioUrl',
+        'compressed_video_url' => 'getCompressedVideoUrl',
         'create_time' => 'getCreateTime',
         'creator' => 'getCreator',
         'duration' => 'getDuration',
@@ -203,6 +213,8 @@ class VideoDetailsForVideoProjectTaskDetailOutput implements ModelInterface, Arr
      */
     public function __construct(array $data = null)
     {
+        $this->container['audio_url'] = isset($data['audio_url']) ? $data['audio_url'] : null;
+        $this->container['compressed_video_url'] = isset($data['compressed_video_url']) ? $data['compressed_video_url'] : null;
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
         $this->container['creator'] = isset($data['creator']) ? $data['creator'] : null;
         $this->container['duration'] = isset($data['duration']) ? $data['duration'] : null;
@@ -240,6 +252,54 @@ class VideoDetailsForVideoProjectTaskDetailOutput implements ModelInterface, Arr
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets audio_url
+     *
+     * @return string
+     */
+    public function getAudioUrl()
+    {
+        return $this->container['audio_url'];
+    }
+
+    /**
+     * Sets audio_url
+     *
+     * @param string $audio_url audio_url
+     *
+     * @return $this
+     */
+    public function setAudioUrl($audio_url)
+    {
+        $this->container['audio_url'] = $audio_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets compressed_video_url
+     *
+     * @return string
+     */
+    public function getCompressedVideoUrl()
+    {
+        return $this->container['compressed_video_url'];
+    }
+
+    /**
+     * Sets compressed_video_url
+     *
+     * @param string $compressed_video_url compressed_video_url
+     *
+     * @return $this
+     */
+    public function setCompressedVideoUrl($compressed_video_url)
+    {
+        $this->container['compressed_video_url'] = $compressed_video_url;
+
+        return $this;
+    }
 
     /**
      * Gets create_time

@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class DataForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
+class TargetSubtitleFileInfoForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class DataForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'dataForVideoProjectTaskDetailOutput';
+    protected static $swaggerModelName = 'targetSubtitleFileInfoForVideoProjectTaskDetailOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,10 @@ class DataForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'sub_tasks' => '\Volcengine\I18nopenapi\Model\SubTaskForVideoProjectTaskDetailOutput[]',
-        'task' => '\Volcengine\I18nopenapi\Model\TaskForVideoProjectTaskDetailOutput',
-        'video_details' => '\Volcengine\I18nopenapi\Model\VideoDetailForVideoProjectTaskDetailOutput[]',
-        'video_details_with_ai_remove' => '\Volcengine\I18nopenapi\Model\VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput[]'
+        'create_time' => 'string',
+        'file_name' => 'string',
+        'file_uri' => 'string',
+        'update_time' => 'string'
     ];
 
     /**
@@ -40,10 +40,10 @@ class DataForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'sub_tasks' => null,
-        'task' => null,
-        'video_details' => null,
-        'video_details_with_ai_remove' => null
+        'create_time' => null,
+        'file_name' => null,
+        'file_uri' => null,
+        'update_time' => null
     ];
 
     /**
@@ -73,10 +73,10 @@ class DataForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'sub_tasks' => 'subTasks',
-        'task' => 'task',
-        'video_details' => 'videoDetails',
-        'video_details_with_ai_remove' => 'videoDetailsWithAiRemove'
+        'create_time' => 'createTime',
+        'file_name' => 'fileName',
+        'file_uri' => 'fileUri',
+        'update_time' => 'updateTime'
     ];
 
     /**
@@ -85,10 +85,10 @@ class DataForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'sub_tasks' => 'setSubTasks',
-        'task' => 'setTask',
-        'video_details' => 'setVideoDetails',
-        'video_details_with_ai_remove' => 'setVideoDetailsWithAiRemove'
+        'create_time' => 'setCreateTime',
+        'file_name' => 'setFileName',
+        'file_uri' => 'setFileUri',
+        'update_time' => 'setUpdateTime'
     ];
 
     /**
@@ -97,10 +97,10 @@ class DataForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'sub_tasks' => 'getSubTasks',
-        'task' => 'getTask',
-        'video_details' => 'getVideoDetails',
-        'video_details_with_ai_remove' => 'getVideoDetailsWithAiRemove'
+        'create_time' => 'getCreateTime',
+        'file_name' => 'getFileName',
+        'file_uri' => 'getFileUri',
+        'update_time' => 'getUpdateTime'
     ];
 
     /**
@@ -163,10 +163,10 @@ class DataForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['sub_tasks'] = isset($data['sub_tasks']) ? $data['sub_tasks'] : null;
-        $this->container['task'] = isset($data['task']) ? $data['task'] : null;
-        $this->container['video_details'] = isset($data['video_details']) ? $data['video_details'] : null;
-        $this->container['video_details_with_ai_remove'] = isset($data['video_details_with_ai_remove']) ? $data['video_details_with_ai_remove'] : null;
+        $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
+        $this->container['file_name'] = isset($data['file_name']) ? $data['file_name'] : null;
+        $this->container['file_uri'] = isset($data['file_uri']) ? $data['file_uri'] : null;
+        $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
     }
 
     /**
@@ -194,97 +194,97 @@ class DataForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets sub_tasks
+     * Gets create_time
      *
-     * @return \Volcengine\I18nopenapi\Model\SubTaskForVideoProjectTaskDetailOutput[]
+     * @return string
      */
-    public function getSubTasks()
+    public function getCreateTime()
     {
-        return $this->container['sub_tasks'];
+        return $this->container['create_time'];
     }
 
     /**
-     * Sets sub_tasks
+     * Sets create_time
      *
-     * @param \Volcengine\I18nopenapi\Model\SubTaskForVideoProjectTaskDetailOutput[] $sub_tasks sub_tasks
+     * @param string $create_time create_time
      *
      * @return $this
      */
-    public function setSubTasks($sub_tasks)
+    public function setCreateTime($create_time)
     {
-        $this->container['sub_tasks'] = $sub_tasks;
+        $this->container['create_time'] = $create_time;
 
         return $this;
     }
 
     /**
-     * Gets task
+     * Gets file_name
      *
-     * @return \Volcengine\I18nopenapi\Model\TaskForVideoProjectTaskDetailOutput
+     * @return string
      */
-    public function getTask()
+    public function getFileName()
     {
-        return $this->container['task'];
+        return $this->container['file_name'];
     }
 
     /**
-     * Sets task
+     * Sets file_name
      *
-     * @param \Volcengine\I18nopenapi\Model\TaskForVideoProjectTaskDetailOutput $task task
+     * @param string $file_name file_name
      *
      * @return $this
      */
-    public function setTask($task)
+    public function setFileName($file_name)
     {
-        $this->container['task'] = $task;
+        $this->container['file_name'] = $file_name;
 
         return $this;
     }
 
     /**
-     * Gets video_details
+     * Gets file_uri
      *
-     * @return \Volcengine\I18nopenapi\Model\VideoDetailForVideoProjectTaskDetailOutput[]
+     * @return string
      */
-    public function getVideoDetails()
+    public function getFileUri()
     {
-        return $this->container['video_details'];
+        return $this->container['file_uri'];
     }
 
     /**
-     * Sets video_details
+     * Sets file_uri
      *
-     * @param \Volcengine\I18nopenapi\Model\VideoDetailForVideoProjectTaskDetailOutput[] $video_details video_details
+     * @param string $file_uri file_uri
      *
      * @return $this
      */
-    public function setVideoDetails($video_details)
+    public function setFileUri($file_uri)
     {
-        $this->container['video_details'] = $video_details;
+        $this->container['file_uri'] = $file_uri;
 
         return $this;
     }
 
     /**
-     * Gets video_details_with_ai_remove
+     * Gets update_time
      *
-     * @return \Volcengine\I18nopenapi\Model\VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput[]
+     * @return string
      */
-    public function getVideoDetailsWithAiRemove()
+    public function getUpdateTime()
     {
-        return $this->container['video_details_with_ai_remove'];
+        return $this->container['update_time'];
     }
 
     /**
-     * Sets video_details_with_ai_remove
+     * Sets update_time
      *
-     * @param \Volcengine\I18nopenapi\Model\VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput[] $video_details_with_ai_remove video_details_with_ai_remove
+     * @param string $update_time update_time
      *
      * @return $this
      */
-    public function setVideoDetailsWithAiRemove($video_details_with_ai_remove)
+    public function setUpdateTime($update_time)
     {
-        $this->container['video_details_with_ai_remove'] = $video_details_with_ai_remove;
+        $this->container['update_time'] = $update_time;
 
         return $this;
     }
