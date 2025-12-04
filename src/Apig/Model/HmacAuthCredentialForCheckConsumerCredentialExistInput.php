@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
+class HmacAuthCredentialForCheckConsumerCredentialExistInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'FilterForListGatewayServicesInput';
+    protected static $swaggerModelName = 'HmacAuthCredentialForCheckConsumerCredentialExistInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,8 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'name' => 'string',
-        'service_type' => 'string',
-        'status' => 'string'
+        'access_key' => 'string',
+        'secret_key' => 'string'
     ];
 
     /**
@@ -39,9 +38,8 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'name' => null,
-        'service_type' => null,
-        'status' => null
+        'access_key' => null,
+        'secret_key' => null
     ];
 
     /**
@@ -71,9 +69,8 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'Name',
-        'service_type' => 'ServiceType',
-        'status' => 'Status'
+        'access_key' => 'AccessKey',
+        'secret_key' => 'SecretKey'
     ];
 
     /**
@@ -82,9 +79,8 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-        'service_type' => 'setServiceType',
-        'status' => 'setStatus'
+        'access_key' => 'setAccessKey',
+        'secret_key' => 'setSecretKey'
     ];
 
     /**
@@ -93,9 +89,8 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-        'service_type' => 'getServiceType',
-        'status' => 'getStatus'
+        'access_key' => 'getAccessKey',
+        'secret_key' => 'getSecretKey'
     ];
 
     /**
@@ -158,9 +153,8 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['service_type'] = isset($data['service_type']) ? $data['service_type'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['access_key'] = isset($data['access_key']) ? $data['access_key'] : null;
+        $this->container['secret_key'] = isset($data['secret_key']) ? $data['secret_key'] : null;
     }
 
     /**
@@ -188,73 +182,49 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets name
+     * Gets access_key
      *
      * @return string
      */
-    public function getName()
+    public function getAccessKey()
     {
-        return $this->container['name'];
+        return $this->container['access_key'];
     }
 
     /**
-     * Sets name
+     * Sets access_key
      *
-     * @param string $name name
+     * @param string $access_key access_key
      *
      * @return $this
      */
-    public function setName($name)
+    public function setAccessKey($access_key)
     {
-        $this->container['name'] = $name;
+        $this->container['access_key'] = $access_key;
 
         return $this;
     }
 
     /**
-     * Gets service_type
+     * Gets secret_key
      *
      * @return string
      */
-    public function getServiceType()
+    public function getSecretKey()
     {
-        return $this->container['service_type'];
+        return $this->container['secret_key'];
     }
 
     /**
-     * Sets service_type
+     * Sets secret_key
      *
-     * @param string $service_type service_type
+     * @param string $secret_key secret_key
      *
      * @return $this
      */
-    public function setServiceType($service_type)
+    public function setSecretKey($secret_key)
     {
-        $this->container['service_type'] = $service_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets status
-     *
-     * @return string
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param string $status status
-     *
-     * @return $this
-     */
-    public function setStatus($status)
-    {
-        $this->container['status'] = $status;
+        $this->container['secret_key'] = $secret_key;
 
         return $this;
     }

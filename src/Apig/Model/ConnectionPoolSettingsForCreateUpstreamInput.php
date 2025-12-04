@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
+class ConnectionPoolSettingsForCreateUpstreamInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'FilterForListGatewayServicesInput';
+    protected static $swaggerModelName = 'ConnectionPoolSettingsForCreateUpstreamInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,10 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'name' => 'string',
-        'service_type' => 'string',
-        'status' => 'string'
+        'enable' => 'bool',
+        'http1_max_pending_requests' => 'int',
+        'idle_timeout' => 'int',
+        'max_connections' => 'int'
     ];
 
     /**
@@ -39,9 +40,10 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'name' => null,
-        'service_type' => null,
-        'status' => null
+        'enable' => null,
+        'http1_max_pending_requests' => 'int32',
+        'idle_timeout' => 'int32',
+        'max_connections' => 'int32'
     ];
 
     /**
@@ -71,9 +73,10 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'Name',
-        'service_type' => 'ServiceType',
-        'status' => 'Status'
+        'enable' => 'Enable',
+        'http1_max_pending_requests' => 'Http1MaxPendingRequests',
+        'idle_timeout' => 'IdleTimeout',
+        'max_connections' => 'MaxConnections'
     ];
 
     /**
@@ -82,9 +85,10 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-        'service_type' => 'setServiceType',
-        'status' => 'setStatus'
+        'enable' => 'setEnable',
+        'http1_max_pending_requests' => 'setHttp1MaxPendingRequests',
+        'idle_timeout' => 'setIdleTimeout',
+        'max_connections' => 'setMaxConnections'
     ];
 
     /**
@@ -93,9 +97,10 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-        'service_type' => 'getServiceType',
-        'status' => 'getStatus'
+        'enable' => 'getEnable',
+        'http1_max_pending_requests' => 'getHttp1MaxPendingRequests',
+        'idle_timeout' => 'getIdleTimeout',
+        'max_connections' => 'getMaxConnections'
     ];
 
     /**
@@ -158,9 +163,10 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['service_type'] = isset($data['service_type']) ? $data['service_type'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['enable'] = isset($data['enable']) ? $data['enable'] : null;
+        $this->container['http1_max_pending_requests'] = isset($data['http1_max_pending_requests']) ? $data['http1_max_pending_requests'] : null;
+        $this->container['idle_timeout'] = isset($data['idle_timeout']) ? $data['idle_timeout'] : null;
+        $this->container['max_connections'] = isset($data['max_connections']) ? $data['max_connections'] : null;
     }
 
     /**
@@ -188,73 +194,97 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets name
+     * Gets enable
      *
-     * @return string
+     * @return bool
      */
-    public function getName()
+    public function getEnable()
     {
-        return $this->container['name'];
+        return $this->container['enable'];
     }
 
     /**
-     * Sets name
+     * Sets enable
      *
-     * @param string $name name
+     * @param bool $enable enable
      *
      * @return $this
      */
-    public function setName($name)
+    public function setEnable($enable)
     {
-        $this->container['name'] = $name;
+        $this->container['enable'] = $enable;
 
         return $this;
     }
 
     /**
-     * Gets service_type
+     * Gets http1_max_pending_requests
      *
-     * @return string
+     * @return int
      */
-    public function getServiceType()
+    public function getHttp1MaxPendingRequests()
     {
-        return $this->container['service_type'];
+        return $this->container['http1_max_pending_requests'];
     }
 
     /**
-     * Sets service_type
+     * Sets http1_max_pending_requests
      *
-     * @param string $service_type service_type
+     * @param int $http1_max_pending_requests http1_max_pending_requests
      *
      * @return $this
      */
-    public function setServiceType($service_type)
+    public function setHttp1MaxPendingRequests($http1_max_pending_requests)
     {
-        $this->container['service_type'] = $service_type;
+        $this->container['http1_max_pending_requests'] = $http1_max_pending_requests;
 
         return $this;
     }
 
     /**
-     * Gets status
+     * Gets idle_timeout
      *
-     * @return string
+     * @return int
      */
-    public function getStatus()
+    public function getIdleTimeout()
     {
-        return $this->container['status'];
+        return $this->container['idle_timeout'];
     }
 
     /**
-     * Sets status
+     * Sets idle_timeout
      *
-     * @param string $status status
+     * @param int $idle_timeout idle_timeout
      *
      * @return $this
      */
-    public function setStatus($status)
+    public function setIdleTimeout($idle_timeout)
     {
-        $this->container['status'] = $status;
+        $this->container['idle_timeout'] = $idle_timeout;
+
+        return $this;
+    }
+
+    /**
+     * Gets max_connections
+     *
+     * @return int
+     */
+    public function getMaxConnections()
+    {
+        return $this->container['max_connections'];
+    }
+
+    /**
+     * Sets max_connections
+     *
+     * @param int $max_connections max_connections
+     *
+     * @return $this
+     */
+    public function setMaxConnections($max_connections)
+    {
+        $this->container['max_connections'] = $max_connections;
 
         return $this;
     }

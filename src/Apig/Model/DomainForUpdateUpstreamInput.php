@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
+class DomainForUpdateUpstreamInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'FilterForListGatewayServicesInput';
+    protected static $swaggerModelName = 'DomainForUpdateUpstreamInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,7 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'name' => 'string',
-        'service_type' => 'string',
-        'status' => 'string'
+        'domain_list' => '\Volcengine\Apig\Model\DomainListForUpdateUpstreamInput[]'
     ];
 
     /**
@@ -39,9 +37,7 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'name' => null,
-        'service_type' => null,
-        'status' => null
+        'domain_list' => null
     ];
 
     /**
@@ -71,9 +67,7 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'Name',
-        'service_type' => 'ServiceType',
-        'status' => 'Status'
+        'domain_list' => 'DomainList'
     ];
 
     /**
@@ -82,9 +76,7 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-        'service_type' => 'setServiceType',
-        'status' => 'setStatus'
+        'domain_list' => 'setDomainList'
     ];
 
     /**
@@ -93,9 +85,7 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-        'service_type' => 'getServiceType',
-        'status' => 'getStatus'
+        'domain_list' => 'getDomainList'
     ];
 
     /**
@@ -158,9 +148,7 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['service_type'] = isset($data['service_type']) ? $data['service_type'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['domain_list'] = isset($data['domain_list']) ? $data['domain_list'] : null;
     }
 
     /**
@@ -188,73 +176,25 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets name
+     * Gets domain_list
      *
-     * @return string
+     * @return \Volcengine\Apig\Model\DomainListForUpdateUpstreamInput[]
      */
-    public function getName()
+    public function getDomainList()
     {
-        return $this->container['name'];
+        return $this->container['domain_list'];
     }
 
     /**
-     * Sets name
+     * Sets domain_list
      *
-     * @param string $name name
+     * @param \Volcengine\Apig\Model\DomainListForUpdateUpstreamInput[] $domain_list domain_list
      *
      * @return $this
      */
-    public function setName($name)
+    public function setDomainList($domain_list)
     {
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets service_type
-     *
-     * @return string
-     */
-    public function getServiceType()
-    {
-        return $this->container['service_type'];
-    }
-
-    /**
-     * Sets service_type
-     *
-     * @param string $service_type service_type
-     *
-     * @return $this
-     */
-    public function setServiceType($service_type)
-    {
-        $this->container['service_type'] = $service_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets status
-     *
-     * @return string
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param string $status status
-     *
-     * @return $this
-     */
-    public function setStatus($status)
-    {
-        $this->container['status'] = $status;
+        $this->container['domain_list'] = $domain_list;
 
         return $this;
     }
