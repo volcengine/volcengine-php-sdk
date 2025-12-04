@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\I18nopenapi\Model;
+namespace Volcengine\Veiapi\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class VideoDetailsForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
+class ItemForListMediapipeEventOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class VideoDetailsForVideoProjectTaskDetailOutput implements ModelInterface, Arr
       *
       * @var string
       */
-    protected static $swaggerModelName = 'videoDetailsForVideoProjectTaskDetailOutput';
+    protected static $swaggerModelName = 'itemForListMediapipeEventOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,18 +28,14 @@ class VideoDetailsForVideoProjectTaskDetailOutput implements ModelInterface, Arr
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'create_time' => 'string',
-        'creator' => '\Volcengine\I18nopenapi\Model\CreatorForVideoProjectTaskDetailOutput',
-        'duration' => 'string',
+        'classifier' => '\Volcengine\Veiapi\Model\ClassifierForListMediapipeEventOutput[]',
         'height' => 'string',
-        'language' => 'string',
-        'name' => 'string',
-        'poster_url' => 'string',
-        'update_time' => 'string',
-        'video_download_url' => 'string',
-        'video_id' => 'string',
-        'video_url' => 'string',
-        'width' => 'string'
+        'id' => 'int',
+        'label' => 'string',
+        'left' => 'double',
+        'prob' => 'double',
+        'top' => 'string',
+        'width' => 'double'
     ];
 
     /**
@@ -48,18 +44,14 @@ class VideoDetailsForVideoProjectTaskDetailOutput implements ModelInterface, Arr
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'create_time' => null,
-        'creator' => null,
-        'duration' => null,
+        'classifier' => null,
         'height' => null,
-        'language' => null,
-        'name' => null,
-        'poster_url' => null,
-        'update_time' => null,
-        'video_download_url' => null,
-        'video_id' => null,
-        'video_url' => null,
-        'width' => null
+        'id' => 'int32',
+        'label' => null,
+        'left' => 'double',
+        'prob' => 'double',
+        'top' => null,
+        'width' => 'double'
     ];
 
     /**
@@ -89,17 +81,13 @@ class VideoDetailsForVideoProjectTaskDetailOutput implements ModelInterface, Arr
      * @var string[]
      */
     protected static $attributeMap = [
-        'create_time' => 'createTime',
-        'creator' => 'creator',
-        'duration' => 'duration',
+        'classifier' => 'classifier',
         'height' => 'height',
-        'language' => 'language',
-        'name' => 'name',
-        'poster_url' => 'posterUrl',
-        'update_time' => 'updateTime',
-        'video_download_url' => 'videoDownloadUrl',
-        'video_id' => 'videoId',
-        'video_url' => 'videoUrl',
+        'id' => 'id',
+        'label' => 'label',
+        'left' => 'left',
+        'prob' => 'prob',
+        'top' => 'top',
         'width' => 'width'
     ];
 
@@ -109,17 +97,13 @@ class VideoDetailsForVideoProjectTaskDetailOutput implements ModelInterface, Arr
      * @var string[]
      */
     protected static $setters = [
-        'create_time' => 'setCreateTime',
-        'creator' => 'setCreator',
-        'duration' => 'setDuration',
+        'classifier' => 'setClassifier',
         'height' => 'setHeight',
-        'language' => 'setLanguage',
-        'name' => 'setName',
-        'poster_url' => 'setPosterUrl',
-        'update_time' => 'setUpdateTime',
-        'video_download_url' => 'setVideoDownloadUrl',
-        'video_id' => 'setVideoId',
-        'video_url' => 'setVideoUrl',
+        'id' => 'setId',
+        'label' => 'setLabel',
+        'left' => 'setLeft',
+        'prob' => 'setProb',
+        'top' => 'setTop',
         'width' => 'setWidth'
     ];
 
@@ -129,17 +113,13 @@ class VideoDetailsForVideoProjectTaskDetailOutput implements ModelInterface, Arr
      * @var string[]
      */
     protected static $getters = [
-        'create_time' => 'getCreateTime',
-        'creator' => 'getCreator',
-        'duration' => 'getDuration',
+        'classifier' => 'getClassifier',
         'height' => 'getHeight',
-        'language' => 'getLanguage',
-        'name' => 'getName',
-        'poster_url' => 'getPosterUrl',
-        'update_time' => 'getUpdateTime',
-        'video_download_url' => 'getVideoDownloadUrl',
-        'video_id' => 'getVideoId',
-        'video_url' => 'getVideoUrl',
+        'id' => 'getId',
+        'label' => 'getLabel',
+        'left' => 'getLeft',
+        'prob' => 'getProb',
+        'top' => 'getTop',
         'width' => 'getWidth'
     ];
 
@@ -203,17 +183,13 @@ class VideoDetailsForVideoProjectTaskDetailOutput implements ModelInterface, Arr
      */
     public function __construct(array $data = null)
     {
-        $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
-        $this->container['creator'] = isset($data['creator']) ? $data['creator'] : null;
-        $this->container['duration'] = isset($data['duration']) ? $data['duration'] : null;
+        $this->container['classifier'] = isset($data['classifier']) ? $data['classifier'] : null;
         $this->container['height'] = isset($data['height']) ? $data['height'] : null;
-        $this->container['language'] = isset($data['language']) ? $data['language'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['poster_url'] = isset($data['poster_url']) ? $data['poster_url'] : null;
-        $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
-        $this->container['video_download_url'] = isset($data['video_download_url']) ? $data['video_download_url'] : null;
-        $this->container['video_id'] = isset($data['video_id']) ? $data['video_id'] : null;
-        $this->container['video_url'] = isset($data['video_url']) ? $data['video_url'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['label'] = isset($data['label']) ? $data['label'] : null;
+        $this->container['left'] = isset($data['left']) ? $data['left'] : null;
+        $this->container['prob'] = isset($data['prob']) ? $data['prob'] : null;
+        $this->container['top'] = isset($data['top']) ? $data['top'] : null;
         $this->container['width'] = isset($data['width']) ? $data['width'] : null;
     }
 
@@ -242,73 +218,25 @@ class VideoDetailsForVideoProjectTaskDetailOutput implements ModelInterface, Arr
 
 
     /**
-     * Gets create_time
+     * Gets classifier
      *
-     * @return string
+     * @return \Volcengine\Veiapi\Model\ClassifierForListMediapipeEventOutput[]
      */
-    public function getCreateTime()
+    public function getClassifier()
     {
-        return $this->container['create_time'];
+        return $this->container['classifier'];
     }
 
     /**
-     * Sets create_time
+     * Sets classifier
      *
-     * @param string $create_time create_time
+     * @param \Volcengine\Veiapi\Model\ClassifierForListMediapipeEventOutput[] $classifier classifier
      *
      * @return $this
      */
-    public function setCreateTime($create_time)
+    public function setClassifier($classifier)
     {
-        $this->container['create_time'] = $create_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets creator
-     *
-     * @return \Volcengine\I18nopenapi\Model\CreatorForVideoProjectTaskDetailOutput
-     */
-    public function getCreator()
-    {
-        return $this->container['creator'];
-    }
-
-    /**
-     * Sets creator
-     *
-     * @param \Volcengine\I18nopenapi\Model\CreatorForVideoProjectTaskDetailOutput $creator creator
-     *
-     * @return $this
-     */
-    public function setCreator($creator)
-    {
-        $this->container['creator'] = $creator;
-
-        return $this;
-    }
-
-    /**
-     * Gets duration
-     *
-     * @return string
-     */
-    public function getDuration()
-    {
-        return $this->container['duration'];
-    }
-
-    /**
-     * Sets duration
-     *
-     * @param string $duration duration
-     *
-     * @return $this
-     */
-    public function setDuration($duration)
-    {
-        $this->container['duration'] = $duration;
+        $this->container['classifier'] = $classifier;
 
         return $this;
     }
@@ -338,169 +266,121 @@ class VideoDetailsForVideoProjectTaskDetailOutput implements ModelInterface, Arr
     }
 
     /**
-     * Gets language
+     * Gets id
      *
-     * @return string
+     * @return int
      */
-    public function getLanguage()
+    public function getId()
     {
-        return $this->container['language'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets language
+     * Sets id
      *
-     * @param string $language language
+     * @param int $id id
      *
      * @return $this
      */
-    public function setLanguage($language)
+    public function setId($id)
     {
-        $this->container['language'] = $language;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets name
+     * Gets label
      *
      * @return string
      */
-    public function getName()
+    public function getLabel()
     {
-        return $this->container['name'];
+        return $this->container['label'];
     }
 
     /**
-     * Sets name
+     * Sets label
      *
-     * @param string $name name
+     * @param string $label label
      *
      * @return $this
      */
-    public function setName($name)
+    public function setLabel($label)
     {
-        $this->container['name'] = $name;
+        $this->container['label'] = $label;
 
         return $this;
     }
 
     /**
-     * Gets poster_url
+     * Gets left
      *
-     * @return string
+     * @return double
      */
-    public function getPosterUrl()
+    public function getLeft()
     {
-        return $this->container['poster_url'];
+        return $this->container['left'];
     }
 
     /**
-     * Sets poster_url
+     * Sets left
      *
-     * @param string $poster_url poster_url
+     * @param double $left left
      *
      * @return $this
      */
-    public function setPosterUrl($poster_url)
+    public function setLeft($left)
     {
-        $this->container['poster_url'] = $poster_url;
+        $this->container['left'] = $left;
 
         return $this;
     }
 
     /**
-     * Gets update_time
+     * Gets prob
      *
-     * @return string
+     * @return double
      */
-    public function getUpdateTime()
+    public function getProb()
     {
-        return $this->container['update_time'];
+        return $this->container['prob'];
     }
 
     /**
-     * Sets update_time
+     * Sets prob
      *
-     * @param string $update_time update_time
+     * @param double $prob prob
      *
      * @return $this
      */
-    public function setUpdateTime($update_time)
+    public function setProb($prob)
     {
-        $this->container['update_time'] = $update_time;
+        $this->container['prob'] = $prob;
 
         return $this;
     }
 
     /**
-     * Gets video_download_url
+     * Gets top
      *
      * @return string
      */
-    public function getVideoDownloadUrl()
+    public function getTop()
     {
-        return $this->container['video_download_url'];
+        return $this->container['top'];
     }
 
     /**
-     * Sets video_download_url
+     * Sets top
      *
-     * @param string $video_download_url video_download_url
+     * @param string $top top
      *
      * @return $this
      */
-    public function setVideoDownloadUrl($video_download_url)
+    public function setTop($top)
     {
-        $this->container['video_download_url'] = $video_download_url;
-
-        return $this;
-    }
-
-    /**
-     * Gets video_id
-     *
-     * @return string
-     */
-    public function getVideoId()
-    {
-        return $this->container['video_id'];
-    }
-
-    /**
-     * Sets video_id
-     *
-     * @param string $video_id video_id
-     *
-     * @return $this
-     */
-    public function setVideoId($video_id)
-    {
-        $this->container['video_id'] = $video_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets video_url
-     *
-     * @return string
-     */
-    public function getVideoUrl()
-    {
-        return $this->container['video_url'];
-    }
-
-    /**
-     * Sets video_url
-     *
-     * @param string $video_url video_url
-     *
-     * @return $this
-     */
-    public function setVideoUrl($video_url)
-    {
-        $this->container['video_url'] = $video_url;
+        $this->container['top'] = $top;
 
         return $this;
     }
@@ -508,7 +388,7 @@ class VideoDetailsForVideoProjectTaskDetailOutput implements ModelInterface, Arr
     /**
      * Gets width
      *
-     * @return string
+     * @return double
      */
     public function getWidth()
     {
@@ -518,7 +398,7 @@ class VideoDetailsForVideoProjectTaskDetailOutput implements ModelInterface, Arr
     /**
      * Sets width
      *
-     * @param string $width width
+     * @param double $width width
      *
      * @return $this
      */

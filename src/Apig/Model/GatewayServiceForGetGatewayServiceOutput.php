@@ -40,6 +40,7 @@ class GatewayServiceForGetGatewayServiceOutput implements ModelInterface, ArrayA
         'message' => 'string',
         'name' => 'string',
         'protocol' => 'string[]',
+        'service_type' => 'string',
         'status' => 'string'
     ];
 
@@ -61,6 +62,7 @@ class GatewayServiceForGetGatewayServiceOutput implements ModelInterface, ArrayA
         'message' => null,
         'name' => null,
         'protocol' => null,
+        'service_type' => null,
         'status' => null
     ];
 
@@ -103,6 +105,7 @@ class GatewayServiceForGetGatewayServiceOutput implements ModelInterface, ArrayA
         'message' => 'Message',
         'name' => 'Name',
         'protocol' => 'Protocol',
+        'service_type' => 'ServiceType',
         'status' => 'Status'
     ];
 
@@ -124,6 +127,7 @@ class GatewayServiceForGetGatewayServiceOutput implements ModelInterface, ArrayA
         'message' => 'setMessage',
         'name' => 'setName',
         'protocol' => 'setProtocol',
+        'service_type' => 'setServiceType',
         'status' => 'setStatus'
     ];
 
@@ -145,6 +149,7 @@ class GatewayServiceForGetGatewayServiceOutput implements ModelInterface, ArrayA
         'message' => 'getMessage',
         'name' => 'getName',
         'protocol' => 'getProtocol',
+        'service_type' => 'getServiceType',
         'status' => 'getStatus'
     ];
 
@@ -220,6 +225,7 @@ class GatewayServiceForGetGatewayServiceOutput implements ModelInterface, ArrayA
         $this->container['message'] = isset($data['message']) ? $data['message'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['protocol'] = isset($data['protocol']) ? $data['protocol'] : null;
+        $this->container['service_type'] = isset($data['service_type']) ? $data['service_type'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }
 
@@ -531,6 +537,30 @@ class GatewayServiceForGetGatewayServiceOutput implements ModelInterface, ArrayA
     public function setProtocol($protocol)
     {
         $this->container['protocol'] = $protocol;
+
+        return $this;
+    }
+
+    /**
+     * Gets service_type
+     *
+     * @return string
+     */
+    public function getServiceType()
+    {
+        return $this->container['service_type'];
+    }
+
+    /**
+     * Sets service_type
+     *
+     * @param string $service_type service_type
+     *
+     * @return $this
+     */
+    public function setServiceType($service_type)
+    {
+        $this->container['service_type'] = $service_type;
 
         return $this;
     }
