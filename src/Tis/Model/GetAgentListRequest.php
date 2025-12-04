@@ -28,6 +28,7 @@ class GetAgentListRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'agent_id' => 'string',
         'app_id' => 'string'
     ];
 
@@ -37,6 +38,7 @@ class GetAgentListRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'agent_id' => null,
         'app_id' => null
     ];
 
@@ -67,6 +69,7 @@ class GetAgentListRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'agent_id' => 'AgentID',
         'app_id' => 'AppID'
     ];
 
@@ -76,6 +79,7 @@ class GetAgentListRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'agent_id' => 'setAgentId',
         'app_id' => 'setAppId'
     ];
 
@@ -85,6 +89,7 @@ class GetAgentListRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'agent_id' => 'getAgentId',
         'app_id' => 'getAppId'
     ];
 
@@ -148,6 +153,7 @@ class GetAgentListRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['agent_id'] = isset($data['agent_id']) ? $data['agent_id'] : null;
         $this->container['app_id'] = isset($data['app_id']) ? $data['app_id'] : null;
     }
 
@@ -174,6 +180,30 @@ class GetAgentListRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets agent_id
+     *
+     * @return string
+     */
+    public function getAgentId()
+    {
+        return $this->container['agent_id'];
+    }
+
+    /**
+     * Sets agent_id
+     *
+     * @param string $agent_id agent_id
+     *
+     * @return $this
+     */
+    public function setAgentId($agent_id)
+    {
+        $this->container['agent_id'] = $agent_id;
+
+        return $this;
+    }
 
     /**
      * Gets app_id
