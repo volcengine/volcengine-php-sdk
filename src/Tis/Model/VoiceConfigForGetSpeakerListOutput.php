@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AgentForGetAgentListOutput implements ModelInterface, ArrayAccess
+class VoiceConfigForGetSpeakerListOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AgentForGetAgentListOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AgentForGetAgentListOutput';
+    protected static $swaggerModelName = 'VoiceConfigForGetSpeakerListOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,9 @@ class AgentForGetAgentListOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'asr_lang' => 'string',
-        'description' => 'string',
-        'id' => 'string',
-        'name' => 'string',
-        'speaker_id' => 'string',
-        'speaker_type' => 'string'
+        'lang' => 'string',
+        'text' => 'string',
+        'trial_url' => 'string'
     ];
 
     /**
@@ -42,12 +39,9 @@ class AgentForGetAgentListOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'asr_lang' => null,
-        'description' => null,
-        'id' => null,
-        'name' => null,
-        'speaker_id' => null,
-        'speaker_type' => null
+        'lang' => null,
+        'text' => null,
+        'trial_url' => null
     ];
 
     /**
@@ -77,12 +71,9 @@ class AgentForGetAgentListOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'asr_lang' => 'AsrLang',
-        'description' => 'Description',
-        'id' => 'ID',
-        'name' => 'Name',
-        'speaker_id' => 'SpeakerID',
-        'speaker_type' => 'SpeakerType'
+        'lang' => 'Lang',
+        'text' => 'Text',
+        'trial_url' => 'TrialURL'
     ];
 
     /**
@@ -91,12 +82,9 @@ class AgentForGetAgentListOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'asr_lang' => 'setAsrLang',
-        'description' => 'setDescription',
-        'id' => 'setId',
-        'name' => 'setName',
-        'speaker_id' => 'setSpeakerId',
-        'speaker_type' => 'setSpeakerType'
+        'lang' => 'setLang',
+        'text' => 'setText',
+        'trial_url' => 'setTrialUrl'
     ];
 
     /**
@@ -105,12 +93,9 @@ class AgentForGetAgentListOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'asr_lang' => 'getAsrLang',
-        'description' => 'getDescription',
-        'id' => 'getId',
-        'name' => 'getName',
-        'speaker_id' => 'getSpeakerId',
-        'speaker_type' => 'getSpeakerType'
+        'lang' => 'getLang',
+        'text' => 'getText',
+        'trial_url' => 'getTrialUrl'
     ];
 
     /**
@@ -173,12 +158,9 @@ class AgentForGetAgentListOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['asr_lang'] = isset($data['asr_lang']) ? $data['asr_lang'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['speaker_id'] = isset($data['speaker_id']) ? $data['speaker_id'] : null;
-        $this->container['speaker_type'] = isset($data['speaker_type']) ? $data['speaker_type'] : null;
+        $this->container['lang'] = isset($data['lang']) ? $data['lang'] : null;
+        $this->container['text'] = isset($data['text']) ? $data['text'] : null;
+        $this->container['trial_url'] = isset($data['trial_url']) ? $data['trial_url'] : null;
     }
 
     /**
@@ -206,145 +188,73 @@ class AgentForGetAgentListOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets asr_lang
+     * Gets lang
      *
      * @return string
      */
-    public function getAsrLang()
+    public function getLang()
     {
-        return $this->container['asr_lang'];
+        return $this->container['lang'];
     }
 
     /**
-     * Sets asr_lang
+     * Sets lang
      *
-     * @param string $asr_lang asr_lang
+     * @param string $lang lang
      *
      * @return $this
      */
-    public function setAsrLang($asr_lang)
+    public function setLang($lang)
     {
-        $this->container['asr_lang'] = $asr_lang;
+        $this->container['lang'] = $lang;
 
         return $this;
     }
 
     /**
-     * Gets description
+     * Gets text
      *
      * @return string
      */
-    public function getDescription()
+    public function getText()
     {
-        return $this->container['description'];
+        return $this->container['text'];
     }
 
     /**
-     * Sets description
+     * Sets text
      *
-     * @param string $description description
+     * @param string $text text
      *
      * @return $this
      */
-    public function setDescription($description)
+    public function setText($text)
     {
-        $this->container['description'] = $description;
+        $this->container['text'] = $text;
 
         return $this;
     }
 
     /**
-     * Gets id
+     * Gets trial_url
      *
      * @return string
      */
-    public function getId()
+    public function getTrialUrl()
     {
-        return $this->container['id'];
+        return $this->container['trial_url'];
     }
 
     /**
-     * Sets id
+     * Sets trial_url
      *
-     * @param string $id id
+     * @param string $trial_url trial_url
      *
      * @return $this
      */
-    public function setId($id)
+    public function setTrialUrl($trial_url)
     {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string $name name
-     *
-     * @return $this
-     */
-    public function setName($name)
-    {
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets speaker_id
-     *
-     * @return string
-     */
-    public function getSpeakerId()
-    {
-        return $this->container['speaker_id'];
-    }
-
-    /**
-     * Sets speaker_id
-     *
-     * @param string $speaker_id speaker_id
-     *
-     * @return $this
-     */
-    public function setSpeakerId($speaker_id)
-    {
-        $this->container['speaker_id'] = $speaker_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets speaker_type
-     *
-     * @return string
-     */
-    public function getSpeakerType()
-    {
-        return $this->container['speaker_type'];
-    }
-
-    /**
-     * Sets speaker_type
-     *
-     * @param string $speaker_type speaker_type
-     *
-     * @return $this
-     */
-    public function setSpeakerType($speaker_type)
-    {
-        $this->container['speaker_type'] = $speaker_type;
+        $this->container['trial_url'] = $trial_url;
 
         return $this;
     }

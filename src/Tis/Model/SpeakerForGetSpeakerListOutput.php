@@ -28,11 +28,17 @@ class SpeakerForGetSpeakerListOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'avatar' => 'string',
+        'category' => '\Volcengine\Tis\Model\CategoryForGetSpeakerListOutput[]',
         'description' => 'string',
+        'gender' => 'string',
         'id' => 'string',
+        'labels' => 'string[]',
         'language' => 'string',
+        'languages' => '\Volcengine\Tis\Model\LanguageForGetSpeakerListOutput[]',
         'name' => 'string',
-        'type' => 'string'
+        'type' => 'string',
+        'voice_configs' => '\Volcengine\Tis\Model\VoiceConfigForGetSpeakerListOutput[]'
     ];
 
     /**
@@ -41,11 +47,17 @@ class SpeakerForGetSpeakerListOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'avatar' => null,
+        'category' => null,
         'description' => null,
+        'gender' => null,
         'id' => null,
+        'labels' => null,
         'language' => null,
+        'languages' => null,
         'name' => null,
-        'type' => null
+        'type' => null,
+        'voice_configs' => null
     ];
 
     /**
@@ -75,11 +87,17 @@ class SpeakerForGetSpeakerListOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'avatar' => 'Avatar',
+        'category' => 'Category',
         'description' => 'Description',
+        'gender' => 'Gender',
         'id' => 'ID',
+        'labels' => 'Labels',
         'language' => 'Language',
+        'languages' => 'Languages',
         'name' => 'Name',
-        'type' => 'Type'
+        'type' => 'Type',
+        'voice_configs' => 'VoiceConfigs'
     ];
 
     /**
@@ -88,11 +106,17 @@ class SpeakerForGetSpeakerListOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'avatar' => 'setAvatar',
+        'category' => 'setCategory',
         'description' => 'setDescription',
+        'gender' => 'setGender',
         'id' => 'setId',
+        'labels' => 'setLabels',
         'language' => 'setLanguage',
+        'languages' => 'setLanguages',
         'name' => 'setName',
-        'type' => 'setType'
+        'type' => 'setType',
+        'voice_configs' => 'setVoiceConfigs'
     ];
 
     /**
@@ -101,11 +125,17 @@ class SpeakerForGetSpeakerListOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'avatar' => 'getAvatar',
+        'category' => 'getCategory',
         'description' => 'getDescription',
+        'gender' => 'getGender',
         'id' => 'getId',
+        'labels' => 'getLabels',
         'language' => 'getLanguage',
+        'languages' => 'getLanguages',
         'name' => 'getName',
-        'type' => 'getType'
+        'type' => 'getType',
+        'voice_configs' => 'getVoiceConfigs'
     ];
 
     /**
@@ -168,11 +198,17 @@ class SpeakerForGetSpeakerListOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['avatar'] = isset($data['avatar']) ? $data['avatar'] : null;
+        $this->container['category'] = isset($data['category']) ? $data['category'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['gender'] = isset($data['gender']) ? $data['gender'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['labels'] = isset($data['labels']) ? $data['labels'] : null;
         $this->container['language'] = isset($data['language']) ? $data['language'] : null;
+        $this->container['languages'] = isset($data['languages']) ? $data['languages'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['voice_configs'] = isset($data['voice_configs']) ? $data['voice_configs'] : null;
     }
 
     /**
@@ -200,6 +236,54 @@ class SpeakerForGetSpeakerListOutput implements ModelInterface, ArrayAccess
 
 
     /**
+     * Gets avatar
+     *
+     * @return string
+     */
+    public function getAvatar()
+    {
+        return $this->container['avatar'];
+    }
+
+    /**
+     * Sets avatar
+     *
+     * @param string $avatar avatar
+     *
+     * @return $this
+     */
+    public function setAvatar($avatar)
+    {
+        $this->container['avatar'] = $avatar;
+
+        return $this;
+    }
+
+    /**
+     * Gets category
+     *
+     * @return \Volcengine\Tis\Model\CategoryForGetSpeakerListOutput[]
+     */
+    public function getCategory()
+    {
+        return $this->container['category'];
+    }
+
+    /**
+     * Sets category
+     *
+     * @param \Volcengine\Tis\Model\CategoryForGetSpeakerListOutput[] $category category
+     *
+     * @return $this
+     */
+    public function setCategory($category)
+    {
+        $this->container['category'] = $category;
+
+        return $this;
+    }
+
+    /**
      * Gets description
      *
      * @return string
@@ -219,6 +303,30 @@ class SpeakerForGetSpeakerListOutput implements ModelInterface, ArrayAccess
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets gender
+     *
+     * @return string
+     */
+    public function getGender()
+    {
+        return $this->container['gender'];
+    }
+
+    /**
+     * Sets gender
+     *
+     * @param string $gender gender
+     *
+     * @return $this
+     */
+    public function setGender($gender)
+    {
+        $this->container['gender'] = $gender;
 
         return $this;
     }
@@ -248,6 +356,30 @@ class SpeakerForGetSpeakerListOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets labels
+     *
+     * @return string[]
+     */
+    public function getLabels()
+    {
+        return $this->container['labels'];
+    }
+
+    /**
+     * Sets labels
+     *
+     * @param string[] $labels labels
+     *
+     * @return $this
+     */
+    public function setLabels($labels)
+    {
+        $this->container['labels'] = $labels;
+
+        return $this;
+    }
+
+    /**
      * Gets language
      *
      * @return string
@@ -267,6 +399,30 @@ class SpeakerForGetSpeakerListOutput implements ModelInterface, ArrayAccess
     public function setLanguage($language)
     {
         $this->container['language'] = $language;
+
+        return $this;
+    }
+
+    /**
+     * Gets languages
+     *
+     * @return \Volcengine\Tis\Model\LanguageForGetSpeakerListOutput[]
+     */
+    public function getLanguages()
+    {
+        return $this->container['languages'];
+    }
+
+    /**
+     * Sets languages
+     *
+     * @param \Volcengine\Tis\Model\LanguageForGetSpeakerListOutput[] $languages languages
+     *
+     * @return $this
+     */
+    public function setLanguages($languages)
+    {
+        $this->container['languages'] = $languages;
 
         return $this;
     }
@@ -315,6 +471,30 @@ class SpeakerForGetSpeakerListOutput implements ModelInterface, ArrayAccess
     public function setType($type)
     {
         $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets voice_configs
+     *
+     * @return \Volcengine\Tis\Model\VoiceConfigForGetSpeakerListOutput[]
+     */
+    public function getVoiceConfigs()
+    {
+        return $this->container['voice_configs'];
+    }
+
+    /**
+     * Sets voice_configs
+     *
+     * @param \Volcengine\Tis\Model\VoiceConfigForGetSpeakerListOutput[] $voice_configs voice_configs
+     *
+     * @return $this
+     */
+    public function setVoiceConfigs($voice_configs)
+    {
+        $this->container['voice_configs'] = $voice_configs;
 
         return $this;
     }
