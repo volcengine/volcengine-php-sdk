@@ -28,11 +28,14 @@ final class ContentTypeV2
 
     const VIDEO = 4;
 
+    const FILE = 5;
+
     static public $__names = array(
         1 => 'TEXT',
         2 => 'AUDIO',
         3 => 'IMAGE',
         4 => 'VIDEO',
+        5 => 'FILE',
     );
 }
 

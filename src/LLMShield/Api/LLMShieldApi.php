@@ -28,17 +28,69 @@ class LLMShieldApi
     protected $client;
     protected $timeout;
     protected $service;
+    private $proxy; // 代理地址（格式：http://ip:port 或 socks5://ip:port）
 
-    function __construct($endpoint, $ak, $sk, $appid, $region, $timeout = 60, $service = Service)
+    function __construct($endpoint, $ak, $sk, $appid, $region, $timeout = 60, $service = Service, ?string $proxy = null)
     {
         $this->endpoint = $endpoint;
         $this->ak = $ak;
         $this->sk = $sk;
         $this->appid = $appid;
         $this->region = $region;
-        $this->client = new Client;
         $this->timeout = $timeout;
         $this->service = $service;
+        $this->proxy = $proxy;
+
+        $config = [
+            'timeout' => $timeout,
+        ];
+
+        if ($this->proxy) {
+            if ($this->isProxyValid($this->proxy)) {
+                $config['proxy'] = $this->formatProxyConfig($this->proxy);
+                echo "SetProxy Succ: $this->proxy\n";
+            }
+        }
+
+        $this->client = new Client($config);
+    }
+
+    private function formatProxyConfig(string $proxy): array {
+        $proxyParts = parse_url($proxy);
+        $proxyUrl = "{$proxyParts['scheme']}://{$proxyParts['host']}:{$proxyParts['port']}";
+        echo "ProxAddr: $proxyUrl";
+        return [
+            'http' => $proxyUrl,
+            'https' => $proxyUrl,
+        ];
+    }
+
+    private function isProxyValid(string $proxy): bool {
+        // 1. 解析代理 URL（使用 PHP 内置的 parse_url 函数）
+        $proxyParts = parse_url($proxy);
+
+        // 2. 基础格式校验：必须包含协议（scheme）、主机（host）、端口（port）
+        if (empty($proxyParts['scheme']) || empty($proxyParts['host']) || empty($proxyParts['port'])) {
+            return false;
+        }
+
+        // 3. 校验协议是否支持（如 http、https、socks5 等）
+        $supportedSchemes = ['http', 'https', 'socks5', 'socks5h'];
+        if (!in_array(strtolower($proxyParts['scheme']), $supportedSchemes, true)) {
+            return false;
+        }
+
+        // 4. 校验主机是否为合法 IP 或域名（简单校验）
+        if (!filter_var($proxyParts['host'], FILTER_VALIDATE_IP) && !preg_match('/^[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/', $proxyParts['host'])) {
+            return false;
+        }
+
+        // 5. 校验端口是否在有效范围（1-65535）
+        if ($proxyParts['port'] < 1 || $proxyParts['port'] > 65535) {
+            return false;
+        }
+
+        return true;
     }
 
     protected function getRequest(
