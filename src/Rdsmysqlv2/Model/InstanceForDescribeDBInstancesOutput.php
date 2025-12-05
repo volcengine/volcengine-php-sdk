@@ -36,12 +36,14 @@ class InstanceForDescribeDBInstancesOutput implements ModelInterface, ArrayAcces
         'db_engine_version' => 'string',
         'deletion_protection' => 'string',
         'dr_dts_task_id' => 'string',
+        'engine_type' => 'string',
         'instance_id' => 'string',
         'instance_name' => 'string',
         'instance_status' => 'string',
         'instance_type' => 'string',
         'lower_case_table_names' => 'string',
         'maintenance_window' => '\Volcengine\Rdsmysqlv2\Model\MaintenanceWindowForDescribeDBInstancesOutput',
+        'new_node_spec' => 'string',
         'node_cpu_used_percentage' => 'double',
         'node_memory_used_percentage' => 'double',
         'node_number' => 'int',
@@ -49,6 +51,7 @@ class InstanceForDescribeDBInstancesOutput implements ModelInterface, ArrayAcces
         'node_spec' => 'string',
         'project_name' => 'string',
         'region_id' => 'string',
+        'seconds_monitor_config' => 'string',
         'storage_space' => 'int',
         'storage_type' => 'string',
         'subnet_id' => 'string',
@@ -73,12 +76,14 @@ class InstanceForDescribeDBInstancesOutput implements ModelInterface, ArrayAcces
         'db_engine_version' => null,
         'deletion_protection' => null,
         'dr_dts_task_id' => null,
+        'engine_type' => null,
         'instance_id' => null,
         'instance_name' => null,
         'instance_status' => null,
         'instance_type' => null,
         'lower_case_table_names' => null,
         'maintenance_window' => null,
+        'new_node_spec' => null,
         'node_cpu_used_percentage' => 'double',
         'node_memory_used_percentage' => 'double',
         'node_number' => 'int32',
@@ -86,6 +91,7 @@ class InstanceForDescribeDBInstancesOutput implements ModelInterface, ArrayAcces
         'node_spec' => null,
         'project_name' => null,
         'region_id' => null,
+        'seconds_monitor_config' => null,
         'storage_space' => 'int32',
         'storage_type' => null,
         'subnet_id' => null,
@@ -131,12 +137,14 @@ class InstanceForDescribeDBInstancesOutput implements ModelInterface, ArrayAcces
         'db_engine_version' => 'DBEngineVersion',
         'deletion_protection' => 'DeletionProtection',
         'dr_dts_task_id' => 'DrDtsTaskId',
+        'engine_type' => 'EngineType',
         'instance_id' => 'InstanceId',
         'instance_name' => 'InstanceName',
         'instance_status' => 'InstanceStatus',
         'instance_type' => 'InstanceType',
         'lower_case_table_names' => 'LowerCaseTableNames',
         'maintenance_window' => 'MaintenanceWindow',
+        'new_node_spec' => 'NewNodeSpec',
         'node_cpu_used_percentage' => 'NodeCPUUsedPercentage',
         'node_memory_used_percentage' => 'NodeMemoryUsedPercentage',
         'node_number' => 'NodeNumber',
@@ -144,6 +152,7 @@ class InstanceForDescribeDBInstancesOutput implements ModelInterface, ArrayAcces
         'node_spec' => 'NodeSpec',
         'project_name' => 'ProjectName',
         'region_id' => 'RegionId',
+        'seconds_monitor_config' => 'SecondsMonitorConfig',
         'storage_space' => 'StorageSpace',
         'storage_type' => 'StorageType',
         'subnet_id' => 'SubnetId',
@@ -168,12 +177,14 @@ class InstanceForDescribeDBInstancesOutput implements ModelInterface, ArrayAcces
         'db_engine_version' => 'setDbEngineVersion',
         'deletion_protection' => 'setDeletionProtection',
         'dr_dts_task_id' => 'setDrDtsTaskId',
+        'engine_type' => 'setEngineType',
         'instance_id' => 'setInstanceId',
         'instance_name' => 'setInstanceName',
         'instance_status' => 'setInstanceStatus',
         'instance_type' => 'setInstanceType',
         'lower_case_table_names' => 'setLowerCaseTableNames',
         'maintenance_window' => 'setMaintenanceWindow',
+        'new_node_spec' => 'setNewNodeSpec',
         'node_cpu_used_percentage' => 'setNodeCpuUsedPercentage',
         'node_memory_used_percentage' => 'setNodeMemoryUsedPercentage',
         'node_number' => 'setNodeNumber',
@@ -181,6 +192,7 @@ class InstanceForDescribeDBInstancesOutput implements ModelInterface, ArrayAcces
         'node_spec' => 'setNodeSpec',
         'project_name' => 'setProjectName',
         'region_id' => 'setRegionId',
+        'seconds_monitor_config' => 'setSecondsMonitorConfig',
         'storage_space' => 'setStorageSpace',
         'storage_type' => 'setStorageType',
         'subnet_id' => 'setSubnetId',
@@ -205,12 +217,14 @@ class InstanceForDescribeDBInstancesOutput implements ModelInterface, ArrayAcces
         'db_engine_version' => 'getDbEngineVersion',
         'deletion_protection' => 'getDeletionProtection',
         'dr_dts_task_id' => 'getDrDtsTaskId',
+        'engine_type' => 'getEngineType',
         'instance_id' => 'getInstanceId',
         'instance_name' => 'getInstanceName',
         'instance_status' => 'getInstanceStatus',
         'instance_type' => 'getInstanceType',
         'lower_case_table_names' => 'getLowerCaseTableNames',
         'maintenance_window' => 'getMaintenanceWindow',
+        'new_node_spec' => 'getNewNodeSpec',
         'node_cpu_used_percentage' => 'getNodeCpuUsedPercentage',
         'node_memory_used_percentage' => 'getNodeMemoryUsedPercentage',
         'node_number' => 'getNodeNumber',
@@ -218,6 +232,7 @@ class InstanceForDescribeDBInstancesOutput implements ModelInterface, ArrayAcces
         'node_spec' => 'getNodeSpec',
         'project_name' => 'getProjectName',
         'region_id' => 'getRegionId',
+        'seconds_monitor_config' => 'getSecondsMonitorConfig',
         'storage_space' => 'getStorageSpace',
         'storage_type' => 'getStorageType',
         'subnet_id' => 'getSubnetId',
@@ -296,12 +311,14 @@ class InstanceForDescribeDBInstancesOutput implements ModelInterface, ArrayAcces
         $this->container['db_engine_version'] = isset($data['db_engine_version']) ? $data['db_engine_version'] : null;
         $this->container['deletion_protection'] = isset($data['deletion_protection']) ? $data['deletion_protection'] : null;
         $this->container['dr_dts_task_id'] = isset($data['dr_dts_task_id']) ? $data['dr_dts_task_id'] : null;
+        $this->container['engine_type'] = isset($data['engine_type']) ? $data['engine_type'] : null;
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
         $this->container['instance_name'] = isset($data['instance_name']) ? $data['instance_name'] : null;
         $this->container['instance_status'] = isset($data['instance_status']) ? $data['instance_status'] : null;
         $this->container['instance_type'] = isset($data['instance_type']) ? $data['instance_type'] : null;
         $this->container['lower_case_table_names'] = isset($data['lower_case_table_names']) ? $data['lower_case_table_names'] : null;
         $this->container['maintenance_window'] = isset($data['maintenance_window']) ? $data['maintenance_window'] : null;
+        $this->container['new_node_spec'] = isset($data['new_node_spec']) ? $data['new_node_spec'] : null;
         $this->container['node_cpu_used_percentage'] = isset($data['node_cpu_used_percentage']) ? $data['node_cpu_used_percentage'] : null;
         $this->container['node_memory_used_percentage'] = isset($data['node_memory_used_percentage']) ? $data['node_memory_used_percentage'] : null;
         $this->container['node_number'] = isset($data['node_number']) ? $data['node_number'] : null;
@@ -309,6 +326,7 @@ class InstanceForDescribeDBInstancesOutput implements ModelInterface, ArrayAcces
         $this->container['node_spec'] = isset($data['node_spec']) ? $data['node_spec'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['region_id'] = isset($data['region_id']) ? $data['region_id'] : null;
+        $this->container['seconds_monitor_config'] = isset($data['seconds_monitor_config']) ? $data['seconds_monitor_config'] : null;
         $this->container['storage_space'] = isset($data['storage_space']) ? $data['storage_space'] : null;
         $this->container['storage_type'] = isset($data['storage_type']) ? $data['storage_type'] : null;
         $this->container['subnet_id'] = isset($data['subnet_id']) ? $data['subnet_id'] : null;
@@ -536,6 +554,30 @@ class InstanceForDescribeDBInstancesOutput implements ModelInterface, ArrayAcces
     }
 
     /**
+     * Gets engine_type
+     *
+     * @return string
+     */
+    public function getEngineType()
+    {
+        return $this->container['engine_type'];
+    }
+
+    /**
+     * Sets engine_type
+     *
+     * @param string $engine_type engine_type
+     *
+     * @return $this
+     */
+    public function setEngineType($engine_type)
+    {
+        $this->container['engine_type'] = $engine_type;
+
+        return $this;
+    }
+
+    /**
      * Gets instance_id
      *
      * @return string
@@ -675,6 +717,30 @@ class InstanceForDescribeDBInstancesOutput implements ModelInterface, ArrayAcces
     public function setMaintenanceWindow($maintenance_window)
     {
         $this->container['maintenance_window'] = $maintenance_window;
+
+        return $this;
+    }
+
+    /**
+     * Gets new_node_spec
+     *
+     * @return string
+     */
+    public function getNewNodeSpec()
+    {
+        return $this->container['new_node_spec'];
+    }
+
+    /**
+     * Sets new_node_spec
+     *
+     * @param string $new_node_spec new_node_spec
+     *
+     * @return $this
+     */
+    public function setNewNodeSpec($new_node_spec)
+    {
+        $this->container['new_node_spec'] = $new_node_spec;
 
         return $this;
     }
@@ -843,6 +909,30 @@ class InstanceForDescribeDBInstancesOutput implements ModelInterface, ArrayAcces
     public function setRegionId($region_id)
     {
         $this->container['region_id'] = $region_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets seconds_monitor_config
+     *
+     * @return string
+     */
+    public function getSecondsMonitorConfig()
+    {
+        return $this->container['seconds_monitor_config'];
+    }
+
+    /**
+     * Sets seconds_monitor_config
+     *
+     * @param string $seconds_monitor_config seconds_monitor_config
+     *
+     * @return $this
+     */
+    public function setSecondsMonitorConfig($seconds_monitor_config)
+    {
+        $this->container['seconds_monitor_config'] = $seconds_monitor_config;
 
         return $this;
     }

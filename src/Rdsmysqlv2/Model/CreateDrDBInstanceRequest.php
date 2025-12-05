@@ -36,6 +36,7 @@ class CreateDrDBInstanceRequest implements ModelInterface, ArrayAccess
         'node_info' => '\Volcengine\Rdsmysqlv2\Model\NodeInfoForCreateDrDBInstanceInput[]',
         'proxy_node_custom' => '\Volcengine\Rdsmysqlv2\Model\ProxyNodeCustomForCreateDrDBInstanceInput',
         'storage_space' => 'int',
+        'storage_type' => 'string',
         'subnet_id' => 'string',
         'vpc_id' => 'string'
     ];
@@ -54,6 +55,7 @@ class CreateDrDBInstanceRequest implements ModelInterface, ArrayAccess
         'node_info' => null,
         'proxy_node_custom' => null,
         'storage_space' => 'int32',
+        'storage_type' => null,
         'subnet_id' => null,
         'vpc_id' => null
     ];
@@ -93,6 +95,7 @@ class CreateDrDBInstanceRequest implements ModelInterface, ArrayAccess
         'node_info' => 'NodeInfo',
         'proxy_node_custom' => 'ProxyNodeCustom',
         'storage_space' => 'StorageSpace',
+        'storage_type' => 'StorageType',
         'subnet_id' => 'SubnetId',
         'vpc_id' => 'VpcId'
     ];
@@ -111,6 +114,7 @@ class CreateDrDBInstanceRequest implements ModelInterface, ArrayAccess
         'node_info' => 'setNodeInfo',
         'proxy_node_custom' => 'setProxyNodeCustom',
         'storage_space' => 'setStorageSpace',
+        'storage_type' => 'setStorageType',
         'subnet_id' => 'setSubnetId',
         'vpc_id' => 'setVpcId'
     ];
@@ -129,6 +133,7 @@ class CreateDrDBInstanceRequest implements ModelInterface, ArrayAccess
         'node_info' => 'getNodeInfo',
         'proxy_node_custom' => 'getProxyNodeCustom',
         'storage_space' => 'getStorageSpace',
+        'storage_type' => 'getStorageType',
         'subnet_id' => 'getSubnetId',
         'vpc_id' => 'getVpcId'
     ];
@@ -201,6 +206,7 @@ class CreateDrDBInstanceRequest implements ModelInterface, ArrayAccess
         $this->container['node_info'] = isset($data['node_info']) ? $data['node_info'] : null;
         $this->container['proxy_node_custom'] = isset($data['proxy_node_custom']) ? $data['proxy_node_custom'] : null;
         $this->container['storage_space'] = isset($data['storage_space']) ? $data['storage_space'] : null;
+        $this->container['storage_type'] = isset($data['storage_type']) ? $data['storage_type'] : null;
         $this->container['subnet_id'] = isset($data['subnet_id']) ? $data['subnet_id'] : null;
         $this->container['vpc_id'] = isset($data['vpc_id']) ? $data['vpc_id'] : null;
     }
@@ -432,6 +438,30 @@ class CreateDrDBInstanceRequest implements ModelInterface, ArrayAccess
     public function setStorageSpace($storage_space)
     {
         $this->container['storage_space'] = $storage_space;
+
+        return $this;
+    }
+
+    /**
+     * Gets storage_type
+     *
+     * @return string
+     */
+    public function getStorageType()
+    {
+        return $this->container['storage_type'];
+    }
+
+    /**
+     * Sets storage_type
+     *
+     * @param string $storage_type storage_type
+     *
+     * @return $this
+     */
+    public function setStorageType($storage_type)
+    {
+        $this->container['storage_type'] = $storage_type;
 
         return $this;
     }

@@ -33,6 +33,7 @@ class BackupForDescribeBackupsOutput implements ModelInterface, ArrayAccess
         'backup_file_size' => 'int',
         'backup_id' => 'string',
         'backup_method' => 'string',
+        'backup_name' => 'string',
         'backup_region' => 'string',
         'backup_start_time' => 'string',
         'backup_status' => 'string',
@@ -42,6 +43,7 @@ class BackupForDescribeBackupsOutput implements ModelInterface, ArrayAccess
         'db_engine_version' => 'string',
         'db_table_infos' => '\Volcengine\Rdsmysqlv2\Model\DBTableInfoForDescribeBackupsOutput[]',
         'download_status' => 'string',
+        'engine_type' => 'string',
         'error_message' => 'string',
         'expired_time' => 'string',
         'is_encrypted' => 'bool',
@@ -59,6 +61,7 @@ class BackupForDescribeBackupsOutput implements ModelInterface, ArrayAccess
         'backup_file_size' => 'int64',
         'backup_id' => null,
         'backup_method' => null,
+        'backup_name' => null,
         'backup_region' => null,
         'backup_start_time' => null,
         'backup_status' => null,
@@ -68,6 +71,7 @@ class BackupForDescribeBackupsOutput implements ModelInterface, ArrayAccess
         'db_engine_version' => null,
         'db_table_infos' => null,
         'download_status' => null,
+        'engine_type' => null,
         'error_message' => null,
         'expired_time' => null,
         'is_encrypted' => null,
@@ -106,6 +110,7 @@ class BackupForDescribeBackupsOutput implements ModelInterface, ArrayAccess
         'backup_file_size' => 'BackupFileSize',
         'backup_id' => 'BackupId',
         'backup_method' => 'BackupMethod',
+        'backup_name' => 'BackupName',
         'backup_region' => 'BackupRegion',
         'backup_start_time' => 'BackupStartTime',
         'backup_status' => 'BackupStatus',
@@ -115,6 +120,7 @@ class BackupForDescribeBackupsOutput implements ModelInterface, ArrayAccess
         'db_engine_version' => 'DBEngineVersion',
         'db_table_infos' => 'DBTableInfos',
         'download_status' => 'DownloadStatus',
+        'engine_type' => 'EngineType',
         'error_message' => 'ErrorMessage',
         'expired_time' => 'ExpiredTime',
         'is_encrypted' => 'IsEncrypted',
@@ -132,6 +138,7 @@ class BackupForDescribeBackupsOutput implements ModelInterface, ArrayAccess
         'backup_file_size' => 'setBackupFileSize',
         'backup_id' => 'setBackupId',
         'backup_method' => 'setBackupMethod',
+        'backup_name' => 'setBackupName',
         'backup_region' => 'setBackupRegion',
         'backup_start_time' => 'setBackupStartTime',
         'backup_status' => 'setBackupStatus',
@@ -141,6 +148,7 @@ class BackupForDescribeBackupsOutput implements ModelInterface, ArrayAccess
         'db_engine_version' => 'setDbEngineVersion',
         'db_table_infos' => 'setDbTableInfos',
         'download_status' => 'setDownloadStatus',
+        'engine_type' => 'setEngineType',
         'error_message' => 'setErrorMessage',
         'expired_time' => 'setExpiredTime',
         'is_encrypted' => 'setIsEncrypted',
@@ -158,6 +166,7 @@ class BackupForDescribeBackupsOutput implements ModelInterface, ArrayAccess
         'backup_file_size' => 'getBackupFileSize',
         'backup_id' => 'getBackupId',
         'backup_method' => 'getBackupMethod',
+        'backup_name' => 'getBackupName',
         'backup_region' => 'getBackupRegion',
         'backup_start_time' => 'getBackupStartTime',
         'backup_status' => 'getBackupStatus',
@@ -167,6 +176,7 @@ class BackupForDescribeBackupsOutput implements ModelInterface, ArrayAccess
         'db_engine_version' => 'getDbEngineVersion',
         'db_table_infos' => 'getDbTableInfos',
         'download_status' => 'getDownloadStatus',
+        'engine_type' => 'getEngineType',
         'error_message' => 'getErrorMessage',
         'expired_time' => 'getExpiredTime',
         'is_encrypted' => 'getIsEncrypted',
@@ -238,6 +248,7 @@ class BackupForDescribeBackupsOutput implements ModelInterface, ArrayAccess
         $this->container['backup_file_size'] = isset($data['backup_file_size']) ? $data['backup_file_size'] : null;
         $this->container['backup_id'] = isset($data['backup_id']) ? $data['backup_id'] : null;
         $this->container['backup_method'] = isset($data['backup_method']) ? $data['backup_method'] : null;
+        $this->container['backup_name'] = isset($data['backup_name']) ? $data['backup_name'] : null;
         $this->container['backup_region'] = isset($data['backup_region']) ? $data['backup_region'] : null;
         $this->container['backup_start_time'] = isset($data['backup_start_time']) ? $data['backup_start_time'] : null;
         $this->container['backup_status'] = isset($data['backup_status']) ? $data['backup_status'] : null;
@@ -247,6 +258,7 @@ class BackupForDescribeBackupsOutput implements ModelInterface, ArrayAccess
         $this->container['db_engine_version'] = isset($data['db_engine_version']) ? $data['db_engine_version'] : null;
         $this->container['db_table_infos'] = isset($data['db_table_infos']) ? $data['db_table_infos'] : null;
         $this->container['download_status'] = isset($data['download_status']) ? $data['download_status'] : null;
+        $this->container['engine_type'] = isset($data['engine_type']) ? $data['engine_type'] : null;
         $this->container['error_message'] = isset($data['error_message']) ? $data['error_message'] : null;
         $this->container['expired_time'] = isset($data['expired_time']) ? $data['expired_time'] : null;
         $this->container['is_encrypted'] = isset($data['is_encrypted']) ? $data['is_encrypted'] : null;
@@ -393,6 +405,30 @@ class BackupForDescribeBackupsOutput implements ModelInterface, ArrayAccess
     public function setBackupMethod($backup_method)
     {
         $this->container['backup_method'] = $backup_method;
+
+        return $this;
+    }
+
+    /**
+     * Gets backup_name
+     *
+     * @return string
+     */
+    public function getBackupName()
+    {
+        return $this->container['backup_name'];
+    }
+
+    /**
+     * Sets backup_name
+     *
+     * @param string $backup_name backup_name
+     *
+     * @return $this
+     */
+    public function setBackupName($backup_name)
+    {
+        $this->container['backup_name'] = $backup_name;
 
         return $this;
     }
@@ -609,6 +645,30 @@ class BackupForDescribeBackupsOutput implements ModelInterface, ArrayAccess
     public function setDownloadStatus($download_status)
     {
         $this->container['download_status'] = $download_status;
+
+        return $this;
+    }
+
+    /**
+     * Gets engine_type
+     *
+     * @return string
+     */
+    public function getEngineType()
+    {
+        return $this->container['engine_type'];
+    }
+
+    /**
+     * Sets engine_type
+     *
+     * @param string $engine_type engine_type
+     *
+     * @return $this
+     */
+    public function setEngineType($engine_type)
+    {
+        $this->container['engine_type'] = $engine_type;
 
         return $this;
     }

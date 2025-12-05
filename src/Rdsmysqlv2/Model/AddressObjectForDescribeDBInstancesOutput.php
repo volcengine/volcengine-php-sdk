@@ -31,6 +31,7 @@ class AddressObjectForDescribeDBInstancesOutput implements ModelInterface, Array
         'dns_visibility' => 'bool',
         'domain' => 'string',
         'eip_id' => 'string',
+        'eip_locked' => 'bool',
         'ip_address' => 'string',
         'internet_protocol' => 'string',
         'network_type' => 'string',
@@ -47,6 +48,7 @@ class AddressObjectForDescribeDBInstancesOutput implements ModelInterface, Array
         'dns_visibility' => null,
         'domain' => null,
         'eip_id' => null,
+        'eip_locked' => null,
         'ip_address' => null,
         'internet_protocol' => null,
         'network_type' => null,
@@ -84,6 +86,7 @@ class AddressObjectForDescribeDBInstancesOutput implements ModelInterface, Array
         'dns_visibility' => 'DNSVisibility',
         'domain' => 'Domain',
         'eip_id' => 'EipId',
+        'eip_locked' => 'EipLocked',
         'ip_address' => 'IPAddress',
         'internet_protocol' => 'InternetProtocol',
         'network_type' => 'NetworkType',
@@ -100,6 +103,7 @@ class AddressObjectForDescribeDBInstancesOutput implements ModelInterface, Array
         'dns_visibility' => 'setDnsVisibility',
         'domain' => 'setDomain',
         'eip_id' => 'setEipId',
+        'eip_locked' => 'setEipLocked',
         'ip_address' => 'setIpAddress',
         'internet_protocol' => 'setInternetProtocol',
         'network_type' => 'setNetworkType',
@@ -116,6 +120,7 @@ class AddressObjectForDescribeDBInstancesOutput implements ModelInterface, Array
         'dns_visibility' => 'getDnsVisibility',
         'domain' => 'getDomain',
         'eip_id' => 'getEipId',
+        'eip_locked' => 'getEipLocked',
         'ip_address' => 'getIpAddress',
         'internet_protocol' => 'getInternetProtocol',
         'network_type' => 'getNetworkType',
@@ -186,6 +191,7 @@ class AddressObjectForDescribeDBInstancesOutput implements ModelInterface, Array
         $this->container['dns_visibility'] = isset($data['dns_visibility']) ? $data['dns_visibility'] : null;
         $this->container['domain'] = isset($data['domain']) ? $data['domain'] : null;
         $this->container['eip_id'] = isset($data['eip_id']) ? $data['eip_id'] : null;
+        $this->container['eip_locked'] = isset($data['eip_locked']) ? $data['eip_locked'] : null;
         $this->container['ip_address'] = isset($data['ip_address']) ? $data['ip_address'] : null;
         $this->container['internet_protocol'] = isset($data['internet_protocol']) ? $data['internet_protocol'] : null;
         $this->container['network_type'] = isset($data['network_type']) ? $data['network_type'] : null;
@@ -285,6 +291,30 @@ class AddressObjectForDescribeDBInstancesOutput implements ModelInterface, Array
     public function setEipId($eip_id)
     {
         $this->container['eip_id'] = $eip_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets eip_locked
+     *
+     * @return bool
+     */
+    public function getEipLocked()
+    {
+        return $this->container['eip_locked'];
+    }
+
+    /**
+     * Sets eip_locked
+     *
+     * @param bool $eip_locked eip_locked
+     *
+     * @return $this
+     */
+    public function setEipLocked($eip_locked)
+    {
+        $this->container['eip_locked'] = $eip_locked;
 
         return $this;
     }
