@@ -30,7 +30,8 @@ class DataForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'sub_tasks' => '\Volcengine\I18nopenapi\Model\SubTaskForVideoProjectTaskDetailOutput[]',
         'task' => '\Volcengine\I18nopenapi\Model\TaskForVideoProjectTaskDetailOutput',
-        'video_details' => '\Volcengine\I18nopenapi\Model\VideoDetailsForVideoProjectTaskDetailOutput'
+        'video_details' => '\Volcengine\I18nopenapi\Model\VideoDetailForVideoProjectTaskDetailOutput[]',
+        'video_details_with_ai_remove' => '\Volcengine\I18nopenapi\Model\VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput[]'
     ];
 
     /**
@@ -41,7 +42,8 @@ class DataForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'sub_tasks' => null,
         'task' => null,
-        'video_details' => null
+        'video_details' => null,
+        'video_details_with_ai_remove' => null
     ];
 
     /**
@@ -73,7 +75,8 @@ class DataForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'sub_tasks' => 'subTasks',
         'task' => 'task',
-        'video_details' => 'videoDetails'
+        'video_details' => 'videoDetails',
+        'video_details_with_ai_remove' => 'videoDetailsWithAiRemove'
     ];
 
     /**
@@ -84,7 +87,8 @@ class DataForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
     protected static $setters = [
         'sub_tasks' => 'setSubTasks',
         'task' => 'setTask',
-        'video_details' => 'setVideoDetails'
+        'video_details' => 'setVideoDetails',
+        'video_details_with_ai_remove' => 'setVideoDetailsWithAiRemove'
     ];
 
     /**
@@ -95,7 +99,8 @@ class DataForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
     protected static $getters = [
         'sub_tasks' => 'getSubTasks',
         'task' => 'getTask',
-        'video_details' => 'getVideoDetails'
+        'video_details' => 'getVideoDetails',
+        'video_details_with_ai_remove' => 'getVideoDetailsWithAiRemove'
     ];
 
     /**
@@ -161,6 +166,7 @@ class DataForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
         $this->container['sub_tasks'] = isset($data['sub_tasks']) ? $data['sub_tasks'] : null;
         $this->container['task'] = isset($data['task']) ? $data['task'] : null;
         $this->container['video_details'] = isset($data['video_details']) ? $data['video_details'] : null;
+        $this->container['video_details_with_ai_remove'] = isset($data['video_details_with_ai_remove']) ? $data['video_details_with_ai_remove'] : null;
     }
 
     /**
@@ -238,7 +244,7 @@ class DataForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
     /**
      * Gets video_details
      *
-     * @return \Volcengine\I18nopenapi\Model\VideoDetailsForVideoProjectTaskDetailOutput
+     * @return \Volcengine\I18nopenapi\Model\VideoDetailForVideoProjectTaskDetailOutput[]
      */
     public function getVideoDetails()
     {
@@ -248,13 +254,37 @@ class DataForVideoProjectTaskDetailOutput implements ModelInterface, ArrayAccess
     /**
      * Sets video_details
      *
-     * @param \Volcengine\I18nopenapi\Model\VideoDetailsForVideoProjectTaskDetailOutput $video_details video_details
+     * @param \Volcengine\I18nopenapi\Model\VideoDetailForVideoProjectTaskDetailOutput[] $video_details video_details
      *
      * @return $this
      */
     public function setVideoDetails($video_details)
     {
         $this->container['video_details'] = $video_details;
+
+        return $this;
+    }
+
+    /**
+     * Gets video_details_with_ai_remove
+     *
+     * @return \Volcengine\I18nopenapi\Model\VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput[]
+     */
+    public function getVideoDetailsWithAiRemove()
+    {
+        return $this->container['video_details_with_ai_remove'];
+    }
+
+    /**
+     * Sets video_details_with_ai_remove
+     *
+     * @param \Volcengine\I18nopenapi\Model\VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput[] $video_details_with_ai_remove video_details_with_ai_remove
+     *
+     * @return $this
+     */
+    public function setVideoDetailsWithAiRemove($video_details_with_ai_remove)
+    {
+        $this->container['video_details_with_ai_remove'] = $video_details_with_ai_remove;
 
         return $this;
     }

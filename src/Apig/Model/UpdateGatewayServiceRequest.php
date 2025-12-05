@@ -32,7 +32,8 @@ class UpdateGatewayServiceRequest implements ModelInterface, ArrayAccess
         'comments' => 'string',
         'domain_spec' => '\Volcengine\Apig\Model\DomainSpecForUpdateGatewayServiceInput',
         'id' => 'string',
-        'protocol' => 'string[]'
+        'protocol' => 'string[]',
+        'service_network_spec' => '\Volcengine\Apig\Model\ServiceNetworkSpecForUpdateGatewayServiceInput'
     ];
 
     /**
@@ -45,7 +46,8 @@ class UpdateGatewayServiceRequest implements ModelInterface, ArrayAccess
         'comments' => null,
         'domain_spec' => null,
         'id' => null,
-        'protocol' => null
+        'protocol' => null,
+        'service_network_spec' => null
     ];
 
     /**
@@ -79,7 +81,8 @@ class UpdateGatewayServiceRequest implements ModelInterface, ArrayAccess
         'comments' => 'Comments',
         'domain_spec' => 'DomainSpec',
         'id' => 'Id',
-        'protocol' => 'Protocol'
+        'protocol' => 'Protocol',
+        'service_network_spec' => 'ServiceNetworkSpec'
     ];
 
     /**
@@ -92,7 +95,8 @@ class UpdateGatewayServiceRequest implements ModelInterface, ArrayAccess
         'comments' => 'setComments',
         'domain_spec' => 'setDomainSpec',
         'id' => 'setId',
-        'protocol' => 'setProtocol'
+        'protocol' => 'setProtocol',
+        'service_network_spec' => 'setServiceNetworkSpec'
     ];
 
     /**
@@ -105,7 +109,8 @@ class UpdateGatewayServiceRequest implements ModelInterface, ArrayAccess
         'comments' => 'getComments',
         'domain_spec' => 'getDomainSpec',
         'id' => 'getId',
-        'protocol' => 'getProtocol'
+        'protocol' => 'getProtocol',
+        'service_network_spec' => 'getServiceNetworkSpec'
     ];
 
     /**
@@ -173,6 +178,7 @@ class UpdateGatewayServiceRequest implements ModelInterface, ArrayAccess
         $this->container['domain_spec'] = isset($data['domain_spec']) ? $data['domain_spec'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['protocol'] = isset($data['protocol']) ? $data['protocol'] : null;
+        $this->container['service_network_spec'] = isset($data['service_network_spec']) ? $data['service_network_spec'] : null;
     }
 
     /**
@@ -318,6 +324,30 @@ class UpdateGatewayServiceRequest implements ModelInterface, ArrayAccess
     public function setProtocol($protocol)
     {
         $this->container['protocol'] = $protocol;
+
+        return $this;
+    }
+
+    /**
+     * Gets service_network_spec
+     *
+     * @return \Volcengine\Apig\Model\ServiceNetworkSpecForUpdateGatewayServiceInput
+     */
+    public function getServiceNetworkSpec()
+    {
+        return $this->container['service_network_spec'];
+    }
+
+    /**
+     * Sets service_network_spec
+     *
+     * @param \Volcengine\Apig\Model\ServiceNetworkSpecForUpdateGatewayServiceInput $service_network_spec service_network_spec
+     *
+     * @return $this
+     */
+    public function setServiceNetworkSpec($service_network_spec)
+    {
+        $this->container['service_network_spec'] = $service_network_spec;
 
         return $this;
     }

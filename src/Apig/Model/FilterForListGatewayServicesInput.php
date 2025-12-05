@@ -29,6 +29,7 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'name' => 'string',
+        'service_type' => 'string',
         'status' => 'string'
     ];
 
@@ -39,6 +40,7 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'name' => null,
+        'service_type' => null,
         'status' => null
     ];
 
@@ -70,6 +72,7 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'name' => 'Name',
+        'service_type' => 'ServiceType',
         'status' => 'Status'
     ];
 
@@ -80,6 +83,7 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'name' => 'setName',
+        'service_type' => 'setServiceType',
         'status' => 'setStatus'
     ];
 
@@ -90,6 +94,7 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'name' => 'getName',
+        'service_type' => 'getServiceType',
         'status' => 'getStatus'
     ];
 
@@ -154,6 +159,7 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['service_type'] = isset($data['service_type']) ? $data['service_type'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }
 
@@ -201,6 +207,30 @@ class FilterForListGatewayServicesInput implements ModelInterface, ArrayAccess
     public function setName($name)
     {
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets service_type
+     *
+     * @return string
+     */
+    public function getServiceType()
+    {
+        return $this->container['service_type'];
+    }
+
+    /**
+     * Sets service_type
+     *
+     * @param string $service_type service_type
+     *
+     * @return $this
+     */
+    public function setServiceType($service_type)
+    {
+        $this->container['service_type'] = $service_type;
 
         return $this;
     }

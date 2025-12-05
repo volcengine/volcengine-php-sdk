@@ -30,6 +30,7 @@ class UpdateUpstreamRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'circuit_breaking_settings' => '\Volcengine\Apig\Model\CircuitBreakingSettingsForUpdateUpstreamInput',
         'comments' => 'string',
+        'connection_pool_settings' => '\Volcengine\Apig\Model\ConnectionPoolSettingsForUpdateUpstreamInput',
         'id' => 'string',
         'load_balancer_settings' => '\Volcengine\Apig\Model\LoadBalancerSettingsForUpdateUpstreamInput',
         'name' => 'string',
@@ -47,6 +48,7 @@ class UpdateUpstreamRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'circuit_breaking_settings' => null,
         'comments' => null,
+        'connection_pool_settings' => null,
         'id' => null,
         'load_balancer_settings' => null,
         'name' => null,
@@ -85,6 +87,7 @@ class UpdateUpstreamRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'circuit_breaking_settings' => 'CircuitBreakingSettings',
         'comments' => 'Comments',
+        'connection_pool_settings' => 'ConnectionPoolSettings',
         'id' => 'Id',
         'load_balancer_settings' => 'LoadBalancerSettings',
         'name' => 'Name',
@@ -102,6 +105,7 @@ class UpdateUpstreamRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'circuit_breaking_settings' => 'setCircuitBreakingSettings',
         'comments' => 'setComments',
+        'connection_pool_settings' => 'setConnectionPoolSettings',
         'id' => 'setId',
         'load_balancer_settings' => 'setLoadBalancerSettings',
         'name' => 'setName',
@@ -119,6 +123,7 @@ class UpdateUpstreamRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'circuit_breaking_settings' => 'getCircuitBreakingSettings',
         'comments' => 'getComments',
+        'connection_pool_settings' => 'getConnectionPoolSettings',
         'id' => 'getId',
         'load_balancer_settings' => 'getLoadBalancerSettings',
         'name' => 'getName',
@@ -190,6 +195,7 @@ class UpdateUpstreamRequest implements ModelInterface, ArrayAccess
     {
         $this->container['circuit_breaking_settings'] = isset($data['circuit_breaking_settings']) ? $data['circuit_breaking_settings'] : null;
         $this->container['comments'] = isset($data['comments']) ? $data['comments'] : null;
+        $this->container['connection_pool_settings'] = isset($data['connection_pool_settings']) ? $data['connection_pool_settings'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['load_balancer_settings'] = isset($data['load_balancer_settings']) ? $data['load_balancer_settings'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
@@ -276,6 +282,30 @@ class UpdateUpstreamRequest implements ModelInterface, ArrayAccess
     public function setComments($comments)
     {
         $this->container['comments'] = $comments;
+
+        return $this;
+    }
+
+    /**
+     * Gets connection_pool_settings
+     *
+     * @return \Volcengine\Apig\Model\ConnectionPoolSettingsForUpdateUpstreamInput
+     */
+    public function getConnectionPoolSettings()
+    {
+        return $this->container['connection_pool_settings'];
+    }
+
+    /**
+     * Sets connection_pool_settings
+     *
+     * @param \Volcengine\Apig\Model\ConnectionPoolSettingsForUpdateUpstreamInput $connection_pool_settings connection_pool_settings
+     *
+     * @return $this
+     */
+    public function setConnectionPoolSettings($connection_pool_settings)
+    {
+        $this->container['connection_pool_settings'] = $connection_pool_settings;
 
         return $this;
     }
