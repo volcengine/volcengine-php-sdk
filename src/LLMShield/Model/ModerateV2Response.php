@@ -42,6 +42,11 @@ class ModerateV2Response implements JsonSerializable
             'type' => TType::STRUCT,
             'class' => '\Volcengine\LLMShield\Model\PermitInfoV2',
         ),
+        5 => array(
+            'var' => 'ContentInfo',
+            'isRequired' => false,
+            'type' => TType::STRING,
+        ),
         101 => array(
             'var' => 'Degraded',
             'isRequired' => false,
@@ -71,6 +76,10 @@ class ModerateV2Response implements JsonSerializable
      */
     public $PermitInfo = null;
     /**
+     * @var string
+     */
+    public $ContentInfo = null;
+    /**
      * @var bool
      */
     public $Degraded = null;
@@ -93,6 +102,9 @@ class ModerateV2Response implements JsonSerializable
             }
             if (isset($vals['PermitInfo'])) {
                 $this->PermitInfo = $vals['PermitInfo'];
+            }
+            if (isset($vals['ContentInfo'])) {
+                $this->ContentInfo = $vals['ContentInfo'];
             }
             if (isset($vals['Degraded'])) {
                 $this->Degraded = $vals['Degraded'];
@@ -149,6 +161,13 @@ class ModerateV2Response implements JsonSerializable
                     if ($ftype == TType::STRUCT) {
                         $this->PermitInfo = new \Volcengine\LLMShield\Model\PermitInfoV2();
                         $xfer += $this->PermitInfo->read($input);
+                    } else {
+                        $xfer += $input->skip($ftype);
+                    }
+                    break;
+                case 5:
+                    if ($ftype == TType::STRING) {
+                        $xfer += $input->readString($this->ContentInfo);
                     } else {
                         $xfer += $input->skip($ftype);
                     }
@@ -210,6 +229,11 @@ class ModerateV2Response implements JsonSerializable
             $xfer += $this->PermitInfo->write($output);
             $xfer += $output->writeFieldEnd();
         }
+        if ($this->ContentInfo !== null) {
+            $xfer += $output->writeFieldBegin('ContentInfo', TType::STRING, 1);
+            $xfer += $output->writeString($this->ContentInfo);
+            $xfer += $output->writeFieldEnd();
+        }
         if ($this->Degraded !== null) {
             $xfer += $output->writeFieldBegin('Degraded', TType::BOOL, 101);
             $xfer += $output->writeBool($this->Degraded);
@@ -240,6 +264,9 @@ class ModerateV2Response implements JsonSerializable
         }
         if ($this->PermitInfo !== null) {
             $json->PermitInfo = $this->PermitInfo;
+        }
+        if ($this->ContentInfo !== null) {
+            $json->ContentInfo = (string)$this->ContentInfo;
         }
         if ($this->Degraded !== null) {
             $json->Degraded = (bool)$this->Degraded;
