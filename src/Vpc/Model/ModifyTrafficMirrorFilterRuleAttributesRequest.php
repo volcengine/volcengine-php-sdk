@@ -176,13 +176,12 @@ class ModifyTrafficMirrorFilterRuleAttributesRequest implements ModelInterface, 
 
     const POLICY_ACCEPT = 'accept';
     const POLICY_REJECT = 'reject';
-    const PROTOCOL_ICMP = 'icmp';
-    const PROTOCOL_ICMPV6 = 'icmpv6';
     const PROTOCOL_TCP = 'tcp';
     const PROTOCOL_UDP = 'udp';
+    const PROTOCOL_ICMP = 'icmp';
     const PROTOCOL_ALL = 'all';
-    const TRAFFIC_DIRECTION_EGRESS = 'egress';
     const TRAFFIC_DIRECTION_INGRESS = 'ingress';
+    const TRAFFIC_DIRECTION_EGRESS = 'egress';
     
 
     
@@ -207,10 +206,9 @@ class ModifyTrafficMirrorFilterRuleAttributesRequest implements ModelInterface, 
     public function getProtocolAllowableValues()
     {
         return [
-            self::PROTOCOL_ICMP,
-            self::PROTOCOL_ICMPV6,
             self::PROTOCOL_TCP,
             self::PROTOCOL_UDP,
+            self::PROTOCOL_ICMP,
             self::PROTOCOL_ALL,
         ];
     }
@@ -223,8 +221,8 @@ class ModifyTrafficMirrorFilterRuleAttributesRequest implements ModelInterface, 
     public function getTrafficDirectionAllowableValues()
     {
         return [
-            self::TRAFFIC_DIRECTION_EGRESS,
             self::TRAFFIC_DIRECTION_INGRESS,
+            self::TRAFFIC_DIRECTION_EGRESS,
         ];
     }
     

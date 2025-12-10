@@ -32,7 +32,7 @@ class DescribeTrafficMirrorTargetsRequest implements ModelInterface, ArrayAccess
         'next_token' => 'string',
         'project_name' => 'string',
         'tag_filters' => '\Volcengine\Vpc\Model\TagFilterForDescribeTrafficMirrorTargetsInput[]',
-        'traffic_mirror_target_ids' => 'string',
+        'traffic_mirror_target_ids' => 'string[]',
         'traffic_mirror_target_name' => 'string'
     ];
 
@@ -304,7 +304,7 @@ class DescribeTrafficMirrorTargetsRequest implements ModelInterface, ArrayAccess
     /**
      * Gets traffic_mirror_target_ids
      *
-     * @return string
+     * @return string[]
      */
     public function getTrafficMirrorTargetIds()
     {
@@ -314,7 +314,7 @@ class DescribeTrafficMirrorTargetsRequest implements ModelInterface, ArrayAccess
     /**
      * Sets traffic_mirror_target_ids
      *
-     * @param string $traffic_mirror_target_ids traffic_mirror_target_ids
+     * @param string[] $traffic_mirror_target_ids traffic_mirror_target_ids
      *
      * @return $this
      */

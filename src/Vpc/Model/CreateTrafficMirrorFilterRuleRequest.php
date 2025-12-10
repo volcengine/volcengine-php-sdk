@@ -185,8 +185,8 @@ class CreateTrafficMirrorFilterRuleRequest implements ModelInterface, ArrayAcces
     const PROTOCOL_UDP = 'udp';
     const PROTOCOL_ICMP = 'icmp';
     const PROTOCOL_ALL = 'all';
-    const TRAFFIC_DIRECTION_EGRESS = 'egress';
     const TRAFFIC_DIRECTION_INGRESS = 'ingress';
+    const TRAFFIC_DIRECTION_EGRESS = 'egress';
     
 
     
@@ -226,8 +226,8 @@ class CreateTrafficMirrorFilterRuleRequest implements ModelInterface, ArrayAcces
     public function getTrafficDirectionAllowableValues()
     {
         return [
-            self::TRAFFIC_DIRECTION_EGRESS,
             self::TRAFFIC_DIRECTION_INGRESS,
+            self::TRAFFIC_DIRECTION_EGRESS,
         ];
     }
     

@@ -46,6 +46,7 @@ class DescribeIpv6AddressBandwidthAttributesResponse implements ModelInterface, 
         'project_name' => 'string',
         'request_id' => 'string',
         'service_managed' => 'bool',
+        'specific_egress' => 'string',
         'status' => 'string',
         'tags' => '\Volcengine\Vpc\Model\TagForDescribeIpv6AddressBandwidthAttributesOutput[]',
         'update_time' => 'string'
@@ -75,6 +76,7 @@ class DescribeIpv6AddressBandwidthAttributesResponse implements ModelInterface, 
         'project_name' => null,
         'request_id' => null,
         'service_managed' => null,
+        'specific_egress' => null,
         'status' => null,
         'tags' => null,
         'update_time' => null
@@ -125,6 +127,7 @@ class DescribeIpv6AddressBandwidthAttributesResponse implements ModelInterface, 
         'project_name' => 'ProjectName',
         'request_id' => 'RequestId',
         'service_managed' => 'ServiceManaged',
+        'specific_egress' => 'SpecificEgress',
         'status' => 'Status',
         'tags' => 'Tags',
         'update_time' => 'UpdateTime'
@@ -154,6 +157,7 @@ class DescribeIpv6AddressBandwidthAttributesResponse implements ModelInterface, 
         'project_name' => 'setProjectName',
         'request_id' => 'setRequestId',
         'service_managed' => 'setServiceManaged',
+        'specific_egress' => 'setSpecificEgress',
         'status' => 'setStatus',
         'tags' => 'setTags',
         'update_time' => 'setUpdateTime'
@@ -183,6 +187,7 @@ class DescribeIpv6AddressBandwidthAttributesResponse implements ModelInterface, 
         'project_name' => 'getProjectName',
         'request_id' => 'getRequestId',
         'service_managed' => 'getServiceManaged',
+        'specific_egress' => 'getSpecificEgress',
         'status' => 'getStatus',
         'tags' => 'getTags',
         'update_time' => 'getUpdateTime'
@@ -266,6 +271,7 @@ class DescribeIpv6AddressBandwidthAttributesResponse implements ModelInterface, 
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['request_id'] = isset($data['request_id']) ? $data['request_id'] : null;
         $this->container['service_managed'] = isset($data['service_managed']) ? $data['service_managed'] : null;
+        $this->container['specific_egress'] = isset($data['specific_egress']) ? $data['specific_egress'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
@@ -723,6 +729,30 @@ class DescribeIpv6AddressBandwidthAttributesResponse implements ModelInterface, 
     public function setServiceManaged($service_managed)
     {
         $this->container['service_managed'] = $service_managed;
+
+        return $this;
+    }
+
+    /**
+     * Gets specific_egress
+     *
+     * @return string
+     */
+    public function getSpecificEgress()
+    {
+        return $this->container['specific_egress'];
+    }
+
+    /**
+     * Sets specific_egress
+     *
+     * @param string $specific_egress specific_egress
+     *
+     * @return $this
+     */
+    public function setSpecificEgress($specific_egress)
+    {
+        $this->container['specific_egress'] = $specific_egress;
 
         return $this;
     }

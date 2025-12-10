@@ -28,6 +28,7 @@ class AssignIpv6AddressesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'client_token' => 'string',
         'ipv6_address' => 'string[]',
         'ipv6_address_count' => 'int',
         'network_interface_id' => 'string'
@@ -39,6 +40,7 @@ class AssignIpv6AddressesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'client_token' => null,
         'ipv6_address' => null,
         'ipv6_address_count' => null,
         'network_interface_id' => null
@@ -71,6 +73,7 @@ class AssignIpv6AddressesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'client_token' => 'ClientToken',
         'ipv6_address' => 'Ipv6Address',
         'ipv6_address_count' => 'Ipv6AddressCount',
         'network_interface_id' => 'NetworkInterfaceId'
@@ -82,6 +85,7 @@ class AssignIpv6AddressesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'client_token' => 'setClientToken',
         'ipv6_address' => 'setIpv6Address',
         'ipv6_address_count' => 'setIpv6AddressCount',
         'network_interface_id' => 'setNetworkInterfaceId'
@@ -93,6 +97,7 @@ class AssignIpv6AddressesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'client_token' => 'getClientToken',
         'ipv6_address' => 'getIpv6Address',
         'ipv6_address_count' => 'getIpv6AddressCount',
         'network_interface_id' => 'getNetworkInterfaceId'
@@ -158,6 +163,7 @@ class AssignIpv6AddressesRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
         $this->container['ipv6_address'] = isset($data['ipv6_address']) ? $data['ipv6_address'] : null;
         $this->container['ipv6_address_count'] = isset($data['ipv6_address_count']) ? $data['ipv6_address_count'] : null;
         $this->container['network_interface_id'] = isset($data['network_interface_id']) ? $data['network_interface_id'] : null;
@@ -189,6 +195,30 @@ class AssignIpv6AddressesRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets client_token
+     *
+     * @return string
+     */
+    public function getClientToken()
+    {
+        return $this->container['client_token'];
+    }
+
+    /**
+     * Sets client_token
+     *
+     * @param string $client_token client_token
+     *
+     * @return $this
+     */
+    public function setClientToken($client_token)
+    {
+        $this->container['client_token'] = $client_token;
+
+        return $this;
+    }
 
     /**
      * Gets ipv6_address
