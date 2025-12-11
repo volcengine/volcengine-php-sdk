@@ -34,6 +34,7 @@ class DBInstanceAttributeForDescribeDBInstanceAttributeOutput implements ModelIn
         'current_kernel_version' => 'string',
         'db_engine_version' => 'string',
         'deletion_protection' => 'string',
+        'engine_type' => 'string',
         'has_disaster_recovery_instances' => 'bool',
         'has_green_instance' => 'bool',
         'instance_id' => 'string',
@@ -70,6 +71,7 @@ class DBInstanceAttributeForDescribeDBInstanceAttributeOutput implements ModelIn
         'current_kernel_version' => null,
         'db_engine_version' => null,
         'deletion_protection' => null,
+        'engine_type' => null,
         'has_disaster_recovery_instances' => null,
         'has_green_instance' => null,
         'instance_id' => null,
@@ -127,6 +129,7 @@ class DBInstanceAttributeForDescribeDBInstanceAttributeOutput implements ModelIn
         'current_kernel_version' => 'CurrentKernelVersion',
         'db_engine_version' => 'DBEngineVersion',
         'deletion_protection' => 'DeletionProtection',
+        'engine_type' => 'EngineType',
         'has_disaster_recovery_instances' => 'HasDisasterRecoveryInstances',
         'has_green_instance' => 'HasGreenInstance',
         'instance_id' => 'InstanceId',
@@ -163,6 +166,7 @@ class DBInstanceAttributeForDescribeDBInstanceAttributeOutput implements ModelIn
         'current_kernel_version' => 'setCurrentKernelVersion',
         'db_engine_version' => 'setDbEngineVersion',
         'deletion_protection' => 'setDeletionProtection',
+        'engine_type' => 'setEngineType',
         'has_disaster_recovery_instances' => 'setHasDisasterRecoveryInstances',
         'has_green_instance' => 'setHasGreenInstance',
         'instance_id' => 'setInstanceId',
@@ -199,6 +203,7 @@ class DBInstanceAttributeForDescribeDBInstanceAttributeOutput implements ModelIn
         'current_kernel_version' => 'getCurrentKernelVersion',
         'db_engine_version' => 'getDbEngineVersion',
         'deletion_protection' => 'getDeletionProtection',
+        'engine_type' => 'getEngineType',
         'has_disaster_recovery_instances' => 'getHasDisasterRecoveryInstances',
         'has_green_instance' => 'getHasGreenInstance',
         'instance_id' => 'getInstanceId',
@@ -289,6 +294,7 @@ class DBInstanceAttributeForDescribeDBInstanceAttributeOutput implements ModelIn
         $this->container['current_kernel_version'] = isset($data['current_kernel_version']) ? $data['current_kernel_version'] : null;
         $this->container['db_engine_version'] = isset($data['db_engine_version']) ? $data['db_engine_version'] : null;
         $this->container['deletion_protection'] = isset($data['deletion_protection']) ? $data['deletion_protection'] : null;
+        $this->container['engine_type'] = isset($data['engine_type']) ? $data['engine_type'] : null;
         $this->container['has_disaster_recovery_instances'] = isset($data['has_disaster_recovery_instances']) ? $data['has_disaster_recovery_instances'] : null;
         $this->container['has_green_instance'] = isset($data['has_green_instance']) ? $data['has_green_instance'] : null;
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
@@ -477,6 +483,30 @@ class DBInstanceAttributeForDescribeDBInstanceAttributeOutput implements ModelIn
     public function setDeletionProtection($deletion_protection)
     {
         $this->container['deletion_protection'] = $deletion_protection;
+
+        return $this;
+    }
+
+    /**
+     * Gets engine_type
+     *
+     * @return string
+     */
+    public function getEngineType()
+    {
+        return $this->container['engine_type'];
+    }
+
+    /**
+     * Sets engine_type
+     *
+     * @param string $engine_type engine_type
+     *
+     * @return $this
+     */
+    public function setEngineType($engine_type)
+    {
+        $this->container['engine_type'] = $engine_type;
 
         return $this;
     }

@@ -28,6 +28,7 @@ class ListParameterTemplatesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'engine_type' => 'string',
         'limit' => 'int',
         'offset' => 'int',
         'project_name' => 'string',
@@ -44,6 +45,7 @@ class ListParameterTemplatesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'engine_type' => null,
         'limit' => 'int32',
         'offset' => 'int32',
         'project_name' => null,
@@ -81,6 +83,7 @@ class ListParameterTemplatesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'engine_type' => 'EngineType',
         'limit' => 'Limit',
         'offset' => 'Offset',
         'project_name' => 'ProjectName',
@@ -97,6 +100,7 @@ class ListParameterTemplatesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'engine_type' => 'setEngineType',
         'limit' => 'setLimit',
         'offset' => 'setOffset',
         'project_name' => 'setProjectName',
@@ -113,6 +117,7 @@ class ListParameterTemplatesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'engine_type' => 'getEngineType',
         'limit' => 'getLimit',
         'offset' => 'getOffset',
         'project_name' => 'getProjectName',
@@ -183,6 +188,7 @@ class ListParameterTemplatesRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['engine_type'] = isset($data['engine_type']) ? $data['engine_type'] : null;
         $this->container['limit'] = isset($data['limit']) ? $data['limit'] : null;
         $this->container['offset'] = isset($data['offset']) ? $data['offset'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
@@ -216,6 +222,30 @@ class ListParameterTemplatesRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets engine_type
+     *
+     * @return string
+     */
+    public function getEngineType()
+    {
+        return $this->container['engine_type'];
+    }
+
+    /**
+     * Sets engine_type
+     *
+     * @param string $engine_type engine_type
+     *
+     * @return $this
+     */
+    public function setEngineType($engine_type)
+    {
+        $this->container['engine_type'] = $engine_type;
+
+        return $this;
+    }
 
     /**
      * Gets limit

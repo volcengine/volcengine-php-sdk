@@ -35,6 +35,8 @@ class CreateDBInstanceRequest implements ModelInterface, ArrayAccess
         'db_param_group_id' => 'string',
         'db_time_zone' => 'string',
         'deletion_protection' => 'string',
+        'enable_external_replication' => 'bool',
+        'engine_type' => 'string',
         'instance_name' => 'string',
         'instance_tags' => '\Volcengine\Rdsmysqlv2\Model\InstanceTagForCreateDBInstanceInput[]',
         'instance_type' => 'string',
@@ -65,6 +67,8 @@ class CreateDBInstanceRequest implements ModelInterface, ArrayAccess
         'db_param_group_id' => null,
         'db_time_zone' => null,
         'deletion_protection' => null,
+        'enable_external_replication' => null,
+        'engine_type' => null,
         'instance_name' => null,
         'instance_tags' => null,
         'instance_type' => null,
@@ -116,6 +120,8 @@ class CreateDBInstanceRequest implements ModelInterface, ArrayAccess
         'db_param_group_id' => 'DBParamGroupId',
         'db_time_zone' => 'DBTimeZone',
         'deletion_protection' => 'DeletionProtection',
+        'enable_external_replication' => 'EnableExternalReplication',
+        'engine_type' => 'EngineType',
         'instance_name' => 'InstanceName',
         'instance_tags' => 'InstanceTags',
         'instance_type' => 'InstanceType',
@@ -146,6 +152,8 @@ class CreateDBInstanceRequest implements ModelInterface, ArrayAccess
         'db_param_group_id' => 'setDbParamGroupId',
         'db_time_zone' => 'setDbTimeZone',
         'deletion_protection' => 'setDeletionProtection',
+        'enable_external_replication' => 'setEnableExternalReplication',
+        'engine_type' => 'setEngineType',
         'instance_name' => 'setInstanceName',
         'instance_tags' => 'setInstanceTags',
         'instance_type' => 'setInstanceType',
@@ -176,6 +184,8 @@ class CreateDBInstanceRequest implements ModelInterface, ArrayAccess
         'db_param_group_id' => 'getDbParamGroupId',
         'db_time_zone' => 'getDbTimeZone',
         'deletion_protection' => 'getDeletionProtection',
+        'enable_external_replication' => 'getEnableExternalReplication',
+        'engine_type' => 'getEngineType',
         'instance_name' => 'getInstanceName',
         'instance_tags' => 'getInstanceTags',
         'instance_type' => 'getInstanceType',
@@ -260,6 +270,8 @@ class CreateDBInstanceRequest implements ModelInterface, ArrayAccess
         $this->container['db_param_group_id'] = isset($data['db_param_group_id']) ? $data['db_param_group_id'] : null;
         $this->container['db_time_zone'] = isset($data['db_time_zone']) ? $data['db_time_zone'] : null;
         $this->container['deletion_protection'] = isset($data['deletion_protection']) ? $data['deletion_protection'] : null;
+        $this->container['enable_external_replication'] = isset($data['enable_external_replication']) ? $data['enable_external_replication'] : null;
+        $this->container['engine_type'] = isset($data['engine_type']) ? $data['engine_type'] : null;
         $this->container['instance_name'] = isset($data['instance_name']) ? $data['instance_name'] : null;
         $this->container['instance_tags'] = isset($data['instance_tags']) ? $data['instance_tags'] : null;
         $this->container['instance_type'] = isset($data['instance_type']) ? $data['instance_type'] : null;
@@ -480,6 +492,54 @@ class CreateDBInstanceRequest implements ModelInterface, ArrayAccess
     public function setDeletionProtection($deletion_protection)
     {
         $this->container['deletion_protection'] = $deletion_protection;
+
+        return $this;
+    }
+
+    /**
+     * Gets enable_external_replication
+     *
+     * @return bool
+     */
+    public function getEnableExternalReplication()
+    {
+        return $this->container['enable_external_replication'];
+    }
+
+    /**
+     * Sets enable_external_replication
+     *
+     * @param bool $enable_external_replication enable_external_replication
+     *
+     * @return $this
+     */
+    public function setEnableExternalReplication($enable_external_replication)
+    {
+        $this->container['enable_external_replication'] = $enable_external_replication;
+
+        return $this;
+    }
+
+    /**
+     * Gets engine_type
+     *
+     * @return string
+     */
+    public function getEngineType()
+    {
+        return $this->container['engine_type'];
+    }
+
+    /**
+     * Sets engine_type
+     *
+     * @param string $engine_type engine_type
+     *
+     * @return $this
+     */
+    public function setEngineType($engine_type)
+    {
+        $this->container['engine_type'] = $engine_type;
 
         return $this;
     }

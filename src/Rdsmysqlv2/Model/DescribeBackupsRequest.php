@@ -31,6 +31,7 @@ class DescribeBackupsRequest implements ModelInterface, ArrayAccess
         'backup_end_time' => 'string',
         'backup_id' => 'string',
         'backup_method' => 'string',
+        'backup_name' => 'string',
         'backup_start_time' => 'string',
         'backup_status' => 'string',
         'backup_type' => 'string',
@@ -51,6 +52,7 @@ class DescribeBackupsRequest implements ModelInterface, ArrayAccess
         'backup_end_time' => null,
         'backup_id' => null,
         'backup_method' => null,
+        'backup_name' => null,
         'backup_start_time' => null,
         'backup_status' => null,
         'backup_type' => null,
@@ -92,6 +94,7 @@ class DescribeBackupsRequest implements ModelInterface, ArrayAccess
         'backup_end_time' => 'BackupEndTime',
         'backup_id' => 'BackupId',
         'backup_method' => 'BackupMethod',
+        'backup_name' => 'BackupName',
         'backup_start_time' => 'BackupStartTime',
         'backup_status' => 'BackupStatus',
         'backup_type' => 'BackupType',
@@ -112,6 +115,7 @@ class DescribeBackupsRequest implements ModelInterface, ArrayAccess
         'backup_end_time' => 'setBackupEndTime',
         'backup_id' => 'setBackupId',
         'backup_method' => 'setBackupMethod',
+        'backup_name' => 'setBackupName',
         'backup_start_time' => 'setBackupStartTime',
         'backup_status' => 'setBackupStatus',
         'backup_type' => 'setBackupType',
@@ -132,6 +136,7 @@ class DescribeBackupsRequest implements ModelInterface, ArrayAccess
         'backup_end_time' => 'getBackupEndTime',
         'backup_id' => 'getBackupId',
         'backup_method' => 'getBackupMethod',
+        'backup_name' => 'getBackupName',
         'backup_start_time' => 'getBackupStartTime',
         'backup_status' => 'getBackupStatus',
         'backup_type' => 'getBackupType',
@@ -206,6 +211,7 @@ class DescribeBackupsRequest implements ModelInterface, ArrayAccess
         $this->container['backup_end_time'] = isset($data['backup_end_time']) ? $data['backup_end_time'] : null;
         $this->container['backup_id'] = isset($data['backup_id']) ? $data['backup_id'] : null;
         $this->container['backup_method'] = isset($data['backup_method']) ? $data['backup_method'] : null;
+        $this->container['backup_name'] = isset($data['backup_name']) ? $data['backup_name'] : null;
         $this->container['backup_start_time'] = isset($data['backup_start_time']) ? $data['backup_start_time'] : null;
         $this->container['backup_status'] = isset($data['backup_status']) ? $data['backup_status'] : null;
         $this->container['backup_type'] = isset($data['backup_type']) ? $data['backup_type'] : null;
@@ -309,6 +315,30 @@ class DescribeBackupsRequest implements ModelInterface, ArrayAccess
     public function setBackupMethod($backup_method)
     {
         $this->container['backup_method'] = $backup_method;
+
+        return $this;
+    }
+
+    /**
+     * Gets backup_name
+     *
+     * @return string
+     */
+    public function getBackupName()
+    {
+        return $this->container['backup_name'];
+    }
+
+    /**
+     * Sets backup_name
+     *
+     * @param string $backup_name backup_name
+     *
+     * @return $this
+     */
+    public function setBackupName($backup_name)
+    {
+        $this->container['backup_name'] = $backup_name;
 
         return $this;
     }

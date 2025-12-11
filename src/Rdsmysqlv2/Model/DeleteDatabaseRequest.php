@@ -29,7 +29,8 @@ class DeleteDatabaseRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'db_name' => 'string',
-        'instance_id' => 'string'
+        'instance_id' => 'string',
+        'keep_account_privileges' => 'bool'
     ];
 
     /**
@@ -39,7 +40,8 @@ class DeleteDatabaseRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'db_name' => null,
-        'instance_id' => null
+        'instance_id' => null,
+        'keep_account_privileges' => null
     ];
 
     /**
@@ -70,7 +72,8 @@ class DeleteDatabaseRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'db_name' => 'DBName',
-        'instance_id' => 'InstanceId'
+        'instance_id' => 'InstanceId',
+        'keep_account_privileges' => 'KeepAccountPrivileges'
     ];
 
     /**
@@ -80,7 +83,8 @@ class DeleteDatabaseRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'db_name' => 'setDbName',
-        'instance_id' => 'setInstanceId'
+        'instance_id' => 'setInstanceId',
+        'keep_account_privileges' => 'setKeepAccountPrivileges'
     ];
 
     /**
@@ -90,7 +94,8 @@ class DeleteDatabaseRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'db_name' => 'getDbName',
-        'instance_id' => 'getInstanceId'
+        'instance_id' => 'getInstanceId',
+        'keep_account_privileges' => 'getKeepAccountPrivileges'
     ];
 
     /**
@@ -155,6 +160,7 @@ class DeleteDatabaseRequest implements ModelInterface, ArrayAccess
     {
         $this->container['db_name'] = isset($data['db_name']) ? $data['db_name'] : null;
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
+        $this->container['keep_account_privileges'] = isset($data['keep_account_privileges']) ? $data['keep_account_privileges'] : null;
     }
 
     /**
@@ -231,6 +237,30 @@ class DeleteDatabaseRequest implements ModelInterface, ArrayAccess
     public function setInstanceId($instance_id)
     {
         $this->container['instance_id'] = $instance_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets keep_account_privileges
+     *
+     * @return bool
+     */
+    public function getKeepAccountPrivileges()
+    {
+        return $this->container['keep_account_privileges'];
+    }
+
+    /**
+     * Sets keep_account_privileges
+     *
+     * @param bool $keep_account_privileges keep_account_privileges
+     *
+     * @return $this
+     */
+    public function setKeepAccountPrivileges($keep_account_privileges)
+    {
+        $this->container['keep_account_privileges'] = $keep_account_privileges;
 
         return $this;
     }

@@ -34,6 +34,7 @@ class RestoreToNewInstanceRequest implements ModelInterface, ArrayAccess
         'charge_info' => '\Volcengine\Rdsmysqlv2\Model\ChargeInfoForRestoreToNewInstanceInput',
         'db_param_group_id' => 'string',
         'deletion_protection' => 'string',
+        'enable_external_replication' => 'bool',
         'instance_name' => 'string',
         'instance_tags' => '\Volcengine\Rdsmysqlv2\Model\InstanceTagForRestoreToNewInstanceInput[]',
         'node_info' => '\Volcengine\Rdsmysqlv2\Model\NodeInfoForRestoreToNewInstanceInput[]',
@@ -60,6 +61,7 @@ class RestoreToNewInstanceRequest implements ModelInterface, ArrayAccess
         'charge_info' => null,
         'db_param_group_id' => null,
         'deletion_protection' => null,
+        'enable_external_replication' => null,
         'instance_name' => null,
         'instance_tags' => null,
         'node_info' => null,
@@ -107,6 +109,7 @@ class RestoreToNewInstanceRequest implements ModelInterface, ArrayAccess
         'charge_info' => 'ChargeInfo',
         'db_param_group_id' => 'DBParamGroupId',
         'deletion_protection' => 'DeletionProtection',
+        'enable_external_replication' => 'EnableExternalReplication',
         'instance_name' => 'InstanceName',
         'instance_tags' => 'InstanceTags',
         'node_info' => 'NodeInfo',
@@ -133,6 +136,7 @@ class RestoreToNewInstanceRequest implements ModelInterface, ArrayAccess
         'charge_info' => 'setChargeInfo',
         'db_param_group_id' => 'setDbParamGroupId',
         'deletion_protection' => 'setDeletionProtection',
+        'enable_external_replication' => 'setEnableExternalReplication',
         'instance_name' => 'setInstanceName',
         'instance_tags' => 'setInstanceTags',
         'node_info' => 'setNodeInfo',
@@ -159,6 +163,7 @@ class RestoreToNewInstanceRequest implements ModelInterface, ArrayAccess
         'charge_info' => 'getChargeInfo',
         'db_param_group_id' => 'getDbParamGroupId',
         'deletion_protection' => 'getDeletionProtection',
+        'enable_external_replication' => 'getEnableExternalReplication',
         'instance_name' => 'getInstanceName',
         'instance_tags' => 'getInstanceTags',
         'node_info' => 'getNodeInfo',
@@ -239,6 +244,7 @@ class RestoreToNewInstanceRequest implements ModelInterface, ArrayAccess
         $this->container['charge_info'] = isset($data['charge_info']) ? $data['charge_info'] : null;
         $this->container['db_param_group_id'] = isset($data['db_param_group_id']) ? $data['db_param_group_id'] : null;
         $this->container['deletion_protection'] = isset($data['deletion_protection']) ? $data['deletion_protection'] : null;
+        $this->container['enable_external_replication'] = isset($data['enable_external_replication']) ? $data['enable_external_replication'] : null;
         $this->container['instance_name'] = isset($data['instance_name']) ? $data['instance_name'] : null;
         $this->container['instance_tags'] = isset($data['instance_tags']) ? $data['instance_tags'] : null;
         $this->container['node_info'] = isset($data['node_info']) ? $data['node_info'] : null;
@@ -429,6 +435,30 @@ class RestoreToNewInstanceRequest implements ModelInterface, ArrayAccess
     public function setDeletionProtection($deletion_protection)
     {
         $this->container['deletion_protection'] = $deletion_protection;
+
+        return $this;
+    }
+
+    /**
+     * Gets enable_external_replication
+     *
+     * @return bool
+     */
+    public function getEnableExternalReplication()
+    {
+        return $this->container['enable_external_replication'];
+    }
+
+    /**
+     * Sets enable_external_replication
+     *
+     * @param bool $enable_external_replication enable_external_replication
+     *
+     * @return $this
+     */
+    public function setEnableExternalReplication($enable_external_replication)
+    {
+        $this->container['enable_external_replication'] = $enable_external_replication;
 
         return $this;
     }

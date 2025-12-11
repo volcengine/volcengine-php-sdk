@@ -30,6 +30,7 @@ class TemplateInfoForDescribeParameterTemplateOutput implements ModelInterface, 
     protected static $swaggerTypes = [
         'account_id' => 'string',
         'create_time' => 'string',
+        'engine_type' => 'string',
         'need_restart' => 'bool',
         'parameter_num' => 'int',
         'project_name' => 'string',
@@ -52,6 +53,7 @@ class TemplateInfoForDescribeParameterTemplateOutput implements ModelInterface, 
     protected static $swaggerFormats = [
         'account_id' => null,
         'create_time' => null,
+        'engine_type' => null,
         'need_restart' => null,
         'parameter_num' => 'int64',
         'project_name' => null,
@@ -95,6 +97,7 @@ class TemplateInfoForDescribeParameterTemplateOutput implements ModelInterface, 
     protected static $attributeMap = [
         'account_id' => 'AccountId',
         'create_time' => 'CreateTime',
+        'engine_type' => 'EngineType',
         'need_restart' => 'NeedRestart',
         'parameter_num' => 'ParameterNum',
         'project_name' => 'ProjectName',
@@ -117,6 +120,7 @@ class TemplateInfoForDescribeParameterTemplateOutput implements ModelInterface, 
     protected static $setters = [
         'account_id' => 'setAccountId',
         'create_time' => 'setCreateTime',
+        'engine_type' => 'setEngineType',
         'need_restart' => 'setNeedRestart',
         'parameter_num' => 'setParameterNum',
         'project_name' => 'setProjectName',
@@ -139,6 +143,7 @@ class TemplateInfoForDescribeParameterTemplateOutput implements ModelInterface, 
     protected static $getters = [
         'account_id' => 'getAccountId',
         'create_time' => 'getCreateTime',
+        'engine_type' => 'getEngineType',
         'need_restart' => 'getNeedRestart',
         'parameter_num' => 'getParameterNum',
         'project_name' => 'getProjectName',
@@ -215,6 +220,7 @@ class TemplateInfoForDescribeParameterTemplateOutput implements ModelInterface, 
     {
         $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
+        $this->container['engine_type'] = isset($data['engine_type']) ? $data['engine_type'] : null;
         $this->container['need_restart'] = isset($data['need_restart']) ? $data['need_restart'] : null;
         $this->container['parameter_num'] = isset($data['parameter_num']) ? $data['parameter_num'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
@@ -297,6 +303,30 @@ class TemplateInfoForDescribeParameterTemplateOutput implements ModelInterface, 
     public function setCreateTime($create_time)
     {
         $this->container['create_time'] = $create_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets engine_type
+     *
+     * @return string
+     */
+    public function getEngineType()
+    {
+        return $this->container['engine_type'];
+    }
+
+    /**
+     * Sets engine_type
+     *
+     * @param string $engine_type engine_type
+     *
+     * @return $this
+     */
+    public function setEngineType($engine_type)
+    {
+        $this->container['engine_type'] = $engine_type;
 
         return $this;
     }
