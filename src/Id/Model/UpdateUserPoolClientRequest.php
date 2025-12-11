@@ -35,6 +35,7 @@ class UpdateUserPoolClientRequest implements ModelInterface, ArrayAccess
         'client_uid' => 'string',
         'description' => 'string',
         'id_token' => '\Volcengine\Id\Model\IdTokenForUpdateUserPoolClientInput',
+        'logo_uri' => 'string',
         'name' => 'string',
         'refresh_token' => '\Volcengine\Id\Model\RefreshTokenForUpdateUserPoolClientInput',
         'user_pool_uid' => 'string'
@@ -53,6 +54,7 @@ class UpdateUserPoolClientRequest implements ModelInterface, ArrayAccess
         'client_uid' => null,
         'description' => null,
         'id_token' => null,
+        'logo_uri' => null,
         'name' => null,
         'refresh_token' => null,
         'user_pool_uid' => null
@@ -92,6 +94,7 @@ class UpdateUserPoolClientRequest implements ModelInterface, ArrayAccess
         'client_uid' => 'ClientUid',
         'description' => 'Description',
         'id_token' => 'IdToken',
+        'logo_uri' => 'LogoUri',
         'name' => 'Name',
         'refresh_token' => 'RefreshToken',
         'user_pool_uid' => 'UserPoolUid'
@@ -110,6 +113,7 @@ class UpdateUserPoolClientRequest implements ModelInterface, ArrayAccess
         'client_uid' => 'setClientUid',
         'description' => 'setDescription',
         'id_token' => 'setIdToken',
+        'logo_uri' => 'setLogoUri',
         'name' => 'setName',
         'refresh_token' => 'setRefreshToken',
         'user_pool_uid' => 'setUserPoolUid'
@@ -128,6 +132,7 @@ class UpdateUserPoolClientRequest implements ModelInterface, ArrayAccess
         'client_uid' => 'getClientUid',
         'description' => 'getDescription',
         'id_token' => 'getIdToken',
+        'logo_uri' => 'getLogoUri',
         'name' => 'getName',
         'refresh_token' => 'getRefreshToken',
         'user_pool_uid' => 'getUserPoolUid'
@@ -200,6 +205,7 @@ class UpdateUserPoolClientRequest implements ModelInterface, ArrayAccess
         $this->container['client_uid'] = isset($data['client_uid']) ? $data['client_uid'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['id_token'] = isset($data['id_token']) ? $data['id_token'] : null;
+        $this->container['logo_uri'] = isset($data['logo_uri']) ? $data['logo_uri'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['refresh_token'] = isset($data['refresh_token']) ? $data['refresh_token'] : null;
         $this->container['user_pool_uid'] = isset($data['user_pool_uid']) ? $data['user_pool_uid'] : null;
@@ -399,6 +405,30 @@ class UpdateUserPoolClientRequest implements ModelInterface, ArrayAccess
     public function setIdToken($id_token)
     {
         $this->container['id_token'] = $id_token;
+
+        return $this;
+    }
+
+    /**
+     * Gets logo_uri
+     *
+     * @return string
+     */
+    public function getLogoUri()
+    {
+        return $this->container['logo_uri'];
+    }
+
+    /**
+     * Sets logo_uri
+     *
+     * @param string $logo_uri logo_uri
+     *
+     * @return $this
+     */
+    public function setLogoUri($logo_uri)
+    {
+        $this->container['logo_uri'] = $logo_uri;
 
         return $this;
     }

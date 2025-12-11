@@ -28,6 +28,7 @@ class UpdateUserPoolResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'brand' => '\Volcengine\Id\Model\BrandForUpdateUserPoolOutput',
         'create_time' => 'string',
         'description' => 'string',
         'discovery_url' => 'string',
@@ -43,8 +44,10 @@ class UpdateUserPoolResponse implements ModelInterface, ArrayAccess
         'required_sign_up_attributes' => 'string[]',
         'saml_login_callback_url' => 'string',
         'saml_sign_up_callback_url' => 'string',
+        'self_account_recovery_enabled' => 'bool',
         'self_sign_up_enabled' => 'bool',
         'sign_in_attributes' => 'string[]',
+        'sign_up_auto_verification_enabled' => 'bool',
         'sms_passwordless_sign_in_enabled' => 'bool',
         'tags' => '\Volcengine\Id\Model\TagForUpdateUserPoolOutput[]',
         'token_signing_key_url' => 'string',
@@ -53,6 +56,7 @@ class UpdateUserPoolResponse implements ModelInterface, ArrayAccess
         'total_users' => 'int',
         'trn' => 'string',
         'uid' => 'string',
+        'unconfirmed_user_sign_in_enabled' => 'bool',
         'update_time' => 'string'
     ];
 
@@ -62,6 +66,7 @@ class UpdateUserPoolResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'brand' => null,
         'create_time' => null,
         'description' => null,
         'discovery_url' => null,
@@ -77,8 +82,10 @@ class UpdateUserPoolResponse implements ModelInterface, ArrayAccess
         'required_sign_up_attributes' => null,
         'saml_login_callback_url' => null,
         'saml_sign_up_callback_url' => null,
+        'self_account_recovery_enabled' => null,
         'self_sign_up_enabled' => null,
         'sign_in_attributes' => null,
+        'sign_up_auto_verification_enabled' => null,
         'sms_passwordless_sign_in_enabled' => null,
         'tags' => null,
         'token_signing_key_url' => null,
@@ -87,6 +94,7 @@ class UpdateUserPoolResponse implements ModelInterface, ArrayAccess
         'total_users' => 'int32',
         'trn' => null,
         'uid' => null,
+        'unconfirmed_user_sign_in_enabled' => null,
         'update_time' => null
     ];
 
@@ -117,6 +125,7 @@ class UpdateUserPoolResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'brand' => 'Brand',
         'create_time' => 'CreateTime',
         'description' => 'Description',
         'discovery_url' => 'DiscoveryUrl',
@@ -132,8 +141,10 @@ class UpdateUserPoolResponse implements ModelInterface, ArrayAccess
         'required_sign_up_attributes' => 'RequiredSignUpAttributes',
         'saml_login_callback_url' => 'SamlLoginCallbackUrl',
         'saml_sign_up_callback_url' => 'SamlSignUpCallbackUrl',
+        'self_account_recovery_enabled' => 'SelfAccountRecoveryEnabled',
         'self_sign_up_enabled' => 'SelfSignUpEnabled',
         'sign_in_attributes' => 'SignInAttributes',
+        'sign_up_auto_verification_enabled' => 'SignUpAutoVerificationEnabled',
         'sms_passwordless_sign_in_enabled' => 'SmsPasswordlessSignInEnabled',
         'tags' => 'Tags',
         'token_signing_key_url' => 'TokenSigningKeyUrl',
@@ -142,6 +153,7 @@ class UpdateUserPoolResponse implements ModelInterface, ArrayAccess
         'total_users' => 'TotalUsers',
         'trn' => 'Trn',
         'uid' => 'Uid',
+        'unconfirmed_user_sign_in_enabled' => 'UnconfirmedUserSignInEnabled',
         'update_time' => 'UpdateTime'
     ];
 
@@ -151,6 +163,7 @@ class UpdateUserPoolResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'brand' => 'setBrand',
         'create_time' => 'setCreateTime',
         'description' => 'setDescription',
         'discovery_url' => 'setDiscoveryUrl',
@@ -166,8 +179,10 @@ class UpdateUserPoolResponse implements ModelInterface, ArrayAccess
         'required_sign_up_attributes' => 'setRequiredSignUpAttributes',
         'saml_login_callback_url' => 'setSamlLoginCallbackUrl',
         'saml_sign_up_callback_url' => 'setSamlSignUpCallbackUrl',
+        'self_account_recovery_enabled' => 'setSelfAccountRecoveryEnabled',
         'self_sign_up_enabled' => 'setSelfSignUpEnabled',
         'sign_in_attributes' => 'setSignInAttributes',
+        'sign_up_auto_verification_enabled' => 'setSignUpAutoVerificationEnabled',
         'sms_passwordless_sign_in_enabled' => 'setSmsPasswordlessSignInEnabled',
         'tags' => 'setTags',
         'token_signing_key_url' => 'setTokenSigningKeyUrl',
@@ -176,6 +191,7 @@ class UpdateUserPoolResponse implements ModelInterface, ArrayAccess
         'total_users' => 'setTotalUsers',
         'trn' => 'setTrn',
         'uid' => 'setUid',
+        'unconfirmed_user_sign_in_enabled' => 'setUnconfirmedUserSignInEnabled',
         'update_time' => 'setUpdateTime'
     ];
 
@@ -185,6 +201,7 @@ class UpdateUserPoolResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'brand' => 'getBrand',
         'create_time' => 'getCreateTime',
         'description' => 'getDescription',
         'discovery_url' => 'getDiscoveryUrl',
@@ -200,8 +217,10 @@ class UpdateUserPoolResponse implements ModelInterface, ArrayAccess
         'required_sign_up_attributes' => 'getRequiredSignUpAttributes',
         'saml_login_callback_url' => 'getSamlLoginCallbackUrl',
         'saml_sign_up_callback_url' => 'getSamlSignUpCallbackUrl',
+        'self_account_recovery_enabled' => 'getSelfAccountRecoveryEnabled',
         'self_sign_up_enabled' => 'getSelfSignUpEnabled',
         'sign_in_attributes' => 'getSignInAttributes',
+        'sign_up_auto_verification_enabled' => 'getSignUpAutoVerificationEnabled',
         'sms_passwordless_sign_in_enabled' => 'getSmsPasswordlessSignInEnabled',
         'tags' => 'getTags',
         'token_signing_key_url' => 'getTokenSigningKeyUrl',
@@ -210,6 +229,7 @@ class UpdateUserPoolResponse implements ModelInterface, ArrayAccess
         'total_users' => 'getTotalUsers',
         'trn' => 'getTrn',
         'uid' => 'getUid',
+        'unconfirmed_user_sign_in_enabled' => 'getUnconfirmedUserSignInEnabled',
         'update_time' => 'getUpdateTime'
     ];
 
@@ -273,6 +293,7 @@ class UpdateUserPoolResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['brand'] = isset($data['brand']) ? $data['brand'] : null;
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['discovery_url'] = isset($data['discovery_url']) ? $data['discovery_url'] : null;
@@ -288,8 +309,10 @@ class UpdateUserPoolResponse implements ModelInterface, ArrayAccess
         $this->container['required_sign_up_attributes'] = isset($data['required_sign_up_attributes']) ? $data['required_sign_up_attributes'] : null;
         $this->container['saml_login_callback_url'] = isset($data['saml_login_callback_url']) ? $data['saml_login_callback_url'] : null;
         $this->container['saml_sign_up_callback_url'] = isset($data['saml_sign_up_callback_url']) ? $data['saml_sign_up_callback_url'] : null;
+        $this->container['self_account_recovery_enabled'] = isset($data['self_account_recovery_enabled']) ? $data['self_account_recovery_enabled'] : null;
         $this->container['self_sign_up_enabled'] = isset($data['self_sign_up_enabled']) ? $data['self_sign_up_enabled'] : null;
         $this->container['sign_in_attributes'] = isset($data['sign_in_attributes']) ? $data['sign_in_attributes'] : null;
+        $this->container['sign_up_auto_verification_enabled'] = isset($data['sign_up_auto_verification_enabled']) ? $data['sign_up_auto_verification_enabled'] : null;
         $this->container['sms_passwordless_sign_in_enabled'] = isset($data['sms_passwordless_sign_in_enabled']) ? $data['sms_passwordless_sign_in_enabled'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['token_signing_key_url'] = isset($data['token_signing_key_url']) ? $data['token_signing_key_url'] : null;
@@ -298,6 +321,7 @@ class UpdateUserPoolResponse implements ModelInterface, ArrayAccess
         $this->container['total_users'] = isset($data['total_users']) ? $data['total_users'] : null;
         $this->container['trn'] = isset($data['trn']) ? $data['trn'] : null;
         $this->container['uid'] = isset($data['uid']) ? $data['uid'] : null;
+        $this->container['unconfirmed_user_sign_in_enabled'] = isset($data['unconfirmed_user_sign_in_enabled']) ? $data['unconfirmed_user_sign_in_enabled'] : null;
         $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
     }
 
@@ -324,6 +348,30 @@ class UpdateUserPoolResponse implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets brand
+     *
+     * @return \Volcengine\Id\Model\BrandForUpdateUserPoolOutput
+     */
+    public function getBrand()
+    {
+        return $this->container['brand'];
+    }
+
+    /**
+     * Sets brand
+     *
+     * @param \Volcengine\Id\Model\BrandForUpdateUserPoolOutput $brand brand
+     *
+     * @return $this
+     */
+    public function setBrand($brand)
+    {
+        $this->container['brand'] = $brand;
+
+        return $this;
+    }
 
     /**
      * Gets create_time
@@ -686,6 +734,30 @@ class UpdateUserPoolResponse implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets self_account_recovery_enabled
+     *
+     * @return bool
+     */
+    public function getSelfAccountRecoveryEnabled()
+    {
+        return $this->container['self_account_recovery_enabled'];
+    }
+
+    /**
+     * Sets self_account_recovery_enabled
+     *
+     * @param bool $self_account_recovery_enabled self_account_recovery_enabled
+     *
+     * @return $this
+     */
+    public function setSelfAccountRecoveryEnabled($self_account_recovery_enabled)
+    {
+        $this->container['self_account_recovery_enabled'] = $self_account_recovery_enabled;
+
+        return $this;
+    }
+
+    /**
      * Gets self_sign_up_enabled
      *
      * @return bool
@@ -729,6 +801,30 @@ class UpdateUserPoolResponse implements ModelInterface, ArrayAccess
     public function setSignInAttributes($sign_in_attributes)
     {
         $this->container['sign_in_attributes'] = $sign_in_attributes;
+
+        return $this;
+    }
+
+    /**
+     * Gets sign_up_auto_verification_enabled
+     *
+     * @return bool
+     */
+    public function getSignUpAutoVerificationEnabled()
+    {
+        return $this->container['sign_up_auto_verification_enabled'];
+    }
+
+    /**
+     * Sets sign_up_auto_verification_enabled
+     *
+     * @param bool $sign_up_auto_verification_enabled sign_up_auto_verification_enabled
+     *
+     * @return $this
+     */
+    public function setSignUpAutoVerificationEnabled($sign_up_auto_verification_enabled)
+    {
+        $this->container['sign_up_auto_verification_enabled'] = $sign_up_auto_verification_enabled;
 
         return $this;
     }
@@ -921,6 +1017,30 @@ class UpdateUserPoolResponse implements ModelInterface, ArrayAccess
     public function setUid($uid)
     {
         $this->container['uid'] = $uid;
+
+        return $this;
+    }
+
+    /**
+     * Gets unconfirmed_user_sign_in_enabled
+     *
+     * @return bool
+     */
+    public function getUnconfirmedUserSignInEnabled()
+    {
+        return $this->container['unconfirmed_user_sign_in_enabled'];
+    }
+
+    /**
+     * Sets unconfirmed_user_sign_in_enabled
+     *
+     * @param bool $unconfirmed_user_sign_in_enabled unconfirmed_user_sign_in_enabled
+     *
+     * @return $this
+     */
+    public function setUnconfirmedUserSignInEnabled($unconfirmed_user_sign_in_enabled)
+    {
+        $this->container['unconfirmed_user_sign_in_enabled'] = $unconfirmed_user_sign_in_enabled;
 
         return $this;
     }

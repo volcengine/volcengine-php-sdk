@@ -29,6 +29,7 @@ class Oauth2CallbackRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'code' => 'string',
+        'error' => 'string',
         'identity_token' => 'string',
         'state' => 'string'
     ];
@@ -40,6 +41,7 @@ class Oauth2CallbackRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'code' => null,
+        'error' => null,
         'identity_token' => null,
         'state' => null
     ];
@@ -72,6 +74,7 @@ class Oauth2CallbackRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'code' => 'Code',
+        'error' => 'Error',
         'identity_token' => 'IdentityToken',
         'state' => 'State'
     ];
@@ -83,6 +86,7 @@ class Oauth2CallbackRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'code' => 'setCode',
+        'error' => 'setError',
         'identity_token' => 'setIdentityToken',
         'state' => 'setState'
     ];
@@ -94,6 +98,7 @@ class Oauth2CallbackRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'code' => 'getCode',
+        'error' => 'getError',
         'identity_token' => 'getIdentityToken',
         'state' => 'getState'
     ];
@@ -159,6 +164,7 @@ class Oauth2CallbackRequest implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['code'] = isset($data['code']) ? $data['code'] : null;
+        $this->container['error'] = isset($data['error']) ? $data['error'] : null;
         $this->container['identity_token'] = isset($data['identity_token']) ? $data['identity_token'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
     }
@@ -172,9 +178,6 @@ class Oauth2CallbackRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['code'] === null) {
-            $invalidProperties[] = "'code' can't be null";
-        }
         if ($this->container['identity_token'] === null) {
             $invalidProperties[] = "'identity_token' can't be null";
         }
@@ -216,6 +219,30 @@ class Oauth2CallbackRequest implements ModelInterface, ArrayAccess
     public function setCode($code)
     {
         $this->container['code'] = $code;
+
+        return $this;
+    }
+
+    /**
+     * Gets error
+     *
+     * @return string
+     */
+    public function getError()
+    {
+        return $this->container['error'];
+    }
+
+    /**
+     * Sets error
+     *
+     * @param string $error error
+     *
+     * @return $this
+     */
+    public function setError($error)
+    {
+        $this->container['error'] = $error;
 
         return $this;
     }

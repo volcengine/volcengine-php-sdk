@@ -28,6 +28,7 @@ class GetNamespaceResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'associates' => 'string[]',
         'create_time' => 'string',
         'description' => 'string',
         'namespace_id' => 'string',
@@ -44,6 +45,7 @@ class GetNamespaceResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'associates' => null,
         'create_time' => null,
         'description' => null,
         'namespace_id' => null,
@@ -81,6 +83,7 @@ class GetNamespaceResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'associates' => 'Associates',
         'create_time' => 'CreateTime',
         'description' => 'Description',
         'namespace_id' => 'NamespaceId',
@@ -97,6 +100,7 @@ class GetNamespaceResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'associates' => 'setAssociates',
         'create_time' => 'setCreateTime',
         'description' => 'setDescription',
         'namespace_id' => 'setNamespaceId',
@@ -113,6 +117,7 @@ class GetNamespaceResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'associates' => 'getAssociates',
         'create_time' => 'getCreateTime',
         'description' => 'getDescription',
         'namespace_id' => 'getNamespaceId',
@@ -183,6 +188,7 @@ class GetNamespaceResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['associates'] = isset($data['associates']) ? $data['associates'] : null;
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['namespace_id'] = isset($data['namespace_id']) ? $data['namespace_id'] : null;
@@ -216,6 +222,30 @@ class GetNamespaceResponse implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets associates
+     *
+     * @return string[]
+     */
+    public function getAssociates()
+    {
+        return $this->container['associates'];
+    }
+
+    /**
+     * Sets associates
+     *
+     * @param string[] $associates associates
+     *
+     * @return $this
+     */
+    public function setAssociates($associates)
+    {
+        $this->container['associates'] = $associates;
+
+        return $this;
+    }
 
     /**
      * Gets create_time

@@ -38,6 +38,7 @@ class DataForListUsersOutput implements ModelInterface, ArrayAccess
         'given_name' => 'string',
         'latest_browser' => 'string',
         'latest_login' => 'string',
+        'latest_login_method' => 'string',
         'locale' => 'string',
         'middle_name' => 'string',
         'name' => 'string',
@@ -73,6 +74,7 @@ class DataForListUsersOutput implements ModelInterface, ArrayAccess
         'given_name' => null,
         'latest_browser' => null,
         'latest_login' => null,
+        'latest_login_method' => null,
         'locale' => null,
         'middle_name' => null,
         'name' => null,
@@ -129,6 +131,7 @@ class DataForListUsersOutput implements ModelInterface, ArrayAccess
         'given_name' => 'GivenName',
         'latest_browser' => 'LatestBrowser',
         'latest_login' => 'LatestLogin',
+        'latest_login_method' => 'LatestLoginMethod',
         'locale' => 'Locale',
         'middle_name' => 'MiddleName',
         'name' => 'Name',
@@ -164,6 +167,7 @@ class DataForListUsersOutput implements ModelInterface, ArrayAccess
         'given_name' => 'setGivenName',
         'latest_browser' => 'setLatestBrowser',
         'latest_login' => 'setLatestLogin',
+        'latest_login_method' => 'setLatestLoginMethod',
         'locale' => 'setLocale',
         'middle_name' => 'setMiddleName',
         'name' => 'setName',
@@ -199,6 +203,7 @@ class DataForListUsersOutput implements ModelInterface, ArrayAccess
         'given_name' => 'getGivenName',
         'latest_browser' => 'getLatestBrowser',
         'latest_login' => 'getLatestLogin',
+        'latest_login_method' => 'getLatestLoginMethod',
         'locale' => 'getLocale',
         'middle_name' => 'getMiddleName',
         'name' => 'getName',
@@ -288,6 +293,7 @@ class DataForListUsersOutput implements ModelInterface, ArrayAccess
         $this->container['given_name'] = isset($data['given_name']) ? $data['given_name'] : null;
         $this->container['latest_browser'] = isset($data['latest_browser']) ? $data['latest_browser'] : null;
         $this->container['latest_login'] = isset($data['latest_login']) ? $data['latest_login'] : null;
+        $this->container['latest_login_method'] = isset($data['latest_login_method']) ? $data['latest_login_method'] : null;
         $this->container['locale'] = isset($data['locale']) ? $data['locale'] : null;
         $this->container['middle_name'] = isset($data['middle_name']) ? $data['middle_name'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
@@ -567,6 +573,30 @@ class DataForListUsersOutput implements ModelInterface, ArrayAccess
     public function setLatestLogin($latest_login)
     {
         $this->container['latest_login'] = $latest_login;
+
+        return $this;
+    }
+
+    /**
+     * Gets latest_login_method
+     *
+     * @return string
+     */
+    public function getLatestLoginMethod()
+    {
+        return $this->container['latest_login_method'];
+    }
+
+    /**
+     * Sets latest_login_method
+     *
+     * @param string $latest_login_method latest_login_method
+     *
+     * @return $this
+     */
+    public function setLatestLoginMethod($latest_login_method)
+    {
+        $this->container['latest_login_method'] = $latest_login_method;
 
         return $this;
     }

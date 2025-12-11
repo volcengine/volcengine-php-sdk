@@ -28,12 +28,16 @@ class UpdateUserPoolRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'brand' => '\Volcengine\Id\Model\BrandForUpdateUserPoolInput',
         'description' => 'string',
         'email_passwordless_sign_in_enabled' => 'bool',
         'name' => 'string',
         'password_sign_in_enabled' => 'bool',
+        'self_account_recovery_enabled' => 'bool',
         'self_sign_up_enabled' => 'bool',
+        'sign_up_auto_verification_enabled' => 'bool',
         'sms_passwordless_sign_in_enabled' => 'bool',
+        'unconfirmed_user_sign_in_enabled' => 'bool',
         'user_pool_uid' => 'string'
     ];
 
@@ -43,12 +47,16 @@ class UpdateUserPoolRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'brand' => null,
         'description' => null,
         'email_passwordless_sign_in_enabled' => null,
         'name' => null,
         'password_sign_in_enabled' => null,
+        'self_account_recovery_enabled' => null,
         'self_sign_up_enabled' => null,
+        'sign_up_auto_verification_enabled' => null,
         'sms_passwordless_sign_in_enabled' => null,
+        'unconfirmed_user_sign_in_enabled' => null,
         'user_pool_uid' => null
     ];
 
@@ -79,12 +87,16 @@ class UpdateUserPoolRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'brand' => 'Brand',
         'description' => 'Description',
         'email_passwordless_sign_in_enabled' => 'EmailPasswordlessSignInEnabled',
         'name' => 'Name',
         'password_sign_in_enabled' => 'PasswordSignInEnabled',
+        'self_account_recovery_enabled' => 'SelfAccountRecoveryEnabled',
         'self_sign_up_enabled' => 'SelfSignUpEnabled',
+        'sign_up_auto_verification_enabled' => 'SignUpAutoVerificationEnabled',
         'sms_passwordless_sign_in_enabled' => 'SmsPasswordlessSignInEnabled',
+        'unconfirmed_user_sign_in_enabled' => 'UnconfirmedUserSignInEnabled',
         'user_pool_uid' => 'UserPoolUid'
     ];
 
@@ -94,12 +106,16 @@ class UpdateUserPoolRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'brand' => 'setBrand',
         'description' => 'setDescription',
         'email_passwordless_sign_in_enabled' => 'setEmailPasswordlessSignInEnabled',
         'name' => 'setName',
         'password_sign_in_enabled' => 'setPasswordSignInEnabled',
+        'self_account_recovery_enabled' => 'setSelfAccountRecoveryEnabled',
         'self_sign_up_enabled' => 'setSelfSignUpEnabled',
+        'sign_up_auto_verification_enabled' => 'setSignUpAutoVerificationEnabled',
         'sms_passwordless_sign_in_enabled' => 'setSmsPasswordlessSignInEnabled',
+        'unconfirmed_user_sign_in_enabled' => 'setUnconfirmedUserSignInEnabled',
         'user_pool_uid' => 'setUserPoolUid'
     ];
 
@@ -109,12 +125,16 @@ class UpdateUserPoolRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'brand' => 'getBrand',
         'description' => 'getDescription',
         'email_passwordless_sign_in_enabled' => 'getEmailPasswordlessSignInEnabled',
         'name' => 'getName',
         'password_sign_in_enabled' => 'getPasswordSignInEnabled',
+        'self_account_recovery_enabled' => 'getSelfAccountRecoveryEnabled',
         'self_sign_up_enabled' => 'getSelfSignUpEnabled',
+        'sign_up_auto_verification_enabled' => 'getSignUpAutoVerificationEnabled',
         'sms_passwordless_sign_in_enabled' => 'getSmsPasswordlessSignInEnabled',
+        'unconfirmed_user_sign_in_enabled' => 'getUnconfirmedUserSignInEnabled',
         'user_pool_uid' => 'getUserPoolUid'
     ];
 
@@ -178,12 +198,16 @@ class UpdateUserPoolRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['brand'] = isset($data['brand']) ? $data['brand'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['email_passwordless_sign_in_enabled'] = isset($data['email_passwordless_sign_in_enabled']) ? $data['email_passwordless_sign_in_enabled'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['password_sign_in_enabled'] = isset($data['password_sign_in_enabled']) ? $data['password_sign_in_enabled'] : null;
+        $this->container['self_account_recovery_enabled'] = isset($data['self_account_recovery_enabled']) ? $data['self_account_recovery_enabled'] : null;
         $this->container['self_sign_up_enabled'] = isset($data['self_sign_up_enabled']) ? $data['self_sign_up_enabled'] : null;
+        $this->container['sign_up_auto_verification_enabled'] = isset($data['sign_up_auto_verification_enabled']) ? $data['sign_up_auto_verification_enabled'] : null;
         $this->container['sms_passwordless_sign_in_enabled'] = isset($data['sms_passwordless_sign_in_enabled']) ? $data['sms_passwordless_sign_in_enabled'] : null;
+        $this->container['unconfirmed_user_sign_in_enabled'] = isset($data['unconfirmed_user_sign_in_enabled']) ? $data['unconfirmed_user_sign_in_enabled'] : null;
         $this->container['user_pool_uid'] = isset($data['user_pool_uid']) ? $data['user_pool_uid'] : null;
     }
 
@@ -213,6 +237,30 @@ class UpdateUserPoolRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets brand
+     *
+     * @return \Volcengine\Id\Model\BrandForUpdateUserPoolInput
+     */
+    public function getBrand()
+    {
+        return $this->container['brand'];
+    }
+
+    /**
+     * Sets brand
+     *
+     * @param \Volcengine\Id\Model\BrandForUpdateUserPoolInput $brand brand
+     *
+     * @return $this
+     */
+    public function setBrand($brand)
+    {
+        $this->container['brand'] = $brand;
+
+        return $this;
+    }
 
     /**
      * Gets description
@@ -311,6 +359,30 @@ class UpdateUserPoolRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets self_account_recovery_enabled
+     *
+     * @return bool
+     */
+    public function getSelfAccountRecoveryEnabled()
+    {
+        return $this->container['self_account_recovery_enabled'];
+    }
+
+    /**
+     * Sets self_account_recovery_enabled
+     *
+     * @param bool $self_account_recovery_enabled self_account_recovery_enabled
+     *
+     * @return $this
+     */
+    public function setSelfAccountRecoveryEnabled($self_account_recovery_enabled)
+    {
+        $this->container['self_account_recovery_enabled'] = $self_account_recovery_enabled;
+
+        return $this;
+    }
+
+    /**
      * Gets self_sign_up_enabled
      *
      * @return bool
@@ -335,6 +407,30 @@ class UpdateUserPoolRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets sign_up_auto_verification_enabled
+     *
+     * @return bool
+     */
+    public function getSignUpAutoVerificationEnabled()
+    {
+        return $this->container['sign_up_auto_verification_enabled'];
+    }
+
+    /**
+     * Sets sign_up_auto_verification_enabled
+     *
+     * @param bool $sign_up_auto_verification_enabled sign_up_auto_verification_enabled
+     *
+     * @return $this
+     */
+    public function setSignUpAutoVerificationEnabled($sign_up_auto_verification_enabled)
+    {
+        $this->container['sign_up_auto_verification_enabled'] = $sign_up_auto_verification_enabled;
+
+        return $this;
+    }
+
+    /**
      * Gets sms_passwordless_sign_in_enabled
      *
      * @return bool
@@ -354,6 +450,30 @@ class UpdateUserPoolRequest implements ModelInterface, ArrayAccess
     public function setSmsPasswordlessSignInEnabled($sms_passwordless_sign_in_enabled)
     {
         $this->container['sms_passwordless_sign_in_enabled'] = $sms_passwordless_sign_in_enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets unconfirmed_user_sign_in_enabled
+     *
+     * @return bool
+     */
+    public function getUnconfirmedUserSignInEnabled()
+    {
+        return $this->container['unconfirmed_user_sign_in_enabled'];
+    }
+
+    /**
+     * Sets unconfirmed_user_sign_in_enabled
+     *
+     * @param bool $unconfirmed_user_sign_in_enabled unconfirmed_user_sign_in_enabled
+     *
+     * @return $this
+     */
+    public function setUnconfirmedUserSignInEnabled($unconfirmed_user_sign_in_enabled)
+    {
+        $this->container['unconfirmed_user_sign_in_enabled'] = $unconfirmed_user_sign_in_enabled;
 
         return $this;
     }

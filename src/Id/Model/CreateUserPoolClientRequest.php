@@ -31,6 +31,7 @@ class CreateUserPoolClientRequest implements ModelInterface, ArrayAccess
         'allowed_callback_urls' => 'string[]',
         'client_type' => 'string',
         'description' => 'string',
+        'logo_uri' => 'string',
         'name' => 'string',
         'user_pool_uid' => 'string'
     ];
@@ -44,6 +45,7 @@ class CreateUserPoolClientRequest implements ModelInterface, ArrayAccess
         'allowed_callback_urls' => null,
         'client_type' => null,
         'description' => null,
+        'logo_uri' => null,
         'name' => null,
         'user_pool_uid' => null
     ];
@@ -78,6 +80,7 @@ class CreateUserPoolClientRequest implements ModelInterface, ArrayAccess
         'allowed_callback_urls' => 'AllowedCallbackUrls',
         'client_type' => 'ClientType',
         'description' => 'Description',
+        'logo_uri' => 'LogoUri',
         'name' => 'Name',
         'user_pool_uid' => 'UserPoolUid'
     ];
@@ -91,6 +94,7 @@ class CreateUserPoolClientRequest implements ModelInterface, ArrayAccess
         'allowed_callback_urls' => 'setAllowedCallbackUrls',
         'client_type' => 'setClientType',
         'description' => 'setDescription',
+        'logo_uri' => 'setLogoUri',
         'name' => 'setName',
         'user_pool_uid' => 'setUserPoolUid'
     ];
@@ -104,6 +108,7 @@ class CreateUserPoolClientRequest implements ModelInterface, ArrayAccess
         'allowed_callback_urls' => 'getAllowedCallbackUrls',
         'client_type' => 'getClientType',
         'description' => 'getDescription',
+        'logo_uri' => 'getLogoUri',
         'name' => 'getName',
         'user_pool_uid' => 'getUserPoolUid'
     ];
@@ -171,6 +176,7 @@ class CreateUserPoolClientRequest implements ModelInterface, ArrayAccess
         $this->container['allowed_callback_urls'] = isset($data['allowed_callback_urls']) ? $data['allowed_callback_urls'] : null;
         $this->container['client_type'] = isset($data['client_type']) ? $data['client_type'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['logo_uri'] = isset($data['logo_uri']) ? $data['logo_uri'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['user_pool_uid'] = isset($data['user_pool_uid']) ? $data['user_pool_uid'] : null;
     }
@@ -276,6 +282,30 @@ class CreateUserPoolClientRequest implements ModelInterface, ArrayAccess
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets logo_uri
+     *
+     * @return string
+     */
+    public function getLogoUri()
+    {
+        return $this->container['logo_uri'];
+    }
+
+    /**
+     * Sets logo_uri
+     *
+     * @param string $logo_uri logo_uri
+     *
+     * @return $this
+     */
+    public function setLogoUri($logo_uri)
+    {
+        $this->container['logo_uri'] = $logo_uri;
 
         return $this;
     }
