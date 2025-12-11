@@ -31,6 +31,7 @@ class GetOauth2CredentialProviderResponse implements ModelInterface, ArrayAccess
         'config' => '\Volcengine\Id\Model\ConfigForGetOauth2CredentialProviderOutput',
         'created_at' => 'string',
         'credential_provider_trn' => 'string',
+        'dcr_client_info' => '\Volcengine\Id\Model\DcrClientInfoForGetOauth2CredentialProviderOutput',
         'name' => 'string',
         'pool_name' => 'string',
         'secret_trn' => 'string',
@@ -47,6 +48,7 @@ class GetOauth2CredentialProviderResponse implements ModelInterface, ArrayAccess
         'config' => null,
         'created_at' => null,
         'credential_provider_trn' => null,
+        'dcr_client_info' => null,
         'name' => null,
         'pool_name' => null,
         'secret_trn' => null,
@@ -84,6 +86,7 @@ class GetOauth2CredentialProviderResponse implements ModelInterface, ArrayAccess
         'config' => 'Config',
         'created_at' => 'CreatedAt',
         'credential_provider_trn' => 'CredentialProviderTrn',
+        'dcr_client_info' => 'DcrClientInfo',
         'name' => 'Name',
         'pool_name' => 'PoolName',
         'secret_trn' => 'SecretTrn',
@@ -100,6 +103,7 @@ class GetOauth2CredentialProviderResponse implements ModelInterface, ArrayAccess
         'config' => 'setConfig',
         'created_at' => 'setCreatedAt',
         'credential_provider_trn' => 'setCredentialProviderTrn',
+        'dcr_client_info' => 'setDcrClientInfo',
         'name' => 'setName',
         'pool_name' => 'setPoolName',
         'secret_trn' => 'setSecretTrn',
@@ -116,6 +120,7 @@ class GetOauth2CredentialProviderResponse implements ModelInterface, ArrayAccess
         'config' => 'getConfig',
         'created_at' => 'getCreatedAt',
         'credential_provider_trn' => 'getCredentialProviderTrn',
+        'dcr_client_info' => 'getDcrClientInfo',
         'name' => 'getName',
         'pool_name' => 'getPoolName',
         'secret_trn' => 'getSecretTrn',
@@ -186,6 +191,7 @@ class GetOauth2CredentialProviderResponse implements ModelInterface, ArrayAccess
         $this->container['config'] = isset($data['config']) ? $data['config'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['credential_provider_trn'] = isset($data['credential_provider_trn']) ? $data['credential_provider_trn'] : null;
+        $this->container['dcr_client_info'] = isset($data['dcr_client_info']) ? $data['dcr_client_info'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['pool_name'] = isset($data['pool_name']) ? $data['pool_name'] : null;
         $this->container['secret_trn'] = isset($data['secret_trn']) ? $data['secret_trn'] : null;
@@ -285,6 +291,30 @@ class GetOauth2CredentialProviderResponse implements ModelInterface, ArrayAccess
     public function setCredentialProviderTrn($credential_provider_trn)
     {
         $this->container['credential_provider_trn'] = $credential_provider_trn;
+
+        return $this;
+    }
+
+    /**
+     * Gets dcr_client_info
+     *
+     * @return \Volcengine\Id\Model\DcrClientInfoForGetOauth2CredentialProviderOutput
+     */
+    public function getDcrClientInfo()
+    {
+        return $this->container['dcr_client_info'];
+    }
+
+    /**
+     * Sets dcr_client_info
+     *
+     * @param \Volcengine\Id\Model\DcrClientInfoForGetOauth2CredentialProviderOutput $dcr_client_info dcr_client_info
+     *
+     * @return $this
+     */
+    public function setDcrClientInfo($dcr_client_info)
+    {
+        $this->container['dcr_client_info'] = $dcr_client_info;
 
         return $this;
     }

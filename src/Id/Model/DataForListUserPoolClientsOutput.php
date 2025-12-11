@@ -31,6 +31,7 @@ class DataForListUserPoolClientsOutput implements ModelInterface, ArrayAccess
         'client_type' => 'string',
         'create_time' => 'string',
         'description' => 'string',
+        'logo_uri' => 'string',
         'name' => 'string',
         'uid' => 'string',
         'update_time' => 'string'
@@ -45,6 +46,7 @@ class DataForListUserPoolClientsOutput implements ModelInterface, ArrayAccess
         'client_type' => null,
         'create_time' => null,
         'description' => null,
+        'logo_uri' => null,
         'name' => null,
         'uid' => null,
         'update_time' => null
@@ -80,6 +82,7 @@ class DataForListUserPoolClientsOutput implements ModelInterface, ArrayAccess
         'client_type' => 'ClientType',
         'create_time' => 'CreateTime',
         'description' => 'Description',
+        'logo_uri' => 'LogoUri',
         'name' => 'Name',
         'uid' => 'Uid',
         'update_time' => 'UpdateTime'
@@ -94,6 +97,7 @@ class DataForListUserPoolClientsOutput implements ModelInterface, ArrayAccess
         'client_type' => 'setClientType',
         'create_time' => 'setCreateTime',
         'description' => 'setDescription',
+        'logo_uri' => 'setLogoUri',
         'name' => 'setName',
         'uid' => 'setUid',
         'update_time' => 'setUpdateTime'
@@ -108,6 +112,7 @@ class DataForListUserPoolClientsOutput implements ModelInterface, ArrayAccess
         'client_type' => 'getClientType',
         'create_time' => 'getCreateTime',
         'description' => 'getDescription',
+        'logo_uri' => 'getLogoUri',
         'name' => 'getName',
         'uid' => 'getUid',
         'update_time' => 'getUpdateTime'
@@ -176,6 +181,7 @@ class DataForListUserPoolClientsOutput implements ModelInterface, ArrayAccess
         $this->container['client_type'] = isset($data['client_type']) ? $data['client_type'] : null;
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['logo_uri'] = isset($data['logo_uri']) ? $data['logo_uri'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['uid'] = isset($data['uid']) ? $data['uid'] : null;
         $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
@@ -273,6 +279,30 @@ class DataForListUserPoolClientsOutput implements ModelInterface, ArrayAccess
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets logo_uri
+     *
+     * @return string
+     */
+    public function getLogoUri()
+    {
+        return $this->container['logo_uri'];
+    }
+
+    /**
+     * Sets logo_uri
+     *
+     * @param string $logo_uri logo_uri
+     *
+     * @return $this
+     */
+    public function setLogoUri($logo_uri)
+    {
+        $this->container['logo_uri'] = $logo_uri;
 
         return $this;
     }

@@ -38,6 +38,7 @@ class UpdateUserRequest implements ModelInterface, ArrayAccess
         'middle_name' => 'string',
         'name' => 'string',
         'nickname' => 'string',
+        'password' => 'string',
         'phone_number' => 'string',
         'phone_number_verified' => 'bool',
         'picture' => 'string',
@@ -67,6 +68,7 @@ class UpdateUserRequest implements ModelInterface, ArrayAccess
         'middle_name' => null,
         'name' => null,
         'nickname' => null,
+        'password' => null,
         'phone_number' => null,
         'phone_number_verified' => null,
         'picture' => null,
@@ -117,6 +119,7 @@ class UpdateUserRequest implements ModelInterface, ArrayAccess
         'middle_name' => 'MiddleName',
         'name' => 'Name',
         'nickname' => 'Nickname',
+        'password' => 'Password',
         'phone_number' => 'PhoneNumber',
         'phone_number_verified' => 'PhoneNumberVerified',
         'picture' => 'Picture',
@@ -146,6 +149,7 @@ class UpdateUserRequest implements ModelInterface, ArrayAccess
         'middle_name' => 'setMiddleName',
         'name' => 'setName',
         'nickname' => 'setNickname',
+        'password' => 'setPassword',
         'phone_number' => 'setPhoneNumber',
         'phone_number_verified' => 'setPhoneNumberVerified',
         'picture' => 'setPicture',
@@ -175,6 +179,7 @@ class UpdateUserRequest implements ModelInterface, ArrayAccess
         'middle_name' => 'getMiddleName',
         'name' => 'getName',
         'nickname' => 'getNickname',
+        'password' => 'getPassword',
         'phone_number' => 'getPhoneNumber',
         'phone_number_verified' => 'getPhoneNumberVerified',
         'picture' => 'getPicture',
@@ -258,6 +263,7 @@ class UpdateUserRequest implements ModelInterface, ArrayAccess
         $this->container['middle_name'] = isset($data['middle_name']) ? $data['middle_name'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['nickname'] = isset($data['nickname']) ? $data['nickname'] : null;
+        $this->container['password'] = isset($data['password']) ? $data['password'] : null;
         $this->container['phone_number'] = isset($data['phone_number']) ? $data['phone_number'] : null;
         $this->container['phone_number_verified'] = isset($data['phone_number_verified']) ? $data['phone_number_verified'] : null;
         $this->container['picture'] = isset($data['picture']) ? $data['picture'] : null;
@@ -537,6 +543,30 @@ class UpdateUserRequest implements ModelInterface, ArrayAccess
     public function setNickname($nickname)
     {
         $this->container['nickname'] = $nickname;
+
+        return $this;
+    }
+
+    /**
+     * Gets password
+     *
+     * @return string
+     */
+    public function getPassword()
+    {
+        return $this->container['password'];
+    }
+
+    /**
+     * Sets password
+     *
+     * @param string $password password
+     *
+     * @return $this
+     */
+    public function setPassword($password)
+    {
+        $this->container['password'] = $password;
 
         return $this;
     }

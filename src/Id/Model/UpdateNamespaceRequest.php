@@ -28,6 +28,7 @@ class UpdateNamespaceRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'associates' => 'string[]',
         'description' => 'string',
         'namespace_name' => 'string'
     ];
@@ -38,6 +39,7 @@ class UpdateNamespaceRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'associates' => null,
         'description' => null,
         'namespace_name' => null
     ];
@@ -69,6 +71,7 @@ class UpdateNamespaceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'associates' => 'Associates',
         'description' => 'Description',
         'namespace_name' => 'NamespaceName'
     ];
@@ -79,6 +82,7 @@ class UpdateNamespaceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'associates' => 'setAssociates',
         'description' => 'setDescription',
         'namespace_name' => 'setNamespaceName'
     ];
@@ -89,6 +93,7 @@ class UpdateNamespaceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'associates' => 'getAssociates',
         'description' => 'getDescription',
         'namespace_name' => 'getNamespaceName'
     ];
@@ -153,6 +158,7 @@ class UpdateNamespaceRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['associates'] = isset($data['associates']) ? $data['associates'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['namespace_name'] = isset($data['namespace_name']) ? $data['namespace_name'] : null;
     }
@@ -166,6 +172,9 @@ class UpdateNamespaceRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['namespace_name'] === null) {
+            $invalidProperties[] = "'namespace_name' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -180,6 +189,30 @@ class UpdateNamespaceRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets associates
+     *
+     * @return string[]
+     */
+    public function getAssociates()
+    {
+        return $this->container['associates'];
+    }
+
+    /**
+     * Sets associates
+     *
+     * @param string[] $associates associates
+     *
+     * @return $this
+     */
+    public function setAssociates($associates)
+    {
+        $this->container['associates'] = $associates;
+
+        return $this;
+    }
 
     /**
      * Gets description

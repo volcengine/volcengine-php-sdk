@@ -160,6 +160,9 @@ class DeleteNamespaceRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['namespace_name'] === null) {
+            $invalidProperties[] = "'namespace_name' can't be null";
+        }
         return $invalidProperties;
     }
 
