@@ -28,6 +28,7 @@ class CreateFlowLogResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'async_task_id' => 'string',
         'flow_log_id' => 'string',
         'request_id' => 'string'
     ];
@@ -38,6 +39,7 @@ class CreateFlowLogResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'async_task_id' => null,
         'flow_log_id' => null,
         'request_id' => null
     ];
@@ -69,6 +71,7 @@ class CreateFlowLogResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'async_task_id' => 'AsyncTaskId',
         'flow_log_id' => 'FlowLogId',
         'request_id' => 'RequestId'
     ];
@@ -79,6 +82,7 @@ class CreateFlowLogResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'async_task_id' => 'setAsyncTaskId',
         'flow_log_id' => 'setFlowLogId',
         'request_id' => 'setRequestId'
     ];
@@ -89,6 +93,7 @@ class CreateFlowLogResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'async_task_id' => 'getAsyncTaskId',
         'flow_log_id' => 'getFlowLogId',
         'request_id' => 'getRequestId'
     ];
@@ -153,6 +158,7 @@ class CreateFlowLogResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['async_task_id'] = isset($data['async_task_id']) ? $data['async_task_id'] : null;
         $this->container['flow_log_id'] = isset($data['flow_log_id']) ? $data['flow_log_id'] : null;
         $this->container['request_id'] = isset($data['request_id']) ? $data['request_id'] : null;
     }
@@ -180,6 +186,30 @@ class CreateFlowLogResponse implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets async_task_id
+     *
+     * @return string
+     */
+    public function getAsyncTaskId()
+    {
+        return $this->container['async_task_id'];
+    }
+
+    /**
+     * Sets async_task_id
+     *
+     * @param string $async_task_id async_task_id
+     *
+     * @return $this
+     */
+    public function setAsyncTaskId($async_task_id)
+    {
+        $this->container['async_task_id'] = $async_task_id;
+
+        return $this;
+    }
 
     /**
      * Gets flow_log_id

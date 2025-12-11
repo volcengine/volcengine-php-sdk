@@ -32,8 +32,8 @@ class DescribeTrafficMirrorFiltersRequest implements ModelInterface, ArrayAccess
         'next_token' => 'string',
         'project_name' => 'string',
         'tag_filters' => '\Volcengine\Vpc\Model\TagFilterForDescribeTrafficMirrorFiltersInput[]',
-        'traffic_mirror_filter_ids' => 'string',
-        'traffic_mirror_filter_names' => 'string'
+        'traffic_mirror_filter_ids' => 'string[]',
+        'traffic_mirror_filter_names' => 'string[]'
     ];
 
     /**
@@ -304,7 +304,7 @@ class DescribeTrafficMirrorFiltersRequest implements ModelInterface, ArrayAccess
     /**
      * Gets traffic_mirror_filter_ids
      *
-     * @return string
+     * @return string[]
      */
     public function getTrafficMirrorFilterIds()
     {
@@ -314,7 +314,7 @@ class DescribeTrafficMirrorFiltersRequest implements ModelInterface, ArrayAccess
     /**
      * Sets traffic_mirror_filter_ids
      *
-     * @param string $traffic_mirror_filter_ids traffic_mirror_filter_ids
+     * @param string[] $traffic_mirror_filter_ids traffic_mirror_filter_ids
      *
      * @return $this
      */
@@ -328,7 +328,7 @@ class DescribeTrafficMirrorFiltersRequest implements ModelInterface, ArrayAccess
     /**
      * Gets traffic_mirror_filter_names
      *
-     * @return string
+     * @return string[]
      */
     public function getTrafficMirrorFilterNames()
     {
@@ -338,7 +338,7 @@ class DescribeTrafficMirrorFiltersRequest implements ModelInterface, ArrayAccess
     /**
      * Sets traffic_mirror_filter_names
      *
-     * @param string $traffic_mirror_filter_names traffic_mirror_filter_names
+     * @param string[] $traffic_mirror_filter_names traffic_mirror_filter_names
      *
      * @return $this
      */

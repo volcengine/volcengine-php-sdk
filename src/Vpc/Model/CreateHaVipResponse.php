@@ -28,6 +28,7 @@ class CreateHaVipResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'async_task_id' => 'string',
         'ha_vip_id' => 'string',
         'ip_address' => 'string',
         'request_id' => 'string'
@@ -39,6 +40,7 @@ class CreateHaVipResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'async_task_id' => null,
         'ha_vip_id' => null,
         'ip_address' => null,
         'request_id' => null
@@ -71,6 +73,7 @@ class CreateHaVipResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'async_task_id' => 'AsyncTaskId',
         'ha_vip_id' => 'HaVipId',
         'ip_address' => 'IpAddress',
         'request_id' => 'RequestId'
@@ -82,6 +85,7 @@ class CreateHaVipResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'async_task_id' => 'setAsyncTaskId',
         'ha_vip_id' => 'setHaVipId',
         'ip_address' => 'setIpAddress',
         'request_id' => 'setRequestId'
@@ -93,6 +97,7 @@ class CreateHaVipResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'async_task_id' => 'getAsyncTaskId',
         'ha_vip_id' => 'getHaVipId',
         'ip_address' => 'getIpAddress',
         'request_id' => 'getRequestId'
@@ -158,6 +163,7 @@ class CreateHaVipResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['async_task_id'] = isset($data['async_task_id']) ? $data['async_task_id'] : null;
         $this->container['ha_vip_id'] = isset($data['ha_vip_id']) ? $data['ha_vip_id'] : null;
         $this->container['ip_address'] = isset($data['ip_address']) ? $data['ip_address'] : null;
         $this->container['request_id'] = isset($data['request_id']) ? $data['request_id'] : null;
@@ -186,6 +192,30 @@ class CreateHaVipResponse implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets async_task_id
+     *
+     * @return string
+     */
+    public function getAsyncTaskId()
+    {
+        return $this->container['async_task_id'];
+    }
+
+    /**
+     * Sets async_task_id
+     *
+     * @param string $async_task_id async_task_id
+     *
+     * @return $this
+     */
+    public function setAsyncTaskId($async_task_id)
+    {
+        $this->container['async_task_id'] = $async_task_id;
+
+        return $this;
+    }
 
     /**
      * Gets ha_vip_id

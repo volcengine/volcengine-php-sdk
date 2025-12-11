@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ModifyRouteEntryResponse implements ModelInterface, ArrayAccess
+class TagForDescribeIpv6GatewayAttributeOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ModifyRouteEntryResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ModifyRouteEntryResponse';
+    protected static $swaggerModelName = 'TagForDescribeIpv6GatewayAttributeOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,8 @@ class ModifyRouteEntryResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'async_task_id' => 'string',
-        'request_id' => 'string'
+        'key' => 'string',
+        'value' => 'string'
     ];
 
     /**
@@ -38,8 +38,8 @@ class ModifyRouteEntryResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'async_task_id' => null,
-        'request_id' => null
+        'key' => null,
+        'value' => null
     ];
 
     /**
@@ -69,8 +69,8 @@ class ModifyRouteEntryResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'async_task_id' => 'AsyncTaskId',
-        'request_id' => 'RequestId'
+        'key' => 'Key',
+        'value' => 'Value'
     ];
 
     /**
@@ -79,8 +79,8 @@ class ModifyRouteEntryResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'async_task_id' => 'setAsyncTaskId',
-        'request_id' => 'setRequestId'
+        'key' => 'setKey',
+        'value' => 'setValue'
     ];
 
     /**
@@ -89,8 +89,8 @@ class ModifyRouteEntryResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'async_task_id' => 'getAsyncTaskId',
-        'request_id' => 'getRequestId'
+        'key' => 'getKey',
+        'value' => 'getValue'
     ];
 
     /**
@@ -153,8 +153,8 @@ class ModifyRouteEntryResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['async_task_id'] = isset($data['async_task_id']) ? $data['async_task_id'] : null;
-        $this->container['request_id'] = isset($data['request_id']) ? $data['request_id'] : null;
+        $this->container['key'] = isset($data['key']) ? $data['key'] : null;
+        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 
     /**
@@ -182,49 +182,49 @@ class ModifyRouteEntryResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets async_task_id
+     * Gets key
      *
      * @return string
      */
-    public function getAsyncTaskId()
+    public function getKey()
     {
-        return $this->container['async_task_id'];
+        return $this->container['key'];
     }
 
     /**
-     * Sets async_task_id
+     * Sets key
      *
-     * @param string $async_task_id async_task_id
+     * @param string $key key
      *
      * @return $this
      */
-    public function setAsyncTaskId($async_task_id)
+    public function setKey($key)
     {
-        $this->container['async_task_id'] = $async_task_id;
+        $this->container['key'] = $key;
 
         return $this;
     }
 
     /**
-     * Gets request_id
+     * Gets value
      *
      * @return string
      */
-    public function getRequestId()
+    public function getValue()
     {
-        return $this->container['request_id'];
+        return $this->container['value'];
     }
 
     /**
-     * Sets request_id
+     * Sets value
      *
-     * @param string $request_id request_id
+     * @param string $value value
      *
      * @return $this
      */
-    public function setRequestId($request_id)
+    public function setValue($value)
     {
-        $this->container['request_id'] = $request_id;
+        $this->container['value'] = $value;
 
         return $this;
     }

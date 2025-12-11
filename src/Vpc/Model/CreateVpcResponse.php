@@ -28,6 +28,7 @@ class CreateVpcResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'async_task_id' => 'string',
         'request_id' => 'string',
         'route_table_id' => 'string',
         'vpc_id' => 'string'
@@ -39,6 +40,7 @@ class CreateVpcResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'async_task_id' => null,
         'request_id' => null,
         'route_table_id' => null,
         'vpc_id' => null
@@ -71,6 +73,7 @@ class CreateVpcResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'async_task_id' => 'AsyncTaskId',
         'request_id' => 'RequestId',
         'route_table_id' => 'RouteTableId',
         'vpc_id' => 'VpcId'
@@ -82,6 +85,7 @@ class CreateVpcResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'async_task_id' => 'setAsyncTaskId',
         'request_id' => 'setRequestId',
         'route_table_id' => 'setRouteTableId',
         'vpc_id' => 'setVpcId'
@@ -93,6 +97,7 @@ class CreateVpcResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'async_task_id' => 'getAsyncTaskId',
         'request_id' => 'getRequestId',
         'route_table_id' => 'getRouteTableId',
         'vpc_id' => 'getVpcId'
@@ -158,6 +163,7 @@ class CreateVpcResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['async_task_id'] = isset($data['async_task_id']) ? $data['async_task_id'] : null;
         $this->container['request_id'] = isset($data['request_id']) ? $data['request_id'] : null;
         $this->container['route_table_id'] = isset($data['route_table_id']) ? $data['route_table_id'] : null;
         $this->container['vpc_id'] = isset($data['vpc_id']) ? $data['vpc_id'] : null;
@@ -186,6 +192,30 @@ class CreateVpcResponse implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets async_task_id
+     *
+     * @return string
+     */
+    public function getAsyncTaskId()
+    {
+        return $this->container['async_task_id'];
+    }
+
+    /**
+     * Sets async_task_id
+     *
+     * @param string $async_task_id async_task_id
+     *
+     * @return $this
+     */
+    public function setAsyncTaskId($async_task_id)
+    {
+        $this->container['async_task_id'] = $async_task_id;
+
+        return $this;
+    }
 
     /**
      * Gets request_id
