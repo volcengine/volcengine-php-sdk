@@ -33,6 +33,7 @@ class EndpointForDescribeDBInstanceEndpointsOutput implements ModelInterface, Ar
         'connection_info_tags' => 'string[]',
         'connection_mode' => 'string',
         'connection_pool_type' => 'string',
+        'custom_route_strategy' => '\Volcengine\Rdsmysqlv2\Model\CustomRouteStrategyForDescribeDBInstanceEndpointsOutput',
         'description' => 'string',
         'enable_connection_persistent' => 'bool',
         'enable_read_only' => 'string',
@@ -63,6 +64,7 @@ class EndpointForDescribeDBInstanceEndpointsOutput implements ModelInterface, Ar
         'connection_info_tags' => null,
         'connection_mode' => null,
         'connection_pool_type' => null,
+        'custom_route_strategy' => null,
         'description' => null,
         'enable_connection_persistent' => null,
         'enable_read_only' => null,
@@ -114,6 +116,7 @@ class EndpointForDescribeDBInstanceEndpointsOutput implements ModelInterface, Ar
         'connection_info_tags' => 'ConnectionInfoTags',
         'connection_mode' => 'ConnectionMode',
         'connection_pool_type' => 'ConnectionPoolType',
+        'custom_route_strategy' => 'CustomRouteStrategy',
         'description' => 'Description',
         'enable_connection_persistent' => 'EnableConnectionPersistent',
         'enable_read_only' => 'EnableReadOnly',
@@ -144,6 +147,7 @@ class EndpointForDescribeDBInstanceEndpointsOutput implements ModelInterface, Ar
         'connection_info_tags' => 'setConnectionInfoTags',
         'connection_mode' => 'setConnectionMode',
         'connection_pool_type' => 'setConnectionPoolType',
+        'custom_route_strategy' => 'setCustomRouteStrategy',
         'description' => 'setDescription',
         'enable_connection_persistent' => 'setEnableConnectionPersistent',
         'enable_read_only' => 'setEnableReadOnly',
@@ -174,6 +178,7 @@ class EndpointForDescribeDBInstanceEndpointsOutput implements ModelInterface, Ar
         'connection_info_tags' => 'getConnectionInfoTags',
         'connection_mode' => 'getConnectionMode',
         'connection_pool_type' => 'getConnectionPoolType',
+        'custom_route_strategy' => 'getCustomRouteStrategy',
         'description' => 'getDescription',
         'enable_connection_persistent' => 'getEnableConnectionPersistent',
         'enable_read_only' => 'getEnableReadOnly',
@@ -258,6 +263,7 @@ class EndpointForDescribeDBInstanceEndpointsOutput implements ModelInterface, Ar
         $this->container['connection_info_tags'] = isset($data['connection_info_tags']) ? $data['connection_info_tags'] : null;
         $this->container['connection_mode'] = isset($data['connection_mode']) ? $data['connection_mode'] : null;
         $this->container['connection_pool_type'] = isset($data['connection_pool_type']) ? $data['connection_pool_type'] : null;
+        $this->container['custom_route_strategy'] = isset($data['custom_route_strategy']) ? $data['custom_route_strategy'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['enable_connection_persistent'] = isset($data['enable_connection_persistent']) ? $data['enable_connection_persistent'] : null;
         $this->container['enable_read_only'] = isset($data['enable_read_only']) ? $data['enable_read_only'] : null;
@@ -417,6 +423,30 @@ class EndpointForDescribeDBInstanceEndpointsOutput implements ModelInterface, Ar
     public function setConnectionPoolType($connection_pool_type)
     {
         $this->container['connection_pool_type'] = $connection_pool_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets custom_route_strategy
+     *
+     * @return \Volcengine\Rdsmysqlv2\Model\CustomRouteStrategyForDescribeDBInstanceEndpointsOutput
+     */
+    public function getCustomRouteStrategy()
+    {
+        return $this->container['custom_route_strategy'];
+    }
+
+    /**
+     * Sets custom_route_strategy
+     *
+     * @param \Volcengine\Rdsmysqlv2\Model\CustomRouteStrategyForDescribeDBInstanceEndpointsOutput $custom_route_strategy custom_route_strategy
+     *
+     * @return $this
+     */
+    public function setCustomRouteStrategy($custom_route_strategy)
+    {
+        $this->container['custom_route_strategy'] = $custom_route_strategy;
 
         return $this;
     }

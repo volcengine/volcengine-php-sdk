@@ -28,6 +28,7 @@ class DescribeIpAddressPoolAttributesResponse implements ModelInterface, ArrayAc
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'address_source' => 'string',
         'business_status' => 'string',
         'cidr_blocks' => 'string[]',
         'creation_time' => 'string',
@@ -39,6 +40,7 @@ class DescribeIpAddressPoolAttributesResponse implements ModelInterface, ArrayAc
         'overdue_time' => 'string',
         'project_name' => 'string',
         'request_id' => 'string',
+        'specific_egress' => 'string',
         'status' => 'string',
         'tags' => '\Volcengine\Vpc\Model\TagForDescribeIpAddressPoolAttributesOutput[]',
         'total_ip_count' => 'int',
@@ -52,6 +54,7 @@ class DescribeIpAddressPoolAttributesResponse implements ModelInterface, ArrayAc
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'address_source' => null,
         'business_status' => null,
         'cidr_blocks' => null,
         'creation_time' => null,
@@ -63,6 +66,7 @@ class DescribeIpAddressPoolAttributesResponse implements ModelInterface, ArrayAc
         'overdue_time' => null,
         'project_name' => null,
         'request_id' => null,
+        'specific_egress' => null,
         'status' => null,
         'tags' => null,
         'total_ip_count' => null,
@@ -97,6 +101,7 @@ class DescribeIpAddressPoolAttributesResponse implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $attributeMap = [
+        'address_source' => 'AddressSource',
         'business_status' => 'BusinessStatus',
         'cidr_blocks' => 'CidrBlocks',
         'creation_time' => 'CreationTime',
@@ -108,6 +113,7 @@ class DescribeIpAddressPoolAttributesResponse implements ModelInterface, ArrayAc
         'overdue_time' => 'OverdueTime',
         'project_name' => 'ProjectName',
         'request_id' => 'RequestId',
+        'specific_egress' => 'SpecificEgress',
         'status' => 'Status',
         'tags' => 'Tags',
         'total_ip_count' => 'TotalIpCount',
@@ -121,6 +127,7 @@ class DescribeIpAddressPoolAttributesResponse implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $setters = [
+        'address_source' => 'setAddressSource',
         'business_status' => 'setBusinessStatus',
         'cidr_blocks' => 'setCidrBlocks',
         'creation_time' => 'setCreationTime',
@@ -132,6 +139,7 @@ class DescribeIpAddressPoolAttributesResponse implements ModelInterface, ArrayAc
         'overdue_time' => 'setOverdueTime',
         'project_name' => 'setProjectName',
         'request_id' => 'setRequestId',
+        'specific_egress' => 'setSpecificEgress',
         'status' => 'setStatus',
         'tags' => 'setTags',
         'total_ip_count' => 'setTotalIpCount',
@@ -145,6 +153,7 @@ class DescribeIpAddressPoolAttributesResponse implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $getters = [
+        'address_source' => 'getAddressSource',
         'business_status' => 'getBusinessStatus',
         'cidr_blocks' => 'getCidrBlocks',
         'creation_time' => 'getCreationTime',
@@ -156,6 +165,7 @@ class DescribeIpAddressPoolAttributesResponse implements ModelInterface, ArrayAc
         'overdue_time' => 'getOverdueTime',
         'project_name' => 'getProjectName',
         'request_id' => 'getRequestId',
+        'specific_egress' => 'getSpecificEgress',
         'status' => 'getStatus',
         'tags' => 'getTags',
         'total_ip_count' => 'getTotalIpCount',
@@ -223,6 +233,7 @@ class DescribeIpAddressPoolAttributesResponse implements ModelInterface, ArrayAc
      */
     public function __construct(array $data = null)
     {
+        $this->container['address_source'] = isset($data['address_source']) ? $data['address_source'] : null;
         $this->container['business_status'] = isset($data['business_status']) ? $data['business_status'] : null;
         $this->container['cidr_blocks'] = isset($data['cidr_blocks']) ? $data['cidr_blocks'] : null;
         $this->container['creation_time'] = isset($data['creation_time']) ? $data['creation_time'] : null;
@@ -234,6 +245,7 @@ class DescribeIpAddressPoolAttributesResponse implements ModelInterface, ArrayAc
         $this->container['overdue_time'] = isset($data['overdue_time']) ? $data['overdue_time'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['request_id'] = isset($data['request_id']) ? $data['request_id'] : null;
+        $this->container['specific_egress'] = isset($data['specific_egress']) ? $data['specific_egress'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['total_ip_count'] = isset($data['total_ip_count']) ? $data['total_ip_count'] : null;
@@ -264,6 +276,30 @@ class DescribeIpAddressPoolAttributesResponse implements ModelInterface, ArrayAc
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets address_source
+     *
+     * @return string
+     */
+    public function getAddressSource()
+    {
+        return $this->container['address_source'];
+    }
+
+    /**
+     * Sets address_source
+     *
+     * @param string $address_source address_source
+     *
+     * @return $this
+     */
+    public function setAddressSource($address_source)
+    {
+        $this->container['address_source'] = $address_source;
+
+        return $this;
+    }
 
     /**
      * Gets business_status
@@ -525,6 +561,30 @@ class DescribeIpAddressPoolAttributesResponse implements ModelInterface, ArrayAc
     public function setRequestId($request_id)
     {
         $this->container['request_id'] = $request_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets specific_egress
+     *
+     * @return string
+     */
+    public function getSpecificEgress()
+    {
+        return $this->container['specific_egress'];
+    }
+
+    /**
+     * Sets specific_egress
+     *
+     * @param string $specific_egress specific_egress
+     *
+     * @return $this
+     */
+    public function setSpecificEgress($specific_egress)
+    {
+        $this->container['specific_egress'] = $specific_egress;
 
         return $this;
     }

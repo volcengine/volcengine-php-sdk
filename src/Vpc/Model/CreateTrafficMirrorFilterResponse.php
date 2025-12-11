@@ -28,6 +28,7 @@ class CreateTrafficMirrorFilterResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'async_task_id' => 'string',
         'request_id' => 'string',
         'traffic_mirror_filter_id' => 'string'
     ];
@@ -38,6 +39,7 @@ class CreateTrafficMirrorFilterResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'async_task_id' => null,
         'request_id' => null,
         'traffic_mirror_filter_id' => null
     ];
@@ -69,6 +71,7 @@ class CreateTrafficMirrorFilterResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'async_task_id' => 'AsyncTaskId',
         'request_id' => 'RequestId',
         'traffic_mirror_filter_id' => 'TrafficMirrorFilterId'
     ];
@@ -79,6 +82,7 @@ class CreateTrafficMirrorFilterResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'async_task_id' => 'setAsyncTaskId',
         'request_id' => 'setRequestId',
         'traffic_mirror_filter_id' => 'setTrafficMirrorFilterId'
     ];
@@ -89,6 +93,7 @@ class CreateTrafficMirrorFilterResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'async_task_id' => 'getAsyncTaskId',
         'request_id' => 'getRequestId',
         'traffic_mirror_filter_id' => 'getTrafficMirrorFilterId'
     ];
@@ -153,6 +158,7 @@ class CreateTrafficMirrorFilterResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['async_task_id'] = isset($data['async_task_id']) ? $data['async_task_id'] : null;
         $this->container['request_id'] = isset($data['request_id']) ? $data['request_id'] : null;
         $this->container['traffic_mirror_filter_id'] = isset($data['traffic_mirror_filter_id']) ? $data['traffic_mirror_filter_id'] : null;
     }
@@ -180,6 +186,30 @@ class CreateTrafficMirrorFilterResponse implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets async_task_id
+     *
+     * @return string
+     */
+    public function getAsyncTaskId()
+    {
+        return $this->container['async_task_id'];
+    }
+
+    /**
+     * Sets async_task_id
+     *
+     * @param string $async_task_id async_task_id
+     *
+     * @return $this
+     */
+    public function setAsyncTaskId($async_task_id)
+    {
+        $this->container['async_task_id'] = $async_task_id;
+
+        return $this;
+    }
 
     /**
      * Gets request_id

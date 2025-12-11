@@ -169,8 +169,23 @@ class DescribePrefixListsRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const IP_VERSION_I_PV4 = 'IPv4';
+    const IP_VERSION_I_PV6 = 'IPv6';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getIpVersionAllowableValues()
+    {
+        return [
+            self::IP_VERSION_I_PV4,
+            self::IP_VERSION_I_PV6,
+        ];
+    }
     
 
     /**
@@ -208,6 +223,14 @@ class DescribePrefixListsRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        $allowedValues = $this->getIpVersionAllowableValues();
+        if (!is_null($this->container['ip_version']) && !in_array($this->container['ip_version'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'ip_version', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -242,6 +265,15 @@ class DescribePrefixListsRequest implements ModelInterface, ArrayAccess
      */
     public function setIpVersion($ip_version)
     {
+        $allowedValues = $this->getIpVersionAllowableValues();
+        if (!is_null($ip_version) && !in_array($ip_version, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'ip_version', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['ip_version'] = $ip_version;
 
         return $this;

@@ -32,6 +32,7 @@ class DescribeDBInstancesRequest implements ModelInterface, ArrayAccess
         'create_time_end' => 'string',
         'create_time_start' => 'string',
         'db_engine_version' => 'string',
+        'engine_type' => 'string',
         'instance_id' => 'string',
         'instance_name' => 'string',
         'instance_status' => 'string',
@@ -58,6 +59,7 @@ class DescribeDBInstancesRequest implements ModelInterface, ArrayAccess
         'create_time_end' => null,
         'create_time_start' => null,
         'db_engine_version' => null,
+        'engine_type' => null,
         'instance_id' => null,
         'instance_name' => null,
         'instance_status' => null,
@@ -105,6 +107,7 @@ class DescribeDBInstancesRequest implements ModelInterface, ArrayAccess
         'create_time_end' => 'CreateTimeEnd',
         'create_time_start' => 'CreateTimeStart',
         'db_engine_version' => 'DBEngineVersion',
+        'engine_type' => 'EngineType',
         'instance_id' => 'InstanceId',
         'instance_name' => 'InstanceName',
         'instance_status' => 'InstanceStatus',
@@ -131,6 +134,7 @@ class DescribeDBInstancesRequest implements ModelInterface, ArrayAccess
         'create_time_end' => 'setCreateTimeEnd',
         'create_time_start' => 'setCreateTimeStart',
         'db_engine_version' => 'setDbEngineVersion',
+        'engine_type' => 'setEngineType',
         'instance_id' => 'setInstanceId',
         'instance_name' => 'setInstanceName',
         'instance_status' => 'setInstanceStatus',
@@ -157,6 +161,7 @@ class DescribeDBInstancesRequest implements ModelInterface, ArrayAccess
         'create_time_end' => 'getCreateTimeEnd',
         'create_time_start' => 'getCreateTimeStart',
         'db_engine_version' => 'getDbEngineVersion',
+        'engine_type' => 'getEngineType',
         'instance_id' => 'getInstanceId',
         'instance_name' => 'getInstanceName',
         'instance_status' => 'getInstanceStatus',
@@ -237,6 +242,7 @@ class DescribeDBInstancesRequest implements ModelInterface, ArrayAccess
         $this->container['create_time_end'] = isset($data['create_time_end']) ? $data['create_time_end'] : null;
         $this->container['create_time_start'] = isset($data['create_time_start']) ? $data['create_time_start'] : null;
         $this->container['db_engine_version'] = isset($data['db_engine_version']) ? $data['db_engine_version'] : null;
+        $this->container['engine_type'] = isset($data['engine_type']) ? $data['engine_type'] : null;
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
         $this->container['instance_name'] = isset($data['instance_name']) ? $data['instance_name'] : null;
         $this->container['instance_status'] = isset($data['instance_status']) ? $data['instance_status'] : null;
@@ -369,6 +375,30 @@ class DescribeDBInstancesRequest implements ModelInterface, ArrayAccess
     public function setDbEngineVersion($db_engine_version)
     {
         $this->container['db_engine_version'] = $db_engine_version;
+
+        return $this;
+    }
+
+    /**
+     * Gets engine_type
+     *
+     * @return string
+     */
+    public function getEngineType()
+    {
+        return $this->container['engine_type'];
+    }
+
+    /**
+     * Sets engine_type
+     *
+     * @param string $engine_type engine_type
+     *
+     * @return $this
+     */
+    public function setEngineType($engine_type)
+    {
+        $this->container['engine_type'] = $engine_type;
 
         return $this;
     }

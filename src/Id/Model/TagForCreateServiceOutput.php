@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Billing\Model;
+namespace Volcengine\Id\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ListAmortizedCostBillDetailResponse implements ModelInterface, ArrayAccess
+class TagForCreateServiceOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ListAmortizedCostBillDetailResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ListAmortizedCostBillDetailResponse';
+    protected static $swaggerModelName = 'TagForCreateServiceOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,8 @@ class ListAmortizedCostBillDetailResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'limit' => 'int',
-        'list' => '\Volcengine\Billing\Model\ListForListAmortizedCostBillDetailOutput[]',
-        'offset' => 'int',
-        'total' => 'int'
+        'key' => 'string',
+        'value' => 'string'
     ];
 
     /**
@@ -40,10 +38,8 @@ class ListAmortizedCostBillDetailResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'limit' => 'int32',
-        'list' => null,
-        'offset' => 'int32',
-        'total' => 'int32'
+        'key' => null,
+        'value' => null
     ];
 
     /**
@@ -73,10 +69,8 @@ class ListAmortizedCostBillDetailResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'limit' => 'Limit',
-        'list' => 'List',
-        'offset' => 'Offset',
-        'total' => 'Total'
+        'key' => 'Key',
+        'value' => 'Value'
     ];
 
     /**
@@ -85,10 +79,8 @@ class ListAmortizedCostBillDetailResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'limit' => 'setLimit',
-        'list' => 'setList',
-        'offset' => 'setOffset',
-        'total' => 'setTotal'
+        'key' => 'setKey',
+        'value' => 'setValue'
     ];
 
     /**
@@ -97,10 +89,8 @@ class ListAmortizedCostBillDetailResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'limit' => 'getLimit',
-        'list' => 'getList',
-        'offset' => 'getOffset',
-        'total' => 'getTotal'
+        'key' => 'getKey',
+        'value' => 'getValue'
     ];
 
     /**
@@ -163,10 +153,8 @@ class ListAmortizedCostBillDetailResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['limit'] = isset($data['limit']) ? $data['limit'] : null;
-        $this->container['list'] = isset($data['list']) ? $data['list'] : null;
-        $this->container['offset'] = isset($data['offset']) ? $data['offset'] : null;
-        $this->container['total'] = isset($data['total']) ? $data['total'] : null;
+        $this->container['key'] = isset($data['key']) ? $data['key'] : null;
+        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 
     /**
@@ -194,97 +182,49 @@ class ListAmortizedCostBillDetailResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets limit
+     * Gets key
      *
-     * @return int
+     * @return string
      */
-    public function getLimit()
+    public function getKey()
     {
-        return $this->container['limit'];
+        return $this->container['key'];
     }
 
     /**
-     * Sets limit
+     * Sets key
      *
-     * @param int $limit limit
+     * @param string $key key
      *
      * @return $this
      */
-    public function setLimit($limit)
+    public function setKey($key)
     {
-        $this->container['limit'] = $limit;
+        $this->container['key'] = $key;
 
         return $this;
     }
 
     /**
-     * Gets list
+     * Gets value
      *
-     * @return \Volcengine\Billing\Model\ListForListAmortizedCostBillDetailOutput[]
+     * @return string
      */
-    public function getList()
+    public function getValue()
     {
-        return $this->container['list'];
+        return $this->container['value'];
     }
 
     /**
-     * Sets list
+     * Sets value
      *
-     * @param \Volcengine\Billing\Model\ListForListAmortizedCostBillDetailOutput[] $list list
+     * @param string $value value
      *
      * @return $this
      */
-    public function setList($list)
+    public function setValue($value)
     {
-        $this->container['list'] = $list;
-
-        return $this;
-    }
-
-    /**
-     * Gets offset
-     *
-     * @return int
-     */
-    public function getOffset()
-    {
-        return $this->container['offset'];
-    }
-
-    /**
-     * Sets offset
-     *
-     * @param int $offset offset
-     *
-     * @return $this
-     */
-    public function setOffset($offset)
-    {
-        $this->container['offset'] = $offset;
-
-        return $this;
-    }
-
-    /**
-     * Gets total
-     *
-     * @return int
-     */
-    public function getTotal()
-    {
-        return $this->container['total'];
-    }
-
-    /**
-     * Sets total
-     *
-     * @param int $total total
-     *
-     * @return $this
-     */
-    public function setTotal($total)
-    {
-        $this->container['total'] = $total;
+        $this->container['value'] = $value;
 
         return $this;
     }

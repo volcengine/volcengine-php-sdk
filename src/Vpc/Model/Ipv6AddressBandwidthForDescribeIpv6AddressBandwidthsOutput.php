@@ -44,6 +44,7 @@ class Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput implements Mode
         'network_type' => 'string',
         'overdue_time' => 'string',
         'project_name' => 'string',
+        'specific_egress' => 'string',
         'status' => 'string',
         'tags' => '\Volcengine\Vpc\Model\TagForDescribeIpv6AddressBandwidthsOutput[]',
         'updated_at' => 'string'
@@ -71,6 +72,7 @@ class Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput implements Mode
         'network_type' => null,
         'overdue_time' => null,
         'project_name' => null,
+        'specific_egress' => null,
         'status' => null,
         'tags' => null,
         'updated_at' => null
@@ -119,6 +121,7 @@ class Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput implements Mode
         'network_type' => 'NetworkType',
         'overdue_time' => 'OverdueTime',
         'project_name' => 'ProjectName',
+        'specific_egress' => 'SpecificEgress',
         'status' => 'Status',
         'tags' => 'Tags',
         'updated_at' => 'UpdatedAt'
@@ -146,6 +149,7 @@ class Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput implements Mode
         'network_type' => 'setNetworkType',
         'overdue_time' => 'setOverdueTime',
         'project_name' => 'setProjectName',
+        'specific_egress' => 'setSpecificEgress',
         'status' => 'setStatus',
         'tags' => 'setTags',
         'updated_at' => 'setUpdatedAt'
@@ -173,6 +177,7 @@ class Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput implements Mode
         'network_type' => 'getNetworkType',
         'overdue_time' => 'getOverdueTime',
         'project_name' => 'getProjectName',
+        'specific_egress' => 'getSpecificEgress',
         'status' => 'getStatus',
         'tags' => 'getTags',
         'updated_at' => 'getUpdatedAt'
@@ -254,6 +259,7 @@ class Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput implements Mode
         $this->container['network_type'] = isset($data['network_type']) ? $data['network_type'] : null;
         $this->container['overdue_time'] = isset($data['overdue_time']) ? $data['overdue_time'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['specific_egress'] = isset($data['specific_egress']) ? $data['specific_egress'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
@@ -663,6 +669,30 @@ class Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput implements Mode
     public function setProjectName($project_name)
     {
         $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets specific_egress
+     *
+     * @return string
+     */
+    public function getSpecificEgress()
+    {
+        return $this->container['specific_egress'];
+    }
+
+    /**
+     * Sets specific_egress
+     *
+     * @param string $specific_egress specific_egress
+     *
+     * @return $this
+     */
+    public function setSpecificEgress($specific_egress)
+    {
+        $this->container['specific_egress'] = $specific_egress;
 
         return $this;
     }

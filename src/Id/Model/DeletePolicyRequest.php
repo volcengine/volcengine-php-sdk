@@ -166,6 +166,9 @@ class DeletePolicyRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['policy_name'] === null) {
+            $invalidProperties[] = "'policy_name' can't be null";
+        }
         return $invalidProperties;
     }
 

@@ -36,6 +36,7 @@ class DescribeIpv6GatewayAttributeResponse implements ModelInterface, ArrayAcces
         'request_id' => 'string',
         'route_table_id' => 'string',
         'status' => 'string',
+        'tags' => '\Volcengine\Vpc\Model\TagForDescribeIpv6GatewayAttributeOutput[]',
         'update_time' => 'string',
         'vpc_id' => 'string'
     ];
@@ -54,6 +55,7 @@ class DescribeIpv6GatewayAttributeResponse implements ModelInterface, ArrayAcces
         'request_id' => null,
         'route_table_id' => null,
         'status' => null,
+        'tags' => null,
         'update_time' => null,
         'vpc_id' => null
     ];
@@ -93,6 +95,7 @@ class DescribeIpv6GatewayAttributeResponse implements ModelInterface, ArrayAcces
         'request_id' => 'RequestId',
         'route_table_id' => 'RouteTableId',
         'status' => 'Status',
+        'tags' => 'Tags',
         'update_time' => 'UpdateTime',
         'vpc_id' => 'VpcId'
     ];
@@ -111,6 +114,7 @@ class DescribeIpv6GatewayAttributeResponse implements ModelInterface, ArrayAcces
         'request_id' => 'setRequestId',
         'route_table_id' => 'setRouteTableId',
         'status' => 'setStatus',
+        'tags' => 'setTags',
         'update_time' => 'setUpdateTime',
         'vpc_id' => 'setVpcId'
     ];
@@ -129,6 +133,7 @@ class DescribeIpv6GatewayAttributeResponse implements ModelInterface, ArrayAcces
         'request_id' => 'getRequestId',
         'route_table_id' => 'getRouteTableId',
         'status' => 'getStatus',
+        'tags' => 'getTags',
         'update_time' => 'getUpdateTime',
         'vpc_id' => 'getVpcId'
     ];
@@ -201,6 +206,7 @@ class DescribeIpv6GatewayAttributeResponse implements ModelInterface, ArrayAcces
         $this->container['request_id'] = isset($data['request_id']) ? $data['request_id'] : null;
         $this->container['route_table_id'] = isset($data['route_table_id']) ? $data['route_table_id'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
         $this->container['vpc_id'] = isset($data['vpc_id']) ? $data['vpc_id'] : null;
     }
@@ -417,6 +423,30 @@ class DescribeIpv6GatewayAttributeResponse implements ModelInterface, ArrayAcces
     public function setStatus($status)
     {
         $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets tags
+     *
+     * @return \Volcengine\Vpc\Model\TagForDescribeIpv6GatewayAttributeOutput[]
+     */
+    public function getTags()
+    {
+        return $this->container['tags'];
+    }
+
+    /**
+     * Sets tags
+     *
+     * @param \Volcengine\Vpc\Model\TagForDescribeIpv6GatewayAttributeOutput[] $tags tags
+     *
+     * @return $this
+     */
+    public function setTags($tags)
+    {
+        $this->container['tags'] = $tags;
 
         return $this;
     }

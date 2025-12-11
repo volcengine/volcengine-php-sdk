@@ -29,6 +29,7 @@ class ListForListCouponUsageRecordsOutput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'account_id' => 'int',
+        'billing_cycle' => 'string',
         'change_amount' => 'double',
         'change_type' => 'int',
         'coupon_id' => 'string',
@@ -47,6 +48,7 @@ class ListForListCouponUsageRecordsOutput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'account_id' => 'int64',
+        'billing_cycle' => null,
         'change_amount' => 'double',
         'change_type' => 'int32',
         'coupon_id' => null,
@@ -86,6 +88,7 @@ class ListForListCouponUsageRecordsOutput implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'account_id' => 'AccountID',
+        'billing_cycle' => 'BillingCycle',
         'change_amount' => 'ChangeAmount',
         'change_type' => 'ChangeType',
         'coupon_id' => 'CouponID',
@@ -104,6 +107,7 @@ class ListForListCouponUsageRecordsOutput implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'account_id' => 'setAccountId',
+        'billing_cycle' => 'setBillingCycle',
         'change_amount' => 'setChangeAmount',
         'change_type' => 'setChangeType',
         'coupon_id' => 'setCouponId',
@@ -122,6 +126,7 @@ class ListForListCouponUsageRecordsOutput implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'account_id' => 'getAccountId',
+        'billing_cycle' => 'getBillingCycle',
         'change_amount' => 'getChangeAmount',
         'change_type' => 'getChangeType',
         'coupon_id' => 'getCouponId',
@@ -194,6 +199,7 @@ class ListForListCouponUsageRecordsOutput implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
+        $this->container['billing_cycle'] = isset($data['billing_cycle']) ? $data['billing_cycle'] : null;
         $this->container['change_amount'] = isset($data['change_amount']) ? $data['change_amount'] : null;
         $this->container['change_type'] = isset($data['change_type']) ? $data['change_type'] : null;
         $this->container['coupon_id'] = isset($data['coupon_id']) ? $data['coupon_id'] : null;
@@ -249,6 +255,30 @@ class ListForListCouponUsageRecordsOutput implements ModelInterface, ArrayAccess
     public function setAccountId($account_id)
     {
         $this->container['account_id'] = $account_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets billing_cycle
+     *
+     * @return string
+     */
+    public function getBillingCycle()
+    {
+        return $this->container['billing_cycle'];
+    }
+
+    /**
+     * Sets billing_cycle
+     *
+     * @param string $billing_cycle billing_cycle
+     *
+     * @return $this
+     */
+    public function setBillingCycle($billing_cycle)
+    {
+        $this->container['billing_cycle'] = $billing_cycle;
 
         return $this;
     }

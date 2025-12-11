@@ -28,6 +28,7 @@ class AssignIpv6AddressesResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'async_task_id' => 'string',
         'ipv6_set' => 'string[]',
         'network_interface_id' => 'string',
         'request_id' => 'string'
@@ -39,6 +40,7 @@ class AssignIpv6AddressesResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'async_task_id' => null,
         'ipv6_set' => null,
         'network_interface_id' => null,
         'request_id' => null
@@ -71,6 +73,7 @@ class AssignIpv6AddressesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'async_task_id' => 'AsyncTaskId',
         'ipv6_set' => 'Ipv6Set',
         'network_interface_id' => 'NetworkInterfaceId',
         'request_id' => 'RequestId'
@@ -82,6 +85,7 @@ class AssignIpv6AddressesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'async_task_id' => 'setAsyncTaskId',
         'ipv6_set' => 'setIpv6Set',
         'network_interface_id' => 'setNetworkInterfaceId',
         'request_id' => 'setRequestId'
@@ -93,6 +97,7 @@ class AssignIpv6AddressesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'async_task_id' => 'getAsyncTaskId',
         'ipv6_set' => 'getIpv6Set',
         'network_interface_id' => 'getNetworkInterfaceId',
         'request_id' => 'getRequestId'
@@ -158,6 +163,7 @@ class AssignIpv6AddressesResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['async_task_id'] = isset($data['async_task_id']) ? $data['async_task_id'] : null;
         $this->container['ipv6_set'] = isset($data['ipv6_set']) ? $data['ipv6_set'] : null;
         $this->container['network_interface_id'] = isset($data['network_interface_id']) ? $data['network_interface_id'] : null;
         $this->container['request_id'] = isset($data['request_id']) ? $data['request_id'] : null;
@@ -186,6 +192,30 @@ class AssignIpv6AddressesResponse implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets async_task_id
+     *
+     * @return string
+     */
+    public function getAsyncTaskId()
+    {
+        return $this->container['async_task_id'];
+    }
+
+    /**
+     * Sets async_task_id
+     *
+     * @param string $async_task_id async_task_id
+     *
+     * @return $this
+     */
+    public function setAsyncTaskId($async_task_id)
+    {
+        $this->container['async_task_id'] = $async_task_id;
+
+        return $this;
+    }
 
     /**
      * Gets ipv6_set

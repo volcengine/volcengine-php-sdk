@@ -29,6 +29,7 @@ class AllocateIpv6AddressBandwidthResponse implements ModelInterface, ArrayAcces
       */
     protected static $swaggerTypes = [
         'allocation_id' => 'string',
+        'allocation_ids' => 'string[]',
         'request_id' => 'string'
     ];
 
@@ -39,6 +40,7 @@ class AllocateIpv6AddressBandwidthResponse implements ModelInterface, ArrayAcces
       */
     protected static $swaggerFormats = [
         'allocation_id' => null,
+        'allocation_ids' => null,
         'request_id' => null
     ];
 
@@ -70,6 +72,7 @@ class AllocateIpv6AddressBandwidthResponse implements ModelInterface, ArrayAcces
      */
     protected static $attributeMap = [
         'allocation_id' => 'AllocationId',
+        'allocation_ids' => 'AllocationIds',
         'request_id' => 'RequestId'
     ];
 
@@ -80,6 +83,7 @@ class AllocateIpv6AddressBandwidthResponse implements ModelInterface, ArrayAcces
      */
     protected static $setters = [
         'allocation_id' => 'setAllocationId',
+        'allocation_ids' => 'setAllocationIds',
         'request_id' => 'setRequestId'
     ];
 
@@ -90,6 +94,7 @@ class AllocateIpv6AddressBandwidthResponse implements ModelInterface, ArrayAcces
      */
     protected static $getters = [
         'allocation_id' => 'getAllocationId',
+        'allocation_ids' => 'getAllocationIds',
         'request_id' => 'getRequestId'
     ];
 
@@ -154,6 +159,7 @@ class AllocateIpv6AddressBandwidthResponse implements ModelInterface, ArrayAcces
     public function __construct(array $data = null)
     {
         $this->container['allocation_id'] = isset($data['allocation_id']) ? $data['allocation_id'] : null;
+        $this->container['allocation_ids'] = isset($data['allocation_ids']) ? $data['allocation_ids'] : null;
         $this->container['request_id'] = isset($data['request_id']) ? $data['request_id'] : null;
     }
 
@@ -201,6 +207,30 @@ class AllocateIpv6AddressBandwidthResponse implements ModelInterface, ArrayAcces
     public function setAllocationId($allocation_id)
     {
         $this->container['allocation_id'] = $allocation_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets allocation_ids
+     *
+     * @return string[]
+     */
+    public function getAllocationIds()
+    {
+        return $this->container['allocation_ids'];
+    }
+
+    /**
+     * Sets allocation_ids
+     *
+     * @param string[] $allocation_ids allocation_ids
+     *
+     * @return $this
+     */
+    public function setAllocationIds($allocation_ids)
+    {
+        $this->container['allocation_ids'] = $allocation_ids;
 
         return $this;
     }

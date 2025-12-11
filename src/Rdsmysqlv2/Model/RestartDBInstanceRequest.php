@@ -30,7 +30,9 @@ class RestartDBInstanceRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'apply_scope' => 'string',
         'custom_node_ids' => 'string[]',
+        'force_restart_master' => 'bool',
         'instance_id' => 'string',
+        'restart_with_proxy' => 'bool',
         'specified_switch_end_time' => 'string',
         'specified_switch_start_time' => 'string',
         'switch_type' => 'string'
@@ -44,7 +46,9 @@ class RestartDBInstanceRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'apply_scope' => null,
         'custom_node_ids' => null,
+        'force_restart_master' => null,
         'instance_id' => null,
+        'restart_with_proxy' => null,
         'specified_switch_end_time' => null,
         'specified_switch_start_time' => null,
         'switch_type' => null
@@ -79,7 +83,9 @@ class RestartDBInstanceRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'apply_scope' => 'ApplyScope',
         'custom_node_ids' => 'CustomNodeIds',
+        'force_restart_master' => 'ForceRestartMaster',
         'instance_id' => 'InstanceId',
+        'restart_with_proxy' => 'RestartWithProxy',
         'specified_switch_end_time' => 'SpecifiedSwitchEndTime',
         'specified_switch_start_time' => 'SpecifiedSwitchStartTime',
         'switch_type' => 'SwitchType'
@@ -93,7 +99,9 @@ class RestartDBInstanceRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'apply_scope' => 'setApplyScope',
         'custom_node_ids' => 'setCustomNodeIds',
+        'force_restart_master' => 'setForceRestartMaster',
         'instance_id' => 'setInstanceId',
+        'restart_with_proxy' => 'setRestartWithProxy',
         'specified_switch_end_time' => 'setSpecifiedSwitchEndTime',
         'specified_switch_start_time' => 'setSpecifiedSwitchStartTime',
         'switch_type' => 'setSwitchType'
@@ -107,7 +115,9 @@ class RestartDBInstanceRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'apply_scope' => 'getApplyScope',
         'custom_node_ids' => 'getCustomNodeIds',
+        'force_restart_master' => 'getForceRestartMaster',
         'instance_id' => 'getInstanceId',
+        'restart_with_proxy' => 'getRestartWithProxy',
         'specified_switch_end_time' => 'getSpecifiedSwitchEndTime',
         'specified_switch_start_time' => 'getSpecifiedSwitchStartTime',
         'switch_type' => 'getSwitchType'
@@ -175,7 +185,9 @@ class RestartDBInstanceRequest implements ModelInterface, ArrayAccess
     {
         $this->container['apply_scope'] = isset($data['apply_scope']) ? $data['apply_scope'] : null;
         $this->container['custom_node_ids'] = isset($data['custom_node_ids']) ? $data['custom_node_ids'] : null;
+        $this->container['force_restart_master'] = isset($data['force_restart_master']) ? $data['force_restart_master'] : null;
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
+        $this->container['restart_with_proxy'] = isset($data['restart_with_proxy']) ? $data['restart_with_proxy'] : null;
         $this->container['specified_switch_end_time'] = isset($data['specified_switch_end_time']) ? $data['specified_switch_end_time'] : null;
         $this->container['specified_switch_start_time'] = isset($data['specified_switch_start_time']) ? $data['specified_switch_start_time'] : null;
         $this->container['switch_type'] = isset($data['switch_type']) ? $data['switch_type'] : null;
@@ -257,6 +269,30 @@ class RestartDBInstanceRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets force_restart_master
+     *
+     * @return bool
+     */
+    public function getForceRestartMaster()
+    {
+        return $this->container['force_restart_master'];
+    }
+
+    /**
+     * Sets force_restart_master
+     *
+     * @param bool $force_restart_master force_restart_master
+     *
+     * @return $this
+     */
+    public function setForceRestartMaster($force_restart_master)
+    {
+        $this->container['force_restart_master'] = $force_restart_master;
+
+        return $this;
+    }
+
+    /**
      * Gets instance_id
      *
      * @return string
@@ -276,6 +312,30 @@ class RestartDBInstanceRequest implements ModelInterface, ArrayAccess
     public function setInstanceId($instance_id)
     {
         $this->container['instance_id'] = $instance_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets restart_with_proxy
+     *
+     * @return bool
+     */
+    public function getRestartWithProxy()
+    {
+        return $this->container['restart_with_proxy'];
+    }
+
+    /**
+     * Sets restart_with_proxy
+     *
+     * @param bool $restart_with_proxy restart_with_proxy
+     *
+     * @return $this
+     */
+    public function setRestartWithProxy($restart_with_proxy)
+    {
+        $this->container['restart_with_proxy'] = $restart_with_proxy;
 
         return $this;
     }

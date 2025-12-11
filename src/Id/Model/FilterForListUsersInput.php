@@ -34,6 +34,7 @@ class FilterForListUsersInput implements ModelInterface, ArrayAccess
         'gender' => 'string',
         'given_name' => 'string',
         'latest_browser' => 'string',
+        'latest_login_method' => 'string',
         'locale' => 'string',
         'middle_name' => 'string',
         'name' => 'string',
@@ -55,6 +56,7 @@ class FilterForListUsersInput implements ModelInterface, ArrayAccess
         'gender' => null,
         'given_name' => null,
         'latest_browser' => null,
+        'latest_login_method' => null,
         'locale' => null,
         'middle_name' => null,
         'name' => null,
@@ -97,6 +99,7 @@ class FilterForListUsersInput implements ModelInterface, ArrayAccess
         'gender' => 'Gender',
         'given_name' => 'GivenName',
         'latest_browser' => 'LatestBrowser',
+        'latest_login_method' => 'LatestLoginMethod',
         'locale' => 'Locale',
         'middle_name' => 'MiddleName',
         'name' => 'Name',
@@ -118,6 +121,7 @@ class FilterForListUsersInput implements ModelInterface, ArrayAccess
         'gender' => 'setGender',
         'given_name' => 'setGivenName',
         'latest_browser' => 'setLatestBrowser',
+        'latest_login_method' => 'setLatestLoginMethod',
         'locale' => 'setLocale',
         'middle_name' => 'setMiddleName',
         'name' => 'setName',
@@ -139,6 +143,7 @@ class FilterForListUsersInput implements ModelInterface, ArrayAccess
         'gender' => 'getGender',
         'given_name' => 'getGivenName',
         'latest_browser' => 'getLatestBrowser',
+        'latest_login_method' => 'getLatestLoginMethod',
         'locale' => 'getLocale',
         'middle_name' => 'getMiddleName',
         'name' => 'getName',
@@ -214,6 +219,7 @@ class FilterForListUsersInput implements ModelInterface, ArrayAccess
         $this->container['gender'] = isset($data['gender']) ? $data['gender'] : null;
         $this->container['given_name'] = isset($data['given_name']) ? $data['given_name'] : null;
         $this->container['latest_browser'] = isset($data['latest_browser']) ? $data['latest_browser'] : null;
+        $this->container['latest_login_method'] = isset($data['latest_login_method']) ? $data['latest_login_method'] : null;
         $this->container['locale'] = isset($data['locale']) ? $data['locale'] : null;
         $this->container['middle_name'] = isset($data['middle_name']) ? $data['middle_name'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
@@ -387,6 +393,30 @@ class FilterForListUsersInput implements ModelInterface, ArrayAccess
     public function setLatestBrowser($latest_browser)
     {
         $this->container['latest_browser'] = $latest_browser;
+
+        return $this;
+    }
+
+    /**
+     * Gets latest_login_method
+     *
+     * @return string
+     */
+    public function getLatestLoginMethod()
+    {
+        return $this->container['latest_login_method'];
+    }
+
+    /**
+     * Sets latest_login_method
+     *
+     * @param string $latest_login_method latest_login_method
+     *
+     * @return $this
+     */
+    public function setLatestLoginMethod($latest_login_method)
+    {
+        $this->container['latest_login_method'] = $latest_login_method;
 
         return $this;
     }

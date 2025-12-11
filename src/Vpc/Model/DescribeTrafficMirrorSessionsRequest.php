@@ -36,8 +36,8 @@ class DescribeTrafficMirrorSessionsRequest implements ModelInterface, ArrayAcces
         'project_name' => 'string',
         'tag_filters' => '\Volcengine\Vpc\Model\TagFilterForDescribeTrafficMirrorSessionsInput[]',
         'traffic_mirror_filter_id' => 'string',
-        'traffic_mirror_session_ids' => 'string',
-        'traffic_mirror_session_names' => 'string',
+        'traffic_mirror_session_ids' => 'string[]',
+        'traffic_mirror_session_names' => 'string[]',
         'traffic_mirror_target_id' => 'string',
         'virtual_network_id' => 'int'
     ];
@@ -436,7 +436,7 @@ class DescribeTrafficMirrorSessionsRequest implements ModelInterface, ArrayAcces
     /**
      * Gets traffic_mirror_session_ids
      *
-     * @return string
+     * @return string[]
      */
     public function getTrafficMirrorSessionIds()
     {
@@ -446,7 +446,7 @@ class DescribeTrafficMirrorSessionsRequest implements ModelInterface, ArrayAcces
     /**
      * Sets traffic_mirror_session_ids
      *
-     * @param string $traffic_mirror_session_ids traffic_mirror_session_ids
+     * @param string[] $traffic_mirror_session_ids traffic_mirror_session_ids
      *
      * @return $this
      */
@@ -460,7 +460,7 @@ class DescribeTrafficMirrorSessionsRequest implements ModelInterface, ArrayAcces
     /**
      * Gets traffic_mirror_session_names
      *
-     * @return string
+     * @return string[]
      */
     public function getTrafficMirrorSessionNames()
     {
@@ -470,7 +470,7 @@ class DescribeTrafficMirrorSessionsRequest implements ModelInterface, ArrayAcces
     /**
      * Sets traffic_mirror_session_names
      *
-     * @param string $traffic_mirror_session_names traffic_mirror_session_names
+     * @param string[] $traffic_mirror_session_names traffic_mirror_session_names
      *
      * @return $this
      */

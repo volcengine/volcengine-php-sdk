@@ -28,6 +28,7 @@ class CreateParameterTemplateRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'engine_type' => 'string',
         'project_name' => 'string',
         'template_desc' => 'string',
         'template_name' => 'string',
@@ -42,6 +43,7 @@ class CreateParameterTemplateRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'engine_type' => null,
         'project_name' => null,
         'template_desc' => null,
         'template_name' => null,
@@ -77,6 +79,7 @@ class CreateParameterTemplateRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'engine_type' => 'EngineType',
         'project_name' => 'ProjectName',
         'template_desc' => 'TemplateDesc',
         'template_name' => 'TemplateName',
@@ -91,6 +94,7 @@ class CreateParameterTemplateRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'engine_type' => 'setEngineType',
         'project_name' => 'setProjectName',
         'template_desc' => 'setTemplateDesc',
         'template_name' => 'setTemplateName',
@@ -105,6 +109,7 @@ class CreateParameterTemplateRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'engine_type' => 'getEngineType',
         'project_name' => 'getProjectName',
         'template_desc' => 'getTemplateDesc',
         'template_name' => 'getTemplateName',
@@ -173,6 +178,7 @@ class CreateParameterTemplateRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['engine_type'] = isset($data['engine_type']) ? $data['engine_type'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['template_desc'] = isset($data['template_desc']) ? $data['template_desc'] : null;
         $this->container['template_name'] = isset($data['template_name']) ? $data['template_name'] : null;
@@ -207,6 +213,30 @@ class CreateParameterTemplateRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets engine_type
+     *
+     * @return string
+     */
+    public function getEngineType()
+    {
+        return $this->container['engine_type'];
+    }
+
+    /**
+     * Sets engine_type
+     *
+     * @param string $engine_type engine_type
+     *
+     * @return $this
+     */
+    public function setEngineType($engine_type)
+    {
+        $this->container['engine_type'] = $engine_type;
+
+        return $this;
+    }
 
     /**
      * Gets project_name

@@ -130,6 +130,68 @@ class IDApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function batchCreateRoutes($body = null)
+    {
+        list($response) = $this->batchCreateRoutesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function batchCreateRoutesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\BatchCreateRoutesResponse';
+        $request = $this->batchCreateRoutesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function batchCreateRoutesAsync($body = null)
+    {
+        return $this->batchCreateRoutesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function batchCreateRoutesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\BatchCreateRoutesResponse';
+        $request = $this->batchCreateRoutesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function batchCreateRoutesRequest($body)
+    {
+        $resourcePath = '/BatchCreateRoutes/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function batchGetApiKeyCredentialProviders($body = null)
     {
         list($response) = $this->batchGetApiKeyCredentialProvidersWithHttpInfo($body);
@@ -412,6 +474,68 @@ class IDApi
     protected function checkPermissionRequest($body)
     {
         $resourcePath = '/CheckPermission/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function checkServiceName($body = null)
+    {
+        list($response) = $this->checkServiceNameWithHttpInfo($body);
+        return $response;
+    }
+
+    public function checkServiceNameWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CheckServiceNameResponse';
+        $request = $this->checkServiceNameRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function checkServiceNameAsync($body = null)
+    {
+        return $this->checkServiceNameAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function checkServiceNameAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CheckServiceNameResponse';
+        $request = $this->checkServiceNameRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function checkServiceNameRequest($body)
+    {
+        $resourcePath = '/CheckServiceName/2025-10-30/id/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -1032,6 +1156,254 @@ class IDApi
     protected function createPolicyRequest($body)
     {
         $resourcePath = '/CreatePolicy/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function createRoute($body = null)
+    {
+        list($response) = $this->createRouteWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createRouteWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CreateRouteResponse';
+        $request = $this->createRouteRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createRouteAsync($body = null)
+    {
+        return $this->createRouteAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createRouteAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CreateRouteResponse';
+        $request = $this->createRouteRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createRouteRequest($body)
+    {
+        $resourcePath = '/CreateRoute/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function createRouteFromTemplate($body = null)
+    {
+        list($response) = $this->createRouteFromTemplateWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createRouteFromTemplateWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CreateRouteFromTemplateResponse';
+        $request = $this->createRouteFromTemplateRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createRouteFromTemplateAsync($body = null)
+    {
+        return $this->createRouteFromTemplateAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createRouteFromTemplateAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CreateRouteFromTemplateResponse';
+        $request = $this->createRouteFromTemplateRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createRouteFromTemplateRequest($body)
+    {
+        $resourcePath = '/CreateRouteFromTemplate/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function createService($body = null)
+    {
+        list($response) = $this->createServiceWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createServiceWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CreateServiceResponse';
+        $request = $this->createServiceRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createServiceAsync($body = null)
+    {
+        return $this->createServiceAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createServiceAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CreateServiceResponse';
+        $request = $this->createServiceRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createServiceRequest($body)
+    {
+        $resourcePath = '/CreateService/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function createServiceFromTemplate($body = null)
+    {
+        list($response) = $this->createServiceFromTemplateWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createServiceFromTemplateWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CreateServiceFromTemplateResponse';
+        $request = $this->createServiceFromTemplateRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createServiceFromTemplateAsync($body = null)
+    {
+        return $this->createServiceFromTemplateAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createServiceFromTemplateAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CreateServiceFromTemplateResponse';
+        $request = $this->createServiceFromTemplateRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createServiceFromTemplateRequest($body)
+    {
+        $resourcePath = '/CreateServiceFromTemplate/2025-10-30/id/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -2113,6 +2485,130 @@ class IDApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function deleteRoute($body = null)
+    {
+        list($response) = $this->deleteRouteWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteRouteWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\DeleteRouteResponse';
+        $request = $this->deleteRouteRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deleteRouteAsync($body = null)
+    {
+        return $this->deleteRouteAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteRouteAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\DeleteRouteResponse';
+        $request = $this->deleteRouteRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deleteRouteRequest($body)
+    {
+        $resourcePath = '/DeleteRoute/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function deleteService($body = null)
+    {
+        list($response) = $this->deleteServiceWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteServiceWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\DeleteServiceResponse';
+        $request = $this->deleteServiceRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deleteServiceAsync($body = null)
+    {
+        return $this->deleteServiceAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteServiceAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\DeleteServiceResponse';
+        $request = $this->deleteServiceRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deleteServiceRequest($body)
+    {
+        $resourcePath = '/DeleteService/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function deleteUserPool($body = null)
     {
         list($response) = $this->deleteUserPoolWithHttpInfo($body);
@@ -2423,6 +2919,192 @@ class IDApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function describeRouteTemplateOptions($body = null)
+    {
+        list($response) = $this->describeRouteTemplateOptionsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describeRouteTemplateOptionsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\DescribeRouteTemplateOptionsResponse';
+        $request = $this->describeRouteTemplateOptionsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describeRouteTemplateOptionsAsync($body = null)
+    {
+        return $this->describeRouteTemplateOptionsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describeRouteTemplateOptionsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\DescribeRouteTemplateOptionsResponse';
+        $request = $this->describeRouteTemplateOptionsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describeRouteTemplateOptionsRequest($body)
+    {
+        $resourcePath = '/DescribeRouteTemplateOptions/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function describeTagOptions($body = null)
+    {
+        list($response) = $this->describeTagOptionsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describeTagOptionsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\DescribeTagOptionsResponse';
+        $request = $this->describeTagOptionsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describeTagOptionsAsync($body = null)
+    {
+        return $this->describeTagOptionsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describeTagOptionsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\DescribeTagOptionsResponse';
+        $request = $this->describeTagOptionsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describeTagOptionsRequest($body)
+    {
+        $resourcePath = '/DescribeTagOptions/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function describeTemplateOptions($body = null)
+    {
+        list($response) = $this->describeTemplateOptionsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function describeTemplateOptionsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\DescribeTemplateOptionsResponse';
+        $request = $this->describeTemplateOptionsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function describeTemplateOptionsAsync($body = null)
+    {
+        return $this->describeTemplateOptionsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function describeTemplateOptionsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\DescribeTemplateOptionsResponse';
+        $request = $this->describeTemplateOptionsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function describeTemplateOptionsRequest($body)
+    {
+        $resourcePath = '/DescribeTemplateOptions/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function detachInboundAuthConfig($body = null)
     {
         list($response) = $this->detachInboundAuthConfigWithHttpInfo($body);
@@ -2457,6 +3139,68 @@ class IDApi
     protected function detachInboundAuthConfigRequest($body)
     {
         $resourcePath = '/DetachInboundAuthConfig/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function disableRoute($body = null)
+    {
+        list($response) = $this->disableRouteWithHttpInfo($body);
+        return $response;
+    }
+
+    public function disableRouteWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\DisableRouteResponse';
+        $request = $this->disableRouteRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function disableRouteAsync($body = null)
+    {
+        return $this->disableRouteAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function disableRouteAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\DisableRouteResponse';
+        $request = $this->disableRouteRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function disableRouteRequest($body)
+    {
+        $resourcePath = '/DisableRoute/2025-10-30/id/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -2525,6 +3269,68 @@ class IDApi
         $headers = $this->headerSelector->selectHeaders(
             ['application/json'],
             ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function getDocumentStatus($body = null)
+    {
+        list($response) = $this->getDocumentStatusWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getDocumentStatusWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\GetDocumentStatusResponse';
+        $request = $this->getDocumentStatusRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getDocumentStatusAsync($body = null)
+    {
+        return $this->getDocumentStatusAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getDocumentStatusAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\GetDocumentStatusResponse';
+        $request = $this->getDocumentStatusRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getDocumentStatusRequest($body)
+    {
+        $resourcePath = '/GetDocumentStatus/2025-10-30/id/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
         );
 
         $defaultHeaders = [];
@@ -3077,6 +3883,130 @@ class IDApi
     protected function getResourceOauth2TokenRequest($body)
     {
         $resourcePath = '/GetResourceOauth2Token/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function getRoute($body = null)
+    {
+        list($response) = $this->getRouteWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getRouteWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\GetRouteResponse';
+        $request = $this->getRouteRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getRouteAsync($body = null)
+    {
+        return $this->getRouteAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getRouteAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\GetRouteResponse';
+        $request = $this->getRouteRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getRouteRequest($body)
+    {
+        $resourcePath = '/GetRoute/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function getService($body = null)
+    {
+        list($response) = $this->getServiceWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getServiceWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\GetServiceResponse';
+        $request = $this->getServiceRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getServiceAsync($body = null)
+    {
+        return $this->getServiceAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getServiceAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\GetServiceResponse';
+        $request = $this->getServiceRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getServiceRequest($body)
+    {
+        $resourcePath = '/GetService/2025-10-30/id/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -4469,6 +5399,130 @@ class IDApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function listRoutes($body = null)
+    {
+        list($response) = $this->listRoutesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listRoutesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ListRoutesResponse';
+        $request = $this->listRoutesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listRoutesAsync($body = null)
+    {
+        return $this->listRoutesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listRoutesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ListRoutesResponse';
+        $request = $this->listRoutesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listRoutesRequest($body)
+    {
+        $resourcePath = '/ListRoutes/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listServices($body = null)
+    {
+        list($response) = $this->listServicesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listServicesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ListServicesResponse';
+        $request = $this->listServicesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listServicesAsync($body = null)
+    {
+        return $this->listServicesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listServicesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ListServicesResponse';
+        $request = $this->listServicesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listServicesRequest($body)
+    {
+        $resourcePath = '/ListServices/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function listTagsForResources($body = null)
     {
         list($response) = $this->listTagsForResourcesWithHttpInfo($body);
@@ -4875,6 +5929,130 @@ class IDApi
     protected function oauth2CallbackRequest($body)
     {
         $resourcePath = '/Oauth2Callback/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function publishRoute($body = null)
+    {
+        list($response) = $this->publishRouteWithHttpInfo($body);
+        return $response;
+    }
+
+    public function publishRouteWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\PublishRouteResponse';
+        $request = $this->publishRouteRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function publishRouteAsync($body = null)
+    {
+        return $this->publishRouteAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function publishRouteAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\PublishRouteResponse';
+        $request = $this->publishRouteRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function publishRouteRequest($body)
+    {
+        $resourcePath = '/PublishRoute/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function publishService($body = null)
+    {
+        list($response) = $this->publishServiceWithHttpInfo($body);
+        return $response;
+    }
+
+    public function publishServiceWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\PublishServiceResponse';
+        $request = $this->publishServiceRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function publishServiceAsync($body = null)
+    {
+        return $this->publishServiceAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function publishServiceAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\PublishServiceResponse';
+        $request = $this->publishServiceRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function publishServiceRequest($body)
+    {
+        $resourcePath = '/PublishService/2025-10-30/id/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -5523,6 +6701,130 @@ class IDApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function updateRoute($body = null)
+    {
+        list($response) = $this->updateRouteWithHttpInfo($body);
+        return $response;
+    }
+
+    public function updateRouteWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\UpdateRouteResponse';
+        $request = $this->updateRouteRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function updateRouteAsync($body = null)
+    {
+        return $this->updateRouteAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function updateRouteAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\UpdateRouteResponse';
+        $request = $this->updateRouteRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function updateRouteRequest($body)
+    {
+        $resourcePath = '/UpdateRoute/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function updateService($body = null)
+    {
+        list($response) = $this->updateServiceWithHttpInfo($body);
+        return $response;
+    }
+
+    public function updateServiceWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\UpdateServiceResponse';
+        $request = $this->updateServiceRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function updateServiceAsync($body = null)
+    {
+        return $this->updateServiceAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function updateServiceAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\UpdateServiceResponse';
+        $request = $this->updateServiceRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function updateServiceRequest($body)
+    {
+        $resourcePath = '/UpdateService/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function updateSmsService($body = null)
     {
         list($response) = $this->updateSmsServiceWithHttpInfo($body);
@@ -5867,6 +7169,68 @@ class IDApi
     protected function updateWorkloadPoolRequest($body)
     {
         $resourcePath = '/UpdateWorkloadPool/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function validateBackend($body = null)
+    {
+        list($response) = $this->validateBackendWithHttpInfo($body);
+        return $response;
+    }
+
+    public function validateBackendWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ValidateBackendResponse';
+        $request = $this->validateBackendRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function validateBackendAsync($body = null)
+    {
+        return $this->validateBackendAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function validateBackendAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ValidateBackendResponse';
+        $request = $this->validateBackendRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function validateBackendRequest($body)
+    {
+        $resourcePath = '/ValidateBackend/2025-10-30/id/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 

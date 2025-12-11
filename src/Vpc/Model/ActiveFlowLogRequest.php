@@ -166,9 +166,6 @@ class ActiveFlowLogRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['client_token'] === null) {
-            $invalidProperties[] = "'client_token' can't be null";
-        }
         if ($this->container['flow_log_id'] === null) {
             $invalidProperties[] = "'flow_log_id' can't be null";
         }

@@ -38,6 +38,7 @@ class CreateUserPoolClientResponse implements ModelInterface, ArrayAccess
         'description' => 'string',
         'id_token' => '\Volcengine\Id\Model\IdTokenForCreateUserPoolClientOutput',
         'login_page_url' => 'string',
+        'logo_uri' => 'string',
         'name' => 'string',
         'refresh_token' => '\Volcengine\Id\Model\RefreshTokenForCreateUserPoolClientOutput',
         'uid' => 'string',
@@ -60,6 +61,7 @@ class CreateUserPoolClientResponse implements ModelInterface, ArrayAccess
         'description' => null,
         'id_token' => null,
         'login_page_url' => null,
+        'logo_uri' => null,
         'name' => null,
         'refresh_token' => null,
         'uid' => null,
@@ -103,6 +105,7 @@ class CreateUserPoolClientResponse implements ModelInterface, ArrayAccess
         'description' => 'Description',
         'id_token' => 'IdToken',
         'login_page_url' => 'LoginPageUrl',
+        'logo_uri' => 'LogoUri',
         'name' => 'Name',
         'refresh_token' => 'RefreshToken',
         'uid' => 'Uid',
@@ -125,6 +128,7 @@ class CreateUserPoolClientResponse implements ModelInterface, ArrayAccess
         'description' => 'setDescription',
         'id_token' => 'setIdToken',
         'login_page_url' => 'setLoginPageUrl',
+        'logo_uri' => 'setLogoUri',
         'name' => 'setName',
         'refresh_token' => 'setRefreshToken',
         'uid' => 'setUid',
@@ -147,6 +151,7 @@ class CreateUserPoolClientResponse implements ModelInterface, ArrayAccess
         'description' => 'getDescription',
         'id_token' => 'getIdToken',
         'login_page_url' => 'getLoginPageUrl',
+        'logo_uri' => 'getLogoUri',
         'name' => 'getName',
         'refresh_token' => 'getRefreshToken',
         'uid' => 'getUid',
@@ -223,6 +228,7 @@ class CreateUserPoolClientResponse implements ModelInterface, ArrayAccess
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['id_token'] = isset($data['id_token']) ? $data['id_token'] : null;
         $this->container['login_page_url'] = isset($data['login_page_url']) ? $data['login_page_url'] : null;
+        $this->container['logo_uri'] = isset($data['logo_uri']) ? $data['logo_uri'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['refresh_token'] = isset($data['refresh_token']) ? $data['refresh_token'] : null;
         $this->container['uid'] = isset($data['uid']) ? $data['uid'] : null;
@@ -489,6 +495,30 @@ class CreateUserPoolClientResponse implements ModelInterface, ArrayAccess
     public function setLoginPageUrl($login_page_url)
     {
         $this->container['login_page_url'] = $login_page_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets logo_uri
+     *
+     * @return string
+     */
+    public function getLogoUri()
+    {
+        return $this->container['logo_uri'];
+    }
+
+    /**
+     * Sets logo_uri
+     *
+     * @param string $logo_uri logo_uri
+     *
+     * @return $this
+     */
+    public function setLogoUri($logo_uri)
+    {
+        $this->container['logo_uri'] = $logo_uri;
 
         return $this;
     }

@@ -50,6 +50,7 @@ class ModifyBackupPolicyResponse implements ModelInterface, ArrayAccess
         'hourly_incr_backup_enable' => 'bool',
         'incr_backup_hour_period' => 'int',
         'instance_id' => 'string',
+        'keep_cross_backup_enable_after_released' => 'bool',
         'lock_ddl_time' => 'int',
         'log_backup_retention_day' => 'int',
         'public_download_enable' => 'bool',
@@ -84,6 +85,7 @@ class ModifyBackupPolicyResponse implements ModelInterface, ArrayAccess
         'hourly_incr_backup_enable' => null,
         'incr_backup_hour_period' => 'int32',
         'instance_id' => null,
+        'keep_cross_backup_enable_after_released' => null,
         'lock_ddl_time' => 'int32',
         'log_backup_retention_day' => 'int32',
         'public_download_enable' => null,
@@ -139,6 +141,7 @@ class ModifyBackupPolicyResponse implements ModelInterface, ArrayAccess
         'hourly_incr_backup_enable' => 'HourlyIncrBackupEnable',
         'incr_backup_hour_period' => 'IncrBackupHourPeriod',
         'instance_id' => 'InstanceId',
+        'keep_cross_backup_enable_after_released' => 'KeepCrossBackupEnableAfterReleased',
         'lock_ddl_time' => 'LockDDLTime',
         'log_backup_retention_day' => 'LogBackupRetentionDay',
         'public_download_enable' => 'PublicDownloadEnable',
@@ -173,6 +176,7 @@ class ModifyBackupPolicyResponse implements ModelInterface, ArrayAccess
         'hourly_incr_backup_enable' => 'setHourlyIncrBackupEnable',
         'incr_backup_hour_period' => 'setIncrBackupHourPeriod',
         'instance_id' => 'setInstanceId',
+        'keep_cross_backup_enable_after_released' => 'setKeepCrossBackupEnableAfterReleased',
         'lock_ddl_time' => 'setLockDdlTime',
         'log_backup_retention_day' => 'setLogBackupRetentionDay',
         'public_download_enable' => 'setPublicDownloadEnable',
@@ -207,6 +211,7 @@ class ModifyBackupPolicyResponse implements ModelInterface, ArrayAccess
         'hourly_incr_backup_enable' => 'getHourlyIncrBackupEnable',
         'incr_backup_hour_period' => 'getIncrBackupHourPeriod',
         'instance_id' => 'getInstanceId',
+        'keep_cross_backup_enable_after_released' => 'getKeepCrossBackupEnableAfterReleased',
         'lock_ddl_time' => 'getLockDdlTime',
         'log_backup_retention_day' => 'getLogBackupRetentionDay',
         'public_download_enable' => 'getPublicDownloadEnable',
@@ -295,6 +300,7 @@ class ModifyBackupPolicyResponse implements ModelInterface, ArrayAccess
         $this->container['hourly_incr_backup_enable'] = isset($data['hourly_incr_backup_enable']) ? $data['hourly_incr_backup_enable'] : null;
         $this->container['incr_backup_hour_period'] = isset($data['incr_backup_hour_period']) ? $data['incr_backup_hour_period'] : null;
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
+        $this->container['keep_cross_backup_enable_after_released'] = isset($data['keep_cross_backup_enable_after_released']) ? $data['keep_cross_backup_enable_after_released'] : null;
         $this->container['lock_ddl_time'] = isset($data['lock_ddl_time']) ? $data['lock_ddl_time'] : null;
         $this->container['log_backup_retention_day'] = isset($data['log_backup_retention_day']) ? $data['log_backup_retention_day'] : null;
         $this->container['public_download_enable'] = isset($data['public_download_enable']) ? $data['public_download_enable'] : null;
@@ -849,6 +855,30 @@ class ModifyBackupPolicyResponse implements ModelInterface, ArrayAccess
     public function setInstanceId($instance_id)
     {
         $this->container['instance_id'] = $instance_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets keep_cross_backup_enable_after_released
+     *
+     * @return bool
+     */
+    public function getKeepCrossBackupEnableAfterReleased()
+    {
+        return $this->container['keep_cross_backup_enable_after_released'];
+    }
+
+    /**
+     * Sets keep_cross_backup_enable_after_released
+     *
+     * @param bool $keep_cross_backup_enable_after_released keep_cross_backup_enable_after_released
+     *
+     * @return $this
+     */
+    public function setKeepCrossBackupEnableAfterReleased($keep_cross_backup_enable_after_released)
+    {
+        $this->container['keep_cross_backup_enable_after_released'] = $keep_cross_backup_enable_after_released;
 
         return $this;
     }
