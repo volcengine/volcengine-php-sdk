@@ -37,6 +37,7 @@ class CreateKeyRequest implements ModelInterface, ArrayAccess
         'multi_region' => 'bool',
         'origin' => 'string',
         'protection_level' => 'string',
+        'rotate_interval' => 'int',
         'rotate_state' => 'string',
         'tags' => '\Volcengine\Kms\Model\TagForCreateKeyInput[]',
         'xks_key_id' => 'string'
@@ -57,6 +58,7 @@ class CreateKeyRequest implements ModelInterface, ArrayAccess
         'multi_region' => null,
         'origin' => null,
         'protection_level' => null,
+        'rotate_interval' => 'int32',
         'rotate_state' => null,
         'tags' => null,
         'xks_key_id' => null
@@ -98,6 +100,7 @@ class CreateKeyRequest implements ModelInterface, ArrayAccess
         'multi_region' => 'MultiRegion',
         'origin' => 'Origin',
         'protection_level' => 'ProtectionLevel',
+        'rotate_interval' => 'RotateInterval',
         'rotate_state' => 'RotateState',
         'tags' => 'Tags',
         'xks_key_id' => 'XksKeyID'
@@ -118,6 +121,7 @@ class CreateKeyRequest implements ModelInterface, ArrayAccess
         'multi_region' => 'setMultiRegion',
         'origin' => 'setOrigin',
         'protection_level' => 'setProtectionLevel',
+        'rotate_interval' => 'setRotateInterval',
         'rotate_state' => 'setRotateState',
         'tags' => 'setTags',
         'xks_key_id' => 'setXksKeyId'
@@ -138,6 +142,7 @@ class CreateKeyRequest implements ModelInterface, ArrayAccess
         'multi_region' => 'getMultiRegion',
         'origin' => 'getOrigin',
         'protection_level' => 'getProtectionLevel',
+        'rotate_interval' => 'getRotateInterval',
         'rotate_state' => 'getRotateState',
         'tags' => 'getTags',
         'xks_key_id' => 'getXksKeyId'
@@ -212,6 +217,7 @@ class CreateKeyRequest implements ModelInterface, ArrayAccess
         $this->container['multi_region'] = isset($data['multi_region']) ? $data['multi_region'] : null;
         $this->container['origin'] = isset($data['origin']) ? $data['origin'] : null;
         $this->container['protection_level'] = isset($data['protection_level']) ? $data['protection_level'] : null;
+        $this->container['rotate_interval'] = isset($data['rotate_interval']) ? $data['rotate_interval'] : null;
         $this->container['rotate_state'] = isset($data['rotate_state']) ? $data['rotate_state'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['xks_key_id'] = isset($data['xks_key_id']) ? $data['xks_key_id'] : null;
@@ -459,6 +465,30 @@ class CreateKeyRequest implements ModelInterface, ArrayAccess
     public function setProtectionLevel($protection_level)
     {
         $this->container['protection_level'] = $protection_level;
+
+        return $this;
+    }
+
+    /**
+     * Gets rotate_interval
+     *
+     * @return int
+     */
+    public function getRotateInterval()
+    {
+        return $this->container['rotate_interval'];
+    }
+
+    /**
+     * Sets rotate_interval
+     *
+     * @param int $rotate_interval rotate_interval
+     *
+     * @return $this
+     */
+    public function setRotateInterval($rotate_interval)
+    {
+        $this->container['rotate_interval'] = $rotate_interval;
 
         return $this;
     }

@@ -30,7 +30,8 @@ class EnableKeyRotationRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'key_id' => 'string',
         'key_name' => 'string',
-        'keyring_name' => 'string'
+        'keyring_name' => 'string',
+        'rotate_interval' => 'int'
     ];
 
     /**
@@ -41,7 +42,8 @@ class EnableKeyRotationRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'key_id' => null,
         'key_name' => null,
-        'keyring_name' => null
+        'keyring_name' => null,
+        'rotate_interval' => 'int32'
     ];
 
     /**
@@ -73,7 +75,8 @@ class EnableKeyRotationRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'key_id' => 'KeyID',
         'key_name' => 'KeyName',
-        'keyring_name' => 'KeyringName'
+        'keyring_name' => 'KeyringName',
+        'rotate_interval' => 'RotateInterval'
     ];
 
     /**
@@ -84,7 +87,8 @@ class EnableKeyRotationRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'key_id' => 'setKeyId',
         'key_name' => 'setKeyName',
-        'keyring_name' => 'setKeyringName'
+        'keyring_name' => 'setKeyringName',
+        'rotate_interval' => 'setRotateInterval'
     ];
 
     /**
@@ -95,7 +99,8 @@ class EnableKeyRotationRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'key_id' => 'getKeyId',
         'key_name' => 'getKeyName',
-        'keyring_name' => 'getKeyringName'
+        'keyring_name' => 'getKeyringName',
+        'rotate_interval' => 'getRotateInterval'
     ];
 
     /**
@@ -161,6 +166,7 @@ class EnableKeyRotationRequest implements ModelInterface, ArrayAccess
         $this->container['key_id'] = isset($data['key_id']) ? $data['key_id'] : null;
         $this->container['key_name'] = isset($data['key_name']) ? $data['key_name'] : null;
         $this->container['keyring_name'] = isset($data['keyring_name']) ? $data['keyring_name'] : null;
+        $this->container['rotate_interval'] = isset($data['rotate_interval']) ? $data['rotate_interval'] : null;
     }
 
     /**
@@ -255,6 +261,30 @@ class EnableKeyRotationRequest implements ModelInterface, ArrayAccess
     public function setKeyringName($keyring_name)
     {
         $this->container['keyring_name'] = $keyring_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets rotate_interval
+     *
+     * @return int
+     */
+    public function getRotateInterval()
+    {
+        return $this->container['rotate_interval'];
+    }
+
+    /**
+     * Sets rotate_interval
+     *
+     * @param int $rotate_interval rotate_interval
+     *
+     * @return $this
+     */
+    public function setRotateInterval($rotate_interval)
+    {
+        $this->container['rotate_interval'] = $rotate_interval;
 
         return $this;
     }
