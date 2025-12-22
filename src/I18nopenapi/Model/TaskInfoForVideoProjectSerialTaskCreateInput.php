@@ -30,12 +30,13 @@ class TaskInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
     protected static $swaggerTypes = [
         'ai_remove_type' => 'string',
         'asr_model' => 'int',
+        'bgm_policy' => 'int',
         'comment' => 'string',
         'deadline' => 'int',
         'drama_cover_url' => 'string',
         'drama_description' => 'string',
         'drama_title' => 'string',
-        'is_dub' => 'int',
+        'is_dub' => 'bool',
         'need_translate_cover' => 'bool',
         'need_translate_desc' => 'bool',
         'need_translate_title' => 'bool',
@@ -56,12 +57,13 @@ class TaskInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
     protected static $swaggerFormats = [
         'ai_remove_type' => null,
         'asr_model' => 'int32',
+        'bgm_policy' => 'int32',
         'comment' => null,
         'deadline' => 'int32',
         'drama_cover_url' => null,
         'drama_description' => null,
         'drama_title' => null,
-        'is_dub' => 'int32',
+        'is_dub' => null,
         'need_translate_cover' => null,
         'need_translate_desc' => null,
         'need_translate_title' => null,
@@ -103,6 +105,7 @@ class TaskInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
     protected static $attributeMap = [
         'ai_remove_type' => 'aiRemoveType',
         'asr_model' => 'asrModel',
+        'bgm_policy' => 'bgmPolicy',
         'comment' => 'comment',
         'deadline' => 'deadline',
         'drama_cover_url' => 'dramaCoverUrl',
@@ -129,6 +132,7 @@ class TaskInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
     protected static $setters = [
         'ai_remove_type' => 'setAiRemoveType',
         'asr_model' => 'setAsrModel',
+        'bgm_policy' => 'setBgmPolicy',
         'comment' => 'setComment',
         'deadline' => 'setDeadline',
         'drama_cover_url' => 'setDramaCoverUrl',
@@ -155,6 +159,7 @@ class TaskInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
     protected static $getters = [
         'ai_remove_type' => 'getAiRemoveType',
         'asr_model' => 'getAsrModel',
+        'bgm_policy' => 'getBgmPolicy',
         'comment' => 'getComment',
         'deadline' => 'getDeadline',
         'drama_cover_url' => 'getDramaCoverUrl',
@@ -235,6 +240,7 @@ class TaskInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
     {
         $this->container['ai_remove_type'] = isset($data['ai_remove_type']) ? $data['ai_remove_type'] : null;
         $this->container['asr_model'] = isset($data['asr_model']) ? $data['asr_model'] : null;
+        $this->container['bgm_policy'] = isset($data['bgm_policy']) ? $data['bgm_policy'] : null;
         $this->container['comment'] = isset($data['comment']) ? $data['comment'] : null;
         $this->container['deadline'] = isset($data['deadline']) ? $data['deadline'] : null;
         $this->container['drama_cover_url'] = isset($data['drama_cover_url']) ? $data['drama_cover_url'] : null;
@@ -321,6 +327,30 @@ class TaskInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
     public function setAsrModel($asr_model)
     {
         $this->container['asr_model'] = $asr_model;
+
+        return $this;
+    }
+
+    /**
+     * Gets bgm_policy
+     *
+     * @return int
+     */
+    public function getBgmPolicy()
+    {
+        return $this->container['bgm_policy'];
+    }
+
+    /**
+     * Sets bgm_policy
+     *
+     * @param int $bgm_policy bgm_policy
+     *
+     * @return $this
+     */
+    public function setBgmPolicy($bgm_policy)
+    {
+        $this->container['bgm_policy'] = $bgm_policy;
 
         return $this;
     }
@@ -448,7 +478,7 @@ class TaskInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
     /**
      * Gets is_dub
      *
-     * @return int
+     * @return bool
      */
     public function getIsDub()
     {
@@ -458,7 +488,7 @@ class TaskInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
     /**
      * Sets is_dub
      *
-     * @param int $is_dub is_dub
+     * @param bool $is_dub is_dub
      *
      * @return $this
      */
