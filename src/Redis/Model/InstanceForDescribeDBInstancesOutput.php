@@ -28,6 +28,7 @@ class InstanceForDescribeDBInstancesOutput implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'blue_green_role' => 'string',
         'capacity' => '\Volcengine\Redis\Model\CapacityForDescribeDBInstancesOutput',
         'charge_type' => 'string',
         'create_time' => 'string',
@@ -62,6 +63,7 @@ class InstanceForDescribeDBInstancesOutput implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'blue_green_role' => null,
         'capacity' => null,
         'charge_type' => null,
         'create_time' => null,
@@ -117,6 +119,7 @@ class InstanceForDescribeDBInstancesOutput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $attributeMap = [
+        'blue_green_role' => 'BlueGreenRole',
         'capacity' => 'Capacity',
         'charge_type' => 'ChargeType',
         'create_time' => 'CreateTime',
@@ -151,6 +154,7 @@ class InstanceForDescribeDBInstancesOutput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $setters = [
+        'blue_green_role' => 'setBlueGreenRole',
         'capacity' => 'setCapacity',
         'charge_type' => 'setChargeType',
         'create_time' => 'setCreateTime',
@@ -185,6 +189,7 @@ class InstanceForDescribeDBInstancesOutput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $getters = [
+        'blue_green_role' => 'getBlueGreenRole',
         'capacity' => 'getCapacity',
         'charge_type' => 'getChargeType',
         'create_time' => 'getCreateTime',
@@ -254,8 +259,23 @@ class InstanceForDescribeDBInstancesOutput implements ModelInterface, ArrayAcces
         return self::$swaggerModelName;
     }
 
+    const BLUE_GREEN_ROLE_BLUE = 'Blue';
+    const BLUE_GREEN_ROLE_GREEN = 'Green';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getBlueGreenRoleAllowableValues()
+    {
+        return [
+            self::BLUE_GREEN_ROLE_BLUE,
+            self::BLUE_GREEN_ROLE_GREEN,
+        ];
+    }
     
 
     /**
@@ -273,6 +293,7 @@ class InstanceForDescribeDBInstancesOutput implements ModelInterface, ArrayAcces
      */
     public function __construct(array $data = null)
     {
+        $this->container['blue_green_role'] = isset($data['blue_green_role']) ? $data['blue_green_role'] : null;
         $this->container['capacity'] = isset($data['capacity']) ? $data['capacity'] : null;
         $this->container['charge_type'] = isset($data['charge_type']) ? $data['charge_type'] : null;
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
@@ -310,6 +331,14 @@ class InstanceForDescribeDBInstancesOutput implements ModelInterface, ArrayAcces
     {
         $invalidProperties = [];
 
+        $allowedValues = $this->getBlueGreenRoleAllowableValues();
+        if (!is_null($this->container['blue_green_role']) && !in_array($this->container['blue_green_role'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'blue_green_role', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -324,6 +353,39 @@ class InstanceForDescribeDBInstancesOutput implements ModelInterface, ArrayAcces
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets blue_green_role
+     *
+     * @return string
+     */
+    public function getBlueGreenRole()
+    {
+        return $this->container['blue_green_role'];
+    }
+
+    /**
+     * Sets blue_green_role
+     *
+     * @param string $blue_green_role blue_green_role
+     *
+     * @return $this
+     */
+    public function setBlueGreenRole($blue_green_role)
+    {
+        $allowedValues = $this->getBlueGreenRoleAllowableValues();
+        if (!is_null($blue_green_role) && !in_array($blue_green_role, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'blue_green_role', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['blue_green_role'] = $blue_green_role;
+
+        return $this;
+    }
 
     /**
      * Gets capacity

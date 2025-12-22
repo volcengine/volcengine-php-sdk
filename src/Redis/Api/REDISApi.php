@@ -3540,6 +3540,68 @@ class REDISApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function interruptKeyScanJob($body = null)
+    {
+        list($response) = $this->interruptKeyScanJobWithHttpInfo($body);
+        return $response;
+    }
+
+    public function interruptKeyScanJobWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Redis\Model\InterruptKeyScanJobResponse';
+        $request = $this->interruptKeyScanJobRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function interruptKeyScanJobAsync($body = null)
+    {
+        return $this->interruptKeyScanJobAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function interruptKeyScanJobAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Redis\Model\InterruptKeyScanJobResponse';
+        $request = $this->interruptKeyScanJobRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function interruptKeyScanJobRequest($body)
+    {
+        $resourcePath = '/InterruptKeyScanJob/2020-12-07/redis/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function listDBAccount($body = null)
     {
         list($response) = $this->listDBAccountWithHttpInfo($body);
