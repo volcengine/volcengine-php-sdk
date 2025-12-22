@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Kms\Model;
+namespace Volcengine\Graph\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class EnableKeyRotationRequest implements ModelInterface, ArrayAccess
+class ExecuteQueryResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class EnableKeyRotationRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'EnableKeyRotationRequest';
+    protected static $swaggerModelName = 'ExecuteQueryResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,7 @@ class EnableKeyRotationRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'key_id' => 'string',
-        'key_name' => 'string',
-        'keyring_name' => 'string',
-        'rotate_interval' => 'int'
+        'value_json_string' => 'string'
     ];
 
     /**
@@ -40,10 +37,7 @@ class EnableKeyRotationRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'key_id' => null,
-        'key_name' => null,
-        'keyring_name' => null,
-        'rotate_interval' => 'int32'
+        'value_json_string' => null
     ];
 
     /**
@@ -73,10 +67,7 @@ class EnableKeyRotationRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'key_id' => 'KeyID',
-        'key_name' => 'KeyName',
-        'keyring_name' => 'KeyringName',
-        'rotate_interval' => 'RotateInterval'
+        'value_json_string' => 'ValueJsonString'
     ];
 
     /**
@@ -85,10 +76,7 @@ class EnableKeyRotationRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'key_id' => 'setKeyId',
-        'key_name' => 'setKeyName',
-        'keyring_name' => 'setKeyringName',
-        'rotate_interval' => 'setRotateInterval'
+        'value_json_string' => 'setValueJsonString'
     ];
 
     /**
@@ -97,10 +85,7 @@ class EnableKeyRotationRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'key_id' => 'getKeyId',
-        'key_name' => 'getKeyName',
-        'keyring_name' => 'getKeyringName',
-        'rotate_interval' => 'getRotateInterval'
+        'value_json_string' => 'getValueJsonString'
     ];
 
     /**
@@ -163,10 +148,7 @@ class EnableKeyRotationRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['key_id'] = isset($data['key_id']) ? $data['key_id'] : null;
-        $this->container['key_name'] = isset($data['key_name']) ? $data['key_name'] : null;
-        $this->container['keyring_name'] = isset($data['keyring_name']) ? $data['keyring_name'] : null;
-        $this->container['rotate_interval'] = isset($data['rotate_interval']) ? $data['rotate_interval'] : null;
+        $this->container['value_json_string'] = isset($data['value_json_string']) ? $data['value_json_string'] : null;
     }
 
     /**
@@ -194,97 +176,25 @@ class EnableKeyRotationRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets key_id
+     * Gets value_json_string
      *
      * @return string
      */
-    public function getKeyId()
+    public function getValueJsonString()
     {
-        return $this->container['key_id'];
+        return $this->container['value_json_string'];
     }
 
     /**
-     * Sets key_id
+     * Sets value_json_string
      *
-     * @param string $key_id key_id
+     * @param string $value_json_string value_json_string
      *
      * @return $this
      */
-    public function setKeyId($key_id)
+    public function setValueJsonString($value_json_string)
     {
-        $this->container['key_id'] = $key_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets key_name
-     *
-     * @return string
-     */
-    public function getKeyName()
-    {
-        return $this->container['key_name'];
-    }
-
-    /**
-     * Sets key_name
-     *
-     * @param string $key_name key_name
-     *
-     * @return $this
-     */
-    public function setKeyName($key_name)
-    {
-        $this->container['key_name'] = $key_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets keyring_name
-     *
-     * @return string
-     */
-    public function getKeyringName()
-    {
-        return $this->container['keyring_name'];
-    }
-
-    /**
-     * Sets keyring_name
-     *
-     * @param string $keyring_name keyring_name
-     *
-     * @return $this
-     */
-    public function setKeyringName($keyring_name)
-    {
-        $this->container['keyring_name'] = $keyring_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets rotate_interval
-     *
-     * @return int
-     */
-    public function getRotateInterval()
-    {
-        return $this->container['rotate_interval'];
-    }
-
-    /**
-     * Sets rotate_interval
-     *
-     * @param int $rotate_interval rotate_interval
-     *
-     * @return $this
-     */
-    public function setRotateInterval($rotate_interval)
-    {
-        $this->container['rotate_interval'] = $rotate_interval;
+        $this->container['value_json_string'] = $value_json_string;
 
         return $this;
     }

@@ -34,6 +34,7 @@ class NetworkResourceForGetVegraphNetworkResourceOutput implements ModelInterfac
         'instance_id' => 'string',
         'ip_version_type' => 'string',
         'lbid' => 'string',
+        'network_resource_type' => 'string',
         'region' => 'string',
         'resource_name' => 'string',
         'subnet_id' => 'string',
@@ -54,6 +55,7 @@ class NetworkResourceForGetVegraphNetworkResourceOutput implements ModelInterfac
         'instance_id' => null,
         'ip_version_type' => null,
         'lbid' => null,
+        'network_resource_type' => null,
         'region' => null,
         'resource_name' => null,
         'subnet_id' => null,
@@ -95,6 +97,7 @@ class NetworkResourceForGetVegraphNetworkResourceOutput implements ModelInterfac
         'instance_id' => 'InstanceId',
         'ip_version_type' => 'IpVersionType',
         'lbid' => 'LBId',
+        'network_resource_type' => 'NetworkResourceType',
         'region' => 'Region',
         'resource_name' => 'ResourceName',
         'subnet_id' => 'SubnetId',
@@ -115,6 +118,7 @@ class NetworkResourceForGetVegraphNetworkResourceOutput implements ModelInterfac
         'instance_id' => 'setInstanceId',
         'ip_version_type' => 'setIpVersionType',
         'lbid' => 'setLbid',
+        'network_resource_type' => 'setNetworkResourceType',
         'region' => 'setRegion',
         'resource_name' => 'setResourceName',
         'subnet_id' => 'setSubnetId',
@@ -135,6 +139,7 @@ class NetworkResourceForGetVegraphNetworkResourceOutput implements ModelInterfac
         'instance_id' => 'getInstanceId',
         'ip_version_type' => 'getIpVersionType',
         'lbid' => 'getLbid',
+        'network_resource_type' => 'getNetworkResourceType',
         'region' => 'getRegion',
         'resource_name' => 'getResourceName',
         'subnet_id' => 'getSubnetId',
@@ -209,6 +214,7 @@ class NetworkResourceForGetVegraphNetworkResourceOutput implements ModelInterfac
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
         $this->container['ip_version_type'] = isset($data['ip_version_type']) ? $data['ip_version_type'] : null;
         $this->container['lbid'] = isset($data['lbid']) ? $data['lbid'] : null;
+        $this->container['network_resource_type'] = isset($data['network_resource_type']) ? $data['network_resource_type'] : null;
         $this->container['region'] = isset($data['region']) ? $data['region'] : null;
         $this->container['resource_name'] = isset($data['resource_name']) ? $data['resource_name'] : null;
         $this->container['subnet_id'] = isset($data['subnet_id']) ? $data['subnet_id'] : null;
@@ -381,6 +387,30 @@ class NetworkResourceForGetVegraphNetworkResourceOutput implements ModelInterfac
     public function setLbid($lbid)
     {
         $this->container['lbid'] = $lbid;
+
+        return $this;
+    }
+
+    /**
+     * Gets network_resource_type
+     *
+     * @return string
+     */
+    public function getNetworkResourceType()
+    {
+        return $this->container['network_resource_type'];
+    }
+
+    /**
+     * Sets network_resource_type
+     *
+     * @param string $network_resource_type network_resource_type
+     *
+     * @return $this
+     */
+    public function setNetworkResourceType($network_resource_type)
+    {
+        $this->container['network_resource_type'] = $network_resource_type;
 
         return $this;
     }

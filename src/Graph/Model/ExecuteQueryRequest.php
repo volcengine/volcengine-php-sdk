@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Kms\Model;
+namespace Volcengine\Graph\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class EnableKeyRotationRequest implements ModelInterface, ArrayAccess
+class ExecuteQueryRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class EnableKeyRotationRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'EnableKeyRotationRequest';
+    protected static $swaggerModelName = 'ExecuteQueryRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,10 @@ class EnableKeyRotationRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'key_id' => 'string',
-        'key_name' => 'string',
-        'keyring_name' => 'string',
-        'rotate_interval' => 'int'
+        'availability_zone_id' => 'string',
+        'instance_id' => 'string',
+        'query' => 'string',
+        'table_name' => 'string'
     ];
 
     /**
@@ -40,10 +40,10 @@ class EnableKeyRotationRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'key_id' => null,
-        'key_name' => null,
-        'keyring_name' => null,
-        'rotate_interval' => 'int32'
+        'availability_zone_id' => null,
+        'instance_id' => null,
+        'query' => null,
+        'table_name' => null
     ];
 
     /**
@@ -73,10 +73,10 @@ class EnableKeyRotationRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'key_id' => 'KeyID',
-        'key_name' => 'KeyName',
-        'keyring_name' => 'KeyringName',
-        'rotate_interval' => 'RotateInterval'
+        'availability_zone_id' => 'AvailabilityZoneId',
+        'instance_id' => 'InstanceId',
+        'query' => 'Query',
+        'table_name' => 'TableName'
     ];
 
     /**
@@ -85,10 +85,10 @@ class EnableKeyRotationRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'key_id' => 'setKeyId',
-        'key_name' => 'setKeyName',
-        'keyring_name' => 'setKeyringName',
-        'rotate_interval' => 'setRotateInterval'
+        'availability_zone_id' => 'setAvailabilityZoneId',
+        'instance_id' => 'setInstanceId',
+        'query' => 'setQuery',
+        'table_name' => 'setTableName'
     ];
 
     /**
@@ -97,10 +97,10 @@ class EnableKeyRotationRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'key_id' => 'getKeyId',
-        'key_name' => 'getKeyName',
-        'keyring_name' => 'getKeyringName',
-        'rotate_interval' => 'getRotateInterval'
+        'availability_zone_id' => 'getAvailabilityZoneId',
+        'instance_id' => 'getInstanceId',
+        'query' => 'getQuery',
+        'table_name' => 'getTableName'
     ];
 
     /**
@@ -163,10 +163,10 @@ class EnableKeyRotationRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['key_id'] = isset($data['key_id']) ? $data['key_id'] : null;
-        $this->container['key_name'] = isset($data['key_name']) ? $data['key_name'] : null;
-        $this->container['keyring_name'] = isset($data['keyring_name']) ? $data['keyring_name'] : null;
-        $this->container['rotate_interval'] = isset($data['rotate_interval']) ? $data['rotate_interval'] : null;
+        $this->container['availability_zone_id'] = isset($data['availability_zone_id']) ? $data['availability_zone_id'] : null;
+        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
+        $this->container['query'] = isset($data['query']) ? $data['query'] : null;
+        $this->container['table_name'] = isset($data['table_name']) ? $data['table_name'] : null;
     }
 
     /**
@@ -178,6 +178,12 @@ class EnableKeyRotationRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['instance_id'] === null) {
+            $invalidProperties[] = "'instance_id' can't be null";
+        }
+        if ($this->container['query'] === null) {
+            $invalidProperties[] = "'query' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -194,97 +200,97 @@ class EnableKeyRotationRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets key_id
+     * Gets availability_zone_id
      *
      * @return string
      */
-    public function getKeyId()
+    public function getAvailabilityZoneId()
     {
-        return $this->container['key_id'];
+        return $this->container['availability_zone_id'];
     }
 
     /**
-     * Sets key_id
+     * Sets availability_zone_id
      *
-     * @param string $key_id key_id
+     * @param string $availability_zone_id availability_zone_id
      *
      * @return $this
      */
-    public function setKeyId($key_id)
+    public function setAvailabilityZoneId($availability_zone_id)
     {
-        $this->container['key_id'] = $key_id;
+        $this->container['availability_zone_id'] = $availability_zone_id;
 
         return $this;
     }
 
     /**
-     * Gets key_name
+     * Gets instance_id
      *
      * @return string
      */
-    public function getKeyName()
+    public function getInstanceId()
     {
-        return $this->container['key_name'];
+        return $this->container['instance_id'];
     }
 
     /**
-     * Sets key_name
+     * Sets instance_id
      *
-     * @param string $key_name key_name
+     * @param string $instance_id instance_id
      *
      * @return $this
      */
-    public function setKeyName($key_name)
+    public function setInstanceId($instance_id)
     {
-        $this->container['key_name'] = $key_name;
+        $this->container['instance_id'] = $instance_id;
 
         return $this;
     }
 
     /**
-     * Gets keyring_name
+     * Gets query
      *
      * @return string
      */
-    public function getKeyringName()
+    public function getQuery()
     {
-        return $this->container['keyring_name'];
+        return $this->container['query'];
     }
 
     /**
-     * Sets keyring_name
+     * Sets query
      *
-     * @param string $keyring_name keyring_name
+     * @param string $query query
      *
      * @return $this
      */
-    public function setKeyringName($keyring_name)
+    public function setQuery($query)
     {
-        $this->container['keyring_name'] = $keyring_name;
+        $this->container['query'] = $query;
 
         return $this;
     }
 
     /**
-     * Gets rotate_interval
+     * Gets table_name
      *
-     * @return int
+     * @return string
      */
-    public function getRotateInterval()
+    public function getTableName()
     {
-        return $this->container['rotate_interval'];
+        return $this->container['table_name'];
     }
 
     /**
-     * Sets rotate_interval
+     * Sets table_name
      *
-     * @param int $rotate_interval rotate_interval
+     * @param string $table_name table_name
      *
      * @return $this
      */
-    public function setRotateInterval($rotate_interval)
+    public function setTableName($table_name)
     {
-        $this->container['rotate_interval'] = $rotate_interval;
+        $this->container['table_name'] = $table_name;
 
         return $this;
     }
