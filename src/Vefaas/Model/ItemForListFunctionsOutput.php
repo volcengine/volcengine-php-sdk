@@ -36,7 +36,7 @@ class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
         'cpu_strategy' => 'string',
         'creation_time' => 'string',
         'description' => 'string',
-        'enable_apmplus' => 'string',
+        'enable_apmplus' => 'bool',
         'envs' => '\Volcengine\Vefaas\Model\EnvForListFunctionsOutput[]',
         'exclusive_mode' => 'bool',
         'function_type' => 'string',
@@ -568,7 +568,7 @@ class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
     /**
      * Gets enable_apmplus
      *
-     * @return string
+     * @return bool
      */
     public function getEnableApmplus()
     {
@@ -578,7 +578,7 @@ class ItemForListFunctionsOutput implements ModelInterface, ArrayAccess
     /**
      * Sets enable_apmplus
      *
-     * @param string $enable_apmplus enable_apmplus
+     * @param bool $enable_apmplus enable_apmplus
      *
      * @return $this
      */

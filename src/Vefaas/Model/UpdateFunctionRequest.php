@@ -40,6 +40,7 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
         'max_concurrency' => 'int',
         'memory_mb' => 'int',
         'nas_storage' => '\Volcengine\Vefaas\Model\NasStorageForUpdateFunctionInput',
+        'port' => 'int',
         'project_name' => 'string',
         'request_timeout' => 'int',
         'role' => 'string',
@@ -70,6 +71,7 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
         'max_concurrency' => 'int32',
         'memory_mb' => 'int32',
         'nas_storage' => null,
+        'port' => 'int32',
         'project_name' => null,
         'request_timeout' => 'int32',
         'role' => null,
@@ -121,6 +123,7 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
         'max_concurrency' => 'MaxConcurrency',
         'memory_mb' => 'MemoryMB',
         'nas_storage' => 'NasStorage',
+        'port' => 'Port',
         'project_name' => 'ProjectName',
         'request_timeout' => 'RequestTimeout',
         'role' => 'Role',
@@ -151,6 +154,7 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
         'max_concurrency' => 'setMaxConcurrency',
         'memory_mb' => 'setMemoryMb',
         'nas_storage' => 'setNasStorage',
+        'port' => 'setPort',
         'project_name' => 'setProjectName',
         'request_timeout' => 'setRequestTimeout',
         'role' => 'setRole',
@@ -181,6 +185,7 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
         'max_concurrency' => 'getMaxConcurrency',
         'memory_mb' => 'getMemoryMb',
         'nas_storage' => 'getNasStorage',
+        'port' => 'getPort',
         'project_name' => 'getProjectName',
         'request_timeout' => 'getRequestTimeout',
         'role' => 'getRole',
@@ -265,6 +270,7 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
         $this->container['max_concurrency'] = isset($data['max_concurrency']) ? $data['max_concurrency'] : null;
         $this->container['memory_mb'] = isset($data['memory_mb']) ? $data['memory_mb'] : null;
         $this->container['nas_storage'] = isset($data['nas_storage']) ? $data['nas_storage'] : null;
+        $this->container['port'] = isset($data['port']) ? $data['port'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['request_timeout'] = isset($data['request_timeout']) ? $data['request_timeout'] : null;
         $this->container['role'] = isset($data['role']) ? $data['role'] : null;
@@ -588,6 +594,30 @@ class UpdateFunctionRequest implements ModelInterface, ArrayAccess
     public function setNasStorage($nas_storage)
     {
         $this->container['nas_storage'] = $nas_storage;
+
+        return $this;
+    }
+
+    /**
+     * Gets port
+     *
+     * @return int
+     */
+    public function getPort()
+    {
+        return $this->container['port'];
+    }
+
+    /**
+     * Sets port
+     *
+     * @param int $port port
+     *
+     * @return $this
+     */
+    public function setPort($port)
+    {
+        $this->container['port'] = $port;
 
         return $this;
     }
