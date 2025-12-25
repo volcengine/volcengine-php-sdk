@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ModifyBackupPlanRequest implements ModelInterface, ArrayAccess
+class InterruptKeyScanJobResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ModifyBackupPlanRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ModifyBackupPlanRequest';
+    protected static $swaggerModelName = 'InterruptKeyScanJobResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,11 +28,7 @@ class ModifyBackupPlanRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'active' => 'bool',
-        'backup_hour' => 'int',
-        'client_token' => 'string',
-        'instance_id' => 'string',
-        'period' => 'int[]'
+        
     ];
 
     /**
@@ -41,11 +37,7 @@ class ModifyBackupPlanRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'active' => null,
-        'backup_hour' => 'int32',
-        'client_token' => null,
-        'instance_id' => null,
-        'period' => 'int32'
+        
     ];
 
     /**
@@ -75,11 +67,7 @@ class ModifyBackupPlanRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'active' => 'Active',
-        'backup_hour' => 'BackupHour',
-        'client_token' => 'ClientToken',
-        'instance_id' => 'InstanceId',
-        'period' => 'Period'
+        
     ];
 
     /**
@@ -88,11 +76,7 @@ class ModifyBackupPlanRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'active' => 'setActive',
-        'backup_hour' => 'setBackupHour',
-        'client_token' => 'setClientToken',
-        'instance_id' => 'setInstanceId',
-        'period' => 'setPeriod'
+        
     ];
 
     /**
@@ -101,11 +85,7 @@ class ModifyBackupPlanRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'active' => 'getActive',
-        'backup_hour' => 'getBackupHour',
-        'client_token' => 'getClientToken',
-        'instance_id' => 'getInstanceId',
-        'period' => 'getPeriod'
+        
     ];
 
     /**
@@ -168,11 +148,6 @@ class ModifyBackupPlanRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['active'] = isset($data['active']) ? $data['active'] : null;
-        $this->container['backup_hour'] = isset($data['backup_hour']) ? $data['backup_hour'] : null;
-        $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
-        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
-        $this->container['period'] = isset($data['period']) ? $data['period'] : null;
     }
 
     /**
@@ -184,9 +159,6 @@ class ModifyBackupPlanRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['instance_id'] === null) {
-            $invalidProperties[] = "'instance_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -201,126 +173,6 @@ class ModifyBackupPlanRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets active
-     *
-     * @return bool
-     */
-    public function getActive()
-    {
-        return $this->container['active'];
-    }
-
-    /**
-     * Sets active
-     *
-     * @param bool $active active
-     *
-     * @return $this
-     */
-    public function setActive($active)
-    {
-        $this->container['active'] = $active;
-
-        return $this;
-    }
-
-    /**
-     * Gets backup_hour
-     *
-     * @return int
-     */
-    public function getBackupHour()
-    {
-        return $this->container['backup_hour'];
-    }
-
-    /**
-     * Sets backup_hour
-     *
-     * @param int $backup_hour backup_hour
-     *
-     * @return $this
-     */
-    public function setBackupHour($backup_hour)
-    {
-        $this->container['backup_hour'] = $backup_hour;
-
-        return $this;
-    }
-
-    /**
-     * Gets client_token
-     *
-     * @return string
-     */
-    public function getClientToken()
-    {
-        return $this->container['client_token'];
-    }
-
-    /**
-     * Sets client_token
-     *
-     * @param string $client_token client_token
-     *
-     * @return $this
-     */
-    public function setClientToken($client_token)
-    {
-        $this->container['client_token'] = $client_token;
-
-        return $this;
-    }
-
-    /**
-     * Gets instance_id
-     *
-     * @return string
-     */
-    public function getInstanceId()
-    {
-        return $this->container['instance_id'];
-    }
-
-    /**
-     * Sets instance_id
-     *
-     * @param string $instance_id instance_id
-     *
-     * @return $this
-     */
-    public function setInstanceId($instance_id)
-    {
-        $this->container['instance_id'] = $instance_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets period
-     *
-     * @return int[]
-     */
-    public function getPeriod()
-    {
-        return $this->container['period'];
-    }
-
-    /**
-     * Sets period
-     *
-     * @param int[] $period period
-     *
-     * @return $this
-     */
-    public function setPeriod($period)
-    {
-        $this->container['period'] = $period;
-
-        return $this;
-    }
     /**
      * Returns true if offset exists. False otherwise.
      *

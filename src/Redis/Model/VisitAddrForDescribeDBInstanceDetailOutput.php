@@ -33,8 +33,7 @@ class VisitAddrForDescribeDBInstanceDetailOutput implements ModelInterface, Arra
         'eip_id' => 'string',
         'port' => 'string',
         'vip' => 'string',
-        'vipv6' => 'string',
-        'zone' => 'string'
+        'vipv6' => 'string'
     ];
 
     /**
@@ -48,8 +47,7 @@ class VisitAddrForDescribeDBInstanceDetailOutput implements ModelInterface, Arra
         'eip_id' => null,
         'port' => null,
         'vip' => null,
-        'vipv6' => null,
-        'zone' => null
+        'vipv6' => null
     ];
 
     /**
@@ -84,8 +82,7 @@ class VisitAddrForDescribeDBInstanceDetailOutput implements ModelInterface, Arra
         'eip_id' => 'EipId',
         'port' => 'Port',
         'vip' => 'VIP',
-        'vipv6' => 'VIPv6',
-        'zone' => 'Zone'
+        'vipv6' => 'VIPv6'
     ];
 
     /**
@@ -99,8 +96,7 @@ class VisitAddrForDescribeDBInstanceDetailOutput implements ModelInterface, Arra
         'eip_id' => 'setEipId',
         'port' => 'setPort',
         'vip' => 'setVip',
-        'vipv6' => 'setVipv6',
-        'zone' => 'setZone'
+        'vipv6' => 'setVipv6'
     ];
 
     /**
@@ -114,8 +110,7 @@ class VisitAddrForDescribeDBInstanceDetailOutput implements ModelInterface, Arra
         'eip_id' => 'getEipId',
         'port' => 'getPort',
         'vip' => 'getVip',
-        'vipv6' => 'getVipv6',
-        'zone' => 'getZone'
+        'vipv6' => 'getVipv6'
     ];
 
     /**
@@ -184,7 +179,6 @@ class VisitAddrForDescribeDBInstanceDetailOutput implements ModelInterface, Arra
         $this->container['port'] = isset($data['port']) ? $data['port'] : null;
         $this->container['vip'] = isset($data['vip']) ? $data['vip'] : null;
         $this->container['vipv6'] = isset($data['vipv6']) ? $data['vipv6'] : null;
-        $this->container['zone'] = isset($data['zone']) ? $data['zone'] : null;
     }
 
     /**
@@ -351,30 +345,6 @@ class VisitAddrForDescribeDBInstanceDetailOutput implements ModelInterface, Arra
     public function setVipv6($vipv6)
     {
         $this->container['vipv6'] = $vipv6;
-
-        return $this;
-    }
-
-    /**
-     * Gets zone
-     *
-     * @return string
-     */
-    public function getZone()
-    {
-        return $this->container['zone'];
-    }
-
-    /**
-     * Sets zone
-     *
-     * @param string $zone zone
-     *
-     * @return $this
-     */
-    public function setZone($zone)
-    {
-        $this->container['zone'] = $zone;
 
         return $this;
     }
