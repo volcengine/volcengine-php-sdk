@@ -33,6 +33,7 @@ class ConfigForGetDeploymentOutput implements ModelInterface, ArrayAccess
         'nas_ap' => '\Volcengine\Mlplatform20240701\Model\NasAPForGetDeploymentOutput',
         'sfcs' => '\Volcengine\Mlplatform20240701\Model\SfcsForGetDeploymentOutput',
         'tos' => '\Volcengine\Mlplatform20240701\Model\TosForGetDeploymentOutput',
+        'tos_ap' => '\Volcengine\Mlplatform20240701\Model\TosAPForGetDeploymentOutput',
         'vepfs' => '\Volcengine\Mlplatform20240701\Model\VepfsForGetDeploymentOutput',
         'vepfs_ap' => '\Volcengine\Mlplatform20240701\Model\VepfsAPForGetDeploymentOutput'
     ];
@@ -48,6 +49,7 @@ class ConfigForGetDeploymentOutput implements ModelInterface, ArrayAccess
         'nas_ap' => null,
         'sfcs' => null,
         'tos' => null,
+        'tos_ap' => null,
         'vepfs' => null,
         'vepfs_ap' => null
     ];
@@ -84,6 +86,7 @@ class ConfigForGetDeploymentOutput implements ModelInterface, ArrayAccess
         'nas_ap' => 'NasAP',
         'sfcs' => 'Sfcs',
         'tos' => 'Tos',
+        'tos_ap' => 'TosAP',
         'vepfs' => 'Vepfs',
         'vepfs_ap' => 'VepfsAP'
     ];
@@ -99,6 +102,7 @@ class ConfigForGetDeploymentOutput implements ModelInterface, ArrayAccess
         'nas_ap' => 'setNasAp',
         'sfcs' => 'setSfcs',
         'tos' => 'setTos',
+        'tos_ap' => 'setTosAp',
         'vepfs' => 'setVepfs',
         'vepfs_ap' => 'setVepfsAp'
     ];
@@ -114,6 +118,7 @@ class ConfigForGetDeploymentOutput implements ModelInterface, ArrayAccess
         'nas_ap' => 'getNasAp',
         'sfcs' => 'getSfcs',
         'tos' => 'getTos',
+        'tos_ap' => 'getTosAp',
         'vepfs' => 'getVepfs',
         'vepfs_ap' => 'getVepfsAp'
     ];
@@ -183,6 +188,7 @@ class ConfigForGetDeploymentOutput implements ModelInterface, ArrayAccess
         $this->container['nas_ap'] = isset($data['nas_ap']) ? $data['nas_ap'] : null;
         $this->container['sfcs'] = isset($data['sfcs']) ? $data['sfcs'] : null;
         $this->container['tos'] = isset($data['tos']) ? $data['tos'] : null;
+        $this->container['tos_ap'] = isset($data['tos_ap']) ? $data['tos_ap'] : null;
         $this->container['vepfs'] = isset($data['vepfs']) ? $data['vepfs'] : null;
         $this->container['vepfs_ap'] = isset($data['vepfs_ap']) ? $data['vepfs_ap'] : null;
     }
@@ -327,6 +333,30 @@ class ConfigForGetDeploymentOutput implements ModelInterface, ArrayAccess
     public function setTos($tos)
     {
         $this->container['tos'] = $tos;
+
+        return $this;
+    }
+
+    /**
+     * Gets tos_ap
+     *
+     * @return \Volcengine\Mlplatform20240701\Model\TosAPForGetDeploymentOutput
+     */
+    public function getTosAp()
+    {
+        return $this->container['tos_ap'];
+    }
+
+    /**
+     * Sets tos_ap
+     *
+     * @param \Volcengine\Mlplatform20240701\Model\TosAPForGetDeploymentOutput $tos_ap tos_ap
+     *
+     * @return $this
+     */
+    public function setTosAp($tos_ap)
+    {
+        $this->container['tos_ap'] = $tos_ap;
 
         return $this;
     }

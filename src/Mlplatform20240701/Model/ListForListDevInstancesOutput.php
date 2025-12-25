@@ -38,6 +38,7 @@ class ListForListDevInstancesOutput implements ModelInterface, ArrayAccess
         'id' => 'string',
         'image' => '\Volcengine\Mlplatform20240701\Model\ImageForListDevInstancesOutput',
         'is_building_image' => 'bool',
+        'isaac_api_key' => 'string',
         'launch_time' => 'string',
         'name' => 'string',
         'node_affinity_spec' => '\Volcengine\Mlplatform20240701\Model\NodeAffinitySpecForListDevInstancesOutput',
@@ -74,6 +75,7 @@ class ListForListDevInstancesOutput implements ModelInterface, ArrayAccess
         'id' => null,
         'image' => null,
         'is_building_image' => null,
+        'isaac_api_key' => null,
         'launch_time' => null,
         'name' => null,
         'node_affinity_spec' => null,
@@ -131,6 +133,7 @@ class ListForListDevInstancesOutput implements ModelInterface, ArrayAccess
         'id' => 'Id',
         'image' => 'Image',
         'is_building_image' => 'IsBuildingImage',
+        'isaac_api_key' => 'IsaacApiKey',
         'launch_time' => 'LaunchTime',
         'name' => 'Name',
         'node_affinity_spec' => 'NodeAffinitySpec',
@@ -167,6 +170,7 @@ class ListForListDevInstancesOutput implements ModelInterface, ArrayAccess
         'id' => 'setId',
         'image' => 'setImage',
         'is_building_image' => 'setIsBuildingImage',
+        'isaac_api_key' => 'setIsaacApiKey',
         'launch_time' => 'setLaunchTime',
         'name' => 'setName',
         'node_affinity_spec' => 'setNodeAffinitySpec',
@@ -203,6 +207,7 @@ class ListForListDevInstancesOutput implements ModelInterface, ArrayAccess
         'id' => 'getId',
         'image' => 'getImage',
         'is_building_image' => 'getIsBuildingImage',
+        'isaac_api_key' => 'getIsaacApiKey',
         'launch_time' => 'getLaunchTime',
         'name' => 'getName',
         'node_affinity_spec' => 'getNodeAffinitySpec',
@@ -293,6 +298,7 @@ class ListForListDevInstancesOutput implements ModelInterface, ArrayAccess
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['image'] = isset($data['image']) ? $data['image'] : null;
         $this->container['is_building_image'] = isset($data['is_building_image']) ? $data['is_building_image'] : null;
+        $this->container['isaac_api_key'] = isset($data['isaac_api_key']) ? $data['isaac_api_key'] : null;
         $this->container['launch_time'] = isset($data['launch_time']) ? $data['launch_time'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['node_affinity_spec'] = isset($data['node_affinity_spec']) ? $data['node_affinity_spec'] : null;
@@ -573,6 +579,30 @@ class ListForListDevInstancesOutput implements ModelInterface, ArrayAccess
     public function setIsBuildingImage($is_building_image)
     {
         $this->container['is_building_image'] = $is_building_image;
+
+        return $this;
+    }
+
+    /**
+     * Gets isaac_api_key
+     *
+     * @return string
+     */
+    public function getIsaacApiKey()
+    {
+        return $this->container['isaac_api_key'];
+    }
+
+    /**
+     * Sets isaac_api_key
+     *
+     * @param string $isaac_api_key isaac_api_key
+     *
+     * @return $this
+     */
+    public function setIsaacApiKey($isaac_api_key)
+    {
+        $this->container['isaac_api_key'] = $isaac_api_key;
 
         return $this;
     }
