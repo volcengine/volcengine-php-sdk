@@ -38,10 +38,12 @@ class DescribeSandboxResponse implements ModelInterface, ArrayAccess
         'function_id' => 'string',
         'id' => 'string',
         'image_info' => '\Volcengine\Vefaas\Model\ImageInfoForDescribeSandboxOutput',
+        'instance_nas_mount_config' => '\Volcengine\Vefaas\Model\InstanceNasMountConfigForDescribeSandboxOutput',
         'instance_tos_mount_config' => '\Volcengine\Vefaas\Model\InstanceTosMountConfigForDescribeSandboxOutput',
         'instance_type' => 'string',
         'max_concurrency' => 'int',
         'memory_mb' => 'int',
+        'metadata' => 'map[string,string]',
         'metadata_list' => '\Volcengine\Vefaas\Model\MetadataListForDescribeSandboxOutput[]',
         'pending' => 'bool',
         'request_timeout' => 'int',
@@ -65,10 +67,12 @@ class DescribeSandboxResponse implements ModelInterface, ArrayAccess
         'function_id' => null,
         'id' => null,
         'image_info' => null,
+        'instance_nas_mount_config' => null,
         'instance_tos_mount_config' => null,
         'instance_type' => null,
         'max_concurrency' => 'int32',
         'memory_mb' => 'int32',
+        'metadata' => null,
         'metadata_list' => null,
         'pending' => null,
         'request_timeout' => 'int32',
@@ -113,10 +117,12 @@ class DescribeSandboxResponse implements ModelInterface, ArrayAccess
         'function_id' => 'FunctionId',
         'id' => 'Id',
         'image_info' => 'ImageInfo',
+        'instance_nas_mount_config' => 'InstanceNasMountConfig',
         'instance_tos_mount_config' => 'InstanceTosMountConfig',
         'instance_type' => 'InstanceType',
         'max_concurrency' => 'MaxConcurrency',
         'memory_mb' => 'MemoryMB',
+        'metadata' => 'Metadata',
         'metadata_list' => 'MetadataList',
         'pending' => 'Pending',
         'request_timeout' => 'RequestTimeout',
@@ -140,10 +146,12 @@ class DescribeSandboxResponse implements ModelInterface, ArrayAccess
         'function_id' => 'setFunctionId',
         'id' => 'setId',
         'image_info' => 'setImageInfo',
+        'instance_nas_mount_config' => 'setInstanceNasMountConfig',
         'instance_tos_mount_config' => 'setInstanceTosMountConfig',
         'instance_type' => 'setInstanceType',
         'max_concurrency' => 'setMaxConcurrency',
         'memory_mb' => 'setMemoryMb',
+        'metadata' => 'setMetadata',
         'metadata_list' => 'setMetadataList',
         'pending' => 'setPending',
         'request_timeout' => 'setRequestTimeout',
@@ -167,10 +175,12 @@ class DescribeSandboxResponse implements ModelInterface, ArrayAccess
         'function_id' => 'getFunctionId',
         'id' => 'getId',
         'image_info' => 'getImageInfo',
+        'instance_nas_mount_config' => 'getInstanceNasMountConfig',
         'instance_tos_mount_config' => 'getInstanceTosMountConfig',
         'instance_type' => 'getInstanceType',
         'max_concurrency' => 'getMaxConcurrency',
         'memory_mb' => 'getMemoryMb',
+        'metadata' => 'getMetadata',
         'metadata_list' => 'getMetadataList',
         'pending' => 'getPending',
         'request_timeout' => 'getRequestTimeout',
@@ -248,10 +258,12 @@ class DescribeSandboxResponse implements ModelInterface, ArrayAccess
         $this->container['function_id'] = isset($data['function_id']) ? $data['function_id'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['image_info'] = isset($data['image_info']) ? $data['image_info'] : null;
+        $this->container['instance_nas_mount_config'] = isset($data['instance_nas_mount_config']) ? $data['instance_nas_mount_config'] : null;
         $this->container['instance_tos_mount_config'] = isset($data['instance_tos_mount_config']) ? $data['instance_tos_mount_config'] : null;
         $this->container['instance_type'] = isset($data['instance_type']) ? $data['instance_type'] : null;
         $this->container['max_concurrency'] = isset($data['max_concurrency']) ? $data['max_concurrency'] : null;
         $this->container['memory_mb'] = isset($data['memory_mb']) ? $data['memory_mb'] : null;
+        $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
         $this->container['metadata_list'] = isset($data['metadata_list']) ? $data['metadata_list'] : null;
         $this->container['pending'] = isset($data['pending']) ? $data['pending'] : null;
         $this->container['request_timeout'] = isset($data['request_timeout']) ? $data['request_timeout'] : null;
@@ -524,6 +536,30 @@ class DescribeSandboxResponse implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets instance_nas_mount_config
+     *
+     * @return \Volcengine\Vefaas\Model\InstanceNasMountConfigForDescribeSandboxOutput
+     */
+    public function getInstanceNasMountConfig()
+    {
+        return $this->container['instance_nas_mount_config'];
+    }
+
+    /**
+     * Sets instance_nas_mount_config
+     *
+     * @param \Volcengine\Vefaas\Model\InstanceNasMountConfigForDescribeSandboxOutput $instance_nas_mount_config instance_nas_mount_config
+     *
+     * @return $this
+     */
+    public function setInstanceNasMountConfig($instance_nas_mount_config)
+    {
+        $this->container['instance_nas_mount_config'] = $instance_nas_mount_config;
+
+        return $this;
+    }
+
+    /**
      * Gets instance_tos_mount_config
      *
      * @return \Volcengine\Vefaas\Model\InstanceTosMountConfigForDescribeSandboxOutput
@@ -615,6 +651,30 @@ class DescribeSandboxResponse implements ModelInterface, ArrayAccess
     public function setMemoryMb($memory_mb)
     {
         $this->container['memory_mb'] = $memory_mb;
+
+        return $this;
+    }
+
+    /**
+     * Gets metadata
+     *
+     * @return map[string,string]
+     */
+    public function getMetadata()
+    {
+        return $this->container['metadata'];
+    }
+
+    /**
+     * Sets metadata
+     *
+     * @param map[string,string] $metadata metadata
+     *
+     * @return $this
+     */
+    public function setMetadata($metadata)
+    {
+        $this->container['metadata'] = $metadata;
 
         return $this;
     }
