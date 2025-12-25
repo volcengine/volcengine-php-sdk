@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ConfigForCreateJobInput implements ModelInterface, ArrayAccess
+class TosAPForCreateJobInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ConfigForCreateJobInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ConfigForCreateJobInput';
+    protected static $swaggerModelName = 'TosAPForCreateJobInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,14 +28,12 @@ class ConfigForCreateJobInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'cfs' => '\Volcengine\Mlplatform20240701\Model\CfsForCreateJobInput',
-        'nas' => '\Volcengine\Mlplatform20240701\Model\NasForCreateJobInput',
-        'nas_ap' => '\Volcengine\Mlplatform20240701\Model\NasAPForCreateJobInput',
-        'sfcs' => '\Volcengine\Mlplatform20240701\Model\SfcsForCreateJobInput',
-        'tos' => '\Volcengine\Mlplatform20240701\Model\TosForCreateJobInput',
-        'tos_ap' => '\Volcengine\Mlplatform20240701\Model\TosAPForCreateJobInput',
-        'vepfs' => '\Volcengine\Mlplatform20240701\Model\VepfsForCreateJobInput',
-        'vepfs_ap' => '\Volcengine\Mlplatform20240701\Model\VepfsAPForCreateJobInput'
+        'accelerator_id' => 'string',
+        'accelerator_name' => 'string',
+        'access_point_id' => 'string',
+        'access_point_name' => 'string',
+        'region' => 'string',
+        'server' => 'string'
     ];
 
     /**
@@ -44,14 +42,12 @@ class ConfigForCreateJobInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'cfs' => null,
-        'nas' => null,
-        'nas_ap' => null,
-        'sfcs' => null,
-        'tos' => null,
-        'tos_ap' => null,
-        'vepfs' => null,
-        'vepfs_ap' => null
+        'accelerator_id' => null,
+        'accelerator_name' => null,
+        'access_point_id' => null,
+        'access_point_name' => null,
+        'region' => null,
+        'server' => null
     ];
 
     /**
@@ -81,14 +77,12 @@ class ConfigForCreateJobInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'cfs' => 'Cfs',
-        'nas' => 'Nas',
-        'nas_ap' => 'NasAP',
-        'sfcs' => 'Sfcs',
-        'tos' => 'Tos',
-        'tos_ap' => 'TosAP',
-        'vepfs' => 'Vepfs',
-        'vepfs_ap' => 'VepfsAP'
+        'accelerator_id' => 'AcceleratorId',
+        'accelerator_name' => 'AcceleratorName',
+        'access_point_id' => 'AccessPointId',
+        'access_point_name' => 'AccessPointName',
+        'region' => 'Region',
+        'server' => 'Server'
     ];
 
     /**
@@ -97,14 +91,12 @@ class ConfigForCreateJobInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'cfs' => 'setCfs',
-        'nas' => 'setNas',
-        'nas_ap' => 'setNasAp',
-        'sfcs' => 'setSfcs',
-        'tos' => 'setTos',
-        'tos_ap' => 'setTosAp',
-        'vepfs' => 'setVepfs',
-        'vepfs_ap' => 'setVepfsAp'
+        'accelerator_id' => 'setAcceleratorId',
+        'accelerator_name' => 'setAcceleratorName',
+        'access_point_id' => 'setAccessPointId',
+        'access_point_name' => 'setAccessPointName',
+        'region' => 'setRegion',
+        'server' => 'setServer'
     ];
 
     /**
@@ -113,14 +105,12 @@ class ConfigForCreateJobInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'cfs' => 'getCfs',
-        'nas' => 'getNas',
-        'nas_ap' => 'getNasAp',
-        'sfcs' => 'getSfcs',
-        'tos' => 'getTos',
-        'tos_ap' => 'getTosAp',
-        'vepfs' => 'getVepfs',
-        'vepfs_ap' => 'getVepfsAp'
+        'accelerator_id' => 'getAcceleratorId',
+        'accelerator_name' => 'getAcceleratorName',
+        'access_point_id' => 'getAccessPointId',
+        'access_point_name' => 'getAccessPointName',
+        'region' => 'getRegion',
+        'server' => 'getServer'
     ];
 
     /**
@@ -183,14 +173,12 @@ class ConfigForCreateJobInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['cfs'] = isset($data['cfs']) ? $data['cfs'] : null;
-        $this->container['nas'] = isset($data['nas']) ? $data['nas'] : null;
-        $this->container['nas_ap'] = isset($data['nas_ap']) ? $data['nas_ap'] : null;
-        $this->container['sfcs'] = isset($data['sfcs']) ? $data['sfcs'] : null;
-        $this->container['tos'] = isset($data['tos']) ? $data['tos'] : null;
-        $this->container['tos_ap'] = isset($data['tos_ap']) ? $data['tos_ap'] : null;
-        $this->container['vepfs'] = isset($data['vepfs']) ? $data['vepfs'] : null;
-        $this->container['vepfs_ap'] = isset($data['vepfs_ap']) ? $data['vepfs_ap'] : null;
+        $this->container['accelerator_id'] = isset($data['accelerator_id']) ? $data['accelerator_id'] : null;
+        $this->container['accelerator_name'] = isset($data['accelerator_name']) ? $data['accelerator_name'] : null;
+        $this->container['access_point_id'] = isset($data['access_point_id']) ? $data['access_point_id'] : null;
+        $this->container['access_point_name'] = isset($data['access_point_name']) ? $data['access_point_name'] : null;
+        $this->container['region'] = isset($data['region']) ? $data['region'] : null;
+        $this->container['server'] = isset($data['server']) ? $data['server'] : null;
     }
 
     /**
@@ -218,193 +206,145 @@ class ConfigForCreateJobInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets cfs
+     * Gets accelerator_id
      *
-     * @return \Volcengine\Mlplatform20240701\Model\CfsForCreateJobInput
+     * @return string
      */
-    public function getCfs()
+    public function getAcceleratorId()
     {
-        return $this->container['cfs'];
+        return $this->container['accelerator_id'];
     }
 
     /**
-     * Sets cfs
+     * Sets accelerator_id
      *
-     * @param \Volcengine\Mlplatform20240701\Model\CfsForCreateJobInput $cfs cfs
+     * @param string $accelerator_id accelerator_id
      *
      * @return $this
      */
-    public function setCfs($cfs)
+    public function setAcceleratorId($accelerator_id)
     {
-        $this->container['cfs'] = $cfs;
+        $this->container['accelerator_id'] = $accelerator_id;
 
         return $this;
     }
 
     /**
-     * Gets nas
+     * Gets accelerator_name
      *
-     * @return \Volcengine\Mlplatform20240701\Model\NasForCreateJobInput
+     * @return string
      */
-    public function getNas()
+    public function getAcceleratorName()
     {
-        return $this->container['nas'];
+        return $this->container['accelerator_name'];
     }
 
     /**
-     * Sets nas
+     * Sets accelerator_name
      *
-     * @param \Volcengine\Mlplatform20240701\Model\NasForCreateJobInput $nas nas
+     * @param string $accelerator_name accelerator_name
      *
      * @return $this
      */
-    public function setNas($nas)
+    public function setAcceleratorName($accelerator_name)
     {
-        $this->container['nas'] = $nas;
+        $this->container['accelerator_name'] = $accelerator_name;
 
         return $this;
     }
 
     /**
-     * Gets nas_ap
+     * Gets access_point_id
      *
-     * @return \Volcengine\Mlplatform20240701\Model\NasAPForCreateJobInput
+     * @return string
      */
-    public function getNasAp()
+    public function getAccessPointId()
     {
-        return $this->container['nas_ap'];
+        return $this->container['access_point_id'];
     }
 
     /**
-     * Sets nas_ap
+     * Sets access_point_id
      *
-     * @param \Volcengine\Mlplatform20240701\Model\NasAPForCreateJobInput $nas_ap nas_ap
+     * @param string $access_point_id access_point_id
      *
      * @return $this
      */
-    public function setNasAp($nas_ap)
+    public function setAccessPointId($access_point_id)
     {
-        $this->container['nas_ap'] = $nas_ap;
+        $this->container['access_point_id'] = $access_point_id;
 
         return $this;
     }
 
     /**
-     * Gets sfcs
+     * Gets access_point_name
      *
-     * @return \Volcengine\Mlplatform20240701\Model\SfcsForCreateJobInput
+     * @return string
      */
-    public function getSfcs()
+    public function getAccessPointName()
     {
-        return $this->container['sfcs'];
+        return $this->container['access_point_name'];
     }
 
     /**
-     * Sets sfcs
+     * Sets access_point_name
      *
-     * @param \Volcengine\Mlplatform20240701\Model\SfcsForCreateJobInput $sfcs sfcs
+     * @param string $access_point_name access_point_name
      *
      * @return $this
      */
-    public function setSfcs($sfcs)
+    public function setAccessPointName($access_point_name)
     {
-        $this->container['sfcs'] = $sfcs;
+        $this->container['access_point_name'] = $access_point_name;
 
         return $this;
     }
 
     /**
-     * Gets tos
+     * Gets region
      *
-     * @return \Volcengine\Mlplatform20240701\Model\TosForCreateJobInput
+     * @return string
      */
-    public function getTos()
+    public function getRegion()
     {
-        return $this->container['tos'];
+        return $this->container['region'];
     }
 
     /**
-     * Sets tos
+     * Sets region
      *
-     * @param \Volcengine\Mlplatform20240701\Model\TosForCreateJobInput $tos tos
+     * @param string $region region
      *
      * @return $this
      */
-    public function setTos($tos)
+    public function setRegion($region)
     {
-        $this->container['tos'] = $tos;
+        $this->container['region'] = $region;
 
         return $this;
     }
 
     /**
-     * Gets tos_ap
+     * Gets server
      *
-     * @return \Volcengine\Mlplatform20240701\Model\TosAPForCreateJobInput
+     * @return string
      */
-    public function getTosAp()
+    public function getServer()
     {
-        return $this->container['tos_ap'];
+        return $this->container['server'];
     }
 
     /**
-     * Sets tos_ap
+     * Sets server
      *
-     * @param \Volcengine\Mlplatform20240701\Model\TosAPForCreateJobInput $tos_ap tos_ap
+     * @param string $server server
      *
      * @return $this
      */
-    public function setTosAp($tos_ap)
+    public function setServer($server)
     {
-        $this->container['tos_ap'] = $tos_ap;
-
-        return $this;
-    }
-
-    /**
-     * Gets vepfs
-     *
-     * @return \Volcengine\Mlplatform20240701\Model\VepfsForCreateJobInput
-     */
-    public function getVepfs()
-    {
-        return $this->container['vepfs'];
-    }
-
-    /**
-     * Sets vepfs
-     *
-     * @param \Volcengine\Mlplatform20240701\Model\VepfsForCreateJobInput $vepfs vepfs
-     *
-     * @return $this
-     */
-    public function setVepfs($vepfs)
-    {
-        $this->container['vepfs'] = $vepfs;
-
-        return $this;
-    }
-
-    /**
-     * Gets vepfs_ap
-     *
-     * @return \Volcengine\Mlplatform20240701\Model\VepfsAPForCreateJobInput
-     */
-    public function getVepfsAp()
-    {
-        return $this->container['vepfs_ap'];
-    }
-
-    /**
-     * Sets vepfs_ap
-     *
-     * @param \Volcengine\Mlplatform20240701\Model\VepfsAPForCreateJobInput $vepfs_ap vepfs_ap
-     *
-     * @return $this
-     */
-    public function setVepfsAp($vepfs_ap)
-    {
-        $this->container['vepfs_ap'] = $vepfs_ap;
+        $this->container['server'] = $server;
 
         return $this;
     }
