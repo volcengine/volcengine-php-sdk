@@ -43,11 +43,11 @@ class DescribeSandboxResponse implements ModelInterface, ArrayAccess
         'instance_type' => 'string',
         'max_concurrency' => 'int',
         'memory_mb' => 'int',
-        'metadata' => 'map[string,string]',
         'metadata_list' => '\Volcengine\Vefaas\Model\MetadataListForDescribeSandboxOutput[]',
         'pending' => 'bool',
         'request_timeout' => 'int',
         'revision_number' => 'int',
+        'session_id' => 'string',
         'status' => 'string'
     ];
 
@@ -72,11 +72,11 @@ class DescribeSandboxResponse implements ModelInterface, ArrayAccess
         'instance_type' => null,
         'max_concurrency' => 'int32',
         'memory_mb' => 'int32',
-        'metadata' => null,
         'metadata_list' => null,
         'pending' => null,
         'request_timeout' => 'int32',
         'revision_number' => 'int32',
+        'session_id' => null,
         'status' => null
     ];
 
@@ -122,11 +122,11 @@ class DescribeSandboxResponse implements ModelInterface, ArrayAccess
         'instance_type' => 'InstanceType',
         'max_concurrency' => 'MaxConcurrency',
         'memory_mb' => 'MemoryMB',
-        'metadata' => 'Metadata',
         'metadata_list' => 'MetadataList',
         'pending' => 'Pending',
         'request_timeout' => 'RequestTimeout',
         'revision_number' => 'RevisionNumber',
+        'session_id' => 'SessionId',
         'status' => 'Status'
     ];
 
@@ -151,11 +151,11 @@ class DescribeSandboxResponse implements ModelInterface, ArrayAccess
         'instance_type' => 'setInstanceType',
         'max_concurrency' => 'setMaxConcurrency',
         'memory_mb' => 'setMemoryMb',
-        'metadata' => 'setMetadata',
         'metadata_list' => 'setMetadataList',
         'pending' => 'setPending',
         'request_timeout' => 'setRequestTimeout',
         'revision_number' => 'setRevisionNumber',
+        'session_id' => 'setSessionId',
         'status' => 'setStatus'
     ];
 
@@ -180,11 +180,11 @@ class DescribeSandboxResponse implements ModelInterface, ArrayAccess
         'instance_type' => 'getInstanceType',
         'max_concurrency' => 'getMaxConcurrency',
         'memory_mb' => 'getMemoryMb',
-        'metadata' => 'getMetadata',
         'metadata_list' => 'getMetadataList',
         'pending' => 'getPending',
         'request_timeout' => 'getRequestTimeout',
         'revision_number' => 'getRevisionNumber',
+        'session_id' => 'getSessionId',
         'status' => 'getStatus'
     ];
 
@@ -263,11 +263,11 @@ class DescribeSandboxResponse implements ModelInterface, ArrayAccess
         $this->container['instance_type'] = isset($data['instance_type']) ? $data['instance_type'] : null;
         $this->container['max_concurrency'] = isset($data['max_concurrency']) ? $data['max_concurrency'] : null;
         $this->container['memory_mb'] = isset($data['memory_mb']) ? $data['memory_mb'] : null;
-        $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
         $this->container['metadata_list'] = isset($data['metadata_list']) ? $data['metadata_list'] : null;
         $this->container['pending'] = isset($data['pending']) ? $data['pending'] : null;
         $this->container['request_timeout'] = isset($data['request_timeout']) ? $data['request_timeout'] : null;
         $this->container['revision_number'] = isset($data['revision_number']) ? $data['revision_number'] : null;
+        $this->container['session_id'] = isset($data['session_id']) ? $data['session_id'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }
 
@@ -656,30 +656,6 @@ class DescribeSandboxResponse implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets metadata
-     *
-     * @return map[string,string]
-     */
-    public function getMetadata()
-    {
-        return $this->container['metadata'];
-    }
-
-    /**
-     * Sets metadata
-     *
-     * @param map[string,string] $metadata metadata
-     *
-     * @return $this
-     */
-    public function setMetadata($metadata)
-    {
-        $this->container['metadata'] = $metadata;
-
-        return $this;
-    }
-
-    /**
      * Gets metadata_list
      *
      * @return \Volcengine\Vefaas\Model\MetadataListForDescribeSandboxOutput[]
@@ -771,6 +747,30 @@ class DescribeSandboxResponse implements ModelInterface, ArrayAccess
     public function setRevisionNumber($revision_number)
     {
         $this->container['revision_number'] = $revision_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets session_id
+     *
+     * @return string
+     */
+    public function getSessionId()
+    {
+        return $this->container['session_id'];
+    }
+
+    /**
+     * Sets session_id
+     *
+     * @param string $session_id session_id
+     *
+     * @return $this
+     */
+    public function setSessionId($session_id)
+    {
+        $this->container['session_id'] = $session_id;
 
         return $this;
     }

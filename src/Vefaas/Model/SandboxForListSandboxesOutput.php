@@ -42,6 +42,7 @@ class SandboxForListSandboxesOutput implements ModelInterface, ArrayAccess
         'metadata' => 'map[string,string]',
         'pending' => 'bool',
         'revision_number' => 'int',
+        'session_id' => 'string',
         'status' => 'string'
     ];
 
@@ -65,6 +66,7 @@ class SandboxForListSandboxesOutput implements ModelInterface, ArrayAccess
         'metadata' => null,
         'pending' => null,
         'revision_number' => 'int32',
+        'session_id' => null,
         'status' => null
     ];
 
@@ -109,6 +111,7 @@ class SandboxForListSandboxesOutput implements ModelInterface, ArrayAccess
         'metadata' => 'Metadata',
         'pending' => 'Pending',
         'revision_number' => 'RevisionNumber',
+        'session_id' => 'SessionId',
         'status' => 'Status'
     ];
 
@@ -132,6 +135,7 @@ class SandboxForListSandboxesOutput implements ModelInterface, ArrayAccess
         'metadata' => 'setMetadata',
         'pending' => 'setPending',
         'revision_number' => 'setRevisionNumber',
+        'session_id' => 'setSessionId',
         'status' => 'setStatus'
     ];
 
@@ -155,6 +159,7 @@ class SandboxForListSandboxesOutput implements ModelInterface, ArrayAccess
         'metadata' => 'getMetadata',
         'pending' => 'getPending',
         'revision_number' => 'getRevisionNumber',
+        'session_id' => 'getSessionId',
         'status' => 'getStatus'
     ];
 
@@ -232,6 +237,7 @@ class SandboxForListSandboxesOutput implements ModelInterface, ArrayAccess
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
         $this->container['pending'] = isset($data['pending']) ? $data['pending'] : null;
         $this->container['revision_number'] = isset($data['revision_number']) ? $data['revision_number'] : null;
+        $this->container['session_id'] = isset($data['session_id']) ? $data['session_id'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }
 
@@ -591,6 +597,30 @@ class SandboxForListSandboxesOutput implements ModelInterface, ArrayAccess
     public function setRevisionNumber($revision_number)
     {
         $this->container['revision_number'] = $revision_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets session_id
+     *
+     * @return string
+     */
+    public function getSessionId()
+    {
+        return $this->container['session_id'];
+    }
+
+    /**
+     * Sets session_id
+     *
+     * @param string $session_id session_id
+     *
+     * @return $this
+     */
+    public function setSessionId($session_id)
+    {
+        $this->container['session_id'] = $session_id;
 
         return $this;
     }
