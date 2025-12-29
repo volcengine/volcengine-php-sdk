@@ -28,6 +28,7 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'filters' => '\Volcengine\Vefaas\Model\FilterForListSandboxesInput[]',
         'function_id' => 'string',
         'image_url' => 'string',
         'metadata' => 'map[string,string]',
@@ -43,6 +44,7 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'filters' => null,
         'function_id' => null,
         'image_url' => null,
         'metadata' => null,
@@ -79,6 +81,7 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'filters' => 'Filters',
         'function_id' => 'FunctionId',
         'image_url' => 'ImageUrl',
         'metadata' => 'Metadata',
@@ -94,6 +97,7 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'filters' => 'setFilters',
         'function_id' => 'setFunctionId',
         'image_url' => 'setImageUrl',
         'metadata' => 'setMetadata',
@@ -109,6 +113,7 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'filters' => 'getFilters',
         'function_id' => 'getFunctionId',
         'image_url' => 'getImageUrl',
         'metadata' => 'getMetadata',
@@ -178,6 +183,7 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['filters'] = isset($data['filters']) ? $data['filters'] : null;
         $this->container['function_id'] = isset($data['function_id']) ? $data['function_id'] : null;
         $this->container['image_url'] = isset($data['image_url']) ? $data['image_url'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
@@ -213,6 +219,30 @@ class ListSandboxesRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets filters
+     *
+     * @return \Volcengine\Vefaas\Model\FilterForListSandboxesInput[]
+     */
+    public function getFilters()
+    {
+        return $this->container['filters'];
+    }
+
+    /**
+     * Sets filters
+     *
+     * @param \Volcengine\Vefaas\Model\FilterForListSandboxesInput[] $filters filters
+     *
+     * @return $this
+     */
+    public function setFilters($filters)
+    {
+        $this->container['filters'] = $filters;
+
+        return $this;
+    }
 
     /**
      * Gets function_id
