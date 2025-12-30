@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AudioStreamMetaForGetExecutionOutput implements ModelInterface, ArrayAccess
+class VoiceCloneConfigForGetAITranslationProjectOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AudioStreamMetaForGetExecutionOutput implements ModelInterface, ArrayAcces
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AudioStreamMetaForGetExecutionOutput';
+    protected static $swaggerModelName = 'VoiceCloneConfigForGetAITranslationProjectOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,7 @@ class AudioStreamMetaForGetExecutionOutput implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'bitrate' => 'int',
-        'channels' => 'int',
-        'codec' => 'string',
-        'duration' => 'float',
-        'quality' => 'string',
-        'sample_rate' => 'int'
+        'background_volume' => 'int'
     ];
 
     /**
@@ -42,12 +37,7 @@ class AudioStreamMetaForGetExecutionOutput implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'bitrate' => 'int32',
-        'channels' => 'int32',
-        'codec' => null,
-        'duration' => 'float',
-        'quality' => null,
-        'sample_rate' => 'int32'
+        'background_volume' => 'int32'
     ];
 
     /**
@@ -77,12 +67,7 @@ class AudioStreamMetaForGetExecutionOutput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $attributeMap = [
-        'bitrate' => 'Bitrate',
-        'channels' => 'Channels',
-        'codec' => 'Codec',
-        'duration' => 'Duration',
-        'quality' => 'Quality',
-        'sample_rate' => 'SampleRate'
+        'background_volume' => 'BackgroundVolume'
     ];
 
     /**
@@ -91,12 +76,7 @@ class AudioStreamMetaForGetExecutionOutput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $setters = [
-        'bitrate' => 'setBitrate',
-        'channels' => 'setChannels',
-        'codec' => 'setCodec',
-        'duration' => 'setDuration',
-        'quality' => 'setQuality',
-        'sample_rate' => 'setSampleRate'
+        'background_volume' => 'setBackgroundVolume'
     ];
 
     /**
@@ -105,12 +85,7 @@ class AudioStreamMetaForGetExecutionOutput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $getters = [
-        'bitrate' => 'getBitrate',
-        'channels' => 'getChannels',
-        'codec' => 'getCodec',
-        'duration' => 'getDuration',
-        'quality' => 'getQuality',
-        'sample_rate' => 'getSampleRate'
+        'background_volume' => 'getBackgroundVolume'
     ];
 
     /**
@@ -173,12 +148,7 @@ class AudioStreamMetaForGetExecutionOutput implements ModelInterface, ArrayAcces
      */
     public function __construct(array $data = null)
     {
-        $this->container['bitrate'] = isset($data['bitrate']) ? $data['bitrate'] : null;
-        $this->container['channels'] = isset($data['channels']) ? $data['channels'] : null;
-        $this->container['codec'] = isset($data['codec']) ? $data['codec'] : null;
-        $this->container['duration'] = isset($data['duration']) ? $data['duration'] : null;
-        $this->container['quality'] = isset($data['quality']) ? $data['quality'] : null;
-        $this->container['sample_rate'] = isset($data['sample_rate']) ? $data['sample_rate'] : null;
+        $this->container['background_volume'] = isset($data['background_volume']) ? $data['background_volume'] : null;
     }
 
     /**
@@ -206,145 +176,25 @@ class AudioStreamMetaForGetExecutionOutput implements ModelInterface, ArrayAcces
 
 
     /**
-     * Gets bitrate
+     * Gets background_volume
      *
      * @return int
      */
-    public function getBitrate()
+    public function getBackgroundVolume()
     {
-        return $this->container['bitrate'];
+        return $this->container['background_volume'];
     }
 
     /**
-     * Sets bitrate
+     * Sets background_volume
      *
-     * @param int $bitrate bitrate
+     * @param int $background_volume background_volume
      *
      * @return $this
      */
-    public function setBitrate($bitrate)
+    public function setBackgroundVolume($background_volume)
     {
-        $this->container['bitrate'] = $bitrate;
-
-        return $this;
-    }
-
-    /**
-     * Gets channels
-     *
-     * @return int
-     */
-    public function getChannels()
-    {
-        return $this->container['channels'];
-    }
-
-    /**
-     * Sets channels
-     *
-     * @param int $channels channels
-     *
-     * @return $this
-     */
-    public function setChannels($channels)
-    {
-        $this->container['channels'] = $channels;
-
-        return $this;
-    }
-
-    /**
-     * Gets codec
-     *
-     * @return string
-     */
-    public function getCodec()
-    {
-        return $this->container['codec'];
-    }
-
-    /**
-     * Sets codec
-     *
-     * @param string $codec codec
-     *
-     * @return $this
-     */
-    public function setCodec($codec)
-    {
-        $this->container['codec'] = $codec;
-
-        return $this;
-    }
-
-    /**
-     * Gets duration
-     *
-     * @return float
-     */
-    public function getDuration()
-    {
-        return $this->container['duration'];
-    }
-
-    /**
-     * Sets duration
-     *
-     * @param float $duration duration
-     *
-     * @return $this
-     */
-    public function setDuration($duration)
-    {
-        $this->container['duration'] = $duration;
-
-        return $this;
-    }
-
-    /**
-     * Gets quality
-     *
-     * @return string
-     */
-    public function getQuality()
-    {
-        return $this->container['quality'];
-    }
-
-    /**
-     * Sets quality
-     *
-     * @param string $quality quality
-     *
-     * @return $this
-     */
-    public function setQuality($quality)
-    {
-        $this->container['quality'] = $quality;
-
-        return $this;
-    }
-
-    /**
-     * Gets sample_rate
-     *
-     * @return int
-     */
-    public function getSampleRate()
-    {
-        return $this->container['sample_rate'];
-    }
-
-    /**
-     * Sets sample_rate
-     *
-     * @param int $sample_rate sample_rate
-     *
-     * @return $this
-     */
-    public function setSampleRate($sample_rate)
-    {
-        $this->container['sample_rate'] = $sample_rate;
+        $this->container['background_volume'] = $background_volume;
 
         return $this;
     }

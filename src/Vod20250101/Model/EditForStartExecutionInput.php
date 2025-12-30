@@ -29,6 +29,7 @@ class EditForStartExecutionInput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'custom_edit' => '\Volcengine\Vod20250101\Model\CustomEditForStartExecutionInput',
+        'miniseries_edit' => '\Volcengine\Vod20250101\Model\MiniseriesEditForStartExecutionInput',
         'mode' => 'string'
     ];
 
@@ -39,6 +40,7 @@ class EditForStartExecutionInput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'custom_edit' => null,
+        'miniseries_edit' => null,
         'mode' => null
     ];
 
@@ -70,6 +72,7 @@ class EditForStartExecutionInput implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'custom_edit' => 'CustomEdit',
+        'miniseries_edit' => 'MiniseriesEdit',
         'mode' => 'Mode'
     ];
 
@@ -80,6 +83,7 @@ class EditForStartExecutionInput implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'custom_edit' => 'setCustomEdit',
+        'miniseries_edit' => 'setMiniseriesEdit',
         'mode' => 'setMode'
     ];
 
@@ -90,6 +94,7 @@ class EditForStartExecutionInput implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'custom_edit' => 'getCustomEdit',
+        'miniseries_edit' => 'getMiniseriesEdit',
         'mode' => 'getMode'
     ];
 
@@ -154,6 +159,7 @@ class EditForStartExecutionInput implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['custom_edit'] = isset($data['custom_edit']) ? $data['custom_edit'] : null;
+        $this->container['miniseries_edit'] = isset($data['miniseries_edit']) ? $data['miniseries_edit'] : null;
         $this->container['mode'] = isset($data['mode']) ? $data['mode'] : null;
     }
 
@@ -201,6 +207,30 @@ class EditForStartExecutionInput implements ModelInterface, ArrayAccess
     public function setCustomEdit($custom_edit)
     {
         $this->container['custom_edit'] = $custom_edit;
+
+        return $this;
+    }
+
+    /**
+     * Gets miniseries_edit
+     *
+     * @return \Volcengine\Vod20250101\Model\MiniseriesEditForStartExecutionInput
+     */
+    public function getMiniseriesEdit()
+    {
+        return $this->container['miniseries_edit'];
+    }
+
+    /**
+     * Sets miniseries_edit
+     *
+     * @param \Volcengine\Vod20250101\Model\MiniseriesEditForStartExecutionInput $miniseries_edit miniseries_edit
+     *
+     * @return $this
+     */
+    public function setMiniseriesEdit($miniseries_edit)
+    {
+        $this->container['miniseries_edit'] = $miniseries_edit;
 
         return $this;
     }
