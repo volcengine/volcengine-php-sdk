@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAccess
+class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ListForListAmortizedCostBillDailyOutput';
+    protected static $swaggerModelName = 'ListForListAmortizedCostBillDetailOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -42,8 +42,9 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
         'busi_period' => 'string',
         'business_mode' => 'string',
         'config_name' => 'string',
-        'configuration_code' => 'string',
+        'cost_id' => 'string',
         'count' => 'string',
+        'country_area' => 'string',
         'country_region' => 'string',
         'coupon_amount' => 'string',
         'currency' => 'string',
@@ -72,37 +73,22 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
         'deduction_use_duration' => 'string',
         'discount_bill_amount' => 'string',
         'discount_biz_billing_function' => 'string',
+        'discount_biz_measure_interval' => 'string',
+        'discount_biz_unit_price' => 'string',
+        'discount_biz_unit_price_interval' => 'string',
+        'discount_info' => 'string',
         'effective_factor' => 'string',
         'element' => 'string',
-        'element_code' => 'string',
+        'exchange_rate' => 'string',
         'expand_field' => 'string',
-        'expense_time' => 'string',
+        'expense_begin_time' => 'string',
+        'expense_end_time' => 'string',
         'factor' => 'string',
-        'factor_code' => 'string',
         'instance_name' => 'string',
         'instance_no' => 'string',
         'main_contract_number' => 'string',
-        'now_amortized_coupon_amount' => 'string',
-        'now_amortized_discount_bill_amount' => 'string',
-        'now_amortized_original_bill_amount' => 'string',
-        'now_amortized_paid_amount' => 'string',
-        'now_amortized_payable_amount' => 'string',
-        'now_amortized_posttax_amount' => 'string',
-        'now_amortized_pre_tax_payable_amount' => 'string',
-        'now_amortized_pre_tax_real_value' => 'string',
-        'now_amortized_preferential_bill_amount' => 'string',
-        'now_amortized_pretax_amount' => 'string',
-        'now_amortized_real_value' => 'string',
-        'now_amortized_round_amount' => 'string',
-        'now_amortized_saving_plan_original_amount' => 'string',
-        'now_amortized_settle_payable_amount' => 'string',
-        'now_amortized_settle_posttax_amount' => 'string',
-        'now_amortized_settle_pre_tax_payable_amount' => 'string',
-        'now_amortized_settle_pre_tax_real_value' => 'string',
-        'now_amortized_settle_pretax_amount' => 'string',
-        'now_amortized_settle_real_value' => 'string',
-        'now_amortized_settle_tax_amount' => 'string',
-        'now_amortized_tax_amount' => 'string',
+        'market_price' => 'string',
+        'measure_interval' => 'string',
         'original_bill_amount' => 'string',
         'original_order_no' => 'string',
         'owner_customer_name' => 'string',
@@ -119,6 +105,7 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
         'preferential_bill_amount' => 'string',
         'pretax_amount' => 'string',
         'price' => 'string',
+        'price_interval' => 'string',
         'price_unit' => 'string',
         'product' => 'string',
         'product_zh' => 'string',
@@ -126,8 +113,9 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
         'project_display_name' => 'string',
         'real_value' => 'string',
         'region' => 'string',
-        'region_code' => 'string',
         'round_amount' => 'string',
+        'saving_plan_deduction_discount_amount' => 'string',
+        'saving_plan_deduction_sp_id' => 'string',
         'saving_plan_original_amount' => 'string',
         'seller_customer_name' => 'string',
         'seller_id' => 'string',
@@ -144,12 +132,13 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
         'subject_name' => 'string',
         'tag' => 'string',
         'tax' => 'string',
+        'tax_amount' => 'string',
         'tax_rate' => 'string',
+        'trade_time' => 'string',
         'unit' => 'string',
         'use_duration' => 'string',
         'use_duration_unit' => 'string',
-        'zone' => 'string',
-        'zone_code' => 'string'
+        'zone' => 'string'
     ];
 
     /**
@@ -172,8 +161,9 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
         'busi_period' => null,
         'business_mode' => null,
         'config_name' => null,
-        'configuration_code' => null,
+        'cost_id' => null,
         'count' => null,
+        'country_area' => null,
         'country_region' => null,
         'coupon_amount' => null,
         'currency' => null,
@@ -202,37 +192,22 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
         'deduction_use_duration' => null,
         'discount_bill_amount' => null,
         'discount_biz_billing_function' => null,
+        'discount_biz_measure_interval' => null,
+        'discount_biz_unit_price' => null,
+        'discount_biz_unit_price_interval' => null,
+        'discount_info' => null,
         'effective_factor' => null,
         'element' => null,
-        'element_code' => null,
+        'exchange_rate' => null,
         'expand_field' => null,
-        'expense_time' => null,
+        'expense_begin_time' => null,
+        'expense_end_time' => null,
         'factor' => null,
-        'factor_code' => null,
         'instance_name' => null,
         'instance_no' => null,
         'main_contract_number' => null,
-        'now_amortized_coupon_amount' => null,
-        'now_amortized_discount_bill_amount' => null,
-        'now_amortized_original_bill_amount' => null,
-        'now_amortized_paid_amount' => null,
-        'now_amortized_payable_amount' => null,
-        'now_amortized_posttax_amount' => null,
-        'now_amortized_pre_tax_payable_amount' => null,
-        'now_amortized_pre_tax_real_value' => null,
-        'now_amortized_preferential_bill_amount' => null,
-        'now_amortized_pretax_amount' => null,
-        'now_amortized_real_value' => null,
-        'now_amortized_round_amount' => null,
-        'now_amortized_saving_plan_original_amount' => null,
-        'now_amortized_settle_payable_amount' => null,
-        'now_amortized_settle_posttax_amount' => null,
-        'now_amortized_settle_pre_tax_payable_amount' => null,
-        'now_amortized_settle_pre_tax_real_value' => null,
-        'now_amortized_settle_pretax_amount' => null,
-        'now_amortized_settle_real_value' => null,
-        'now_amortized_settle_tax_amount' => null,
-        'now_amortized_tax_amount' => null,
+        'market_price' => null,
+        'measure_interval' => null,
         'original_bill_amount' => null,
         'original_order_no' => null,
         'owner_customer_name' => null,
@@ -249,6 +224,7 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
         'preferential_bill_amount' => null,
         'pretax_amount' => null,
         'price' => null,
+        'price_interval' => null,
         'price_unit' => null,
         'product' => null,
         'product_zh' => null,
@@ -256,8 +232,9 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
         'project_display_name' => null,
         'real_value' => null,
         'region' => null,
-        'region_code' => null,
         'round_amount' => null,
+        'saving_plan_deduction_discount_amount' => null,
+        'saving_plan_deduction_sp_id' => null,
         'saving_plan_original_amount' => null,
         'seller_customer_name' => null,
         'seller_id' => null,
@@ -274,12 +251,13 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
         'subject_name' => null,
         'tag' => null,
         'tax' => null,
+        'tax_amount' => null,
         'tax_rate' => null,
+        'trade_time' => null,
         'unit' => null,
         'use_duration' => null,
         'use_duration_unit' => null,
-        'zone' => null,
-        'zone_code' => null
+        'zone' => null
     ];
 
     /**
@@ -323,8 +301,9 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
         'busi_period' => 'BusiPeriod',
         'business_mode' => 'BusinessMode',
         'config_name' => 'ConfigName',
-        'configuration_code' => 'ConfigurationCode',
+        'cost_id' => 'CostID',
         'count' => 'Count',
+        'country_area' => 'CountryArea',
         'country_region' => 'CountryRegion',
         'coupon_amount' => 'CouponAmount',
         'currency' => 'Currency',
@@ -353,37 +332,22 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
         'deduction_use_duration' => 'DeductionUseDuration',
         'discount_bill_amount' => 'DiscountBillAmount',
         'discount_biz_billing_function' => 'DiscountBizBillingFunction',
+        'discount_biz_measure_interval' => 'DiscountBizMeasureInterval',
+        'discount_biz_unit_price' => 'DiscountBizUnitPrice',
+        'discount_biz_unit_price_interval' => 'DiscountBizUnitPriceInterval',
+        'discount_info' => 'DiscountInfo',
         'effective_factor' => 'EffectiveFactor',
         'element' => 'Element',
-        'element_code' => 'ElementCode',
+        'exchange_rate' => 'ExchangeRate',
         'expand_field' => 'ExpandField',
-        'expense_time' => 'ExpenseTime',
+        'expense_begin_time' => 'ExpenseBeginTime',
+        'expense_end_time' => 'ExpenseEndTime',
         'factor' => 'Factor',
-        'factor_code' => 'FactorCode',
         'instance_name' => 'InstanceName',
         'instance_no' => 'InstanceNo',
         'main_contract_number' => 'MainContractNumber',
-        'now_amortized_coupon_amount' => 'NowAmortizedCouponAmount',
-        'now_amortized_discount_bill_amount' => 'NowAmortizedDiscountBillAmount',
-        'now_amortized_original_bill_amount' => 'NowAmortizedOriginalBillAmount',
-        'now_amortized_paid_amount' => 'NowAmortizedPaidAmount',
-        'now_amortized_payable_amount' => 'NowAmortizedPayableAmount',
-        'now_amortized_posttax_amount' => 'NowAmortizedPosttaxAmount',
-        'now_amortized_pre_tax_payable_amount' => 'NowAmortizedPreTaxPayableAmount',
-        'now_amortized_pre_tax_real_value' => 'NowAmortizedPreTaxRealValue',
-        'now_amortized_preferential_bill_amount' => 'NowAmortizedPreferentialBillAmount',
-        'now_amortized_pretax_amount' => 'NowAmortizedPretaxAmount',
-        'now_amortized_real_value' => 'NowAmortizedRealValue',
-        'now_amortized_round_amount' => 'NowAmortizedRoundAmount',
-        'now_amortized_saving_plan_original_amount' => 'NowAmortizedSavingPlanOriginalAmount',
-        'now_amortized_settle_payable_amount' => 'NowAmortizedSettlePayableAmount',
-        'now_amortized_settle_posttax_amount' => 'NowAmortizedSettlePosttaxAmount',
-        'now_amortized_settle_pre_tax_payable_amount' => 'NowAmortizedSettlePreTaxPayableAmount',
-        'now_amortized_settle_pre_tax_real_value' => 'NowAmortizedSettlePreTaxRealValue',
-        'now_amortized_settle_pretax_amount' => 'NowAmortizedSettlePretaxAmount',
-        'now_amortized_settle_real_value' => 'NowAmortizedSettleRealValue',
-        'now_amortized_settle_tax_amount' => 'NowAmortizedSettleTaxAmount',
-        'now_amortized_tax_amount' => 'NowAmortizedTaxAmount',
+        'market_price' => 'MarketPrice',
+        'measure_interval' => 'MeasureInterval',
         'original_bill_amount' => 'OriginalBillAmount',
         'original_order_no' => 'OriginalOrderNo',
         'owner_customer_name' => 'OwnerCustomerName',
@@ -400,6 +364,7 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
         'preferential_bill_amount' => 'PreferentialBillAmount',
         'pretax_amount' => 'PretaxAmount',
         'price' => 'Price',
+        'price_interval' => 'PriceInterval',
         'price_unit' => 'PriceUnit',
         'product' => 'Product',
         'product_zh' => 'ProductZh',
@@ -407,8 +372,9 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
         'project_display_name' => 'ProjectDisplayName',
         'real_value' => 'RealValue',
         'region' => 'Region',
-        'region_code' => 'RegionCode',
         'round_amount' => 'RoundAmount',
+        'saving_plan_deduction_discount_amount' => 'SavingPlanDeductionDiscountAmount',
+        'saving_plan_deduction_sp_id' => 'SavingPlanDeductionSpID',
         'saving_plan_original_amount' => 'SavingPlanOriginalAmount',
         'seller_customer_name' => 'SellerCustomerName',
         'seller_id' => 'SellerID',
@@ -425,12 +391,13 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
         'subject_name' => 'SubjectName',
         'tag' => 'Tag',
         'tax' => 'Tax',
+        'tax_amount' => 'TaxAmount',
         'tax_rate' => 'TaxRate',
+        'trade_time' => 'TradeTime',
         'unit' => 'Unit',
         'use_duration' => 'UseDuration',
         'use_duration_unit' => 'UseDurationUnit',
-        'zone' => 'Zone',
-        'zone_code' => 'ZoneCode'
+        'zone' => 'Zone'
     ];
 
     /**
@@ -453,8 +420,9 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
         'busi_period' => 'setBusiPeriod',
         'business_mode' => 'setBusinessMode',
         'config_name' => 'setConfigName',
-        'configuration_code' => 'setConfigurationCode',
+        'cost_id' => 'setCostId',
         'count' => 'setCount',
+        'country_area' => 'setCountryArea',
         'country_region' => 'setCountryRegion',
         'coupon_amount' => 'setCouponAmount',
         'currency' => 'setCurrency',
@@ -483,37 +451,22 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
         'deduction_use_duration' => 'setDeductionUseDuration',
         'discount_bill_amount' => 'setDiscountBillAmount',
         'discount_biz_billing_function' => 'setDiscountBizBillingFunction',
+        'discount_biz_measure_interval' => 'setDiscountBizMeasureInterval',
+        'discount_biz_unit_price' => 'setDiscountBizUnitPrice',
+        'discount_biz_unit_price_interval' => 'setDiscountBizUnitPriceInterval',
+        'discount_info' => 'setDiscountInfo',
         'effective_factor' => 'setEffectiveFactor',
         'element' => 'setElement',
-        'element_code' => 'setElementCode',
+        'exchange_rate' => 'setExchangeRate',
         'expand_field' => 'setExpandField',
-        'expense_time' => 'setExpenseTime',
+        'expense_begin_time' => 'setExpenseBeginTime',
+        'expense_end_time' => 'setExpenseEndTime',
         'factor' => 'setFactor',
-        'factor_code' => 'setFactorCode',
         'instance_name' => 'setInstanceName',
         'instance_no' => 'setInstanceNo',
         'main_contract_number' => 'setMainContractNumber',
-        'now_amortized_coupon_amount' => 'setNowAmortizedCouponAmount',
-        'now_amortized_discount_bill_amount' => 'setNowAmortizedDiscountBillAmount',
-        'now_amortized_original_bill_amount' => 'setNowAmortizedOriginalBillAmount',
-        'now_amortized_paid_amount' => 'setNowAmortizedPaidAmount',
-        'now_amortized_payable_amount' => 'setNowAmortizedPayableAmount',
-        'now_amortized_posttax_amount' => 'setNowAmortizedPosttaxAmount',
-        'now_amortized_pre_tax_payable_amount' => 'setNowAmortizedPreTaxPayableAmount',
-        'now_amortized_pre_tax_real_value' => 'setNowAmortizedPreTaxRealValue',
-        'now_amortized_preferential_bill_amount' => 'setNowAmortizedPreferentialBillAmount',
-        'now_amortized_pretax_amount' => 'setNowAmortizedPretaxAmount',
-        'now_amortized_real_value' => 'setNowAmortizedRealValue',
-        'now_amortized_round_amount' => 'setNowAmortizedRoundAmount',
-        'now_amortized_saving_plan_original_amount' => 'setNowAmortizedSavingPlanOriginalAmount',
-        'now_amortized_settle_payable_amount' => 'setNowAmortizedSettlePayableAmount',
-        'now_amortized_settle_posttax_amount' => 'setNowAmortizedSettlePosttaxAmount',
-        'now_amortized_settle_pre_tax_payable_amount' => 'setNowAmortizedSettlePreTaxPayableAmount',
-        'now_amortized_settle_pre_tax_real_value' => 'setNowAmortizedSettlePreTaxRealValue',
-        'now_amortized_settle_pretax_amount' => 'setNowAmortizedSettlePretaxAmount',
-        'now_amortized_settle_real_value' => 'setNowAmortizedSettleRealValue',
-        'now_amortized_settle_tax_amount' => 'setNowAmortizedSettleTaxAmount',
-        'now_amortized_tax_amount' => 'setNowAmortizedTaxAmount',
+        'market_price' => 'setMarketPrice',
+        'measure_interval' => 'setMeasureInterval',
         'original_bill_amount' => 'setOriginalBillAmount',
         'original_order_no' => 'setOriginalOrderNo',
         'owner_customer_name' => 'setOwnerCustomerName',
@@ -530,6 +483,7 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
         'preferential_bill_amount' => 'setPreferentialBillAmount',
         'pretax_amount' => 'setPretaxAmount',
         'price' => 'setPrice',
+        'price_interval' => 'setPriceInterval',
         'price_unit' => 'setPriceUnit',
         'product' => 'setProduct',
         'product_zh' => 'setProductZh',
@@ -537,8 +491,9 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
         'project_display_name' => 'setProjectDisplayName',
         'real_value' => 'setRealValue',
         'region' => 'setRegion',
-        'region_code' => 'setRegionCode',
         'round_amount' => 'setRoundAmount',
+        'saving_plan_deduction_discount_amount' => 'setSavingPlanDeductionDiscountAmount',
+        'saving_plan_deduction_sp_id' => 'setSavingPlanDeductionSpId',
         'saving_plan_original_amount' => 'setSavingPlanOriginalAmount',
         'seller_customer_name' => 'setSellerCustomerName',
         'seller_id' => 'setSellerId',
@@ -555,12 +510,13 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
         'subject_name' => 'setSubjectName',
         'tag' => 'setTag',
         'tax' => 'setTax',
+        'tax_amount' => 'setTaxAmount',
         'tax_rate' => 'setTaxRate',
+        'trade_time' => 'setTradeTime',
         'unit' => 'setUnit',
         'use_duration' => 'setUseDuration',
         'use_duration_unit' => 'setUseDurationUnit',
-        'zone' => 'setZone',
-        'zone_code' => 'setZoneCode'
+        'zone' => 'setZone'
     ];
 
     /**
@@ -583,8 +539,9 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
         'busi_period' => 'getBusiPeriod',
         'business_mode' => 'getBusinessMode',
         'config_name' => 'getConfigName',
-        'configuration_code' => 'getConfigurationCode',
+        'cost_id' => 'getCostId',
         'count' => 'getCount',
+        'country_area' => 'getCountryArea',
         'country_region' => 'getCountryRegion',
         'coupon_amount' => 'getCouponAmount',
         'currency' => 'getCurrency',
@@ -613,37 +570,22 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
         'deduction_use_duration' => 'getDeductionUseDuration',
         'discount_bill_amount' => 'getDiscountBillAmount',
         'discount_biz_billing_function' => 'getDiscountBizBillingFunction',
+        'discount_biz_measure_interval' => 'getDiscountBizMeasureInterval',
+        'discount_biz_unit_price' => 'getDiscountBizUnitPrice',
+        'discount_biz_unit_price_interval' => 'getDiscountBizUnitPriceInterval',
+        'discount_info' => 'getDiscountInfo',
         'effective_factor' => 'getEffectiveFactor',
         'element' => 'getElement',
-        'element_code' => 'getElementCode',
+        'exchange_rate' => 'getExchangeRate',
         'expand_field' => 'getExpandField',
-        'expense_time' => 'getExpenseTime',
+        'expense_begin_time' => 'getExpenseBeginTime',
+        'expense_end_time' => 'getExpenseEndTime',
         'factor' => 'getFactor',
-        'factor_code' => 'getFactorCode',
         'instance_name' => 'getInstanceName',
         'instance_no' => 'getInstanceNo',
         'main_contract_number' => 'getMainContractNumber',
-        'now_amortized_coupon_amount' => 'getNowAmortizedCouponAmount',
-        'now_amortized_discount_bill_amount' => 'getNowAmortizedDiscountBillAmount',
-        'now_amortized_original_bill_amount' => 'getNowAmortizedOriginalBillAmount',
-        'now_amortized_paid_amount' => 'getNowAmortizedPaidAmount',
-        'now_amortized_payable_amount' => 'getNowAmortizedPayableAmount',
-        'now_amortized_posttax_amount' => 'getNowAmortizedPosttaxAmount',
-        'now_amortized_pre_tax_payable_amount' => 'getNowAmortizedPreTaxPayableAmount',
-        'now_amortized_pre_tax_real_value' => 'getNowAmortizedPreTaxRealValue',
-        'now_amortized_preferential_bill_amount' => 'getNowAmortizedPreferentialBillAmount',
-        'now_amortized_pretax_amount' => 'getNowAmortizedPretaxAmount',
-        'now_amortized_real_value' => 'getNowAmortizedRealValue',
-        'now_amortized_round_amount' => 'getNowAmortizedRoundAmount',
-        'now_amortized_saving_plan_original_amount' => 'getNowAmortizedSavingPlanOriginalAmount',
-        'now_amortized_settle_payable_amount' => 'getNowAmortizedSettlePayableAmount',
-        'now_amortized_settle_posttax_amount' => 'getNowAmortizedSettlePosttaxAmount',
-        'now_amortized_settle_pre_tax_payable_amount' => 'getNowAmortizedSettlePreTaxPayableAmount',
-        'now_amortized_settle_pre_tax_real_value' => 'getNowAmortizedSettlePreTaxRealValue',
-        'now_amortized_settle_pretax_amount' => 'getNowAmortizedSettlePretaxAmount',
-        'now_amortized_settle_real_value' => 'getNowAmortizedSettleRealValue',
-        'now_amortized_settle_tax_amount' => 'getNowAmortizedSettleTaxAmount',
-        'now_amortized_tax_amount' => 'getNowAmortizedTaxAmount',
+        'market_price' => 'getMarketPrice',
+        'measure_interval' => 'getMeasureInterval',
         'original_bill_amount' => 'getOriginalBillAmount',
         'original_order_no' => 'getOriginalOrderNo',
         'owner_customer_name' => 'getOwnerCustomerName',
@@ -660,6 +602,7 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
         'preferential_bill_amount' => 'getPreferentialBillAmount',
         'pretax_amount' => 'getPretaxAmount',
         'price' => 'getPrice',
+        'price_interval' => 'getPriceInterval',
         'price_unit' => 'getPriceUnit',
         'product' => 'getProduct',
         'product_zh' => 'getProductZh',
@@ -667,8 +610,9 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
         'project_display_name' => 'getProjectDisplayName',
         'real_value' => 'getRealValue',
         'region' => 'getRegion',
-        'region_code' => 'getRegionCode',
         'round_amount' => 'getRoundAmount',
+        'saving_plan_deduction_discount_amount' => 'getSavingPlanDeductionDiscountAmount',
+        'saving_plan_deduction_sp_id' => 'getSavingPlanDeductionSpId',
         'saving_plan_original_amount' => 'getSavingPlanOriginalAmount',
         'seller_customer_name' => 'getSellerCustomerName',
         'seller_id' => 'getSellerId',
@@ -685,12 +629,13 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
         'subject_name' => 'getSubjectName',
         'tag' => 'getTag',
         'tax' => 'getTax',
+        'tax_amount' => 'getTaxAmount',
         'tax_rate' => 'getTaxRate',
+        'trade_time' => 'getTradeTime',
         'unit' => 'getUnit',
         'use_duration' => 'getUseDuration',
         'use_duration_unit' => 'getUseDurationUnit',
-        'zone' => 'getZone',
-        'zone_code' => 'getZoneCode'
+        'zone' => 'getZone'
     ];
 
     /**
@@ -767,8 +712,9 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
         $this->container['busi_period'] = isset($data['busi_period']) ? $data['busi_period'] : null;
         $this->container['business_mode'] = isset($data['business_mode']) ? $data['business_mode'] : null;
         $this->container['config_name'] = isset($data['config_name']) ? $data['config_name'] : null;
-        $this->container['configuration_code'] = isset($data['configuration_code']) ? $data['configuration_code'] : null;
+        $this->container['cost_id'] = isset($data['cost_id']) ? $data['cost_id'] : null;
         $this->container['count'] = isset($data['count']) ? $data['count'] : null;
+        $this->container['country_area'] = isset($data['country_area']) ? $data['country_area'] : null;
         $this->container['country_region'] = isset($data['country_region']) ? $data['country_region'] : null;
         $this->container['coupon_amount'] = isset($data['coupon_amount']) ? $data['coupon_amount'] : null;
         $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
@@ -797,37 +743,22 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
         $this->container['deduction_use_duration'] = isset($data['deduction_use_duration']) ? $data['deduction_use_duration'] : null;
         $this->container['discount_bill_amount'] = isset($data['discount_bill_amount']) ? $data['discount_bill_amount'] : null;
         $this->container['discount_biz_billing_function'] = isset($data['discount_biz_billing_function']) ? $data['discount_biz_billing_function'] : null;
+        $this->container['discount_biz_measure_interval'] = isset($data['discount_biz_measure_interval']) ? $data['discount_biz_measure_interval'] : null;
+        $this->container['discount_biz_unit_price'] = isset($data['discount_biz_unit_price']) ? $data['discount_biz_unit_price'] : null;
+        $this->container['discount_biz_unit_price_interval'] = isset($data['discount_biz_unit_price_interval']) ? $data['discount_biz_unit_price_interval'] : null;
+        $this->container['discount_info'] = isset($data['discount_info']) ? $data['discount_info'] : null;
         $this->container['effective_factor'] = isset($data['effective_factor']) ? $data['effective_factor'] : null;
         $this->container['element'] = isset($data['element']) ? $data['element'] : null;
-        $this->container['element_code'] = isset($data['element_code']) ? $data['element_code'] : null;
+        $this->container['exchange_rate'] = isset($data['exchange_rate']) ? $data['exchange_rate'] : null;
         $this->container['expand_field'] = isset($data['expand_field']) ? $data['expand_field'] : null;
-        $this->container['expense_time'] = isset($data['expense_time']) ? $data['expense_time'] : null;
+        $this->container['expense_begin_time'] = isset($data['expense_begin_time']) ? $data['expense_begin_time'] : null;
+        $this->container['expense_end_time'] = isset($data['expense_end_time']) ? $data['expense_end_time'] : null;
         $this->container['factor'] = isset($data['factor']) ? $data['factor'] : null;
-        $this->container['factor_code'] = isset($data['factor_code']) ? $data['factor_code'] : null;
         $this->container['instance_name'] = isset($data['instance_name']) ? $data['instance_name'] : null;
         $this->container['instance_no'] = isset($data['instance_no']) ? $data['instance_no'] : null;
         $this->container['main_contract_number'] = isset($data['main_contract_number']) ? $data['main_contract_number'] : null;
-        $this->container['now_amortized_coupon_amount'] = isset($data['now_amortized_coupon_amount']) ? $data['now_amortized_coupon_amount'] : null;
-        $this->container['now_amortized_discount_bill_amount'] = isset($data['now_amortized_discount_bill_amount']) ? $data['now_amortized_discount_bill_amount'] : null;
-        $this->container['now_amortized_original_bill_amount'] = isset($data['now_amortized_original_bill_amount']) ? $data['now_amortized_original_bill_amount'] : null;
-        $this->container['now_amortized_paid_amount'] = isset($data['now_amortized_paid_amount']) ? $data['now_amortized_paid_amount'] : null;
-        $this->container['now_amortized_payable_amount'] = isset($data['now_amortized_payable_amount']) ? $data['now_amortized_payable_amount'] : null;
-        $this->container['now_amortized_posttax_amount'] = isset($data['now_amortized_posttax_amount']) ? $data['now_amortized_posttax_amount'] : null;
-        $this->container['now_amortized_pre_tax_payable_amount'] = isset($data['now_amortized_pre_tax_payable_amount']) ? $data['now_amortized_pre_tax_payable_amount'] : null;
-        $this->container['now_amortized_pre_tax_real_value'] = isset($data['now_amortized_pre_tax_real_value']) ? $data['now_amortized_pre_tax_real_value'] : null;
-        $this->container['now_amortized_preferential_bill_amount'] = isset($data['now_amortized_preferential_bill_amount']) ? $data['now_amortized_preferential_bill_amount'] : null;
-        $this->container['now_amortized_pretax_amount'] = isset($data['now_amortized_pretax_amount']) ? $data['now_amortized_pretax_amount'] : null;
-        $this->container['now_amortized_real_value'] = isset($data['now_amortized_real_value']) ? $data['now_amortized_real_value'] : null;
-        $this->container['now_amortized_round_amount'] = isset($data['now_amortized_round_amount']) ? $data['now_amortized_round_amount'] : null;
-        $this->container['now_amortized_saving_plan_original_amount'] = isset($data['now_amortized_saving_plan_original_amount']) ? $data['now_amortized_saving_plan_original_amount'] : null;
-        $this->container['now_amortized_settle_payable_amount'] = isset($data['now_amortized_settle_payable_amount']) ? $data['now_amortized_settle_payable_amount'] : null;
-        $this->container['now_amortized_settle_posttax_amount'] = isset($data['now_amortized_settle_posttax_amount']) ? $data['now_amortized_settle_posttax_amount'] : null;
-        $this->container['now_amortized_settle_pre_tax_payable_amount'] = isset($data['now_amortized_settle_pre_tax_payable_amount']) ? $data['now_amortized_settle_pre_tax_payable_amount'] : null;
-        $this->container['now_amortized_settle_pre_tax_real_value'] = isset($data['now_amortized_settle_pre_tax_real_value']) ? $data['now_amortized_settle_pre_tax_real_value'] : null;
-        $this->container['now_amortized_settle_pretax_amount'] = isset($data['now_amortized_settle_pretax_amount']) ? $data['now_amortized_settle_pretax_amount'] : null;
-        $this->container['now_amortized_settle_real_value'] = isset($data['now_amortized_settle_real_value']) ? $data['now_amortized_settle_real_value'] : null;
-        $this->container['now_amortized_settle_tax_amount'] = isset($data['now_amortized_settle_tax_amount']) ? $data['now_amortized_settle_tax_amount'] : null;
-        $this->container['now_amortized_tax_amount'] = isset($data['now_amortized_tax_amount']) ? $data['now_amortized_tax_amount'] : null;
+        $this->container['market_price'] = isset($data['market_price']) ? $data['market_price'] : null;
+        $this->container['measure_interval'] = isset($data['measure_interval']) ? $data['measure_interval'] : null;
         $this->container['original_bill_amount'] = isset($data['original_bill_amount']) ? $data['original_bill_amount'] : null;
         $this->container['original_order_no'] = isset($data['original_order_no']) ? $data['original_order_no'] : null;
         $this->container['owner_customer_name'] = isset($data['owner_customer_name']) ? $data['owner_customer_name'] : null;
@@ -844,6 +775,7 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
         $this->container['preferential_bill_amount'] = isset($data['preferential_bill_amount']) ? $data['preferential_bill_amount'] : null;
         $this->container['pretax_amount'] = isset($data['pretax_amount']) ? $data['pretax_amount'] : null;
         $this->container['price'] = isset($data['price']) ? $data['price'] : null;
+        $this->container['price_interval'] = isset($data['price_interval']) ? $data['price_interval'] : null;
         $this->container['price_unit'] = isset($data['price_unit']) ? $data['price_unit'] : null;
         $this->container['product'] = isset($data['product']) ? $data['product'] : null;
         $this->container['product_zh'] = isset($data['product_zh']) ? $data['product_zh'] : null;
@@ -851,8 +783,9 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
         $this->container['project_display_name'] = isset($data['project_display_name']) ? $data['project_display_name'] : null;
         $this->container['real_value'] = isset($data['real_value']) ? $data['real_value'] : null;
         $this->container['region'] = isset($data['region']) ? $data['region'] : null;
-        $this->container['region_code'] = isset($data['region_code']) ? $data['region_code'] : null;
         $this->container['round_amount'] = isset($data['round_amount']) ? $data['round_amount'] : null;
+        $this->container['saving_plan_deduction_discount_amount'] = isset($data['saving_plan_deduction_discount_amount']) ? $data['saving_plan_deduction_discount_amount'] : null;
+        $this->container['saving_plan_deduction_sp_id'] = isset($data['saving_plan_deduction_sp_id']) ? $data['saving_plan_deduction_sp_id'] : null;
         $this->container['saving_plan_original_amount'] = isset($data['saving_plan_original_amount']) ? $data['saving_plan_original_amount'] : null;
         $this->container['seller_customer_name'] = isset($data['seller_customer_name']) ? $data['seller_customer_name'] : null;
         $this->container['seller_id'] = isset($data['seller_id']) ? $data['seller_id'] : null;
@@ -869,12 +802,13 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
         $this->container['subject_name'] = isset($data['subject_name']) ? $data['subject_name'] : null;
         $this->container['tag'] = isset($data['tag']) ? $data['tag'] : null;
         $this->container['tax'] = isset($data['tax']) ? $data['tax'] : null;
+        $this->container['tax_amount'] = isset($data['tax_amount']) ? $data['tax_amount'] : null;
         $this->container['tax_rate'] = isset($data['tax_rate']) ? $data['tax_rate'] : null;
+        $this->container['trade_time'] = isset($data['trade_time']) ? $data['trade_time'] : null;
         $this->container['unit'] = isset($data['unit']) ? $data['unit'] : null;
         $this->container['use_duration'] = isset($data['use_duration']) ? $data['use_duration'] : null;
         $this->container['use_duration_unit'] = isset($data['use_duration_unit']) ? $data['use_duration_unit'] : null;
         $this->container['zone'] = isset($data['zone']) ? $data['zone'] : null;
-        $this->container['zone_code'] = isset($data['zone_code']) ? $data['zone_code'] : null;
     }
 
     /**
@@ -1238,25 +1172,25 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
     }
 
     /**
-     * Gets configuration_code
+     * Gets cost_id
      *
      * @return string
      */
-    public function getConfigurationCode()
+    public function getCostId()
     {
-        return $this->container['configuration_code'];
+        return $this->container['cost_id'];
     }
 
     /**
-     * Sets configuration_code
+     * Sets cost_id
      *
-     * @param string $configuration_code configuration_code
+     * @param string $cost_id cost_id
      *
      * @return $this
      */
-    public function setConfigurationCode($configuration_code)
+    public function setCostId($cost_id)
     {
-        $this->container['configuration_code'] = $configuration_code;
+        $this->container['cost_id'] = $cost_id;
 
         return $this;
     }
@@ -1281,6 +1215,30 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
     public function setCount($count)
     {
         $this->container['count'] = $count;
+
+        return $this;
+    }
+
+    /**
+     * Gets country_area
+     *
+     * @return string
+     */
+    public function getCountryArea()
+    {
+        return $this->container['country_area'];
+    }
+
+    /**
+     * Sets country_area
+     *
+     * @param string $country_area country_area
+     *
+     * @return $this
+     */
+    public function setCountryArea($country_area)
+    {
+        $this->container['country_area'] = $country_area;
 
         return $this;
     }
@@ -1958,6 +1916,102 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
     }
 
     /**
+     * Gets discount_biz_measure_interval
+     *
+     * @return string
+     */
+    public function getDiscountBizMeasureInterval()
+    {
+        return $this->container['discount_biz_measure_interval'];
+    }
+
+    /**
+     * Sets discount_biz_measure_interval
+     *
+     * @param string $discount_biz_measure_interval discount_biz_measure_interval
+     *
+     * @return $this
+     */
+    public function setDiscountBizMeasureInterval($discount_biz_measure_interval)
+    {
+        $this->container['discount_biz_measure_interval'] = $discount_biz_measure_interval;
+
+        return $this;
+    }
+
+    /**
+     * Gets discount_biz_unit_price
+     *
+     * @return string
+     */
+    public function getDiscountBizUnitPrice()
+    {
+        return $this->container['discount_biz_unit_price'];
+    }
+
+    /**
+     * Sets discount_biz_unit_price
+     *
+     * @param string $discount_biz_unit_price discount_biz_unit_price
+     *
+     * @return $this
+     */
+    public function setDiscountBizUnitPrice($discount_biz_unit_price)
+    {
+        $this->container['discount_biz_unit_price'] = $discount_biz_unit_price;
+
+        return $this;
+    }
+
+    /**
+     * Gets discount_biz_unit_price_interval
+     *
+     * @return string
+     */
+    public function getDiscountBizUnitPriceInterval()
+    {
+        return $this->container['discount_biz_unit_price_interval'];
+    }
+
+    /**
+     * Sets discount_biz_unit_price_interval
+     *
+     * @param string $discount_biz_unit_price_interval discount_biz_unit_price_interval
+     *
+     * @return $this
+     */
+    public function setDiscountBizUnitPriceInterval($discount_biz_unit_price_interval)
+    {
+        $this->container['discount_biz_unit_price_interval'] = $discount_biz_unit_price_interval;
+
+        return $this;
+    }
+
+    /**
+     * Gets discount_info
+     *
+     * @return string
+     */
+    public function getDiscountInfo()
+    {
+        return $this->container['discount_info'];
+    }
+
+    /**
+     * Sets discount_info
+     *
+     * @param string $discount_info discount_info
+     *
+     * @return $this
+     */
+    public function setDiscountInfo($discount_info)
+    {
+        $this->container['discount_info'] = $discount_info;
+
+        return $this;
+    }
+
+    /**
      * Gets effective_factor
      *
      * @return string
@@ -2006,25 +2060,25 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
     }
 
     /**
-     * Gets element_code
+     * Gets exchange_rate
      *
      * @return string
      */
-    public function getElementCode()
+    public function getExchangeRate()
     {
-        return $this->container['element_code'];
+        return $this->container['exchange_rate'];
     }
 
     /**
-     * Sets element_code
+     * Sets exchange_rate
      *
-     * @param string $element_code element_code
+     * @param string $exchange_rate exchange_rate
      *
      * @return $this
      */
-    public function setElementCode($element_code)
+    public function setExchangeRate($exchange_rate)
     {
-        $this->container['element_code'] = $element_code;
+        $this->container['exchange_rate'] = $exchange_rate;
 
         return $this;
     }
@@ -2054,25 +2108,49 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
     }
 
     /**
-     * Gets expense_time
+     * Gets expense_begin_time
      *
      * @return string
      */
-    public function getExpenseTime()
+    public function getExpenseBeginTime()
     {
-        return $this->container['expense_time'];
+        return $this->container['expense_begin_time'];
     }
 
     /**
-     * Sets expense_time
+     * Sets expense_begin_time
      *
-     * @param string $expense_time expense_time
+     * @param string $expense_begin_time expense_begin_time
      *
      * @return $this
      */
-    public function setExpenseTime($expense_time)
+    public function setExpenseBeginTime($expense_begin_time)
     {
-        $this->container['expense_time'] = $expense_time;
+        $this->container['expense_begin_time'] = $expense_begin_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets expense_end_time
+     *
+     * @return string
+     */
+    public function getExpenseEndTime()
+    {
+        return $this->container['expense_end_time'];
+    }
+
+    /**
+     * Sets expense_end_time
+     *
+     * @param string $expense_end_time expense_end_time
+     *
+     * @return $this
+     */
+    public function setExpenseEndTime($expense_end_time)
+    {
+        $this->container['expense_end_time'] = $expense_end_time;
 
         return $this;
     }
@@ -2097,30 +2175,6 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
     public function setFactor($factor)
     {
         $this->container['factor'] = $factor;
-
-        return $this;
-    }
-
-    /**
-     * Gets factor_code
-     *
-     * @return string
-     */
-    public function getFactorCode()
-    {
-        return $this->container['factor_code'];
-    }
-
-    /**
-     * Sets factor_code
-     *
-     * @param string $factor_code factor_code
-     *
-     * @return $this
-     */
-    public function setFactorCode($factor_code)
-    {
-        $this->container['factor_code'] = $factor_code;
 
         return $this;
     }
@@ -2198,505 +2252,49 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
     }
 
     /**
-     * Gets now_amortized_coupon_amount
+     * Gets market_price
      *
      * @return string
      */
-    public function getNowAmortizedCouponAmount()
+    public function getMarketPrice()
     {
-        return $this->container['now_amortized_coupon_amount'];
+        return $this->container['market_price'];
     }
 
     /**
-     * Sets now_amortized_coupon_amount
+     * Sets market_price
      *
-     * @param string $now_amortized_coupon_amount now_amortized_coupon_amount
+     * @param string $market_price market_price
      *
      * @return $this
      */
-    public function setNowAmortizedCouponAmount($now_amortized_coupon_amount)
+    public function setMarketPrice($market_price)
     {
-        $this->container['now_amortized_coupon_amount'] = $now_amortized_coupon_amount;
+        $this->container['market_price'] = $market_price;
 
         return $this;
     }
 
     /**
-     * Gets now_amortized_discount_bill_amount
+     * Gets measure_interval
      *
      * @return string
      */
-    public function getNowAmortizedDiscountBillAmount()
+    public function getMeasureInterval()
     {
-        return $this->container['now_amortized_discount_bill_amount'];
+        return $this->container['measure_interval'];
     }
 
     /**
-     * Sets now_amortized_discount_bill_amount
+     * Sets measure_interval
      *
-     * @param string $now_amortized_discount_bill_amount now_amortized_discount_bill_amount
+     * @param string $measure_interval measure_interval
      *
      * @return $this
      */
-    public function setNowAmortizedDiscountBillAmount($now_amortized_discount_bill_amount)
+    public function setMeasureInterval($measure_interval)
     {
-        $this->container['now_amortized_discount_bill_amount'] = $now_amortized_discount_bill_amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets now_amortized_original_bill_amount
-     *
-     * @return string
-     */
-    public function getNowAmortizedOriginalBillAmount()
-    {
-        return $this->container['now_amortized_original_bill_amount'];
-    }
-
-    /**
-     * Sets now_amortized_original_bill_amount
-     *
-     * @param string $now_amortized_original_bill_amount now_amortized_original_bill_amount
-     *
-     * @return $this
-     */
-    public function setNowAmortizedOriginalBillAmount($now_amortized_original_bill_amount)
-    {
-        $this->container['now_amortized_original_bill_amount'] = $now_amortized_original_bill_amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets now_amortized_paid_amount
-     *
-     * @return string
-     */
-    public function getNowAmortizedPaidAmount()
-    {
-        return $this->container['now_amortized_paid_amount'];
-    }
-
-    /**
-     * Sets now_amortized_paid_amount
-     *
-     * @param string $now_amortized_paid_amount now_amortized_paid_amount
-     *
-     * @return $this
-     */
-    public function setNowAmortizedPaidAmount($now_amortized_paid_amount)
-    {
-        $this->container['now_amortized_paid_amount'] = $now_amortized_paid_amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets now_amortized_payable_amount
-     *
-     * @return string
-     */
-    public function getNowAmortizedPayableAmount()
-    {
-        return $this->container['now_amortized_payable_amount'];
-    }
-
-    /**
-     * Sets now_amortized_payable_amount
-     *
-     * @param string $now_amortized_payable_amount now_amortized_payable_amount
-     *
-     * @return $this
-     */
-    public function setNowAmortizedPayableAmount($now_amortized_payable_amount)
-    {
-        $this->container['now_amortized_payable_amount'] = $now_amortized_payable_amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets now_amortized_posttax_amount
-     *
-     * @return string
-     */
-    public function getNowAmortizedPosttaxAmount()
-    {
-        return $this->container['now_amortized_posttax_amount'];
-    }
-
-    /**
-     * Sets now_amortized_posttax_amount
-     *
-     * @param string $now_amortized_posttax_amount now_amortized_posttax_amount
-     *
-     * @return $this
-     */
-    public function setNowAmortizedPosttaxAmount($now_amortized_posttax_amount)
-    {
-        $this->container['now_amortized_posttax_amount'] = $now_amortized_posttax_amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets now_amortized_pre_tax_payable_amount
-     *
-     * @return string
-     */
-    public function getNowAmortizedPreTaxPayableAmount()
-    {
-        return $this->container['now_amortized_pre_tax_payable_amount'];
-    }
-
-    /**
-     * Sets now_amortized_pre_tax_payable_amount
-     *
-     * @param string $now_amortized_pre_tax_payable_amount now_amortized_pre_tax_payable_amount
-     *
-     * @return $this
-     */
-    public function setNowAmortizedPreTaxPayableAmount($now_amortized_pre_tax_payable_amount)
-    {
-        $this->container['now_amortized_pre_tax_payable_amount'] = $now_amortized_pre_tax_payable_amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets now_amortized_pre_tax_real_value
-     *
-     * @return string
-     */
-    public function getNowAmortizedPreTaxRealValue()
-    {
-        return $this->container['now_amortized_pre_tax_real_value'];
-    }
-
-    /**
-     * Sets now_amortized_pre_tax_real_value
-     *
-     * @param string $now_amortized_pre_tax_real_value now_amortized_pre_tax_real_value
-     *
-     * @return $this
-     */
-    public function setNowAmortizedPreTaxRealValue($now_amortized_pre_tax_real_value)
-    {
-        $this->container['now_amortized_pre_tax_real_value'] = $now_amortized_pre_tax_real_value;
-
-        return $this;
-    }
-
-    /**
-     * Gets now_amortized_preferential_bill_amount
-     *
-     * @return string
-     */
-    public function getNowAmortizedPreferentialBillAmount()
-    {
-        return $this->container['now_amortized_preferential_bill_amount'];
-    }
-
-    /**
-     * Sets now_amortized_preferential_bill_amount
-     *
-     * @param string $now_amortized_preferential_bill_amount now_amortized_preferential_bill_amount
-     *
-     * @return $this
-     */
-    public function setNowAmortizedPreferentialBillAmount($now_amortized_preferential_bill_amount)
-    {
-        $this->container['now_amortized_preferential_bill_amount'] = $now_amortized_preferential_bill_amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets now_amortized_pretax_amount
-     *
-     * @return string
-     */
-    public function getNowAmortizedPretaxAmount()
-    {
-        return $this->container['now_amortized_pretax_amount'];
-    }
-
-    /**
-     * Sets now_amortized_pretax_amount
-     *
-     * @param string $now_amortized_pretax_amount now_amortized_pretax_amount
-     *
-     * @return $this
-     */
-    public function setNowAmortizedPretaxAmount($now_amortized_pretax_amount)
-    {
-        $this->container['now_amortized_pretax_amount'] = $now_amortized_pretax_amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets now_amortized_real_value
-     *
-     * @return string
-     */
-    public function getNowAmortizedRealValue()
-    {
-        return $this->container['now_amortized_real_value'];
-    }
-
-    /**
-     * Sets now_amortized_real_value
-     *
-     * @param string $now_amortized_real_value now_amortized_real_value
-     *
-     * @return $this
-     */
-    public function setNowAmortizedRealValue($now_amortized_real_value)
-    {
-        $this->container['now_amortized_real_value'] = $now_amortized_real_value;
-
-        return $this;
-    }
-
-    /**
-     * Gets now_amortized_round_amount
-     *
-     * @return string
-     */
-    public function getNowAmortizedRoundAmount()
-    {
-        return $this->container['now_amortized_round_amount'];
-    }
-
-    /**
-     * Sets now_amortized_round_amount
-     *
-     * @param string $now_amortized_round_amount now_amortized_round_amount
-     *
-     * @return $this
-     */
-    public function setNowAmortizedRoundAmount($now_amortized_round_amount)
-    {
-        $this->container['now_amortized_round_amount'] = $now_amortized_round_amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets now_amortized_saving_plan_original_amount
-     *
-     * @return string
-     */
-    public function getNowAmortizedSavingPlanOriginalAmount()
-    {
-        return $this->container['now_amortized_saving_plan_original_amount'];
-    }
-
-    /**
-     * Sets now_amortized_saving_plan_original_amount
-     *
-     * @param string $now_amortized_saving_plan_original_amount now_amortized_saving_plan_original_amount
-     *
-     * @return $this
-     */
-    public function setNowAmortizedSavingPlanOriginalAmount($now_amortized_saving_plan_original_amount)
-    {
-        $this->container['now_amortized_saving_plan_original_amount'] = $now_amortized_saving_plan_original_amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets now_amortized_settle_payable_amount
-     *
-     * @return string
-     */
-    public function getNowAmortizedSettlePayableAmount()
-    {
-        return $this->container['now_amortized_settle_payable_amount'];
-    }
-
-    /**
-     * Sets now_amortized_settle_payable_amount
-     *
-     * @param string $now_amortized_settle_payable_amount now_amortized_settle_payable_amount
-     *
-     * @return $this
-     */
-    public function setNowAmortizedSettlePayableAmount($now_amortized_settle_payable_amount)
-    {
-        $this->container['now_amortized_settle_payable_amount'] = $now_amortized_settle_payable_amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets now_amortized_settle_posttax_amount
-     *
-     * @return string
-     */
-    public function getNowAmortizedSettlePosttaxAmount()
-    {
-        return $this->container['now_amortized_settle_posttax_amount'];
-    }
-
-    /**
-     * Sets now_amortized_settle_posttax_amount
-     *
-     * @param string $now_amortized_settle_posttax_amount now_amortized_settle_posttax_amount
-     *
-     * @return $this
-     */
-    public function setNowAmortizedSettlePosttaxAmount($now_amortized_settle_posttax_amount)
-    {
-        $this->container['now_amortized_settle_posttax_amount'] = $now_amortized_settle_posttax_amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets now_amortized_settle_pre_tax_payable_amount
-     *
-     * @return string
-     */
-    public function getNowAmortizedSettlePreTaxPayableAmount()
-    {
-        return $this->container['now_amortized_settle_pre_tax_payable_amount'];
-    }
-
-    /**
-     * Sets now_amortized_settle_pre_tax_payable_amount
-     *
-     * @param string $now_amortized_settle_pre_tax_payable_amount now_amortized_settle_pre_tax_payable_amount
-     *
-     * @return $this
-     */
-    public function setNowAmortizedSettlePreTaxPayableAmount($now_amortized_settle_pre_tax_payable_amount)
-    {
-        $this->container['now_amortized_settle_pre_tax_payable_amount'] = $now_amortized_settle_pre_tax_payable_amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets now_amortized_settle_pre_tax_real_value
-     *
-     * @return string
-     */
-    public function getNowAmortizedSettlePreTaxRealValue()
-    {
-        return $this->container['now_amortized_settle_pre_tax_real_value'];
-    }
-
-    /**
-     * Sets now_amortized_settle_pre_tax_real_value
-     *
-     * @param string $now_amortized_settle_pre_tax_real_value now_amortized_settle_pre_tax_real_value
-     *
-     * @return $this
-     */
-    public function setNowAmortizedSettlePreTaxRealValue($now_amortized_settle_pre_tax_real_value)
-    {
-        $this->container['now_amortized_settle_pre_tax_real_value'] = $now_amortized_settle_pre_tax_real_value;
-
-        return $this;
-    }
-
-    /**
-     * Gets now_amortized_settle_pretax_amount
-     *
-     * @return string
-     */
-    public function getNowAmortizedSettlePretaxAmount()
-    {
-        return $this->container['now_amortized_settle_pretax_amount'];
-    }
-
-    /**
-     * Sets now_amortized_settle_pretax_amount
-     *
-     * @param string $now_amortized_settle_pretax_amount now_amortized_settle_pretax_amount
-     *
-     * @return $this
-     */
-    public function setNowAmortizedSettlePretaxAmount($now_amortized_settle_pretax_amount)
-    {
-        $this->container['now_amortized_settle_pretax_amount'] = $now_amortized_settle_pretax_amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets now_amortized_settle_real_value
-     *
-     * @return string
-     */
-    public function getNowAmortizedSettleRealValue()
-    {
-        return $this->container['now_amortized_settle_real_value'];
-    }
-
-    /**
-     * Sets now_amortized_settle_real_value
-     *
-     * @param string $now_amortized_settle_real_value now_amortized_settle_real_value
-     *
-     * @return $this
-     */
-    public function setNowAmortizedSettleRealValue($now_amortized_settle_real_value)
-    {
-        $this->container['now_amortized_settle_real_value'] = $now_amortized_settle_real_value;
-
-        return $this;
-    }
-
-    /**
-     * Gets now_amortized_settle_tax_amount
-     *
-     * @return string
-     */
-    public function getNowAmortizedSettleTaxAmount()
-    {
-        return $this->container['now_amortized_settle_tax_amount'];
-    }
-
-    /**
-     * Sets now_amortized_settle_tax_amount
-     *
-     * @param string $now_amortized_settle_tax_amount now_amortized_settle_tax_amount
-     *
-     * @return $this
-     */
-    public function setNowAmortizedSettleTaxAmount($now_amortized_settle_tax_amount)
-    {
-        $this->container['now_amortized_settle_tax_amount'] = $now_amortized_settle_tax_amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets now_amortized_tax_amount
-     *
-     * @return string
-     */
-    public function getNowAmortizedTaxAmount()
-    {
-        return $this->container['now_amortized_tax_amount'];
-    }
-
-    /**
-     * Sets now_amortized_tax_amount
-     *
-     * @param string $now_amortized_tax_amount now_amortized_tax_amount
-     *
-     * @return $this
-     */
-    public function setNowAmortizedTaxAmount($now_amortized_tax_amount)
-    {
-        $this->container['now_amortized_tax_amount'] = $now_amortized_tax_amount;
+        $this->container['measure_interval'] = $measure_interval;
 
         return $this;
     }
@@ -3086,6 +2684,30 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
     }
 
     /**
+     * Gets price_interval
+     *
+     * @return string
+     */
+    public function getPriceInterval()
+    {
+        return $this->container['price_interval'];
+    }
+
+    /**
+     * Sets price_interval
+     *
+     * @param string $price_interval price_interval
+     *
+     * @return $this
+     */
+    public function setPriceInterval($price_interval)
+    {
+        $this->container['price_interval'] = $price_interval;
+
+        return $this;
+    }
+
+    /**
      * Gets price_unit
      *
      * @return string
@@ -3254,30 +2876,6 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
     }
 
     /**
-     * Gets region_code
-     *
-     * @return string
-     */
-    public function getRegionCode()
-    {
-        return $this->container['region_code'];
-    }
-
-    /**
-     * Sets region_code
-     *
-     * @param string $region_code region_code
-     *
-     * @return $this
-     */
-    public function setRegionCode($region_code)
-    {
-        $this->container['region_code'] = $region_code;
-
-        return $this;
-    }
-
-    /**
      * Gets round_amount
      *
      * @return string
@@ -3297,6 +2895,54 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
     public function setRoundAmount($round_amount)
     {
         $this->container['round_amount'] = $round_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets saving_plan_deduction_discount_amount
+     *
+     * @return string
+     */
+    public function getSavingPlanDeductionDiscountAmount()
+    {
+        return $this->container['saving_plan_deduction_discount_amount'];
+    }
+
+    /**
+     * Sets saving_plan_deduction_discount_amount
+     *
+     * @param string $saving_plan_deduction_discount_amount saving_plan_deduction_discount_amount
+     *
+     * @return $this
+     */
+    public function setSavingPlanDeductionDiscountAmount($saving_plan_deduction_discount_amount)
+    {
+        $this->container['saving_plan_deduction_discount_amount'] = $saving_plan_deduction_discount_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets saving_plan_deduction_sp_id
+     *
+     * @return string
+     */
+    public function getSavingPlanDeductionSpId()
+    {
+        return $this->container['saving_plan_deduction_sp_id'];
+    }
+
+    /**
+     * Sets saving_plan_deduction_sp_id
+     *
+     * @param string $saving_plan_deduction_sp_id saving_plan_deduction_sp_id
+     *
+     * @return $this
+     */
+    public function setSavingPlanDeductionSpId($saving_plan_deduction_sp_id)
+    {
+        $this->container['saving_plan_deduction_sp_id'] = $saving_plan_deduction_sp_id;
 
         return $this;
     }
@@ -3686,6 +3332,30 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
     }
 
     /**
+     * Gets tax_amount
+     *
+     * @return string
+     */
+    public function getTaxAmount()
+    {
+        return $this->container['tax_amount'];
+    }
+
+    /**
+     * Sets tax_amount
+     *
+     * @param string $tax_amount tax_amount
+     *
+     * @return $this
+     */
+    public function setTaxAmount($tax_amount)
+    {
+        $this->container['tax_amount'] = $tax_amount;
+
+        return $this;
+    }
+
+    /**
      * Gets tax_rate
      *
      * @return string
@@ -3705,6 +3375,30 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
     public function setTaxRate($tax_rate)
     {
         $this->container['tax_rate'] = $tax_rate;
+
+        return $this;
+    }
+
+    /**
+     * Gets trade_time
+     *
+     * @return string
+     */
+    public function getTradeTime()
+    {
+        return $this->container['trade_time'];
+    }
+
+    /**
+     * Sets trade_time
+     *
+     * @param string $trade_time trade_time
+     *
+     * @return $this
+     */
+    public function setTradeTime($trade_time)
+    {
+        $this->container['trade_time'] = $trade_time;
 
         return $this;
     }
@@ -3801,30 +3495,6 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
     public function setZone($zone)
     {
         $this->container['zone'] = $zone;
-
-        return $this;
-    }
-
-    /**
-     * Gets zone_code
-     *
-     * @return string
-     */
-    public function getZoneCode()
-    {
-        return $this->container['zone_code'];
-    }
-
-    /**
-     * Sets zone_code
-     *
-     * @param string $zone_code zone_code
-     *
-     * @return $this
-     */
-    public function setZoneCode($zone_code)
-    {
-        $this->container['zone_code'] = $zone_code;
 
         return $this;
     }
