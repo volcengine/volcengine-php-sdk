@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CustomHeadersForCreateExternalPrometheusInput implements ModelInterface, ArrayAccess
+class GetWorkspaceAuthInfoResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CustomHeadersForCreateExternalPrometheusInput implements ModelInterface, A
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CustomHeadersForCreateExternalPrometheusInput';
+    protected static $swaggerModelName = 'GetWorkspaceAuthInfoResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,9 @@ class CustomHeadersForCreateExternalPrometheusInput implements ModelInterface, A
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'auth_type' => 'string',
+        'bearer_token' => 'string',
+        'username' => 'string'
     ];
 
     /**
@@ -37,7 +39,9 @@ class CustomHeadersForCreateExternalPrometheusInput implements ModelInterface, A
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'auth_type' => null,
+        'bearer_token' => null,
+        'username' => null
     ];
 
     /**
@@ -67,7 +71,9 @@ class CustomHeadersForCreateExternalPrometheusInput implements ModelInterface, A
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'auth_type' => 'AuthType',
+        'bearer_token' => 'BearerToken',
+        'username' => 'Username'
     ];
 
     /**
@@ -76,7 +82,9 @@ class CustomHeadersForCreateExternalPrometheusInput implements ModelInterface, A
      * @var string[]
      */
     protected static $setters = [
-        
+        'auth_type' => 'setAuthType',
+        'bearer_token' => 'setBearerToken',
+        'username' => 'setUsername'
     ];
 
     /**
@@ -85,7 +93,9 @@ class CustomHeadersForCreateExternalPrometheusInput implements ModelInterface, A
      * @var string[]
      */
     protected static $getters = [
-        
+        'auth_type' => 'getAuthType',
+        'bearer_token' => 'getBearerToken',
+        'username' => 'getUsername'
     ];
 
     /**
@@ -148,6 +158,9 @@ class CustomHeadersForCreateExternalPrometheusInput implements ModelInterface, A
      */
     public function __construct(array $data = null)
     {
+        $this->container['auth_type'] = isset($data['auth_type']) ? $data['auth_type'] : null;
+        $this->container['bearer_token'] = isset($data['bearer_token']) ? $data['bearer_token'] : null;
+        $this->container['username'] = isset($data['username']) ? $data['username'] : null;
     }
 
     /**
@@ -173,6 +186,78 @@ class CustomHeadersForCreateExternalPrometheusInput implements ModelInterface, A
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets auth_type
+     *
+     * @return string
+     */
+    public function getAuthType()
+    {
+        return $this->container['auth_type'];
+    }
+
+    /**
+     * Sets auth_type
+     *
+     * @param string $auth_type auth_type
+     *
+     * @return $this
+     */
+    public function setAuthType($auth_type)
+    {
+        $this->container['auth_type'] = $auth_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets bearer_token
+     *
+     * @return string
+     */
+    public function getBearerToken()
+    {
+        return $this->container['bearer_token'];
+    }
+
+    /**
+     * Sets bearer_token
+     *
+     * @param string $bearer_token bearer_token
+     *
+     * @return $this
+     */
+    public function setBearerToken($bearer_token)
+    {
+        $this->container['bearer_token'] = $bearer_token;
+
+        return $this;
+    }
+
+    /**
+     * Gets username
+     *
+     * @return string
+     */
+    public function getUsername()
+    {
+        return $this->container['username'];
+    }
+
+    /**
+     * Sets username
+     *
+     * @param string $username username
+     *
+     * @return $this
+     */
+    public function setUsername($username)
+    {
+        $this->container['username'] = $username;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

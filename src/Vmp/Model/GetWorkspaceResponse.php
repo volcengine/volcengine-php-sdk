@@ -28,6 +28,7 @@ class GetWorkspaceResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'auth_type' => 'string',
         'create_time' => 'string',
         'delete_protection_enabled' => 'bool',
         'description' => 'string',
@@ -59,6 +60,7 @@ class GetWorkspaceResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'auth_type' => null,
         'create_time' => null,
         'delete_protection_enabled' => null,
         'description' => null,
@@ -111,6 +113,7 @@ class GetWorkspaceResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'auth_type' => 'AuthType',
         'create_time' => 'CreateTime',
         'delete_protection_enabled' => 'DeleteProtectionEnabled',
         'description' => 'Description',
@@ -142,6 +145,7 @@ class GetWorkspaceResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'auth_type' => 'setAuthType',
         'create_time' => 'setCreateTime',
         'delete_protection_enabled' => 'setDeleteProtectionEnabled',
         'description' => 'setDescription',
@@ -173,6 +177,7 @@ class GetWorkspaceResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'auth_type' => 'getAuthType',
         'create_time' => 'getCreateTime',
         'delete_protection_enabled' => 'getDeleteProtectionEnabled',
         'description' => 'getDescription',
@@ -258,6 +263,7 @@ class GetWorkspaceResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['auth_type'] = isset($data['auth_type']) ? $data['auth_type'] : null;
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
         $this->container['delete_protection_enabled'] = isset($data['delete_protection_enabled']) ? $data['delete_protection_enabled'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
@@ -306,6 +312,30 @@ class GetWorkspaceResponse implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets auth_type
+     *
+     * @return string
+     */
+    public function getAuthType()
+    {
+        return $this->container['auth_type'];
+    }
+
+    /**
+     * Sets auth_type
+     *
+     * @param string $auth_type auth_type
+     *
+     * @return $this
+     */
+    public function setAuthType($auth_type)
+    {
+        $this->container['auth_type'] = $auth_type;
+
+        return $this;
+    }
 
     /**
      * Gets create_time
