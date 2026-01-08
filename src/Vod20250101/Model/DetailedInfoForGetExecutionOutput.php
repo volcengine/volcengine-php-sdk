@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AudioStreamMetaForGetExecutionOutput implements ModelInterface, ArrayAccess
+class DetailedInfoForGetExecutionOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AudioStreamMetaForGetExecutionOutput implements ModelInterface, ArrayAcces
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AudioStreamMetaForGetExecutionOutput';
+    protected static $swaggerModelName = 'DetailedInfoForGetExecutionOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,8 @@ class AudioStreamMetaForGetExecutionOutput implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'bitrate' => 'int',
-        'channels' => 'int',
-        'codec' => 'string',
-        'duration' => 'float',
-        'quality' => 'string',
-        'sample_rate' => 'int'
+        'label' => 'string',
+        'pixel_rectangle' => '\Volcengine\Vod20250101\Model\PixelRectangleForGetExecutionOutput'
     ];
 
     /**
@@ -42,12 +38,8 @@ class AudioStreamMetaForGetExecutionOutput implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'bitrate' => 'int32',
-        'channels' => 'int32',
-        'codec' => null,
-        'duration' => 'float',
-        'quality' => null,
-        'sample_rate' => 'int32'
+        'label' => null,
+        'pixel_rectangle' => null
     ];
 
     /**
@@ -77,12 +69,8 @@ class AudioStreamMetaForGetExecutionOutput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $attributeMap = [
-        'bitrate' => 'Bitrate',
-        'channels' => 'Channels',
-        'codec' => 'Codec',
-        'duration' => 'Duration',
-        'quality' => 'Quality',
-        'sample_rate' => 'SampleRate'
+        'label' => 'Label',
+        'pixel_rectangle' => 'PixelRectangle'
     ];
 
     /**
@@ -91,12 +79,8 @@ class AudioStreamMetaForGetExecutionOutput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $setters = [
-        'bitrate' => 'setBitrate',
-        'channels' => 'setChannels',
-        'codec' => 'setCodec',
-        'duration' => 'setDuration',
-        'quality' => 'setQuality',
-        'sample_rate' => 'setSampleRate'
+        'label' => 'setLabel',
+        'pixel_rectangle' => 'setPixelRectangle'
     ];
 
     /**
@@ -105,12 +89,8 @@ class AudioStreamMetaForGetExecutionOutput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $getters = [
-        'bitrate' => 'getBitrate',
-        'channels' => 'getChannels',
-        'codec' => 'getCodec',
-        'duration' => 'getDuration',
-        'quality' => 'getQuality',
-        'sample_rate' => 'getSampleRate'
+        'label' => 'getLabel',
+        'pixel_rectangle' => 'getPixelRectangle'
     ];
 
     /**
@@ -173,12 +153,8 @@ class AudioStreamMetaForGetExecutionOutput implements ModelInterface, ArrayAcces
      */
     public function __construct(array $data = null)
     {
-        $this->container['bitrate'] = isset($data['bitrate']) ? $data['bitrate'] : null;
-        $this->container['channels'] = isset($data['channels']) ? $data['channels'] : null;
-        $this->container['codec'] = isset($data['codec']) ? $data['codec'] : null;
-        $this->container['duration'] = isset($data['duration']) ? $data['duration'] : null;
-        $this->container['quality'] = isset($data['quality']) ? $data['quality'] : null;
-        $this->container['sample_rate'] = isset($data['sample_rate']) ? $data['sample_rate'] : null;
+        $this->container['label'] = isset($data['label']) ? $data['label'] : null;
+        $this->container['pixel_rectangle'] = isset($data['pixel_rectangle']) ? $data['pixel_rectangle'] : null;
     }
 
     /**
@@ -206,145 +182,49 @@ class AudioStreamMetaForGetExecutionOutput implements ModelInterface, ArrayAcces
 
 
     /**
-     * Gets bitrate
-     *
-     * @return int
-     */
-    public function getBitrate()
-    {
-        return $this->container['bitrate'];
-    }
-
-    /**
-     * Sets bitrate
-     *
-     * @param int $bitrate bitrate
-     *
-     * @return $this
-     */
-    public function setBitrate($bitrate)
-    {
-        $this->container['bitrate'] = $bitrate;
-
-        return $this;
-    }
-
-    /**
-     * Gets channels
-     *
-     * @return int
-     */
-    public function getChannels()
-    {
-        return $this->container['channels'];
-    }
-
-    /**
-     * Sets channels
-     *
-     * @param int $channels channels
-     *
-     * @return $this
-     */
-    public function setChannels($channels)
-    {
-        $this->container['channels'] = $channels;
-
-        return $this;
-    }
-
-    /**
-     * Gets codec
+     * Gets label
      *
      * @return string
      */
-    public function getCodec()
+    public function getLabel()
     {
-        return $this->container['codec'];
+        return $this->container['label'];
     }
 
     /**
-     * Sets codec
+     * Sets label
      *
-     * @param string $codec codec
+     * @param string $label label
      *
      * @return $this
      */
-    public function setCodec($codec)
+    public function setLabel($label)
     {
-        $this->container['codec'] = $codec;
+        $this->container['label'] = $label;
 
         return $this;
     }
 
     /**
-     * Gets duration
+     * Gets pixel_rectangle
      *
-     * @return float
+     * @return \Volcengine\Vod20250101\Model\PixelRectangleForGetExecutionOutput
      */
-    public function getDuration()
+    public function getPixelRectangle()
     {
-        return $this->container['duration'];
+        return $this->container['pixel_rectangle'];
     }
 
     /**
-     * Sets duration
+     * Sets pixel_rectangle
      *
-     * @param float $duration duration
+     * @param \Volcengine\Vod20250101\Model\PixelRectangleForGetExecutionOutput $pixel_rectangle pixel_rectangle
      *
      * @return $this
      */
-    public function setDuration($duration)
+    public function setPixelRectangle($pixel_rectangle)
     {
-        $this->container['duration'] = $duration;
-
-        return $this;
-    }
-
-    /**
-     * Gets quality
-     *
-     * @return string
-     */
-    public function getQuality()
-    {
-        return $this->container['quality'];
-    }
-
-    /**
-     * Sets quality
-     *
-     * @param string $quality quality
-     *
-     * @return $this
-     */
-    public function setQuality($quality)
-    {
-        $this->container['quality'] = $quality;
-
-        return $this;
-    }
-
-    /**
-     * Gets sample_rate
-     *
-     * @return int
-     */
-    public function getSampleRate()
-    {
-        return $this->container['sample_rate'];
-    }
-
-    /**
-     * Sets sample_rate
-     *
-     * @param int $sample_rate sample_rate
-     *
-     * @return $this
-     */
-    public function setSampleRate($sample_rate)
-    {
-        $this->container['sample_rate'] = $sample_rate;
+        $this->container['pixel_rectangle'] = $pixel_rectangle;
 
         return $this;
     }

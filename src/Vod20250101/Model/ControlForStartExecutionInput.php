@@ -31,7 +31,8 @@ class ControlForStartExecutionInput implements ModelInterface, ArrayAccess
         'callback_args' => 'string',
         'client_token' => 'string',
         'enable_low_priority' => 'bool',
-        'priority' => 'int'
+        'priority' => 'int',
+        'task_list_id' => 'string'
     ];
 
     /**
@@ -43,7 +44,8 @@ class ControlForStartExecutionInput implements ModelInterface, ArrayAccess
         'callback_args' => null,
         'client_token' => null,
         'enable_low_priority' => null,
-        'priority' => 'int32'
+        'priority' => 'int32',
+        'task_list_id' => null
     ];
 
     /**
@@ -76,7 +78,8 @@ class ControlForStartExecutionInput implements ModelInterface, ArrayAccess
         'callback_args' => 'CallbackArgs',
         'client_token' => 'ClientToken',
         'enable_low_priority' => 'EnableLowPriority',
-        'priority' => 'Priority'
+        'priority' => 'Priority',
+        'task_list_id' => 'TaskListId'
     ];
 
     /**
@@ -88,7 +91,8 @@ class ControlForStartExecutionInput implements ModelInterface, ArrayAccess
         'callback_args' => 'setCallbackArgs',
         'client_token' => 'setClientToken',
         'enable_low_priority' => 'setEnableLowPriority',
-        'priority' => 'setPriority'
+        'priority' => 'setPriority',
+        'task_list_id' => 'setTaskListId'
     ];
 
     /**
@@ -100,7 +104,8 @@ class ControlForStartExecutionInput implements ModelInterface, ArrayAccess
         'callback_args' => 'getCallbackArgs',
         'client_token' => 'getClientToken',
         'enable_low_priority' => 'getEnableLowPriority',
-        'priority' => 'getPriority'
+        'priority' => 'getPriority',
+        'task_list_id' => 'getTaskListId'
     ];
 
     /**
@@ -167,6 +172,7 @@ class ControlForStartExecutionInput implements ModelInterface, ArrayAccess
         $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
         $this->container['enable_low_priority'] = isset($data['enable_low_priority']) ? $data['enable_low_priority'] : null;
         $this->container['priority'] = isset($data['priority']) ? $data['priority'] : null;
+        $this->container['task_list_id'] = isset($data['task_list_id']) ? $data['task_list_id'] : null;
     }
 
     /**
@@ -285,6 +291,30 @@ class ControlForStartExecutionInput implements ModelInterface, ArrayAccess
     public function setPriority($priority)
     {
         $this->container['priority'] = $priority;
+
+        return $this;
+    }
+
+    /**
+     * Gets task_list_id
+     *
+     * @return string
+     */
+    public function getTaskListId()
+    {
+        return $this->container['task_list_id'];
+    }
+
+    /**
+     * Sets task_list_id
+     *
+     * @param string $task_list_id task_list_id
+     *
+     * @return $this
+     */
+    public function setTaskListId($task_list_id)
+    {
+        $this->container['task_list_id'] = $task_list_id;
 
         return $this;
     }

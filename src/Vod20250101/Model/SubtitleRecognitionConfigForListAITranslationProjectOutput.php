@@ -29,6 +29,7 @@ class SubtitleRecognitionConfigForListAITranslationProjectOutput implements Mode
       */
     protected static $swaggerTypes = [
         'bilingual_subtitle_file_name' => 'string',
+        'is_vision' => 'bool',
         'recognition_type' => 'string',
         'source_subtitle_file_name' => 'string',
         'subtitle_file_name' => 'string',
@@ -42,6 +43,7 @@ class SubtitleRecognitionConfigForListAITranslationProjectOutput implements Mode
       */
     protected static $swaggerFormats = [
         'bilingual_subtitle_file_name' => null,
+        'is_vision' => null,
         'recognition_type' => null,
         'source_subtitle_file_name' => null,
         'subtitle_file_name' => null,
@@ -76,6 +78,7 @@ class SubtitleRecognitionConfigForListAITranslationProjectOutput implements Mode
      */
     protected static $attributeMap = [
         'bilingual_subtitle_file_name' => 'BilingualSubtitleFileName',
+        'is_vision' => 'IsVision',
         'recognition_type' => 'RecognitionType',
         'source_subtitle_file_name' => 'SourceSubtitleFileName',
         'subtitle_file_name' => 'SubtitleFileName',
@@ -89,6 +92,7 @@ class SubtitleRecognitionConfigForListAITranslationProjectOutput implements Mode
      */
     protected static $setters = [
         'bilingual_subtitle_file_name' => 'setBilingualSubtitleFileName',
+        'is_vision' => 'setIsVision',
         'recognition_type' => 'setRecognitionType',
         'source_subtitle_file_name' => 'setSourceSubtitleFileName',
         'subtitle_file_name' => 'setSubtitleFileName',
@@ -102,6 +106,7 @@ class SubtitleRecognitionConfigForListAITranslationProjectOutput implements Mode
      */
     protected static $getters = [
         'bilingual_subtitle_file_name' => 'getBilingualSubtitleFileName',
+        'is_vision' => 'getIsVision',
         'recognition_type' => 'getRecognitionType',
         'source_subtitle_file_name' => 'getSourceSubtitleFileName',
         'subtitle_file_name' => 'getSubtitleFileName',
@@ -169,6 +174,7 @@ class SubtitleRecognitionConfigForListAITranslationProjectOutput implements Mode
     public function __construct(array $data = null)
     {
         $this->container['bilingual_subtitle_file_name'] = isset($data['bilingual_subtitle_file_name']) ? $data['bilingual_subtitle_file_name'] : null;
+        $this->container['is_vision'] = isset($data['is_vision']) ? $data['is_vision'] : null;
         $this->container['recognition_type'] = isset($data['recognition_type']) ? $data['recognition_type'] : null;
         $this->container['source_subtitle_file_name'] = isset($data['source_subtitle_file_name']) ? $data['source_subtitle_file_name'] : null;
         $this->container['subtitle_file_name'] = isset($data['subtitle_file_name']) ? $data['subtitle_file_name'] : null;
@@ -219,6 +225,30 @@ class SubtitleRecognitionConfigForListAITranslationProjectOutput implements Mode
     public function setBilingualSubtitleFileName($bilingual_subtitle_file_name)
     {
         $this->container['bilingual_subtitle_file_name'] = $bilingual_subtitle_file_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_vision
+     *
+     * @return bool
+     */
+    public function getIsVision()
+    {
+        return $this->container['is_vision'];
+    }
+
+    /**
+     * Sets is_vision
+     *
+     * @param bool $is_vision is_vision
+     *
+     * @return $this
+     */
+    public function setIsVision($is_vision)
+    {
+        $this->container['is_vision'] = $is_vision;
 
         return $this;
     }

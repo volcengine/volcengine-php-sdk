@@ -28,7 +28,8 @@ class OperatorConfigForListAITranslationProjectOutput implements ModelInterface,
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'subtitle_recognition_config' => '\Volcengine\Vod20250101\Model\SubtitleRecognitionConfigForListAITranslationProjectOutput'
+        'subtitle_recognition_config' => '\Volcengine\Vod20250101\Model\SubtitleRecognitionConfigForListAITranslationProjectOutput',
+        'voice_clone_config' => '\Volcengine\Vod20250101\Model\VoiceCloneConfigForListAITranslationProjectOutput'
     ];
 
     /**
@@ -37,7 +38,8 @@ class OperatorConfigForListAITranslationProjectOutput implements ModelInterface,
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'subtitle_recognition_config' => null
+        'subtitle_recognition_config' => null,
+        'voice_clone_config' => null
     ];
 
     /**
@@ -67,7 +69,8 @@ class OperatorConfigForListAITranslationProjectOutput implements ModelInterface,
      * @var string[]
      */
     protected static $attributeMap = [
-        'subtitle_recognition_config' => 'SubtitleRecognitionConfig'
+        'subtitle_recognition_config' => 'SubtitleRecognitionConfig',
+        'voice_clone_config' => 'VoiceCloneConfig'
     ];
 
     /**
@@ -76,7 +79,8 @@ class OperatorConfigForListAITranslationProjectOutput implements ModelInterface,
      * @var string[]
      */
     protected static $setters = [
-        'subtitle_recognition_config' => 'setSubtitleRecognitionConfig'
+        'subtitle_recognition_config' => 'setSubtitleRecognitionConfig',
+        'voice_clone_config' => 'setVoiceCloneConfig'
     ];
 
     /**
@@ -85,7 +89,8 @@ class OperatorConfigForListAITranslationProjectOutput implements ModelInterface,
      * @var string[]
      */
     protected static $getters = [
-        'subtitle_recognition_config' => 'getSubtitleRecognitionConfig'
+        'subtitle_recognition_config' => 'getSubtitleRecognitionConfig',
+        'voice_clone_config' => 'getVoiceCloneConfig'
     ];
 
     /**
@@ -149,6 +154,7 @@ class OperatorConfigForListAITranslationProjectOutput implements ModelInterface,
     public function __construct(array $data = null)
     {
         $this->container['subtitle_recognition_config'] = isset($data['subtitle_recognition_config']) ? $data['subtitle_recognition_config'] : null;
+        $this->container['voice_clone_config'] = isset($data['voice_clone_config']) ? $data['voice_clone_config'] : null;
     }
 
     /**
@@ -195,6 +201,30 @@ class OperatorConfigForListAITranslationProjectOutput implements ModelInterface,
     public function setSubtitleRecognitionConfig($subtitle_recognition_config)
     {
         $this->container['subtitle_recognition_config'] = $subtitle_recognition_config;
+
+        return $this;
+    }
+
+    /**
+     * Gets voice_clone_config
+     *
+     * @return \Volcengine\Vod20250101\Model\VoiceCloneConfigForListAITranslationProjectOutput
+     */
+    public function getVoiceCloneConfig()
+    {
+        return $this->container['voice_clone_config'];
+    }
+
+    /**
+     * Sets voice_clone_config
+     *
+     * @param \Volcengine\Vod20250101\Model\VoiceCloneConfigForListAITranslationProjectOutput $voice_clone_config voice_clone_config
+     *
+     * @return $this
+     */
+    public function setVoiceCloneConfig($voice_clone_config)
+    {
+        $this->container['voice_clone_config'] = $voice_clone_config;
 
         return $this;
     }

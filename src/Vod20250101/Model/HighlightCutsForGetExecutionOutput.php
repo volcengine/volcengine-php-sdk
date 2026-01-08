@@ -31,6 +31,7 @@ class HighlightCutsForGetExecutionOutput implements ModelInterface, ArrayAccess
         'max_duration' => 'double',
         'max_number' => 'int',
         'min_duration' => 'double',
+        'miniseries_option' => '\Volcengine\Vod20250101\Model\MiniseriesOptionForGetExecutionOutput',
         'with_storyboard' => 'bool'
     ];
 
@@ -43,6 +44,7 @@ class HighlightCutsForGetExecutionOutput implements ModelInterface, ArrayAccess
         'max_duration' => 'double',
         'max_number' => 'int32',
         'min_duration' => 'double',
+        'miniseries_option' => null,
         'with_storyboard' => null
     ];
 
@@ -76,6 +78,7 @@ class HighlightCutsForGetExecutionOutput implements ModelInterface, ArrayAccess
         'max_duration' => 'MaxDuration',
         'max_number' => 'MaxNumber',
         'min_duration' => 'MinDuration',
+        'miniseries_option' => 'MiniseriesOption',
         'with_storyboard' => 'WithStoryboard'
     ];
 
@@ -88,6 +91,7 @@ class HighlightCutsForGetExecutionOutput implements ModelInterface, ArrayAccess
         'max_duration' => 'setMaxDuration',
         'max_number' => 'setMaxNumber',
         'min_duration' => 'setMinDuration',
+        'miniseries_option' => 'setMiniseriesOption',
         'with_storyboard' => 'setWithStoryboard'
     ];
 
@@ -100,6 +104,7 @@ class HighlightCutsForGetExecutionOutput implements ModelInterface, ArrayAccess
         'max_duration' => 'getMaxDuration',
         'max_number' => 'getMaxNumber',
         'min_duration' => 'getMinDuration',
+        'miniseries_option' => 'getMiniseriesOption',
         'with_storyboard' => 'getWithStoryboard'
     ];
 
@@ -166,6 +171,7 @@ class HighlightCutsForGetExecutionOutput implements ModelInterface, ArrayAccess
         $this->container['max_duration'] = isset($data['max_duration']) ? $data['max_duration'] : null;
         $this->container['max_number'] = isset($data['max_number']) ? $data['max_number'] : null;
         $this->container['min_duration'] = isset($data['min_duration']) ? $data['min_duration'] : null;
+        $this->container['miniseries_option'] = isset($data['miniseries_option']) ? $data['miniseries_option'] : null;
         $this->container['with_storyboard'] = isset($data['with_storyboard']) ? $data['with_storyboard'] : null;
     }
 
@@ -261,6 +267,30 @@ class HighlightCutsForGetExecutionOutput implements ModelInterface, ArrayAccess
     public function setMinDuration($min_duration)
     {
         $this->container['min_duration'] = $min_duration;
+
+        return $this;
+    }
+
+    /**
+     * Gets miniseries_option
+     *
+     * @return \Volcengine\Vod20250101\Model\MiniseriesOptionForGetExecutionOutput
+     */
+    public function getMiniseriesOption()
+    {
+        return $this->container['miniseries_option'];
+    }
+
+    /**
+     * Sets miniseries_option
+     *
+     * @param \Volcengine\Vod20250101\Model\MiniseriesOptionForGetExecutionOutput $miniseries_option miniseries_option
+     *
+     * @return $this
+     */
+    public function setMiniseriesOption($miniseries_option)
+    {
+        $this->container['miniseries_option'] = $miniseries_option;
 
         return $this;
     }

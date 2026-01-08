@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class AudioStreamMetaForGetExecutionOutput implements ModelInterface, ArrayAccess
+class MiniseriesEditForGetExecutionOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class AudioStreamMetaForGetExecutionOutput implements ModelInterface, ArrayAcces
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AudioStreamMetaForGetExecutionOutput';
+    protected static $swaggerModelName = 'MiniseriesEditForGetExecutionOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,9 @@ class AudioStreamMetaForGetExecutionOutput implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'bitrate' => 'int',
-        'channels' => 'int',
-        'codec' => 'string',
-        'duration' => 'float',
-        'quality' => 'string',
-        'sample_rate' => 'int'
+        'hint' => 'string',
+        'template' => 'string',
+        'title' => 'string'
     ];
 
     /**
@@ -42,12 +39,9 @@ class AudioStreamMetaForGetExecutionOutput implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'bitrate' => 'int32',
-        'channels' => 'int32',
-        'codec' => null,
-        'duration' => 'float',
-        'quality' => null,
-        'sample_rate' => 'int32'
+        'hint' => null,
+        'template' => null,
+        'title' => null
     ];
 
     /**
@@ -77,12 +71,9 @@ class AudioStreamMetaForGetExecutionOutput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $attributeMap = [
-        'bitrate' => 'Bitrate',
-        'channels' => 'Channels',
-        'codec' => 'Codec',
-        'duration' => 'Duration',
-        'quality' => 'Quality',
-        'sample_rate' => 'SampleRate'
+        'hint' => 'Hint',
+        'template' => 'Template',
+        'title' => 'Title'
     ];
 
     /**
@@ -91,12 +82,9 @@ class AudioStreamMetaForGetExecutionOutput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $setters = [
-        'bitrate' => 'setBitrate',
-        'channels' => 'setChannels',
-        'codec' => 'setCodec',
-        'duration' => 'setDuration',
-        'quality' => 'setQuality',
-        'sample_rate' => 'setSampleRate'
+        'hint' => 'setHint',
+        'template' => 'setTemplate',
+        'title' => 'setTitle'
     ];
 
     /**
@@ -105,12 +93,9 @@ class AudioStreamMetaForGetExecutionOutput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $getters = [
-        'bitrate' => 'getBitrate',
-        'channels' => 'getChannels',
-        'codec' => 'getCodec',
-        'duration' => 'getDuration',
-        'quality' => 'getQuality',
-        'sample_rate' => 'getSampleRate'
+        'hint' => 'getHint',
+        'template' => 'getTemplate',
+        'title' => 'getTitle'
     ];
 
     /**
@@ -173,12 +158,9 @@ class AudioStreamMetaForGetExecutionOutput implements ModelInterface, ArrayAcces
      */
     public function __construct(array $data = null)
     {
-        $this->container['bitrate'] = isset($data['bitrate']) ? $data['bitrate'] : null;
-        $this->container['channels'] = isset($data['channels']) ? $data['channels'] : null;
-        $this->container['codec'] = isset($data['codec']) ? $data['codec'] : null;
-        $this->container['duration'] = isset($data['duration']) ? $data['duration'] : null;
-        $this->container['quality'] = isset($data['quality']) ? $data['quality'] : null;
-        $this->container['sample_rate'] = isset($data['sample_rate']) ? $data['sample_rate'] : null;
+        $this->container['hint'] = isset($data['hint']) ? $data['hint'] : null;
+        $this->container['template'] = isset($data['template']) ? $data['template'] : null;
+        $this->container['title'] = isset($data['title']) ? $data['title'] : null;
     }
 
     /**
@@ -206,145 +188,73 @@ class AudioStreamMetaForGetExecutionOutput implements ModelInterface, ArrayAcces
 
 
     /**
-     * Gets bitrate
-     *
-     * @return int
-     */
-    public function getBitrate()
-    {
-        return $this->container['bitrate'];
-    }
-
-    /**
-     * Sets bitrate
-     *
-     * @param int $bitrate bitrate
-     *
-     * @return $this
-     */
-    public function setBitrate($bitrate)
-    {
-        $this->container['bitrate'] = $bitrate;
-
-        return $this;
-    }
-
-    /**
-     * Gets channels
-     *
-     * @return int
-     */
-    public function getChannels()
-    {
-        return $this->container['channels'];
-    }
-
-    /**
-     * Sets channels
-     *
-     * @param int $channels channels
-     *
-     * @return $this
-     */
-    public function setChannels($channels)
-    {
-        $this->container['channels'] = $channels;
-
-        return $this;
-    }
-
-    /**
-     * Gets codec
+     * Gets hint
      *
      * @return string
      */
-    public function getCodec()
+    public function getHint()
     {
-        return $this->container['codec'];
+        return $this->container['hint'];
     }
 
     /**
-     * Sets codec
+     * Sets hint
      *
-     * @param string $codec codec
+     * @param string $hint hint
      *
      * @return $this
      */
-    public function setCodec($codec)
+    public function setHint($hint)
     {
-        $this->container['codec'] = $codec;
+        $this->container['hint'] = $hint;
 
         return $this;
     }
 
     /**
-     * Gets duration
-     *
-     * @return float
-     */
-    public function getDuration()
-    {
-        return $this->container['duration'];
-    }
-
-    /**
-     * Sets duration
-     *
-     * @param float $duration duration
-     *
-     * @return $this
-     */
-    public function setDuration($duration)
-    {
-        $this->container['duration'] = $duration;
-
-        return $this;
-    }
-
-    /**
-     * Gets quality
+     * Gets template
      *
      * @return string
      */
-    public function getQuality()
+    public function getTemplate()
     {
-        return $this->container['quality'];
+        return $this->container['template'];
     }
 
     /**
-     * Sets quality
+     * Sets template
      *
-     * @param string $quality quality
+     * @param string $template template
      *
      * @return $this
      */
-    public function setQuality($quality)
+    public function setTemplate($template)
     {
-        $this->container['quality'] = $quality;
+        $this->container['template'] = $template;
 
         return $this;
     }
 
     /**
-     * Gets sample_rate
+     * Gets title
      *
-     * @return int
+     * @return string
      */
-    public function getSampleRate()
+    public function getTitle()
     {
-        return $this->container['sample_rate'];
+        return $this->container['title'];
     }
 
     /**
-     * Sets sample_rate
+     * Sets title
      *
-     * @param int $sample_rate sample_rate
+     * @param string $title title
      *
      * @return $this
      */
-    public function setSampleRate($sample_rate)
+    public function setTitle($title)
     {
-        $this->container['sample_rate'] = $sample_rate;
+        $this->container['title'] = $title;
 
         return $this;
     }
