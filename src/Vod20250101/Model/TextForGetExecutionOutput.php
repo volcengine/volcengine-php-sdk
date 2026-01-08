@@ -28,6 +28,7 @@ class TextForGetExecutionOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'detailed_info' => '\Volcengine\Vod20250101\Model\DetailedInfoForGetExecutionOutput',
         'end' => 'double',
         'start' => 'double',
         'text' => 'string'
@@ -39,6 +40,7 @@ class TextForGetExecutionOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'detailed_info' => null,
         'end' => 'double',
         'start' => 'double',
         'text' => null
@@ -71,6 +73,7 @@ class TextForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'detailed_info' => 'DetailedInfo',
         'end' => 'End',
         'start' => 'Start',
         'text' => 'Text'
@@ -82,6 +85,7 @@ class TextForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'detailed_info' => 'setDetailedInfo',
         'end' => 'setEnd',
         'start' => 'setStart',
         'text' => 'setText'
@@ -93,6 +97,7 @@ class TextForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'detailed_info' => 'getDetailedInfo',
         'end' => 'getEnd',
         'start' => 'getStart',
         'text' => 'getText'
@@ -158,6 +163,7 @@ class TextForGetExecutionOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['detailed_info'] = isset($data['detailed_info']) ? $data['detailed_info'] : null;
         $this->container['end'] = isset($data['end']) ? $data['end'] : null;
         $this->container['start'] = isset($data['start']) ? $data['start'] : null;
         $this->container['text'] = isset($data['text']) ? $data['text'] : null;
@@ -186,6 +192,30 @@ class TextForGetExecutionOutput implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets detailed_info
+     *
+     * @return \Volcengine\Vod20250101\Model\DetailedInfoForGetExecutionOutput
+     */
+    public function getDetailedInfo()
+    {
+        return $this->container['detailed_info'];
+    }
+
+    /**
+     * Sets detailed_info
+     *
+     * @param \Volcengine\Vod20250101\Model\DetailedInfoForGetExecutionOutput $detailed_info detailed_info
+     *
+     * @return $this
+     */
+    public function setDetailedInfo($detailed_info)
+    {
+        $this->container['detailed_info'] = $detailed_info;
+
+        return $this;
+    }
 
     /**
      * Gets end

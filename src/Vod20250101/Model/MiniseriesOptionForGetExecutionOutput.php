@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Vmp\Model;
+namespace Volcengine\Vod20250101\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CustomHeadersForUpdateExternalPrometheusInput implements ModelInterface, ArrayAccess
+class MiniseriesOptionForGetExecutionOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CustomHeadersForUpdateExternalPrometheusInput implements ModelInterface, A
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CustomHeadersForUpdateExternalPrometheusInput';
+    protected static $swaggerModelName = 'MiniseriesOptionForGetExecutionOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,7 @@ class CustomHeadersForUpdateExternalPrometheusInput implements ModelInterface, A
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'cut_mode' => 'string'
     ];
 
     /**
@@ -37,7 +37,7 @@ class CustomHeadersForUpdateExternalPrometheusInput implements ModelInterface, A
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'cut_mode' => null
     ];
 
     /**
@@ -67,7 +67,7 @@ class CustomHeadersForUpdateExternalPrometheusInput implements ModelInterface, A
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'cut_mode' => 'CutMode'
     ];
 
     /**
@@ -76,7 +76,7 @@ class CustomHeadersForUpdateExternalPrometheusInput implements ModelInterface, A
      * @var string[]
      */
     protected static $setters = [
-        
+        'cut_mode' => 'setCutMode'
     ];
 
     /**
@@ -85,7 +85,7 @@ class CustomHeadersForUpdateExternalPrometheusInput implements ModelInterface, A
      * @var string[]
      */
     protected static $getters = [
-        
+        'cut_mode' => 'getCutMode'
     ];
 
     /**
@@ -148,6 +148,7 @@ class CustomHeadersForUpdateExternalPrometheusInput implements ModelInterface, A
      */
     public function __construct(array $data = null)
     {
+        $this->container['cut_mode'] = isset($data['cut_mode']) ? $data['cut_mode'] : null;
     }
 
     /**
@@ -173,6 +174,30 @@ class CustomHeadersForUpdateExternalPrometheusInput implements ModelInterface, A
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets cut_mode
+     *
+     * @return string
+     */
+    public function getCutMode()
+    {
+        return $this->container['cut_mode'];
+    }
+
+    /**
+     * Sets cut_mode
+     *
+     * @param string $cut_mode cut_mode
+     *
+     * @return $this
+     */
+    public function setCutMode($cut_mode)
+    {
+        $this->container['cut_mode'] = $cut_mode;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

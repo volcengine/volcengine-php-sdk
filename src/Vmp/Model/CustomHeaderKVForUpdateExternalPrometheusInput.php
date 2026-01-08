@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CustomHeadersForGetExternalPrometheusOutput implements ModelInterface, ArrayAccess
+class CustomHeaderKVForUpdateExternalPrometheusInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CustomHeadersForGetExternalPrometheusOutput implements ModelInterface, Arr
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CustomHeadersForGetExternalPrometheusOutput';
+    protected static $swaggerModelName = 'CustomHeaderKVForUpdateExternalPrometheusInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,8 @@ class CustomHeadersForGetExternalPrometheusOutput implements ModelInterface, Arr
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'key' => 'string',
+        'value' => 'string'
     ];
 
     /**
@@ -37,7 +38,8 @@ class CustomHeadersForGetExternalPrometheusOutput implements ModelInterface, Arr
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'key' => null,
+        'value' => null
     ];
 
     /**
@@ -67,7 +69,8 @@ class CustomHeadersForGetExternalPrometheusOutput implements ModelInterface, Arr
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'key' => 'Key',
+        'value' => 'Value'
     ];
 
     /**
@@ -76,7 +79,8 @@ class CustomHeadersForGetExternalPrometheusOutput implements ModelInterface, Arr
      * @var string[]
      */
     protected static $setters = [
-        
+        'key' => 'setKey',
+        'value' => 'setValue'
     ];
 
     /**
@@ -85,7 +89,8 @@ class CustomHeadersForGetExternalPrometheusOutput implements ModelInterface, Arr
      * @var string[]
      */
     protected static $getters = [
-        
+        'key' => 'getKey',
+        'value' => 'getValue'
     ];
 
     /**
@@ -148,6 +153,8 @@ class CustomHeadersForGetExternalPrometheusOutput implements ModelInterface, Arr
      */
     public function __construct(array $data = null)
     {
+        $this->container['key'] = isset($data['key']) ? $data['key'] : null;
+        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 
     /**
@@ -173,6 +180,54 @@ class CustomHeadersForGetExternalPrometheusOutput implements ModelInterface, Arr
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets key
+     *
+     * @return string
+     */
+    public function getKey()
+    {
+        return $this->container['key'];
+    }
+
+    /**
+     * Sets key
+     *
+     * @param string $key key
+     *
+     * @return $this
+     */
+    public function setKey($key)
+    {
+        $this->container['key'] = $key;
+
+        return $this;
+    }
+
+    /**
+     * Gets value
+     *
+     * @return string
+     */
+    public function getValue()
+    {
+        return $this->container['value'];
+    }
+
+    /**
+     * Sets value
+     *
+     * @param string $value value
+     *
+     * @return $this
+     */
+    public function setValue($value)
+    {
+        $this->container['value'] = $value;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

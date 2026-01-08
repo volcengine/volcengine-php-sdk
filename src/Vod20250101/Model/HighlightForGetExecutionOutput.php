@@ -30,7 +30,9 @@ class HighlightForGetExecutionOutput implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'edit' => '\Volcengine\Vod20250101\Model\EditForGetExecutionOutput',
         'highlight_cuts' => '\Volcengine\Vod20250101\Model\HighlightCutsForGetExecutionOutput',
+        'mini_game' => '\Volcengine\Vod20250101\Model\MiniGameForGetExecutionOutput',
         'mode' => 'string',
+        'model' => 'string',
         'opening_hook' => '\Volcengine\Vod20250101\Model\OpeningHookForGetExecutionOutput',
         'storyline_cuts' => '\Volcengine\Vod20250101\Model\StorylineCutsForGetExecutionOutput'
     ];
@@ -43,7 +45,9 @@ class HighlightForGetExecutionOutput implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'edit' => null,
         'highlight_cuts' => null,
+        'mini_game' => null,
         'mode' => null,
+        'model' => null,
         'opening_hook' => null,
         'storyline_cuts' => null
     ];
@@ -77,7 +81,9 @@ class HighlightForGetExecutionOutput implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'edit' => 'Edit',
         'highlight_cuts' => 'HighlightCuts',
+        'mini_game' => 'MiniGame',
         'mode' => 'Mode',
+        'model' => 'Model',
         'opening_hook' => 'OpeningHook',
         'storyline_cuts' => 'StorylineCuts'
     ];
@@ -90,7 +96,9 @@ class HighlightForGetExecutionOutput implements ModelInterface, ArrayAccess
     protected static $setters = [
         'edit' => 'setEdit',
         'highlight_cuts' => 'setHighlightCuts',
+        'mini_game' => 'setMiniGame',
         'mode' => 'setMode',
+        'model' => 'setModel',
         'opening_hook' => 'setOpeningHook',
         'storyline_cuts' => 'setStorylineCuts'
     ];
@@ -103,7 +111,9 @@ class HighlightForGetExecutionOutput implements ModelInterface, ArrayAccess
     protected static $getters = [
         'edit' => 'getEdit',
         'highlight_cuts' => 'getHighlightCuts',
+        'mini_game' => 'getMiniGame',
         'mode' => 'getMode',
+        'model' => 'getModel',
         'opening_hook' => 'getOpeningHook',
         'storyline_cuts' => 'getStorylineCuts'
     ];
@@ -170,7 +180,9 @@ class HighlightForGetExecutionOutput implements ModelInterface, ArrayAccess
     {
         $this->container['edit'] = isset($data['edit']) ? $data['edit'] : null;
         $this->container['highlight_cuts'] = isset($data['highlight_cuts']) ? $data['highlight_cuts'] : null;
+        $this->container['mini_game'] = isset($data['mini_game']) ? $data['mini_game'] : null;
         $this->container['mode'] = isset($data['mode']) ? $data['mode'] : null;
+        $this->container['model'] = isset($data['model']) ? $data['model'] : null;
         $this->container['opening_hook'] = isset($data['opening_hook']) ? $data['opening_hook'] : null;
         $this->container['storyline_cuts'] = isset($data['storyline_cuts']) ? $data['storyline_cuts'] : null;
     }
@@ -248,6 +260,30 @@ class HighlightForGetExecutionOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets mini_game
+     *
+     * @return \Volcengine\Vod20250101\Model\MiniGameForGetExecutionOutput
+     */
+    public function getMiniGame()
+    {
+        return $this->container['mini_game'];
+    }
+
+    /**
+     * Sets mini_game
+     *
+     * @param \Volcengine\Vod20250101\Model\MiniGameForGetExecutionOutput $mini_game mini_game
+     *
+     * @return $this
+     */
+    public function setMiniGame($mini_game)
+    {
+        $this->container['mini_game'] = $mini_game;
+
+        return $this;
+    }
+
+    /**
      * Gets mode
      *
      * @return string
@@ -267,6 +303,30 @@ class HighlightForGetExecutionOutput implements ModelInterface, ArrayAccess
     public function setMode($mode)
     {
         $this->container['mode'] = $mode;
+
+        return $this;
+    }
+
+    /**
+     * Gets model
+     *
+     * @return string
+     */
+    public function getModel()
+    {
+        return $this->container['model'];
+    }
+
+    /**
+     * Sets model
+     *
+     * @param string $model model
+     *
+     * @return $this
+     */
+    public function setModel($model)
+    {
+        $this->container['model'] = $model;
 
         return $this;
     }

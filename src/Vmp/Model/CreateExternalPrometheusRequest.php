@@ -29,7 +29,7 @@ class CreateExternalPrometheusRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'auth_type' => 'string',
-        'custom_headers' => '\Volcengine\Vmp\Model\CustomHeadersForCreateExternalPrometheusInput',
+        'custom_header_kvs' => '\Volcengine\Vmp\Model\CustomHeaderKVForCreateExternalPrometheusInput[]',
         'description' => 'string',
         'encrypted_bearer_token' => 'string',
         'encrypted_password' => 'string',
@@ -51,7 +51,7 @@ class CreateExternalPrometheusRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'auth_type' => null,
-        'custom_headers' => null,
+        'custom_header_kvs' => null,
         'description' => null,
         'encrypted_bearer_token' => null,
         'encrypted_password' => null,
@@ -94,7 +94,7 @@ class CreateExternalPrometheusRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'auth_type' => 'AuthType',
-        'custom_headers' => 'CustomHeaders',
+        'custom_header_kvs' => 'CustomHeaderKVs',
         'description' => 'Description',
         'encrypted_bearer_token' => 'EncryptedBearerToken',
         'encrypted_password' => 'EncryptedPassword',
@@ -116,7 +116,7 @@ class CreateExternalPrometheusRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'auth_type' => 'setAuthType',
-        'custom_headers' => 'setCustomHeaders',
+        'custom_header_kvs' => 'setCustomHeaderKvs',
         'description' => 'setDescription',
         'encrypted_bearer_token' => 'setEncryptedBearerToken',
         'encrypted_password' => 'setEncryptedPassword',
@@ -138,7 +138,7 @@ class CreateExternalPrometheusRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'auth_type' => 'getAuthType',
-        'custom_headers' => 'getCustomHeaders',
+        'custom_header_kvs' => 'getCustomHeaderKvs',
         'description' => 'getDescription',
         'encrypted_bearer_token' => 'getEncryptedBearerToken',
         'encrypted_password' => 'getEncryptedPassword',
@@ -214,7 +214,7 @@ class CreateExternalPrometheusRequest implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['auth_type'] = isset($data['auth_type']) ? $data['auth_type'] : null;
-        $this->container['custom_headers'] = isset($data['custom_headers']) ? $data['custom_headers'] : null;
+        $this->container['custom_header_kvs'] = isset($data['custom_header_kvs']) ? $data['custom_header_kvs'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['encrypted_bearer_token'] = isset($data['encrypted_bearer_token']) ? $data['encrypted_bearer_token'] : null;
         $this->container['encrypted_password'] = isset($data['encrypted_password']) ? $data['encrypted_password'] : null;
@@ -284,25 +284,25 @@ class CreateExternalPrometheusRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets custom_headers
+     * Gets custom_header_kvs
      *
-     * @return \Volcengine\Vmp\Model\CustomHeadersForCreateExternalPrometheusInput
+     * @return \Volcengine\Vmp\Model\CustomHeaderKVForCreateExternalPrometheusInput[]
      */
-    public function getCustomHeaders()
+    public function getCustomHeaderKvs()
     {
-        return $this->container['custom_headers'];
+        return $this->container['custom_header_kvs'];
     }
 
     /**
-     * Sets custom_headers
+     * Sets custom_header_kvs
      *
-     * @param \Volcengine\Vmp\Model\CustomHeadersForCreateExternalPrometheusInput $custom_headers custom_headers
+     * @param \Volcengine\Vmp\Model\CustomHeaderKVForCreateExternalPrometheusInput[] $custom_header_kvs custom_header_kvs
      *
      * @return $this
      */
-    public function setCustomHeaders($custom_headers)
+    public function setCustomHeaderKvs($custom_header_kvs)
     {
-        $this->container['custom_headers'] = $custom_headers;
+        $this->container['custom_header_kvs'] = $custom_header_kvs;
 
         return $this;
     }

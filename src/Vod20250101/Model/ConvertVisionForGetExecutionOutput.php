@@ -30,6 +30,7 @@ class ConvertVisionForGetExecutionOutput implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'content' => 'string',
         'duration' => 'double',
+        'mode' => 'string',
         'model' => '\Volcengine\Vod20250101\Model\ConvertConvertModelForGetExecutionOutput',
         'snapshots_number' => 'int'
     ];
@@ -42,6 +43,7 @@ class ConvertVisionForGetExecutionOutput implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'content' => null,
         'duration' => 'double',
+        'mode' => null,
         'model' => null,
         'snapshots_number' => 'int32'
     ];
@@ -75,6 +77,7 @@ class ConvertVisionForGetExecutionOutput implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'content' => 'Content',
         'duration' => 'Duration',
+        'mode' => 'Mode',
         'model' => 'Model',
         'snapshots_number' => 'SnapshotsNumber'
     ];
@@ -87,6 +90,7 @@ class ConvertVisionForGetExecutionOutput implements ModelInterface, ArrayAccess
     protected static $setters = [
         'content' => 'setContent',
         'duration' => 'setDuration',
+        'mode' => 'setMode',
         'model' => 'setModel',
         'snapshots_number' => 'setSnapshotsNumber'
     ];
@@ -99,6 +103,7 @@ class ConvertVisionForGetExecutionOutput implements ModelInterface, ArrayAccess
     protected static $getters = [
         'content' => 'getContent',
         'duration' => 'getDuration',
+        'mode' => 'getMode',
         'model' => 'getModel',
         'snapshots_number' => 'getSnapshotsNumber'
     ];
@@ -165,6 +170,7 @@ class ConvertVisionForGetExecutionOutput implements ModelInterface, ArrayAccess
     {
         $this->container['content'] = isset($data['content']) ? $data['content'] : null;
         $this->container['duration'] = isset($data['duration']) ? $data['duration'] : null;
+        $this->container['mode'] = isset($data['mode']) ? $data['mode'] : null;
         $this->container['model'] = isset($data['model']) ? $data['model'] : null;
         $this->container['snapshots_number'] = isset($data['snapshots_number']) ? $data['snapshots_number'] : null;
     }
@@ -237,6 +243,30 @@ class ConvertVisionForGetExecutionOutput implements ModelInterface, ArrayAccess
     public function setDuration($duration)
     {
         $this->container['duration'] = $duration;
+
+        return $this;
+    }
+
+    /**
+     * Gets mode
+     *
+     * @return string
+     */
+    public function getMode()
+    {
+        return $this->container['mode'];
+    }
+
+    /**
+     * Sets mode
+     *
+     * @param string $mode mode
+     *
+     * @return $this
+     */
+    public function setMode($mode)
+    {
+        $this->container['mode'] = $mode;
 
         return $this;
     }

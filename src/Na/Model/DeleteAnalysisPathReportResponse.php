@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Vmp\Model;
+namespace Volcengine\Na\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CustomHeadersForCreateExternalPrometheusInput implements ModelInterface, ArrayAccess
+class DeleteAnalysisPathReportResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CustomHeadersForCreateExternalPrometheusInput implements ModelInterface, A
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CustomHeadersForCreateExternalPrometheusInput';
+    protected static $swaggerModelName = 'DeleteAnalysisPathReportResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

@@ -29,6 +29,7 @@ class AudioStreamMetaForGetExecutionOutput implements ModelInterface, ArrayAcces
       */
     protected static $swaggerTypes = [
         'bitrate' => 'int',
+        'channels' => 'int',
         'codec' => 'string',
         'duration' => 'float',
         'quality' => 'string',
@@ -42,6 +43,7 @@ class AudioStreamMetaForGetExecutionOutput implements ModelInterface, ArrayAcces
       */
     protected static $swaggerFormats = [
         'bitrate' => 'int32',
+        'channels' => 'int32',
         'codec' => null,
         'duration' => 'float',
         'quality' => null,
@@ -76,6 +78,7 @@ class AudioStreamMetaForGetExecutionOutput implements ModelInterface, ArrayAcces
      */
     protected static $attributeMap = [
         'bitrate' => 'Bitrate',
+        'channels' => 'Channels',
         'codec' => 'Codec',
         'duration' => 'Duration',
         'quality' => 'Quality',
@@ -89,6 +92,7 @@ class AudioStreamMetaForGetExecutionOutput implements ModelInterface, ArrayAcces
      */
     protected static $setters = [
         'bitrate' => 'setBitrate',
+        'channels' => 'setChannels',
         'codec' => 'setCodec',
         'duration' => 'setDuration',
         'quality' => 'setQuality',
@@ -102,6 +106,7 @@ class AudioStreamMetaForGetExecutionOutput implements ModelInterface, ArrayAcces
      */
     protected static $getters = [
         'bitrate' => 'getBitrate',
+        'channels' => 'getChannels',
         'codec' => 'getCodec',
         'duration' => 'getDuration',
         'quality' => 'getQuality',
@@ -169,6 +174,7 @@ class AudioStreamMetaForGetExecutionOutput implements ModelInterface, ArrayAcces
     public function __construct(array $data = null)
     {
         $this->container['bitrate'] = isset($data['bitrate']) ? $data['bitrate'] : null;
+        $this->container['channels'] = isset($data['channels']) ? $data['channels'] : null;
         $this->container['codec'] = isset($data['codec']) ? $data['codec'] : null;
         $this->container['duration'] = isset($data['duration']) ? $data['duration'] : null;
         $this->container['quality'] = isset($data['quality']) ? $data['quality'] : null;
@@ -219,6 +225,30 @@ class AudioStreamMetaForGetExecutionOutput implements ModelInterface, ArrayAcces
     public function setBitrate($bitrate)
     {
         $this->container['bitrate'] = $bitrate;
+
+        return $this;
+    }
+
+    /**
+     * Gets channels
+     *
+     * @return int
+     */
+    public function getChannels()
+    {
+        return $this->container['channels'];
+    }
+
+    /**
+     * Sets channels
+     *
+     * @param int $channels channels
+     *
+     * @return $this
+     */
+    public function setChannels($channels)
+    {
+        $this->container['channels'] = $channels;
 
         return $this;
     }
