@@ -15,7 +15,7 @@ To install the bindings via [Composer](http://getcomposer.org/), add the followi
 ```
 {
   "require": {
-    "volcengine/volcengine-php-sdk": "v1.0.94"
+    "volcengine/volcengine-php-sdk": "v1.0.95"
   }
 }
 ```
