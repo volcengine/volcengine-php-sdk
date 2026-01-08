@@ -28,6 +28,8 @@ class UpdateAggregateWorkspaceRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'auth_type' => 'string',
+        'bearer_token' => 'string',
         'cross_workspaces' => '\Volcengine\Vmp\Model\CrossWorkspaceForUpdateAggregateWorkspaceInput[]',
         'description' => 'string',
         'external_prometheus' => 'string[]',
@@ -46,6 +48,8 @@ class UpdateAggregateWorkspaceRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'auth_type' => null,
+        'bearer_token' => null,
         'cross_workspaces' => null,
         'description' => null,
         'external_prometheus' => null,
@@ -85,6 +89,8 @@ class UpdateAggregateWorkspaceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'auth_type' => 'AuthType',
+        'bearer_token' => 'BearerToken',
         'cross_workspaces' => 'CrossWorkspaces',
         'description' => 'Description',
         'external_prometheus' => 'ExternalPrometheus',
@@ -103,6 +109,8 @@ class UpdateAggregateWorkspaceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'auth_type' => 'setAuthType',
+        'bearer_token' => 'setBearerToken',
         'cross_workspaces' => 'setCrossWorkspaces',
         'description' => 'setDescription',
         'external_prometheus' => 'setExternalPrometheus',
@@ -121,6 +129,8 @@ class UpdateAggregateWorkspaceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'auth_type' => 'getAuthType',
+        'bearer_token' => 'getBearerToken',
         'cross_workspaces' => 'getCrossWorkspaces',
         'description' => 'getDescription',
         'external_prometheus' => 'getExternalPrometheus',
@@ -193,6 +203,8 @@ class UpdateAggregateWorkspaceRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['auth_type'] = isset($data['auth_type']) ? $data['auth_type'] : null;
+        $this->container['bearer_token'] = isset($data['bearer_token']) ? $data['bearer_token'] : null;
         $this->container['cross_workspaces'] = isset($data['cross_workspaces']) ? $data['cross_workspaces'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['external_prometheus'] = isset($data['external_prometheus']) ? $data['external_prometheus'] : null;
@@ -231,6 +243,54 @@ class UpdateAggregateWorkspaceRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets auth_type
+     *
+     * @return string
+     */
+    public function getAuthType()
+    {
+        return $this->container['auth_type'];
+    }
+
+    /**
+     * Sets auth_type
+     *
+     * @param string $auth_type auth_type
+     *
+     * @return $this
+     */
+    public function setAuthType($auth_type)
+    {
+        $this->container['auth_type'] = $auth_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets bearer_token
+     *
+     * @return string
+     */
+    public function getBearerToken()
+    {
+        return $this->container['bearer_token'];
+    }
+
+    /**
+     * Sets bearer_token
+     *
+     * @param string $bearer_token bearer_token
+     *
+     * @return $this
+     */
+    public function setBearerToken($bearer_token)
+    {
+        $this->container['bearer_token'] = $bearer_token;
+
+        return $this;
+    }
 
     /**
      * Gets cross_workspaces

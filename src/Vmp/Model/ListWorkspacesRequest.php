@@ -34,6 +34,8 @@ class ListWorkspacesRequest implements ModelInterface, ArrayAccess
         'project_name' => 'string',
         'show_aggregate_query_workspaces' => 'bool',
         'show_external_prom_workspaces' => 'bool',
+        'show_workspace_instance_type' => 'bool',
+        'show_workspace_quota' => 'bool',
         'tag_filters' => '\Volcengine\Vmp\Model\TagFilterForListWorkspacesInput[]'
     ];
 
@@ -49,6 +51,8 @@ class ListWorkspacesRequest implements ModelInterface, ArrayAccess
         'project_name' => null,
         'show_aggregate_query_workspaces' => null,
         'show_external_prom_workspaces' => null,
+        'show_workspace_instance_type' => null,
+        'show_workspace_quota' => null,
         'tag_filters' => null
     ];
 
@@ -85,6 +89,8 @@ class ListWorkspacesRequest implements ModelInterface, ArrayAccess
         'project_name' => 'ProjectName',
         'show_aggregate_query_workspaces' => 'ShowAggregateQueryWorkspaces',
         'show_external_prom_workspaces' => 'ShowExternalPromWorkspaces',
+        'show_workspace_instance_type' => 'ShowWorkspaceInstanceType',
+        'show_workspace_quota' => 'ShowWorkspaceQuota',
         'tag_filters' => 'TagFilters'
     ];
 
@@ -100,6 +106,8 @@ class ListWorkspacesRequest implements ModelInterface, ArrayAccess
         'project_name' => 'setProjectName',
         'show_aggregate_query_workspaces' => 'setShowAggregateQueryWorkspaces',
         'show_external_prom_workspaces' => 'setShowExternalPromWorkspaces',
+        'show_workspace_instance_type' => 'setShowWorkspaceInstanceType',
+        'show_workspace_quota' => 'setShowWorkspaceQuota',
         'tag_filters' => 'setTagFilters'
     ];
 
@@ -115,6 +123,8 @@ class ListWorkspacesRequest implements ModelInterface, ArrayAccess
         'project_name' => 'getProjectName',
         'show_aggregate_query_workspaces' => 'getShowAggregateQueryWorkspaces',
         'show_external_prom_workspaces' => 'getShowExternalPromWorkspaces',
+        'show_workspace_instance_type' => 'getShowWorkspaceInstanceType',
+        'show_workspace_quota' => 'getShowWorkspaceQuota',
         'tag_filters' => 'getTagFilters'
     ];
 
@@ -184,6 +194,8 @@ class ListWorkspacesRequest implements ModelInterface, ArrayAccess
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['show_aggregate_query_workspaces'] = isset($data['show_aggregate_query_workspaces']) ? $data['show_aggregate_query_workspaces'] : null;
         $this->container['show_external_prom_workspaces'] = isset($data['show_external_prom_workspaces']) ? $data['show_external_prom_workspaces'] : null;
+        $this->container['show_workspace_instance_type'] = isset($data['show_workspace_instance_type']) ? $data['show_workspace_instance_type'] : null;
+        $this->container['show_workspace_quota'] = isset($data['show_workspace_quota']) ? $data['show_workspace_quota'] : null;
         $this->container['tag_filters'] = isset($data['tag_filters']) ? $data['tag_filters'] : null;
     }
 
@@ -351,6 +363,54 @@ class ListWorkspacesRequest implements ModelInterface, ArrayAccess
     public function setShowExternalPromWorkspaces($show_external_prom_workspaces)
     {
         $this->container['show_external_prom_workspaces'] = $show_external_prom_workspaces;
+
+        return $this;
+    }
+
+    /**
+     * Gets show_workspace_instance_type
+     *
+     * @return bool
+     */
+    public function getShowWorkspaceInstanceType()
+    {
+        return $this->container['show_workspace_instance_type'];
+    }
+
+    /**
+     * Sets show_workspace_instance_type
+     *
+     * @param bool $show_workspace_instance_type show_workspace_instance_type
+     *
+     * @return $this
+     */
+    public function setShowWorkspaceInstanceType($show_workspace_instance_type)
+    {
+        $this->container['show_workspace_instance_type'] = $show_workspace_instance_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets show_workspace_quota
+     *
+     * @return bool
+     */
+    public function getShowWorkspaceQuota()
+    {
+        return $this->container['show_workspace_quota'];
+    }
+
+    /**
+     * Sets show_workspace_quota
+     *
+     * @param bool $show_workspace_quota show_workspace_quota
+     *
+     * @return $this
+     */
+    public function setShowWorkspaceQuota($show_workspace_quota)
+    {
+        $this->container['show_workspace_quota'] = $show_workspace_quota;
 
         return $this;
     }

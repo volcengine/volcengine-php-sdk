@@ -30,7 +30,7 @@ class GetExternalPrometheusResponse implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'auth_type' => 'string',
         'create_time' => 'string',
-        'custom_headers' => '\Volcengine\Vmp\Model\CustomHeadersForGetExternalPrometheusOutput',
+        'custom_header_kvs' => '\Volcengine\Vmp\Model\CustomHeaderKVForGetExternalPrometheusOutput[]',
         'description' => 'string',
         'id' => 'string',
         'max_query_rate' => 'int',
@@ -53,7 +53,7 @@ class GetExternalPrometheusResponse implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'auth_type' => null,
         'create_time' => null,
-        'custom_headers' => null,
+        'custom_header_kvs' => null,
         'description' => null,
         'id' => null,
         'max_query_rate' => 'int64',
@@ -97,7 +97,7 @@ class GetExternalPrometheusResponse implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'auth_type' => 'AuthType',
         'create_time' => 'CreateTime',
-        'custom_headers' => 'CustomHeaders',
+        'custom_header_kvs' => 'CustomHeaderKVs',
         'description' => 'Description',
         'id' => 'Id',
         'max_query_rate' => 'MaxQueryRate',
@@ -120,7 +120,7 @@ class GetExternalPrometheusResponse implements ModelInterface, ArrayAccess
     protected static $setters = [
         'auth_type' => 'setAuthType',
         'create_time' => 'setCreateTime',
-        'custom_headers' => 'setCustomHeaders',
+        'custom_header_kvs' => 'setCustomHeaderKvs',
         'description' => 'setDescription',
         'id' => 'setId',
         'max_query_rate' => 'setMaxQueryRate',
@@ -143,7 +143,7 @@ class GetExternalPrometheusResponse implements ModelInterface, ArrayAccess
     protected static $getters = [
         'auth_type' => 'getAuthType',
         'create_time' => 'getCreateTime',
-        'custom_headers' => 'getCustomHeaders',
+        'custom_header_kvs' => 'getCustomHeaderKvs',
         'description' => 'getDescription',
         'id' => 'getId',
         'max_query_rate' => 'getMaxQueryRate',
@@ -220,7 +220,7 @@ class GetExternalPrometheusResponse implements ModelInterface, ArrayAccess
     {
         $this->container['auth_type'] = isset($data['auth_type']) ? $data['auth_type'] : null;
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
-        $this->container['custom_headers'] = isset($data['custom_headers']) ? $data['custom_headers'] : null;
+        $this->container['custom_header_kvs'] = isset($data['custom_header_kvs']) ? $data['custom_header_kvs'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['max_query_rate'] = isset($data['max_query_rate']) ? $data['max_query_rate'] : null;
@@ -308,25 +308,25 @@ class GetExternalPrometheusResponse implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets custom_headers
+     * Gets custom_header_kvs
      *
-     * @return \Volcengine\Vmp\Model\CustomHeadersForGetExternalPrometheusOutput
+     * @return \Volcengine\Vmp\Model\CustomHeaderKVForGetExternalPrometheusOutput[]
      */
-    public function getCustomHeaders()
+    public function getCustomHeaderKvs()
     {
-        return $this->container['custom_headers'];
+        return $this->container['custom_header_kvs'];
     }
 
     /**
-     * Sets custom_headers
+     * Sets custom_header_kvs
      *
-     * @param \Volcengine\Vmp\Model\CustomHeadersForGetExternalPrometheusOutput $custom_headers custom_headers
+     * @param \Volcengine\Vmp\Model\CustomHeaderKVForGetExternalPrometheusOutput[] $custom_header_kvs custom_header_kvs
      *
      * @return $this
      */
-    public function setCustomHeaders($custom_headers)
+    public function setCustomHeaderKvs($custom_header_kvs)
     {
-        $this->container['custom_headers'] = $custom_headers;
+        $this->container['custom_header_kvs'] = $custom_header_kvs;
 
         return $this;
     }
