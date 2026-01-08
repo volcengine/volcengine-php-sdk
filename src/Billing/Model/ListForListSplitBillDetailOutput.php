@@ -39,6 +39,7 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'business_mode' => 'string',
         'config_name' => 'string',
         'configuration_code' => 'string',
+        'cost_unit' => 'string',
         'country_region' => 'string',
         'coupon_deduction_amount' => 'string',
         'credit_carried_amount' => 'string',
@@ -142,6 +143,7 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'business_mode' => null,
         'config_name' => null,
         'configuration_code' => null,
+        'cost_unit' => null,
         'country_region' => null,
         'coupon_deduction_amount' => null,
         'credit_carried_amount' => null,
@@ -266,6 +268,7 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'business_mode' => 'BusinessMode',
         'config_name' => 'ConfigName',
         'configuration_code' => 'ConfigurationCode',
+        'cost_unit' => 'CostUnit',
         'country_region' => 'CountryRegion',
         'coupon_deduction_amount' => 'CouponDeductionAmount',
         'credit_carried_amount' => 'CreditCarriedAmount',
@@ -369,6 +372,7 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'business_mode' => 'setBusinessMode',
         'config_name' => 'setConfigName',
         'configuration_code' => 'setConfigurationCode',
+        'cost_unit' => 'setCostUnit',
         'country_region' => 'setCountryRegion',
         'coupon_deduction_amount' => 'setCouponDeductionAmount',
         'credit_carried_amount' => 'setCreditCarriedAmount',
@@ -472,6 +476,7 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         'business_mode' => 'getBusinessMode',
         'config_name' => 'getConfigName',
         'configuration_code' => 'getConfigurationCode',
+        'cost_unit' => 'getCostUnit',
         'country_region' => 'getCountryRegion',
         'coupon_deduction_amount' => 'getCouponDeductionAmount',
         'credit_carried_amount' => 'getCreditCarriedAmount',
@@ -629,6 +634,7 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
         $this->container['business_mode'] = isset($data['business_mode']) ? $data['business_mode'] : null;
         $this->container['config_name'] = isset($data['config_name']) ? $data['config_name'] : null;
         $this->container['configuration_code'] = isset($data['configuration_code']) ? $data['configuration_code'] : null;
+        $this->container['cost_unit'] = isset($data['cost_unit']) ? $data['cost_unit'] : null;
         $this->container['country_region'] = isset($data['country_region']) ? $data['country_region'] : null;
         $this->container['coupon_deduction_amount'] = isset($data['coupon_deduction_amount']) ? $data['coupon_deduction_amount'] : null;
         $this->container['credit_carried_amount'] = isset($data['credit_carried_amount']) ? $data['credit_carried_amount'] : null;
@@ -999,6 +1005,30 @@ class ListForListSplitBillDetailOutput implements ModelInterface, ArrayAccess
     public function setConfigurationCode($configuration_code)
     {
         $this->container['configuration_code'] = $configuration_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets cost_unit
+     *
+     * @return string
+     */
+    public function getCostUnit()
+    {
+        return $this->container['cost_unit'];
+    }
+
+    /**
+     * Sets cost_unit
+     *
+     * @param string $cost_unit cost_unit
+     *
+     * @return $this
+     */
+    public function setCostUnit($cost_unit)
+    {
+        $this->container['cost_unit'] = $cost_unit;
 
         return $this;
     }
