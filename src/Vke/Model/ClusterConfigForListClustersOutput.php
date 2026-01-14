@@ -31,6 +31,7 @@ class ClusterConfigForListClustersOutput implements ModelInterface, ArrayAccess
         'api_server_endpoints' => '\Volcengine\Vke\Model\ApiServerEndpointsForListClustersOutput',
         'api_server_public_access_config' => '\Volcengine\Vke\Model\ApiServerPublicAccessConfigForListClustersOutput',
         'api_server_public_access_enabled' => 'bool',
+        'ip_family' => 'string',
         'resource_public_access_default_enabled' => 'bool',
         'security_group_ids' => 'string[]',
         'subnet_ids' => 'string[]',
@@ -46,6 +47,7 @@ class ClusterConfigForListClustersOutput implements ModelInterface, ArrayAccess
         'api_server_endpoints' => null,
         'api_server_public_access_config' => null,
         'api_server_public_access_enabled' => null,
+        'ip_family' => null,
         'resource_public_access_default_enabled' => null,
         'security_group_ids' => null,
         'subnet_ids' => null,
@@ -82,6 +84,7 @@ class ClusterConfigForListClustersOutput implements ModelInterface, ArrayAccess
         'api_server_endpoints' => 'ApiServerEndpoints',
         'api_server_public_access_config' => 'ApiServerPublicAccessConfig',
         'api_server_public_access_enabled' => 'ApiServerPublicAccessEnabled',
+        'ip_family' => 'IpFamily',
         'resource_public_access_default_enabled' => 'ResourcePublicAccessDefaultEnabled',
         'security_group_ids' => 'SecurityGroupIds',
         'subnet_ids' => 'SubnetIds',
@@ -97,6 +100,7 @@ class ClusterConfigForListClustersOutput implements ModelInterface, ArrayAccess
         'api_server_endpoints' => 'setApiServerEndpoints',
         'api_server_public_access_config' => 'setApiServerPublicAccessConfig',
         'api_server_public_access_enabled' => 'setApiServerPublicAccessEnabled',
+        'ip_family' => 'setIpFamily',
         'resource_public_access_default_enabled' => 'setResourcePublicAccessDefaultEnabled',
         'security_group_ids' => 'setSecurityGroupIds',
         'subnet_ids' => 'setSubnetIds',
@@ -112,6 +116,7 @@ class ClusterConfigForListClustersOutput implements ModelInterface, ArrayAccess
         'api_server_endpoints' => 'getApiServerEndpoints',
         'api_server_public_access_config' => 'getApiServerPublicAccessConfig',
         'api_server_public_access_enabled' => 'getApiServerPublicAccessEnabled',
+        'ip_family' => 'getIpFamily',
         'resource_public_access_default_enabled' => 'getResourcePublicAccessDefaultEnabled',
         'security_group_ids' => 'getSecurityGroupIds',
         'subnet_ids' => 'getSubnetIds',
@@ -159,8 +164,25 @@ class ClusterConfigForListClustersOutput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const IP_FAMILY_IPV4 = 'Ipv4';
+    const IP_FAMILY_IPV6 = 'Ipv6';
+    const IP_FAMILY_DUAL_STACK = 'DualStack';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getIpFamilyAllowableValues()
+    {
+        return [
+            self::IP_FAMILY_IPV4,
+            self::IP_FAMILY_IPV6,
+            self::IP_FAMILY_DUAL_STACK,
+        ];
+    }
     
 
     /**
@@ -181,6 +203,7 @@ class ClusterConfigForListClustersOutput implements ModelInterface, ArrayAccess
         $this->container['api_server_endpoints'] = isset($data['api_server_endpoints']) ? $data['api_server_endpoints'] : null;
         $this->container['api_server_public_access_config'] = isset($data['api_server_public_access_config']) ? $data['api_server_public_access_config'] : null;
         $this->container['api_server_public_access_enabled'] = isset($data['api_server_public_access_enabled']) ? $data['api_server_public_access_enabled'] : null;
+        $this->container['ip_family'] = isset($data['ip_family']) ? $data['ip_family'] : null;
         $this->container['resource_public_access_default_enabled'] = isset($data['resource_public_access_default_enabled']) ? $data['resource_public_access_default_enabled'] : null;
         $this->container['security_group_ids'] = isset($data['security_group_ids']) ? $data['security_group_ids'] : null;
         $this->container['subnet_ids'] = isset($data['subnet_ids']) ? $data['subnet_ids'] : null;
@@ -195,6 +218,14 @@ class ClusterConfigForListClustersOutput implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getIpFamilyAllowableValues();
+        if (!is_null($this->container['ip_family']) && !in_array($this->container['ip_family'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'ip_family', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -279,6 +310,39 @@ class ClusterConfigForListClustersOutput implements ModelInterface, ArrayAccess
     public function setApiServerPublicAccessEnabled($api_server_public_access_enabled)
     {
         $this->container['api_server_public_access_enabled'] = $api_server_public_access_enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets ip_family
+     *
+     * @return string
+     */
+    public function getIpFamily()
+    {
+        return $this->container['ip_family'];
+    }
+
+    /**
+     * Sets ip_family
+     *
+     * @param string $ip_family ip_family
+     *
+     * @return $this
+     */
+    public function setIpFamily($ip_family)
+    {
+        $allowedValues = $this->getIpFamilyAllowableValues();
+        if (!is_null($ip_family) && !in_array($ip_family, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'ip_family', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['ip_family'] = $ip_family;
 
         return $this;
     }

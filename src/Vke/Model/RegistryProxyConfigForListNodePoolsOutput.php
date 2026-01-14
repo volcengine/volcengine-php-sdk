@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class MonitoringConfigForListClustersOutput implements ModelInterface, ArrayAccess
+class RegistryProxyConfigForListNodePoolsOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class MonitoringConfigForListClustersOutput implements ModelInterface, ArrayAcce
       *
       * @var string
       */
-    protected static $swaggerModelName = 'MonitoringConfigForListClustersOutput';
+    protected static $swaggerModelName = 'RegistryProxyConfigForListNodePoolsOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,8 @@ class MonitoringConfigForListClustersOutput implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'component_configs' => '\Volcengine\Vke\Model\ComponentConfigForListClustersOutput[]',
-        'enable_metrics_external_collection' => 'bool',
-        'workspace_id' => 'string'
+        'proxy_endpoints' => 'string[]',
+        'registry' => 'string'
     ];
 
     /**
@@ -39,9 +38,8 @@ class MonitoringConfigForListClustersOutput implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'component_configs' => null,
-        'enable_metrics_external_collection' => null,
-        'workspace_id' => null
+        'proxy_endpoints' => null,
+        'registry' => null
     ];
 
     /**
@@ -71,9 +69,8 @@ class MonitoringConfigForListClustersOutput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $attributeMap = [
-        'component_configs' => 'ComponentConfigs',
-        'enable_metrics_external_collection' => 'EnableMetricsExternalCollection',
-        'workspace_id' => 'WorkspaceId'
+        'proxy_endpoints' => 'ProxyEndpoints',
+        'registry' => 'Registry'
     ];
 
     /**
@@ -82,9 +79,8 @@ class MonitoringConfigForListClustersOutput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $setters = [
-        'component_configs' => 'setComponentConfigs',
-        'enable_metrics_external_collection' => 'setEnableMetricsExternalCollection',
-        'workspace_id' => 'setWorkspaceId'
+        'proxy_endpoints' => 'setProxyEndpoints',
+        'registry' => 'setRegistry'
     ];
 
     /**
@@ -93,9 +89,8 @@ class MonitoringConfigForListClustersOutput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $getters = [
-        'component_configs' => 'getComponentConfigs',
-        'enable_metrics_external_collection' => 'getEnableMetricsExternalCollection',
-        'workspace_id' => 'getWorkspaceId'
+        'proxy_endpoints' => 'getProxyEndpoints',
+        'registry' => 'getRegistry'
     ];
 
     /**
@@ -158,9 +153,8 @@ class MonitoringConfigForListClustersOutput implements ModelInterface, ArrayAcce
      */
     public function __construct(array $data = null)
     {
-        $this->container['component_configs'] = isset($data['component_configs']) ? $data['component_configs'] : null;
-        $this->container['enable_metrics_external_collection'] = isset($data['enable_metrics_external_collection']) ? $data['enable_metrics_external_collection'] : null;
-        $this->container['workspace_id'] = isset($data['workspace_id']) ? $data['workspace_id'] : null;
+        $this->container['proxy_endpoints'] = isset($data['proxy_endpoints']) ? $data['proxy_endpoints'] : null;
+        $this->container['registry'] = isset($data['registry']) ? $data['registry'] : null;
     }
 
     /**
@@ -188,73 +182,49 @@ class MonitoringConfigForListClustersOutput implements ModelInterface, ArrayAcce
 
 
     /**
-     * Gets component_configs
+     * Gets proxy_endpoints
      *
-     * @return \Volcengine\Vke\Model\ComponentConfigForListClustersOutput[]
+     * @return string[]
      */
-    public function getComponentConfigs()
+    public function getProxyEndpoints()
     {
-        return $this->container['component_configs'];
+        return $this->container['proxy_endpoints'];
     }
 
     /**
-     * Sets component_configs
+     * Sets proxy_endpoints
      *
-     * @param \Volcengine\Vke\Model\ComponentConfigForListClustersOutput[] $component_configs component_configs
+     * @param string[] $proxy_endpoints proxy_endpoints
      *
      * @return $this
      */
-    public function setComponentConfigs($component_configs)
+    public function setProxyEndpoints($proxy_endpoints)
     {
-        $this->container['component_configs'] = $component_configs;
+        $this->container['proxy_endpoints'] = $proxy_endpoints;
 
         return $this;
     }
 
     /**
-     * Gets enable_metrics_external_collection
-     *
-     * @return bool
-     */
-    public function getEnableMetricsExternalCollection()
-    {
-        return $this->container['enable_metrics_external_collection'];
-    }
-
-    /**
-     * Sets enable_metrics_external_collection
-     *
-     * @param bool $enable_metrics_external_collection enable_metrics_external_collection
-     *
-     * @return $this
-     */
-    public function setEnableMetricsExternalCollection($enable_metrics_external_collection)
-    {
-        $this->container['enable_metrics_external_collection'] = $enable_metrics_external_collection;
-
-        return $this;
-    }
-
-    /**
-     * Gets workspace_id
+     * Gets registry
      *
      * @return string
      */
-    public function getWorkspaceId()
+    public function getRegistry()
     {
-        return $this->container['workspace_id'];
+        return $this->container['registry'];
     }
 
     /**
-     * Sets workspace_id
+     * Sets registry
      *
-     * @param string $workspace_id workspace_id
+     * @param string $registry registry
      *
      * @return $this
      */
-    public function setWorkspaceId($workspace_id)
+    public function setRegistry($registry)
     {
-        $this->container['workspace_id'] = $workspace_id;
+        $this->container['registry'] = $registry;
 
         return $this;
     }

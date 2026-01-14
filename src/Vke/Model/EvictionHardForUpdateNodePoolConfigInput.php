@@ -28,7 +28,8 @@ class EvictionHardForUpdateNodePoolConfigInput implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'key' => 'string',
+        'value' => 'string'
     ];
 
     /**
@@ -37,7 +38,8 @@ class EvictionHardForUpdateNodePoolConfigInput implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'key' => null,
+        'value' => null
     ];
 
     /**
@@ -67,7 +69,8 @@ class EvictionHardForUpdateNodePoolConfigInput implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'key' => 'Key',
+        'value' => 'Value'
     ];
 
     /**
@@ -76,7 +79,8 @@ class EvictionHardForUpdateNodePoolConfigInput implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $setters = [
-        
+        'key' => 'setKey',
+        'value' => 'setValue'
     ];
 
     /**
@@ -85,7 +89,8 @@ class EvictionHardForUpdateNodePoolConfigInput implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $getters = [
-        
+        'key' => 'getKey',
+        'value' => 'getValue'
     ];
 
     /**
@@ -129,8 +134,33 @@ class EvictionHardForUpdateNodePoolConfigInput implements ModelInterface, ArrayA
         return self::$swaggerModelName;
     }
 
+    const KEY_MEMORYAVAILABLE = 'memory.available';
+    const KEY_NODEFSAVAILABLE = 'nodefs.available';
+    const KEY_NODEFSINODES_FREE = 'nodefs.inodesFree';
+    const KEY_IMAGEFSAVAILABLE = 'imagefs.available';
+    const KEY_IMAGEFSINODES_FREE = 'imagefs.inodesFree';
+    const KEY_ALLOCATABLE_MEMORYAVAILABLE = 'allocatableMemory.available';
+    const KEY_PIDAVAILABLE = 'pid.available';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getKeyAllowableValues()
+    {
+        return [
+            self::KEY_MEMORYAVAILABLE,
+            self::KEY_NODEFSAVAILABLE,
+            self::KEY_NODEFSINODES_FREE,
+            self::KEY_IMAGEFSAVAILABLE,
+            self::KEY_IMAGEFSINODES_FREE,
+            self::KEY_ALLOCATABLE_MEMORYAVAILABLE,
+            self::KEY_PIDAVAILABLE,
+        ];
+    }
     
 
     /**
@@ -148,6 +178,8 @@ class EvictionHardForUpdateNodePoolConfigInput implements ModelInterface, ArrayA
      */
     public function __construct(array $data = null)
     {
+        $this->container['key'] = isset($data['key']) ? $data['key'] : null;
+        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 
     /**
@@ -158,6 +190,14 @@ class EvictionHardForUpdateNodePoolConfigInput implements ModelInterface, ArrayA
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getKeyAllowableValues();
+        if (!is_null($this->container['key']) && !in_array($this->container['key'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'key', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -173,6 +213,63 @@ class EvictionHardForUpdateNodePoolConfigInput implements ModelInterface, ArrayA
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets key
+     *
+     * @return string
+     */
+    public function getKey()
+    {
+        return $this->container['key'];
+    }
+
+    /**
+     * Sets key
+     *
+     * @param string $key key
+     *
+     * @return $this
+     */
+    public function setKey($key)
+    {
+        $allowedValues = $this->getKeyAllowableValues();
+        if (!is_null($key) && !in_array($key, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'key', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['key'] = $key;
+
+        return $this;
+    }
+
+    /**
+     * Gets value
+     *
+     * @return string
+     */
+    public function getValue()
+    {
+        return $this->container['value'];
+    }
+
+    /**
+     * Sets value
+     *
+     * @param string $value value
+     *
+     * @return $this
+     */
+    public function setValue($value)
+    {
+        $this->container['value'] = $value;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

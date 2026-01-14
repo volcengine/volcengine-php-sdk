@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class MonitoringConfigForListClustersOutput implements ModelInterface, ArrayAccess
+class ContainerdConfigForCreateDefaultNodePoolInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class MonitoringConfigForListClustersOutput implements ModelInterface, ArrayAcce
       *
       * @var string
       */
-    protected static $swaggerModelName = 'MonitoringConfigForListClustersOutput';
+    protected static $swaggerModelName = 'ContainerdConfigForCreateDefaultNodePoolInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,8 @@ class MonitoringConfigForListClustersOutput implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'component_configs' => '\Volcengine\Vke\Model\ComponentConfigForListClustersOutput[]',
-        'enable_metrics_external_collection' => 'bool',
-        'workspace_id' => 'string'
+        'insecure_registries' => 'string[]',
+        'registry_proxy_configs' => '\Volcengine\Vke\Model\RegistryProxyConfigForCreateDefaultNodePoolInput[]'
     ];
 
     /**
@@ -39,9 +38,8 @@ class MonitoringConfigForListClustersOutput implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'component_configs' => null,
-        'enable_metrics_external_collection' => null,
-        'workspace_id' => null
+        'insecure_registries' => null,
+        'registry_proxy_configs' => null
     ];
 
     /**
@@ -71,9 +69,8 @@ class MonitoringConfigForListClustersOutput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $attributeMap = [
-        'component_configs' => 'ComponentConfigs',
-        'enable_metrics_external_collection' => 'EnableMetricsExternalCollection',
-        'workspace_id' => 'WorkspaceId'
+        'insecure_registries' => 'InsecureRegistries',
+        'registry_proxy_configs' => 'RegistryProxyConfigs'
     ];
 
     /**
@@ -82,9 +79,8 @@ class MonitoringConfigForListClustersOutput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $setters = [
-        'component_configs' => 'setComponentConfigs',
-        'enable_metrics_external_collection' => 'setEnableMetricsExternalCollection',
-        'workspace_id' => 'setWorkspaceId'
+        'insecure_registries' => 'setInsecureRegistries',
+        'registry_proxy_configs' => 'setRegistryProxyConfigs'
     ];
 
     /**
@@ -93,9 +89,8 @@ class MonitoringConfigForListClustersOutput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $getters = [
-        'component_configs' => 'getComponentConfigs',
-        'enable_metrics_external_collection' => 'getEnableMetricsExternalCollection',
-        'workspace_id' => 'getWorkspaceId'
+        'insecure_registries' => 'getInsecureRegistries',
+        'registry_proxy_configs' => 'getRegistryProxyConfigs'
     ];
 
     /**
@@ -158,9 +153,8 @@ class MonitoringConfigForListClustersOutput implements ModelInterface, ArrayAcce
      */
     public function __construct(array $data = null)
     {
-        $this->container['component_configs'] = isset($data['component_configs']) ? $data['component_configs'] : null;
-        $this->container['enable_metrics_external_collection'] = isset($data['enable_metrics_external_collection']) ? $data['enable_metrics_external_collection'] : null;
-        $this->container['workspace_id'] = isset($data['workspace_id']) ? $data['workspace_id'] : null;
+        $this->container['insecure_registries'] = isset($data['insecure_registries']) ? $data['insecure_registries'] : null;
+        $this->container['registry_proxy_configs'] = isset($data['registry_proxy_configs']) ? $data['registry_proxy_configs'] : null;
     }
 
     /**
@@ -188,73 +182,49 @@ class MonitoringConfigForListClustersOutput implements ModelInterface, ArrayAcce
 
 
     /**
-     * Gets component_configs
+     * Gets insecure_registries
      *
-     * @return \Volcengine\Vke\Model\ComponentConfigForListClustersOutput[]
+     * @return string[]
      */
-    public function getComponentConfigs()
+    public function getInsecureRegistries()
     {
-        return $this->container['component_configs'];
+        return $this->container['insecure_registries'];
     }
 
     /**
-     * Sets component_configs
+     * Sets insecure_registries
      *
-     * @param \Volcengine\Vke\Model\ComponentConfigForListClustersOutput[] $component_configs component_configs
+     * @param string[] $insecure_registries insecure_registries
      *
      * @return $this
      */
-    public function setComponentConfigs($component_configs)
+    public function setInsecureRegistries($insecure_registries)
     {
-        $this->container['component_configs'] = $component_configs;
+        $this->container['insecure_registries'] = $insecure_registries;
 
         return $this;
     }
 
     /**
-     * Gets enable_metrics_external_collection
+     * Gets registry_proxy_configs
      *
-     * @return bool
+     * @return \Volcengine\Vke\Model\RegistryProxyConfigForCreateDefaultNodePoolInput[]
      */
-    public function getEnableMetricsExternalCollection()
+    public function getRegistryProxyConfigs()
     {
-        return $this->container['enable_metrics_external_collection'];
+        return $this->container['registry_proxy_configs'];
     }
 
     /**
-     * Sets enable_metrics_external_collection
+     * Sets registry_proxy_configs
      *
-     * @param bool $enable_metrics_external_collection enable_metrics_external_collection
+     * @param \Volcengine\Vke\Model\RegistryProxyConfigForCreateDefaultNodePoolInput[] $registry_proxy_configs registry_proxy_configs
      *
      * @return $this
      */
-    public function setEnableMetricsExternalCollection($enable_metrics_external_collection)
+    public function setRegistryProxyConfigs($registry_proxy_configs)
     {
-        $this->container['enable_metrics_external_collection'] = $enable_metrics_external_collection;
-
-        return $this;
-    }
-
-    /**
-     * Gets workspace_id
-     *
-     * @return string
-     */
-    public function getWorkspaceId()
-    {
-        return $this->container['workspace_id'];
-    }
-
-    /**
-     * Sets workspace_id
-     *
-     * @param string $workspace_id workspace_id
-     *
-     * @return $this
-     */
-    public function setWorkspaceId($workspace_id)
-    {
-        $this->container['workspace_id'] = $workspace_id;
+        $this->container['registry_proxy_configs'] = $registry_proxy_configs;
 
         return $this;
     }

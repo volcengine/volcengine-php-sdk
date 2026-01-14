@@ -29,6 +29,7 @@ class MonitoringConfigForUpdateClusterConfigInput implements ModelInterface, Arr
       */
     protected static $swaggerTypes = [
         'component_configs' => '\Volcengine\Vke\Model\ComponentConfigForUpdateClusterConfigInput[]',
+        'enable_metrics_external_collection' => 'bool',
         'workspace_id' => 'string'
     ];
 
@@ -39,6 +40,7 @@ class MonitoringConfigForUpdateClusterConfigInput implements ModelInterface, Arr
       */
     protected static $swaggerFormats = [
         'component_configs' => null,
+        'enable_metrics_external_collection' => null,
         'workspace_id' => null
     ];
 
@@ -70,6 +72,7 @@ class MonitoringConfigForUpdateClusterConfigInput implements ModelInterface, Arr
      */
     protected static $attributeMap = [
         'component_configs' => 'ComponentConfigs',
+        'enable_metrics_external_collection' => 'EnableMetricsExternalCollection',
         'workspace_id' => 'WorkspaceId'
     ];
 
@@ -80,6 +83,7 @@ class MonitoringConfigForUpdateClusterConfigInput implements ModelInterface, Arr
      */
     protected static $setters = [
         'component_configs' => 'setComponentConfigs',
+        'enable_metrics_external_collection' => 'setEnableMetricsExternalCollection',
         'workspace_id' => 'setWorkspaceId'
     ];
 
@@ -90,6 +94,7 @@ class MonitoringConfigForUpdateClusterConfigInput implements ModelInterface, Arr
      */
     protected static $getters = [
         'component_configs' => 'getComponentConfigs',
+        'enable_metrics_external_collection' => 'getEnableMetricsExternalCollection',
         'workspace_id' => 'getWorkspaceId'
     ];
 
@@ -154,6 +159,7 @@ class MonitoringConfigForUpdateClusterConfigInput implements ModelInterface, Arr
     public function __construct(array $data = null)
     {
         $this->container['component_configs'] = isset($data['component_configs']) ? $data['component_configs'] : null;
+        $this->container['enable_metrics_external_collection'] = isset($data['enable_metrics_external_collection']) ? $data['enable_metrics_external_collection'] : null;
         $this->container['workspace_id'] = isset($data['workspace_id']) ? $data['workspace_id'] : null;
     }
 
@@ -201,6 +207,30 @@ class MonitoringConfigForUpdateClusterConfigInput implements ModelInterface, Arr
     public function setComponentConfigs($component_configs)
     {
         $this->container['component_configs'] = $component_configs;
+
+        return $this;
+    }
+
+    /**
+     * Gets enable_metrics_external_collection
+     *
+     * @return bool
+     */
+    public function getEnableMetricsExternalCollection()
+    {
+        return $this->container['enable_metrics_external_collection'];
+    }
+
+    /**
+     * Sets enable_metrics_external_collection
+     *
+     * @param bool $enable_metrics_external_collection enable_metrics_external_collection
+     *
+     * @return $this
+     */
+    public function setEnableMetricsExternalCollection($enable_metrics_external_collection)
+    {
+        $this->container['enable_metrics_external_collection'] = $enable_metrics_external_collection;
 
         return $this;
     }

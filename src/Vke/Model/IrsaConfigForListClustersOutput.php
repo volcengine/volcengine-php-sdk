@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class MonitoringConfigForListClustersOutput implements ModelInterface, ArrayAccess
+class IrsaConfigForListClustersOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class MonitoringConfigForListClustersOutput implements ModelInterface, ArrayAcce
       *
       * @var string
       */
-    protected static $swaggerModelName = 'MonitoringConfigForListClustersOutput';
+    protected static $swaggerModelName = 'IrsaConfigForListClustersOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,12 @@ class MonitoringConfigForListClustersOutput implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'component_configs' => '\Volcengine\Vke\Model\ComponentConfigForListClustersOutput[]',
-        'enable_metrics_external_collection' => 'bool',
-        'workspace_id' => 'string'
+        'audience' => 'string',
+        'enabled' => 'bool',
+        'issuer' => 'string',
+        'jwks_url' => 'string',
+        'oidc_trn' => 'string',
+        'open_id_config_url' => 'string'
     ];
 
     /**
@@ -39,9 +42,12 @@ class MonitoringConfigForListClustersOutput implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'component_configs' => null,
-        'enable_metrics_external_collection' => null,
-        'workspace_id' => null
+        'audience' => null,
+        'enabled' => null,
+        'issuer' => null,
+        'jwks_url' => null,
+        'oidc_trn' => null,
+        'open_id_config_url' => null
     ];
 
     /**
@@ -71,9 +77,12 @@ class MonitoringConfigForListClustersOutput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $attributeMap = [
-        'component_configs' => 'ComponentConfigs',
-        'enable_metrics_external_collection' => 'EnableMetricsExternalCollection',
-        'workspace_id' => 'WorkspaceId'
+        'audience' => 'Audience',
+        'enabled' => 'Enabled',
+        'issuer' => 'Issuer',
+        'jwks_url' => 'JwksUrl',
+        'oidc_trn' => 'OidcTrn',
+        'open_id_config_url' => 'OpenIdConfigUrl'
     ];
 
     /**
@@ -82,9 +91,12 @@ class MonitoringConfigForListClustersOutput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $setters = [
-        'component_configs' => 'setComponentConfigs',
-        'enable_metrics_external_collection' => 'setEnableMetricsExternalCollection',
-        'workspace_id' => 'setWorkspaceId'
+        'audience' => 'setAudience',
+        'enabled' => 'setEnabled',
+        'issuer' => 'setIssuer',
+        'jwks_url' => 'setJwksUrl',
+        'oidc_trn' => 'setOidcTrn',
+        'open_id_config_url' => 'setOpenIdConfigUrl'
     ];
 
     /**
@@ -93,9 +105,12 @@ class MonitoringConfigForListClustersOutput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $getters = [
-        'component_configs' => 'getComponentConfigs',
-        'enable_metrics_external_collection' => 'getEnableMetricsExternalCollection',
-        'workspace_id' => 'getWorkspaceId'
+        'audience' => 'getAudience',
+        'enabled' => 'getEnabled',
+        'issuer' => 'getIssuer',
+        'jwks_url' => 'getJwksUrl',
+        'oidc_trn' => 'getOidcTrn',
+        'open_id_config_url' => 'getOpenIdConfigUrl'
     ];
 
     /**
@@ -158,9 +173,12 @@ class MonitoringConfigForListClustersOutput implements ModelInterface, ArrayAcce
      */
     public function __construct(array $data = null)
     {
-        $this->container['component_configs'] = isset($data['component_configs']) ? $data['component_configs'] : null;
-        $this->container['enable_metrics_external_collection'] = isset($data['enable_metrics_external_collection']) ? $data['enable_metrics_external_collection'] : null;
-        $this->container['workspace_id'] = isset($data['workspace_id']) ? $data['workspace_id'] : null;
+        $this->container['audience'] = isset($data['audience']) ? $data['audience'] : null;
+        $this->container['enabled'] = isset($data['enabled']) ? $data['enabled'] : null;
+        $this->container['issuer'] = isset($data['issuer']) ? $data['issuer'] : null;
+        $this->container['jwks_url'] = isset($data['jwks_url']) ? $data['jwks_url'] : null;
+        $this->container['oidc_trn'] = isset($data['oidc_trn']) ? $data['oidc_trn'] : null;
+        $this->container['open_id_config_url'] = isset($data['open_id_config_url']) ? $data['open_id_config_url'] : null;
     }
 
     /**
@@ -188,73 +206,145 @@ class MonitoringConfigForListClustersOutput implements ModelInterface, ArrayAcce
 
 
     /**
-     * Gets component_configs
-     *
-     * @return \Volcengine\Vke\Model\ComponentConfigForListClustersOutput[]
-     */
-    public function getComponentConfigs()
-    {
-        return $this->container['component_configs'];
-    }
-
-    /**
-     * Sets component_configs
-     *
-     * @param \Volcengine\Vke\Model\ComponentConfigForListClustersOutput[] $component_configs component_configs
-     *
-     * @return $this
-     */
-    public function setComponentConfigs($component_configs)
-    {
-        $this->container['component_configs'] = $component_configs;
-
-        return $this;
-    }
-
-    /**
-     * Gets enable_metrics_external_collection
-     *
-     * @return bool
-     */
-    public function getEnableMetricsExternalCollection()
-    {
-        return $this->container['enable_metrics_external_collection'];
-    }
-
-    /**
-     * Sets enable_metrics_external_collection
-     *
-     * @param bool $enable_metrics_external_collection enable_metrics_external_collection
-     *
-     * @return $this
-     */
-    public function setEnableMetricsExternalCollection($enable_metrics_external_collection)
-    {
-        $this->container['enable_metrics_external_collection'] = $enable_metrics_external_collection;
-
-        return $this;
-    }
-
-    /**
-     * Gets workspace_id
+     * Gets audience
      *
      * @return string
      */
-    public function getWorkspaceId()
+    public function getAudience()
     {
-        return $this->container['workspace_id'];
+        return $this->container['audience'];
     }
 
     /**
-     * Sets workspace_id
+     * Sets audience
      *
-     * @param string $workspace_id workspace_id
+     * @param string $audience audience
      *
      * @return $this
      */
-    public function setWorkspaceId($workspace_id)
+    public function setAudience($audience)
     {
-        $this->container['workspace_id'] = $workspace_id;
+        $this->container['audience'] = $audience;
+
+        return $this;
+    }
+
+    /**
+     * Gets enabled
+     *
+     * @return bool
+     */
+    public function getEnabled()
+    {
+        return $this->container['enabled'];
+    }
+
+    /**
+     * Sets enabled
+     *
+     * @param bool $enabled enabled
+     *
+     * @return $this
+     */
+    public function setEnabled($enabled)
+    {
+        $this->container['enabled'] = $enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets issuer
+     *
+     * @return string
+     */
+    public function getIssuer()
+    {
+        return $this->container['issuer'];
+    }
+
+    /**
+     * Sets issuer
+     *
+     * @param string $issuer issuer
+     *
+     * @return $this
+     */
+    public function setIssuer($issuer)
+    {
+        $this->container['issuer'] = $issuer;
+
+        return $this;
+    }
+
+    /**
+     * Gets jwks_url
+     *
+     * @return string
+     */
+    public function getJwksUrl()
+    {
+        return $this->container['jwks_url'];
+    }
+
+    /**
+     * Sets jwks_url
+     *
+     * @param string $jwks_url jwks_url
+     *
+     * @return $this
+     */
+    public function setJwksUrl($jwks_url)
+    {
+        $this->container['jwks_url'] = $jwks_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets oidc_trn
+     *
+     * @return string
+     */
+    public function getOidcTrn()
+    {
+        return $this->container['oidc_trn'];
+    }
+
+    /**
+     * Sets oidc_trn
+     *
+     * @param string $oidc_trn oidc_trn
+     *
+     * @return $this
+     */
+    public function setOidcTrn($oidc_trn)
+    {
+        $this->container['oidc_trn'] = $oidc_trn;
+
+        return $this;
+    }
+
+    /**
+     * Gets open_id_config_url
+     *
+     * @return string
+     */
+    public function getOpenIdConfigUrl()
+    {
+        return $this->container['open_id_config_url'];
+    }
+
+    /**
+     * Sets open_id_config_url
+     *
+     * @param string $open_id_config_url open_id_config_url
+     *
+     * @return $this
+     */
+    public function setOpenIdConfigUrl($open_id_config_url)
+    {
+        $this->container['open_id_config_url'] = $open_id_config_url;
 
         return $this;
     }
