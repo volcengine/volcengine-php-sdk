@@ -139,7 +139,7 @@ try {
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$sts = new \Volcengine\Common\auth\providers\StsProvider(
+$sts = new \Volcengine\Common\Auth\Providers\StsProvider(
     "Your ak", # 必填，子账号的ak
     "Your sk", # 必填，子账号的sk
     "Your role name",  # 必填，子账号的角色TRN，如trn:iam::2110400000:role/role123  ,此处填写role123
@@ -215,7 +215,7 @@ $config = \Volcengine\Common\Configuration::getDefaultConfiguration()
 **Endpoint默认寻址逻辑**
 
 1. 是否自动寻址Region  
-   内置自动寻址Region列表代码:[./src/Common/endpoint/providers/DefaultEndpointProvider.php](src/Common/endpoint/providers/DefaultEndpointProvider.php)  
+   内置自动寻址Region列表代码:[./src/Common/Endpoint/Providers/DefaultEndpointProvider.php](src/Common/Endpoint/Providers/DefaultEndpointProvider.php)  
    SDK 仅对部分预设区域（如
    cn-beijing-autodriving、ap-southeast-2）或用户配置的区域执行自动寻址；其他区域默认返回Endpoint：open.volcengineapi.com。  
    用户可通过环境变量 VOLC_BOOTSTRAP_REGION_LIST_CONF 或代码中自定义 customBootstrapRegion 来扩展控制区域列表。

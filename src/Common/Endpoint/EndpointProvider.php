@@ -1,5 +1,5 @@
 <?php
-namespace Volcengine\Common\endpoint;
+namespace Volcengine\Common\Endpoint;
 
 abstract class EndpointProvider
 {
