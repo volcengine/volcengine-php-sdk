@@ -1928,68 +1928,6 @@ class BILLINGApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
-    public function listCostAnalysis($body = null)
-    {
-        list($response) = $this->listCostAnalysisWithHttpInfo($body);
-        return $response;
-    }
-
-    public function listCostAnalysisWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\Billing\Model\ListCostAnalysisResponse';
-        $request = $this->listCostAnalysisRequest($body);
-
-        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
-    }
-
-    public function listCostAnalysisAsync($body = null)
-    {
-        return $this->listCostAnalysisAsyncWithHttpInfo($body)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    public function listCostAnalysisAsyncWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\Billing\Model\ListCostAnalysisResponse';
-        $request = $this->listCostAnalysisRequest($body);
-        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
-    }
-
-    protected function listCostAnalysisRequest($body)
-    {
-        $resourcePath = '/ListCostAnalysis/2022-01-01/billing/post/application_json/';
-        $queryParams = [];
-        $httpBody = $body;
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json'],
-            ['application/json']
-        );
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-        if ($this->config->getHost()) {
-            $defaultHeaders['Host'] = $this->config->getHost();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headers
-        );
-
-        $paths = explode("/", $resourcePath);
-        $service = $paths[3];
-        $method = strtoupper($paths[4]);
-
-        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
-    }
-
     public function listCouponUsageRecords($body = null)
     {
         list($response) = $this->listCouponUsageRecordsWithHttpInfo($body);
