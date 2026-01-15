@@ -6,7 +6,6 @@ require_once __DIR__ . '/Configuration.php';
 
 // 加载子模块
 require_once __DIR__ . '/auth/autoload.php';
-require_once __DIR__ . '/interceptor/autoload.php';
-require_once __DIR__ . '/retryer/autoload.php';
+require_once __DIR__ . '/Interceptor/autoload.php';
 
 ?>
