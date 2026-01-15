@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class MonitoringConfigForListClustersOutput implements ModelInterface, ArrayAccess
+class FlannelConfigForUpdateClusterConfigInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class MonitoringConfigForListClustersOutput implements ModelInterface, ArrayAcce
       *
       * @var string
       */
-    protected static $swaggerModelName = 'MonitoringConfigForListClustersOutput';
+    protected static $swaggerModelName = 'FlannelConfigForUpdateClusterConfigInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,7 @@ class MonitoringConfigForListClustersOutput implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'component_configs' => '\Volcengine\Vke\Model\ComponentConfigForListClustersOutput[]',
-        'enable_metrics_external_collection' => 'bool',
-        'workspace_id' => 'string'
+        'subnet_ids' => 'string[]'
     ];
 
     /**
@@ -39,9 +37,7 @@ class MonitoringConfigForListClustersOutput implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'component_configs' => null,
-        'enable_metrics_external_collection' => null,
-        'workspace_id' => null
+        'subnet_ids' => null
     ];
 
     /**
@@ -71,9 +67,7 @@ class MonitoringConfigForListClustersOutput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $attributeMap = [
-        'component_configs' => 'ComponentConfigs',
-        'enable_metrics_external_collection' => 'EnableMetricsExternalCollection',
-        'workspace_id' => 'WorkspaceId'
+        'subnet_ids' => 'SubnetIds'
     ];
 
     /**
@@ -82,9 +76,7 @@ class MonitoringConfigForListClustersOutput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $setters = [
-        'component_configs' => 'setComponentConfigs',
-        'enable_metrics_external_collection' => 'setEnableMetricsExternalCollection',
-        'workspace_id' => 'setWorkspaceId'
+        'subnet_ids' => 'setSubnetIds'
     ];
 
     /**
@@ -93,9 +85,7 @@ class MonitoringConfigForListClustersOutput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $getters = [
-        'component_configs' => 'getComponentConfigs',
-        'enable_metrics_external_collection' => 'getEnableMetricsExternalCollection',
-        'workspace_id' => 'getWorkspaceId'
+        'subnet_ids' => 'getSubnetIds'
     ];
 
     /**
@@ -158,9 +148,7 @@ class MonitoringConfigForListClustersOutput implements ModelInterface, ArrayAcce
      */
     public function __construct(array $data = null)
     {
-        $this->container['component_configs'] = isset($data['component_configs']) ? $data['component_configs'] : null;
-        $this->container['enable_metrics_external_collection'] = isset($data['enable_metrics_external_collection']) ? $data['enable_metrics_external_collection'] : null;
-        $this->container['workspace_id'] = isset($data['workspace_id']) ? $data['workspace_id'] : null;
+        $this->container['subnet_ids'] = isset($data['subnet_ids']) ? $data['subnet_ids'] : null;
     }
 
     /**
@@ -188,73 +176,25 @@ class MonitoringConfigForListClustersOutput implements ModelInterface, ArrayAcce
 
 
     /**
-     * Gets component_configs
+     * Gets subnet_ids
      *
-     * @return \Volcengine\Vke\Model\ComponentConfigForListClustersOutput[]
+     * @return string[]
      */
-    public function getComponentConfigs()
+    public function getSubnetIds()
     {
-        return $this->container['component_configs'];
+        return $this->container['subnet_ids'];
     }
 
     /**
-     * Sets component_configs
+     * Sets subnet_ids
      *
-     * @param \Volcengine\Vke\Model\ComponentConfigForListClustersOutput[] $component_configs component_configs
+     * @param string[] $subnet_ids subnet_ids
      *
      * @return $this
      */
-    public function setComponentConfigs($component_configs)
+    public function setSubnetIds($subnet_ids)
     {
-        $this->container['component_configs'] = $component_configs;
-
-        return $this;
-    }
-
-    /**
-     * Gets enable_metrics_external_collection
-     *
-     * @return bool
-     */
-    public function getEnableMetricsExternalCollection()
-    {
-        return $this->container['enable_metrics_external_collection'];
-    }
-
-    /**
-     * Sets enable_metrics_external_collection
-     *
-     * @param bool $enable_metrics_external_collection enable_metrics_external_collection
-     *
-     * @return $this
-     */
-    public function setEnableMetricsExternalCollection($enable_metrics_external_collection)
-    {
-        $this->container['enable_metrics_external_collection'] = $enable_metrics_external_collection;
-
-        return $this;
-    }
-
-    /**
-     * Gets workspace_id
-     *
-     * @return string
-     */
-    public function getWorkspaceId()
-    {
-        return $this->container['workspace_id'];
-    }
-
-    /**
-     * Sets workspace_id
-     *
-     * @param string $workspace_id workspace_id
-     *
-     * @return $this
-     */
-    public function setWorkspaceId($workspace_id)
-    {
-        $this->container['workspace_id'] = $workspace_id;
+        $this->container['subnet_ids'] = $subnet_ids;
 
         return $this;
     }

@@ -34,13 +34,16 @@ class NodeConfigForListNodePoolsOutput implements ModelInterface, ArrayAccess
         'data_volumes' => '\Volcengine\Vke\Model\DataVolumeForListNodePoolsOutput[]',
         'deployment_set_group_number' => 'int',
         'deployment_set_id' => 'string',
+        'hostname' => 'string',
         'hpc_cluster_ids' => 'string[]',
         'image_id' => 'string',
         'initialize_script' => 'string',
         'instance_charge_type' => 'string',
+        'instance_name' => 'string',
         'instance_type_ids' => 'string[]',
         'instances_distribution' => '\Volcengine\Vke\Model\InstancesDistributionForListNodePoolsOutput',
         'name_prefix' => 'string',
+        'network_traffic_mode' => 'string',
         'period' => 'int',
         'pre_script' => 'string',
         'project_name' => 'string',
@@ -65,13 +68,16 @@ class NodeConfigForListNodePoolsOutput implements ModelInterface, ArrayAccess
         'data_volumes' => null,
         'deployment_set_group_number' => 'int32',
         'deployment_set_id' => null,
+        'hostname' => null,
         'hpc_cluster_ids' => null,
         'image_id' => null,
         'initialize_script' => null,
         'instance_charge_type' => null,
+        'instance_name' => null,
         'instance_type_ids' => null,
         'instances_distribution' => null,
         'name_prefix' => null,
+        'network_traffic_mode' => null,
         'period' => 'int32',
         'pre_script' => null,
         'project_name' => null,
@@ -117,13 +123,16 @@ class NodeConfigForListNodePoolsOutput implements ModelInterface, ArrayAccess
         'data_volumes' => 'DataVolumes',
         'deployment_set_group_number' => 'DeploymentSetGroupNumber',
         'deployment_set_id' => 'DeploymentSetId',
+        'hostname' => 'Hostname',
         'hpc_cluster_ids' => 'HpcClusterIds',
         'image_id' => 'ImageId',
         'initialize_script' => 'InitializeScript',
         'instance_charge_type' => 'InstanceChargeType',
+        'instance_name' => 'InstanceName',
         'instance_type_ids' => 'InstanceTypeIds',
         'instances_distribution' => 'InstancesDistribution',
         'name_prefix' => 'NamePrefix',
+        'network_traffic_mode' => 'NetworkTrafficMode',
         'period' => 'Period',
         'pre_script' => 'PreScript',
         'project_name' => 'ProjectName',
@@ -148,13 +157,16 @@ class NodeConfigForListNodePoolsOutput implements ModelInterface, ArrayAccess
         'data_volumes' => 'setDataVolumes',
         'deployment_set_group_number' => 'setDeploymentSetGroupNumber',
         'deployment_set_id' => 'setDeploymentSetId',
+        'hostname' => 'setHostname',
         'hpc_cluster_ids' => 'setHpcClusterIds',
         'image_id' => 'setImageId',
         'initialize_script' => 'setInitializeScript',
         'instance_charge_type' => 'setInstanceChargeType',
+        'instance_name' => 'setInstanceName',
         'instance_type_ids' => 'setInstanceTypeIds',
         'instances_distribution' => 'setInstancesDistribution',
         'name_prefix' => 'setNamePrefix',
+        'network_traffic_mode' => 'setNetworkTrafficMode',
         'period' => 'setPeriod',
         'pre_script' => 'setPreScript',
         'project_name' => 'setProjectName',
@@ -179,13 +191,16 @@ class NodeConfigForListNodePoolsOutput implements ModelInterface, ArrayAccess
         'data_volumes' => 'getDataVolumes',
         'deployment_set_group_number' => 'getDeploymentSetGroupNumber',
         'deployment_set_id' => 'getDeploymentSetId',
+        'hostname' => 'getHostname',
         'hpc_cluster_ids' => 'getHpcClusterIds',
         'image_id' => 'getImageId',
         'initialize_script' => 'getInitializeScript',
         'instance_charge_type' => 'getInstanceChargeType',
+        'instance_name' => 'getInstanceName',
         'instance_type_ids' => 'getInstanceTypeIds',
         'instances_distribution' => 'getInstancesDistribution',
         'name_prefix' => 'getNamePrefix',
+        'network_traffic_mode' => 'getNetworkTrafficMode',
         'period' => 'getPeriod',
         'pre_script' => 'getPreScript',
         'project_name' => 'getProjectName',
@@ -294,13 +309,16 @@ class NodeConfigForListNodePoolsOutput implements ModelInterface, ArrayAccess
         $this->container['data_volumes'] = isset($data['data_volumes']) ? $data['data_volumes'] : null;
         $this->container['deployment_set_group_number'] = isset($data['deployment_set_group_number']) ? $data['deployment_set_group_number'] : null;
         $this->container['deployment_set_id'] = isset($data['deployment_set_id']) ? $data['deployment_set_id'] : null;
+        $this->container['hostname'] = isset($data['hostname']) ? $data['hostname'] : null;
         $this->container['hpc_cluster_ids'] = isset($data['hpc_cluster_ids']) ? $data['hpc_cluster_ids'] : null;
         $this->container['image_id'] = isset($data['image_id']) ? $data['image_id'] : null;
         $this->container['initialize_script'] = isset($data['initialize_script']) ? $data['initialize_script'] : null;
         $this->container['instance_charge_type'] = isset($data['instance_charge_type']) ? $data['instance_charge_type'] : null;
+        $this->container['instance_name'] = isset($data['instance_name']) ? $data['instance_name'] : null;
         $this->container['instance_type_ids'] = isset($data['instance_type_ids']) ? $data['instance_type_ids'] : null;
         $this->container['instances_distribution'] = isset($data['instances_distribution']) ? $data['instances_distribution'] : null;
         $this->container['name_prefix'] = isset($data['name_prefix']) ? $data['name_prefix'] : null;
+        $this->container['network_traffic_mode'] = isset($data['network_traffic_mode']) ? $data['network_traffic_mode'] : null;
         $this->container['period'] = isset($data['period']) ? $data['period'] : null;
         $this->container['pre_script'] = isset($data['pre_script']) ? $data['pre_script'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
@@ -498,6 +516,30 @@ class NodeConfigForListNodePoolsOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets hostname
+     *
+     * @return string
+     */
+    public function getHostname()
+    {
+        return $this->container['hostname'];
+    }
+
+    /**
+     * Sets hostname
+     *
+     * @param string $hostname hostname
+     *
+     * @return $this
+     */
+    public function setHostname($hostname)
+    {
+        $this->container['hostname'] = $hostname;
+
+        return $this;
+    }
+
+    /**
      * Gets hpc_cluster_ids
      *
      * @return string[]
@@ -603,6 +645,30 @@ class NodeConfigForListNodePoolsOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets instance_name
+     *
+     * @return string
+     */
+    public function getInstanceName()
+    {
+        return $this->container['instance_name'];
+    }
+
+    /**
+     * Sets instance_name
+     *
+     * @param string $instance_name instance_name
+     *
+     * @return $this
+     */
+    public function setInstanceName($instance_name)
+    {
+        $this->container['instance_name'] = $instance_name;
+
+        return $this;
+    }
+
+    /**
      * Gets instance_type_ids
      *
      * @return string[]
@@ -670,6 +736,30 @@ class NodeConfigForListNodePoolsOutput implements ModelInterface, ArrayAccess
     public function setNamePrefix($name_prefix)
     {
         $this->container['name_prefix'] = $name_prefix;
+
+        return $this;
+    }
+
+    /**
+     * Gets network_traffic_mode
+     *
+     * @return string
+     */
+    public function getNetworkTrafficMode()
+    {
+        return $this->container['network_traffic_mode'];
+    }
+
+    /**
+     * Sets network_traffic_mode
+     *
+     * @param string $network_traffic_mode network_traffic_mode
+     *
+     * @return $this
+     */
+    public function setNetworkTrafficMode($network_traffic_mode)
+    {
+        $this->container['network_traffic_mode'] = $network_traffic_mode;
 
         return $this;
     }

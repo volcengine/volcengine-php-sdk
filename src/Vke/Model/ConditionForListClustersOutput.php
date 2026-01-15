@@ -129,8 +129,59 @@ class ConditionForListClustersOutput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const TYPE_OK = 'Ok';
+    const TYPE_CREATE_ERROR = 'CreateError';
+    const TYPE_PROGRESSING = 'Progressing';
+    const TYPE_CLUSTER_VERSION_UPGRADING = 'ClusterVersionUpgrading';
+    const TYPE_DISCONNECTED = 'Disconnected';
+    const TYPE_INVALID_CERTIFICATE = 'InvalidCertificate';
+    const TYPE_SET_BY_PROVIDER = 'SetByProvider';
+    const TYPE_STOCK_OUT = 'StockOut';
+    const TYPE_LIMITED_BY_QUOTA = 'LimitedByQuota';
+    const TYPE_SET_BY_USER = 'SetByUser';
+    const TYPE_SECURITY = 'Security';
+    const TYPE_BALANCE = 'Balance';
+    const TYPE_DEGRADED = 'Degraded';
+    const TYPE_WAITING = 'Waiting';
+    const TYPE_RESOURCE_CLEANUP_FAILED = 'ResourceCleanupFailed';
+    const TYPE_UNKNOWN = 'Unknown';
+    const TYPE_UPDATING_CLUSTER = 'UpdatingCluster';
+    const TYPE_SYNCING_ADDON = 'SyncingAddon';
+    const TYPE_SYNCING_NODE = 'SyncingNode';
+    const TYPE_SYNCING_NODE_POOL = 'SyncingNodePool';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_OK,
+            self::TYPE_CREATE_ERROR,
+            self::TYPE_PROGRESSING,
+            self::TYPE_CLUSTER_VERSION_UPGRADING,
+            self::TYPE_DISCONNECTED,
+            self::TYPE_INVALID_CERTIFICATE,
+            self::TYPE_SET_BY_PROVIDER,
+            self::TYPE_STOCK_OUT,
+            self::TYPE_LIMITED_BY_QUOTA,
+            self::TYPE_SET_BY_USER,
+            self::TYPE_SECURITY,
+            self::TYPE_BALANCE,
+            self::TYPE_DEGRADED,
+            self::TYPE_WAITING,
+            self::TYPE_RESOURCE_CLEANUP_FAILED,
+            self::TYPE_UNKNOWN,
+            self::TYPE_UPDATING_CLUSTER,
+            self::TYPE_SYNCING_ADDON,
+            self::TYPE_SYNCING_NODE,
+            self::TYPE_SYNCING_NODE_POOL,
+        ];
+    }
     
 
     /**
@@ -159,6 +210,14 @@ class ConditionForListClustersOutput implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -194,6 +253,15 @@ class ConditionForListClustersOutput implements ModelInterface, ArrayAccess
      */
     public function setType($type)
     {
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['type'] = $type;
 
         return $this;

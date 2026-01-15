@@ -29,7 +29,8 @@ class FlannelConfigForListClustersOutput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'max_pods_per_node' => 'int',
-        'pod_cidrs' => 'string[]'
+        'pod_cidrs' => 'string[]',
+        'subnet_ids' => 'string[]'
     ];
 
     /**
@@ -39,7 +40,8 @@ class FlannelConfigForListClustersOutput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'max_pods_per_node' => 'int32',
-        'pod_cidrs' => null
+        'pod_cidrs' => null,
+        'subnet_ids' => null
     ];
 
     /**
@@ -70,7 +72,8 @@ class FlannelConfigForListClustersOutput implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'max_pods_per_node' => 'MaxPodsPerNode',
-        'pod_cidrs' => 'PodCidrs'
+        'pod_cidrs' => 'PodCidrs',
+        'subnet_ids' => 'SubnetIds'
     ];
 
     /**
@@ -80,7 +83,8 @@ class FlannelConfigForListClustersOutput implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'max_pods_per_node' => 'setMaxPodsPerNode',
-        'pod_cidrs' => 'setPodCidrs'
+        'pod_cidrs' => 'setPodCidrs',
+        'subnet_ids' => 'setSubnetIds'
     ];
 
     /**
@@ -90,7 +94,8 @@ class FlannelConfigForListClustersOutput implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'max_pods_per_node' => 'getMaxPodsPerNode',
-        'pod_cidrs' => 'getPodCidrs'
+        'pod_cidrs' => 'getPodCidrs',
+        'subnet_ids' => 'getSubnetIds'
     ];
 
     /**
@@ -155,6 +160,7 @@ class FlannelConfigForListClustersOutput implements ModelInterface, ArrayAccess
     {
         $this->container['max_pods_per_node'] = isset($data['max_pods_per_node']) ? $data['max_pods_per_node'] : null;
         $this->container['pod_cidrs'] = isset($data['pod_cidrs']) ? $data['pod_cidrs'] : null;
+        $this->container['subnet_ids'] = isset($data['subnet_ids']) ? $data['subnet_ids'] : null;
     }
 
     /**
@@ -225,6 +231,30 @@ class FlannelConfigForListClustersOutput implements ModelInterface, ArrayAccess
     public function setPodCidrs($pod_cidrs)
     {
         $this->container['pod_cidrs'] = $pod_cidrs;
+
+        return $this;
+    }
+
+    /**
+     * Gets subnet_ids
+     *
+     * @return string[]
+     */
+    public function getSubnetIds()
+    {
+        return $this->container['subnet_ids'];
+    }
+
+    /**
+     * Sets subnet_ids
+     *
+     * @param string[] $subnet_ids subnet_ids
+     *
+     * @return $this
+     */
+    public function setSubnetIds($subnet_ids)
+    {
+        $this->container['subnet_ids'] = $subnet_ids;
 
         return $this;
     }

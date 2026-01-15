@@ -28,6 +28,7 @@ class BindingRemedyConfigRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'client_token' => 'string',
         'cluster_id' => 'string',
         'id' => 'string',
         'resource_ids' => 'string[]',
@@ -41,6 +42,7 @@ class BindingRemedyConfigRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'client_token' => null,
         'cluster_id' => null,
         'id' => null,
         'resource_ids' => null,
@@ -75,6 +77,7 @@ class BindingRemedyConfigRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'client_token' => 'ClientToken',
         'cluster_id' => 'ClusterId',
         'id' => 'Id',
         'resource_ids' => 'ResourceIds',
@@ -88,6 +91,7 @@ class BindingRemedyConfigRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'client_token' => 'setClientToken',
         'cluster_id' => 'setClusterId',
         'id' => 'setId',
         'resource_ids' => 'setResourceIds',
@@ -101,6 +105,7 @@ class BindingRemedyConfigRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'client_token' => 'getClientToken',
         'cluster_id' => 'getClusterId',
         'id' => 'getId',
         'resource_ids' => 'getResourceIds',
@@ -181,6 +186,7 @@ class BindingRemedyConfigRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
         $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['resource_ids'] = isset($data['resource_ids']) ? $data['resource_ids'] : null;
@@ -225,6 +231,30 @@ class BindingRemedyConfigRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets client_token
+     *
+     * @return string
+     */
+    public function getClientToken()
+    {
+        return $this->container['client_token'];
+    }
+
+    /**
+     * Sets client_token
+     *
+     * @param string $client_token client_token
+     *
+     * @return $this
+     */
+    public function setClientToken($client_token)
+    {
+        $this->container['client_token'] = $client_token;
+
+        return $this;
+    }
 
     /**
      * Gets cluster_id

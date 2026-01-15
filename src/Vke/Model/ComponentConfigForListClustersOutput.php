@@ -134,8 +134,39 @@ class ComponentConfigForListClustersOutput implements ModelInterface, ArrayAcces
         return self::$swaggerModelName;
     }
 
+    const NAME_KUBELET = 'Kubelet';
+    const NAME_KUBE_API_SERVER = 'KubeApiServer';
+    const NAME_KUBE_CONTROLLER_MANAGER = 'KubeControllerManager';
+    const NAME_KUBE_SCHEDULER = 'KubeScheduler';
+    const NAME_ETCD = 'Etcd';
+    const NAME_CLUSTER_AUTOSCALER = 'ClusterAutoscaler';
+    const NAME_KUBE_BRAIN = 'KubeBrain';
+    const NAME_GODEL_SCHEDULER = 'GodelScheduler';
+    const NAME_GODEL_DISPATCHER = 'GodelDispatcher';
+    const NAME_GODEL_BINDER = 'GodelBinder';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getNameAllowableValues()
+    {
+        return [
+            self::NAME_KUBELET,
+            self::NAME_KUBE_API_SERVER,
+            self::NAME_KUBE_CONTROLLER_MANAGER,
+            self::NAME_KUBE_SCHEDULER,
+            self::NAME_ETCD,
+            self::NAME_CLUSTER_AUTOSCALER,
+            self::NAME_KUBE_BRAIN,
+            self::NAME_GODEL_SCHEDULER,
+            self::NAME_GODEL_DISPATCHER,
+            self::NAME_GODEL_BINDER,
+        ];
+    }
     
 
     /**
@@ -165,6 +196,14 @@ class ComponentConfigForListClustersOutput implements ModelInterface, ArrayAcces
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getNameAllowableValues();
+        if (!is_null($this->container['name']) && !in_array($this->container['name'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'name', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -224,6 +263,15 @@ class ComponentConfigForListClustersOutput implements ModelInterface, ArrayAcces
      */
     public function setName($name)
     {
+        $allowedValues = $this->getNameAllowableValues();
+        if (!is_null($name) && !in_array($name, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'name', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['name'] = $name;
 
         return $this;
