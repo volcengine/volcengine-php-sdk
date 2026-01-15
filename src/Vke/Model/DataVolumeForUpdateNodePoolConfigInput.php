@@ -161,8 +161,16 @@ class DataVolumeForUpdateNodePoolConfigInput implements ModelInterface, ArrayAcc
 
     const FILE_SYSTEM_EXT4 = 'Ext4';
     const FILE_SYSTEM_XFS = 'Xfs';
+    const TYPE_ESSD = 'ESSD';
     const TYPE_ESSD_PL0 = 'ESSD_PL0';
     const TYPE_ESSD_FLEX_PL = 'ESSD_FlexPL';
+    const TYPE_ULTRA_DISK = 'Ultra_Disk';
+    const TYPE_TSSD_TL0 = 'TSSD_TL0';
+    const TYPE_RSSD_RL0 = 'RSSD_RL0';
+    const TYPE_LOCAL_SSD = 'LOCAL_SSD';
+    const TYPE_LOCAL_HDD = 'LOCAL_HDD';
+    const TYPE_LOCAL_SSD_SRIOV = 'LOCAL_SSD_SRIOV';
+    const TYPE_LOCAL_LVM_SSD = 'LOCAL_LVM_SSD';
     
 
     
@@ -187,8 +195,16 @@ class DataVolumeForUpdateNodePoolConfigInput implements ModelInterface, ArrayAcc
     public function getTypeAllowableValues()
     {
         return [
+            self::TYPE_ESSD,
             self::TYPE_ESSD_PL0,
             self::TYPE_ESSD_FLEX_PL,
+            self::TYPE_ULTRA_DISK,
+            self::TYPE_TSSD_TL0,
+            self::TYPE_RSSD_RL0,
+            self::TYPE_LOCAL_SSD,
+            self::TYPE_LOCAL_HDD,
+            self::TYPE_LOCAL_SSD_SRIOV,
+            self::TYPE_LOCAL_LVM_SSD,
         ];
     }
     

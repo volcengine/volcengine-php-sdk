@@ -2,7 +2,7 @@
 
 namespace Volcengine\Common;
 
-use Volcengine\Common\endpoint\providers\DefaultEndpointProvider;
+use Volcengine\Common\Endpoint\Providers\DefaultEndpointProvider;
 
 class Configuration
 {
@@ -31,7 +31,7 @@ class Configuration
     protected $connectTimeout = 30;
     protected $readTimeout = 30;
 
-    protected $userAgent = 'volcstack-php-sdk/1.0.95';
+    protected $userAgent = 'volcstack-php-sdk/1.0.96';
 
     /**
      * Debug switch (default set to false)

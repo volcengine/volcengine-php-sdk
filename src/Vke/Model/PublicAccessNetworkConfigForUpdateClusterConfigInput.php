@@ -141,8 +141,14 @@ class PublicAccessNetworkConfigForUpdateClusterConfigInput implements ModelInter
 
     const ISP_BGP = 'BGP';
     const ISP_CHINA_MOBILE = 'ChinaMobile';
-    const ISP_CHINA_TELECOM = 'ChinaTelecom';
     const ISP_CHINA_UNICOM = 'ChinaUnicom';
+    const ISP_CHINA_TELECOM = 'ChinaTelecom';
+    const ISP_SINGLE_LINE_BGP = 'SingleLine_BGP';
+    const ISP_FUSION_BGP = 'Fusion_BGP';
+    const ISP_STATIC_BGP = 'Static_BGP';
+    const ISP_CHINA_MOBILE_VALUE = 'ChinaMobile_Value';
+    const ISP_CHINA_UNICOM_VALUE = 'ChinaUnicom_Value';
+    const ISP_CHINA_TELECOM_VALUE = 'ChinaTelecom_Value';
     
 
     
@@ -156,8 +162,14 @@ class PublicAccessNetworkConfigForUpdateClusterConfigInput implements ModelInter
         return [
             self::ISP_BGP,
             self::ISP_CHINA_MOBILE,
-            self::ISP_CHINA_TELECOM,
             self::ISP_CHINA_UNICOM,
+            self::ISP_CHINA_TELECOM,
+            self::ISP_SINGLE_LINE_BGP,
+            self::ISP_FUSION_BGP,
+            self::ISP_STATIC_BGP,
+            self::ISP_CHINA_MOBILE_VALUE,
+            self::ISP_CHINA_UNICOM_VALUE,
+            self::ISP_CHINA_TELECOM_VALUE,
         ];
     }
     

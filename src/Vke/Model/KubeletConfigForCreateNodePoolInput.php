@@ -189,6 +189,8 @@ class KubeletConfigForCreateNodePoolInput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const CPU_MANAGER_POLICY_NONE = 'none';
+    const CPU_MANAGER_POLICY__STATIC = 'static';
     const TOPOLOGY_MANAGER_POLICY_RESTRICTED = 'restricted';
     const TOPOLOGY_MANAGER_POLICY_BEST_EFFORT = 'best-effort';
     const TOPOLOGY_MANAGER_POLICY_NONE = 'none';
@@ -197,6 +199,19 @@ class KubeletConfigForCreateNodePoolInput implements ModelInterface, ArrayAccess
     const TOPOLOGY_MANAGER_SCOPE_CONTAINER = 'container';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getCpuManagerPolicyAllowableValues()
+    {
+        return [
+            self::CPU_MANAGER_POLICY_NONE,
+            self::CPU_MANAGER_POLICY__STATIC,
+        ];
+    }
     
     /**
      * Gets allowable values of the enum
@@ -266,6 +281,14 @@ class KubeletConfigForCreateNodePoolInput implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        $allowedValues = $this->getCpuManagerPolicyAllowableValues();
+        if (!is_null($this->container['cpu_manager_policy']) && !in_array($this->container['cpu_manager_policy'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'cpu_manager_policy', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         $allowedValues = $this->getTopologyManagerPolicyAllowableValues();
         if (!is_null($this->container['topology_manager_policy']) && !in_array($this->container['topology_manager_policy'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -316,6 +339,15 @@ class KubeletConfigForCreateNodePoolInput implements ModelInterface, ArrayAccess
      */
     public function setCpuManagerPolicy($cpu_manager_policy)
     {
+        $allowedValues = $this->getCpuManagerPolicyAllowableValues();
+        if (!is_null($cpu_manager_policy) && !in_array($cpu_manager_policy, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'cpu_manager_policy', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['cpu_manager_policy'] = $cpu_manager_policy;
 
         return $this;

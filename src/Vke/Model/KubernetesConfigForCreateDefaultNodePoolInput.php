@@ -29,6 +29,7 @@ class KubernetesConfigForCreateDefaultNodePoolInput implements ModelInterface, A
       */
     protected static $swaggerTypes = [
         'auto_sync_disabled' => 'bool',
+        'containerd_config' => '\Volcengine\Vke\Model\ContainerdConfigForCreateDefaultNodePoolInput',
         'cordon' => 'bool',
         'kubelet_config' => '\Volcengine\Vke\Model\KubeletConfigForCreateDefaultNodePoolInput',
         'labels' => '\Volcengine\Vke\Model\LabelForCreateDefaultNodePoolInput[]',
@@ -45,6 +46,7 @@ class KubernetesConfigForCreateDefaultNodePoolInput implements ModelInterface, A
       */
     protected static $swaggerFormats = [
         'auto_sync_disabled' => null,
+        'containerd_config' => null,
         'cordon' => null,
         'kubelet_config' => null,
         'labels' => null,
@@ -82,6 +84,7 @@ class KubernetesConfigForCreateDefaultNodePoolInput implements ModelInterface, A
      */
     protected static $attributeMap = [
         'auto_sync_disabled' => 'AutoSyncDisabled',
+        'containerd_config' => 'ContainerdConfig',
         'cordon' => 'Cordon',
         'kubelet_config' => 'KubeletConfig',
         'labels' => 'Labels',
@@ -98,6 +101,7 @@ class KubernetesConfigForCreateDefaultNodePoolInput implements ModelInterface, A
      */
     protected static $setters = [
         'auto_sync_disabled' => 'setAutoSyncDisabled',
+        'containerd_config' => 'setContainerdConfig',
         'cordon' => 'setCordon',
         'kubelet_config' => 'setKubeletConfig',
         'labels' => 'setLabels',
@@ -114,6 +118,7 @@ class KubernetesConfigForCreateDefaultNodePoolInput implements ModelInterface, A
      */
     protected static $getters = [
         'auto_sync_disabled' => 'getAutoSyncDisabled',
+        'containerd_config' => 'getContainerdConfig',
         'cordon' => 'getCordon',
         'kubelet_config' => 'getKubeletConfig',
         'labels' => 'getLabels',
@@ -184,6 +189,7 @@ class KubernetesConfigForCreateDefaultNodePoolInput implements ModelInterface, A
     public function __construct(array $data = null)
     {
         $this->container['auto_sync_disabled'] = isset($data['auto_sync_disabled']) ? $data['auto_sync_disabled'] : null;
+        $this->container['containerd_config'] = isset($data['containerd_config']) ? $data['containerd_config'] : null;
         $this->container['cordon'] = isset($data['cordon']) ? $data['cordon'] : null;
         $this->container['kubelet_config'] = isset($data['kubelet_config']) ? $data['kubelet_config'] : null;
         $this->container['labels'] = isset($data['labels']) ? $data['labels'] : null;
@@ -237,6 +243,30 @@ class KubernetesConfigForCreateDefaultNodePoolInput implements ModelInterface, A
     public function setAutoSyncDisabled($auto_sync_disabled)
     {
         $this->container['auto_sync_disabled'] = $auto_sync_disabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets containerd_config
+     *
+     * @return \Volcengine\Vke\Model\ContainerdConfigForCreateDefaultNodePoolInput
+     */
+    public function getContainerdConfig()
+    {
+        return $this->container['containerd_config'];
+    }
+
+    /**
+     * Sets containerd_config
+     *
+     * @param \Volcengine\Vke\Model\ContainerdConfigForCreateDefaultNodePoolInput $containerd_config containerd_config
+     *
+     * @return $this
+     */
+    public function setContainerdConfig($containerd_config)
+    {
+        $this->container['containerd_config'] = $containerd_config;
 
         return $this;
     }

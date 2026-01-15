@@ -144,6 +144,7 @@ class StatusForListNodePoolsInput implements ModelInterface, ArrayAccess
     const CONDITIONS_TYPE_UNKNOWN = 'Unknown';
     const CONDITIONS_TYPE_PROGRESSING = 'Progressing';
     const CONDITIONS_TYPE_CLUSTER_VERSION_UPGRADING = 'ClusterVersionUpgrading';
+    const CONDITIONS_TYPE_SCALING_FAILED = 'ScalingFailed';
     const PHASE_CREATING = 'Creating';
     const PHASE_RUNNING = 'Running';
     const PHASE_UPDATING = 'Updating';
@@ -171,6 +172,7 @@ class StatusForListNodePoolsInput implements ModelInterface, ArrayAccess
             self::CONDITIONS_TYPE_UNKNOWN,
             self::CONDITIONS_TYPE_PROGRESSING,
             self::CONDITIONS_TYPE_CLUSTER_VERSION_UPGRADING,
+            self::CONDITIONS_TYPE_SCALING_FAILED,
         ];
     }
     
