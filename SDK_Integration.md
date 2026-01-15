@@ -133,7 +133,7 @@ AssumeRole provides dynamic credentials with automatic refresh.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$sts = new \Volcengine\Common\auth\providers\StsProvider(
+$sts = new \Volcengine\Common\Auth\Providers\StsProvider(
     "Your ak", // required
     "Your sk", // required
     "Your role name",  // required

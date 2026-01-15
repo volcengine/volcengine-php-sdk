@@ -1,6 +1,6 @@
 <?php
 
-namespace Volcengine\Common\auth\providers;
+namespace Volcengine\Common\Auth\Providers;
 
 abstract class Provider
 {
