@@ -29,7 +29,8 @@ class SetSecretValueRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'secret_name' => 'string',
-        'secret_value' => 'string'
+        'secret_value' => 'string',
+        'version_name' => 'string'
     ];
 
     /**
@@ -39,7 +40,8 @@ class SetSecretValueRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'secret_name' => null,
-        'secret_value' => null
+        'secret_value' => null,
+        'version_name' => null
     ];
 
     /**
@@ -70,7 +72,8 @@ class SetSecretValueRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'secret_name' => 'SecretName',
-        'secret_value' => 'SecretValue'
+        'secret_value' => 'SecretValue',
+        'version_name' => 'VersionName'
     ];
 
     /**
@@ -80,7 +83,8 @@ class SetSecretValueRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'secret_name' => 'setSecretName',
-        'secret_value' => 'setSecretValue'
+        'secret_value' => 'setSecretValue',
+        'version_name' => 'setVersionName'
     ];
 
     /**
@@ -90,7 +94,8 @@ class SetSecretValueRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'secret_name' => 'getSecretName',
-        'secret_value' => 'getSecretValue'
+        'secret_value' => 'getSecretValue',
+        'version_name' => 'getVersionName'
     ];
 
     /**
@@ -155,6 +160,7 @@ class SetSecretValueRequest implements ModelInterface, ArrayAccess
     {
         $this->container['secret_name'] = isset($data['secret_name']) ? $data['secret_name'] : null;
         $this->container['secret_value'] = isset($data['secret_value']) ? $data['secret_value'] : null;
+        $this->container['version_name'] = isset($data['version_name']) ? $data['version_name'] : null;
     }
 
     /**
@@ -231,6 +237,30 @@ class SetSecretValueRequest implements ModelInterface, ArrayAccess
     public function setSecretValue($secret_value)
     {
         $this->container['secret_value'] = $secret_value;
+
+        return $this;
+    }
+
+    /**
+     * Gets version_name
+     *
+     * @return string
+     */
+    public function getVersionName()
+    {
+        return $this->container['version_name'];
+    }
+
+    /**
+     * Sets version_name
+     *
+     * @param string $version_name version_name
+     *
+     * @return $this
+     */
+    public function setVersionName($version_name)
+    {
+        $this->container['version_name'] = $version_name;
 
         return $this;
     }
