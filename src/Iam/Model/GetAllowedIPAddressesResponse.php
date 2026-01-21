@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ListRolesRequest implements ModelInterface, ArrayAccess
+class GetAllowedIPAddressesResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ListRolesRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ListRolesRequest';
+    protected static $swaggerModelName = 'GetAllowedIPAddressesResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,9 @@ class ListRolesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'limit' => 'int',
-        'offset' => 'int',
-        'query' => 'string',
-        'role_name' => 'string'
+        'enable_ip_list' => 'bool',
+        'ip_list' => '\Volcengine\Iam\Model\IPListForGetAllowedIPAddressesOutput[]',
+        'quota' => 'int'
     ];
 
     /**
@@ -40,10 +39,9 @@ class ListRolesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'limit' => 'int32',
-        'offset' => 'int32',
-        'query' => null,
-        'role_name' => null
+        'enable_ip_list' => null,
+        'ip_list' => null,
+        'quota' => 'int32'
     ];
 
     /**
@@ -73,10 +71,9 @@ class ListRolesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'limit' => 'Limit',
-        'offset' => 'Offset',
-        'query' => 'Query',
-        'role_name' => 'RoleName'
+        'enable_ip_list' => 'EnableIPList',
+        'ip_list' => 'IPList',
+        'quota' => 'Quota'
     ];
 
     /**
@@ -85,10 +82,9 @@ class ListRolesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'limit' => 'setLimit',
-        'offset' => 'setOffset',
-        'query' => 'setQuery',
-        'role_name' => 'setRoleName'
+        'enable_ip_list' => 'setEnableIpList',
+        'ip_list' => 'setIpList',
+        'quota' => 'setQuota'
     ];
 
     /**
@@ -97,10 +93,9 @@ class ListRolesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'limit' => 'getLimit',
-        'offset' => 'getOffset',
-        'query' => 'getQuery',
-        'role_name' => 'getRoleName'
+        'enable_ip_list' => 'getEnableIpList',
+        'ip_list' => 'getIpList',
+        'quota' => 'getQuota'
     ];
 
     /**
@@ -163,10 +158,9 @@ class ListRolesRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['limit'] = isset($data['limit']) ? $data['limit'] : null;
-        $this->container['offset'] = isset($data['offset']) ? $data['offset'] : null;
-        $this->container['query'] = isset($data['query']) ? $data['query'] : null;
-        $this->container['role_name'] = isset($data['role_name']) ? $data['role_name'] : null;
+        $this->container['enable_ip_list'] = isset($data['enable_ip_list']) ? $data['enable_ip_list'] : null;
+        $this->container['ip_list'] = isset($data['ip_list']) ? $data['ip_list'] : null;
+        $this->container['quota'] = isset($data['quota']) ? $data['quota'] : null;
     }
 
     /**
@@ -194,97 +188,73 @@ class ListRolesRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets limit
+     * Gets enable_ip_list
+     *
+     * @return bool
+     */
+    public function getEnableIpList()
+    {
+        return $this->container['enable_ip_list'];
+    }
+
+    /**
+     * Sets enable_ip_list
+     *
+     * @param bool $enable_ip_list enable_ip_list
+     *
+     * @return $this
+     */
+    public function setEnableIpList($enable_ip_list)
+    {
+        $this->container['enable_ip_list'] = $enable_ip_list;
+
+        return $this;
+    }
+
+    /**
+     * Gets ip_list
+     *
+     * @return \Volcengine\Iam\Model\IPListForGetAllowedIPAddressesOutput[]
+     */
+    public function getIpList()
+    {
+        return $this->container['ip_list'];
+    }
+
+    /**
+     * Sets ip_list
+     *
+     * @param \Volcengine\Iam\Model\IPListForGetAllowedIPAddressesOutput[] $ip_list ip_list
+     *
+     * @return $this
+     */
+    public function setIpList($ip_list)
+    {
+        $this->container['ip_list'] = $ip_list;
+
+        return $this;
+    }
+
+    /**
+     * Gets quota
      *
      * @return int
      */
-    public function getLimit()
+    public function getQuota()
     {
-        return $this->container['limit'];
+        return $this->container['quota'];
     }
 
     /**
-     * Sets limit
+     * Sets quota
      *
-     * @param int $limit limit
+     * @param int $quota quota
      *
      * @return $this
      */
-    public function setLimit($limit)
+    public function setQuota($quota)
     {
-        $this->container['limit'] = $limit;
-
-        return $this;
-    }
-
-    /**
-     * Gets offset
-     *
-     * @return int
-     */
-    public function getOffset()
-    {
-        return $this->container['offset'];
-    }
-
-    /**
-     * Sets offset
-     *
-     * @param int $offset offset
-     *
-     * @return $this
-     */
-    public function setOffset($offset)
-    {
-        $this->container['offset'] = $offset;
-
-        return $this;
-    }
-
-    /**
-     * Gets query
-     *
-     * @return string
-     */
-    public function getQuery()
-    {
-        return $this->container['query'];
-    }
-
-    /**
-     * Sets query
-     *
-     * @param string $query query
-     *
-     * @return $this
-     */
-    public function setQuery($query)
-    {
-        $this->container['query'] = $query;
-
-        return $this;
-    }
-
-    /**
-     * Gets role_name
-     *
-     * @return string
-     */
-    public function getRoleName()
-    {
-        return $this->container['role_name'];
-    }
-
-    /**
-     * Sets role_name
-     *
-     * @param string $role_name role_name
-     *
-     * @return $this
-     */
-    public function setRoleName($role_name)
-    {
-        $this->container['role_name'] = $role_name;
+        $this->container['quota'] = $quota;
 
         return $this;
     }

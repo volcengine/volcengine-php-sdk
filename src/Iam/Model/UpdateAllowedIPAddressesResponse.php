@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class RecoverAccessKeyRequest implements ModelInterface, ArrayAccess
+class UpdateAllowedIPAddressesResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class RecoverAccessKeyRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'RecoverAccessKeyRequest';
+    protected static $swaggerModelName = 'UpdateAllowedIPAddressesResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,7 @@ class RecoverAccessKeyRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'access_key_id' => 'string',
-        'owner_type' => 'string',
-        'user_name' => 'string'
+        
     ];
 
     /**
@@ -39,9 +37,7 @@ class RecoverAccessKeyRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'access_key_id' => null,
-        'owner_type' => null,
-        'user_name' => null
+        
     ];
 
     /**
@@ -71,9 +67,7 @@ class RecoverAccessKeyRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'access_key_id' => 'AccessKeyId',
-        'owner_type' => 'OwnerType',
-        'user_name' => 'UserName'
+        
     ];
 
     /**
@@ -82,9 +76,7 @@ class RecoverAccessKeyRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'access_key_id' => 'setAccessKeyId',
-        'owner_type' => 'setOwnerType',
-        'user_name' => 'setUserName'
+        
     ];
 
     /**
@@ -93,9 +85,7 @@ class RecoverAccessKeyRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'access_key_id' => 'getAccessKeyId',
-        'owner_type' => 'getOwnerType',
-        'user_name' => 'getUserName'
+        
     ];
 
     /**
@@ -139,23 +129,8 @@ class RecoverAccessKeyRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const OWNER_TYPE_USER = 'User';
-    const OWNER_TYPE_ROOT = 'Root';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getOwnerTypeAllowableValues()
-    {
-        return [
-            self::OWNER_TYPE_USER,
-            self::OWNER_TYPE_ROOT,
-        ];
-    }
     
 
     /**
@@ -173,9 +148,6 @@ class RecoverAccessKeyRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['access_key_id'] = isset($data['access_key_id']) ? $data['access_key_id'] : null;
-        $this->container['owner_type'] = isset($data['owner_type']) ? $data['owner_type'] : null;
-        $this->container['user_name'] = isset($data['user_name']) ? $data['user_name'] : null;
     }
 
     /**
@@ -187,23 +159,6 @@ class RecoverAccessKeyRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['access_key_id'] === null) {
-            $invalidProperties[] = "'access_key_id' can't be null";
-        }
-        if ($this->container['owner_type'] === null) {
-            $invalidProperties[] = "'owner_type' can't be null";
-        }
-        $allowedValues = $this->getOwnerTypeAllowableValues();
-        if (!is_null($this->container['owner_type']) && !in_array($this->container['owner_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'owner_type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        if ($this->container['user_name'] === null) {
-            $invalidProperties[] = "'user_name' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -218,87 +173,6 @@ class RecoverAccessKeyRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets access_key_id
-     *
-     * @return string
-     */
-    public function getAccessKeyId()
-    {
-        return $this->container['access_key_id'];
-    }
-
-    /**
-     * Sets access_key_id
-     *
-     * @param string $access_key_id access_key_id
-     *
-     * @return $this
-     */
-    public function setAccessKeyId($access_key_id)
-    {
-        $this->container['access_key_id'] = $access_key_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets owner_type
-     *
-     * @return string
-     */
-    public function getOwnerType()
-    {
-        return $this->container['owner_type'];
-    }
-
-    /**
-     * Sets owner_type
-     *
-     * @param string $owner_type owner_type
-     *
-     * @return $this
-     */
-    public function setOwnerType($owner_type)
-    {
-        $allowedValues = $this->getOwnerTypeAllowableValues();
-        if (!in_array($owner_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'owner_type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['owner_type'] = $owner_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets user_name
-     *
-     * @return string
-     */
-    public function getUserName()
-    {
-        return $this->container['user_name'];
-    }
-
-    /**
-     * Sets user_name
-     *
-     * @param string $user_name user_name
-     *
-     * @return $this
-     */
-    public function setUserName($user_name)
-    {
-        $this->container['user_name'] = $user_name;
-
-        return $this;
-    }
     /**
      * Returns true if offset exists. False otherwise.
      *

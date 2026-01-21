@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ListRolesRequest implements ModelInterface, ArrayAccess
+class UpdateAllowedIPAddressesRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ListRolesRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ListRolesRequest';
+    protected static $swaggerModelName = 'UpdateAllowedIPAddressesRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,8 @@ class ListRolesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'limit' => 'int',
-        'offset' => 'int',
-        'query' => 'string',
-        'role_name' => 'string'
+        'enable_ip_list' => 'bool',
+        'ip_list' => '\Volcengine\Iam\Model\IPListForUpdateAllowedIPAddressesInput[]'
     ];
 
     /**
@@ -40,10 +38,8 @@ class ListRolesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'limit' => 'int32',
-        'offset' => 'int32',
-        'query' => null,
-        'role_name' => null
+        'enable_ip_list' => null,
+        'ip_list' => null
     ];
 
     /**
@@ -73,10 +69,8 @@ class ListRolesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'limit' => 'Limit',
-        'offset' => 'Offset',
-        'query' => 'Query',
-        'role_name' => 'RoleName'
+        'enable_ip_list' => 'EnableIPList',
+        'ip_list' => 'IPList'
     ];
 
     /**
@@ -85,10 +79,8 @@ class ListRolesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'limit' => 'setLimit',
-        'offset' => 'setOffset',
-        'query' => 'setQuery',
-        'role_name' => 'setRoleName'
+        'enable_ip_list' => 'setEnableIpList',
+        'ip_list' => 'setIpList'
     ];
 
     /**
@@ -97,10 +89,8 @@ class ListRolesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'limit' => 'getLimit',
-        'offset' => 'getOffset',
-        'query' => 'getQuery',
-        'role_name' => 'getRoleName'
+        'enable_ip_list' => 'getEnableIpList',
+        'ip_list' => 'getIpList'
     ];
 
     /**
@@ -163,10 +153,8 @@ class ListRolesRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['limit'] = isset($data['limit']) ? $data['limit'] : null;
-        $this->container['offset'] = isset($data['offset']) ? $data['offset'] : null;
-        $this->container['query'] = isset($data['query']) ? $data['query'] : null;
-        $this->container['role_name'] = isset($data['role_name']) ? $data['role_name'] : null;
+        $this->container['enable_ip_list'] = isset($data['enable_ip_list']) ? $data['enable_ip_list'] : null;
+        $this->container['ip_list'] = isset($data['ip_list']) ? $data['ip_list'] : null;
     }
 
     /**
@@ -178,6 +166,9 @@ class ListRolesRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['enable_ip_list'] === null) {
+            $invalidProperties[] = "'enable_ip_list' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -194,97 +185,49 @@ class ListRolesRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets limit
+     * Gets enable_ip_list
      *
-     * @return int
+     * @return bool
      */
-    public function getLimit()
+    public function getEnableIpList()
     {
-        return $this->container['limit'];
+        return $this->container['enable_ip_list'];
     }
 
     /**
-     * Sets limit
+     * Sets enable_ip_list
      *
-     * @param int $limit limit
+     * @param bool $enable_ip_list enable_ip_list
      *
      * @return $this
      */
-    public function setLimit($limit)
+    public function setEnableIpList($enable_ip_list)
     {
-        $this->container['limit'] = $limit;
+        $this->container['enable_ip_list'] = $enable_ip_list;
 
         return $this;
     }
 
     /**
-     * Gets offset
+     * Gets ip_list
      *
-     * @return int
+     * @return \Volcengine\Iam\Model\IPListForUpdateAllowedIPAddressesInput[]
      */
-    public function getOffset()
+    public function getIpList()
     {
-        return $this->container['offset'];
+        return $this->container['ip_list'];
     }
 
     /**
-     * Sets offset
+     * Sets ip_list
      *
-     * @param int $offset offset
+     * @param \Volcengine\Iam\Model\IPListForUpdateAllowedIPAddressesInput[] $ip_list ip_list
      *
      * @return $this
      */
-    public function setOffset($offset)
+    public function setIpList($ip_list)
     {
-        $this->container['offset'] = $offset;
-
-        return $this;
-    }
-
-    /**
-     * Gets query
-     *
-     * @return string
-     */
-    public function getQuery()
-    {
-        return $this->container['query'];
-    }
-
-    /**
-     * Sets query
-     *
-     * @param string $query query
-     *
-     * @return $this
-     */
-    public function setQuery($query)
-    {
-        $this->container['query'] = $query;
-
-        return $this;
-    }
-
-    /**
-     * Gets role_name
-     *
-     * @return string
-     */
-    public function getRoleName()
-    {
-        return $this->container['role_name'];
-    }
-
-    /**
-     * Sets role_name
-     *
-     * @param string $role_name role_name
-     *
-     * @return $this
-     */
-    public function setRoleName($role_name)
-    {
-        $this->container['role_name'] = $role_name;
+        $this->container['ip_list'] = $ip_list;
 
         return $this;
     }

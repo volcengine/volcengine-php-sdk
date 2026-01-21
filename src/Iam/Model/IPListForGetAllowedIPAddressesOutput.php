@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class RecoverAccessKeyResponse implements ModelInterface, ArrayAccess
+class IPListForGetAllowedIPAddressesOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class RecoverAccessKeyResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'RecoverAccessKeyResponse';
+    protected static $swaggerModelName = 'IPListForGetAllowedIPAddressesOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,8 @@ class RecoverAccessKeyResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'description' => 'string',
+        'ip' => 'string'
     ];
 
     /**
@@ -37,7 +38,8 @@ class RecoverAccessKeyResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'description' => null,
+        'ip' => null
     ];
 
     /**
@@ -67,7 +69,8 @@ class RecoverAccessKeyResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'description' => 'Description',
+        'ip' => 'IP'
     ];
 
     /**
@@ -76,7 +79,8 @@ class RecoverAccessKeyResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        
+        'description' => 'setDescription',
+        'ip' => 'setIp'
     ];
 
     /**
@@ -85,7 +89,8 @@ class RecoverAccessKeyResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        
+        'description' => 'getDescription',
+        'ip' => 'getIp'
     ];
 
     /**
@@ -148,6 +153,8 @@ class RecoverAccessKeyResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['ip'] = isset($data['ip']) ? $data['ip'] : null;
     }
 
     /**
@@ -173,6 +180,54 @@ class RecoverAccessKeyResponse implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string $description description
+     *
+     * @return $this
+     */
+    public function setDescription($description)
+    {
+        $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets ip
+     *
+     * @return string
+     */
+    public function getIp()
+    {
+        return $this->container['ip'];
+    }
+
+    /**
+     * Sets ip
+     *
+     * @param string $ip ip
+     *
+     * @return $this
+     */
+    public function setIp($ip)
+    {
+        $this->container['ip'] = $ip;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

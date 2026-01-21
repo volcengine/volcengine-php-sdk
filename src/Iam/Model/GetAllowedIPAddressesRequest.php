@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ListRolesRequest implements ModelInterface, ArrayAccess
+class GetAllowedIPAddressesRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ListRolesRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ListRolesRequest';
+    protected static $swaggerModelName = 'GetAllowedIPAddressesRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,7 @@ class ListRolesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'limit' => 'int',
-        'offset' => 'int',
-        'query' => 'string',
-        'role_name' => 'string'
+        
     ];
 
     /**
@@ -40,10 +37,7 @@ class ListRolesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'limit' => 'int32',
-        'offset' => 'int32',
-        'query' => null,
-        'role_name' => null
+        
     ];
 
     /**
@@ -73,10 +67,7 @@ class ListRolesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'limit' => 'Limit',
-        'offset' => 'Offset',
-        'query' => 'Query',
-        'role_name' => 'RoleName'
+        
     ];
 
     /**
@@ -85,10 +76,7 @@ class ListRolesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'limit' => 'setLimit',
-        'offset' => 'setOffset',
-        'query' => 'setQuery',
-        'role_name' => 'setRoleName'
+        
     ];
 
     /**
@@ -97,10 +85,7 @@ class ListRolesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'limit' => 'getLimit',
-        'offset' => 'getOffset',
-        'query' => 'getQuery',
-        'role_name' => 'getRoleName'
+        
     ];
 
     /**
@@ -163,10 +148,6 @@ class ListRolesRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['limit'] = isset($data['limit']) ? $data['limit'] : null;
-        $this->container['offset'] = isset($data['offset']) ? $data['offset'] : null;
-        $this->container['query'] = isset($data['query']) ? $data['query'] : null;
-        $this->container['role_name'] = isset($data['role_name']) ? $data['role_name'] : null;
     }
 
     /**
@@ -192,102 +173,6 @@ class ListRolesRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets limit
-     *
-     * @return int
-     */
-    public function getLimit()
-    {
-        return $this->container['limit'];
-    }
-
-    /**
-     * Sets limit
-     *
-     * @param int $limit limit
-     *
-     * @return $this
-     */
-    public function setLimit($limit)
-    {
-        $this->container['limit'] = $limit;
-
-        return $this;
-    }
-
-    /**
-     * Gets offset
-     *
-     * @return int
-     */
-    public function getOffset()
-    {
-        return $this->container['offset'];
-    }
-
-    /**
-     * Sets offset
-     *
-     * @param int $offset offset
-     *
-     * @return $this
-     */
-    public function setOffset($offset)
-    {
-        $this->container['offset'] = $offset;
-
-        return $this;
-    }
-
-    /**
-     * Gets query
-     *
-     * @return string
-     */
-    public function getQuery()
-    {
-        return $this->container['query'];
-    }
-
-    /**
-     * Sets query
-     *
-     * @param string $query query
-     *
-     * @return $this
-     */
-    public function setQuery($query)
-    {
-        $this->container['query'] = $query;
-
-        return $this;
-    }
-
-    /**
-     * Gets role_name
-     *
-     * @return string
-     */
-    public function getRoleName()
-    {
-        return $this->container['role_name'];
-    }
-
-    /**
-     * Sets role_name
-     *
-     * @param string $role_name role_name
-     *
-     * @return $this
-     */
-    public function setRoleName($role_name)
-    {
-        $this->container['role_name'] = $role_name;
-
-        return $this;
-    }
     /**
      * Returns true if offset exists. False otherwise.
      *
