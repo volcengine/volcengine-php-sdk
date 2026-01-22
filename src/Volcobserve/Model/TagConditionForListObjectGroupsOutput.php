@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ObjectForListObjectGroupsOutput implements ModelInterface, ArrayAccess
+class TagConditionForListObjectGroupsOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ObjectForListObjectGroupsOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ObjectForListObjectGroupsOutput';
+    protected static $swaggerModelName = 'TagConditionForListObjectGroupsOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,13 +28,8 @@ class ObjectForListObjectGroupsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'dimension_conditions' => '\Volcengine\Volcobserve\Model\DimensionConditionsForListObjectGroupsOutput',
-        'dimensions' => 'map[string,string[]]',
-        'id' => 'string',
-        'namespace' => 'string',
-        'region' => 'string',
-        'rules' => '\Volcengine\Volcobserve\Model\RuleForListObjectGroupsOutput[]',
-        'type' => 'string'
+        'condition' => 'string',
+        'tags' => '\Volcengine\Volcobserve\Model\TagForListObjectGroupsOutput[]'
     ];
 
     /**
@@ -43,13 +38,8 @@ class ObjectForListObjectGroupsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'dimension_conditions' => null,
-        'dimensions' => null,
-        'id' => null,
-        'namespace' => null,
-        'region' => null,
-        'rules' => null,
-        'type' => null
+        'condition' => null,
+        'tags' => null
     ];
 
     /**
@@ -79,13 +69,8 @@ class ObjectForListObjectGroupsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'dimension_conditions' => 'DimensionConditions',
-        'dimensions' => 'Dimensions',
-        'id' => 'Id',
-        'namespace' => 'Namespace',
-        'region' => 'Region',
-        'rules' => 'Rules',
-        'type' => 'Type'
+        'condition' => 'Condition',
+        'tags' => 'Tags'
     ];
 
     /**
@@ -94,13 +79,8 @@ class ObjectForListObjectGroupsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'dimension_conditions' => 'setDimensionConditions',
-        'dimensions' => 'setDimensions',
-        'id' => 'setId',
-        'namespace' => 'setNamespace',
-        'region' => 'setRegion',
-        'rules' => 'setRules',
-        'type' => 'setType'
+        'condition' => 'setCondition',
+        'tags' => 'setTags'
     ];
 
     /**
@@ -109,13 +89,8 @@ class ObjectForListObjectGroupsOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'dimension_conditions' => 'getDimensionConditions',
-        'dimensions' => 'getDimensions',
-        'id' => 'getId',
-        'namespace' => 'getNamespace',
-        'region' => 'getRegion',
-        'rules' => 'getRules',
-        'type' => 'getType'
+        'condition' => 'getCondition',
+        'tags' => 'getTags'
     ];
 
     /**
@@ -178,13 +153,8 @@ class ObjectForListObjectGroupsOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['dimension_conditions'] = isset($data['dimension_conditions']) ? $data['dimension_conditions'] : null;
-        $this->container['dimensions'] = isset($data['dimensions']) ? $data['dimensions'] : null;
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['namespace'] = isset($data['namespace']) ? $data['namespace'] : null;
-        $this->container['region'] = isset($data['region']) ? $data['region'] : null;
-        $this->container['rules'] = isset($data['rules']) ? $data['rules'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['condition'] = isset($data['condition']) ? $data['condition'] : null;
+        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
     }
 
     /**
@@ -212,169 +182,49 @@ class ObjectForListObjectGroupsOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets dimension_conditions
-     *
-     * @return \Volcengine\Volcobserve\Model\DimensionConditionsForListObjectGroupsOutput
-     */
-    public function getDimensionConditions()
-    {
-        return $this->container['dimension_conditions'];
-    }
-
-    /**
-     * Sets dimension_conditions
-     *
-     * @param \Volcengine\Volcobserve\Model\DimensionConditionsForListObjectGroupsOutput $dimension_conditions dimension_conditions
-     *
-     * @return $this
-     */
-    public function setDimensionConditions($dimension_conditions)
-    {
-        $this->container['dimension_conditions'] = $dimension_conditions;
-
-        return $this;
-    }
-
-    /**
-     * Gets dimensions
-     *
-     * @return map[string,string[]]
-     */
-    public function getDimensions()
-    {
-        return $this->container['dimensions'];
-    }
-
-    /**
-     * Sets dimensions
-     *
-     * @param map[string,string[]] $dimensions dimensions
-     *
-     * @return $this
-     */
-    public function setDimensions($dimensions)
-    {
-        $this->container['dimensions'] = $dimensions;
-
-        return $this;
-    }
-
-    /**
-     * Gets id
+     * Gets condition
      *
      * @return string
      */
-    public function getId()
+    public function getCondition()
     {
-        return $this->container['id'];
+        return $this->container['condition'];
     }
 
     /**
-     * Sets id
+     * Sets condition
      *
-     * @param string $id id
+     * @param string $condition condition
      *
      * @return $this
      */
-    public function setId($id)
+    public function setCondition($condition)
     {
-        $this->container['id'] = $id;
+        $this->container['condition'] = $condition;
 
         return $this;
     }
 
     /**
-     * Gets namespace
+     * Gets tags
      *
-     * @return string
+     * @return \Volcengine\Volcobserve\Model\TagForListObjectGroupsOutput[]
      */
-    public function getNamespace()
+    public function getTags()
     {
-        return $this->container['namespace'];
+        return $this->container['tags'];
     }
 
     /**
-     * Sets namespace
+     * Sets tags
      *
-     * @param string $namespace namespace
+     * @param \Volcengine\Volcobserve\Model\TagForListObjectGroupsOutput[] $tags tags
      *
      * @return $this
      */
-    public function setNamespace($namespace)
+    public function setTags($tags)
     {
-        $this->container['namespace'] = $namespace;
-
-        return $this;
-    }
-
-    /**
-     * Gets region
-     *
-     * @return string
-     */
-    public function getRegion()
-    {
-        return $this->container['region'];
-    }
-
-    /**
-     * Sets region
-     *
-     * @param string $region region
-     *
-     * @return $this
-     */
-    public function setRegion($region)
-    {
-        $this->container['region'] = $region;
-
-        return $this;
-    }
-
-    /**
-     * Gets rules
-     *
-     * @return \Volcengine\Volcobserve\Model\RuleForListObjectGroupsOutput[]
-     */
-    public function getRules()
-    {
-        return $this->container['rules'];
-    }
-
-    /**
-     * Sets rules
-     *
-     * @param \Volcengine\Volcobserve\Model\RuleForListObjectGroupsOutput[] $rules rules
-     *
-     * @return $this
-     */
-    public function setRules($rules)
-    {
-        $this->container['rules'] = $rules;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     *
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param string $type type
-     *
-     * @return $this
-     */
-    public function setType($type)
-    {
-        $this->container['type'] = $type;
+        $this->container['tags'] = $tags;
 
         return $this;
     }

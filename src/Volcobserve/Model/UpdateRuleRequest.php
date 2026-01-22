@@ -46,6 +46,7 @@ class UpdateRuleRequest implements ModelInterface, ArrayAccess
         'no_data' => '\Volcengine\Volcobserve\Model\NoDataForUpdateRuleInput',
         'notification_id' => 'string',
         'notify_templates' => '\Volcengine\Volcobserve\Model\NotifyTemplateForUpdateRuleInput[]',
+        'object_group_id' => 'string',
         'original_dimensions' => 'map[string,string[]]',
         'recovery_notify' => '\Volcengine\Volcobserve\Model\RecoveryNotifyForUpdateRuleInput',
         'regions' => 'string[]',
@@ -82,6 +83,7 @@ class UpdateRuleRequest implements ModelInterface, ArrayAccess
         'no_data' => null,
         'notification_id' => null,
         'notify_templates' => null,
+        'object_group_id' => null,
         'original_dimensions' => null,
         'recovery_notify' => null,
         'regions' => null,
@@ -139,6 +141,7 @@ class UpdateRuleRequest implements ModelInterface, ArrayAccess
         'no_data' => 'NoData',
         'notification_id' => 'NotificationId',
         'notify_templates' => 'NotifyTemplates',
+        'object_group_id' => 'ObjectGroupId',
         'original_dimensions' => 'OriginalDimensions',
         'recovery_notify' => 'RecoveryNotify',
         'regions' => 'Regions',
@@ -175,6 +178,7 @@ class UpdateRuleRequest implements ModelInterface, ArrayAccess
         'no_data' => 'setNoData',
         'notification_id' => 'setNotificationId',
         'notify_templates' => 'setNotifyTemplates',
+        'object_group_id' => 'setObjectGroupId',
         'original_dimensions' => 'setOriginalDimensions',
         'recovery_notify' => 'setRecoveryNotify',
         'regions' => 'setRegions',
@@ -211,6 +215,7 @@ class UpdateRuleRequest implements ModelInterface, ArrayAccess
         'no_data' => 'getNoData',
         'notification_id' => 'getNotificationId',
         'notify_templates' => 'getNotifyTemplates',
+        'object_group_id' => 'getObjectGroupId',
         'original_dimensions' => 'getOriginalDimensions',
         'recovery_notify' => 'getRecoveryNotify',
         'regions' => 'getRegions',
@@ -335,6 +340,7 @@ class UpdateRuleRequest implements ModelInterface, ArrayAccess
         $this->container['no_data'] = isset($data['no_data']) ? $data['no_data'] : null;
         $this->container['notification_id'] = isset($data['notification_id']) ? $data['notification_id'] : null;
         $this->container['notify_templates'] = isset($data['notify_templates']) ? $data['notify_templates'] : null;
+        $this->container['object_group_id'] = isset($data['object_group_id']) ? $data['object_group_id'] : null;
         $this->container['original_dimensions'] = isset($data['original_dimensions']) ? $data['original_dimensions'] : null;
         $this->container['recovery_notify'] = isset($data['recovery_notify']) ? $data['recovery_notify'] : null;
         $this->container['regions'] = isset($data['regions']) ? $data['regions'] : null;
@@ -849,6 +855,30 @@ class UpdateRuleRequest implements ModelInterface, ArrayAccess
     public function setNotifyTemplates($notify_templates)
     {
         $this->container['notify_templates'] = $notify_templates;
+
+        return $this;
+    }
+
+    /**
+     * Gets object_group_id
+     *
+     * @return string
+     */
+    public function getObjectGroupId()
+    {
+        return $this->container['object_group_id'];
+    }
+
+    /**
+     * Sets object_group_id
+     *
+     * @param string $object_group_id object_group_id
+     *
+     * @return $this
+     */
+    public function setObjectGroupId($object_group_id)
+    {
+        $this->container['object_group_id'] = $object_group_id;
 
         return $this;
     }
