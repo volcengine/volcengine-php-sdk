@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Iam\Model;
+namespace Volcengine\Clouddetect\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class RecoverAccessKeyResponse implements ModelInterface, ArrayAccess
+class DiagnoseConfigForGetTaskOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class RecoverAccessKeyResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'RecoverAccessKeyResponse';
+    protected static $swaggerModelName = 'DiagnoseConfigForGetTaskOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,11 @@ class RecoverAccessKeyResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'dns_config' => '\Volcengine\Clouddetect\Model\DNSConfigForGetTaskOutput',
+        'method_list' => 'int[]',
+        'mtr_config' => '\Volcengine\Clouddetect\Model\MtrConfigForGetTaskOutput',
+        'pcap_status' => 'int',
+        'ping_config' => '\Volcengine\Clouddetect\Model\PingConfigForGetTaskOutput'
     ];
 
     /**
@@ -37,7 +41,11 @@ class RecoverAccessKeyResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'dns_config' => null,
+        'method_list' => 'int32',
+        'mtr_config' => null,
+        'pcap_status' => 'int32',
+        'ping_config' => null
     ];
 
     /**
@@ -67,7 +75,11 @@ class RecoverAccessKeyResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'dns_config' => 'DNSConfig',
+        'method_list' => 'MethodList',
+        'mtr_config' => 'MtrConfig',
+        'pcap_status' => 'PcapStatus',
+        'ping_config' => 'PingConfig'
     ];
 
     /**
@@ -76,7 +88,11 @@ class RecoverAccessKeyResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        
+        'dns_config' => 'setDnsConfig',
+        'method_list' => 'setMethodList',
+        'mtr_config' => 'setMtrConfig',
+        'pcap_status' => 'setPcapStatus',
+        'ping_config' => 'setPingConfig'
     ];
 
     /**
@@ -85,7 +101,11 @@ class RecoverAccessKeyResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        
+        'dns_config' => 'getDnsConfig',
+        'method_list' => 'getMethodList',
+        'mtr_config' => 'getMtrConfig',
+        'pcap_status' => 'getPcapStatus',
+        'ping_config' => 'getPingConfig'
     ];
 
     /**
@@ -148,6 +168,11 @@ class RecoverAccessKeyResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['dns_config'] = isset($data['dns_config']) ? $data['dns_config'] : null;
+        $this->container['method_list'] = isset($data['method_list']) ? $data['method_list'] : null;
+        $this->container['mtr_config'] = isset($data['mtr_config']) ? $data['mtr_config'] : null;
+        $this->container['pcap_status'] = isset($data['pcap_status']) ? $data['pcap_status'] : null;
+        $this->container['ping_config'] = isset($data['ping_config']) ? $data['ping_config'] : null;
     }
 
     /**
@@ -173,6 +198,126 @@ class RecoverAccessKeyResponse implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets dns_config
+     *
+     * @return \Volcengine\Clouddetect\Model\DNSConfigForGetTaskOutput
+     */
+    public function getDnsConfig()
+    {
+        return $this->container['dns_config'];
+    }
+
+    /**
+     * Sets dns_config
+     *
+     * @param \Volcengine\Clouddetect\Model\DNSConfigForGetTaskOutput $dns_config dns_config
+     *
+     * @return $this
+     */
+    public function setDnsConfig($dns_config)
+    {
+        $this->container['dns_config'] = $dns_config;
+
+        return $this;
+    }
+
+    /**
+     * Gets method_list
+     *
+     * @return int[]
+     */
+    public function getMethodList()
+    {
+        return $this->container['method_list'];
+    }
+
+    /**
+     * Sets method_list
+     *
+     * @param int[] $method_list method_list
+     *
+     * @return $this
+     */
+    public function setMethodList($method_list)
+    {
+        $this->container['method_list'] = $method_list;
+
+        return $this;
+    }
+
+    /**
+     * Gets mtr_config
+     *
+     * @return \Volcengine\Clouddetect\Model\MtrConfigForGetTaskOutput
+     */
+    public function getMtrConfig()
+    {
+        return $this->container['mtr_config'];
+    }
+
+    /**
+     * Sets mtr_config
+     *
+     * @param \Volcengine\Clouddetect\Model\MtrConfigForGetTaskOutput $mtr_config mtr_config
+     *
+     * @return $this
+     */
+    public function setMtrConfig($mtr_config)
+    {
+        $this->container['mtr_config'] = $mtr_config;
+
+        return $this;
+    }
+
+    /**
+     * Gets pcap_status
+     *
+     * @return int
+     */
+    public function getPcapStatus()
+    {
+        return $this->container['pcap_status'];
+    }
+
+    /**
+     * Sets pcap_status
+     *
+     * @param int $pcap_status pcap_status
+     *
+     * @return $this
+     */
+    public function setPcapStatus($pcap_status)
+    {
+        $this->container['pcap_status'] = $pcap_status;
+
+        return $this;
+    }
+
+    /**
+     * Gets ping_config
+     *
+     * @return \Volcengine\Clouddetect\Model\PingConfigForGetTaskOutput
+     */
+    public function getPingConfig()
+    {
+        return $this->container['ping_config'];
+    }
+
+    /**
+     * Sets ping_config
+     *
+     * @param \Volcengine\Clouddetect\Model\PingConfigForGetTaskOutput $ping_config ping_config
+     *
+     * @return $this
+     */
+    public function setPingConfig($ping_config)
+    {
+        $this->container['ping_config'] = $ping_config;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

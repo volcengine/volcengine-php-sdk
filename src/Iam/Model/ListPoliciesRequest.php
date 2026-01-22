@@ -30,6 +30,7 @@ class ListPoliciesRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'limit' => 'int',
         'offset' => 'int',
+        'query' => 'string',
         'scope' => 'string',
         'with_service_role_policy' => 'int'
     ];
@@ -42,6 +43,7 @@ class ListPoliciesRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'limit' => 'int32',
         'offset' => 'int32',
+        'query' => null,
         'scope' => null,
         'with_service_role_policy' => 'int32'
     ];
@@ -75,6 +77,7 @@ class ListPoliciesRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'limit' => 'Limit',
         'offset' => 'Offset',
+        'query' => 'Query',
         'scope' => 'Scope',
         'with_service_role_policy' => 'WithServiceRolePolicy'
     ];
@@ -87,6 +90,7 @@ class ListPoliciesRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'limit' => 'setLimit',
         'offset' => 'setOffset',
+        'query' => 'setQuery',
         'scope' => 'setScope',
         'with_service_role_policy' => 'setWithServiceRolePolicy'
     ];
@@ -99,6 +103,7 @@ class ListPoliciesRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'limit' => 'getLimit',
         'offset' => 'getOffset',
+        'query' => 'getQuery',
         'scope' => 'getScope',
         'with_service_role_policy' => 'getWithServiceRolePolicy'
     ];
@@ -165,6 +170,7 @@ class ListPoliciesRequest implements ModelInterface, ArrayAccess
     {
         $this->container['limit'] = isset($data['limit']) ? $data['limit'] : null;
         $this->container['offset'] = isset($data['offset']) ? $data['offset'] : null;
+        $this->container['query'] = isset($data['query']) ? $data['query'] : null;
         $this->container['scope'] = isset($data['scope']) ? $data['scope'] : null;
         $this->container['with_service_role_policy'] = isset($data['with_service_role_policy']) ? $data['with_service_role_policy'] : null;
     }
@@ -237,6 +243,30 @@ class ListPoliciesRequest implements ModelInterface, ArrayAccess
     public function setOffset($offset)
     {
         $this->container['offset'] = $offset;
+
+        return $this;
+    }
+
+    /**
+     * Gets query
+     *
+     * @return string
+     */
+    public function getQuery()
+    {
+        return $this->container['query'];
+    }
+
+    /**
+     * Sets query
+     *
+     * @param string $query query
+     *
+     * @return $this
+     */
+    public function setQuery($query)
+    {
+        $this->container['query'] = $query;
 
         return $this;
     }

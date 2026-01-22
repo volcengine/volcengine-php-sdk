@@ -45,8 +45,10 @@ class DataForListRulesOutput implements ModelInterface, ArrayAccess
         'level_conditions' => '\Volcengine\Cloudmonitor\Model\LevelConditionForListRulesOutput[]',
         'multiple_conditions' => 'bool',
         'namespace' => 'string',
+        'no_data' => '\Volcengine\Cloudmonitor\Model\NoDataForListRulesOutput',
         'notification_id' => 'string',
         'notify_templates' => '\Volcengine\Cloudmonitor\Model\NotifyTemplateForListRulesOutput[]',
+        'object_group_id' => 'string',
         'original_dimensions' => 'map[string,string[]]',
         'project_name' => 'string',
         'recovery_notify' => '\Volcengine\Cloudmonitor\Model\RecoveryNotifyForListRulesOutput',
@@ -85,8 +87,10 @@ class DataForListRulesOutput implements ModelInterface, ArrayAccess
         'level_conditions' => null,
         'multiple_conditions' => null,
         'namespace' => null,
+        'no_data' => null,
         'notification_id' => null,
         'notify_templates' => null,
+        'object_group_id' => null,
         'original_dimensions' => null,
         'project_name' => null,
         'recovery_notify' => null,
@@ -146,8 +150,10 @@ class DataForListRulesOutput implements ModelInterface, ArrayAccess
         'level_conditions' => 'LevelConditions',
         'multiple_conditions' => 'MultipleConditions',
         'namespace' => 'Namespace',
+        'no_data' => 'NoData',
         'notification_id' => 'NotificationId',
         'notify_templates' => 'NotifyTemplates',
+        'object_group_id' => 'ObjectGroupId',
         'original_dimensions' => 'OriginalDimensions',
         'project_name' => 'ProjectName',
         'recovery_notify' => 'RecoveryNotify',
@@ -186,8 +192,10 @@ class DataForListRulesOutput implements ModelInterface, ArrayAccess
         'level_conditions' => 'setLevelConditions',
         'multiple_conditions' => 'setMultipleConditions',
         'namespace' => 'setNamespace',
+        'no_data' => 'setNoData',
         'notification_id' => 'setNotificationId',
         'notify_templates' => 'setNotifyTemplates',
+        'object_group_id' => 'setObjectGroupId',
         'original_dimensions' => 'setOriginalDimensions',
         'project_name' => 'setProjectName',
         'recovery_notify' => 'setRecoveryNotify',
@@ -226,8 +234,10 @@ class DataForListRulesOutput implements ModelInterface, ArrayAccess
         'level_conditions' => 'getLevelConditions',
         'multiple_conditions' => 'getMultipleConditions',
         'namespace' => 'getNamespace',
+        'no_data' => 'getNoData',
         'notification_id' => 'getNotificationId',
         'notify_templates' => 'getNotifyTemplates',
+        'object_group_id' => 'getObjectGroupId',
         'original_dimensions' => 'getOriginalDimensions',
         'project_name' => 'getProjectName',
         'recovery_notify' => 'getRecoveryNotify',
@@ -320,8 +330,10 @@ class DataForListRulesOutput implements ModelInterface, ArrayAccess
         $this->container['level_conditions'] = isset($data['level_conditions']) ? $data['level_conditions'] : null;
         $this->container['multiple_conditions'] = isset($data['multiple_conditions']) ? $data['multiple_conditions'] : null;
         $this->container['namespace'] = isset($data['namespace']) ? $data['namespace'] : null;
+        $this->container['no_data'] = isset($data['no_data']) ? $data['no_data'] : null;
         $this->container['notification_id'] = isset($data['notification_id']) ? $data['notification_id'] : null;
         $this->container['notify_templates'] = isset($data['notify_templates']) ? $data['notify_templates'] : null;
+        $this->container['object_group_id'] = isset($data['object_group_id']) ? $data['object_group_id'] : null;
         $this->container['original_dimensions'] = isset($data['original_dimensions']) ? $data['original_dimensions'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['recovery_notify'] = isset($data['recovery_notify']) ? $data['recovery_notify'] : null;
@@ -770,6 +782,30 @@ class DataForListRulesOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets no_data
+     *
+     * @return \Volcengine\Cloudmonitor\Model\NoDataForListRulesOutput
+     */
+    public function getNoData()
+    {
+        return $this->container['no_data'];
+    }
+
+    /**
+     * Sets no_data
+     *
+     * @param \Volcengine\Cloudmonitor\Model\NoDataForListRulesOutput $no_data no_data
+     *
+     * @return $this
+     */
+    public function setNoData($no_data)
+    {
+        $this->container['no_data'] = $no_data;
+
+        return $this;
+    }
+
+    /**
      * Gets notification_id
      *
      * @return string
@@ -813,6 +849,30 @@ class DataForListRulesOutput implements ModelInterface, ArrayAccess
     public function setNotifyTemplates($notify_templates)
     {
         $this->container['notify_templates'] = $notify_templates;
+
+        return $this;
+    }
+
+    /**
+     * Gets object_group_id
+     *
+     * @return string
+     */
+    public function getObjectGroupId()
+    {
+        return $this->container['object_group_id'];
+    }
+
+    /**
+     * Sets object_group_id
+     *
+     * @param string $object_group_id object_group_id
+     *
+     * @return $this
+     */
+    public function setObjectGroupId($object_group_id)
+    {
+        $this->container['object_group_id'] = $object_group_id;
 
         return $this;
     }

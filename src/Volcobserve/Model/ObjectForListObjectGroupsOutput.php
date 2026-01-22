@@ -28,11 +28,12 @@ class ObjectForListObjectGroupsOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'dimension_conditions' => 'string',
+        'dimension_conditions' => '\Volcengine\Volcobserve\Model\DimensionConditionsForListObjectGroupsOutput',
         'dimensions' => 'map[string,string[]]',
         'id' => 'string',
         'namespace' => 'string',
         'region' => 'string',
+        'rules' => '\Volcengine\Volcobserve\Model\RuleForListObjectGroupsOutput[]',
         'type' => 'string'
     ];
 
@@ -47,6 +48,7 @@ class ObjectForListObjectGroupsOutput implements ModelInterface, ArrayAccess
         'id' => null,
         'namespace' => null,
         'region' => null,
+        'rules' => null,
         'type' => null
     ];
 
@@ -82,6 +84,7 @@ class ObjectForListObjectGroupsOutput implements ModelInterface, ArrayAccess
         'id' => 'Id',
         'namespace' => 'Namespace',
         'region' => 'Region',
+        'rules' => 'Rules',
         'type' => 'Type'
     ];
 
@@ -96,6 +99,7 @@ class ObjectForListObjectGroupsOutput implements ModelInterface, ArrayAccess
         'id' => 'setId',
         'namespace' => 'setNamespace',
         'region' => 'setRegion',
+        'rules' => 'setRules',
         'type' => 'setType'
     ];
 
@@ -110,6 +114,7 @@ class ObjectForListObjectGroupsOutput implements ModelInterface, ArrayAccess
         'id' => 'getId',
         'namespace' => 'getNamespace',
         'region' => 'getRegion',
+        'rules' => 'getRules',
         'type' => 'getType'
     ];
 
@@ -178,6 +183,7 @@ class ObjectForListObjectGroupsOutput implements ModelInterface, ArrayAccess
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['namespace'] = isset($data['namespace']) ? $data['namespace'] : null;
         $this->container['region'] = isset($data['region']) ? $data['region'] : null;
+        $this->container['rules'] = isset($data['rules']) ? $data['rules'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
@@ -208,7 +214,7 @@ class ObjectForListObjectGroupsOutput implements ModelInterface, ArrayAccess
     /**
      * Gets dimension_conditions
      *
-     * @return string
+     * @return \Volcengine\Volcobserve\Model\DimensionConditionsForListObjectGroupsOutput
      */
     public function getDimensionConditions()
     {
@@ -218,7 +224,7 @@ class ObjectForListObjectGroupsOutput implements ModelInterface, ArrayAccess
     /**
      * Sets dimension_conditions
      *
-     * @param string $dimension_conditions dimension_conditions
+     * @param \Volcengine\Volcobserve\Model\DimensionConditionsForListObjectGroupsOutput $dimension_conditions dimension_conditions
      *
      * @return $this
      */
@@ -321,6 +327,30 @@ class ObjectForListObjectGroupsOutput implements ModelInterface, ArrayAccess
     public function setRegion($region)
     {
         $this->container['region'] = $region;
+
+        return $this;
+    }
+
+    /**
+     * Gets rules
+     *
+     * @return \Volcengine\Volcobserve\Model\RuleForListObjectGroupsOutput[]
+     */
+    public function getRules()
+    {
+        return $this->container['rules'];
+    }
+
+    /**
+     * Sets rules
+     *
+     * @param \Volcengine\Volcobserve\Model\RuleForListObjectGroupsOutput[] $rules rules
+     *
+     * @return $this
+     */
+    public function setRules($rules)
+    {
+        $this->container['rules'] = $rules;
 
         return $this;
     }
