@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ListRolesRequest implements ModelInterface, ArrayAccess
+class IPListForUpdateAllowedIPAddressesInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ListRolesRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ListRolesRequest';
+    protected static $swaggerModelName = 'IPListForUpdateAllowedIPAddressesInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,10 +28,8 @@ class ListRolesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'limit' => 'int',
-        'offset' => 'int',
-        'query' => 'string',
-        'role_name' => 'string'
+        'description' => 'string',
+        'ip' => 'string'
     ];
 
     /**
@@ -40,10 +38,8 @@ class ListRolesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'limit' => 'int32',
-        'offset' => 'int32',
-        'query' => null,
-        'role_name' => null
+        'description' => null,
+        'ip' => null
     ];
 
     /**
@@ -73,10 +69,8 @@ class ListRolesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'limit' => 'Limit',
-        'offset' => 'Offset',
-        'query' => 'Query',
-        'role_name' => 'RoleName'
+        'description' => 'Description',
+        'ip' => 'IP'
     ];
 
     /**
@@ -85,10 +79,8 @@ class ListRolesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'limit' => 'setLimit',
-        'offset' => 'setOffset',
-        'query' => 'setQuery',
-        'role_name' => 'setRoleName'
+        'description' => 'setDescription',
+        'ip' => 'setIp'
     ];
 
     /**
@@ -97,10 +89,8 @@ class ListRolesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'limit' => 'getLimit',
-        'offset' => 'getOffset',
-        'query' => 'getQuery',
-        'role_name' => 'getRoleName'
+        'description' => 'getDescription',
+        'ip' => 'getIp'
     ];
 
     /**
@@ -163,10 +153,8 @@ class ListRolesRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['limit'] = isset($data['limit']) ? $data['limit'] : null;
-        $this->container['offset'] = isset($data['offset']) ? $data['offset'] : null;
-        $this->container['query'] = isset($data['query']) ? $data['query'] : null;
-        $this->container['role_name'] = isset($data['role_name']) ? $data['role_name'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['ip'] = isset($data['ip']) ? $data['ip'] : null;
     }
 
     /**
@@ -194,97 +182,49 @@ class ListRolesRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets limit
-     *
-     * @return int
-     */
-    public function getLimit()
-    {
-        return $this->container['limit'];
-    }
-
-    /**
-     * Sets limit
-     *
-     * @param int $limit limit
-     *
-     * @return $this
-     */
-    public function setLimit($limit)
-    {
-        $this->container['limit'] = $limit;
-
-        return $this;
-    }
-
-    /**
-     * Gets offset
-     *
-     * @return int
-     */
-    public function getOffset()
-    {
-        return $this->container['offset'];
-    }
-
-    /**
-     * Sets offset
-     *
-     * @param int $offset offset
-     *
-     * @return $this
-     */
-    public function setOffset($offset)
-    {
-        $this->container['offset'] = $offset;
-
-        return $this;
-    }
-
-    /**
-     * Gets query
+     * Gets description
      *
      * @return string
      */
-    public function getQuery()
+    public function getDescription()
     {
-        return $this->container['query'];
+        return $this->container['description'];
     }
 
     /**
-     * Sets query
+     * Sets description
      *
-     * @param string $query query
+     * @param string $description description
      *
      * @return $this
      */
-    public function setQuery($query)
+    public function setDescription($description)
     {
-        $this->container['query'] = $query;
+        $this->container['description'] = $description;
 
         return $this;
     }
 
     /**
-     * Gets role_name
+     * Gets ip
      *
      * @return string
      */
-    public function getRoleName()
+    public function getIp()
     {
-        return $this->container['role_name'];
+        return $this->container['ip'];
     }
 
     /**
-     * Sets role_name
+     * Sets ip
      *
-     * @param string $role_name role_name
+     * @param string $ip ip
      *
      * @return $this
      */
-    public function setRoleName($role_name)
+    public function setIp($ip)
     {
-        $this->container['role_name'] = $role_name;
+        $this->container['ip'] = $ip;
 
         return $this;
     }
