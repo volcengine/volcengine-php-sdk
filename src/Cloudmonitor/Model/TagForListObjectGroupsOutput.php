@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class NoDataForUpdateRuleInput implements ModelInterface, ArrayAccess
+class TagForListObjectGroupsOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class NoDataForUpdateRuleInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'NoDataForUpdateRuleInput';
+    protected static $swaggerModelName = 'TagForListObjectGroupsOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,9 @@ class NoDataForUpdateRuleInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'enable' => 'bool',
-        'evaluation_count' => 'int',
-        'level' => 'string'
+        'comparator' => 'string',
+        'key' => 'string',
+        'values' => 'string[]'
     ];
 
     /**
@@ -39,9 +39,9 @@ class NoDataForUpdateRuleInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'enable' => null,
-        'evaluation_count' => 'int32',
-        'level' => null
+        'comparator' => null,
+        'key' => null,
+        'values' => null
     ];
 
     /**
@@ -71,9 +71,9 @@ class NoDataForUpdateRuleInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'enable' => 'Enable',
-        'evaluation_count' => 'EvaluationCount',
-        'level' => 'Level'
+        'comparator' => 'Comparator',
+        'key' => 'Key',
+        'values' => 'Values'
     ];
 
     /**
@@ -82,9 +82,9 @@ class NoDataForUpdateRuleInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'enable' => 'setEnable',
-        'evaluation_count' => 'setEvaluationCount',
-        'level' => 'setLevel'
+        'comparator' => 'setComparator',
+        'key' => 'setKey',
+        'values' => 'setValues'
     ];
 
     /**
@@ -93,9 +93,9 @@ class NoDataForUpdateRuleInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'enable' => 'getEnable',
-        'evaluation_count' => 'getEvaluationCount',
-        'level' => 'getLevel'
+        'comparator' => 'getComparator',
+        'key' => 'getKey',
+        'values' => 'getValues'
     ];
 
     /**
@@ -158,9 +158,9 @@ class NoDataForUpdateRuleInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['enable'] = isset($data['enable']) ? $data['enable'] : null;
-        $this->container['evaluation_count'] = isset($data['evaluation_count']) ? $data['evaluation_count'] : null;
-        $this->container['level'] = isset($data['level']) ? $data['level'] : null;
+        $this->container['comparator'] = isset($data['comparator']) ? $data['comparator'] : null;
+        $this->container['key'] = isset($data['key']) ? $data['key'] : null;
+        $this->container['values'] = isset($data['values']) ? $data['values'] : null;
     }
 
     /**
@@ -188,73 +188,73 @@ class NoDataForUpdateRuleInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets enable
-     *
-     * @return bool
-     */
-    public function getEnable()
-    {
-        return $this->container['enable'];
-    }
-
-    /**
-     * Sets enable
-     *
-     * @param bool $enable enable
-     *
-     * @return $this
-     */
-    public function setEnable($enable)
-    {
-        $this->container['enable'] = $enable;
-
-        return $this;
-    }
-
-    /**
-     * Gets evaluation_count
-     *
-     * @return int
-     */
-    public function getEvaluationCount()
-    {
-        return $this->container['evaluation_count'];
-    }
-
-    /**
-     * Sets evaluation_count
-     *
-     * @param int $evaluation_count evaluation_count
-     *
-     * @return $this
-     */
-    public function setEvaluationCount($evaluation_count)
-    {
-        $this->container['evaluation_count'] = $evaluation_count;
-
-        return $this;
-    }
-
-    /**
-     * Gets level
+     * Gets comparator
      *
      * @return string
      */
-    public function getLevel()
+    public function getComparator()
     {
-        return $this->container['level'];
+        return $this->container['comparator'];
     }
 
     /**
-     * Sets level
+     * Sets comparator
      *
-     * @param string $level level
+     * @param string $comparator comparator
      *
      * @return $this
      */
-    public function setLevel($level)
+    public function setComparator($comparator)
     {
-        $this->container['level'] = $level;
+        $this->container['comparator'] = $comparator;
+
+        return $this;
+    }
+
+    /**
+     * Gets key
+     *
+     * @return string
+     */
+    public function getKey()
+    {
+        return $this->container['key'];
+    }
+
+    /**
+     * Sets key
+     *
+     * @param string $key key
+     *
+     * @return $this
+     */
+    public function setKey($key)
+    {
+        $this->container['key'] = $key;
+
+        return $this;
+    }
+
+    /**
+     * Gets values
+     *
+     * @return string[]
+     */
+    public function getValues()
+    {
+        return $this->container['values'];
+    }
+
+    /**
+     * Sets values
+     *
+     * @param string[] $values values
+     *
+     * @return $this
+     */
+    public function setValues($values)
+    {
+        $this->container['values'] = $values;
 
         return $this;
     }

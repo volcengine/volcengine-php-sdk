@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class NoDataForUpdateRuleInput implements ModelInterface, ArrayAccess
+class NoDataForListRulesByIdsOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class NoDataForUpdateRuleInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'NoDataForUpdateRuleInput';
+    protected static $swaggerModelName = 'NoDataForListRulesByIdsOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
