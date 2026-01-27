@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class BackupDataRequest implements ModelInterface, ArrayAccess
+class CreateImageOneStepRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'BackupDataRequest';
+    protected static $swaggerModelName = 'CreateImageOneStepRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,11 +28,10 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'backup_all' => 'bool',
-        'description' => 'string',
-        'exclude_path_list' => 'string[]',
-        'include_path_list' => 'string[]',
-        'pod_id_list' => 'string[]',
+        'file_url' => 'string',
+        'image_annotation' => 'string',
+        'image_id' => 'string',
+        'image_name' => 'string',
         'product_id' => 'string'
     ];
 
@@ -42,11 +41,10 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'backup_all' => null,
-        'description' => null,
-        'exclude_path_list' => null,
-        'include_path_list' => null,
-        'pod_id_list' => null,
+        'file_url' => null,
+        'image_annotation' => null,
+        'image_id' => null,
+        'image_name' => null,
         'product_id' => null
     ];
 
@@ -77,11 +75,10 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'backup_all' => 'BackupAll',
-        'description' => 'Description',
-        'exclude_path_list' => 'ExcludePathList',
-        'include_path_list' => 'IncludePathList',
-        'pod_id_list' => 'PodIdList',
+        'file_url' => 'FileUrl',
+        'image_annotation' => 'ImageAnnotation',
+        'image_id' => 'ImageId',
+        'image_name' => 'ImageName',
         'product_id' => 'ProductId'
     ];
 
@@ -91,11 +88,10 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'backup_all' => 'setBackupAll',
-        'description' => 'setDescription',
-        'exclude_path_list' => 'setExcludePathList',
-        'include_path_list' => 'setIncludePathList',
-        'pod_id_list' => 'setPodIdList',
+        'file_url' => 'setFileUrl',
+        'image_annotation' => 'setImageAnnotation',
+        'image_id' => 'setImageId',
+        'image_name' => 'setImageName',
         'product_id' => 'setProductId'
     ];
 
@@ -105,11 +101,10 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'backup_all' => 'getBackupAll',
-        'description' => 'getDescription',
-        'exclude_path_list' => 'getExcludePathList',
-        'include_path_list' => 'getIncludePathList',
-        'pod_id_list' => 'getPodIdList',
+        'file_url' => 'getFileUrl',
+        'image_annotation' => 'getImageAnnotation',
+        'image_id' => 'getImageId',
+        'image_name' => 'getImageName',
         'product_id' => 'getProductId'
     ];
 
@@ -173,11 +168,10 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['backup_all'] = isset($data['backup_all']) ? $data['backup_all'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['exclude_path_list'] = isset($data['exclude_path_list']) ? $data['exclude_path_list'] : null;
-        $this->container['include_path_list'] = isset($data['include_path_list']) ? $data['include_path_list'] : null;
-        $this->container['pod_id_list'] = isset($data['pod_id_list']) ? $data['pod_id_list'] : null;
+        $this->container['file_url'] = isset($data['file_url']) ? $data['file_url'] : null;
+        $this->container['image_annotation'] = isset($data['image_annotation']) ? $data['image_annotation'] : null;
+        $this->container['image_id'] = isset($data['image_id']) ? $data['image_id'] : null;
+        $this->container['image_name'] = isset($data['image_name']) ? $data['image_name'] : null;
         $this->container['product_id'] = isset($data['product_id']) ? $data['product_id'] : null;
     }
 
@@ -190,6 +184,9 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['image_id'] === null) {
+            $invalidProperties[] = "'image_id' can't be null";
+        }
         if ($this->container['product_id'] === null) {
             $invalidProperties[] = "'product_id' can't be null";
         }
@@ -209,121 +206,97 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets backup_all
-     *
-     * @return bool
-     */
-    public function getBackupAll()
-    {
-        return $this->container['backup_all'];
-    }
-
-    /**
-     * Sets backup_all
-     *
-     * @param bool $backup_all backup_all
-     *
-     * @return $this
-     */
-    public function setBackupAll($backup_all)
-    {
-        $this->container['backup_all'] = $backup_all;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
+     * Gets file_url
      *
      * @return string
      */
-    public function getDescription()
+    public function getFileUrl()
     {
-        return $this->container['description'];
+        return $this->container['file_url'];
     }
 
     /**
-     * Sets description
+     * Sets file_url
      *
-     * @param string $description description
+     * @param string $file_url file_url
      *
      * @return $this
      */
-    public function setDescription($description)
+    public function setFileUrl($file_url)
     {
-        $this->container['description'] = $description;
+        $this->container['file_url'] = $file_url;
 
         return $this;
     }
 
     /**
-     * Gets exclude_path_list
+     * Gets image_annotation
      *
-     * @return string[]
+     * @return string
      */
-    public function getExcludePathList()
+    public function getImageAnnotation()
     {
-        return $this->container['exclude_path_list'];
+        return $this->container['image_annotation'];
     }
 
     /**
-     * Sets exclude_path_list
+     * Sets image_annotation
      *
-     * @param string[] $exclude_path_list exclude_path_list
+     * @param string $image_annotation image_annotation
      *
      * @return $this
      */
-    public function setExcludePathList($exclude_path_list)
+    public function setImageAnnotation($image_annotation)
     {
-        $this->container['exclude_path_list'] = $exclude_path_list;
+        $this->container['image_annotation'] = $image_annotation;
 
         return $this;
     }
 
     /**
-     * Gets include_path_list
+     * Gets image_id
      *
-     * @return string[]
+     * @return string
      */
-    public function getIncludePathList()
+    public function getImageId()
     {
-        return $this->container['include_path_list'];
+        return $this->container['image_id'];
     }
 
     /**
-     * Sets include_path_list
+     * Sets image_id
      *
-     * @param string[] $include_path_list include_path_list
+     * @param string $image_id image_id
      *
      * @return $this
      */
-    public function setIncludePathList($include_path_list)
+    public function setImageId($image_id)
     {
-        $this->container['include_path_list'] = $include_path_list;
+        $this->container['image_id'] = $image_id;
 
         return $this;
     }
 
     /**
-     * Gets pod_id_list
+     * Gets image_name
      *
-     * @return string[]
+     * @return string
      */
-    public function getPodIdList()
+    public function getImageName()
     {
-        return $this->container['pod_id_list'];
+        return $this->container['image_name'];
     }
 
     /**
-     * Sets pod_id_list
+     * Sets image_name
      *
-     * @param string[] $pod_id_list pod_id_list
+     * @param string $image_name image_name
      *
      * @return $this
      */
-    public function setPodIdList($pod_id_list)
+    public function setImageName($image_name)
     {
-        $this->container['pod_id_list'] = $pod_id_list;
+        $this->container['image_name'] = $image_name;
 
         return $this;
     }

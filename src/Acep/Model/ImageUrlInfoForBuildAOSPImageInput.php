@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class BackupDataRequest implements ModelInterface, ArrayAccess
+class ImageUrlInfoForBuildAOSPImageInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'BackupDataRequest';
+    protected static $swaggerModelName = 'ImageUrlInfoForBuildAOSPImageInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,8 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'backup_all' => 'bool',
-        'description' => 'string',
-        'exclude_path_list' => 'string[]',
-        'include_path_list' => 'string[]',
-        'pod_id_list' => 'string[]',
-        'product_id' => 'string'
+        'system_img' => '\Volcengine\Acep\Model\ConvertSystemImgForBuildAOSPImageInput',
+        'vendor_img' => '\Volcengine\Acep\Model\ConvertVendorImgForBuildAOSPImageInput'
     ];
 
     /**
@@ -42,12 +38,8 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'backup_all' => null,
-        'description' => null,
-        'exclude_path_list' => null,
-        'include_path_list' => null,
-        'pod_id_list' => null,
-        'product_id' => null
+        'system_img' => null,
+        'vendor_img' => null
     ];
 
     /**
@@ -77,12 +69,8 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'backup_all' => 'BackupAll',
-        'description' => 'Description',
-        'exclude_path_list' => 'ExcludePathList',
-        'include_path_list' => 'IncludePathList',
-        'pod_id_list' => 'PodIdList',
-        'product_id' => 'ProductId'
+        'system_img' => 'SystemImg',
+        'vendor_img' => 'VendorImg'
     ];
 
     /**
@@ -91,12 +79,8 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'backup_all' => 'setBackupAll',
-        'description' => 'setDescription',
-        'exclude_path_list' => 'setExcludePathList',
-        'include_path_list' => 'setIncludePathList',
-        'pod_id_list' => 'setPodIdList',
-        'product_id' => 'setProductId'
+        'system_img' => 'setSystemImg',
+        'vendor_img' => 'setVendorImg'
     ];
 
     /**
@@ -105,12 +89,8 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'backup_all' => 'getBackupAll',
-        'description' => 'getDescription',
-        'exclude_path_list' => 'getExcludePathList',
-        'include_path_list' => 'getIncludePathList',
-        'pod_id_list' => 'getPodIdList',
-        'product_id' => 'getProductId'
+        'system_img' => 'getSystemImg',
+        'vendor_img' => 'getVendorImg'
     ];
 
     /**
@@ -173,12 +153,8 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['backup_all'] = isset($data['backup_all']) ? $data['backup_all'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['exclude_path_list'] = isset($data['exclude_path_list']) ? $data['exclude_path_list'] : null;
-        $this->container['include_path_list'] = isset($data['include_path_list']) ? $data['include_path_list'] : null;
-        $this->container['pod_id_list'] = isset($data['pod_id_list']) ? $data['pod_id_list'] : null;
-        $this->container['product_id'] = isset($data['product_id']) ? $data['product_id'] : null;
+        $this->container['system_img'] = isset($data['system_img']) ? $data['system_img'] : null;
+        $this->container['vendor_img'] = isset($data['vendor_img']) ? $data['vendor_img'] : null;
     }
 
     /**
@@ -190,9 +166,6 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['product_id'] === null) {
-            $invalidProperties[] = "'product_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -209,145 +182,49 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets backup_all
+     * Gets system_img
      *
-     * @return bool
+     * @return \Volcengine\Acep\Model\ConvertSystemImgForBuildAOSPImageInput
      */
-    public function getBackupAll()
+    public function getSystemImg()
     {
-        return $this->container['backup_all'];
+        return $this->container['system_img'];
     }
 
     /**
-     * Sets backup_all
+     * Sets system_img
      *
-     * @param bool $backup_all backup_all
+     * @param \Volcengine\Acep\Model\ConvertSystemImgForBuildAOSPImageInput $system_img system_img
      *
      * @return $this
      */
-    public function setBackupAll($backup_all)
+    public function setSystemImg($system_img)
     {
-        $this->container['backup_all'] = $backup_all;
+        $this->container['system_img'] = $system_img;
 
         return $this;
     }
 
     /**
-     * Gets description
+     * Gets vendor_img
      *
-     * @return string
+     * @return \Volcengine\Acep\Model\ConvertVendorImgForBuildAOSPImageInput
      */
-    public function getDescription()
+    public function getVendorImg()
     {
-        return $this->container['description'];
+        return $this->container['vendor_img'];
     }
 
     /**
-     * Sets description
+     * Sets vendor_img
      *
-     * @param string $description description
+     * @param \Volcengine\Acep\Model\ConvertVendorImgForBuildAOSPImageInput $vendor_img vendor_img
      *
      * @return $this
      */
-    public function setDescription($description)
+    public function setVendorImg($vendor_img)
     {
-        $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets exclude_path_list
-     *
-     * @return string[]
-     */
-    public function getExcludePathList()
-    {
-        return $this->container['exclude_path_list'];
-    }
-
-    /**
-     * Sets exclude_path_list
-     *
-     * @param string[] $exclude_path_list exclude_path_list
-     *
-     * @return $this
-     */
-    public function setExcludePathList($exclude_path_list)
-    {
-        $this->container['exclude_path_list'] = $exclude_path_list;
-
-        return $this;
-    }
-
-    /**
-     * Gets include_path_list
-     *
-     * @return string[]
-     */
-    public function getIncludePathList()
-    {
-        return $this->container['include_path_list'];
-    }
-
-    /**
-     * Sets include_path_list
-     *
-     * @param string[] $include_path_list include_path_list
-     *
-     * @return $this
-     */
-    public function setIncludePathList($include_path_list)
-    {
-        $this->container['include_path_list'] = $include_path_list;
-
-        return $this;
-    }
-
-    /**
-     * Gets pod_id_list
-     *
-     * @return string[]
-     */
-    public function getPodIdList()
-    {
-        return $this->container['pod_id_list'];
-    }
-
-    /**
-     * Sets pod_id_list
-     *
-     * @param string[] $pod_id_list pod_id_list
-     *
-     * @return $this
-     */
-    public function setPodIdList($pod_id_list)
-    {
-        $this->container['pod_id_list'] = $pod_id_list;
-
-        return $this;
-    }
-
-    /**
-     * Gets product_id
-     *
-     * @return string
-     */
-    public function getProductId()
-    {
-        return $this->container['product_id'];
-    }
-
-    /**
-     * Sets product_id
-     *
-     * @param string $product_id product_id
-     *
-     * @return $this
-     */
-    public function setProductId($product_id)
-    {
-        $this->container['product_id'] = $product_id;
+        $this->container['vendor_img'] = $vendor_img;
 
         return $this;
     }

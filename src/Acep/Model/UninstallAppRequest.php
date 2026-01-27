@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class BackupDataRequest implements ModelInterface, ArrayAccess
+class UninstallAppRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'BackupDataRequest';
+    protected static $swaggerModelName = 'UninstallAppRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,10 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'backup_all' => 'bool',
-        'description' => 'string',
-        'exclude_path_list' => 'string[]',
-        'include_path_list' => 'string[]',
+        'app_id' => 'string',
         'pod_id_list' => 'string[]',
-        'product_id' => 'string'
+        'product_id' => 'string',
+        'tag_id_list' => 'string[]'
     ];
 
     /**
@@ -42,12 +40,10 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'backup_all' => null,
-        'description' => null,
-        'exclude_path_list' => null,
-        'include_path_list' => null,
+        'app_id' => null,
         'pod_id_list' => null,
-        'product_id' => null
+        'product_id' => null,
+        'tag_id_list' => null
     ];
 
     /**
@@ -77,12 +73,10 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'backup_all' => 'BackupAll',
-        'description' => 'Description',
-        'exclude_path_list' => 'ExcludePathList',
-        'include_path_list' => 'IncludePathList',
+        'app_id' => 'AppId',
         'pod_id_list' => 'PodIdList',
-        'product_id' => 'ProductId'
+        'product_id' => 'ProductId',
+        'tag_id_list' => 'TagIdList'
     ];
 
     /**
@@ -91,12 +85,10 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'backup_all' => 'setBackupAll',
-        'description' => 'setDescription',
-        'exclude_path_list' => 'setExcludePathList',
-        'include_path_list' => 'setIncludePathList',
+        'app_id' => 'setAppId',
         'pod_id_list' => 'setPodIdList',
-        'product_id' => 'setProductId'
+        'product_id' => 'setProductId',
+        'tag_id_list' => 'setTagIdList'
     ];
 
     /**
@@ -105,12 +97,10 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'backup_all' => 'getBackupAll',
-        'description' => 'getDescription',
-        'exclude_path_list' => 'getExcludePathList',
-        'include_path_list' => 'getIncludePathList',
+        'app_id' => 'getAppId',
         'pod_id_list' => 'getPodIdList',
-        'product_id' => 'getProductId'
+        'product_id' => 'getProductId',
+        'tag_id_list' => 'getTagIdList'
     ];
 
     /**
@@ -173,12 +163,10 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['backup_all'] = isset($data['backup_all']) ? $data['backup_all'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['exclude_path_list'] = isset($data['exclude_path_list']) ? $data['exclude_path_list'] : null;
-        $this->container['include_path_list'] = isset($data['include_path_list']) ? $data['include_path_list'] : null;
+        $this->container['app_id'] = isset($data['app_id']) ? $data['app_id'] : null;
         $this->container['pod_id_list'] = isset($data['pod_id_list']) ? $data['pod_id_list'] : null;
         $this->container['product_id'] = isset($data['product_id']) ? $data['product_id'] : null;
+        $this->container['tag_id_list'] = isset($data['tag_id_list']) ? $data['tag_id_list'] : null;
     }
 
     /**
@@ -190,6 +178,9 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['app_id'] === null) {
+            $invalidProperties[] = "'app_id' can't be null";
+        }
         if ($this->container['product_id'] === null) {
             $invalidProperties[] = "'product_id' can't be null";
         }
@@ -209,97 +200,25 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets backup_all
-     *
-     * @return bool
-     */
-    public function getBackupAll()
-    {
-        return $this->container['backup_all'];
-    }
-
-    /**
-     * Sets backup_all
-     *
-     * @param bool $backup_all backup_all
-     *
-     * @return $this
-     */
-    public function setBackupAll($backup_all)
-    {
-        $this->container['backup_all'] = $backup_all;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
+     * Gets app_id
      *
      * @return string
      */
-    public function getDescription()
+    public function getAppId()
     {
-        return $this->container['description'];
+        return $this->container['app_id'];
     }
 
     /**
-     * Sets description
+     * Sets app_id
      *
-     * @param string $description description
+     * @param string $app_id app_id
      *
      * @return $this
      */
-    public function setDescription($description)
+    public function setAppId($app_id)
     {
-        $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets exclude_path_list
-     *
-     * @return string[]
-     */
-    public function getExcludePathList()
-    {
-        return $this->container['exclude_path_list'];
-    }
-
-    /**
-     * Sets exclude_path_list
-     *
-     * @param string[] $exclude_path_list exclude_path_list
-     *
-     * @return $this
-     */
-    public function setExcludePathList($exclude_path_list)
-    {
-        $this->container['exclude_path_list'] = $exclude_path_list;
-
-        return $this;
-    }
-
-    /**
-     * Gets include_path_list
-     *
-     * @return string[]
-     */
-    public function getIncludePathList()
-    {
-        return $this->container['include_path_list'];
-    }
-
-    /**
-     * Sets include_path_list
-     *
-     * @param string[] $include_path_list include_path_list
-     *
-     * @return $this
-     */
-    public function setIncludePathList($include_path_list)
-    {
-        $this->container['include_path_list'] = $include_path_list;
+        $this->container['app_id'] = $app_id;
 
         return $this;
     }
@@ -348,6 +267,30 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
     public function setProductId($product_id)
     {
         $this->container['product_id'] = $product_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets tag_id_list
+     *
+     * @return string[]
+     */
+    public function getTagIdList()
+    {
+        return $this->container['tag_id_list'];
+    }
+
+    /**
+     * Sets tag_id_list
+     *
+     * @param string[] $tag_id_list tag_id_list
+     *
+     * @return $this
+     */
+    public function setTagIdList($tag_id_list)
+    {
+        $this->container['tag_id_list'] = $tag_id_list;
 
         return $this;
     }

@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class BackupDataRequest implements ModelInterface, ArrayAccess
+class CreateDisplayLayoutMiniRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'BackupDataRequest';
+    protected static $swaggerModelName = 'CreateDisplayLayoutMiniRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,13 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'backup_all' => 'bool',
-        'description' => 'string',
-        'exclude_path_list' => 'string[]',
-        'include_path_list' => 'string[]',
-        'pod_id_list' => 'string[]',
-        'product_id' => 'string'
+        'density' => 'int',
+        'display_layout_id' => 'string',
+        'extra' => 'string',
+        'fps' => 'int',
+        'height' => 'int',
+        'product_id' => 'string',
+        'width' => 'int'
     ];
 
     /**
@@ -42,12 +43,13 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'backup_all' => null,
-        'description' => null,
-        'exclude_path_list' => null,
-        'include_path_list' => null,
-        'pod_id_list' => null,
-        'product_id' => null
+        'density' => 'int32',
+        'display_layout_id' => null,
+        'extra' => null,
+        'fps' => 'int32',
+        'height' => 'int32',
+        'product_id' => null,
+        'width' => 'int32'
     ];
 
     /**
@@ -77,12 +79,13 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'backup_all' => 'BackupAll',
-        'description' => 'Description',
-        'exclude_path_list' => 'ExcludePathList',
-        'include_path_list' => 'IncludePathList',
-        'pod_id_list' => 'PodIdList',
-        'product_id' => 'ProductId'
+        'density' => 'Density',
+        'display_layout_id' => 'DisplayLayoutId',
+        'extra' => 'Extra',
+        'fps' => 'Fps',
+        'height' => 'Height',
+        'product_id' => 'ProductId',
+        'width' => 'Width'
     ];
 
     /**
@@ -91,12 +94,13 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'backup_all' => 'setBackupAll',
-        'description' => 'setDescription',
-        'exclude_path_list' => 'setExcludePathList',
-        'include_path_list' => 'setIncludePathList',
-        'pod_id_list' => 'setPodIdList',
-        'product_id' => 'setProductId'
+        'density' => 'setDensity',
+        'display_layout_id' => 'setDisplayLayoutId',
+        'extra' => 'setExtra',
+        'fps' => 'setFps',
+        'height' => 'setHeight',
+        'product_id' => 'setProductId',
+        'width' => 'setWidth'
     ];
 
     /**
@@ -105,12 +109,13 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'backup_all' => 'getBackupAll',
-        'description' => 'getDescription',
-        'exclude_path_list' => 'getExcludePathList',
-        'include_path_list' => 'getIncludePathList',
-        'pod_id_list' => 'getPodIdList',
-        'product_id' => 'getProductId'
+        'density' => 'getDensity',
+        'display_layout_id' => 'getDisplayLayoutId',
+        'extra' => 'getExtra',
+        'fps' => 'getFps',
+        'height' => 'getHeight',
+        'product_id' => 'getProductId',
+        'width' => 'getWidth'
     ];
 
     /**
@@ -173,12 +178,13 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['backup_all'] = isset($data['backup_all']) ? $data['backup_all'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['exclude_path_list'] = isset($data['exclude_path_list']) ? $data['exclude_path_list'] : null;
-        $this->container['include_path_list'] = isset($data['include_path_list']) ? $data['include_path_list'] : null;
-        $this->container['pod_id_list'] = isset($data['pod_id_list']) ? $data['pod_id_list'] : null;
+        $this->container['density'] = isset($data['density']) ? $data['density'] : null;
+        $this->container['display_layout_id'] = isset($data['display_layout_id']) ? $data['display_layout_id'] : null;
+        $this->container['extra'] = isset($data['extra']) ? $data['extra'] : null;
+        $this->container['fps'] = isset($data['fps']) ? $data['fps'] : null;
+        $this->container['height'] = isset($data['height']) ? $data['height'] : null;
         $this->container['product_id'] = isset($data['product_id']) ? $data['product_id'] : null;
+        $this->container['width'] = isset($data['width']) ? $data['width'] : null;
     }
 
     /**
@@ -190,8 +196,17 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['display_layout_id'] === null) {
+            $invalidProperties[] = "'display_layout_id' can't be null";
+        }
+        if ($this->container['height'] === null) {
+            $invalidProperties[] = "'height' can't be null";
+        }
         if ($this->container['product_id'] === null) {
             $invalidProperties[] = "'product_id' can't be null";
+        }
+        if ($this->container['width'] === null) {
+            $invalidProperties[] = "'width' can't be null";
         }
         return $invalidProperties;
     }
@@ -209,121 +224,121 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets backup_all
+     * Gets density
      *
-     * @return bool
+     * @return int
      */
-    public function getBackupAll()
+    public function getDensity()
     {
-        return $this->container['backup_all'];
+        return $this->container['density'];
     }
 
     /**
-     * Sets backup_all
+     * Sets density
      *
-     * @param bool $backup_all backup_all
+     * @param int $density density
      *
      * @return $this
      */
-    public function setBackupAll($backup_all)
+    public function setDensity($density)
     {
-        $this->container['backup_all'] = $backup_all;
+        $this->container['density'] = $density;
 
         return $this;
     }
 
     /**
-     * Gets description
+     * Gets display_layout_id
      *
      * @return string
      */
-    public function getDescription()
+    public function getDisplayLayoutId()
     {
-        return $this->container['description'];
+        return $this->container['display_layout_id'];
     }
 
     /**
-     * Sets description
+     * Sets display_layout_id
      *
-     * @param string $description description
+     * @param string $display_layout_id display_layout_id
      *
      * @return $this
      */
-    public function setDescription($description)
+    public function setDisplayLayoutId($display_layout_id)
     {
-        $this->container['description'] = $description;
+        $this->container['display_layout_id'] = $display_layout_id;
 
         return $this;
     }
 
     /**
-     * Gets exclude_path_list
+     * Gets extra
      *
-     * @return string[]
+     * @return string
      */
-    public function getExcludePathList()
+    public function getExtra()
     {
-        return $this->container['exclude_path_list'];
+        return $this->container['extra'];
     }
 
     /**
-     * Sets exclude_path_list
+     * Sets extra
      *
-     * @param string[] $exclude_path_list exclude_path_list
+     * @param string $extra extra
      *
      * @return $this
      */
-    public function setExcludePathList($exclude_path_list)
+    public function setExtra($extra)
     {
-        $this->container['exclude_path_list'] = $exclude_path_list;
+        $this->container['extra'] = $extra;
 
         return $this;
     }
 
     /**
-     * Gets include_path_list
+     * Gets fps
      *
-     * @return string[]
+     * @return int
      */
-    public function getIncludePathList()
+    public function getFps()
     {
-        return $this->container['include_path_list'];
+        return $this->container['fps'];
     }
 
     /**
-     * Sets include_path_list
+     * Sets fps
      *
-     * @param string[] $include_path_list include_path_list
+     * @param int $fps fps
      *
      * @return $this
      */
-    public function setIncludePathList($include_path_list)
+    public function setFps($fps)
     {
-        $this->container['include_path_list'] = $include_path_list;
+        $this->container['fps'] = $fps;
 
         return $this;
     }
 
     /**
-     * Gets pod_id_list
+     * Gets height
      *
-     * @return string[]
+     * @return int
      */
-    public function getPodIdList()
+    public function getHeight()
     {
-        return $this->container['pod_id_list'];
+        return $this->container['height'];
     }
 
     /**
-     * Sets pod_id_list
+     * Sets height
      *
-     * @param string[] $pod_id_list pod_id_list
+     * @param int $height height
      *
      * @return $this
      */
-    public function setPodIdList($pod_id_list)
+    public function setHeight($height)
     {
-        $this->container['pod_id_list'] = $pod_id_list;
+        $this->container['height'] = $height;
 
         return $this;
     }
@@ -348,6 +363,30 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
     public function setProductId($product_id)
     {
         $this->container['product_id'] = $product_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets width
+     *
+     * @return int
+     */
+    public function getWidth()
+    {
+        return $this->container['width'];
+    }
+
+    /**
+     * Sets width
+     *
+     * @param int $width width
+     *
+     * @return $this
+     */
+    public function setWidth($width)
+    {
+        $this->container['width'] = $width;
 
         return $this;
     }

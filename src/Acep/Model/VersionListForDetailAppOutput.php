@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class BackupDataRequest implements ModelInterface, ArrayAccess
+class VersionListForDetailAppOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'BackupDataRequest';
+    protected static $swaggerModelName = 'VersionListForDetailAppOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,14 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'backup_all' => 'bool',
-        'description' => 'string',
-        'exclude_path_list' => 'string[]',
-        'include_path_list' => 'string[]',
-        'pod_id_list' => 'string[]',
-        'product_id' => 'string'
+        'app_id' => 'string',
+        'app_version_desc' => 'string',
+        'download_url' => 'string',
+        'md5' => 'string',
+        'package_name' => 'string',
+        'version_code' => 'int',
+        'version_id' => 'int',
+        'version_name' => 'string'
     ];
 
     /**
@@ -42,12 +44,14 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'backup_all' => null,
-        'description' => null,
-        'exclude_path_list' => null,
-        'include_path_list' => null,
-        'pod_id_list' => null,
-        'product_id' => null
+        'app_id' => null,
+        'app_version_desc' => null,
+        'download_url' => null,
+        'md5' => null,
+        'package_name' => null,
+        'version_code' => 'int32',
+        'version_id' => 'int32',
+        'version_name' => null
     ];
 
     /**
@@ -77,12 +81,14 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'backup_all' => 'BackupAll',
-        'description' => 'Description',
-        'exclude_path_list' => 'ExcludePathList',
-        'include_path_list' => 'IncludePathList',
-        'pod_id_list' => 'PodIdList',
-        'product_id' => 'ProductId'
+        'app_id' => 'AppId',
+        'app_version_desc' => 'AppVersionDesc',
+        'download_url' => 'DownloadUrl',
+        'md5' => 'MD5',
+        'package_name' => 'PackageName',
+        'version_code' => 'VersionCode',
+        'version_id' => 'VersionId',
+        'version_name' => 'VersionName'
     ];
 
     /**
@@ -91,12 +97,14 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'backup_all' => 'setBackupAll',
-        'description' => 'setDescription',
-        'exclude_path_list' => 'setExcludePathList',
-        'include_path_list' => 'setIncludePathList',
-        'pod_id_list' => 'setPodIdList',
-        'product_id' => 'setProductId'
+        'app_id' => 'setAppId',
+        'app_version_desc' => 'setAppVersionDesc',
+        'download_url' => 'setDownloadUrl',
+        'md5' => 'setMd5',
+        'package_name' => 'setPackageName',
+        'version_code' => 'setVersionCode',
+        'version_id' => 'setVersionId',
+        'version_name' => 'setVersionName'
     ];
 
     /**
@@ -105,12 +113,14 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'backup_all' => 'getBackupAll',
-        'description' => 'getDescription',
-        'exclude_path_list' => 'getExcludePathList',
-        'include_path_list' => 'getIncludePathList',
-        'pod_id_list' => 'getPodIdList',
-        'product_id' => 'getProductId'
+        'app_id' => 'getAppId',
+        'app_version_desc' => 'getAppVersionDesc',
+        'download_url' => 'getDownloadUrl',
+        'md5' => 'getMd5',
+        'package_name' => 'getPackageName',
+        'version_code' => 'getVersionCode',
+        'version_id' => 'getVersionId',
+        'version_name' => 'getVersionName'
     ];
 
     /**
@@ -173,12 +183,14 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['backup_all'] = isset($data['backup_all']) ? $data['backup_all'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['exclude_path_list'] = isset($data['exclude_path_list']) ? $data['exclude_path_list'] : null;
-        $this->container['include_path_list'] = isset($data['include_path_list']) ? $data['include_path_list'] : null;
-        $this->container['pod_id_list'] = isset($data['pod_id_list']) ? $data['pod_id_list'] : null;
-        $this->container['product_id'] = isset($data['product_id']) ? $data['product_id'] : null;
+        $this->container['app_id'] = isset($data['app_id']) ? $data['app_id'] : null;
+        $this->container['app_version_desc'] = isset($data['app_version_desc']) ? $data['app_version_desc'] : null;
+        $this->container['download_url'] = isset($data['download_url']) ? $data['download_url'] : null;
+        $this->container['md5'] = isset($data['md5']) ? $data['md5'] : null;
+        $this->container['package_name'] = isset($data['package_name']) ? $data['package_name'] : null;
+        $this->container['version_code'] = isset($data['version_code']) ? $data['version_code'] : null;
+        $this->container['version_id'] = isset($data['version_id']) ? $data['version_id'] : null;
+        $this->container['version_name'] = isset($data['version_name']) ? $data['version_name'] : null;
     }
 
     /**
@@ -190,9 +202,6 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['product_id'] === null) {
-            $invalidProperties[] = "'product_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -209,145 +218,193 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets backup_all
-     *
-     * @return bool
-     */
-    public function getBackupAll()
-    {
-        return $this->container['backup_all'];
-    }
-
-    /**
-     * Sets backup_all
-     *
-     * @param bool $backup_all backup_all
-     *
-     * @return $this
-     */
-    public function setBackupAll($backup_all)
-    {
-        $this->container['backup_all'] = $backup_all;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
+     * Gets app_id
      *
      * @return string
      */
-    public function getDescription()
+    public function getAppId()
     {
-        return $this->container['description'];
+        return $this->container['app_id'];
     }
 
     /**
-     * Sets description
+     * Sets app_id
      *
-     * @param string $description description
+     * @param string $app_id app_id
      *
      * @return $this
      */
-    public function setDescription($description)
+    public function setAppId($app_id)
     {
-        $this->container['description'] = $description;
+        $this->container['app_id'] = $app_id;
 
         return $this;
     }
 
     /**
-     * Gets exclude_path_list
-     *
-     * @return string[]
-     */
-    public function getExcludePathList()
-    {
-        return $this->container['exclude_path_list'];
-    }
-
-    /**
-     * Sets exclude_path_list
-     *
-     * @param string[] $exclude_path_list exclude_path_list
-     *
-     * @return $this
-     */
-    public function setExcludePathList($exclude_path_list)
-    {
-        $this->container['exclude_path_list'] = $exclude_path_list;
-
-        return $this;
-    }
-
-    /**
-     * Gets include_path_list
-     *
-     * @return string[]
-     */
-    public function getIncludePathList()
-    {
-        return $this->container['include_path_list'];
-    }
-
-    /**
-     * Sets include_path_list
-     *
-     * @param string[] $include_path_list include_path_list
-     *
-     * @return $this
-     */
-    public function setIncludePathList($include_path_list)
-    {
-        $this->container['include_path_list'] = $include_path_list;
-
-        return $this;
-    }
-
-    /**
-     * Gets pod_id_list
-     *
-     * @return string[]
-     */
-    public function getPodIdList()
-    {
-        return $this->container['pod_id_list'];
-    }
-
-    /**
-     * Sets pod_id_list
-     *
-     * @param string[] $pod_id_list pod_id_list
-     *
-     * @return $this
-     */
-    public function setPodIdList($pod_id_list)
-    {
-        $this->container['pod_id_list'] = $pod_id_list;
-
-        return $this;
-    }
-
-    /**
-     * Gets product_id
+     * Gets app_version_desc
      *
      * @return string
      */
-    public function getProductId()
+    public function getAppVersionDesc()
     {
-        return $this->container['product_id'];
+        return $this->container['app_version_desc'];
     }
 
     /**
-     * Sets product_id
+     * Sets app_version_desc
      *
-     * @param string $product_id product_id
+     * @param string $app_version_desc app_version_desc
      *
      * @return $this
      */
-    public function setProductId($product_id)
+    public function setAppVersionDesc($app_version_desc)
     {
-        $this->container['product_id'] = $product_id;
+        $this->container['app_version_desc'] = $app_version_desc;
+
+        return $this;
+    }
+
+    /**
+     * Gets download_url
+     *
+     * @return string
+     */
+    public function getDownloadUrl()
+    {
+        return $this->container['download_url'];
+    }
+
+    /**
+     * Sets download_url
+     *
+     * @param string $download_url download_url
+     *
+     * @return $this
+     */
+    public function setDownloadUrl($download_url)
+    {
+        $this->container['download_url'] = $download_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets md5
+     *
+     * @return string
+     */
+    public function getMd5()
+    {
+        return $this->container['md5'];
+    }
+
+    /**
+     * Sets md5
+     *
+     * @param string $md5 md5
+     *
+     * @return $this
+     */
+    public function setMd5($md5)
+    {
+        $this->container['md5'] = $md5;
+
+        return $this;
+    }
+
+    /**
+     * Gets package_name
+     *
+     * @return string
+     */
+    public function getPackageName()
+    {
+        return $this->container['package_name'];
+    }
+
+    /**
+     * Sets package_name
+     *
+     * @param string $package_name package_name
+     *
+     * @return $this
+     */
+    public function setPackageName($package_name)
+    {
+        $this->container['package_name'] = $package_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets version_code
+     *
+     * @return int
+     */
+    public function getVersionCode()
+    {
+        return $this->container['version_code'];
+    }
+
+    /**
+     * Sets version_code
+     *
+     * @param int $version_code version_code
+     *
+     * @return $this
+     */
+    public function setVersionCode($version_code)
+    {
+        $this->container['version_code'] = $version_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets version_id
+     *
+     * @return int
+     */
+    public function getVersionId()
+    {
+        return $this->container['version_id'];
+    }
+
+    /**
+     * Sets version_id
+     *
+     * @param int $version_id version_id
+     *
+     * @return $this
+     */
+    public function setVersionId($version_id)
+    {
+        $this->container['version_id'] = $version_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets version_name
+     *
+     * @return string
+     */
+    public function getVersionName()
+    {
+        return $this->container['version_name'];
+    }
+
+    /**
+     * Sets version_name
+     *
+     * @param string $version_name version_name
+     *
+     * @return $this
+     */
+    public function setVersionName($version_name)
+    {
+        $this->container['version_name'] = $version_name;
 
         return $this;
     }

@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class BackupDataRequest implements ModelInterface, ArrayAccess
+class CreatePortMappingRuleRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'BackupDataRequest';
+    protected static $swaggerModelName = 'CreatePortMappingRuleRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,13 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'backup_all' => 'bool',
-        'description' => 'string',
-        'exclude_path_list' => 'string[]',
-        'include_path_list' => 'string[]',
-        'pod_id_list' => 'string[]',
-        'product_id' => 'string'
+        'direction' => 'string',
+        'isp' => 'int',
+        'port_mapping_rule_id' => 'string',
+        'product_id' => 'string',
+        'protocol' => 'string',
+        'source_port' => 'int',
+        'volc_region' => 'string'
     ];
 
     /**
@@ -42,12 +43,13 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'backup_all' => null,
-        'description' => null,
-        'exclude_path_list' => null,
-        'include_path_list' => null,
-        'pod_id_list' => null,
-        'product_id' => null
+        'direction' => null,
+        'isp' => 'int32',
+        'port_mapping_rule_id' => null,
+        'product_id' => null,
+        'protocol' => null,
+        'source_port' => 'int32',
+        'volc_region' => null
     ];
 
     /**
@@ -77,12 +79,13 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'backup_all' => 'BackupAll',
-        'description' => 'Description',
-        'exclude_path_list' => 'ExcludePathList',
-        'include_path_list' => 'IncludePathList',
-        'pod_id_list' => 'PodIdList',
-        'product_id' => 'ProductId'
+        'direction' => 'Direction',
+        'isp' => 'Isp',
+        'port_mapping_rule_id' => 'PortMappingRuleId',
+        'product_id' => 'ProductId',
+        'protocol' => 'Protocol',
+        'source_port' => 'SourcePort',
+        'volc_region' => 'VolcRegion'
     ];
 
     /**
@@ -91,12 +94,13 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'backup_all' => 'setBackupAll',
-        'description' => 'setDescription',
-        'exclude_path_list' => 'setExcludePathList',
-        'include_path_list' => 'setIncludePathList',
-        'pod_id_list' => 'setPodIdList',
-        'product_id' => 'setProductId'
+        'direction' => 'setDirection',
+        'isp' => 'setIsp',
+        'port_mapping_rule_id' => 'setPortMappingRuleId',
+        'product_id' => 'setProductId',
+        'protocol' => 'setProtocol',
+        'source_port' => 'setSourcePort',
+        'volc_region' => 'setVolcRegion'
     ];
 
     /**
@@ -105,12 +109,13 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'backup_all' => 'getBackupAll',
-        'description' => 'getDescription',
-        'exclude_path_list' => 'getExcludePathList',
-        'include_path_list' => 'getIncludePathList',
-        'pod_id_list' => 'getPodIdList',
-        'product_id' => 'getProductId'
+        'direction' => 'getDirection',
+        'isp' => 'getIsp',
+        'port_mapping_rule_id' => 'getPortMappingRuleId',
+        'product_id' => 'getProductId',
+        'protocol' => 'getProtocol',
+        'source_port' => 'getSourcePort',
+        'volc_region' => 'getVolcRegion'
     ];
 
     /**
@@ -173,12 +178,13 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['backup_all'] = isset($data['backup_all']) ? $data['backup_all'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['exclude_path_list'] = isset($data['exclude_path_list']) ? $data['exclude_path_list'] : null;
-        $this->container['include_path_list'] = isset($data['include_path_list']) ? $data['include_path_list'] : null;
-        $this->container['pod_id_list'] = isset($data['pod_id_list']) ? $data['pod_id_list'] : null;
+        $this->container['direction'] = isset($data['direction']) ? $data['direction'] : null;
+        $this->container['isp'] = isset($data['isp']) ? $data['isp'] : null;
+        $this->container['port_mapping_rule_id'] = isset($data['port_mapping_rule_id']) ? $data['port_mapping_rule_id'] : null;
         $this->container['product_id'] = isset($data['product_id']) ? $data['product_id'] : null;
+        $this->container['protocol'] = isset($data['protocol']) ? $data['protocol'] : null;
+        $this->container['source_port'] = isset($data['source_port']) ? $data['source_port'] : null;
+        $this->container['volc_region'] = isset($data['volc_region']) ? $data['volc_region'] : null;
     }
 
     /**
@@ -192,6 +198,9 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
 
         if ($this->container['product_id'] === null) {
             $invalidProperties[] = "'product_id' can't be null";
+        }
+        if ($this->container['source_port'] === null) {
+            $invalidProperties[] = "'source_port' can't be null";
         }
         return $invalidProperties;
     }
@@ -209,121 +218,73 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets backup_all
-     *
-     * @return bool
-     */
-    public function getBackupAll()
-    {
-        return $this->container['backup_all'];
-    }
-
-    /**
-     * Sets backup_all
-     *
-     * @param bool $backup_all backup_all
-     *
-     * @return $this
-     */
-    public function setBackupAll($backup_all)
-    {
-        $this->container['backup_all'] = $backup_all;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
+     * Gets direction
      *
      * @return string
      */
-    public function getDescription()
+    public function getDirection()
     {
-        return $this->container['description'];
+        return $this->container['direction'];
     }
 
     /**
-     * Sets description
+     * Sets direction
      *
-     * @param string $description description
+     * @param string $direction direction
      *
      * @return $this
      */
-    public function setDescription($description)
+    public function setDirection($direction)
     {
-        $this->container['description'] = $description;
+        $this->container['direction'] = $direction;
 
         return $this;
     }
 
     /**
-     * Gets exclude_path_list
+     * Gets isp
      *
-     * @return string[]
+     * @return int
      */
-    public function getExcludePathList()
+    public function getIsp()
     {
-        return $this->container['exclude_path_list'];
+        return $this->container['isp'];
     }
 
     /**
-     * Sets exclude_path_list
+     * Sets isp
      *
-     * @param string[] $exclude_path_list exclude_path_list
+     * @param int $isp isp
      *
      * @return $this
      */
-    public function setExcludePathList($exclude_path_list)
+    public function setIsp($isp)
     {
-        $this->container['exclude_path_list'] = $exclude_path_list;
+        $this->container['isp'] = $isp;
 
         return $this;
     }
 
     /**
-     * Gets include_path_list
+     * Gets port_mapping_rule_id
      *
-     * @return string[]
+     * @return string
      */
-    public function getIncludePathList()
+    public function getPortMappingRuleId()
     {
-        return $this->container['include_path_list'];
+        return $this->container['port_mapping_rule_id'];
     }
 
     /**
-     * Sets include_path_list
+     * Sets port_mapping_rule_id
      *
-     * @param string[] $include_path_list include_path_list
+     * @param string $port_mapping_rule_id port_mapping_rule_id
      *
      * @return $this
      */
-    public function setIncludePathList($include_path_list)
+    public function setPortMappingRuleId($port_mapping_rule_id)
     {
-        $this->container['include_path_list'] = $include_path_list;
-
-        return $this;
-    }
-
-    /**
-     * Gets pod_id_list
-     *
-     * @return string[]
-     */
-    public function getPodIdList()
-    {
-        return $this->container['pod_id_list'];
-    }
-
-    /**
-     * Sets pod_id_list
-     *
-     * @param string[] $pod_id_list pod_id_list
-     *
-     * @return $this
-     */
-    public function setPodIdList($pod_id_list)
-    {
-        $this->container['pod_id_list'] = $pod_id_list;
+        $this->container['port_mapping_rule_id'] = $port_mapping_rule_id;
 
         return $this;
     }
@@ -348,6 +309,78 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
     public function setProductId($product_id)
     {
         $this->container['product_id'] = $product_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets protocol
+     *
+     * @return string
+     */
+    public function getProtocol()
+    {
+        return $this->container['protocol'];
+    }
+
+    /**
+     * Sets protocol
+     *
+     * @param string $protocol protocol
+     *
+     * @return $this
+     */
+    public function setProtocol($protocol)
+    {
+        $this->container['protocol'] = $protocol;
+
+        return $this;
+    }
+
+    /**
+     * Gets source_port
+     *
+     * @return int
+     */
+    public function getSourcePort()
+    {
+        return $this->container['source_port'];
+    }
+
+    /**
+     * Sets source_port
+     *
+     * @param int $source_port source_port
+     *
+     * @return $this
+     */
+    public function setSourcePort($source_port)
+    {
+        $this->container['source_port'] = $source_port;
+
+        return $this;
+    }
+
+    /**
+     * Gets volc_region
+     *
+     * @return string
+     */
+    public function getVolcRegion()
+    {
+        return $this->container['volc_region'];
+    }
+
+    /**
+     * Sets volc_region
+     *
+     * @param string $volc_region volc_region
+     *
+     * @return $this
+     */
+    public function setVolcRegion($volc_region)
+    {
+        $this->container['volc_region'] = $volc_region;
 
         return $this;
     }

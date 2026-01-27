@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class BackupDataRequest implements ModelInterface, ArrayAccess
+class ListDcRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'BackupDataRequest';
+    protected static $swaggerModelName = 'ListDcRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,13 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'backup_all' => 'bool',
-        'description' => 'string',
-        'exclude_path_list' => 'string[]',
-        'include_path_list' => 'string[]',
-        'pod_id_list' => 'string[]',
-        'product_id' => 'string'
+        'count' => 'int',
+        'isp' => 'int',
+        'offset' => 'int',
+        'product_id' => 'string',
+        'region' => 'string',
+        'server_type_code' => 'string',
+        'volc_region' => 'string'
     ];
 
     /**
@@ -42,12 +43,13 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'backup_all' => null,
-        'description' => null,
-        'exclude_path_list' => null,
-        'include_path_list' => null,
-        'pod_id_list' => null,
-        'product_id' => null
+        'count' => 'int64',
+        'isp' => 'int32',
+        'offset' => 'int64',
+        'product_id' => null,
+        'region' => null,
+        'server_type_code' => null,
+        'volc_region' => null
     ];
 
     /**
@@ -77,12 +79,13 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'backup_all' => 'BackupAll',
-        'description' => 'Description',
-        'exclude_path_list' => 'ExcludePathList',
-        'include_path_list' => 'IncludePathList',
-        'pod_id_list' => 'PodIdList',
-        'product_id' => 'ProductId'
+        'count' => 'Count',
+        'isp' => 'Isp',
+        'offset' => 'Offset',
+        'product_id' => 'ProductId',
+        'region' => 'Region',
+        'server_type_code' => 'ServerTypeCode',
+        'volc_region' => 'VolcRegion'
     ];
 
     /**
@@ -91,12 +94,13 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'backup_all' => 'setBackupAll',
-        'description' => 'setDescription',
-        'exclude_path_list' => 'setExcludePathList',
-        'include_path_list' => 'setIncludePathList',
-        'pod_id_list' => 'setPodIdList',
-        'product_id' => 'setProductId'
+        'count' => 'setCount',
+        'isp' => 'setIsp',
+        'offset' => 'setOffset',
+        'product_id' => 'setProductId',
+        'region' => 'setRegion',
+        'server_type_code' => 'setServerTypeCode',
+        'volc_region' => 'setVolcRegion'
     ];
 
     /**
@@ -105,12 +109,13 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'backup_all' => 'getBackupAll',
-        'description' => 'getDescription',
-        'exclude_path_list' => 'getExcludePathList',
-        'include_path_list' => 'getIncludePathList',
-        'pod_id_list' => 'getPodIdList',
-        'product_id' => 'getProductId'
+        'count' => 'getCount',
+        'isp' => 'getIsp',
+        'offset' => 'getOffset',
+        'product_id' => 'getProductId',
+        'region' => 'getRegion',
+        'server_type_code' => 'getServerTypeCode',
+        'volc_region' => 'getVolcRegion'
     ];
 
     /**
@@ -173,12 +178,13 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['backup_all'] = isset($data['backup_all']) ? $data['backup_all'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['exclude_path_list'] = isset($data['exclude_path_list']) ? $data['exclude_path_list'] : null;
-        $this->container['include_path_list'] = isset($data['include_path_list']) ? $data['include_path_list'] : null;
-        $this->container['pod_id_list'] = isset($data['pod_id_list']) ? $data['pod_id_list'] : null;
+        $this->container['count'] = isset($data['count']) ? $data['count'] : null;
+        $this->container['isp'] = isset($data['isp']) ? $data['isp'] : null;
+        $this->container['offset'] = isset($data['offset']) ? $data['offset'] : null;
         $this->container['product_id'] = isset($data['product_id']) ? $data['product_id'] : null;
+        $this->container['region'] = isset($data['region']) ? $data['region'] : null;
+        $this->container['server_type_code'] = isset($data['server_type_code']) ? $data['server_type_code'] : null;
+        $this->container['volc_region'] = isset($data['volc_region']) ? $data['volc_region'] : null;
     }
 
     /**
@@ -209,121 +215,73 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets backup_all
+     * Gets count
      *
-     * @return bool
+     * @return int
      */
-    public function getBackupAll()
+    public function getCount()
     {
-        return $this->container['backup_all'];
+        return $this->container['count'];
     }
 
     /**
-     * Sets backup_all
+     * Sets count
      *
-     * @param bool $backup_all backup_all
+     * @param int $count count
      *
      * @return $this
      */
-    public function setBackupAll($backup_all)
+    public function setCount($count)
     {
-        $this->container['backup_all'] = $backup_all;
+        $this->container['count'] = $count;
 
         return $this;
     }
 
     /**
-     * Gets description
+     * Gets isp
      *
-     * @return string
+     * @return int
      */
-    public function getDescription()
+    public function getIsp()
     {
-        return $this->container['description'];
+        return $this->container['isp'];
     }
 
     /**
-     * Sets description
+     * Sets isp
      *
-     * @param string $description description
+     * @param int $isp isp
      *
      * @return $this
      */
-    public function setDescription($description)
+    public function setIsp($isp)
     {
-        $this->container['description'] = $description;
+        $this->container['isp'] = $isp;
 
         return $this;
     }
 
     /**
-     * Gets exclude_path_list
+     * Gets offset
      *
-     * @return string[]
+     * @return int
      */
-    public function getExcludePathList()
+    public function getOffset()
     {
-        return $this->container['exclude_path_list'];
+        return $this->container['offset'];
     }
 
     /**
-     * Sets exclude_path_list
+     * Sets offset
      *
-     * @param string[] $exclude_path_list exclude_path_list
+     * @param int $offset offset
      *
      * @return $this
      */
-    public function setExcludePathList($exclude_path_list)
+    public function setOffset($offset)
     {
-        $this->container['exclude_path_list'] = $exclude_path_list;
-
-        return $this;
-    }
-
-    /**
-     * Gets include_path_list
-     *
-     * @return string[]
-     */
-    public function getIncludePathList()
-    {
-        return $this->container['include_path_list'];
-    }
-
-    /**
-     * Sets include_path_list
-     *
-     * @param string[] $include_path_list include_path_list
-     *
-     * @return $this
-     */
-    public function setIncludePathList($include_path_list)
-    {
-        $this->container['include_path_list'] = $include_path_list;
-
-        return $this;
-    }
-
-    /**
-     * Gets pod_id_list
-     *
-     * @return string[]
-     */
-    public function getPodIdList()
-    {
-        return $this->container['pod_id_list'];
-    }
-
-    /**
-     * Sets pod_id_list
-     *
-     * @param string[] $pod_id_list pod_id_list
-     *
-     * @return $this
-     */
-    public function setPodIdList($pod_id_list)
-    {
-        $this->container['pod_id_list'] = $pod_id_list;
+        $this->container['offset'] = $offset;
 
         return $this;
     }
@@ -348,6 +306,78 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
     public function setProductId($product_id)
     {
         $this->container['product_id'] = $product_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets region
+     *
+     * @return string
+     */
+    public function getRegion()
+    {
+        return $this->container['region'];
+    }
+
+    /**
+     * Sets region
+     *
+     * @param string $region region
+     *
+     * @return $this
+     */
+    public function setRegion($region)
+    {
+        $this->container['region'] = $region;
+
+        return $this;
+    }
+
+    /**
+     * Gets server_type_code
+     *
+     * @return string
+     */
+    public function getServerTypeCode()
+    {
+        return $this->container['server_type_code'];
+    }
+
+    /**
+     * Sets server_type_code
+     *
+     * @param string $server_type_code server_type_code
+     *
+     * @return $this
+     */
+    public function setServerTypeCode($server_type_code)
+    {
+        $this->container['server_type_code'] = $server_type_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets volc_region
+     *
+     * @return string
+     */
+    public function getVolcRegion()
+    {
+        return $this->container['volc_region'];
+    }
+
+    /**
+     * Sets volc_region
+     *
+     * @param string $volc_region volc_region
+     *
+     * @return $this
+     */
+    public function setVolcRegion($volc_region)
+    {
+        $this->container['volc_region'] = $volc_region;
 
         return $this;
     }

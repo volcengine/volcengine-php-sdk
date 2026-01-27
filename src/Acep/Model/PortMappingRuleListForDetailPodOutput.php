@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class BackupDataRequest implements ModelInterface, ArrayAccess
+class PortMappingRuleListForDetailPodOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'BackupDataRequest';
+    protected static $swaggerModelName = 'PortMappingRuleListForDetailPodOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,13 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'backup_all' => 'bool',
-        'description' => 'string',
-        'exclude_path_list' => 'string[]',
-        'include_path_list' => 'string[]',
-        'pod_id_list' => 'string[]',
-        'product_id' => 'string'
+        'port_mapping_rule_id' => 'string',
+        'protocol' => 'string',
+        'public_ip' => 'string',
+        'public_port' => 'int',
+        'public_port_info_list' => '\Volcengine\Acep\Model\PublicPortInfoListForDetailPodOutput[]',
+        'source_port' => 'int',
+        'status' => 'int'
     ];
 
     /**
@@ -42,12 +43,13 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'backup_all' => null,
-        'description' => null,
-        'exclude_path_list' => null,
-        'include_path_list' => null,
-        'pod_id_list' => null,
-        'product_id' => null
+        'port_mapping_rule_id' => null,
+        'protocol' => null,
+        'public_ip' => null,
+        'public_port' => 'int32',
+        'public_port_info_list' => null,
+        'source_port' => 'int32',
+        'status' => 'int32'
     ];
 
     /**
@@ -77,12 +79,13 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'backup_all' => 'BackupAll',
-        'description' => 'Description',
-        'exclude_path_list' => 'ExcludePathList',
-        'include_path_list' => 'IncludePathList',
-        'pod_id_list' => 'PodIdList',
-        'product_id' => 'ProductId'
+        'port_mapping_rule_id' => 'PortMappingRuleId',
+        'protocol' => 'Protocol',
+        'public_ip' => 'PublicIp',
+        'public_port' => 'PublicPort',
+        'public_port_info_list' => 'PublicPortInfoList',
+        'source_port' => 'SourcePort',
+        'status' => 'Status'
     ];
 
     /**
@@ -91,12 +94,13 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'backup_all' => 'setBackupAll',
-        'description' => 'setDescription',
-        'exclude_path_list' => 'setExcludePathList',
-        'include_path_list' => 'setIncludePathList',
-        'pod_id_list' => 'setPodIdList',
-        'product_id' => 'setProductId'
+        'port_mapping_rule_id' => 'setPortMappingRuleId',
+        'protocol' => 'setProtocol',
+        'public_ip' => 'setPublicIp',
+        'public_port' => 'setPublicPort',
+        'public_port_info_list' => 'setPublicPortInfoList',
+        'source_port' => 'setSourcePort',
+        'status' => 'setStatus'
     ];
 
     /**
@@ -105,12 +109,13 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'backup_all' => 'getBackupAll',
-        'description' => 'getDescription',
-        'exclude_path_list' => 'getExcludePathList',
-        'include_path_list' => 'getIncludePathList',
-        'pod_id_list' => 'getPodIdList',
-        'product_id' => 'getProductId'
+        'port_mapping_rule_id' => 'getPortMappingRuleId',
+        'protocol' => 'getProtocol',
+        'public_ip' => 'getPublicIp',
+        'public_port' => 'getPublicPort',
+        'public_port_info_list' => 'getPublicPortInfoList',
+        'source_port' => 'getSourcePort',
+        'status' => 'getStatus'
     ];
 
     /**
@@ -173,12 +178,13 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['backup_all'] = isset($data['backup_all']) ? $data['backup_all'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['exclude_path_list'] = isset($data['exclude_path_list']) ? $data['exclude_path_list'] : null;
-        $this->container['include_path_list'] = isset($data['include_path_list']) ? $data['include_path_list'] : null;
-        $this->container['pod_id_list'] = isset($data['pod_id_list']) ? $data['pod_id_list'] : null;
-        $this->container['product_id'] = isset($data['product_id']) ? $data['product_id'] : null;
+        $this->container['port_mapping_rule_id'] = isset($data['port_mapping_rule_id']) ? $data['port_mapping_rule_id'] : null;
+        $this->container['protocol'] = isset($data['protocol']) ? $data['protocol'] : null;
+        $this->container['public_ip'] = isset($data['public_ip']) ? $data['public_ip'] : null;
+        $this->container['public_port'] = isset($data['public_port']) ? $data['public_port'] : null;
+        $this->container['public_port_info_list'] = isset($data['public_port_info_list']) ? $data['public_port_info_list'] : null;
+        $this->container['source_port'] = isset($data['source_port']) ? $data['source_port'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }
 
     /**
@@ -190,9 +196,6 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['product_id'] === null) {
-            $invalidProperties[] = "'product_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -209,145 +212,169 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets backup_all
-     *
-     * @return bool
-     */
-    public function getBackupAll()
-    {
-        return $this->container['backup_all'];
-    }
-
-    /**
-     * Sets backup_all
-     *
-     * @param bool $backup_all backup_all
-     *
-     * @return $this
-     */
-    public function setBackupAll($backup_all)
-    {
-        $this->container['backup_all'] = $backup_all;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
+     * Gets port_mapping_rule_id
      *
      * @return string
      */
-    public function getDescription()
+    public function getPortMappingRuleId()
     {
-        return $this->container['description'];
+        return $this->container['port_mapping_rule_id'];
     }
 
     /**
-     * Sets description
+     * Sets port_mapping_rule_id
      *
-     * @param string $description description
+     * @param string $port_mapping_rule_id port_mapping_rule_id
      *
      * @return $this
      */
-    public function setDescription($description)
+    public function setPortMappingRuleId($port_mapping_rule_id)
     {
-        $this->container['description'] = $description;
+        $this->container['port_mapping_rule_id'] = $port_mapping_rule_id;
 
         return $this;
     }
 
     /**
-     * Gets exclude_path_list
-     *
-     * @return string[]
-     */
-    public function getExcludePathList()
-    {
-        return $this->container['exclude_path_list'];
-    }
-
-    /**
-     * Sets exclude_path_list
-     *
-     * @param string[] $exclude_path_list exclude_path_list
-     *
-     * @return $this
-     */
-    public function setExcludePathList($exclude_path_list)
-    {
-        $this->container['exclude_path_list'] = $exclude_path_list;
-
-        return $this;
-    }
-
-    /**
-     * Gets include_path_list
-     *
-     * @return string[]
-     */
-    public function getIncludePathList()
-    {
-        return $this->container['include_path_list'];
-    }
-
-    /**
-     * Sets include_path_list
-     *
-     * @param string[] $include_path_list include_path_list
-     *
-     * @return $this
-     */
-    public function setIncludePathList($include_path_list)
-    {
-        $this->container['include_path_list'] = $include_path_list;
-
-        return $this;
-    }
-
-    /**
-     * Gets pod_id_list
-     *
-     * @return string[]
-     */
-    public function getPodIdList()
-    {
-        return $this->container['pod_id_list'];
-    }
-
-    /**
-     * Sets pod_id_list
-     *
-     * @param string[] $pod_id_list pod_id_list
-     *
-     * @return $this
-     */
-    public function setPodIdList($pod_id_list)
-    {
-        $this->container['pod_id_list'] = $pod_id_list;
-
-        return $this;
-    }
-
-    /**
-     * Gets product_id
+     * Gets protocol
      *
      * @return string
      */
-    public function getProductId()
+    public function getProtocol()
     {
-        return $this->container['product_id'];
+        return $this->container['protocol'];
     }
 
     /**
-     * Sets product_id
+     * Sets protocol
      *
-     * @param string $product_id product_id
+     * @param string $protocol protocol
      *
      * @return $this
      */
-    public function setProductId($product_id)
+    public function setProtocol($protocol)
     {
-        $this->container['product_id'] = $product_id;
+        $this->container['protocol'] = $protocol;
+
+        return $this;
+    }
+
+    /**
+     * Gets public_ip
+     *
+     * @return string
+     */
+    public function getPublicIp()
+    {
+        return $this->container['public_ip'];
+    }
+
+    /**
+     * Sets public_ip
+     *
+     * @param string $public_ip public_ip
+     *
+     * @return $this
+     */
+    public function setPublicIp($public_ip)
+    {
+        $this->container['public_ip'] = $public_ip;
+
+        return $this;
+    }
+
+    /**
+     * Gets public_port
+     *
+     * @return int
+     */
+    public function getPublicPort()
+    {
+        return $this->container['public_port'];
+    }
+
+    /**
+     * Sets public_port
+     *
+     * @param int $public_port public_port
+     *
+     * @return $this
+     */
+    public function setPublicPort($public_port)
+    {
+        $this->container['public_port'] = $public_port;
+
+        return $this;
+    }
+
+    /**
+     * Gets public_port_info_list
+     *
+     * @return \Volcengine\Acep\Model\PublicPortInfoListForDetailPodOutput[]
+     */
+    public function getPublicPortInfoList()
+    {
+        return $this->container['public_port_info_list'];
+    }
+
+    /**
+     * Sets public_port_info_list
+     *
+     * @param \Volcengine\Acep\Model\PublicPortInfoListForDetailPodOutput[] $public_port_info_list public_port_info_list
+     *
+     * @return $this
+     */
+    public function setPublicPortInfoList($public_port_info_list)
+    {
+        $this->container['public_port_info_list'] = $public_port_info_list;
+
+        return $this;
+    }
+
+    /**
+     * Gets source_port
+     *
+     * @return int
+     */
+    public function getSourcePort()
+    {
+        return $this->container['source_port'];
+    }
+
+    /**
+     * Sets source_port
+     *
+     * @param int $source_port source_port
+     *
+     * @return $this
+     */
+    public function setSourcePort($source_port)
+    {
+        $this->container['source_port'] = $source_port;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return int
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param int $status status
+     *
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $this->container['status'] = $status;
 
         return $this;
     }

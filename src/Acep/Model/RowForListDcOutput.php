@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class BackupDataRequest implements ModelInterface, ArrayAccess
+class RowForListDcOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'BackupDataRequest';
+    protected static $swaggerModelName = 'RowForListDcOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,16 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'backup_all' => 'bool',
-        'description' => 'string',
-        'exclude_path_list' => 'string[]',
-        'include_path_list' => 'string[]',
-        'pod_id_list' => 'string[]',
-        'product_id' => 'string'
+        'dc' => 'string',
+        'dc_name' => 'string',
+        'dc_type' => 'string',
+        'isp' => 'int',
+        'latitude' => 'double',
+        'longitude' => 'double',
+        'region' => 'string',
+        'server_type_code' => 'string',
+        'volc_region' => 'string',
+        'zone' => 'string'
     ];
 
     /**
@@ -42,12 +46,16 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'backup_all' => null,
-        'description' => null,
-        'exclude_path_list' => null,
-        'include_path_list' => null,
-        'pod_id_list' => null,
-        'product_id' => null
+        'dc' => null,
+        'dc_name' => null,
+        'dc_type' => null,
+        'isp' => 'int32',
+        'latitude' => 'double',
+        'longitude' => 'double',
+        'region' => null,
+        'server_type_code' => null,
+        'volc_region' => null,
+        'zone' => null
     ];
 
     /**
@@ -77,12 +85,16 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'backup_all' => 'BackupAll',
-        'description' => 'Description',
-        'exclude_path_list' => 'ExcludePathList',
-        'include_path_list' => 'IncludePathList',
-        'pod_id_list' => 'PodIdList',
-        'product_id' => 'ProductId'
+        'dc' => 'Dc',
+        'dc_name' => 'DcName',
+        'dc_type' => 'DcType',
+        'isp' => 'Isp',
+        'latitude' => 'Latitude',
+        'longitude' => 'Longitude',
+        'region' => 'Region',
+        'server_type_code' => 'ServerTypeCode',
+        'volc_region' => 'VolcRegion',
+        'zone' => 'Zone'
     ];
 
     /**
@@ -91,12 +103,16 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'backup_all' => 'setBackupAll',
-        'description' => 'setDescription',
-        'exclude_path_list' => 'setExcludePathList',
-        'include_path_list' => 'setIncludePathList',
-        'pod_id_list' => 'setPodIdList',
-        'product_id' => 'setProductId'
+        'dc' => 'setDc',
+        'dc_name' => 'setDcName',
+        'dc_type' => 'setDcType',
+        'isp' => 'setIsp',
+        'latitude' => 'setLatitude',
+        'longitude' => 'setLongitude',
+        'region' => 'setRegion',
+        'server_type_code' => 'setServerTypeCode',
+        'volc_region' => 'setVolcRegion',
+        'zone' => 'setZone'
     ];
 
     /**
@@ -105,12 +121,16 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'backup_all' => 'getBackupAll',
-        'description' => 'getDescription',
-        'exclude_path_list' => 'getExcludePathList',
-        'include_path_list' => 'getIncludePathList',
-        'pod_id_list' => 'getPodIdList',
-        'product_id' => 'getProductId'
+        'dc' => 'getDc',
+        'dc_name' => 'getDcName',
+        'dc_type' => 'getDcType',
+        'isp' => 'getIsp',
+        'latitude' => 'getLatitude',
+        'longitude' => 'getLongitude',
+        'region' => 'getRegion',
+        'server_type_code' => 'getServerTypeCode',
+        'volc_region' => 'getVolcRegion',
+        'zone' => 'getZone'
     ];
 
     /**
@@ -173,12 +193,16 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['backup_all'] = isset($data['backup_all']) ? $data['backup_all'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['exclude_path_list'] = isset($data['exclude_path_list']) ? $data['exclude_path_list'] : null;
-        $this->container['include_path_list'] = isset($data['include_path_list']) ? $data['include_path_list'] : null;
-        $this->container['pod_id_list'] = isset($data['pod_id_list']) ? $data['pod_id_list'] : null;
-        $this->container['product_id'] = isset($data['product_id']) ? $data['product_id'] : null;
+        $this->container['dc'] = isset($data['dc']) ? $data['dc'] : null;
+        $this->container['dc_name'] = isset($data['dc_name']) ? $data['dc_name'] : null;
+        $this->container['dc_type'] = isset($data['dc_type']) ? $data['dc_type'] : null;
+        $this->container['isp'] = isset($data['isp']) ? $data['isp'] : null;
+        $this->container['latitude'] = isset($data['latitude']) ? $data['latitude'] : null;
+        $this->container['longitude'] = isset($data['longitude']) ? $data['longitude'] : null;
+        $this->container['region'] = isset($data['region']) ? $data['region'] : null;
+        $this->container['server_type_code'] = isset($data['server_type_code']) ? $data['server_type_code'] : null;
+        $this->container['volc_region'] = isset($data['volc_region']) ? $data['volc_region'] : null;
+        $this->container['zone'] = isset($data['zone']) ? $data['zone'] : null;
     }
 
     /**
@@ -190,9 +214,6 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['product_id'] === null) {
-            $invalidProperties[] = "'product_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -209,145 +230,241 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets backup_all
-     *
-     * @return bool
-     */
-    public function getBackupAll()
-    {
-        return $this->container['backup_all'];
-    }
-
-    /**
-     * Sets backup_all
-     *
-     * @param bool $backup_all backup_all
-     *
-     * @return $this
-     */
-    public function setBackupAll($backup_all)
-    {
-        $this->container['backup_all'] = $backup_all;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
+     * Gets dc
      *
      * @return string
      */
-    public function getDescription()
+    public function getDc()
     {
-        return $this->container['description'];
+        return $this->container['dc'];
     }
 
     /**
-     * Sets description
+     * Sets dc
      *
-     * @param string $description description
+     * @param string $dc dc
      *
      * @return $this
      */
-    public function setDescription($description)
+    public function setDc($dc)
     {
-        $this->container['description'] = $description;
+        $this->container['dc'] = $dc;
 
         return $this;
     }
 
     /**
-     * Gets exclude_path_list
-     *
-     * @return string[]
-     */
-    public function getExcludePathList()
-    {
-        return $this->container['exclude_path_list'];
-    }
-
-    /**
-     * Sets exclude_path_list
-     *
-     * @param string[] $exclude_path_list exclude_path_list
-     *
-     * @return $this
-     */
-    public function setExcludePathList($exclude_path_list)
-    {
-        $this->container['exclude_path_list'] = $exclude_path_list;
-
-        return $this;
-    }
-
-    /**
-     * Gets include_path_list
-     *
-     * @return string[]
-     */
-    public function getIncludePathList()
-    {
-        return $this->container['include_path_list'];
-    }
-
-    /**
-     * Sets include_path_list
-     *
-     * @param string[] $include_path_list include_path_list
-     *
-     * @return $this
-     */
-    public function setIncludePathList($include_path_list)
-    {
-        $this->container['include_path_list'] = $include_path_list;
-
-        return $this;
-    }
-
-    /**
-     * Gets pod_id_list
-     *
-     * @return string[]
-     */
-    public function getPodIdList()
-    {
-        return $this->container['pod_id_list'];
-    }
-
-    /**
-     * Sets pod_id_list
-     *
-     * @param string[] $pod_id_list pod_id_list
-     *
-     * @return $this
-     */
-    public function setPodIdList($pod_id_list)
-    {
-        $this->container['pod_id_list'] = $pod_id_list;
-
-        return $this;
-    }
-
-    /**
-     * Gets product_id
+     * Gets dc_name
      *
      * @return string
      */
-    public function getProductId()
+    public function getDcName()
     {
-        return $this->container['product_id'];
+        return $this->container['dc_name'];
     }
 
     /**
-     * Sets product_id
+     * Sets dc_name
      *
-     * @param string $product_id product_id
+     * @param string $dc_name dc_name
      *
      * @return $this
      */
-    public function setProductId($product_id)
+    public function setDcName($dc_name)
     {
-        $this->container['product_id'] = $product_id;
+        $this->container['dc_name'] = $dc_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets dc_type
+     *
+     * @return string
+     */
+    public function getDcType()
+    {
+        return $this->container['dc_type'];
+    }
+
+    /**
+     * Sets dc_type
+     *
+     * @param string $dc_type dc_type
+     *
+     * @return $this
+     */
+    public function setDcType($dc_type)
+    {
+        $this->container['dc_type'] = $dc_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets isp
+     *
+     * @return int
+     */
+    public function getIsp()
+    {
+        return $this->container['isp'];
+    }
+
+    /**
+     * Sets isp
+     *
+     * @param int $isp isp
+     *
+     * @return $this
+     */
+    public function setIsp($isp)
+    {
+        $this->container['isp'] = $isp;
+
+        return $this;
+    }
+
+    /**
+     * Gets latitude
+     *
+     * @return double
+     */
+    public function getLatitude()
+    {
+        return $this->container['latitude'];
+    }
+
+    /**
+     * Sets latitude
+     *
+     * @param double $latitude latitude
+     *
+     * @return $this
+     */
+    public function setLatitude($latitude)
+    {
+        $this->container['latitude'] = $latitude;
+
+        return $this;
+    }
+
+    /**
+     * Gets longitude
+     *
+     * @return double
+     */
+    public function getLongitude()
+    {
+        return $this->container['longitude'];
+    }
+
+    /**
+     * Sets longitude
+     *
+     * @param double $longitude longitude
+     *
+     * @return $this
+     */
+    public function setLongitude($longitude)
+    {
+        $this->container['longitude'] = $longitude;
+
+        return $this;
+    }
+
+    /**
+     * Gets region
+     *
+     * @return string
+     */
+    public function getRegion()
+    {
+        return $this->container['region'];
+    }
+
+    /**
+     * Sets region
+     *
+     * @param string $region region
+     *
+     * @return $this
+     */
+    public function setRegion($region)
+    {
+        $this->container['region'] = $region;
+
+        return $this;
+    }
+
+    /**
+     * Gets server_type_code
+     *
+     * @return string
+     */
+    public function getServerTypeCode()
+    {
+        return $this->container['server_type_code'];
+    }
+
+    /**
+     * Sets server_type_code
+     *
+     * @param string $server_type_code server_type_code
+     *
+     * @return $this
+     */
+    public function setServerTypeCode($server_type_code)
+    {
+        $this->container['server_type_code'] = $server_type_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets volc_region
+     *
+     * @return string
+     */
+    public function getVolcRegion()
+    {
+        return $this->container['volc_region'];
+    }
+
+    /**
+     * Sets volc_region
+     *
+     * @param string $volc_region volc_region
+     *
+     * @return $this
+     */
+    public function setVolcRegion($volc_region)
+    {
+        $this->container['volc_region'] = $volc_region;
+
+        return $this;
+    }
+
+    /**
+     * Gets zone
+     *
+     * @return string
+     */
+    public function getZone()
+    {
+        return $this->container['zone'];
+    }
+
+    /**
+     * Sets zone
+     *
+     * @param string $zone zone
+     *
+     * @return $this
+     */
+    public function setZone($zone)
+    {
+        $this->container['zone'] = $zone;
 
         return $this;
     }

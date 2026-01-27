@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class BackupDataRequest implements ModelInterface, ArrayAccess
+class GetPodPropertyResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'BackupDataRequest';
+    protected static $swaggerModelName = 'GetPodPropertyResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,11 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'backup_all' => 'bool',
-        'description' => 'string',
-        'exclude_path_list' => 'string[]',
-        'include_path_list' => 'string[]',
-        'pod_id_list' => 'string[]',
-        'product_id' => 'string'
+        'persist_property_list' => '\Volcengine\Acep\Model\PersistPropertyListForGetPodPropertyOutput',
+        'property_list' => '\Volcengine\Acep\Model\PropertyListForGetPodPropertyOutput',
+        'setting_global_list' => '\Volcengine\Acep\Model\SettingGlobalListForGetPodPropertyOutput',
+        'setting_secure_list' => '\Volcengine\Acep\Model\SettingSecureListForGetPodPropertyOutput',
+        'setting_system_list' => '\Volcengine\Acep\Model\SettingSystemListForGetPodPropertyOutput'
     ];
 
     /**
@@ -42,12 +41,11 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'backup_all' => null,
-        'description' => null,
-        'exclude_path_list' => null,
-        'include_path_list' => null,
-        'pod_id_list' => null,
-        'product_id' => null
+        'persist_property_list' => null,
+        'property_list' => null,
+        'setting_global_list' => null,
+        'setting_secure_list' => null,
+        'setting_system_list' => null
     ];
 
     /**
@@ -77,12 +75,11 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'backup_all' => 'BackupAll',
-        'description' => 'Description',
-        'exclude_path_list' => 'ExcludePathList',
-        'include_path_list' => 'IncludePathList',
-        'pod_id_list' => 'PodIdList',
-        'product_id' => 'ProductId'
+        'persist_property_list' => 'PersistPropertyList',
+        'property_list' => 'PropertyList',
+        'setting_global_list' => 'SettingGlobalList',
+        'setting_secure_list' => 'SettingSecureList',
+        'setting_system_list' => 'SettingSystemList'
     ];
 
     /**
@@ -91,12 +88,11 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'backup_all' => 'setBackupAll',
-        'description' => 'setDescription',
-        'exclude_path_list' => 'setExcludePathList',
-        'include_path_list' => 'setIncludePathList',
-        'pod_id_list' => 'setPodIdList',
-        'product_id' => 'setProductId'
+        'persist_property_list' => 'setPersistPropertyList',
+        'property_list' => 'setPropertyList',
+        'setting_global_list' => 'setSettingGlobalList',
+        'setting_secure_list' => 'setSettingSecureList',
+        'setting_system_list' => 'setSettingSystemList'
     ];
 
     /**
@@ -105,12 +101,11 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'backup_all' => 'getBackupAll',
-        'description' => 'getDescription',
-        'exclude_path_list' => 'getExcludePathList',
-        'include_path_list' => 'getIncludePathList',
-        'pod_id_list' => 'getPodIdList',
-        'product_id' => 'getProductId'
+        'persist_property_list' => 'getPersistPropertyList',
+        'property_list' => 'getPropertyList',
+        'setting_global_list' => 'getSettingGlobalList',
+        'setting_secure_list' => 'getSettingSecureList',
+        'setting_system_list' => 'getSettingSystemList'
     ];
 
     /**
@@ -173,12 +168,11 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['backup_all'] = isset($data['backup_all']) ? $data['backup_all'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['exclude_path_list'] = isset($data['exclude_path_list']) ? $data['exclude_path_list'] : null;
-        $this->container['include_path_list'] = isset($data['include_path_list']) ? $data['include_path_list'] : null;
-        $this->container['pod_id_list'] = isset($data['pod_id_list']) ? $data['pod_id_list'] : null;
-        $this->container['product_id'] = isset($data['product_id']) ? $data['product_id'] : null;
+        $this->container['persist_property_list'] = isset($data['persist_property_list']) ? $data['persist_property_list'] : null;
+        $this->container['property_list'] = isset($data['property_list']) ? $data['property_list'] : null;
+        $this->container['setting_global_list'] = isset($data['setting_global_list']) ? $data['setting_global_list'] : null;
+        $this->container['setting_secure_list'] = isset($data['setting_secure_list']) ? $data['setting_secure_list'] : null;
+        $this->container['setting_system_list'] = isset($data['setting_system_list']) ? $data['setting_system_list'] : null;
     }
 
     /**
@@ -190,9 +184,6 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['product_id'] === null) {
-            $invalidProperties[] = "'product_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -209,145 +200,121 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets backup_all
+     * Gets persist_property_list
      *
-     * @return bool
+     * @return \Volcengine\Acep\Model\PersistPropertyListForGetPodPropertyOutput
      */
-    public function getBackupAll()
+    public function getPersistPropertyList()
     {
-        return $this->container['backup_all'];
+        return $this->container['persist_property_list'];
     }
 
     /**
-     * Sets backup_all
+     * Sets persist_property_list
      *
-     * @param bool $backup_all backup_all
+     * @param \Volcengine\Acep\Model\PersistPropertyListForGetPodPropertyOutput $persist_property_list persist_property_list
      *
      * @return $this
      */
-    public function setBackupAll($backup_all)
+    public function setPersistPropertyList($persist_property_list)
     {
-        $this->container['backup_all'] = $backup_all;
+        $this->container['persist_property_list'] = $persist_property_list;
 
         return $this;
     }
 
     /**
-     * Gets description
+     * Gets property_list
      *
-     * @return string
+     * @return \Volcengine\Acep\Model\PropertyListForGetPodPropertyOutput
      */
-    public function getDescription()
+    public function getPropertyList()
     {
-        return $this->container['description'];
+        return $this->container['property_list'];
     }
 
     /**
-     * Sets description
+     * Sets property_list
      *
-     * @param string $description description
+     * @param \Volcengine\Acep\Model\PropertyListForGetPodPropertyOutput $property_list property_list
      *
      * @return $this
      */
-    public function setDescription($description)
+    public function setPropertyList($property_list)
     {
-        $this->container['description'] = $description;
+        $this->container['property_list'] = $property_list;
 
         return $this;
     }
 
     /**
-     * Gets exclude_path_list
+     * Gets setting_global_list
      *
-     * @return string[]
+     * @return \Volcengine\Acep\Model\SettingGlobalListForGetPodPropertyOutput
      */
-    public function getExcludePathList()
+    public function getSettingGlobalList()
     {
-        return $this->container['exclude_path_list'];
+        return $this->container['setting_global_list'];
     }
 
     /**
-     * Sets exclude_path_list
+     * Sets setting_global_list
      *
-     * @param string[] $exclude_path_list exclude_path_list
+     * @param \Volcengine\Acep\Model\SettingGlobalListForGetPodPropertyOutput $setting_global_list setting_global_list
      *
      * @return $this
      */
-    public function setExcludePathList($exclude_path_list)
+    public function setSettingGlobalList($setting_global_list)
     {
-        $this->container['exclude_path_list'] = $exclude_path_list;
+        $this->container['setting_global_list'] = $setting_global_list;
 
         return $this;
     }
 
     /**
-     * Gets include_path_list
+     * Gets setting_secure_list
      *
-     * @return string[]
+     * @return \Volcengine\Acep\Model\SettingSecureListForGetPodPropertyOutput
      */
-    public function getIncludePathList()
+    public function getSettingSecureList()
     {
-        return $this->container['include_path_list'];
+        return $this->container['setting_secure_list'];
     }
 
     /**
-     * Sets include_path_list
+     * Sets setting_secure_list
      *
-     * @param string[] $include_path_list include_path_list
+     * @param \Volcengine\Acep\Model\SettingSecureListForGetPodPropertyOutput $setting_secure_list setting_secure_list
      *
      * @return $this
      */
-    public function setIncludePathList($include_path_list)
+    public function setSettingSecureList($setting_secure_list)
     {
-        $this->container['include_path_list'] = $include_path_list;
+        $this->container['setting_secure_list'] = $setting_secure_list;
 
         return $this;
     }
 
     /**
-     * Gets pod_id_list
+     * Gets setting_system_list
      *
-     * @return string[]
+     * @return \Volcengine\Acep\Model\SettingSystemListForGetPodPropertyOutput
      */
-    public function getPodIdList()
+    public function getSettingSystemList()
     {
-        return $this->container['pod_id_list'];
+        return $this->container['setting_system_list'];
     }
 
     /**
-     * Sets pod_id_list
+     * Sets setting_system_list
      *
-     * @param string[] $pod_id_list pod_id_list
+     * @param \Volcengine\Acep\Model\SettingSystemListForGetPodPropertyOutput $setting_system_list setting_system_list
      *
      * @return $this
      */
-    public function setPodIdList($pod_id_list)
+    public function setSettingSystemList($setting_system_list)
     {
-        $this->container['pod_id_list'] = $pod_id_list;
-
-        return $this;
-    }
-
-    /**
-     * Gets product_id
-     *
-     * @return string
-     */
-    public function getProductId()
-    {
-        return $this->container['product_id'];
-    }
-
-    /**
-     * Sets product_id
-     *
-     * @param string $product_id product_id
-     *
-     * @return $this
-     */
-    public function setProductId($product_id)
-    {
-        $this->container['product_id'] = $product_id;
+        $this->container['setting_system_list'] = $setting_system_list;
 
         return $this;
     }

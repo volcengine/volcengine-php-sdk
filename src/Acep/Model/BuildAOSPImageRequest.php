@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class BackupDataRequest implements ModelInterface, ArrayAccess
+class BuildAOSPImageRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'BackupDataRequest';
+    protected static $swaggerModelName = 'BuildAOSPImageRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,11 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'backup_all' => 'bool',
-        'description' => 'string',
-        'exclude_path_list' => 'string[]',
-        'include_path_list' => 'string[]',
-        'pod_id_list' => 'string[]',
-        'product_id' => 'string'
+        'image_annotation' => 'string',
+        'image_file_format' => 'string',
+        'image_name' => 'string',
+        'image_tos_info' => '\Volcengine\Acep\Model\ImageTosInfoForBuildAOSPImageInput',
+        'image_url_info' => '\Volcengine\Acep\Model\ImageUrlInfoForBuildAOSPImageInput'
     ];
 
     /**
@@ -42,12 +41,11 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'backup_all' => null,
-        'description' => null,
-        'exclude_path_list' => null,
-        'include_path_list' => null,
-        'pod_id_list' => null,
-        'product_id' => null
+        'image_annotation' => null,
+        'image_file_format' => null,
+        'image_name' => null,
+        'image_tos_info' => null,
+        'image_url_info' => null
     ];
 
     /**
@@ -77,12 +75,11 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'backup_all' => 'BackupAll',
-        'description' => 'Description',
-        'exclude_path_list' => 'ExcludePathList',
-        'include_path_list' => 'IncludePathList',
-        'pod_id_list' => 'PodIdList',
-        'product_id' => 'ProductId'
+        'image_annotation' => 'ImageAnnotation',
+        'image_file_format' => 'ImageFileFormat',
+        'image_name' => 'ImageName',
+        'image_tos_info' => 'ImageTosInfo',
+        'image_url_info' => 'ImageUrlInfo'
     ];
 
     /**
@@ -91,12 +88,11 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'backup_all' => 'setBackupAll',
-        'description' => 'setDescription',
-        'exclude_path_list' => 'setExcludePathList',
-        'include_path_list' => 'setIncludePathList',
-        'pod_id_list' => 'setPodIdList',
-        'product_id' => 'setProductId'
+        'image_annotation' => 'setImageAnnotation',
+        'image_file_format' => 'setImageFileFormat',
+        'image_name' => 'setImageName',
+        'image_tos_info' => 'setImageTosInfo',
+        'image_url_info' => 'setImageUrlInfo'
     ];
 
     /**
@@ -105,12 +101,11 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'backup_all' => 'getBackupAll',
-        'description' => 'getDescription',
-        'exclude_path_list' => 'getExcludePathList',
-        'include_path_list' => 'getIncludePathList',
-        'pod_id_list' => 'getPodIdList',
-        'product_id' => 'getProductId'
+        'image_annotation' => 'getImageAnnotation',
+        'image_file_format' => 'getImageFileFormat',
+        'image_name' => 'getImageName',
+        'image_tos_info' => 'getImageTosInfo',
+        'image_url_info' => 'getImageUrlInfo'
     ];
 
     /**
@@ -173,12 +168,11 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['backup_all'] = isset($data['backup_all']) ? $data['backup_all'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['exclude_path_list'] = isset($data['exclude_path_list']) ? $data['exclude_path_list'] : null;
-        $this->container['include_path_list'] = isset($data['include_path_list']) ? $data['include_path_list'] : null;
-        $this->container['pod_id_list'] = isset($data['pod_id_list']) ? $data['pod_id_list'] : null;
-        $this->container['product_id'] = isset($data['product_id']) ? $data['product_id'] : null;
+        $this->container['image_annotation'] = isset($data['image_annotation']) ? $data['image_annotation'] : null;
+        $this->container['image_file_format'] = isset($data['image_file_format']) ? $data['image_file_format'] : null;
+        $this->container['image_name'] = isset($data['image_name']) ? $data['image_name'] : null;
+        $this->container['image_tos_info'] = isset($data['image_tos_info']) ? $data['image_tos_info'] : null;
+        $this->container['image_url_info'] = isset($data['image_url_info']) ? $data['image_url_info'] : null;
     }
 
     /**
@@ -190,9 +184,6 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['product_id'] === null) {
-            $invalidProperties[] = "'product_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -209,145 +200,121 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets backup_all
-     *
-     * @return bool
-     */
-    public function getBackupAll()
-    {
-        return $this->container['backup_all'];
-    }
-
-    /**
-     * Sets backup_all
-     *
-     * @param bool $backup_all backup_all
-     *
-     * @return $this
-     */
-    public function setBackupAll($backup_all)
-    {
-        $this->container['backup_all'] = $backup_all;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
+     * Gets image_annotation
      *
      * @return string
      */
-    public function getDescription()
+    public function getImageAnnotation()
     {
-        return $this->container['description'];
+        return $this->container['image_annotation'];
     }
 
     /**
-     * Sets description
+     * Sets image_annotation
      *
-     * @param string $description description
+     * @param string $image_annotation image_annotation
      *
      * @return $this
      */
-    public function setDescription($description)
+    public function setImageAnnotation($image_annotation)
     {
-        $this->container['description'] = $description;
+        $this->container['image_annotation'] = $image_annotation;
 
         return $this;
     }
 
     /**
-     * Gets exclude_path_list
-     *
-     * @return string[]
-     */
-    public function getExcludePathList()
-    {
-        return $this->container['exclude_path_list'];
-    }
-
-    /**
-     * Sets exclude_path_list
-     *
-     * @param string[] $exclude_path_list exclude_path_list
-     *
-     * @return $this
-     */
-    public function setExcludePathList($exclude_path_list)
-    {
-        $this->container['exclude_path_list'] = $exclude_path_list;
-
-        return $this;
-    }
-
-    /**
-     * Gets include_path_list
-     *
-     * @return string[]
-     */
-    public function getIncludePathList()
-    {
-        return $this->container['include_path_list'];
-    }
-
-    /**
-     * Sets include_path_list
-     *
-     * @param string[] $include_path_list include_path_list
-     *
-     * @return $this
-     */
-    public function setIncludePathList($include_path_list)
-    {
-        $this->container['include_path_list'] = $include_path_list;
-
-        return $this;
-    }
-
-    /**
-     * Gets pod_id_list
-     *
-     * @return string[]
-     */
-    public function getPodIdList()
-    {
-        return $this->container['pod_id_list'];
-    }
-
-    /**
-     * Sets pod_id_list
-     *
-     * @param string[] $pod_id_list pod_id_list
-     *
-     * @return $this
-     */
-    public function setPodIdList($pod_id_list)
-    {
-        $this->container['pod_id_list'] = $pod_id_list;
-
-        return $this;
-    }
-
-    /**
-     * Gets product_id
+     * Gets image_file_format
      *
      * @return string
      */
-    public function getProductId()
+    public function getImageFileFormat()
     {
-        return $this->container['product_id'];
+        return $this->container['image_file_format'];
     }
 
     /**
-     * Sets product_id
+     * Sets image_file_format
      *
-     * @param string $product_id product_id
+     * @param string $image_file_format image_file_format
      *
      * @return $this
      */
-    public function setProductId($product_id)
+    public function setImageFileFormat($image_file_format)
     {
-        $this->container['product_id'] = $product_id;
+        $this->container['image_file_format'] = $image_file_format;
+
+        return $this;
+    }
+
+    /**
+     * Gets image_name
+     *
+     * @return string
+     */
+    public function getImageName()
+    {
+        return $this->container['image_name'];
+    }
+
+    /**
+     * Sets image_name
+     *
+     * @param string $image_name image_name
+     *
+     * @return $this
+     */
+    public function setImageName($image_name)
+    {
+        $this->container['image_name'] = $image_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets image_tos_info
+     *
+     * @return \Volcengine\Acep\Model\ImageTosInfoForBuildAOSPImageInput
+     */
+    public function getImageTosInfo()
+    {
+        return $this->container['image_tos_info'];
+    }
+
+    /**
+     * Sets image_tos_info
+     *
+     * @param \Volcengine\Acep\Model\ImageTosInfoForBuildAOSPImageInput $image_tos_info image_tos_info
+     *
+     * @return $this
+     */
+    public function setImageTosInfo($image_tos_info)
+    {
+        $this->container['image_tos_info'] = $image_tos_info;
+
+        return $this;
+    }
+
+    /**
+     * Gets image_url_info
+     *
+     * @return \Volcengine\Acep\Model\ImageUrlInfoForBuildAOSPImageInput
+     */
+    public function getImageUrlInfo()
+    {
+        return $this->container['image_url_info'];
+    }
+
+    /**
+     * Sets image_url_info
+     *
+     * @param \Volcengine\Acep\Model\ImageUrlInfoForBuildAOSPImageInput $image_url_info image_url_info
+     *
+     * @return $this
+     */
+    public function setImageUrlInfo($image_url_info)
+    {
+        $this->container['image_url_info'] = $image_url_info;
 
         return $this;
     }

@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class BackupDataRequest implements ModelInterface, ArrayAccess
+class GetTaskInfoResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'BackupDataRequest';
+    protected static $swaggerModelName = 'GetTaskInfoResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,11 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'backup_all' => 'bool',
-        'description' => 'string',
-        'exclude_path_list' => 'string[]',
-        'include_path_list' => 'string[]',
-        'pod_id_list' => 'string[]',
-        'product_id' => 'string'
+        'jobs' => '\Volcengine\Acep\Model\JobForGetTaskInfoOutput[]',
+        'task_action' => 'string',
+        'task_id' => 'string',
+        'task_message' => 'string',
+        'task_result' => 'int'
     ];
 
     /**
@@ -42,12 +41,11 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'backup_all' => null,
-        'description' => null,
-        'exclude_path_list' => null,
-        'include_path_list' => null,
-        'pod_id_list' => null,
-        'product_id' => null
+        'jobs' => null,
+        'task_action' => null,
+        'task_id' => null,
+        'task_message' => null,
+        'task_result' => 'int32'
     ];
 
     /**
@@ -77,12 +75,11 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'backup_all' => 'BackupAll',
-        'description' => 'Description',
-        'exclude_path_list' => 'ExcludePathList',
-        'include_path_list' => 'IncludePathList',
-        'pod_id_list' => 'PodIdList',
-        'product_id' => 'ProductId'
+        'jobs' => 'Jobs',
+        'task_action' => 'TaskAction',
+        'task_id' => 'TaskId',
+        'task_message' => 'TaskMessage',
+        'task_result' => 'TaskResult'
     ];
 
     /**
@@ -91,12 +88,11 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'backup_all' => 'setBackupAll',
-        'description' => 'setDescription',
-        'exclude_path_list' => 'setExcludePathList',
-        'include_path_list' => 'setIncludePathList',
-        'pod_id_list' => 'setPodIdList',
-        'product_id' => 'setProductId'
+        'jobs' => 'setJobs',
+        'task_action' => 'setTaskAction',
+        'task_id' => 'setTaskId',
+        'task_message' => 'setTaskMessage',
+        'task_result' => 'setTaskResult'
     ];
 
     /**
@@ -105,12 +101,11 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'backup_all' => 'getBackupAll',
-        'description' => 'getDescription',
-        'exclude_path_list' => 'getExcludePathList',
-        'include_path_list' => 'getIncludePathList',
-        'pod_id_list' => 'getPodIdList',
-        'product_id' => 'getProductId'
+        'jobs' => 'getJobs',
+        'task_action' => 'getTaskAction',
+        'task_id' => 'getTaskId',
+        'task_message' => 'getTaskMessage',
+        'task_result' => 'getTaskResult'
     ];
 
     /**
@@ -173,12 +168,11 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['backup_all'] = isset($data['backup_all']) ? $data['backup_all'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['exclude_path_list'] = isset($data['exclude_path_list']) ? $data['exclude_path_list'] : null;
-        $this->container['include_path_list'] = isset($data['include_path_list']) ? $data['include_path_list'] : null;
-        $this->container['pod_id_list'] = isset($data['pod_id_list']) ? $data['pod_id_list'] : null;
-        $this->container['product_id'] = isset($data['product_id']) ? $data['product_id'] : null;
+        $this->container['jobs'] = isset($data['jobs']) ? $data['jobs'] : null;
+        $this->container['task_action'] = isset($data['task_action']) ? $data['task_action'] : null;
+        $this->container['task_id'] = isset($data['task_id']) ? $data['task_id'] : null;
+        $this->container['task_message'] = isset($data['task_message']) ? $data['task_message'] : null;
+        $this->container['task_result'] = isset($data['task_result']) ? $data['task_result'] : null;
     }
 
     /**
@@ -190,9 +184,6 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['product_id'] === null) {
-            $invalidProperties[] = "'product_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -209,145 +200,121 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets backup_all
+     * Gets jobs
      *
-     * @return bool
+     * @return \Volcengine\Acep\Model\JobForGetTaskInfoOutput[]
      */
-    public function getBackupAll()
+    public function getJobs()
     {
-        return $this->container['backup_all'];
+        return $this->container['jobs'];
     }
 
     /**
-     * Sets backup_all
+     * Sets jobs
      *
-     * @param bool $backup_all backup_all
+     * @param \Volcengine\Acep\Model\JobForGetTaskInfoOutput[] $jobs jobs
      *
      * @return $this
      */
-    public function setBackupAll($backup_all)
+    public function setJobs($jobs)
     {
-        $this->container['backup_all'] = $backup_all;
+        $this->container['jobs'] = $jobs;
 
         return $this;
     }
 
     /**
-     * Gets description
+     * Gets task_action
      *
      * @return string
      */
-    public function getDescription()
+    public function getTaskAction()
     {
-        return $this->container['description'];
+        return $this->container['task_action'];
     }
 
     /**
-     * Sets description
+     * Sets task_action
      *
-     * @param string $description description
+     * @param string $task_action task_action
      *
      * @return $this
      */
-    public function setDescription($description)
+    public function setTaskAction($task_action)
     {
-        $this->container['description'] = $description;
+        $this->container['task_action'] = $task_action;
 
         return $this;
     }
 
     /**
-     * Gets exclude_path_list
-     *
-     * @return string[]
-     */
-    public function getExcludePathList()
-    {
-        return $this->container['exclude_path_list'];
-    }
-
-    /**
-     * Sets exclude_path_list
-     *
-     * @param string[] $exclude_path_list exclude_path_list
-     *
-     * @return $this
-     */
-    public function setExcludePathList($exclude_path_list)
-    {
-        $this->container['exclude_path_list'] = $exclude_path_list;
-
-        return $this;
-    }
-
-    /**
-     * Gets include_path_list
-     *
-     * @return string[]
-     */
-    public function getIncludePathList()
-    {
-        return $this->container['include_path_list'];
-    }
-
-    /**
-     * Sets include_path_list
-     *
-     * @param string[] $include_path_list include_path_list
-     *
-     * @return $this
-     */
-    public function setIncludePathList($include_path_list)
-    {
-        $this->container['include_path_list'] = $include_path_list;
-
-        return $this;
-    }
-
-    /**
-     * Gets pod_id_list
-     *
-     * @return string[]
-     */
-    public function getPodIdList()
-    {
-        return $this->container['pod_id_list'];
-    }
-
-    /**
-     * Sets pod_id_list
-     *
-     * @param string[] $pod_id_list pod_id_list
-     *
-     * @return $this
-     */
-    public function setPodIdList($pod_id_list)
-    {
-        $this->container['pod_id_list'] = $pod_id_list;
-
-        return $this;
-    }
-
-    /**
-     * Gets product_id
+     * Gets task_id
      *
      * @return string
      */
-    public function getProductId()
+    public function getTaskId()
     {
-        return $this->container['product_id'];
+        return $this->container['task_id'];
     }
 
     /**
-     * Sets product_id
+     * Sets task_id
      *
-     * @param string $product_id product_id
+     * @param string $task_id task_id
      *
      * @return $this
      */
-    public function setProductId($product_id)
+    public function setTaskId($task_id)
     {
-        $this->container['product_id'] = $product_id;
+        $this->container['task_id'] = $task_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets task_message
+     *
+     * @return string
+     */
+    public function getTaskMessage()
+    {
+        return $this->container['task_message'];
+    }
+
+    /**
+     * Sets task_message
+     *
+     * @param string $task_message task_message
+     *
+     * @return $this
+     */
+    public function setTaskMessage($task_message)
+    {
+        $this->container['task_message'] = $task_message;
+
+        return $this;
+    }
+
+    /**
+     * Gets task_result
+     *
+     * @return int
+     */
+    public function getTaskResult()
+    {
+        return $this->container['task_result'];
+    }
+
+    /**
+     * Sets task_result
+     *
+     * @param int $task_result task_result
+     *
+     * @return $this
+     */
+    public function setTaskResult($task_result)
+    {
+        $this->container['task_result'] = $task_result;
 
         return $this;
     }
