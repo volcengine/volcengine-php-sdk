@@ -40,6 +40,7 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
         'elastic_scheduled_instance_type' => 'string',
         'enable_jumbo_frame' => 'bool',
         'expired_at' => 'string',
+        'host_name' => 'string',
         'hostname' => 'string',
         'hpc_cluster_id' => 'string',
         'image_id' => 'string',
@@ -58,6 +59,7 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
         'placement' => '\Volcengine\Ecs\Model\PlacementForDescribeInstancesOutput',
         'project_name' => 'string',
         'rdma_ip_addresses' => 'string[]',
+        'rdma_network_interface_details' => '\Volcengine\Ecs\Model\RdmaNetworkInterfaceDetailForDescribeInstancesOutput[]',
         'scheduled_instance_id' => 'string',
         'spot_price_limit' => 'float',
         'spot_strategy' => 'string',
@@ -89,6 +91,7 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
         'elastic_scheduled_instance_type' => null,
         'enable_jumbo_frame' => null,
         'expired_at' => null,
+        'host_name' => null,
         'hostname' => null,
         'hpc_cluster_id' => null,
         'image_id' => null,
@@ -107,6 +110,7 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
         'placement' => null,
         'project_name' => null,
         'rdma_ip_addresses' => null,
+        'rdma_network_interface_details' => null,
         'scheduled_instance_id' => null,
         'spot_price_limit' => 'float',
         'spot_strategy' => null,
@@ -159,6 +163,7 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
         'elastic_scheduled_instance_type' => 'ElasticScheduledInstanceType',
         'enable_jumbo_frame' => 'EnableJumboFrame',
         'expired_at' => 'ExpiredAt',
+        'host_name' => 'HostName',
         'hostname' => 'Hostname',
         'hpc_cluster_id' => 'HpcClusterId',
         'image_id' => 'ImageId',
@@ -177,6 +182,7 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
         'placement' => 'Placement',
         'project_name' => 'ProjectName',
         'rdma_ip_addresses' => 'RdmaIpAddresses',
+        'rdma_network_interface_details' => 'RdmaNetworkInterfaceDetails',
         'scheduled_instance_id' => 'ScheduledInstanceId',
         'spot_price_limit' => 'SpotPriceLimit',
         'spot_strategy' => 'SpotStrategy',
@@ -208,6 +214,7 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
         'elastic_scheduled_instance_type' => 'setElasticScheduledInstanceType',
         'enable_jumbo_frame' => 'setEnableJumboFrame',
         'expired_at' => 'setExpiredAt',
+        'host_name' => 'setHostName',
         'hostname' => 'setHostname',
         'hpc_cluster_id' => 'setHpcClusterId',
         'image_id' => 'setImageId',
@@ -226,6 +233,7 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
         'placement' => 'setPlacement',
         'project_name' => 'setProjectName',
         'rdma_ip_addresses' => 'setRdmaIpAddresses',
+        'rdma_network_interface_details' => 'setRdmaNetworkInterfaceDetails',
         'scheduled_instance_id' => 'setScheduledInstanceId',
         'spot_price_limit' => 'setSpotPriceLimit',
         'spot_strategy' => 'setSpotStrategy',
@@ -257,6 +265,7 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
         'elastic_scheduled_instance_type' => 'getElasticScheduledInstanceType',
         'enable_jumbo_frame' => 'getEnableJumboFrame',
         'expired_at' => 'getExpiredAt',
+        'host_name' => 'getHostName',
         'hostname' => 'getHostname',
         'hpc_cluster_id' => 'getHpcClusterId',
         'image_id' => 'getImageId',
@@ -275,6 +284,7 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
         'placement' => 'getPlacement',
         'project_name' => 'getProjectName',
         'rdma_ip_addresses' => 'getRdmaIpAddresses',
+        'rdma_network_interface_details' => 'getRdmaNetworkInterfaceDetails',
         'scheduled_instance_id' => 'getScheduledInstanceId',
         'spot_price_limit' => 'getSpotPriceLimit',
         'spot_strategy' => 'getSpotStrategy',
@@ -360,6 +370,7 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
         $this->container['elastic_scheduled_instance_type'] = isset($data['elastic_scheduled_instance_type']) ? $data['elastic_scheduled_instance_type'] : null;
         $this->container['enable_jumbo_frame'] = isset($data['enable_jumbo_frame']) ? $data['enable_jumbo_frame'] : null;
         $this->container['expired_at'] = isset($data['expired_at']) ? $data['expired_at'] : null;
+        $this->container['host_name'] = isset($data['host_name']) ? $data['host_name'] : null;
         $this->container['hostname'] = isset($data['hostname']) ? $data['hostname'] : null;
         $this->container['hpc_cluster_id'] = isset($data['hpc_cluster_id']) ? $data['hpc_cluster_id'] : null;
         $this->container['image_id'] = isset($data['image_id']) ? $data['image_id'] : null;
@@ -378,6 +389,7 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
         $this->container['placement'] = isset($data['placement']) ? $data['placement'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['rdma_ip_addresses'] = isset($data['rdma_ip_addresses']) ? $data['rdma_ip_addresses'] : null;
+        $this->container['rdma_network_interface_details'] = isset($data['rdma_network_interface_details']) ? $data['rdma_network_interface_details'] : null;
         $this->container['scheduled_instance_id'] = isset($data['scheduled_instance_id']) ? $data['scheduled_instance_id'] : null;
         $this->container['spot_price_limit'] = isset($data['spot_price_limit']) ? $data['spot_price_limit'] : null;
         $this->container['spot_strategy'] = isset($data['spot_strategy']) ? $data['spot_strategy'] : null;
@@ -699,6 +711,30 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
     public function setExpiredAt($expired_at)
     {
         $this->container['expired_at'] = $expired_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets host_name
+     *
+     * @return string
+     */
+    public function getHostName()
+    {
+        return $this->container['host_name'];
+    }
+
+    /**
+     * Sets host_name
+     *
+     * @param string $host_name host_name
+     *
+     * @return $this
+     */
+    public function setHostName($host_name)
+    {
+        $this->container['host_name'] = $host_name;
 
         return $this;
     }
@@ -1131,6 +1167,30 @@ class InstanceForDescribeInstancesOutput implements ModelInterface, ArrayAccess
     public function setRdmaIpAddresses($rdma_ip_addresses)
     {
         $this->container['rdma_ip_addresses'] = $rdma_ip_addresses;
+
+        return $this;
+    }
+
+    /**
+     * Gets rdma_network_interface_details
+     *
+     * @return \Volcengine\Ecs\Model\RdmaNetworkInterfaceDetailForDescribeInstancesOutput[]
+     */
+    public function getRdmaNetworkInterfaceDetails()
+    {
+        return $this->container['rdma_network_interface_details'];
+    }
+
+    /**
+     * Sets rdma_network_interface_details
+     *
+     * @param \Volcengine\Ecs\Model\RdmaNetworkInterfaceDetailForDescribeInstancesOutput[] $rdma_network_interface_details rdma_network_interface_details
+     *
+     * @return $this
+     */
+    public function setRdmaNetworkInterfaceDetails($rdma_network_interface_details)
+    {
+        $this->container['rdma_network_interface_details'] = $rdma_network_interface_details;
 
         return $this;
     }

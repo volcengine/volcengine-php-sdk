@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class VolumeForAllocateInstancesInput implements ModelInterface, ArrayAccess
+class TagFilterForDescribeHpcClustersInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class VolumeForAllocateInstancesInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'VolumeForAllocateInstancesInput';
+    protected static $swaggerModelName = 'TagFilterForDescribeHpcClustersInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,8 @@ class VolumeForAllocateInstancesInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'extra_performance_iops' => 'int',
-        'extra_performance_throughput_mb' => 'int',
-        'extra_performance_type_id' => 'string',
-        'size' => 'int',
-        'snapshot_id' => 'string',
-        'volume_type' => 'string'
+        'key' => 'string',
+        'values' => 'string[]'
     ];
 
     /**
@@ -42,12 +38,8 @@ class VolumeForAllocateInstancesInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'extra_performance_iops' => 'int32',
-        'extra_performance_throughput_mb' => 'int32',
-        'extra_performance_type_id' => null,
-        'size' => 'int32',
-        'snapshot_id' => null,
-        'volume_type' => null
+        'key' => null,
+        'values' => null
     ];
 
     /**
@@ -77,12 +69,8 @@ class VolumeForAllocateInstancesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'extra_performance_iops' => 'ExtraPerformanceIOPS',
-        'extra_performance_throughput_mb' => 'ExtraPerformanceThroughputMB',
-        'extra_performance_type_id' => 'ExtraPerformanceTypeId',
-        'size' => 'Size',
-        'snapshot_id' => 'SnapshotId',
-        'volume_type' => 'VolumeType'
+        'key' => 'Key',
+        'values' => 'Values'
     ];
 
     /**
@@ -91,12 +79,8 @@ class VolumeForAllocateInstancesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'extra_performance_iops' => 'setExtraPerformanceIops',
-        'extra_performance_throughput_mb' => 'setExtraPerformanceThroughputMb',
-        'extra_performance_type_id' => 'setExtraPerformanceTypeId',
-        'size' => 'setSize',
-        'snapshot_id' => 'setSnapshotId',
-        'volume_type' => 'setVolumeType'
+        'key' => 'setKey',
+        'values' => 'setValues'
     ];
 
     /**
@@ -105,12 +89,8 @@ class VolumeForAllocateInstancesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'extra_performance_iops' => 'getExtraPerformanceIops',
-        'extra_performance_throughput_mb' => 'getExtraPerformanceThroughputMb',
-        'extra_performance_type_id' => 'getExtraPerformanceTypeId',
-        'size' => 'getSize',
-        'snapshot_id' => 'getSnapshotId',
-        'volume_type' => 'getVolumeType'
+        'key' => 'getKey',
+        'values' => 'getValues'
     ];
 
     /**
@@ -173,12 +153,8 @@ class VolumeForAllocateInstancesInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['extra_performance_iops'] = isset($data['extra_performance_iops']) ? $data['extra_performance_iops'] : null;
-        $this->container['extra_performance_throughput_mb'] = isset($data['extra_performance_throughput_mb']) ? $data['extra_performance_throughput_mb'] : null;
-        $this->container['extra_performance_type_id'] = isset($data['extra_performance_type_id']) ? $data['extra_performance_type_id'] : null;
-        $this->container['size'] = isset($data['size']) ? $data['size'] : null;
-        $this->container['snapshot_id'] = isset($data['snapshot_id']) ? $data['snapshot_id'] : null;
-        $this->container['volume_type'] = isset($data['volume_type']) ? $data['volume_type'] : null;
+        $this->container['key'] = isset($data['key']) ? $data['key'] : null;
+        $this->container['values'] = isset($data['values']) ? $data['values'] : null;
     }
 
     /**
@@ -190,9 +166,6 @@ class VolumeForAllocateInstancesInput implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['size'] === null) {
-            $invalidProperties[] = "'size' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -209,145 +182,49 @@ class VolumeForAllocateInstancesInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets extra_performance_iops
-     *
-     * @return int
-     */
-    public function getExtraPerformanceIops()
-    {
-        return $this->container['extra_performance_iops'];
-    }
-
-    /**
-     * Sets extra_performance_iops
-     *
-     * @param int $extra_performance_iops extra_performance_iops
-     *
-     * @return $this
-     */
-    public function setExtraPerformanceIops($extra_performance_iops)
-    {
-        $this->container['extra_performance_iops'] = $extra_performance_iops;
-
-        return $this;
-    }
-
-    /**
-     * Gets extra_performance_throughput_mb
-     *
-     * @return int
-     */
-    public function getExtraPerformanceThroughputMb()
-    {
-        return $this->container['extra_performance_throughput_mb'];
-    }
-
-    /**
-     * Sets extra_performance_throughput_mb
-     *
-     * @param int $extra_performance_throughput_mb extra_performance_throughput_mb
-     *
-     * @return $this
-     */
-    public function setExtraPerformanceThroughputMb($extra_performance_throughput_mb)
-    {
-        $this->container['extra_performance_throughput_mb'] = $extra_performance_throughput_mb;
-
-        return $this;
-    }
-
-    /**
-     * Gets extra_performance_type_id
+     * Gets key
      *
      * @return string
      */
-    public function getExtraPerformanceTypeId()
+    public function getKey()
     {
-        return $this->container['extra_performance_type_id'];
+        return $this->container['key'];
     }
 
     /**
-     * Sets extra_performance_type_id
+     * Sets key
      *
-     * @param string $extra_performance_type_id extra_performance_type_id
+     * @param string $key key
      *
      * @return $this
      */
-    public function setExtraPerformanceTypeId($extra_performance_type_id)
+    public function setKey($key)
     {
-        $this->container['extra_performance_type_id'] = $extra_performance_type_id;
+        $this->container['key'] = $key;
 
         return $this;
     }
 
     /**
-     * Gets size
+     * Gets values
      *
-     * @return int
+     * @return string[]
      */
-    public function getSize()
+    public function getValues()
     {
-        return $this->container['size'];
+        return $this->container['values'];
     }
 
     /**
-     * Sets size
+     * Sets values
      *
-     * @param int $size size
+     * @param string[] $values values
      *
      * @return $this
      */
-    public function setSize($size)
+    public function setValues($values)
     {
-        $this->container['size'] = $size;
-
-        return $this;
-    }
-
-    /**
-     * Gets snapshot_id
-     *
-     * @return string
-     */
-    public function getSnapshotId()
-    {
-        return $this->container['snapshot_id'];
-    }
-
-    /**
-     * Sets snapshot_id
-     *
-     * @param string $snapshot_id snapshot_id
-     *
-     * @return $this
-     */
-    public function setSnapshotId($snapshot_id)
-    {
-        $this->container['snapshot_id'] = $snapshot_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets volume_type
-     *
-     * @return string
-     */
-    public function getVolumeType()
-    {
-        return $this->container['volume_type'];
-    }
-
-    /**
-     * Sets volume_type
-     *
-     * @param string $volume_type volume_type
-     *
-     * @return $this
-     */
-    public function setVolumeType($volume_type)
-    {
-        $this->container['volume_type'] = $volume_type;
+        $this->container['values'] = $values;
 
         return $this;
     }

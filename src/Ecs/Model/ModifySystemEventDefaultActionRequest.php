@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class DescribeHpcClustersRequest implements ModelInterface, ArrayAccess
+class ModifySystemEventDefaultActionRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class DescribeHpcClustersRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'DescribeHpcClustersRequest';
+    protected static $swaggerModelName = 'ModifySystemEventDefaultActionRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,14 +28,10 @@ class DescribeHpcClustersRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'client_token' => 'string',
-        'hpc_cluster_ids' => 'string[]',
-        'max_results' => 'int',
-        'name' => 'string',
-        'next_token' => 'string',
-        'project_name' => 'string',
-        'tag_filters' => '\Volcengine\Ecs\Model\TagFilterForDescribeHpcClustersInput[]',
-        'zone_id' => 'string'
+        'default_action' => 'string',
+        'event_id' => 'string',
+        'operated_end_at' => 'string',
+        'operated_start_at' => 'string'
     ];
 
     /**
@@ -44,14 +40,10 @@ class DescribeHpcClustersRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'client_token' => null,
-        'hpc_cluster_ids' => null,
-        'max_results' => 'int32',
-        'name' => null,
-        'next_token' => null,
-        'project_name' => null,
-        'tag_filters' => null,
-        'zone_id' => null
+        'default_action' => null,
+        'event_id' => null,
+        'operated_end_at' => null,
+        'operated_start_at' => null
     ];
 
     /**
@@ -81,14 +73,10 @@ class DescribeHpcClustersRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'client_token' => 'ClientToken',
-        'hpc_cluster_ids' => 'HpcClusterIds',
-        'max_results' => 'MaxResults',
-        'name' => 'Name',
-        'next_token' => 'NextToken',
-        'project_name' => 'ProjectName',
-        'tag_filters' => 'TagFilters',
-        'zone_id' => 'ZoneId'
+        'default_action' => 'DefaultAction',
+        'event_id' => 'EventId',
+        'operated_end_at' => 'OperatedEndAt',
+        'operated_start_at' => 'OperatedStartAt'
     ];
 
     /**
@@ -97,14 +85,10 @@ class DescribeHpcClustersRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'client_token' => 'setClientToken',
-        'hpc_cluster_ids' => 'setHpcClusterIds',
-        'max_results' => 'setMaxResults',
-        'name' => 'setName',
-        'next_token' => 'setNextToken',
-        'project_name' => 'setProjectName',
-        'tag_filters' => 'setTagFilters',
-        'zone_id' => 'setZoneId'
+        'default_action' => 'setDefaultAction',
+        'event_id' => 'setEventId',
+        'operated_end_at' => 'setOperatedEndAt',
+        'operated_start_at' => 'setOperatedStartAt'
     ];
 
     /**
@@ -113,14 +97,10 @@ class DescribeHpcClustersRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'client_token' => 'getClientToken',
-        'hpc_cluster_ids' => 'getHpcClusterIds',
-        'max_results' => 'getMaxResults',
-        'name' => 'getName',
-        'next_token' => 'getNextToken',
-        'project_name' => 'getProjectName',
-        'tag_filters' => 'getTagFilters',
-        'zone_id' => 'getZoneId'
+        'default_action' => 'getDefaultAction',
+        'event_id' => 'getEventId',
+        'operated_end_at' => 'getOperatedEndAt',
+        'operated_start_at' => 'getOperatedStartAt'
     ];
 
     /**
@@ -183,14 +163,10 @@ class DescribeHpcClustersRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
-        $this->container['hpc_cluster_ids'] = isset($data['hpc_cluster_ids']) ? $data['hpc_cluster_ids'] : null;
-        $this->container['max_results'] = isset($data['max_results']) ? $data['max_results'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
-        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
-        $this->container['tag_filters'] = isset($data['tag_filters']) ? $data['tag_filters'] : null;
-        $this->container['zone_id'] = isset($data['zone_id']) ? $data['zone_id'] : null;
+        $this->container['default_action'] = isset($data['default_action']) ? $data['default_action'] : null;
+        $this->container['event_id'] = isset($data['event_id']) ? $data['event_id'] : null;
+        $this->container['operated_end_at'] = isset($data['operated_end_at']) ? $data['operated_end_at'] : null;
+        $this->container['operated_start_at'] = isset($data['operated_start_at']) ? $data['operated_start_at'] : null;
     }
 
     /**
@@ -202,6 +178,12 @@ class DescribeHpcClustersRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['default_action'] === null) {
+            $invalidProperties[] = "'default_action' can't be null";
+        }
+        if ($this->container['event_id'] === null) {
+            $invalidProperties[] = "'event_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -218,193 +200,97 @@ class DescribeHpcClustersRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets client_token
+     * Gets default_action
      *
      * @return string
      */
-    public function getClientToken()
+    public function getDefaultAction()
     {
-        return $this->container['client_token'];
+        return $this->container['default_action'];
     }
 
     /**
-     * Sets client_token
+     * Sets default_action
      *
-     * @param string $client_token client_token
+     * @param string $default_action default_action
      *
      * @return $this
      */
-    public function setClientToken($client_token)
+    public function setDefaultAction($default_action)
     {
-        $this->container['client_token'] = $client_token;
+        $this->container['default_action'] = $default_action;
 
         return $this;
     }
 
     /**
-     * Gets hpc_cluster_ids
-     *
-     * @return string[]
-     */
-    public function getHpcClusterIds()
-    {
-        return $this->container['hpc_cluster_ids'];
-    }
-
-    /**
-     * Sets hpc_cluster_ids
-     *
-     * @param string[] $hpc_cluster_ids hpc_cluster_ids
-     *
-     * @return $this
-     */
-    public function setHpcClusterIds($hpc_cluster_ids)
-    {
-        $this->container['hpc_cluster_ids'] = $hpc_cluster_ids;
-
-        return $this;
-    }
-
-    /**
-     * Gets max_results
-     *
-     * @return int
-     */
-    public function getMaxResults()
-    {
-        return $this->container['max_results'];
-    }
-
-    /**
-     * Sets max_results
-     *
-     * @param int $max_results max_results
-     *
-     * @return $this
-     */
-    public function setMaxResults($max_results)
-    {
-        $this->container['max_results'] = $max_results;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
+     * Gets event_id
      *
      * @return string
      */
-    public function getName()
+    public function getEventId()
     {
-        return $this->container['name'];
+        return $this->container['event_id'];
     }
 
     /**
-     * Sets name
+     * Sets event_id
      *
-     * @param string $name name
+     * @param string $event_id event_id
      *
      * @return $this
      */
-    public function setName($name)
+    public function setEventId($event_id)
     {
-        $this->container['name'] = $name;
+        $this->container['event_id'] = $event_id;
 
         return $this;
     }
 
     /**
-     * Gets next_token
+     * Gets operated_end_at
      *
      * @return string
      */
-    public function getNextToken()
+    public function getOperatedEndAt()
     {
-        return $this->container['next_token'];
+        return $this->container['operated_end_at'];
     }
 
     /**
-     * Sets next_token
+     * Sets operated_end_at
      *
-     * @param string $next_token next_token
+     * @param string $operated_end_at operated_end_at
      *
      * @return $this
      */
-    public function setNextToken($next_token)
+    public function setOperatedEndAt($operated_end_at)
     {
-        $this->container['next_token'] = $next_token;
+        $this->container['operated_end_at'] = $operated_end_at;
 
         return $this;
     }
 
     /**
-     * Gets project_name
+     * Gets operated_start_at
      *
      * @return string
      */
-    public function getProjectName()
+    public function getOperatedStartAt()
     {
-        return $this->container['project_name'];
+        return $this->container['operated_start_at'];
     }
 
     /**
-     * Sets project_name
+     * Sets operated_start_at
      *
-     * @param string $project_name project_name
+     * @param string $operated_start_at operated_start_at
      *
      * @return $this
      */
-    public function setProjectName($project_name)
+    public function setOperatedStartAt($operated_start_at)
     {
-        $this->container['project_name'] = $project_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets tag_filters
-     *
-     * @return \Volcengine\Ecs\Model\TagFilterForDescribeHpcClustersInput[]
-     */
-    public function getTagFilters()
-    {
-        return $this->container['tag_filters'];
-    }
-
-    /**
-     * Sets tag_filters
-     *
-     * @param \Volcengine\Ecs\Model\TagFilterForDescribeHpcClustersInput[] $tag_filters tag_filters
-     *
-     * @return $this
-     */
-    public function setTagFilters($tag_filters)
-    {
-        $this->container['tag_filters'] = $tag_filters;
-
-        return $this;
-    }
-
-    /**
-     * Gets zone_id
-     *
-     * @return string
-     */
-    public function getZoneId()
-    {
-        return $this->container['zone_id'];
-    }
-
-    /**
-     * Sets zone_id
-     *
-     * @param string $zone_id zone_id
-     *
-     * @return $this
-     */
-    public function setZoneId($zone_id)
-    {
-        $this->container['zone_id'] = $zone_id;
+        $this->container['operated_start_at'] = $operated_start_at;
 
         return $this;
     }

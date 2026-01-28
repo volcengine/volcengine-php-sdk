@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class DescribeHpcClustersRequest implements ModelInterface, ArrayAccess
+class RdmaNetworkInterfaceDetailForDescribeInstancesOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class DescribeHpcClustersRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'DescribeHpcClustersRequest';
+    protected static $swaggerModelName = 'RdmaNetworkInterfaceDetailForDescribeInstancesOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,14 +28,11 @@ class DescribeHpcClustersRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'client_token' => 'string',
-        'hpc_cluster_ids' => 'string[]',
-        'max_results' => 'int',
-        'name' => 'string',
-        'next_token' => 'string',
-        'project_name' => 'string',
-        'tag_filters' => '\Volcengine\Ecs\Model\TagFilterForDescribeHpcClustersInput[]',
-        'zone_id' => 'string'
+        'gateway' => 'string',
+        'ip' => 'string',
+        'mask' => 'string',
+        'switch_name' => 'string',
+        'switch_port' => 'string'
     ];
 
     /**
@@ -44,14 +41,11 @@ class DescribeHpcClustersRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'client_token' => null,
-        'hpc_cluster_ids' => null,
-        'max_results' => 'int32',
-        'name' => null,
-        'next_token' => null,
-        'project_name' => null,
-        'tag_filters' => null,
-        'zone_id' => null
+        'gateway' => null,
+        'ip' => null,
+        'mask' => null,
+        'switch_name' => null,
+        'switch_port' => null
     ];
 
     /**
@@ -81,14 +75,11 @@ class DescribeHpcClustersRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'client_token' => 'ClientToken',
-        'hpc_cluster_ids' => 'HpcClusterIds',
-        'max_results' => 'MaxResults',
-        'name' => 'Name',
-        'next_token' => 'NextToken',
-        'project_name' => 'ProjectName',
-        'tag_filters' => 'TagFilters',
-        'zone_id' => 'ZoneId'
+        'gateway' => 'Gateway',
+        'ip' => 'Ip',
+        'mask' => 'Mask',
+        'switch_name' => 'SwitchName',
+        'switch_port' => 'SwitchPort'
     ];
 
     /**
@@ -97,14 +88,11 @@ class DescribeHpcClustersRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'client_token' => 'setClientToken',
-        'hpc_cluster_ids' => 'setHpcClusterIds',
-        'max_results' => 'setMaxResults',
-        'name' => 'setName',
-        'next_token' => 'setNextToken',
-        'project_name' => 'setProjectName',
-        'tag_filters' => 'setTagFilters',
-        'zone_id' => 'setZoneId'
+        'gateway' => 'setGateway',
+        'ip' => 'setIp',
+        'mask' => 'setMask',
+        'switch_name' => 'setSwitchName',
+        'switch_port' => 'setSwitchPort'
     ];
 
     /**
@@ -113,14 +101,11 @@ class DescribeHpcClustersRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'client_token' => 'getClientToken',
-        'hpc_cluster_ids' => 'getHpcClusterIds',
-        'max_results' => 'getMaxResults',
-        'name' => 'getName',
-        'next_token' => 'getNextToken',
-        'project_name' => 'getProjectName',
-        'tag_filters' => 'getTagFilters',
-        'zone_id' => 'getZoneId'
+        'gateway' => 'getGateway',
+        'ip' => 'getIp',
+        'mask' => 'getMask',
+        'switch_name' => 'getSwitchName',
+        'switch_port' => 'getSwitchPort'
     ];
 
     /**
@@ -183,14 +168,11 @@ class DescribeHpcClustersRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
-        $this->container['hpc_cluster_ids'] = isset($data['hpc_cluster_ids']) ? $data['hpc_cluster_ids'] : null;
-        $this->container['max_results'] = isset($data['max_results']) ? $data['max_results'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
-        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
-        $this->container['tag_filters'] = isset($data['tag_filters']) ? $data['tag_filters'] : null;
-        $this->container['zone_id'] = isset($data['zone_id']) ? $data['zone_id'] : null;
+        $this->container['gateway'] = isset($data['gateway']) ? $data['gateway'] : null;
+        $this->container['ip'] = isset($data['ip']) ? $data['ip'] : null;
+        $this->container['mask'] = isset($data['mask']) ? $data['mask'] : null;
+        $this->container['switch_name'] = isset($data['switch_name']) ? $data['switch_name'] : null;
+        $this->container['switch_port'] = isset($data['switch_port']) ? $data['switch_port'] : null;
     }
 
     /**
@@ -218,193 +200,121 @@ class DescribeHpcClustersRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets client_token
+     * Gets gateway
      *
      * @return string
      */
-    public function getClientToken()
+    public function getGateway()
     {
-        return $this->container['client_token'];
+        return $this->container['gateway'];
     }
 
     /**
-     * Sets client_token
+     * Sets gateway
      *
-     * @param string $client_token client_token
+     * @param string $gateway gateway
      *
      * @return $this
      */
-    public function setClientToken($client_token)
+    public function setGateway($gateway)
     {
-        $this->container['client_token'] = $client_token;
+        $this->container['gateway'] = $gateway;
 
         return $this;
     }
 
     /**
-     * Gets hpc_cluster_ids
-     *
-     * @return string[]
-     */
-    public function getHpcClusterIds()
-    {
-        return $this->container['hpc_cluster_ids'];
-    }
-
-    /**
-     * Sets hpc_cluster_ids
-     *
-     * @param string[] $hpc_cluster_ids hpc_cluster_ids
-     *
-     * @return $this
-     */
-    public function setHpcClusterIds($hpc_cluster_ids)
-    {
-        $this->container['hpc_cluster_ids'] = $hpc_cluster_ids;
-
-        return $this;
-    }
-
-    /**
-     * Gets max_results
-     *
-     * @return int
-     */
-    public function getMaxResults()
-    {
-        return $this->container['max_results'];
-    }
-
-    /**
-     * Sets max_results
-     *
-     * @param int $max_results max_results
-     *
-     * @return $this
-     */
-    public function setMaxResults($max_results)
-    {
-        $this->container['max_results'] = $max_results;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
+     * Gets ip
      *
      * @return string
      */
-    public function getName()
+    public function getIp()
     {
-        return $this->container['name'];
+        return $this->container['ip'];
     }
 
     /**
-     * Sets name
+     * Sets ip
      *
-     * @param string $name name
+     * @param string $ip ip
      *
      * @return $this
      */
-    public function setName($name)
+    public function setIp($ip)
     {
-        $this->container['name'] = $name;
+        $this->container['ip'] = $ip;
 
         return $this;
     }
 
     /**
-     * Gets next_token
+     * Gets mask
      *
      * @return string
      */
-    public function getNextToken()
+    public function getMask()
     {
-        return $this->container['next_token'];
+        return $this->container['mask'];
     }
 
     /**
-     * Sets next_token
+     * Sets mask
      *
-     * @param string $next_token next_token
+     * @param string $mask mask
      *
      * @return $this
      */
-    public function setNextToken($next_token)
+    public function setMask($mask)
     {
-        $this->container['next_token'] = $next_token;
+        $this->container['mask'] = $mask;
 
         return $this;
     }
 
     /**
-     * Gets project_name
+     * Gets switch_name
      *
      * @return string
      */
-    public function getProjectName()
+    public function getSwitchName()
     {
-        return $this->container['project_name'];
+        return $this->container['switch_name'];
     }
 
     /**
-     * Sets project_name
+     * Sets switch_name
      *
-     * @param string $project_name project_name
+     * @param string $switch_name switch_name
      *
      * @return $this
      */
-    public function setProjectName($project_name)
+    public function setSwitchName($switch_name)
     {
-        $this->container['project_name'] = $project_name;
+        $this->container['switch_name'] = $switch_name;
 
         return $this;
     }
 
     /**
-     * Gets tag_filters
-     *
-     * @return \Volcengine\Ecs\Model\TagFilterForDescribeHpcClustersInput[]
-     */
-    public function getTagFilters()
-    {
-        return $this->container['tag_filters'];
-    }
-
-    /**
-     * Sets tag_filters
-     *
-     * @param \Volcengine\Ecs\Model\TagFilterForDescribeHpcClustersInput[] $tag_filters tag_filters
-     *
-     * @return $this
-     */
-    public function setTagFilters($tag_filters)
-    {
-        $this->container['tag_filters'] = $tag_filters;
-
-        return $this;
-    }
-
-    /**
-     * Gets zone_id
+     * Gets switch_port
      *
      * @return string
      */
-    public function getZoneId()
+    public function getSwitchPort()
     {
-        return $this->container['zone_id'];
+        return $this->container['switch_port'];
     }
 
     /**
-     * Sets zone_id
+     * Sets switch_port
      *
-     * @param string $zone_id zone_id
+     * @param string $switch_port switch_port
      *
      * @return $this
      */
-    public function setZoneId($zone_id)
+    public function setSwitchPort($switch_port)
     {
-        $this->container['zone_id'] = $zone_id;
+        $this->container['switch_port'] = $switch_port;
 
         return $this;
     }
