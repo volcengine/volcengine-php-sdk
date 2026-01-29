@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class HpcClusterForDescribeHpcClustersOutput implements ModelInterface, ArrayAccess
+class RelatedSystemEventForDescribeSystemEventDefaultActionOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class HpcClusterForDescribeHpcClustersOutput implements ModelInterface, ArrayAcc
       *
       * @var string
       */
-    protected static $swaggerModelName = 'HpcClusterForDescribeHpcClustersOutput';
+    protected static $swaggerModelName = 'RelatedSystemEventForDescribeSystemEventDefaultActionOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,15 +28,17 @@ class HpcClusterForDescribeHpcClustersOutput implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'category' => 'string',
         'created_at' => 'string',
-        'description' => 'string',
-        'hpc_cluster_id' => 'string',
-        'name' => 'string',
-        'project_name' => 'string',
-        'tags' => '\Volcengine\Ecs\Model\TagForDescribeHpcClustersOutput[]',
-        'updated_at' => 'string',
-        'vpc_id' => 'string',
-        'zone_id' => 'string'
+        'extra_info' => '\Volcengine\Ecs\Model\ExtraInfoForDescribeSystemEventDefaultActionOutput',
+        'id' => 'string',
+        'impact_level' => 'string',
+        'operated_end_at' => 'string',
+        'operated_start_at' => 'string',
+        'resource_id' => 'string',
+        'status' => 'string',
+        'type' => 'string',
+        'updated_at' => 'string'
     ];
 
     /**
@@ -45,15 +47,17 @@ class HpcClusterForDescribeHpcClustersOutput implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'category' => null,
         'created_at' => null,
-        'description' => null,
-        'hpc_cluster_id' => null,
-        'name' => null,
-        'project_name' => null,
-        'tags' => null,
-        'updated_at' => null,
-        'vpc_id' => null,
-        'zone_id' => null
+        'extra_info' => null,
+        'id' => null,
+        'impact_level' => null,
+        'operated_end_at' => null,
+        'operated_start_at' => null,
+        'resource_id' => null,
+        'status' => null,
+        'type' => null,
+        'updated_at' => null
     ];
 
     /**
@@ -83,15 +87,17 @@ class HpcClusterForDescribeHpcClustersOutput implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $attributeMap = [
+        'category' => 'Category',
         'created_at' => 'CreatedAt',
-        'description' => 'Description',
-        'hpc_cluster_id' => 'HpcClusterId',
-        'name' => 'Name',
-        'project_name' => 'ProjectName',
-        'tags' => 'Tags',
-        'updated_at' => 'UpdatedAt',
-        'vpc_id' => 'VpcId',
-        'zone_id' => 'ZoneId'
+        'extra_info' => 'ExtraInfo',
+        'id' => 'Id',
+        'impact_level' => 'ImpactLevel',
+        'operated_end_at' => 'OperatedEndAt',
+        'operated_start_at' => 'OperatedStartAt',
+        'resource_id' => 'ResourceId',
+        'status' => 'Status',
+        'type' => 'Type',
+        'updated_at' => 'UpdatedAt'
     ];
 
     /**
@@ -100,15 +106,17 @@ class HpcClusterForDescribeHpcClustersOutput implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $setters = [
+        'category' => 'setCategory',
         'created_at' => 'setCreatedAt',
-        'description' => 'setDescription',
-        'hpc_cluster_id' => 'setHpcClusterId',
-        'name' => 'setName',
-        'project_name' => 'setProjectName',
-        'tags' => 'setTags',
-        'updated_at' => 'setUpdatedAt',
-        'vpc_id' => 'setVpcId',
-        'zone_id' => 'setZoneId'
+        'extra_info' => 'setExtraInfo',
+        'id' => 'setId',
+        'impact_level' => 'setImpactLevel',
+        'operated_end_at' => 'setOperatedEndAt',
+        'operated_start_at' => 'setOperatedStartAt',
+        'resource_id' => 'setResourceId',
+        'status' => 'setStatus',
+        'type' => 'setType',
+        'updated_at' => 'setUpdatedAt'
     ];
 
     /**
@@ -117,15 +125,17 @@ class HpcClusterForDescribeHpcClustersOutput implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $getters = [
+        'category' => 'getCategory',
         'created_at' => 'getCreatedAt',
-        'description' => 'getDescription',
-        'hpc_cluster_id' => 'getHpcClusterId',
-        'name' => 'getName',
-        'project_name' => 'getProjectName',
-        'tags' => 'getTags',
-        'updated_at' => 'getUpdatedAt',
-        'vpc_id' => 'getVpcId',
-        'zone_id' => 'getZoneId'
+        'extra_info' => 'getExtraInfo',
+        'id' => 'getId',
+        'impact_level' => 'getImpactLevel',
+        'operated_end_at' => 'getOperatedEndAt',
+        'operated_start_at' => 'getOperatedStartAt',
+        'resource_id' => 'getResourceId',
+        'status' => 'getStatus',
+        'type' => 'getType',
+        'updated_at' => 'getUpdatedAt'
     ];
 
     /**
@@ -188,15 +198,17 @@ class HpcClusterForDescribeHpcClustersOutput implements ModelInterface, ArrayAcc
      */
     public function __construct(array $data = null)
     {
+        $this->container['category'] = isset($data['category']) ? $data['category'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['hpc_cluster_id'] = isset($data['hpc_cluster_id']) ? $data['hpc_cluster_id'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
-        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
+        $this->container['extra_info'] = isset($data['extra_info']) ? $data['extra_info'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['impact_level'] = isset($data['impact_level']) ? $data['impact_level'] : null;
+        $this->container['operated_end_at'] = isset($data['operated_end_at']) ? $data['operated_end_at'] : null;
+        $this->container['operated_start_at'] = isset($data['operated_start_at']) ? $data['operated_start_at'] : null;
+        $this->container['resource_id'] = isset($data['resource_id']) ? $data['resource_id'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
-        $this->container['vpc_id'] = isset($data['vpc_id']) ? $data['vpc_id'] : null;
-        $this->container['zone_id'] = isset($data['zone_id']) ? $data['zone_id'] : null;
     }
 
     /**
@@ -224,6 +236,30 @@ class HpcClusterForDescribeHpcClustersOutput implements ModelInterface, ArrayAcc
 
 
     /**
+     * Gets category
+     *
+     * @return string
+     */
+    public function getCategory()
+    {
+        return $this->container['category'];
+    }
+
+    /**
+     * Sets category
+     *
+     * @param string $category category
+     *
+     * @return $this
+     */
+    public function setCategory($category)
+    {
+        $this->container['category'] = $category;
+
+        return $this;
+    }
+
+    /**
      * Gets created_at
      *
      * @return string
@@ -248,121 +284,193 @@ class HpcClusterForDescribeHpcClustersOutput implements ModelInterface, ArrayAcc
     }
 
     /**
-     * Gets description
+     * Gets extra_info
      *
-     * @return string
+     * @return \Volcengine\Ecs\Model\ExtraInfoForDescribeSystemEventDefaultActionOutput
      */
-    public function getDescription()
+    public function getExtraInfo()
     {
-        return $this->container['description'];
+        return $this->container['extra_info'];
     }
 
     /**
-     * Sets description
+     * Sets extra_info
      *
-     * @param string $description description
+     * @param \Volcengine\Ecs\Model\ExtraInfoForDescribeSystemEventDefaultActionOutput $extra_info extra_info
      *
      * @return $this
      */
-    public function setDescription($description)
+    public function setExtraInfo($extra_info)
     {
-        $this->container['description'] = $description;
+        $this->container['extra_info'] = $extra_info;
 
         return $this;
     }
 
     /**
-     * Gets hpc_cluster_id
+     * Gets id
      *
      * @return string
      */
-    public function getHpcClusterId()
+    public function getId()
     {
-        return $this->container['hpc_cluster_id'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets hpc_cluster_id
+     * Sets id
      *
-     * @param string $hpc_cluster_id hpc_cluster_id
+     * @param string $id id
      *
      * @return $this
      */
-    public function setHpcClusterId($hpc_cluster_id)
+    public function setId($id)
     {
-        $this->container['hpc_cluster_id'] = $hpc_cluster_id;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets name
+     * Gets impact_level
      *
      * @return string
      */
-    public function getName()
+    public function getImpactLevel()
     {
-        return $this->container['name'];
+        return $this->container['impact_level'];
     }
 
     /**
-     * Sets name
+     * Sets impact_level
      *
-     * @param string $name name
+     * @param string $impact_level impact_level
      *
      * @return $this
      */
-    public function setName($name)
+    public function setImpactLevel($impact_level)
     {
-        $this->container['name'] = $name;
+        $this->container['impact_level'] = $impact_level;
 
         return $this;
     }
 
     /**
-     * Gets project_name
+     * Gets operated_end_at
      *
      * @return string
      */
-    public function getProjectName()
+    public function getOperatedEndAt()
     {
-        return $this->container['project_name'];
+        return $this->container['operated_end_at'];
     }
 
     /**
-     * Sets project_name
+     * Sets operated_end_at
      *
-     * @param string $project_name project_name
+     * @param string $operated_end_at operated_end_at
      *
      * @return $this
      */
-    public function setProjectName($project_name)
+    public function setOperatedEndAt($operated_end_at)
     {
-        $this->container['project_name'] = $project_name;
+        $this->container['operated_end_at'] = $operated_end_at;
 
         return $this;
     }
 
     /**
-     * Gets tags
+     * Gets operated_start_at
      *
-     * @return \Volcengine\Ecs\Model\TagForDescribeHpcClustersOutput[]
+     * @return string
      */
-    public function getTags()
+    public function getOperatedStartAt()
     {
-        return $this->container['tags'];
+        return $this->container['operated_start_at'];
     }
 
     /**
-     * Sets tags
+     * Sets operated_start_at
      *
-     * @param \Volcengine\Ecs\Model\TagForDescribeHpcClustersOutput[] $tags tags
+     * @param string $operated_start_at operated_start_at
      *
      * @return $this
      */
-    public function setTags($tags)
+    public function setOperatedStartAt($operated_start_at)
     {
-        $this->container['tags'] = $tags;
+        $this->container['operated_start_at'] = $operated_start_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets resource_id
+     *
+     * @return string
+     */
+    public function getResourceId()
+    {
+        return $this->container['resource_id'];
+    }
+
+    /**
+     * Sets resource_id
+     *
+     * @param string $resource_id resource_id
+     *
+     * @return $this
+     */
+    public function setResourceId($resource_id)
+    {
+        $this->container['resource_id'] = $resource_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param string $status status
+     *
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string $type type
+     *
+     * @return $this
+     */
+    public function setType($type)
+    {
+        $this->container['type'] = $type;
 
         return $this;
     }
@@ -387,54 +495,6 @@ class HpcClusterForDescribeHpcClustersOutput implements ModelInterface, ArrayAcc
     public function setUpdatedAt($updated_at)
     {
         $this->container['updated_at'] = $updated_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets vpc_id
-     *
-     * @return string
-     */
-    public function getVpcId()
-    {
-        return $this->container['vpc_id'];
-    }
-
-    /**
-     * Sets vpc_id
-     *
-     * @param string $vpc_id vpc_id
-     *
-     * @return $this
-     */
-    public function setVpcId($vpc_id)
-    {
-        $this->container['vpc_id'] = $vpc_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets zone_id
-     *
-     * @return string
-     */
-    public function getZoneId()
-    {
-        return $this->container['zone_id'];
-    }
-
-    /**
-     * Sets zone_id
-     *
-     * @param string $zone_id zone_id
-     *
-     * @return $this
-     */
-    public function setZoneId($zone_id)
-    {
-        $this->container['zone_id'] = $zone_id;
 
         return $this;
     }

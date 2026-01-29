@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CreateHpcClusterRequest implements ModelInterface, ArrayAccess
+class ReportInstancesStatusResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CreateHpcClusterRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CreateHpcClusterRequest';
+    protected static $swaggerModelName = 'ReportInstancesStatusResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,7 @@ class CreateHpcClusterRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'client_token' => 'string',
-        'description' => 'string',
-        'name' => 'string',
-        'project_name' => 'string',
-        'tags' => '\Volcengine\Ecs\Model\TagForCreateHpcClusterInput[]',
-        'zone_id' => 'string'
+        
     ];
 
     /**
@@ -42,12 +37,7 @@ class CreateHpcClusterRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'client_token' => null,
-        'description' => null,
-        'name' => null,
-        'project_name' => null,
-        'tags' => null,
-        'zone_id' => null
+        
     ];
 
     /**
@@ -77,12 +67,7 @@ class CreateHpcClusterRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'client_token' => 'ClientToken',
-        'description' => 'Description',
-        'name' => 'Name',
-        'project_name' => 'ProjectName',
-        'tags' => 'Tags',
-        'zone_id' => 'ZoneId'
+        
     ];
 
     /**
@@ -91,12 +76,7 @@ class CreateHpcClusterRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'client_token' => 'setClientToken',
-        'description' => 'setDescription',
-        'name' => 'setName',
-        'project_name' => 'setProjectName',
-        'tags' => 'setTags',
-        'zone_id' => 'setZoneId'
+        
     ];
 
     /**
@@ -105,12 +85,7 @@ class CreateHpcClusterRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'client_token' => 'getClientToken',
-        'description' => 'getDescription',
-        'name' => 'getName',
-        'project_name' => 'getProjectName',
-        'tags' => 'getTags',
-        'zone_id' => 'getZoneId'
+        
     ];
 
     /**
@@ -173,12 +148,6 @@ class CreateHpcClusterRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
-        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
-        $this->container['zone_id'] = isset($data['zone_id']) ? $data['zone_id'] : null;
     }
 
     /**
@@ -190,12 +159,6 @@ class CreateHpcClusterRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
-        if ($this->container['zone_id'] === null) {
-            $invalidProperties[] = "'zone_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -210,150 +173,6 @@ class CreateHpcClusterRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets client_token
-     *
-     * @return string
-     */
-    public function getClientToken()
-    {
-        return $this->container['client_token'];
-    }
-
-    /**
-     * Sets client_token
-     *
-     * @param string $client_token client_token
-     *
-     * @return $this
-     */
-    public function setClientToken($client_token)
-    {
-        $this->container['client_token'] = $client_token;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
-     *
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->container['description'];
-    }
-
-    /**
-     * Sets description
-     *
-     * @param string $description description
-     *
-     * @return $this
-     */
-    public function setDescription($description)
-    {
-        $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string $name name
-     *
-     * @return $this
-     */
-    public function setName($name)
-    {
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets project_name
-     *
-     * @return string
-     */
-    public function getProjectName()
-    {
-        return $this->container['project_name'];
-    }
-
-    /**
-     * Sets project_name
-     *
-     * @param string $project_name project_name
-     *
-     * @return $this
-     */
-    public function setProjectName($project_name)
-    {
-        $this->container['project_name'] = $project_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets tags
-     *
-     * @return \Volcengine\Ecs\Model\TagForCreateHpcClusterInput[]
-     */
-    public function getTags()
-    {
-        return $this->container['tags'];
-    }
-
-    /**
-     * Sets tags
-     *
-     * @param \Volcengine\Ecs\Model\TagForCreateHpcClusterInput[] $tags tags
-     *
-     * @return $this
-     */
-    public function setTags($tags)
-    {
-        $this->container['tags'] = $tags;
-
-        return $this;
-    }
-
-    /**
-     * Gets zone_id
-     *
-     * @return string
-     */
-    public function getZoneId()
-    {
-        return $this->container['zone_id'];
-    }
-
-    /**
-     * Sets zone_id
-     *
-     * @param string $zone_id zone_id
-     *
-     * @return $this
-     */
-    public function setZoneId($zone_id)
-    {
-        $this->container['zone_id'] = $zone_id;
-
-        return $this;
-    }
     /**
      * Returns true if offset exists. False otherwise.
      *

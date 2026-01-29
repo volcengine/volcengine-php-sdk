@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class VolumeForAllocateInstancesInput implements ModelInterface, ArrayAccess
+class DescribeSystemEventDefaultActionResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class VolumeForAllocateInstancesInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'VolumeForAllocateInstancesInput';
+    protected static $swaggerModelName = 'DescribeSystemEventDefaultActionResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,9 @@ class VolumeForAllocateInstancesInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'extra_performance_iops' => 'int',
-        'extra_performance_throughput_mb' => 'int',
-        'extra_performance_type_id' => 'string',
-        'size' => 'int',
-        'snapshot_id' => 'string',
-        'volume_type' => 'string'
+        'default_action' => 'string',
+        'event_id' => 'string',
+        'related_system_event' => '\Volcengine\Ecs\Model\RelatedSystemEventForDescribeSystemEventDefaultActionOutput'
     ];
 
     /**
@@ -42,12 +39,9 @@ class VolumeForAllocateInstancesInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'extra_performance_iops' => 'int32',
-        'extra_performance_throughput_mb' => 'int32',
-        'extra_performance_type_id' => null,
-        'size' => 'int32',
-        'snapshot_id' => null,
-        'volume_type' => null
+        'default_action' => null,
+        'event_id' => null,
+        'related_system_event' => null
     ];
 
     /**
@@ -77,12 +71,9 @@ class VolumeForAllocateInstancesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'extra_performance_iops' => 'ExtraPerformanceIOPS',
-        'extra_performance_throughput_mb' => 'ExtraPerformanceThroughputMB',
-        'extra_performance_type_id' => 'ExtraPerformanceTypeId',
-        'size' => 'Size',
-        'snapshot_id' => 'SnapshotId',
-        'volume_type' => 'VolumeType'
+        'default_action' => 'DefaultAction',
+        'event_id' => 'EventId',
+        'related_system_event' => 'RelatedSystemEvent'
     ];
 
     /**
@@ -91,12 +82,9 @@ class VolumeForAllocateInstancesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'extra_performance_iops' => 'setExtraPerformanceIops',
-        'extra_performance_throughput_mb' => 'setExtraPerformanceThroughputMb',
-        'extra_performance_type_id' => 'setExtraPerformanceTypeId',
-        'size' => 'setSize',
-        'snapshot_id' => 'setSnapshotId',
-        'volume_type' => 'setVolumeType'
+        'default_action' => 'setDefaultAction',
+        'event_id' => 'setEventId',
+        'related_system_event' => 'setRelatedSystemEvent'
     ];
 
     /**
@@ -105,12 +93,9 @@ class VolumeForAllocateInstancesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'extra_performance_iops' => 'getExtraPerformanceIops',
-        'extra_performance_throughput_mb' => 'getExtraPerformanceThroughputMb',
-        'extra_performance_type_id' => 'getExtraPerformanceTypeId',
-        'size' => 'getSize',
-        'snapshot_id' => 'getSnapshotId',
-        'volume_type' => 'getVolumeType'
+        'default_action' => 'getDefaultAction',
+        'event_id' => 'getEventId',
+        'related_system_event' => 'getRelatedSystemEvent'
     ];
 
     /**
@@ -173,12 +158,9 @@ class VolumeForAllocateInstancesInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['extra_performance_iops'] = isset($data['extra_performance_iops']) ? $data['extra_performance_iops'] : null;
-        $this->container['extra_performance_throughput_mb'] = isset($data['extra_performance_throughput_mb']) ? $data['extra_performance_throughput_mb'] : null;
-        $this->container['extra_performance_type_id'] = isset($data['extra_performance_type_id']) ? $data['extra_performance_type_id'] : null;
-        $this->container['size'] = isset($data['size']) ? $data['size'] : null;
-        $this->container['snapshot_id'] = isset($data['snapshot_id']) ? $data['snapshot_id'] : null;
-        $this->container['volume_type'] = isset($data['volume_type']) ? $data['volume_type'] : null;
+        $this->container['default_action'] = isset($data['default_action']) ? $data['default_action'] : null;
+        $this->container['event_id'] = isset($data['event_id']) ? $data['event_id'] : null;
+        $this->container['related_system_event'] = isset($data['related_system_event']) ? $data['related_system_event'] : null;
     }
 
     /**
@@ -190,9 +172,6 @@ class VolumeForAllocateInstancesInput implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['size'] === null) {
-            $invalidProperties[] = "'size' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -209,145 +188,73 @@ class VolumeForAllocateInstancesInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets extra_performance_iops
-     *
-     * @return int
-     */
-    public function getExtraPerformanceIops()
-    {
-        return $this->container['extra_performance_iops'];
-    }
-
-    /**
-     * Sets extra_performance_iops
-     *
-     * @param int $extra_performance_iops extra_performance_iops
-     *
-     * @return $this
-     */
-    public function setExtraPerformanceIops($extra_performance_iops)
-    {
-        $this->container['extra_performance_iops'] = $extra_performance_iops;
-
-        return $this;
-    }
-
-    /**
-     * Gets extra_performance_throughput_mb
-     *
-     * @return int
-     */
-    public function getExtraPerformanceThroughputMb()
-    {
-        return $this->container['extra_performance_throughput_mb'];
-    }
-
-    /**
-     * Sets extra_performance_throughput_mb
-     *
-     * @param int $extra_performance_throughput_mb extra_performance_throughput_mb
-     *
-     * @return $this
-     */
-    public function setExtraPerformanceThroughputMb($extra_performance_throughput_mb)
-    {
-        $this->container['extra_performance_throughput_mb'] = $extra_performance_throughput_mb;
-
-        return $this;
-    }
-
-    /**
-     * Gets extra_performance_type_id
+     * Gets default_action
      *
      * @return string
      */
-    public function getExtraPerformanceTypeId()
+    public function getDefaultAction()
     {
-        return $this->container['extra_performance_type_id'];
+        return $this->container['default_action'];
     }
 
     /**
-     * Sets extra_performance_type_id
+     * Sets default_action
      *
-     * @param string $extra_performance_type_id extra_performance_type_id
+     * @param string $default_action default_action
      *
      * @return $this
      */
-    public function setExtraPerformanceTypeId($extra_performance_type_id)
+    public function setDefaultAction($default_action)
     {
-        $this->container['extra_performance_type_id'] = $extra_performance_type_id;
+        $this->container['default_action'] = $default_action;
 
         return $this;
     }
 
     /**
-     * Gets size
-     *
-     * @return int
-     */
-    public function getSize()
-    {
-        return $this->container['size'];
-    }
-
-    /**
-     * Sets size
-     *
-     * @param int $size size
-     *
-     * @return $this
-     */
-    public function setSize($size)
-    {
-        $this->container['size'] = $size;
-
-        return $this;
-    }
-
-    /**
-     * Gets snapshot_id
+     * Gets event_id
      *
      * @return string
      */
-    public function getSnapshotId()
+    public function getEventId()
     {
-        return $this->container['snapshot_id'];
+        return $this->container['event_id'];
     }
 
     /**
-     * Sets snapshot_id
+     * Sets event_id
      *
-     * @param string $snapshot_id snapshot_id
+     * @param string $event_id event_id
      *
      * @return $this
      */
-    public function setSnapshotId($snapshot_id)
+    public function setEventId($event_id)
     {
-        $this->container['snapshot_id'] = $snapshot_id;
+        $this->container['event_id'] = $event_id;
 
         return $this;
     }
 
     /**
-     * Gets volume_type
+     * Gets related_system_event
      *
-     * @return string
+     * @return \Volcengine\Ecs\Model\RelatedSystemEventForDescribeSystemEventDefaultActionOutput
      */
-    public function getVolumeType()
+    public function getRelatedSystemEvent()
     {
-        return $this->container['volume_type'];
+        return $this->container['related_system_event'];
     }
 
     /**
-     * Sets volume_type
+     * Sets related_system_event
      *
-     * @param string $volume_type volume_type
+     * @param \Volcengine\Ecs\Model\RelatedSystemEventForDescribeSystemEventDefaultActionOutput $related_system_event related_system_event
      *
      * @return $this
      */
-    public function setVolumeType($volume_type)
+    public function setRelatedSystemEvent($related_system_event)
     {
-        $this->container['volume_type'] = $volume_type;
+        $this->container['related_system_event'] = $related_system_event;
 
         return $this;
     }
