@@ -32,6 +32,8 @@ class HpcClusterForDescribeHpcClustersOutput implements ModelInterface, ArrayAcc
         'description' => 'string',
         'hpc_cluster_id' => 'string',
         'name' => 'string',
+        'project_name' => 'string',
+        'tags' => '\Volcengine\Ecs\Model\TagForDescribeHpcClustersOutput[]',
         'updated_at' => 'string',
         'vpc_id' => 'string',
         'zone_id' => 'string'
@@ -47,6 +49,8 @@ class HpcClusterForDescribeHpcClustersOutput implements ModelInterface, ArrayAcc
         'description' => null,
         'hpc_cluster_id' => null,
         'name' => null,
+        'project_name' => null,
+        'tags' => null,
         'updated_at' => null,
         'vpc_id' => null,
         'zone_id' => null
@@ -83,6 +87,8 @@ class HpcClusterForDescribeHpcClustersOutput implements ModelInterface, ArrayAcc
         'description' => 'Description',
         'hpc_cluster_id' => 'HpcClusterId',
         'name' => 'Name',
+        'project_name' => 'ProjectName',
+        'tags' => 'Tags',
         'updated_at' => 'UpdatedAt',
         'vpc_id' => 'VpcId',
         'zone_id' => 'ZoneId'
@@ -98,6 +104,8 @@ class HpcClusterForDescribeHpcClustersOutput implements ModelInterface, ArrayAcc
         'description' => 'setDescription',
         'hpc_cluster_id' => 'setHpcClusterId',
         'name' => 'setName',
+        'project_name' => 'setProjectName',
+        'tags' => 'setTags',
         'updated_at' => 'setUpdatedAt',
         'vpc_id' => 'setVpcId',
         'zone_id' => 'setZoneId'
@@ -113,6 +121,8 @@ class HpcClusterForDescribeHpcClustersOutput implements ModelInterface, ArrayAcc
         'description' => 'getDescription',
         'hpc_cluster_id' => 'getHpcClusterId',
         'name' => 'getName',
+        'project_name' => 'getProjectName',
+        'tags' => 'getTags',
         'updated_at' => 'getUpdatedAt',
         'vpc_id' => 'getVpcId',
         'zone_id' => 'getZoneId'
@@ -182,6 +192,8 @@ class HpcClusterForDescribeHpcClustersOutput implements ModelInterface, ArrayAcc
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['hpc_cluster_id'] = isset($data['hpc_cluster_id']) ? $data['hpc_cluster_id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
         $this->container['vpc_id'] = isset($data['vpc_id']) ? $data['vpc_id'] : null;
         $this->container['zone_id'] = isset($data['zone_id']) ? $data['zone_id'] : null;
@@ -303,6 +315,54 @@ class HpcClusterForDescribeHpcClustersOutput implements ModelInterface, ArrayAcc
     public function setName($name)
     {
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets tags
+     *
+     * @return \Volcengine\Ecs\Model\TagForDescribeHpcClustersOutput[]
+     */
+    public function getTags()
+    {
+        return $this->container['tags'];
+    }
+
+    /**
+     * Sets tags
+     *
+     * @param \Volcengine\Ecs\Model\TagForDescribeHpcClustersOutput[] $tags tags
+     *
+     * @return $this
+     */
+    public function setTags($tags)
+    {
+        $this->container['tags'] = $tags;
 
         return $this;
     }

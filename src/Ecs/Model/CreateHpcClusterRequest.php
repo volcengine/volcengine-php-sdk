@@ -31,6 +31,8 @@ class CreateHpcClusterRequest implements ModelInterface, ArrayAccess
         'client_token' => 'string',
         'description' => 'string',
         'name' => 'string',
+        'project_name' => 'string',
+        'tags' => '\Volcengine\Ecs\Model\TagForCreateHpcClusterInput[]',
         'zone_id' => 'string'
     ];
 
@@ -43,6 +45,8 @@ class CreateHpcClusterRequest implements ModelInterface, ArrayAccess
         'client_token' => null,
         'description' => null,
         'name' => null,
+        'project_name' => null,
+        'tags' => null,
         'zone_id' => null
     ];
 
@@ -76,6 +80,8 @@ class CreateHpcClusterRequest implements ModelInterface, ArrayAccess
         'client_token' => 'ClientToken',
         'description' => 'Description',
         'name' => 'Name',
+        'project_name' => 'ProjectName',
+        'tags' => 'Tags',
         'zone_id' => 'ZoneId'
     ];
 
@@ -88,6 +94,8 @@ class CreateHpcClusterRequest implements ModelInterface, ArrayAccess
         'client_token' => 'setClientToken',
         'description' => 'setDescription',
         'name' => 'setName',
+        'project_name' => 'setProjectName',
+        'tags' => 'setTags',
         'zone_id' => 'setZoneId'
     ];
 
@@ -100,6 +108,8 @@ class CreateHpcClusterRequest implements ModelInterface, ArrayAccess
         'client_token' => 'getClientToken',
         'description' => 'getDescription',
         'name' => 'getName',
+        'project_name' => 'getProjectName',
+        'tags' => 'getTags',
         'zone_id' => 'getZoneId'
     ];
 
@@ -166,6 +176,8 @@ class CreateHpcClusterRequest implements ModelInterface, ArrayAccess
         $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['zone_id'] = isset($data['zone_id']) ? $data['zone_id'] : null;
     }
 
@@ -267,6 +279,54 @@ class CreateHpcClusterRequest implements ModelInterface, ArrayAccess
     public function setName($name)
     {
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets tags
+     *
+     * @return \Volcengine\Ecs\Model\TagForCreateHpcClusterInput[]
+     */
+    public function getTags()
+    {
+        return $this->container['tags'];
+    }
+
+    /**
+     * Sets tags
+     *
+     * @param \Volcengine\Ecs\Model\TagForCreateHpcClusterInput[] $tags tags
+     *
+     * @return $this
+     */
+    public function setTags($tags)
+    {
+        $this->container['tags'] = $tags;
 
         return $this;
     }
