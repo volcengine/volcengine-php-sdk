@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class BackupDataRequest implements ModelInterface, ArrayAccess
+class DetailDNSRuleResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'BackupDataRequest';
+    protected static $swaggerModelName = 'DetailDNSRuleResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,14 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'backup_all' => 'bool',
-        'description' => 'string',
-        'exclude_path_list' => 'string[]',
-        'include_path_list' => 'string[]',
-        'pod_id_list' => 'string[]',
-        'product_id' => 'string'
+        'create_at' => 'int',
+        'dnsid' => 'string',
+        'dns_name' => 'string',
+        'dc' => 'string',
+        'ip_list' => '\Volcengine\Acep\Model\IPListForDetailDNSRuleOutput[]',
+        'product_id' => 'string',
+        'type' => 'int',
+        'update_at' => 'int'
     ];
 
     /**
@@ -42,12 +44,14 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'backup_all' => null,
-        'description' => null,
-        'exclude_path_list' => null,
-        'include_path_list' => null,
-        'pod_id_list' => null,
-        'product_id' => null
+        'create_at' => 'int64',
+        'dnsid' => null,
+        'dns_name' => null,
+        'dc' => null,
+        'ip_list' => null,
+        'product_id' => null,
+        'type' => 'int32',
+        'update_at' => 'int64'
     ];
 
     /**
@@ -77,12 +81,14 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'backup_all' => 'BackupAll',
-        'description' => 'Description',
-        'exclude_path_list' => 'ExcludePathList',
-        'include_path_list' => 'IncludePathList',
-        'pod_id_list' => 'PodIdList',
-        'product_id' => 'ProductId'
+        'create_at' => 'CreateAt',
+        'dnsid' => 'DNSId',
+        'dns_name' => 'DNSName',
+        'dc' => 'Dc',
+        'ip_list' => 'IPList',
+        'product_id' => 'ProductId',
+        'type' => 'Type',
+        'update_at' => 'UpdateAt'
     ];
 
     /**
@@ -91,12 +97,14 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'backup_all' => 'setBackupAll',
-        'description' => 'setDescription',
-        'exclude_path_list' => 'setExcludePathList',
-        'include_path_list' => 'setIncludePathList',
-        'pod_id_list' => 'setPodIdList',
-        'product_id' => 'setProductId'
+        'create_at' => 'setCreateAt',
+        'dnsid' => 'setDnsid',
+        'dns_name' => 'setDnsName',
+        'dc' => 'setDc',
+        'ip_list' => 'setIpList',
+        'product_id' => 'setProductId',
+        'type' => 'setType',
+        'update_at' => 'setUpdateAt'
     ];
 
     /**
@@ -105,12 +113,14 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'backup_all' => 'getBackupAll',
-        'description' => 'getDescription',
-        'exclude_path_list' => 'getExcludePathList',
-        'include_path_list' => 'getIncludePathList',
-        'pod_id_list' => 'getPodIdList',
-        'product_id' => 'getProductId'
+        'create_at' => 'getCreateAt',
+        'dnsid' => 'getDnsid',
+        'dns_name' => 'getDnsName',
+        'dc' => 'getDc',
+        'ip_list' => 'getIpList',
+        'product_id' => 'getProductId',
+        'type' => 'getType',
+        'update_at' => 'getUpdateAt'
     ];
 
     /**
@@ -173,12 +183,14 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['backup_all'] = isset($data['backup_all']) ? $data['backup_all'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['exclude_path_list'] = isset($data['exclude_path_list']) ? $data['exclude_path_list'] : null;
-        $this->container['include_path_list'] = isset($data['include_path_list']) ? $data['include_path_list'] : null;
-        $this->container['pod_id_list'] = isset($data['pod_id_list']) ? $data['pod_id_list'] : null;
+        $this->container['create_at'] = isset($data['create_at']) ? $data['create_at'] : null;
+        $this->container['dnsid'] = isset($data['dnsid']) ? $data['dnsid'] : null;
+        $this->container['dns_name'] = isset($data['dns_name']) ? $data['dns_name'] : null;
+        $this->container['dc'] = isset($data['dc']) ? $data['dc'] : null;
+        $this->container['ip_list'] = isset($data['ip_list']) ? $data['ip_list'] : null;
         $this->container['product_id'] = isset($data['product_id']) ? $data['product_id'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['update_at'] = isset($data['update_at']) ? $data['update_at'] : null;
     }
 
     /**
@@ -190,9 +202,6 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['product_id'] === null) {
-            $invalidProperties[] = "'product_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -209,121 +218,121 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets backup_all
+     * Gets create_at
      *
-     * @return bool
+     * @return int
      */
-    public function getBackupAll()
+    public function getCreateAt()
     {
-        return $this->container['backup_all'];
+        return $this->container['create_at'];
     }
 
     /**
-     * Sets backup_all
+     * Sets create_at
      *
-     * @param bool $backup_all backup_all
+     * @param int $create_at create_at
      *
      * @return $this
      */
-    public function setBackupAll($backup_all)
+    public function setCreateAt($create_at)
     {
-        $this->container['backup_all'] = $backup_all;
+        $this->container['create_at'] = $create_at;
 
         return $this;
     }
 
     /**
-     * Gets description
+     * Gets dnsid
      *
      * @return string
      */
-    public function getDescription()
+    public function getDnsid()
     {
-        return $this->container['description'];
+        return $this->container['dnsid'];
     }
 
     /**
-     * Sets description
+     * Sets dnsid
      *
-     * @param string $description description
+     * @param string $dnsid dnsid
      *
      * @return $this
      */
-    public function setDescription($description)
+    public function setDnsid($dnsid)
     {
-        $this->container['description'] = $description;
+        $this->container['dnsid'] = $dnsid;
 
         return $this;
     }
 
     /**
-     * Gets exclude_path_list
+     * Gets dns_name
      *
-     * @return string[]
+     * @return string
      */
-    public function getExcludePathList()
+    public function getDnsName()
     {
-        return $this->container['exclude_path_list'];
+        return $this->container['dns_name'];
     }
 
     /**
-     * Sets exclude_path_list
+     * Sets dns_name
      *
-     * @param string[] $exclude_path_list exclude_path_list
+     * @param string $dns_name dns_name
      *
      * @return $this
      */
-    public function setExcludePathList($exclude_path_list)
+    public function setDnsName($dns_name)
     {
-        $this->container['exclude_path_list'] = $exclude_path_list;
+        $this->container['dns_name'] = $dns_name;
 
         return $this;
     }
 
     /**
-     * Gets include_path_list
+     * Gets dc
      *
-     * @return string[]
+     * @return string
      */
-    public function getIncludePathList()
+    public function getDc()
     {
-        return $this->container['include_path_list'];
+        return $this->container['dc'];
     }
 
     /**
-     * Sets include_path_list
+     * Sets dc
      *
-     * @param string[] $include_path_list include_path_list
+     * @param string $dc dc
      *
      * @return $this
      */
-    public function setIncludePathList($include_path_list)
+    public function setDc($dc)
     {
-        $this->container['include_path_list'] = $include_path_list;
+        $this->container['dc'] = $dc;
 
         return $this;
     }
 
     /**
-     * Gets pod_id_list
+     * Gets ip_list
      *
-     * @return string[]
+     * @return \Volcengine\Acep\Model\IPListForDetailDNSRuleOutput[]
      */
-    public function getPodIdList()
+    public function getIpList()
     {
-        return $this->container['pod_id_list'];
+        return $this->container['ip_list'];
     }
 
     /**
-     * Sets pod_id_list
+     * Sets ip_list
      *
-     * @param string[] $pod_id_list pod_id_list
+     * @param \Volcengine\Acep\Model\IPListForDetailDNSRuleOutput[] $ip_list ip_list
      *
      * @return $this
      */
-    public function setPodIdList($pod_id_list)
+    public function setIpList($ip_list)
     {
-        $this->container['pod_id_list'] = $pod_id_list;
+        $this->container['ip_list'] = $ip_list;
 
         return $this;
     }
@@ -348,6 +357,54 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
     public function setProductId($product_id)
     {
         $this->container['product_id'] = $product_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return int
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param int $type type
+     *
+     * @return $this
+     */
+    public function setType($type)
+    {
+        $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets update_at
+     *
+     * @return int
+     */
+    public function getUpdateAt()
+    {
+        return $this->container['update_at'];
+    }
+
+    /**
+     * Sets update_at
+     *
+     * @param int $update_at update_at
+     *
+     * @return $this
+     */
+    public function setUpdateAt($update_at)
+    {
+        $this->container['update_at'] = $update_at;
 
         return $this;
     }

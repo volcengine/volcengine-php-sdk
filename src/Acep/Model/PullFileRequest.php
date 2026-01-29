@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class BackupDataRequest implements ModelInterface, ArrayAccess
+class PullFileRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'BackupDataRequest';
+    protected static $swaggerModelName = 'PullFileRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,13 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'backup_all' => 'bool',
-        'description' => 'string',
-        'exclude_path_list' => 'string[]',
-        'include_path_list' => 'string[]',
-        'pod_id_list' => 'string[]',
-        'product_id' => 'string'
+        'endpoint' => 'string',
+        'file_path' => 'string',
+        'pod_id' => 'string',
+        'product_id' => 'string',
+        'region' => 'string',
+        'tos_bucket' => 'string',
+        'tos_file_path' => 'string'
     ];
 
     /**
@@ -42,12 +43,13 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'backup_all' => null,
-        'description' => null,
-        'exclude_path_list' => null,
-        'include_path_list' => null,
-        'pod_id_list' => null,
-        'product_id' => null
+        'endpoint' => null,
+        'file_path' => null,
+        'pod_id' => null,
+        'product_id' => null,
+        'region' => null,
+        'tos_bucket' => null,
+        'tos_file_path' => null
     ];
 
     /**
@@ -77,12 +79,13 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'backup_all' => 'BackupAll',
-        'description' => 'Description',
-        'exclude_path_list' => 'ExcludePathList',
-        'include_path_list' => 'IncludePathList',
-        'pod_id_list' => 'PodIdList',
-        'product_id' => 'ProductId'
+        'endpoint' => 'Endpoint',
+        'file_path' => 'FilePath',
+        'pod_id' => 'PodId',
+        'product_id' => 'ProductId',
+        'region' => 'Region',
+        'tos_bucket' => 'TosBucket',
+        'tos_file_path' => 'TosFilePath'
     ];
 
     /**
@@ -91,12 +94,13 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'backup_all' => 'setBackupAll',
-        'description' => 'setDescription',
-        'exclude_path_list' => 'setExcludePathList',
-        'include_path_list' => 'setIncludePathList',
-        'pod_id_list' => 'setPodIdList',
-        'product_id' => 'setProductId'
+        'endpoint' => 'setEndpoint',
+        'file_path' => 'setFilePath',
+        'pod_id' => 'setPodId',
+        'product_id' => 'setProductId',
+        'region' => 'setRegion',
+        'tos_bucket' => 'setTosBucket',
+        'tos_file_path' => 'setTosFilePath'
     ];
 
     /**
@@ -105,12 +109,13 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'backup_all' => 'getBackupAll',
-        'description' => 'getDescription',
-        'exclude_path_list' => 'getExcludePathList',
-        'include_path_list' => 'getIncludePathList',
-        'pod_id_list' => 'getPodIdList',
-        'product_id' => 'getProductId'
+        'endpoint' => 'getEndpoint',
+        'file_path' => 'getFilePath',
+        'pod_id' => 'getPodId',
+        'product_id' => 'getProductId',
+        'region' => 'getRegion',
+        'tos_bucket' => 'getTosBucket',
+        'tos_file_path' => 'getTosFilePath'
     ];
 
     /**
@@ -173,12 +178,13 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['backup_all'] = isset($data['backup_all']) ? $data['backup_all'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['exclude_path_list'] = isset($data['exclude_path_list']) ? $data['exclude_path_list'] : null;
-        $this->container['include_path_list'] = isset($data['include_path_list']) ? $data['include_path_list'] : null;
-        $this->container['pod_id_list'] = isset($data['pod_id_list']) ? $data['pod_id_list'] : null;
+        $this->container['endpoint'] = isset($data['endpoint']) ? $data['endpoint'] : null;
+        $this->container['file_path'] = isset($data['file_path']) ? $data['file_path'] : null;
+        $this->container['pod_id'] = isset($data['pod_id']) ? $data['pod_id'] : null;
         $this->container['product_id'] = isset($data['product_id']) ? $data['product_id'] : null;
+        $this->container['region'] = isset($data['region']) ? $data['region'] : null;
+        $this->container['tos_bucket'] = isset($data['tos_bucket']) ? $data['tos_bucket'] : null;
+        $this->container['tos_file_path'] = isset($data['tos_file_path']) ? $data['tos_file_path'] : null;
     }
 
     /**
@@ -190,8 +196,26 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['endpoint'] === null) {
+            $invalidProperties[] = "'endpoint' can't be null";
+        }
+        if ($this->container['file_path'] === null) {
+            $invalidProperties[] = "'file_path' can't be null";
+        }
+        if ($this->container['pod_id'] === null) {
+            $invalidProperties[] = "'pod_id' can't be null";
+        }
         if ($this->container['product_id'] === null) {
             $invalidProperties[] = "'product_id' can't be null";
+        }
+        if ($this->container['region'] === null) {
+            $invalidProperties[] = "'region' can't be null";
+        }
+        if ($this->container['tos_bucket'] === null) {
+            $invalidProperties[] = "'tos_bucket' can't be null";
+        }
+        if ($this->container['tos_file_path'] === null) {
+            $invalidProperties[] = "'tos_file_path' can't be null";
         }
         return $invalidProperties;
     }
@@ -209,121 +233,73 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets backup_all
-     *
-     * @return bool
-     */
-    public function getBackupAll()
-    {
-        return $this->container['backup_all'];
-    }
-
-    /**
-     * Sets backup_all
-     *
-     * @param bool $backup_all backup_all
-     *
-     * @return $this
-     */
-    public function setBackupAll($backup_all)
-    {
-        $this->container['backup_all'] = $backup_all;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
+     * Gets endpoint
      *
      * @return string
      */
-    public function getDescription()
+    public function getEndpoint()
     {
-        return $this->container['description'];
+        return $this->container['endpoint'];
     }
 
     /**
-     * Sets description
+     * Sets endpoint
      *
-     * @param string $description description
+     * @param string $endpoint endpoint
      *
      * @return $this
      */
-    public function setDescription($description)
+    public function setEndpoint($endpoint)
     {
-        $this->container['description'] = $description;
+        $this->container['endpoint'] = $endpoint;
 
         return $this;
     }
 
     /**
-     * Gets exclude_path_list
+     * Gets file_path
      *
-     * @return string[]
+     * @return string
      */
-    public function getExcludePathList()
+    public function getFilePath()
     {
-        return $this->container['exclude_path_list'];
+        return $this->container['file_path'];
     }
 
     /**
-     * Sets exclude_path_list
+     * Sets file_path
      *
-     * @param string[] $exclude_path_list exclude_path_list
+     * @param string $file_path file_path
      *
      * @return $this
      */
-    public function setExcludePathList($exclude_path_list)
+    public function setFilePath($file_path)
     {
-        $this->container['exclude_path_list'] = $exclude_path_list;
+        $this->container['file_path'] = $file_path;
 
         return $this;
     }
 
     /**
-     * Gets include_path_list
+     * Gets pod_id
      *
-     * @return string[]
+     * @return string
      */
-    public function getIncludePathList()
+    public function getPodId()
     {
-        return $this->container['include_path_list'];
+        return $this->container['pod_id'];
     }
 
     /**
-     * Sets include_path_list
+     * Sets pod_id
      *
-     * @param string[] $include_path_list include_path_list
+     * @param string $pod_id pod_id
      *
      * @return $this
      */
-    public function setIncludePathList($include_path_list)
+    public function setPodId($pod_id)
     {
-        $this->container['include_path_list'] = $include_path_list;
-
-        return $this;
-    }
-
-    /**
-     * Gets pod_id_list
-     *
-     * @return string[]
-     */
-    public function getPodIdList()
-    {
-        return $this->container['pod_id_list'];
-    }
-
-    /**
-     * Sets pod_id_list
-     *
-     * @param string[] $pod_id_list pod_id_list
-     *
-     * @return $this
-     */
-    public function setPodIdList($pod_id_list)
-    {
-        $this->container['pod_id_list'] = $pod_id_list;
+        $this->container['pod_id'] = $pod_id;
 
         return $this;
     }
@@ -348,6 +324,78 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
     public function setProductId($product_id)
     {
         $this->container['product_id'] = $product_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets region
+     *
+     * @return string
+     */
+    public function getRegion()
+    {
+        return $this->container['region'];
+    }
+
+    /**
+     * Sets region
+     *
+     * @param string $region region
+     *
+     * @return $this
+     */
+    public function setRegion($region)
+    {
+        $this->container['region'] = $region;
+
+        return $this;
+    }
+
+    /**
+     * Gets tos_bucket
+     *
+     * @return string
+     */
+    public function getTosBucket()
+    {
+        return $this->container['tos_bucket'];
+    }
+
+    /**
+     * Sets tos_bucket
+     *
+     * @param string $tos_bucket tos_bucket
+     *
+     * @return $this
+     */
+    public function setTosBucket($tos_bucket)
+    {
+        $this->container['tos_bucket'] = $tos_bucket;
+
+        return $this;
+    }
+
+    /**
+     * Gets tos_file_path
+     *
+     * @return string
+     */
+    public function getTosFilePath()
+    {
+        return $this->container['tos_file_path'];
+    }
+
+    /**
+     * Sets tos_file_path
+     *
+     * @param string $tos_file_path tos_file_path
+     *
+     * @return $this
+     */
+    public function setTosFilePath($tos_file_path)
+    {
+        $this->container['tos_file_path'] = $tos_file_path;
 
         return $this;
     }

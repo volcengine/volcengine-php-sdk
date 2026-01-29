@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class BackupDataRequest implements ModelInterface, ArrayAccess
+class ListAOSPImageRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'BackupDataRequest';
+    protected static $swaggerModelName = 'ListAOSPImageRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,11 +28,14 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'backup_all' => 'bool',
-        'description' => 'string',
-        'exclude_path_list' => 'string[]',
-        'include_path_list' => 'string[]',
-        'pod_id_list' => 'string[]',
+        'aosp_version' => 'string',
+        'expand_scope' => 'bool',
+        'image_id_list' => 'string[]',
+        'image_name' => 'string',
+        'image_status' => 'int',
+        'is_public' => 'bool',
+        'max_results' => 'int',
+        'next_token' => 'string',
         'product_id' => 'string'
     ];
 
@@ -42,11 +45,14 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'backup_all' => null,
-        'description' => null,
-        'exclude_path_list' => null,
-        'include_path_list' => null,
-        'pod_id_list' => null,
+        'aosp_version' => null,
+        'expand_scope' => null,
+        'image_id_list' => null,
+        'image_name' => null,
+        'image_status' => 'int32',
+        'is_public' => null,
+        'max_results' => 'int32',
+        'next_token' => null,
         'product_id' => null
     ];
 
@@ -77,11 +83,14 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'backup_all' => 'BackupAll',
-        'description' => 'Description',
-        'exclude_path_list' => 'ExcludePathList',
-        'include_path_list' => 'IncludePathList',
-        'pod_id_list' => 'PodIdList',
+        'aosp_version' => 'AOSPVersion',
+        'expand_scope' => 'ExpandScope',
+        'image_id_list' => 'ImageIdList',
+        'image_name' => 'ImageName',
+        'image_status' => 'ImageStatus',
+        'is_public' => 'IsPublic',
+        'max_results' => 'MaxResults',
+        'next_token' => 'NextToken',
         'product_id' => 'ProductId'
     ];
 
@@ -91,11 +100,14 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'backup_all' => 'setBackupAll',
-        'description' => 'setDescription',
-        'exclude_path_list' => 'setExcludePathList',
-        'include_path_list' => 'setIncludePathList',
-        'pod_id_list' => 'setPodIdList',
+        'aosp_version' => 'setAospVersion',
+        'expand_scope' => 'setExpandScope',
+        'image_id_list' => 'setImageIdList',
+        'image_name' => 'setImageName',
+        'image_status' => 'setImageStatus',
+        'is_public' => 'setIsPublic',
+        'max_results' => 'setMaxResults',
+        'next_token' => 'setNextToken',
         'product_id' => 'setProductId'
     ];
 
@@ -105,11 +117,14 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'backup_all' => 'getBackupAll',
-        'description' => 'getDescription',
-        'exclude_path_list' => 'getExcludePathList',
-        'include_path_list' => 'getIncludePathList',
-        'pod_id_list' => 'getPodIdList',
+        'aosp_version' => 'getAospVersion',
+        'expand_scope' => 'getExpandScope',
+        'image_id_list' => 'getImageIdList',
+        'image_name' => 'getImageName',
+        'image_status' => 'getImageStatus',
+        'is_public' => 'getIsPublic',
+        'max_results' => 'getMaxResults',
+        'next_token' => 'getNextToken',
         'product_id' => 'getProductId'
     ];
 
@@ -173,11 +188,14 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['backup_all'] = isset($data['backup_all']) ? $data['backup_all'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['exclude_path_list'] = isset($data['exclude_path_list']) ? $data['exclude_path_list'] : null;
-        $this->container['include_path_list'] = isset($data['include_path_list']) ? $data['include_path_list'] : null;
-        $this->container['pod_id_list'] = isset($data['pod_id_list']) ? $data['pod_id_list'] : null;
+        $this->container['aosp_version'] = isset($data['aosp_version']) ? $data['aosp_version'] : null;
+        $this->container['expand_scope'] = isset($data['expand_scope']) ? $data['expand_scope'] : null;
+        $this->container['image_id_list'] = isset($data['image_id_list']) ? $data['image_id_list'] : null;
+        $this->container['image_name'] = isset($data['image_name']) ? $data['image_name'] : null;
+        $this->container['image_status'] = isset($data['image_status']) ? $data['image_status'] : null;
+        $this->container['is_public'] = isset($data['is_public']) ? $data['is_public'] : null;
+        $this->container['max_results'] = isset($data['max_results']) ? $data['max_results'] : null;
+        $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
         $this->container['product_id'] = isset($data['product_id']) ? $data['product_id'] : null;
     }
 
@@ -209,121 +227,193 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets backup_all
-     *
-     * @return bool
-     */
-    public function getBackupAll()
-    {
-        return $this->container['backup_all'];
-    }
-
-    /**
-     * Sets backup_all
-     *
-     * @param bool $backup_all backup_all
-     *
-     * @return $this
-     */
-    public function setBackupAll($backup_all)
-    {
-        $this->container['backup_all'] = $backup_all;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
+     * Gets aosp_version
      *
      * @return string
      */
-    public function getDescription()
+    public function getAospVersion()
     {
-        return $this->container['description'];
+        return $this->container['aosp_version'];
     }
 
     /**
-     * Sets description
+     * Sets aosp_version
      *
-     * @param string $description description
+     * @param string $aosp_version aosp_version
      *
      * @return $this
      */
-    public function setDescription($description)
+    public function setAospVersion($aosp_version)
     {
-        $this->container['description'] = $description;
+        $this->container['aosp_version'] = $aosp_version;
 
         return $this;
     }
 
     /**
-     * Gets exclude_path_list
+     * Gets expand_scope
      *
-     * @return string[]
+     * @return bool
      */
-    public function getExcludePathList()
+    public function getExpandScope()
     {
-        return $this->container['exclude_path_list'];
+        return $this->container['expand_scope'];
     }
 
     /**
-     * Sets exclude_path_list
+     * Sets expand_scope
      *
-     * @param string[] $exclude_path_list exclude_path_list
+     * @param bool $expand_scope expand_scope
      *
      * @return $this
      */
-    public function setExcludePathList($exclude_path_list)
+    public function setExpandScope($expand_scope)
     {
-        $this->container['exclude_path_list'] = $exclude_path_list;
+        $this->container['expand_scope'] = $expand_scope;
 
         return $this;
     }
 
     /**
-     * Gets include_path_list
+     * Gets image_id_list
      *
      * @return string[]
      */
-    public function getIncludePathList()
+    public function getImageIdList()
     {
-        return $this->container['include_path_list'];
+        return $this->container['image_id_list'];
     }
 
     /**
-     * Sets include_path_list
+     * Sets image_id_list
      *
-     * @param string[] $include_path_list include_path_list
+     * @param string[] $image_id_list image_id_list
      *
      * @return $this
      */
-    public function setIncludePathList($include_path_list)
+    public function setImageIdList($image_id_list)
     {
-        $this->container['include_path_list'] = $include_path_list;
+        $this->container['image_id_list'] = $image_id_list;
 
         return $this;
     }
 
     /**
-     * Gets pod_id_list
+     * Gets image_name
      *
-     * @return string[]
+     * @return string
      */
-    public function getPodIdList()
+    public function getImageName()
     {
-        return $this->container['pod_id_list'];
+        return $this->container['image_name'];
     }
 
     /**
-     * Sets pod_id_list
+     * Sets image_name
      *
-     * @param string[] $pod_id_list pod_id_list
+     * @param string $image_name image_name
      *
      * @return $this
      */
-    public function setPodIdList($pod_id_list)
+    public function setImageName($image_name)
     {
-        $this->container['pod_id_list'] = $pod_id_list;
+        $this->container['image_name'] = $image_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets image_status
+     *
+     * @return int
+     */
+    public function getImageStatus()
+    {
+        return $this->container['image_status'];
+    }
+
+    /**
+     * Sets image_status
+     *
+     * @param int $image_status image_status
+     *
+     * @return $this
+     */
+    public function setImageStatus($image_status)
+    {
+        $this->container['image_status'] = $image_status;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_public
+     *
+     * @return bool
+     */
+    public function getIsPublic()
+    {
+        return $this->container['is_public'];
+    }
+
+    /**
+     * Sets is_public
+     *
+     * @param bool $is_public is_public
+     *
+     * @return $this
+     */
+    public function setIsPublic($is_public)
+    {
+        $this->container['is_public'] = $is_public;
+
+        return $this;
+    }
+
+    /**
+     * Gets max_results
+     *
+     * @return int
+     */
+    public function getMaxResults()
+    {
+        return $this->container['max_results'];
+    }
+
+    /**
+     * Sets max_results
+     *
+     * @param int $max_results max_results
+     *
+     * @return $this
+     */
+    public function setMaxResults($max_results)
+    {
+        $this->container['max_results'] = $max_results;
+
+        return $this;
+    }
+
+    /**
+     * Gets next_token
+     *
+     * @return string
+     */
+    public function getNextToken()
+    {
+        return $this->container['next_token'];
+    }
+
+    /**
+     * Sets next_token
+     *
+     * @param string $next_token next_token
+     *
+     * @return $this
+     */
+    public function setNextToken($next_token)
+    {
+        $this->container['next_token'] = $next_token;
 
         return $this;
     }

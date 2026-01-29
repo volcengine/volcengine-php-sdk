@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class BackupDataRequest implements ModelInterface, ArrayAccess
+class InstallAppsRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'BackupDataRequest';
+    protected static $swaggerModelName = 'InstallAppsRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,11 +28,10 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'backup_all' => 'bool',
-        'description' => 'string',
-        'exclude_path_list' => 'string[]',
-        'include_path_list' => 'string[]',
-        'pod_id_list' => 'string[]',
+        'app_list' => '\Volcengine\Acep\Model\AppListForInstallAppsInput[]',
+        'install_type' => 'int',
+        'is_preinstall' => 'bool',
+        'pod_id' => 'string',
         'product_id' => 'string'
     ];
 
@@ -42,11 +41,10 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'backup_all' => null,
-        'description' => null,
-        'exclude_path_list' => null,
-        'include_path_list' => null,
-        'pod_id_list' => null,
+        'app_list' => null,
+        'install_type' => 'int32',
+        'is_preinstall' => null,
+        'pod_id' => null,
         'product_id' => null
     ];
 
@@ -77,11 +75,10 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'backup_all' => 'BackupAll',
-        'description' => 'Description',
-        'exclude_path_list' => 'ExcludePathList',
-        'include_path_list' => 'IncludePathList',
-        'pod_id_list' => 'PodIdList',
+        'app_list' => 'AppList',
+        'install_type' => 'InstallType',
+        'is_preinstall' => 'IsPreinstall',
+        'pod_id' => 'PodId',
         'product_id' => 'ProductId'
     ];
 
@@ -91,11 +88,10 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'backup_all' => 'setBackupAll',
-        'description' => 'setDescription',
-        'exclude_path_list' => 'setExcludePathList',
-        'include_path_list' => 'setIncludePathList',
-        'pod_id_list' => 'setPodIdList',
+        'app_list' => 'setAppList',
+        'install_type' => 'setInstallType',
+        'is_preinstall' => 'setIsPreinstall',
+        'pod_id' => 'setPodId',
         'product_id' => 'setProductId'
     ];
 
@@ -105,11 +101,10 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'backup_all' => 'getBackupAll',
-        'description' => 'getDescription',
-        'exclude_path_list' => 'getExcludePathList',
-        'include_path_list' => 'getIncludePathList',
-        'pod_id_list' => 'getPodIdList',
+        'app_list' => 'getAppList',
+        'install_type' => 'getInstallType',
+        'is_preinstall' => 'getIsPreinstall',
+        'pod_id' => 'getPodId',
         'product_id' => 'getProductId'
     ];
 
@@ -173,11 +168,10 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['backup_all'] = isset($data['backup_all']) ? $data['backup_all'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['exclude_path_list'] = isset($data['exclude_path_list']) ? $data['exclude_path_list'] : null;
-        $this->container['include_path_list'] = isset($data['include_path_list']) ? $data['include_path_list'] : null;
-        $this->container['pod_id_list'] = isset($data['pod_id_list']) ? $data['pod_id_list'] : null;
+        $this->container['app_list'] = isset($data['app_list']) ? $data['app_list'] : null;
+        $this->container['install_type'] = isset($data['install_type']) ? $data['install_type'] : null;
+        $this->container['is_preinstall'] = isset($data['is_preinstall']) ? $data['is_preinstall'] : null;
+        $this->container['pod_id'] = isset($data['pod_id']) ? $data['pod_id'] : null;
         $this->container['product_id'] = isset($data['product_id']) ? $data['product_id'] : null;
     }
 
@@ -190,6 +184,9 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['pod_id'] === null) {
+            $invalidProperties[] = "'pod_id' can't be null";
+        }
         if ($this->container['product_id'] === null) {
             $invalidProperties[] = "'product_id' can't be null";
         }
@@ -209,121 +206,97 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets backup_all
+     * Gets app_list
+     *
+     * @return \Volcengine\Acep\Model\AppListForInstallAppsInput[]
+     */
+    public function getAppList()
+    {
+        return $this->container['app_list'];
+    }
+
+    /**
+     * Sets app_list
+     *
+     * @param \Volcengine\Acep\Model\AppListForInstallAppsInput[] $app_list app_list
+     *
+     * @return $this
+     */
+    public function setAppList($app_list)
+    {
+        $this->container['app_list'] = $app_list;
+
+        return $this;
+    }
+
+    /**
+     * Gets install_type
+     *
+     * @return int
+     */
+    public function getInstallType()
+    {
+        return $this->container['install_type'];
+    }
+
+    /**
+     * Sets install_type
+     *
+     * @param int $install_type install_type
+     *
+     * @return $this
+     */
+    public function setInstallType($install_type)
+    {
+        $this->container['install_type'] = $install_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_preinstall
      *
      * @return bool
      */
-    public function getBackupAll()
+    public function getIsPreinstall()
     {
-        return $this->container['backup_all'];
+        return $this->container['is_preinstall'];
     }
 
     /**
-     * Sets backup_all
+     * Sets is_preinstall
      *
-     * @param bool $backup_all backup_all
+     * @param bool $is_preinstall is_preinstall
      *
      * @return $this
      */
-    public function setBackupAll($backup_all)
+    public function setIsPreinstall($is_preinstall)
     {
-        $this->container['backup_all'] = $backup_all;
+        $this->container['is_preinstall'] = $is_preinstall;
 
         return $this;
     }
 
     /**
-     * Gets description
+     * Gets pod_id
      *
      * @return string
      */
-    public function getDescription()
+    public function getPodId()
     {
-        return $this->container['description'];
+        return $this->container['pod_id'];
     }
 
     /**
-     * Sets description
+     * Sets pod_id
      *
-     * @param string $description description
+     * @param string $pod_id pod_id
      *
      * @return $this
      */
-    public function setDescription($description)
+    public function setPodId($pod_id)
     {
-        $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets exclude_path_list
-     *
-     * @return string[]
-     */
-    public function getExcludePathList()
-    {
-        return $this->container['exclude_path_list'];
-    }
-
-    /**
-     * Sets exclude_path_list
-     *
-     * @param string[] $exclude_path_list exclude_path_list
-     *
-     * @return $this
-     */
-    public function setExcludePathList($exclude_path_list)
-    {
-        $this->container['exclude_path_list'] = $exclude_path_list;
-
-        return $this;
-    }
-
-    /**
-     * Gets include_path_list
-     *
-     * @return string[]
-     */
-    public function getIncludePathList()
-    {
-        return $this->container['include_path_list'];
-    }
-
-    /**
-     * Sets include_path_list
-     *
-     * @param string[] $include_path_list include_path_list
-     *
-     * @return $this
-     */
-    public function setIncludePathList($include_path_list)
-    {
-        $this->container['include_path_list'] = $include_path_list;
-
-        return $this;
-    }
-
-    /**
-     * Gets pod_id_list
-     *
-     * @return string[]
-     */
-    public function getPodIdList()
-    {
-        return $this->container['pod_id_list'];
-    }
-
-    /**
-     * Sets pod_id_list
-     *
-     * @param string[] $pod_id_list pod_id_list
-     *
-     * @return $this
-     */
-    public function setPodIdList($pod_id_list)
-    {
-        $this->container['pod_id_list'] = $pod_id_list;
+        $this->container['pod_id'] = $pod_id;
 
         return $this;
     }

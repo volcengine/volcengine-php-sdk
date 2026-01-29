@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class BackupDataRequest implements ModelInterface, ArrayAccess
+class AppCrashLogListForGetAppCrashLogOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'BackupDataRequest';
+    protected static $swaggerModelName = 'AppCrashLogListForGetAppCrashLogOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,10 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'backup_all' => 'bool',
-        'description' => 'string',
-        'exclude_path_list' => 'string[]',
-        'include_path_list' => 'string[]',
-        'pod_id_list' => 'string[]',
-        'product_id' => 'string'
+        'crash_time' => 'int',
+        'msg' => 'string',
+        'package_name' => 'string',
+        'pod_id' => 'string'
     ];
 
     /**
@@ -42,12 +40,10 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'backup_all' => null,
-        'description' => null,
-        'exclude_path_list' => null,
-        'include_path_list' => null,
-        'pod_id_list' => null,
-        'product_id' => null
+        'crash_time' => 'int64',
+        'msg' => null,
+        'package_name' => null,
+        'pod_id' => null
     ];
 
     /**
@@ -77,12 +73,10 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'backup_all' => 'BackupAll',
-        'description' => 'Description',
-        'exclude_path_list' => 'ExcludePathList',
-        'include_path_list' => 'IncludePathList',
-        'pod_id_list' => 'PodIdList',
-        'product_id' => 'ProductId'
+        'crash_time' => 'CrashTime',
+        'msg' => 'Msg',
+        'package_name' => 'PackageName',
+        'pod_id' => 'PodId'
     ];
 
     /**
@@ -91,12 +85,10 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'backup_all' => 'setBackupAll',
-        'description' => 'setDescription',
-        'exclude_path_list' => 'setExcludePathList',
-        'include_path_list' => 'setIncludePathList',
-        'pod_id_list' => 'setPodIdList',
-        'product_id' => 'setProductId'
+        'crash_time' => 'setCrashTime',
+        'msg' => 'setMsg',
+        'package_name' => 'setPackageName',
+        'pod_id' => 'setPodId'
     ];
 
     /**
@@ -105,12 +97,10 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'backup_all' => 'getBackupAll',
-        'description' => 'getDescription',
-        'exclude_path_list' => 'getExcludePathList',
-        'include_path_list' => 'getIncludePathList',
-        'pod_id_list' => 'getPodIdList',
-        'product_id' => 'getProductId'
+        'crash_time' => 'getCrashTime',
+        'msg' => 'getMsg',
+        'package_name' => 'getPackageName',
+        'pod_id' => 'getPodId'
     ];
 
     /**
@@ -173,12 +163,10 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['backup_all'] = isset($data['backup_all']) ? $data['backup_all'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['exclude_path_list'] = isset($data['exclude_path_list']) ? $data['exclude_path_list'] : null;
-        $this->container['include_path_list'] = isset($data['include_path_list']) ? $data['include_path_list'] : null;
-        $this->container['pod_id_list'] = isset($data['pod_id_list']) ? $data['pod_id_list'] : null;
-        $this->container['product_id'] = isset($data['product_id']) ? $data['product_id'] : null;
+        $this->container['crash_time'] = isset($data['crash_time']) ? $data['crash_time'] : null;
+        $this->container['msg'] = isset($data['msg']) ? $data['msg'] : null;
+        $this->container['package_name'] = isset($data['package_name']) ? $data['package_name'] : null;
+        $this->container['pod_id'] = isset($data['pod_id']) ? $data['pod_id'] : null;
     }
 
     /**
@@ -190,9 +178,6 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['product_id'] === null) {
-            $invalidProperties[] = "'product_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -209,145 +194,97 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets backup_all
+     * Gets crash_time
      *
-     * @return bool
+     * @return int
      */
-    public function getBackupAll()
+    public function getCrashTime()
     {
-        return $this->container['backup_all'];
+        return $this->container['crash_time'];
     }
 
     /**
-     * Sets backup_all
+     * Sets crash_time
      *
-     * @param bool $backup_all backup_all
+     * @param int $crash_time crash_time
      *
      * @return $this
      */
-    public function setBackupAll($backup_all)
+    public function setCrashTime($crash_time)
     {
-        $this->container['backup_all'] = $backup_all;
+        $this->container['crash_time'] = $crash_time;
 
         return $this;
     }
 
     /**
-     * Gets description
+     * Gets msg
      *
      * @return string
      */
-    public function getDescription()
+    public function getMsg()
     {
-        return $this->container['description'];
+        return $this->container['msg'];
     }
 
     /**
-     * Sets description
+     * Sets msg
      *
-     * @param string $description description
+     * @param string $msg msg
      *
      * @return $this
      */
-    public function setDescription($description)
+    public function setMsg($msg)
     {
-        $this->container['description'] = $description;
+        $this->container['msg'] = $msg;
 
         return $this;
     }
 
     /**
-     * Gets exclude_path_list
-     *
-     * @return string[]
-     */
-    public function getExcludePathList()
-    {
-        return $this->container['exclude_path_list'];
-    }
-
-    /**
-     * Sets exclude_path_list
-     *
-     * @param string[] $exclude_path_list exclude_path_list
-     *
-     * @return $this
-     */
-    public function setExcludePathList($exclude_path_list)
-    {
-        $this->container['exclude_path_list'] = $exclude_path_list;
-
-        return $this;
-    }
-
-    /**
-     * Gets include_path_list
-     *
-     * @return string[]
-     */
-    public function getIncludePathList()
-    {
-        return $this->container['include_path_list'];
-    }
-
-    /**
-     * Sets include_path_list
-     *
-     * @param string[] $include_path_list include_path_list
-     *
-     * @return $this
-     */
-    public function setIncludePathList($include_path_list)
-    {
-        $this->container['include_path_list'] = $include_path_list;
-
-        return $this;
-    }
-
-    /**
-     * Gets pod_id_list
-     *
-     * @return string[]
-     */
-    public function getPodIdList()
-    {
-        return $this->container['pod_id_list'];
-    }
-
-    /**
-     * Sets pod_id_list
-     *
-     * @param string[] $pod_id_list pod_id_list
-     *
-     * @return $this
-     */
-    public function setPodIdList($pod_id_list)
-    {
-        $this->container['pod_id_list'] = $pod_id_list;
-
-        return $this;
-    }
-
-    /**
-     * Gets product_id
+     * Gets package_name
      *
      * @return string
      */
-    public function getProductId()
+    public function getPackageName()
     {
-        return $this->container['product_id'];
+        return $this->container['package_name'];
     }
 
     /**
-     * Sets product_id
+     * Sets package_name
      *
-     * @param string $product_id product_id
+     * @param string $package_name package_name
      *
      * @return $this
      */
-    public function setProductId($product_id)
+    public function setPackageName($package_name)
     {
-        $this->container['product_id'] = $product_id;
+        $this->container['package_name'] = $package_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets pod_id
+     *
+     * @return string
+     */
+    public function getPodId()
+    {
+        return $this->container['pod_id'];
+    }
+
+    /**
+     * Sets pod_id
+     *
+     * @param string $pod_id pod_id
+     *
+     * @return $this
+     */
+    public function setPodId($pod_id)
+    {
+        $this->container['pod_id'] = $pod_id;
 
         return $this;
     }

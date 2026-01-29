@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class BackupDataRequest implements ModelInterface, ArrayAccess
+class UnsubscribeHostResourceRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'BackupDataRequest';
+    protected static $swaggerModelName = 'UnsubscribeHostResourceRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,11 +28,8 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'backup_all' => 'bool',
-        'description' => 'string',
-        'exclude_path_list' => 'string[]',
-        'include_path_list' => 'string[]',
-        'pod_id_list' => 'string[]',
+        'force' => 'bool',
+        'host_id_list' => 'string[]',
         'product_id' => 'string'
     ];
 
@@ -42,11 +39,8 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'backup_all' => null,
-        'description' => null,
-        'exclude_path_list' => null,
-        'include_path_list' => null,
-        'pod_id_list' => null,
+        'force' => null,
+        'host_id_list' => null,
         'product_id' => null
     ];
 
@@ -77,11 +71,8 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'backup_all' => 'BackupAll',
-        'description' => 'Description',
-        'exclude_path_list' => 'ExcludePathList',
-        'include_path_list' => 'IncludePathList',
-        'pod_id_list' => 'PodIdList',
+        'force' => 'Force',
+        'host_id_list' => 'HostIdList',
         'product_id' => 'ProductId'
     ];
 
@@ -91,11 +82,8 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'backup_all' => 'setBackupAll',
-        'description' => 'setDescription',
-        'exclude_path_list' => 'setExcludePathList',
-        'include_path_list' => 'setIncludePathList',
-        'pod_id_list' => 'setPodIdList',
+        'force' => 'setForce',
+        'host_id_list' => 'setHostIdList',
         'product_id' => 'setProductId'
     ];
 
@@ -105,11 +93,8 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'backup_all' => 'getBackupAll',
-        'description' => 'getDescription',
-        'exclude_path_list' => 'getExcludePathList',
-        'include_path_list' => 'getIncludePathList',
-        'pod_id_list' => 'getPodIdList',
+        'force' => 'getForce',
+        'host_id_list' => 'getHostIdList',
         'product_id' => 'getProductId'
     ];
 
@@ -173,11 +158,8 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['backup_all'] = isset($data['backup_all']) ? $data['backup_all'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['exclude_path_list'] = isset($data['exclude_path_list']) ? $data['exclude_path_list'] : null;
-        $this->container['include_path_list'] = isset($data['include_path_list']) ? $data['include_path_list'] : null;
-        $this->container['pod_id_list'] = isset($data['pod_id_list']) ? $data['pod_id_list'] : null;
+        $this->container['force'] = isset($data['force']) ? $data['force'] : null;
+        $this->container['host_id_list'] = isset($data['host_id_list']) ? $data['host_id_list'] : null;
         $this->container['product_id'] = isset($data['product_id']) ? $data['product_id'] : null;
     }
 
@@ -209,121 +191,49 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets backup_all
+     * Gets force
      *
      * @return bool
      */
-    public function getBackupAll()
+    public function getForce()
     {
-        return $this->container['backup_all'];
+        return $this->container['force'];
     }
 
     /**
-     * Sets backup_all
+     * Sets force
      *
-     * @param bool $backup_all backup_all
+     * @param bool $force force
      *
      * @return $this
      */
-    public function setBackupAll($backup_all)
+    public function setForce($force)
     {
-        $this->container['backup_all'] = $backup_all;
+        $this->container['force'] = $force;
 
         return $this;
     }
 
     /**
-     * Gets description
-     *
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->container['description'];
-    }
-
-    /**
-     * Sets description
-     *
-     * @param string $description description
-     *
-     * @return $this
-     */
-    public function setDescription($description)
-    {
-        $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets exclude_path_list
+     * Gets host_id_list
      *
      * @return string[]
      */
-    public function getExcludePathList()
+    public function getHostIdList()
     {
-        return $this->container['exclude_path_list'];
+        return $this->container['host_id_list'];
     }
 
     /**
-     * Sets exclude_path_list
+     * Sets host_id_list
      *
-     * @param string[] $exclude_path_list exclude_path_list
+     * @param string[] $host_id_list host_id_list
      *
      * @return $this
      */
-    public function setExcludePathList($exclude_path_list)
+    public function setHostIdList($host_id_list)
     {
-        $this->container['exclude_path_list'] = $exclude_path_list;
-
-        return $this;
-    }
-
-    /**
-     * Gets include_path_list
-     *
-     * @return string[]
-     */
-    public function getIncludePathList()
-    {
-        return $this->container['include_path_list'];
-    }
-
-    /**
-     * Sets include_path_list
-     *
-     * @param string[] $include_path_list include_path_list
-     *
-     * @return $this
-     */
-    public function setIncludePathList($include_path_list)
-    {
-        $this->container['include_path_list'] = $include_path_list;
-
-        return $this;
-    }
-
-    /**
-     * Gets pod_id_list
-     *
-     * @return string[]
-     */
-    public function getPodIdList()
-    {
-        return $this->container['pod_id_list'];
-    }
-
-    /**
-     * Sets pod_id_list
-     *
-     * @param string[] $pod_id_list pod_id_list
-     *
-     * @return $this
-     */
-    public function setPodIdList($pod_id_list)
-    {
-        $this->container['pod_id_list'] = $pod_id_list;
+        $this->container['host_id_list'] = $host_id_list;
 
         return $this;
     }

@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class BackupDataRequest implements ModelInterface, ArrayAccess
+class GetProductResourceResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'BackupDataRequest';
+    protected static $swaggerModelName = 'GetProductResourceResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,13 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'backup_all' => 'bool',
-        'description' => 'string',
-        'exclude_path_list' => 'string[]',
-        'include_path_list' => 'string[]',
-        'pod_id_list' => 'string[]',
-        'product_id' => 'string'
+        'account_id' => 'string',
+        'apply_data_size' => 'int',
+        'data_size_sum' => 'int',
+        'product_id' => 'string',
+        'used_data_size' => 'int',
+        'version' => 'int',
+        'volc_region' => 'string'
     ];
 
     /**
@@ -42,12 +43,13 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'backup_all' => null,
-        'description' => null,
-        'exclude_path_list' => null,
-        'include_path_list' => null,
-        'pod_id_list' => null,
-        'product_id' => null
+        'account_id' => null,
+        'apply_data_size' => 'int32',
+        'data_size_sum' => 'int32',
+        'product_id' => null,
+        'used_data_size' => 'int32',
+        'version' => 'int32',
+        'volc_region' => null
     ];
 
     /**
@@ -77,12 +79,13 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'backup_all' => 'BackupAll',
-        'description' => 'Description',
-        'exclude_path_list' => 'ExcludePathList',
-        'include_path_list' => 'IncludePathList',
-        'pod_id_list' => 'PodIdList',
-        'product_id' => 'ProductId'
+        'account_id' => 'AccountId',
+        'apply_data_size' => 'ApplyDataSize',
+        'data_size_sum' => 'DataSizeSum',
+        'product_id' => 'ProductId',
+        'used_data_size' => 'UsedDataSize',
+        'version' => 'Version',
+        'volc_region' => 'VolcRegion'
     ];
 
     /**
@@ -91,12 +94,13 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'backup_all' => 'setBackupAll',
-        'description' => 'setDescription',
-        'exclude_path_list' => 'setExcludePathList',
-        'include_path_list' => 'setIncludePathList',
-        'pod_id_list' => 'setPodIdList',
-        'product_id' => 'setProductId'
+        'account_id' => 'setAccountId',
+        'apply_data_size' => 'setApplyDataSize',
+        'data_size_sum' => 'setDataSizeSum',
+        'product_id' => 'setProductId',
+        'used_data_size' => 'setUsedDataSize',
+        'version' => 'setVersion',
+        'volc_region' => 'setVolcRegion'
     ];
 
     /**
@@ -105,12 +109,13 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'backup_all' => 'getBackupAll',
-        'description' => 'getDescription',
-        'exclude_path_list' => 'getExcludePathList',
-        'include_path_list' => 'getIncludePathList',
-        'pod_id_list' => 'getPodIdList',
-        'product_id' => 'getProductId'
+        'account_id' => 'getAccountId',
+        'apply_data_size' => 'getApplyDataSize',
+        'data_size_sum' => 'getDataSizeSum',
+        'product_id' => 'getProductId',
+        'used_data_size' => 'getUsedDataSize',
+        'version' => 'getVersion',
+        'volc_region' => 'getVolcRegion'
     ];
 
     /**
@@ -173,12 +178,13 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['backup_all'] = isset($data['backup_all']) ? $data['backup_all'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['exclude_path_list'] = isset($data['exclude_path_list']) ? $data['exclude_path_list'] : null;
-        $this->container['include_path_list'] = isset($data['include_path_list']) ? $data['include_path_list'] : null;
-        $this->container['pod_id_list'] = isset($data['pod_id_list']) ? $data['pod_id_list'] : null;
+        $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
+        $this->container['apply_data_size'] = isset($data['apply_data_size']) ? $data['apply_data_size'] : null;
+        $this->container['data_size_sum'] = isset($data['data_size_sum']) ? $data['data_size_sum'] : null;
         $this->container['product_id'] = isset($data['product_id']) ? $data['product_id'] : null;
+        $this->container['used_data_size'] = isset($data['used_data_size']) ? $data['used_data_size'] : null;
+        $this->container['version'] = isset($data['version']) ? $data['version'] : null;
+        $this->container['volc_region'] = isset($data['volc_region']) ? $data['volc_region'] : null;
     }
 
     /**
@@ -190,9 +196,6 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['product_id'] === null) {
-            $invalidProperties[] = "'product_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -209,121 +212,73 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets backup_all
-     *
-     * @return bool
-     */
-    public function getBackupAll()
-    {
-        return $this->container['backup_all'];
-    }
-
-    /**
-     * Sets backup_all
-     *
-     * @param bool $backup_all backup_all
-     *
-     * @return $this
-     */
-    public function setBackupAll($backup_all)
-    {
-        $this->container['backup_all'] = $backup_all;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
+     * Gets account_id
      *
      * @return string
      */
-    public function getDescription()
+    public function getAccountId()
     {
-        return $this->container['description'];
+        return $this->container['account_id'];
     }
 
     /**
-     * Sets description
+     * Sets account_id
      *
-     * @param string $description description
+     * @param string $account_id account_id
      *
      * @return $this
      */
-    public function setDescription($description)
+    public function setAccountId($account_id)
     {
-        $this->container['description'] = $description;
+        $this->container['account_id'] = $account_id;
 
         return $this;
     }
 
     /**
-     * Gets exclude_path_list
+     * Gets apply_data_size
      *
-     * @return string[]
+     * @return int
      */
-    public function getExcludePathList()
+    public function getApplyDataSize()
     {
-        return $this->container['exclude_path_list'];
+        return $this->container['apply_data_size'];
     }
 
     /**
-     * Sets exclude_path_list
+     * Sets apply_data_size
      *
-     * @param string[] $exclude_path_list exclude_path_list
+     * @param int $apply_data_size apply_data_size
      *
      * @return $this
      */
-    public function setExcludePathList($exclude_path_list)
+    public function setApplyDataSize($apply_data_size)
     {
-        $this->container['exclude_path_list'] = $exclude_path_list;
+        $this->container['apply_data_size'] = $apply_data_size;
 
         return $this;
     }
 
     /**
-     * Gets include_path_list
+     * Gets data_size_sum
      *
-     * @return string[]
+     * @return int
      */
-    public function getIncludePathList()
+    public function getDataSizeSum()
     {
-        return $this->container['include_path_list'];
+        return $this->container['data_size_sum'];
     }
 
     /**
-     * Sets include_path_list
+     * Sets data_size_sum
      *
-     * @param string[] $include_path_list include_path_list
+     * @param int $data_size_sum data_size_sum
      *
      * @return $this
      */
-    public function setIncludePathList($include_path_list)
+    public function setDataSizeSum($data_size_sum)
     {
-        $this->container['include_path_list'] = $include_path_list;
-
-        return $this;
-    }
-
-    /**
-     * Gets pod_id_list
-     *
-     * @return string[]
-     */
-    public function getPodIdList()
-    {
-        return $this->container['pod_id_list'];
-    }
-
-    /**
-     * Sets pod_id_list
-     *
-     * @param string[] $pod_id_list pod_id_list
-     *
-     * @return $this
-     */
-    public function setPodIdList($pod_id_list)
-    {
-        $this->container['pod_id_list'] = $pod_id_list;
+        $this->container['data_size_sum'] = $data_size_sum;
 
         return $this;
     }
@@ -348,6 +303,78 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
     public function setProductId($product_id)
     {
         $this->container['product_id'] = $product_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets used_data_size
+     *
+     * @return int
+     */
+    public function getUsedDataSize()
+    {
+        return $this->container['used_data_size'];
+    }
+
+    /**
+     * Sets used_data_size
+     *
+     * @param int $used_data_size used_data_size
+     *
+     * @return $this
+     */
+    public function setUsedDataSize($used_data_size)
+    {
+        $this->container['used_data_size'] = $used_data_size;
+
+        return $this;
+    }
+
+    /**
+     * Gets version
+     *
+     * @return int
+     */
+    public function getVersion()
+    {
+        return $this->container['version'];
+    }
+
+    /**
+     * Sets version
+     *
+     * @param int $version version
+     *
+     * @return $this
+     */
+    public function setVersion($version)
+    {
+        $this->container['version'] = $version;
+
+        return $this;
+    }
+
+    /**
+     * Gets volc_region
+     *
+     * @return string
+     */
+    public function getVolcRegion()
+    {
+        return $this->container['volc_region'];
+    }
+
+    /**
+     * Sets volc_region
+     *
+     * @param string $volc_region volc_region
+     *
+     * @return $this
+     */
+    public function setVolcRegion($volc_region)
+    {
+        $this->container['volc_region'] = $volc_region;
 
         return $this;
     }

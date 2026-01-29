@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class BackupDataRequest implements ModelInterface, ArrayAccess
+class ExceptionListForUnsubscribeHostResourceOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'BackupDataRequest';
+    protected static $swaggerModelName = 'ExceptionListForUnsubscribeHostResourceOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,12 +28,9 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'backup_all' => 'bool',
-        'description' => 'string',
-        'exclude_path_list' => 'string[]',
-        'include_path_list' => 'string[]',
-        'pod_id_list' => 'string[]',
-        'product_id' => 'string'
+        'err' => 'string',
+        'host_id_list' => 'string[]',
+        'resource_set_id_list' => 'string[]'
     ];
 
     /**
@@ -42,12 +39,9 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'backup_all' => null,
-        'description' => null,
-        'exclude_path_list' => null,
-        'include_path_list' => null,
-        'pod_id_list' => null,
-        'product_id' => null
+        'err' => null,
+        'host_id_list' => null,
+        'resource_set_id_list' => null
     ];
 
     /**
@@ -77,12 +71,9 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'backup_all' => 'BackupAll',
-        'description' => 'Description',
-        'exclude_path_list' => 'ExcludePathList',
-        'include_path_list' => 'IncludePathList',
-        'pod_id_list' => 'PodIdList',
-        'product_id' => 'ProductId'
+        'err' => 'Err',
+        'host_id_list' => 'HostIdList',
+        'resource_set_id_list' => 'ResourceSetIdList'
     ];
 
     /**
@@ -91,12 +82,9 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'backup_all' => 'setBackupAll',
-        'description' => 'setDescription',
-        'exclude_path_list' => 'setExcludePathList',
-        'include_path_list' => 'setIncludePathList',
-        'pod_id_list' => 'setPodIdList',
-        'product_id' => 'setProductId'
+        'err' => 'setErr',
+        'host_id_list' => 'setHostIdList',
+        'resource_set_id_list' => 'setResourceSetIdList'
     ];
 
     /**
@@ -105,12 +93,9 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'backup_all' => 'getBackupAll',
-        'description' => 'getDescription',
-        'exclude_path_list' => 'getExcludePathList',
-        'include_path_list' => 'getIncludePathList',
-        'pod_id_list' => 'getPodIdList',
-        'product_id' => 'getProductId'
+        'err' => 'getErr',
+        'host_id_list' => 'getHostIdList',
+        'resource_set_id_list' => 'getResourceSetIdList'
     ];
 
     /**
@@ -173,12 +158,9 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['backup_all'] = isset($data['backup_all']) ? $data['backup_all'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['exclude_path_list'] = isset($data['exclude_path_list']) ? $data['exclude_path_list'] : null;
-        $this->container['include_path_list'] = isset($data['include_path_list']) ? $data['include_path_list'] : null;
-        $this->container['pod_id_list'] = isset($data['pod_id_list']) ? $data['pod_id_list'] : null;
-        $this->container['product_id'] = isset($data['product_id']) ? $data['product_id'] : null;
+        $this->container['err'] = isset($data['err']) ? $data['err'] : null;
+        $this->container['host_id_list'] = isset($data['host_id_list']) ? $data['host_id_list'] : null;
+        $this->container['resource_set_id_list'] = isset($data['resource_set_id_list']) ? $data['resource_set_id_list'] : null;
     }
 
     /**
@@ -190,9 +172,6 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['product_id'] === null) {
-            $invalidProperties[] = "'product_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -209,145 +188,73 @@ class BackupDataRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets backup_all
-     *
-     * @return bool
-     */
-    public function getBackupAll()
-    {
-        return $this->container['backup_all'];
-    }
-
-    /**
-     * Sets backup_all
-     *
-     * @param bool $backup_all backup_all
-     *
-     * @return $this
-     */
-    public function setBackupAll($backup_all)
-    {
-        $this->container['backup_all'] = $backup_all;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
+     * Gets err
      *
      * @return string
      */
-    public function getDescription()
+    public function getErr()
     {
-        return $this->container['description'];
+        return $this->container['err'];
     }
 
     /**
-     * Sets description
+     * Sets err
      *
-     * @param string $description description
+     * @param string $err err
      *
      * @return $this
      */
-    public function setDescription($description)
+    public function setErr($err)
     {
-        $this->container['description'] = $description;
+        $this->container['err'] = $err;
 
         return $this;
     }
 
     /**
-     * Gets exclude_path_list
+     * Gets host_id_list
      *
      * @return string[]
      */
-    public function getExcludePathList()
+    public function getHostIdList()
     {
-        return $this->container['exclude_path_list'];
+        return $this->container['host_id_list'];
     }
 
     /**
-     * Sets exclude_path_list
+     * Sets host_id_list
      *
-     * @param string[] $exclude_path_list exclude_path_list
+     * @param string[] $host_id_list host_id_list
      *
      * @return $this
      */
-    public function setExcludePathList($exclude_path_list)
+    public function setHostIdList($host_id_list)
     {
-        $this->container['exclude_path_list'] = $exclude_path_list;
+        $this->container['host_id_list'] = $host_id_list;
 
         return $this;
     }
 
     /**
-     * Gets include_path_list
+     * Gets resource_set_id_list
      *
      * @return string[]
      */
-    public function getIncludePathList()
+    public function getResourceSetIdList()
     {
-        return $this->container['include_path_list'];
+        return $this->container['resource_set_id_list'];
     }
 
     /**
-     * Sets include_path_list
+     * Sets resource_set_id_list
      *
-     * @param string[] $include_path_list include_path_list
+     * @param string[] $resource_set_id_list resource_set_id_list
      *
      * @return $this
      */
-    public function setIncludePathList($include_path_list)
+    public function setResourceSetIdList($resource_set_id_list)
     {
-        $this->container['include_path_list'] = $include_path_list;
-
-        return $this;
-    }
-
-    /**
-     * Gets pod_id_list
-     *
-     * @return string[]
-     */
-    public function getPodIdList()
-    {
-        return $this->container['pod_id_list'];
-    }
-
-    /**
-     * Sets pod_id_list
-     *
-     * @param string[] $pod_id_list pod_id_list
-     *
-     * @return $this
-     */
-    public function setPodIdList($pod_id_list)
-    {
-        $this->container['pod_id_list'] = $pod_id_list;
-
-        return $this;
-    }
-
-    /**
-     * Gets product_id
-     *
-     * @return string
-     */
-    public function getProductId()
-    {
-        return $this->container['product_id'];
-    }
-
-    /**
-     * Sets product_id
-     *
-     * @param string $product_id product_id
-     *
-     * @return $this
-     */
-    public function setProductId($product_id)
-    {
-        $this->container['product_id'] = $product_id;
+        $this->container['resource_set_id_list'] = $resource_set_id_list;
 
         return $this;
     }
