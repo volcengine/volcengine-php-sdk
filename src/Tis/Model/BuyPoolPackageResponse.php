@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class LanguageForGetSpeakerListOutput implements ModelInterface, ArrayAccess
+class BuyPoolPackageResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class LanguageForGetSpeakerListOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'LanguageForGetSpeakerListOutput';
+    protected static $swaggerModelName = 'BuyPoolPackageResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,7 @@ class LanguageForGetSpeakerListOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'name' => 'string',
-        'value' => 'string'
+        'success' => 'bool'
     ];
 
     /**
@@ -38,8 +37,7 @@ class LanguageForGetSpeakerListOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'name' => null,
-        'value' => null
+        'success' => null
     ];
 
     /**
@@ -69,8 +67,7 @@ class LanguageForGetSpeakerListOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'Name',
-        'value' => 'Value'
+        'success' => 'Success'
     ];
 
     /**
@@ -79,8 +76,7 @@ class LanguageForGetSpeakerListOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-        'value' => 'setValue'
+        'success' => 'setSuccess'
     ];
 
     /**
@@ -89,8 +85,7 @@ class LanguageForGetSpeakerListOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-        'value' => 'getValue'
+        'success' => 'getSuccess'
     ];
 
     /**
@@ -153,8 +148,7 @@ class LanguageForGetSpeakerListOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        $this->container['success'] = isset($data['success']) ? $data['success'] : null;
     }
 
     /**
@@ -182,49 +176,25 @@ class LanguageForGetSpeakerListOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets name
+     * Gets success
      *
-     * @return string
+     * @return bool
      */
-    public function getName()
+    public function getSuccess()
     {
-        return $this->container['name'];
+        return $this->container['success'];
     }
 
     /**
-     * Sets name
+     * Sets success
      *
-     * @param string $name name
+     * @param bool $success success
      *
      * @return $this
      */
-    public function setName($name)
+    public function setSuccess($success)
     {
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets value
-     *
-     * @return string
-     */
-    public function getValue()
-    {
-        return $this->container['value'];
-    }
-
-    /**
-     * Sets value
-     *
-     * @param string $value value
-     *
-     * @return $this
-     */
-    public function setValue($value)
-    {
-        $this->container['value'] = $value;
+        $this->container['success'] = $success;
 
         return $this;
     }

@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class LanguageForGetSpeakerListOutput implements ModelInterface, ArrayAccess
+class BuyPoolPackageRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class LanguageForGetSpeakerListOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'LanguageForGetSpeakerListOutput';
+    protected static $swaggerModelName = 'BuyPoolPackageRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,8 @@ class LanguageForGetSpeakerListOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'name' => 'string',
-        'value' => 'string'
+        'item' => 'string',
+        'number' => 'int'
     ];
 
     /**
@@ -38,8 +38,8 @@ class LanguageForGetSpeakerListOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'name' => null,
-        'value' => null
+        'item' => null,
+        'number' => 'int32'
     ];
 
     /**
@@ -69,8 +69,8 @@ class LanguageForGetSpeakerListOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'Name',
-        'value' => 'Value'
+        'item' => 'Item',
+        'number' => 'Number'
     ];
 
     /**
@@ -79,8 +79,8 @@ class LanguageForGetSpeakerListOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-        'value' => 'setValue'
+        'item' => 'setItem',
+        'number' => 'setNumber'
     ];
 
     /**
@@ -89,8 +89,8 @@ class LanguageForGetSpeakerListOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-        'value' => 'getValue'
+        'item' => 'getItem',
+        'number' => 'getNumber'
     ];
 
     /**
@@ -153,8 +153,8 @@ class LanguageForGetSpeakerListOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        $this->container['item'] = isset($data['item']) ? $data['item'] : null;
+        $this->container['number'] = isset($data['number']) ? $data['number'] : null;
     }
 
     /**
@@ -166,6 +166,12 @@ class LanguageForGetSpeakerListOutput implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['item'] === null) {
+            $invalidProperties[] = "'item' can't be null";
+        }
+        if ($this->container['number'] === null) {
+            $invalidProperties[] = "'number' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -182,49 +188,49 @@ class LanguageForGetSpeakerListOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets name
+     * Gets item
      *
      * @return string
      */
-    public function getName()
+    public function getItem()
     {
-        return $this->container['name'];
+        return $this->container['item'];
     }
 
     /**
-     * Sets name
+     * Sets item
      *
-     * @param string $name name
+     * @param string $item item
      *
      * @return $this
      */
-    public function setName($name)
+    public function setItem($item)
     {
-        $this->container['name'] = $name;
+        $this->container['item'] = $item;
 
         return $this;
     }
 
     /**
-     * Gets value
+     * Gets number
      *
-     * @return string
+     * @return int
      */
-    public function getValue()
+    public function getNumber()
     {
-        return $this->container['value'];
+        return $this->container['number'];
     }
 
     /**
-     * Sets value
+     * Sets number
      *
-     * @param string $value value
+     * @param int $number number
      *
      * @return $this
      */
-    public function setValue($value)
+    public function setNumber($number)
     {
-        $this->container['value'] = $value;
+        $this->container['number'] = $number;
 
         return $this;
     }

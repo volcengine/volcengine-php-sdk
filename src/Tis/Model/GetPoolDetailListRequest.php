@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class LanguageForGetSpeakerListOutput implements ModelInterface, ArrayAccess
+class GetPoolDetailListRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class LanguageForGetSpeakerListOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'LanguageForGetSpeakerListOutput';
+    protected static $swaggerModelName = 'GetPoolDetailListRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,8 @@ class LanguageForGetSpeakerListOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'name' => 'string',
-        'value' => 'string'
+        'status' => 'int',
+        'tc_order_id' => 'string'
     ];
 
     /**
@@ -38,8 +38,8 @@ class LanguageForGetSpeakerListOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'name' => null,
-        'value' => null
+        'status' => 'int32',
+        'tc_order_id' => null
     ];
 
     /**
@@ -69,8 +69,8 @@ class LanguageForGetSpeakerListOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'Name',
-        'value' => 'Value'
+        'status' => 'Status',
+        'tc_order_id' => 'TcOrderID'
     ];
 
     /**
@@ -79,8 +79,8 @@ class LanguageForGetSpeakerListOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-        'value' => 'setValue'
+        'status' => 'setStatus',
+        'tc_order_id' => 'setTcOrderId'
     ];
 
     /**
@@ -89,8 +89,8 @@ class LanguageForGetSpeakerListOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-        'value' => 'getValue'
+        'status' => 'getStatus',
+        'tc_order_id' => 'getTcOrderId'
     ];
 
     /**
@@ -153,8 +153,8 @@ class LanguageForGetSpeakerListOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['tc_order_id'] = isset($data['tc_order_id']) ? $data['tc_order_id'] : null;
     }
 
     /**
@@ -182,49 +182,49 @@ class LanguageForGetSpeakerListOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets name
+     * Gets status
      *
-     * @return string
+     * @return int
      */
-    public function getName()
+    public function getStatus()
     {
-        return $this->container['name'];
+        return $this->container['status'];
     }
 
     /**
-     * Sets name
+     * Sets status
      *
-     * @param string $name name
+     * @param int $status status
      *
      * @return $this
      */
-    public function setName($name)
+    public function setStatus($status)
     {
-        $this->container['name'] = $name;
+        $this->container['status'] = $status;
 
         return $this;
     }
 
     /**
-     * Gets value
+     * Gets tc_order_id
      *
      * @return string
      */
-    public function getValue()
+    public function getTcOrderId()
     {
-        return $this->container['value'];
+        return $this->container['tc_order_id'];
     }
 
     /**
-     * Sets value
+     * Sets tc_order_id
      *
-     * @param string $value value
+     * @param string $tc_order_id tc_order_id
      *
      * @return $this
      */
-    public function setValue($value)
+    public function setTcOrderId($tc_order_id)
     {
-        $this->container['value'] = $value;
+        $this->container['tc_order_id'] = $tc_order_id;
 
         return $this;
     }

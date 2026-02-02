@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class LanguageForGetSpeakerListOutput implements ModelInterface, ArrayAccess
+class GetPoolQuotaInfoResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class LanguageForGetSpeakerListOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'LanguageForGetSpeakerListOutput';
+    protected static $swaggerModelName = 'GetPoolQuotaInfoResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,7 @@ class LanguageForGetSpeakerListOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'name' => 'string',
-        'value' => 'string'
+        'quota_info_list' => '\Volcengine\Tis\Model\QuotaInfoListForGetPoolQuotaInfoOutput[]'
     ];
 
     /**
@@ -38,8 +37,7 @@ class LanguageForGetSpeakerListOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'name' => null,
-        'value' => null
+        'quota_info_list' => null
     ];
 
     /**
@@ -69,8 +67,7 @@ class LanguageForGetSpeakerListOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'Name',
-        'value' => 'Value'
+        'quota_info_list' => 'QuotaInfoList'
     ];
 
     /**
@@ -79,8 +76,7 @@ class LanguageForGetSpeakerListOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-        'value' => 'setValue'
+        'quota_info_list' => 'setQuotaInfoList'
     ];
 
     /**
@@ -89,8 +85,7 @@ class LanguageForGetSpeakerListOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-        'value' => 'getValue'
+        'quota_info_list' => 'getQuotaInfoList'
     ];
 
     /**
@@ -153,8 +148,7 @@ class LanguageForGetSpeakerListOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        $this->container['quota_info_list'] = isset($data['quota_info_list']) ? $data['quota_info_list'] : null;
     }
 
     /**
@@ -182,49 +176,25 @@ class LanguageForGetSpeakerListOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets name
+     * Gets quota_info_list
      *
-     * @return string
+     * @return \Volcengine\Tis\Model\QuotaInfoListForGetPoolQuotaInfoOutput[]
      */
-    public function getName()
+    public function getQuotaInfoList()
     {
-        return $this->container['name'];
+        return $this->container['quota_info_list'];
     }
 
     /**
-     * Sets name
+     * Sets quota_info_list
      *
-     * @param string $name name
+     * @param \Volcengine\Tis\Model\QuotaInfoListForGetPoolQuotaInfoOutput[] $quota_info_list quota_info_list
      *
      * @return $this
      */
-    public function setName($name)
+    public function setQuotaInfoList($quota_info_list)
     {
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets value
-     *
-     * @return string
-     */
-    public function getValue()
-    {
-        return $this->container['value'];
-    }
-
-    /**
-     * Sets value
-     *
-     * @param string $value value
-     *
-     * @return $this
-     */
-    public function setValue($value)
-    {
-        $this->container['value'] = $value;
+        $this->container['quota_info_list'] = $quota_info_list;
 
         return $this;
     }

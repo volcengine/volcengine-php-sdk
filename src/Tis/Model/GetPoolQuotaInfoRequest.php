@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class LanguageForGetSpeakerListOutput implements ModelInterface, ArrayAccess
+class GetPoolQuotaInfoRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class LanguageForGetSpeakerListOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'LanguageForGetSpeakerListOutput';
+    protected static $swaggerModelName = 'GetPoolQuotaInfoRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,7 @@ class LanguageForGetSpeakerListOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'name' => 'string',
-        'value' => 'string'
+        'tc_order_id' => 'string'
     ];
 
     /**
@@ -38,8 +37,7 @@ class LanguageForGetSpeakerListOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'name' => null,
-        'value' => null
+        'tc_order_id' => null
     ];
 
     /**
@@ -69,8 +67,7 @@ class LanguageForGetSpeakerListOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'Name',
-        'value' => 'Value'
+        'tc_order_id' => 'TcOrderID'
     ];
 
     /**
@@ -79,8 +76,7 @@ class LanguageForGetSpeakerListOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-        'value' => 'setValue'
+        'tc_order_id' => 'setTcOrderId'
     ];
 
     /**
@@ -89,8 +85,7 @@ class LanguageForGetSpeakerListOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-        'value' => 'getValue'
+        'tc_order_id' => 'getTcOrderId'
     ];
 
     /**
@@ -153,8 +148,7 @@ class LanguageForGetSpeakerListOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        $this->container['tc_order_id'] = isset($data['tc_order_id']) ? $data['tc_order_id'] : null;
     }
 
     /**
@@ -166,6 +160,9 @@ class LanguageForGetSpeakerListOutput implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['tc_order_id'] === null) {
+            $invalidProperties[] = "'tc_order_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -182,49 +179,25 @@ class LanguageForGetSpeakerListOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets name
+     * Gets tc_order_id
      *
      * @return string
      */
-    public function getName()
+    public function getTcOrderId()
     {
-        return $this->container['name'];
+        return $this->container['tc_order_id'];
     }
 
     /**
-     * Sets name
+     * Sets tc_order_id
      *
-     * @param string $name name
+     * @param string $tc_order_id tc_order_id
      *
      * @return $this
      */
-    public function setName($name)
+    public function setTcOrderId($tc_order_id)
     {
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets value
-     *
-     * @return string
-     */
-    public function getValue()
-    {
-        return $this->container['value'];
-    }
-
-    /**
-     * Sets value
-     *
-     * @param string $value value
-     *
-     * @return $this
-     */
-    public function setValue($value)
-    {
-        $this->container['value'] = $value;
+        $this->container['tc_order_id'] = $tc_order_id;
 
         return $this;
     }
