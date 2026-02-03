@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class SerialInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, ArrayAccess
+class SerialInfoForVideoProjectSerialDubTaskCreateInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class SerialInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, 
       *
       * @var string
       */
-    protected static $swaggerModelName = 'serialInfoForVideoProjectSerialTaskCreateInput';
+    protected static $swaggerModelName = 'serialInfoForVideoProjectSerialDubTaskCreateInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -29,10 +29,10 @@ class SerialInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, 
       */
     protected static $swaggerTypes = [
         'episode' => 'int',
-        'pure_video' => '\Volcengine\I18nopenapi\Model\PureVideoForVideoProjectSerialTaskCreateInput',
-        'subtitle' => '\Volcengine\I18nopenapi\Model\SubtitleForVideoProjectSerialTaskCreateInput',
-        'subtitles' => '\Volcengine\I18nopenapi\Model\ConvertsubtitleForVideoProjectSerialTaskCreateInput[]',
-        'video' => '\Volcengine\I18nopenapi\Model\VideoForVideoProjectSerialTaskCreateInput'
+        'pure_video' => '\Volcengine\I18nopenapi\Model\PureVideoForVideoProjectSerialDubTaskCreateInput',
+        'subtitle' => '\Volcengine\I18nopenapi\Model\SubtitleForVideoProjectSerialDubTaskCreateInput',
+        'subtitles' => '\Volcengine\I18nopenapi\Model\ConvertsubtitleForVideoProjectSerialDubTaskCreateInput[]',
+        'video' => '\Volcengine\I18nopenapi\Model\VideoForVideoProjectSerialDubTaskCreateInput'
     ];
 
     /**
@@ -226,7 +226,7 @@ class SerialInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, 
     /**
      * Gets pure_video
      *
-     * @return \Volcengine\I18nopenapi\Model\PureVideoForVideoProjectSerialTaskCreateInput
+     * @return \Volcengine\I18nopenapi\Model\PureVideoForVideoProjectSerialDubTaskCreateInput
      */
     public function getPureVideo()
     {
@@ -236,7 +236,7 @@ class SerialInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, 
     /**
      * Sets pure_video
      *
-     * @param \Volcengine\I18nopenapi\Model\PureVideoForVideoProjectSerialTaskCreateInput $pure_video pure_video
+     * @param \Volcengine\I18nopenapi\Model\PureVideoForVideoProjectSerialDubTaskCreateInput $pure_video pure_video
      *
      * @return $this
      */
@@ -250,7 +250,7 @@ class SerialInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, 
     /**
      * Gets subtitle
      *
-     * @return \Volcengine\I18nopenapi\Model\SubtitleForVideoProjectSerialTaskCreateInput
+     * @return \Volcengine\I18nopenapi\Model\SubtitleForVideoProjectSerialDubTaskCreateInput
      */
     public function getSubtitle()
     {
@@ -260,7 +260,7 @@ class SerialInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, 
     /**
      * Sets subtitle
      *
-     * @param \Volcengine\I18nopenapi\Model\SubtitleForVideoProjectSerialTaskCreateInput $subtitle subtitle
+     * @param \Volcengine\I18nopenapi\Model\SubtitleForVideoProjectSerialDubTaskCreateInput $subtitle subtitle
      *
      * @return $this
      */
@@ -274,7 +274,7 @@ class SerialInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, 
     /**
      * Gets subtitles
      *
-     * @return \Volcengine\I18nopenapi\Model\ConvertsubtitleForVideoProjectSerialTaskCreateInput[]
+     * @return \Volcengine\I18nopenapi\Model\ConvertsubtitleForVideoProjectSerialDubTaskCreateInput[]
      */
     public function getSubtitles()
     {
@@ -284,7 +284,7 @@ class SerialInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, 
     /**
      * Sets subtitles
      *
-     * @param \Volcengine\I18nopenapi\Model\ConvertsubtitleForVideoProjectSerialTaskCreateInput[] $subtitles subtitles
+     * @param \Volcengine\I18nopenapi\Model\ConvertsubtitleForVideoProjectSerialDubTaskCreateInput[] $subtitles subtitles
      *
      * @return $this
      */
@@ -298,7 +298,7 @@ class SerialInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, 
     /**
      * Gets video
      *
-     * @return \Volcengine\I18nopenapi\Model\VideoForVideoProjectSerialTaskCreateInput
+     * @return \Volcengine\I18nopenapi\Model\VideoForVideoProjectSerialDubTaskCreateInput
      */
     public function getVideo()
     {
@@ -308,7 +308,7 @@ class SerialInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, 
     /**
      * Sets video
      *
-     * @param \Volcengine\I18nopenapi\Model\VideoForVideoProjectSerialTaskCreateInput $video video
+     * @param \Volcengine\I18nopenapi\Model\VideoForVideoProjectSerialDubTaskCreateInput $video video
      *
      * @return $this
      */
