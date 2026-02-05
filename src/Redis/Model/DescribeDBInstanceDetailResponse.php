@@ -29,6 +29,7 @@ class DescribeDBInstanceDetailResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'auto_renew' => 'bool',
+        'blue_green_role' => 'string',
         'capacity' => '\Volcengine\Redis\Model\CapacityForDescribeDBInstanceDetailOutput',
         'charge_type' => 'string',
         'configure_nodes' => '\Volcengine\Redis\Model\ConfigureNodeForDescribeDBInstanceDetailOutput[]',
@@ -66,6 +67,7 @@ class DescribeDBInstanceDetailResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'auto_renew' => null,
+        'blue_green_role' => null,
         'capacity' => null,
         'charge_type' => null,
         'configure_nodes' => null,
@@ -124,6 +126,7 @@ class DescribeDBInstanceDetailResponse implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'auto_renew' => 'AutoRenew',
+        'blue_green_role' => 'BlueGreenRole',
         'capacity' => 'Capacity',
         'charge_type' => 'ChargeType',
         'configure_nodes' => 'ConfigureNodes',
@@ -161,6 +164,7 @@ class DescribeDBInstanceDetailResponse implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'auto_renew' => 'setAutoRenew',
+        'blue_green_role' => 'setBlueGreenRole',
         'capacity' => 'setCapacity',
         'charge_type' => 'setChargeType',
         'configure_nodes' => 'setConfigureNodes',
@@ -198,6 +202,7 @@ class DescribeDBInstanceDetailResponse implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'auto_renew' => 'getAutoRenew',
+        'blue_green_role' => 'getBlueGreenRole',
         'capacity' => 'getCapacity',
         'charge_type' => 'getChargeType',
         'configure_nodes' => 'getConfigureNodes',
@@ -289,6 +294,7 @@ class DescribeDBInstanceDetailResponse implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['auto_renew'] = isset($data['auto_renew']) ? $data['auto_renew'] : null;
+        $this->container['blue_green_role'] = isset($data['blue_green_role']) ? $data['blue_green_role'] : null;
         $this->container['capacity'] = isset($data['capacity']) ? $data['capacity'] : null;
         $this->container['charge_type'] = isset($data['charge_type']) ? $data['charge_type'] : null;
         $this->container['configure_nodes'] = isset($data['configure_nodes']) ? $data['configure_nodes'] : null;
@@ -363,6 +369,30 @@ class DescribeDBInstanceDetailResponse implements ModelInterface, ArrayAccess
     public function setAutoRenew($auto_renew)
     {
         $this->container['auto_renew'] = $auto_renew;
+
+        return $this;
+    }
+
+    /**
+     * Gets blue_green_role
+     *
+     * @return string
+     */
+    public function getBlueGreenRole()
+    {
+        return $this->container['blue_green_role'];
+    }
+
+    /**
+     * Sets blue_green_role
+     *
+     * @param string $blue_green_role blue_green_role
+     *
+     * @return $this
+     */
+    public function setBlueGreenRole($blue_green_role)
+    {
+        $this->container['blue_green_role'] = $blue_green_role;
 
         return $this;
     }

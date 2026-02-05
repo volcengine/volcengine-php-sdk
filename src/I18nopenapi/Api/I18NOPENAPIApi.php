@@ -688,6 +688,68 @@ class I18NOPENAPIApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function videoProjectSerialDubTaskCreate($body = null)
+    {
+        list($response) = $this->videoProjectSerialDubTaskCreateWithHttpInfo($body);
+        return $response;
+    }
+
+    public function videoProjectSerialDubTaskCreateWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\VideoProjectSerialDubTaskCreateResponse';
+        $request = $this->videoProjectSerialDubTaskCreateRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function videoProjectSerialDubTaskCreateAsync($body = null)
+    {
+        return $this->videoProjectSerialDubTaskCreateAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function videoProjectSerialDubTaskCreateAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\VideoProjectSerialDubTaskCreateResponse';
+        $request = $this->videoProjectSerialDubTaskCreateRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function videoProjectSerialDubTaskCreateRequest($body)
+    {
+        $resourcePath = '/VideoProjectSerialDubTaskCreate/2021-05-21/i18n_openapi/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function videoProjectSerialTaskCreate($body = null)
     {
         list($response) = $this->videoProjectSerialTaskCreateWithHttpInfo($body);

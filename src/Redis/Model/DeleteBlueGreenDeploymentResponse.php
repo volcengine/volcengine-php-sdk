@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class RestoreDBInstanceRequest implements ModelInterface, ArrayAccess
+class DeleteBlueGreenDeploymentResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class RestoreDBInstanceRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'RestoreDBInstanceRequest';
+    protected static $swaggerModelName = 'DeleteBlueGreenDeploymentResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,11 +28,7 @@ class RestoreDBInstanceRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'backup_point_id' => 'string',
-        'backup_type' => 'string',
-        'client_token' => 'string',
-        'instance_id' => 'string',
-        'time_point' => 'string'
+        'blue_green_deployment' => '\Volcengine\Redis\Model\BlueGreenDeploymentForDeleteBlueGreenDeploymentOutput'
     ];
 
     /**
@@ -41,11 +37,7 @@ class RestoreDBInstanceRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'backup_point_id' => null,
-        'backup_type' => null,
-        'client_token' => null,
-        'instance_id' => null,
-        'time_point' => null
+        'blue_green_deployment' => null
     ];
 
     /**
@@ -75,11 +67,7 @@ class RestoreDBInstanceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'backup_point_id' => 'BackupPointId',
-        'backup_type' => 'BackupType',
-        'client_token' => 'ClientToken',
-        'instance_id' => 'InstanceId',
-        'time_point' => 'TimePoint'
+        'blue_green_deployment' => 'BlueGreenDeployment'
     ];
 
     /**
@@ -88,11 +76,7 @@ class RestoreDBInstanceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'backup_point_id' => 'setBackupPointId',
-        'backup_type' => 'setBackupType',
-        'client_token' => 'setClientToken',
-        'instance_id' => 'setInstanceId',
-        'time_point' => 'setTimePoint'
+        'blue_green_deployment' => 'setBlueGreenDeployment'
     ];
 
     /**
@@ -101,11 +85,7 @@ class RestoreDBInstanceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'backup_point_id' => 'getBackupPointId',
-        'backup_type' => 'getBackupType',
-        'client_token' => 'getClientToken',
-        'instance_id' => 'getInstanceId',
-        'time_point' => 'getTimePoint'
+        'blue_green_deployment' => 'getBlueGreenDeployment'
     ];
 
     /**
@@ -149,27 +129,8 @@ class RestoreDBInstanceRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const BACKUP_TYPE_INVALID = 'Invalid';
-    const BACKUP_TYPE_FULL = 'Full';
-    const BACKUP_TYPE_INC = 'Inc';
-    const BACKUP_TYPE_ALL = 'All';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getBackupTypeAllowableValues()
-    {
-        return [
-            self::BACKUP_TYPE_INVALID,
-            self::BACKUP_TYPE_FULL,
-            self::BACKUP_TYPE_INC,
-            self::BACKUP_TYPE_ALL,
-        ];
-    }
     
 
     /**
@@ -187,11 +148,7 @@ class RestoreDBInstanceRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['backup_point_id'] = isset($data['backup_point_id']) ? $data['backup_point_id'] : null;
-        $this->container['backup_type'] = isset($data['backup_type']) ? $data['backup_type'] : null;
-        $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
-        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
-        $this->container['time_point'] = isset($data['time_point']) ? $data['time_point'] : null;
+        $this->container['blue_green_deployment'] = isset($data['blue_green_deployment']) ? $data['blue_green_deployment'] : null;
     }
 
     /**
@@ -203,17 +160,6 @@ class RestoreDBInstanceRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getBackupTypeAllowableValues();
-        if (!is_null($this->container['backup_type']) && !in_array($this->container['backup_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'backup_type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        if ($this->container['instance_id'] === null) {
-            $invalidProperties[] = "'instance_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -230,130 +176,25 @@ class RestoreDBInstanceRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets backup_point_id
+     * Gets blue_green_deployment
      *
-     * @return string
+     * @return \Volcengine\Redis\Model\BlueGreenDeploymentForDeleteBlueGreenDeploymentOutput
      */
-    public function getBackupPointId()
+    public function getBlueGreenDeployment()
     {
-        return $this->container['backup_point_id'];
+        return $this->container['blue_green_deployment'];
     }
 
     /**
-     * Sets backup_point_id
+     * Sets blue_green_deployment
      *
-     * @param string $backup_point_id backup_point_id
+     * @param \Volcengine\Redis\Model\BlueGreenDeploymentForDeleteBlueGreenDeploymentOutput $blue_green_deployment blue_green_deployment
      *
      * @return $this
      */
-    public function setBackupPointId($backup_point_id)
+    public function setBlueGreenDeployment($blue_green_deployment)
     {
-        $this->container['backup_point_id'] = $backup_point_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets backup_type
-     *
-     * @return string
-     */
-    public function getBackupType()
-    {
-        return $this->container['backup_type'];
-    }
-
-    /**
-     * Sets backup_type
-     *
-     * @param string $backup_type backup_type
-     *
-     * @return $this
-     */
-    public function setBackupType($backup_type)
-    {
-        $allowedValues = $this->getBackupTypeAllowableValues();
-        if (!is_null($backup_type) && !in_array($backup_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'backup_type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['backup_type'] = $backup_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets client_token
-     *
-     * @return string
-     */
-    public function getClientToken()
-    {
-        return $this->container['client_token'];
-    }
-
-    /**
-     * Sets client_token
-     *
-     * @param string $client_token client_token
-     *
-     * @return $this
-     */
-    public function setClientToken($client_token)
-    {
-        $this->container['client_token'] = $client_token;
-
-        return $this;
-    }
-
-    /**
-     * Gets instance_id
-     *
-     * @return string
-     */
-    public function getInstanceId()
-    {
-        return $this->container['instance_id'];
-    }
-
-    /**
-     * Sets instance_id
-     *
-     * @param string $instance_id instance_id
-     *
-     * @return $this
-     */
-    public function setInstanceId($instance_id)
-    {
-        $this->container['instance_id'] = $instance_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets time_point
-     *
-     * @return string
-     */
-    public function getTimePoint()
-    {
-        return $this->container['time_point'];
-    }
-
-    /**
-     * Sets time_point
-     *
-     * @param string $time_point time_point
-     *
-     * @return $this
-     */
-    public function setTimePoint($time_point)
-    {
-        $this->container['time_point'] = $time_point;
+        $this->container['blue_green_deployment'] = $blue_green_deployment;
 
         return $this;
     }

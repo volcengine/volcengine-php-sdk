@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Redis\Model;
+namespace Volcengine\I18nopenapi\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class RestoreDBInstanceRequest implements ModelInterface, ArrayAccess
+class SerialInfoForVideoProjectSerialDubTaskCreateInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class RestoreDBInstanceRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'RestoreDBInstanceRequest';
+    protected static $swaggerModelName = 'serialInfoForVideoProjectSerialDubTaskCreateInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,11 +28,11 @@ class RestoreDBInstanceRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'backup_point_id' => 'string',
-        'backup_type' => 'string',
-        'client_token' => 'string',
-        'instance_id' => 'string',
-        'time_point' => 'string'
+        'episode' => 'int',
+        'pure_video' => '\Volcengine\I18nopenapi\Model\PureVideoForVideoProjectSerialDubTaskCreateInput',
+        'subtitle' => '\Volcengine\I18nopenapi\Model\SubtitleForVideoProjectSerialDubTaskCreateInput',
+        'subtitles' => '\Volcengine\I18nopenapi\Model\ConvertsubtitleForVideoProjectSerialDubTaskCreateInput[]',
+        'video' => '\Volcengine\I18nopenapi\Model\VideoForVideoProjectSerialDubTaskCreateInput'
     ];
 
     /**
@@ -41,11 +41,11 @@ class RestoreDBInstanceRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'backup_point_id' => null,
-        'backup_type' => null,
-        'client_token' => null,
-        'instance_id' => null,
-        'time_point' => null
+        'episode' => 'int32',
+        'pure_video' => null,
+        'subtitle' => null,
+        'subtitles' => null,
+        'video' => null
     ];
 
     /**
@@ -75,11 +75,11 @@ class RestoreDBInstanceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'backup_point_id' => 'BackupPointId',
-        'backup_type' => 'BackupType',
-        'client_token' => 'ClientToken',
-        'instance_id' => 'InstanceId',
-        'time_point' => 'TimePoint'
+        'episode' => 'episode',
+        'pure_video' => 'pureVideo',
+        'subtitle' => 'subtitle',
+        'subtitles' => 'subtitles',
+        'video' => 'video'
     ];
 
     /**
@@ -88,11 +88,11 @@ class RestoreDBInstanceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'backup_point_id' => 'setBackupPointId',
-        'backup_type' => 'setBackupType',
-        'client_token' => 'setClientToken',
-        'instance_id' => 'setInstanceId',
-        'time_point' => 'setTimePoint'
+        'episode' => 'setEpisode',
+        'pure_video' => 'setPureVideo',
+        'subtitle' => 'setSubtitle',
+        'subtitles' => 'setSubtitles',
+        'video' => 'setVideo'
     ];
 
     /**
@@ -101,11 +101,11 @@ class RestoreDBInstanceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'backup_point_id' => 'getBackupPointId',
-        'backup_type' => 'getBackupType',
-        'client_token' => 'getClientToken',
-        'instance_id' => 'getInstanceId',
-        'time_point' => 'getTimePoint'
+        'episode' => 'getEpisode',
+        'pure_video' => 'getPureVideo',
+        'subtitle' => 'getSubtitle',
+        'subtitles' => 'getSubtitles',
+        'video' => 'getVideo'
     ];
 
     /**
@@ -149,27 +149,8 @@ class RestoreDBInstanceRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const BACKUP_TYPE_INVALID = 'Invalid';
-    const BACKUP_TYPE_FULL = 'Full';
-    const BACKUP_TYPE_INC = 'Inc';
-    const BACKUP_TYPE_ALL = 'All';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getBackupTypeAllowableValues()
-    {
-        return [
-            self::BACKUP_TYPE_INVALID,
-            self::BACKUP_TYPE_FULL,
-            self::BACKUP_TYPE_INC,
-            self::BACKUP_TYPE_ALL,
-        ];
-    }
     
 
     /**
@@ -187,11 +168,11 @@ class RestoreDBInstanceRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['backup_point_id'] = isset($data['backup_point_id']) ? $data['backup_point_id'] : null;
-        $this->container['backup_type'] = isset($data['backup_type']) ? $data['backup_type'] : null;
-        $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
-        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
-        $this->container['time_point'] = isset($data['time_point']) ? $data['time_point'] : null;
+        $this->container['episode'] = isset($data['episode']) ? $data['episode'] : null;
+        $this->container['pure_video'] = isset($data['pure_video']) ? $data['pure_video'] : null;
+        $this->container['subtitle'] = isset($data['subtitle']) ? $data['subtitle'] : null;
+        $this->container['subtitles'] = isset($data['subtitles']) ? $data['subtitles'] : null;
+        $this->container['video'] = isset($data['video']) ? $data['video'] : null;
     }
 
     /**
@@ -203,17 +184,6 @@ class RestoreDBInstanceRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getBackupTypeAllowableValues();
-        if (!is_null($this->container['backup_type']) && !in_array($this->container['backup_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'backup_type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        if ($this->container['instance_id'] === null) {
-            $invalidProperties[] = "'instance_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -230,130 +200,121 @@ class RestoreDBInstanceRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets backup_point_id
+     * Gets episode
      *
-     * @return string
+     * @return int
      */
-    public function getBackupPointId()
+    public function getEpisode()
     {
-        return $this->container['backup_point_id'];
+        return $this->container['episode'];
     }
 
     /**
-     * Sets backup_point_id
+     * Sets episode
      *
-     * @param string $backup_point_id backup_point_id
+     * @param int $episode episode
      *
      * @return $this
      */
-    public function setBackupPointId($backup_point_id)
+    public function setEpisode($episode)
     {
-        $this->container['backup_point_id'] = $backup_point_id;
+        $this->container['episode'] = $episode;
 
         return $this;
     }
 
     /**
-     * Gets backup_type
+     * Gets pure_video
      *
-     * @return string
+     * @return \Volcengine\I18nopenapi\Model\PureVideoForVideoProjectSerialDubTaskCreateInput
      */
-    public function getBackupType()
+    public function getPureVideo()
     {
-        return $this->container['backup_type'];
+        return $this->container['pure_video'];
     }
 
     /**
-     * Sets backup_type
+     * Sets pure_video
      *
-     * @param string $backup_type backup_type
+     * @param \Volcengine\I18nopenapi\Model\PureVideoForVideoProjectSerialDubTaskCreateInput $pure_video pure_video
      *
      * @return $this
      */
-    public function setBackupType($backup_type)
+    public function setPureVideo($pure_video)
     {
-        $allowedValues = $this->getBackupTypeAllowableValues();
-        if (!is_null($backup_type) && !in_array($backup_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'backup_type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['backup_type'] = $backup_type;
+        $this->container['pure_video'] = $pure_video;
 
         return $this;
     }
 
     /**
-     * Gets client_token
+     * Gets subtitle
      *
-     * @return string
+     * @return \Volcengine\I18nopenapi\Model\SubtitleForVideoProjectSerialDubTaskCreateInput
      */
-    public function getClientToken()
+    public function getSubtitle()
     {
-        return $this->container['client_token'];
+        return $this->container['subtitle'];
     }
 
     /**
-     * Sets client_token
+     * Sets subtitle
      *
-     * @param string $client_token client_token
+     * @param \Volcengine\I18nopenapi\Model\SubtitleForVideoProjectSerialDubTaskCreateInput $subtitle subtitle
      *
      * @return $this
      */
-    public function setClientToken($client_token)
+    public function setSubtitle($subtitle)
     {
-        $this->container['client_token'] = $client_token;
+        $this->container['subtitle'] = $subtitle;
 
         return $this;
     }
 
     /**
-     * Gets instance_id
+     * Gets subtitles
      *
-     * @return string
+     * @return \Volcengine\I18nopenapi\Model\ConvertsubtitleForVideoProjectSerialDubTaskCreateInput[]
      */
-    public function getInstanceId()
+    public function getSubtitles()
     {
-        return $this->container['instance_id'];
+        return $this->container['subtitles'];
     }
 
     /**
-     * Sets instance_id
+     * Sets subtitles
      *
-     * @param string $instance_id instance_id
+     * @param \Volcengine\I18nopenapi\Model\ConvertsubtitleForVideoProjectSerialDubTaskCreateInput[] $subtitles subtitles
      *
      * @return $this
      */
-    public function setInstanceId($instance_id)
+    public function setSubtitles($subtitles)
     {
-        $this->container['instance_id'] = $instance_id;
+        $this->container['subtitles'] = $subtitles;
 
         return $this;
     }
 
     /**
-     * Gets time_point
+     * Gets video
      *
-     * @return string
+     * @return \Volcengine\I18nopenapi\Model\VideoForVideoProjectSerialDubTaskCreateInput
      */
-    public function getTimePoint()
+    public function getVideo()
     {
-        return $this->container['time_point'];
+        return $this->container['video'];
     }
 
     /**
-     * Sets time_point
+     * Sets video
      *
-     * @param string $time_point time_point
+     * @param \Volcengine\I18nopenapi\Model\VideoForVideoProjectSerialDubTaskCreateInput $video video
      *
      * @return $this
      */
-    public function setTimePoint($time_point)
+    public function setVideo($video)
     {
-        $this->container['time_point'] = $time_point;
+        $this->container['video'] = $video;
 
         return $this;
     }

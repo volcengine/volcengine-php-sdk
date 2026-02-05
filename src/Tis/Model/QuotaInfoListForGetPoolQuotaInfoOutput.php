@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Redis\Model;
+namespace Volcengine\Tis\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class RestoreDBInstanceRequest implements ModelInterface, ArrayAccess
+class QuotaInfoListForGetPoolQuotaInfoOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class RestoreDBInstanceRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'RestoreDBInstanceRequest';
+    protected static $swaggerModelName = 'QuotaInfoListForGetPoolQuotaInfoOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,11 +28,10 @@ class RestoreDBInstanceRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'backup_point_id' => 'string',
-        'backup_type' => 'string',
-        'client_token' => 'string',
-        'instance_id' => 'string',
-        'time_point' => 'string'
+        'available_amount' => 'int',
+        'configuration_code' => 'string',
+        'package_name' => 'string',
+        'total_amount' => 'int'
     ];
 
     /**
@@ -41,11 +40,10 @@ class RestoreDBInstanceRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'backup_point_id' => null,
-        'backup_type' => null,
-        'client_token' => null,
-        'instance_id' => null,
-        'time_point' => null
+        'available_amount' => 'int32',
+        'configuration_code' => null,
+        'package_name' => null,
+        'total_amount' => 'int32'
     ];
 
     /**
@@ -75,11 +73,10 @@ class RestoreDBInstanceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'backup_point_id' => 'BackupPointId',
-        'backup_type' => 'BackupType',
-        'client_token' => 'ClientToken',
-        'instance_id' => 'InstanceId',
-        'time_point' => 'TimePoint'
+        'available_amount' => 'availableAmount',
+        'configuration_code' => 'configurationCode',
+        'package_name' => 'packageName',
+        'total_amount' => 'totalAmount'
     ];
 
     /**
@@ -88,11 +85,10 @@ class RestoreDBInstanceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'backup_point_id' => 'setBackupPointId',
-        'backup_type' => 'setBackupType',
-        'client_token' => 'setClientToken',
-        'instance_id' => 'setInstanceId',
-        'time_point' => 'setTimePoint'
+        'available_amount' => 'setAvailableAmount',
+        'configuration_code' => 'setConfigurationCode',
+        'package_name' => 'setPackageName',
+        'total_amount' => 'setTotalAmount'
     ];
 
     /**
@@ -101,11 +97,10 @@ class RestoreDBInstanceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'backup_point_id' => 'getBackupPointId',
-        'backup_type' => 'getBackupType',
-        'client_token' => 'getClientToken',
-        'instance_id' => 'getInstanceId',
-        'time_point' => 'getTimePoint'
+        'available_amount' => 'getAvailableAmount',
+        'configuration_code' => 'getConfigurationCode',
+        'package_name' => 'getPackageName',
+        'total_amount' => 'getTotalAmount'
     ];
 
     /**
@@ -149,27 +144,8 @@ class RestoreDBInstanceRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const BACKUP_TYPE_INVALID = 'Invalid';
-    const BACKUP_TYPE_FULL = 'Full';
-    const BACKUP_TYPE_INC = 'Inc';
-    const BACKUP_TYPE_ALL = 'All';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getBackupTypeAllowableValues()
-    {
-        return [
-            self::BACKUP_TYPE_INVALID,
-            self::BACKUP_TYPE_FULL,
-            self::BACKUP_TYPE_INC,
-            self::BACKUP_TYPE_ALL,
-        ];
-    }
     
 
     /**
@@ -187,11 +163,10 @@ class RestoreDBInstanceRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['backup_point_id'] = isset($data['backup_point_id']) ? $data['backup_point_id'] : null;
-        $this->container['backup_type'] = isset($data['backup_type']) ? $data['backup_type'] : null;
-        $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
-        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
-        $this->container['time_point'] = isset($data['time_point']) ? $data['time_point'] : null;
+        $this->container['available_amount'] = isset($data['available_amount']) ? $data['available_amount'] : null;
+        $this->container['configuration_code'] = isset($data['configuration_code']) ? $data['configuration_code'] : null;
+        $this->container['package_name'] = isset($data['package_name']) ? $data['package_name'] : null;
+        $this->container['total_amount'] = isset($data['total_amount']) ? $data['total_amount'] : null;
     }
 
     /**
@@ -203,17 +178,6 @@ class RestoreDBInstanceRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getBackupTypeAllowableValues();
-        if (!is_null($this->container['backup_type']) && !in_array($this->container['backup_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'backup_type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        if ($this->container['instance_id'] === null) {
-            $invalidProperties[] = "'instance_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -230,130 +194,97 @@ class RestoreDBInstanceRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets backup_point_id
+     * Gets available_amount
      *
-     * @return string
+     * @return int
      */
-    public function getBackupPointId()
+    public function getAvailableAmount()
     {
-        return $this->container['backup_point_id'];
+        return $this->container['available_amount'];
     }
 
     /**
-     * Sets backup_point_id
+     * Sets available_amount
      *
-     * @param string $backup_point_id backup_point_id
+     * @param int $available_amount available_amount
      *
      * @return $this
      */
-    public function setBackupPointId($backup_point_id)
+    public function setAvailableAmount($available_amount)
     {
-        $this->container['backup_point_id'] = $backup_point_id;
+        $this->container['available_amount'] = $available_amount;
 
         return $this;
     }
 
     /**
-     * Gets backup_type
+     * Gets configuration_code
      *
      * @return string
      */
-    public function getBackupType()
+    public function getConfigurationCode()
     {
-        return $this->container['backup_type'];
+        return $this->container['configuration_code'];
     }
 
     /**
-     * Sets backup_type
+     * Sets configuration_code
      *
-     * @param string $backup_type backup_type
+     * @param string $configuration_code configuration_code
      *
      * @return $this
      */
-    public function setBackupType($backup_type)
+    public function setConfigurationCode($configuration_code)
     {
-        $allowedValues = $this->getBackupTypeAllowableValues();
-        if (!is_null($backup_type) && !in_array($backup_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'backup_type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['backup_type'] = $backup_type;
+        $this->container['configuration_code'] = $configuration_code;
 
         return $this;
     }
 
     /**
-     * Gets client_token
+     * Gets package_name
      *
      * @return string
      */
-    public function getClientToken()
+    public function getPackageName()
     {
-        return $this->container['client_token'];
+        return $this->container['package_name'];
     }
 
     /**
-     * Sets client_token
+     * Sets package_name
      *
-     * @param string $client_token client_token
+     * @param string $package_name package_name
      *
      * @return $this
      */
-    public function setClientToken($client_token)
+    public function setPackageName($package_name)
     {
-        $this->container['client_token'] = $client_token;
+        $this->container['package_name'] = $package_name;
 
         return $this;
     }
 
     /**
-     * Gets instance_id
+     * Gets total_amount
      *
-     * @return string
+     * @return int
      */
-    public function getInstanceId()
+    public function getTotalAmount()
     {
-        return $this->container['instance_id'];
+        return $this->container['total_amount'];
     }
 
     /**
-     * Sets instance_id
+     * Sets total_amount
      *
-     * @param string $instance_id instance_id
+     * @param int $total_amount total_amount
      *
      * @return $this
      */
-    public function setInstanceId($instance_id)
+    public function setTotalAmount($total_amount)
     {
-        $this->container['instance_id'] = $instance_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets time_point
-     *
-     * @return string
-     */
-    public function getTimePoint()
-    {
-        return $this->container['time_point'];
-    }
-
-    /**
-     * Sets time_point
-     *
-     * @param string $time_point time_point
-     *
-     * @return $this
-     */
-    public function setTimePoint($time_point)
-    {
-        $this->container['time_point'] = $time_point;
+        $this->container['total_amount'] = $total_amount;
 
         return $this;
     }

@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Redis\Model;
+namespace Volcengine\I18nopenapi\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class RestoreDBInstanceRequest implements ModelInterface, ArrayAccess
+class ConvertsubtitleForVideoProjectSerialTaskCreateInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class RestoreDBInstanceRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'RestoreDBInstanceRequest';
+    protected static $swaggerModelName = 'ConvertsubtitleForVideoProjectSerialTaskCreateInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,11 +28,12 @@ class RestoreDBInstanceRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'backup_point_id' => 'string',
-        'backup_type' => 'string',
-        'client_token' => 'string',
-        'instance_id' => 'string',
-        'time_point' => 'string'
+        'arrangement' => 'int',
+        'file_type' => 'int',
+        'name' => 'string',
+        'subtitle_lang' => 'int',
+        'target_lang' => 'string',
+        'uri' => 'string'
     ];
 
     /**
@@ -41,11 +42,12 @@ class RestoreDBInstanceRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'backup_point_id' => null,
-        'backup_type' => null,
-        'client_token' => null,
-        'instance_id' => null,
-        'time_point' => null
+        'arrangement' => 'int32',
+        'file_type' => 'int32',
+        'name' => null,
+        'subtitle_lang' => 'int32',
+        'target_lang' => null,
+        'uri' => null
     ];
 
     /**
@@ -75,11 +77,12 @@ class RestoreDBInstanceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'backup_point_id' => 'BackupPointId',
-        'backup_type' => 'BackupType',
-        'client_token' => 'ClientToken',
-        'instance_id' => 'InstanceId',
-        'time_point' => 'TimePoint'
+        'arrangement' => 'arrangement',
+        'file_type' => 'fileType',
+        'name' => 'name',
+        'subtitle_lang' => 'subtitleLang',
+        'target_lang' => 'targetLang',
+        'uri' => 'uri'
     ];
 
     /**
@@ -88,11 +91,12 @@ class RestoreDBInstanceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'backup_point_id' => 'setBackupPointId',
-        'backup_type' => 'setBackupType',
-        'client_token' => 'setClientToken',
-        'instance_id' => 'setInstanceId',
-        'time_point' => 'setTimePoint'
+        'arrangement' => 'setArrangement',
+        'file_type' => 'setFileType',
+        'name' => 'setName',
+        'subtitle_lang' => 'setSubtitleLang',
+        'target_lang' => 'setTargetLang',
+        'uri' => 'setUri'
     ];
 
     /**
@@ -101,11 +105,12 @@ class RestoreDBInstanceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'backup_point_id' => 'getBackupPointId',
-        'backup_type' => 'getBackupType',
-        'client_token' => 'getClientToken',
-        'instance_id' => 'getInstanceId',
-        'time_point' => 'getTimePoint'
+        'arrangement' => 'getArrangement',
+        'file_type' => 'getFileType',
+        'name' => 'getName',
+        'subtitle_lang' => 'getSubtitleLang',
+        'target_lang' => 'getTargetLang',
+        'uri' => 'getUri'
     ];
 
     /**
@@ -149,27 +154,8 @@ class RestoreDBInstanceRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const BACKUP_TYPE_INVALID = 'Invalid';
-    const BACKUP_TYPE_FULL = 'Full';
-    const BACKUP_TYPE_INC = 'Inc';
-    const BACKUP_TYPE_ALL = 'All';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getBackupTypeAllowableValues()
-    {
-        return [
-            self::BACKUP_TYPE_INVALID,
-            self::BACKUP_TYPE_FULL,
-            self::BACKUP_TYPE_INC,
-            self::BACKUP_TYPE_ALL,
-        ];
-    }
     
 
     /**
@@ -187,11 +173,12 @@ class RestoreDBInstanceRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['backup_point_id'] = isset($data['backup_point_id']) ? $data['backup_point_id'] : null;
-        $this->container['backup_type'] = isset($data['backup_type']) ? $data['backup_type'] : null;
-        $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
-        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
-        $this->container['time_point'] = isset($data['time_point']) ? $data['time_point'] : null;
+        $this->container['arrangement'] = isset($data['arrangement']) ? $data['arrangement'] : null;
+        $this->container['file_type'] = isset($data['file_type']) ? $data['file_type'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['subtitle_lang'] = isset($data['subtitle_lang']) ? $data['subtitle_lang'] : null;
+        $this->container['target_lang'] = isset($data['target_lang']) ? $data['target_lang'] : null;
+        $this->container['uri'] = isset($data['uri']) ? $data['uri'] : null;
     }
 
     /**
@@ -203,17 +190,6 @@ class RestoreDBInstanceRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getBackupTypeAllowableValues();
-        if (!is_null($this->container['backup_type']) && !in_array($this->container['backup_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'backup_type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        if ($this->container['instance_id'] === null) {
-            $invalidProperties[] = "'instance_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -230,130 +206,145 @@ class RestoreDBInstanceRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets backup_point_id
+     * Gets arrangement
      *
-     * @return string
+     * @return int
      */
-    public function getBackupPointId()
+    public function getArrangement()
     {
-        return $this->container['backup_point_id'];
+        return $this->container['arrangement'];
     }
 
     /**
-     * Sets backup_point_id
+     * Sets arrangement
      *
-     * @param string $backup_point_id backup_point_id
+     * @param int $arrangement arrangement
      *
      * @return $this
      */
-    public function setBackupPointId($backup_point_id)
+    public function setArrangement($arrangement)
     {
-        $this->container['backup_point_id'] = $backup_point_id;
+        $this->container['arrangement'] = $arrangement;
 
         return $this;
     }
 
     /**
-     * Gets backup_type
+     * Gets file_type
      *
-     * @return string
+     * @return int
      */
-    public function getBackupType()
+    public function getFileType()
     {
-        return $this->container['backup_type'];
+        return $this->container['file_type'];
     }
 
     /**
-     * Sets backup_type
+     * Sets file_type
      *
-     * @param string $backup_type backup_type
+     * @param int $file_type file_type
      *
      * @return $this
      */
-    public function setBackupType($backup_type)
+    public function setFileType($file_type)
     {
-        $allowedValues = $this->getBackupTypeAllowableValues();
-        if (!is_null($backup_type) && !in_array($backup_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'backup_type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['backup_type'] = $backup_type;
+        $this->container['file_type'] = $file_type;
 
         return $this;
     }
 
     /**
-     * Gets client_token
+     * Gets name
      *
      * @return string
      */
-    public function getClientToken()
+    public function getName()
     {
-        return $this->container['client_token'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets client_token
+     * Sets name
      *
-     * @param string $client_token client_token
+     * @param string $name name
      *
      * @return $this
      */
-    public function setClientToken($client_token)
+    public function setName($name)
     {
-        $this->container['client_token'] = $client_token;
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets instance_id
+     * Gets subtitle_lang
      *
-     * @return string
+     * @return int
      */
-    public function getInstanceId()
+    public function getSubtitleLang()
     {
-        return $this->container['instance_id'];
+        return $this->container['subtitle_lang'];
     }
 
     /**
-     * Sets instance_id
+     * Sets subtitle_lang
      *
-     * @param string $instance_id instance_id
+     * @param int $subtitle_lang subtitle_lang
      *
      * @return $this
      */
-    public function setInstanceId($instance_id)
+    public function setSubtitleLang($subtitle_lang)
     {
-        $this->container['instance_id'] = $instance_id;
+        $this->container['subtitle_lang'] = $subtitle_lang;
 
         return $this;
     }
 
     /**
-     * Gets time_point
+     * Gets target_lang
      *
      * @return string
      */
-    public function getTimePoint()
+    public function getTargetLang()
     {
-        return $this->container['time_point'];
+        return $this->container['target_lang'];
     }
 
     /**
-     * Sets time_point
+     * Sets target_lang
      *
-     * @param string $time_point time_point
+     * @param string $target_lang target_lang
      *
      * @return $this
      */
-    public function setTimePoint($time_point)
+    public function setTargetLang($target_lang)
     {
-        $this->container['time_point'] = $time_point;
+        $this->container['target_lang'] = $target_lang;
+
+        return $this;
+    }
+
+    /**
+     * Gets uri
+     *
+     * @return string
+     */
+    public function getUri()
+    {
+        return $this->container['uri'];
+    }
+
+    /**
+     * Sets uri
+     *
+     * @param string $uri uri
+     *
+     * @return $this
+     */
+    public function setUri($uri)
+    {
+        $this->container['uri'] = $uri;
 
         return $this;
     }

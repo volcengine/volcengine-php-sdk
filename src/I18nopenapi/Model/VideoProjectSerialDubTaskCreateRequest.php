@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Redis\Model;
+namespace Volcengine\I18nopenapi\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class RestoreDBInstanceRequest implements ModelInterface, ArrayAccess
+class VideoProjectSerialDubTaskCreateRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class RestoreDBInstanceRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'RestoreDBInstanceRequest';
+    protected static $swaggerModelName = 'VideoProjectSerialDubTaskCreateRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,11 +28,9 @@ class RestoreDBInstanceRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'backup_point_id' => 'string',
-        'backup_type' => 'string',
-        'client_token' => 'string',
-        'instance_id' => 'string',
-        'time_point' => 'string'
+        'project_id' => 'int',
+        'serial_info' => '\Volcengine\I18nopenapi\Model\SerialInfoForVideoProjectSerialDubTaskCreateInput[]',
+        'task_info' => '\Volcengine\I18nopenapi\Model\TaskInfoForVideoProjectSerialDubTaskCreateInput'
     ];
 
     /**
@@ -41,11 +39,9 @@ class RestoreDBInstanceRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'backup_point_id' => null,
-        'backup_type' => null,
-        'client_token' => null,
-        'instance_id' => null,
-        'time_point' => null
+        'project_id' => 'int64',
+        'serial_info' => null,
+        'task_info' => null
     ];
 
     /**
@@ -75,11 +71,9 @@ class RestoreDBInstanceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'backup_point_id' => 'BackupPointId',
-        'backup_type' => 'BackupType',
-        'client_token' => 'ClientToken',
-        'instance_id' => 'InstanceId',
-        'time_point' => 'TimePoint'
+        'project_id' => 'projectId',
+        'serial_info' => 'serialInfo',
+        'task_info' => 'taskInfo'
     ];
 
     /**
@@ -88,11 +82,9 @@ class RestoreDBInstanceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'backup_point_id' => 'setBackupPointId',
-        'backup_type' => 'setBackupType',
-        'client_token' => 'setClientToken',
-        'instance_id' => 'setInstanceId',
-        'time_point' => 'setTimePoint'
+        'project_id' => 'setProjectId',
+        'serial_info' => 'setSerialInfo',
+        'task_info' => 'setTaskInfo'
     ];
 
     /**
@@ -101,11 +93,9 @@ class RestoreDBInstanceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'backup_point_id' => 'getBackupPointId',
-        'backup_type' => 'getBackupType',
-        'client_token' => 'getClientToken',
-        'instance_id' => 'getInstanceId',
-        'time_point' => 'getTimePoint'
+        'project_id' => 'getProjectId',
+        'serial_info' => 'getSerialInfo',
+        'task_info' => 'getTaskInfo'
     ];
 
     /**
@@ -149,27 +139,8 @@ class RestoreDBInstanceRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const BACKUP_TYPE_INVALID = 'Invalid';
-    const BACKUP_TYPE_FULL = 'Full';
-    const BACKUP_TYPE_INC = 'Inc';
-    const BACKUP_TYPE_ALL = 'All';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getBackupTypeAllowableValues()
-    {
-        return [
-            self::BACKUP_TYPE_INVALID,
-            self::BACKUP_TYPE_FULL,
-            self::BACKUP_TYPE_INC,
-            self::BACKUP_TYPE_ALL,
-        ];
-    }
     
 
     /**
@@ -187,11 +158,9 @@ class RestoreDBInstanceRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['backup_point_id'] = isset($data['backup_point_id']) ? $data['backup_point_id'] : null;
-        $this->container['backup_type'] = isset($data['backup_type']) ? $data['backup_type'] : null;
-        $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;
-        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
-        $this->container['time_point'] = isset($data['time_point']) ? $data['time_point'] : null;
+        $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
+        $this->container['serial_info'] = isset($data['serial_info']) ? $data['serial_info'] : null;
+        $this->container['task_info'] = isset($data['task_info']) ? $data['task_info'] : null;
     }
 
     /**
@@ -203,16 +172,8 @@ class RestoreDBInstanceRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getBackupTypeAllowableValues();
-        if (!is_null($this->container['backup_type']) && !in_array($this->container['backup_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'backup_type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        if ($this->container['instance_id'] === null) {
-            $invalidProperties[] = "'instance_id' can't be null";
+        if ($this->container['project_id'] === null) {
+            $invalidProperties[] = "'project_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -230,130 +191,73 @@ class RestoreDBInstanceRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets backup_point_id
+     * Gets project_id
      *
-     * @return string
+     * @return int
      */
-    public function getBackupPointId()
+    public function getProjectId()
     {
-        return $this->container['backup_point_id'];
+        return $this->container['project_id'];
     }
 
     /**
-     * Sets backup_point_id
+     * Sets project_id
      *
-     * @param string $backup_point_id backup_point_id
+     * @param int $project_id project_id
      *
      * @return $this
      */
-    public function setBackupPointId($backup_point_id)
+    public function setProjectId($project_id)
     {
-        $this->container['backup_point_id'] = $backup_point_id;
+        $this->container['project_id'] = $project_id;
 
         return $this;
     }
 
     /**
-     * Gets backup_type
+     * Gets serial_info
      *
-     * @return string
+     * @return \Volcengine\I18nopenapi\Model\SerialInfoForVideoProjectSerialDubTaskCreateInput[]
      */
-    public function getBackupType()
+    public function getSerialInfo()
     {
-        return $this->container['backup_type'];
+        return $this->container['serial_info'];
     }
 
     /**
-     * Sets backup_type
+     * Sets serial_info
      *
-     * @param string $backup_type backup_type
+     * @param \Volcengine\I18nopenapi\Model\SerialInfoForVideoProjectSerialDubTaskCreateInput[] $serial_info serial_info
      *
      * @return $this
      */
-    public function setBackupType($backup_type)
+    public function setSerialInfo($serial_info)
     {
-        $allowedValues = $this->getBackupTypeAllowableValues();
-        if (!is_null($backup_type) && !in_array($backup_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'backup_type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['backup_type'] = $backup_type;
+        $this->container['serial_info'] = $serial_info;
 
         return $this;
     }
 
     /**
-     * Gets client_token
+     * Gets task_info
      *
-     * @return string
+     * @return \Volcengine\I18nopenapi\Model\TaskInfoForVideoProjectSerialDubTaskCreateInput
      */
-    public function getClientToken()
+    public function getTaskInfo()
     {
-        return $this->container['client_token'];
+        return $this->container['task_info'];
     }
 
     /**
-     * Sets client_token
+     * Sets task_info
      *
-     * @param string $client_token client_token
+     * @param \Volcengine\I18nopenapi\Model\TaskInfoForVideoProjectSerialDubTaskCreateInput $task_info task_info
      *
      * @return $this
      */
-    public function setClientToken($client_token)
+    public function setTaskInfo($task_info)
     {
-        $this->container['client_token'] = $client_token;
-
-        return $this;
-    }
-
-    /**
-     * Gets instance_id
-     *
-     * @return string
-     */
-    public function getInstanceId()
-    {
-        return $this->container['instance_id'];
-    }
-
-    /**
-     * Sets instance_id
-     *
-     * @param string $instance_id instance_id
-     *
-     * @return $this
-     */
-    public function setInstanceId($instance_id)
-    {
-        $this->container['instance_id'] = $instance_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets time_point
-     *
-     * @return string
-     */
-    public function getTimePoint()
-    {
-        return $this->container['time_point'];
-    }
-
-    /**
-     * Sets time_point
-     *
-     * @param string $time_point time_point
-     *
-     * @return $this
-     */
-    public function setTimePoint($time_point)
-    {
-        $this->container['time_point'] = $time_point;
+        $this->container['task_info'] = $task_info;
 
         return $this;
     }
