@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class LanguageForGetSpeakerListOutput implements ModelInterface, ArrayAccess
+class QuotaInfoListForGetPoolQuotaInfoOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class LanguageForGetSpeakerListOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'LanguageForGetSpeakerListOutput';
+    protected static $swaggerModelName = 'QuotaInfoListForGetPoolQuotaInfoOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,10 @@ class LanguageForGetSpeakerListOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'name' => 'string',
-        'value' => 'string'
+        'available_amount' => 'int',
+        'configuration_code' => 'string',
+        'package_name' => 'string',
+        'total_amount' => 'int'
     ];
 
     /**
@@ -38,8 +40,10 @@ class LanguageForGetSpeakerListOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'name' => null,
-        'value' => null
+        'available_amount' => 'int32',
+        'configuration_code' => null,
+        'package_name' => null,
+        'total_amount' => 'int32'
     ];
 
     /**
@@ -69,8 +73,10 @@ class LanguageForGetSpeakerListOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'Name',
-        'value' => 'Value'
+        'available_amount' => 'availableAmount',
+        'configuration_code' => 'configurationCode',
+        'package_name' => 'packageName',
+        'total_amount' => 'totalAmount'
     ];
 
     /**
@@ -79,8 +85,10 @@ class LanguageForGetSpeakerListOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-        'value' => 'setValue'
+        'available_amount' => 'setAvailableAmount',
+        'configuration_code' => 'setConfigurationCode',
+        'package_name' => 'setPackageName',
+        'total_amount' => 'setTotalAmount'
     ];
 
     /**
@@ -89,8 +97,10 @@ class LanguageForGetSpeakerListOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-        'value' => 'getValue'
+        'available_amount' => 'getAvailableAmount',
+        'configuration_code' => 'getConfigurationCode',
+        'package_name' => 'getPackageName',
+        'total_amount' => 'getTotalAmount'
     ];
 
     /**
@@ -153,8 +163,10 @@ class LanguageForGetSpeakerListOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        $this->container['available_amount'] = isset($data['available_amount']) ? $data['available_amount'] : null;
+        $this->container['configuration_code'] = isset($data['configuration_code']) ? $data['configuration_code'] : null;
+        $this->container['package_name'] = isset($data['package_name']) ? $data['package_name'] : null;
+        $this->container['total_amount'] = isset($data['total_amount']) ? $data['total_amount'] : null;
     }
 
     /**
@@ -182,49 +194,97 @@ class LanguageForGetSpeakerListOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets name
+     * Gets available_amount
      *
-     * @return string
+     * @return int
      */
-    public function getName()
+    public function getAvailableAmount()
     {
-        return $this->container['name'];
+        return $this->container['available_amount'];
     }
 
     /**
-     * Sets name
+     * Sets available_amount
      *
-     * @param string $name name
+     * @param int $available_amount available_amount
      *
      * @return $this
      */
-    public function setName($name)
+    public function setAvailableAmount($available_amount)
     {
-        $this->container['name'] = $name;
+        $this->container['available_amount'] = $available_amount;
 
         return $this;
     }
 
     /**
-     * Gets value
+     * Gets configuration_code
      *
      * @return string
      */
-    public function getValue()
+    public function getConfigurationCode()
     {
-        return $this->container['value'];
+        return $this->container['configuration_code'];
     }
 
     /**
-     * Sets value
+     * Sets configuration_code
      *
-     * @param string $value value
+     * @param string $configuration_code configuration_code
      *
      * @return $this
      */
-    public function setValue($value)
+    public function setConfigurationCode($configuration_code)
     {
-        $this->container['value'] = $value;
+        $this->container['configuration_code'] = $configuration_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets package_name
+     *
+     * @return string
+     */
+    public function getPackageName()
+    {
+        return $this->container['package_name'];
+    }
+
+    /**
+     * Sets package_name
+     *
+     * @param string $package_name package_name
+     *
+     * @return $this
+     */
+    public function setPackageName($package_name)
+    {
+        $this->container['package_name'] = $package_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_amount
+     *
+     * @return int
+     */
+    public function getTotalAmount()
+    {
+        return $this->container['total_amount'];
+    }
+
+    /**
+     * Sets total_amount
+     *
+     * @param int $total_amount total_amount
+     *
+     * @return $this
+     */
+    public function setTotalAmount($total_amount)
+    {
+        $this->container['total_amount'] = $total_amount;
 
         return $this;
     }

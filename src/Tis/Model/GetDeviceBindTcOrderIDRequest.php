@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class LanguageForGetSpeakerListOutput implements ModelInterface, ArrayAccess
+class GetDeviceBindTcOrderIDRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class LanguageForGetSpeakerListOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'LanguageForGetSpeakerListOutput';
+    protected static $swaggerModelName = 'GetDeviceBindTcOrderIDRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,8 @@ class LanguageForGetSpeakerListOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'name' => 'string',
-        'value' => 'string'
+        'device_name' => 'string',
+        'product_key' => 'string'
     ];
 
     /**
@@ -38,8 +38,8 @@ class LanguageForGetSpeakerListOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'name' => null,
-        'value' => null
+        'device_name' => null,
+        'product_key' => null
     ];
 
     /**
@@ -69,8 +69,8 @@ class LanguageForGetSpeakerListOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'Name',
-        'value' => 'Value'
+        'device_name' => 'DeviceName',
+        'product_key' => 'ProductKey'
     ];
 
     /**
@@ -79,8 +79,8 @@ class LanguageForGetSpeakerListOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-        'value' => 'setValue'
+        'device_name' => 'setDeviceName',
+        'product_key' => 'setProductKey'
     ];
 
     /**
@@ -89,8 +89,8 @@ class LanguageForGetSpeakerListOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-        'value' => 'getValue'
+        'device_name' => 'getDeviceName',
+        'product_key' => 'getProductKey'
     ];
 
     /**
@@ -153,8 +153,8 @@ class LanguageForGetSpeakerListOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        $this->container['device_name'] = isset($data['device_name']) ? $data['device_name'] : null;
+        $this->container['product_key'] = isset($data['product_key']) ? $data['product_key'] : null;
     }
 
     /**
@@ -166,6 +166,12 @@ class LanguageForGetSpeakerListOutput implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['device_name'] === null) {
+            $invalidProperties[] = "'device_name' can't be null";
+        }
+        if ($this->container['product_key'] === null) {
+            $invalidProperties[] = "'product_key' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -182,49 +188,49 @@ class LanguageForGetSpeakerListOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets name
+     * Gets device_name
      *
      * @return string
      */
-    public function getName()
+    public function getDeviceName()
     {
-        return $this->container['name'];
+        return $this->container['device_name'];
     }
 
     /**
-     * Sets name
+     * Sets device_name
      *
-     * @param string $name name
+     * @param string $device_name device_name
      *
      * @return $this
      */
-    public function setName($name)
+    public function setDeviceName($device_name)
     {
-        $this->container['name'] = $name;
+        $this->container['device_name'] = $device_name;
 
         return $this;
     }
 
     /**
-     * Gets value
+     * Gets product_key
      *
      * @return string
      */
-    public function getValue()
+    public function getProductKey()
     {
-        return $this->container['value'];
+        return $this->container['product_key'];
     }
 
     /**
-     * Sets value
+     * Sets product_key
      *
-     * @param string $value value
+     * @param string $product_key product_key
      *
      * @return $this
      */
-    public function setValue($value)
+    public function setProductKey($product_key)
     {
-        $this->container['value'] = $value;
+        $this->container['product_key'] = $product_key;
 
         return $this;
     }
