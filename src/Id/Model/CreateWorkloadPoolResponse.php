@@ -30,6 +30,7 @@ class CreateWorkloadPoolResponse implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'created_at' => 'string',
         'description' => 'string',
+        'discovery_url' => 'string',
         'project_name' => 'string',
         'tags' => '\Volcengine\Id\Model\TagForCreateWorkloadPoolOutput[]',
         'trn' => 'string',
@@ -46,6 +47,7 @@ class CreateWorkloadPoolResponse implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'created_at' => null,
         'description' => null,
+        'discovery_url' => null,
         'project_name' => null,
         'tags' => null,
         'trn' => null,
@@ -83,6 +85,7 @@ class CreateWorkloadPoolResponse implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'created_at' => 'CreatedAt',
         'description' => 'Description',
+        'discovery_url' => 'DiscoveryUrl',
         'project_name' => 'ProjectName',
         'tags' => 'Tags',
         'trn' => 'Trn',
@@ -99,6 +102,7 @@ class CreateWorkloadPoolResponse implements ModelInterface, ArrayAccess
     protected static $setters = [
         'created_at' => 'setCreatedAt',
         'description' => 'setDescription',
+        'discovery_url' => 'setDiscoveryUrl',
         'project_name' => 'setProjectName',
         'tags' => 'setTags',
         'trn' => 'setTrn',
@@ -115,6 +119,7 @@ class CreateWorkloadPoolResponse implements ModelInterface, ArrayAccess
     protected static $getters = [
         'created_at' => 'getCreatedAt',
         'description' => 'getDescription',
+        'discovery_url' => 'getDiscoveryUrl',
         'project_name' => 'getProjectName',
         'tags' => 'getTags',
         'trn' => 'getTrn',
@@ -185,6 +190,7 @@ class CreateWorkloadPoolResponse implements ModelInterface, ArrayAccess
     {
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['discovery_url'] = isset($data['discovery_url']) ? $data['discovery_url'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['trn'] = isset($data['trn']) ? $data['trn'] : null;
@@ -261,6 +267,30 @@ class CreateWorkloadPoolResponse implements ModelInterface, ArrayAccess
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets discovery_url
+     *
+     * @return string
+     */
+    public function getDiscoveryUrl()
+    {
+        return $this->container['discovery_url'];
+    }
+
+    /**
+     * Sets discovery_url
+     *
+     * @param string $discovery_url discovery_url
+     *
+     * @return $this
+     */
+    public function setDiscoveryUrl($discovery_url)
+    {
+        $this->container['discovery_url'] = $discovery_url;
 
         return $this;
     }

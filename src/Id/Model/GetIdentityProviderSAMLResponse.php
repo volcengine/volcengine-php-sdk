@@ -30,6 +30,7 @@ class GetIdentityProviderSAMLResponse implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'attribute_mapping' => 'string',
         'certificate' => 'string',
+        'claims_propagation_config' => '\Volcengine\Id\Model\ClaimsPropagationConfigForGetIdentityProviderSAMLOutput',
         'enabled' => 'bool',
         'enabled_encryption' => 'bool',
         'enabled_sign' => 'bool',
@@ -49,6 +50,7 @@ class GetIdentityProviderSAMLResponse implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'attribute_mapping' => null,
         'certificate' => null,
+        'claims_propagation_config' => null,
         'enabled' => null,
         'enabled_encryption' => null,
         'enabled_sign' => null,
@@ -89,6 +91,7 @@ class GetIdentityProviderSAMLResponse implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'attribute_mapping' => 'AttributeMapping',
         'certificate' => 'Certificate',
+        'claims_propagation_config' => 'ClaimsPropagationConfig',
         'enabled' => 'Enabled',
         'enabled_encryption' => 'EnabledEncryption',
         'enabled_sign' => 'EnabledSign',
@@ -108,6 +111,7 @@ class GetIdentityProviderSAMLResponse implements ModelInterface, ArrayAccess
     protected static $setters = [
         'attribute_mapping' => 'setAttributeMapping',
         'certificate' => 'setCertificate',
+        'claims_propagation_config' => 'setClaimsPropagationConfig',
         'enabled' => 'setEnabled',
         'enabled_encryption' => 'setEnabledEncryption',
         'enabled_sign' => 'setEnabledSign',
@@ -127,6 +131,7 @@ class GetIdentityProviderSAMLResponse implements ModelInterface, ArrayAccess
     protected static $getters = [
         'attribute_mapping' => 'getAttributeMapping',
         'certificate' => 'getCertificate',
+        'claims_propagation_config' => 'getClaimsPropagationConfig',
         'enabled' => 'getEnabled',
         'enabled_encryption' => 'getEnabledEncryption',
         'enabled_sign' => 'getEnabledSign',
@@ -200,6 +205,7 @@ class GetIdentityProviderSAMLResponse implements ModelInterface, ArrayAccess
     {
         $this->container['attribute_mapping'] = isset($data['attribute_mapping']) ? $data['attribute_mapping'] : null;
         $this->container['certificate'] = isset($data['certificate']) ? $data['certificate'] : null;
+        $this->container['claims_propagation_config'] = isset($data['claims_propagation_config']) ? $data['claims_propagation_config'] : null;
         $this->container['enabled'] = isset($data['enabled']) ? $data['enabled'] : null;
         $this->container['enabled_encryption'] = isset($data['enabled_encryption']) ? $data['enabled_encryption'] : null;
         $this->container['enabled_sign'] = isset($data['enabled_sign']) ? $data['enabled_sign'] : null;
@@ -279,6 +285,30 @@ class GetIdentityProviderSAMLResponse implements ModelInterface, ArrayAccess
     public function setCertificate($certificate)
     {
         $this->container['certificate'] = $certificate;
+
+        return $this;
+    }
+
+    /**
+     * Gets claims_propagation_config
+     *
+     * @return \Volcengine\Id\Model\ClaimsPropagationConfigForGetIdentityProviderSAMLOutput
+     */
+    public function getClaimsPropagationConfig()
+    {
+        return $this->container['claims_propagation_config'];
+    }
+
+    /**
+     * Sets claims_propagation_config
+     *
+     * @param \Volcengine\Id\Model\ClaimsPropagationConfigForGetIdentityProviderSAMLOutput $claims_propagation_config claims_propagation_config
+     *
+     * @return $this
+     */
+    public function setClaimsPropagationConfig($claims_propagation_config)
+    {
+        $this->container['claims_propagation_config'] = $claims_propagation_config;
 
         return $this;
     }

@@ -29,9 +29,11 @@ class AuthorizationServerMetadataForUpdateOauth2CredentialProviderInput implemen
       */
     protected static $swaggerTypes = [
         'authorization_endpoint' => 'string',
+        'code_challenge_methods_supported' => 'string[]',
         'issuer' => 'string',
         'registration_endpoint' => 'string',
         'response_types' => 'string[]',
+        'revocation_endpoint' => 'string',
         'token_endpoint' => 'string'
     ];
 
@@ -42,9 +44,11 @@ class AuthorizationServerMetadataForUpdateOauth2CredentialProviderInput implemen
       */
     protected static $swaggerFormats = [
         'authorization_endpoint' => null,
+        'code_challenge_methods_supported' => null,
         'issuer' => null,
         'registration_endpoint' => null,
         'response_types' => null,
+        'revocation_endpoint' => null,
         'token_endpoint' => null
     ];
 
@@ -76,9 +80,11 @@ class AuthorizationServerMetadataForUpdateOauth2CredentialProviderInput implemen
      */
     protected static $attributeMap = [
         'authorization_endpoint' => 'AuthorizationEndpoint',
+        'code_challenge_methods_supported' => 'CodeChallengeMethodsSupported',
         'issuer' => 'Issuer',
         'registration_endpoint' => 'RegistrationEndpoint',
         'response_types' => 'ResponseTypes',
+        'revocation_endpoint' => 'RevocationEndpoint',
         'token_endpoint' => 'TokenEndpoint'
     ];
 
@@ -89,9 +95,11 @@ class AuthorizationServerMetadataForUpdateOauth2CredentialProviderInput implemen
      */
     protected static $setters = [
         'authorization_endpoint' => 'setAuthorizationEndpoint',
+        'code_challenge_methods_supported' => 'setCodeChallengeMethodsSupported',
         'issuer' => 'setIssuer',
         'registration_endpoint' => 'setRegistrationEndpoint',
         'response_types' => 'setResponseTypes',
+        'revocation_endpoint' => 'setRevocationEndpoint',
         'token_endpoint' => 'setTokenEndpoint'
     ];
 
@@ -102,9 +110,11 @@ class AuthorizationServerMetadataForUpdateOauth2CredentialProviderInput implemen
      */
     protected static $getters = [
         'authorization_endpoint' => 'getAuthorizationEndpoint',
+        'code_challenge_methods_supported' => 'getCodeChallengeMethodsSupported',
         'issuer' => 'getIssuer',
         'registration_endpoint' => 'getRegistrationEndpoint',
         'response_types' => 'getResponseTypes',
+        'revocation_endpoint' => 'getRevocationEndpoint',
         'token_endpoint' => 'getTokenEndpoint'
     ];
 
@@ -169,9 +179,11 @@ class AuthorizationServerMetadataForUpdateOauth2CredentialProviderInput implemen
     public function __construct(array $data = null)
     {
         $this->container['authorization_endpoint'] = isset($data['authorization_endpoint']) ? $data['authorization_endpoint'] : null;
+        $this->container['code_challenge_methods_supported'] = isset($data['code_challenge_methods_supported']) ? $data['code_challenge_methods_supported'] : null;
         $this->container['issuer'] = isset($data['issuer']) ? $data['issuer'] : null;
         $this->container['registration_endpoint'] = isset($data['registration_endpoint']) ? $data['registration_endpoint'] : null;
         $this->container['response_types'] = isset($data['response_types']) ? $data['response_types'] : null;
+        $this->container['revocation_endpoint'] = isset($data['revocation_endpoint']) ? $data['revocation_endpoint'] : null;
         $this->container['token_endpoint'] = isset($data['token_endpoint']) ? $data['token_endpoint'] : null;
     }
 
@@ -219,6 +231,30 @@ class AuthorizationServerMetadataForUpdateOauth2CredentialProviderInput implemen
     public function setAuthorizationEndpoint($authorization_endpoint)
     {
         $this->container['authorization_endpoint'] = $authorization_endpoint;
+
+        return $this;
+    }
+
+    /**
+     * Gets code_challenge_methods_supported
+     *
+     * @return string[]
+     */
+    public function getCodeChallengeMethodsSupported()
+    {
+        return $this->container['code_challenge_methods_supported'];
+    }
+
+    /**
+     * Sets code_challenge_methods_supported
+     *
+     * @param string[] $code_challenge_methods_supported code_challenge_methods_supported
+     *
+     * @return $this
+     */
+    public function setCodeChallengeMethodsSupported($code_challenge_methods_supported)
+    {
+        $this->container['code_challenge_methods_supported'] = $code_challenge_methods_supported;
 
         return $this;
     }
@@ -291,6 +327,30 @@ class AuthorizationServerMetadataForUpdateOauth2CredentialProviderInput implemen
     public function setResponseTypes($response_types)
     {
         $this->container['response_types'] = $response_types;
+
+        return $this;
+    }
+
+    /**
+     * Gets revocation_endpoint
+     *
+     * @return string
+     */
+    public function getRevocationEndpoint()
+    {
+        return $this->container['revocation_endpoint'];
+    }
+
+    /**
+     * Sets revocation_endpoint
+     *
+     * @param string $revocation_endpoint revocation_endpoint
+     *
+     * @return $this
+     */
+    public function setRevocationEndpoint($revocation_endpoint)
+    {
+        $this->container['revocation_endpoint'] = $revocation_endpoint;
 
         return $this;
     }

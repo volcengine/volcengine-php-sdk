@@ -34,6 +34,7 @@ class UpdateUserPoolClientRequest implements ModelInterface, ArrayAccess
         'allowed_web_origins' => 'string[]',
         'client_uid' => 'string',
         'description' => 'string',
+        'development_mode_enabled' => 'bool',
         'id_token' => '\Volcengine\Id\Model\IdTokenForUpdateUserPoolClientInput',
         'logo_uri' => 'string',
         'name' => 'string',
@@ -53,6 +54,7 @@ class UpdateUserPoolClientRequest implements ModelInterface, ArrayAccess
         'allowed_web_origins' => null,
         'client_uid' => null,
         'description' => null,
+        'development_mode_enabled' => null,
         'id_token' => null,
         'logo_uri' => null,
         'name' => null,
@@ -93,6 +95,7 @@ class UpdateUserPoolClientRequest implements ModelInterface, ArrayAccess
         'allowed_web_origins' => 'AllowedWebOrigins',
         'client_uid' => 'ClientUid',
         'description' => 'Description',
+        'development_mode_enabled' => 'DevelopmentModeEnabled',
         'id_token' => 'IdToken',
         'logo_uri' => 'LogoUri',
         'name' => 'Name',
@@ -112,6 +115,7 @@ class UpdateUserPoolClientRequest implements ModelInterface, ArrayAccess
         'allowed_web_origins' => 'setAllowedWebOrigins',
         'client_uid' => 'setClientUid',
         'description' => 'setDescription',
+        'development_mode_enabled' => 'setDevelopmentModeEnabled',
         'id_token' => 'setIdToken',
         'logo_uri' => 'setLogoUri',
         'name' => 'setName',
@@ -131,6 +135,7 @@ class UpdateUserPoolClientRequest implements ModelInterface, ArrayAccess
         'allowed_web_origins' => 'getAllowedWebOrigins',
         'client_uid' => 'getClientUid',
         'description' => 'getDescription',
+        'development_mode_enabled' => 'getDevelopmentModeEnabled',
         'id_token' => 'getIdToken',
         'logo_uri' => 'getLogoUri',
         'name' => 'getName',
@@ -204,6 +209,7 @@ class UpdateUserPoolClientRequest implements ModelInterface, ArrayAccess
         $this->container['allowed_web_origins'] = isset($data['allowed_web_origins']) ? $data['allowed_web_origins'] : null;
         $this->container['client_uid'] = isset($data['client_uid']) ? $data['client_uid'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['development_mode_enabled'] = isset($data['development_mode_enabled']) ? $data['development_mode_enabled'] : null;
         $this->container['id_token'] = isset($data['id_token']) ? $data['id_token'] : null;
         $this->container['logo_uri'] = isset($data['logo_uri']) ? $data['logo_uri'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
@@ -381,6 +387,30 @@ class UpdateUserPoolClientRequest implements ModelInterface, ArrayAccess
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets development_mode_enabled
+     *
+     * @return bool
+     */
+    public function getDevelopmentModeEnabled()
+    {
+        return $this->container['development_mode_enabled'];
+    }
+
+    /**
+     * Sets development_mode_enabled
+     *
+     * @param bool $development_mode_enabled development_mode_enabled
+     *
+     * @return $this
+     */
+    public function setDevelopmentModeEnabled($development_mode_enabled)
+    {
+        $this->container['development_mode_enabled'] = $development_mode_enabled;
 
         return $this;
     }

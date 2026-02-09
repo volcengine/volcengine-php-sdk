@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ValidateBackendResponse implements ModelInterface, ArrayAccess
+class ClaimRuleForCreateIdentityProviderOAuthInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ValidateBackendResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ValidateBackendResponse';
+    protected static $swaggerModelName = 'ClaimRuleForCreateIdentityProviderOAuthInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,10 @@ class ValidateBackendResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'error_message' => 'string',
-        'latency_ms' => 'int',
-        'reachable' => 'bool'
+        'claim_type' => 'string',
+        'required' => 'bool',
+        'source_claim_path' => 'string',
+        'target_claim' => 'string'
     ];
 
     /**
@@ -39,9 +40,10 @@ class ValidateBackendResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'error_message' => null,
-        'latency_ms' => 'int32',
-        'reachable' => null
+        'claim_type' => null,
+        'required' => null,
+        'source_claim_path' => null,
+        'target_claim' => null
     ];
 
     /**
@@ -71,9 +73,10 @@ class ValidateBackendResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'error_message' => 'ErrorMessage',
-        'latency_ms' => 'LatencyMs',
-        'reachable' => 'Reachable'
+        'claim_type' => 'ClaimType',
+        'required' => 'Required',
+        'source_claim_path' => 'SourceClaimPath',
+        'target_claim' => 'TargetClaim'
     ];
 
     /**
@@ -82,9 +85,10 @@ class ValidateBackendResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'error_message' => 'setErrorMessage',
-        'latency_ms' => 'setLatencyMs',
-        'reachable' => 'setReachable'
+        'claim_type' => 'setClaimType',
+        'required' => 'setRequired',
+        'source_claim_path' => 'setSourceClaimPath',
+        'target_claim' => 'setTargetClaim'
     ];
 
     /**
@@ -93,9 +97,10 @@ class ValidateBackendResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'error_message' => 'getErrorMessage',
-        'latency_ms' => 'getLatencyMs',
-        'reachable' => 'getReachable'
+        'claim_type' => 'getClaimType',
+        'required' => 'getRequired',
+        'source_claim_path' => 'getSourceClaimPath',
+        'target_claim' => 'getTargetClaim'
     ];
 
     /**
@@ -158,9 +163,10 @@ class ValidateBackendResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['error_message'] = isset($data['error_message']) ? $data['error_message'] : null;
-        $this->container['latency_ms'] = isset($data['latency_ms']) ? $data['latency_ms'] : null;
-        $this->container['reachable'] = isset($data['reachable']) ? $data['reachable'] : null;
+        $this->container['claim_type'] = isset($data['claim_type']) ? $data['claim_type'] : null;
+        $this->container['required'] = isset($data['required']) ? $data['required'] : null;
+        $this->container['source_claim_path'] = isset($data['source_claim_path']) ? $data['source_claim_path'] : null;
+        $this->container['target_claim'] = isset($data['target_claim']) ? $data['target_claim'] : null;
     }
 
     /**
@@ -188,73 +194,97 @@ class ValidateBackendResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets error_message
+     * Gets claim_type
      *
      * @return string
      */
-    public function getErrorMessage()
+    public function getClaimType()
     {
-        return $this->container['error_message'];
+        return $this->container['claim_type'];
     }
 
     /**
-     * Sets error_message
+     * Sets claim_type
      *
-     * @param string $error_message error_message
+     * @param string $claim_type claim_type
      *
      * @return $this
      */
-    public function setErrorMessage($error_message)
+    public function setClaimType($claim_type)
     {
-        $this->container['error_message'] = $error_message;
+        $this->container['claim_type'] = $claim_type;
 
         return $this;
     }
 
     /**
-     * Gets latency_ms
-     *
-     * @return int
-     */
-    public function getLatencyMs()
-    {
-        return $this->container['latency_ms'];
-    }
-
-    /**
-     * Sets latency_ms
-     *
-     * @param int $latency_ms latency_ms
-     *
-     * @return $this
-     */
-    public function setLatencyMs($latency_ms)
-    {
-        $this->container['latency_ms'] = $latency_ms;
-
-        return $this;
-    }
-
-    /**
-     * Gets reachable
+     * Gets required
      *
      * @return bool
      */
-    public function getReachable()
+    public function getRequired()
     {
-        return $this->container['reachable'];
+        return $this->container['required'];
     }
 
     /**
-     * Sets reachable
+     * Sets required
      *
-     * @param bool $reachable reachable
+     * @param bool $required required
      *
      * @return $this
      */
-    public function setReachable($reachable)
+    public function setRequired($required)
     {
-        $this->container['reachable'] = $reachable;
+        $this->container['required'] = $required;
+
+        return $this;
+    }
+
+    /**
+     * Gets source_claim_path
+     *
+     * @return string
+     */
+    public function getSourceClaimPath()
+    {
+        return $this->container['source_claim_path'];
+    }
+
+    /**
+     * Sets source_claim_path
+     *
+     * @param string $source_claim_path source_claim_path
+     *
+     * @return $this
+     */
+    public function setSourceClaimPath($source_claim_path)
+    {
+        $this->container['source_claim_path'] = $source_claim_path;
+
+        return $this;
+    }
+
+    /**
+     * Gets target_claim
+     *
+     * @return string
+     */
+    public function getTargetClaim()
+    {
+        return $this->container['target_claim'];
+    }
+
+    /**
+     * Sets target_claim
+     *
+     * @param string $target_claim target_claim
+     *
+     * @return $this
+     */
+    public function setTargetClaim($target_claim)
+    {
+        $this->container['target_claim'] = $target_claim;
 
         return $this;
     }

@@ -29,6 +29,7 @@ class CreateIdentityProviderSAMLRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'attribute_mapping' => 'string',
+        'claims_propagation_config' => '\Volcengine\Id\Model\ClaimsPropagationConfigForCreateIdentityProviderSAMLInput',
         'enabled' => 'bool',
         'enabled_encryption' => 'bool',
         'enabled_sign' => 'bool',
@@ -47,6 +48,7 @@ class CreateIdentityProviderSAMLRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'attribute_mapping' => null,
+        'claims_propagation_config' => null,
         'enabled' => null,
         'enabled_encryption' => null,
         'enabled_sign' => null,
@@ -86,6 +88,7 @@ class CreateIdentityProviderSAMLRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'attribute_mapping' => 'AttributeMapping',
+        'claims_propagation_config' => 'ClaimsPropagationConfig',
         'enabled' => 'Enabled',
         'enabled_encryption' => 'EnabledEncryption',
         'enabled_sign' => 'EnabledSign',
@@ -104,6 +107,7 @@ class CreateIdentityProviderSAMLRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'attribute_mapping' => 'setAttributeMapping',
+        'claims_propagation_config' => 'setClaimsPropagationConfig',
         'enabled' => 'setEnabled',
         'enabled_encryption' => 'setEnabledEncryption',
         'enabled_sign' => 'setEnabledSign',
@@ -122,6 +126,7 @@ class CreateIdentityProviderSAMLRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'attribute_mapping' => 'getAttributeMapping',
+        'claims_propagation_config' => 'getClaimsPropagationConfig',
         'enabled' => 'getEnabled',
         'enabled_encryption' => 'getEnabledEncryption',
         'enabled_sign' => 'getEnabledSign',
@@ -194,6 +199,7 @@ class CreateIdentityProviderSAMLRequest implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['attribute_mapping'] = isset($data['attribute_mapping']) ? $data['attribute_mapping'] : null;
+        $this->container['claims_propagation_config'] = isset($data['claims_propagation_config']) ? $data['claims_propagation_config'] : null;
         $this->container['enabled'] = isset($data['enabled']) ? $data['enabled'] : null;
         $this->container['enabled_encryption'] = isset($data['enabled_encryption']) ? $data['enabled_encryption'] : null;
         $this->container['enabled_sign'] = isset($data['enabled_sign']) ? $data['enabled_sign'] : null;
@@ -273,6 +279,30 @@ class CreateIdentityProviderSAMLRequest implements ModelInterface, ArrayAccess
     public function setAttributeMapping($attribute_mapping)
     {
         $this->container['attribute_mapping'] = $attribute_mapping;
+
+        return $this;
+    }
+
+    /**
+     * Gets claims_propagation_config
+     *
+     * @return \Volcengine\Id\Model\ClaimsPropagationConfigForCreateIdentityProviderSAMLInput
+     */
+    public function getClaimsPropagationConfig()
+    {
+        return $this->container['claims_propagation_config'];
+    }
+
+    /**
+     * Sets claims_propagation_config
+     *
+     * @param \Volcengine\Id\Model\ClaimsPropagationConfigForCreateIdentityProviderSAMLInput $claims_propagation_config claims_propagation_config
+     *
+     * @return $this
+     */
+    public function setClaimsPropagationConfig($claims_propagation_config)
+    {
+        $this->container['claims_propagation_config'] = $claims_propagation_config;
 
         return $this;
     }

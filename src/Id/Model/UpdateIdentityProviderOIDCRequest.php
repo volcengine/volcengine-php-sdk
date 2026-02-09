@@ -28,6 +28,7 @@ class UpdateIdentityProviderOIDCRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'claims_propagation_config' => '\Volcengine\Id\Model\ClaimsPropagationConfigForUpdateIdentityProviderOIDCInput',
         'client_id' => 'string',
         'client_secret' => 'string',
         'connection_uid' => 'string',
@@ -47,6 +48,7 @@ class UpdateIdentityProviderOIDCRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'claims_propagation_config' => null,
         'client_id' => null,
         'client_secret' => null,
         'connection_uid' => null,
@@ -87,6 +89,7 @@ class UpdateIdentityProviderOIDCRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'claims_propagation_config' => 'ClaimsPropagationConfig',
         'client_id' => 'ClientId',
         'client_secret' => 'ClientSecret',
         'connection_uid' => 'ConnectionUid',
@@ -106,6 +109,7 @@ class UpdateIdentityProviderOIDCRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'claims_propagation_config' => 'setClaimsPropagationConfig',
         'client_id' => 'setClientId',
         'client_secret' => 'setClientSecret',
         'connection_uid' => 'setConnectionUid',
@@ -125,6 +129,7 @@ class UpdateIdentityProviderOIDCRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'claims_propagation_config' => 'getClaimsPropagationConfig',
         'client_id' => 'getClientId',
         'client_secret' => 'getClientSecret',
         'connection_uid' => 'getConnectionUid',
@@ -198,6 +203,7 @@ class UpdateIdentityProviderOIDCRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['claims_propagation_config'] = isset($data['claims_propagation_config']) ? $data['claims_propagation_config'] : null;
         $this->container['client_id'] = isset($data['client_id']) ? $data['client_id'] : null;
         $this->container['client_secret'] = isset($data['client_secret']) ? $data['client_secret'] : null;
         $this->container['connection_uid'] = isset($data['connection_uid']) ? $data['connection_uid'] : null;
@@ -249,6 +255,30 @@ class UpdateIdentityProviderOIDCRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets claims_propagation_config
+     *
+     * @return \Volcengine\Id\Model\ClaimsPropagationConfigForUpdateIdentityProviderOIDCInput
+     */
+    public function getClaimsPropagationConfig()
+    {
+        return $this->container['claims_propagation_config'];
+    }
+
+    /**
+     * Sets claims_propagation_config
+     *
+     * @param \Volcengine\Id\Model\ClaimsPropagationConfigForUpdateIdentityProviderOIDCInput $claims_propagation_config claims_propagation_config
+     *
+     * @return $this
+     */
+    public function setClaimsPropagationConfig($claims_propagation_config)
+    {
+        $this->container['claims_propagation_config'] = $claims_propagation_config;
+
+        return $this;
+    }
 
     /**
      * Gets client_id
