@@ -82,7 +82,7 @@ class GetTaskResultRequest implements ModelInterface, ArrayAccess
         'page_size' => 'PageSize',
         'project_name' => 'ProjectName',
         'start_time' => 'StartTime',
-        'task_id' => 'TaskID'
+        'task_id' => 'TaskId'
     ];
 
     /**

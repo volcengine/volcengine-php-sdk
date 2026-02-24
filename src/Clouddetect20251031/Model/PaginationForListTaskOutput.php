@@ -28,9 +28,9 @@ class PaginationForListTaskOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'page_num' => 'int',
+        'page_number' => 'int',
         'page_size' => 'int',
-        'total' => 'int'
+        'total_count' => 'int'
     ];
 
     /**
@@ -39,9 +39,9 @@ class PaginationForListTaskOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'page_num' => 'int64',
+        'page_number' => 'int64',
         'page_size' => 'int64',
-        'total' => 'int64'
+        'total_count' => 'int64'
     ];
 
     /**
@@ -71,9 +71,9 @@ class PaginationForListTaskOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'page_num' => 'PageNum',
+        'page_number' => 'PageNumber',
         'page_size' => 'PageSize',
-        'total' => 'Total'
+        'total_count' => 'TotalCount'
     ];
 
     /**
@@ -82,9 +82,9 @@ class PaginationForListTaskOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'page_num' => 'setPageNum',
+        'page_number' => 'setPageNumber',
         'page_size' => 'setPageSize',
-        'total' => 'setTotal'
+        'total_count' => 'setTotalCount'
     ];
 
     /**
@@ -93,9 +93,9 @@ class PaginationForListTaskOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'page_num' => 'getPageNum',
+        'page_number' => 'getPageNumber',
         'page_size' => 'getPageSize',
-        'total' => 'getTotal'
+        'total_count' => 'getTotalCount'
     ];
 
     /**
@@ -158,9 +158,9 @@ class PaginationForListTaskOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['page_num'] = isset($data['page_num']) ? $data['page_num'] : null;
+        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
-        $this->container['total'] = isset($data['total']) ? $data['total'] : null;
+        $this->container['total_count'] = isset($data['total_count']) ? $data['total_count'] : null;
     }
 
     /**
@@ -188,25 +188,25 @@ class PaginationForListTaskOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets page_num
+     * Gets page_number
      *
      * @return int
      */
-    public function getPageNum()
+    public function getPageNumber()
     {
-        return $this->container['page_num'];
+        return $this->container['page_number'];
     }
 
     /**
-     * Sets page_num
+     * Sets page_number
      *
-     * @param int $page_num page_num
+     * @param int $page_number page_number
      *
      * @return $this
      */
-    public function setPageNum($page_num)
+    public function setPageNumber($page_number)
     {
-        $this->container['page_num'] = $page_num;
+        $this->container['page_number'] = $page_number;
 
         return $this;
     }
@@ -236,25 +236,25 @@ class PaginationForListTaskOutput implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets total
+     * Gets total_count
      *
      * @return int
      */
-    public function getTotal()
+    public function getTotalCount()
     {
-        return $this->container['total'];
+        return $this->container['total_count'];
     }
 
     /**
-     * Sets total
+     * Sets total_count
      *
-     * @param int $total total
+     * @param int $total_count total_count
      *
      * @return $this
      */
-    public function setTotal($total)
+    public function setTotalCount($total_count)
     {
-        $this->container['total'] = $total;
+        $this->container['total_count'] = $total_count;
 
         return $this;
     }

@@ -71,7 +71,7 @@ class DiagnoseDetailForGetTaskResultOutput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $attributeMap = [
-        'dns_detail' => 'DNSDetail',
+        'dns_detail' => 'DnsDetail',
         'mtr_detail' => 'MtrDetail',
         'ping_detail' => 'PingDetail'
     ];

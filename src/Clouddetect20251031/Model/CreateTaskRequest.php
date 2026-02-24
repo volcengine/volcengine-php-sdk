@@ -30,12 +30,12 @@ class CreateTaskRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'address' => 'string',
         'alarm_id_list' => 'int[]',
-        'dns_config' => '\Volcengine\Clouddetect20251031\Model\DNSConfigForCreateTaskInput',
-        'dns_hijack_config' => '\Volcengine\Clouddetect20251031\Model\DNSHijackConfigForCreateTaskInput',
         'diagnose_config' => '\Volcengine\Clouddetect20251031\Model\DiagnoseConfigForCreateTaskInput',
+        'dns_config' => '\Volcengine\Clouddetect20251031\Model\DnsConfigForCreateTaskInput',
+        'dns_hijack_config' => '\Volcengine\Clouddetect20251031\Model\DnsHijackConfigForCreateTaskInput',
         'download_config' => '\Volcengine\Clouddetect20251031\Model\DownloadConfigForCreateTaskInput',
         'finish_time' => 'int',
-        'http_config' => '\Volcengine\Clouddetect20251031\Model\HTTPConfigForCreateTaskInput',
+        'http_config' => '\Volcengine\Clouddetect20251031\Model\HttpConfigForCreateTaskInput',
         'interval_seconds' => 'int',
         'line_id_list' => 'int[]',
         'name' => 'string',
@@ -46,12 +46,12 @@ class CreateTaskRequest implements ModelInterface, ArrayAccess
         'project_name' => 'string',
         'result_assert' => '\Volcengine\Clouddetect20251031\Model\ResultAssertForCreateTaskInput',
         'selection_config' => '\Volcengine\Clouddetect20251031\Model\SelectionConfigForCreateTaskInput',
-        'tcp_config' => '\Volcengine\Clouddetect20251031\Model\TCPConfigForCreateTaskInput',
         'tags' => '\Volcengine\Clouddetect20251031\Model\TagForCreateTaskInput[]',
         'target_server_type' => 'int',
         'task_group_id' => 'int',
+        'tcp_config' => '\Volcengine\Clouddetect20251031\Model\TcpConfigForCreateTaskInput',
         'type' => 'int',
-        'udp_config' => '\Volcengine\Clouddetect20251031\Model\UDPConfigForCreateTaskInput',
+        'udp_config' => '\Volcengine\Clouddetect20251031\Model\UdpConfigForCreateTaskInput',
         'upload_config' => '\Volcengine\Clouddetect20251031\Model\UploadConfigForCreateTaskInput'
     ];
 
@@ -63,9 +63,9 @@ class CreateTaskRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'address' => null,
         'alarm_id_list' => 'int64',
+        'diagnose_config' => null,
         'dns_config' => null,
         'dns_hijack_config' => null,
-        'diagnose_config' => null,
         'download_config' => null,
         'finish_time' => 'int64',
         'http_config' => null,
@@ -79,10 +79,10 @@ class CreateTaskRequest implements ModelInterface, ArrayAccess
         'project_name' => null,
         'result_assert' => null,
         'selection_config' => null,
-        'tcp_config' => null,
         'tags' => null,
         'target_server_type' => 'int32',
         'task_group_id' => 'int64',
+        'tcp_config' => null,
         'type' => 'int32',
         'udp_config' => null,
         'upload_config' => null
@@ -116,15 +116,15 @@ class CreateTaskRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'address' => 'Address',
-        'alarm_id_list' => 'AlarmIDList',
-        'dns_config' => 'DNSConfig',
-        'dns_hijack_config' => 'DNSHijackConfig',
+        'alarm_id_list' => 'AlarmIdList',
         'diagnose_config' => 'DiagnoseConfig',
+        'dns_config' => 'DnsConfig',
+        'dns_hijack_config' => 'DnsHijackConfig',
         'download_config' => 'DownloadConfig',
         'finish_time' => 'FinishTime',
-        'http_config' => 'HTTPConfig',
+        'http_config' => 'HttpConfig',
         'interval_seconds' => 'IntervalSeconds',
-        'line_id_list' => 'LineIDList',
+        'line_id_list' => 'LineIdList',
         'name' => 'Name',
         'node_count' => 'NodeCount',
         'page_config' => 'PageConfig',
@@ -133,12 +133,12 @@ class CreateTaskRequest implements ModelInterface, ArrayAccess
         'project_name' => 'ProjectName',
         'result_assert' => 'ResultAssert',
         'selection_config' => 'SelectionConfig',
-        'tcp_config' => 'TCPConfig',
         'tags' => 'Tags',
         'target_server_type' => 'TargetServerType',
-        'task_group_id' => 'TaskGroupID',
+        'task_group_id' => 'TaskGroupId',
+        'tcp_config' => 'TcpConfig',
         'type' => 'Type',
-        'udp_config' => 'UDPConfig',
+        'udp_config' => 'UdpConfig',
         'upload_config' => 'UploadConfig'
     ];
 
@@ -150,9 +150,9 @@ class CreateTaskRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'address' => 'setAddress',
         'alarm_id_list' => 'setAlarmIdList',
+        'diagnose_config' => 'setDiagnoseConfig',
         'dns_config' => 'setDnsConfig',
         'dns_hijack_config' => 'setDnsHijackConfig',
-        'diagnose_config' => 'setDiagnoseConfig',
         'download_config' => 'setDownloadConfig',
         'finish_time' => 'setFinishTime',
         'http_config' => 'setHttpConfig',
@@ -166,10 +166,10 @@ class CreateTaskRequest implements ModelInterface, ArrayAccess
         'project_name' => 'setProjectName',
         'result_assert' => 'setResultAssert',
         'selection_config' => 'setSelectionConfig',
-        'tcp_config' => 'setTcpConfig',
         'tags' => 'setTags',
         'target_server_type' => 'setTargetServerType',
         'task_group_id' => 'setTaskGroupId',
+        'tcp_config' => 'setTcpConfig',
         'type' => 'setType',
         'udp_config' => 'setUdpConfig',
         'upload_config' => 'setUploadConfig'
@@ -183,9 +183,9 @@ class CreateTaskRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'address' => 'getAddress',
         'alarm_id_list' => 'getAlarmIdList',
+        'diagnose_config' => 'getDiagnoseConfig',
         'dns_config' => 'getDnsConfig',
         'dns_hijack_config' => 'getDnsHijackConfig',
-        'diagnose_config' => 'getDiagnoseConfig',
         'download_config' => 'getDownloadConfig',
         'finish_time' => 'getFinishTime',
         'http_config' => 'getHttpConfig',
@@ -199,10 +199,10 @@ class CreateTaskRequest implements ModelInterface, ArrayAccess
         'project_name' => 'getProjectName',
         'result_assert' => 'getResultAssert',
         'selection_config' => 'getSelectionConfig',
-        'tcp_config' => 'getTcpConfig',
         'tags' => 'getTags',
         'target_server_type' => 'getTargetServerType',
         'task_group_id' => 'getTaskGroupId',
+        'tcp_config' => 'getTcpConfig',
         'type' => 'getType',
         'udp_config' => 'getUdpConfig',
         'upload_config' => 'getUploadConfig'
@@ -270,9 +270,9 @@ class CreateTaskRequest implements ModelInterface, ArrayAccess
     {
         $this->container['address'] = isset($data['address']) ? $data['address'] : null;
         $this->container['alarm_id_list'] = isset($data['alarm_id_list']) ? $data['alarm_id_list'] : null;
+        $this->container['diagnose_config'] = isset($data['diagnose_config']) ? $data['diagnose_config'] : null;
         $this->container['dns_config'] = isset($data['dns_config']) ? $data['dns_config'] : null;
         $this->container['dns_hijack_config'] = isset($data['dns_hijack_config']) ? $data['dns_hijack_config'] : null;
-        $this->container['diagnose_config'] = isset($data['diagnose_config']) ? $data['diagnose_config'] : null;
         $this->container['download_config'] = isset($data['download_config']) ? $data['download_config'] : null;
         $this->container['finish_time'] = isset($data['finish_time']) ? $data['finish_time'] : null;
         $this->container['http_config'] = isset($data['http_config']) ? $data['http_config'] : null;
@@ -286,10 +286,10 @@ class CreateTaskRequest implements ModelInterface, ArrayAccess
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['result_assert'] = isset($data['result_assert']) ? $data['result_assert'] : null;
         $this->container['selection_config'] = isset($data['selection_config']) ? $data['selection_config'] : null;
-        $this->container['tcp_config'] = isset($data['tcp_config']) ? $data['tcp_config'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['target_server_type'] = isset($data['target_server_type']) ? $data['target_server_type'] : null;
         $this->container['task_group_id'] = isset($data['task_group_id']) ? $data['task_group_id'] : null;
+        $this->container['tcp_config'] = isset($data['tcp_config']) ? $data['tcp_config'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['udp_config'] = isset($data['udp_config']) ? $data['udp_config'] : null;
         $this->container['upload_config'] = isset($data['upload_config']) ? $data['upload_config'] : null;
@@ -386,54 +386,6 @@ class CreateTaskRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets dns_config
-     *
-     * @return \Volcengine\Clouddetect20251031\Model\DNSConfigForCreateTaskInput
-     */
-    public function getDnsConfig()
-    {
-        return $this->container['dns_config'];
-    }
-
-    /**
-     * Sets dns_config
-     *
-     * @param \Volcengine\Clouddetect20251031\Model\DNSConfigForCreateTaskInput $dns_config dns_config
-     *
-     * @return $this
-     */
-    public function setDnsConfig($dns_config)
-    {
-        $this->container['dns_config'] = $dns_config;
-
-        return $this;
-    }
-
-    /**
-     * Gets dns_hijack_config
-     *
-     * @return \Volcengine\Clouddetect20251031\Model\DNSHijackConfigForCreateTaskInput
-     */
-    public function getDnsHijackConfig()
-    {
-        return $this->container['dns_hijack_config'];
-    }
-
-    /**
-     * Sets dns_hijack_config
-     *
-     * @param \Volcengine\Clouddetect20251031\Model\DNSHijackConfigForCreateTaskInput $dns_hijack_config dns_hijack_config
-     *
-     * @return $this
-     */
-    public function setDnsHijackConfig($dns_hijack_config)
-    {
-        $this->container['dns_hijack_config'] = $dns_hijack_config;
-
-        return $this;
-    }
-
-    /**
      * Gets diagnose_config
      *
      * @return \Volcengine\Clouddetect20251031\Model\DiagnoseConfigForCreateTaskInput
@@ -453,6 +405,54 @@ class CreateTaskRequest implements ModelInterface, ArrayAccess
     public function setDiagnoseConfig($diagnose_config)
     {
         $this->container['diagnose_config'] = $diagnose_config;
+
+        return $this;
+    }
+
+    /**
+     * Gets dns_config
+     *
+     * @return \Volcengine\Clouddetect20251031\Model\DnsConfigForCreateTaskInput
+     */
+    public function getDnsConfig()
+    {
+        return $this->container['dns_config'];
+    }
+
+    /**
+     * Sets dns_config
+     *
+     * @param \Volcengine\Clouddetect20251031\Model\DnsConfigForCreateTaskInput $dns_config dns_config
+     *
+     * @return $this
+     */
+    public function setDnsConfig($dns_config)
+    {
+        $this->container['dns_config'] = $dns_config;
+
+        return $this;
+    }
+
+    /**
+     * Gets dns_hijack_config
+     *
+     * @return \Volcengine\Clouddetect20251031\Model\DnsHijackConfigForCreateTaskInput
+     */
+    public function getDnsHijackConfig()
+    {
+        return $this->container['dns_hijack_config'];
+    }
+
+    /**
+     * Sets dns_hijack_config
+     *
+     * @param \Volcengine\Clouddetect20251031\Model\DnsHijackConfigForCreateTaskInput $dns_hijack_config dns_hijack_config
+     *
+     * @return $this
+     */
+    public function setDnsHijackConfig($dns_hijack_config)
+    {
+        $this->container['dns_hijack_config'] = $dns_hijack_config;
 
         return $this;
     }
@@ -508,7 +508,7 @@ class CreateTaskRequest implements ModelInterface, ArrayAccess
     /**
      * Gets http_config
      *
-     * @return \Volcengine\Clouddetect20251031\Model\HTTPConfigForCreateTaskInput
+     * @return \Volcengine\Clouddetect20251031\Model\HttpConfigForCreateTaskInput
      */
     public function getHttpConfig()
     {
@@ -518,7 +518,7 @@ class CreateTaskRequest implements ModelInterface, ArrayAccess
     /**
      * Sets http_config
      *
-     * @param \Volcengine\Clouddetect20251031\Model\HTTPConfigForCreateTaskInput $http_config http_config
+     * @param \Volcengine\Clouddetect20251031\Model\HttpConfigForCreateTaskInput $http_config http_config
      *
      * @return $this
      */
@@ -770,30 +770,6 @@ class CreateTaskRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets tcp_config
-     *
-     * @return \Volcengine\Clouddetect20251031\Model\TCPConfigForCreateTaskInput
-     */
-    public function getTcpConfig()
-    {
-        return $this->container['tcp_config'];
-    }
-
-    /**
-     * Sets tcp_config
-     *
-     * @param \Volcengine\Clouddetect20251031\Model\TCPConfigForCreateTaskInput $tcp_config tcp_config
-     *
-     * @return $this
-     */
-    public function setTcpConfig($tcp_config)
-    {
-        $this->container['tcp_config'] = $tcp_config;
-
-        return $this;
-    }
-
-    /**
      * Gets tags
      *
      * @return \Volcengine\Clouddetect20251031\Model\TagForCreateTaskInput[]
@@ -866,6 +842,30 @@ class CreateTaskRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets tcp_config
+     *
+     * @return \Volcengine\Clouddetect20251031\Model\TcpConfigForCreateTaskInput
+     */
+    public function getTcpConfig()
+    {
+        return $this->container['tcp_config'];
+    }
+
+    /**
+     * Sets tcp_config
+     *
+     * @param \Volcengine\Clouddetect20251031\Model\TcpConfigForCreateTaskInput $tcp_config tcp_config
+     *
+     * @return $this
+     */
+    public function setTcpConfig($tcp_config)
+    {
+        $this->container['tcp_config'] = $tcp_config;
+
+        return $this;
+    }
+
+    /**
      * Gets type
      *
      * @return int
@@ -892,7 +892,7 @@ class CreateTaskRequest implements ModelInterface, ArrayAccess
     /**
      * Gets udp_config
      *
-     * @return \Volcengine\Clouddetect20251031\Model\UDPConfigForCreateTaskInput
+     * @return \Volcengine\Clouddetect20251031\Model\UdpConfigForCreateTaskInput
      */
     public function getUdpConfig()
     {
@@ -902,7 +902,7 @@ class CreateTaskRequest implements ModelInterface, ArrayAccess
     /**
      * Sets udp_config
      *
-     * @param \Volcengine\Clouddetect20251031\Model\UDPConfigForCreateTaskInput $udp_config udp_config
+     * @param \Volcengine\Clouddetect20251031\Model\UdpConfigForCreateTaskInput $udp_config udp_config
      *
      * @return $this
      */

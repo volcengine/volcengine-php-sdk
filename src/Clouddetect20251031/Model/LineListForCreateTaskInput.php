@@ -71,7 +71,7 @@ class LineListForCreateTaskInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'ID',
+        'id' => 'Id',
         'name' => 'Name',
         'node_count' => 'NodeCount'
     ];

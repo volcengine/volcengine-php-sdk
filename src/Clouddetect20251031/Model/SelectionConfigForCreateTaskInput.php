@@ -28,7 +28,7 @@ class SelectionConfigForCreateTaskInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'group_config' => '\Volcengine\Clouddetect20251031\Model\ConvertGroupConfigForCreateTaskInput',
+        'group_config' => '\Volcengine\Clouddetect20251031\Model\GroupConfigForCreateTaskInput',
         'line_config' => '\Volcengine\Clouddetect20251031\Model\LineConfigForCreateTaskInput',
         'line_group_config' => '\Volcengine\Clouddetect20251031\Model\LineGroupConfigForCreateTaskInput',
         'mode' => 'int'
@@ -196,7 +196,7 @@ class SelectionConfigForCreateTaskInput implements ModelInterface, ArrayAccess
     /**
      * Gets group_config
      *
-     * @return \Volcengine\Clouddetect20251031\Model\ConvertGroupConfigForCreateTaskInput
+     * @return \Volcengine\Clouddetect20251031\Model\GroupConfigForCreateTaskInput
      */
     public function getGroupConfig()
     {
@@ -206,7 +206,7 @@ class SelectionConfigForCreateTaskInput implements ModelInterface, ArrayAccess
     /**
      * Sets group_config
      *
-     * @param \Volcengine\Clouddetect20251031\Model\ConvertGroupConfigForCreateTaskInput $group_config group_config
+     * @param \Volcengine\Clouddetect20251031\Model\GroupConfigForCreateTaskInput $group_config group_config
      *
      * @return $this
      */
