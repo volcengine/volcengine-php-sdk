@@ -95,7 +95,7 @@ class Utils
      * @param string|null $token Security token
      * @return string Complete URL with signature
      */
-    public static function signRequestToUrl($ak, $sk, $region, $service, $method, $path, $query = [], $token = null)
+    public static function signRequestToUrl($ak, $sk, $region, $service, $method, $path, $query = [], $token = null, $host = null)
     {
         $ldt = gmdate('Ymd\\THis\\Z');
         $sdt = substr($ldt, 0, 8);
@@ -108,7 +108,7 @@ class Utils
         $query['X-NotSignBody'] = '';
         $query['X-Algorithm'] = 'HMAC-SHA256';
         $query['X-Credential'] = $credential;
-        $query['X-SignedHeaders'] = '';
+        $query['X-SignedHeaders'] = $host !== null ? 'host' : '';
 
         if ($token != null) {
             $query['X-Security-Token'] = $token;
@@ -126,15 +126,28 @@ class Utils
         $canonicalPath = self::createCanonicalizedPath($path);
         $bodyHash = hash('sha256', ''); // Pre-signed URL does not sign body
 
-        $canon = implode("\n", [
-            $method,
-            $canonicalPath,
-            $canonicalQuery,
-            '', // Empty headers line
-            '', // Empty line before signed headers
-            '', // Empty signed headers line (for pre-signed URL)
-            $bodyHash
-        ]);
+        if ($host !== null) {
+            $canonicalHeaders = "host:$host\n";
+            $signedHeadersStr = 'host';
+            $canon = implode("\n", [
+                $method,
+                $canonicalPath,
+                $canonicalQuery,
+                $canonicalHeaders,
+                $signedHeadersStr,
+                $bodyHash
+            ]);
+        } else {
+            $canon = implode("\n", [
+                $method,
+                $canonicalPath,
+                $canonicalQuery,
+                '', // Empty headers line
+                '', // Empty line before signed headers
+                '', // Empty signed headers line (for pre-signed URL)
+                $bodyHash
+            ]);
+        }
 
         $hash = hash('sha256', $canon);
         $toSign = self::createStringToSign($ldt, $credentialScope, $hash);
@@ -191,6 +204,46 @@ class Utils
         $regionKey = hash_hmac('sha256', $region, $dateKey, true);
         $serviceKey = hash_hmac('sha256', $service, $regionKey, true);
         return hash_hmac('sha256', 'request', $serviceKey, true);
+    }
+
+    /**
+     * Get regional endpoint for a given service and region
+     *
+     * Format: {standardized_service}.{region}.volcengineapi.com
+     * or {standardized_service}.{region}.volcengine-api.com (dual-stack)
+     *
+     * @param string $service Service code (e.g., 'rds_mysql')
+     * @param string $region Region code (e.g., 'cn-beijing')
+     * @return string Regional endpoint host
+     */
+    public static function getRegionalEndpoint($service, $region)
+    {
+        $suffix = self::hasEnabledDualStack() ? '.volcengine-api.com' : '.volcengineapi.com';
+        return self::standardizeDomainServiceCode($service) . '.' . $region . $suffix;
+    }
+
+    /**
+     * Check if dual-stack is enabled via environment variable
+     *
+     * @return bool
+     */
+    public static function hasEnabledDualStack()
+    {
+        return getenv('VOLC_ENABLE_DUALSTACK') === 'true';
+    }
+
+    /**
+     * Standardize service code for use in domain names
+     *
+     * Converts to lowercase and replaces underscores with hyphens.
+     * e.g., 'rds_mysql' -> 'rds-mysql'
+     *
+     * @param string $serviceCode Service code
+     * @return string Standardized service code
+     */
+    public static function standardizeDomainServiceCode($serviceCode)
+    {
+        return strtolower(str_replace('_', '-', $serviceCode));
     }
 
     /**
