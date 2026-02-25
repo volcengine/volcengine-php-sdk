@@ -110,17 +110,16 @@ class Utils
         $query['X-Algorithm'] = 'HMAC-SHA256';
         $query['X-Credential'] = $credential;
         $query['X-SignedHeaders'] = $signHost ? 'host' : '';
+        if ($token != null) {
+            $query['X-Security-Token'] = $token;
+        }
+
         $query['X-SignedQueries'] = ''; // placeholder
 
         // Compute X-SignedQueries from all current keys (includes X-SignedQueries itself)
         $signedQueries = array_keys($query);
         sort($signedQueries);
         $query['X-SignedQueries'] = implode(';', $signedQueries);
-
-        // X-Security-Token must be added AFTER X-SignedQueries computation
-        if ($token != null) {
-            $query['X-Security-Token'] = $token;
-        }
 
         // Build canonical query from ALL params sorted
         $canonicalQuery = self::buildSortedQueryString($query);
