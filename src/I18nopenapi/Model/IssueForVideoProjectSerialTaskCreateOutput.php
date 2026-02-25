@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class DataForVideoProjectSerialDubTaskCreateOutput implements ModelInterface, ArrayAccess
+class IssueForVideoProjectSerialTaskCreateOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class DataForVideoProjectSerialDubTaskCreateOutput implements ModelInterface, Ar
       *
       * @var string
       */
-    protected static $swaggerModelName = 'dataForVideoProjectSerialDubTaskCreateOutput';
+    protected static $swaggerModelName = 'IssueForVideoProjectSerialTaskCreateOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,9 @@ class DataForVideoProjectSerialDubTaskCreateOutput implements ModelInterface, Ar
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'base_resp' => '\Volcengine\I18nopenapi\Model\BaseRespForVideoProjectSerialDubTaskCreateOutput',
-        'subtitle_file_check_reports' => '\Volcengine\I18nopenapi\Model\SubtitleFileCheckReportForVideoProjectSerialDubTaskCreateOutput[]',
-        'task_ids' => 'string[]'
+        'check_pass' => 'bool',
+        'code' => 'int',
+        'msg' => 'string'
     ];
 
     /**
@@ -39,9 +39,9 @@ class DataForVideoProjectSerialDubTaskCreateOutput implements ModelInterface, Ar
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'base_resp' => null,
-        'subtitle_file_check_reports' => null,
-        'task_ids' => null
+        'check_pass' => null,
+        'code' => 'int32',
+        'msg' => null
     ];
 
     /**
@@ -71,9 +71,9 @@ class DataForVideoProjectSerialDubTaskCreateOutput implements ModelInterface, Ar
      * @var string[]
      */
     protected static $attributeMap = [
-        'base_resp' => 'BaseResp',
-        'subtitle_file_check_reports' => 'SubtitleFileCheckReports',
-        'task_ids' => 'TaskIDs'
+        'check_pass' => 'CheckPass',
+        'code' => 'Code',
+        'msg' => 'Msg'
     ];
 
     /**
@@ -82,9 +82,9 @@ class DataForVideoProjectSerialDubTaskCreateOutput implements ModelInterface, Ar
      * @var string[]
      */
     protected static $setters = [
-        'base_resp' => 'setBaseResp',
-        'subtitle_file_check_reports' => 'setSubtitleFileCheckReports',
-        'task_ids' => 'setTaskIds'
+        'check_pass' => 'setCheckPass',
+        'code' => 'setCode',
+        'msg' => 'setMsg'
     ];
 
     /**
@@ -93,9 +93,9 @@ class DataForVideoProjectSerialDubTaskCreateOutput implements ModelInterface, Ar
      * @var string[]
      */
     protected static $getters = [
-        'base_resp' => 'getBaseResp',
-        'subtitle_file_check_reports' => 'getSubtitleFileCheckReports',
-        'task_ids' => 'getTaskIds'
+        'check_pass' => 'getCheckPass',
+        'code' => 'getCode',
+        'msg' => 'getMsg'
     ];
 
     /**
@@ -158,9 +158,9 @@ class DataForVideoProjectSerialDubTaskCreateOutput implements ModelInterface, Ar
      */
     public function __construct(array $data = null)
     {
-        $this->container['base_resp'] = isset($data['base_resp']) ? $data['base_resp'] : null;
-        $this->container['subtitle_file_check_reports'] = isset($data['subtitle_file_check_reports']) ? $data['subtitle_file_check_reports'] : null;
-        $this->container['task_ids'] = isset($data['task_ids']) ? $data['task_ids'] : null;
+        $this->container['check_pass'] = isset($data['check_pass']) ? $data['check_pass'] : null;
+        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
+        $this->container['msg'] = isset($data['msg']) ? $data['msg'] : null;
     }
 
     /**
@@ -188,73 +188,73 @@ class DataForVideoProjectSerialDubTaskCreateOutput implements ModelInterface, Ar
 
 
     /**
-     * Gets base_resp
+     * Gets check_pass
      *
-     * @return \Volcengine\I18nopenapi\Model\BaseRespForVideoProjectSerialDubTaskCreateOutput
+     * @return bool
      */
-    public function getBaseResp()
+    public function getCheckPass()
     {
-        return $this->container['base_resp'];
+        return $this->container['check_pass'];
     }
 
     /**
-     * Sets base_resp
+     * Sets check_pass
      *
-     * @param \Volcengine\I18nopenapi\Model\BaseRespForVideoProjectSerialDubTaskCreateOutput $base_resp base_resp
+     * @param bool $check_pass check_pass
      *
      * @return $this
      */
-    public function setBaseResp($base_resp)
+    public function setCheckPass($check_pass)
     {
-        $this->container['base_resp'] = $base_resp;
+        $this->container['check_pass'] = $check_pass;
 
         return $this;
     }
 
     /**
-     * Gets subtitle_file_check_reports
+     * Gets code
      *
-     * @return \Volcengine\I18nopenapi\Model\SubtitleFileCheckReportForVideoProjectSerialDubTaskCreateOutput[]
+     * @return int
      */
-    public function getSubtitleFileCheckReports()
+    public function getCode()
     {
-        return $this->container['subtitle_file_check_reports'];
+        return $this->container['code'];
     }
 
     /**
-     * Sets subtitle_file_check_reports
+     * Sets code
      *
-     * @param \Volcengine\I18nopenapi\Model\SubtitleFileCheckReportForVideoProjectSerialDubTaskCreateOutput[] $subtitle_file_check_reports subtitle_file_check_reports
+     * @param int $code code
      *
      * @return $this
      */
-    public function setSubtitleFileCheckReports($subtitle_file_check_reports)
+    public function setCode($code)
     {
-        $this->container['subtitle_file_check_reports'] = $subtitle_file_check_reports;
+        $this->container['code'] = $code;
 
         return $this;
     }
 
     /**
-     * Gets task_ids
+     * Gets msg
      *
-     * @return string[]
+     * @return string
      */
-    public function getTaskIds()
+    public function getMsg()
     {
-        return $this->container['task_ids'];
+        return $this->container['msg'];
     }
 
     /**
-     * Sets task_ids
+     * Sets msg
      *
-     * @param string[] $task_ids task_ids
+     * @param string $msg msg
      *
      * @return $this
      */
-    public function setTaskIds($task_ids)
+    public function setMsg($msg)
     {
-        $this->container['task_ids'] = $task_ids;
+        $this->container['msg'] = $msg;
 
         return $this;
     }

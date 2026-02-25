@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class DataForVideoProjectSerialDubTaskCreateOutput implements ModelInterface, ArrayAccess
+class SubtitleFileCheckReportForVideoProjectSerialDubTaskCreateOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class DataForVideoProjectSerialDubTaskCreateOutput implements ModelInterface, Ar
       *
       * @var string
       */
-    protected static $swaggerModelName = 'dataForVideoProjectSerialDubTaskCreateOutput';
+    protected static $swaggerModelName = 'SubtitleFileCheckReportForVideoProjectSerialDubTaskCreateOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,10 @@ class DataForVideoProjectSerialDubTaskCreateOutput implements ModelInterface, Ar
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'base_resp' => '\Volcengine\I18nopenapi\Model\BaseRespForVideoProjectSerialDubTaskCreateOutput',
-        'subtitle_file_check_reports' => '\Volcengine\I18nopenapi\Model\SubtitleFileCheckReportForVideoProjectSerialDubTaskCreateOutput[]',
-        'task_ids' => 'string[]'
+        'episode_num' => 'string',
+        'issues' => '\Volcengine\I18nopenapi\Model\IssueForVideoProjectSerialDubTaskCreateOutput[]',
+        'source_language' => 'string',
+        'target_language' => 'string'
     ];
 
     /**
@@ -39,9 +40,10 @@ class DataForVideoProjectSerialDubTaskCreateOutput implements ModelInterface, Ar
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'base_resp' => null,
-        'subtitle_file_check_reports' => null,
-        'task_ids' => null
+        'episode_num' => null,
+        'issues' => null,
+        'source_language' => null,
+        'target_language' => null
     ];
 
     /**
@@ -71,9 +73,10 @@ class DataForVideoProjectSerialDubTaskCreateOutput implements ModelInterface, Ar
      * @var string[]
      */
     protected static $attributeMap = [
-        'base_resp' => 'BaseResp',
-        'subtitle_file_check_reports' => 'SubtitleFileCheckReports',
-        'task_ids' => 'TaskIDs'
+        'episode_num' => 'EpisodeNum',
+        'issues' => 'Issues',
+        'source_language' => 'SourceLanguage',
+        'target_language' => 'TargetLanguage'
     ];
 
     /**
@@ -82,9 +85,10 @@ class DataForVideoProjectSerialDubTaskCreateOutput implements ModelInterface, Ar
      * @var string[]
      */
     protected static $setters = [
-        'base_resp' => 'setBaseResp',
-        'subtitle_file_check_reports' => 'setSubtitleFileCheckReports',
-        'task_ids' => 'setTaskIds'
+        'episode_num' => 'setEpisodeNum',
+        'issues' => 'setIssues',
+        'source_language' => 'setSourceLanguage',
+        'target_language' => 'setTargetLanguage'
     ];
 
     /**
@@ -93,9 +97,10 @@ class DataForVideoProjectSerialDubTaskCreateOutput implements ModelInterface, Ar
      * @var string[]
      */
     protected static $getters = [
-        'base_resp' => 'getBaseResp',
-        'subtitle_file_check_reports' => 'getSubtitleFileCheckReports',
-        'task_ids' => 'getTaskIds'
+        'episode_num' => 'getEpisodeNum',
+        'issues' => 'getIssues',
+        'source_language' => 'getSourceLanguage',
+        'target_language' => 'getTargetLanguage'
     ];
 
     /**
@@ -158,9 +163,10 @@ class DataForVideoProjectSerialDubTaskCreateOutput implements ModelInterface, Ar
      */
     public function __construct(array $data = null)
     {
-        $this->container['base_resp'] = isset($data['base_resp']) ? $data['base_resp'] : null;
-        $this->container['subtitle_file_check_reports'] = isset($data['subtitle_file_check_reports']) ? $data['subtitle_file_check_reports'] : null;
-        $this->container['task_ids'] = isset($data['task_ids']) ? $data['task_ids'] : null;
+        $this->container['episode_num'] = isset($data['episode_num']) ? $data['episode_num'] : null;
+        $this->container['issues'] = isset($data['issues']) ? $data['issues'] : null;
+        $this->container['source_language'] = isset($data['source_language']) ? $data['source_language'] : null;
+        $this->container['target_language'] = isset($data['target_language']) ? $data['target_language'] : null;
     }
 
     /**
@@ -188,73 +194,97 @@ class DataForVideoProjectSerialDubTaskCreateOutput implements ModelInterface, Ar
 
 
     /**
-     * Gets base_resp
+     * Gets episode_num
      *
-     * @return \Volcengine\I18nopenapi\Model\BaseRespForVideoProjectSerialDubTaskCreateOutput
+     * @return string
      */
-    public function getBaseResp()
+    public function getEpisodeNum()
     {
-        return $this->container['base_resp'];
+        return $this->container['episode_num'];
     }
 
     /**
-     * Sets base_resp
+     * Sets episode_num
      *
-     * @param \Volcengine\I18nopenapi\Model\BaseRespForVideoProjectSerialDubTaskCreateOutput $base_resp base_resp
+     * @param string $episode_num episode_num
      *
      * @return $this
      */
-    public function setBaseResp($base_resp)
+    public function setEpisodeNum($episode_num)
     {
-        $this->container['base_resp'] = $base_resp;
+        $this->container['episode_num'] = $episode_num;
 
         return $this;
     }
 
     /**
-     * Gets subtitle_file_check_reports
+     * Gets issues
      *
-     * @return \Volcengine\I18nopenapi\Model\SubtitleFileCheckReportForVideoProjectSerialDubTaskCreateOutput[]
+     * @return \Volcengine\I18nopenapi\Model\IssueForVideoProjectSerialDubTaskCreateOutput[]
      */
-    public function getSubtitleFileCheckReports()
+    public function getIssues()
     {
-        return $this->container['subtitle_file_check_reports'];
+        return $this->container['issues'];
     }
 
     /**
-     * Sets subtitle_file_check_reports
+     * Sets issues
      *
-     * @param \Volcengine\I18nopenapi\Model\SubtitleFileCheckReportForVideoProjectSerialDubTaskCreateOutput[] $subtitle_file_check_reports subtitle_file_check_reports
+     * @param \Volcengine\I18nopenapi\Model\IssueForVideoProjectSerialDubTaskCreateOutput[] $issues issues
      *
      * @return $this
      */
-    public function setSubtitleFileCheckReports($subtitle_file_check_reports)
+    public function setIssues($issues)
     {
-        $this->container['subtitle_file_check_reports'] = $subtitle_file_check_reports;
+        $this->container['issues'] = $issues;
 
         return $this;
     }
 
     /**
-     * Gets task_ids
+     * Gets source_language
      *
-     * @return string[]
+     * @return string
      */
-    public function getTaskIds()
+    public function getSourceLanguage()
     {
-        return $this->container['task_ids'];
+        return $this->container['source_language'];
     }
 
     /**
-     * Sets task_ids
+     * Sets source_language
      *
-     * @param string[] $task_ids task_ids
+     * @param string $source_language source_language
      *
      * @return $this
      */
-    public function setTaskIds($task_ids)
+    public function setSourceLanguage($source_language)
     {
-        $this->container['task_ids'] = $task_ids;
+        $this->container['source_language'] = $source_language;
+
+        return $this;
+    }
+
+    /**
+     * Gets target_language
+     *
+     * @return string
+     */
+    public function getTargetLanguage()
+    {
+        return $this->container['target_language'];
+    }
+
+    /**
+     * Sets target_language
+     *
+     * @param string $target_language target_language
+     *
+     * @return $this
+     */
+    public function setTargetLanguage($target_language)
+    {
+        $this->container['target_language'] = $target_language;
 
         return $this;
     }

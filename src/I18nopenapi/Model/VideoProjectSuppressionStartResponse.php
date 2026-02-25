@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class DataForVideoProjectSerialDubTaskCreateOutput implements ModelInterface, ArrayAccess
+class VideoProjectSuppressionStartResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class DataForVideoProjectSerialDubTaskCreateOutput implements ModelInterface, Ar
       *
       * @var string
       */
-    protected static $swaggerModelName = 'dataForVideoProjectSerialDubTaskCreateOutput';
+    protected static $swaggerModelName = 'VideoProjectSuppressionStartResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,9 +28,7 @@ class DataForVideoProjectSerialDubTaskCreateOutput implements ModelInterface, Ar
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'base_resp' => '\Volcengine\I18nopenapi\Model\BaseRespForVideoProjectSerialDubTaskCreateOutput',
-        'subtitle_file_check_reports' => '\Volcengine\I18nopenapi\Model\SubtitleFileCheckReportForVideoProjectSerialDubTaskCreateOutput[]',
-        'task_ids' => 'string[]'
+        
     ];
 
     /**
@@ -39,9 +37,7 @@ class DataForVideoProjectSerialDubTaskCreateOutput implements ModelInterface, Ar
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'base_resp' => null,
-        'subtitle_file_check_reports' => null,
-        'task_ids' => null
+        
     ];
 
     /**
@@ -71,9 +67,7 @@ class DataForVideoProjectSerialDubTaskCreateOutput implements ModelInterface, Ar
      * @var string[]
      */
     protected static $attributeMap = [
-        'base_resp' => 'BaseResp',
-        'subtitle_file_check_reports' => 'SubtitleFileCheckReports',
-        'task_ids' => 'TaskIDs'
+        
     ];
 
     /**
@@ -82,9 +76,7 @@ class DataForVideoProjectSerialDubTaskCreateOutput implements ModelInterface, Ar
      * @var string[]
      */
     protected static $setters = [
-        'base_resp' => 'setBaseResp',
-        'subtitle_file_check_reports' => 'setSubtitleFileCheckReports',
-        'task_ids' => 'setTaskIds'
+        
     ];
 
     /**
@@ -93,9 +85,7 @@ class DataForVideoProjectSerialDubTaskCreateOutput implements ModelInterface, Ar
      * @var string[]
      */
     protected static $getters = [
-        'base_resp' => 'getBaseResp',
-        'subtitle_file_check_reports' => 'getSubtitleFileCheckReports',
-        'task_ids' => 'getTaskIds'
+        
     ];
 
     /**
@@ -158,9 +148,6 @@ class DataForVideoProjectSerialDubTaskCreateOutput implements ModelInterface, Ar
      */
     public function __construct(array $data = null)
     {
-        $this->container['base_resp'] = isset($data['base_resp']) ? $data['base_resp'] : null;
-        $this->container['subtitle_file_check_reports'] = isset($data['subtitle_file_check_reports']) ? $data['subtitle_file_check_reports'] : null;
-        $this->container['task_ids'] = isset($data['task_ids']) ? $data['task_ids'] : null;
     }
 
     /**
@@ -186,78 +173,6 @@ class DataForVideoProjectSerialDubTaskCreateOutput implements ModelInterface, Ar
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets base_resp
-     *
-     * @return \Volcengine\I18nopenapi\Model\BaseRespForVideoProjectSerialDubTaskCreateOutput
-     */
-    public function getBaseResp()
-    {
-        return $this->container['base_resp'];
-    }
-
-    /**
-     * Sets base_resp
-     *
-     * @param \Volcengine\I18nopenapi\Model\BaseRespForVideoProjectSerialDubTaskCreateOutput $base_resp base_resp
-     *
-     * @return $this
-     */
-    public function setBaseResp($base_resp)
-    {
-        $this->container['base_resp'] = $base_resp;
-
-        return $this;
-    }
-
-    /**
-     * Gets subtitle_file_check_reports
-     *
-     * @return \Volcengine\I18nopenapi\Model\SubtitleFileCheckReportForVideoProjectSerialDubTaskCreateOutput[]
-     */
-    public function getSubtitleFileCheckReports()
-    {
-        return $this->container['subtitle_file_check_reports'];
-    }
-
-    /**
-     * Sets subtitle_file_check_reports
-     *
-     * @param \Volcengine\I18nopenapi\Model\SubtitleFileCheckReportForVideoProjectSerialDubTaskCreateOutput[] $subtitle_file_check_reports subtitle_file_check_reports
-     *
-     * @return $this
-     */
-    public function setSubtitleFileCheckReports($subtitle_file_check_reports)
-    {
-        $this->container['subtitle_file_check_reports'] = $subtitle_file_check_reports;
-
-        return $this;
-    }
-
-    /**
-     * Gets task_ids
-     *
-     * @return string[]
-     */
-    public function getTaskIds()
-    {
-        return $this->container['task_ids'];
-    }
-
-    /**
-     * Sets task_ids
-     *
-     * @param string[] $task_ids task_ids
-     *
-     * @return $this
-     */
-    public function setTaskIds($task_ids)
-    {
-        $this->container['task_ids'] = $task_ids;
-
-        return $this;
-    }
     /**
      * Returns true if offset exists. False otherwise.
      *
