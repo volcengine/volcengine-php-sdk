@@ -37,6 +37,8 @@ class Request
     public $getDebugFile;
     public $httpBody;
     public $query;
+    public $isPresigned = false;
+    public $presignedUrl;
 
 
     public function getMethod()

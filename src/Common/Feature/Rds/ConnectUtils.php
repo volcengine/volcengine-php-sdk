@@ -2,7 +2,13 @@
 
 namespace Volcengine\Common\Feature\Rds;
 
-use Volcengine\Common\Utils;
+use Volcengine\Common\ApiClient;
+use Volcengine\Common\Endpoint\Providers\StandardEndpointProvider;
+use Volcengine\Common\Interceptor\InterceptorChain;
+use Volcengine\Common\Interceptor\Interceptors\Context;
+use Volcengine\Common\Interceptor\Interceptors\Request;
+use Volcengine\Common\Interceptor\Interceptors\ResolveEndpointInterceptor;
+use Volcengine\Common\Interceptor\Interceptors\SignRequestInterceptor;
 
 class ConnectUtils
 {
@@ -17,34 +23,28 @@ class ConnectUtils
      * Generates a pre-signed URL that can be used as an authentication token
      * to connect to RDS MySQL database instances.
      *
-     * @param string $accessKeyId Access Key ID from credentials
-     * @param string $secretAccessKey Secret Access Key from credentials
-     * @param string $region Region where the RDS instance is located (e.g., 'cn-beijing')
+     * @param ApiClient $apiClient API client containing credentials, region, and schema settings
      * @param string $dbUser Database username
      * @param string $instanceId RDS instance ID
      * @param int $expires Token expiration time in seconds (default: 900, i.e., 15 minutes). If <= 0, uses default 900.
-     * @param string|null $securityToken Optional security token for temporary credentials
-     * @param bool $disableSSL Whether to use http instead of https (default: false)
      * @return string Authentication token (full pre-signed URL)
      * @throws \InvalidArgumentException If required parameters are missing or invalid
      */
     public static function buildAuthToken(
-        $accessKeyId,
-        $secretAccessKey,
-        $region,
+        ApiClient $apiClient,
         $dbUser,
         $instanceId,
-        $expires = self::DEFAULT_EXPIRES,
-        $securityToken = null,
-        $disableSSL = false
+        $expires = self::DEFAULT_EXPIRES
     ) {
+        $config = $apiClient->getConfig();
+
         // Validate credentials
-        if (empty($accessKeyId) || empty($secretAccessKey)) {
+        if (empty($config->getAk()) || empty($config->getSk())) {
             throw new \InvalidArgumentException('Access key ID and secret access key must not be empty');
         }
 
         // Validate region
-        if (empty($region)) {
+        if (empty($config->getRegion())) {
             throw new \InvalidArgumentException('Region must not be empty');
         }
 
@@ -62,14 +62,24 @@ class ConnectUtils
             $expires = self::DEFAULT_EXPIRES;
         }
 
-        // Build regional endpoint
-        $host = Utils::getRegionalEndpoint(self::SERVICE, $region);
+        // Build request
+        $request = new Request();
+        $request->ak = $config->getAk();
+        $request->sk = $config->getSk();
+        $request->sessionToken = $config->getSessionToken();
+        $request->region = $config->getRegion();
+        $request->schema = $config->getSchema();
+        $request->service = self::SERVICE;
+        $request->method = 'GET';
+        $request->truePath = '/';
+        $request->isPresigned = true;
 
-        // Determine scheme
-        $scheme = $disableSSL ? 'http' : 'https';
+        // Use StandardEndpointProvider
+        $request->endpointProvider = new StandardEndpointProvider();
+        $request->useDualStack = $config->getUseDualStack();
 
-        // Build query parameters
-        $query = [
+        // Set query params
+        $request->queryParams = [
             'Action' => self::ACTION,
             'Version' => self::API_VERSION,
             'X-Expires' => (string)$expires,
@@ -77,19 +87,16 @@ class ConnectUtils
             'InstanceId' => $instanceId,
         ];
 
-        // Generate pre-signed URL using signature v4 with host signing
-        $signedPath = Utils::signRequestToUrl(
-            $accessKeyId,
-            $secretAccessKey,
-            $region,
-            self::SERVICE,
-            'GET',
-            '/',
-            $query,
-            $securityToken,
-            $host
-        );
+        // Set up interceptor chain - only ResolveEndpoint + Sign
+        $chain = new InterceptorChain();
+        $chain->appendRequestInterceptor(new ResolveEndpointInterceptor(null));
+        $chain->appendRequestInterceptor(new SignRequestInterceptor(null));
 
-        return $scheme . '://' . $host . $signedPath;
+        // Execute chain
+        $context = new Context();
+        $context->setRequest($request);
+        $chain->executeRequest($context);
+
+        return $context->getRequest()->presignedUrl;
     }
 }

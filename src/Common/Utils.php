@@ -207,46 +207,6 @@ class Utils
     }
 
     /**
-     * Get regional endpoint for a given service and region
-     *
-     * Format: {standardized_service}.{region}.volcengineapi.com
-     * or {standardized_service}.{region}.volcengine-api.com (dual-stack)
-     *
-     * @param string $service Service code (e.g., 'rds_mysql')
-     * @param string $region Region code (e.g., 'cn-beijing')
-     * @return string Regional endpoint host
-     */
-    public static function getRegionalEndpoint($service, $region)
-    {
-        $suffix = self::hasEnabledDualStack() ? '.volcengine-api.com' : '.volcengineapi.com';
-        return self::standardizeDomainServiceCode($service) . '.' . $region . $suffix;
-    }
-
-    /**
-     * Check if dual-stack is enabled via environment variable
-     *
-     * @return bool
-     */
-    public static function hasEnabledDualStack()
-    {
-        return getenv('VOLC_ENABLE_DUALSTACK') === 'true';
-    }
-
-    /**
-     * Standardize service code for use in domain names
-     *
-     * Converts to lowercase and replaces underscores with hyphens.
-     * e.g., 'rds_mysql' -> 'rds-mysql'
-     *
-     * @param string $serviceCode Service code
-     * @return string Standardized service code
-     */
-    public static function standardizeDomainServiceCode($serviceCode)
-    {
-        return strtolower(str_replace('_', '-', $serviceCode));
-    }
-
-    /**
      * Create canonicalized path according to signature v4 specification
      *
      * @param string $path Request path
