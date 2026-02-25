@@ -74,7 +74,8 @@ class ConnectUtils
         $request->truePath = '/';
         $request->isPresigned = true;
 
-        // Use StandardEndpointProvider
+        // Use custom host if set, otherwise StandardEndpointProvider will resolve it
+        $request->host = $config->getHost();
         $request->endpointProvider = new StandardEndpointProvider();
         $request->useDualStack = $config->getUseDualStack();
 
