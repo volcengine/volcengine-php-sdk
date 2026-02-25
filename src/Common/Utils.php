@@ -102,39 +102,40 @@ class Utils
 
         $credentialScope = self::createCredentialScope($sdt, $region, $service);
         $credential = "$ak/$credentialScope";
+        $signHost = $host !== null;
 
         // Add required query parameters for pre-signed URL
         $query['X-Date'] = $ldt;
         $query['X-NotSignBody'] = '';
         $query['X-Algorithm'] = 'HMAC-SHA256';
         $query['X-Credential'] = $credential;
-        $query['X-SignedHeaders'] = $host !== null ? 'host' : '';
+        $query['X-SignedHeaders'] = $signHost ? 'host' : '';
+        $query['X-SignedQueries'] = ''; // placeholder
 
-        if ($token != null) {
-            $query['X-Security-Token'] = $token;
-        }
-
-        // Sort query parameter keys and generate X-SignedQueries
+        // Compute X-SignedQueries from all current keys (includes X-SignedQueries itself)
         $signedQueries = array_keys($query);
         sort($signedQueries);
         $query['X-SignedQueries'] = implode(';', $signedQueries);
 
-        // Create canonical query string for signing
-        $canonicalQuery = self::getCanonicalizedQuery($query);
+        // X-Security-Token must be added AFTER X-SignedQueries computation
+        if ($token != null) {
+            $query['X-Security-Token'] = $token;
+        }
+
+        // Build canonical query from ALL params sorted
+        $canonicalQuery = self::buildSortedQueryString($query);
 
         // Create canonical request
         $canonicalPath = self::createCanonicalizedPath($path);
         $bodyHash = hash('sha256', ''); // Pre-signed URL does not sign body
 
-        if ($host !== null) {
-            $canonicalHeaders = "host:$host\n";
-            $signedHeadersStr = 'host';
+        if ($signHost) {
             $canon = implode("\n", [
                 $method,
                 $canonicalPath,
                 $canonicalQuery,
-                $canonicalHeaders,
-                $signedHeadersStr,
+                "host:$host\n",
+                'host',
                 $bodyHash
             ]);
         } else {
@@ -142,9 +143,9 @@ class Utils
                 $method,
                 $canonicalPath,
                 $canonicalQuery,
-                '', // Empty headers line
-                '', // Empty line before signed headers
-                '', // Empty signed headers line (for pre-signed URL)
+                '',
+                '',
+                '',
                 $bodyHash
             ]);
         }
@@ -158,7 +159,7 @@ class Utils
         $query['X-Signature'] = $signature;
 
         // Build complete URL
-        $queryString = self::buildQueryString($query, false);
+        $queryString = self::buildSortedQueryString($query);
 
         return $path . '?' . $queryString;
     }
@@ -219,65 +220,26 @@ class Utils
     }
 
     /**
-     * Get canonicalized query string for signature calculation
+     * Build query string from parameters, sorted by key
      *
      * @param array $query Query parameters
-     * @return string Canonicalized query string
-     */
-    private static function getCanonicalizedQuery(array $query)
-    {
-        return self::buildQueryString($query, true);
-    }
-
-    /**
-     * Build query string from parameters
-     *
-     * @param array $query Query parameters
-     * @param bool $excludeSignature Whether to exclude X-Signature parameter
      * @return string Query string
      */
-    private static function buildQueryString(array $query, $excludeSignature = false)
+    private static function buildSortedQueryString(array $query)
     {
         if (!$query) {
             return '';
         }
 
+        ksort($query);
         $qs = '';
-        if (isset($query['X-SignedQueries'])) {
-            // Build query string in the order specified by X-SignedQueries
-            foreach (explode(';', $query['X-SignedQueries']) as $k) {
-                if (!isset($query[$k])) {
-                    continue;
-                }
-                $v = $query[$k];
-                if (!is_array($v)) {
-                    $qs .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-                } else {
-                    sort($v);
-                    foreach ($v as $value) {
-                        $qs .= rawurlencode($k) . '=' . rawurlencode($value) . '&';
-                    }
-                }
-            }
-
-            // Only append X-SignedQueries and X-Signature for final URL (not for signature calculation)
-            if (!$excludeSignature) {
-                $qs .= 'X-SignedQueries=' . rawurlencode($query['X-SignedQueries']) . '&';
-                if (isset($query['X-Signature'])) {
-                    $qs .= 'X-Signature=' . rawurlencode($query['X-Signature']) . '&';
-                }
-            }
-        } else {
-            // Sort by key name
-            ksort($query);
-            foreach ($query as $k => $v) {
-                if (!is_array($v)) {
-                    $qs .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-                } else {
-                    sort($v);
-                    foreach ($v as $value) {
-                        $qs .= rawurlencode($k) . '=' . rawurlencode($value) . '&';
-                    }
+        foreach ($query as $k => $v) {
+            if (!is_array($v)) {
+                $qs .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
+            } else {
+                sort($v);
+                foreach ($v as $value) {
+                    $qs .= rawurlencode($k) . '=' . rawurlencode($value) . '&';
                 }
             }
         }
