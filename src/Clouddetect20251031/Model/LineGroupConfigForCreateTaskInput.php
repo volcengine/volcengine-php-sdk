@@ -28,7 +28,7 @@ class LineGroupConfigForCreateTaskInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'group_list' => '\Volcengine\Clouddetect20251031\Model\ConvertGroupListForCreateTaskInput[]',
+        'group_list' => '\Volcengine\Clouddetect20251031\Model\GroupListForCreateTaskInput[]',
         'groups' => 'int[]',
         'line_group_list' => '\Volcengine\Clouddetect20251031\Model\LineGroupListForCreateTaskInput[]',
         'line_list' => '\Volcengine\Clouddetect20251031\Model\LineListForCreateTaskInput[]'
@@ -196,7 +196,7 @@ class LineGroupConfigForCreateTaskInput implements ModelInterface, ArrayAccess
     /**
      * Gets group_list
      *
-     * @return \Volcengine\Clouddetect20251031\Model\ConvertGroupListForCreateTaskInput[]
+     * @return \Volcengine\Clouddetect20251031\Model\GroupListForCreateTaskInput[]
      */
     public function getGroupList()
     {
@@ -206,7 +206,7 @@ class LineGroupConfigForCreateTaskInput implements ModelInterface, ArrayAccess
     /**
      * Sets group_list
      *
-     * @param \Volcengine\Clouddetect20251031\Model\ConvertGroupListForCreateTaskInput[] $group_list group_list
+     * @param \Volcengine\Clouddetect20251031\Model\GroupListForCreateTaskInput[] $group_list group_list
      *
      * @return $this
      */

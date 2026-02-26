@@ -31,10 +31,10 @@ class PageConfigForCreateTaskInput implements ModelInterface, ArrayAccess
         'auto_scroll' => 'bool',
         'cookies' => '\Volcengine\Clouddetect20251031\Model\CookieForCreateTaskInput[]',
         'custom_header' => '\Volcengine\Clouddetect20251031\Model\CustomHeaderForCreateTaskInput',
+        'custom_host_config' => '\Volcengine\Clouddetect20251031\Model\CustomHostConfigForCreateTaskInput',
         'disable_compress' => 'bool',
         'enable_cache' => 'bool',
         'enable_redirect' => 'bool',
-        'end_custom_host_config_time' => '\Volcengine\Clouddetect20251031\Model\EndCustomHostConfigTimeForCreateTaskInput',
         'ignore_certificate' => 'bool',
         'quic_config' => '\Volcengine\Clouddetect20251031\Model\QuicConfigForCreateTaskInput',
         'save_base_document_body' => 'bool',
@@ -53,10 +53,10 @@ class PageConfigForCreateTaskInput implements ModelInterface, ArrayAccess
         'auto_scroll' => null,
         'cookies' => null,
         'custom_header' => null,
+        'custom_host_config' => null,
         'disable_compress' => null,
         'enable_cache' => null,
         'enable_redirect' => null,
-        'end_custom_host_config_time' => null,
         'ignore_certificate' => null,
         'quic_config' => null,
         'save_base_document_body' => null,
@@ -96,10 +96,10 @@ class PageConfigForCreateTaskInput implements ModelInterface, ArrayAccess
         'auto_scroll' => 'AutoScroll',
         'cookies' => 'Cookies',
         'custom_header' => 'CustomHeader',
+        'custom_host_config' => 'CustomHostConfig',
         'disable_compress' => 'DisableCompress',
         'enable_cache' => 'EnableCache',
         'enable_redirect' => 'EnableRedirect',
-        'end_custom_host_config_time' => 'EndCustomHostConfigTime',
         'ignore_certificate' => 'IgnoreCertificate',
         'quic_config' => 'QuicConfig',
         'save_base_document_body' => 'SaveBaseDocumentBody',
@@ -118,10 +118,10 @@ class PageConfigForCreateTaskInput implements ModelInterface, ArrayAccess
         'auto_scroll' => 'setAutoScroll',
         'cookies' => 'setCookies',
         'custom_header' => 'setCustomHeader',
+        'custom_host_config' => 'setCustomHostConfig',
         'disable_compress' => 'setDisableCompress',
         'enable_cache' => 'setEnableCache',
         'enable_redirect' => 'setEnableRedirect',
-        'end_custom_host_config_time' => 'setEndCustomHostConfigTime',
         'ignore_certificate' => 'setIgnoreCertificate',
         'quic_config' => 'setQuicConfig',
         'save_base_document_body' => 'setSaveBaseDocumentBody',
@@ -140,10 +140,10 @@ class PageConfigForCreateTaskInput implements ModelInterface, ArrayAccess
         'auto_scroll' => 'getAutoScroll',
         'cookies' => 'getCookies',
         'custom_header' => 'getCustomHeader',
+        'custom_host_config' => 'getCustomHostConfig',
         'disable_compress' => 'getDisableCompress',
         'enable_cache' => 'getEnableCache',
         'enable_redirect' => 'getEnableRedirect',
-        'end_custom_host_config_time' => 'getEndCustomHostConfigTime',
         'ignore_certificate' => 'getIgnoreCertificate',
         'quic_config' => 'getQuicConfig',
         'save_base_document_body' => 'getSaveBaseDocumentBody',
@@ -216,10 +216,10 @@ class PageConfigForCreateTaskInput implements ModelInterface, ArrayAccess
         $this->container['auto_scroll'] = isset($data['auto_scroll']) ? $data['auto_scroll'] : null;
         $this->container['cookies'] = isset($data['cookies']) ? $data['cookies'] : null;
         $this->container['custom_header'] = isset($data['custom_header']) ? $data['custom_header'] : null;
+        $this->container['custom_host_config'] = isset($data['custom_host_config']) ? $data['custom_host_config'] : null;
         $this->container['disable_compress'] = isset($data['disable_compress']) ? $data['disable_compress'] : null;
         $this->container['enable_cache'] = isset($data['enable_cache']) ? $data['enable_cache'] : null;
         $this->container['enable_redirect'] = isset($data['enable_redirect']) ? $data['enable_redirect'] : null;
-        $this->container['end_custom_host_config_time'] = isset($data['end_custom_host_config_time']) ? $data['end_custom_host_config_time'] : null;
         $this->container['ignore_certificate'] = isset($data['ignore_certificate']) ? $data['ignore_certificate'] : null;
         $this->container['quic_config'] = isset($data['quic_config']) ? $data['quic_config'] : null;
         $this->container['save_base_document_body'] = isset($data['save_base_document_body']) ? $data['save_base_document_body'] : null;
@@ -326,6 +326,30 @@ class PageConfigForCreateTaskInput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets custom_host_config
+     *
+     * @return \Volcengine\Clouddetect20251031\Model\CustomHostConfigForCreateTaskInput
+     */
+    public function getCustomHostConfig()
+    {
+        return $this->container['custom_host_config'];
+    }
+
+    /**
+     * Sets custom_host_config
+     *
+     * @param \Volcengine\Clouddetect20251031\Model\CustomHostConfigForCreateTaskInput $custom_host_config custom_host_config
+     *
+     * @return $this
+     */
+    public function setCustomHostConfig($custom_host_config)
+    {
+        $this->container['custom_host_config'] = $custom_host_config;
+
+        return $this;
+    }
+
+    /**
      * Gets disable_compress
      *
      * @return bool
@@ -393,30 +417,6 @@ class PageConfigForCreateTaskInput implements ModelInterface, ArrayAccess
     public function setEnableRedirect($enable_redirect)
     {
         $this->container['enable_redirect'] = $enable_redirect;
-
-        return $this;
-    }
-
-    /**
-     * Gets end_custom_host_config_time
-     *
-     * @return \Volcengine\Clouddetect20251031\Model\EndCustomHostConfigTimeForCreateTaskInput
-     */
-    public function getEndCustomHostConfigTime()
-    {
-        return $this->container['end_custom_host_config_time'];
-    }
-
-    /**
-     * Sets end_custom_host_config_time
-     *
-     * @param \Volcengine\Clouddetect20251031\Model\EndCustomHostConfigTimeForCreateTaskInput $end_custom_host_config_time end_custom_host_config_time
-     *
-     * @return $this
-     */
-    public function setEndCustomHostConfigTime($end_custom_host_config_time)
-    {
-        $this->container['end_custom_host_config_time'] = $end_custom_host_config_time;
 
         return $this;
     }

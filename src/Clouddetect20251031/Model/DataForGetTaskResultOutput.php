@@ -29,14 +29,14 @@ class DataForGetTaskResultOutput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'basic_detail' => '\Volcengine\Clouddetect20251031\Model\BasicDetailForGetTaskResultOutput',
-        'dns_detail' => '\Volcengine\Clouddetect20251031\Model\DNSDetailForGetTaskResultOutput',
+        'dns_detail' => '\Volcengine\Clouddetect20251031\Model\DnsDetailForGetTaskResultOutput',
         'download_detail' => '\Volcengine\Clouddetect20251031\Model\DownloadDetailForGetTaskResultOutput',
-        'http_detail' => '\Volcengine\Clouddetect20251031\Model\HTTPDetailForGetTaskResultOutput',
+        'http_detail' => '\Volcengine\Clouddetect20251031\Model\HttpDetailForGetTaskResultOutput',
         'page_detail' => '\Volcengine\Clouddetect20251031\Model\PageDetailForGetTaskResultOutput',
         'ping_detail' => '\Volcengine\Clouddetect20251031\Model\PingDetailForGetTaskResultOutput',
-        'tcp_detail' => '\Volcengine\Clouddetect20251031\Model\TCPDetailForGetTaskResultOutput',
         'task_id' => 'int',
-        'udp_detail' => '\Volcengine\Clouddetect20251031\Model\UDPDetailForGetTaskResultOutput',
+        'tcp_detail' => '\Volcengine\Clouddetect20251031\Model\TcpDetailForGetTaskResultOutput',
+        'udp_detail' => '\Volcengine\Clouddetect20251031\Model\UdpDetailForGetTaskResultOutput',
         'upload_detail' => '\Volcengine\Clouddetect20251031\Model\UploadDetailForGetTaskResultOutput'
     ];
 
@@ -52,8 +52,8 @@ class DataForGetTaskResultOutput implements ModelInterface, ArrayAccess
         'http_detail' => null,
         'page_detail' => null,
         'ping_detail' => null,
-        'tcp_detail' => null,
         'task_id' => 'int64',
+        'tcp_detail' => null,
         'udp_detail' => null,
         'upload_detail' => null
     ];
@@ -86,14 +86,14 @@ class DataForGetTaskResultOutput implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'basic_detail' => 'BasicDetail',
-        'dns_detail' => 'DNSDetail',
+        'dns_detail' => 'DnsDetail',
         'download_detail' => 'DownloadDetail',
-        'http_detail' => 'HTTPDetail',
+        'http_detail' => 'HttpDetail',
         'page_detail' => 'PageDetail',
         'ping_detail' => 'PingDetail',
-        'tcp_detail' => 'TCPDetail',
-        'task_id' => 'TaskID',
-        'udp_detail' => 'UDPDetail',
+        'task_id' => 'TaskId',
+        'tcp_detail' => 'TcpDetail',
+        'udp_detail' => 'UdpDetail',
         'upload_detail' => 'UploadDetail'
     ];
 
@@ -109,8 +109,8 @@ class DataForGetTaskResultOutput implements ModelInterface, ArrayAccess
         'http_detail' => 'setHttpDetail',
         'page_detail' => 'setPageDetail',
         'ping_detail' => 'setPingDetail',
-        'tcp_detail' => 'setTcpDetail',
         'task_id' => 'setTaskId',
+        'tcp_detail' => 'setTcpDetail',
         'udp_detail' => 'setUdpDetail',
         'upload_detail' => 'setUploadDetail'
     ];
@@ -127,8 +127,8 @@ class DataForGetTaskResultOutput implements ModelInterface, ArrayAccess
         'http_detail' => 'getHttpDetail',
         'page_detail' => 'getPageDetail',
         'ping_detail' => 'getPingDetail',
-        'tcp_detail' => 'getTcpDetail',
         'task_id' => 'getTaskId',
+        'tcp_detail' => 'getTcpDetail',
         'udp_detail' => 'getUdpDetail',
         'upload_detail' => 'getUploadDetail'
     ];
@@ -199,8 +199,8 @@ class DataForGetTaskResultOutput implements ModelInterface, ArrayAccess
         $this->container['http_detail'] = isset($data['http_detail']) ? $data['http_detail'] : null;
         $this->container['page_detail'] = isset($data['page_detail']) ? $data['page_detail'] : null;
         $this->container['ping_detail'] = isset($data['ping_detail']) ? $data['ping_detail'] : null;
-        $this->container['tcp_detail'] = isset($data['tcp_detail']) ? $data['tcp_detail'] : null;
         $this->container['task_id'] = isset($data['task_id']) ? $data['task_id'] : null;
+        $this->container['tcp_detail'] = isset($data['tcp_detail']) ? $data['tcp_detail'] : null;
         $this->container['udp_detail'] = isset($data['udp_detail']) ? $data['udp_detail'] : null;
         $this->container['upload_detail'] = isset($data['upload_detail']) ? $data['upload_detail'] : null;
     }
@@ -256,7 +256,7 @@ class DataForGetTaskResultOutput implements ModelInterface, ArrayAccess
     /**
      * Gets dns_detail
      *
-     * @return \Volcengine\Clouddetect20251031\Model\DNSDetailForGetTaskResultOutput
+     * @return \Volcengine\Clouddetect20251031\Model\DnsDetailForGetTaskResultOutput
      */
     public function getDnsDetail()
     {
@@ -266,7 +266,7 @@ class DataForGetTaskResultOutput implements ModelInterface, ArrayAccess
     /**
      * Sets dns_detail
      *
-     * @param \Volcengine\Clouddetect20251031\Model\DNSDetailForGetTaskResultOutput $dns_detail dns_detail
+     * @param \Volcengine\Clouddetect20251031\Model\DnsDetailForGetTaskResultOutput $dns_detail dns_detail
      *
      * @return $this
      */
@@ -304,7 +304,7 @@ class DataForGetTaskResultOutput implements ModelInterface, ArrayAccess
     /**
      * Gets http_detail
      *
-     * @return \Volcengine\Clouddetect20251031\Model\HTTPDetailForGetTaskResultOutput
+     * @return \Volcengine\Clouddetect20251031\Model\HttpDetailForGetTaskResultOutput
      */
     public function getHttpDetail()
     {
@@ -314,7 +314,7 @@ class DataForGetTaskResultOutput implements ModelInterface, ArrayAccess
     /**
      * Sets http_detail
      *
-     * @param \Volcengine\Clouddetect20251031\Model\HTTPDetailForGetTaskResultOutput $http_detail http_detail
+     * @param \Volcengine\Clouddetect20251031\Model\HttpDetailForGetTaskResultOutput $http_detail http_detail
      *
      * @return $this
      */
@@ -374,30 +374,6 @@ class DataForGetTaskResultOutput implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets tcp_detail
-     *
-     * @return \Volcengine\Clouddetect20251031\Model\TCPDetailForGetTaskResultOutput
-     */
-    public function getTcpDetail()
-    {
-        return $this->container['tcp_detail'];
-    }
-
-    /**
-     * Sets tcp_detail
-     *
-     * @param \Volcengine\Clouddetect20251031\Model\TCPDetailForGetTaskResultOutput $tcp_detail tcp_detail
-     *
-     * @return $this
-     */
-    public function setTcpDetail($tcp_detail)
-    {
-        $this->container['tcp_detail'] = $tcp_detail;
-
-        return $this;
-    }
-
-    /**
      * Gets task_id
      *
      * @return int
@@ -422,9 +398,33 @@ class DataForGetTaskResultOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets tcp_detail
+     *
+     * @return \Volcengine\Clouddetect20251031\Model\TcpDetailForGetTaskResultOutput
+     */
+    public function getTcpDetail()
+    {
+        return $this->container['tcp_detail'];
+    }
+
+    /**
+     * Sets tcp_detail
+     *
+     * @param \Volcengine\Clouddetect20251031\Model\TcpDetailForGetTaskResultOutput $tcp_detail tcp_detail
+     *
+     * @return $this
+     */
+    public function setTcpDetail($tcp_detail)
+    {
+        $this->container['tcp_detail'] = $tcp_detail;
+
+        return $this;
+    }
+
+    /**
      * Gets udp_detail
      *
-     * @return \Volcengine\Clouddetect20251031\Model\UDPDetailForGetTaskResultOutput
+     * @return \Volcengine\Clouddetect20251031\Model\UdpDetailForGetTaskResultOutput
      */
     public function getUdpDetail()
     {
@@ -434,7 +434,7 @@ class DataForGetTaskResultOutput implements ModelInterface, ArrayAccess
     /**
      * Sets udp_detail
      *
-     * @param \Volcengine\Clouddetect20251031\Model\UDPDetailForGetTaskResultOutput $udp_detail udp_detail
+     * @param \Volcengine\Clouddetect20251031\Model\UdpDetailForGetTaskResultOutput $udp_detail udp_detail
      *
      * @return $this
      */

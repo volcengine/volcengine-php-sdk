@@ -30,13 +30,14 @@ class UpdateTaskRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'address' => 'string',
         'alarm_id_list' => 'int[]',
-        'dns_config' => '\Volcengine\Clouddetect20251031\Model\DNSConfigForUpdateTaskInput',
-        'dns_hijack_config' => '\Volcengine\Clouddetect20251031\Model\DNSHijackConfigForUpdateTaskInput',
+        'bind_group_id' => 'int',
         'diagnose_config' => '\Volcengine\Clouddetect20251031\Model\DiagnoseConfigForUpdateTaskInput',
+        'dns_config' => '\Volcengine\Clouddetect20251031\Model\DnsConfigForUpdateTaskInput',
+        'dns_hijack_config' => '\Volcengine\Clouddetect20251031\Model\DnsHijackConfigForUpdateTaskInput',
         'download_config' => '\Volcengine\Clouddetect20251031\Model\DownloadConfigForUpdateTaskInput',
         'enable_shuffle' => 'bool',
         'finish_time' => 'int',
-        'http_config' => '\Volcengine\Clouddetect20251031\Model\HTTPConfigForUpdateTaskInput',
+        'http_config' => '\Volcengine\Clouddetect20251031\Model\HttpConfigForUpdateTaskInput',
         'id' => 'int',
         'interval_seconds' => 'int',
         'line_id_list' => 'int[]',
@@ -46,11 +47,12 @@ class UpdateTaskRequest implements ModelInterface, ArrayAccess
         'period_config' => '\Volcengine\Clouddetect20251031\Model\PeriodConfigForUpdateTaskInput',
         'ping_config' => '\Volcengine\Clouddetect20251031\Model\PingConfigForUpdateTaskInput',
         'result_assert' => '\Volcengine\Clouddetect20251031\Model\ResultAssertForUpdateTaskInput',
-        'tcp_config' => '\Volcengine\Clouddetect20251031\Model\TCPConfigForUpdateTaskInput',
+        'selection_config' => '\Volcengine\Clouddetect20251031\Model\SelectionConfigForUpdateTaskInput',
         'tags' => '\Volcengine\Clouddetect20251031\Model\TagForUpdateTaskInput[]',
         'target_server_type' => 'int',
         'task_group_id' => 'int',
-        'udp_config' => '\Volcengine\Clouddetect20251031\Model\UDPConfigForUpdateTaskInput',
+        'tcp_config' => '\Volcengine\Clouddetect20251031\Model\TcpConfigForUpdateTaskInput',
+        'udp_config' => '\Volcengine\Clouddetect20251031\Model\UdpConfigForUpdateTaskInput',
         'upload_config' => '\Volcengine\Clouddetect20251031\Model\UploadConfigForUpdateTaskInput'
     ];
 
@@ -62,9 +64,10 @@ class UpdateTaskRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'address' => null,
         'alarm_id_list' => 'int64',
+        'bind_group_id' => 'int64',
+        'diagnose_config' => null,
         'dns_config' => null,
         'dns_hijack_config' => null,
-        'diagnose_config' => null,
         'download_config' => null,
         'enable_shuffle' => null,
         'finish_time' => 'int64',
@@ -78,10 +81,11 @@ class UpdateTaskRequest implements ModelInterface, ArrayAccess
         'period_config' => null,
         'ping_config' => null,
         'result_assert' => null,
-        'tcp_config' => null,
+        'selection_config' => null,
         'tags' => null,
         'target_server_type' => 'int32',
         'task_group_id' => 'int64',
+        'tcp_config' => null,
         'udp_config' => null,
         'upload_config' => null
     ];
@@ -114,28 +118,30 @@ class UpdateTaskRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'address' => 'Address',
-        'alarm_id_list' => 'AlarmIDList',
-        'dns_config' => 'DNSConfig',
-        'dns_hijack_config' => 'DNSHijackConfig',
+        'alarm_id_list' => 'AlarmIdList',
+        'bind_group_id' => 'BindGroupId',
         'diagnose_config' => 'DiagnoseConfig',
+        'dns_config' => 'DnsConfig',
+        'dns_hijack_config' => 'DnsHijackConfig',
         'download_config' => 'DownloadConfig',
         'enable_shuffle' => 'EnableShuffle',
         'finish_time' => 'FinishTime',
-        'http_config' => 'HTTPConfig',
-        'id' => 'ID',
+        'http_config' => 'HttpConfig',
+        'id' => 'Id',
         'interval_seconds' => 'IntervalSeconds',
-        'line_id_list' => 'LineIDList',
+        'line_id_list' => 'LineIdList',
         'name' => 'Name',
         'node_count' => 'NodeCount',
         'page_config' => 'PageConfig',
         'period_config' => 'PeriodConfig',
         'ping_config' => 'PingConfig',
         'result_assert' => 'ResultAssert',
-        'tcp_config' => 'TCPConfig',
+        'selection_config' => 'SelectionConfig',
         'tags' => 'Tags',
         'target_server_type' => 'TargetServerType',
-        'task_group_id' => 'TaskGroupID',
-        'udp_config' => 'UDPConfig',
+        'task_group_id' => 'TaskGroupId',
+        'tcp_config' => 'TcpConfig',
+        'udp_config' => 'UdpConfig',
         'upload_config' => 'UploadConfig'
     ];
 
@@ -147,9 +153,10 @@ class UpdateTaskRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'address' => 'setAddress',
         'alarm_id_list' => 'setAlarmIdList',
+        'bind_group_id' => 'setBindGroupId',
+        'diagnose_config' => 'setDiagnoseConfig',
         'dns_config' => 'setDnsConfig',
         'dns_hijack_config' => 'setDnsHijackConfig',
-        'diagnose_config' => 'setDiagnoseConfig',
         'download_config' => 'setDownloadConfig',
         'enable_shuffle' => 'setEnableShuffle',
         'finish_time' => 'setFinishTime',
@@ -163,10 +170,11 @@ class UpdateTaskRequest implements ModelInterface, ArrayAccess
         'period_config' => 'setPeriodConfig',
         'ping_config' => 'setPingConfig',
         'result_assert' => 'setResultAssert',
-        'tcp_config' => 'setTcpConfig',
+        'selection_config' => 'setSelectionConfig',
         'tags' => 'setTags',
         'target_server_type' => 'setTargetServerType',
         'task_group_id' => 'setTaskGroupId',
+        'tcp_config' => 'setTcpConfig',
         'udp_config' => 'setUdpConfig',
         'upload_config' => 'setUploadConfig'
     ];
@@ -179,9 +187,10 @@ class UpdateTaskRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'address' => 'getAddress',
         'alarm_id_list' => 'getAlarmIdList',
+        'bind_group_id' => 'getBindGroupId',
+        'diagnose_config' => 'getDiagnoseConfig',
         'dns_config' => 'getDnsConfig',
         'dns_hijack_config' => 'getDnsHijackConfig',
-        'diagnose_config' => 'getDiagnoseConfig',
         'download_config' => 'getDownloadConfig',
         'enable_shuffle' => 'getEnableShuffle',
         'finish_time' => 'getFinishTime',
@@ -195,10 +204,11 @@ class UpdateTaskRequest implements ModelInterface, ArrayAccess
         'period_config' => 'getPeriodConfig',
         'ping_config' => 'getPingConfig',
         'result_assert' => 'getResultAssert',
-        'tcp_config' => 'getTcpConfig',
+        'selection_config' => 'getSelectionConfig',
         'tags' => 'getTags',
         'target_server_type' => 'getTargetServerType',
         'task_group_id' => 'getTaskGroupId',
+        'tcp_config' => 'getTcpConfig',
         'udp_config' => 'getUdpConfig',
         'upload_config' => 'getUploadConfig'
     ];
@@ -265,9 +275,10 @@ class UpdateTaskRequest implements ModelInterface, ArrayAccess
     {
         $this->container['address'] = isset($data['address']) ? $data['address'] : null;
         $this->container['alarm_id_list'] = isset($data['alarm_id_list']) ? $data['alarm_id_list'] : null;
+        $this->container['bind_group_id'] = isset($data['bind_group_id']) ? $data['bind_group_id'] : null;
+        $this->container['diagnose_config'] = isset($data['diagnose_config']) ? $data['diagnose_config'] : null;
         $this->container['dns_config'] = isset($data['dns_config']) ? $data['dns_config'] : null;
         $this->container['dns_hijack_config'] = isset($data['dns_hijack_config']) ? $data['dns_hijack_config'] : null;
-        $this->container['diagnose_config'] = isset($data['diagnose_config']) ? $data['diagnose_config'] : null;
         $this->container['download_config'] = isset($data['download_config']) ? $data['download_config'] : null;
         $this->container['enable_shuffle'] = isset($data['enable_shuffle']) ? $data['enable_shuffle'] : null;
         $this->container['finish_time'] = isset($data['finish_time']) ? $data['finish_time'] : null;
@@ -281,10 +292,11 @@ class UpdateTaskRequest implements ModelInterface, ArrayAccess
         $this->container['period_config'] = isset($data['period_config']) ? $data['period_config'] : null;
         $this->container['ping_config'] = isset($data['ping_config']) ? $data['ping_config'] : null;
         $this->container['result_assert'] = isset($data['result_assert']) ? $data['result_assert'] : null;
-        $this->container['tcp_config'] = isset($data['tcp_config']) ? $data['tcp_config'] : null;
+        $this->container['selection_config'] = isset($data['selection_config']) ? $data['selection_config'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['target_server_type'] = isset($data['target_server_type']) ? $data['target_server_type'] : null;
         $this->container['task_group_id'] = isset($data['task_group_id']) ? $data['task_group_id'] : null;
+        $this->container['tcp_config'] = isset($data['tcp_config']) ? $data['tcp_config'] : null;
         $this->container['udp_config'] = isset($data['udp_config']) ? $data['udp_config'] : null;
         $this->container['upload_config'] = isset($data['upload_config']) ? $data['upload_config'] : null;
     }
@@ -380,49 +392,25 @@ class UpdateTaskRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets dns_config
+     * Gets bind_group_id
      *
-     * @return \Volcengine\Clouddetect20251031\Model\DNSConfigForUpdateTaskInput
+     * @return int
      */
-    public function getDnsConfig()
+    public function getBindGroupId()
     {
-        return $this->container['dns_config'];
+        return $this->container['bind_group_id'];
     }
 
     /**
-     * Sets dns_config
+     * Sets bind_group_id
      *
-     * @param \Volcengine\Clouddetect20251031\Model\DNSConfigForUpdateTaskInput $dns_config dns_config
+     * @param int $bind_group_id bind_group_id
      *
      * @return $this
      */
-    public function setDnsConfig($dns_config)
+    public function setBindGroupId($bind_group_id)
     {
-        $this->container['dns_config'] = $dns_config;
-
-        return $this;
-    }
-
-    /**
-     * Gets dns_hijack_config
-     *
-     * @return \Volcengine\Clouddetect20251031\Model\DNSHijackConfigForUpdateTaskInput
-     */
-    public function getDnsHijackConfig()
-    {
-        return $this->container['dns_hijack_config'];
-    }
-
-    /**
-     * Sets dns_hijack_config
-     *
-     * @param \Volcengine\Clouddetect20251031\Model\DNSHijackConfigForUpdateTaskInput $dns_hijack_config dns_hijack_config
-     *
-     * @return $this
-     */
-    public function setDnsHijackConfig($dns_hijack_config)
-    {
-        $this->container['dns_hijack_config'] = $dns_hijack_config;
+        $this->container['bind_group_id'] = $bind_group_id;
 
         return $this;
     }
@@ -447,6 +435,54 @@ class UpdateTaskRequest implements ModelInterface, ArrayAccess
     public function setDiagnoseConfig($diagnose_config)
     {
         $this->container['diagnose_config'] = $diagnose_config;
+
+        return $this;
+    }
+
+    /**
+     * Gets dns_config
+     *
+     * @return \Volcengine\Clouddetect20251031\Model\DnsConfigForUpdateTaskInput
+     */
+    public function getDnsConfig()
+    {
+        return $this->container['dns_config'];
+    }
+
+    /**
+     * Sets dns_config
+     *
+     * @param \Volcengine\Clouddetect20251031\Model\DnsConfigForUpdateTaskInput $dns_config dns_config
+     *
+     * @return $this
+     */
+    public function setDnsConfig($dns_config)
+    {
+        $this->container['dns_config'] = $dns_config;
+
+        return $this;
+    }
+
+    /**
+     * Gets dns_hijack_config
+     *
+     * @return \Volcengine\Clouddetect20251031\Model\DnsHijackConfigForUpdateTaskInput
+     */
+    public function getDnsHijackConfig()
+    {
+        return $this->container['dns_hijack_config'];
+    }
+
+    /**
+     * Sets dns_hijack_config
+     *
+     * @param \Volcengine\Clouddetect20251031\Model\DnsHijackConfigForUpdateTaskInput $dns_hijack_config dns_hijack_config
+     *
+     * @return $this
+     */
+    public function setDnsHijackConfig($dns_hijack_config)
+    {
+        $this->container['dns_hijack_config'] = $dns_hijack_config;
 
         return $this;
     }
@@ -526,7 +562,7 @@ class UpdateTaskRequest implements ModelInterface, ArrayAccess
     /**
      * Gets http_config
      *
-     * @return \Volcengine\Clouddetect20251031\Model\HTTPConfigForUpdateTaskInput
+     * @return \Volcengine\Clouddetect20251031\Model\HttpConfigForUpdateTaskInput
      */
     public function getHttpConfig()
     {
@@ -536,7 +572,7 @@ class UpdateTaskRequest implements ModelInterface, ArrayAccess
     /**
      * Sets http_config
      *
-     * @param \Volcengine\Clouddetect20251031\Model\HTTPConfigForUpdateTaskInput $http_config http_config
+     * @param \Volcengine\Clouddetect20251031\Model\HttpConfigForUpdateTaskInput $http_config http_config
      *
      * @return $this
      */
@@ -764,25 +800,25 @@ class UpdateTaskRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets tcp_config
+     * Gets selection_config
      *
-     * @return \Volcengine\Clouddetect20251031\Model\TCPConfigForUpdateTaskInput
+     * @return \Volcengine\Clouddetect20251031\Model\SelectionConfigForUpdateTaskInput
      */
-    public function getTcpConfig()
+    public function getSelectionConfig()
     {
-        return $this->container['tcp_config'];
+        return $this->container['selection_config'];
     }
 
     /**
-     * Sets tcp_config
+     * Sets selection_config
      *
-     * @param \Volcengine\Clouddetect20251031\Model\TCPConfigForUpdateTaskInput $tcp_config tcp_config
+     * @param \Volcengine\Clouddetect20251031\Model\SelectionConfigForUpdateTaskInput $selection_config selection_config
      *
      * @return $this
      */
-    public function setTcpConfig($tcp_config)
+    public function setSelectionConfig($selection_config)
     {
-        $this->container['tcp_config'] = $tcp_config;
+        $this->container['selection_config'] = $selection_config;
 
         return $this;
     }
@@ -860,9 +896,33 @@ class UpdateTaskRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets tcp_config
+     *
+     * @return \Volcengine\Clouddetect20251031\Model\TcpConfigForUpdateTaskInput
+     */
+    public function getTcpConfig()
+    {
+        return $this->container['tcp_config'];
+    }
+
+    /**
+     * Sets tcp_config
+     *
+     * @param \Volcengine\Clouddetect20251031\Model\TcpConfigForUpdateTaskInput $tcp_config tcp_config
+     *
+     * @return $this
+     */
+    public function setTcpConfig($tcp_config)
+    {
+        $this->container['tcp_config'] = $tcp_config;
+
+        return $this;
+    }
+
+    /**
      * Gets udp_config
      *
-     * @return \Volcengine\Clouddetect20251031\Model\UDPConfigForUpdateTaskInput
+     * @return \Volcengine\Clouddetect20251031\Model\UdpConfigForUpdateTaskInput
      */
     public function getUdpConfig()
     {
@@ -872,7 +932,7 @@ class UpdateTaskRequest implements ModelInterface, ArrayAccess
     /**
      * Sets udp_config
      *
-     * @param \Volcengine\Clouddetect20251031\Model\UDPConfigForUpdateTaskInput $udp_config udp_config
+     * @param \Volcengine\Clouddetect20251031\Model\UdpConfigForUpdateTaskInput $udp_config udp_config
      *
      * @return $this
      */

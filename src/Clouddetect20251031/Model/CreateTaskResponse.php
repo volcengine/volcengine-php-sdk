@@ -70,7 +70,7 @@ class CreateTaskResponse implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'location_info' => 'LocationInfo',
-        'task_id' => 'TaskID'
+        'task_id' => 'TaskId'
     ];
 
     /**
