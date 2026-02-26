@@ -69,7 +69,7 @@ class LineGroupListForCreateTaskInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'ID',
+        'id' => 'Id',
         'name' => 'Name'
     ];
 

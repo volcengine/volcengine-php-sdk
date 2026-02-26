@@ -28,7 +28,7 @@ class DiagnoseConfigForCreateTaskInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'dns_config' => '\Volcengine\Clouddetect20251031\Model\DNSConfigForCreateTaskInput',
+        'dns_config' => '\Volcengine\Clouddetect20251031\Model\DnsConfigForCreateTaskInput',
         'method_list' => 'int[]',
         'mtr_config' => '\Volcengine\Clouddetect20251031\Model\MtrConfigForCreateTaskInput',
         'pcap_status' => 'int',
@@ -75,7 +75,7 @@ class DiagnoseConfigForCreateTaskInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'dns_config' => 'DNSConfig',
+        'dns_config' => 'DnsConfig',
         'method_list' => 'MethodList',
         'mtr_config' => 'MtrConfig',
         'pcap_status' => 'PcapStatus',
@@ -202,7 +202,7 @@ class DiagnoseConfigForCreateTaskInput implements ModelInterface, ArrayAccess
     /**
      * Gets dns_config
      *
-     * @return \Volcengine\Clouddetect20251031\Model\DNSConfigForCreateTaskInput
+     * @return \Volcengine\Clouddetect20251031\Model\DnsConfigForCreateTaskInput
      */
     public function getDnsConfig()
     {
@@ -212,7 +212,7 @@ class DiagnoseConfigForCreateTaskInput implements ModelInterface, ArrayAccess
     /**
      * Sets dns_config
      *
-     * @param \Volcengine\Clouddetect20251031\Model\DNSConfigForCreateTaskInput $dns_config dns_config
+     * @param \Volcengine\Clouddetect20251031\Model\DnsConfigForCreateTaskInput $dns_config dns_config
      *
      * @return $this
      */

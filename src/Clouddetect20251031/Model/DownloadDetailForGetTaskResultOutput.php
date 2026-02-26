@@ -28,8 +28,8 @@ class DownloadDetailForGetTaskResultOutput implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'dns_cost' => 'int',
         'diagnose_detail' => '\Volcengine\Clouddetect20251031\Model\DiagnoseDetailForGetTaskResultOutput',
+        'dns_cost' => 'int',
         'download_size' => 'int',
         'download_speed' => 'int',
         'http_code' => 'int',
@@ -58,8 +58,8 @@ class DownloadDetailForGetTaskResultOutput implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'dns_cost' => 'int64',
         'diagnose_detail' => null,
+        'dns_cost' => 'int64',
         'download_size' => 'int64',
         'download_speed' => 'int64',
         'http_code' => 'int64',
@@ -109,23 +109,23 @@ class DownloadDetailForGetTaskResultOutput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $attributeMap = [
-        'dns_cost' => 'DNSCost',
         'diagnose_detail' => 'DiagnoseDetail',
+        'dns_cost' => 'DnsCost',
         'download_size' => 'DownloadSize',
         'download_speed' => 'DownloadSpeed',
-        'http_code' => 'HTTPCode',
-        'http_request_header' => 'HTTPRequestHeader',
-        'http_response_body' => 'HTTPResponseBody',
-        'http_response_header' => 'HTTPResponseHeader',
-        'http_version' => 'HTTPVersion',
+        'http_code' => 'HttpCode',
+        'http_request_header' => 'HttpRequestHeader',
+        'http_response_body' => 'HttpResponseBody',
+        'http_response_header' => 'HttpResponseHeader',
+        'http_version' => 'HttpVersion',
         'location_detail' => 'LocationDetail',
-        'pcap_uri' => 'PcapURI',
+        'pcap_uri' => 'PcapUri',
         'recv_cost' => 'RecvCost',
         'redirect_cost' => 'RedirectCost',
         'redirect_nums' => 'RedirectNums',
         'send_cost' => 'SendCost',
         'ssl_cost' => 'SslCost',
-        'tcp_cost' => 'TCPCost',
+        'tcp_cost' => 'TcpCost',
         'total_cost' => 'TotalCost',
         'ttfb_cost' => 'TtfbCost',
         'upload_size' => 'UploadSize',
@@ -139,8 +139,8 @@ class DownloadDetailForGetTaskResultOutput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $setters = [
-        'dns_cost' => 'setDnsCost',
         'diagnose_detail' => 'setDiagnoseDetail',
+        'dns_cost' => 'setDnsCost',
         'download_size' => 'setDownloadSize',
         'download_speed' => 'setDownloadSpeed',
         'http_code' => 'setHttpCode',
@@ -169,8 +169,8 @@ class DownloadDetailForGetTaskResultOutput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $getters = [
-        'dns_cost' => 'getDnsCost',
         'diagnose_detail' => 'getDiagnoseDetail',
+        'dns_cost' => 'getDnsCost',
         'download_size' => 'getDownloadSize',
         'download_speed' => 'getDownloadSpeed',
         'http_code' => 'getHttpCode',
@@ -253,8 +253,8 @@ class DownloadDetailForGetTaskResultOutput implements ModelInterface, ArrayAcces
      */
     public function __construct(array $data = null)
     {
-        $this->container['dns_cost'] = isset($data['dns_cost']) ? $data['dns_cost'] : null;
         $this->container['diagnose_detail'] = isset($data['diagnose_detail']) ? $data['diagnose_detail'] : null;
+        $this->container['dns_cost'] = isset($data['dns_cost']) ? $data['dns_cost'] : null;
         $this->container['download_size'] = isset($data['download_size']) ? $data['download_size'] : null;
         $this->container['download_speed'] = isset($data['download_speed']) ? $data['download_speed'] : null;
         $this->container['http_code'] = isset($data['http_code']) ? $data['http_code'] : null;
@@ -302,30 +302,6 @@ class DownloadDetailForGetTaskResultOutput implements ModelInterface, ArrayAcces
 
 
     /**
-     * Gets dns_cost
-     *
-     * @return int
-     */
-    public function getDnsCost()
-    {
-        return $this->container['dns_cost'];
-    }
-
-    /**
-     * Sets dns_cost
-     *
-     * @param int $dns_cost dns_cost
-     *
-     * @return $this
-     */
-    public function setDnsCost($dns_cost)
-    {
-        $this->container['dns_cost'] = $dns_cost;
-
-        return $this;
-    }
-
-    /**
      * Gets diagnose_detail
      *
      * @return \Volcengine\Clouddetect20251031\Model\DiagnoseDetailForGetTaskResultOutput
@@ -345,6 +321,30 @@ class DownloadDetailForGetTaskResultOutput implements ModelInterface, ArrayAcces
     public function setDiagnoseDetail($diagnose_detail)
     {
         $this->container['diagnose_detail'] = $diagnose_detail;
+
+        return $this;
+    }
+
+    /**
+     * Gets dns_cost
+     *
+     * @return int
+     */
+    public function getDnsCost()
+    {
+        return $this->container['dns_cost'];
+    }
+
+    /**
+     * Sets dns_cost
+     *
+     * @param int $dns_cost dns_cost
+     *
+     * @return $this
+     */
+    public function setDnsCost($dns_cost)
+    {
+        $this->container['dns_cost'] = $dns_cost;
 
         return $this;
     }

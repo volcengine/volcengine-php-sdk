@@ -28,8 +28,8 @@ class PingDetailForGetTaskResultOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'dns_cost' => 'int',
         'diagnose_detail' => '\Volcengine\Clouddetect20251031\Model\DiagnoseDetailForGetTaskResultOutput',
+        'dns_cost' => 'int',
         'mtr_hops' => 'int',
         'pcap_uri' => 'string',
         'ping_avg_cost' => 'int',
@@ -48,8 +48,8 @@ class PingDetailForGetTaskResultOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'dns_cost' => 'int64',
         'diagnose_detail' => null,
+        'dns_cost' => 'int64',
         'mtr_hops' => 'int64',
         'pcap_uri' => null,
         'ping_avg_cost' => 'int64',
@@ -89,10 +89,10 @@ class PingDetailForGetTaskResultOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'dns_cost' => 'DNSCost',
         'diagnose_detail' => 'DiagnoseDetail',
+        'dns_cost' => 'DnsCost',
         'mtr_hops' => 'MtrHops',
-        'pcap_uri' => 'PcapURI',
+        'pcap_uri' => 'PcapUri',
         'ping_avg_cost' => 'PingAvgCost',
         'ping_detail' => 'PingDetail',
         'ping_loss_rate' => 'PingLossRate',
@@ -109,8 +109,8 @@ class PingDetailForGetTaskResultOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'dns_cost' => 'setDnsCost',
         'diagnose_detail' => 'setDiagnoseDetail',
+        'dns_cost' => 'setDnsCost',
         'mtr_hops' => 'setMtrHops',
         'pcap_uri' => 'setPcapUri',
         'ping_avg_cost' => 'setPingAvgCost',
@@ -129,8 +129,8 @@ class PingDetailForGetTaskResultOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'dns_cost' => 'getDnsCost',
         'diagnose_detail' => 'getDiagnoseDetail',
+        'dns_cost' => 'getDnsCost',
         'mtr_hops' => 'getMtrHops',
         'pcap_uri' => 'getPcapUri',
         'ping_avg_cost' => 'getPingAvgCost',
@@ -203,8 +203,8 @@ class PingDetailForGetTaskResultOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['dns_cost'] = isset($data['dns_cost']) ? $data['dns_cost'] : null;
         $this->container['diagnose_detail'] = isset($data['diagnose_detail']) ? $data['diagnose_detail'] : null;
+        $this->container['dns_cost'] = isset($data['dns_cost']) ? $data['dns_cost'] : null;
         $this->container['mtr_hops'] = isset($data['mtr_hops']) ? $data['mtr_hops'] : null;
         $this->container['pcap_uri'] = isset($data['pcap_uri']) ? $data['pcap_uri'] : null;
         $this->container['ping_avg_cost'] = isset($data['ping_avg_cost']) ? $data['ping_avg_cost'] : null;
@@ -242,30 +242,6 @@ class PingDetailForGetTaskResultOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets dns_cost
-     *
-     * @return int
-     */
-    public function getDnsCost()
-    {
-        return $this->container['dns_cost'];
-    }
-
-    /**
-     * Sets dns_cost
-     *
-     * @param int $dns_cost dns_cost
-     *
-     * @return $this
-     */
-    public function setDnsCost($dns_cost)
-    {
-        $this->container['dns_cost'] = $dns_cost;
-
-        return $this;
-    }
-
-    /**
      * Gets diagnose_detail
      *
      * @return \Volcengine\Clouddetect20251031\Model\DiagnoseDetailForGetTaskResultOutput
@@ -285,6 +261,30 @@ class PingDetailForGetTaskResultOutput implements ModelInterface, ArrayAccess
     public function setDiagnoseDetail($diagnose_detail)
     {
         $this->container['diagnose_detail'] = $diagnose_detail;
+
+        return $this;
+    }
+
+    /**
+     * Gets dns_cost
+     *
+     * @return int
+     */
+    public function getDnsCost()
+    {
+        return $this->container['dns_cost'];
+    }
+
+    /**
+     * Sets dns_cost
+     *
+     * @param int $dns_cost dns_cost
+     *
+     * @return $this
+     */
+    public function setDnsCost($dns_cost)
+    {
+        $this->container['dns_cost'] = $dns_cost;
 
         return $this;
     }
