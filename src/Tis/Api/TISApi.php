@@ -254,6 +254,68 @@ class TISApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function createDeviceWithoutApproval($body = null)
+    {
+        list($response) = $this->createDeviceWithoutApprovalWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createDeviceWithoutApprovalWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tis\Model\CreateDeviceWithoutApprovalResponse';
+        $request = $this->createDeviceWithoutApprovalRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createDeviceWithoutApprovalAsync($body = null)
+    {
+        return $this->createDeviceWithoutApprovalAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createDeviceWithoutApprovalAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tis\Model\CreateDeviceWithoutApprovalResponse';
+        $request = $this->createDeviceWithoutApprovalRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createDeviceWithoutApprovalRequest($body)
+    {
+        $resourcePath = '/CreateDeviceWithoutApproval/2024-07-31/tis/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function getAgentList($body = null)
     {
         list($response) = $this->getAgentListWithHttpInfo($body);
