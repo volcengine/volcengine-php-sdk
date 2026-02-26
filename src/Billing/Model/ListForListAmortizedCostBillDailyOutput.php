@@ -127,6 +127,7 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
         'real_value' => 'string',
         'region' => 'string',
         'region_code' => 'string',
+        'resource_id' => 'string',
         'round_amount' => 'string',
         'saving_plan_original_amount' => 'string',
         'seller_customer_name' => 'string',
@@ -257,6 +258,7 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
         'real_value' => null,
         'region' => null,
         'region_code' => null,
+        'resource_id' => null,
         'round_amount' => null,
         'saving_plan_original_amount' => null,
         'seller_customer_name' => null,
@@ -408,6 +410,7 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
         'real_value' => 'RealValue',
         'region' => 'Region',
         'region_code' => 'RegionCode',
+        'resource_id' => 'ResourceID',
         'round_amount' => 'RoundAmount',
         'saving_plan_original_amount' => 'SavingPlanOriginalAmount',
         'seller_customer_name' => 'SellerCustomerName',
@@ -538,6 +541,7 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
         'real_value' => 'setRealValue',
         'region' => 'setRegion',
         'region_code' => 'setRegionCode',
+        'resource_id' => 'setResourceId',
         'round_amount' => 'setRoundAmount',
         'saving_plan_original_amount' => 'setSavingPlanOriginalAmount',
         'seller_customer_name' => 'setSellerCustomerName',
@@ -668,6 +672,7 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
         'real_value' => 'getRealValue',
         'region' => 'getRegion',
         'region_code' => 'getRegionCode',
+        'resource_id' => 'getResourceId',
         'round_amount' => 'getRoundAmount',
         'saving_plan_original_amount' => 'getSavingPlanOriginalAmount',
         'seller_customer_name' => 'getSellerCustomerName',
@@ -852,6 +857,7 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
         $this->container['real_value'] = isset($data['real_value']) ? $data['real_value'] : null;
         $this->container['region'] = isset($data['region']) ? $data['region'] : null;
         $this->container['region_code'] = isset($data['region_code']) ? $data['region_code'] : null;
+        $this->container['resource_id'] = isset($data['resource_id']) ? $data['resource_id'] : null;
         $this->container['round_amount'] = isset($data['round_amount']) ? $data['round_amount'] : null;
         $this->container['saving_plan_original_amount'] = isset($data['saving_plan_original_amount']) ? $data['saving_plan_original_amount'] : null;
         $this->container['seller_customer_name'] = isset($data['seller_customer_name']) ? $data['seller_customer_name'] : null;
@@ -3273,6 +3279,30 @@ class ListForListAmortizedCostBillDailyOutput implements ModelInterface, ArrayAc
     public function setRegionCode($region_code)
     {
         $this->container['region_code'] = $region_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets resource_id
+     *
+     * @return string
+     */
+    public function getResourceId()
+    {
+        return $this->container['resource_id'];
+    }
+
+    /**
+     * Sets resource_id
+     *
+     * @param string $resource_id resource_id
+     *
+     * @return $this
+     */
+    public function setResourceId($resource_id)
+    {
+        $this->container['resource_id'] = $resource_id;
 
         return $this;
     }
