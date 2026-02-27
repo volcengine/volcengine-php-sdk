@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ValidateBackendRequest implements ModelInterface, ArrayAccess
+class UpdateFaasServiceResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ValidateBackendRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ValidateBackendRequest';
+    protected static $swaggerModelName = 'UpdateFaasServiceResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,10 @@ class ValidateBackendRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'backend' => '\Volcengine\Id\Model\BackendForValidateBackendInput'
+        'function_id' => 'string',
+        'function_type' => 'string',
+        'trigger_name' => 'string',
+        'user_pool_uid' => 'string'
     ];
 
     /**
@@ -37,7 +40,10 @@ class ValidateBackendRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'backend' => null
+        'function_id' => null,
+        'function_type' => null,
+        'trigger_name' => null,
+        'user_pool_uid' => null
     ];
 
     /**
@@ -67,7 +73,10 @@ class ValidateBackendRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'backend' => 'Backend'
+        'function_id' => 'FunctionId',
+        'function_type' => 'FunctionType',
+        'trigger_name' => 'TriggerName',
+        'user_pool_uid' => 'UserPoolUid'
     ];
 
     /**
@@ -76,7 +85,10 @@ class ValidateBackendRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'backend' => 'setBackend'
+        'function_id' => 'setFunctionId',
+        'function_type' => 'setFunctionType',
+        'trigger_name' => 'setTriggerName',
+        'user_pool_uid' => 'setUserPoolUid'
     ];
 
     /**
@@ -85,7 +97,10 @@ class ValidateBackendRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'backend' => 'getBackend'
+        'function_id' => 'getFunctionId',
+        'function_type' => 'getFunctionType',
+        'trigger_name' => 'getTriggerName',
+        'user_pool_uid' => 'getUserPoolUid'
     ];
 
     /**
@@ -148,7 +163,10 @@ class ValidateBackendRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['backend'] = isset($data['backend']) ? $data['backend'] : null;
+        $this->container['function_id'] = isset($data['function_id']) ? $data['function_id'] : null;
+        $this->container['function_type'] = isset($data['function_type']) ? $data['function_type'] : null;
+        $this->container['trigger_name'] = isset($data['trigger_name']) ? $data['trigger_name'] : null;
+        $this->container['user_pool_uid'] = isset($data['user_pool_uid']) ? $data['user_pool_uid'] : null;
     }
 
     /**
@@ -176,25 +194,97 @@ class ValidateBackendRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets backend
+     * Gets function_id
      *
-     * @return \Volcengine\Id\Model\BackendForValidateBackendInput
+     * @return string
      */
-    public function getBackend()
+    public function getFunctionId()
     {
-        return $this->container['backend'];
+        return $this->container['function_id'];
     }
 
     /**
-     * Sets backend
+     * Sets function_id
      *
-     * @param \Volcengine\Id\Model\BackendForValidateBackendInput $backend backend
+     * @param string $function_id function_id
      *
      * @return $this
      */
-    public function setBackend($backend)
+    public function setFunctionId($function_id)
     {
-        $this->container['backend'] = $backend;
+        $this->container['function_id'] = $function_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets function_type
+     *
+     * @return string
+     */
+    public function getFunctionType()
+    {
+        return $this->container['function_type'];
+    }
+
+    /**
+     * Sets function_type
+     *
+     * @param string $function_type function_type
+     *
+     * @return $this
+     */
+    public function setFunctionType($function_type)
+    {
+        $this->container['function_type'] = $function_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets trigger_name
+     *
+     * @return string
+     */
+    public function getTriggerName()
+    {
+        return $this->container['trigger_name'];
+    }
+
+    /**
+     * Sets trigger_name
+     *
+     * @param string $trigger_name trigger_name
+     *
+     * @return $this
+     */
+    public function setTriggerName($trigger_name)
+    {
+        $this->container['trigger_name'] = $trigger_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets user_pool_uid
+     *
+     * @return string
+     */
+    public function getUserPoolUid()
+    {
+        return $this->container['user_pool_uid'];
+    }
+
+    /**
+     * Sets user_pool_uid
+     *
+     * @param string $user_pool_uid user_pool_uid
+     *
+     * @return $this
+     */
+    public function setUserPoolUid($user_pool_uid)
+    {
+        $this->container['user_pool_uid'] = $user_pool_uid;
 
         return $this;
     }

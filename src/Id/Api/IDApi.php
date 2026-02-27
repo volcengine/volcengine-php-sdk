@@ -564,6 +564,68 @@ class IDApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function completeResourceTokenAuth($body = null)
+    {
+        list($response) = $this->completeResourceTokenAuthWithHttpInfo($body);
+        return $response;
+    }
+
+    public function completeResourceTokenAuthWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CompleteResourceTokenAuthResponse';
+        $request = $this->completeResourceTokenAuthRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function completeResourceTokenAuthAsync($body = null)
+    {
+        return $this->completeResourceTokenAuthAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function completeResourceTokenAuthAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CompleteResourceTokenAuthResponse';
+        $request = $this->completeResourceTokenAuthRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function completeResourceTokenAuthRequest($body)
+    {
+        $resourcePath = '/CompleteResourceTokenAuth/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function createApiKey($body = null)
     {
         list($response) = $this->createApiKeyWithHttpInfo($body);
@@ -660,6 +722,68 @@ class IDApi
     protected function createApiKeyCredentialProviderRequest($body)
     {
         $resourcePath = '/CreateApiKeyCredentialProvider/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function createFaasService($body = null)
+    {
+        list($response) = $this->createFaasServiceWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createFaasServiceWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CreateFaasServiceResponse';
+        $request = $this->createFaasServiceRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createFaasServiceAsync($body = null)
+    {
+        return $this->createFaasServiceAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createFaasServiceAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\CreateFaasServiceResponse';
+        $request = $this->createFaasServiceRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createFaasServiceRequest($body)
+    {
+        $resourcePath = '/CreateFaasService/2025-10-30/id/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -1961,6 +2085,68 @@ class IDApi
     protected function deleteApiKeyCredentialProviderRequest($body)
     {
         $resourcePath = '/DeleteApiKeyCredentialProvider/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function deleteFaasService($body = null)
+    {
+        list($response) = $this->deleteFaasServiceWithHttpInfo($body);
+        return $response;
+    }
+
+    public function deleteFaasServiceWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\DeleteFaasServiceResponse';
+        $request = $this->deleteFaasServiceRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function deleteFaasServiceAsync($body = null)
+    {
+        return $this->deleteFaasServiceAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function deleteFaasServiceAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\DeleteFaasServiceResponse';
+        $request = $this->deleteFaasServiceRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function deleteFaasServiceRequest($body)
+    {
+        $resourcePath = '/DeleteFaasService/2025-10-30/id/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -3353,6 +3539,68 @@ class IDApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function getFaasService($body = null)
+    {
+        list($response) = $this->getFaasServiceWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getFaasServiceWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\GetFaasServiceResponse';
+        $request = $this->getFaasServiceRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getFaasServiceAsync($body = null)
+    {
+        return $this->getFaasServiceAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getFaasServiceAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\GetFaasServiceResponse';
+        $request = $this->getFaasServiceRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getFaasServiceRequest($body)
+    {
+        $resourcePath = '/GetFaasService/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function getIdentityProviderOAuth($body = null)
     {
         list($response) = $this->getIdentityProviderOAuthWithHttpInfo($body);
@@ -4407,6 +4655,68 @@ class IDApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function getUserPoolMaus($body = null)
+    {
+        list($response) = $this->getUserPoolMausWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getUserPoolMausWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\GetUserPoolMausResponse';
+        $request = $this->getUserPoolMausRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getUserPoolMausAsync($body = null)
+    {
+        return $this->getUserPoolMausAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getUserPoolMausAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\GetUserPoolMausResponse';
+        $request = $this->getUserPoolMausRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getUserPoolMausRequest($body)
+    {
+        $resourcePath = '/GetUserPoolMaus/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function getWorkloadAccessToken($body = null)
     {
         list($response) = $this->getWorkloadAccessTokenWithHttpInfo($body);
@@ -4875,6 +5185,68 @@ class IDApi
     protected function listCredentialProvidersRequest($body)
     {
         $resourcePath = '/ListCredentialProviders/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function listFaasServices($body = null)
+    {
+        list($response) = $this->listFaasServicesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function listFaasServicesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ListFaasServicesResponse';
+        $request = $this->listFaasServicesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function listFaasServicesAsync($body = null)
+    {
+        return $this->listFaasServicesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function listFaasServicesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\ListFaasServicesResponse';
+        $request = $this->listFaasServicesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function listFaasServicesRequest($body)
+    {
+        $resourcePath = '/ListFaasServices/2025-10-30/id/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
@@ -6329,6 +6701,68 @@ class IDApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function updateFaasService($body = null)
+    {
+        list($response) = $this->updateFaasServiceWithHttpInfo($body);
+        return $response;
+    }
+
+    public function updateFaasServiceWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\UpdateFaasServiceResponse';
+        $request = $this->updateFaasServiceRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function updateFaasServiceAsync($body = null)
+    {
+        return $this->updateFaasServiceAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function updateFaasServiceAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Id\Model\UpdateFaasServiceResponse';
+        $request = $this->updateFaasServiceRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function updateFaasServiceRequest($body)
+    {
+        $resourcePath = '/UpdateFaasService/2025-10-30/id/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function updateIdentityProviderOAuth($body = null)
     {
         list($response) = $this->updateIdentityProviderOAuthWithHttpInfo($body);
@@ -7169,68 +7603,6 @@ class IDApi
     protected function updateWorkloadPoolRequest($body)
     {
         $resourcePath = '/UpdateWorkloadPool/2025-10-30/id/post/application_json/';
-        $queryParams = [];
-        $httpBody = $body;
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json'],
-            ['application/json']
-        );
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-        if ($this->config->getHost()) {
-            $defaultHeaders['Host'] = $this->config->getHost();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headers
-        );
-
-        $paths = explode("/", $resourcePath);
-        $service = $paths[3];
-        $method = strtoupper($paths[4]);
-
-        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
-    }
-
-    public function validateBackend($body = null)
-    {
-        list($response) = $this->validateBackendWithHttpInfo($body);
-        return $response;
-    }
-
-    public function validateBackendWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\Id\Model\ValidateBackendResponse';
-        $request = $this->validateBackendRequest($body);
-
-        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
-    }
-
-    public function validateBackendAsync($body = null)
-    {
-        return $this->validateBackendAsyncWithHttpInfo($body)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    public function validateBackendAsyncWithHttpInfo($body)
-    {
-        $returnType = '\Volcengine\Id\Model\ValidateBackendResponse';
-        $request = $this->validateBackendRequest($body);
-        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
-    }
-
-    protected function validateBackendRequest($body)
-    {
-        $resourcePath = '/ValidateBackend/2025-10-30/id/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 
