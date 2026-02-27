@@ -84,7 +84,7 @@ class BasicDetailForGetTaskResultOutput implements ModelInterface, ArrayAccess
         'assertions' => 'Assertions',
         'ch_uk' => 'ChUk',
         'client_info' => 'ClientInfo',
-        'dns_server' => 'DNSServer',
+        'dns_server' => 'DnsServer',
         'error_msg' => 'ErrorMsg',
         'target_info' => 'TargetInfo',
         'timestamp' => 'Timestamp',

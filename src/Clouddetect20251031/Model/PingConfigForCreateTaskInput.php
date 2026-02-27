@@ -34,8 +34,7 @@ class PingConfigForCreateTaskInput implements ModelInterface, ArrayAccess
         'packages_num' => 'int',
         'packages_size' => 'int',
         'protocol_type' => 'int',
-        'timeout' => 'int',
-        'common_types_protocol_type' => 'int'
+        'timeout' => 'int'
     ];
 
     /**
@@ -50,8 +49,7 @@ class PingConfigForCreateTaskInput implements ModelInterface, ArrayAccess
         'packages_num' => 'int32',
         'packages_size' => 'int32',
         'protocol_type' => 'int32',
-        'timeout' => 'int32',
-        'common_types_protocol_type' => 'int32'
+        'timeout' => 'int32'
     ];
 
     /**
@@ -87,8 +85,7 @@ class PingConfigForCreateTaskInput implements ModelInterface, ArrayAccess
         'packages_num' => 'PackagesNum',
         'packages_size' => 'PackagesSize',
         'protocol_type' => 'ProtocolType',
-        'timeout' => 'Timeout',
-        'common_types_protocol_type' => 'common_types.ProtocolType'
+        'timeout' => 'Timeout'
     ];
 
     /**
@@ -103,8 +100,7 @@ class PingConfigForCreateTaskInput implements ModelInterface, ArrayAccess
         'packages_num' => 'setPackagesNum',
         'packages_size' => 'setPackagesSize',
         'protocol_type' => 'setProtocolType',
-        'timeout' => 'setTimeout',
-        'common_types_protocol_type' => 'setCommonTypesProtocolType'
+        'timeout' => 'setTimeout'
     ];
 
     /**
@@ -119,8 +115,7 @@ class PingConfigForCreateTaskInput implements ModelInterface, ArrayAccess
         'packages_num' => 'getPackagesNum',
         'packages_size' => 'getPackagesSize',
         'protocol_type' => 'getProtocolType',
-        'timeout' => 'getTimeout',
-        'common_types_protocol_type' => 'getCommonTypesProtocolType'
+        'timeout' => 'getTimeout'
     ];
 
     /**
@@ -190,7 +185,6 @@ class PingConfigForCreateTaskInput implements ModelInterface, ArrayAccess
         $this->container['packages_size'] = isset($data['packages_size']) ? $data['packages_size'] : null;
         $this->container['protocol_type'] = isset($data['protocol_type']) ? $data['protocol_type'] : null;
         $this->container['timeout'] = isset($data['timeout']) ? $data['timeout'] : null;
-        $this->container['common_types_protocol_type'] = isset($data['common_types_protocol_type']) ? $data['common_types_protocol_type'] : null;
     }
 
     /**
@@ -381,30 +375,6 @@ class PingConfigForCreateTaskInput implements ModelInterface, ArrayAccess
     public function setTimeout($timeout)
     {
         $this->container['timeout'] = $timeout;
-
-        return $this;
-    }
-
-    /**
-     * Gets common_types_protocol_type
-     *
-     * @return int
-     */
-    public function getCommonTypesProtocolType()
-    {
-        return $this->container['common_types_protocol_type'];
-    }
-
-    /**
-     * Sets common_types_protocol_type
-     *
-     * @param int $common_types_protocol_type common_types_protocol_type
-     *
-     * @return $this
-     */
-    public function setCommonTypesProtocolType($common_types_protocol_type)
-    {
-        $this->container['common_types_protocol_type'] = $common_types_protocol_type;
 
         return $this;
     }

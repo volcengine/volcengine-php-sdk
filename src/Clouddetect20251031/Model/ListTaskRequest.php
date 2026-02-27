@@ -82,7 +82,7 @@ class ListTaskRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'address' => 'Address',
-        'id' => 'ID',
+        'id' => 'Id',
         'name' => 'Name',
         'owner' => 'Owner',
         'page_num' => 'PageNum',

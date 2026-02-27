@@ -43,6 +43,7 @@ class TaskInfoForVideoProjectSerialDubTaskCreateInput implements ModelInterface,
         'need_translate_title_and_desc' => 'bool',
         'serial_number' => 'int',
         'source_lang' => 'string',
+        'suppression_params' => '\Volcengine\I18nopenapi\Model\SuppressionParamsForVideoProjectSerialDubTaskCreateInput',
         'target_langs' => 'string[]',
         'target_style_map' => '\Volcengine\I18nopenapi\Model\TargetStyleMapForVideoProjectSerialDubTaskCreateInput',
         'task_name' => 'string',
@@ -70,6 +71,7 @@ class TaskInfoForVideoProjectSerialDubTaskCreateInput implements ModelInterface,
         'need_translate_title_and_desc' => null,
         'serial_number' => 'int32',
         'source_lang' => null,
+        'suppression_params' => null,
         'target_langs' => null,
         'target_style_map' => null,
         'task_name' => null,
@@ -118,6 +120,7 @@ class TaskInfoForVideoProjectSerialDubTaskCreateInput implements ModelInterface,
         'need_translate_title_and_desc' => 'needTranslateTitleAndDesc',
         'serial_number' => 'serialNumber',
         'source_lang' => 'sourceLang',
+        'suppression_params' => 'suppressionParams',
         'target_langs' => 'targetLangs',
         'target_style_map' => 'targetStyleMap',
         'task_name' => 'taskName',
@@ -145,6 +148,7 @@ class TaskInfoForVideoProjectSerialDubTaskCreateInput implements ModelInterface,
         'need_translate_title_and_desc' => 'setNeedTranslateTitleAndDesc',
         'serial_number' => 'setSerialNumber',
         'source_lang' => 'setSourceLang',
+        'suppression_params' => 'setSuppressionParams',
         'target_langs' => 'setTargetLangs',
         'target_style_map' => 'setTargetStyleMap',
         'task_name' => 'setTaskName',
@@ -172,6 +176,7 @@ class TaskInfoForVideoProjectSerialDubTaskCreateInput implements ModelInterface,
         'need_translate_title_and_desc' => 'getNeedTranslateTitleAndDesc',
         'serial_number' => 'getSerialNumber',
         'source_lang' => 'getSourceLang',
+        'suppression_params' => 'getSuppressionParams',
         'target_langs' => 'getTargetLangs',
         'target_style_map' => 'getTargetStyleMap',
         'task_name' => 'getTaskName',
@@ -253,6 +258,7 @@ class TaskInfoForVideoProjectSerialDubTaskCreateInput implements ModelInterface,
         $this->container['need_translate_title_and_desc'] = isset($data['need_translate_title_and_desc']) ? $data['need_translate_title_and_desc'] : null;
         $this->container['serial_number'] = isset($data['serial_number']) ? $data['serial_number'] : null;
         $this->container['source_lang'] = isset($data['source_lang']) ? $data['source_lang'] : null;
+        $this->container['suppression_params'] = isset($data['suppression_params']) ? $data['suppression_params'] : null;
         $this->container['target_langs'] = isset($data['target_langs']) ? $data['target_langs'] : null;
         $this->container['target_style_map'] = isset($data['target_style_map']) ? $data['target_style_map'] : null;
         $this->container['task_name'] = isset($data['task_name']) ? $data['task_name'] : null;
@@ -639,6 +645,30 @@ class TaskInfoForVideoProjectSerialDubTaskCreateInput implements ModelInterface,
     public function setSourceLang($source_lang)
     {
         $this->container['source_lang'] = $source_lang;
+
+        return $this;
+    }
+
+    /**
+     * Gets suppression_params
+     *
+     * @return \Volcengine\I18nopenapi\Model\SuppressionParamsForVideoProjectSerialDubTaskCreateInput
+     */
+    public function getSuppressionParams()
+    {
+        return $this->container['suppression_params'];
+    }
+
+    /**
+     * Sets suppression_params
+     *
+     * @param \Volcengine\I18nopenapi\Model\SuppressionParamsForVideoProjectSerialDubTaskCreateInput $suppression_params suppression_params
+     *
+     * @return $this
+     */
+    public function setSuppressionParams($suppression_params)
+    {
+        $this->container['suppression_params'] = $suppression_params;
 
         return $this;
     }

@@ -28,7 +28,7 @@ class DiagnoseConfigForGetTaskOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'dns_config' => '\Volcengine\Clouddetect20251031\Model\DNSConfigForGetTaskOutput',
+        'dns_config' => '\Volcengine\Clouddetect20251031\Model\DnsConfigForGetTaskOutput',
         'method_list' => 'int[]',
         'mtr_config' => '\Volcengine\Clouddetect20251031\Model\MtrConfigForGetTaskOutput',
         'pcap_status' => 'int',
@@ -75,7 +75,7 @@ class DiagnoseConfigForGetTaskOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'dns_config' => 'DNSConfig',
+        'dns_config' => 'DnsConfig',
         'method_list' => 'MethodList',
         'mtr_config' => 'MtrConfig',
         'pcap_status' => 'PcapStatus',
@@ -202,7 +202,7 @@ class DiagnoseConfigForGetTaskOutput implements ModelInterface, ArrayAccess
     /**
      * Gets dns_config
      *
-     * @return \Volcengine\Clouddetect20251031\Model\DNSConfigForGetTaskOutput
+     * @return \Volcengine\Clouddetect20251031\Model\DnsConfigForGetTaskOutput
      */
     public function getDnsConfig()
     {
@@ -212,7 +212,7 @@ class DiagnoseConfigForGetTaskOutput implements ModelInterface, ArrayAccess
     /**
      * Sets dns_config
      *
-     * @param \Volcengine\Clouddetect20251031\Model\DNSConfigForGetTaskOutput $dns_config dns_config
+     * @param \Volcengine\Clouddetect20251031\Model\DnsConfigForGetTaskOutput $dns_config dns_config
      *
      * @return $this
      */
