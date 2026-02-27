@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class BackendForValidateBackendInput implements ModelInterface, ArrayAccess
+class ClaimRuleForCreateIdentityProviderOAuthOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class BackendForValidateBackendInput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'BackendForValidateBackendInput';
+    protected static $swaggerModelName = 'ClaimRuleForCreateIdentityProviderOAuthOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,11 +28,10 @@ class BackendForValidateBackendInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'backend_domain' => 'string',
-        'backend_port' => 'int',
-        'enable_tls' => 'bool',
-        'protocol' => 'string',
-        'timeout_seconds' => 'int'
+        'claim_type' => 'string',
+        'required' => 'bool',
+        'source_claim_path' => 'string',
+        'target_claim' => 'string'
     ];
 
     /**
@@ -41,11 +40,10 @@ class BackendForValidateBackendInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'backend_domain' => null,
-        'backend_port' => 'int32',
-        'enable_tls' => null,
-        'protocol' => null,
-        'timeout_seconds' => 'int32'
+        'claim_type' => null,
+        'required' => null,
+        'source_claim_path' => null,
+        'target_claim' => null
     ];
 
     /**
@@ -75,11 +73,10 @@ class BackendForValidateBackendInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'backend_domain' => 'BackendDomain',
-        'backend_port' => 'BackendPort',
-        'enable_tls' => 'EnableTls',
-        'protocol' => 'Protocol',
-        'timeout_seconds' => 'TimeoutSeconds'
+        'claim_type' => 'ClaimType',
+        'required' => 'Required',
+        'source_claim_path' => 'SourceClaimPath',
+        'target_claim' => 'TargetClaim'
     ];
 
     /**
@@ -88,11 +85,10 @@ class BackendForValidateBackendInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'backend_domain' => 'setBackendDomain',
-        'backend_port' => 'setBackendPort',
-        'enable_tls' => 'setEnableTls',
-        'protocol' => 'setProtocol',
-        'timeout_seconds' => 'setTimeoutSeconds'
+        'claim_type' => 'setClaimType',
+        'required' => 'setRequired',
+        'source_claim_path' => 'setSourceClaimPath',
+        'target_claim' => 'setTargetClaim'
     ];
 
     /**
@@ -101,11 +97,10 @@ class BackendForValidateBackendInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'backend_domain' => 'getBackendDomain',
-        'backend_port' => 'getBackendPort',
-        'enable_tls' => 'getEnableTls',
-        'protocol' => 'getProtocol',
-        'timeout_seconds' => 'getTimeoutSeconds'
+        'claim_type' => 'getClaimType',
+        'required' => 'getRequired',
+        'source_claim_path' => 'getSourceClaimPath',
+        'target_claim' => 'getTargetClaim'
     ];
 
     /**
@@ -168,11 +163,10 @@ class BackendForValidateBackendInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['backend_domain'] = isset($data['backend_domain']) ? $data['backend_domain'] : null;
-        $this->container['backend_port'] = isset($data['backend_port']) ? $data['backend_port'] : null;
-        $this->container['enable_tls'] = isset($data['enable_tls']) ? $data['enable_tls'] : null;
-        $this->container['protocol'] = isset($data['protocol']) ? $data['protocol'] : null;
-        $this->container['timeout_seconds'] = isset($data['timeout_seconds']) ? $data['timeout_seconds'] : null;
+        $this->container['claim_type'] = isset($data['claim_type']) ? $data['claim_type'] : null;
+        $this->container['required'] = isset($data['required']) ? $data['required'] : null;
+        $this->container['source_claim_path'] = isset($data['source_claim_path']) ? $data['source_claim_path'] : null;
+        $this->container['target_claim'] = isset($data['target_claim']) ? $data['target_claim'] : null;
     }
 
     /**
@@ -200,121 +194,97 @@ class BackendForValidateBackendInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets backend_domain
+     * Gets claim_type
      *
      * @return string
      */
-    public function getBackendDomain()
+    public function getClaimType()
     {
-        return $this->container['backend_domain'];
+        return $this->container['claim_type'];
     }
 
     /**
-     * Sets backend_domain
+     * Sets claim_type
      *
-     * @param string $backend_domain backend_domain
+     * @param string $claim_type claim_type
      *
      * @return $this
      */
-    public function setBackendDomain($backend_domain)
+    public function setClaimType($claim_type)
     {
-        $this->container['backend_domain'] = $backend_domain;
+        $this->container['claim_type'] = $claim_type;
 
         return $this;
     }
 
     /**
-     * Gets backend_port
-     *
-     * @return int
-     */
-    public function getBackendPort()
-    {
-        return $this->container['backend_port'];
-    }
-
-    /**
-     * Sets backend_port
-     *
-     * @param int $backend_port backend_port
-     *
-     * @return $this
-     */
-    public function setBackendPort($backend_port)
-    {
-        $this->container['backend_port'] = $backend_port;
-
-        return $this;
-    }
-
-    /**
-     * Gets enable_tls
+     * Gets required
      *
      * @return bool
      */
-    public function getEnableTls()
+    public function getRequired()
     {
-        return $this->container['enable_tls'];
+        return $this->container['required'];
     }
 
     /**
-     * Sets enable_tls
+     * Sets required
      *
-     * @param bool $enable_tls enable_tls
+     * @param bool $required required
      *
      * @return $this
      */
-    public function setEnableTls($enable_tls)
+    public function setRequired($required)
     {
-        $this->container['enable_tls'] = $enable_tls;
+        $this->container['required'] = $required;
 
         return $this;
     }
 
     /**
-     * Gets protocol
+     * Gets source_claim_path
      *
      * @return string
      */
-    public function getProtocol()
+    public function getSourceClaimPath()
     {
-        return $this->container['protocol'];
+        return $this->container['source_claim_path'];
     }
 
     /**
-     * Sets protocol
+     * Sets source_claim_path
      *
-     * @param string $protocol protocol
+     * @param string $source_claim_path source_claim_path
      *
      * @return $this
      */
-    public function setProtocol($protocol)
+    public function setSourceClaimPath($source_claim_path)
     {
-        $this->container['protocol'] = $protocol;
+        $this->container['source_claim_path'] = $source_claim_path;
 
         return $this;
     }
 
     /**
-     * Gets timeout_seconds
+     * Gets target_claim
      *
-     * @return int
+     * @return string
      */
-    public function getTimeoutSeconds()
+    public function getTargetClaim()
     {
-        return $this->container['timeout_seconds'];
+        return $this->container['target_claim'];
     }
 
     /**
-     * Sets timeout_seconds
+     * Sets target_claim
      *
-     * @param int $timeout_seconds timeout_seconds
+     * @param string $target_claim target_claim
      *
      * @return $this
      */
-    public function setTimeoutSeconds($timeout_seconds)
+    public function setTargetClaim($target_claim)
     {
-        $this->container['timeout_seconds'] = $timeout_seconds;
+        $this->container['target_claim'] = $target_claim;
 
         return $this;
     }

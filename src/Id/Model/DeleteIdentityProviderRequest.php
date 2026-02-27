@@ -69,8 +69,8 @@ class DeleteIdentityProviderRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'connection_uid' => 'ConnectionUID',
-        'user_pool_uid' => 'UserPoolUID'
+        'connection_uid' => 'ConnectionUid',
+        'user_pool_uid' => 'UserPoolUid'
     ];
 
     /**

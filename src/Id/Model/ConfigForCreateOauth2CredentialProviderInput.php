@@ -34,6 +34,7 @@ class ConfigForCreateOauth2CredentialProviderInput implements ModelInterface, Ar
         'flow' => 'string',
         'force_authentication' => 'bool',
         'max_expires' => 'int',
+        'metadata' => 'string',
         'oauth2_discovery' => '\Volcengine\Id\Model\Oauth2DiscoveryForCreateOauth2CredentialProviderInput',
         'redirect_url' => 'string',
         'scopes' => 'string[]'
@@ -51,6 +52,7 @@ class ConfigForCreateOauth2CredentialProviderInput implements ModelInterface, Ar
         'flow' => null,
         'force_authentication' => null,
         'max_expires' => 'int64',
+        'metadata' => null,
         'oauth2_discovery' => null,
         'redirect_url' => null,
         'scopes' => null
@@ -89,6 +91,7 @@ class ConfigForCreateOauth2CredentialProviderInput implements ModelInterface, Ar
         'flow' => 'Flow',
         'force_authentication' => 'ForceAuthentication',
         'max_expires' => 'MaxExpires',
+        'metadata' => 'Metadata',
         'oauth2_discovery' => 'Oauth2Discovery',
         'redirect_url' => 'RedirectUrl',
         'scopes' => 'Scopes'
@@ -106,6 +109,7 @@ class ConfigForCreateOauth2CredentialProviderInput implements ModelInterface, Ar
         'flow' => 'setFlow',
         'force_authentication' => 'setForceAuthentication',
         'max_expires' => 'setMaxExpires',
+        'metadata' => 'setMetadata',
         'oauth2_discovery' => 'setOauth2Discovery',
         'redirect_url' => 'setRedirectUrl',
         'scopes' => 'setScopes'
@@ -123,6 +127,7 @@ class ConfigForCreateOauth2CredentialProviderInput implements ModelInterface, Ar
         'flow' => 'getFlow',
         'force_authentication' => 'getForceAuthentication',
         'max_expires' => 'getMaxExpires',
+        'metadata' => 'getMetadata',
         'oauth2_discovery' => 'getOauth2Discovery',
         'redirect_url' => 'getRedirectUrl',
         'scopes' => 'getScopes'
@@ -169,8 +174,23 @@ class ConfigForCreateOauth2CredentialProviderInput implements ModelInterface, Ar
         return self::$swaggerModelName;
     }
 
+    const FLOW_USER_FEDERATION = 'USER_FEDERATION';
+    const FLOW_M2_M = 'M2M';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getFlowAllowableValues()
+    {
+        return [
+            self::FLOW_USER_FEDERATION,
+            self::FLOW_M2_M,
+        ];
+    }
     
 
     /**
@@ -194,6 +214,7 @@ class ConfigForCreateOauth2CredentialProviderInput implements ModelInterface, Ar
         $this->container['flow'] = isset($data['flow']) ? $data['flow'] : null;
         $this->container['force_authentication'] = isset($data['force_authentication']) ? $data['force_authentication'] : null;
         $this->container['max_expires'] = isset($data['max_expires']) ? $data['max_expires'] : null;
+        $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
         $this->container['oauth2_discovery'] = isset($data['oauth2_discovery']) ? $data['oauth2_discovery'] : null;
         $this->container['redirect_url'] = isset($data['redirect_url']) ? $data['redirect_url'] : null;
         $this->container['scopes'] = isset($data['scopes']) ? $data['scopes'] : null;
@@ -207,6 +228,14 @@ class ConfigForCreateOauth2CredentialProviderInput implements ModelInterface, Ar
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getFlowAllowableValues();
+        if (!is_null($this->container['flow']) && !in_array($this->container['flow'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'flow', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -314,6 +343,15 @@ class ConfigForCreateOauth2CredentialProviderInput implements ModelInterface, Ar
      */
     public function setFlow($flow)
     {
+        $allowedValues = $this->getFlowAllowableValues();
+        if (!is_null($flow) && !in_array($flow, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'flow', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['flow'] = $flow;
 
         return $this;
@@ -363,6 +401,30 @@ class ConfigForCreateOauth2CredentialProviderInput implements ModelInterface, Ar
     public function setMaxExpires($max_expires)
     {
         $this->container['max_expires'] = $max_expires;
+
+        return $this;
+    }
+
+    /**
+     * Gets metadata
+     *
+     * @return string
+     */
+    public function getMetadata()
+    {
+        return $this->container['metadata'];
+    }
+
+    /**
+     * Sets metadata
+     *
+     * @param string $metadata metadata
+     *
+     * @return $this
+     */
+    public function setMetadata($metadata)
+    {
+        $this->container['metadata'] = $metadata;
 
         return $this;
     }

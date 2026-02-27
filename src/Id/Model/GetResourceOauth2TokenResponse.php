@@ -29,7 +29,9 @@ class GetResourceOauth2TokenResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'access_token' => 'string',
-        'authorization_url' => 'string'
+        'authorization_url' => 'string',
+        'expires_in' => 'int',
+        'session_uri' => 'string'
     ];
 
     /**
@@ -39,7 +41,9 @@ class GetResourceOauth2TokenResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'access_token' => null,
-        'authorization_url' => null
+        'authorization_url' => null,
+        'expires_in' => 'int64',
+        'session_uri' => null
     ];
 
     /**
@@ -70,7 +74,9 @@ class GetResourceOauth2TokenResponse implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'access_token' => 'AccessToken',
-        'authorization_url' => 'AuthorizationUrl'
+        'authorization_url' => 'AuthorizationUrl',
+        'expires_in' => 'ExpiresIn',
+        'session_uri' => 'SessionUri'
     ];
 
     /**
@@ -80,7 +86,9 @@ class GetResourceOauth2TokenResponse implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'access_token' => 'setAccessToken',
-        'authorization_url' => 'setAuthorizationUrl'
+        'authorization_url' => 'setAuthorizationUrl',
+        'expires_in' => 'setExpiresIn',
+        'session_uri' => 'setSessionUri'
     ];
 
     /**
@@ -90,7 +98,9 @@ class GetResourceOauth2TokenResponse implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'access_token' => 'getAccessToken',
-        'authorization_url' => 'getAuthorizationUrl'
+        'authorization_url' => 'getAuthorizationUrl',
+        'expires_in' => 'getExpiresIn',
+        'session_uri' => 'getSessionUri'
     ];
 
     /**
@@ -155,6 +165,8 @@ class GetResourceOauth2TokenResponse implements ModelInterface, ArrayAccess
     {
         $this->container['access_token'] = isset($data['access_token']) ? $data['access_token'] : null;
         $this->container['authorization_url'] = isset($data['authorization_url']) ? $data['authorization_url'] : null;
+        $this->container['expires_in'] = isset($data['expires_in']) ? $data['expires_in'] : null;
+        $this->container['session_uri'] = isset($data['session_uri']) ? $data['session_uri'] : null;
     }
 
     /**
@@ -225,6 +237,54 @@ class GetResourceOauth2TokenResponse implements ModelInterface, ArrayAccess
     public function setAuthorizationUrl($authorization_url)
     {
         $this->container['authorization_url'] = $authorization_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets expires_in
+     *
+     * @return int
+     */
+    public function getExpiresIn()
+    {
+        return $this->container['expires_in'];
+    }
+
+    /**
+     * Sets expires_in
+     *
+     * @param int $expires_in expires_in
+     *
+     * @return $this
+     */
+    public function setExpiresIn($expires_in)
+    {
+        $this->container['expires_in'] = $expires_in;
+
+        return $this;
+    }
+
+    /**
+     * Gets session_uri
+     *
+     * @return string
+     */
+    public function getSessionUri()
+    {
+        return $this->container['session_uri'];
+    }
+
+    /**
+     * Sets session_uri
+     *
+     * @param string $session_uri session_uri
+     *
+     * @return $this
+     */
+    public function setSessionUri($session_uri)
+    {
+        $this->container['session_uri'] = $session_uri;
 
         return $this;
     }

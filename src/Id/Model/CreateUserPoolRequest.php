@@ -39,6 +39,7 @@ class CreateUserPoolRequest implements ModelInterface, ArrayAccess
         'self_sign_up_enabled' => 'bool',
         'sign_in_attributes' => 'string[]',
         'sign_up_auto_verification_enabled' => 'bool',
+        'sms_anonymous_sign_up_enabled' => 'string',
         'sms_passwordless_sign_in_enabled' => 'bool',
         'tags' => '\Volcengine\Id\Model\TagForCreateUserPoolInput[]',
         'unconfirmed_user_sign_in_enabled' => 'bool'
@@ -61,6 +62,7 @@ class CreateUserPoolRequest implements ModelInterface, ArrayAccess
         'self_sign_up_enabled' => null,
         'sign_in_attributes' => null,
         'sign_up_auto_verification_enabled' => null,
+        'sms_anonymous_sign_up_enabled' => null,
         'sms_passwordless_sign_in_enabled' => null,
         'tags' => null,
         'unconfirmed_user_sign_in_enabled' => null
@@ -104,6 +106,7 @@ class CreateUserPoolRequest implements ModelInterface, ArrayAccess
         'self_sign_up_enabled' => 'SelfSignUpEnabled',
         'sign_in_attributes' => 'SignInAttributes',
         'sign_up_auto_verification_enabled' => 'SignUpAutoVerificationEnabled',
+        'sms_anonymous_sign_up_enabled' => 'SmsAnonymousSignUpEnabled',
         'sms_passwordless_sign_in_enabled' => 'SmsPasswordlessSignInEnabled',
         'tags' => 'Tags',
         'unconfirmed_user_sign_in_enabled' => 'UnconfirmedUserSignInEnabled'
@@ -126,6 +129,7 @@ class CreateUserPoolRequest implements ModelInterface, ArrayAccess
         'self_sign_up_enabled' => 'setSelfSignUpEnabled',
         'sign_in_attributes' => 'setSignInAttributes',
         'sign_up_auto_verification_enabled' => 'setSignUpAutoVerificationEnabled',
+        'sms_anonymous_sign_up_enabled' => 'setSmsAnonymousSignUpEnabled',
         'sms_passwordless_sign_in_enabled' => 'setSmsPasswordlessSignInEnabled',
         'tags' => 'setTags',
         'unconfirmed_user_sign_in_enabled' => 'setUnconfirmedUserSignInEnabled'
@@ -148,6 +152,7 @@ class CreateUserPoolRequest implements ModelInterface, ArrayAccess
         'self_sign_up_enabled' => 'getSelfSignUpEnabled',
         'sign_in_attributes' => 'getSignInAttributes',
         'sign_up_auto_verification_enabled' => 'getSignUpAutoVerificationEnabled',
+        'sms_anonymous_sign_up_enabled' => 'getSmsAnonymousSignUpEnabled',
         'sms_passwordless_sign_in_enabled' => 'getSmsPasswordlessSignInEnabled',
         'tags' => 'getTags',
         'unconfirmed_user_sign_in_enabled' => 'getUnconfirmedUserSignInEnabled'
@@ -224,6 +229,7 @@ class CreateUserPoolRequest implements ModelInterface, ArrayAccess
         $this->container['self_sign_up_enabled'] = isset($data['self_sign_up_enabled']) ? $data['self_sign_up_enabled'] : null;
         $this->container['sign_in_attributes'] = isset($data['sign_in_attributes']) ? $data['sign_in_attributes'] : null;
         $this->container['sign_up_auto_verification_enabled'] = isset($data['sign_up_auto_verification_enabled']) ? $data['sign_up_auto_verification_enabled'] : null;
+        $this->container['sms_anonymous_sign_up_enabled'] = isset($data['sms_anonymous_sign_up_enabled']) ? $data['sms_anonymous_sign_up_enabled'] : null;
         $this->container['sms_passwordless_sign_in_enabled'] = isset($data['sms_passwordless_sign_in_enabled']) ? $data['sms_passwordless_sign_in_enabled'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['unconfirmed_user_sign_in_enabled'] = isset($data['unconfirmed_user_sign_in_enabled']) ? $data['unconfirmed_user_sign_in_enabled'] : null;
@@ -516,6 +522,30 @@ class CreateUserPoolRequest implements ModelInterface, ArrayAccess
     public function setSignUpAutoVerificationEnabled($sign_up_auto_verification_enabled)
     {
         $this->container['sign_up_auto_verification_enabled'] = $sign_up_auto_verification_enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets sms_anonymous_sign_up_enabled
+     *
+     * @return string
+     */
+    public function getSmsAnonymousSignUpEnabled()
+    {
+        return $this->container['sms_anonymous_sign_up_enabled'];
+    }
+
+    /**
+     * Sets sms_anonymous_sign_up_enabled
+     *
+     * @param string $sms_anonymous_sign_up_enabled sms_anonymous_sign_up_enabled
+     *
+     * @return $this
+     */
+    public function setSmsAnonymousSignUpEnabled($sms_anonymous_sign_up_enabled)
+    {
+        $this->container['sms_anonymous_sign_up_enabled'] = $sms_anonymous_sign_up_enabled;
 
         return $this;
     }

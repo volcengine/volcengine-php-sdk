@@ -34,6 +34,7 @@ class ListWorkloadIdentitiesRequest implements ModelInterface, ArrayAccess
         'page_size' => 'int',
         'sort_by' => 'string',
         'sort_order' => 'string',
+        'source' => 'string',
         'trn' => 'string',
         'workload_pool_name' => 'string'
     ];
@@ -50,6 +51,7 @@ class ListWorkloadIdentitiesRequest implements ModelInterface, ArrayAccess
         'page_size' => 'int32',
         'sort_by' => null,
         'sort_order' => null,
+        'source' => null,
         'trn' => null,
         'workload_pool_name' => null
     ];
@@ -87,6 +89,7 @@ class ListWorkloadIdentitiesRequest implements ModelInterface, ArrayAccess
         'page_size' => 'PageSize',
         'sort_by' => 'SortBy',
         'sort_order' => 'SortOrder',
+        'source' => 'Source',
         'trn' => 'Trn',
         'workload_pool_name' => 'WorkloadPoolName'
     ];
@@ -103,6 +106,7 @@ class ListWorkloadIdentitiesRequest implements ModelInterface, ArrayAccess
         'page_size' => 'setPageSize',
         'sort_by' => 'setSortBy',
         'sort_order' => 'setSortOrder',
+        'source' => 'setSource',
         'trn' => 'setTrn',
         'workload_pool_name' => 'setWorkloadPoolName'
     ];
@@ -119,6 +123,7 @@ class ListWorkloadIdentitiesRequest implements ModelInterface, ArrayAccess
         'page_size' => 'getPageSize',
         'sort_by' => 'getSortBy',
         'sort_order' => 'getSortOrder',
+        'source' => 'getSource',
         'trn' => 'getTrn',
         'workload_pool_name' => 'getWorkloadPoolName'
     ];
@@ -189,6 +194,7 @@ class ListWorkloadIdentitiesRequest implements ModelInterface, ArrayAccess
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
         $this->container['sort_by'] = isset($data['sort_by']) ? $data['sort_by'] : null;
         $this->container['sort_order'] = isset($data['sort_order']) ? $data['sort_order'] : null;
+        $this->container['source'] = isset($data['source']) ? $data['source'] : null;
         $this->container['trn'] = isset($data['trn']) ? $data['trn'] : null;
         $this->container['workload_pool_name'] = isset($data['workload_pool_name']) ? $data['workload_pool_name'] : null;
     }
@@ -363,6 +369,30 @@ class ListWorkloadIdentitiesRequest implements ModelInterface, ArrayAccess
     public function setSortOrder($sort_order)
     {
         $this->container['sort_order'] = $sort_order;
+
+        return $this;
+    }
+
+    /**
+     * Gets source
+     *
+     * @return string
+     */
+    public function getSource()
+    {
+        return $this->container['source'];
+    }
+
+    /**
+     * Sets source
+     *
+     * @param string $source source
+     *
+     * @return $this
+     */
+    public function setSource($source)
+    {
+        $this->container['source'] = $source;
 
         return $this;
     }

@@ -29,6 +29,7 @@ class UpdateIdentityProviderOAuthRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'authorization_endpoint' => 'string',
+        'claims_propagation_config' => '\Volcengine\Id\Model\ClaimsPropagationConfigForUpdateIdentityProviderOAuthInput',
         'client_id' => 'string',
         'client_secret' => 'string',
         'connection_uid' => 'string',
@@ -50,6 +51,7 @@ class UpdateIdentityProviderOAuthRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'authorization_endpoint' => null,
+        'claims_propagation_config' => null,
         'client_id' => null,
         'client_secret' => null,
         'connection_uid' => null,
@@ -92,6 +94,7 @@ class UpdateIdentityProviderOAuthRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'authorization_endpoint' => 'AuthorizationEndpoint',
+        'claims_propagation_config' => 'ClaimsPropagationConfig',
         'client_id' => 'ClientId',
         'client_secret' => 'ClientSecret',
         'connection_uid' => 'ConnectionUid',
@@ -113,6 +116,7 @@ class UpdateIdentityProviderOAuthRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'authorization_endpoint' => 'setAuthorizationEndpoint',
+        'claims_propagation_config' => 'setClaimsPropagationConfig',
         'client_id' => 'setClientId',
         'client_secret' => 'setClientSecret',
         'connection_uid' => 'setConnectionUid',
@@ -134,6 +138,7 @@ class UpdateIdentityProviderOAuthRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'authorization_endpoint' => 'getAuthorizationEndpoint',
+        'claims_propagation_config' => 'getClaimsPropagationConfig',
         'client_id' => 'getClientId',
         'client_secret' => 'getClientSecret',
         'connection_uid' => 'getConnectionUid',
@@ -209,6 +214,7 @@ class UpdateIdentityProviderOAuthRequest implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['authorization_endpoint'] = isset($data['authorization_endpoint']) ? $data['authorization_endpoint'] : null;
+        $this->container['claims_propagation_config'] = isset($data['claims_propagation_config']) ? $data['claims_propagation_config'] : null;
         $this->container['client_id'] = isset($data['client_id']) ? $data['client_id'] : null;
         $this->container['client_secret'] = isset($data['client_secret']) ? $data['client_secret'] : null;
         $this->container['connection_uid'] = isset($data['connection_uid']) ? $data['connection_uid'] : null;
@@ -282,6 +288,30 @@ class UpdateIdentityProviderOAuthRequest implements ModelInterface, ArrayAccess
     public function setAuthorizationEndpoint($authorization_endpoint)
     {
         $this->container['authorization_endpoint'] = $authorization_endpoint;
+
+        return $this;
+    }
+
+    /**
+     * Gets claims_propagation_config
+     *
+     * @return \Volcengine\Id\Model\ClaimsPropagationConfigForUpdateIdentityProviderOAuthInput
+     */
+    public function getClaimsPropagationConfig()
+    {
+        return $this->container['claims_propagation_config'];
+    }
+
+    /**
+     * Sets claims_propagation_config
+     *
+     * @param \Volcengine\Id\Model\ClaimsPropagationConfigForUpdateIdentityProviderOAuthInput $claims_propagation_config claims_propagation_config
+     *
+     * @return $this
+     */
+    public function setClaimsPropagationConfig($claims_propagation_config)
+    {
+        $this->container['claims_propagation_config'] = $claims_propagation_config;
 
         return $this;
     }
