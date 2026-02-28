@@ -41,6 +41,7 @@ class TaskInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
         'need_translate_desc' => 'bool',
         'need_translate_title' => 'bool',
         'need_translate_title_and_desc' => 'bool',
+        'need_video_speed' => 'bool',
         'serial_number' => 'int',
         'source_lang' => 'string',
         'suppression_params' => '\Volcengine\I18nopenapi\Model\SuppressionParamsForVideoProjectSerialTaskCreateInput',
@@ -69,6 +70,7 @@ class TaskInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
         'need_translate_desc' => null,
         'need_translate_title' => null,
         'need_translate_title_and_desc' => null,
+        'need_video_speed' => null,
         'serial_number' => 'int32',
         'source_lang' => null,
         'suppression_params' => null,
@@ -118,6 +120,7 @@ class TaskInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
         'need_translate_desc' => 'needTranslateDesc',
         'need_translate_title' => 'needTranslateTitle',
         'need_translate_title_and_desc' => 'needTranslateTitleAndDesc',
+        'need_video_speed' => 'needVideoSpeed',
         'serial_number' => 'serialNumber',
         'source_lang' => 'sourceLang',
         'suppression_params' => 'suppressionParams',
@@ -146,6 +149,7 @@ class TaskInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
         'need_translate_desc' => 'setNeedTranslateDesc',
         'need_translate_title' => 'setNeedTranslateTitle',
         'need_translate_title_and_desc' => 'setNeedTranslateTitleAndDesc',
+        'need_video_speed' => 'setNeedVideoSpeed',
         'serial_number' => 'setSerialNumber',
         'source_lang' => 'setSourceLang',
         'suppression_params' => 'setSuppressionParams',
@@ -174,6 +178,7 @@ class TaskInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
         'need_translate_desc' => 'getNeedTranslateDesc',
         'need_translate_title' => 'getNeedTranslateTitle',
         'need_translate_title_and_desc' => 'getNeedTranslateTitleAndDesc',
+        'need_video_speed' => 'getNeedVideoSpeed',
         'serial_number' => 'getSerialNumber',
         'source_lang' => 'getSourceLang',
         'suppression_params' => 'getSuppressionParams',
@@ -256,6 +261,7 @@ class TaskInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
         $this->container['need_translate_desc'] = isset($data['need_translate_desc']) ? $data['need_translate_desc'] : null;
         $this->container['need_translate_title'] = isset($data['need_translate_title']) ? $data['need_translate_title'] : null;
         $this->container['need_translate_title_and_desc'] = isset($data['need_translate_title_and_desc']) ? $data['need_translate_title_and_desc'] : null;
+        $this->container['need_video_speed'] = isset($data['need_video_speed']) ? $data['need_video_speed'] : null;
         $this->container['serial_number'] = isset($data['serial_number']) ? $data['serial_number'] : null;
         $this->container['source_lang'] = isset($data['source_lang']) ? $data['source_lang'] : null;
         $this->container['suppression_params'] = isset($data['suppression_params']) ? $data['suppression_params'] : null;
@@ -597,6 +603,30 @@ class TaskInfoForVideoProjectSerialTaskCreateInput implements ModelInterface, Ar
     public function setNeedTranslateTitleAndDesc($need_translate_title_and_desc)
     {
         $this->container['need_translate_title_and_desc'] = $need_translate_title_and_desc;
+
+        return $this;
+    }
+
+    /**
+     * Gets need_video_speed
+     *
+     * @return bool
+     */
+    public function getNeedVideoSpeed()
+    {
+        return $this->container['need_video_speed'];
+    }
+
+    /**
+     * Sets need_video_speed
+     *
+     * @param bool $need_video_speed need_video_speed
+     *
+     * @return $this
+     */
+    public function setNeedVideoSpeed($need_video_speed)
+    {
+        $this->container['need_video_speed'] = $need_video_speed;
 
         return $this;
     }
