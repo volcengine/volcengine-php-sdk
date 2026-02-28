@@ -71,7 +71,7 @@ class ConnectUtils
         $request->schema = $config->getSchema();
         $request->service = self::SERVICE;
         $request->method = 'GET';
-        $request->truePath = '/';
+        $request->truePath = '/' . self::ACTION . '/' . self::API_VERSION . '/' . self::SERVICE . '/get/text_plain/';
         $request->isPresigned = true;
 
         // Use custom host if set, otherwise StandardEndpointProvider will resolve it

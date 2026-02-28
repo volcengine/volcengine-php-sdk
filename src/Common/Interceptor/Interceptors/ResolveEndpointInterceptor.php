@@ -16,11 +16,8 @@ class ResolveEndpointInterceptor extends Interceptor
         $host = $context->request->host;
         $schema = $context->request->schema;
         if (!$host) {
-            $service = $context->request->service;
-            if (!$service) {
-                $pathParts = explode('/', $context->request->resourcePath);
-                $service = isset($pathParts[3]) ? $pathParts[3] : '';
-            }
+            $pathParts = explode('/', $context->request->resourcePath);
+            $service = isset($pathParts[3]) ? $pathParts[3] : '';
             $endpointResolver = $context->request->endpointProvider->endpointFor(
                 $service,
                 $context->request->region,
