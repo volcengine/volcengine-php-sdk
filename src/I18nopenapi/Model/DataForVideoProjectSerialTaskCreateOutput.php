@@ -29,6 +29,7 @@ class DataForVideoProjectSerialTaskCreateOutput implements ModelInterface, Array
       */
     protected static $swaggerTypes = [
         'base_resp' => '\Volcengine\I18nopenapi\Model\BaseRespForVideoProjectSerialTaskCreateOutput',
+        'subtitle_file_check_reports' => '\Volcengine\I18nopenapi\Model\SubtitleFileCheckReportForVideoProjectSerialTaskCreateOutput[]',
         'task_ids' => 'string[]'
     ];
 
@@ -39,6 +40,7 @@ class DataForVideoProjectSerialTaskCreateOutput implements ModelInterface, Array
       */
     protected static $swaggerFormats = [
         'base_resp' => null,
+        'subtitle_file_check_reports' => null,
         'task_ids' => null
     ];
 
@@ -70,6 +72,7 @@ class DataForVideoProjectSerialTaskCreateOutput implements ModelInterface, Array
      */
     protected static $attributeMap = [
         'base_resp' => 'BaseResp',
+        'subtitle_file_check_reports' => 'SubtitleFileCheckReports',
         'task_ids' => 'TaskIDs'
     ];
 
@@ -80,6 +83,7 @@ class DataForVideoProjectSerialTaskCreateOutput implements ModelInterface, Array
      */
     protected static $setters = [
         'base_resp' => 'setBaseResp',
+        'subtitle_file_check_reports' => 'setSubtitleFileCheckReports',
         'task_ids' => 'setTaskIds'
     ];
 
@@ -90,6 +94,7 @@ class DataForVideoProjectSerialTaskCreateOutput implements ModelInterface, Array
      */
     protected static $getters = [
         'base_resp' => 'getBaseResp',
+        'subtitle_file_check_reports' => 'getSubtitleFileCheckReports',
         'task_ids' => 'getTaskIds'
     ];
 
@@ -154,6 +159,7 @@ class DataForVideoProjectSerialTaskCreateOutput implements ModelInterface, Array
     public function __construct(array $data = null)
     {
         $this->container['base_resp'] = isset($data['base_resp']) ? $data['base_resp'] : null;
+        $this->container['subtitle_file_check_reports'] = isset($data['subtitle_file_check_reports']) ? $data['subtitle_file_check_reports'] : null;
         $this->container['task_ids'] = isset($data['task_ids']) ? $data['task_ids'] : null;
     }
 
@@ -201,6 +207,30 @@ class DataForVideoProjectSerialTaskCreateOutput implements ModelInterface, Array
     public function setBaseResp($base_resp)
     {
         $this->container['base_resp'] = $base_resp;
+
+        return $this;
+    }
+
+    /**
+     * Gets subtitle_file_check_reports
+     *
+     * @return \Volcengine\I18nopenapi\Model\SubtitleFileCheckReportForVideoProjectSerialTaskCreateOutput[]
+     */
+    public function getSubtitleFileCheckReports()
+    {
+        return $this->container['subtitle_file_check_reports'];
+    }
+
+    /**
+     * Sets subtitle_file_check_reports
+     *
+     * @param \Volcengine\I18nopenapi\Model\SubtitleFileCheckReportForVideoProjectSerialTaskCreateOutput[] $subtitle_file_check_reports subtitle_file_check_reports
+     *
+     * @return $this
+     */
+    public function setSubtitleFileCheckReports($subtitle_file_check_reports)
+    {
+        $this->container['subtitle_file_check_reports'] = $subtitle_file_check_reports;
 
         return $this;
     }

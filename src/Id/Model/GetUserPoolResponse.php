@@ -34,6 +34,8 @@ class GetUserPoolResponse implements ModelInterface, ArrayAccess
         'discovery_url' => 'string',
         'domain' => 'string',
         'email_passwordless_sign_in_enabled' => 'bool',
+        'enabled' => 'bool',
+        'issuer_url' => 'string',
         'name' => 'string',
         'oauth_login_callback_url' => 'string',
         'oauth_sign_up_callback_url' => 'string',
@@ -48,9 +50,11 @@ class GetUserPoolResponse implements ModelInterface, ArrayAccess
         'self_sign_up_enabled' => 'bool',
         'sign_in_attributes' => 'string[]',
         'sign_up_auto_verification_enabled' => 'bool',
+        'sms_anonymous_sign_up_enabled' => 'bool',
         'sms_passwordless_sign_in_enabled' => 'bool',
         'tags' => '\Volcengine\Id\Model\TagForGetUserPoolOutput[]',
         'token_signing_key_url' => 'string',
+        'token_url' => 'string',
         'total_clients' => 'int',
         'total_connections' => 'int',
         'total_users' => 'int',
@@ -72,6 +76,8 @@ class GetUserPoolResponse implements ModelInterface, ArrayAccess
         'discovery_url' => null,
         'domain' => null,
         'email_passwordless_sign_in_enabled' => null,
+        'enabled' => null,
+        'issuer_url' => null,
         'name' => null,
         'oauth_login_callback_url' => null,
         'oauth_sign_up_callback_url' => null,
@@ -86,9 +92,11 @@ class GetUserPoolResponse implements ModelInterface, ArrayAccess
         'self_sign_up_enabled' => null,
         'sign_in_attributes' => null,
         'sign_up_auto_verification_enabled' => null,
+        'sms_anonymous_sign_up_enabled' => null,
         'sms_passwordless_sign_in_enabled' => null,
         'tags' => null,
         'token_signing_key_url' => null,
+        'token_url' => null,
         'total_clients' => 'int32',
         'total_connections' => 'int32',
         'total_users' => 'int32',
@@ -131,6 +139,8 @@ class GetUserPoolResponse implements ModelInterface, ArrayAccess
         'discovery_url' => 'DiscoveryUrl',
         'domain' => 'Domain',
         'email_passwordless_sign_in_enabled' => 'EmailPasswordlessSignInEnabled',
+        'enabled' => 'Enabled',
+        'issuer_url' => 'IssuerUrl',
         'name' => 'Name',
         'oauth_login_callback_url' => 'OauthLoginCallbackUrl',
         'oauth_sign_up_callback_url' => 'OauthSignUpCallbackUrl',
@@ -145,9 +155,11 @@ class GetUserPoolResponse implements ModelInterface, ArrayAccess
         'self_sign_up_enabled' => 'SelfSignUpEnabled',
         'sign_in_attributes' => 'SignInAttributes',
         'sign_up_auto_verification_enabled' => 'SignUpAutoVerificationEnabled',
+        'sms_anonymous_sign_up_enabled' => 'SmsAnonymousSignUpEnabled',
         'sms_passwordless_sign_in_enabled' => 'SmsPasswordlessSignInEnabled',
         'tags' => 'Tags',
         'token_signing_key_url' => 'TokenSigningKeyUrl',
+        'token_url' => 'TokenUrl',
         'total_clients' => 'TotalClients',
         'total_connections' => 'TotalConnections',
         'total_users' => 'TotalUsers',
@@ -169,6 +181,8 @@ class GetUserPoolResponse implements ModelInterface, ArrayAccess
         'discovery_url' => 'setDiscoveryUrl',
         'domain' => 'setDomain',
         'email_passwordless_sign_in_enabled' => 'setEmailPasswordlessSignInEnabled',
+        'enabled' => 'setEnabled',
+        'issuer_url' => 'setIssuerUrl',
         'name' => 'setName',
         'oauth_login_callback_url' => 'setOauthLoginCallbackUrl',
         'oauth_sign_up_callback_url' => 'setOauthSignUpCallbackUrl',
@@ -183,9 +197,11 @@ class GetUserPoolResponse implements ModelInterface, ArrayAccess
         'self_sign_up_enabled' => 'setSelfSignUpEnabled',
         'sign_in_attributes' => 'setSignInAttributes',
         'sign_up_auto_verification_enabled' => 'setSignUpAutoVerificationEnabled',
+        'sms_anonymous_sign_up_enabled' => 'setSmsAnonymousSignUpEnabled',
         'sms_passwordless_sign_in_enabled' => 'setSmsPasswordlessSignInEnabled',
         'tags' => 'setTags',
         'token_signing_key_url' => 'setTokenSigningKeyUrl',
+        'token_url' => 'setTokenUrl',
         'total_clients' => 'setTotalClients',
         'total_connections' => 'setTotalConnections',
         'total_users' => 'setTotalUsers',
@@ -207,6 +223,8 @@ class GetUserPoolResponse implements ModelInterface, ArrayAccess
         'discovery_url' => 'getDiscoveryUrl',
         'domain' => 'getDomain',
         'email_passwordless_sign_in_enabled' => 'getEmailPasswordlessSignInEnabled',
+        'enabled' => 'getEnabled',
+        'issuer_url' => 'getIssuerUrl',
         'name' => 'getName',
         'oauth_login_callback_url' => 'getOauthLoginCallbackUrl',
         'oauth_sign_up_callback_url' => 'getOauthSignUpCallbackUrl',
@@ -221,9 +239,11 @@ class GetUserPoolResponse implements ModelInterface, ArrayAccess
         'self_sign_up_enabled' => 'getSelfSignUpEnabled',
         'sign_in_attributes' => 'getSignInAttributes',
         'sign_up_auto_verification_enabled' => 'getSignUpAutoVerificationEnabled',
+        'sms_anonymous_sign_up_enabled' => 'getSmsAnonymousSignUpEnabled',
         'sms_passwordless_sign_in_enabled' => 'getSmsPasswordlessSignInEnabled',
         'tags' => 'getTags',
         'token_signing_key_url' => 'getTokenSigningKeyUrl',
+        'token_url' => 'getTokenUrl',
         'total_clients' => 'getTotalClients',
         'total_connections' => 'getTotalConnections',
         'total_users' => 'getTotalUsers',
@@ -299,6 +319,8 @@ class GetUserPoolResponse implements ModelInterface, ArrayAccess
         $this->container['discovery_url'] = isset($data['discovery_url']) ? $data['discovery_url'] : null;
         $this->container['domain'] = isset($data['domain']) ? $data['domain'] : null;
         $this->container['email_passwordless_sign_in_enabled'] = isset($data['email_passwordless_sign_in_enabled']) ? $data['email_passwordless_sign_in_enabled'] : null;
+        $this->container['enabled'] = isset($data['enabled']) ? $data['enabled'] : null;
+        $this->container['issuer_url'] = isset($data['issuer_url']) ? $data['issuer_url'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['oauth_login_callback_url'] = isset($data['oauth_login_callback_url']) ? $data['oauth_login_callback_url'] : null;
         $this->container['oauth_sign_up_callback_url'] = isset($data['oauth_sign_up_callback_url']) ? $data['oauth_sign_up_callback_url'] : null;
@@ -313,9 +335,11 @@ class GetUserPoolResponse implements ModelInterface, ArrayAccess
         $this->container['self_sign_up_enabled'] = isset($data['self_sign_up_enabled']) ? $data['self_sign_up_enabled'] : null;
         $this->container['sign_in_attributes'] = isset($data['sign_in_attributes']) ? $data['sign_in_attributes'] : null;
         $this->container['sign_up_auto_verification_enabled'] = isset($data['sign_up_auto_verification_enabled']) ? $data['sign_up_auto_verification_enabled'] : null;
+        $this->container['sms_anonymous_sign_up_enabled'] = isset($data['sms_anonymous_sign_up_enabled']) ? $data['sms_anonymous_sign_up_enabled'] : null;
         $this->container['sms_passwordless_sign_in_enabled'] = isset($data['sms_passwordless_sign_in_enabled']) ? $data['sms_passwordless_sign_in_enabled'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['token_signing_key_url'] = isset($data['token_signing_key_url']) ? $data['token_signing_key_url'] : null;
+        $this->container['token_url'] = isset($data['token_url']) ? $data['token_url'] : null;
         $this->container['total_clients'] = isset($data['total_clients']) ? $data['total_clients'] : null;
         $this->container['total_connections'] = isset($data['total_connections']) ? $data['total_connections'] : null;
         $this->container['total_users'] = isset($data['total_users']) ? $data['total_users'] : null;
@@ -489,6 +513,54 @@ class GetUserPoolResponse implements ModelInterface, ArrayAccess
     public function setEmailPasswordlessSignInEnabled($email_passwordless_sign_in_enabled)
     {
         $this->container['email_passwordless_sign_in_enabled'] = $email_passwordless_sign_in_enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets enabled
+     *
+     * @return bool
+     */
+    public function getEnabled()
+    {
+        return $this->container['enabled'];
+    }
+
+    /**
+     * Sets enabled
+     *
+     * @param bool $enabled enabled
+     *
+     * @return $this
+     */
+    public function setEnabled($enabled)
+    {
+        $this->container['enabled'] = $enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets issuer_url
+     *
+     * @return string
+     */
+    public function getIssuerUrl()
+    {
+        return $this->container['issuer_url'];
+    }
+
+    /**
+     * Sets issuer_url
+     *
+     * @param string $issuer_url issuer_url
+     *
+     * @return $this
+     */
+    public function setIssuerUrl($issuer_url)
+    {
+        $this->container['issuer_url'] = $issuer_url;
 
         return $this;
     }
@@ -830,6 +902,30 @@ class GetUserPoolResponse implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets sms_anonymous_sign_up_enabled
+     *
+     * @return bool
+     */
+    public function getSmsAnonymousSignUpEnabled()
+    {
+        return $this->container['sms_anonymous_sign_up_enabled'];
+    }
+
+    /**
+     * Sets sms_anonymous_sign_up_enabled
+     *
+     * @param bool $sms_anonymous_sign_up_enabled sms_anonymous_sign_up_enabled
+     *
+     * @return $this
+     */
+    public function setSmsAnonymousSignUpEnabled($sms_anonymous_sign_up_enabled)
+    {
+        $this->container['sms_anonymous_sign_up_enabled'] = $sms_anonymous_sign_up_enabled;
+
+        return $this;
+    }
+
+    /**
      * Gets sms_passwordless_sign_in_enabled
      *
      * @return bool
@@ -897,6 +993,30 @@ class GetUserPoolResponse implements ModelInterface, ArrayAccess
     public function setTokenSigningKeyUrl($token_signing_key_url)
     {
         $this->container['token_signing_key_url'] = $token_signing_key_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets token_url
+     *
+     * @return string
+     */
+    public function getTokenUrl()
+    {
+        return $this->container['token_url'];
+    }
+
+    /**
+     * Sets token_url
+     *
+     * @param string $token_url token_url
+     *
+     * @return $this
+     */
+    public function setTokenUrl($token_url)
+    {
+        $this->container['token_url'] = $token_url;
 
         return $this;
     }

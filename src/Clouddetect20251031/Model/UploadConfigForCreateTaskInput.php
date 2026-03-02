@@ -31,8 +31,8 @@ class UploadConfigForCreateTaskInput implements ModelInterface, ArrayAccess
         'custom_host_config' => '\Volcengine\Clouddetect20251031\Model\CustomHostConfigForCreateTaskInput',
         'dns_server' => 'string',
         'dns_type' => 'string',
-        'http_version' => 'string',
         'headers' => '\Volcengine\Clouddetect20251031\Model\HeaderForCreateTaskInput[]',
+        'http_version' => 'string',
         'ignore_certificate' => 'bool',
         'max_transfer_size' => 'int',
         'method' => 'int',
@@ -51,8 +51,8 @@ class UploadConfigForCreateTaskInput implements ModelInterface, ArrayAccess
         'custom_host_config' => null,
         'dns_server' => null,
         'dns_type' => null,
-        'http_version' => null,
         'headers' => null,
+        'http_version' => null,
         'ignore_certificate' => null,
         'max_transfer_size' => 'int64',
         'method' => 'int32',
@@ -90,17 +90,17 @@ class UploadConfigForCreateTaskInput implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'custom_host_config' => 'CustomHostConfig',
-        'dns_server' => 'DNSServer',
-        'dns_type' => 'DNSType',
-        'http_version' => 'HTTPVersion',
+        'dns_server' => 'DnsServer',
+        'dns_type' => 'DnsType',
         'headers' => 'Headers',
+        'http_version' => 'HttpVersion',
         'ignore_certificate' => 'IgnoreCertificate',
         'max_transfer_size' => 'MaxTransferSize',
         'method' => 'Method',
         'queries' => 'Queries',
         'redirect' => 'Redirect',
         'timeout' => 'Timeout',
-        'upload_file_url' => 'UploadFileURL'
+        'upload_file_url' => 'UploadFileUrl'
     ];
 
     /**
@@ -112,8 +112,8 @@ class UploadConfigForCreateTaskInput implements ModelInterface, ArrayAccess
         'custom_host_config' => 'setCustomHostConfig',
         'dns_server' => 'setDnsServer',
         'dns_type' => 'setDnsType',
-        'http_version' => 'setHttpVersion',
         'headers' => 'setHeaders',
+        'http_version' => 'setHttpVersion',
         'ignore_certificate' => 'setIgnoreCertificate',
         'max_transfer_size' => 'setMaxTransferSize',
         'method' => 'setMethod',
@@ -132,8 +132,8 @@ class UploadConfigForCreateTaskInput implements ModelInterface, ArrayAccess
         'custom_host_config' => 'getCustomHostConfig',
         'dns_server' => 'getDnsServer',
         'dns_type' => 'getDnsType',
-        'http_version' => 'getHttpVersion',
         'headers' => 'getHeaders',
+        'http_version' => 'getHttpVersion',
         'ignore_certificate' => 'getIgnoreCertificate',
         'max_transfer_size' => 'getMaxTransferSize',
         'method' => 'getMethod',
@@ -206,8 +206,8 @@ class UploadConfigForCreateTaskInput implements ModelInterface, ArrayAccess
         $this->container['custom_host_config'] = isset($data['custom_host_config']) ? $data['custom_host_config'] : null;
         $this->container['dns_server'] = isset($data['dns_server']) ? $data['dns_server'] : null;
         $this->container['dns_type'] = isset($data['dns_type']) ? $data['dns_type'] : null;
-        $this->container['http_version'] = isset($data['http_version']) ? $data['http_version'] : null;
         $this->container['headers'] = isset($data['headers']) ? $data['headers'] : null;
+        $this->container['http_version'] = isset($data['http_version']) ? $data['http_version'] : null;
         $this->container['ignore_certificate'] = isset($data['ignore_certificate']) ? $data['ignore_certificate'] : null;
         $this->container['max_transfer_size'] = isset($data['max_transfer_size']) ? $data['max_transfer_size'] : null;
         $this->container['method'] = isset($data['method']) ? $data['method'] : null;
@@ -314,30 +314,6 @@ class UploadConfigForCreateTaskInput implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets http_version
-     *
-     * @return string
-     */
-    public function getHttpVersion()
-    {
-        return $this->container['http_version'];
-    }
-
-    /**
-     * Sets http_version
-     *
-     * @param string $http_version http_version
-     *
-     * @return $this
-     */
-    public function setHttpVersion($http_version)
-    {
-        $this->container['http_version'] = $http_version;
-
-        return $this;
-    }
-
-    /**
      * Gets headers
      *
      * @return \Volcengine\Clouddetect20251031\Model\HeaderForCreateTaskInput[]
@@ -357,6 +333,30 @@ class UploadConfigForCreateTaskInput implements ModelInterface, ArrayAccess
     public function setHeaders($headers)
     {
         $this->container['headers'] = $headers;
+
+        return $this;
+    }
+
+    /**
+     * Gets http_version
+     *
+     * @return string
+     */
+    public function getHttpVersion()
+    {
+        return $this->container['http_version'];
+    }
+
+    /**
+     * Sets http_version
+     *
+     * @param string $http_version http_version
+     *
+     * @return $this
+     */
+    public function setHttpVersion($http_version)
+    {
+        $this->container['http_version'] = $http_version;
 
         return $this;
     }

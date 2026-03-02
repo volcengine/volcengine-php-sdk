@@ -81,7 +81,7 @@ class MtrConfigForListTaskOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'dns_reverse_resolution' => 'DNSReverseResolution',
+        'dns_reverse_resolution' => 'DnsReverseResolution',
         'interval' => 'Interval',
         'max_hops' => 'MaxHops',
         'max_unknown_host' => 'MaxUnknownHost',

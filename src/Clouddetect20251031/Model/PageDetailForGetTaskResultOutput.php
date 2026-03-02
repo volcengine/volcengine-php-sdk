@@ -40,7 +40,8 @@ class PageDetailForGetTaskResultOutput implements ModelInterface, ArrayAccess
         'page_error_element_proportion' => 'int',
         'page_request_id' => 'string',
         'page_time_first_screen' => 'int',
-        'page_time_total' => 'int'
+        'page_time_total' => 'int',
+        'pcap_uri' => 'string'
     ];
 
     /**
@@ -61,7 +62,8 @@ class PageDetailForGetTaskResultOutput implements ModelInterface, ArrayAccess
         'page_error_element_proportion' => 'int64',
         'page_request_id' => null,
         'page_time_first_screen' => 'int64',
-        'page_time_total' => 'int64'
+        'page_time_total' => 'int64',
+        'pcap_uri' => null
     ];
 
     /**
@@ -92,8 +94,8 @@ class PageDetailForGetTaskResultOutput implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'diagnose_detail' => 'DiagnoseDetail',
-        'http_request_header' => 'HTTPRequestHeader',
-        'http_response_header' => 'HTTPResponseHeader',
+        'http_request_header' => 'HttpRequestHeader',
+        'http_response_header' => 'HttpResponseHeader',
         'page_count_element' => 'PageCountElement',
         'page_count_error_element' => 'PageCountErrorElement',
         'page_download_bytes_total' => 'PageDownloadBytesTotal',
@@ -101,9 +103,10 @@ class PageDetailForGetTaskResultOutput implements ModelInterface, ArrayAccess
         'page_element_speed_avg' => 'PageElementSpeedAvg',
         'page_error_elem_proportion' => 'PageErrorElemProportion',
         'page_error_element_proportion' => 'PageErrorElementProportion',
-        'page_request_id' => 'PageRequestID',
+        'page_request_id' => 'PageRequestId',
         'page_time_first_screen' => 'PageTimeFirstScreen',
-        'page_time_total' => 'PageTimeTotal'
+        'page_time_total' => 'PageTimeTotal',
+        'pcap_uri' => 'PcapUri'
     ];
 
     /**
@@ -124,7 +127,8 @@ class PageDetailForGetTaskResultOutput implements ModelInterface, ArrayAccess
         'page_error_element_proportion' => 'setPageErrorElementProportion',
         'page_request_id' => 'setPageRequestId',
         'page_time_first_screen' => 'setPageTimeFirstScreen',
-        'page_time_total' => 'setPageTimeTotal'
+        'page_time_total' => 'setPageTimeTotal',
+        'pcap_uri' => 'setPcapUri'
     ];
 
     /**
@@ -145,7 +149,8 @@ class PageDetailForGetTaskResultOutput implements ModelInterface, ArrayAccess
         'page_error_element_proportion' => 'getPageErrorElementProportion',
         'page_request_id' => 'getPageRequestId',
         'page_time_first_screen' => 'getPageTimeFirstScreen',
-        'page_time_total' => 'getPageTimeTotal'
+        'page_time_total' => 'getPageTimeTotal',
+        'pcap_uri' => 'getPcapUri'
     ];
 
     /**
@@ -221,6 +226,7 @@ class PageDetailForGetTaskResultOutput implements ModelInterface, ArrayAccess
         $this->container['page_request_id'] = isset($data['page_request_id']) ? $data['page_request_id'] : null;
         $this->container['page_time_first_screen'] = isset($data['page_time_first_screen']) ? $data['page_time_first_screen'] : null;
         $this->container['page_time_total'] = isset($data['page_time_total']) ? $data['page_time_total'] : null;
+        $this->container['pcap_uri'] = isset($data['pcap_uri']) ? $data['pcap_uri'] : null;
     }
 
     /**
@@ -555,6 +561,30 @@ class PageDetailForGetTaskResultOutput implements ModelInterface, ArrayAccess
     public function setPageTimeTotal($page_time_total)
     {
         $this->container['page_time_total'] = $page_time_total;
+
+        return $this;
+    }
+
+    /**
+     * Gets pcap_uri
+     *
+     * @return string
+     */
+    public function getPcapUri()
+    {
+        return $this->container['pcap_uri'];
+    }
+
+    /**
+     * Sets pcap_uri
+     *
+     * @param string $pcap_uri pcap_uri
+     *
+     * @return $this
+     */
+    public function setPcapUri($pcap_uri)
+    {
+        $this->container['pcap_uri'] = $pcap_uri;
 
         return $this;
     }

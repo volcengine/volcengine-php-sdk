@@ -29,12 +29,11 @@ class ClientInfoForGetTaskResultOutput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'city' => 'string',
-        'dns_local_dnsip' => 'string',
+        'dns_local_dns_ip' => 'string',
         'ip' => 'string',
         'ipv6' => 'string',
         'isp' => 'string',
         'region' => 'string',
-        'tupe' => 'string',
         'type' => 'string'
     ];
 
@@ -45,12 +44,11 @@ class ClientInfoForGetTaskResultOutput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'city' => null,
-        'dns_local_dnsip' => null,
+        'dns_local_dns_ip' => null,
         'ip' => null,
         'ipv6' => null,
         'isp' => null,
         'region' => null,
-        'tupe' => null,
         'type' => null
     ];
 
@@ -82,12 +80,11 @@ class ClientInfoForGetTaskResultOutput implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'city' => 'City',
-        'dns_local_dnsip' => 'DNSLocalDNSIP',
-        'ip' => 'IP',
+        'dns_local_dns_ip' => 'DnsLocalDnsIp',
+        'ip' => 'Ip',
         'ipv6' => 'Ipv6',
         'isp' => 'Isp',
         'region' => 'Region',
-        'tupe' => 'Tupe',
         'type' => 'Type'
     ];
 
@@ -98,12 +95,11 @@ class ClientInfoForGetTaskResultOutput implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'city' => 'setCity',
-        'dns_local_dnsip' => 'setDnsLocalDnsip',
+        'dns_local_dns_ip' => 'setDnsLocalDnsIp',
         'ip' => 'setIp',
         'ipv6' => 'setIpv6',
         'isp' => 'setIsp',
         'region' => 'setRegion',
-        'tupe' => 'setTupe',
         'type' => 'setType'
     ];
 
@@ -114,12 +110,11 @@ class ClientInfoForGetTaskResultOutput implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'city' => 'getCity',
-        'dns_local_dnsip' => 'getDnsLocalDnsip',
+        'dns_local_dns_ip' => 'getDnsLocalDnsIp',
         'ip' => 'getIp',
         'ipv6' => 'getIpv6',
         'isp' => 'getIsp',
         'region' => 'getRegion',
-        'tupe' => 'getTupe',
         'type' => 'getType'
     ];
 
@@ -184,12 +179,11 @@ class ClientInfoForGetTaskResultOutput implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['city'] = isset($data['city']) ? $data['city'] : null;
-        $this->container['dns_local_dnsip'] = isset($data['dns_local_dnsip']) ? $data['dns_local_dnsip'] : null;
+        $this->container['dns_local_dns_ip'] = isset($data['dns_local_dns_ip']) ? $data['dns_local_dns_ip'] : null;
         $this->container['ip'] = isset($data['ip']) ? $data['ip'] : null;
         $this->container['ipv6'] = isset($data['ipv6']) ? $data['ipv6'] : null;
         $this->container['isp'] = isset($data['isp']) ? $data['isp'] : null;
         $this->container['region'] = isset($data['region']) ? $data['region'] : null;
-        $this->container['tupe'] = isset($data['tupe']) ? $data['tupe'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
@@ -242,25 +236,25 @@ class ClientInfoForGetTaskResultOutput implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets dns_local_dnsip
+     * Gets dns_local_dns_ip
      *
      * @return string
      */
-    public function getDnsLocalDnsip()
+    public function getDnsLocalDnsIp()
     {
-        return $this->container['dns_local_dnsip'];
+        return $this->container['dns_local_dns_ip'];
     }
 
     /**
-     * Sets dns_local_dnsip
+     * Sets dns_local_dns_ip
      *
-     * @param string $dns_local_dnsip dns_local_dnsip
+     * @param string $dns_local_dns_ip dns_local_dns_ip
      *
      * @return $this
      */
-    public function setDnsLocalDnsip($dns_local_dnsip)
+    public function setDnsLocalDnsIp($dns_local_dns_ip)
     {
-        $this->container['dns_local_dnsip'] = $dns_local_dnsip;
+        $this->container['dns_local_dns_ip'] = $dns_local_dns_ip;
 
         return $this;
     }
@@ -357,30 +351,6 @@ class ClientInfoForGetTaskResultOutput implements ModelInterface, ArrayAccess
     public function setRegion($region)
     {
         $this->container['region'] = $region;
-
-        return $this;
-    }
-
-    /**
-     * Gets tupe
-     *
-     * @return string
-     */
-    public function getTupe()
-    {
-        return $this->container['tupe'];
-    }
-
-    /**
-     * Sets tupe
-     *
-     * @param string $tupe tupe
-     *
-     * @return $this
-     */
-    public function setTupe($tupe)
-    {
-        $this->container['tupe'] = $tupe;
 
         return $this;
     }

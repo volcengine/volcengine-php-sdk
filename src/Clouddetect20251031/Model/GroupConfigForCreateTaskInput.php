@@ -28,8 +28,8 @@ class GroupConfigForCreateTaskInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'name' => 'string',
-        'node_count' => 'int'
+        'group_list' => '\Volcengine\Clouddetect20251031\Model\GroupListForCreateTaskInput[]',
+        'groups' => 'int[]'
     ];
 
     /**
@@ -38,8 +38,8 @@ class GroupConfigForCreateTaskInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'name' => null,
-        'node_count' => 'int64'
+        'group_list' => null,
+        'groups' => 'int32'
     ];
 
     /**
@@ -69,8 +69,8 @@ class GroupConfigForCreateTaskInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'Name',
-        'node_count' => 'NodeCount'
+        'group_list' => 'GroupList',
+        'groups' => 'Groups'
     ];
 
     /**
@@ -79,8 +79,8 @@ class GroupConfigForCreateTaskInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-        'node_count' => 'setNodeCount'
+        'group_list' => 'setGroupList',
+        'groups' => 'setGroups'
     ];
 
     /**
@@ -89,8 +89,8 @@ class GroupConfigForCreateTaskInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-        'node_count' => 'getNodeCount'
+        'group_list' => 'getGroupList',
+        'groups' => 'getGroups'
     ];
 
     /**
@@ -153,8 +153,8 @@ class GroupConfigForCreateTaskInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['node_count'] = isset($data['node_count']) ? $data['node_count'] : null;
+        $this->container['group_list'] = isset($data['group_list']) ? $data['group_list'] : null;
+        $this->container['groups'] = isset($data['groups']) ? $data['groups'] : null;
     }
 
     /**
@@ -182,49 +182,49 @@ class GroupConfigForCreateTaskInput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets name
+     * Gets group_list
      *
-     * @return string
+     * @return \Volcengine\Clouddetect20251031\Model\GroupListForCreateTaskInput[]
      */
-    public function getName()
+    public function getGroupList()
     {
-        return $this->container['name'];
+        return $this->container['group_list'];
     }
 
     /**
-     * Sets name
+     * Sets group_list
      *
-     * @param string $name name
+     * @param \Volcengine\Clouddetect20251031\Model\GroupListForCreateTaskInput[] $group_list group_list
      *
      * @return $this
      */
-    public function setName($name)
+    public function setGroupList($group_list)
     {
-        $this->container['name'] = $name;
+        $this->container['group_list'] = $group_list;
 
         return $this;
     }
 
     /**
-     * Gets node_count
+     * Gets groups
      *
-     * @return int
+     * @return int[]
      */
-    public function getNodeCount()
+    public function getGroups()
     {
-        return $this->container['node_count'];
+        return $this->container['groups'];
     }
 
     /**
-     * Sets node_count
+     * Sets groups
      *
-     * @param int $node_count node_count
+     * @param int[] $groups groups
      *
      * @return $this
      */
-    public function setNodeCount($node_count)
+    public function setGroups($groups)
     {
-        $this->container['node_count'] = $node_count;
+        $this->container['groups'] = $groups;
 
         return $this;
     }
