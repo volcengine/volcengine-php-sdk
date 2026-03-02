@@ -32,10 +32,11 @@ class ConnectUtils
      */
     public static function buildAuthToken(
         ApiClient $apiClient,
-        $dbUser,
-        $instanceId,
-        $expires = self::DEFAULT_EXPIRES
-    ) {
+                  $dbUser,
+                  $instanceId,
+                  $expires = self::DEFAULT_EXPIRES
+    )
+    {
         $config = $apiClient->getConfig();
 
         // Validate credentials
@@ -75,7 +76,8 @@ class ConnectUtils
         $request->isPresigned = true;
 
         // Use custom host if set, otherwise StandardEndpointProvider will resolve it
-        $request->host = $config->getHost();
+        $request->host = $config->getHost() ?: null;
+        $request->resourcePath = $request->truePath;
         $request->endpointProvider = new StandardEndpointProvider();
         $request->useDualStack = $config->getUseDualStack();
 
