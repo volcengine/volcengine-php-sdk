@@ -176,7 +176,7 @@ class HealthCheckConfigForGetRevisionOutput implements ModelInterface, ArrayAcce
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['enable_health_check'] = isset($data['enable_health_check']) ? $data['enable_health_check'] : null;
         $this->container['failure_threshold'] = isset($data['failure_threshold']) ? $data['failure_threshold'] : null;

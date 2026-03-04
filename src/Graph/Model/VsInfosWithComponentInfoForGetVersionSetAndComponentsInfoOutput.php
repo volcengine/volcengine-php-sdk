@@ -161,7 +161,7 @@ class VsInfosWithComponentInfoForGetVersionSetAndComponentsInfoOutput implements
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['component_info'] = isset($data['component_info']) ? $data['component_info'] : null;
         $this->container['version_set_create_time'] = isset($data['version_set_create_time']) ? $data['version_set_create_time'] : null;

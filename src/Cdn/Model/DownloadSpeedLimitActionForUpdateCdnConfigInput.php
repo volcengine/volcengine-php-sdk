@@ -156,7 +156,7 @@ class DownloadSpeedLimitActionForUpdateCdnConfigInput implements ModelInterface,
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['speed_limit_rate'] = isset($data['speed_limit_rate']) ? $data['speed_limit_rate'] : null;
         $this->container['speed_limit_rate_after'] = isset($data['speed_limit_rate_after']) ? $data['speed_limit_rate_after'] : null;

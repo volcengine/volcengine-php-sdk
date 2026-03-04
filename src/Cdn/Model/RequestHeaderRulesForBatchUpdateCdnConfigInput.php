@@ -156,7 +156,7 @@ class RequestHeaderRulesForBatchUpdateCdnConfigInput implements ModelInterface, 
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['request_header_components'] = isset($data['request_header_components']) ? $data['request_header_components'] : null;
         $this->container['request_header_instances'] = isset($data['request_header_instances']) ? $data['request_header_instances'] : null;

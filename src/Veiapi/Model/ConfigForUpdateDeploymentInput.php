@@ -156,7 +156,7 @@ class ConfigForUpdateDeploymentInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['config_type'] = isset($data['config_type']) ? $data['config_type'] : null;
         $this->container['container_path'] = isset($data['container_path']) ? $data['container_path'] : null;

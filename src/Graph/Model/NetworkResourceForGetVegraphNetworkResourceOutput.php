@@ -206,7 +206,7 @@ class NetworkResourceForGetVegraphNetworkResourceOutput implements ModelInterfac
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['address_type'] = isset($data['address_type']) ? $data['address_type'] : null;
         $this->container['az'] = isset($data['az']) ? $data['az'] : null;

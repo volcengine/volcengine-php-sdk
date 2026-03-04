@@ -166,7 +166,7 @@ class QueryAttackAnalysisWithRuleAggLbRequest implements ModelInterface, ArrayAc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['analysis_key'] = isset($data['analysis_key']) ? $data['analysis_key'] : null;
         $this->container['end_time'] = isset($data['end_time']) ? $data['end_time'] : null;

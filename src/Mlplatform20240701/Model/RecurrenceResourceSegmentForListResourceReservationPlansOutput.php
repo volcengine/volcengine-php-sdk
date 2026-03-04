@@ -166,7 +166,7 @@ class RecurrenceResourceSegmentForListResourceReservationPlansOutput implements 
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['end_time'] = isset($data['end_time']) ? $data['end_time'] : null;
         $this->container['min_delivery_count'] = isset($data['min_delivery_count']) ? $data['min_delivery_count'] : null;

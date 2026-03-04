@@ -171,7 +171,7 @@ class NetworkForDescribeInstanceTypesOutput implements ModelInterface, ArrayAcce
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['baseline_bandwidth_mbps'] = isset($data['baseline_bandwidth_mbps']) ? $data['baseline_bandwidth_mbps'] : null;
         $this->container['maximum_bandwidth_mbps'] = isset($data['maximum_bandwidth_mbps']) ? $data['maximum_bandwidth_mbps'] : null;

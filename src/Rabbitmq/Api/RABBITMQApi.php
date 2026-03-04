@@ -41,8 +41,8 @@ class RABBITMQApi
      * @param HeaderSelector  $selector
      */
     public function __construct(
-        ClientInterface $client = null,
-        Configuration $config = null,
+        $client = null,
+        $config = null,
         HeaderSelector $selector = null
     ) {
         $this->client = $client ?: new Client();

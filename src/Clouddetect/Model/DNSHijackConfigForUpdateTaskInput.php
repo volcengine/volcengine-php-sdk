@@ -151,7 +151,7 @@ class DNSHijackConfigForUpdateTaskInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['dns_hijack_allow_list'] = isset($data['dns_hijack_allow_list']) ? $data['dns_hijack_allow_list'] : null;
         $this->container['dns_hijack_block_list'] = isset($data['dns_hijack_block_list']) ? $data['dns_hijack_block_list'] : null;

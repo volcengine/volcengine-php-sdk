@@ -161,7 +161,7 @@ class InstancesDistributionForModifyScalingGroupInput implements ModelInterface,
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['compensate_with_on_demand'] = isset($data['compensate_with_on_demand']) ? $data['compensate_with_on_demand'] : null;
         $this->container['on_demand_base_capacity'] = isset($data['on_demand_base_capacity']) ? $data['on_demand_base_capacity'] : null;

@@ -161,7 +161,7 @@ class ConfForDTSOpenDescribeResourceGroupsOutput implements ModelInterface, Arra
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['bucket_name'] = isset($data['bucket_name']) ? $data['bucket_name'] : null;
         $this->container['security_group_id_list'] = isset($data['security_group_id_list']) ? $data['security_group_id_list'] : null;

@@ -151,7 +151,7 @@ class DescribeDedicatedHostsResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['dedicated_hosts'] = isset($data['dedicated_hosts']) ? $data['dedicated_hosts'] : null;
         $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;

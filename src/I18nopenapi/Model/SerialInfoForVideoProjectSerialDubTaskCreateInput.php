@@ -166,7 +166,7 @@ class SerialInfoForVideoProjectSerialDubTaskCreateInput implements ModelInterfac
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['episode'] = isset($data['episode']) ? $data['episode'] : null;
         $this->container['pure_video'] = isset($data['pure_video']) ? $data['pure_video'] : null;

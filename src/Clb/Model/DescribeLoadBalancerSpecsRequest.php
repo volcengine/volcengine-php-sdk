@@ -146,7 +146,7 @@ class DescribeLoadBalancerSpecsRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['english_spec'] = isset($data['english_spec']) ? $data['english_spec'] : null;
     }

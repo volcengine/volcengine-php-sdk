@@ -181,7 +181,7 @@ class ReasonForListProhibitionOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['black'] = isset($data['black']) ? $data['black'] : null;
         $this->container['bot'] = isset($data['bot']) ? $data['bot'] : null;

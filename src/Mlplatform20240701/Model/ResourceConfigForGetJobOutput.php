@@ -191,7 +191,7 @@ class ResourceConfigForGetJobOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['holding_time_seconds'] = isset($data['holding_time_seconds']) ? $data['holding_time_seconds'] : null;
         $this->container['max_runtime_seconds'] = isset($data['max_runtime_seconds']) ? $data['max_runtime_seconds'] : null;

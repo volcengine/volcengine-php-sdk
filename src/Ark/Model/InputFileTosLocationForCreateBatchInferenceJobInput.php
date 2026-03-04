@@ -151,7 +151,7 @@ class InputFileTosLocationForCreateBatchInferenceJobInput implements ModelInterf
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['bucket_name'] = isset($data['bucket_name']) ? $data['bucket_name'] : null;
         $this->container['object_key'] = isset($data['object_key']) ? $data['object_key'] : null;

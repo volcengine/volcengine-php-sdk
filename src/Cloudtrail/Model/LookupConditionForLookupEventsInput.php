@@ -151,7 +151,7 @@ class LookupConditionForLookupEventsInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['lookup_condition_key'] = isset($data['lookup_condition_key']) ? $data['lookup_condition_key'] : null;
         $this->container['lookup_condition_value'] = isset($data['lookup_condition_value']) ? $data['lookup_condition_value'] : null;

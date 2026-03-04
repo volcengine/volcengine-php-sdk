@@ -161,7 +161,7 @@ class AuthParamForGetResourceAuthConfigOutput implements ModelInterface, ArrayAc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['enums'] = isset($data['enums']) ? $data['enums'] : null;
         $this->container['param_key'] = isset($data['param_key']) ? $data['param_key'] : null;

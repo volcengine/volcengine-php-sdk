@@ -156,7 +156,7 @@ class MultiAssetScanRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['asset_ids'] = isset($data['asset_ids']) ? $data['asset_ids'] : null;
         $this->container['asset_type'] = isset($data['asset_type']) ? $data['asset_type'] : null;

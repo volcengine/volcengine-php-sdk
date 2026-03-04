@@ -176,7 +176,7 @@ class ConvertConvertClipForGetExecutionOutput implements ModelInterface, ArrayAc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['cut_end'] = isset($data['cut_end']) ? $data['cut_end'] : null;
         $this->container['cut_start'] = isset($data['cut_start']) ? $data['cut_start'] : null;

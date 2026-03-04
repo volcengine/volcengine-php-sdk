@@ -176,7 +176,7 @@ class LifecycleHookForDescribeLifecycleHooksOutput implements ModelInterface, Ar
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['lifecycle_command'] = isset($data['lifecycle_command']) ? $data['lifecycle_command'] : null;
         $this->container['lifecycle_hook_id'] = isset($data['lifecycle_hook_id']) ? $data['lifecycle_hook_id'] : null;

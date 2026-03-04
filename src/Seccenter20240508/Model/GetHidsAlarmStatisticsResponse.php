@@ -201,7 +201,7 @@ class GetHidsAlarmStatisticsResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['alarm_critical_count'] = isset($data['alarm_critical_count']) ? $data['alarm_critical_count'] : null;
         $this->container['alarm_high_count'] = isset($data['alarm_high_count']) ? $data['alarm_high_count'] : null;

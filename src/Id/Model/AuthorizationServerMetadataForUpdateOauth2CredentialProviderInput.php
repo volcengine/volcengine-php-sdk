@@ -176,7 +176,7 @@ class AuthorizationServerMetadataForUpdateOauth2CredentialProviderInput implemen
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['authorization_endpoint'] = isset($data['authorization_endpoint']) ? $data['authorization_endpoint'] : null;
         $this->container['code_challenge_methods_supported'] = isset($data['code_challenge_methods_supported']) ? $data['code_challenge_methods_supported'] : null;

@@ -270,7 +270,7 @@ class CreateRootInstanceRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['contact'] = isset($data['contact']) ? $data['contact'] : null;
         $this->container['csr_common'] = isset($data['csr_common']) ? $data['csr_common'] : null;

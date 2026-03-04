@@ -191,7 +191,7 @@ class ZoneMappingForDescribeNetworkLoadBalancersOutput implements ModelInterface
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['eni_id'] = isset($data['eni_id']) ? $data['eni_id'] : null;
         $this->container['ipv4_address'] = isset($data['ipv4_address']) ? $data['ipv4_address'] : null;

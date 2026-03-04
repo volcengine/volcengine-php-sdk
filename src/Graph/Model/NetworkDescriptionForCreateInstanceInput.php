@@ -151,7 +151,7 @@ class NetworkDescriptionForCreateInstanceInput implements ModelInterface, ArrayA
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['address_type'] = isset($data['address_type']) ? $data['address_type'] : null;
         $this->container['ip_version_type'] = isset($data['ip_version_type']) ? $data['ip_version_type'] : null;

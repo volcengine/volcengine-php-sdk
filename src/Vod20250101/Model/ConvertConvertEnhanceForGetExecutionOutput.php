@@ -221,7 +221,7 @@ class ConvertConvertEnhanceForGetExecutionOutput implements ModelInterface, Arra
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['audio_stream_meta'] = isset($data['audio_stream_meta']) ? $data['audio_stream_meta'] : null;
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;

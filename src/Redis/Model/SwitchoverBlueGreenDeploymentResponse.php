@@ -146,7 +146,7 @@ class SwitchoverBlueGreenDeploymentResponse implements ModelInterface, ArrayAcce
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['blue_green_deployment'] = isset($data['blue_green_deployment']) ? $data['blue_green_deployment'] : null;
     }

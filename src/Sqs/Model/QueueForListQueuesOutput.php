@@ -156,7 +156,7 @@ class QueueForListQueuesOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['queue_display_name'] = isset($data['queue_display_name']) ? $data['queue_display_name'] : null;

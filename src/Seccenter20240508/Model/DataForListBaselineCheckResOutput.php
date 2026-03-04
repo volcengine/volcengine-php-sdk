@@ -181,7 +181,7 @@ class DataForListBaselineCheckResOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['checklist_id'] = isset($data['checklist_id']) ? $data['checklist_id'] : null;
         $this->container['checklist_name'] = isset($data['checklist_name']) ? $data['checklist_name'] : null;

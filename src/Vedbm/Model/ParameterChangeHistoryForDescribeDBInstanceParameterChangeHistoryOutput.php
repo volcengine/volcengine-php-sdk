@@ -181,7 +181,7 @@ class ParameterChangeHistoryForDescribeDBInstanceParameterChangeHistoryOutput im
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['modify_time'] = isset($data['modify_time']) ? $data['modify_time'] : null;
         $this->container['new_parameter_value'] = isset($data['new_parameter_value']) ? $data['new_parameter_value'] : null;

@@ -156,7 +156,7 @@ class ModifyDBNodeSpecResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['estimation_result'] = isset($data['estimation_result']) ? $data['estimation_result'] : null;
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;

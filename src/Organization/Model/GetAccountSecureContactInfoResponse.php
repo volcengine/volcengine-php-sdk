@@ -171,7 +171,7 @@ class GetAccountSecureContactInfoResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['email'] = isset($data['email']) ? $data['email'] : null;
         $this->container['email_verified'] = isset($data['email_verified']) ? $data['email_verified'] : null;

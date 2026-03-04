@@ -346,7 +346,7 @@ class CreateListenerRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['acl_ids'] = isset($data['acl_ids']) ? $data['acl_ids'] : null;
         $this->container['acl_status'] = isset($data['acl_status']) ? $data['acl_status'] : null;

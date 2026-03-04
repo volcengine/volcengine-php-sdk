@@ -146,7 +146,7 @@ class GetGroupResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['user_group'] = isset($data['user_group']) ? $data['user_group'] : null;
     }

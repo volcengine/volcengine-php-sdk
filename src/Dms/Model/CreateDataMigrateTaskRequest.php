@@ -161,7 +161,7 @@ class CreateDataMigrateTaskRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['advance_config'] = isset($data['advance_config']) ? $data['advance_config'] : null;
         $this->container['basic_config'] = isset($data['basic_config']) ? $data['basic_config'] : null;

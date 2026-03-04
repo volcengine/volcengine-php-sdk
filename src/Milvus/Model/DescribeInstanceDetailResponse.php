@@ -201,7 +201,7 @@ class DescribeInstanceDetailResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['base_instance'] = isset($data['base_instance']) ? $data['base_instance'] : null;
         $this->container['charge_config'] = isset($data['charge_config']) ? $data['charge_config'] : null;

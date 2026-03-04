@@ -151,7 +151,7 @@ class ListAlarmHistoryResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['alarm_record_list'] = isset($data['alarm_record_list']) ? $data['alarm_record_list'] : null;
         $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;

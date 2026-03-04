@@ -166,7 +166,7 @@ class CreateOauth2CredentialProviderDcrRequest implements ModelInterface, ArrayA
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['client_metadata'] = isset($data['client_metadata']) ? $data['client_metadata'] : null;
         $this->container['config'] = isset($data['config']) ? $data['config'] : null;

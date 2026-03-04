@@ -151,7 +151,7 @@ class StrategyForUpdateDeploymentInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['rolling'] = isset($data['rolling']) ? $data['rolling'] : null;
         $this->container['strategy_type'] = isset($data['strategy_type']) ? $data['strategy_type'] : null;

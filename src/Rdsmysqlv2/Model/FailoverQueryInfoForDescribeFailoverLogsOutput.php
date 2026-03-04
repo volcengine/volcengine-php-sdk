@@ -171,7 +171,7 @@ class FailoverQueryInfoForDescribeFailoverLogsOutput implements ModelInterface, 
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['change_time'] = isset($data['change_time']) ? $data['change_time'] : null;
         $this->container['details'] = isset($data['details']) ? $data['details'] : null;

@@ -161,7 +161,7 @@ class DataForListBotAnalyseProtectRuleOutput implements ModelInterface, ArrayAcc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['enable_count'] = isset($data['enable_count']) ? $data['enable_count'] : null;
         $this->container['path'] = isset($data['path']) ? $data['path'] : null;

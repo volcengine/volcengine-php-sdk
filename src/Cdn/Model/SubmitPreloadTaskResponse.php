@@ -151,7 +151,7 @@ class SubmitPreloadTaskResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['commit_num'] = isset($data['commit_num']) ? $data['commit_num'] : null;
         $this->container['task_id'] = isset($data['task_id']) ? $data['task_id'] : null;

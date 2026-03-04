@@ -161,7 +161,7 @@ class ValueAddedForGetTenantQuotaOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['log_analysis_quota'] = isset($data['log_analysis_quota']) ? $data['log_analysis_quota'] : null;
         $this->container['mlp_defender_quota'] = isset($data['mlp_defender_quota']) ? $data['mlp_defender_quota'] : null;

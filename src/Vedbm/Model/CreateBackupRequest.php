@@ -182,7 +182,7 @@ class CreateBackupRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['backup_method'] = isset($data['backup_method']) ? $data['backup_method'] : null;
         $this->container['backup_type'] = isset($data['backup_type']) ? $data['backup_type'] : null;

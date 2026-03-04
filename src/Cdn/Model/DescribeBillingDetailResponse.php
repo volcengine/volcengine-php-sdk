@@ -146,7 +146,7 @@ class DescribeBillingDetailResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['timestamp_point'] = isset($data['timestamp_point']) ? $data['timestamp_point'] : null;
     }

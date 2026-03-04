@@ -171,7 +171,7 @@ class MultiRegionConfigurationForDescribeKeyOutput implements ModelInterface, Ar
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['multi_region_key_type'] = isset($data['multi_region_key_type']) ? $data['multi_region_key_type'] : null;
         $this->container['primary_key'] = isset($data['primary_key']) ? $data['primary_key'] : null;

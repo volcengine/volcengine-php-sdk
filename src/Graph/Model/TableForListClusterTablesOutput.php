@@ -176,7 +176,7 @@ class TableForListClusterTablesOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['is_readonly'] = isset($data['is_readonly']) ? $data['is_readonly'] : null;
         $this->container['partition_num'] = isset($data['partition_num']) ? $data['partition_num'] : null;

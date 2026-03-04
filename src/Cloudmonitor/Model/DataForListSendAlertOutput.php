@@ -171,7 +171,7 @@ class DataForListSendAlertOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['alert_method'] = isset($data['alert_method']) ? $data['alert_method'] : null;
         $this->container['bath_id'] = isset($data['bath_id']) ? $data['bath_id'] : null;

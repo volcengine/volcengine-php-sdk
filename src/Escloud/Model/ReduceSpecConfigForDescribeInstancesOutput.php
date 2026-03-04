@@ -166,7 +166,7 @@ class ReduceSpecConfigForDescribeInstancesOutput implements ModelInterface, Arra
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['cold_node_num'] = isset($data['cold_node_num']) ? $data['cold_node_num'] : null;
         $this->container['data_node_num'] = isset($data['data_node_num']) ? $data['data_node_num'] : null;

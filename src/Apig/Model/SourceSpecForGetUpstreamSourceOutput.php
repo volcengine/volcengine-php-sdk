@@ -151,7 +151,7 @@ class SourceSpecForGetUpstreamSourceOutput implements ModelInterface, ArrayAcces
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['k8_s_source'] = isset($data['k8_s_source']) ? $data['k8_s_source'] : null;
         $this->container['nacos_source'] = isset($data['nacos_source']) ? $data['nacos_source'] : null;

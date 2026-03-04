@@ -151,7 +151,7 @@ class DescribeDirectConnectConnectionLoaAttributesRequest implements ModelInterf
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['action'] = isset($data['action']) ? $data['action'] : null;
         $this->container['direct_connect_connection_id'] = isset($data['direct_connect_connection_id']) ? $data['direct_connect_connection_id'] : null;

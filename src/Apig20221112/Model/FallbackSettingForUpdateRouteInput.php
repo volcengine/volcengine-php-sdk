@@ -156,7 +156,7 @@ class FallbackSettingForUpdateRouteInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['conditions'] = isset($data['conditions']) ? $data['conditions'] : null;
         $this->container['enable'] = isset($data['enable']) ? $data['enable'] : null;

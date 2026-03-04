@@ -156,7 +156,7 @@ class ExceptionListForUnsubscribeHostResourceOutput implements ModelInterface, A
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['err'] = isset($data['err']) ? $data['err'] : null;
         $this->container['host_id_list'] = isset($data['host_id_list']) ? $data['host_id_list'] : null;

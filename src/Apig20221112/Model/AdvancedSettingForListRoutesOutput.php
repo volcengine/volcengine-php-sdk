@@ -171,7 +171,7 @@ class AdvancedSettingForListRoutesOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['cors_policy_setting'] = isset($data['cors_policy_setting']) ? $data['cors_policy_setting'] : null;
         $this->container['header_operations'] = isset($data['header_operations']) ? $data['header_operations'] : null;

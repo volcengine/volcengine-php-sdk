@@ -171,7 +171,7 @@ class CreateTosRestoreRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['databases'] = isset($data['databases']) ? $data['databases'] : null;
         $this->container['is_online'] = isset($data['is_online']) ? $data['is_online'] : null;

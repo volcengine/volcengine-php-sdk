@@ -161,7 +161,7 @@ class DataForListCheckConfigRelatedBaselineOutput implements ModelInterface, Arr
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['baseline_id'] = isset($data['baseline_id']) ? $data['baseline_id'] : null;
         $this->container['baseline_name'] = isset($data['baseline_name']) ? $data['baseline_name'] : null;

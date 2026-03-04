@@ -164,7 +164,7 @@ class DeleteDBInstanceRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['data_keep_policy'] = isset($data['data_keep_policy']) ? $data['data_keep_policy'] : null;
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;

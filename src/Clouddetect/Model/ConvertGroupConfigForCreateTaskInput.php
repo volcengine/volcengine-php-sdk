@@ -151,7 +151,7 @@ class ConvertGroupConfigForCreateTaskInput implements ModelInterface, ArrayAcces
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['group_config'] = isset($data['group_config']) ? $data['group_config'] : null;
         $this->container['groups'] = isset($data['groups']) ? $data['groups'] : null;

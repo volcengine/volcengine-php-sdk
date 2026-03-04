@@ -156,7 +156,7 @@ class NacosSourceForCreateUpstreamSourceInput implements ModelInterface, ArrayAc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['auth_config'] = isset($data['auth_config']) ? $data['auth_config'] : null;
         $this->container['nacos_id'] = isset($data['nacos_id']) ? $data['nacos_id'] : null;

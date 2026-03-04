@@ -216,7 +216,7 @@ class UpdateKafkaTriggerResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['batch_flush_duration_milliseconds'] = isset($data['batch_flush_duration_milliseconds']) ? $data['batch_flush_duration_milliseconds'] : null;
         $this->container['batch_size'] = isset($data['batch_size']) ? $data['batch_size'] : null;

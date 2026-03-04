@@ -156,7 +156,7 @@ class UpdateDnsScheduleStaticWeightRequest implements ModelInterface, ArrayAcces
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['dns_schedule_id'] = isset($data['dns_schedule_id']) ? $data['dns_schedule_id'] : null;
         $this->container['weight_id'] = isset($data['weight_id']) ? $data['weight_id'] : null;

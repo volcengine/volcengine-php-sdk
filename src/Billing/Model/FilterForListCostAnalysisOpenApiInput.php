@@ -156,7 +156,7 @@ class FilterForListCostAnalysisOpenApiInput implements ModelInterface, ArrayAcce
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['filter_key'] = isset($data['filter_key']) ? $data['filter_key'] : null;
         $this->container['filter_value'] = isset($data['filter_value']) ? $data['filter_value'] : null;

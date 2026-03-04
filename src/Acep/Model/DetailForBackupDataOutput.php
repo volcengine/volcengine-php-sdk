@@ -161,7 +161,7 @@ class DetailForBackupDataOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['backup_data_id'] = isset($data['backup_data_id']) ? $data['backup_data_id'] : null;
         $this->container['job_id'] = isset($data['job_id']) ? $data['job_id'] : null;

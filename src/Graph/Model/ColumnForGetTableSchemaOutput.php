@@ -166,7 +166,7 @@ class ColumnForGetTableSchemaOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['column_name'] = isset($data['column_name']) ? $data['column_name'] : null;
         $this->container['default_value'] = isset($data['default_value']) ? $data['default_value'] : null;

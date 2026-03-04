@@ -211,7 +211,7 @@ class ListForListFinancialRelationOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['account_alias'] = isset($data['account_alias']) ? $data['account_alias'] : null;
         $this->container['auth_info'] = isset($data['auth_info']) ? $data['auth_info'] : null;

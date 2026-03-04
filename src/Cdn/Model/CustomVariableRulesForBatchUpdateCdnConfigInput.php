@@ -146,7 +146,7 @@ class CustomVariableRulesForBatchUpdateCdnConfigInput implements ModelInterface,
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['custom_variable_instances'] = isset($data['custom_variable_instances']) ? $data['custom_variable_instances'] : null;
     }

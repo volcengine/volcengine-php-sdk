@@ -151,7 +151,7 @@ class SubjectInfoListForListBudgetFilterSubjectInfoOutput implements ModelInterf
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['subject_name'] = isset($data['subject_name']) ? $data['subject_name'] : null;
         $this->container['subject_no'] = isset($data['subject_no']) ? $data['subject_no'] : null;

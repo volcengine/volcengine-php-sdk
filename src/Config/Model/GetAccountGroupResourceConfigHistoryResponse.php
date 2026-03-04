@@ -156,7 +156,7 @@ class GetAccountGroupResourceConfigHistoryResponse implements ModelInterface, Ar
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['configuration_items'] = isset($data['configuration_items']) ? $data['configuration_items'] : null;
         $this->container['max_results'] = isset($data['max_results']) ? $data['max_results'] : null;

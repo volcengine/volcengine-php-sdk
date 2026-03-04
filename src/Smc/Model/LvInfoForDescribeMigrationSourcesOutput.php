@@ -186,7 +186,7 @@ class LvInfoForDescribeMigrationSourcesOutput implements ModelInterface, ArrayAc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['block_devices'] = isset($data['block_devices']) ? $data['block_devices'] : null;
         $this->container['fs_type'] = isset($data['fs_type']) ? $data['fs_type'] : null;

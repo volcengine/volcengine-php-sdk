@@ -156,7 +156,7 @@ class SubtitleFilterForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['max_text_height_ratio'] = isset($data['max_text_height_ratio']) ? $data['max_text_height_ratio'] : null;
         $this->container['min_text_height_ratio'] = isset($data['min_text_height_ratio']) ? $data['min_text_height_ratio'] : null;

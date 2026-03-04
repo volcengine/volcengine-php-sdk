@@ -191,7 +191,7 @@ class CreateUpstreamRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['circuit_breaking_settings'] = isset($data['circuit_breaking_settings']) ? $data['circuit_breaking_settings'] : null;
         $this->container['comments'] = isset($data['comments']) ? $data['comments'] : null;

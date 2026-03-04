@@ -176,7 +176,7 @@ class TableLimitsForGetTableLimitOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['iops_limit'] = isset($data['iops_limit']) ? $data['iops_limit'] : null;
         $this->container['raw_vdc_replica_num_range'] = isset($data['raw_vdc_replica_num_range']) ? $data['raw_vdc_replica_num_range'] : null;

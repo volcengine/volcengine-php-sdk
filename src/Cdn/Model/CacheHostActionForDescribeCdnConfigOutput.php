@@ -146,7 +146,7 @@ class CacheHostActionForDescribeCdnConfigOutput implements ModelInterface, Array
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['cache_host'] = isset($data['cache_host']) ? $data['cache_host'] : null;
     }

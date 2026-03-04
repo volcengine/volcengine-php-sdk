@@ -156,7 +156,7 @@ class DescribeCenBandwidthPackagesBillingRequest implements ModelInterface, Arra
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['cen_bandwidth_package_ids'] = isset($data['cen_bandwidth_package_ids']) ? $data['cen_bandwidth_package_ids'] : null;
         $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;

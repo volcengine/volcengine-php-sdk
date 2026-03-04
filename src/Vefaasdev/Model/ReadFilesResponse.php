@@ -146,7 +146,7 @@ class ReadFilesResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['files_content'] = isset($data['files_content']) ? $data['files_content'] : null;
     }

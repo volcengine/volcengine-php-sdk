@@ -161,7 +161,7 @@ class AccessActionForUpdateCdnConfigInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['allow_empty'] = isset($data['allow_empty']) ? $data['allow_empty'] : null;
         $this->container['list_rules'] = isset($data['list_rules']) ? $data['list_rules'] : null;

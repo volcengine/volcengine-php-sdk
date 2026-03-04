@@ -156,7 +156,7 @@ class RewriteM3u8RuleForDescribeCdnConfigOutput implements ModelInterface, Array
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['delete_param'] = isset($data['delete_param']) ? $data['delete_param'] : null;
         $this->container['keep_m3u8_param'] = isset($data['keep_m3u8_param']) ? $data['keep_m3u8_param'] : null;

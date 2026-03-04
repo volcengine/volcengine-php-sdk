@@ -186,7 +186,7 @@ class DataForGetAlarmRuleListOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['alert_desc'] = isset($data['alert_desc']) ? $data['alert_desc'] : null;
         $this->container['alert_desc_us'] = isset($data['alert_desc_us']) ? $data['alert_desc_us'] : null;

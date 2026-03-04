@@ -196,7 +196,7 @@ class AlterTableRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['enable_read'] = isset($data['enable_read']) ? $data['enable_read'] : null;
         $this->container['enable_rw_seperate_schedule'] = isset($data['enable_rw_seperate_schedule']) ? $data['enable_rw_seperate_schedule'] : null;

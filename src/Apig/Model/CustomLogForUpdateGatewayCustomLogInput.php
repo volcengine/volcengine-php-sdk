@@ -156,7 +156,7 @@ class CustomLogForUpdateGatewayCustomLogInput implements ModelInterface, ArrayAc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['custom_variables'] = isset($data['custom_variables']) ? $data['custom_variables'] : null;
         $this->container['request_headers'] = isset($data['request_headers']) ? $data['request_headers'] : null;

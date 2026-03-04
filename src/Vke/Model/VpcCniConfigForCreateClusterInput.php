@@ -151,7 +151,7 @@ class VpcCniConfigForCreateClusterInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['subnet_ids'] = isset($data['subnet_ids']) ? $data['subnet_ids'] : null;
         $this->container['trunk_eni_enabled'] = isset($data['trunk_eni_enabled']) ? $data['trunk_eni_enabled'] : null;

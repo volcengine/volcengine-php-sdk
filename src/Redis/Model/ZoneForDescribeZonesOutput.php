@@ -156,7 +156,7 @@ class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['zone_id'] = isset($data['zone_id']) ? $data['zone_id'] : null;
         $this->container['zone_name'] = isset($data['zone_name']) ? $data['zone_name'] : null;

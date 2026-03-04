@@ -161,7 +161,7 @@ class UriParamSupForAddCdnDomainInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['join_symbol'] = isset($data['join_symbol']) ? $data['join_symbol'] : null;
         $this->container['split_symbol'] = isset($data['split_symbol']) ? $data['split_symbol'] : null;

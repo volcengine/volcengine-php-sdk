@@ -156,7 +156,7 @@ class PushMsgToDeviceRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['device_name'] = isset($data['device_name']) ? $data['device_name'] : null;
         $this->container['msg_content'] = isset($data['msg_content']) ? $data['msg_content'] : null;

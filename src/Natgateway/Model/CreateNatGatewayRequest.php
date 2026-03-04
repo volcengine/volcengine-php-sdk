@@ -206,7 +206,7 @@ class CreateNatGatewayRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['billing_type'] = isset($data['billing_type']) ? $data['billing_type'] : null;
         $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;

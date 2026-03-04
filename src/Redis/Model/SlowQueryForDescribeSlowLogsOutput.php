@@ -181,7 +181,7 @@ class SlowQueryForDescribeSlowLogsOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['db_name'] = isset($data['db_name']) ? $data['db_name'] : null;
         $this->container['execution_start_time'] = isset($data['execution_start_time']) ? $data['execution_start_time'] : null;

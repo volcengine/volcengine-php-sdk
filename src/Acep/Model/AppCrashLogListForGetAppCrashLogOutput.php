@@ -161,7 +161,7 @@ class AppCrashLogListForGetAppCrashLogOutput implements ModelInterface, ArrayAcc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['crash_time'] = isset($data['crash_time']) ? $data['crash_time'] : null;
         $this->container['msg'] = isset($data['msg']) ? $data['msg'] : null;

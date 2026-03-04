@@ -151,7 +151,7 @@ class DescribeOriginRankingResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['item'] = isset($data['item']) ? $data['item'] : null;
         $this->container['top_data_details'] = isset($data['top_data_details']) ? $data['top_data_details'] : null;

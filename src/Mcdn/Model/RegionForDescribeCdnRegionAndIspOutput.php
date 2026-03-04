@@ -151,7 +151,7 @@ class RegionForDescribeCdnRegionAndIspOutput implements ModelInterface, ArrayAcc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['cn_name'] = isset($data['cn_name']) ? $data['cn_name'] : null;
         $this->container['en_name'] = isset($data['en_name']) ? $data['en_name'] : null;

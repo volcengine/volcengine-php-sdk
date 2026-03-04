@@ -176,7 +176,7 @@ class CveListForGetVulnInfoOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['cve_detail_url'] = isset($data['cve_detail_url']) ? $data['cve_detail_url'] : null;
         $this->container['cve_id'] = isset($data['cve_id']) ? $data['cve_id'] : null;

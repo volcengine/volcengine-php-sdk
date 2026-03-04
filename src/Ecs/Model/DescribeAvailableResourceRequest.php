@@ -181,7 +181,7 @@ class DescribeAvailableResourceRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['destination_resource'] = isset($data['destination_resource']) ? $data['destination_resource'] : null;
         $this->container['elastic_scheduled_instance_type'] = isset($data['elastic_scheduled_instance_type']) ? $data['elastic_scheduled_instance_type'] : null;

@@ -176,7 +176,7 @@ class SourceClipForGetAITranslationProjectOutput implements ModelInterface, Arra
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['clip_audio'] = isset($data['clip_audio']) ? $data['clip_audio'] : null;
         $this->container['clip_video'] = isset($data['clip_video']) ? $data['clip_video'] : null;

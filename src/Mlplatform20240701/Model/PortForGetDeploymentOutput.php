@@ -182,7 +182,7 @@ class PortForGetDeploymentOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['expose_port'] = isset($data['expose_port']) ? $data['expose_port'] : null;
         $this->container['listen_port'] = isset($data['listen_port']) ? $data['listen_port'] : null;

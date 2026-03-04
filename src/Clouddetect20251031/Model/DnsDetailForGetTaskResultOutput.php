@@ -186,7 +186,7 @@ class DnsDetailForGetTaskResultOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['a_record'] = isset($data['a_record']) ? $data['a_record'] : null;
         $this->container['aaaa_record'] = isset($data['aaaa_record']) ? $data['aaaa_record'] : null;

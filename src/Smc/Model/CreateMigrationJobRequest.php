@@ -186,7 +186,7 @@ class CreateMigrationJobRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['destination_config'] = isset($data['destination_config']) ? $data['destination_config'] : null;
         $this->container['disk_configs'] = isset($data['disk_configs']) ? $data['disk_configs'] : null;

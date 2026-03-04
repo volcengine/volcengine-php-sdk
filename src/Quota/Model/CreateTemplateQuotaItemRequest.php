@@ -166,7 +166,7 @@ class CreateTemplateQuotaItemRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['desire_value'] = isset($data['desire_value']) ? $data['desire_value'] : null;

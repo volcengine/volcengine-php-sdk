@@ -171,7 +171,7 @@ class DescribeLaunchTemplateVersionsRequest implements ModelInterface, ArrayAcce
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['default_version'] = isset($data['default_version']) ? $data['default_version'] : null;
         $this->container['launch_template_id'] = isset($data['launch_template_id']) ? $data['launch_template_id'] : null;

@@ -156,7 +156,7 @@ class StatusForDeleteDeploymentOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['message'] = isset($data['message']) ? $data['message'] : null;
         $this->container['secondary_state'] = isset($data['secondary_state']) ? $data['secondary_state'] : null;

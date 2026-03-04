@@ -156,7 +156,7 @@ class ModifyDatabaseDescriptionRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['db_desc'] = isset($data['db_desc']) ? $data['db_desc'] : null;
         $this->container['db_name'] = isset($data['db_name']) ? $data['db_name'] : null;

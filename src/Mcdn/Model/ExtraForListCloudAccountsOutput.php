@@ -176,7 +176,7 @@ class ExtraForListCloudAccountsOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['access_token'] = isset($data['access_token']) ? $data['access_token'] : null;
         $this->container['akamai_endpoint'] = isset($data['akamai_endpoint']) ? $data['akamai_endpoint'] : null;

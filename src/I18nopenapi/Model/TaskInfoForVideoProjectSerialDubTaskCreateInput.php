@@ -241,7 +241,7 @@ class TaskInfoForVideoProjectSerialDubTaskCreateInput implements ModelInterface,
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['ai_remove_type'] = isset($data['ai_remove_type']) ? $data['ai_remove_type'] : null;
         $this->container['asr_model'] = isset($data['asr_model']) ? $data['asr_model'] : null;

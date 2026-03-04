@@ -156,7 +156,7 @@ class CheckLLMPromptResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['context_id'] = isset($data['context_id']) ? $data['context_id'] : null;
         $this->container['decision'] = isset($data['decision']) ? $data['decision'] : null;

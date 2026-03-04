@@ -156,7 +156,7 @@ class DescribeConfigurationRecordersResponse implements ModelInterface, ArrayAcc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['configuration_recorders'] = isset($data['configuration_recorders']) ? $data['configuration_recorders'] : null;
         $this->container['max_results'] = isset($data['max_results']) ? $data['max_results'] : null;

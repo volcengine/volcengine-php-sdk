@@ -206,7 +206,7 @@ class BackupsInfoForDescribeUserUploadBackupsOutput implements ModelInterface, A
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['backup_associate_time'] = isset($data['backup_associate_time']) ? $data['backup_associate_time'] : null;
         $this->container['backup_file_name'] = isset($data['backup_file_name']) ? $data['backup_file_name'] : null;

@@ -291,7 +291,7 @@ class GetHidsAlarmInfoResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['alarm_data_type2439'] = isset($data['alarm_data_type2439']) ? $data['alarm_data_type2439'] : null;
         $this->container['base_alarm_info'] = isset($data['base_alarm_info']) ? $data['base_alarm_info'] : null;

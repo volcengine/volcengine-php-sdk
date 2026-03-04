@@ -196,7 +196,7 @@ class EnablePresetAlertTemplateRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['alert_methods'] = isset($data['alert_methods']) ? $data['alert_methods'] : null;
         $this->container['contact_group_ids'] = isset($data['contact_group_ids']) ? $data['contact_group_ids'] : null;

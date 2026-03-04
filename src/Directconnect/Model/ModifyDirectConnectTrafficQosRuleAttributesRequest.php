@@ -151,7 +151,7 @@ class ModifyDirectConnectTrafficQosRuleAttributesRequest implements ModelInterfa
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['direct_connect_traffic_qos_rule_id'] = isset($data['direct_connect_traffic_qos_rule_id']) ? $data['direct_connect_traffic_qos_rule_id'] : null;
         $this->container['remarking_dscp'] = isset($data['remarking_dscp']) ? $data['remarking_dscp'] : null;

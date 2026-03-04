@@ -151,7 +151,7 @@ class EnableAlertingRulesResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['successful_items'] = isset($data['successful_items']) ? $data['successful_items'] : null;
         $this->container['unsuccessful_items'] = isset($data['unsuccessful_items']) ? $data['unsuccessful_items'] : null;

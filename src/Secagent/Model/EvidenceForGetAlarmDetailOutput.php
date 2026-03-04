@@ -151,7 +151,7 @@ class EvidenceForGetAlarmDetailOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['adop_reason'] = isset($data['adop_reason']) ? $data['adop_reason'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;

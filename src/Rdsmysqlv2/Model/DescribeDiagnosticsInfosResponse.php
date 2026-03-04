@@ -161,7 +161,7 @@ class DescribeDiagnosticsInfosResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['diagnostics_infos'] = isset($data['diagnostics_infos']) ? $data['diagnostics_infos'] : null;
         $this->container['diagnostics_task_status'] = isset($data['diagnostics_task_status']) ? $data['diagnostics_task_status'] : null;

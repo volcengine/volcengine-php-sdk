@@ -191,7 +191,7 @@ class DescribeContentTasksRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['domain_name'] = isset($data['domain_name']) ? $data['domain_name'] : null;
         $this->container['end_time'] = isset($data['end_time']) ? $data['end_time'] : null;

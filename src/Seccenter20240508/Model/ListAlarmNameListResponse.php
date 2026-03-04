@@ -146,7 +146,7 @@ class ListAlarmNameListResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['alarm_name_list'] = isset($data['alarm_name_list']) ? $data['alarm_name_list'] : null;
     }

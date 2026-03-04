@@ -161,7 +161,7 @@ class TestDingTalkBotWebhookResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['ding_talk_code'] = isset($data['ding_talk_code']) ? $data['ding_talk_code'] : null;
         $this->container['ding_talk_message'] = isset($data['ding_talk_message']) ? $data['ding_talk_message'] : null;

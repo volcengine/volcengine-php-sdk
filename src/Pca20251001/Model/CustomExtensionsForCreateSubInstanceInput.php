@@ -156,7 +156,7 @@ class CustomExtensionsForCreateSubInstanceInput implements ModelInterface, Array
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['critical'] = isset($data['critical']) ? $data['critical'] : null;
         $this->container['object_identifier'] = isset($data['object_identifier']) ? $data['object_identifier'] : null;

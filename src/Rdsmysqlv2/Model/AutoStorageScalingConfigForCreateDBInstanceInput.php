@@ -156,7 +156,7 @@ class AutoStorageScalingConfigForCreateDBInstanceInput implements ModelInterface
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['enable_storage_auto_scale'] = isset($data['enable_storage_auto_scale']) ? $data['enable_storage_auto_scale'] : null;
         $this->container['storage_threshold'] = isset($data['storage_threshold']) ? $data['storage_threshold'] : null;

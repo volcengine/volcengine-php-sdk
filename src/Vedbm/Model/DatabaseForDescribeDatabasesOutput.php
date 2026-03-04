@@ -180,7 +180,7 @@ class DatabaseForDescribeDatabasesOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['character_set_name'] = isset($data['character_set_name']) ? $data['character_set_name'] : null;
         $this->container['db_desc'] = isset($data['db_desc']) ? $data['db_desc'] : null;

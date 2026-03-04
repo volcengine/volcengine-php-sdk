@@ -146,7 +146,7 @@ class GetNodeGroupResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['node_group'] = isset($data['node_group']) ? $data['node_group'] : null;
     }

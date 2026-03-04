@@ -151,7 +151,7 @@ class SingleBatchAppendResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['fail_list'] = isset($data['fail_list']) ? $data['fail_list'] : null;
         $this->container['success_list'] = isset($data['success_list']) ? $data['success_list'] : null;

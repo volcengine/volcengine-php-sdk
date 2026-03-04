@@ -151,7 +151,7 @@ class IncreaseSettingForQueryDataMigrateTaskOutput implements ModelInterface, Ar
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['interval'] = isset($data['interval']) ? $data['interval'] : null;
         $this->container['times'] = isset($data['times']) ? $data['times'] : null;

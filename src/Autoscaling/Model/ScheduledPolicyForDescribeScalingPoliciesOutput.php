@@ -166,7 +166,7 @@ class ScheduledPolicyForDescribeScalingPoliciesOutput implements ModelInterface,
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['launch_time'] = isset($data['launch_time']) ? $data['launch_time'] : null;
         $this->container['recurrence_end_time'] = isset($data['recurrence_end_time']) ? $data['recurrence_end_time'] : null;

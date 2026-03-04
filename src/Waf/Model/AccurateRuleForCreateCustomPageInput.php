@@ -166,7 +166,7 @@ class AccurateRuleForCreateCustomPageInput implements ModelInterface, ArrayAcces
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['http_obj'] = isset($data['http_obj']) ? $data['http_obj'] : null;
         $this->container['obj_type'] = isset($data['obj_type']) ? $data['obj_type'] : null;

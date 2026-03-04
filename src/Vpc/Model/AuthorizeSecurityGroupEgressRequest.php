@@ -196,7 +196,7 @@ class AuthorizeSecurityGroupEgressRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['cidr_ip'] = isset($data['cidr_ip']) ? $data['cidr_ip'] : null;
         $this->container['client_token'] = isset($data['client_token']) ? $data['client_token'] : null;

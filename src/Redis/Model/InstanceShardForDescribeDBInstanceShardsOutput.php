@@ -156,7 +156,7 @@ class InstanceShardForDescribeDBInstanceShardsOutput implements ModelInterface, 
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['node_number'] = isset($data['node_number']) ? $data['node_number'] : null;
         $this->container['server_nodes'] = isset($data['server_nodes']) ? $data['server_nodes'] : null;

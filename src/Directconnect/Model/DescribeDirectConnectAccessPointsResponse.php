@@ -166,7 +166,7 @@ class DescribeDirectConnectAccessPointsResponse implements ModelInterface, Array
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['direct_connect_access_points'] = isset($data['direct_connect_access_points']) ? $data['direct_connect_access_points'] : null;
         $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;

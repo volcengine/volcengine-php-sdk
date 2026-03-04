@@ -166,7 +166,7 @@ class CheckAlarmSupportBanIPResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['ban_ip'] = isset($data['ban_ip']) ? $data['ban_ip'] : null;
         $this->container['ban_port_range'] = isset($data['ban_port_range']) ? $data['ban_port_range'] : null;

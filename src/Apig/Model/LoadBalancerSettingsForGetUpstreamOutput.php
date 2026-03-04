@@ -161,7 +161,7 @@ class LoadBalancerSettingsForGetUpstreamOutput implements ModelInterface, ArrayA
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['consistent_hash_lb'] = isset($data['consistent_hash_lb']) ? $data['consistent_hash_lb'] : null;
         $this->container['lb_policy'] = isset($data['lb_policy']) ? $data['lb_policy'] : null;

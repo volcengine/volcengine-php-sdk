@@ -156,7 +156,7 @@ class TosAuthInformationForUpdateCdnConfigInput implements ModelInterface, Array
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['access_key_id'] = isset($data['access_key_id']) ? $data['access_key_id'] : null;
         $this->container['access_key_secret'] = isset($data['access_key_secret']) ? $data['access_key_secret'] : null;

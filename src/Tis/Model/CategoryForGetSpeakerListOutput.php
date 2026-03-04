@@ -151,7 +151,7 @@ class CategoryForGetSpeakerListOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['level1'] = isset($data['level1']) ? $data['level1'] : null;
         $this->container['level2'] = isset($data['level2']) ? $data['level2'] : null;

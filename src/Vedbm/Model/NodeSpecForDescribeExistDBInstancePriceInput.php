@@ -171,7 +171,7 @@ class NodeSpecForDescribeExistDBInstancePriceInput implements ModelInterface, Ar
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['node_number'] = isset($data['node_number']) ? $data['node_number'] : null;
         $this->container['node_spec'] = isset($data['node_spec']) ? $data['node_spec'] : null;

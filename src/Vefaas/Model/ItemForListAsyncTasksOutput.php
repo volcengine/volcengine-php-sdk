@@ -166,7 +166,7 @@ class ItemForListAsyncTasksOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['end_time'] = isset($data['end_time']) ? $data['end_time'] : null;
         $this->container['execution_records'] = isset($data['execution_records']) ? $data['execution_records'] : null;

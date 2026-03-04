@@ -151,7 +151,7 @@ class QuicConfigForUpdateTaskInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['force_quic_host'] = isset($data['force_quic_host']) ? $data['force_quic_host'] : null;
         $this->container['quic_version'] = isset($data['quic_version']) ? $data['quic_version'] : null;

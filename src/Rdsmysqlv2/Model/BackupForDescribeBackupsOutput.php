@@ -241,7 +241,7 @@ class BackupForDescribeBackupsOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['backup_end_time'] = isset($data['backup_end_time']) ? $data['backup_end_time'] : null;
         $this->container['backup_file_name'] = isset($data['backup_file_name']) ? $data['backup_file_name'] : null;

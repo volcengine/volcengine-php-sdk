@@ -156,7 +156,7 @@ class BinlogInfoForDescribeUserUploadBackupsOutput implements ModelInterface, Ar
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['binlog_file'] = isset($data['binlog_file']) ? $data['binlog_file'] : null;
         $this->container['binlog_gtid'] = isset($data['binlog_gtid']) ? $data['binlog_gtid'] : null;

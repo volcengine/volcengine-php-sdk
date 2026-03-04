@@ -216,7 +216,7 @@ class RecordForNumberListOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['current_bind_count'] = isset($data['current_bind_count']) ? $data['current_bind_count'] : null;
         $this->container['number'] = isset($data['number']) ? $data['number'] : null;

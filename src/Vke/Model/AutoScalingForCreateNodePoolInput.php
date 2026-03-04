@@ -186,7 +186,7 @@ class AutoScalingForCreateNodePoolInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['desired_replicas'] = isset($data['desired_replicas']) ? $data['desired_replicas'] : null;
         $this->container['enabled'] = isset($data['enabled']) ? $data['enabled'] : null;

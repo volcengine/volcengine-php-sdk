@@ -356,7 +356,7 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['affinity_group_size'] = isset($data['affinity_group_size']) ? $data['affinity_group_size'] : null;
         $this->container['auto_renew'] = isset($data['auto_renew']) ? $data['auto_renew'] : null;

@@ -171,7 +171,7 @@ class CircuitBreakingSettingsForUpdateUpstreamInput implements ModelInterface, A
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['base_ejection_time'] = isset($data['base_ejection_time']) ? $data['base_ejection_time'] : null;
         $this->container['consecutive_errors'] = isset($data['consecutive_errors']) ? $data['consecutive_errors'] : null;

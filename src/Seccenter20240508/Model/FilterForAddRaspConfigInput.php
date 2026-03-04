@@ -161,7 +161,7 @@ class FilterForAddRaspConfigInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['hook_func'] = isset($data['hook_func']) ? $data['hook_func'] : null;
         $this->container['hook_param'] = isset($data['hook_param']) ? $data['hook_param'] : null;

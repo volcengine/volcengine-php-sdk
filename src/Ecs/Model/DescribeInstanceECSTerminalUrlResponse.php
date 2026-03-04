@@ -146,7 +146,7 @@ class DescribeInstanceECSTerminalUrlResponse implements ModelInterface, ArrayAcc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['ecs_terminal_url'] = isset($data['ecs_terminal_url']) ? $data['ecs_terminal_url'] : null;
     }

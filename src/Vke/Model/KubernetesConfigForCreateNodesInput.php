@@ -156,7 +156,7 @@ class KubernetesConfigForCreateNodesInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['cordon'] = isset($data['cordon']) ? $data['cordon'] : null;
         $this->container['labels'] = isset($data['labels']) ? $data['labels'] : null;

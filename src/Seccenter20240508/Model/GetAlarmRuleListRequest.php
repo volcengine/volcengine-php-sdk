@@ -186,7 +186,7 @@ class GetAlarmRuleListRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['alarm_rule_id_list'] = isset($data['alarm_rule_id_list']) ? $data['alarm_rule_id_list'] : null;
         $this->container['alert_type_list'] = isset($data['alert_type_list']) ? $data['alert_type_list'] : null;

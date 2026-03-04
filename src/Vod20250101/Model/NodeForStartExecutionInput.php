@@ -176,7 +176,7 @@ class NodeForStartExecutionInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['dependencies'] = isset($data['dependencies']) ? $data['dependencies'] : null;
         $this->container['input'] = isset($data['input']) ? $data['input'] : null;

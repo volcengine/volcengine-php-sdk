@@ -146,7 +146,7 @@ class DeleteNatGatewayRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['nat_gateway_id'] = isset($data['nat_gateway_id']) ? $data['nat_gateway_id'] : null;
     }

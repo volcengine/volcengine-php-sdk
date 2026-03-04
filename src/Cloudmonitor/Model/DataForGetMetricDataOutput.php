@@ -186,7 +186,7 @@ class DataForGetMetricDataOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['description_cn'] = isset($data['description_cn']) ? $data['description_cn'] : null;
         $this->container['description_en'] = isset($data['description_en']) ? $data['description_en'] : null;

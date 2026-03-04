@@ -146,7 +146,7 @@ class GetStackTraceRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['stack_trace_hash'] = isset($data['stack_trace_hash']) ? $data['stack_trace_hash'] : null;
     }

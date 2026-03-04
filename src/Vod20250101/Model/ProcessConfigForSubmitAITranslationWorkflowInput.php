@@ -161,7 +161,7 @@ class ProcessConfigForSubmitAITranslationWorkflowInput implements ModelInterface
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['disable_clone_voice_by_scene'] = isset($data['disable_clone_voice_by_scene']) ? $data['disable_clone_voice_by_scene'] : null;
         $this->container['disable_smart_subtitle_rewrite'] = isset($data['disable_smart_subtitle_rewrite']) ? $data['disable_smart_subtitle_rewrite'] : null;

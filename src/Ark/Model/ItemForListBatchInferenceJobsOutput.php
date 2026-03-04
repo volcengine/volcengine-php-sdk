@@ -211,7 +211,7 @@ class ItemForListBatchInferenceJobsOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['completion_window'] = isset($data['completion_window']) ? $data['completion_window'] : null;
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;

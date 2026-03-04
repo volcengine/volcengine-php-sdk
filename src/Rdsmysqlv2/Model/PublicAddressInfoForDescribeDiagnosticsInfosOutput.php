@@ -156,7 +156,7 @@ class PublicAddressInfoForDescribeDiagnosticsInfosOutput implements ModelInterfa
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['eip_id'] = isset($data['eip_id']) ? $data['eip_id'] : null;
         $this->container['eip_name'] = isset($data['eip_name']) ? $data['eip_name'] : null;

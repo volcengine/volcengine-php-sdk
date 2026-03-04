@@ -171,7 +171,7 @@ class CertificateForDescribeNLBListenerCertificatesOutput implements ModelInterf
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['certificate_id'] = isset($data['certificate_id']) ? $data['certificate_id'] : null;
         $this->container['certificate_source'] = isset($data['certificate_source']) ? $data['certificate_source'] : null;

@@ -151,7 +151,7 @@ class RemoteAuthRuleForBatchUpdateCdnConfigInput implements ModelInterface, Arra
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['condition'] = isset($data['condition']) ? $data['condition'] : null;
         $this->container['remote_auth_rule_action'] = isset($data['remote_auth_rule_action']) ? $data['remote_auth_rule_action'] : null;

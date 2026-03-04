@@ -146,7 +146,7 @@ class DeleteBgpPeerRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['bgp_peer_id'] = isset($data['bgp_peer_id']) ? $data['bgp_peer_id'] : null;
     }

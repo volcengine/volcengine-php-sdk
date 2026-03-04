@@ -146,7 +146,7 @@ class DescribeMigrationSystemSupportTypesResponse implements ModelInterface, Arr
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['target_os_infos'] = isset($data['target_os_infos']) ? $data['target_os_infos'] : null;
     }

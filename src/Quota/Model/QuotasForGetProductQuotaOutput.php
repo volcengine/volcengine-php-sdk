@@ -191,7 +191,7 @@ class QuotasForGetProductQuotaOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['applicable_type'] = isset($data['applicable_type']) ? $data['applicable_type'] : null;
         $this->container['applicable_value'] = isset($data['applicable_value']) ? $data['applicable_value'] : null;

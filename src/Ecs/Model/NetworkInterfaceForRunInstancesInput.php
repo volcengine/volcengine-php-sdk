@@ -166,7 +166,7 @@ class NetworkInterfaceForRunInstancesInput implements ModelInterface, ArrayAcces
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['ipv6_address_count'] = isset($data['ipv6_address_count']) ? $data['ipv6_address_count'] : null;
         $this->container['primary_ip_address'] = isset($data['primary_ip_address']) ? $data['primary_ip_address'] : null;

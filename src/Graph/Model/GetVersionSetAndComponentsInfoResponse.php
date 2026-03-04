@@ -146,7 +146,7 @@ class GetVersionSetAndComponentsInfoResponse implements ModelInterface, ArrayAcc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['vs_infos_with_component_info'] = isset($data['vs_infos_with_component_info']) ? $data['vs_infos_with_component_info'] : null;
     }

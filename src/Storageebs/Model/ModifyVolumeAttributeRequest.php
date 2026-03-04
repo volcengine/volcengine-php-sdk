@@ -161,7 +161,7 @@ class ModifyVolumeAttributeRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['delete_with_instance'] = isset($data['delete_with_instance']) ? $data['delete_with_instance'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;

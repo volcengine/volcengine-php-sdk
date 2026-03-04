@@ -151,7 +151,7 @@ class UnassignIpv6AddressesRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['ipv6_address'] = isset($data['ipv6_address']) ? $data['ipv6_address'] : null;
         $this->container['network_interface_id'] = isset($data['network_interface_id']) ? $data['network_interface_id'] : null;

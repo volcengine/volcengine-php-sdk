@@ -166,7 +166,7 @@ class StartExecutionRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['control'] = isset($data['control']) ? $data['control'] : null;
         $this->container['input'] = isset($data['input']) ? $data['input'] : null;

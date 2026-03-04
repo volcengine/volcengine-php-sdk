@@ -196,7 +196,7 @@ class HandleVulnRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['after_status'] = isset($data['after_status']) ? $data['after_status'] : null;
         $this->container['agent_id_list'] = isset($data['agent_id_list']) ? $data['agent_id_list'] : null;

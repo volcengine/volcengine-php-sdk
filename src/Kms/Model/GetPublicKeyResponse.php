@@ -151,7 +151,7 @@ class GetPublicKeyResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['key_id'] = isset($data['key_id']) ? $data['key_id'] : null;
         $this->container['public_key'] = isset($data['public_key']) ? $data['public_key'] : null;

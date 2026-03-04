@@ -288,7 +288,7 @@ class ItemForSearchInstancesOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['auth_enabled'] = isset($data['auth_enabled']) ? $data['auth_enabled'] : null;
         $this->container['billing_type'] = isset($data['billing_type']) ? $data['billing_type'] : null;

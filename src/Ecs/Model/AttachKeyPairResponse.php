@@ -146,7 +146,7 @@ class AttachKeyPairResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['operation_details'] = isset($data['operation_details']) ? $data['operation_details'] : null;
     }

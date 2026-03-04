@@ -151,7 +151,7 @@ class GetWorkloadAccessTokenResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['expires_at'] = isset($data['expires_at']) ? $data['expires_at'] : null;
         $this->container['workload_access_token'] = isset($data['workload_access_token']) ? $data['workload_access_token'] : null;

@@ -161,7 +161,7 @@ class OptionsForGetJobOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['internal_sync'] = isset($data['internal_sync']) ? $data['internal_sync'] : null;
         $this->container['meta_cache_capacity'] = isset($data['meta_cache_capacity']) ? $data['meta_cache_capacity'] : null;

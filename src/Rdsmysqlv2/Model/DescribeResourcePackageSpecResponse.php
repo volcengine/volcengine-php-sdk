@@ -151,7 +151,7 @@ class DescribeResourcePackageSpecResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['package_price_details'] = isset($data['package_price_details']) ? $data['package_price_details'] : null;
         $this->container['package_specs'] = isset($data['package_specs']) ? $data['package_specs'] : null;

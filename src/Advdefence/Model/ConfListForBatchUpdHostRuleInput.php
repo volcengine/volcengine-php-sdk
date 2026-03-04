@@ -271,7 +271,7 @@ class ConfListForBatchUpdHostRuleInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['all_ssl_cipher'] = isset($data['all_ssl_cipher']) ? $data['all_ssl_cipher'] : null;
         $this->container['back_up_status'] = isset($data['back_up_status']) ? $data['back_up_status'] : null;

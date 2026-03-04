@@ -826,7 +826,7 @@ class KillChainNodeListForGetVirusAlarmSummaryInfoOutput implements ModelInterfa
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['account_expires'] = isset($data['account_expires']) ? $data['account_expires'] : null;
         $this->container['additional_actions_string'] = isset($data['additional_actions_string']) ? $data['additional_actions_string'] : null;

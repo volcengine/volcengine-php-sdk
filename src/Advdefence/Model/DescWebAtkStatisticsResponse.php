@@ -156,7 +156,7 @@ class DescWebAtkStatisticsResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['attack_flow'] = isset($data['attack_flow']) ? $data['attack_flow'] : null;
         $this->container['back_src_flow'] = isset($data['back_src_flow']) ? $data['back_src_flow'] : null;

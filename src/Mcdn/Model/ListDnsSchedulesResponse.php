@@ -151,7 +151,7 @@ class ListDnsSchedulesResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['dns_schedules'] = isset($data['dns_schedules']) ? $data['dns_schedules'] : null;
         $this->container['pagination'] = isset($data['pagination']) ? $data['pagination'] : null;

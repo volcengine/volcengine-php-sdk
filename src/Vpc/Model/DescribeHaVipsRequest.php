@@ -201,7 +201,7 @@ class DescribeHaVipsRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['ha_vip_ids'] = isset($data['ha_vip_ids']) ? $data['ha_vip_ids'] : null;
         $this->container['ha_vip_name'] = isset($data['ha_vip_name']) ? $data['ha_vip_name'] : null;

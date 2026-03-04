@@ -161,7 +161,7 @@ class ReservationConfigForUpdateResourceReservationPlanInput implements ModelInt
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['max_duration_hours'] = isset($data['max_duration_hours']) ? $data['max_duration_hours'] : null;
         $this->container['min_duration_hours'] = isset($data['min_duration_hours']) ? $data['min_duration_hours'] : null;

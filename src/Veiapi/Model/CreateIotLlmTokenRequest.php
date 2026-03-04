@@ -196,7 +196,7 @@ class CreateIotLlmTokenRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['available_devices'] = isset($data['available_devices']) ? $data['available_devices'] : null;
         $this->container['available_online_devices'] = isset($data['available_online_devices']) ? $data['available_online_devices'] : null;

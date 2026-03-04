@@ -191,7 +191,7 @@ class ListResourcePackagesRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['effective_time'] = isset($data['effective_time']) ? $data['effective_time'] : null;
         $this->container['expiration_time'] = isset($data['expiration_time']) ? $data['expiration_time'] : null;

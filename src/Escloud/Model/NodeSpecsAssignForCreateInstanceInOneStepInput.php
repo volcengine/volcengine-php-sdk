@@ -196,7 +196,7 @@ class NodeSpecsAssignForCreateInstanceInOneStepInput implements ModelInterface, 
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['extra_performance'] = isset($data['extra_performance']) ? $data['extra_performance'] : null;
         $this->container['number'] = isset($data['number']) ? $data['number'] : null;

@@ -151,7 +151,7 @@ class CreateTopicResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['create_success'] = isset($data['create_success']) ? $data['create_success'] : null;
         $this->container['expect_minimal_topic_queue_number'] = isset($data['expect_minimal_topic_queue_number']) ? $data['expect_minimal_topic_queue_number'] : null;

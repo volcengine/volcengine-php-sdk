@@ -166,7 +166,7 @@ class InstallAppsRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['app_list'] = isset($data['app_list']) ? $data['app_list'] : null;
         $this->container['install_type'] = isset($data['install_type']) ? $data['install_type'] : null;

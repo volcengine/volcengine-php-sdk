@@ -166,7 +166,7 @@ class CompressionActionForDescribeCdnConfigOutput implements ModelInterface, Arr
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['compression_format'] = isset($data['compression_format']) ? $data['compression_format'] : null;
         $this->container['compression_target'] = isset($data['compression_target']) ? $data['compression_target'] : null;

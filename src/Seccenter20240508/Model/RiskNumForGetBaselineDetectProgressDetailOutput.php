@@ -166,7 +166,7 @@ class RiskNumForGetBaselineDetectProgressDetailOutput implements ModelInterface,
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['failed_num'] = isset($data['failed_num']) ? $data['failed_num'] : null;
         $this->container['high_num'] = isset($data['high_num']) ? $data['high_num'] : null;

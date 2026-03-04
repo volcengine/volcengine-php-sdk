@@ -156,7 +156,7 @@ class DistributionForDescWebRespCodeOutput implements ModelInterface, ArrayAcces
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['percentage'] = isset($data['percentage']) ? $data['percentage'] : null;
         $this->container['resp_code'] = isset($data['resp_code']) ? $data['resp_code'] : null;

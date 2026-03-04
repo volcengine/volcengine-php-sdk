@@ -161,7 +161,7 @@ class DatasetForListModelCustomizationJobsOutput implements ModelInterface, Arra
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['dataset_id'] = isset($data['dataset_id']) ? $data['dataset_id'] : null;
         $this->container['dataset_version_id'] = isset($data['dataset_version_id']) ? $data['dataset_version_id'] : null;

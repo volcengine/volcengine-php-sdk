@@ -216,7 +216,7 @@ class ScalingActivityForDescribeScalingActivitiesOutput implements ModelInterfac
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['activity_type'] = isset($data['activity_type']) ? $data['activity_type'] : null;
         $this->container['actual_adjust_instance_number'] = isset($data['actual_adjust_instance_number']) ? $data['actual_adjust_instance_number'] : null;

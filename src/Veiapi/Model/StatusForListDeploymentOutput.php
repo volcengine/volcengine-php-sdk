@@ -161,7 +161,7 @@ class StatusForListDeploymentOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['available_replicas'] = isset($data['available_replicas']) ? $data['available_replicas'] : null;
         $this->container['ready_replicas'] = isset($data['ready_replicas']) ? $data['ready_replicas'] : null;

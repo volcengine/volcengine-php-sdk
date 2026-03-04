@@ -401,7 +401,7 @@ class ListForListBillOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['bill_category_parent'] = isset($data['bill_category_parent']) ? $data['bill_category_parent'] : null;
         $this->container['bill_detail_num'] = isset($data['bill_detail_num']) ? $data['bill_detail_num'] : null;

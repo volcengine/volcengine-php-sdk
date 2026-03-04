@@ -151,7 +151,7 @@ class MemoryForDescribeInstanceTypesOutput implements ModelInterface, ArrayAcces
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['encrypted_size'] = isset($data['encrypted_size']) ? $data['encrypted_size'] : null;
         $this->container['size'] = isset($data['size']) ? $data['size'] : null;

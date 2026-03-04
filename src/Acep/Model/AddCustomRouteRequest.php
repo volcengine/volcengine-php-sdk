@@ -186,7 +186,7 @@ class AddCustomRouteRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['custom_route_name'] = isset($data['custom_route_name']) ? $data['custom_route_name'] : null;
         $this->container['dst_ip'] = isset($data['dst_ip']) ? $data['dst_ip'] : null;

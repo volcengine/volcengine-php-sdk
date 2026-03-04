@@ -166,7 +166,7 @@ class TosObjectInfoForAssociateUserBackupInput implements ModelInterface, ArrayA
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['associated'] = isset($data['associated']) ? $data['associated'] : null;
         $this->container['last_modified_time'] = isset($data['last_modified_time']) ? $data['last_modified_time'] : null;

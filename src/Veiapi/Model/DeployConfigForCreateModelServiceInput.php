@@ -151,7 +151,7 @@ class DeployConfigForCreateModelServiceInput implements ModelInterface, ArrayAcc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['node_groups'] = isset($data['node_groups']) ? $data['node_groups'] : null;
         $this->container['nodes'] = isset($data['nodes']) ? $data['nodes'] : null;

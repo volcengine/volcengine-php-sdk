@@ -156,7 +156,7 @@ class NetworkInterfaceForAllocateInstancesInput implements ModelInterface, Array
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['ipv6_address_count'] = isset($data['ipv6_address_count']) ? $data['ipv6_address_count'] : null;
         $this->container['security_group_ids'] = isset($data['security_group_ids']) ? $data['security_group_ids'] : null;

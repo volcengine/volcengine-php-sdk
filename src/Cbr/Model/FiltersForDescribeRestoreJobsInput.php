@@ -176,7 +176,7 @@ class FiltersForDescribeRestoreJobsInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['recovery_point_id'] = isset($data['recovery_point_id']) ? $data['recovery_point_id'] : null;
         $this->container['resource_type'] = isset($data['resource_type']) ? $data['resource_type'] : null;

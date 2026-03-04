@@ -156,7 +156,7 @@ class SyncTypeSupportStatusForDescribeMigrationSourcesOutput implements ModelInt
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['block_reason'] = isset($data['block_reason']) ? $data['block_reason'] : null;
         $this->container['is_support'] = isset($data['is_support']) ? $data['is_support'] : null;

@@ -171,7 +171,7 @@ class UpdateGatewayServiceRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['auth_spec'] = isset($data['auth_spec']) ? $data['auth_spec'] : null;
         $this->container['comments'] = isset($data['comments']) ? $data['comments'] : null;

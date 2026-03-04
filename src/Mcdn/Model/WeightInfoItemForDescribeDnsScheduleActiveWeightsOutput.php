@@ -156,7 +156,7 @@ class WeightInfoItemForDescribeDnsScheduleActiveWeightsOutput implements ModelIn
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['actual_value'] = isset($data['actual_value']) ? $data['actual_value'] : null;
         $this->container['domain_id'] = isset($data['domain_id']) ? $data['domain_id'] : null;

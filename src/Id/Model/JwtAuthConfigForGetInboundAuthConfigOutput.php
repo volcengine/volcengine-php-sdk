@@ -156,7 +156,7 @@ class JwtAuthConfigForGetInboundAuthConfigOutput implements ModelInterface, Arra
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['allowed_audiences'] = isset($data['allowed_audiences']) ? $data['allowed_audiences'] : null;
         $this->container['allowed_clients'] = isset($data['allowed_clients']) ? $data['allowed_clients'] : null;

@@ -161,7 +161,7 @@ class ResourceForCreateJobInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['flexible_resource_claim'] = isset($data['flexible_resource_claim']) ? $data['flexible_resource_claim'] : null;
         $this->container['instance_type_id'] = isset($data['instance_type_id']) ? $data['instance_type_id'] : null;

@@ -151,7 +151,7 @@ class ModelForStartExecutionInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['temperature'] = isset($data['temperature']) ? $data['temperature'] : null;
         $this->container['top_p'] = isset($data['top_p']) ? $data['top_p'] : null;

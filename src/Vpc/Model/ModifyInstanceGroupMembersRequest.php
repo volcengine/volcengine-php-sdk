@@ -156,7 +156,7 @@ class ModifyInstanceGroupMembersRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['append_members'] = isset($data['append_members']) ? $data['append_members'] : null;
         $this->container['instance_group_id'] = isset($data['instance_group_id']) ? $data['instance_group_id'] : null;

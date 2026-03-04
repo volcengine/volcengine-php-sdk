@@ -311,7 +311,7 @@ class DataForListRulesByIdsOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['alert_methods'] = isset($data['alert_methods']) ? $data['alert_methods'] : null;
         $this->container['alert_state'] = isset($data['alert_state']) ? $data['alert_state'] : null;

@@ -181,7 +181,7 @@ class OverallResultForDescribeAttackFlowOutput implements ModelInterface, ArrayA
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['drop_k_bps_flow'] = isset($data['drop_k_bps_flow']) ? $data['drop_k_bps_flow'] : null;
         $this->container['drop_pkts_flow'] = isset($data['drop_pkts_flow']) ? $data['drop_pkts_flow'] : null;

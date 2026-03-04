@@ -156,7 +156,7 @@ class InfectStatusForListVulByPodOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['ignore'] = isset($data['ignore']) ? $data['ignore'] : null;
         $this->container['processed'] = isset($data['processed']) ? $data['processed'] : null;

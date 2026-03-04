@@ -156,7 +156,7 @@ class OptionForDescribeBackupsInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['brief_result_only'] = isset($data['brief_result_only']) ? $data['brief_result_only'] : null;
         $this->container['result_filter'] = isset($data['result_filter']) ? $data['result_filter'] : null;

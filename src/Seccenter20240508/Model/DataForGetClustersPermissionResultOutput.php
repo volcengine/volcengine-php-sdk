@@ -161,7 +161,7 @@ class DataForGetClustersPermissionResultOutput implements ModelInterface, ArrayA
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['has_authorize'] = isset($data['has_authorize']) ? $data['has_authorize'] : null;
         $this->container['policy'] = isset($data['policy']) ? $data['policy'] : null;

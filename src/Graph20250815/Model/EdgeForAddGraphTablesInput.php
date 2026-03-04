@@ -176,7 +176,7 @@ class EdgeForAddGraphTablesInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['columns'] = isset($data['columns']) ? $data['columns'] : null;
         $this->container['edge_vertex_constraint'] = isset($data['edge_vertex_constraint']) ? $data['edge_vertex_constraint'] : null;

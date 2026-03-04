@@ -166,7 +166,7 @@ class QualificationAdminInfoVOForQueryQualificationOutput implements ModelInterf
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['contact_number'] = isset($data['contact_number']) ? $data['contact_number'] : null;
         $this->container['id_card_front_photo_url'] = isset($data['id_card_front_photo_url']) ? $data['id_card_front_photo_url'] : null;

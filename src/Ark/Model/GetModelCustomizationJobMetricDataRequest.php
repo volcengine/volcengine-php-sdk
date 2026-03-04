@@ -171,7 +171,7 @@ class GetModelCustomizationJobMetricDataRequest implements ModelInterface, Array
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['from_step'] = isset($data['from_step']) ? $data['from_step'] : null;
         $this->container['max_metric_point'] = isset($data['max_metric_point']) ? $data['max_metric_point'] : null;

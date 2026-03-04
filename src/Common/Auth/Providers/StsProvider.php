@@ -33,7 +33,7 @@ class StsProvider extends Provider
         $schema = 'https',
         $host = 'sts.volcengineapi.com',
         $policy = null,
-        HeaderSelector $selector = null
+        $selector = null
     )
     {
         $this->ak = $ak;

@@ -181,7 +181,7 @@ class ResourceShareInvitationForDescribeResourceShareInvitationsOutput implement
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['invitated_time'] = isset($data['invitated_time']) ? $data['invitated_time'] : null;
         $this->container['owning_account_id'] = isset($data['owning_account_id']) ? $data['owning_account_id'] : null;

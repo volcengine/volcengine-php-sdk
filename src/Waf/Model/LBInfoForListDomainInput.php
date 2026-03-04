@@ -151,7 +151,7 @@ class LBInfoForListDomainInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['access_mode'] = isset($data['access_mode']) ? $data['access_mode'] : null;
         $this->container['lb_instance_id'] = isset($data['lb_instance_id']) ? $data['lb_instance_id'] : null;

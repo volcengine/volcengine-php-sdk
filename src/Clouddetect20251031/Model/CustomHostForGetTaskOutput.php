@@ -151,7 +151,7 @@ class CustomHostForGetTaskOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['raw_host_port'] = isset($data['raw_host_port']) ? $data['raw_host_port'] : null;
         $this->container['resolve_list'] = isset($data['resolve_list']) ? $data['resolve_list'] : null;

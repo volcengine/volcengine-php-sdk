@@ -156,7 +156,7 @@ class ReceiveMessageRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['max_number_of_messages'] = isset($data['max_number_of_messages']) ? $data['max_number_of_messages'] : null;
         $this->container['queue_trn'] = isset($data['queue_trn']) ? $data['queue_trn'] : null;

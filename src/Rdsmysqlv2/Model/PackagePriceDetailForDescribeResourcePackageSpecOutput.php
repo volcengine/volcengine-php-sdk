@@ -151,7 +151,7 @@ class PackagePriceDetailForDescribeResourcePackageSpecOutput implements ModelInt
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['deduction_factor'] = isset($data['deduction_factor']) ? $data['deduction_factor'] : null;
         $this->container['deduction_item'] = isset($data['deduction_item']) ? $data['deduction_item'] : null;

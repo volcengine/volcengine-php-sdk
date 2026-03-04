@@ -186,7 +186,7 @@ class VideoProjectSuppressionStartRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['arrange_ment'] = isset($data['arrange_ment']) ? $data['arrange_ment'] : null;
         $this->container['encode'] = isset($data['encode']) ? $data['encode'] : null;

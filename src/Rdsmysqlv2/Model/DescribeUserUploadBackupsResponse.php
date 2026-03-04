@@ -151,7 +151,7 @@ class DescribeUserUploadBackupsResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['backups_infos'] = isset($data['backups_infos']) ? $data['backups_infos'] : null;
         $this->container['total'] = isset($data['total']) ? $data['total'] : null;

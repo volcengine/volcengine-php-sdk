@@ -181,7 +181,7 @@ class ListMediapipeInstanceRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['engine_types'] = isset($data['engine_types']) ? $data['engine_types'] : null;
         $this->container['hci_alias'] = isset($data['hci_alias']) ? $data['hci_alias'] : null;

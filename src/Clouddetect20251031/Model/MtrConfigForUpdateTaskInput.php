@@ -181,7 +181,7 @@ class MtrConfigForUpdateTaskInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['dns_reverse_resolution'] = isset($data['dns_reverse_resolution']) ? $data['dns_reverse_resolution'] : null;
         $this->container['interval'] = isset($data['interval']) ? $data['interval'] : null;

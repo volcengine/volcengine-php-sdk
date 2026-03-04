@@ -221,7 +221,7 @@ class SignedUrlAuthActionForBatchUpdateCdnConfigInput implements ModelInterface,
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['auth_algorithm'] = isset($data['auth_algorithm']) ? $data['auth_algorithm'] : null;
         $this->container['backup_secret_key'] = isset($data['backup_secret_key']) ? $data['backup_secret_key'] : null;

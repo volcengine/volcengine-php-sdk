@@ -279,7 +279,7 @@ class ItemForListPermissionsOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['authorized_at'] = isset($data['authorized_at']) ? $data['authorized_at'] : null;
         $this->container['authorizer_id'] = isset($data['authorizer_id']) ? $data['authorizer_id'] : null;

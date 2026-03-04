@@ -166,7 +166,7 @@ class BackendForGetServiceOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['backend_domain'] = isset($data['backend_domain']) ? $data['backend_domain'] : null;
         $this->container['backend_port'] = isset($data['backend_port']) ? $data['backend_port'] : null;

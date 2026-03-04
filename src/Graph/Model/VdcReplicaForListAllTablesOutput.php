@@ -151,7 +151,7 @@ class VdcReplicaForListAllTablesOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['replica_num'] = isset($data['replica_num']) ? $data['replica_num'] : null;
         $this->container['vdc'] = isset($data['vdc']) ? $data['vdc'] : null;

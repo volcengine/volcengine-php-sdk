@@ -151,7 +151,7 @@ class QueryMessageTraceByMessageIdResponse implements ModelInterface, ArrayAcces
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['consumer_trace_infos'] = isset($data['consumer_trace_infos']) ? $data['consumer_trace_infos'] : null;
         $this->container['producer_trace_info'] = isset($data['producer_trace_info']) ? $data['producer_trace_info'] : null;

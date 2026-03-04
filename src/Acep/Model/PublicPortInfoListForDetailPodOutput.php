@@ -156,7 +156,7 @@ class PublicPortInfoListForDetailPodOutput implements ModelInterface, ArrayAcces
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['isp'] = isset($data['isp']) ? $data['isp'] : null;
         $this->container['public_ip'] = isset($data['public_ip']) ? $data['public_ip'] : null;

@@ -161,7 +161,7 @@ class ConfigurationForGetMultiLevelInstitutionDetailOutput implements ModelInter
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['institution_status'] = isset($data['institution_status']) ? $data['institution_status'] : null;
         $this->container['report_content'] = isset($data['report_content']) ? $data['report_content'] : null;

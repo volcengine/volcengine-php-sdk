@@ -251,7 +251,7 @@ class GetInstanceTypeResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['available_gpu_memory_mi_b'] = isset($data['available_gpu_memory_mi_b']) ? $data['available_gpu_memory_mi_b'] : null;
         $this->container['cpu'] = isset($data['cpu']) ? $data['cpu'] : null;

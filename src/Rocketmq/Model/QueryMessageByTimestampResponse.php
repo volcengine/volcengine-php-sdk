@@ -151,7 +151,7 @@ class QueryMessageByTimestampResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['has_more_message'] = isset($data['has_more_message']) ? $data['has_more_message'] : null;
         $this->container['message_list'] = isset($data['message_list']) ? $data['message_list'] : null;

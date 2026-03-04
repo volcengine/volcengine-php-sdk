@@ -326,7 +326,7 @@ class UpdateDomainRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['access_mode'] = isset($data['access_mode']) ? $data['access_mode'] : null;
         $this->container['backend_groups'] = isset($data['backend_groups']) ? $data['backend_groups'] : null;

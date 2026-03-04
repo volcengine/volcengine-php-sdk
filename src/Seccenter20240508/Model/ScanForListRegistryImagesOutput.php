@@ -201,7 +201,7 @@ class ScanForListRegistryImagesOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['compl_cnt'] = isset($data['compl_cnt']) ? $data['compl_cnt'] : null;
         $this->container['compl_distr'] = isset($data['compl_distr']) ? $data['compl_distr'] : null;

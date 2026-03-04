@@ -151,7 +151,7 @@ class ConvertValueForListTabletsOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['pending_schedule_replica'] = isset($data['pending_schedule_replica']) ? $data['pending_schedule_replica'] : null;
         $this->container['replica_info'] = isset($data['replica_info']) ? $data['replica_info'] : null;

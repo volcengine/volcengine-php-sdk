@@ -156,7 +156,7 @@ class OverlayPersistPropertyForAddPhoneTemplateInput implements ModelInterface, 
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['system_property_name'] = isset($data['system_property_name']) ? $data['system_property_name'] : null;
         $this->container['system_property_value'] = isset($data['system_property_value']) ? $data['system_property_value'] : null;

@@ -151,7 +151,7 @@ class ModelReferenceForCreateEndpointInput implements ModelInterface, ArrayAcces
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['custom_model_id'] = isset($data['custom_model_id']) ? $data['custom_model_id'] : null;
         $this->container['foundation_model'] = isset($data['foundation_model']) ? $data['foundation_model'] : null;

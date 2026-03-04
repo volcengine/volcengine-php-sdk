@@ -226,7 +226,7 @@ class CreateBotAnalyseProtectRuleRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['accurate_group'] = isset($data['accurate_group']) ? $data['accurate_group'] : null;
         $this->container['action_after_verification'] = isset($data['action_after_verification']) ? $data['action_after_verification'] : null;

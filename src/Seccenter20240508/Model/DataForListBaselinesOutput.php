@@ -151,7 +151,7 @@ class DataForListBaselinesOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['baseline_list'] = isset($data['baseline_list']) ? $data['baseline_list'] : null;
         $this->container['detect_status'] = isset($data['detect_status']) ? $data['detect_status'] : null;

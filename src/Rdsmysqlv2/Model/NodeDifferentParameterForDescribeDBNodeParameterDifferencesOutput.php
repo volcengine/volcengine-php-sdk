@@ -151,7 +151,7 @@ class NodeDifferentParameterForDescribeDBNodeParameterDifferencesOutput implemen
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['node_parameter_value_details'] = isset($data['node_parameter_value_details']) ? $data['node_parameter_value_details'] : null;
         $this->container['parameter_name'] = isset($data['parameter_name']) ? $data['parameter_name'] : null;

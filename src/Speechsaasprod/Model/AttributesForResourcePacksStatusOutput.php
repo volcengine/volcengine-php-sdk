@@ -156,7 +156,7 @@ class AttributesForResourcePacksStatusOutput implements ModelInterface, ArrayAcc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['code_attribute'] = isset($data['code_attribute']) ? $data['code_attribute'] : null;
         $this->container['formalized_from'] = isset($data['formalized_from']) ? $data['formalized_from'] : null;

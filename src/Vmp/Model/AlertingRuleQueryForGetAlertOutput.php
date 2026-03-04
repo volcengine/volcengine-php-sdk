@@ -151,7 +151,7 @@ class AlertingRuleQueryForGetAlertOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['prom_ql'] = isset($data['prom_ql']) ? $data['prom_ql'] : null;
         $this->container['workspace_id'] = isset($data['workspace_id']) ? $data['workspace_id'] : null;

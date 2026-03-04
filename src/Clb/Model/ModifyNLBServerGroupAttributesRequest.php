@@ -206,7 +206,7 @@ class ModifyNLBServerGroupAttributesRequest implements ModelInterface, ArrayAcce
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['bypass_security_group_enabled'] = isset($data['bypass_security_group_enabled']) ? $data['bypass_security_group_enabled'] : null;
         $this->container['connection_drain_enabled'] = isset($data['connection_drain_enabled']) ? $data['connection_drain_enabled'] : null;

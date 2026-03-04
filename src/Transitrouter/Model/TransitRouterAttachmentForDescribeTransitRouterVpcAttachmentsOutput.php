@@ -211,7 +211,7 @@ class TransitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput implem
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['appliance_mode_enabled'] = isset($data['appliance_mode_enabled']) ? $data['appliance_mode_enabled'] : null;
         $this->container['attach_points'] = isset($data['attach_points']) ? $data['attach_points'] : null;

@@ -218,7 +218,7 @@ class HistoryVersionForGetServiceOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['apig_config'] = isset($data['apig_config']) ? $data['apig_config'] : null;
         $this->container['clb_config'] = isset($data['clb_config']) ? $data['clb_config'] : null;

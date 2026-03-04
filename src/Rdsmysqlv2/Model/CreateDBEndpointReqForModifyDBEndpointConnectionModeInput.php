@@ -231,7 +231,7 @@ class CreateDBEndpointReqForModifyDBEndpointConnectionModeInput implements Model
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['auto_add_new_nodes'] = isset($data['auto_add_new_nodes']) ? $data['auto_add_new_nodes'] : null;
         $this->container['connection_pool_type'] = isset($data['connection_pool_type']) ? $data['connection_pool_type'] : null;

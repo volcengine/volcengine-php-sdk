@@ -151,7 +151,7 @@ class UnbindPortMappingRuleResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['error_pod_info_list'] = isset($data['error_pod_info_list']) ? $data['error_pod_info_list'] : null;
         $this->container['success_pod_id_list'] = isset($data['success_pod_id_list']) ? $data['success_pod_id_list'] : null;

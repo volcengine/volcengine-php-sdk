@@ -166,7 +166,7 @@ class CreateAITranslationSpeechRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['audio_file_name'] = isset($data['audio_file_name']) ? $data['audio_file_name'] : null;
         $this->container['source_language'] = isset($data['source_language']) ? $data['source_language'] : null;

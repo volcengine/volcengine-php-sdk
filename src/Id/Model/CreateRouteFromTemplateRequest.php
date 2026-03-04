@@ -161,7 +161,7 @@ class CreateRouteFromTemplateRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['permission_pool'] = isset($data['permission_pool']) ? $data['permission_pool'] : null;
         $this->container['route_name'] = isset($data['route_name']) ? $data['route_name'] : null;

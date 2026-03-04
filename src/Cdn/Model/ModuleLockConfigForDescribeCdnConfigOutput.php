@@ -266,7 +266,7 @@ class ModuleLockConfigForDescribeCdnConfigOutput implements ModelInterface, Arra
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['browser_cache_locked'] = isset($data['browser_cache_locked']) ? $data['browser_cache_locked'] : null;
         $this->container['cache_key_locked'] = isset($data['cache_key_locked']) ? $data['cache_key_locked'] : null;

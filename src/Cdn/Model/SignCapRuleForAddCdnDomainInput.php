@@ -156,7 +156,7 @@ class SignCapRuleForAddCdnDomainInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['cap_mode'] = isset($data['cap_mode']) ? $data['cap_mode'] : null;
         $this->container['param_name'] = isset($data['param_name']) ? $data['param_name'] : null;

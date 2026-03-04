@@ -151,7 +151,7 @@ class WeightItemForUpdateDnsScheduleStaticWeightInput implements ModelInterface,
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['domain_id'] = isset($data['domain_id']) ? $data['domain_id'] : null;
         $this->container['value'] = isset($data['value']) ? $data['value'] : null;

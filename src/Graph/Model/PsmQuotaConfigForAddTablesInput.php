@@ -166,7 +166,7 @@ class PsmQuotaConfigForAddTablesInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['caller_psm'] = isset($data['caller_psm']) ? $data['caller_psm'] : null;
         $this->container['read_fetch_size'] = isset($data['read_fetch_size']) ? $data['read_fetch_size'] : null;

@@ -181,7 +181,7 @@ class LogSetupForCreateClusterInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['enabled'] = isset($data['enabled']) ? $data['enabled'] : null;
         $this->container['log_ttl'] = isset($data['log_ttl']) ? $data['log_ttl'] : null;

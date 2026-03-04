@@ -161,7 +161,7 @@ class CheckItemForDescribeTaskDetailOutput implements ModelInterface, ArrayAcces
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['check_detail'] = isset($data['check_detail']) ? $data['check_detail'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;

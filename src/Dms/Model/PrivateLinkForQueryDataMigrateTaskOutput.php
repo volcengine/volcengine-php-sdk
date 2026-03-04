@@ -171,7 +171,7 @@ class PrivateLinkForQueryDataMigrateTaskOutput implements ModelInterface, ArrayA
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['eni_role'] = isset($data['eni_role']) ? $data['eni_role'] : null;
         $this->container['idc_ip'] = isset($data['idc_ip']) ? $data['idc_ip'] : null;

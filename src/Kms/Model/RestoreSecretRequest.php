@@ -156,7 +156,7 @@ class RestoreSecretRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['backup_data'] = isset($data['backup_data']) ? $data['backup_data'] : null;
         $this->container['secret_data_key'] = isset($data['secret_data_key']) ? $data['secret_data_key'] : null;

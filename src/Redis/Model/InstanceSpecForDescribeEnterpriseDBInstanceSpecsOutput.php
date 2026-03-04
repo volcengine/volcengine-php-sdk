@@ -171,7 +171,7 @@ class InstanceSpecForDescribeEnterpriseDBInstanceSpecsOutput implements ModelInt
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['data_layout'] = isset($data['data_layout']) ? $data['data_layout'] : null;
         $this->container['flash_capacity_max'] = isset($data['flash_capacity_max']) ? $data['flash_capacity_max'] : null;

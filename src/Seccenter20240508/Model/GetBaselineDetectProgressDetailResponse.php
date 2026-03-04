@@ -171,7 +171,7 @@ class GetBaselineDetectProgressDetailResponse implements ModelInterface, ArrayAc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['dev_detail'] = isset($data['dev_detail']) ? $data['dev_detail'] : null;
         $this->container['host_detail'] = isset($data['host_detail']) ? $data['host_detail'] : null;

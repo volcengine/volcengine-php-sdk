@@ -166,7 +166,7 @@ class ServersForAddHostRuleInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['addr'] = isset($data['addr']) ? $data['addr'] : null;
         $this->container['back_up'] = isset($data['back_up']) ? $data['back_up'] : null;

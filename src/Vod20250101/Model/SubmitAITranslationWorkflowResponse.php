@@ -146,7 +146,7 @@ class SubmitAITranslationWorkflowResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['project_base_info'] = isset($data['project_base_info']) ? $data['project_base_info'] : null;
     }

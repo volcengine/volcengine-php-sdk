@@ -156,7 +156,7 @@ class DescribeDBInstanceVersionResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['db_engine_version'] = isset($data['db_engine_version']) ? $data['db_engine_version'] : null;
         $this->container['db_minor_version'] = isset($data['db_minor_version']) ? $data['db_minor_version'] : null;

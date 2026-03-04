@@ -151,7 +151,7 @@ class OperatorConfigForGetAITranslationProjectOutput implements ModelInterface, 
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['subtitle_recognition_config'] = isset($data['subtitle_recognition_config']) ? $data['subtitle_recognition_config'] : null;
         $this->container['voice_clone_config'] = isset($data['voice_clone_config']) ? $data['voice_clone_config'] : null;

@@ -156,7 +156,7 @@ class TaskReportForQueryDataMigrateTaskOutput implements ModelInterface, ArrayAc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['failed_list_name'] = isset($data['failed_list_name']) ? $data['failed_list_name'] : null;
         $this->container['report_name'] = isset($data['report_name']) ? $data['report_name'] : null;

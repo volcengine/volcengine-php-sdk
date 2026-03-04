@@ -156,7 +156,7 @@ class UsageStatForDescribeBackupStatsOutput implements ModelInterface, ArrayAcce
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['quantity'] = isset($data['quantity']) ? $data['quantity'] : null;
         $this->container['stat_item'] = isset($data['stat_item']) ? $data['stat_item'] : null;

@@ -181,7 +181,7 @@ class BasicDetailForGetTaskResultOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['assertions'] = isset($data['assertions']) ? $data['assertions'] : null;
         $this->container['ch_uk'] = isset($data['ch_uk']) ? $data['ch_uk'] : null;

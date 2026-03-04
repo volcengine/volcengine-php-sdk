@@ -217,7 +217,7 @@ class ListBudgetRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['budget_name'] = isset($data['budget_name']) ? $data['budget_name'] : null;
         $this->container['budget_type'] = isset($data['budget_type']) ? $data['budget_type'] : null;

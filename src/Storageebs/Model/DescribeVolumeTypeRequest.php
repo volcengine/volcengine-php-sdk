@@ -171,7 +171,7 @@ class DescribeVolumeTypeRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['filter'] = isset($data['filter']) ? $data['filter'] : null;
         $this->container['order_by'] = isset($data['order_by']) ? $data['order_by'] : null;

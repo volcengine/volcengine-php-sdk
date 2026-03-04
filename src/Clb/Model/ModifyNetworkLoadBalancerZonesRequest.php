@@ -156,7 +156,7 @@ class ModifyNetworkLoadBalancerZonesRequest implements ModelInterface, ArrayAcce
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['add_zone_mappings'] = isset($data['add_zone_mappings']) ? $data['add_zone_mappings'] : null;
         $this->container['delete_zone_mappings'] = isset($data['delete_zone_mappings']) ? $data['delete_zone_mappings'] : null;

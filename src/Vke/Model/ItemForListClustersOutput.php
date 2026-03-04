@@ -275,7 +275,7 @@ class ItemForListClustersOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['cluster_config'] = isset($data['cluster_config']) ? $data['cluster_config'] : null;
         $this->container['connector_config'] = isset($data['connector_config']) ? $data['connector_config'] : null;

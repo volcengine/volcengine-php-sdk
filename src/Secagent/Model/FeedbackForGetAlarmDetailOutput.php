@@ -161,7 +161,7 @@ class FeedbackForGetAlarmDetailOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['feedback_complement'] = isset($data['feedback_complement']) ? $data['feedback_complement'] : null;
         $this->container['feedback_ioc_feature'] = isset($data['feedback_ioc_feature']) ? $data['feedback_ioc_feature'] : null;

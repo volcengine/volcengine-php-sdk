@@ -171,7 +171,7 @@ class ConvertConvertModelForGetExecutionOutput implements ModelInterface, ArrayA
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['doubao_input_tokens'] = isset($data['doubao_input_tokens']) ? $data['doubao_input_tokens'] : null;
         $this->container['doubao_output_tokens'] = isset($data['doubao_output_tokens']) ? $data['doubao_output_tokens'] : null;

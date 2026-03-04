@@ -156,7 +156,7 @@ class TokenForCreateIotLlmTokenInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['completion_limit'] = isset($data['completion_limit']) ? $data['completion_limit'] : null;
         $this->container['prompt_limit'] = isset($data['prompt_limit']) ? $data['prompt_limit'] : null;

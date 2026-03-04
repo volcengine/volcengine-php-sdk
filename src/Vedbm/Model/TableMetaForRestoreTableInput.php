@@ -156,7 +156,7 @@ class TableMetaForRestoreTableInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['db_name'] = isset($data['db_name']) ? $data['db_name'] : null;
         $this->container['new_db_name'] = isset($data['new_db_name']) ? $data['new_db_name'] : null;

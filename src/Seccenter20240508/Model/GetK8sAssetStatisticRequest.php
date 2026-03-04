@@ -146,7 +146,7 @@ class GetK8sAssetStatisticRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['cluster_asset_id'] = isset($data['cluster_asset_id']) ? $data['cluster_asset_id'] : null;
     }

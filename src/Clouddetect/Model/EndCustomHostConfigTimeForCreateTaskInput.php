@@ -151,7 +151,7 @@ class EndCustomHostConfigTimeForCreateTaskInput implements ModelInterface, Array
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['custom_hosts'] = isset($data['custom_hosts']) ? $data['custom_hosts'] : null;
         $this->container['strategy'] = isset($data['strategy']) ? $data['strategy'] : null;

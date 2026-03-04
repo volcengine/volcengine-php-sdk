@@ -181,7 +181,7 @@ class AssociationForListResourceShareAssociationsOutput implements ModelInterfac
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['associate_time'] = isset($data['associate_time']) ? $data['associate_time'] : null;
         $this->container['association_entity'] = isset($data['association_entity']) ? $data['association_entity'] : null;

@@ -191,7 +191,7 @@ class SuppressionVideoInfoForVideoProjectTaskDetailOutput implements ModelInterf
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['poster_url'] = isset($data['poster_url']) ? $data['poster_url'] : null;
         $this->container['source_last_time'] = isset($data['source_last_time']) ? $data['source_last_time'] : null;

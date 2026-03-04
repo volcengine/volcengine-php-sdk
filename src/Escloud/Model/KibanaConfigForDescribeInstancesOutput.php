@@ -166,7 +166,7 @@ class KibanaConfigForDescribeInstancesOutput implements ModelInterface, ArrayAcc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['cookie_ttl'] = isset($data['cookie_ttl']) ? $data['cookie_ttl'] : null;
         $this->container['kibana_base_path'] = isset($data['kibana_base_path']) ? $data['kibana_base_path'] : null;

@@ -201,7 +201,7 @@ class NodeDetailInfoForDescribeDBInstancesOutput implements ModelInterface, Arra
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;

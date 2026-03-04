@@ -156,7 +156,7 @@ class NotifyConfigForListAlertStrategiesOutput implements ModelInterface, ArrayA
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['ignore_disabled_domains'] = isset($data['ignore_disabled_domains']) ? $data['ignore_disabled_domains'] : null;
         $this->container['level'] = isset($data['level']) ? $data['level'] : null;

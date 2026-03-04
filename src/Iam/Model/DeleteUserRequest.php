@@ -146,7 +146,7 @@ class DeleteUserRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['user_name'] = isset($data['user_name']) ? $data['user_name'] : null;
     }

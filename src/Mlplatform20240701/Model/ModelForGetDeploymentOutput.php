@@ -151,7 +151,7 @@ class ModelForGetDeploymentOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['model_id'] = isset($data['model_id']) ? $data['model_id'] : null;
         $this->container['model_version_id'] = isset($data['model_version_id']) ? $data['model_version_id'] : null;

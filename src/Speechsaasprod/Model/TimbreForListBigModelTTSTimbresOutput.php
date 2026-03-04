@@ -151,7 +151,7 @@ class TimbreForListBigModelTTSTimbresOutput implements ModelInterface, ArrayAcce
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['speaker_id'] = isset($data['speaker_id']) ? $data['speaker_id'] : null;
         $this->container['timbre_infos'] = isset($data['timbre_infos']) ? $data['timbre_infos'] : null;

@@ -166,7 +166,7 @@ class ModifyDBInstanceAdditionalBandwidthPerShardRequest implements ModelInterfa
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['additional_bandwidth'] = isset($data['additional_bandwidth']) ? $data['additional_bandwidth'] : null;
         $this->container['additional_read_bandwidth'] = isset($data['additional_read_bandwidth']) ? $data['additional_read_bandwidth'] : null;

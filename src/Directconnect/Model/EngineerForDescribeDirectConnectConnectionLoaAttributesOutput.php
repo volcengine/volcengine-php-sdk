@@ -166,7 +166,7 @@ class EngineerForDescribeDirectConnectConnectionLoaAttributesOutput implements M
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['certificate_no'] = isset($data['certificate_no']) ? $data['certificate_no'] : null;
         $this->container['certificate_type'] = isset($data['certificate_type']) ? $data['certificate_type'] : null;

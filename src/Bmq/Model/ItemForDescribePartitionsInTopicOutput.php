@@ -166,7 +166,7 @@ class ItemForDescribePartitionsInTopicOutput implements ModelInterface, ArrayAcc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['earliest_offset'] = isset($data['earliest_offset']) ? $data['earliest_offset'] : null;
         $this->container['latest_offset'] = isset($data['latest_offset']) ? $data['latest_offset'] : null;

@@ -216,7 +216,7 @@ class RowForListAppOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['app_desc'] = isset($data['app_desc']) ? $data['app_desc'] : null;
         $this->container['app_id'] = isset($data['app_id']) ? $data['app_id'] : null;

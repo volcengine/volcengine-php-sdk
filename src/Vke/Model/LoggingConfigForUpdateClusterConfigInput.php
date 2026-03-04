@@ -151,7 +151,7 @@ class LoggingConfigForUpdateClusterConfigInput implements ModelInterface, ArrayA
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['log_project_id'] = isset($data['log_project_id']) ? $data['log_project_id'] : null;
         $this->container['log_setups'] = isset($data['log_setups']) ? $data['log_setups'] : null;

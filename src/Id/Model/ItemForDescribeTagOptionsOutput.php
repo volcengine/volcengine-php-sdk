@@ -151,7 +151,7 @@ class ItemForDescribeTagOptionsOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['tag_id'] = isset($data['tag_id']) ? $data['tag_id'] : null;
         $this->container['tag_name'] = isset($data['tag_name']) ? $data['tag_name'] : null;

@@ -231,7 +231,7 @@ class DescribeContentQuotaResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['block_limit'] = isset($data['block_limit']) ? $data['block_limit'] : null;
         $this->container['block_quota'] = isset($data['block_quota']) ? $data['block_quota'] : null;

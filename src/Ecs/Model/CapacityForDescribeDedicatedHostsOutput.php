@@ -166,7 +166,7 @@ class CapacityForDescribeDedicatedHostsOutput implements ModelInterface, ArrayAc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['available_memory'] = isset($data['available_memory']) ? $data['available_memory'] : null;
         $this->container['available_vcpus'] = isset($data['available_vcpus']) ? $data['available_vcpus'] : null;

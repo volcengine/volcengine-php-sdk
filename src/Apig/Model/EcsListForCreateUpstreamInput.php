@@ -156,7 +156,7 @@ class EcsListForCreateUpstreamInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['ecs_id'] = isset($data['ecs_id']) ? $data['ecs_id'] : null;
         $this->container['ip'] = isset($data['ip']) ? $data['ip'] : null;

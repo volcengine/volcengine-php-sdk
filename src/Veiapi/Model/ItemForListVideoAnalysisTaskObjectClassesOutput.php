@@ -151,7 +151,7 @@ class ItemForListVideoAnalysisTaskObjectClassesOutput implements ModelInterface,
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['name_en'] = isset($data['name_en']) ? $data['name_en'] : null;
         $this->container['name_zh'] = isset($data['name_zh']) ? $data['name_zh'] : null;

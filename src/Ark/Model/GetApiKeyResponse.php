@@ -151,7 +151,7 @@ class GetApiKeyResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['api_key'] = isset($data['api_key']) ? $data['api_key'] : null;
         $this->container['expired_time'] = isset($data['expired_time']) ? $data['expired_time'] : null;

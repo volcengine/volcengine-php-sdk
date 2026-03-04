@@ -151,7 +151,7 @@ class GpuMemoryInfoForListResourceQueuesOutput implements ModelInterface, ArrayA
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['gpu_type'] = isset($data['gpu_type']) ? $data['gpu_type'] : null;
         $this->container['memory_gi_b'] = isset($data['memory_gi_b']) ? $data['memory_gi_b'] : null;

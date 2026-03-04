@@ -171,7 +171,7 @@ class DNSConfigForListTaskOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['enable_dig'] = isset($data['enable_dig']) ? $data['enable_dig'] : null;
         $this->container['record_type'] = isset($data['record_type']) ? $data['record_type'] : null;

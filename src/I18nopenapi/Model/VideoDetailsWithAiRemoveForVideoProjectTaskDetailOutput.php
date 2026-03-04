@@ -211,7 +211,7 @@ class VideoDetailsWithAiRemoveForVideoProjectTaskDetailOutput implements ModelIn
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['audio_url'] = isset($data['audio_url']) ? $data['audio_url'] : null;
         $this->container['compressed_video_url'] = isset($data['compressed_video_url']) ? $data['compressed_video_url'] : null;

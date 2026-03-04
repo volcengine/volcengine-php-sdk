@@ -176,7 +176,7 @@ class DescribeNLBListenersRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['listener_ids'] = isset($data['listener_ids']) ? $data['listener_ids'] : null;
         $this->container['listener_name'] = isset($data['listener_name']) ? $data['listener_name'] : null;

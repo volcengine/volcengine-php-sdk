@@ -156,7 +156,7 @@ class LarkBotForGetContactOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['chat_id'] = isset($data['chat_id']) ? $data['chat_id'] : null;
         $this->container['group_name'] = isset($data['group_name']) ? $data['group_name'] : null;

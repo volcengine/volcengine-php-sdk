@@ -151,7 +151,7 @@ class DescribeDeploymentSetSupportedInstanceTypeFamilyResponse implements ModelI
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['deployment_set_create_instance_type_families'] = isset($data['deployment_set_create_instance_type_families']) ? $data['deployment_set_create_instance_type_families'] : null;
         $this->container['deployment_set_modify_instance_type_families'] = isset($data['deployment_set_modify_instance_type_families']) ? $data['deployment_set_modify_instance_type_families'] : null;

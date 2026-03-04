@@ -151,7 +151,7 @@ class ApiServerPublicAccessConfigForListClustersOutput implements ModelInterface
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['access_source_ipsv4'] = isset($data['access_source_ipsv4']) ? $data['access_source_ipsv4'] : null;
         $this->container['public_access_network_config'] = isset($data['public_access_network_config']) ? $data['public_access_network_config'] : null;

@@ -156,7 +156,7 @@ class CommonTypeForBatchUpdateCdnConfigInput implements ModelInterface, ArrayAcc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['ignore_case'] = isset($data['ignore_case']) ? $data['ignore_case'] : null;
         $this->container['ignore_scheme'] = isset($data['ignore_scheme']) ? $data['ignore_scheme'] : null;

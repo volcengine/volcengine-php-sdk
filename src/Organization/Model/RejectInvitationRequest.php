@@ -156,7 +156,7 @@ class RejectInvitationRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['invite_id'] = isset($data['invite_id']) ? $data['invite_id'] : null;
         $this->container['link_id'] = isset($data['link_id']) ? $data['link_id'] : null;

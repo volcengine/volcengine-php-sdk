@@ -151,7 +151,7 @@ class ListVideoAnalysisTaskObjectClassesRequest implements ModelInterface, Array
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['page_index'] = isset($data['page_index']) ? $data['page_index'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;

@@ -211,7 +211,7 @@ class FilterForListUsersInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['connection'] = isset($data['connection']) ? $data['connection'] : null;
         $this->container['email'] = isset($data['email']) ? $data['email'] : null;

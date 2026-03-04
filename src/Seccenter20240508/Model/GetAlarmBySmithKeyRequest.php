@@ -151,7 +151,7 @@ class GetAlarmBySmithKeyRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['smith_key'] = isset($data['smith_key']) ? $data['smith_key'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;

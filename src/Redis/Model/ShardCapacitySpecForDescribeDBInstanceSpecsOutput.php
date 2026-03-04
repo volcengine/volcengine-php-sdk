@@ -156,7 +156,7 @@ class ShardCapacitySpecForDescribeDBInstanceSpecsOutput implements ModelInterfac
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['default_bandwidth_per_shard'] = isset($data['default_bandwidth_per_shard']) ? $data['default_bandwidth_per_shard'] : null;
         $this->container['max_additional_bandwidth_per_shard'] = isset($data['max_additional_bandwidth_per_shard']) ? $data['max_additional_bandwidth_per_shard'] : null;

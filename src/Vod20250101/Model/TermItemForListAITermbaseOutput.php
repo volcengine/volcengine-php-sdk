@@ -151,7 +151,7 @@ class TermItemForListAITermbaseOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['source_text'] = isset($data['source_text']) ? $data['source_text'] : null;
         $this->container['target_text'] = isset($data['target_text']) ? $data['target_text'] : null;

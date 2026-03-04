@@ -146,7 +146,7 @@ class DeleteBlueGreenDeploymentRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['source_instance_id'] = isset($data['source_instance_id']) ? $data['source_instance_id'] : null;
     }

@@ -161,7 +161,7 @@ class NetworkConfigForCreateMigrationJobInput implements ModelInterface, ArrayAc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['bandwidth_limit'] = isset($data['bandwidth_limit']) ? $data['bandwidth_limit'] : null;
         $this->container['network_transition_mode'] = isset($data['network_transition_mode']) ? $data['network_transition_mode'] : null;

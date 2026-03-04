@@ -186,7 +186,7 @@ class GroupForListLayeredGroupsDetailOutput implements ModelInterface, ArrayAcce
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['children'] = isset($data['children']) ? $data['children'] : null;
         $this->container['group_id'] = isset($data['group_id']) ? $data['group_id'] : null;

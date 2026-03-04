@@ -156,7 +156,7 @@ class TestShutDownDBInstanceNodesRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
         $this->container['proxy_node_ids'] = isset($data['proxy_node_ids']) ? $data['proxy_node_ids'] : null;

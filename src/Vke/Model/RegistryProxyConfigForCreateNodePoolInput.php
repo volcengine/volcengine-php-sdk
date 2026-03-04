@@ -151,7 +151,7 @@ class RegistryProxyConfigForCreateNodePoolInput implements ModelInterface, Array
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['proxy_endpoints'] = isset($data['proxy_endpoints']) ? $data['proxy_endpoints'] : null;
         $this->container['registry'] = isset($data['registry']) ? $data['registry'] : null;

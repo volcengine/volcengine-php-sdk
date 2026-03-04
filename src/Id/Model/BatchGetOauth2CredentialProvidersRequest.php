@@ -151,7 +151,7 @@ class BatchGetOauth2CredentialProvidersRequest implements ModelInterface, ArrayA
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['names'] = isset($data['names']) ? $data['names'] : null;
         $this->container['pool_name'] = isset($data['pool_name']) ? $data['pool_name'] : null;

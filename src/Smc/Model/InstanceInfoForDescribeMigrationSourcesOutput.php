@@ -176,7 +176,7 @@ class InstanceInfoForDescribeMigrationSourcesOutput implements ModelInterface, A
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['blk_none_can_install'] = isset($data['blk_none_can_install']) ? $data['blk_none_can_install'] : null;
         $this->container['blk_none_install'] = isset($data['blk_none_install']) ? $data['blk_none_install'] : null;

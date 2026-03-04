@@ -151,7 +151,7 @@ class BackupDataResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['details'] = isset($data['details']) ? $data['details'] : null;
         $this->container['task_id_list'] = isset($data['task_id_list']) ? $data['task_id_list'] : null;

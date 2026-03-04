@@ -146,7 +146,7 @@ class QueryAudioRecordToTextFileUrlV2Request implements ModelInterface, ArrayAcc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['call_id_list'] = isset($data['call_id_list']) ? $data['call_id_list'] : null;
     }

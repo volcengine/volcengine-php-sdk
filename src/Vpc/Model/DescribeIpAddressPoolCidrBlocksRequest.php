@@ -161,7 +161,7 @@ class DescribeIpAddressPoolCidrBlocksRequest implements ModelInterface, ArrayAcc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['cidr_block'] = isset($data['cidr_block']) ? $data['cidr_block'] : null;
         $this->container['ip_address_pool_id'] = isset($data['ip_address_pool_id']) ? $data['ip_address_pool_id'] : null;

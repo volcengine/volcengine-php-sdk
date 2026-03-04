@@ -201,7 +201,7 @@ class ItemForListWorkspaceInstanceTypesOutput implements ModelInterface, ArrayAc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['active_series'] = isset($data['active_series']) ? $data['active_series'] : null;
         $this->container['availability_zone_replicas'] = isset($data['availability_zone_replicas']) ? $data['availability_zone_replicas'] : null;

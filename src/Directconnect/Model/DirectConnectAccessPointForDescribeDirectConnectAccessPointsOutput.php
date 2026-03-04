@@ -171,7 +171,7 @@ class DirectConnectAccessPointForDescribeDirectConnectAccessPointsOutput impleme
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['direct_connect_access_point_id'] = isset($data['direct_connect_access_point_id']) ? $data['direct_connect_access_point_id'] : null;

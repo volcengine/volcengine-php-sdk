@@ -181,7 +181,7 @@ class FilterForListAlertsInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['alerting_rule_ids'] = isset($data['alerting_rule_ids']) ? $data['alerting_rule_ids'] : null;
         $this->container['current_phase'] = isset($data['current_phase']) ? $data['current_phase'] : null;

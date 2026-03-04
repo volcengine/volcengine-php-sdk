@@ -48,10 +48,10 @@ class CENApi
      * @param ApiClient|null $apiClient
      */
     public function __construct(
-        ClientInterface $client = null,
-        Configuration   $config = null,
-        HeaderSelector  $selector = null,
-        ApiClient       $apiClient = null
+        $client = null,
+        $config = null,
+        $selector = null,
+        $apiClient = null
     )
     {
         $this->client = $client ?: new Client();

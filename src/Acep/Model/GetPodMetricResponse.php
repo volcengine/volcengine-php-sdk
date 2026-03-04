@@ -221,7 +221,7 @@ class GetPodMetricResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['cpu_alloc'] = isset($data['cpu_alloc']) ? $data['cpu_alloc'] : null;
         $this->container['cpu_max'] = isset($data['cpu_max']) ? $data['cpu_max'] : null;

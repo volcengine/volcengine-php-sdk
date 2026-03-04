@@ -151,7 +151,7 @@ class CreateDirectConnectGatewayRouteResponse implements ModelInterface, ArrayAc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['direct_connect_gateway_route_id'] = isset($data['direct_connect_gateway_route_id']) ? $data['direct_connect_gateway_route_id'] : null;
         $this->container['request_id'] = isset($data['request_id']) ? $data['request_id'] : null;

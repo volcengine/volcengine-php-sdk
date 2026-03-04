@@ -166,7 +166,7 @@ class RefreshTokenForUpdateUserPoolClientOutput implements ModelInterface, Array
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['combined_lifetime_seconds'] = isset($data['combined_lifetime_seconds']) ? $data['combined_lifetime_seconds'] : null;
         $this->container['has_combined_lifetime'] = isset($data['has_combined_lifetime']) ? $data['has_combined_lifetime'] : null;

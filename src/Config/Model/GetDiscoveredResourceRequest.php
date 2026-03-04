@@ -156,7 +156,7 @@ class GetDiscoveredResourceRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['region'] = isset($data['region']) ? $data['region'] : null;
         $this->container['resource_identifier'] = isset($data['resource_identifier']) ? $data['resource_identifier'] : null;

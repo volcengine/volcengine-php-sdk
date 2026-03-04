@@ -176,7 +176,7 @@ class ModifyTLSConfigRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['alarm_topic_config'] = isset($data['alarm_topic_config']) ? $data['alarm_topic_config'] : null;
         $this->container['login_topic_config'] = isset($data['login_topic_config']) ? $data['login_topic_config'] : null;

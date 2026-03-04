@@ -171,7 +171,7 @@ class DescribeDeploymentSetsRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['deployment_set_ids'] = isset($data['deployment_set_ids']) ? $data['deployment_set_ids'] : null;
         $this->container['deployment_set_name'] = isset($data['deployment_set_name']) ? $data['deployment_set_name'] : null;

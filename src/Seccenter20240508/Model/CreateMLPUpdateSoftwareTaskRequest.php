@@ -156,7 +156,7 @@ class CreateMLPUpdateSoftwareTaskRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['asset_ids'] = isset($data['asset_ids']) ? $data['asset_ids'] : null;
         $this->container['is_all'] = isset($data['is_all']) ? $data['is_all'] : null;

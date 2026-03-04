@@ -146,7 +146,7 @@ class GetPoolDetailListResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['pool_list'] = isset($data['pool_list']) ? $data['pool_list'] : null;
     }

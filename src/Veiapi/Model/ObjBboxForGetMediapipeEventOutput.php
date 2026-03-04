@@ -181,7 +181,7 @@ class ObjBboxForGetMediapipeEventOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['classifier'] = isset($data['classifier']) ? $data['classifier'] : null;
         $this->container['height'] = isset($data['height']) ? $data['height'] : null;

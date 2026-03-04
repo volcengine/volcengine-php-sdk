@@ -156,7 +156,7 @@ class LaunchTemplateOverrideForDescribeScalingGroupsOutput implements ModelInter
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['instance_type'] = isset($data['instance_type']) ? $data['instance_type'] : null;
         $this->container['price_limit'] = isset($data['price_limit']) ? $data['price_limit'] : null;

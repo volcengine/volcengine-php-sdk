@@ -161,7 +161,7 @@ class UpdateNumberPoolV2Request implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['number_pool_no'] = isset($data['number_pool_no']) ? $data['number_pool_no'] : null;

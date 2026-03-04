@@ -156,7 +156,7 @@ class BuyResourcePackageRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['device_name'] = isset($data['device_name']) ? $data['device_name'] : null;
         $this->container['item'] = isset($data['item']) ? $data['item'] : null;

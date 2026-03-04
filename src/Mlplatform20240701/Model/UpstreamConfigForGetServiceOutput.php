@@ -170,7 +170,7 @@ class UpstreamConfigForGetServiceOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['consistent_hash_config'] = isset($data['consistent_hash_config']) ? $data['consistent_hash_config'] : null;
         $this->container['load_balance_policy'] = isset($data['load_balance_policy']) ? $data['load_balance_policy'] : null;

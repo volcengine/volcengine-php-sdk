@@ -156,7 +156,7 @@ class ConvertStorylineCutsForGetExecutionOutput implements ModelInterface, Array
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['cut_segments'] = isset($data['cut_segments']) ? $data['cut_segments'] : null;
         $this->container['segments'] = isset($data['segments']) ? $data['segments'] : null;

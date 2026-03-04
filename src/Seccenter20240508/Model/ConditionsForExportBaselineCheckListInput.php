@@ -151,7 +151,7 @@ class ConditionsForExportBaselineCheckListInput implements ModelInterface, Array
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['checklist_name'] = isset($data['checklist_name']) ? $data['checklist_name'] : null;
         $this->container['if_white'] = isset($data['if_white']) ? $data['if_white'] : null;

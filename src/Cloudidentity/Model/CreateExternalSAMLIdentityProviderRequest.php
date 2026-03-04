@@ -146,7 +146,7 @@ class CreateExternalSAMLIdentityProviderRequest implements ModelInterface, Array
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['encoded_metadata_document'] = isset($data['encoded_metadata_document']) ? $data['encoded_metadata_document'] : null;
     }

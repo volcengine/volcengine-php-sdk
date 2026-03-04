@@ -151,7 +151,7 @@ class VolumeSizeInfoForListResourceQueuesOutput implements ModelInterface, Array
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['size_gi_b'] = isset($data['size_gi_b']) ? $data['size_gi_b'] : null;
         $this->container['volume_type'] = isset($data['volume_type']) ? $data['volume_type'] : null;

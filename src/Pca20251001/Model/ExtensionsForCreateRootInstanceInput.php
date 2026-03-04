@@ -156,7 +156,7 @@ class ExtensionsForCreateRootInstanceInput implements ModelInterface, ArrayAcces
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['custom_extensions'] = isset($data['custom_extensions']) ? $data['custom_extensions'] : null;
         $this->container['extended_key_usages'] = isset($data['extended_key_usages']) ? $data['extended_key_usages'] : null;

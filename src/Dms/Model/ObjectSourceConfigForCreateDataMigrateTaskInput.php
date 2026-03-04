@@ -176,7 +176,7 @@ class ObjectSourceConfigForCreateDataMigrateTaskInput implements ModelInterface,
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['bucket_access_config'] = isset($data['bucket_access_config']) ? $data['bucket_access_config'] : null;
         $this->container['is_excluded'] = isset($data['is_excluded']) ? $data['is_excluded'] : null;

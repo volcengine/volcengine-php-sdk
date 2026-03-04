@@ -221,7 +221,7 @@ class TransitRouterRoutePolicyEntryForDescribeTransitRouterRoutePolicyEntriesOut
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['action_result'] = isset($data['action_result']) ? $data['action_result'] : null;
         $this->container['apply_as_path_values'] = isset($data['apply_as_path_values']) ? $data['apply_as_path_values'] : null;

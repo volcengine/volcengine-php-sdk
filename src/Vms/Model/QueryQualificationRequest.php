@@ -166,7 +166,7 @@ class QueryQualificationRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['approval_status'] = isset($data['approval_status']) ? $data['approval_status'] : null;
         $this->container['limit'] = isset($data['limit']) ? $data['limit'] : null;

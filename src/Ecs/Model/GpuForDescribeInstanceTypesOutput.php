@@ -146,7 +146,7 @@ class GpuForDescribeInstanceTypesOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['gpu_devices'] = isset($data['gpu_devices']) ? $data['gpu_devices'] : null;
     }

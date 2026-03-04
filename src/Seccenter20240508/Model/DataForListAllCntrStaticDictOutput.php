@@ -151,7 +151,7 @@ class DataForListAllCntrStaticDictOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['dict_name'] = isset($data['dict_name']) ? $data['dict_name'] : null;
         $this->container['mapping'] = isset($data['mapping']) ? $data['mapping'] : null;

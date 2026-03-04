@@ -171,7 +171,7 @@ class EraseForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['auto'] = isset($data['auto']) ? $data['auto'] : null;
         $this->container['erase_option'] = isset($data['erase_option']) ? $data['erase_option'] : null;

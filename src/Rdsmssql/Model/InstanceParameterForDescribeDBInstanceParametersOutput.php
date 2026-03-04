@@ -181,7 +181,7 @@ class InstanceParameterForDescribeDBInstanceParametersOutput implements ModelInt
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['checking_code'] = isset($data['checking_code']) ? $data['checking_code'] : null;
         $this->container['force_modify'] = isset($data['force_modify']) ? $data['force_modify'] : null;

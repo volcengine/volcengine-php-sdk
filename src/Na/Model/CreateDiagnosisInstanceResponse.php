@@ -151,7 +151,7 @@ class CreateDiagnosisInstanceResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['diagnosis_instance_id'] = isset($data['diagnosis_instance_id']) ? $data['diagnosis_instance_id'] : null;
         $this->container['request_id'] = isset($data['request_id']) ? $data['request_id'] : null;

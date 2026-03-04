@@ -301,7 +301,7 @@ class InstanceForDescribeDBInstancesOutput implements ModelInterface, ArrayAcces
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['address_object'] = isset($data['address_object']) ? $data['address_object'] : null;
         $this->container['allow_list_version'] = isset($data['allow_list_version']) ? $data['allow_list_version'] : null;

@@ -151,7 +151,7 @@ class MetadataListForDescribeSandboxOutput implements ModelInterface, ArrayAcces
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['meta_key'] = isset($data['meta_key']) ? $data['meta_key'] : null;
         $this->container['meta_value'] = isset($data['meta_value']) ? $data['meta_value'] : null;

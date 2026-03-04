@@ -151,7 +151,7 @@ class VolumeForDescribeInstanceTypesOutput implements ModelInterface, ArrayAcces
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['maximum_count'] = isset($data['maximum_count']) ? $data['maximum_count'] : null;
         $this->container['supported_volume_types'] = isset($data['supported_volume_types']) ? $data['supported_volume_types'] : null;

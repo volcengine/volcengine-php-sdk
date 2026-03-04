@@ -151,7 +151,7 @@ class ContainerdConfigForListNodePoolsOutput implements ModelInterface, ArrayAcc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['insecure_registries'] = isset($data['insecure_registries']) ? $data['insecure_registries'] : null;
         $this->container['registry_proxy_configs'] = isset($data['registry_proxy_configs']) ? $data['registry_proxy_configs'] : null;

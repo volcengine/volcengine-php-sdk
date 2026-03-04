@@ -166,7 +166,7 @@ class AddIMConfigRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['notify_platform'] = isset($data['notify_platform']) ? $data['notify_platform'] : null;
         $this->container['notify_range'] = isset($data['notify_range']) ? $data['notify_range'] : null;

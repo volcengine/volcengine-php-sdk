@@ -241,7 +241,7 @@ class CreateNLBServerGroupRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['any_port_enabled'] = isset($data['any_port_enabled']) ? $data['any_port_enabled'] : null;
         $this->container['bypass_security_group_enabled'] = isset($data['bypass_security_group_enabled']) ? $data['bypass_security_group_enabled'] : null;

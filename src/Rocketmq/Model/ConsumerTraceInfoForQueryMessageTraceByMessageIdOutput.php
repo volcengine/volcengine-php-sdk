@@ -181,7 +181,7 @@ class ConsumerTraceInfoForQueryMessageTraceByMessageIdOutput implements ModelInt
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['consume_status'] = isset($data['consume_status']) ? $data['consume_status'] : null;
         $this->container['consume_success'] = isset($data['consume_success']) ? $data['consume_success'] : null;

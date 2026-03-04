@@ -156,7 +156,7 @@ class AutoForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['locations'] = isset($data['locations']) ? $data['locations'] : null;
         $this->container['subtitle_filter'] = isset($data['subtitle_filter']) ? $data['subtitle_filter'] : null;

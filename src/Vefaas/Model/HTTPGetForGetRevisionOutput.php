@@ -161,7 +161,7 @@ class HTTPGetForGetRevisionOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['http_headers'] = isset($data['http_headers']) ? $data['http_headers'] : null;
         $this->container['path'] = isset($data['path']) ? $data['path'] : null;

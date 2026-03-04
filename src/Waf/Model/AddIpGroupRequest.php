@@ -161,7 +161,7 @@ class AddIpGroupRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['add_type'] = isset($data['add_type']) ? $data['add_type'] : null;
         $this->container['ip_list'] = isset($data['ip_list']) ? $data['ip_list'] : null;

@@ -171,7 +171,7 @@ class ConsistentHashLBForGetUpstreamOutput implements ModelInterface, ArrayAcces
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['http_cookie'] = isset($data['http_cookie']) ? $data['http_cookie'] : null;
         $this->container['hash_balance_factor'] = isset($data['hash_balance_factor']) ? $data['hash_balance_factor'] : null;

@@ -166,7 +166,7 @@ class RemoteAuthRuleActionForDescribeCdnConfigOutput implements ModelInterface, 
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['auth_mode_config'] = isset($data['auth_mode_config']) ? $data['auth_mode_config'] : null;
         $this->container['auth_response_config'] = isset($data['auth_response_config']) ? $data['auth_response_config'] : null;

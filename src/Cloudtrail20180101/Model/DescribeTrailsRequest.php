@@ -151,7 +151,7 @@ class DescribeTrailsRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['include_organization_trail'] = isset($data['include_organization_trail']) ? $data['include_organization_trail'] : null;
         $this->container['trail_names'] = isset($data['trail_names']) ? $data['trail_names'] : null;

@@ -246,7 +246,7 @@ class CreateTaskRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['audio_post_url'] = isset($data['audio_post_url']) ? $data['audio_post_url'] : null;
         $this->container['call_record_post_url'] = isset($data['call_record_post_url']) ? $data['call_record_post_url'] : null;

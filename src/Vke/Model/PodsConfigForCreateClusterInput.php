@@ -173,7 +173,7 @@ class PodsConfigForCreateClusterInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['flannel_config'] = isset($data['flannel_config']) ? $data['flannel_config'] : null;
         $this->container['pod_network_mode'] = isset($data['pod_network_mode']) ? $data['pod_network_mode'] : null;

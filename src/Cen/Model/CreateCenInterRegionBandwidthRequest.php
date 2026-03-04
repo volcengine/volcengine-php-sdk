@@ -166,7 +166,7 @@ class CreateCenInterRegionBandwidthRequest implements ModelInterface, ArrayAcces
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['bandwidth'] = isset($data['bandwidth']) ? $data['bandwidth'] : null;
         $this->container['cen_bandwidth_package_id'] = isset($data['cen_bandwidth_package_id']) ? $data['cen_bandwidth_package_id'] : null;

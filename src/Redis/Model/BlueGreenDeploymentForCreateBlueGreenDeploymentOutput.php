@@ -229,7 +229,7 @@ class BlueGreenDeploymentForCreateBlueGreenDeploymentOutput implements ModelInte
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
         $this->container['data_sync_progress'] = isset($data['data_sync_progress']) ? $data['data_sync_progress'] : null;

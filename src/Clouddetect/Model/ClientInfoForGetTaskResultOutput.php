@@ -181,7 +181,7 @@ class ClientInfoForGetTaskResultOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['city'] = isset($data['city']) ? $data['city'] : null;
         $this->container['dns_local_dnsip'] = isset($data['dns_local_dnsip']) ? $data['dns_local_dnsip'] : null;

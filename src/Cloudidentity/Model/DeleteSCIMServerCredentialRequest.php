@@ -146,7 +146,7 @@ class DeleteSCIMServerCredentialRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['credential_id'] = isset($data['credential_id']) ? $data['credential_id'] : null;
     }

@@ -161,7 +161,7 @@ class EmotionForListBigModelTTSTimbresOutput implements ModelInterface, ArrayAcc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['demo_text'] = isset($data['demo_text']) ? $data['demo_text'] : null;
         $this->container['demo_url'] = isset($data['demo_url']) ? $data['demo_url'] : null;

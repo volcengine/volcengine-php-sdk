@@ -161,7 +161,7 @@ class DeploymentForUpdateDeploymentInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['node_list'] = isset($data['node_list']) ? $data['node_list'] : null;
         $this->container['replicas'] = isset($data['replicas']) ? $data['replicas'] : null;

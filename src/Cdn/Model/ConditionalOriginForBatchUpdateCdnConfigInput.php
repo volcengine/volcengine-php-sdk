@@ -151,7 +151,7 @@ class ConditionalOriginForBatchUpdateCdnConfigInput implements ModelInterface, A
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['origin_rules'] = isset($data['origin_rules']) ? $data['origin_rules'] : null;
         $this->container['switch'] = isset($data['switch']) ? $data['switch'] : null;

@@ -151,7 +151,7 @@ class StatSettingsForListCloudAccountsOutput implements ModelInterface, ArrayAcc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['aws'] = isset($data['aws']) ? $data['aws'] : null;
         $this->container['offline_data_setting'] = isset($data['offline_data_setting']) ? $data['offline_data_setting'] : null;

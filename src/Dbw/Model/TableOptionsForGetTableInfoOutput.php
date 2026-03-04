@@ -186,7 +186,7 @@ class TableOptionsForGetTableInfoOutput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['avg_row_length'] = isset($data['avg_row_length']) ? $data['avg_row_length'] : null;
         $this->container['auto_increment'] = isset($data['auto_increment']) ? $data['auto_increment'] : null;

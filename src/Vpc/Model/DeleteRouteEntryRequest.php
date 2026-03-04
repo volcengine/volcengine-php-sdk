@@ -146,7 +146,7 @@ class DeleteRouteEntryRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['route_entry_id'] = isset($data['route_entry_id']) ? $data['route_entry_id'] : null;
     }

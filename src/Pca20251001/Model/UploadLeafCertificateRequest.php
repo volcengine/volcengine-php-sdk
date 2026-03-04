@@ -171,7 +171,7 @@ class UploadLeafCertificateRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct($data = null)
     {
         $this->container['certificate'] = isset($data['certificate']) ? $data['certificate'] : null;
         $this->container['issuer_id'] = isset($data['issuer_id']) ? $data['issuer_id'] : null;
