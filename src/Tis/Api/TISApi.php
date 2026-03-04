@@ -68,6 +68,68 @@ class TISApi
         return $this->config;
     }
 
+    public function buyPoolPackage($body = null)
+    {
+        list($response) = $this->buyPoolPackageWithHttpInfo($body);
+        return $response;
+    }
+
+    public function buyPoolPackageWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tis\Model\BuyPoolPackageResponse';
+        $request = $this->buyPoolPackageRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function buyPoolPackageAsync($body = null)
+    {
+        return $this->buyPoolPackageAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function buyPoolPackageAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tis\Model\BuyPoolPackageResponse';
+        $request = $this->buyPoolPackageRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function buyPoolPackageRequest($body)
+    {
+        $resourcePath = '/BuyPoolPackage/2024-07-31/tis/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function buyResourcePackage($body = null)
     {
         list($response) = $this->buyResourcePackageWithHttpInfo($body);
@@ -192,6 +254,68 @@ class TISApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function createDeviceWithoutApproval($body = null)
+    {
+        list($response) = $this->createDeviceWithoutApprovalWithHttpInfo($body);
+        return $response;
+    }
+
+    public function createDeviceWithoutApprovalWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tis\Model\CreateDeviceWithoutApprovalResponse';
+        $request = $this->createDeviceWithoutApprovalRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function createDeviceWithoutApprovalAsync($body = null)
+    {
+        return $this->createDeviceWithoutApprovalAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function createDeviceWithoutApprovalAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tis\Model\CreateDeviceWithoutApprovalResponse';
+        $request = $this->createDeviceWithoutApprovalRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function createDeviceWithoutApprovalRequest($body)
+    {
+        $resourcePath = '/CreateDeviceWithoutApproval/2024-07-31/tis/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function getAgentList($body = null)
     {
         list($response) = $this->getAgentListWithHttpInfo($body);
@@ -226,6 +350,192 @@ class TISApi
     protected function getAgentListRequest($body)
     {
         $resourcePath = '/GetAgentList/2024-07-31/tis/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function getDeviceBindTcOrderID($body = null)
+    {
+        list($response) = $this->getDeviceBindTcOrderIDWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getDeviceBindTcOrderIDWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tis\Model\GetDeviceBindTcOrderIDResponse';
+        $request = $this->getDeviceBindTcOrderIDRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getDeviceBindTcOrderIDAsync($body = null)
+    {
+        return $this->getDeviceBindTcOrderIDAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getDeviceBindTcOrderIDAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tis\Model\GetDeviceBindTcOrderIDResponse';
+        $request = $this->getDeviceBindTcOrderIDRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getDeviceBindTcOrderIDRequest($body)
+    {
+        $resourcePath = '/GetDeviceBindTcOrderID/2024-07-31/tis/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function getPoolDetailList($body = null)
+    {
+        list($response) = $this->getPoolDetailListWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getPoolDetailListWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tis\Model\GetPoolDetailListResponse';
+        $request = $this->getPoolDetailListRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getPoolDetailListAsync($body = null)
+    {
+        return $this->getPoolDetailListAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getPoolDetailListAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tis\Model\GetPoolDetailListResponse';
+        $request = $this->getPoolDetailListRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getPoolDetailListRequest($body)
+    {
+        $resourcePath = '/GetPoolDetailList/2024-07-31/tis/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function getPoolQuotaInfo($body = null)
+    {
+        list($response) = $this->getPoolQuotaInfoWithHttpInfo($body);
+        return $response;
+    }
+
+    public function getPoolQuotaInfoWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tis\Model\GetPoolQuotaInfoResponse';
+        $request = $this->getPoolQuotaInfoRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function getPoolQuotaInfoAsync($body = null)
+    {
+        return $this->getPoolQuotaInfoAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function getPoolQuotaInfoAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\Tis\Model\GetPoolQuotaInfoResponse';
+        $request = $this->getPoolQuotaInfoRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function getPoolQuotaInfoRequest($body)
+    {
+        $resourcePath = '/GetPoolQuotaInfo/2024-07-31/tis/post/application_json/';
         $queryParams = [];
         $httpBody = $body;
 

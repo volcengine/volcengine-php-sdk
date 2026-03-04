@@ -30,7 +30,9 @@ class CredentialProviderForListCredentialProvidersOutput implements ModelInterfa
     protected static $swaggerTypes = [
         'created_at' => 'string',
         'credential_provider_trn' => 'string',
+        'flow' => 'string',
         'name' => 'string',
+        'pool_name' => 'string',
         'type' => 'string',
         'updated_at' => 'string',
         'vendor' => 'int'
@@ -44,7 +46,9 @@ class CredentialProviderForListCredentialProvidersOutput implements ModelInterfa
     protected static $swaggerFormats = [
         'created_at' => null,
         'credential_provider_trn' => null,
+        'flow' => null,
         'name' => null,
+        'pool_name' => null,
         'type' => null,
         'updated_at' => null,
         'vendor' => 'int32'
@@ -79,7 +83,9 @@ class CredentialProviderForListCredentialProvidersOutput implements ModelInterfa
     protected static $attributeMap = [
         'created_at' => 'CreatedAt',
         'credential_provider_trn' => 'CredentialProviderTrn',
+        'flow' => 'Flow',
         'name' => 'Name',
+        'pool_name' => 'PoolName',
         'type' => 'Type',
         'updated_at' => 'UpdatedAt',
         'vendor' => 'Vendor'
@@ -93,7 +99,9 @@ class CredentialProviderForListCredentialProvidersOutput implements ModelInterfa
     protected static $setters = [
         'created_at' => 'setCreatedAt',
         'credential_provider_trn' => 'setCredentialProviderTrn',
+        'flow' => 'setFlow',
         'name' => 'setName',
+        'pool_name' => 'setPoolName',
         'type' => 'setType',
         'updated_at' => 'setUpdatedAt',
         'vendor' => 'setVendor'
@@ -107,7 +115,9 @@ class CredentialProviderForListCredentialProvidersOutput implements ModelInterfa
     protected static $getters = [
         'created_at' => 'getCreatedAt',
         'credential_provider_trn' => 'getCredentialProviderTrn',
+        'flow' => 'getFlow',
         'name' => 'getName',
+        'pool_name' => 'getPoolName',
         'type' => 'getType',
         'updated_at' => 'getUpdatedAt',
         'vendor' => 'getVendor'
@@ -154,8 +164,38 @@ class CredentialProviderForListCredentialProvidersOutput implements ModelInterfa
         return self::$swaggerModelName;
     }
 
+    const FLOW_USER_FEDERATION = 'USER_FEDERATION';
+    const FLOW_M2_M = 'M2M';
+    const TYPE_API_KEY = 'api_key';
+    const TYPE_OAUTH2 = 'oauth2';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getFlowAllowableValues()
+    {
+        return [
+            self::FLOW_USER_FEDERATION,
+            self::FLOW_M2_M,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_API_KEY,
+            self::TYPE_OAUTH2,
+        ];
+    }
     
 
     /**
@@ -175,7 +215,9 @@ class CredentialProviderForListCredentialProvidersOutput implements ModelInterfa
     {
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['credential_provider_trn'] = isset($data['credential_provider_trn']) ? $data['credential_provider_trn'] : null;
+        $this->container['flow'] = isset($data['flow']) ? $data['flow'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['pool_name'] = isset($data['pool_name']) ? $data['pool_name'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
         $this->container['vendor'] = isset($data['vendor']) ? $data['vendor'] : null;
@@ -189,6 +231,22 @@ class CredentialProviderForListCredentialProvidersOutput implements ModelInterfa
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getFlowAllowableValues();
+        if (!is_null($this->container['flow']) && !in_array($this->container['flow'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'flow', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -254,6 +312,39 @@ class CredentialProviderForListCredentialProvidersOutput implements ModelInterfa
     }
 
     /**
+     * Gets flow
+     *
+     * @return string
+     */
+    public function getFlow()
+    {
+        return $this->container['flow'];
+    }
+
+    /**
+     * Sets flow
+     *
+     * @param string $flow flow
+     *
+     * @return $this
+     */
+    public function setFlow($flow)
+    {
+        $allowedValues = $this->getFlowAllowableValues();
+        if (!is_null($flow) && !in_array($flow, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'flow', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['flow'] = $flow;
+
+        return $this;
+    }
+
+    /**
      * Gets name
      *
      * @return string
@@ -278,6 +369,30 @@ class CredentialProviderForListCredentialProvidersOutput implements ModelInterfa
     }
 
     /**
+     * Gets pool_name
+     *
+     * @return string
+     */
+    public function getPoolName()
+    {
+        return $this->container['pool_name'];
+    }
+
+    /**
+     * Sets pool_name
+     *
+     * @param string $pool_name pool_name
+     *
+     * @return $this
+     */
+    public function setPoolName($pool_name)
+    {
+        $this->container['pool_name'] = $pool_name;
+
+        return $this;
+    }
+
+    /**
      * Gets type
      *
      * @return string
@@ -296,6 +411,15 @@ class CredentialProviderForListCredentialProvidersOutput implements ModelInterfa
      */
     public function setType($type)
     {
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['type'] = $type;
 
         return $this;

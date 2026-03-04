@@ -33,6 +33,7 @@ class GetWorkloadIdentityResponse implements ModelInterface, ArrayAccess
         'created_at' => 'string',
         'description' => 'string',
         'name' => 'string',
+        'source' => 'string',
         'trn' => 'string',
         'updated_at' => 'string',
         'workload_pool_name' => 'string'
@@ -49,6 +50,7 @@ class GetWorkloadIdentityResponse implements ModelInterface, ArrayAccess
         'created_at' => null,
         'description' => null,
         'name' => null,
+        'source' => null,
         'trn' => null,
         'updated_at' => null,
         'workload_pool_name' => null
@@ -86,6 +88,7 @@ class GetWorkloadIdentityResponse implements ModelInterface, ArrayAccess
         'created_at' => 'CreatedAt',
         'description' => 'Description',
         'name' => 'Name',
+        'source' => 'Source',
         'trn' => 'Trn',
         'updated_at' => 'UpdatedAt',
         'workload_pool_name' => 'WorkloadPoolName'
@@ -102,6 +105,7 @@ class GetWorkloadIdentityResponse implements ModelInterface, ArrayAccess
         'created_at' => 'setCreatedAt',
         'description' => 'setDescription',
         'name' => 'setName',
+        'source' => 'setSource',
         'trn' => 'setTrn',
         'updated_at' => 'setUpdatedAt',
         'workload_pool_name' => 'setWorkloadPoolName'
@@ -118,6 +122,7 @@ class GetWorkloadIdentityResponse implements ModelInterface, ArrayAccess
         'created_at' => 'getCreatedAt',
         'description' => 'getDescription',
         'name' => 'getName',
+        'source' => 'getSource',
         'trn' => 'getTrn',
         'updated_at' => 'getUpdatedAt',
         'workload_pool_name' => 'getWorkloadPoolName'
@@ -188,6 +193,7 @@ class GetWorkloadIdentityResponse implements ModelInterface, ArrayAccess
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['source'] = isset($data['source']) ? $data['source'] : null;
         $this->container['trn'] = isset($data['trn']) ? $data['trn'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
         $this->container['workload_pool_name'] = isset($data['workload_pool_name']) ? $data['workload_pool_name'] : null;
@@ -333,6 +339,30 @@ class GetWorkloadIdentityResponse implements ModelInterface, ArrayAccess
     public function setName($name)
     {
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets source
+     *
+     * @return string
+     */
+    public function getSource()
+    {
+        return $this->container['source'];
+    }
+
+    /**
+     * Sets source
+     *
+     * @param string $source source
+     *
+     * @return $this
+     */
+    public function setSource($source)
+    {
+        $this->container['source'] = $source;
 
         return $this;
     }

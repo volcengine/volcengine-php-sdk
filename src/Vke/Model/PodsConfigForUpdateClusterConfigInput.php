@@ -28,6 +28,7 @@ class PodsConfigForUpdateClusterConfigInput implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'flannel_config' => '\Volcengine\Vke\Model\FlannelConfigForUpdateClusterConfigInput',
         'vpc_cni_config' => '\Volcengine\Vke\Model\VpcCniConfigForUpdateClusterConfigInput'
     ];
 
@@ -37,6 +38,7 @@ class PodsConfigForUpdateClusterConfigInput implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'flannel_config' => null,
         'vpc_cni_config' => null
     ];
 
@@ -67,6 +69,7 @@ class PodsConfigForUpdateClusterConfigInput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $attributeMap = [
+        'flannel_config' => 'FlannelConfig',
         'vpc_cni_config' => 'VpcCniConfig'
     ];
 
@@ -76,6 +79,7 @@ class PodsConfigForUpdateClusterConfigInput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $setters = [
+        'flannel_config' => 'setFlannelConfig',
         'vpc_cni_config' => 'setVpcCniConfig'
     ];
 
@@ -85,6 +89,7 @@ class PodsConfigForUpdateClusterConfigInput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $getters = [
+        'flannel_config' => 'getFlannelConfig',
         'vpc_cni_config' => 'getVpcCniConfig'
     ];
 
@@ -148,6 +153,7 @@ class PodsConfigForUpdateClusterConfigInput implements ModelInterface, ArrayAcce
      */
     public function __construct(array $data = null)
     {
+        $this->container['flannel_config'] = isset($data['flannel_config']) ? $data['flannel_config'] : null;
         $this->container['vpc_cni_config'] = isset($data['vpc_cni_config']) ? $data['vpc_cni_config'] : null;
     }
 
@@ -174,6 +180,30 @@ class PodsConfigForUpdateClusterConfigInput implements ModelInterface, ArrayAcce
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets flannel_config
+     *
+     * @return \Volcengine\Vke\Model\FlannelConfigForUpdateClusterConfigInput
+     */
+    public function getFlannelConfig()
+    {
+        return $this->container['flannel_config'];
+    }
+
+    /**
+     * Sets flannel_config
+     *
+     * @param \Volcengine\Vke\Model\FlannelConfigForUpdateClusterConfigInput $flannel_config flannel_config
+     *
+     * @return $this
+     */
+    public function setFlannelConfig($flannel_config)
+    {
+        $this->container['flannel_config'] = $flannel_config;
+
+        return $this;
+    }
 
     /**
      * Gets vpc_cni_config

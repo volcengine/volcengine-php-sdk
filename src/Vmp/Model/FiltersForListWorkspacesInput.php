@@ -28,6 +28,8 @@ class FiltersForListWorkspacesInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'cross_account' => 'bool',
+        'cross_region' => 'bool',
         'ids' => 'string[]',
         'instance_type_ids' => 'string[]',
         'name' => 'string',
@@ -40,6 +42,8 @@ class FiltersForListWorkspacesInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'cross_account' => null,
+        'cross_region' => null,
         'ids' => null,
         'instance_type_ids' => null,
         'name' => null,
@@ -73,6 +77,8 @@ class FiltersForListWorkspacesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'cross_account' => 'CrossAccount',
+        'cross_region' => 'CrossRegion',
         'ids' => 'Ids',
         'instance_type_ids' => 'InstanceTypeIds',
         'name' => 'Name',
@@ -85,6 +91,8 @@ class FiltersForListWorkspacesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'cross_account' => 'setCrossAccount',
+        'cross_region' => 'setCrossRegion',
         'ids' => 'setIds',
         'instance_type_ids' => 'setInstanceTypeIds',
         'name' => 'setName',
@@ -97,6 +105,8 @@ class FiltersForListWorkspacesInput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'cross_account' => 'getCrossAccount',
+        'cross_region' => 'getCrossRegion',
         'ids' => 'getIds',
         'instance_type_ids' => 'getInstanceTypeIds',
         'name' => 'getName',
@@ -163,6 +173,8 @@ class FiltersForListWorkspacesInput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['cross_account'] = isset($data['cross_account']) ? $data['cross_account'] : null;
+        $this->container['cross_region'] = isset($data['cross_region']) ? $data['cross_region'] : null;
         $this->container['ids'] = isset($data['ids']) ? $data['ids'] : null;
         $this->container['instance_type_ids'] = isset($data['instance_type_ids']) ? $data['instance_type_ids'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
@@ -192,6 +204,54 @@ class FiltersForListWorkspacesInput implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets cross_account
+     *
+     * @return bool
+     */
+    public function getCrossAccount()
+    {
+        return $this->container['cross_account'];
+    }
+
+    /**
+     * Sets cross_account
+     *
+     * @param bool $cross_account cross_account
+     *
+     * @return $this
+     */
+    public function setCrossAccount($cross_account)
+    {
+        $this->container['cross_account'] = $cross_account;
+
+        return $this;
+    }
+
+    /**
+     * Gets cross_region
+     *
+     * @return bool
+     */
+    public function getCrossRegion()
+    {
+        return $this->container['cross_region'];
+    }
+
+    /**
+     * Sets cross_region
+     *
+     * @param bool $cross_region cross_region
+     *
+     * @return $this
+     */
+    public function setCrossRegion($cross_region)
+    {
+        $this->container['cross_region'] = $cross_region;
+
+        return $this;
+    }
 
     /**
      * Gets ids

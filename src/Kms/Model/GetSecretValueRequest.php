@@ -29,7 +29,8 @@ class GetSecretValueRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'secret_name' => 'string',
-        'version_id' => 'string'
+        'version_id' => 'string',
+        'version_name' => 'string'
     ];
 
     /**
@@ -39,7 +40,8 @@ class GetSecretValueRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'secret_name' => null,
-        'version_id' => null
+        'version_id' => null,
+        'version_name' => null
     ];
 
     /**
@@ -70,7 +72,8 @@ class GetSecretValueRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'secret_name' => 'SecretName',
-        'version_id' => 'VersionID'
+        'version_id' => 'VersionID',
+        'version_name' => 'VersionName'
     ];
 
     /**
@@ -80,7 +83,8 @@ class GetSecretValueRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'secret_name' => 'setSecretName',
-        'version_id' => 'setVersionId'
+        'version_id' => 'setVersionId',
+        'version_name' => 'setVersionName'
     ];
 
     /**
@@ -90,7 +94,8 @@ class GetSecretValueRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'secret_name' => 'getSecretName',
-        'version_id' => 'getVersionId'
+        'version_id' => 'getVersionId',
+        'version_name' => 'getVersionName'
     ];
 
     /**
@@ -155,6 +160,7 @@ class GetSecretValueRequest implements ModelInterface, ArrayAccess
     {
         $this->container['secret_name'] = isset($data['secret_name']) ? $data['secret_name'] : null;
         $this->container['version_id'] = isset($data['version_id']) ? $data['version_id'] : null;
+        $this->container['version_name'] = isset($data['version_name']) ? $data['version_name'] : null;
     }
 
     /**
@@ -228,6 +234,30 @@ class GetSecretValueRequest implements ModelInterface, ArrayAccess
     public function setVersionId($version_id)
     {
         $this->container['version_id'] = $version_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets version_name
+     *
+     * @return string
+     */
+    public function getVersionName()
+    {
+        return $this->container['version_name'];
+    }
+
+    /**
+     * Sets version_name
+     *
+     * @param string $version_name version_name
+     *
+     * @return $this
+     */
+    public function setVersionName($version_name)
+    {
+        $this->container['version_name'] = $version_name;
 
         return $this;
     }

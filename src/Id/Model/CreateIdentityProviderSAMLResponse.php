@@ -30,12 +30,14 @@ class CreateIdentityProviderSAMLResponse implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'attribute_mapping' => 'string',
         'certificate' => 'string',
+        'claims_propagation_config' => '\Volcengine\Id\Model\ClaimsPropagationConfigForCreateIdentityProviderSAMLOutput',
         'enabled' => 'bool',
         'enabled_encryption' => 'bool',
         'enabled_sign' => 'bool',
         'id_attribute' => 'string',
         'idp_metadata' => 'string',
         'name' => 'string',
+        'provider' => 'string',
         'provider_options' => '\Volcengine\Id\Model\ProviderOptionsForCreateIdentityProviderSAMLOutput',
         'uid' => 'string'
     ];
@@ -48,12 +50,14 @@ class CreateIdentityProviderSAMLResponse implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'attribute_mapping' => null,
         'certificate' => null,
+        'claims_propagation_config' => null,
         'enabled' => null,
         'enabled_encryption' => null,
         'enabled_sign' => null,
         'id_attribute' => null,
         'idp_metadata' => null,
         'name' => null,
+        'provider' => null,
         'provider_options' => null,
         'uid' => null
     ];
@@ -87,12 +91,14 @@ class CreateIdentityProviderSAMLResponse implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'attribute_mapping' => 'AttributeMapping',
         'certificate' => 'Certificate',
+        'claims_propagation_config' => 'ClaimsPropagationConfig',
         'enabled' => 'Enabled',
         'enabled_encryption' => 'EnabledEncryption',
         'enabled_sign' => 'EnabledSign',
         'id_attribute' => 'IdAttribute',
         'idp_metadata' => 'IdpMetadata',
         'name' => 'Name',
+        'provider' => 'Provider',
         'provider_options' => 'ProviderOptions',
         'uid' => 'Uid'
     ];
@@ -105,12 +111,14 @@ class CreateIdentityProviderSAMLResponse implements ModelInterface, ArrayAccess
     protected static $setters = [
         'attribute_mapping' => 'setAttributeMapping',
         'certificate' => 'setCertificate',
+        'claims_propagation_config' => 'setClaimsPropagationConfig',
         'enabled' => 'setEnabled',
         'enabled_encryption' => 'setEnabledEncryption',
         'enabled_sign' => 'setEnabledSign',
         'id_attribute' => 'setIdAttribute',
         'idp_metadata' => 'setIdpMetadata',
         'name' => 'setName',
+        'provider' => 'setProvider',
         'provider_options' => 'setProviderOptions',
         'uid' => 'setUid'
     ];
@@ -123,12 +131,14 @@ class CreateIdentityProviderSAMLResponse implements ModelInterface, ArrayAccess
     protected static $getters = [
         'attribute_mapping' => 'getAttributeMapping',
         'certificate' => 'getCertificate',
+        'claims_propagation_config' => 'getClaimsPropagationConfig',
         'enabled' => 'getEnabled',
         'enabled_encryption' => 'getEnabledEncryption',
         'enabled_sign' => 'getEnabledSign',
         'id_attribute' => 'getIdAttribute',
         'idp_metadata' => 'getIdpMetadata',
         'name' => 'getName',
+        'provider' => 'getProvider',
         'provider_options' => 'getProviderOptions',
         'uid' => 'getUid'
     ];
@@ -195,12 +205,14 @@ class CreateIdentityProviderSAMLResponse implements ModelInterface, ArrayAccess
     {
         $this->container['attribute_mapping'] = isset($data['attribute_mapping']) ? $data['attribute_mapping'] : null;
         $this->container['certificate'] = isset($data['certificate']) ? $data['certificate'] : null;
+        $this->container['claims_propagation_config'] = isset($data['claims_propagation_config']) ? $data['claims_propagation_config'] : null;
         $this->container['enabled'] = isset($data['enabled']) ? $data['enabled'] : null;
         $this->container['enabled_encryption'] = isset($data['enabled_encryption']) ? $data['enabled_encryption'] : null;
         $this->container['enabled_sign'] = isset($data['enabled_sign']) ? $data['enabled_sign'] : null;
         $this->container['id_attribute'] = isset($data['id_attribute']) ? $data['id_attribute'] : null;
         $this->container['idp_metadata'] = isset($data['idp_metadata']) ? $data['idp_metadata'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['provider'] = isset($data['provider']) ? $data['provider'] : null;
         $this->container['provider_options'] = isset($data['provider_options']) ? $data['provider_options'] : null;
         $this->container['uid'] = isset($data['uid']) ? $data['uid'] : null;
     }
@@ -273,6 +285,30 @@ class CreateIdentityProviderSAMLResponse implements ModelInterface, ArrayAccess
     public function setCertificate($certificate)
     {
         $this->container['certificate'] = $certificate;
+
+        return $this;
+    }
+
+    /**
+     * Gets claims_propagation_config
+     *
+     * @return \Volcengine\Id\Model\ClaimsPropagationConfigForCreateIdentityProviderSAMLOutput
+     */
+    public function getClaimsPropagationConfig()
+    {
+        return $this->container['claims_propagation_config'];
+    }
+
+    /**
+     * Sets claims_propagation_config
+     *
+     * @param \Volcengine\Id\Model\ClaimsPropagationConfigForCreateIdentityProviderSAMLOutput $claims_propagation_config claims_propagation_config
+     *
+     * @return $this
+     */
+    public function setClaimsPropagationConfig($claims_propagation_config)
+    {
+        $this->container['claims_propagation_config'] = $claims_propagation_config;
 
         return $this;
     }
@@ -417,6 +453,30 @@ class CreateIdentityProviderSAMLResponse implements ModelInterface, ArrayAccess
     public function setName($name)
     {
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets provider
+     *
+     * @return string
+     */
+    public function getProvider()
+    {
+        return $this->container['provider'];
+    }
+
+    /**
+     * Sets provider
+     *
+     * @param string $provider provider
+     *
+     * @return $this
+     */
+    public function setProvider($provider)
+    {
+        $this->container['provider'] = $provider;
 
         return $this;
     }

@@ -134,8 +134,33 @@ class StatusForListClustersOutput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const PHASE_RUNNING = 'Running';
+    const PHASE_STARTING = 'Starting';
+    const PHASE_STOPPED = 'Stopped';
+    const PHASE_FAILED = 'Failed';
+    const PHASE_UPDATING = 'Updating';
+    const PHASE_CREATING = 'Creating';
+    const PHASE_DELETING = 'Deleting';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getPhaseAllowableValues()
+    {
+        return [
+            self::PHASE_RUNNING,
+            self::PHASE_STARTING,
+            self::PHASE_STOPPED,
+            self::PHASE_FAILED,
+            self::PHASE_UPDATING,
+            self::PHASE_CREATING,
+            self::PHASE_DELETING,
+        ];
+    }
     
 
     /**
@@ -165,6 +190,14 @@ class StatusForListClustersOutput implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getPhaseAllowableValues();
+        if (!is_null($this->container['phase']) && !in_array($this->container['phase'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'phase', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -224,6 +257,15 @@ class StatusForListClustersOutput implements ModelInterface, ArrayAccess
      */
     public function setPhase($phase)
     {
+        $allowedValues = $this->getPhaseAllowableValues();
+        if (!is_null($phase) && !in_array($phase, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'phase', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['phase'] = $phase;
 
         return $this;

@@ -30,8 +30,11 @@ class GetWorkloadPoolResponse implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'created_at' => 'string',
         'description' => 'string',
+        'discovery_url' => 'string',
         'project_name' => 'string',
         'tags' => '\Volcengine\Id\Model\TagForGetWorkloadPoolOutput[]',
+        'total_credentials' => 'int',
+        'total_workloads' => 'int',
         'trn' => 'string',
         'updated_at' => 'string',
         'workload_pool_id' => 'string',
@@ -46,8 +49,11 @@ class GetWorkloadPoolResponse implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'created_at' => null,
         'description' => null,
+        'discovery_url' => null,
         'project_name' => null,
         'tags' => null,
+        'total_credentials' => 'int64',
+        'total_workloads' => 'int64',
         'trn' => null,
         'updated_at' => null,
         'workload_pool_id' => null,
@@ -83,8 +89,11 @@ class GetWorkloadPoolResponse implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'created_at' => 'CreatedAt',
         'description' => 'Description',
+        'discovery_url' => 'DiscoveryUrl',
         'project_name' => 'ProjectName',
         'tags' => 'Tags',
+        'total_credentials' => 'TotalCredentials',
+        'total_workloads' => 'TotalWorkloads',
         'trn' => 'Trn',
         'updated_at' => 'UpdatedAt',
         'workload_pool_id' => 'WorkloadPoolId',
@@ -99,8 +108,11 @@ class GetWorkloadPoolResponse implements ModelInterface, ArrayAccess
     protected static $setters = [
         'created_at' => 'setCreatedAt',
         'description' => 'setDescription',
+        'discovery_url' => 'setDiscoveryUrl',
         'project_name' => 'setProjectName',
         'tags' => 'setTags',
+        'total_credentials' => 'setTotalCredentials',
+        'total_workloads' => 'setTotalWorkloads',
         'trn' => 'setTrn',
         'updated_at' => 'setUpdatedAt',
         'workload_pool_id' => 'setWorkloadPoolId',
@@ -115,8 +127,11 @@ class GetWorkloadPoolResponse implements ModelInterface, ArrayAccess
     protected static $getters = [
         'created_at' => 'getCreatedAt',
         'description' => 'getDescription',
+        'discovery_url' => 'getDiscoveryUrl',
         'project_name' => 'getProjectName',
         'tags' => 'getTags',
+        'total_credentials' => 'getTotalCredentials',
+        'total_workloads' => 'getTotalWorkloads',
         'trn' => 'getTrn',
         'updated_at' => 'getUpdatedAt',
         'workload_pool_id' => 'getWorkloadPoolId',
@@ -185,8 +200,11 @@ class GetWorkloadPoolResponse implements ModelInterface, ArrayAccess
     {
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['discovery_url'] = isset($data['discovery_url']) ? $data['discovery_url'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
+        $this->container['total_credentials'] = isset($data['total_credentials']) ? $data['total_credentials'] : null;
+        $this->container['total_workloads'] = isset($data['total_workloads']) ? $data['total_workloads'] : null;
         $this->container['trn'] = isset($data['trn']) ? $data['trn'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
         $this->container['workload_pool_id'] = isset($data['workload_pool_id']) ? $data['workload_pool_id'] : null;
@@ -266,6 +284,30 @@ class GetWorkloadPoolResponse implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets discovery_url
+     *
+     * @return string
+     */
+    public function getDiscoveryUrl()
+    {
+        return $this->container['discovery_url'];
+    }
+
+    /**
+     * Sets discovery_url
+     *
+     * @param string $discovery_url discovery_url
+     *
+     * @return $this
+     */
+    public function setDiscoveryUrl($discovery_url)
+    {
+        $this->container['discovery_url'] = $discovery_url;
+
+        return $this;
+    }
+
+    /**
      * Gets project_name
      *
      * @return string
@@ -309,6 +351,54 @@ class GetWorkloadPoolResponse implements ModelInterface, ArrayAccess
     public function setTags($tags)
     {
         $this->container['tags'] = $tags;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_credentials
+     *
+     * @return int
+     */
+    public function getTotalCredentials()
+    {
+        return $this->container['total_credentials'];
+    }
+
+    /**
+     * Sets total_credentials
+     *
+     * @param int $total_credentials total_credentials
+     *
+     * @return $this
+     */
+    public function setTotalCredentials($total_credentials)
+    {
+        $this->container['total_credentials'] = $total_credentials;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_workloads
+     *
+     * @return int
+     */
+    public function getTotalWorkloads()
+    {
+        return $this->container['total_workloads'];
+    }
+
+    /**
+     * Sets total_workloads
+     *
+     * @param int $total_workloads total_workloads
+     *
+     * @return $this
+     */
+    public function setTotalWorkloads($total_workloads)
+    {
+        $this->container['total_workloads'] = $total_workloads;
 
         return $this;
     }

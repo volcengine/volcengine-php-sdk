@@ -36,6 +36,7 @@ class UpdateUserPoolRequest implements ModelInterface, ArrayAccess
         'self_account_recovery_enabled' => 'bool',
         'self_sign_up_enabled' => 'bool',
         'sign_up_auto_verification_enabled' => 'bool',
+        'sms_anonymous_sign_up_enabled' => 'string',
         'sms_passwordless_sign_in_enabled' => 'bool',
         'unconfirmed_user_sign_in_enabled' => 'bool',
         'user_pool_uid' => 'string'
@@ -55,6 +56,7 @@ class UpdateUserPoolRequest implements ModelInterface, ArrayAccess
         'self_account_recovery_enabled' => null,
         'self_sign_up_enabled' => null,
         'sign_up_auto_verification_enabled' => null,
+        'sms_anonymous_sign_up_enabled' => null,
         'sms_passwordless_sign_in_enabled' => null,
         'unconfirmed_user_sign_in_enabled' => null,
         'user_pool_uid' => null
@@ -95,6 +97,7 @@ class UpdateUserPoolRequest implements ModelInterface, ArrayAccess
         'self_account_recovery_enabled' => 'SelfAccountRecoveryEnabled',
         'self_sign_up_enabled' => 'SelfSignUpEnabled',
         'sign_up_auto_verification_enabled' => 'SignUpAutoVerificationEnabled',
+        'sms_anonymous_sign_up_enabled' => 'SmsAnonymousSignUpEnabled',
         'sms_passwordless_sign_in_enabled' => 'SmsPasswordlessSignInEnabled',
         'unconfirmed_user_sign_in_enabled' => 'UnconfirmedUserSignInEnabled',
         'user_pool_uid' => 'UserPoolUid'
@@ -114,6 +117,7 @@ class UpdateUserPoolRequest implements ModelInterface, ArrayAccess
         'self_account_recovery_enabled' => 'setSelfAccountRecoveryEnabled',
         'self_sign_up_enabled' => 'setSelfSignUpEnabled',
         'sign_up_auto_verification_enabled' => 'setSignUpAutoVerificationEnabled',
+        'sms_anonymous_sign_up_enabled' => 'setSmsAnonymousSignUpEnabled',
         'sms_passwordless_sign_in_enabled' => 'setSmsPasswordlessSignInEnabled',
         'unconfirmed_user_sign_in_enabled' => 'setUnconfirmedUserSignInEnabled',
         'user_pool_uid' => 'setUserPoolUid'
@@ -133,6 +137,7 @@ class UpdateUserPoolRequest implements ModelInterface, ArrayAccess
         'self_account_recovery_enabled' => 'getSelfAccountRecoveryEnabled',
         'self_sign_up_enabled' => 'getSelfSignUpEnabled',
         'sign_up_auto_verification_enabled' => 'getSignUpAutoVerificationEnabled',
+        'sms_anonymous_sign_up_enabled' => 'getSmsAnonymousSignUpEnabled',
         'sms_passwordless_sign_in_enabled' => 'getSmsPasswordlessSignInEnabled',
         'unconfirmed_user_sign_in_enabled' => 'getUnconfirmedUserSignInEnabled',
         'user_pool_uid' => 'getUserPoolUid'
@@ -206,6 +211,7 @@ class UpdateUserPoolRequest implements ModelInterface, ArrayAccess
         $this->container['self_account_recovery_enabled'] = isset($data['self_account_recovery_enabled']) ? $data['self_account_recovery_enabled'] : null;
         $this->container['self_sign_up_enabled'] = isset($data['self_sign_up_enabled']) ? $data['self_sign_up_enabled'] : null;
         $this->container['sign_up_auto_verification_enabled'] = isset($data['sign_up_auto_verification_enabled']) ? $data['sign_up_auto_verification_enabled'] : null;
+        $this->container['sms_anonymous_sign_up_enabled'] = isset($data['sms_anonymous_sign_up_enabled']) ? $data['sms_anonymous_sign_up_enabled'] : null;
         $this->container['sms_passwordless_sign_in_enabled'] = isset($data['sms_passwordless_sign_in_enabled']) ? $data['sms_passwordless_sign_in_enabled'] : null;
         $this->container['unconfirmed_user_sign_in_enabled'] = isset($data['unconfirmed_user_sign_in_enabled']) ? $data['unconfirmed_user_sign_in_enabled'] : null;
         $this->container['user_pool_uid'] = isset($data['user_pool_uid']) ? $data['user_pool_uid'] : null;
@@ -426,6 +432,30 @@ class UpdateUserPoolRequest implements ModelInterface, ArrayAccess
     public function setSignUpAutoVerificationEnabled($sign_up_auto_verification_enabled)
     {
         $this->container['sign_up_auto_verification_enabled'] = $sign_up_auto_verification_enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets sms_anonymous_sign_up_enabled
+     *
+     * @return string
+     */
+    public function getSmsAnonymousSignUpEnabled()
+    {
+        return $this->container['sms_anonymous_sign_up_enabled'];
+    }
+
+    /**
+     * Sets sms_anonymous_sign_up_enabled
+     *
+     * @param string $sms_anonymous_sign_up_enabled sms_anonymous_sign_up_enabled
+     *
+     * @return $this
+     */
+    public function setSmsAnonymousSignUpEnabled($sms_anonymous_sign_up_enabled)
+    {
+        $this->container['sms_anonymous_sign_up_enabled'] = $sms_anonymous_sign_up_enabled;
 
         return $this;
     }

@@ -45,6 +45,7 @@ class CreateRuleRequest implements ModelInterface, ArrayAccess
         'no_data' => '\Volcengine\Cloudmonitor\Model\NoDataForCreateRuleInput',
         'notification_id' => 'string',
         'notify_templates' => '\Volcengine\Cloudmonitor\Model\NotifyTemplateForCreateRuleInput[]',
+        'object_group_id' => 'string',
         'original_dimensions' => 'map[string,string[]]',
         'project_name' => 'string',
         'recovery_notify' => '\Volcengine\Cloudmonitor\Model\RecoveryNotifyForCreateRuleInput',
@@ -81,6 +82,7 @@ class CreateRuleRequest implements ModelInterface, ArrayAccess
         'no_data' => null,
         'notification_id' => null,
         'notify_templates' => null,
+        'object_group_id' => null,
         'original_dimensions' => null,
         'project_name' => null,
         'recovery_notify' => null,
@@ -138,6 +140,7 @@ class CreateRuleRequest implements ModelInterface, ArrayAccess
         'no_data' => 'NoData',
         'notification_id' => 'NotificationId',
         'notify_templates' => 'NotifyTemplates',
+        'object_group_id' => 'ObjectGroupId',
         'original_dimensions' => 'OriginalDimensions',
         'project_name' => 'ProjectName',
         'recovery_notify' => 'RecoveryNotify',
@@ -174,6 +177,7 @@ class CreateRuleRequest implements ModelInterface, ArrayAccess
         'no_data' => 'setNoData',
         'notification_id' => 'setNotificationId',
         'notify_templates' => 'setNotifyTemplates',
+        'object_group_id' => 'setObjectGroupId',
         'original_dimensions' => 'setOriginalDimensions',
         'project_name' => 'setProjectName',
         'recovery_notify' => 'setRecoveryNotify',
@@ -210,6 +214,7 @@ class CreateRuleRequest implements ModelInterface, ArrayAccess
         'no_data' => 'getNoData',
         'notification_id' => 'getNotificationId',
         'notify_templates' => 'getNotifyTemplates',
+        'object_group_id' => 'getObjectGroupId',
         'original_dimensions' => 'getOriginalDimensions',
         'project_name' => 'getProjectName',
         'recovery_notify' => 'getRecoveryNotify',
@@ -334,6 +339,7 @@ class CreateRuleRequest implements ModelInterface, ArrayAccess
         $this->container['no_data'] = isset($data['no_data']) ? $data['no_data'] : null;
         $this->container['notification_id'] = isset($data['notification_id']) ? $data['notification_id'] : null;
         $this->container['notify_templates'] = isset($data['notify_templates']) ? $data['notify_templates'] : null;
+        $this->container['object_group_id'] = isset($data['object_group_id']) ? $data['object_group_id'] : null;
         $this->container['original_dimensions'] = isset($data['original_dimensions']) ? $data['original_dimensions'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['recovery_notify'] = isset($data['recovery_notify']) ? $data['recovery_notify'] : null;
@@ -822,6 +828,30 @@ class CreateRuleRequest implements ModelInterface, ArrayAccess
     public function setNotifyTemplates($notify_templates)
     {
         $this->container['notify_templates'] = $notify_templates;
+
+        return $this;
+    }
+
+    /**
+     * Gets object_group_id
+     *
+     * @return string
+     */
+    public function getObjectGroupId()
+    {
+        return $this->container['object_group_id'];
+    }
+
+    /**
+     * Sets object_group_id
+     *
+     * @param string $object_group_id object_group_id
+     *
+     * @return $this
+     */
+    public function setObjectGroupId($object_group_id)
+    {
+        $this->container['object_group_id'] = $object_group_id;
 
         return $this;
     }

@@ -30,7 +30,8 @@ class ListRolesRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'limit' => 'int',
         'offset' => 'int',
-        'query' => 'string'
+        'query' => 'string',
+        'role_name' => 'string'
     ];
 
     /**
@@ -41,7 +42,8 @@ class ListRolesRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'limit' => 'int32',
         'offset' => 'int32',
-        'query' => null
+        'query' => null,
+        'role_name' => null
     ];
 
     /**
@@ -73,7 +75,8 @@ class ListRolesRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'limit' => 'Limit',
         'offset' => 'Offset',
-        'query' => 'Query'
+        'query' => 'Query',
+        'role_name' => 'RoleName'
     ];
 
     /**
@@ -84,7 +87,8 @@ class ListRolesRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'limit' => 'setLimit',
         'offset' => 'setOffset',
-        'query' => 'setQuery'
+        'query' => 'setQuery',
+        'role_name' => 'setRoleName'
     ];
 
     /**
@@ -95,7 +99,8 @@ class ListRolesRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'limit' => 'getLimit',
         'offset' => 'getOffset',
-        'query' => 'getQuery'
+        'query' => 'getQuery',
+        'role_name' => 'getRoleName'
     ];
 
     /**
@@ -161,6 +166,7 @@ class ListRolesRequest implements ModelInterface, ArrayAccess
         $this->container['limit'] = isset($data['limit']) ? $data['limit'] : null;
         $this->container['offset'] = isset($data['offset']) ? $data['offset'] : null;
         $this->container['query'] = isset($data['query']) ? $data['query'] : null;
+        $this->container['role_name'] = isset($data['role_name']) ? $data['role_name'] : null;
     }
 
     /**
@@ -255,6 +261,30 @@ class ListRolesRequest implements ModelInterface, ArrayAccess
     public function setQuery($query)
     {
         $this->container['query'] = $query;
+
+        return $this;
+    }
+
+    /**
+     * Gets role_name
+     *
+     * @return string
+     */
+    public function getRoleName()
+    {
+        return $this->container['role_name'];
+    }
+
+    /**
+     * Sets role_name
+     *
+     * @param string $role_name role_name
+     *
+     * @return $this
+     */
+    public function setRoleName($role_name)
+    {
+        $this->container['role_name'] = $role_name;
 
         return $this;
     }

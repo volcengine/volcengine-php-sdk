@@ -28,6 +28,8 @@ class GetWorkloadAccessTokenForUserIdRequest implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'audience' => 'string[]',
+        'duration_seconds' => 'int',
         'name' => 'string',
         'user_id' => 'string',
         'workload_pool_name' => 'string'
@@ -39,6 +41,8 @@ class GetWorkloadAccessTokenForUserIdRequest implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'audience' => null,
+        'duration_seconds' => 'int64',
         'name' => null,
         'user_id' => null,
         'workload_pool_name' => null
@@ -71,6 +75,8 @@ class GetWorkloadAccessTokenForUserIdRequest implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $attributeMap = [
+        'audience' => 'Audience',
+        'duration_seconds' => 'DurationSeconds',
         'name' => 'Name',
         'user_id' => 'UserId',
         'workload_pool_name' => 'WorkloadPoolName'
@@ -82,6 +88,8 @@ class GetWorkloadAccessTokenForUserIdRequest implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $setters = [
+        'audience' => 'setAudience',
+        'duration_seconds' => 'setDurationSeconds',
         'name' => 'setName',
         'user_id' => 'setUserId',
         'workload_pool_name' => 'setWorkloadPoolName'
@@ -93,6 +101,8 @@ class GetWorkloadAccessTokenForUserIdRequest implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $getters = [
+        'audience' => 'getAudience',
+        'duration_seconds' => 'getDurationSeconds',
         'name' => 'getName',
         'user_id' => 'getUserId',
         'workload_pool_name' => 'getWorkloadPoolName'
@@ -158,6 +168,8 @@ class GetWorkloadAccessTokenForUserIdRequest implements ModelInterface, ArrayAcc
      */
     public function __construct(array $data = null)
     {
+        $this->container['audience'] = isset($data['audience']) ? $data['audience'] : null;
+        $this->container['duration_seconds'] = isset($data['duration_seconds']) ? $data['duration_seconds'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['user_id'] = isset($data['user_id']) ? $data['user_id'] : null;
         $this->container['workload_pool_name'] = isset($data['workload_pool_name']) ? $data['workload_pool_name'] : null;
@@ -189,6 +201,54 @@ class GetWorkloadAccessTokenForUserIdRequest implements ModelInterface, ArrayAcc
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets audience
+     *
+     * @return string[]
+     */
+    public function getAudience()
+    {
+        return $this->container['audience'];
+    }
+
+    /**
+     * Sets audience
+     *
+     * @param string[] $audience audience
+     *
+     * @return $this
+     */
+    public function setAudience($audience)
+    {
+        $this->container['audience'] = $audience;
+
+        return $this;
+    }
+
+    /**
+     * Gets duration_seconds
+     *
+     * @return int
+     */
+    public function getDurationSeconds()
+    {
+        return $this->container['duration_seconds'];
+    }
+
+    /**
+     * Sets duration_seconds
+     *
+     * @param int $duration_seconds duration_seconds
+     *
+     * @return $this
+     */
+    public function setDurationSeconds($duration_seconds)
+    {
+        $this->container['duration_seconds'] = $duration_seconds;
+
+        return $this;
+    }
 
     /**
      * Gets name

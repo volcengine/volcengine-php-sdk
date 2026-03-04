@@ -33,6 +33,8 @@ class DescribeHpcClustersRequest implements ModelInterface, ArrayAccess
         'max_results' => 'int',
         'name' => 'string',
         'next_token' => 'string',
+        'project_name' => 'string',
+        'tag_filters' => '\Volcengine\Ecs\Model\TagFilterForDescribeHpcClustersInput[]',
         'zone_id' => 'string'
     ];
 
@@ -47,6 +49,8 @@ class DescribeHpcClustersRequest implements ModelInterface, ArrayAccess
         'max_results' => 'int32',
         'name' => null,
         'next_token' => null,
+        'project_name' => null,
+        'tag_filters' => null,
         'zone_id' => null
     ];
 
@@ -82,6 +86,8 @@ class DescribeHpcClustersRequest implements ModelInterface, ArrayAccess
         'max_results' => 'MaxResults',
         'name' => 'Name',
         'next_token' => 'NextToken',
+        'project_name' => 'ProjectName',
+        'tag_filters' => 'TagFilters',
         'zone_id' => 'ZoneId'
     ];
 
@@ -96,6 +102,8 @@ class DescribeHpcClustersRequest implements ModelInterface, ArrayAccess
         'max_results' => 'setMaxResults',
         'name' => 'setName',
         'next_token' => 'setNextToken',
+        'project_name' => 'setProjectName',
+        'tag_filters' => 'setTagFilters',
         'zone_id' => 'setZoneId'
     ];
 
@@ -110,6 +118,8 @@ class DescribeHpcClustersRequest implements ModelInterface, ArrayAccess
         'max_results' => 'getMaxResults',
         'name' => 'getName',
         'next_token' => 'getNextToken',
+        'project_name' => 'getProjectName',
+        'tag_filters' => 'getTagFilters',
         'zone_id' => 'getZoneId'
     ];
 
@@ -178,6 +188,8 @@ class DescribeHpcClustersRequest implements ModelInterface, ArrayAccess
         $this->container['max_results'] = isset($data['max_results']) ? $data['max_results'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['tag_filters'] = isset($data['tag_filters']) ? $data['tag_filters'] : null;
         $this->container['zone_id'] = isset($data['zone_id']) ? $data['zone_id'] : null;
     }
 
@@ -321,6 +333,54 @@ class DescribeHpcClustersRequest implements ModelInterface, ArrayAccess
     public function setNextToken($next_token)
     {
         $this->container['next_token'] = $next_token;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets tag_filters
+     *
+     * @return \Volcengine\Ecs\Model\TagFilterForDescribeHpcClustersInput[]
+     */
+    public function getTagFilters()
+    {
+        return $this->container['tag_filters'];
+    }
+
+    /**
+     * Sets tag_filters
+     *
+     * @param \Volcengine\Ecs\Model\TagFilterForDescribeHpcClustersInput[] $tag_filters tag_filters
+     *
+     * @return $this
+     */
+    public function setTagFilters($tag_filters)
+    {
+        $this->container['tag_filters'] = $tag_filters;
 
         return $this;
     }

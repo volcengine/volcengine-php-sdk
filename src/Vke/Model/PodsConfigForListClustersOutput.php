@@ -139,8 +139,39 @@ class PodsConfigForListClustersOutput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const POD_NETWORK_MODE_FLANNEL = 'Flannel';
+    const POD_NETWORK_MODE_VPC_CNI_SHARED = 'VpcCniShared';
+    const POD_NETWORK_MODE_VPC_CNI_DEDICATED = 'VpcCniDedicated';
+    const POD_NETWORK_MODE_VPC_CNI_HYBRID = 'VpcCniHybrid';
+    const POD_NETWORK_MODE_CARMA = 'Carma';
+    const POD_NETWORK_MODE__DEFAULT = 'Default';
+    const POD_NETWORK_MODE_CALICO_VXLAN = 'CalicoVxlan';
+    const POD_NETWORK_MODE_CALICO_BGP = 'CalicoBgp';
+    const POD_NETWORK_MODE_CILIUM = 'Cilium';
+    const POD_NETWORK_MODE_KUBE_OVN = 'KubeOvn';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getPodNetworkModeAllowableValues()
+    {
+        return [
+            self::POD_NETWORK_MODE_FLANNEL,
+            self::POD_NETWORK_MODE_VPC_CNI_SHARED,
+            self::POD_NETWORK_MODE_VPC_CNI_DEDICATED,
+            self::POD_NETWORK_MODE_VPC_CNI_HYBRID,
+            self::POD_NETWORK_MODE_CARMA,
+            self::POD_NETWORK_MODE__DEFAULT,
+            self::POD_NETWORK_MODE_CALICO_VXLAN,
+            self::POD_NETWORK_MODE_CALICO_BGP,
+            self::POD_NETWORK_MODE_CILIUM,
+            self::POD_NETWORK_MODE_KUBE_OVN,
+        ];
+    }
     
 
     /**
@@ -171,6 +202,14 @@ class PodsConfigForListClustersOutput implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getPodNetworkModeAllowableValues();
+        if (!is_null($this->container['pod_network_mode']) && !in_array($this->container['pod_network_mode'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'pod_network_mode', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -230,6 +269,15 @@ class PodsConfigForListClustersOutput implements ModelInterface, ArrayAccess
      */
     public function setPodNetworkMode($pod_network_mode)
     {
+        $allowedValues = $this->getPodNetworkModeAllowableValues();
+        if (!is_null($pod_network_mode) && !in_array($pod_network_mode, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'pod_network_mode', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['pod_network_mode'] = $pod_network_mode;
 
         return $this;

@@ -36,7 +36,8 @@ class CreateSecretRequest implements ModelInterface, ArrayAccess
         'rotation_interval' => 'string',
         'secret_name' => 'string',
         'secret_type' => 'string',
-        'secret_value' => 'string'
+        'secret_value' => 'string',
+        'version_name' => 'string'
     ];
 
     /**
@@ -53,7 +54,8 @@ class CreateSecretRequest implements ModelInterface, ArrayAccess
         'rotation_interval' => null,
         'secret_name' => null,
         'secret_type' => null,
-        'secret_value' => null
+        'secret_value' => null,
+        'version_name' => null
     ];
 
     /**
@@ -91,7 +93,8 @@ class CreateSecretRequest implements ModelInterface, ArrayAccess
         'rotation_interval' => 'RotationInterval',
         'secret_name' => 'SecretName',
         'secret_type' => 'SecretType',
-        'secret_value' => 'SecretValue'
+        'secret_value' => 'SecretValue',
+        'version_name' => 'VersionName'
     ];
 
     /**
@@ -108,7 +111,8 @@ class CreateSecretRequest implements ModelInterface, ArrayAccess
         'rotation_interval' => 'setRotationInterval',
         'secret_name' => 'setSecretName',
         'secret_type' => 'setSecretType',
-        'secret_value' => 'setSecretValue'
+        'secret_value' => 'setSecretValue',
+        'version_name' => 'setVersionName'
     ];
 
     /**
@@ -125,7 +129,8 @@ class CreateSecretRequest implements ModelInterface, ArrayAccess
         'rotation_interval' => 'getRotationInterval',
         'secret_name' => 'getSecretName',
         'secret_type' => 'getSecretType',
-        'secret_value' => 'getSecretValue'
+        'secret_value' => 'getSecretValue',
+        'version_name' => 'getVersionName'
     ];
 
     /**
@@ -218,6 +223,7 @@ class CreateSecretRequest implements ModelInterface, ArrayAccess
         $this->container['secret_name'] = isset($data['secret_name']) ? $data['secret_name'] : null;
         $this->container['secret_type'] = isset($data['secret_type']) ? $data['secret_type'] : null;
         $this->container['secret_value'] = isset($data['secret_value']) ? $data['secret_value'] : null;
+        $this->container['version_name'] = isset($data['version_name']) ? $data['version_name'] : null;
     }
 
     /**
@@ -482,6 +488,30 @@ class CreateSecretRequest implements ModelInterface, ArrayAccess
     public function setSecretValue($secret_value)
     {
         $this->container['secret_value'] = $secret_value;
+
+        return $this;
+    }
+
+    /**
+     * Gets version_name
+     *
+     * @return string
+     */
+    public function getVersionName()
+    {
+        return $this->container['version_name'];
+    }
+
+    /**
+     * Sets version_name
+     *
+     * @param string $version_name version_name
+     *
+     * @return $this
+     */
+    public function setVersionName($version_name)
+    {
+        $this->container['version_name'] = $version_name;
 
         return $this;
     }

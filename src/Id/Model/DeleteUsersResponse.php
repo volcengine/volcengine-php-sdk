@@ -29,6 +29,7 @@ class DeleteUsersResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'errors' => 'string[]',
+        'errors_structured' => '\Volcengine\Id\Model\ErrorsStructuredForDeleteUsersOutput[]',
         'failure_count' => 'int',
         'success_count' => 'int',
         'successful_uids' => 'string[]'
@@ -41,6 +42,7 @@ class DeleteUsersResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'errors' => null,
+        'errors_structured' => null,
         'failure_count' => 'int32',
         'success_count' => 'int32',
         'successful_uids' => null
@@ -74,6 +76,7 @@ class DeleteUsersResponse implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'errors' => 'Errors',
+        'errors_structured' => 'ErrorsStructured',
         'failure_count' => 'FailureCount',
         'success_count' => 'SuccessCount',
         'successful_uids' => 'SuccessfulUids'
@@ -86,6 +89,7 @@ class DeleteUsersResponse implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'errors' => 'setErrors',
+        'errors_structured' => 'setErrorsStructured',
         'failure_count' => 'setFailureCount',
         'success_count' => 'setSuccessCount',
         'successful_uids' => 'setSuccessfulUids'
@@ -98,6 +102,7 @@ class DeleteUsersResponse implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'errors' => 'getErrors',
+        'errors_structured' => 'getErrorsStructured',
         'failure_count' => 'getFailureCount',
         'success_count' => 'getSuccessCount',
         'successful_uids' => 'getSuccessfulUids'
@@ -164,6 +169,7 @@ class DeleteUsersResponse implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['errors'] = isset($data['errors']) ? $data['errors'] : null;
+        $this->container['errors_structured'] = isset($data['errors_structured']) ? $data['errors_structured'] : null;
         $this->container['failure_count'] = isset($data['failure_count']) ? $data['failure_count'] : null;
         $this->container['success_count'] = isset($data['success_count']) ? $data['success_count'] : null;
         $this->container['successful_uids'] = isset($data['successful_uids']) ? $data['successful_uids'] : null;
@@ -213,6 +219,30 @@ class DeleteUsersResponse implements ModelInterface, ArrayAccess
     public function setErrors($errors)
     {
         $this->container['errors'] = $errors;
+
+        return $this;
+    }
+
+    /**
+     * Gets errors_structured
+     *
+     * @return \Volcengine\Id\Model\ErrorsStructuredForDeleteUsersOutput[]
+     */
+    public function getErrorsStructured()
+    {
+        return $this->container['errors_structured'];
+    }
+
+    /**
+     * Sets errors_structured
+     *
+     * @param \Volcengine\Id\Model\ErrorsStructuredForDeleteUsersOutput[] $errors_structured errors_structured
+     *
+     * @return $this
+     */
+    public function setErrorsStructured($errors_structured)
+    {
+        $this->container['errors_structured'] = $errors_structured;
 
         return $this;
     }

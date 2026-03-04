@@ -29,6 +29,7 @@ class UpdateServiceRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'description' => 'string',
+        'service_id' => 'string',
         'service_name' => 'string',
         'status' => 'string'
     ];
@@ -40,6 +41,7 @@ class UpdateServiceRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'description' => null,
+        'service_id' => null,
         'service_name' => null,
         'status' => null
     ];
@@ -72,6 +74,7 @@ class UpdateServiceRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'description' => 'Description',
+        'service_id' => 'ServiceId',
         'service_name' => 'ServiceName',
         'status' => 'Status'
     ];
@@ -83,6 +86,7 @@ class UpdateServiceRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'description' => 'setDescription',
+        'service_id' => 'setServiceId',
         'service_name' => 'setServiceName',
         'status' => 'setStatus'
     ];
@@ -94,6 +98,7 @@ class UpdateServiceRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'description' => 'getDescription',
+        'service_id' => 'getServiceId',
         'service_name' => 'getServiceName',
         'status' => 'getStatus'
     ];
@@ -159,6 +164,7 @@ class UpdateServiceRequest implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['service_id'] = isset($data['service_id']) ? $data['service_id'] : null;
         $this->container['service_name'] = isset($data['service_name']) ? $data['service_name'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }
@@ -172,9 +178,6 @@ class UpdateServiceRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['service_name'] === null) {
-            $invalidProperties[] = "'service_name' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -210,6 +213,30 @@ class UpdateServiceRequest implements ModelInterface, ArrayAccess
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets service_id
+     *
+     * @return string
+     */
+    public function getServiceId()
+    {
+        return $this->container['service_id'];
+    }
+
+    /**
+     * Sets service_id
+     *
+     * @param string $service_id service_id
+     *
+     * @return $this
+     */
+    public function setServiceId($service_id)
+    {
+        $this->container['service_id'] = $service_id;
 
         return $this;
     }

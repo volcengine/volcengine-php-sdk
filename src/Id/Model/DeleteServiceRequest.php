@@ -28,6 +28,7 @@ class DeleteServiceRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'service_id' => 'string',
         'service_name' => 'string'
     ];
 
@@ -37,6 +38,7 @@ class DeleteServiceRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'service_id' => null,
         'service_name' => null
     ];
 
@@ -67,6 +69,7 @@ class DeleteServiceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'service_id' => 'ServiceId',
         'service_name' => 'ServiceName'
     ];
 
@@ -76,6 +79,7 @@ class DeleteServiceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'service_id' => 'setServiceId',
         'service_name' => 'setServiceName'
     ];
 
@@ -85,6 +89,7 @@ class DeleteServiceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'service_id' => 'getServiceId',
         'service_name' => 'getServiceName'
     ];
 
@@ -148,6 +153,7 @@ class DeleteServiceRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['service_id'] = isset($data['service_id']) ? $data['service_id'] : null;
         $this->container['service_name'] = isset($data['service_name']) ? $data['service_name'] : null;
     }
 
@@ -160,9 +166,6 @@ class DeleteServiceRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['service_name'] === null) {
-            $invalidProperties[] = "'service_name' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -177,6 +180,30 @@ class DeleteServiceRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets service_id
+     *
+     * @return string
+     */
+    public function getServiceId()
+    {
+        return $this->container['service_id'];
+    }
+
+    /**
+     * Sets service_id
+     *
+     * @param string $service_id service_id
+     *
+     * @return $this
+     */
+    public function setServiceId($service_id)
+    {
+        $this->container['service_id'] = $service_id;
+
+        return $this;
+    }
 
     /**
      * Gets service_name

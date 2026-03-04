@@ -29,7 +29,8 @@ class NoDataForCreateRuleInput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'enable' => 'bool',
-        'evaluation_count' => 'int'
+        'evaluation_count' => 'int',
+        'level' => 'string'
     ];
 
     /**
@@ -39,7 +40,8 @@ class NoDataForCreateRuleInput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'enable' => null,
-        'evaluation_count' => 'int32'
+        'evaluation_count' => 'int32',
+        'level' => null
     ];
 
     /**
@@ -70,7 +72,8 @@ class NoDataForCreateRuleInput implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'enable' => 'Enable',
-        'evaluation_count' => 'EvaluationCount'
+        'evaluation_count' => 'EvaluationCount',
+        'level' => 'Level'
     ];
 
     /**
@@ -80,7 +83,8 @@ class NoDataForCreateRuleInput implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'enable' => 'setEnable',
-        'evaluation_count' => 'setEvaluationCount'
+        'evaluation_count' => 'setEvaluationCount',
+        'level' => 'setLevel'
     ];
 
     /**
@@ -90,7 +94,8 @@ class NoDataForCreateRuleInput implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'enable' => 'getEnable',
-        'evaluation_count' => 'getEvaluationCount'
+        'evaluation_count' => 'getEvaluationCount',
+        'level' => 'getLevel'
     ];
 
     /**
@@ -155,6 +160,7 @@ class NoDataForCreateRuleInput implements ModelInterface, ArrayAccess
     {
         $this->container['enable'] = isset($data['enable']) ? $data['enable'] : null;
         $this->container['evaluation_count'] = isset($data['evaluation_count']) ? $data['evaluation_count'] : null;
+        $this->container['level'] = isset($data['level']) ? $data['level'] : null;
     }
 
     /**
@@ -225,6 +231,30 @@ class NoDataForCreateRuleInput implements ModelInterface, ArrayAccess
     public function setEvaluationCount($evaluation_count)
     {
         $this->container['evaluation_count'] = $evaluation_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets level
+     *
+     * @return string
+     */
+    public function getLevel()
+    {
+        return $this->container['level'];
+    }
+
+    /**
+     * Sets level
+     *
+     * @param string $level level
+     *
+     * @return $this
+     */
+    public function setLevel($level)
+    {
+        $this->container['level'] = $level;
 
         return $this;
     }

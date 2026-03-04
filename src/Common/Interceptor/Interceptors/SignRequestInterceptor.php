@@ -27,24 +27,40 @@ class SignRequestInterceptor extends Interceptor
             $request->host = $a[1];
             $request->headers['Host'] = $request->host;
         }
-        $request->headers = Utils::signv4($request->ak, $request->sk, $request->region, $request->service,
-            $request->httpBody, $request->query, $request->method, '/', $request->headers, $request->sessionToken);
-        $realRequest = new \GuzzleHttp\Psr7\Request($request->method,
-            $request->schema . '://' . $request->host . '/' . ($request->query ? "?{$request->query}" : ''),
-            $request->headers, $request->httpBody);
 
-        $request->realRequest = $realRequest;
+        if ($request->isPresigned) {
+            $signedPath = Utils::signRequestToUrl(
+                $request->ak,
+                $request->sk,
+                $request->region,
+                $request->service,
+                $request->method,
+                '/',
+                $request->queryParams,
+                $request->sessionToken,
+                $request->host
+            );
+            $request->presignedUrl = $request->schema . '://' . $request->host . $signedPath;
+        } else {
+            $request->headers = Utils::signv4($request->ak, $request->sk, $request->region, $request->service,
+                $request->httpBody, $request->query, $request->method, '/', $request->headers, $request->sessionToken);
+            $realRequest = new \GuzzleHttp\Psr7\Request($request->method,
+                $request->schema . '://' . $request->host . '/' . ($request->query ? "?{$request->query}" : ''),
+                $request->headers, $request->httpBody);
 
-        //配置options添加
-        $options = [];
-        if ($request->getDebug) {
-            $options[RequestOptions::DEBUG] = fopen($request->getDebugFile, 'a');
-            if (!$options[RequestOptions::DEBUG]) {
-                throw new \RuntimeException('Failed to open the debug file: ' . $request->getDebugFile);
+            $request->realRequest = $realRequest;
+
+            //配置options添加
+            $options = [];
+            if ($request->getDebug) {
+                $options[RequestOptions::DEBUG] = fopen($request->getDebugFile, 'a');
+                if (!$options[RequestOptions::DEBUG]) {
+                    throw new \RuntimeException('Failed to open the debug file: ' . $request->getDebugFile);
+                }
             }
-        }
 
-        $request->options = $options;
+            $request->options = $options;
+        }
         return $context;
     }
 }

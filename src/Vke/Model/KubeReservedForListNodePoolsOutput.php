@@ -134,8 +134,23 @@ class KubeReservedForListNodePoolsOutput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const NAME_CPU = 'cpu';
+    const NAME_MEMORY = 'memory';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getNameAllowableValues()
+    {
+        return [
+            self::NAME_CPU,
+            self::NAME_MEMORY,
+        ];
+    }
     
 
     /**
@@ -165,6 +180,14 @@ class KubeReservedForListNodePoolsOutput implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getNameAllowableValues();
+        if (!is_null($this->container['name']) && !in_array($this->container['name'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'name', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -200,6 +223,15 @@ class KubeReservedForListNodePoolsOutput implements ModelInterface, ArrayAccess
      */
     public function setName($name)
     {
+        $allowedValues = $this->getNameAllowableValues();
+        if (!is_null($name) && !in_array($name, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'name', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['name'] = $name;
 
         return $this;

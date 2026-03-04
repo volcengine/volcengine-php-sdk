@@ -28,6 +28,7 @@ class CreateOauth2CredentialProviderResponse implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'callback_url' => 'string',
         'credential_provider_trn' => 'string',
         'name' => 'string',
         'secret_trn' => 'string'
@@ -39,6 +40,7 @@ class CreateOauth2CredentialProviderResponse implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'callback_url' => null,
         'credential_provider_trn' => null,
         'name' => null,
         'secret_trn' => null
@@ -71,6 +73,7 @@ class CreateOauth2CredentialProviderResponse implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $attributeMap = [
+        'callback_url' => 'CallbackUrl',
         'credential_provider_trn' => 'CredentialProviderTrn',
         'name' => 'Name',
         'secret_trn' => 'SecretTrn'
@@ -82,6 +85,7 @@ class CreateOauth2CredentialProviderResponse implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $setters = [
+        'callback_url' => 'setCallbackUrl',
         'credential_provider_trn' => 'setCredentialProviderTrn',
         'name' => 'setName',
         'secret_trn' => 'setSecretTrn'
@@ -93,6 +97,7 @@ class CreateOauth2CredentialProviderResponse implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $getters = [
+        'callback_url' => 'getCallbackUrl',
         'credential_provider_trn' => 'getCredentialProviderTrn',
         'name' => 'getName',
         'secret_trn' => 'getSecretTrn'
@@ -158,6 +163,7 @@ class CreateOauth2CredentialProviderResponse implements ModelInterface, ArrayAcc
      */
     public function __construct(array $data = null)
     {
+        $this->container['callback_url'] = isset($data['callback_url']) ? $data['callback_url'] : null;
         $this->container['credential_provider_trn'] = isset($data['credential_provider_trn']) ? $data['credential_provider_trn'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['secret_trn'] = isset($data['secret_trn']) ? $data['secret_trn'] : null;
@@ -186,6 +192,30 @@ class CreateOauth2CredentialProviderResponse implements ModelInterface, ArrayAcc
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets callback_url
+     *
+     * @return string
+     */
+    public function getCallbackUrl()
+    {
+        return $this->container['callback_url'];
+    }
+
+    /**
+     * Sets callback_url
+     *
+     * @param string $callback_url callback_url
+     *
+     * @return $this
+     */
+    public function setCallbackUrl($callback_url)
+    {
+        $this->container['callback_url'] = $callback_url;
+
+        return $this;
+    }
 
     /**
      * Gets credential_provider_trn

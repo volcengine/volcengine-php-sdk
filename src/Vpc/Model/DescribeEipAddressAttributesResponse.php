@@ -53,7 +53,8 @@ class DescribeEipAddressAttributesResponse implements ModelInterface, ArrayAcces
         'service_managed' => 'bool',
         'status' => 'string',
         'tags' => '\Volcengine\Vpc\Model\TagForDescribeEipAddressAttributesOutput[]',
-        'updated_at' => 'string'
+        'updated_at' => 'string',
+        'vpc_id' => 'string'
     ];
 
     /**
@@ -87,7 +88,8 @@ class DescribeEipAddressAttributesResponse implements ModelInterface, ArrayAcces
         'service_managed' => null,
         'status' => null,
         'tags' => null,
-        'updated_at' => null
+        'updated_at' => null,
+        'vpc_id' => null
     ];
 
     /**
@@ -142,7 +144,8 @@ class DescribeEipAddressAttributesResponse implements ModelInterface, ArrayAcces
         'service_managed' => 'ServiceManaged',
         'status' => 'Status',
         'tags' => 'Tags',
-        'updated_at' => 'UpdatedAt'
+        'updated_at' => 'UpdatedAt',
+        'vpc_id' => 'VpcId'
     ];
 
     /**
@@ -176,7 +179,8 @@ class DescribeEipAddressAttributesResponse implements ModelInterface, ArrayAcces
         'service_managed' => 'setServiceManaged',
         'status' => 'setStatus',
         'tags' => 'setTags',
-        'updated_at' => 'setUpdatedAt'
+        'updated_at' => 'setUpdatedAt',
+        'vpc_id' => 'setVpcId'
     ];
 
     /**
@@ -210,7 +214,8 @@ class DescribeEipAddressAttributesResponse implements ModelInterface, ArrayAcces
         'service_managed' => 'getServiceManaged',
         'status' => 'getStatus',
         'tags' => 'getTags',
-        'updated_at' => 'getUpdatedAt'
+        'updated_at' => 'getUpdatedAt',
+        'vpc_id' => 'getVpcId'
     ];
 
     /**
@@ -299,6 +304,7 @@ class DescribeEipAddressAttributesResponse implements ModelInterface, ArrayAcces
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
+        $this->container['vpc_id'] = isset($data['vpc_id']) ? $data['vpc_id'] : null;
     }
 
     /**
@@ -945,6 +951,30 @@ class DescribeEipAddressAttributesResponse implements ModelInterface, ArrayAcces
     public function setUpdatedAt($updated_at)
     {
         $this->container['updated_at'] = $updated_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets vpc_id
+     *
+     * @return string
+     */
+    public function getVpcId()
+    {
+        return $this->container['vpc_id'];
+    }
+
+    /**
+     * Sets vpc_id
+     *
+     * @param string $vpc_id vpc_id
+     *
+     * @return $this
+     */
+    public function setVpcId($vpc_id)
+    {
+        $this->container['vpc_id'] = $vpc_id;
 
         return $this;
     }

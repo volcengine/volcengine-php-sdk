@@ -29,7 +29,9 @@ class AppliedRuleForListAlertTemplatesOutput implements ModelInterface, ArrayAcc
       */
     protected static $swaggerTypes = [
         'id' => 'string',
-        'name' => 'string'
+        'name' => 'string',
+        'object_group_id' => 'string',
+        'object_id' => 'string'
     ];
 
     /**
@@ -39,7 +41,9 @@ class AppliedRuleForListAlertTemplatesOutput implements ModelInterface, ArrayAcc
       */
     protected static $swaggerFormats = [
         'id' => null,
-        'name' => null
+        'name' => null,
+        'object_group_id' => null,
+        'object_id' => null
     ];
 
     /**
@@ -70,7 +74,9 @@ class AppliedRuleForListAlertTemplatesOutput implements ModelInterface, ArrayAcc
      */
     protected static $attributeMap = [
         'id' => 'Id',
-        'name' => 'Name'
+        'name' => 'Name',
+        'object_group_id' => 'ObjectGroupId',
+        'object_id' => 'ObjectId'
     ];
 
     /**
@@ -80,7 +86,9 @@ class AppliedRuleForListAlertTemplatesOutput implements ModelInterface, ArrayAcc
      */
     protected static $setters = [
         'id' => 'setId',
-        'name' => 'setName'
+        'name' => 'setName',
+        'object_group_id' => 'setObjectGroupId',
+        'object_id' => 'setObjectId'
     ];
 
     /**
@@ -90,7 +98,9 @@ class AppliedRuleForListAlertTemplatesOutput implements ModelInterface, ArrayAcc
      */
     protected static $getters = [
         'id' => 'getId',
-        'name' => 'getName'
+        'name' => 'getName',
+        'object_group_id' => 'getObjectGroupId',
+        'object_id' => 'getObjectId'
     ];
 
     /**
@@ -155,6 +165,8 @@ class AppliedRuleForListAlertTemplatesOutput implements ModelInterface, ArrayAcc
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['object_group_id'] = isset($data['object_group_id']) ? $data['object_group_id'] : null;
+        $this->container['object_id'] = isset($data['object_id']) ? $data['object_id'] : null;
     }
 
     /**
@@ -225,6 +237,54 @@ class AppliedRuleForListAlertTemplatesOutput implements ModelInterface, ArrayAcc
     public function setName($name)
     {
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets object_group_id
+     *
+     * @return string
+     */
+    public function getObjectGroupId()
+    {
+        return $this->container['object_group_id'];
+    }
+
+    /**
+     * Sets object_group_id
+     *
+     * @param string $object_group_id object_group_id
+     *
+     * @return $this
+     */
+    public function setObjectGroupId($object_group_id)
+    {
+        $this->container['object_group_id'] = $object_group_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets object_id
+     *
+     * @return string
+     */
+    public function getObjectId()
+    {
+        return $this->container['object_id'];
+    }
+
+    /**
+     * Sets object_id
+     *
+     * @param string $object_id object_id
+     *
+     * @return $this
+     */
+    public function setObjectId($object_id)
+    {
+        $this->container['object_id'] = $object_id;
 
         return $this;
     }

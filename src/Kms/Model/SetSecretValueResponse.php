@@ -30,6 +30,7 @@ class SetSecretValueResponse implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'creation_date' => 'int',
         'version_id' => 'string',
+        'version_name' => 'string',
         'version_stage' => 'string'
     ];
 
@@ -41,6 +42,7 @@ class SetSecretValueResponse implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'creation_date' => 'int64',
         'version_id' => null,
+        'version_name' => null,
         'version_stage' => null
     ];
 
@@ -73,6 +75,7 @@ class SetSecretValueResponse implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'creation_date' => 'CreationDate',
         'version_id' => 'VersionID',
+        'version_name' => 'VersionName',
         'version_stage' => 'VersionStage'
     ];
 
@@ -84,6 +87,7 @@ class SetSecretValueResponse implements ModelInterface, ArrayAccess
     protected static $setters = [
         'creation_date' => 'setCreationDate',
         'version_id' => 'setVersionId',
+        'version_name' => 'setVersionName',
         'version_stage' => 'setVersionStage'
     ];
 
@@ -95,6 +99,7 @@ class SetSecretValueResponse implements ModelInterface, ArrayAccess
     protected static $getters = [
         'creation_date' => 'getCreationDate',
         'version_id' => 'getVersionId',
+        'version_name' => 'getVersionName',
         'version_stage' => 'getVersionStage'
     ];
 
@@ -160,6 +165,7 @@ class SetSecretValueResponse implements ModelInterface, ArrayAccess
     {
         $this->container['creation_date'] = isset($data['creation_date']) ? $data['creation_date'] : null;
         $this->container['version_id'] = isset($data['version_id']) ? $data['version_id'] : null;
+        $this->container['version_name'] = isset($data['version_name']) ? $data['version_name'] : null;
         $this->container['version_stage'] = isset($data['version_stage']) ? $data['version_stage'] : null;
     }
 
@@ -231,6 +237,30 @@ class SetSecretValueResponse implements ModelInterface, ArrayAccess
     public function setVersionId($version_id)
     {
         $this->container['version_id'] = $version_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets version_name
+     *
+     * @return string
+     */
+    public function getVersionName()
+    {
+        return $this->container['version_name'];
+    }
+
+    /**
+     * Sets version_name
+     *
+     * @param string $version_name version_name
+     *
+     * @return $this
+     */
+    public function setVersionName($version_name)
+    {
+        $this->container['version_name'] = $version_name;
 
         return $this;
     }

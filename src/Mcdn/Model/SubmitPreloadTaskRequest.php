@@ -28,6 +28,7 @@ class SubmitPreloadTaskRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'region' => 'string',
         'urls' => 'string',
         'vendor' => 'string'
     ];
@@ -38,6 +39,7 @@ class SubmitPreloadTaskRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'region' => null,
         'urls' => null,
         'vendor' => null
     ];
@@ -69,6 +71,7 @@ class SubmitPreloadTaskRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'region' => 'Region',
         'urls' => 'Urls',
         'vendor' => 'Vendor'
     ];
@@ -79,6 +82,7 @@ class SubmitPreloadTaskRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'region' => 'setRegion',
         'urls' => 'setUrls',
         'vendor' => 'setVendor'
     ];
@@ -89,6 +93,7 @@ class SubmitPreloadTaskRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'region' => 'getRegion',
         'urls' => 'getUrls',
         'vendor' => 'getVendor'
     ];
@@ -153,6 +158,7 @@ class SubmitPreloadTaskRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['region'] = isset($data['region']) ? $data['region'] : null;
         $this->container['urls'] = isset($data['urls']) ? $data['urls'] : null;
         $this->container['vendor'] = isset($data['vendor']) ? $data['vendor'] : null;
     }
@@ -183,6 +189,30 @@ class SubmitPreloadTaskRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets region
+     *
+     * @return string
+     */
+    public function getRegion()
+    {
+        return $this->container['region'];
+    }
+
+    /**
+     * Sets region
+     *
+     * @param string $region region
+     *
+     * @return $this
+     */
+    public function setRegion($region)
+    {
+        $this->container['region'] = $region;
+
+        return $this;
+    }
 
     /**
      * Gets urls

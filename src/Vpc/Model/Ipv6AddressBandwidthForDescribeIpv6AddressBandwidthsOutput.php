@@ -29,7 +29,7 @@ class Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput implements Mode
       */
     protected static $swaggerTypes = [
         'allocation_id' => 'string',
-        'bandwidth' => 'string',
+        'bandwidth' => 'int',
         'bandwidth_package_id' => 'string',
         'billing_type' => 'int',
         'business_status' => 'string',
@@ -316,7 +316,7 @@ class Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput implements Mode
     /**
      * Gets bandwidth
      *
-     * @return string
+     * @return int
      */
     public function getBandwidth()
     {
@@ -326,7 +326,7 @@ class Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput implements Mode
     /**
      * Sets bandwidth
      *
-     * @param string $bandwidth bandwidth
+     * @param int $bandwidth bandwidth
      *
      * @return $this
      */

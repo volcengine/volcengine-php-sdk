@@ -35,6 +35,7 @@ class ItemForListClustersOutput implements ModelInterface, ArrayAccess
         'delete_protection_enabled' => 'bool',
         'description' => 'string',
         'id' => 'string',
+        'irsa_config' => '\Volcengine\Vke\Model\IrsaConfigForListClustersOutput',
         'kubernetes_version' => 'string',
         'logging_config' => '\Volcengine\Vke\Model\LoggingConfigForListClustersOutput',
         'message' => 'string',
@@ -65,6 +66,7 @@ class ItemForListClustersOutput implements ModelInterface, ArrayAccess
         'delete_protection_enabled' => null,
         'description' => null,
         'id' => null,
+        'irsa_config' => null,
         'kubernetes_version' => null,
         'logging_config' => null,
         'message' => null,
@@ -116,6 +118,7 @@ class ItemForListClustersOutput implements ModelInterface, ArrayAccess
         'delete_protection_enabled' => 'DeleteProtectionEnabled',
         'description' => 'Description',
         'id' => 'Id',
+        'irsa_config' => 'IrsaConfig',
         'kubernetes_version' => 'KubernetesVersion',
         'logging_config' => 'LoggingConfig',
         'message' => 'Message',
@@ -146,6 +149,7 @@ class ItemForListClustersOutput implements ModelInterface, ArrayAccess
         'delete_protection_enabled' => 'setDeleteProtectionEnabled',
         'description' => 'setDescription',
         'id' => 'setId',
+        'irsa_config' => 'setIrsaConfig',
         'kubernetes_version' => 'setKubernetesVersion',
         'logging_config' => 'setLoggingConfig',
         'message' => 'setMessage',
@@ -176,6 +180,7 @@ class ItemForListClustersOutput implements ModelInterface, ArrayAccess
         'delete_protection_enabled' => 'getDeleteProtectionEnabled',
         'description' => 'getDescription',
         'id' => 'getId',
+        'irsa_config' => 'getIrsaConfig',
         'kubernetes_version' => 'getKubernetesVersion',
         'logging_config' => 'getLoggingConfig',
         'message' => 'getMessage',
@@ -279,6 +284,7 @@ class ItemForListClustersOutput implements ModelInterface, ArrayAccess
         $this->container['delete_protection_enabled'] = isset($data['delete_protection_enabled']) ? $data['delete_protection_enabled'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['irsa_config'] = isset($data['irsa_config']) ? $data['irsa_config'] : null;
         $this->container['kubernetes_version'] = isset($data['kubernetes_version']) ? $data['kubernetes_version'] : null;
         $this->container['logging_config'] = isset($data['logging_config']) ? $data['logging_config'] : null;
         $this->container['message'] = isset($data['message']) ? $data['message'] : null;
@@ -492,6 +498,30 @@ class ItemForListClustersOutput implements ModelInterface, ArrayAccess
     public function setId($id)
     {
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets irsa_config
+     *
+     * @return \Volcengine\Vke\Model\IrsaConfigForListClustersOutput
+     */
+    public function getIrsaConfig()
+    {
+        return $this->container['irsa_config'];
+    }
+
+    /**
+     * Sets irsa_config
+     *
+     * @param \Volcengine\Vke\Model\IrsaConfigForListClustersOutput $irsa_config irsa_config
+     *
+     * @return $this
+     */
+    public function setIrsaConfig($irsa_config)
+    {
+        $this->container['irsa_config'] = $irsa_config;
 
         return $this;
     }

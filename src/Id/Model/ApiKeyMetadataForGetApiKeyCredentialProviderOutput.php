@@ -29,7 +29,8 @@ class ApiKeyMetadataForGetApiKeyCredentialProviderOutput implements ModelInterfa
       */
     protected static $swaggerTypes = [
         'location' => 'string',
-        'parameter_name' => 'string'
+        'parameter_name' => 'string',
+        'prefix' => 'string'
     ];
 
     /**
@@ -39,7 +40,8 @@ class ApiKeyMetadataForGetApiKeyCredentialProviderOutput implements ModelInterfa
       */
     protected static $swaggerFormats = [
         'location' => null,
-        'parameter_name' => null
+        'parameter_name' => null,
+        'prefix' => null
     ];
 
     /**
@@ -70,7 +72,8 @@ class ApiKeyMetadataForGetApiKeyCredentialProviderOutput implements ModelInterfa
      */
     protected static $attributeMap = [
         'location' => 'Location',
-        'parameter_name' => 'ParameterName'
+        'parameter_name' => 'ParameterName',
+        'prefix' => 'Prefix'
     ];
 
     /**
@@ -80,7 +83,8 @@ class ApiKeyMetadataForGetApiKeyCredentialProviderOutput implements ModelInterfa
      */
     protected static $setters = [
         'location' => 'setLocation',
-        'parameter_name' => 'setParameterName'
+        'parameter_name' => 'setParameterName',
+        'prefix' => 'setPrefix'
     ];
 
     /**
@@ -90,7 +94,8 @@ class ApiKeyMetadataForGetApiKeyCredentialProviderOutput implements ModelInterfa
      */
     protected static $getters = [
         'location' => 'getLocation',
-        'parameter_name' => 'getParameterName'
+        'parameter_name' => 'getParameterName',
+        'prefix' => 'getPrefix'
     ];
 
     /**
@@ -155,6 +160,7 @@ class ApiKeyMetadataForGetApiKeyCredentialProviderOutput implements ModelInterfa
     {
         $this->container['location'] = isset($data['location']) ? $data['location'] : null;
         $this->container['parameter_name'] = isset($data['parameter_name']) ? $data['parameter_name'] : null;
+        $this->container['prefix'] = isset($data['prefix']) ? $data['prefix'] : null;
     }
 
     /**
@@ -225,6 +231,30 @@ class ApiKeyMetadataForGetApiKeyCredentialProviderOutput implements ModelInterfa
     public function setParameterName($parameter_name)
     {
         $this->container['parameter_name'] = $parameter_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets prefix
+     *
+     * @return string
+     */
+    public function getPrefix()
+    {
+        return $this->container['prefix'];
+    }
+
+    /**
+     * Sets prefix
+     *
+     * @param string $prefix prefix
+     *
+     * @return $this
+     */
+    public function setPrefix($prefix)
+    {
+        $this->container['prefix'] = $prefix;
 
         return $this;
     }

@@ -30,6 +30,7 @@ class ListAlertTemplatesRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'name' => 'string',
         'namespaces' => 'string[]',
+        'object_group_ids' => 'string[]',
         'page_number' => 'int',
         'page_size' => 'int',
         'template_ids' => 'string[]'
@@ -43,6 +44,7 @@ class ListAlertTemplatesRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'name' => null,
         'namespaces' => null,
+        'object_group_ids' => null,
         'page_number' => null,
         'page_size' => null,
         'template_ids' => null
@@ -77,6 +79,7 @@ class ListAlertTemplatesRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'name' => 'Name',
         'namespaces' => 'Namespaces',
+        'object_group_ids' => 'ObjectGroupIds',
         'page_number' => 'PageNumber',
         'page_size' => 'PageSize',
         'template_ids' => 'TemplateIds'
@@ -90,6 +93,7 @@ class ListAlertTemplatesRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'name' => 'setName',
         'namespaces' => 'setNamespaces',
+        'object_group_ids' => 'setObjectGroupIds',
         'page_number' => 'setPageNumber',
         'page_size' => 'setPageSize',
         'template_ids' => 'setTemplateIds'
@@ -103,6 +107,7 @@ class ListAlertTemplatesRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'name' => 'getName',
         'namespaces' => 'getNamespaces',
+        'object_group_ids' => 'getObjectGroupIds',
         'page_number' => 'getPageNumber',
         'page_size' => 'getPageSize',
         'template_ids' => 'getTemplateIds'
@@ -170,6 +175,7 @@ class ListAlertTemplatesRequest implements ModelInterface, ArrayAccess
     {
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['namespaces'] = isset($data['namespaces']) ? $data['namespaces'] : null;
+        $this->container['object_group_ids'] = isset($data['object_group_ids']) ? $data['object_group_ids'] : null;
         $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
         $this->container['template_ids'] = isset($data['template_ids']) ? $data['template_ids'] : null;
@@ -243,6 +249,30 @@ class ListAlertTemplatesRequest implements ModelInterface, ArrayAccess
     public function setNamespaces($namespaces)
     {
         $this->container['namespaces'] = $namespaces;
+
+        return $this;
+    }
+
+    /**
+     * Gets object_group_ids
+     *
+     * @return string[]
+     */
+    public function getObjectGroupIds()
+    {
+        return $this->container['object_group_ids'];
+    }
+
+    /**
+     * Sets object_group_ids
+     *
+     * @param string[] $object_group_ids object_group_ids
+     *
+     * @return $this
+     */
+    public function setObjectGroupIds($object_group_ids)
+    {
+        $this->container['object_group_ids'] = $object_group_ids;
 
         return $this;
     }

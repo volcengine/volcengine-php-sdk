@@ -29,10 +29,13 @@ class KubernetesConfigForListNodePoolsOutput implements ModelInterface, ArrayAcc
       */
     protected static $swaggerTypes = [
         'auto_sync_disabled' => 'bool',
+        'containerd_config' => '\Volcengine\Vke\Model\ContainerdConfigForListNodePoolsOutput',
         'cordon' => 'bool',
         'kubelet_config' => '\Volcengine\Vke\Model\KubeletConfigForListNodePoolsOutput',
         'labels' => '\Volcengine\Vke\Model\LabelForListNodePoolsOutput[]',
         'name_prefix' => 'string',
+        'name_suffix' => 'string',
+        'name_use_hostname' => 'bool',
         'taints' => '\Volcengine\Vke\Model\TaintForListNodePoolsOutput[]'
     ];
 
@@ -43,10 +46,13 @@ class KubernetesConfigForListNodePoolsOutput implements ModelInterface, ArrayAcc
       */
     protected static $swaggerFormats = [
         'auto_sync_disabled' => null,
+        'containerd_config' => null,
         'cordon' => null,
         'kubelet_config' => null,
         'labels' => null,
         'name_prefix' => null,
+        'name_suffix' => null,
+        'name_use_hostname' => null,
         'taints' => null
     ];
 
@@ -78,10 +84,13 @@ class KubernetesConfigForListNodePoolsOutput implements ModelInterface, ArrayAcc
      */
     protected static $attributeMap = [
         'auto_sync_disabled' => 'AutoSyncDisabled',
+        'containerd_config' => 'ContainerdConfig',
         'cordon' => 'Cordon',
         'kubelet_config' => 'KubeletConfig',
         'labels' => 'Labels',
         'name_prefix' => 'NamePrefix',
+        'name_suffix' => 'NameSuffix',
+        'name_use_hostname' => 'NameUseHostname',
         'taints' => 'Taints'
     ];
 
@@ -92,10 +101,13 @@ class KubernetesConfigForListNodePoolsOutput implements ModelInterface, ArrayAcc
      */
     protected static $setters = [
         'auto_sync_disabled' => 'setAutoSyncDisabled',
+        'containerd_config' => 'setContainerdConfig',
         'cordon' => 'setCordon',
         'kubelet_config' => 'setKubeletConfig',
         'labels' => 'setLabels',
         'name_prefix' => 'setNamePrefix',
+        'name_suffix' => 'setNameSuffix',
+        'name_use_hostname' => 'setNameUseHostname',
         'taints' => 'setTaints'
     ];
 
@@ -106,10 +118,13 @@ class KubernetesConfigForListNodePoolsOutput implements ModelInterface, ArrayAcc
      */
     protected static $getters = [
         'auto_sync_disabled' => 'getAutoSyncDisabled',
+        'containerd_config' => 'getContainerdConfig',
         'cordon' => 'getCordon',
         'kubelet_config' => 'getKubeletConfig',
         'labels' => 'getLabels',
         'name_prefix' => 'getNamePrefix',
+        'name_suffix' => 'getNameSuffix',
+        'name_use_hostname' => 'getNameUseHostname',
         'taints' => 'getTaints'
     ];
 
@@ -174,10 +189,13 @@ class KubernetesConfigForListNodePoolsOutput implements ModelInterface, ArrayAcc
     public function __construct(array $data = null)
     {
         $this->container['auto_sync_disabled'] = isset($data['auto_sync_disabled']) ? $data['auto_sync_disabled'] : null;
+        $this->container['containerd_config'] = isset($data['containerd_config']) ? $data['containerd_config'] : null;
         $this->container['cordon'] = isset($data['cordon']) ? $data['cordon'] : null;
         $this->container['kubelet_config'] = isset($data['kubelet_config']) ? $data['kubelet_config'] : null;
         $this->container['labels'] = isset($data['labels']) ? $data['labels'] : null;
         $this->container['name_prefix'] = isset($data['name_prefix']) ? $data['name_prefix'] : null;
+        $this->container['name_suffix'] = isset($data['name_suffix']) ? $data['name_suffix'] : null;
+        $this->container['name_use_hostname'] = isset($data['name_use_hostname']) ? $data['name_use_hostname'] : null;
         $this->container['taints'] = isset($data['taints']) ? $data['taints'] : null;
     }
 
@@ -225,6 +243,30 @@ class KubernetesConfigForListNodePoolsOutput implements ModelInterface, ArrayAcc
     public function setAutoSyncDisabled($auto_sync_disabled)
     {
         $this->container['auto_sync_disabled'] = $auto_sync_disabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets containerd_config
+     *
+     * @return \Volcengine\Vke\Model\ContainerdConfigForListNodePoolsOutput
+     */
+    public function getContainerdConfig()
+    {
+        return $this->container['containerd_config'];
+    }
+
+    /**
+     * Sets containerd_config
+     *
+     * @param \Volcengine\Vke\Model\ContainerdConfigForListNodePoolsOutput $containerd_config containerd_config
+     *
+     * @return $this
+     */
+    public function setContainerdConfig($containerd_config)
+    {
+        $this->container['containerd_config'] = $containerd_config;
 
         return $this;
     }
@@ -321,6 +363,54 @@ class KubernetesConfigForListNodePoolsOutput implements ModelInterface, ArrayAcc
     public function setNamePrefix($name_prefix)
     {
         $this->container['name_prefix'] = $name_prefix;
+
+        return $this;
+    }
+
+    /**
+     * Gets name_suffix
+     *
+     * @return string
+     */
+    public function getNameSuffix()
+    {
+        return $this->container['name_suffix'];
+    }
+
+    /**
+     * Sets name_suffix
+     *
+     * @param string $name_suffix name_suffix
+     *
+     * @return $this
+     */
+    public function setNameSuffix($name_suffix)
+    {
+        $this->container['name_suffix'] = $name_suffix;
+
+        return $this;
+    }
+
+    /**
+     * Gets name_use_hostname
+     *
+     * @return bool
+     */
+    public function getNameUseHostname()
+    {
+        return $this->container['name_use_hostname'];
+    }
+
+    /**
+     * Sets name_use_hostname
+     *
+     * @param bool $name_use_hostname name_use_hostname
+     *
+     * @return $this
+     */
+    public function setNameUseHostname($name_use_hostname)
+    {
+        $this->container['name_use_hostname'] = $name_use_hostname;
 
         return $this;
     }

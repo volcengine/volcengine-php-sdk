@@ -36,6 +36,7 @@ class GetUserPoolClientResponse implements ModelInterface, ArrayAccess
         'client_type' => 'string',
         'create_time' => 'string',
         'description' => 'string',
+        'development_mode_enabled' => 'bool',
         'id_token' => '\Volcengine\Id\Model\IdTokenForGetUserPoolClientOutput',
         'login_page_url' => 'string',
         'logo_uri' => 'string',
@@ -59,6 +60,7 @@ class GetUserPoolClientResponse implements ModelInterface, ArrayAccess
         'client_type' => null,
         'create_time' => null,
         'description' => null,
+        'development_mode_enabled' => null,
         'id_token' => null,
         'login_page_url' => null,
         'logo_uri' => null,
@@ -103,6 +105,7 @@ class GetUserPoolClientResponse implements ModelInterface, ArrayAccess
         'client_type' => 'ClientType',
         'create_time' => 'CreateTime',
         'description' => 'Description',
+        'development_mode_enabled' => 'DevelopmentModeEnabled',
         'id_token' => 'IdToken',
         'login_page_url' => 'LoginPageUrl',
         'logo_uri' => 'LogoUri',
@@ -126,6 +129,7 @@ class GetUserPoolClientResponse implements ModelInterface, ArrayAccess
         'client_type' => 'setClientType',
         'create_time' => 'setCreateTime',
         'description' => 'setDescription',
+        'development_mode_enabled' => 'setDevelopmentModeEnabled',
         'id_token' => 'setIdToken',
         'login_page_url' => 'setLoginPageUrl',
         'logo_uri' => 'setLogoUri',
@@ -149,6 +153,7 @@ class GetUserPoolClientResponse implements ModelInterface, ArrayAccess
         'client_type' => 'getClientType',
         'create_time' => 'getCreateTime',
         'description' => 'getDescription',
+        'development_mode_enabled' => 'getDevelopmentModeEnabled',
         'id_token' => 'getIdToken',
         'login_page_url' => 'getLoginPageUrl',
         'logo_uri' => 'getLogoUri',
@@ -226,6 +231,7 @@ class GetUserPoolClientResponse implements ModelInterface, ArrayAccess
         $this->container['client_type'] = isset($data['client_type']) ? $data['client_type'] : null;
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['development_mode_enabled'] = isset($data['development_mode_enabled']) ? $data['development_mode_enabled'] : null;
         $this->container['id_token'] = isset($data['id_token']) ? $data['id_token'] : null;
         $this->container['login_page_url'] = isset($data['login_page_url']) ? $data['login_page_url'] : null;
         $this->container['logo_uri'] = isset($data['logo_uri']) ? $data['logo_uri'] : null;
@@ -447,6 +453,30 @@ class GetUserPoolClientResponse implements ModelInterface, ArrayAccess
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets development_mode_enabled
+     *
+     * @return bool
+     */
+    public function getDevelopmentModeEnabled()
+    {
+        return $this->container['development_mode_enabled'];
+    }
+
+    /**
+     * Sets development_mode_enabled
+     *
+     * @param bool $development_mode_enabled development_mode_enabled
+     *
+     * @return $this
+     */
+    public function setDevelopmentModeEnabled($development_mode_enabled)
+    {
+        $this->container['development_mode_enabled'] = $development_mode_enabled;
 
         return $this;
     }

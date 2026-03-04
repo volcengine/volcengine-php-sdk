@@ -34,6 +34,9 @@ class DataForListUserPoolsOutput implements ModelInterface, ArrayAccess
         'name' => 'string',
         'project_name' => 'string',
         'tags' => '\Volcengine\Id\Model\TagForListUserPoolsOutput[]',
+        'total_clients' => 'int',
+        'total_connections' => 'int',
+        'total_users' => 'int',
         'trn' => 'string',
         'uid' => 'string',
         'update_time' => 'string'
@@ -51,6 +54,9 @@ class DataForListUserPoolsOutput implements ModelInterface, ArrayAccess
         'name' => null,
         'project_name' => null,
         'tags' => null,
+        'total_clients' => 'int32',
+        'total_connections' => 'int32',
+        'total_users' => 'int32',
         'trn' => null,
         'uid' => null,
         'update_time' => null
@@ -89,6 +95,9 @@ class DataForListUserPoolsOutput implements ModelInterface, ArrayAccess
         'name' => 'Name',
         'project_name' => 'ProjectName',
         'tags' => 'Tags',
+        'total_clients' => 'TotalClients',
+        'total_connections' => 'TotalConnections',
+        'total_users' => 'TotalUsers',
         'trn' => 'Trn',
         'uid' => 'Uid',
         'update_time' => 'UpdateTime'
@@ -106,6 +115,9 @@ class DataForListUserPoolsOutput implements ModelInterface, ArrayAccess
         'name' => 'setName',
         'project_name' => 'setProjectName',
         'tags' => 'setTags',
+        'total_clients' => 'setTotalClients',
+        'total_connections' => 'setTotalConnections',
+        'total_users' => 'setTotalUsers',
         'trn' => 'setTrn',
         'uid' => 'setUid',
         'update_time' => 'setUpdateTime'
@@ -123,6 +135,9 @@ class DataForListUserPoolsOutput implements ModelInterface, ArrayAccess
         'name' => 'getName',
         'project_name' => 'getProjectName',
         'tags' => 'getTags',
+        'total_clients' => 'getTotalClients',
+        'total_connections' => 'getTotalConnections',
+        'total_users' => 'getTotalUsers',
         'trn' => 'getTrn',
         'uid' => 'getUid',
         'update_time' => 'getUpdateTime'
@@ -194,6 +209,9 @@ class DataForListUserPoolsOutput implements ModelInterface, ArrayAccess
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
+        $this->container['total_clients'] = isset($data['total_clients']) ? $data['total_clients'] : null;
+        $this->container['total_connections'] = isset($data['total_connections']) ? $data['total_connections'] : null;
+        $this->container['total_users'] = isset($data['total_users']) ? $data['total_users'] : null;
         $this->container['trn'] = isset($data['trn']) ? $data['trn'] : null;
         $this->container['uid'] = isset($data['uid']) ? $data['uid'] : null;
         $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
@@ -363,6 +381,78 @@ class DataForListUserPoolsOutput implements ModelInterface, ArrayAccess
     public function setTags($tags)
     {
         $this->container['tags'] = $tags;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_clients
+     *
+     * @return int
+     */
+    public function getTotalClients()
+    {
+        return $this->container['total_clients'];
+    }
+
+    /**
+     * Sets total_clients
+     *
+     * @param int $total_clients total_clients
+     *
+     * @return $this
+     */
+    public function setTotalClients($total_clients)
+    {
+        $this->container['total_clients'] = $total_clients;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_connections
+     *
+     * @return int
+     */
+    public function getTotalConnections()
+    {
+        return $this->container['total_connections'];
+    }
+
+    /**
+     * Sets total_connections
+     *
+     * @param int $total_connections total_connections
+     *
+     * @return $this
+     */
+    public function setTotalConnections($total_connections)
+    {
+        $this->container['total_connections'] = $total_connections;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_users
+     *
+     * @return int
+     */
+    public function getTotalUsers()
+    {
+        return $this->container['total_users'];
+    }
+
+    /**
+     * Sets total_users
+     *
+     * @param int $total_users total_users
+     *
+     * @return $this
+     */
+    public function setTotalUsers($total_users)
+    {
+        $this->container['total_users'] = $total_users;
 
         return $this;
     }

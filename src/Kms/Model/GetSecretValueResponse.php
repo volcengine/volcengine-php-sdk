@@ -31,6 +31,7 @@ class GetSecretValueResponse implements ModelInterface, ArrayAccess
         'creation_date' => 'int',
         'secret_value' => 'string',
         'version_id' => 'string',
+        'version_name' => 'string',
         'version_stage' => 'string'
     ];
 
@@ -43,6 +44,7 @@ class GetSecretValueResponse implements ModelInterface, ArrayAccess
         'creation_date' => 'int64',
         'secret_value' => null,
         'version_id' => null,
+        'version_name' => null,
         'version_stage' => null
     ];
 
@@ -76,6 +78,7 @@ class GetSecretValueResponse implements ModelInterface, ArrayAccess
         'creation_date' => 'CreationDate',
         'secret_value' => 'SecretValue',
         'version_id' => 'VersionID',
+        'version_name' => 'VersionName',
         'version_stage' => 'VersionStage'
     ];
 
@@ -88,6 +91,7 @@ class GetSecretValueResponse implements ModelInterface, ArrayAccess
         'creation_date' => 'setCreationDate',
         'secret_value' => 'setSecretValue',
         'version_id' => 'setVersionId',
+        'version_name' => 'setVersionName',
         'version_stage' => 'setVersionStage'
     ];
 
@@ -100,6 +104,7 @@ class GetSecretValueResponse implements ModelInterface, ArrayAccess
         'creation_date' => 'getCreationDate',
         'secret_value' => 'getSecretValue',
         'version_id' => 'getVersionId',
+        'version_name' => 'getVersionName',
         'version_stage' => 'getVersionStage'
     ];
 
@@ -166,6 +171,7 @@ class GetSecretValueResponse implements ModelInterface, ArrayAccess
         $this->container['creation_date'] = isset($data['creation_date']) ? $data['creation_date'] : null;
         $this->container['secret_value'] = isset($data['secret_value']) ? $data['secret_value'] : null;
         $this->container['version_id'] = isset($data['version_id']) ? $data['version_id'] : null;
+        $this->container['version_name'] = isset($data['version_name']) ? $data['version_name'] : null;
         $this->container['version_stage'] = isset($data['version_stage']) ? $data['version_stage'] : null;
     }
 
@@ -261,6 +267,30 @@ class GetSecretValueResponse implements ModelInterface, ArrayAccess
     public function setVersionId($version_id)
     {
         $this->container['version_id'] = $version_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets version_name
+     *
+     * @return string
+     */
+    public function getVersionName()
+    {
+        return $this->container['version_name'];
+    }
+
+    /**
+     * Sets version_name
+     *
+     * @param string $version_name version_name
+     *
+     * @return $this
+     */
+    public function setVersionName($version_name)
+    {
+        $this->container['version_name'] = $version_name;
 
         return $this;
     }

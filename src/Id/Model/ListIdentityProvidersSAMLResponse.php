@@ -28,7 +28,7 @@ class ListIdentityProvidersSAMLResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'generic_saml_response' => '\Volcengine\Id\Model\GenericSAMLResponseForListIdentityProvidersSAMLOutput',
+        'data' => '\Volcengine\Id\Model\DataForListIdentityProvidersSAMLOutput[]',
         'page_number' => 'int',
         'page_size' => 'int',
         'total_count' => 'int'
@@ -40,7 +40,7 @@ class ListIdentityProvidersSAMLResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'generic_saml_response' => null,
+        'data' => null,
         'page_number' => 'int32',
         'page_size' => 'int32',
         'total_count' => 'int32'
@@ -73,7 +73,7 @@ class ListIdentityProvidersSAMLResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'generic_saml_response' => 'GenericSAMLResponse',
+        'data' => 'Data',
         'page_number' => 'PageNumber',
         'page_size' => 'PageSize',
         'total_count' => 'TotalCount'
@@ -85,7 +85,7 @@ class ListIdentityProvidersSAMLResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'generic_saml_response' => 'setGenericSamlResponse',
+        'data' => 'setData',
         'page_number' => 'setPageNumber',
         'page_size' => 'setPageSize',
         'total_count' => 'setTotalCount'
@@ -97,7 +97,7 @@ class ListIdentityProvidersSAMLResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'generic_saml_response' => 'getGenericSamlResponse',
+        'data' => 'getData',
         'page_number' => 'getPageNumber',
         'page_size' => 'getPageSize',
         'total_count' => 'getTotalCount'
@@ -163,7 +163,7 @@ class ListIdentityProvidersSAMLResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['generic_saml_response'] = isset($data['generic_saml_response']) ? $data['generic_saml_response'] : null;
+        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
         $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
         $this->container['total_count'] = isset($data['total_count']) ? $data['total_count'] : null;
@@ -194,25 +194,25 @@ class ListIdentityProvidersSAMLResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets generic_saml_response
+     * Gets data
      *
-     * @return \Volcengine\Id\Model\GenericSAMLResponseForListIdentityProvidersSAMLOutput
+     * @return \Volcengine\Id\Model\DataForListIdentityProvidersSAMLOutput[]
      */
-    public function getGenericSamlResponse()
+    public function getData()
     {
-        return $this->container['generic_saml_response'];
+        return $this->container['data'];
     }
 
     /**
-     * Sets generic_saml_response
+     * Sets data
      *
-     * @param \Volcengine\Id\Model\GenericSAMLResponseForListIdentityProvidersSAMLOutput $generic_saml_response generic_saml_response
+     * @param \Volcengine\Id\Model\DataForListIdentityProvidersSAMLOutput[] $data data
      *
      * @return $this
      */
-    public function setGenericSamlResponse($generic_saml_response)
+    public function setData($data)
     {
-        $this->container['generic_saml_response'] = $generic_saml_response;
+        $this->container['data'] = $data;
 
         return $this;
     }

@@ -29,6 +29,7 @@ class GetResourceOauth2TokenRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'custom_parameters' => '\Volcengine\Id\Model\CustomParametersForGetResourceOauth2TokenInput',
+        'custom_state' => 'string',
         'flow' => 'string',
         'force_authentication' => 'bool',
         'identity_token' => 'string',
@@ -36,7 +37,8 @@ class GetResourceOauth2TokenRequest implements ModelInterface, ArrayAccess
         'provider_name' => 'string',
         'redirect_url' => 'string',
         'resource_oauth2_return_url' => 'string',
-        'scopes' => 'string[]'
+        'scopes' => 'string[]',
+        'session_uri' => 'string'
     ];
 
     /**
@@ -46,6 +48,7 @@ class GetResourceOauth2TokenRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'custom_parameters' => null,
+        'custom_state' => null,
         'flow' => null,
         'force_authentication' => null,
         'identity_token' => null,
@@ -53,7 +56,8 @@ class GetResourceOauth2TokenRequest implements ModelInterface, ArrayAccess
         'provider_name' => null,
         'redirect_url' => null,
         'resource_oauth2_return_url' => null,
-        'scopes' => null
+        'scopes' => null,
+        'session_uri' => null
     ];
 
     /**
@@ -84,6 +88,7 @@ class GetResourceOauth2TokenRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'custom_parameters' => 'CustomParameters',
+        'custom_state' => 'CustomState',
         'flow' => 'Flow',
         'force_authentication' => 'ForceAuthentication',
         'identity_token' => 'IdentityToken',
@@ -91,7 +96,8 @@ class GetResourceOauth2TokenRequest implements ModelInterface, ArrayAccess
         'provider_name' => 'ProviderName',
         'redirect_url' => 'RedirectUrl',
         'resource_oauth2_return_url' => 'ResourceOauth2ReturnUrl',
-        'scopes' => 'Scopes'
+        'scopes' => 'Scopes',
+        'session_uri' => 'SessionUri'
     ];
 
     /**
@@ -101,6 +107,7 @@ class GetResourceOauth2TokenRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'custom_parameters' => 'setCustomParameters',
+        'custom_state' => 'setCustomState',
         'flow' => 'setFlow',
         'force_authentication' => 'setForceAuthentication',
         'identity_token' => 'setIdentityToken',
@@ -108,7 +115,8 @@ class GetResourceOauth2TokenRequest implements ModelInterface, ArrayAccess
         'provider_name' => 'setProviderName',
         'redirect_url' => 'setRedirectUrl',
         'resource_oauth2_return_url' => 'setResourceOauth2ReturnUrl',
-        'scopes' => 'setScopes'
+        'scopes' => 'setScopes',
+        'session_uri' => 'setSessionUri'
     ];
 
     /**
@@ -118,6 +126,7 @@ class GetResourceOauth2TokenRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'custom_parameters' => 'getCustomParameters',
+        'custom_state' => 'getCustomState',
         'flow' => 'getFlow',
         'force_authentication' => 'getForceAuthentication',
         'identity_token' => 'getIdentityToken',
@@ -125,7 +134,8 @@ class GetResourceOauth2TokenRequest implements ModelInterface, ArrayAccess
         'provider_name' => 'getProviderName',
         'redirect_url' => 'getRedirectUrl',
         'resource_oauth2_return_url' => 'getResourceOauth2ReturnUrl',
-        'scopes' => 'getScopes'
+        'scopes' => 'getScopes',
+        'session_uri' => 'getSessionUri'
     ];
 
     /**
@@ -189,6 +199,7 @@ class GetResourceOauth2TokenRequest implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['custom_parameters'] = isset($data['custom_parameters']) ? $data['custom_parameters'] : null;
+        $this->container['custom_state'] = isset($data['custom_state']) ? $data['custom_state'] : null;
         $this->container['flow'] = isset($data['flow']) ? $data['flow'] : null;
         $this->container['force_authentication'] = isset($data['force_authentication']) ? $data['force_authentication'] : null;
         $this->container['identity_token'] = isset($data['identity_token']) ? $data['identity_token'] : null;
@@ -197,6 +208,7 @@ class GetResourceOauth2TokenRequest implements ModelInterface, ArrayAccess
         $this->container['redirect_url'] = isset($data['redirect_url']) ? $data['redirect_url'] : null;
         $this->container['resource_oauth2_return_url'] = isset($data['resource_oauth2_return_url']) ? $data['resource_oauth2_return_url'] : null;
         $this->container['scopes'] = isset($data['scopes']) ? $data['scopes'] : null;
+        $this->container['session_uri'] = isset($data['session_uri']) ? $data['session_uri'] : null;
     }
 
     /**
@@ -249,6 +261,30 @@ class GetResourceOauth2TokenRequest implements ModelInterface, ArrayAccess
     public function setCustomParameters($custom_parameters)
     {
         $this->container['custom_parameters'] = $custom_parameters;
+
+        return $this;
+    }
+
+    /**
+     * Gets custom_state
+     *
+     * @return string
+     */
+    public function getCustomState()
+    {
+        return $this->container['custom_state'];
+    }
+
+    /**
+     * Sets custom_state
+     *
+     * @param string $custom_state custom_state
+     *
+     * @return $this
+     */
+    public function setCustomState($custom_state)
+    {
+        $this->container['custom_state'] = $custom_state;
 
         return $this;
     }
@@ -441,6 +477,30 @@ class GetResourceOauth2TokenRequest implements ModelInterface, ArrayAccess
     public function setScopes($scopes)
     {
         $this->container['scopes'] = $scopes;
+
+        return $this;
+    }
+
+    /**
+     * Gets session_uri
+     *
+     * @return string
+     */
+    public function getSessionUri()
+    {
+        return $this->container['session_uri'];
+    }
+
+    /**
+     * Sets session_uri
+     *
+     * @param string $session_uri session_uri
+     *
+     * @return $this
+     */
+    public function setSessionUri($session_uri)
+    {
+        $this->container['session_uri'] = $session_uri;
 
         return $this;
     }

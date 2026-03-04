@@ -41,6 +41,7 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
         'description' => 'string',
         'dry_run' => 'bool',
         'eip_address' => '\Volcengine\Ecs\Model\EipAddressForRunInstancesInput',
+        'host_name' => 'string',
         'hostname' => 'string',
         'hpc_cluster_id' => 'string',
         'http_tokens' => 'string',
@@ -91,6 +92,7 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
         'description' => null,
         'dry_run' => null,
         'eip_address' => null,
+        'host_name' => null,
         'hostname' => null,
         'hpc_cluster_id' => null,
         'http_tokens' => null,
@@ -162,6 +164,7 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
         'description' => 'Description',
         'dry_run' => 'DryRun',
         'eip_address' => 'EipAddress',
+        'host_name' => 'HostName',
         'hostname' => 'Hostname',
         'hpc_cluster_id' => 'HpcClusterId',
         'http_tokens' => 'HttpTokens',
@@ -212,6 +215,7 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
         'description' => 'setDescription',
         'dry_run' => 'setDryRun',
         'eip_address' => 'setEipAddress',
+        'host_name' => 'setHostName',
         'hostname' => 'setHostname',
         'hpc_cluster_id' => 'setHpcClusterId',
         'http_tokens' => 'setHttpTokens',
@@ -262,6 +266,7 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
         'description' => 'getDescription',
         'dry_run' => 'getDryRun',
         'eip_address' => 'getEipAddress',
+        'host_name' => 'getHostName',
         'hostname' => 'getHostname',
         'hpc_cluster_id' => 'getHpcClusterId',
         'http_tokens' => 'getHttpTokens',
@@ -366,6 +371,7 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['dry_run'] = isset($data['dry_run']) ? $data['dry_run'] : null;
         $this->container['eip_address'] = isset($data['eip_address']) ? $data['eip_address'] : null;
+        $this->container['host_name'] = isset($data['host_name']) ? $data['host_name'] : null;
         $this->container['hostname'] = isset($data['hostname']) ? $data['hostname'] : null;
         $this->container['hpc_cluster_id'] = isset($data['hpc_cluster_id']) ? $data['hpc_cluster_id'] : null;
         $this->container['http_tokens'] = isset($data['http_tokens']) ? $data['http_tokens'] : null;
@@ -738,6 +744,30 @@ class RunInstancesRequest implements ModelInterface, ArrayAccess
     public function setEipAddress($eip_address)
     {
         $this->container['eip_address'] = $eip_address;
+
+        return $this;
+    }
+
+    /**
+     * Gets host_name
+     *
+     * @return string
+     */
+    public function getHostName()
+    {
+        return $this->container['host_name'];
+    }
+
+    /**
+     * Sets host_name
+     *
+     * @param string $host_name host_name
+     *
+     * @return $this
+     */
+    public function setHostName($host_name)
+    {
+        $this->container['host_name'] = $host_name;
 
         return $this;
     }

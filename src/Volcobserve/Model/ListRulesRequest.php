@@ -29,9 +29,11 @@ class ListRulesRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'alert_state' => 'string[]',
+        'alert_template_ids' => 'string[]',
         'enable_state' => 'string[]',
         'level' => 'string[]',
         'namespace' => 'string[]',
+        'object_group_ids' => 'string[]',
         'page_number' => 'int',
         'page_size' => 'int',
         'project_name' => 'string',
@@ -45,9 +47,11 @@ class ListRulesRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'alert_state' => null,
+        'alert_template_ids' => null,
         'enable_state' => null,
         'level' => null,
         'namespace' => null,
+        'object_group_ids' => null,
         'page_number' => null,
         'page_size' => null,
         'project_name' => null,
@@ -82,9 +86,11 @@ class ListRulesRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'alert_state' => 'AlertState',
+        'alert_template_ids' => 'AlertTemplateIds',
         'enable_state' => 'EnableState',
         'level' => 'Level',
         'namespace' => 'Namespace',
+        'object_group_ids' => 'ObjectGroupIds',
         'page_number' => 'PageNumber',
         'page_size' => 'PageSize',
         'project_name' => 'ProjectName',
@@ -98,9 +104,11 @@ class ListRulesRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'alert_state' => 'setAlertState',
+        'alert_template_ids' => 'setAlertTemplateIds',
         'enable_state' => 'setEnableState',
         'level' => 'setLevel',
         'namespace' => 'setNamespace',
+        'object_group_ids' => 'setObjectGroupIds',
         'page_number' => 'setPageNumber',
         'page_size' => 'setPageSize',
         'project_name' => 'setProjectName',
@@ -114,9 +122,11 @@ class ListRulesRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'alert_state' => 'getAlertState',
+        'alert_template_ids' => 'getAlertTemplateIds',
         'enable_state' => 'getEnableState',
         'level' => 'getLevel',
         'namespace' => 'getNamespace',
+        'object_group_ids' => 'getObjectGroupIds',
         'page_number' => 'getPageNumber',
         'page_size' => 'getPageSize',
         'project_name' => 'getProjectName',
@@ -184,9 +194,11 @@ class ListRulesRequest implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['alert_state'] = isset($data['alert_state']) ? $data['alert_state'] : null;
+        $this->container['alert_template_ids'] = isset($data['alert_template_ids']) ? $data['alert_template_ids'] : null;
         $this->container['enable_state'] = isset($data['enable_state']) ? $data['enable_state'] : null;
         $this->container['level'] = isset($data['level']) ? $data['level'] : null;
         $this->container['namespace'] = isset($data['namespace']) ? $data['namespace'] : null;
+        $this->container['object_group_ids'] = isset($data['object_group_ids']) ? $data['object_group_ids'] : null;
         $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
@@ -237,6 +249,30 @@ class ListRulesRequest implements ModelInterface, ArrayAccess
     public function setAlertState($alert_state)
     {
         $this->container['alert_state'] = $alert_state;
+
+        return $this;
+    }
+
+    /**
+     * Gets alert_template_ids
+     *
+     * @return string[]
+     */
+    public function getAlertTemplateIds()
+    {
+        return $this->container['alert_template_ids'];
+    }
+
+    /**
+     * Sets alert_template_ids
+     *
+     * @param string[] $alert_template_ids alert_template_ids
+     *
+     * @return $this
+     */
+    public function setAlertTemplateIds($alert_template_ids)
+    {
+        $this->container['alert_template_ids'] = $alert_template_ids;
 
         return $this;
     }
@@ -309,6 +345,30 @@ class ListRulesRequest implements ModelInterface, ArrayAccess
     public function setNamespace($namespace)
     {
         $this->container['namespace'] = $namespace;
+
+        return $this;
+    }
+
+    /**
+     * Gets object_group_ids
+     *
+     * @return string[]
+     */
+    public function getObjectGroupIds()
+    {
+        return $this->container['object_group_ids'];
+    }
+
+    /**
+     * Sets object_group_ids
+     *
+     * @param string[] $object_group_ids object_group_ids
+     *
+     * @return $this
+     */
+    public function setObjectGroupIds($object_group_ids)
+    {
+        $this->container['object_group_ids'] = $object_group_ids;
 
         return $this;
     }

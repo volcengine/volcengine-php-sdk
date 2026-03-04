@@ -42,9 +42,11 @@ class RowForListBackupDataOutput implements ModelInterface, ArrayAccess
         'data_size' => 'int',
         'description' => 'string',
         'detail' => 'string',
+        'exclude_path_list' => 'string[]',
         'expire_time' => 'int',
         'finished_time' => 'int',
         'in_use_count' => 'int',
+        'include_path_list' => 'string[]',
         'md5_sum' => 'string',
         'product_id' => 'string',
         'restore_count' => 'int',
@@ -77,9 +79,11 @@ class RowForListBackupDataOutput implements ModelInterface, ArrayAccess
         'data_size' => 'int64',
         'description' => null,
         'detail' => null,
+        'exclude_path_list' => null,
         'expire_time' => 'int64',
         'finished_time' => 'int64',
         'in_use_count' => 'int64',
+        'include_path_list' => null,
         'md5_sum' => null,
         'product_id' => null,
         'restore_count' => 'int64',
@@ -133,9 +137,11 @@ class RowForListBackupDataOutput implements ModelInterface, ArrayAccess
         'data_size' => 'DataSize',
         'description' => 'Description',
         'detail' => 'Detail',
+        'exclude_path_list' => 'ExcludePathList',
         'expire_time' => 'ExpireTime',
         'finished_time' => 'FinishedTime',
         'in_use_count' => 'InUseCount',
+        'include_path_list' => 'IncludePathList',
         'md5_sum' => 'Md5Sum',
         'product_id' => 'ProductId',
         'restore_count' => 'RestoreCount',
@@ -168,9 +174,11 @@ class RowForListBackupDataOutput implements ModelInterface, ArrayAccess
         'data_size' => 'setDataSize',
         'description' => 'setDescription',
         'detail' => 'setDetail',
+        'exclude_path_list' => 'setExcludePathList',
         'expire_time' => 'setExpireTime',
         'finished_time' => 'setFinishedTime',
         'in_use_count' => 'setInUseCount',
+        'include_path_list' => 'setIncludePathList',
         'md5_sum' => 'setMd5Sum',
         'product_id' => 'setProductId',
         'restore_count' => 'setRestoreCount',
@@ -203,9 +211,11 @@ class RowForListBackupDataOutput implements ModelInterface, ArrayAccess
         'data_size' => 'getDataSize',
         'description' => 'getDescription',
         'detail' => 'getDetail',
+        'exclude_path_list' => 'getExcludePathList',
         'expire_time' => 'getExpireTime',
         'finished_time' => 'getFinishedTime',
         'in_use_count' => 'getInUseCount',
+        'include_path_list' => 'getIncludePathList',
         'md5_sum' => 'getMd5Sum',
         'product_id' => 'getProductId',
         'restore_count' => 'getRestoreCount',
@@ -292,9 +302,11 @@ class RowForListBackupDataOutput implements ModelInterface, ArrayAccess
         $this->container['data_size'] = isset($data['data_size']) ? $data['data_size'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['detail'] = isset($data['detail']) ? $data['detail'] : null;
+        $this->container['exclude_path_list'] = isset($data['exclude_path_list']) ? $data['exclude_path_list'] : null;
         $this->container['expire_time'] = isset($data['expire_time']) ? $data['expire_time'] : null;
         $this->container['finished_time'] = isset($data['finished_time']) ? $data['finished_time'] : null;
         $this->container['in_use_count'] = isset($data['in_use_count']) ? $data['in_use_count'] : null;
+        $this->container['include_path_list'] = isset($data['include_path_list']) ? $data['include_path_list'] : null;
         $this->container['md5_sum'] = isset($data['md5_sum']) ? $data['md5_sum'] : null;
         $this->container['product_id'] = isset($data['product_id']) ? $data['product_id'] : null;
         $this->container['restore_count'] = isset($data['restore_count']) ? $data['restore_count'] : null;
@@ -668,6 +680,30 @@ class RowForListBackupDataOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets exclude_path_list
+     *
+     * @return string[]
+     */
+    public function getExcludePathList()
+    {
+        return $this->container['exclude_path_list'];
+    }
+
+    /**
+     * Sets exclude_path_list
+     *
+     * @param string[] $exclude_path_list exclude_path_list
+     *
+     * @return $this
+     */
+    public function setExcludePathList($exclude_path_list)
+    {
+        $this->container['exclude_path_list'] = $exclude_path_list;
+
+        return $this;
+    }
+
+    /**
      * Gets expire_time
      *
      * @return int
@@ -735,6 +771,30 @@ class RowForListBackupDataOutput implements ModelInterface, ArrayAccess
     public function setInUseCount($in_use_count)
     {
         $this->container['in_use_count'] = $in_use_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets include_path_list
+     *
+     * @return string[]
+     */
+    public function getIncludePathList()
+    {
+        return $this->container['include_path_list'];
+    }
+
+    /**
+     * Sets include_path_list
+     *
+     * @param string[] $include_path_list include_path_list
+     *
+     * @return $this
+     */
+    public function setIncludePathList($include_path_list)
+    {
+        $this->container['include_path_list'] = $include_path_list;
 
         return $this;
     }

@@ -149,8 +149,27 @@ class RestoreDBInstanceRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const BACKUP_TYPE_INVALID = 'Invalid';
+    const BACKUP_TYPE_FULL = 'Full';
+    const BACKUP_TYPE_INC = 'Inc';
+    const BACKUP_TYPE_ALL = 'All';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getBackupTypeAllowableValues()
+    {
+        return [
+            self::BACKUP_TYPE_INVALID,
+            self::BACKUP_TYPE_FULL,
+            self::BACKUP_TYPE_INC,
+            self::BACKUP_TYPE_ALL,
+        ];
+    }
     
 
     /**
@@ -183,6 +202,14 @@ class RestoreDBInstanceRequest implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getBackupTypeAllowableValues();
+        if (!is_null($this->container['backup_type']) && !in_array($this->container['backup_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'backup_type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         if ($this->container['instance_id'] === null) {
             $invalidProperties[] = "'instance_id' can't be null";
@@ -245,6 +272,15 @@ class RestoreDBInstanceRequest implements ModelInterface, ArrayAccess
      */
     public function setBackupType($backup_type)
     {
+        $allowedValues = $this->getBackupTypeAllowableValues();
+        if (!is_null($backup_type) && !in_array($backup_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'backup_type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['backup_type'] = $backup_type;
 
         return $this;

@@ -95,6 +95,7 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         'region' => 'string',
         'region_code' => 'string',
         'reservation_instance' => 'string',
+        'resource_id' => 'string',
         'round_amount' => 'double',
         'saving_plan_deduction_discount_amount' => 'string',
         'saving_plan_deduction_sp_id' => 'string',
@@ -198,6 +199,7 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         'region' => null,
         'region_code' => null,
         'reservation_instance' => null,
+        'resource_id' => null,
         'round_amount' => 'double',
         'saving_plan_deduction_discount_amount' => null,
         'saving_plan_deduction_sp_id' => null,
@@ -322,6 +324,7 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         'region' => 'Region',
         'region_code' => 'RegionCode',
         'reservation_instance' => 'ReservationInstance',
+        'resource_id' => 'ResourceID',
         'round_amount' => 'RoundAmount',
         'saving_plan_deduction_discount_amount' => 'SavingPlanDeductionDiscountAmount',
         'saving_plan_deduction_sp_id' => 'SavingPlanDeductionSpID',
@@ -425,6 +428,7 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         'region' => 'setRegion',
         'region_code' => 'setRegionCode',
         'reservation_instance' => 'setReservationInstance',
+        'resource_id' => 'setResourceId',
         'round_amount' => 'setRoundAmount',
         'saving_plan_deduction_discount_amount' => 'setSavingPlanDeductionDiscountAmount',
         'saving_plan_deduction_sp_id' => 'setSavingPlanDeductionSpId',
@@ -528,6 +532,7 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         'region' => 'getRegion',
         'region_code' => 'getRegionCode',
         'reservation_instance' => 'getReservationInstance',
+        'resource_id' => 'getResourceId',
         'round_amount' => 'getRoundAmount',
         'saving_plan_deduction_discount_amount' => 'getSavingPlanDeductionDiscountAmount',
         'saving_plan_deduction_sp_id' => 'getSavingPlanDeductionSpId',
@@ -685,6 +690,7 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
         $this->container['region'] = isset($data['region']) ? $data['region'] : null;
         $this->container['region_code'] = isset($data['region_code']) ? $data['region_code'] : null;
         $this->container['reservation_instance'] = isset($data['reservation_instance']) ? $data['reservation_instance'] : null;
+        $this->container['resource_id'] = isset($data['resource_id']) ? $data['resource_id'] : null;
         $this->container['round_amount'] = isset($data['round_amount']) ? $data['round_amount'] : null;
         $this->container['saving_plan_deduction_discount_amount'] = isset($data['saving_plan_deduction_discount_amount']) ? $data['saving_plan_deduction_discount_amount'] : null;
         $this->container['saving_plan_deduction_sp_id'] = isset($data['saving_plan_deduction_sp_id']) ? $data['saving_plan_deduction_sp_id'] : null;
@@ -2343,6 +2349,30 @@ class ListForListBillDetailOutput implements ModelInterface, ArrayAccess
     public function setReservationInstance($reservation_instance)
     {
         $this->container['reservation_instance'] = $reservation_instance;
+
+        return $this;
+    }
+
+    /**
+     * Gets resource_id
+     *
+     * @return string
+     */
+    public function getResourceId()
+    {
+        return $this->container['resource_id'];
+    }
+
+    /**
+     * Sets resource_id
+     *
+     * @param string $resource_id resource_id
+     *
+     * @return $this
+     */
+    public function setResourceId($resource_id)
+    {
+        $this->container['resource_id'] = $resource_id;
 
         return $this;
     }

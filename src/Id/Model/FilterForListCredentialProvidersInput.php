@@ -28,7 +28,9 @@ class FilterForListCredentialProvidersInput implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'flow' => 'string',
         'name' => 'string',
+        'pool_name' => 'string',
         'type' => 'string',
         'vendor' => 'int'
     ];
@@ -39,7 +41,9 @@ class FilterForListCredentialProvidersInput implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'flow' => null,
         'name' => null,
+        'pool_name' => null,
         'type' => null,
         'vendor' => 'int32'
     ];
@@ -71,7 +75,9 @@ class FilterForListCredentialProvidersInput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $attributeMap = [
+        'flow' => 'Flow',
         'name' => 'Name',
+        'pool_name' => 'PoolName',
         'type' => 'Type',
         'vendor' => 'Vendor'
     ];
@@ -82,7 +88,9 @@ class FilterForListCredentialProvidersInput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $setters = [
+        'flow' => 'setFlow',
         'name' => 'setName',
+        'pool_name' => 'setPoolName',
         'type' => 'setType',
         'vendor' => 'setVendor'
     ];
@@ -93,7 +101,9 @@ class FilterForListCredentialProvidersInput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $getters = [
+        'flow' => 'getFlow',
         'name' => 'getName',
+        'pool_name' => 'getPoolName',
         'type' => 'getType',
         'vendor' => 'getVendor'
     ];
@@ -139,8 +149,38 @@ class FilterForListCredentialProvidersInput implements ModelInterface, ArrayAcce
         return self::$swaggerModelName;
     }
 
+    const FLOW_USER_FEDERATION = 'USER_FEDERATION';
+    const FLOW_M2_M = 'M2M';
+    const TYPE_API_KEY = 'api_key';
+    const TYPE_OAUTH2 = 'oauth2';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getFlowAllowableValues()
+    {
+        return [
+            self::FLOW_USER_FEDERATION,
+            self::FLOW_M2_M,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_API_KEY,
+            self::TYPE_OAUTH2,
+        ];
+    }
     
 
     /**
@@ -158,7 +198,9 @@ class FilterForListCredentialProvidersInput implements ModelInterface, ArrayAcce
      */
     public function __construct(array $data = null)
     {
+        $this->container['flow'] = isset($data['flow']) ? $data['flow'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['pool_name'] = isset($data['pool_name']) ? $data['pool_name'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['vendor'] = isset($data['vendor']) ? $data['vendor'] : null;
     }
@@ -171,6 +213,22 @@ class FilterForListCredentialProvidersInput implements ModelInterface, ArrayAcce
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getFlowAllowableValues();
+        if (!is_null($this->container['flow']) && !in_array($this->container['flow'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'flow', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -186,6 +244,39 @@ class FilterForListCredentialProvidersInput implements ModelInterface, ArrayAcce
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets flow
+     *
+     * @return string
+     */
+    public function getFlow()
+    {
+        return $this->container['flow'];
+    }
+
+    /**
+     * Sets flow
+     *
+     * @param string $flow flow
+     *
+     * @return $this
+     */
+    public function setFlow($flow)
+    {
+        $allowedValues = $this->getFlowAllowableValues();
+        if (!is_null($flow) && !in_array($flow, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'flow', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['flow'] = $flow;
+
+        return $this;
+    }
 
     /**
      * Gets name
@@ -212,6 +303,30 @@ class FilterForListCredentialProvidersInput implements ModelInterface, ArrayAcce
     }
 
     /**
+     * Gets pool_name
+     *
+     * @return string
+     */
+    public function getPoolName()
+    {
+        return $this->container['pool_name'];
+    }
+
+    /**
+     * Sets pool_name
+     *
+     * @param string $pool_name pool_name
+     *
+     * @return $this
+     */
+    public function setPoolName($pool_name)
+    {
+        $this->container['pool_name'] = $pool_name;
+
+        return $this;
+    }
+
+    /**
      * Gets type
      *
      * @return string
@@ -230,6 +345,15 @@ class FilterForListCredentialProvidersInput implements ModelInterface, ArrayAcce
      */
     public function setType($type)
     {
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['type'] = $type;
 
         return $this;

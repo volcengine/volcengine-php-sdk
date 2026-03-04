@@ -28,7 +28,8 @@ class RotateSecretRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'secret_name' => 'string'
+        'secret_name' => 'string',
+        'version_name' => 'string'
     ];
 
     /**
@@ -37,7 +38,8 @@ class RotateSecretRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'secret_name' => null
+        'secret_name' => null,
+        'version_name' => null
     ];
 
     /**
@@ -67,7 +69,8 @@ class RotateSecretRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'secret_name' => 'SecretName'
+        'secret_name' => 'SecretName',
+        'version_name' => 'VersionName'
     ];
 
     /**
@@ -76,7 +79,8 @@ class RotateSecretRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'secret_name' => 'setSecretName'
+        'secret_name' => 'setSecretName',
+        'version_name' => 'setVersionName'
     ];
 
     /**
@@ -85,7 +89,8 @@ class RotateSecretRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'secret_name' => 'getSecretName'
+        'secret_name' => 'getSecretName',
+        'version_name' => 'getVersionName'
     ];
 
     /**
@@ -149,6 +154,7 @@ class RotateSecretRequest implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['secret_name'] = isset($data['secret_name']) ? $data['secret_name'] : null;
+        $this->container['version_name'] = isset($data['version_name']) ? $data['version_name'] : null;
     }
 
     /**
@@ -198,6 +204,30 @@ class RotateSecretRequest implements ModelInterface, ArrayAccess
     public function setSecretName($secret_name)
     {
         $this->container['secret_name'] = $secret_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets version_name
+     *
+     * @return string
+     */
+    public function getVersionName()
+    {
+        return $this->container['version_name'];
+    }
+
+    /**
+     * Sets version_name
+     *
+     * @param string $version_name version_name
+     *
+     * @return $this
+     */
+    public function setVersionName($version_name)
+    {
+        $this->container['version_name'] = $version_name;
 
         return $this;
     }

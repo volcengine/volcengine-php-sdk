@@ -113,6 +113,7 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
         'project_display_name' => 'string',
         'real_value' => 'string',
         'region' => 'string',
+        'resource_id' => 'string',
         'round_amount' => 'string',
         'saving_plan_deduction_discount_amount' => 'string',
         'saving_plan_deduction_sp_id' => 'string',
@@ -232,6 +233,7 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
         'project_display_name' => null,
         'real_value' => null,
         'region' => null,
+        'resource_id' => null,
         'round_amount' => null,
         'saving_plan_deduction_discount_amount' => null,
         'saving_plan_deduction_sp_id' => null,
@@ -372,6 +374,7 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
         'project_display_name' => 'ProjectDisplayName',
         'real_value' => 'RealValue',
         'region' => 'Region',
+        'resource_id' => 'ResourceID',
         'round_amount' => 'RoundAmount',
         'saving_plan_deduction_discount_amount' => 'SavingPlanDeductionDiscountAmount',
         'saving_plan_deduction_sp_id' => 'SavingPlanDeductionSpID',
@@ -491,6 +494,7 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
         'project_display_name' => 'setProjectDisplayName',
         'real_value' => 'setRealValue',
         'region' => 'setRegion',
+        'resource_id' => 'setResourceId',
         'round_amount' => 'setRoundAmount',
         'saving_plan_deduction_discount_amount' => 'setSavingPlanDeductionDiscountAmount',
         'saving_plan_deduction_sp_id' => 'setSavingPlanDeductionSpId',
@@ -610,6 +614,7 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
         'project_display_name' => 'getProjectDisplayName',
         'real_value' => 'getRealValue',
         'region' => 'getRegion',
+        'resource_id' => 'getResourceId',
         'round_amount' => 'getRoundAmount',
         'saving_plan_deduction_discount_amount' => 'getSavingPlanDeductionDiscountAmount',
         'saving_plan_deduction_sp_id' => 'getSavingPlanDeductionSpId',
@@ -783,6 +788,7 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
         $this->container['project_display_name'] = isset($data['project_display_name']) ? $data['project_display_name'] : null;
         $this->container['real_value'] = isset($data['real_value']) ? $data['real_value'] : null;
         $this->container['region'] = isset($data['region']) ? $data['region'] : null;
+        $this->container['resource_id'] = isset($data['resource_id']) ? $data['resource_id'] : null;
         $this->container['round_amount'] = isset($data['round_amount']) ? $data['round_amount'] : null;
         $this->container['saving_plan_deduction_discount_amount'] = isset($data['saving_plan_deduction_discount_amount']) ? $data['saving_plan_deduction_discount_amount'] : null;
         $this->container['saving_plan_deduction_sp_id'] = isset($data['saving_plan_deduction_sp_id']) ? $data['saving_plan_deduction_sp_id'] : null;
@@ -2871,6 +2877,30 @@ class ListForListAmortizedCostBillDetailOutput implements ModelInterface, ArrayA
     public function setRegion($region)
     {
         $this->container['region'] = $region;
+
+        return $this;
+    }
+
+    /**
+     * Gets resource_id
+     *
+     * @return string
+     */
+    public function getResourceId()
+    {
+        return $this->container['resource_id'];
+    }
+
+    /**
+     * Sets resource_id
+     *
+     * @param string $resource_id resource_id
+     *
+     * @return $this
+     */
+    public function setResourceId($resource_id)
+    {
+        $this->container['resource_id'] = $resource_id;
 
         return $this;
     }
