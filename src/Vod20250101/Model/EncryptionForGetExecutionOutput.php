@@ -28,7 +28,9 @@ class EncryptionForGetExecutionOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'kid' => 'string'
+        'host' => 'string',
+        'kid' => 'string',
+        'type' => 'string'
     ];
 
     /**
@@ -37,7 +39,9 @@ class EncryptionForGetExecutionOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'kid' => null
+        'host' => null,
+        'kid' => null,
+        'type' => null
     ];
 
     /**
@@ -67,7 +71,9 @@ class EncryptionForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'kid' => 'Kid'
+        'host' => 'Host',
+        'kid' => 'Kid',
+        'type' => 'Type'
     ];
 
     /**
@@ -76,7 +82,9 @@ class EncryptionForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'kid' => 'setKid'
+        'host' => 'setHost',
+        'kid' => 'setKid',
+        'type' => 'setType'
     ];
 
     /**
@@ -85,7 +93,9 @@ class EncryptionForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'kid' => 'getKid'
+        'host' => 'getHost',
+        'kid' => 'getKid',
+        'type' => 'getType'
     ];
 
     /**
@@ -129,8 +139,23 @@ class EncryptionForGetExecutionOutput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const TYPE_STANDARD = 'Standard';
+    const TYPE__PRIVATE = 'Private';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_STANDARD,
+            self::TYPE__PRIVATE,
+        ];
+    }
     
 
     /**
@@ -148,7 +173,9 @@ class EncryptionForGetExecutionOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['host'] = isset($data['host']) ? $data['host'] : null;
         $this->container['kid'] = isset($data['kid']) ? $data['kid'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
     /**
@@ -159,6 +186,14 @@ class EncryptionForGetExecutionOutput implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -174,6 +209,30 @@ class EncryptionForGetExecutionOutput implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets host
+     *
+     * @return string
+     */
+    public function getHost()
+    {
+        return $this->container['host'];
+    }
+
+    /**
+     * Sets host
+     *
+     * @param string $host host
+     *
+     * @return $this
+     */
+    public function setHost($host)
+    {
+        $this->container['host'] = $host;
+
+        return $this;
+    }
 
     /**
      * Gets kid
@@ -195,6 +254,39 @@ class EncryptionForGetExecutionOutput implements ModelInterface, ArrayAccess
     public function setKid($kid)
     {
         $this->container['kid'] = $kid;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string $type type
+     *
+     * @return $this
+     */
+    public function setType($type)
+    {
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['type'] = $type;
 
         return $this;
     }

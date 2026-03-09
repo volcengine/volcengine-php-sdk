@@ -28,7 +28,8 @@ class ConvertEnhanceForGetExecutionOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'template_id' => 'string'
+        'moe_enhance' => '\Volcengine\Vod20250101\Model\ConvertMoeEnhanceForGetExecutionOutput',
+        'type' => 'string'
     ];
 
     /**
@@ -37,7 +38,8 @@ class ConvertEnhanceForGetExecutionOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'template_id' => null
+        'moe_enhance' => null,
+        'type' => null
     ];
 
     /**
@@ -67,7 +69,8 @@ class ConvertEnhanceForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'template_id' => 'TemplateId'
+        'moe_enhance' => 'MoeEnhance',
+        'type' => 'Type'
     ];
 
     /**
@@ -76,7 +79,8 @@ class ConvertEnhanceForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'template_id' => 'setTemplateId'
+        'moe_enhance' => 'setMoeEnhance',
+        'type' => 'setType'
     ];
 
     /**
@@ -85,7 +89,8 @@ class ConvertEnhanceForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'template_id' => 'getTemplateId'
+        'moe_enhance' => 'getMoeEnhance',
+        'type' => 'getType'
     ];
 
     /**
@@ -129,8 +134,21 @@ class ConvertEnhanceForGetExecutionOutput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const TYPE_MOE = 'Moe';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_MOE,
+        ];
+    }
     
 
     /**
@@ -148,7 +166,8 @@ class ConvertEnhanceForGetExecutionOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['template_id'] = isset($data['template_id']) ? $data['template_id'] : null;
+        $this->container['moe_enhance'] = isset($data['moe_enhance']) ? $data['moe_enhance'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
     /**
@@ -159,6 +178,14 @@ class ConvertEnhanceForGetExecutionOutput implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -176,25 +203,58 @@ class ConvertEnhanceForGetExecutionOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets template_id
+     * Gets moe_enhance
      *
-     * @return string
+     * @return \Volcengine\Vod20250101\Model\ConvertMoeEnhanceForGetExecutionOutput
      */
-    public function getTemplateId()
+    public function getMoeEnhance()
     {
-        return $this->container['template_id'];
+        return $this->container['moe_enhance'];
     }
 
     /**
-     * Sets template_id
+     * Sets moe_enhance
      *
-     * @param string $template_id template_id
+     * @param \Volcengine\Vod20250101\Model\ConvertMoeEnhanceForGetExecutionOutput $moe_enhance moe_enhance
      *
      * @return $this
      */
-    public function setTemplateId($template_id)
+    public function setMoeEnhance($moe_enhance)
     {
-        $this->container['template_id'] = $template_id;
+        $this->container['moe_enhance'] = $moe_enhance;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string $type type
+     *
+     * @return $this
+     */
+    public function setType($type)
+    {
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['type'] = $type;
 
         return $this;
     }

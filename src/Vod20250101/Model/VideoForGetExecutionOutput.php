@@ -28,9 +28,12 @@ class VideoForGetExecutionOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'file_name' => 'string',
-        'size' => 'string',
-        'vid' => 'string'
+        'bit_depth' => 'int',
+        'bitrate_control' => '\Volcengine\Vod20250101\Model\ConvertBitrateControlForGetExecutionOutput',
+        'codec' => 'string',
+        'fps_control' => '\Volcengine\Vod20250101\Model\FpsControlForGetExecutionOutput',
+        'hdr_mode' => 'int',
+        'scale_control' => '\Volcengine\Vod20250101\Model\ScaleControlForGetExecutionOutput'
     ];
 
     /**
@@ -39,9 +42,12 @@ class VideoForGetExecutionOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'file_name' => null,
-        'size' => null,
-        'vid' => null
+        'bit_depth' => 'int32',
+        'bitrate_control' => null,
+        'codec' => null,
+        'fps_control' => null,
+        'hdr_mode' => 'int32',
+        'scale_control' => null
     ];
 
     /**
@@ -71,9 +77,12 @@ class VideoForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'file_name' => 'FileName',
-        'size' => 'Size',
-        'vid' => 'Vid'
+        'bit_depth' => 'BitDepth',
+        'bitrate_control' => 'BitrateControl',
+        'codec' => 'Codec',
+        'fps_control' => 'FpsControl',
+        'hdr_mode' => 'HDRMode',
+        'scale_control' => 'ScaleControl'
     ];
 
     /**
@@ -82,9 +91,12 @@ class VideoForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'file_name' => 'setFileName',
-        'size' => 'setSize',
-        'vid' => 'setVid'
+        'bit_depth' => 'setBitDepth',
+        'bitrate_control' => 'setBitrateControl',
+        'codec' => 'setCodec',
+        'fps_control' => 'setFpsControl',
+        'hdr_mode' => 'setHdrMode',
+        'scale_control' => 'setScaleControl'
     ];
 
     /**
@@ -93,9 +105,12 @@ class VideoForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'file_name' => 'getFileName',
-        'size' => 'getSize',
-        'vid' => 'getVid'
+        'bit_depth' => 'getBitDepth',
+        'bitrate_control' => 'getBitrateControl',
+        'codec' => 'getCodec',
+        'fps_control' => 'getFpsControl',
+        'hdr_mode' => 'getHdrMode',
+        'scale_control' => 'getScaleControl'
     ];
 
     /**
@@ -139,8 +154,25 @@ class VideoForGetExecutionOutput implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const CODEC_H264 = 'h264';
+    const CODEC_H265 = 'h265';
+    const CODEC_H266 = 'h266';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getCodecAllowableValues()
+    {
+        return [
+            self::CODEC_H264,
+            self::CODEC_H265,
+            self::CODEC_H266,
+        ];
+    }
     
 
     /**
@@ -158,9 +190,12 @@ class VideoForGetExecutionOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['file_name'] = isset($data['file_name']) ? $data['file_name'] : null;
-        $this->container['size'] = isset($data['size']) ? $data['size'] : null;
-        $this->container['vid'] = isset($data['vid']) ? $data['vid'] : null;
+        $this->container['bit_depth'] = isset($data['bit_depth']) ? $data['bit_depth'] : null;
+        $this->container['bitrate_control'] = isset($data['bitrate_control']) ? $data['bitrate_control'] : null;
+        $this->container['codec'] = isset($data['codec']) ? $data['codec'] : null;
+        $this->container['fps_control'] = isset($data['fps_control']) ? $data['fps_control'] : null;
+        $this->container['hdr_mode'] = isset($data['hdr_mode']) ? $data['hdr_mode'] : null;
+        $this->container['scale_control'] = isset($data['scale_control']) ? $data['scale_control'] : null;
     }
 
     /**
@@ -171,6 +206,14 @@ class VideoForGetExecutionOutput implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getCodecAllowableValues();
+        if (!is_null($this->container['codec']) && !in_array($this->container['codec'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'codec', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -188,73 +231,154 @@ class VideoForGetExecutionOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets file_name
+     * Gets bit_depth
      *
-     * @return string
+     * @return int
      */
-    public function getFileName()
+    public function getBitDepth()
     {
-        return $this->container['file_name'];
+        return $this->container['bit_depth'];
     }
 
     /**
-     * Sets file_name
+     * Sets bit_depth
      *
-     * @param string $file_name file_name
+     * @param int $bit_depth bit_depth
      *
      * @return $this
      */
-    public function setFileName($file_name)
+    public function setBitDepth($bit_depth)
     {
-        $this->container['file_name'] = $file_name;
+        $this->container['bit_depth'] = $bit_depth;
 
         return $this;
     }
 
     /**
-     * Gets size
+     * Gets bitrate_control
      *
-     * @return string
+     * @return \Volcengine\Vod20250101\Model\ConvertBitrateControlForGetExecutionOutput
      */
-    public function getSize()
+    public function getBitrateControl()
     {
-        return $this->container['size'];
+        return $this->container['bitrate_control'];
     }
 
     /**
-     * Sets size
+     * Sets bitrate_control
      *
-     * @param string $size size
+     * @param \Volcengine\Vod20250101\Model\ConvertBitrateControlForGetExecutionOutput $bitrate_control bitrate_control
      *
      * @return $this
      */
-    public function setSize($size)
+    public function setBitrateControl($bitrate_control)
     {
-        $this->container['size'] = $size;
+        $this->container['bitrate_control'] = $bitrate_control;
 
         return $this;
     }
 
     /**
-     * Gets vid
+     * Gets codec
      *
      * @return string
      */
-    public function getVid()
+    public function getCodec()
     {
-        return $this->container['vid'];
+        return $this->container['codec'];
     }
 
     /**
-     * Sets vid
+     * Sets codec
      *
-     * @param string $vid vid
+     * @param string $codec codec
      *
      * @return $this
      */
-    public function setVid($vid)
+    public function setCodec($codec)
     {
-        $this->container['vid'] = $vid;
+        $allowedValues = $this->getCodecAllowableValues();
+        if (!is_null($codec) && !in_array($codec, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'codec', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['codec'] = $codec;
+
+        return $this;
+    }
+
+    /**
+     * Gets fps_control
+     *
+     * @return \Volcengine\Vod20250101\Model\FpsControlForGetExecutionOutput
+     */
+    public function getFpsControl()
+    {
+        return $this->container['fps_control'];
+    }
+
+    /**
+     * Sets fps_control
+     *
+     * @param \Volcengine\Vod20250101\Model\FpsControlForGetExecutionOutput $fps_control fps_control
+     *
+     * @return $this
+     */
+    public function setFpsControl($fps_control)
+    {
+        $this->container['fps_control'] = $fps_control;
+
+        return $this;
+    }
+
+    /**
+     * Gets hdr_mode
+     *
+     * @return int
+     */
+    public function getHdrMode()
+    {
+        return $this->container['hdr_mode'];
+    }
+
+    /**
+     * Sets hdr_mode
+     *
+     * @param int $hdr_mode hdr_mode
+     *
+     * @return $this
+     */
+    public function setHdrMode($hdr_mode)
+    {
+        $this->container['hdr_mode'] = $hdr_mode;
+
+        return $this;
+    }
+
+    /**
+     * Gets scale_control
+     *
+     * @return \Volcengine\Vod20250101\Model\ScaleControlForGetExecutionOutput
+     */
+    public function getScaleControl()
+    {
+        return $this->container['scale_control'];
+    }
+
+    /**
+     * Sets scale_control
+     *
+     * @param \Volcengine\Vod20250101\Model\ScaleControlForGetExecutionOutput $scale_control scale_control
+     *
+     * @return $this
+     */
+    public function setScaleControl($scale_control)
+    {
+        $this->container['scale_control'] = $scale_control;
 
         return $this;
     }

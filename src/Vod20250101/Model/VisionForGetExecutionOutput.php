@@ -32,7 +32,7 @@ class VisionForGetExecutionOutput implements ModelInterface, ArrayAccess
         'need_asr_speaker' => 'bool',
         'prompt' => 'string',
         'response_format_type' => 'string',
-        'segment' => '\Volcengine\Vod20250101\Model\ConvertConvertSegmentForGetExecutionOutput',
+        'segment' => '\Volcengine\Vod20250101\Model\ConvertConvertConvertSegmentForGetExecutionOutput',
         'snapshot_param' => '\Volcengine\Vod20250101\Model\SnapshotParamForGetExecutionOutput'
     ];
 
@@ -304,7 +304,7 @@ class VisionForGetExecutionOutput implements ModelInterface, ArrayAccess
     /**
      * Gets segment
      *
-     * @return \Volcengine\Vod20250101\Model\ConvertConvertSegmentForGetExecutionOutput
+     * @return \Volcengine\Vod20250101\Model\ConvertConvertConvertSegmentForGetExecutionOutput
      */
     public function getSegment()
     {
@@ -314,7 +314,7 @@ class VisionForGetExecutionOutput implements ModelInterface, ArrayAccess
     /**
      * Sets segment
      *
-     * @param \Volcengine\Vod20250101\Model\ConvertConvertSegmentForGetExecutionOutput $segment segment
+     * @param \Volcengine\Vod20250101\Model\ConvertConvertConvertSegmentForGetExecutionOutput $segment segment
      *
      * @return $this
      */

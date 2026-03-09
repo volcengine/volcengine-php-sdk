@@ -28,16 +28,20 @@ class TaskForGetExecutionOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'abr_transcode' => '\Volcengine\Vod20250101\Model\ABRTranscodeForGetExecutionOutput',
         'ad_audit' => '\Volcengine\Vod20250101\Model\AdAuditForGetExecutionOutput',
         'asr' => '\Volcengine\Vod20250101\Model\AsrForGetExecutionOutput',
         'audio_extract' => '\Volcengine\Vod20250101\Model\AudioExtractForGetExecutionOutput',
+        'convert_format' => '\Volcengine\Vod20250101\Model\ConvertFormatForGetExecutionOutput',
         'enhance' => '\Volcengine\Vod20250101\Model\EnhanceForGetExecutionOutput',
         'erase' => '\Volcengine\Vod20250101\Model\EraseForGetExecutionOutput',
         'file_delete' => '\Volcengine\Vod20250101\Model\FileDeleteForGetExecutionOutput',
         'highlight' => '\Volcengine\Vod20250101\Model\HighlightForGetExecutionOutput',
         'ocr' => '\Volcengine\Vod20250101\Model\OcrForGetExecutionOutput',
-        'segment' => '\Volcengine\Vod20250101\Model\SegmentForGetExecutionOutput',
+        'segment' => '\Volcengine\Vod20250101\Model\ConvertSegmentForGetExecutionOutput',
         'storyline' => '\Volcengine\Vod20250101\Model\StorylineForGetExecutionOutput',
+        'strategy_tag' => 'string',
+        'transcode' => '\Volcengine\Vod20250101\Model\TranscodeForGetExecutionOutput',
         'type' => 'string',
         'video_generation' => '\Volcengine\Vod20250101\Model\VideoGenerationForGetExecutionOutput',
         'video_matting' => '\Volcengine\Vod20250101\Model\VideoMattingForGetExecutionOutput',
@@ -52,9 +56,11 @@ class TaskForGetExecutionOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'abr_transcode' => null,
         'ad_audit' => null,
         'asr' => null,
         'audio_extract' => null,
+        'convert_format' => null,
         'enhance' => null,
         'erase' => null,
         'file_delete' => null,
@@ -62,6 +68,8 @@ class TaskForGetExecutionOutput implements ModelInterface, ArrayAccess
         'ocr' => null,
         'segment' => null,
         'storyline' => null,
+        'strategy_tag' => null,
+        'transcode' => null,
         'type' => null,
         'video_generation' => null,
         'video_matting' => null,
@@ -97,9 +105,11 @@ class TaskForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'abr_transcode' => 'ABRTranscode',
         'ad_audit' => 'AdAudit',
         'asr' => 'Asr',
         'audio_extract' => 'AudioExtract',
+        'convert_format' => 'ConvertFormat',
         'enhance' => 'Enhance',
         'erase' => 'Erase',
         'file_delete' => 'FileDelete',
@@ -107,6 +117,8 @@ class TaskForGetExecutionOutput implements ModelInterface, ArrayAccess
         'ocr' => 'Ocr',
         'segment' => 'Segment',
         'storyline' => 'Storyline',
+        'strategy_tag' => 'StrategyTag',
+        'transcode' => 'Transcode',
         'type' => 'Type',
         'video_generation' => 'VideoGeneration',
         'video_matting' => 'VideoMatting',
@@ -121,9 +133,11 @@ class TaskForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'abr_transcode' => 'setAbrTranscode',
         'ad_audit' => 'setAdAudit',
         'asr' => 'setAsr',
         'audio_extract' => 'setAudioExtract',
+        'convert_format' => 'setConvertFormat',
         'enhance' => 'setEnhance',
         'erase' => 'setErase',
         'file_delete' => 'setFileDelete',
@@ -131,6 +145,8 @@ class TaskForGetExecutionOutput implements ModelInterface, ArrayAccess
         'ocr' => 'setOcr',
         'segment' => 'setSegment',
         'storyline' => 'setStoryline',
+        'strategy_tag' => 'setStrategyTag',
+        'transcode' => 'setTranscode',
         'type' => 'setType',
         'video_generation' => 'setVideoGeneration',
         'video_matting' => 'setVideoMatting',
@@ -145,9 +161,11 @@ class TaskForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'abr_transcode' => 'getAbrTranscode',
         'ad_audit' => 'getAdAudit',
         'asr' => 'getAsr',
         'audio_extract' => 'getAudioExtract',
+        'convert_format' => 'getConvertFormat',
         'enhance' => 'getEnhance',
         'erase' => 'getErase',
         'file_delete' => 'getFileDelete',
@@ -155,6 +173,8 @@ class TaskForGetExecutionOutput implements ModelInterface, ArrayAccess
         'ocr' => 'getOcr',
         'segment' => 'getSegment',
         'storyline' => 'getStoryline',
+        'strategy_tag' => 'getStrategyTag',
+        'transcode' => 'getTranscode',
         'type' => 'getType',
         'video_generation' => 'getVideoGeneration',
         'video_matting' => 'getVideoMatting',
@@ -223,9 +243,11 @@ class TaskForGetExecutionOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['abr_transcode'] = isset($data['abr_transcode']) ? $data['abr_transcode'] : null;
         $this->container['ad_audit'] = isset($data['ad_audit']) ? $data['ad_audit'] : null;
         $this->container['asr'] = isset($data['asr']) ? $data['asr'] : null;
         $this->container['audio_extract'] = isset($data['audio_extract']) ? $data['audio_extract'] : null;
+        $this->container['convert_format'] = isset($data['convert_format']) ? $data['convert_format'] : null;
         $this->container['enhance'] = isset($data['enhance']) ? $data['enhance'] : null;
         $this->container['erase'] = isset($data['erase']) ? $data['erase'] : null;
         $this->container['file_delete'] = isset($data['file_delete']) ? $data['file_delete'] : null;
@@ -233,6 +255,8 @@ class TaskForGetExecutionOutput implements ModelInterface, ArrayAccess
         $this->container['ocr'] = isset($data['ocr']) ? $data['ocr'] : null;
         $this->container['segment'] = isset($data['segment']) ? $data['segment'] : null;
         $this->container['storyline'] = isset($data['storyline']) ? $data['storyline'] : null;
+        $this->container['strategy_tag'] = isset($data['strategy_tag']) ? $data['strategy_tag'] : null;
+        $this->container['transcode'] = isset($data['transcode']) ? $data['transcode'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['video_generation'] = isset($data['video_generation']) ? $data['video_generation'] : null;
         $this->container['video_matting'] = isset($data['video_matting']) ? $data['video_matting'] : null;
@@ -264,6 +288,30 @@ class TaskForGetExecutionOutput implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets abr_transcode
+     *
+     * @return \Volcengine\Vod20250101\Model\ABRTranscodeForGetExecutionOutput
+     */
+    public function getAbrTranscode()
+    {
+        return $this->container['abr_transcode'];
+    }
+
+    /**
+     * Sets abr_transcode
+     *
+     * @param \Volcengine\Vod20250101\Model\ABRTranscodeForGetExecutionOutput $abr_transcode abr_transcode
+     *
+     * @return $this
+     */
+    public function setAbrTranscode($abr_transcode)
+    {
+        $this->container['abr_transcode'] = $abr_transcode;
+
+        return $this;
+    }
 
     /**
      * Gets ad_audit
@@ -333,6 +381,30 @@ class TaskForGetExecutionOutput implements ModelInterface, ArrayAccess
     public function setAudioExtract($audio_extract)
     {
         $this->container['audio_extract'] = $audio_extract;
+
+        return $this;
+    }
+
+    /**
+     * Gets convert_format
+     *
+     * @return \Volcengine\Vod20250101\Model\ConvertFormatForGetExecutionOutput
+     */
+    public function getConvertFormat()
+    {
+        return $this->container['convert_format'];
+    }
+
+    /**
+     * Sets convert_format
+     *
+     * @param \Volcengine\Vod20250101\Model\ConvertFormatForGetExecutionOutput $convert_format convert_format
+     *
+     * @return $this
+     */
+    public function setConvertFormat($convert_format)
+    {
+        $this->container['convert_format'] = $convert_format;
 
         return $this;
     }
@@ -460,7 +532,7 @@ class TaskForGetExecutionOutput implements ModelInterface, ArrayAccess
     /**
      * Gets segment
      *
-     * @return \Volcengine\Vod20250101\Model\SegmentForGetExecutionOutput
+     * @return \Volcengine\Vod20250101\Model\ConvertSegmentForGetExecutionOutput
      */
     public function getSegment()
     {
@@ -470,7 +542,7 @@ class TaskForGetExecutionOutput implements ModelInterface, ArrayAccess
     /**
      * Sets segment
      *
-     * @param \Volcengine\Vod20250101\Model\SegmentForGetExecutionOutput $segment segment
+     * @param \Volcengine\Vod20250101\Model\ConvertSegmentForGetExecutionOutput $segment segment
      *
      * @return $this
      */
@@ -501,6 +573,54 @@ class TaskForGetExecutionOutput implements ModelInterface, ArrayAccess
     public function setStoryline($storyline)
     {
         $this->container['storyline'] = $storyline;
+
+        return $this;
+    }
+
+    /**
+     * Gets strategy_tag
+     *
+     * @return string
+     */
+    public function getStrategyTag()
+    {
+        return $this->container['strategy_tag'];
+    }
+
+    /**
+     * Sets strategy_tag
+     *
+     * @param string $strategy_tag strategy_tag
+     *
+     * @return $this
+     */
+    public function setStrategyTag($strategy_tag)
+    {
+        $this->container['strategy_tag'] = $strategy_tag;
+
+        return $this;
+    }
+
+    /**
+     * Gets transcode
+     *
+     * @return \Volcengine\Vod20250101\Model\TranscodeForGetExecutionOutput
+     */
+    public function getTranscode()
+    {
+        return $this->container['transcode'];
+    }
+
+    /**
+     * Sets transcode
+     *
+     * @param \Volcengine\Vod20250101\Model\TranscodeForGetExecutionOutput $transcode transcode
+     *
+     * @return $this
+     */
+    public function setTranscode($transcode)
+    {
+        $this->container['transcode'] = $transcode;
 
         return $this;
     }

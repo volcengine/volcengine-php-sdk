@@ -28,15 +28,8 @@ class OutputForGetExecutionOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'alpha' => 'bool',
-        'audio_phase_detect' => 'bool',
-        'canvas_with_max' => 'bool',
-        'canvas_with_ratio' => 'bool',
-        'codec' => '\Volcengine\Vod20250101\Model\CodecForGetExecutionOutput',
-        'disable_audio' => 'bool',
-        'disable_video' => 'bool',
-        'format' => 'string',
-        'fps' => 'double'
+        'audio' => '\Volcengine\Vod20250101\Model\AudioForGetExecutionOutput',
+        'video' => '\Volcengine\Vod20250101\Model\VideoForGetExecutionOutput'
     ];
 
     /**
@@ -45,15 +38,8 @@ class OutputForGetExecutionOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'alpha' => null,
-        'audio_phase_detect' => null,
-        'canvas_with_max' => null,
-        'canvas_with_ratio' => null,
-        'codec' => null,
-        'disable_audio' => null,
-        'disable_video' => null,
-        'format' => null,
-        'fps' => 'double'
+        'audio' => null,
+        'video' => null
     ];
 
     /**
@@ -83,15 +69,8 @@ class OutputForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'alpha' => 'Alpha',
-        'audio_phase_detect' => 'AudioPhaseDetect',
-        'canvas_with_max' => 'CanvasWithMax',
-        'canvas_with_ratio' => 'CanvasWithRatio',
-        'codec' => 'Codec',
-        'disable_audio' => 'DisableAudio',
-        'disable_video' => 'DisableVideo',
-        'format' => 'Format',
-        'fps' => 'Fps'
+        'audio' => 'Audio',
+        'video' => 'Video'
     ];
 
     /**
@@ -100,15 +79,8 @@ class OutputForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'alpha' => 'setAlpha',
-        'audio_phase_detect' => 'setAudioPhaseDetect',
-        'canvas_with_max' => 'setCanvasWithMax',
-        'canvas_with_ratio' => 'setCanvasWithRatio',
-        'codec' => 'setCodec',
-        'disable_audio' => 'setDisableAudio',
-        'disable_video' => 'setDisableVideo',
-        'format' => 'setFormat',
-        'fps' => 'setFps'
+        'audio' => 'setAudio',
+        'video' => 'setVideo'
     ];
 
     /**
@@ -117,15 +89,8 @@ class OutputForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'alpha' => 'getAlpha',
-        'audio_phase_detect' => 'getAudioPhaseDetect',
-        'canvas_with_max' => 'getCanvasWithMax',
-        'canvas_with_ratio' => 'getCanvasWithRatio',
-        'codec' => 'getCodec',
-        'disable_audio' => 'getDisableAudio',
-        'disable_video' => 'getDisableVideo',
-        'format' => 'getFormat',
-        'fps' => 'getFps'
+        'audio' => 'getAudio',
+        'video' => 'getVideo'
     ];
 
     /**
@@ -188,15 +153,8 @@ class OutputForGetExecutionOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['alpha'] = isset($data['alpha']) ? $data['alpha'] : null;
-        $this->container['audio_phase_detect'] = isset($data['audio_phase_detect']) ? $data['audio_phase_detect'] : null;
-        $this->container['canvas_with_max'] = isset($data['canvas_with_max']) ? $data['canvas_with_max'] : null;
-        $this->container['canvas_with_ratio'] = isset($data['canvas_with_ratio']) ? $data['canvas_with_ratio'] : null;
-        $this->container['codec'] = isset($data['codec']) ? $data['codec'] : null;
-        $this->container['disable_audio'] = isset($data['disable_audio']) ? $data['disable_audio'] : null;
-        $this->container['disable_video'] = isset($data['disable_video']) ? $data['disable_video'] : null;
-        $this->container['format'] = isset($data['format']) ? $data['format'] : null;
-        $this->container['fps'] = isset($data['fps']) ? $data['fps'] : null;
+        $this->container['audio'] = isset($data['audio']) ? $data['audio'] : null;
+        $this->container['video'] = isset($data['video']) ? $data['video'] : null;
     }
 
     /**
@@ -224,217 +182,49 @@ class OutputForGetExecutionOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets alpha
+     * Gets audio
      *
-     * @return bool
+     * @return \Volcengine\Vod20250101\Model\AudioForGetExecutionOutput
      */
-    public function getAlpha()
+    public function getAudio()
     {
-        return $this->container['alpha'];
+        return $this->container['audio'];
     }
 
     /**
-     * Sets alpha
+     * Sets audio
      *
-     * @param bool $alpha alpha
+     * @param \Volcengine\Vod20250101\Model\AudioForGetExecutionOutput $audio audio
      *
      * @return $this
      */
-    public function setAlpha($alpha)
+    public function setAudio($audio)
     {
-        $this->container['alpha'] = $alpha;
+        $this->container['audio'] = $audio;
 
         return $this;
     }
 
     /**
-     * Gets audio_phase_detect
+     * Gets video
      *
-     * @return bool
+     * @return \Volcengine\Vod20250101\Model\VideoForGetExecutionOutput
      */
-    public function getAudioPhaseDetect()
+    public function getVideo()
     {
-        return $this->container['audio_phase_detect'];
+        return $this->container['video'];
     }
 
     /**
-     * Sets audio_phase_detect
+     * Sets video
      *
-     * @param bool $audio_phase_detect audio_phase_detect
+     * @param \Volcengine\Vod20250101\Model\VideoForGetExecutionOutput $video video
      *
      * @return $this
      */
-    public function setAudioPhaseDetect($audio_phase_detect)
+    public function setVideo($video)
     {
-        $this->container['audio_phase_detect'] = $audio_phase_detect;
-
-        return $this;
-    }
-
-    /**
-     * Gets canvas_with_max
-     *
-     * @return bool
-     */
-    public function getCanvasWithMax()
-    {
-        return $this->container['canvas_with_max'];
-    }
-
-    /**
-     * Sets canvas_with_max
-     *
-     * @param bool $canvas_with_max canvas_with_max
-     *
-     * @return $this
-     */
-    public function setCanvasWithMax($canvas_with_max)
-    {
-        $this->container['canvas_with_max'] = $canvas_with_max;
-
-        return $this;
-    }
-
-    /**
-     * Gets canvas_with_ratio
-     *
-     * @return bool
-     */
-    public function getCanvasWithRatio()
-    {
-        return $this->container['canvas_with_ratio'];
-    }
-
-    /**
-     * Sets canvas_with_ratio
-     *
-     * @param bool $canvas_with_ratio canvas_with_ratio
-     *
-     * @return $this
-     */
-    public function setCanvasWithRatio($canvas_with_ratio)
-    {
-        $this->container['canvas_with_ratio'] = $canvas_with_ratio;
-
-        return $this;
-    }
-
-    /**
-     * Gets codec
-     *
-     * @return \Volcengine\Vod20250101\Model\CodecForGetExecutionOutput
-     */
-    public function getCodec()
-    {
-        return $this->container['codec'];
-    }
-
-    /**
-     * Sets codec
-     *
-     * @param \Volcengine\Vod20250101\Model\CodecForGetExecutionOutput $codec codec
-     *
-     * @return $this
-     */
-    public function setCodec($codec)
-    {
-        $this->container['codec'] = $codec;
-
-        return $this;
-    }
-
-    /**
-     * Gets disable_audio
-     *
-     * @return bool
-     */
-    public function getDisableAudio()
-    {
-        return $this->container['disable_audio'];
-    }
-
-    /**
-     * Sets disable_audio
-     *
-     * @param bool $disable_audio disable_audio
-     *
-     * @return $this
-     */
-    public function setDisableAudio($disable_audio)
-    {
-        $this->container['disable_audio'] = $disable_audio;
-
-        return $this;
-    }
-
-    /**
-     * Gets disable_video
-     *
-     * @return bool
-     */
-    public function getDisableVideo()
-    {
-        return $this->container['disable_video'];
-    }
-
-    /**
-     * Sets disable_video
-     *
-     * @param bool $disable_video disable_video
-     *
-     * @return $this
-     */
-    public function setDisableVideo($disable_video)
-    {
-        $this->container['disable_video'] = $disable_video;
-
-        return $this;
-    }
-
-    /**
-     * Gets format
-     *
-     * @return string
-     */
-    public function getFormat()
-    {
-        return $this->container['format'];
-    }
-
-    /**
-     * Sets format
-     *
-     * @param string $format format
-     *
-     * @return $this
-     */
-    public function setFormat($format)
-    {
-        $this->container['format'] = $format;
-
-        return $this;
-    }
-
-    /**
-     * Gets fps
-     *
-     * @return double
-     */
-    public function getFps()
-    {
-        return $this->container['fps'];
-    }
-
-    /**
-     * Sets fps
-     *
-     * @param double $fps fps
-     *
-     * @return $this
-     */
-    public function setFps($fps)
-    {
-        $this->container['fps'] = $fps;
+        $this->container['video'] = $video;
 
         return $this;
     }

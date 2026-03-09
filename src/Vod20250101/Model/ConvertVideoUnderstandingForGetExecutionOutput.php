@@ -30,7 +30,7 @@ class ConvertVideoUnderstandingForGetExecutionOutput implements ModelInterface, 
     protected static $swaggerTypes = [
         'content' => 'string',
         'duration' => 'double',
-        'segments' => '\Volcengine\Vod20250101\Model\ConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput[]'
+        'segments' => '\Volcengine\Vod20250101\Model\ConvertConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput[]'
     ];
 
     /**
@@ -238,7 +238,7 @@ class ConvertVideoUnderstandingForGetExecutionOutput implements ModelInterface, 
     /**
      * Gets segments
      *
-     * @return \Volcengine\Vod20250101\Model\ConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput[]
+     * @return \Volcengine\Vod20250101\Model\ConvertConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput[]
      */
     public function getSegments()
     {
@@ -248,7 +248,7 @@ class ConvertVideoUnderstandingForGetExecutionOutput implements ModelInterface, 
     /**
      * Sets segments
      *
-     * @param \Volcengine\Vod20250101\Model\ConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput[] $segments segments
+     * @param \Volcengine\Vod20250101\Model\ConvertConvertConvertConvertConvertConvertConvertSegmentForGetExecutionOutput[] $segments segments
      *
      * @return $this
      */
