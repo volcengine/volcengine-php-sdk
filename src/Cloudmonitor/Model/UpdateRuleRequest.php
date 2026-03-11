@@ -38,6 +38,7 @@ class UpdateRuleRequest implements ModelInterface, ArrayAccess
         'effect_start_at' => 'string',
         'enable_state' => 'string',
         'evaluation_count' => 'int',
+        'evaluation_interval' => 'int',
         'id' => 'string',
         'level' => 'string',
         'level_conditions' => '\Volcengine\Cloudmonitor\Model\LevelConditionForUpdateRuleInput[]',
@@ -75,6 +76,7 @@ class UpdateRuleRequest implements ModelInterface, ArrayAccess
         'effect_start_at' => null,
         'enable_state' => null,
         'evaluation_count' => 'int32',
+        'evaluation_interval' => 'int32',
         'id' => null,
         'level' => null,
         'level_conditions' => null,
@@ -133,6 +135,7 @@ class UpdateRuleRequest implements ModelInterface, ArrayAccess
         'effect_start_at' => 'EffectStartAt',
         'enable_state' => 'EnableState',
         'evaluation_count' => 'EvaluationCount',
+        'evaluation_interval' => 'EvaluationInterval',
         'id' => 'Id',
         'level' => 'Level',
         'level_conditions' => 'LevelConditions',
@@ -170,6 +173,7 @@ class UpdateRuleRequest implements ModelInterface, ArrayAccess
         'effect_start_at' => 'setEffectStartAt',
         'enable_state' => 'setEnableState',
         'evaluation_count' => 'setEvaluationCount',
+        'evaluation_interval' => 'setEvaluationInterval',
         'id' => 'setId',
         'level' => 'setLevel',
         'level_conditions' => 'setLevelConditions',
@@ -207,6 +211,7 @@ class UpdateRuleRequest implements ModelInterface, ArrayAccess
         'effect_start_at' => 'getEffectStartAt',
         'enable_state' => 'getEnableState',
         'evaluation_count' => 'getEvaluationCount',
+        'evaluation_interval' => 'getEvaluationInterval',
         'id' => 'getId',
         'level' => 'getLevel',
         'level_conditions' => 'getLevelConditions',
@@ -332,6 +337,7 @@ class UpdateRuleRequest implements ModelInterface, ArrayAccess
         $this->container['effect_start_at'] = isset($data['effect_start_at']) ? $data['effect_start_at'] : null;
         $this->container['enable_state'] = isset($data['enable_state']) ? $data['enable_state'] : null;
         $this->container['evaluation_count'] = isset($data['evaluation_count']) ? $data['evaluation_count'] : null;
+        $this->container['evaluation_interval'] = isset($data['evaluation_interval']) ? $data['evaluation_interval'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['level'] = isset($data['level']) ? $data['level'] : null;
         $this->container['level_conditions'] = isset($data['level_conditions']) ? $data['level_conditions'] : null;
@@ -663,6 +669,30 @@ class UpdateRuleRequest implements ModelInterface, ArrayAccess
     public function setEvaluationCount($evaluation_count)
     {
         $this->container['evaluation_count'] = $evaluation_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets evaluation_interval
+     *
+     * @return int
+     */
+    public function getEvaluationInterval()
+    {
+        return $this->container['evaluation_interval'];
+    }
+
+    /**
+     * Sets evaluation_interval
+     *
+     * @param int $evaluation_interval evaluation_interval
+     *
+     * @return $this
+     */
+    public function setEvaluationInterval($evaluation_interval)
+    {
+        $this->container['evaluation_interval'] = $evaluation_interval;
 
         return $this;
     }
