@@ -33,6 +33,7 @@ class ConditionsForDownloadVulHostListByPodInput implements ModelInterface, Arra
         'cloud_providers' => 'string[]',
         'host_name' => 'string',
         'ip' => 'string',
+        'is_real_risk_vul' => 'bool',
         'leaf_group_ids' => 'string[]',
         'status' => 'string[]',
         'top_group_id' => 'string'
@@ -49,6 +50,7 @@ class ConditionsForDownloadVulHostListByPodInput implements ModelInterface, Arra
         'cloud_providers' => null,
         'host_name' => null,
         'ip' => null,
+        'is_real_risk_vul' => null,
         'leaf_group_ids' => null,
         'status' => null,
         'top_group_id' => null
@@ -86,6 +88,7 @@ class ConditionsForDownloadVulHostListByPodInput implements ModelInterface, Arra
         'cloud_providers' => 'CloudProviders',
         'host_name' => 'HostName',
         'ip' => 'IP',
+        'is_real_risk_vul' => 'IsRealRiskVul',
         'leaf_group_ids' => 'LeafGroupIDs',
         'status' => 'Status',
         'top_group_id' => 'TopGroupID'
@@ -102,6 +105,7 @@ class ConditionsForDownloadVulHostListByPodInput implements ModelInterface, Arra
         'cloud_providers' => 'setCloudProviders',
         'host_name' => 'setHostName',
         'ip' => 'setIp',
+        'is_real_risk_vul' => 'setIsRealRiskVul',
         'leaf_group_ids' => 'setLeafGroupIds',
         'status' => 'setStatus',
         'top_group_id' => 'setTopGroupId'
@@ -118,6 +122,7 @@ class ConditionsForDownloadVulHostListByPodInput implements ModelInterface, Arra
         'cloud_providers' => 'getCloudProviders',
         'host_name' => 'getHostName',
         'ip' => 'getIp',
+        'is_real_risk_vul' => 'getIsRealRiskVul',
         'leaf_group_ids' => 'getLeafGroupIds',
         'status' => 'getStatus',
         'top_group_id' => 'getTopGroupId'
@@ -188,6 +193,7 @@ class ConditionsForDownloadVulHostListByPodInput implements ModelInterface, Arra
         $this->container['cloud_providers'] = isset($data['cloud_providers']) ? $data['cloud_providers'] : null;
         $this->container['host_name'] = isset($data['host_name']) ? $data['host_name'] : null;
         $this->container['ip'] = isset($data['ip']) ? $data['ip'] : null;
+        $this->container['is_real_risk_vul'] = isset($data['is_real_risk_vul']) ? $data['is_real_risk_vul'] : null;
         $this->container['leaf_group_ids'] = isset($data['leaf_group_ids']) ? $data['leaf_group_ids'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['top_group_id'] = isset($data['top_group_id']) ? $data['top_group_id'] : null;
@@ -333,6 +339,30 @@ class ConditionsForDownloadVulHostListByPodInput implements ModelInterface, Arra
     public function setIp($ip)
     {
         $this->container['ip'] = $ip;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_real_risk_vul
+     *
+     * @return bool
+     */
+    public function getIsRealRiskVul()
+    {
+        return $this->container['is_real_risk_vul'];
+    }
+
+    /**
+     * Sets is_real_risk_vul
+     *
+     * @param bool $is_real_risk_vul is_real_risk_vul
+     *
+     * @return $this
+     */
+    public function setIsRealRiskVul($is_real_risk_vul)
+    {
+        $this->container['is_real_risk_vul'] = $is_real_risk_vul;
 
         return $this;
     }

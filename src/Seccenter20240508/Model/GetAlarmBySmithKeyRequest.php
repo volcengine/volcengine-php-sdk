@@ -28,6 +28,7 @@ class GetAlarmBySmithKeyRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'alarm_category' => 'string',
         'smith_key' => 'string',
         'type' => 'string'
     ];
@@ -38,6 +39,7 @@ class GetAlarmBySmithKeyRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'alarm_category' => null,
         'smith_key' => null,
         'type' => null
     ];
@@ -69,6 +71,7 @@ class GetAlarmBySmithKeyRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'alarm_category' => 'AlarmCategory',
         'smith_key' => 'SmithKey',
         'type' => 'Type'
     ];
@@ -79,6 +82,7 @@ class GetAlarmBySmithKeyRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'alarm_category' => 'setAlarmCategory',
         'smith_key' => 'setSmithKey',
         'type' => 'setType'
     ];
@@ -89,6 +93,7 @@ class GetAlarmBySmithKeyRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'alarm_category' => 'getAlarmCategory',
         'smith_key' => 'getSmithKey',
         'type' => 'getType'
     ];
@@ -153,6 +158,7 @@ class GetAlarmBySmithKeyRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['alarm_category'] = isset($data['alarm_category']) ? $data['alarm_category'] : null;
         $this->container['smith_key'] = isset($data['smith_key']) ? $data['smith_key'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
@@ -180,6 +186,30 @@ class GetAlarmBySmithKeyRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets alarm_category
+     *
+     * @return string
+     */
+    public function getAlarmCategory()
+    {
+        return $this->container['alarm_category'];
+    }
+
+    /**
+     * Sets alarm_category
+     *
+     * @param string $alarm_category alarm_category
+     *
+     * @return $this
+     */
+    public function setAlarmCategory($alarm_category)
+    {
+        $this->container['alarm_category'] = $alarm_category;
+
+        return $this;
+    }
 
     /**
      * Gets smith_key

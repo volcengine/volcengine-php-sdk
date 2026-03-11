@@ -194,23 +194,8 @@ class ListBaselineCheckResRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const ASSET_TYPE_HOST = 'Host';
-    const ASSET_TYPE_DEV = 'Dev';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getAssetTypeAllowableValues()
-    {
-        return [
-            self::ASSET_TYPE_HOST,
-            self::ASSET_TYPE_DEV,
-        ];
-    }
     
 
     /**
@@ -252,14 +237,6 @@ class ListBaselineCheckResRequest implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getAssetTypeAllowableValues();
-        if (!is_null($this->container['asset_type']) && !in_array($this->container['asset_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'asset_type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         if ($this->container['page_number'] === null) {
             $invalidProperties[] = "'page_number' can't be null";
@@ -349,15 +326,6 @@ class ListBaselineCheckResRequest implements ModelInterface, ArrayAccess
      */
     public function setAssetType($asset_type)
     {
-        $allowedValues = $this->getAssetTypeAllowableValues();
-        if (!is_null($asset_type) && !in_array($asset_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'asset_type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['asset_type'] = $asset_type;
 
         return $this;

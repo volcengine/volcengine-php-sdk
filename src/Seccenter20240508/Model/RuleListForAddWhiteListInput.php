@@ -29,6 +29,7 @@ class RuleListForAddWhiteListInput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'match_content' => 'string',
+        'match_content_list' => 'string[]',
         'match_key' => 'string',
         'match_type' => 'int'
     ];
@@ -40,6 +41,7 @@ class RuleListForAddWhiteListInput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'match_content' => null,
+        'match_content_list' => null,
         'match_key' => null,
         'match_type' => 'int64'
     ];
@@ -72,6 +74,7 @@ class RuleListForAddWhiteListInput implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'match_content' => 'MatchContent',
+        'match_content_list' => 'MatchContentList',
         'match_key' => 'MatchKey',
         'match_type' => 'MatchType'
     ];
@@ -83,6 +86,7 @@ class RuleListForAddWhiteListInput implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'match_content' => 'setMatchContent',
+        'match_content_list' => 'setMatchContentList',
         'match_key' => 'setMatchKey',
         'match_type' => 'setMatchType'
     ];
@@ -94,6 +98,7 @@ class RuleListForAddWhiteListInput implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'match_content' => 'getMatchContent',
+        'match_content_list' => 'getMatchContentList',
         'match_key' => 'getMatchKey',
         'match_type' => 'getMatchType'
     ];
@@ -159,6 +164,7 @@ class RuleListForAddWhiteListInput implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['match_content'] = isset($data['match_content']) ? $data['match_content'] : null;
+        $this->container['match_content_list'] = isset($data['match_content_list']) ? $data['match_content_list'] : null;
         $this->container['match_key'] = isset($data['match_key']) ? $data['match_key'] : null;
         $this->container['match_type'] = isset($data['match_type']) ? $data['match_type'] : null;
     }
@@ -207,6 +213,30 @@ class RuleListForAddWhiteListInput implements ModelInterface, ArrayAccess
     public function setMatchContent($match_content)
     {
         $this->container['match_content'] = $match_content;
+
+        return $this;
+    }
+
+    /**
+     * Gets match_content_list
+     *
+     * @return string[]
+     */
+    public function getMatchContentList()
+    {
+        return $this->container['match_content_list'];
+    }
+
+    /**
+     * Sets match_content_list
+     *
+     * @param string[] $match_content_list match_content_list
+     *
+     * @return $this
+     */
+    public function setMatchContentList($match_content_list)
+    {
+        $this->container['match_content_list'] = $match_content_list;
 
         return $this;
     }

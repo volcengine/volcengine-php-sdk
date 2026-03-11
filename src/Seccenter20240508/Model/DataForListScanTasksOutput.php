@@ -33,6 +33,7 @@ class DataForListScanTasksOutput implements ModelInterface, ArrayAccess
         'create_time' => 'int',
         'file_path' => 'string',
         'id_count' => 'int',
+        'is_internal' => 'bool',
         'result_num' => 'int',
         'sub_task_created' => 'int',
         'sub_task_failed' => 'int',
@@ -62,6 +63,7 @@ class DataForListScanTasksOutput implements ModelInterface, ArrayAccess
         'create_time' => 'int64',
         'file_path' => null,
         'id_count' => 'int64',
+        'is_internal' => null,
         'result_num' => 'int64',
         'sub_task_created' => 'int64',
         'sub_task_failed' => 'int64',
@@ -112,6 +114,7 @@ class DataForListScanTasksOutput implements ModelInterface, ArrayAccess
         'create_time' => 'CreateTime',
         'file_path' => 'FilePath',
         'id_count' => 'IDCount',
+        'is_internal' => 'IsInternal',
         'result_num' => 'ResultNum',
         'sub_task_created' => 'SubTaskCreated',
         'sub_task_failed' => 'SubTaskFailed',
@@ -141,6 +144,7 @@ class DataForListScanTasksOutput implements ModelInterface, ArrayAccess
         'create_time' => 'setCreateTime',
         'file_path' => 'setFilePath',
         'id_count' => 'setIdCount',
+        'is_internal' => 'setIsInternal',
         'result_num' => 'setResultNum',
         'sub_task_created' => 'setSubTaskCreated',
         'sub_task_failed' => 'setSubTaskFailed',
@@ -170,6 +174,7 @@ class DataForListScanTasksOutput implements ModelInterface, ArrayAccess
         'create_time' => 'getCreateTime',
         'file_path' => 'getFilePath',
         'id_count' => 'getIdCount',
+        'is_internal' => 'getIsInternal',
         'result_num' => 'getResultNum',
         'sub_task_created' => 'getSubTaskCreated',
         'sub_task_failed' => 'getSubTaskFailed',
@@ -253,6 +258,7 @@ class DataForListScanTasksOutput implements ModelInterface, ArrayAccess
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
         $this->container['file_path'] = isset($data['file_path']) ? $data['file_path'] : null;
         $this->container['id_count'] = isset($data['id_count']) ? $data['id_count'] : null;
+        $this->container['is_internal'] = isset($data['is_internal']) ? $data['is_internal'] : null;
         $this->container['result_num'] = isset($data['result_num']) ? $data['result_num'] : null;
         $this->container['sub_task_created'] = isset($data['sub_task_created']) ? $data['sub_task_created'] : null;
         $this->container['sub_task_failed'] = isset($data['sub_task_failed']) ? $data['sub_task_failed'] : null;
@@ -411,6 +417,30 @@ class DataForListScanTasksOutput implements ModelInterface, ArrayAccess
     public function setIdCount($id_count)
     {
         $this->container['id_count'] = $id_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_internal
+     *
+     * @return bool
+     */
+    public function getIsInternal()
+    {
+        return $this->container['is_internal'];
+    }
+
+    /**
+     * Sets is_internal
+     *
+     * @param bool $is_internal is_internal
+     *
+     * @return $this
+     */
+    public function setIsInternal($is_internal)
+    {
+        $this->container['is_internal'] = $is_internal;
 
         return $this;
     }

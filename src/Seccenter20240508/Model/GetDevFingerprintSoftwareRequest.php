@@ -164,40 +164,8 @@ class GetDevFingerprintSoftwareRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const SORT_ORDER_ASC = 'Asc';
-    const SORT_ORDER_DESC = 'Desc';
-    const TYPE_DPKG = 'dpkg';
-    const TYPE_RPM = 'rpm';
-    const TYPE_PYPI = 'pypi';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getSortOrderAllowableValues()
-    {
-        return [
-            self::SORT_ORDER_ASC,
-            self::SORT_ORDER_DESC,
-        ];
-    }
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTypeAllowableValues()
-    {
-        return [
-            self::TYPE_DPKG,
-            self::TYPE_RPM,
-            self::TYPE_PYPI,
-        ];
-    }
     
 
     /**
@@ -240,14 +208,6 @@ class GetDevFingerprintSoftwareRequest implements ModelInterface, ArrayAccess
         if ($this->container['page_size'] === null) {
             $invalidProperties[] = "'page_size' can't be null";
         }
-        $allowedValues = $this->getSortOrderAllowableValues();
-        if (!is_null($this->container['sort_order']) && !in_array($this->container['sort_order'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'sort_order', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -402,15 +362,6 @@ class GetDevFingerprintSoftwareRequest implements ModelInterface, ArrayAccess
      */
     public function setSortOrder($sort_order)
     {
-        $allowedValues = $this->getSortOrderAllowableValues();
-        if (!is_null($sort_order) && !in_array($sort_order, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'sort_order', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['sort_order'] = $sort_order;
 
         return $this;
@@ -435,15 +386,6 @@ class GetDevFingerprintSoftwareRequest implements ModelInterface, ArrayAccess
      */
     public function setType($type)
     {
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($type) && array_diff($type, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['type'] = $type;
 
         return $this;

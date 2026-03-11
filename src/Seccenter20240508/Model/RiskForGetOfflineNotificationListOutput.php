@@ -30,6 +30,7 @@ class RiskForGetOfflineNotificationListOutput implements ModelInterface, ArrayAc
     protected static $swaggerTypes = [
         'alarm' => 'int',
         'baseline' => 'int',
+        'real_risk_vul' => 'int',
         'virus' => 'int',
         'vuln' => 'int'
     ];
@@ -42,6 +43,7 @@ class RiskForGetOfflineNotificationListOutput implements ModelInterface, ArrayAc
     protected static $swaggerFormats = [
         'alarm' => 'int64',
         'baseline' => 'int64',
+        'real_risk_vul' => 'int64',
         'virus' => 'int64',
         'vuln' => 'int64'
     ];
@@ -75,6 +77,7 @@ class RiskForGetOfflineNotificationListOutput implements ModelInterface, ArrayAc
     protected static $attributeMap = [
         'alarm' => 'Alarm',
         'baseline' => 'Baseline',
+        'real_risk_vul' => 'RealRiskVul',
         'virus' => 'Virus',
         'vuln' => 'Vuln'
     ];
@@ -87,6 +90,7 @@ class RiskForGetOfflineNotificationListOutput implements ModelInterface, ArrayAc
     protected static $setters = [
         'alarm' => 'setAlarm',
         'baseline' => 'setBaseline',
+        'real_risk_vul' => 'setRealRiskVul',
         'virus' => 'setVirus',
         'vuln' => 'setVuln'
     ];
@@ -99,6 +103,7 @@ class RiskForGetOfflineNotificationListOutput implements ModelInterface, ArrayAc
     protected static $getters = [
         'alarm' => 'getAlarm',
         'baseline' => 'getBaseline',
+        'real_risk_vul' => 'getRealRiskVul',
         'virus' => 'getVirus',
         'vuln' => 'getVuln'
     ];
@@ -165,6 +170,7 @@ class RiskForGetOfflineNotificationListOutput implements ModelInterface, ArrayAc
     {
         $this->container['alarm'] = isset($data['alarm']) ? $data['alarm'] : null;
         $this->container['baseline'] = isset($data['baseline']) ? $data['baseline'] : null;
+        $this->container['real_risk_vul'] = isset($data['real_risk_vul']) ? $data['real_risk_vul'] : null;
         $this->container['virus'] = isset($data['virus']) ? $data['virus'] : null;
         $this->container['vuln'] = isset($data['vuln']) ? $data['vuln'] : null;
     }
@@ -237,6 +243,30 @@ class RiskForGetOfflineNotificationListOutput implements ModelInterface, ArrayAc
     public function setBaseline($baseline)
     {
         $this->container['baseline'] = $baseline;
+
+        return $this;
+    }
+
+    /**
+     * Gets real_risk_vul
+     *
+     * @return int
+     */
+    public function getRealRiskVul()
+    {
+        return $this->container['real_risk_vul'];
+    }
+
+    /**
+     * Sets real_risk_vul
+     *
+     * @param int $real_risk_vul real_risk_vul
+     *
+     * @return $this
+     */
+    public function setRealRiskVul($real_risk_vul)
+    {
+        $this->container['real_risk_vul'] = $real_risk_vul;
 
         return $this;
     }

@@ -28,7 +28,9 @@ class RelateAlarmInfoForListBanIPListOutput implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'alarm_handle_method' => 'int',
         'alarm_type' => 'string',
+        'cloud_provider' => 'string',
         'related_alarm_id' => 'string'
     ];
 
@@ -38,7 +40,9 @@ class RelateAlarmInfoForListBanIPListOutput implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'alarm_handle_method' => 'int64',
         'alarm_type' => null,
+        'cloud_provider' => null,
         'related_alarm_id' => null
     ];
 
@@ -69,7 +73,9 @@ class RelateAlarmInfoForListBanIPListOutput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $attributeMap = [
+        'alarm_handle_method' => 'AlarmHandleMethod',
         'alarm_type' => 'AlarmType',
+        'cloud_provider' => 'CloudProvider',
         'related_alarm_id' => 'RelatedAlarmID'
     ];
 
@@ -79,7 +85,9 @@ class RelateAlarmInfoForListBanIPListOutput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $setters = [
+        'alarm_handle_method' => 'setAlarmHandleMethod',
         'alarm_type' => 'setAlarmType',
+        'cloud_provider' => 'setCloudProvider',
         'related_alarm_id' => 'setRelatedAlarmId'
     ];
 
@@ -89,7 +97,9 @@ class RelateAlarmInfoForListBanIPListOutput implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $getters = [
+        'alarm_handle_method' => 'getAlarmHandleMethod',
         'alarm_type' => 'getAlarmType',
+        'cloud_provider' => 'getCloudProvider',
         'related_alarm_id' => 'getRelatedAlarmId'
     ];
 
@@ -153,7 +163,9 @@ class RelateAlarmInfoForListBanIPListOutput implements ModelInterface, ArrayAcce
      */
     public function __construct(array $data = null)
     {
+        $this->container['alarm_handle_method'] = isset($data['alarm_handle_method']) ? $data['alarm_handle_method'] : null;
         $this->container['alarm_type'] = isset($data['alarm_type']) ? $data['alarm_type'] : null;
+        $this->container['cloud_provider'] = isset($data['cloud_provider']) ? $data['cloud_provider'] : null;
         $this->container['related_alarm_id'] = isset($data['related_alarm_id']) ? $data['related_alarm_id'] : null;
     }
 
@@ -182,6 +194,30 @@ class RelateAlarmInfoForListBanIPListOutput implements ModelInterface, ArrayAcce
 
 
     /**
+     * Gets alarm_handle_method
+     *
+     * @return int
+     */
+    public function getAlarmHandleMethod()
+    {
+        return $this->container['alarm_handle_method'];
+    }
+
+    /**
+     * Sets alarm_handle_method
+     *
+     * @param int $alarm_handle_method alarm_handle_method
+     *
+     * @return $this
+     */
+    public function setAlarmHandleMethod($alarm_handle_method)
+    {
+        $this->container['alarm_handle_method'] = $alarm_handle_method;
+
+        return $this;
+    }
+
+    /**
      * Gets alarm_type
      *
      * @return string
@@ -201,6 +237,30 @@ class RelateAlarmInfoForListBanIPListOutput implements ModelInterface, ArrayAcce
     public function setAlarmType($alarm_type)
     {
         $this->container['alarm_type'] = $alarm_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets cloud_provider
+     *
+     * @return string
+     */
+    public function getCloudProvider()
+    {
+        return $this->container['cloud_provider'];
+    }
+
+    /**
+     * Sets cloud_provider
+     *
+     * @param string $cloud_provider cloud_provider
+     *
+     * @return $this
+     */
+    public function setCloudProvider($cloud_provider)
+    {
+        $this->container['cloud_provider'] = $cloud_provider;
 
         return $this;
     }

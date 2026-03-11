@@ -30,6 +30,7 @@ class CheckAlarmSupportBanIPResponse implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'ban_ip' => 'string',
         'ban_port_range' => 'string',
+        'ban_type' => 'string',
         'direction' => 'string',
         'security_group_name' => 'string',
         'support' => 'bool'
@@ -43,6 +44,7 @@ class CheckAlarmSupportBanIPResponse implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'ban_ip' => null,
         'ban_port_range' => null,
+        'ban_type' => null,
         'direction' => null,
         'security_group_name' => null,
         'support' => null
@@ -77,6 +79,7 @@ class CheckAlarmSupportBanIPResponse implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'ban_ip' => 'BanIP',
         'ban_port_range' => 'BanPortRange',
+        'ban_type' => 'BanType',
         'direction' => 'Direction',
         'security_group_name' => 'SecurityGroupName',
         'support' => 'Support'
@@ -90,6 +93,7 @@ class CheckAlarmSupportBanIPResponse implements ModelInterface, ArrayAccess
     protected static $setters = [
         'ban_ip' => 'setBanIp',
         'ban_port_range' => 'setBanPortRange',
+        'ban_type' => 'setBanType',
         'direction' => 'setDirection',
         'security_group_name' => 'setSecurityGroupName',
         'support' => 'setSupport'
@@ -103,6 +107,7 @@ class CheckAlarmSupportBanIPResponse implements ModelInterface, ArrayAccess
     protected static $getters = [
         'ban_ip' => 'getBanIp',
         'ban_port_range' => 'getBanPortRange',
+        'ban_type' => 'getBanType',
         'direction' => 'getDirection',
         'security_group_name' => 'getSecurityGroupName',
         'support' => 'getSupport'
@@ -170,6 +175,7 @@ class CheckAlarmSupportBanIPResponse implements ModelInterface, ArrayAccess
     {
         $this->container['ban_ip'] = isset($data['ban_ip']) ? $data['ban_ip'] : null;
         $this->container['ban_port_range'] = isset($data['ban_port_range']) ? $data['ban_port_range'] : null;
+        $this->container['ban_type'] = isset($data['ban_type']) ? $data['ban_type'] : null;
         $this->container['direction'] = isset($data['direction']) ? $data['direction'] : null;
         $this->container['security_group_name'] = isset($data['security_group_name']) ? $data['security_group_name'] : null;
         $this->container['support'] = isset($data['support']) ? $data['support'] : null;
@@ -243,6 +249,30 @@ class CheckAlarmSupportBanIPResponse implements ModelInterface, ArrayAccess
     public function setBanPortRange($ban_port_range)
     {
         $this->container['ban_port_range'] = $ban_port_range;
+
+        return $this;
+    }
+
+    /**
+     * Gets ban_type
+     *
+     * @return string
+     */
+    public function getBanType()
+    {
+        return $this->container['ban_type'];
+    }
+
+    /**
+     * Sets ban_type
+     *
+     * @param string $ban_type ban_type
+     *
+     * @return $this
+     */
+    public function setBanType($ban_type)
+    {
+        $this->container['ban_type'] = $ban_type;
 
         return $this;
     }

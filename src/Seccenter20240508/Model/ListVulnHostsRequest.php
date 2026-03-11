@@ -38,6 +38,7 @@ class ListVulnHostsRequest implements ModelInterface, ArrayAccess
         'cwpp_id' => 'string',
         'host_name' => 'string',
         'ip' => 'string',
+        'is_real_risk_vul' => 'bool',
         'leaf_group_ids' => 'string[]',
         'page_number' => 'int',
         'page_size' => 'int',
@@ -63,6 +64,7 @@ class ListVulnHostsRequest implements ModelInterface, ArrayAccess
         'cwpp_id' => null,
         'host_name' => null,
         'ip' => null,
+        'is_real_risk_vul' => null,
         'leaf_group_ids' => null,
         'page_number' => 'int64',
         'page_size' => 'int64',
@@ -109,6 +111,7 @@ class ListVulnHostsRequest implements ModelInterface, ArrayAccess
         'cwpp_id' => 'CwppID',
         'host_name' => 'HostName',
         'ip' => 'IP',
+        'is_real_risk_vul' => 'IsRealRiskVul',
         'leaf_group_ids' => 'LeafGroupIDs',
         'page_number' => 'PageNumber',
         'page_size' => 'PageSize',
@@ -134,6 +137,7 @@ class ListVulnHostsRequest implements ModelInterface, ArrayAccess
         'cwpp_id' => 'setCwppId',
         'host_name' => 'setHostName',
         'ip' => 'setIp',
+        'is_real_risk_vul' => 'setIsRealRiskVul',
         'leaf_group_ids' => 'setLeafGroupIds',
         'page_number' => 'setPageNumber',
         'page_size' => 'setPageSize',
@@ -159,6 +163,7 @@ class ListVulnHostsRequest implements ModelInterface, ArrayAccess
         'cwpp_id' => 'getCwppId',
         'host_name' => 'getHostName',
         'ip' => 'getIp',
+        'is_real_risk_vul' => 'getIsRealRiskVul',
         'leaf_group_ids' => 'getLeafGroupIds',
         'page_number' => 'getPageNumber',
         'page_size' => 'getPageSize',
@@ -209,23 +214,8 @@ class ListVulnHostsRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const ASSET_TYPE_HOST = 'Host';
-    const ASSET_TYPE_DEV = 'Dev';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getAssetTypeAllowableValues()
-    {
-        return [
-            self::ASSET_TYPE_HOST,
-            self::ASSET_TYPE_DEV,
-        ];
-    }
     
 
     /**
@@ -253,6 +243,7 @@ class ListVulnHostsRequest implements ModelInterface, ArrayAccess
         $this->container['cwpp_id'] = isset($data['cwpp_id']) ? $data['cwpp_id'] : null;
         $this->container['host_name'] = isset($data['host_name']) ? $data['host_name'] : null;
         $this->container['ip'] = isset($data['ip']) ? $data['ip'] : null;
+        $this->container['is_real_risk_vul'] = isset($data['is_real_risk_vul']) ? $data['is_real_risk_vul'] : null;
         $this->container['leaf_group_ids'] = isset($data['leaf_group_ids']) ? $data['leaf_group_ids'] : null;
         $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
@@ -270,14 +261,6 @@ class ListVulnHostsRequest implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getAssetTypeAllowableValues();
-        if (!is_null($this->container['asset_type']) && !in_array($this->container['asset_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'asset_type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         if ($this->container['page_number'] === null) {
             $invalidProperties[] = "'page_number' can't be null";
@@ -439,15 +422,6 @@ class ListVulnHostsRequest implements ModelInterface, ArrayAccess
      */
     public function setAssetType($asset_type)
     {
-        $allowedValues = $this->getAssetTypeAllowableValues();
-        if (!is_null($asset_type) && !in_array($asset_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'asset_type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['asset_type'] = $asset_type;
 
         return $this;
@@ -545,6 +519,30 @@ class ListVulnHostsRequest implements ModelInterface, ArrayAccess
     public function setIp($ip)
     {
         $this->container['ip'] = $ip;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_real_risk_vul
+     *
+     * @return bool
+     */
+    public function getIsRealRiskVul()
+    {
+        return $this->container['is_real_risk_vul'];
+    }
+
+    /**
+     * Sets is_real_risk_vul
+     *
+     * @param bool $is_real_risk_vul is_real_risk_vul
+     *
+     * @return $this
+     */
+    public function setIsRealRiskVul($is_real_risk_vul)
+    {
+        $this->container['is_real_risk_vul'] = $is_real_risk_vul;
 
         return $this;
     }

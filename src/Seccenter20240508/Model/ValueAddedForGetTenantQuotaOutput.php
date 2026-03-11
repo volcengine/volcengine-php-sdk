@@ -28,10 +28,12 @@ class ValueAddedForGetTenantQuotaOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'llm_eval_quota' => '\Volcengine\Seccenter20240508\Model\LLMEvalQuotaForGetTenantQuotaOutput',
         'log_analysis_quota' => '\Volcengine\Seccenter20240508\Model\LogAnalysisQuotaForGetTenantQuotaOutput',
         'mlp_defender_quota' => '\Volcengine\Seccenter20240508\Model\MlpDefenderQuotaForGetTenantQuotaOutput',
         'multi_level_management' => '\Volcengine\Seccenter20240508\Model\MultiLevelManagementForGetTenantQuotaOutput',
-        'rasp_auth_quota' => '\Volcengine\Seccenter20240508\Model\RaspAuthQuotaForGetTenantQuotaOutput'
+        'rasp_auth_quota' => '\Volcengine\Seccenter20240508\Model\RaspAuthQuotaForGetTenantQuotaOutput',
+        'varmor_quota' => '\Volcengine\Seccenter20240508\Model\VarmorQuotaForGetTenantQuotaOutput'
     ];
 
     /**
@@ -40,10 +42,12 @@ class ValueAddedForGetTenantQuotaOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'llm_eval_quota' => null,
         'log_analysis_quota' => null,
         'mlp_defender_quota' => null,
         'multi_level_management' => null,
-        'rasp_auth_quota' => null
+        'rasp_auth_quota' => null,
+        'varmor_quota' => null
     ];
 
     /**
@@ -73,10 +77,12 @@ class ValueAddedForGetTenantQuotaOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'llm_eval_quota' => 'LLMEvalQuota',
         'log_analysis_quota' => 'LogAnalysisQuota',
         'mlp_defender_quota' => 'MlpDefenderQuota',
         'multi_level_management' => 'MultiLevelManagement',
-        'rasp_auth_quota' => 'RaspAuthQuota'
+        'rasp_auth_quota' => 'RaspAuthQuota',
+        'varmor_quota' => 'VarmorQuota'
     ];
 
     /**
@@ -85,10 +91,12 @@ class ValueAddedForGetTenantQuotaOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'llm_eval_quota' => 'setLlmEvalQuota',
         'log_analysis_quota' => 'setLogAnalysisQuota',
         'mlp_defender_quota' => 'setMlpDefenderQuota',
         'multi_level_management' => 'setMultiLevelManagement',
-        'rasp_auth_quota' => 'setRaspAuthQuota'
+        'rasp_auth_quota' => 'setRaspAuthQuota',
+        'varmor_quota' => 'setVarmorQuota'
     ];
 
     /**
@@ -97,10 +105,12 @@ class ValueAddedForGetTenantQuotaOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'llm_eval_quota' => 'getLlmEvalQuota',
         'log_analysis_quota' => 'getLogAnalysisQuota',
         'mlp_defender_quota' => 'getMlpDefenderQuota',
         'multi_level_management' => 'getMultiLevelManagement',
-        'rasp_auth_quota' => 'getRaspAuthQuota'
+        'rasp_auth_quota' => 'getRaspAuthQuota',
+        'varmor_quota' => 'getVarmorQuota'
     ];
 
     /**
@@ -163,10 +173,12 @@ class ValueAddedForGetTenantQuotaOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['llm_eval_quota'] = isset($data['llm_eval_quota']) ? $data['llm_eval_quota'] : null;
         $this->container['log_analysis_quota'] = isset($data['log_analysis_quota']) ? $data['log_analysis_quota'] : null;
         $this->container['mlp_defender_quota'] = isset($data['mlp_defender_quota']) ? $data['mlp_defender_quota'] : null;
         $this->container['multi_level_management'] = isset($data['multi_level_management']) ? $data['multi_level_management'] : null;
         $this->container['rasp_auth_quota'] = isset($data['rasp_auth_quota']) ? $data['rasp_auth_quota'] : null;
+        $this->container['varmor_quota'] = isset($data['varmor_quota']) ? $data['varmor_quota'] : null;
     }
 
     /**
@@ -192,6 +204,30 @@ class ValueAddedForGetTenantQuotaOutput implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets llm_eval_quota
+     *
+     * @return \Volcengine\Seccenter20240508\Model\LLMEvalQuotaForGetTenantQuotaOutput
+     */
+    public function getLlmEvalQuota()
+    {
+        return $this->container['llm_eval_quota'];
+    }
+
+    /**
+     * Sets llm_eval_quota
+     *
+     * @param \Volcengine\Seccenter20240508\Model\LLMEvalQuotaForGetTenantQuotaOutput $llm_eval_quota llm_eval_quota
+     *
+     * @return $this
+     */
+    public function setLlmEvalQuota($llm_eval_quota)
+    {
+        $this->container['llm_eval_quota'] = $llm_eval_quota;
+
+        return $this;
+    }
 
     /**
      * Gets log_analysis_quota
@@ -285,6 +321,30 @@ class ValueAddedForGetTenantQuotaOutput implements ModelInterface, ArrayAccess
     public function setRaspAuthQuota($rasp_auth_quota)
     {
         $this->container['rasp_auth_quota'] = $rasp_auth_quota;
+
+        return $this;
+    }
+
+    /**
+     * Gets varmor_quota
+     *
+     * @return \Volcengine\Seccenter20240508\Model\VarmorQuotaForGetTenantQuotaOutput
+     */
+    public function getVarmorQuota()
+    {
+        return $this->container['varmor_quota'];
+    }
+
+    /**
+     * Sets varmor_quota
+     *
+     * @param \Volcengine\Seccenter20240508\Model\VarmorQuotaForGetTenantQuotaOutput $varmor_quota varmor_quota
+     *
+     * @return $this
+     */
+    public function setVarmorQuota($varmor_quota)
+    {
+        $this->container['varmor_quota'] = $varmor_quota;
 
         return $this;
     }

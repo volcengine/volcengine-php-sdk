@@ -37,8 +37,11 @@ class DataForListAssetCenterDevsOutput implements ModelInterface, ArrayAccess
         'baseline' => 'int',
         'ip' => 'string',
         'platform' => 'string',
+        'protect_status' => 'string',
         'region' => 'string',
+        'security_enhancement' => 'bool',
         'status' => 'string',
+        'update_time' => 'int',
         'vul' => 'int'
     ];
 
@@ -57,8 +60,11 @@ class DataForListAssetCenterDevsOutput implements ModelInterface, ArrayAccess
         'baseline' => 'int64',
         'ip' => null,
         'platform' => null,
+        'protect_status' => null,
         'region' => null,
+        'security_enhancement' => null,
         'status' => null,
+        'update_time' => 'int64',
         'vul' => 'int64'
     ];
 
@@ -98,8 +104,11 @@ class DataForListAssetCenterDevsOutput implements ModelInterface, ArrayAccess
         'baseline' => 'Baseline',
         'ip' => 'Ip',
         'platform' => 'Platform',
+        'protect_status' => 'ProtectStatus',
         'region' => 'Region',
+        'security_enhancement' => 'SecurityEnhancement',
         'status' => 'Status',
+        'update_time' => 'UpdateTime',
         'vul' => 'Vul'
     ];
 
@@ -118,8 +127,11 @@ class DataForListAssetCenterDevsOutput implements ModelInterface, ArrayAccess
         'baseline' => 'setBaseline',
         'ip' => 'setIp',
         'platform' => 'setPlatform',
+        'protect_status' => 'setProtectStatus',
         'region' => 'setRegion',
+        'security_enhancement' => 'setSecurityEnhancement',
         'status' => 'setStatus',
+        'update_time' => 'setUpdateTime',
         'vul' => 'setVul'
     ];
 
@@ -138,8 +150,11 @@ class DataForListAssetCenterDevsOutput implements ModelInterface, ArrayAccess
         'baseline' => 'getBaseline',
         'ip' => 'getIp',
         'platform' => 'getPlatform',
+        'protect_status' => 'getProtectStatus',
         'region' => 'getRegion',
+        'security_enhancement' => 'getSecurityEnhancement',
         'status' => 'getStatus',
+        'update_time' => 'getUpdateTime',
         'vul' => 'getVul'
     ];
 
@@ -212,8 +227,11 @@ class DataForListAssetCenterDevsOutput implements ModelInterface, ArrayAccess
         $this->container['baseline'] = isset($data['baseline']) ? $data['baseline'] : null;
         $this->container['ip'] = isset($data['ip']) ? $data['ip'] : null;
         $this->container['platform'] = isset($data['platform']) ? $data['platform'] : null;
+        $this->container['protect_status'] = isset($data['protect_status']) ? $data['protect_status'] : null;
         $this->container['region'] = isset($data['region']) ? $data['region'] : null;
+        $this->container['security_enhancement'] = isset($data['security_enhancement']) ? $data['security_enhancement'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
         $this->container['vul'] = isset($data['vul']) ? $data['vul'] : null;
     }
 
@@ -458,6 +476,30 @@ class DataForListAssetCenterDevsOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets protect_status
+     *
+     * @return string
+     */
+    public function getProtectStatus()
+    {
+        return $this->container['protect_status'];
+    }
+
+    /**
+     * Sets protect_status
+     *
+     * @param string $protect_status protect_status
+     *
+     * @return $this
+     */
+    public function setProtectStatus($protect_status)
+    {
+        $this->container['protect_status'] = $protect_status;
+
+        return $this;
+    }
+
+    /**
      * Gets region
      *
      * @return string
@@ -482,6 +524,30 @@ class DataForListAssetCenterDevsOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets security_enhancement
+     *
+     * @return bool
+     */
+    public function getSecurityEnhancement()
+    {
+        return $this->container['security_enhancement'];
+    }
+
+    /**
+     * Sets security_enhancement
+     *
+     * @param bool $security_enhancement security_enhancement
+     *
+     * @return $this
+     */
+    public function setSecurityEnhancement($security_enhancement)
+    {
+        $this->container['security_enhancement'] = $security_enhancement;
+
+        return $this;
+    }
+
+    /**
      * Gets status
      *
      * @return string
@@ -501,6 +567,30 @@ class DataForListAssetCenterDevsOutput implements ModelInterface, ArrayAccess
     public function setStatus($status)
     {
         $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets update_time
+     *
+     * @return int
+     */
+    public function getUpdateTime()
+    {
+        return $this->container['update_time'];
+    }
+
+    /**
+     * Sets update_time
+     *
+     * @param int $update_time update_time
+     *
+     * @return $this
+     */
+    public function setUpdateTime($update_time)
+    {
+        $this->container['update_time'] = $update_time;
 
         return $this;
     }

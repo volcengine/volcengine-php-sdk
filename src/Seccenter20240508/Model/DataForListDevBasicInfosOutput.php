@@ -32,7 +32,9 @@ class DataForListDevBasicInfosOutput implements ModelInterface, ArrayAccess
         'asset_id' => 'string',
         'asset_name' => 'string',
         'private_ip' => 'string',
+        'protect_status' => 'string',
         'public_ip' => 'string',
+        'security_enhancement' => 'bool',
         'status' => 'string'
     ];
 
@@ -46,7 +48,9 @@ class DataForListDevBasicInfosOutput implements ModelInterface, ArrayAccess
         'asset_id' => null,
         'asset_name' => null,
         'private_ip' => null,
+        'protect_status' => null,
         'public_ip' => null,
+        'security_enhancement' => null,
         'status' => null
     ];
 
@@ -81,7 +85,9 @@ class DataForListDevBasicInfosOutput implements ModelInterface, ArrayAccess
         'asset_id' => 'AssetId',
         'asset_name' => 'AssetName',
         'private_ip' => 'PrivateIP',
+        'protect_status' => 'ProtectStatus',
         'public_ip' => 'PublicIP',
+        'security_enhancement' => 'SecurityEnhancement',
         'status' => 'Status'
     ];
 
@@ -95,7 +101,9 @@ class DataForListDevBasicInfosOutput implements ModelInterface, ArrayAccess
         'asset_id' => 'setAssetId',
         'asset_name' => 'setAssetName',
         'private_ip' => 'setPrivateIp',
+        'protect_status' => 'setProtectStatus',
         'public_ip' => 'setPublicIp',
+        'security_enhancement' => 'setSecurityEnhancement',
         'status' => 'setStatus'
     ];
 
@@ -109,7 +117,9 @@ class DataForListDevBasicInfosOutput implements ModelInterface, ArrayAccess
         'asset_id' => 'getAssetId',
         'asset_name' => 'getAssetName',
         'private_ip' => 'getPrivateIp',
+        'protect_status' => 'getProtectStatus',
         'public_ip' => 'getPublicIp',
+        'security_enhancement' => 'getSecurityEnhancement',
         'status' => 'getStatus'
     ];
 
@@ -177,7 +187,9 @@ class DataForListDevBasicInfosOutput implements ModelInterface, ArrayAccess
         $this->container['asset_id'] = isset($data['asset_id']) ? $data['asset_id'] : null;
         $this->container['asset_name'] = isset($data['asset_name']) ? $data['asset_name'] : null;
         $this->container['private_ip'] = isset($data['private_ip']) ? $data['private_ip'] : null;
+        $this->container['protect_status'] = isset($data['protect_status']) ? $data['protect_status'] : null;
         $this->container['public_ip'] = isset($data['public_ip']) ? $data['public_ip'] : null;
+        $this->container['security_enhancement'] = isset($data['security_enhancement']) ? $data['security_enhancement'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }
 
@@ -302,6 +314,30 @@ class DataForListDevBasicInfosOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets protect_status
+     *
+     * @return string
+     */
+    public function getProtectStatus()
+    {
+        return $this->container['protect_status'];
+    }
+
+    /**
+     * Sets protect_status
+     *
+     * @param string $protect_status protect_status
+     *
+     * @return $this
+     */
+    public function setProtectStatus($protect_status)
+    {
+        $this->container['protect_status'] = $protect_status;
+
+        return $this;
+    }
+
+    /**
      * Gets public_ip
      *
      * @return string
@@ -321,6 +357,30 @@ class DataForListDevBasicInfosOutput implements ModelInterface, ArrayAccess
     public function setPublicIp($public_ip)
     {
         $this->container['public_ip'] = $public_ip;
+
+        return $this;
+    }
+
+    /**
+     * Gets security_enhancement
+     *
+     * @return bool
+     */
+    public function getSecurityEnhancement()
+    {
+        return $this->container['security_enhancement'];
+    }
+
+    /**
+     * Sets security_enhancement
+     *
+     * @param bool $security_enhancement security_enhancement
+     *
+     * @return $this
+     */
+    public function setSecurityEnhancement($security_enhancement)
+    {
+        $this->container['security_enhancement'] = $security_enhancement;
 
         return $this;
     }

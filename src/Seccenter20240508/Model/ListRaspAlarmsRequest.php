@@ -53,10 +53,13 @@ class ListRaspAlarmsRequest implements ModelInterface, ArrayAccess
         'hostname' => 'string',
         'ip' => 'string',
         'image_name' => 'string',
+        'last_alarm_time_end' => 'int',
+        'last_alarm_time_start' => 'int',
         'leaf_group_ids' => 'string[]',
         'level_list' => 'string[]',
         'mlp_instance_id' => 'string',
         'name' => 'string',
+        'operation_list' => 'string[]',
         'page_number' => 'int',
         'page_size' => 'int',
         'probe_hook' => 'string',
@@ -105,10 +108,13 @@ class ListRaspAlarmsRequest implements ModelInterface, ArrayAccess
         'hostname' => null,
         'ip' => null,
         'image_name' => null,
+        'last_alarm_time_end' => 'int64',
+        'last_alarm_time_start' => 'int64',
         'leaf_group_ids' => null,
         'level_list' => null,
         'mlp_instance_id' => null,
         'name' => null,
+        'operation_list' => null,
         'page_number' => 'int64',
         'page_size' => 'int64',
         'probe_hook' => null,
@@ -178,10 +184,13 @@ class ListRaspAlarmsRequest implements ModelInterface, ArrayAccess
         'hostname' => 'Hostname',
         'ip' => 'IP',
         'image_name' => 'ImageName',
+        'last_alarm_time_end' => 'LastAlarmTimeEnd',
+        'last_alarm_time_start' => 'LastAlarmTimeStart',
         'leaf_group_ids' => 'LeafGroupIDs',
         'level_list' => 'LevelList',
         'mlp_instance_id' => 'MlpInstanceID',
         'name' => 'Name',
+        'operation_list' => 'OperationList',
         'page_number' => 'PageNumber',
         'page_size' => 'PageSize',
         'probe_hook' => 'ProbeHook',
@@ -230,10 +239,13 @@ class ListRaspAlarmsRequest implements ModelInterface, ArrayAccess
         'hostname' => 'setHostname',
         'ip' => 'setIp',
         'image_name' => 'setImageName',
+        'last_alarm_time_end' => 'setLastAlarmTimeEnd',
+        'last_alarm_time_start' => 'setLastAlarmTimeStart',
         'leaf_group_ids' => 'setLeafGroupIds',
         'level_list' => 'setLevelList',
         'mlp_instance_id' => 'setMlpInstanceId',
         'name' => 'setName',
+        'operation_list' => 'setOperationList',
         'page_number' => 'setPageNumber',
         'page_size' => 'setPageSize',
         'probe_hook' => 'setProbeHook',
@@ -282,10 +294,13 @@ class ListRaspAlarmsRequest implements ModelInterface, ArrayAccess
         'hostname' => 'getHostname',
         'ip' => 'getIp',
         'image_name' => 'getImageName',
+        'last_alarm_time_end' => 'getLastAlarmTimeEnd',
+        'last_alarm_time_start' => 'getLastAlarmTimeStart',
         'leaf_group_ids' => 'getLeafGroupIds',
         'level_list' => 'getLevelList',
         'mlp_instance_id' => 'getMlpInstanceId',
         'name' => 'getName',
+        'operation_list' => 'getOperationList',
         'page_number' => 'getPageNumber',
         'page_size' => 'getPageSize',
         'probe_hook' => 'getProbeHook',
@@ -388,10 +403,13 @@ class ListRaspAlarmsRequest implements ModelInterface, ArrayAccess
         $this->container['hostname'] = isset($data['hostname']) ? $data['hostname'] : null;
         $this->container['ip'] = isset($data['ip']) ? $data['ip'] : null;
         $this->container['image_name'] = isset($data['image_name']) ? $data['image_name'] : null;
+        $this->container['last_alarm_time_end'] = isset($data['last_alarm_time_end']) ? $data['last_alarm_time_end'] : null;
+        $this->container['last_alarm_time_start'] = isset($data['last_alarm_time_start']) ? $data['last_alarm_time_start'] : null;
         $this->container['leaf_group_ids'] = isset($data['leaf_group_ids']) ? $data['leaf_group_ids'] : null;
         $this->container['level_list'] = isset($data['level_list']) ? $data['level_list'] : null;
         $this->container['mlp_instance_id'] = isset($data['mlp_instance_id']) ? $data['mlp_instance_id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['operation_list'] = isset($data['operation_list']) ? $data['operation_list'] : null;
         $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
         $this->container['probe_hook'] = isset($data['probe_hook']) ? $data['probe_hook'] : null;
@@ -1040,6 +1058,54 @@ class ListRaspAlarmsRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets last_alarm_time_end
+     *
+     * @return int
+     */
+    public function getLastAlarmTimeEnd()
+    {
+        return $this->container['last_alarm_time_end'];
+    }
+
+    /**
+     * Sets last_alarm_time_end
+     *
+     * @param int $last_alarm_time_end last_alarm_time_end
+     *
+     * @return $this
+     */
+    public function setLastAlarmTimeEnd($last_alarm_time_end)
+    {
+        $this->container['last_alarm_time_end'] = $last_alarm_time_end;
+
+        return $this;
+    }
+
+    /**
+     * Gets last_alarm_time_start
+     *
+     * @return int
+     */
+    public function getLastAlarmTimeStart()
+    {
+        return $this->container['last_alarm_time_start'];
+    }
+
+    /**
+     * Sets last_alarm_time_start
+     *
+     * @param int $last_alarm_time_start last_alarm_time_start
+     *
+     * @return $this
+     */
+    public function setLastAlarmTimeStart($last_alarm_time_start)
+    {
+        $this->container['last_alarm_time_start'] = $last_alarm_time_start;
+
+        return $this;
+    }
+
+    /**
      * Gets leaf_group_ids
      *
      * @return string[]
@@ -1131,6 +1197,30 @@ class ListRaspAlarmsRequest implements ModelInterface, ArrayAccess
     public function setName($name)
     {
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets operation_list
+     *
+     * @return string[]
+     */
+    public function getOperationList()
+    {
+        return $this->container['operation_list'];
+    }
+
+    /**
+     * Sets operation_list
+     *
+     * @param string[] $operation_list operation_list
+     *
+     * @return $this
+     */
+    public function setOperationList($operation_list)
+    {
+        $this->container['operation_list'] = $operation_list;
 
         return $this;
     }

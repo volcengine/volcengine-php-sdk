@@ -38,9 +38,13 @@ class GetVulnInfoResponse implements ModelInterface, ArrayAccess
         'cvss' => 'string',
         'cvss_vector' => 'string',
         'cwe' => 'string',
+        'cwe_ids' => 'string[]',
         'descript' => 'string',
         'descript_en' => 'string',
         'exploit_link' => 'string',
+        'has_exploit' => 'bool',
+        'has_payload' => 'bool',
+        'if_emg' => 'bool',
         'if_exp' => 'int',
         'if_rasp' => 'bool',
         'level' => 'string',
@@ -74,9 +78,13 @@ class GetVulnInfoResponse implements ModelInterface, ArrayAccess
         'cvss' => null,
         'cvss_vector' => null,
         'cwe' => null,
+        'cwe_ids' => null,
         'descript' => null,
         'descript_en' => null,
         'exploit_link' => null,
+        'has_exploit' => null,
+        'has_payload' => null,
+        'if_emg' => null,
         'if_exp' => 'int64',
         'if_rasp' => null,
         'level' => null,
@@ -131,9 +139,13 @@ class GetVulnInfoResponse implements ModelInterface, ArrayAccess
         'cvss' => 'Cvss',
         'cvss_vector' => 'CvssVector',
         'cwe' => 'Cwe',
+        'cwe_ids' => 'CweIds',
         'descript' => 'Descript',
         'descript_en' => 'DescriptEn',
         'exploit_link' => 'ExploitLink',
+        'has_exploit' => 'HasExploit',
+        'has_payload' => 'HasPayload',
+        'if_emg' => 'IfEmg',
         'if_exp' => 'IfExp',
         'if_rasp' => 'IfRasp',
         'level' => 'Level',
@@ -167,9 +179,13 @@ class GetVulnInfoResponse implements ModelInterface, ArrayAccess
         'cvss' => 'setCvss',
         'cvss_vector' => 'setCvssVector',
         'cwe' => 'setCwe',
+        'cwe_ids' => 'setCweIds',
         'descript' => 'setDescript',
         'descript_en' => 'setDescriptEn',
         'exploit_link' => 'setExploitLink',
+        'has_exploit' => 'setHasExploit',
+        'has_payload' => 'setHasPayload',
+        'if_emg' => 'setIfEmg',
         'if_exp' => 'setIfExp',
         'if_rasp' => 'setIfRasp',
         'level' => 'setLevel',
@@ -203,9 +219,13 @@ class GetVulnInfoResponse implements ModelInterface, ArrayAccess
         'cvss' => 'getCvss',
         'cvss_vector' => 'getCvssVector',
         'cwe' => 'getCwe',
+        'cwe_ids' => 'getCweIds',
         'descript' => 'getDescript',
         'descript_en' => 'getDescriptEn',
         'exploit_link' => 'getExploitLink',
+        'has_exploit' => 'getHasExploit',
+        'has_payload' => 'getHasPayload',
+        'if_emg' => 'getIfEmg',
         'if_exp' => 'getIfExp',
         'if_rasp' => 'getIfRasp',
         'level' => 'getLevel',
@@ -293,9 +313,13 @@ class GetVulnInfoResponse implements ModelInterface, ArrayAccess
         $this->container['cvss'] = isset($data['cvss']) ? $data['cvss'] : null;
         $this->container['cvss_vector'] = isset($data['cvss_vector']) ? $data['cvss_vector'] : null;
         $this->container['cwe'] = isset($data['cwe']) ? $data['cwe'] : null;
+        $this->container['cwe_ids'] = isset($data['cwe_ids']) ? $data['cwe_ids'] : null;
         $this->container['descript'] = isset($data['descript']) ? $data['descript'] : null;
         $this->container['descript_en'] = isset($data['descript_en']) ? $data['descript_en'] : null;
         $this->container['exploit_link'] = isset($data['exploit_link']) ? $data['exploit_link'] : null;
+        $this->container['has_exploit'] = isset($data['has_exploit']) ? $data['has_exploit'] : null;
+        $this->container['has_payload'] = isset($data['has_payload']) ? $data['has_payload'] : null;
+        $this->container['if_emg'] = isset($data['if_emg']) ? $data['if_emg'] : null;
         $this->container['if_exp'] = isset($data['if_exp']) ? $data['if_exp'] : null;
         $this->container['if_rasp'] = isset($data['if_rasp']) ? $data['if_rasp'] : null;
         $this->container['level'] = isset($data['level']) ? $data['level'] : null;
@@ -578,6 +602,30 @@ class GetVulnInfoResponse implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets cwe_ids
+     *
+     * @return string[]
+     */
+    public function getCweIds()
+    {
+        return $this->container['cwe_ids'];
+    }
+
+    /**
+     * Sets cwe_ids
+     *
+     * @param string[] $cwe_ids cwe_ids
+     *
+     * @return $this
+     */
+    public function setCweIds($cwe_ids)
+    {
+        $this->container['cwe_ids'] = $cwe_ids;
+
+        return $this;
+    }
+
+    /**
      * Gets descript
      *
      * @return string
@@ -645,6 +693,78 @@ class GetVulnInfoResponse implements ModelInterface, ArrayAccess
     public function setExploitLink($exploit_link)
     {
         $this->container['exploit_link'] = $exploit_link;
+
+        return $this;
+    }
+
+    /**
+     * Gets has_exploit
+     *
+     * @return bool
+     */
+    public function getHasExploit()
+    {
+        return $this->container['has_exploit'];
+    }
+
+    /**
+     * Sets has_exploit
+     *
+     * @param bool $has_exploit has_exploit
+     *
+     * @return $this
+     */
+    public function setHasExploit($has_exploit)
+    {
+        $this->container['has_exploit'] = $has_exploit;
+
+        return $this;
+    }
+
+    /**
+     * Gets has_payload
+     *
+     * @return bool
+     */
+    public function getHasPayload()
+    {
+        return $this->container['has_payload'];
+    }
+
+    /**
+     * Sets has_payload
+     *
+     * @param bool $has_payload has_payload
+     *
+     * @return $this
+     */
+    public function setHasPayload($has_payload)
+    {
+        $this->container['has_payload'] = $has_payload;
+
+        return $this;
+    }
+
+    /**
+     * Gets if_emg
+     *
+     * @return bool
+     */
+    public function getIfEmg()
+    {
+        return $this->container['if_emg'];
+    }
+
+    /**
+     * Sets if_emg
+     *
+     * @param bool $if_emg if_emg
+     *
+     * @return $this
+     */
+    public function setIfEmg($if_emg)
+    {
+        $this->container['if_emg'] = $if_emg;
 
         return $this;
     }

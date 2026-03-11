@@ -29,7 +29,9 @@ class EditRaspConfigRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'all_process_inject' => 'bool',
+        'block_uuid' => 'string',
         'blocks' => '\Volcengine\Seccenter20240508\Model\BlockForEditRaspConfigInput[]',
+        'filter_uuid' => 'string',
         'filters' => '\Volcengine\Seccenter20240508\Model\FilterForEditRaspConfigInput[]',
         'id' => 'string',
         'if_protect' => 'bool',
@@ -50,7 +52,9 @@ class EditRaspConfigRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'all_process_inject' => null,
+        'block_uuid' => null,
         'blocks' => null,
+        'filter_uuid' => null,
         'filters' => null,
         'id' => null,
         'if_protect' => null,
@@ -92,7 +96,9 @@ class EditRaspConfigRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'all_process_inject' => 'AllProcessInject',
+        'block_uuid' => 'BlockUuid',
         'blocks' => 'Blocks',
+        'filter_uuid' => 'FilterUuid',
         'filters' => 'Filters',
         'id' => 'ID',
         'if_protect' => 'IfProtect',
@@ -113,7 +119,9 @@ class EditRaspConfigRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'all_process_inject' => 'setAllProcessInject',
+        'block_uuid' => 'setBlockUuid',
         'blocks' => 'setBlocks',
+        'filter_uuid' => 'setFilterUuid',
         'filters' => 'setFilters',
         'id' => 'setId',
         'if_protect' => 'setIfProtect',
@@ -134,7 +142,9 @@ class EditRaspConfigRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'all_process_inject' => 'getAllProcessInject',
+        'block_uuid' => 'getBlockUuid',
         'blocks' => 'getBlocks',
+        'filter_uuid' => 'getFilterUuid',
         'filters' => 'getFilters',
         'id' => 'getId',
         'if_protect' => 'getIfProtect',
@@ -209,7 +219,9 @@ class EditRaspConfigRequest implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['all_process_inject'] = isset($data['all_process_inject']) ? $data['all_process_inject'] : null;
+        $this->container['block_uuid'] = isset($data['block_uuid']) ? $data['block_uuid'] : null;
         $this->container['blocks'] = isset($data['blocks']) ? $data['blocks'] : null;
+        $this->container['filter_uuid'] = isset($data['filter_uuid']) ? $data['filter_uuid'] : null;
         $this->container['filters'] = isset($data['filters']) ? $data['filters'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['if_protect'] = isset($data['if_protect']) ? $data['if_protect'] : null;
@@ -284,6 +296,30 @@ class EditRaspConfigRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets block_uuid
+     *
+     * @return string
+     */
+    public function getBlockUuid()
+    {
+        return $this->container['block_uuid'];
+    }
+
+    /**
+     * Sets block_uuid
+     *
+     * @param string $block_uuid block_uuid
+     *
+     * @return $this
+     */
+    public function setBlockUuid($block_uuid)
+    {
+        $this->container['block_uuid'] = $block_uuid;
+
+        return $this;
+    }
+
+    /**
      * Gets blocks
      *
      * @return \Volcengine\Seccenter20240508\Model\BlockForEditRaspConfigInput[]
@@ -303,6 +339,30 @@ class EditRaspConfigRequest implements ModelInterface, ArrayAccess
     public function setBlocks($blocks)
     {
         $this->container['blocks'] = $blocks;
+
+        return $this;
+    }
+
+    /**
+     * Gets filter_uuid
+     *
+     * @return string
+     */
+    public function getFilterUuid()
+    {
+        return $this->container['filter_uuid'];
+    }
+
+    /**
+     * Sets filter_uuid
+     *
+     * @param string $filter_uuid filter_uuid
+     *
+     * @return $this
+     */
+    public function setFilterUuid($filter_uuid)
+    {
+        $this->container['filter_uuid'] = $filter_uuid;
 
         return $this;
     }

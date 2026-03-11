@@ -28,10 +28,13 @@ class AlarmDescForGetRaspAlarmSummaryInfoOutput implements ModelInterface, Array
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'alarm_count' => 'int',
         'alarm_handle_result' => 'int',
         'alarm_id' => 'string',
         'alert_desc' => 'string',
+        'alert_desc_us' => 'string',
         'alert_detail' => 'string',
+        'alert_detail_us' => 'string',
         'alert_tags' => 'string[]',
         'alert_type' => 'string',
         'alert_type_us' => 'string',
@@ -40,6 +43,7 @@ class AlarmDescForGetRaspAlarmSummaryInfoOutput implements ModelInterface, Array
         'attack_id' => 'string',
         'attack_id_list' => 'string',
         'data_type_str' => 'string',
+        'data_type_str_en' => 'string',
         'desc' => 'string',
         'docker' => 'string',
         'error_reason' => 'string',
@@ -48,13 +52,17 @@ class AlarmDescForGetRaspAlarmSummaryInfoOutput implements ModelInterface, Array
         'hids_level' => 'string',
         'insert_time' => 'int',
         'kube_level' => 'string',
+        'last_alarm_time' => 'int',
+        'operation_list' => 'string[]',
         'rasp_config_name' => 'string',
         'rasp_level' => 'string',
         'related_config_id' => 'string',
         'risk_desc' => 'string',
         'rule_name' => 'string',
+        'rule_name_us' => 'string',
         'status' => 'int',
         'suggestion' => 'string',
+        'suggestion_us' => 'string',
         'trace_id' => 'string'
     ];
 
@@ -64,10 +72,13 @@ class AlarmDescForGetRaspAlarmSummaryInfoOutput implements ModelInterface, Array
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'alarm_count' => 'int64',
         'alarm_handle_result' => 'int64',
         'alarm_id' => null,
         'alert_desc' => null,
+        'alert_desc_us' => null,
         'alert_detail' => null,
+        'alert_detail_us' => null,
         'alert_tags' => null,
         'alert_type' => null,
         'alert_type_us' => null,
@@ -76,6 +87,7 @@ class AlarmDescForGetRaspAlarmSummaryInfoOutput implements ModelInterface, Array
         'attack_id' => null,
         'attack_id_list' => null,
         'data_type_str' => null,
+        'data_type_str_en' => null,
         'desc' => null,
         'docker' => null,
         'error_reason' => null,
@@ -84,13 +96,17 @@ class AlarmDescForGetRaspAlarmSummaryInfoOutput implements ModelInterface, Array
         'hids_level' => null,
         'insert_time' => 'int64',
         'kube_level' => null,
+        'last_alarm_time' => 'int64',
+        'operation_list' => null,
         'rasp_config_name' => null,
         'rasp_level' => null,
         'related_config_id' => null,
         'risk_desc' => null,
         'rule_name' => null,
+        'rule_name_us' => null,
         'status' => 'int64',
         'suggestion' => null,
+        'suggestion_us' => null,
         'trace_id' => null
     ];
 
@@ -121,10 +137,13 @@ class AlarmDescForGetRaspAlarmSummaryInfoOutput implements ModelInterface, Array
      * @var string[]
      */
     protected static $attributeMap = [
+        'alarm_count' => 'AlarmCount',
         'alarm_handle_result' => 'AlarmHandleResult',
         'alarm_id' => 'AlarmID',
         'alert_desc' => 'AlertDesc',
+        'alert_desc_us' => 'AlertDescUS',
         'alert_detail' => 'AlertDetail',
+        'alert_detail_us' => 'AlertDetailUS',
         'alert_tags' => 'AlertTags',
         'alert_type' => 'AlertType',
         'alert_type_us' => 'AlertTypeUs',
@@ -133,6 +152,7 @@ class AlarmDescForGetRaspAlarmSummaryInfoOutput implements ModelInterface, Array
         'attack_id' => 'AttackID',
         'attack_id_list' => 'AttackIDList',
         'data_type_str' => 'DataTypeStr',
+        'data_type_str_en' => 'DataTypeStrEn',
         'desc' => 'Desc',
         'docker' => 'Docker',
         'error_reason' => 'ErrorReason',
@@ -141,13 +161,17 @@ class AlarmDescForGetRaspAlarmSummaryInfoOutput implements ModelInterface, Array
         'hids_level' => 'HidsLevel',
         'insert_time' => 'InsertTime',
         'kube_level' => 'KubeLevel',
+        'last_alarm_time' => 'LastAlarmTime',
+        'operation_list' => 'OperationList',
         'rasp_config_name' => 'RaspConfigName',
         'rasp_level' => 'RaspLevel',
         'related_config_id' => 'RelatedConfigID',
         'risk_desc' => 'RiskDesc',
         'rule_name' => 'RuleName',
+        'rule_name_us' => 'RuleNameUs',
         'status' => 'Status',
         'suggestion' => 'Suggestion',
+        'suggestion_us' => 'SuggestionUs',
         'trace_id' => 'TraceID'
     ];
 
@@ -157,10 +181,13 @@ class AlarmDescForGetRaspAlarmSummaryInfoOutput implements ModelInterface, Array
      * @var string[]
      */
     protected static $setters = [
+        'alarm_count' => 'setAlarmCount',
         'alarm_handle_result' => 'setAlarmHandleResult',
         'alarm_id' => 'setAlarmId',
         'alert_desc' => 'setAlertDesc',
+        'alert_desc_us' => 'setAlertDescUs',
         'alert_detail' => 'setAlertDetail',
+        'alert_detail_us' => 'setAlertDetailUs',
         'alert_tags' => 'setAlertTags',
         'alert_type' => 'setAlertType',
         'alert_type_us' => 'setAlertTypeUs',
@@ -169,6 +196,7 @@ class AlarmDescForGetRaspAlarmSummaryInfoOutput implements ModelInterface, Array
         'attack_id' => 'setAttackId',
         'attack_id_list' => 'setAttackIdList',
         'data_type_str' => 'setDataTypeStr',
+        'data_type_str_en' => 'setDataTypeStrEn',
         'desc' => 'setDesc',
         'docker' => 'setDocker',
         'error_reason' => 'setErrorReason',
@@ -177,13 +205,17 @@ class AlarmDescForGetRaspAlarmSummaryInfoOutput implements ModelInterface, Array
         'hids_level' => 'setHidsLevel',
         'insert_time' => 'setInsertTime',
         'kube_level' => 'setKubeLevel',
+        'last_alarm_time' => 'setLastAlarmTime',
+        'operation_list' => 'setOperationList',
         'rasp_config_name' => 'setRaspConfigName',
         'rasp_level' => 'setRaspLevel',
         'related_config_id' => 'setRelatedConfigId',
         'risk_desc' => 'setRiskDesc',
         'rule_name' => 'setRuleName',
+        'rule_name_us' => 'setRuleNameUs',
         'status' => 'setStatus',
         'suggestion' => 'setSuggestion',
+        'suggestion_us' => 'setSuggestionUs',
         'trace_id' => 'setTraceId'
     ];
 
@@ -193,10 +225,13 @@ class AlarmDescForGetRaspAlarmSummaryInfoOutput implements ModelInterface, Array
      * @var string[]
      */
     protected static $getters = [
+        'alarm_count' => 'getAlarmCount',
         'alarm_handle_result' => 'getAlarmHandleResult',
         'alarm_id' => 'getAlarmId',
         'alert_desc' => 'getAlertDesc',
+        'alert_desc_us' => 'getAlertDescUs',
         'alert_detail' => 'getAlertDetail',
+        'alert_detail_us' => 'getAlertDetailUs',
         'alert_tags' => 'getAlertTags',
         'alert_type' => 'getAlertType',
         'alert_type_us' => 'getAlertTypeUs',
@@ -205,6 +240,7 @@ class AlarmDescForGetRaspAlarmSummaryInfoOutput implements ModelInterface, Array
         'attack_id' => 'getAttackId',
         'attack_id_list' => 'getAttackIdList',
         'data_type_str' => 'getDataTypeStr',
+        'data_type_str_en' => 'getDataTypeStrEn',
         'desc' => 'getDesc',
         'docker' => 'getDocker',
         'error_reason' => 'getErrorReason',
@@ -213,13 +249,17 @@ class AlarmDescForGetRaspAlarmSummaryInfoOutput implements ModelInterface, Array
         'hids_level' => 'getHidsLevel',
         'insert_time' => 'getInsertTime',
         'kube_level' => 'getKubeLevel',
+        'last_alarm_time' => 'getLastAlarmTime',
+        'operation_list' => 'getOperationList',
         'rasp_config_name' => 'getRaspConfigName',
         'rasp_level' => 'getRaspLevel',
         'related_config_id' => 'getRelatedConfigId',
         'risk_desc' => 'getRiskDesc',
         'rule_name' => 'getRuleName',
+        'rule_name_us' => 'getRuleNameUs',
         'status' => 'getStatus',
         'suggestion' => 'getSuggestion',
+        'suggestion_us' => 'getSuggestionUs',
         'trace_id' => 'getTraceId'
     ];
 
@@ -283,10 +323,13 @@ class AlarmDescForGetRaspAlarmSummaryInfoOutput implements ModelInterface, Array
      */
     public function __construct(array $data = null)
     {
+        $this->container['alarm_count'] = isset($data['alarm_count']) ? $data['alarm_count'] : null;
         $this->container['alarm_handle_result'] = isset($data['alarm_handle_result']) ? $data['alarm_handle_result'] : null;
         $this->container['alarm_id'] = isset($data['alarm_id']) ? $data['alarm_id'] : null;
         $this->container['alert_desc'] = isset($data['alert_desc']) ? $data['alert_desc'] : null;
+        $this->container['alert_desc_us'] = isset($data['alert_desc_us']) ? $data['alert_desc_us'] : null;
         $this->container['alert_detail'] = isset($data['alert_detail']) ? $data['alert_detail'] : null;
+        $this->container['alert_detail_us'] = isset($data['alert_detail_us']) ? $data['alert_detail_us'] : null;
         $this->container['alert_tags'] = isset($data['alert_tags']) ? $data['alert_tags'] : null;
         $this->container['alert_type'] = isset($data['alert_type']) ? $data['alert_type'] : null;
         $this->container['alert_type_us'] = isset($data['alert_type_us']) ? $data['alert_type_us'] : null;
@@ -295,6 +338,7 @@ class AlarmDescForGetRaspAlarmSummaryInfoOutput implements ModelInterface, Array
         $this->container['attack_id'] = isset($data['attack_id']) ? $data['attack_id'] : null;
         $this->container['attack_id_list'] = isset($data['attack_id_list']) ? $data['attack_id_list'] : null;
         $this->container['data_type_str'] = isset($data['data_type_str']) ? $data['data_type_str'] : null;
+        $this->container['data_type_str_en'] = isset($data['data_type_str_en']) ? $data['data_type_str_en'] : null;
         $this->container['desc'] = isset($data['desc']) ? $data['desc'] : null;
         $this->container['docker'] = isset($data['docker']) ? $data['docker'] : null;
         $this->container['error_reason'] = isset($data['error_reason']) ? $data['error_reason'] : null;
@@ -303,13 +347,17 @@ class AlarmDescForGetRaspAlarmSummaryInfoOutput implements ModelInterface, Array
         $this->container['hids_level'] = isset($data['hids_level']) ? $data['hids_level'] : null;
         $this->container['insert_time'] = isset($data['insert_time']) ? $data['insert_time'] : null;
         $this->container['kube_level'] = isset($data['kube_level']) ? $data['kube_level'] : null;
+        $this->container['last_alarm_time'] = isset($data['last_alarm_time']) ? $data['last_alarm_time'] : null;
+        $this->container['operation_list'] = isset($data['operation_list']) ? $data['operation_list'] : null;
         $this->container['rasp_config_name'] = isset($data['rasp_config_name']) ? $data['rasp_config_name'] : null;
         $this->container['rasp_level'] = isset($data['rasp_level']) ? $data['rasp_level'] : null;
         $this->container['related_config_id'] = isset($data['related_config_id']) ? $data['related_config_id'] : null;
         $this->container['risk_desc'] = isset($data['risk_desc']) ? $data['risk_desc'] : null;
         $this->container['rule_name'] = isset($data['rule_name']) ? $data['rule_name'] : null;
+        $this->container['rule_name_us'] = isset($data['rule_name_us']) ? $data['rule_name_us'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['suggestion'] = isset($data['suggestion']) ? $data['suggestion'] : null;
+        $this->container['suggestion_us'] = isset($data['suggestion_us']) ? $data['suggestion_us'] : null;
         $this->container['trace_id'] = isset($data['trace_id']) ? $data['trace_id'] : null;
     }
 
@@ -336,6 +384,30 @@ class AlarmDescForGetRaspAlarmSummaryInfoOutput implements ModelInterface, Array
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets alarm_count
+     *
+     * @return int
+     */
+    public function getAlarmCount()
+    {
+        return $this->container['alarm_count'];
+    }
+
+    /**
+     * Sets alarm_count
+     *
+     * @param int $alarm_count alarm_count
+     *
+     * @return $this
+     */
+    public function setAlarmCount($alarm_count)
+    {
+        $this->container['alarm_count'] = $alarm_count;
+
+        return $this;
+    }
 
     /**
      * Gets alarm_handle_result
@@ -410,6 +482,30 @@ class AlarmDescForGetRaspAlarmSummaryInfoOutput implements ModelInterface, Array
     }
 
     /**
+     * Gets alert_desc_us
+     *
+     * @return string
+     */
+    public function getAlertDescUs()
+    {
+        return $this->container['alert_desc_us'];
+    }
+
+    /**
+     * Sets alert_desc_us
+     *
+     * @param string $alert_desc_us alert_desc_us
+     *
+     * @return $this
+     */
+    public function setAlertDescUs($alert_desc_us)
+    {
+        $this->container['alert_desc_us'] = $alert_desc_us;
+
+        return $this;
+    }
+
+    /**
      * Gets alert_detail
      *
      * @return string
@@ -429,6 +525,30 @@ class AlarmDescForGetRaspAlarmSummaryInfoOutput implements ModelInterface, Array
     public function setAlertDetail($alert_detail)
     {
         $this->container['alert_detail'] = $alert_detail;
+
+        return $this;
+    }
+
+    /**
+     * Gets alert_detail_us
+     *
+     * @return string
+     */
+    public function getAlertDetailUs()
+    {
+        return $this->container['alert_detail_us'];
+    }
+
+    /**
+     * Sets alert_detail_us
+     *
+     * @param string $alert_detail_us alert_detail_us
+     *
+     * @return $this
+     */
+    public function setAlertDetailUs($alert_detail_us)
+    {
+        $this->container['alert_detail_us'] = $alert_detail_us;
 
         return $this;
     }
@@ -626,6 +746,30 @@ class AlarmDescForGetRaspAlarmSummaryInfoOutput implements ModelInterface, Array
     }
 
     /**
+     * Gets data_type_str_en
+     *
+     * @return string
+     */
+    public function getDataTypeStrEn()
+    {
+        return $this->container['data_type_str_en'];
+    }
+
+    /**
+     * Sets data_type_str_en
+     *
+     * @param string $data_type_str_en data_type_str_en
+     *
+     * @return $this
+     */
+    public function setDataTypeStrEn($data_type_str_en)
+    {
+        $this->container['data_type_str_en'] = $data_type_str_en;
+
+        return $this;
+    }
+
+    /**
      * Gets desc
      *
      * @return string
@@ -818,6 +962,54 @@ class AlarmDescForGetRaspAlarmSummaryInfoOutput implements ModelInterface, Array
     }
 
     /**
+     * Gets last_alarm_time
+     *
+     * @return int
+     */
+    public function getLastAlarmTime()
+    {
+        return $this->container['last_alarm_time'];
+    }
+
+    /**
+     * Sets last_alarm_time
+     *
+     * @param int $last_alarm_time last_alarm_time
+     *
+     * @return $this
+     */
+    public function setLastAlarmTime($last_alarm_time)
+    {
+        $this->container['last_alarm_time'] = $last_alarm_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets operation_list
+     *
+     * @return string[]
+     */
+    public function getOperationList()
+    {
+        return $this->container['operation_list'];
+    }
+
+    /**
+     * Sets operation_list
+     *
+     * @param string[] $operation_list operation_list
+     *
+     * @return $this
+     */
+    public function setOperationList($operation_list)
+    {
+        $this->container['operation_list'] = $operation_list;
+
+        return $this;
+    }
+
+    /**
      * Gets rasp_config_name
      *
      * @return string
@@ -938,6 +1130,30 @@ class AlarmDescForGetRaspAlarmSummaryInfoOutput implements ModelInterface, Array
     }
 
     /**
+     * Gets rule_name_us
+     *
+     * @return string
+     */
+    public function getRuleNameUs()
+    {
+        return $this->container['rule_name_us'];
+    }
+
+    /**
+     * Sets rule_name_us
+     *
+     * @param string $rule_name_us rule_name_us
+     *
+     * @return $this
+     */
+    public function setRuleNameUs($rule_name_us)
+    {
+        $this->container['rule_name_us'] = $rule_name_us;
+
+        return $this;
+    }
+
+    /**
      * Gets status
      *
      * @return int
@@ -981,6 +1197,30 @@ class AlarmDescForGetRaspAlarmSummaryInfoOutput implements ModelInterface, Array
     public function setSuggestion($suggestion)
     {
         $this->container['suggestion'] = $suggestion;
+
+        return $this;
+    }
+
+    /**
+     * Gets suggestion_us
+     *
+     * @return string
+     */
+    public function getSuggestionUs()
+    {
+        return $this->container['suggestion_us'];
+    }
+
+    /**
+     * Sets suggestion_us
+     *
+     * @param string $suggestion_us suggestion_us
+     *
+     * @return $this
+     */
+    public function setSuggestionUs($suggestion_us)
+    {
+        $this->container['suggestion_us'] = $suggestion_us;
 
         return $this;
     }

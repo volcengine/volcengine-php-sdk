@@ -30,12 +30,14 @@ class GetTenantQuotaResponse implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'account_id' => 'string',
         'basic_quota' => '\Volcengine\Seccenter20240508\Model\BasicQuotaForGetTenantQuotaOutput',
+        'cap_white_list' => '\Volcengine\Seccenter20240508\Model\CapWhiteListForGetTenantQuotaOutput',
         'expire_time' => 'int',
         'id' => 'string',
         'insert_time' => 'int',
         'labels' => 'string[]',
         'update_time' => 'int',
-        'value_added' => '\Volcengine\Seccenter20240508\Model\ValueAddedForGetTenantQuotaOutput'
+        'value_added' => '\Volcengine\Seccenter20240508\Model\ValueAddedForGetTenantQuotaOutput',
+        'id' => 'string'
     ];
 
     /**
@@ -46,12 +48,14 @@ class GetTenantQuotaResponse implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'account_id' => null,
         'basic_quota' => null,
+        'cap_white_list' => null,
         'expire_time' => 'int64',
         'id' => null,
         'insert_time' => 'int64',
         'labels' => null,
         'update_time' => 'int64',
-        'value_added' => null
+        'value_added' => null,
+        'id' => null
     ];
 
     /**
@@ -83,12 +87,14 @@ class GetTenantQuotaResponse implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'account_id' => 'AccountID',
         'basic_quota' => 'BasicQuota',
+        'cap_white_list' => 'CapWhiteList',
         'expire_time' => 'ExpireTime',
         'id' => 'ID',
         'insert_time' => 'InsertTime',
         'labels' => 'Labels',
         'update_time' => 'UpdateTime',
-        'value_added' => 'ValueAdded'
+        'value_added' => 'ValueAdded',
+        'id' => 'id'
     ];
 
     /**
@@ -99,12 +105,14 @@ class GetTenantQuotaResponse implements ModelInterface, ArrayAccess
     protected static $setters = [
         'account_id' => 'setAccountId',
         'basic_quota' => 'setBasicQuota',
+        'cap_white_list' => 'setCapWhiteList',
         'expire_time' => 'setExpireTime',
         'id' => 'setId',
         'insert_time' => 'setInsertTime',
         'labels' => 'setLabels',
         'update_time' => 'setUpdateTime',
-        'value_added' => 'setValueAdded'
+        'value_added' => 'setValueAdded',
+        'id' => 'setId'
     ];
 
     /**
@@ -115,12 +123,14 @@ class GetTenantQuotaResponse implements ModelInterface, ArrayAccess
     protected static $getters = [
         'account_id' => 'getAccountId',
         'basic_quota' => 'getBasicQuota',
+        'cap_white_list' => 'getCapWhiteList',
         'expire_time' => 'getExpireTime',
         'id' => 'getId',
         'insert_time' => 'getInsertTime',
         'labels' => 'getLabels',
         'update_time' => 'getUpdateTime',
-        'value_added' => 'getValueAdded'
+        'value_added' => 'getValueAdded',
+        'id' => 'getId'
     ];
 
     /**
@@ -185,12 +195,14 @@ class GetTenantQuotaResponse implements ModelInterface, ArrayAccess
     {
         $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
         $this->container['basic_quota'] = isset($data['basic_quota']) ? $data['basic_quota'] : null;
+        $this->container['cap_white_list'] = isset($data['cap_white_list']) ? $data['cap_white_list'] : null;
         $this->container['expire_time'] = isset($data['expire_time']) ? $data['expire_time'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['insert_time'] = isset($data['insert_time']) ? $data['insert_time'] : null;
         $this->container['labels'] = isset($data['labels']) ? $data['labels'] : null;
         $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
         $this->container['value_added'] = isset($data['value_added']) ? $data['value_added'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
     }
 
     /**
@@ -261,6 +273,30 @@ class GetTenantQuotaResponse implements ModelInterface, ArrayAccess
     public function setBasicQuota($basic_quota)
     {
         $this->container['basic_quota'] = $basic_quota;
+
+        return $this;
+    }
+
+    /**
+     * Gets cap_white_list
+     *
+     * @return \Volcengine\Seccenter20240508\Model\CapWhiteListForGetTenantQuotaOutput
+     */
+    public function getCapWhiteList()
+    {
+        return $this->container['cap_white_list'];
+    }
+
+    /**
+     * Sets cap_white_list
+     *
+     * @param \Volcengine\Seccenter20240508\Model\CapWhiteListForGetTenantQuotaOutput $cap_white_list cap_white_list
+     *
+     * @return $this
+     */
+    public function setCapWhiteList($cap_white_list)
+    {
+        $this->container['cap_white_list'] = $cap_white_list;
 
         return $this;
     }
@@ -405,6 +441,30 @@ class GetTenantQuotaResponse implements ModelInterface, ArrayAccess
     public function setValueAdded($value_added)
     {
         $this->container['value_added'] = $value_added;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string $id id
+     *
+     * @return $this
+     */
+    public function setId($id)
+    {
+        $this->container['id'] = $id;
 
         return $this;
     }

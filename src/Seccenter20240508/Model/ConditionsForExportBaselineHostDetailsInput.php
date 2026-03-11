@@ -35,7 +35,7 @@ class ConditionsForExportBaselineHostDetailsInput implements ModelInterface, Arr
         'hostname' => 'string',
         'ip' => 'string',
         'leaf_group_ids' => 'string[]',
-        'tag' => 'string',
+        'tag' => 'string[]',
         'top_group_id' => 'string'
     ];
 
@@ -394,7 +394,7 @@ class ConditionsForExportBaselineHostDetailsInput implements ModelInterface, Arr
     /**
      * Gets tag
      *
-     * @return string
+     * @return string[]
      */
     public function getTag()
     {
@@ -404,7 +404,7 @@ class ConditionsForExportBaselineHostDetailsInput implements ModelInterface, Arr
     /**
      * Sets tag
      *
-     * @param string $tag tag
+     * @param string[] $tag tag
      *
      * @return $this
      */
