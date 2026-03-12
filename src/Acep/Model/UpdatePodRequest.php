@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CreatePodRequest implements ModelInterface, ArrayAccess
+class UpdatePodRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CreatePodRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CreatePodRequest';
+    protected static $swaggerModelName = 'UpdatePodRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -29,29 +29,19 @@ class CreatePodRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'configuration_code' => 'string',
-        'custom_route_id' => 'string',
         'dnsid' => 'string',
         'data_size' => 'string',
-        'dc' => 'string',
         'display_layout_id' => 'string',
         'down_bandwidth_limit' => 'int',
-        'host_id' => 'string',
-        'ip_white_list' => 'string',
+        'force' => 'bool',
         'image_id' => 'string',
         'is_selinux_on' => 'bool',
-        'overlay_persist_property' => '\Volcengine\Acep\Model\OverlayPersistPropertyForCreatePodInput[]',
-        'overlay_property' => '\Volcengine\Acep\Model\OverlayPropertyForCreatePodInput[]',
-        'overlay_settings' => '\Volcengine\Acep\Model\OverlaySettingForCreatePodInput[]',
-        'phone_template_id' => 'string',
+        'pod_id' => 'string',
+        'pod_id_list' => 'string[]',
         'pod_name' => 'string',
-        'pod_spec_list' => '\Volcengine\Acep\Model\PodSpecListForCreatePodInput[]',
         'port_mapping_rule_id_list' => 'string[]',
         'product_id' => 'string',
-        'resource_type' => 'int',
-        'start' => 'bool',
-        'tag_id' => 'string',
-        'up_bandwidth_limit' => 'int',
-        'use_phone_template' => 'int'
+        'up_bandwidth_limit' => 'int'
     ];
 
     /**
@@ -61,29 +51,19 @@ class CreatePodRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'configuration_code' => null,
-        'custom_route_id' => null,
         'dnsid' => null,
         'data_size' => null,
-        'dc' => null,
         'display_layout_id' => null,
         'down_bandwidth_limit' => 'int32',
-        'host_id' => null,
-        'ip_white_list' => null,
+        'force' => null,
         'image_id' => null,
         'is_selinux_on' => null,
-        'overlay_persist_property' => null,
-        'overlay_property' => null,
-        'overlay_settings' => null,
-        'phone_template_id' => null,
+        'pod_id' => null,
+        'pod_id_list' => null,
         'pod_name' => null,
-        'pod_spec_list' => null,
         'port_mapping_rule_id_list' => null,
         'product_id' => null,
-        'resource_type' => 'int32',
-        'start' => null,
-        'tag_id' => null,
-        'up_bandwidth_limit' => 'int32',
-        'use_phone_template' => 'int32'
+        'up_bandwidth_limit' => 'int32'
     ];
 
     /**
@@ -114,29 +94,19 @@ class CreatePodRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'configuration_code' => 'ConfigurationCode',
-        'custom_route_id' => 'CustomRouteId',
         'dnsid' => 'DNSId',
         'data_size' => 'DataSize',
-        'dc' => 'Dc',
         'display_layout_id' => 'DisplayLayoutId',
         'down_bandwidth_limit' => 'DownBandwidthLimit',
-        'host_id' => 'HostId',
-        'ip_white_list' => 'IPWhiteList',
+        'force' => 'Force',
         'image_id' => 'ImageId',
         'is_selinux_on' => 'IsSelinuxOn',
-        'overlay_persist_property' => 'OverlayPersistProperty',
-        'overlay_property' => 'OverlayProperty',
-        'overlay_settings' => 'OverlaySettings',
-        'phone_template_id' => 'PhoneTemplateId',
+        'pod_id' => 'PodId',
+        'pod_id_list' => 'PodIdList',
         'pod_name' => 'PodName',
-        'pod_spec_list' => 'PodSpecList',
         'port_mapping_rule_id_list' => 'PortMappingRuleIdList',
         'product_id' => 'ProductId',
-        'resource_type' => 'ResourceType',
-        'start' => 'Start',
-        'tag_id' => 'TagId',
-        'up_bandwidth_limit' => 'UpBandwidthLimit',
-        'use_phone_template' => 'UsePhoneTemplate'
+        'up_bandwidth_limit' => 'UpBandwidthLimit'
     ];
 
     /**
@@ -146,29 +116,19 @@ class CreatePodRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'configuration_code' => 'setConfigurationCode',
-        'custom_route_id' => 'setCustomRouteId',
         'dnsid' => 'setDnsid',
         'data_size' => 'setDataSize',
-        'dc' => 'setDc',
         'display_layout_id' => 'setDisplayLayoutId',
         'down_bandwidth_limit' => 'setDownBandwidthLimit',
-        'host_id' => 'setHostId',
-        'ip_white_list' => 'setIpWhiteList',
+        'force' => 'setForce',
         'image_id' => 'setImageId',
         'is_selinux_on' => 'setIsSelinuxOn',
-        'overlay_persist_property' => 'setOverlayPersistProperty',
-        'overlay_property' => 'setOverlayProperty',
-        'overlay_settings' => 'setOverlaySettings',
-        'phone_template_id' => 'setPhoneTemplateId',
+        'pod_id' => 'setPodId',
+        'pod_id_list' => 'setPodIdList',
         'pod_name' => 'setPodName',
-        'pod_spec_list' => 'setPodSpecList',
         'port_mapping_rule_id_list' => 'setPortMappingRuleIdList',
         'product_id' => 'setProductId',
-        'resource_type' => 'setResourceType',
-        'start' => 'setStart',
-        'tag_id' => 'setTagId',
-        'up_bandwidth_limit' => 'setUpBandwidthLimit',
-        'use_phone_template' => 'setUsePhoneTemplate'
+        'up_bandwidth_limit' => 'setUpBandwidthLimit'
     ];
 
     /**
@@ -178,29 +138,19 @@ class CreatePodRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'configuration_code' => 'getConfigurationCode',
-        'custom_route_id' => 'getCustomRouteId',
         'dnsid' => 'getDnsid',
         'data_size' => 'getDataSize',
-        'dc' => 'getDc',
         'display_layout_id' => 'getDisplayLayoutId',
         'down_bandwidth_limit' => 'getDownBandwidthLimit',
-        'host_id' => 'getHostId',
-        'ip_white_list' => 'getIpWhiteList',
+        'force' => 'getForce',
         'image_id' => 'getImageId',
         'is_selinux_on' => 'getIsSelinuxOn',
-        'overlay_persist_property' => 'getOverlayPersistProperty',
-        'overlay_property' => 'getOverlayProperty',
-        'overlay_settings' => 'getOverlaySettings',
-        'phone_template_id' => 'getPhoneTemplateId',
+        'pod_id' => 'getPodId',
+        'pod_id_list' => 'getPodIdList',
         'pod_name' => 'getPodName',
-        'pod_spec_list' => 'getPodSpecList',
         'port_mapping_rule_id_list' => 'getPortMappingRuleIdList',
         'product_id' => 'getProductId',
-        'resource_type' => 'getResourceType',
-        'start' => 'getStart',
-        'tag_id' => 'getTagId',
-        'up_bandwidth_limit' => 'getUpBandwidthLimit',
-        'use_phone_template' => 'getUsePhoneTemplate'
+        'up_bandwidth_limit' => 'getUpBandwidthLimit'
     ];
 
     /**
@@ -264,29 +214,19 @@ class CreatePodRequest implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['configuration_code'] = isset($data['configuration_code']) ? $data['configuration_code'] : null;
-        $this->container['custom_route_id'] = isset($data['custom_route_id']) ? $data['custom_route_id'] : null;
         $this->container['dnsid'] = isset($data['dnsid']) ? $data['dnsid'] : null;
         $this->container['data_size'] = isset($data['data_size']) ? $data['data_size'] : null;
-        $this->container['dc'] = isset($data['dc']) ? $data['dc'] : null;
         $this->container['display_layout_id'] = isset($data['display_layout_id']) ? $data['display_layout_id'] : null;
         $this->container['down_bandwidth_limit'] = isset($data['down_bandwidth_limit']) ? $data['down_bandwidth_limit'] : null;
-        $this->container['host_id'] = isset($data['host_id']) ? $data['host_id'] : null;
-        $this->container['ip_white_list'] = isset($data['ip_white_list']) ? $data['ip_white_list'] : null;
+        $this->container['force'] = isset($data['force']) ? $data['force'] : null;
         $this->container['image_id'] = isset($data['image_id']) ? $data['image_id'] : null;
         $this->container['is_selinux_on'] = isset($data['is_selinux_on']) ? $data['is_selinux_on'] : null;
-        $this->container['overlay_persist_property'] = isset($data['overlay_persist_property']) ? $data['overlay_persist_property'] : null;
-        $this->container['overlay_property'] = isset($data['overlay_property']) ? $data['overlay_property'] : null;
-        $this->container['overlay_settings'] = isset($data['overlay_settings']) ? $data['overlay_settings'] : null;
-        $this->container['phone_template_id'] = isset($data['phone_template_id']) ? $data['phone_template_id'] : null;
+        $this->container['pod_id'] = isset($data['pod_id']) ? $data['pod_id'] : null;
+        $this->container['pod_id_list'] = isset($data['pod_id_list']) ? $data['pod_id_list'] : null;
         $this->container['pod_name'] = isset($data['pod_name']) ? $data['pod_name'] : null;
-        $this->container['pod_spec_list'] = isset($data['pod_spec_list']) ? $data['pod_spec_list'] : null;
         $this->container['port_mapping_rule_id_list'] = isset($data['port_mapping_rule_id_list']) ? $data['port_mapping_rule_id_list'] : null;
         $this->container['product_id'] = isset($data['product_id']) ? $data['product_id'] : null;
-        $this->container['resource_type'] = isset($data['resource_type']) ? $data['resource_type'] : null;
-        $this->container['start'] = isset($data['start']) ? $data['start'] : null;
-        $this->container['tag_id'] = isset($data['tag_id']) ? $data['tag_id'] : null;
         $this->container['up_bandwidth_limit'] = isset($data['up_bandwidth_limit']) ? $data['up_bandwidth_limit'] : null;
-        $this->container['use_phone_template'] = isset($data['use_phone_template']) ? $data['use_phone_template'] : null;
     }
 
     /**
@@ -341,30 +281,6 @@ class CreatePodRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets custom_route_id
-     *
-     * @return string
-     */
-    public function getCustomRouteId()
-    {
-        return $this->container['custom_route_id'];
-    }
-
-    /**
-     * Sets custom_route_id
-     *
-     * @param string $custom_route_id custom_route_id
-     *
-     * @return $this
-     */
-    public function setCustomRouteId($custom_route_id)
-    {
-        $this->container['custom_route_id'] = $custom_route_id;
-
-        return $this;
-    }
-
-    /**
      * Gets dnsid
      *
      * @return string
@@ -408,30 +324,6 @@ class CreatePodRequest implements ModelInterface, ArrayAccess
     public function setDataSize($data_size)
     {
         $this->container['data_size'] = $data_size;
-
-        return $this;
-    }
-
-    /**
-     * Gets dc
-     *
-     * @return string
-     */
-    public function getDc()
-    {
-        return $this->container['dc'];
-    }
-
-    /**
-     * Sets dc
-     *
-     * @param string $dc dc
-     *
-     * @return $this
-     */
-    public function setDc($dc)
-    {
-        $this->container['dc'] = $dc;
 
         return $this;
     }
@@ -485,49 +377,25 @@ class CreatePodRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets host_id
+     * Gets force
      *
-     * @return string
+     * @return bool
      */
-    public function getHostId()
+    public function getForce()
     {
-        return $this->container['host_id'];
+        return $this->container['force'];
     }
 
     /**
-     * Sets host_id
+     * Sets force
      *
-     * @param string $host_id host_id
+     * @param bool $force force
      *
      * @return $this
      */
-    public function setHostId($host_id)
+    public function setForce($force)
     {
-        $this->container['host_id'] = $host_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets ip_white_list
-     *
-     * @return string
-     */
-    public function getIpWhiteList()
-    {
-        return $this->container['ip_white_list'];
-    }
-
-    /**
-     * Sets ip_white_list
-     *
-     * @param string $ip_white_list ip_white_list
-     *
-     * @return $this
-     */
-    public function setIpWhiteList($ip_white_list)
-    {
-        $this->container['ip_white_list'] = $ip_white_list;
+        $this->container['force'] = $force;
 
         return $this;
     }
@@ -581,97 +449,49 @@ class CreatePodRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets overlay_persist_property
-     *
-     * @return \Volcengine\Acep\Model\OverlayPersistPropertyForCreatePodInput[]
-     */
-    public function getOverlayPersistProperty()
-    {
-        return $this->container['overlay_persist_property'];
-    }
-
-    /**
-     * Sets overlay_persist_property
-     *
-     * @param \Volcengine\Acep\Model\OverlayPersistPropertyForCreatePodInput[] $overlay_persist_property overlay_persist_property
-     *
-     * @return $this
-     */
-    public function setOverlayPersistProperty($overlay_persist_property)
-    {
-        $this->container['overlay_persist_property'] = $overlay_persist_property;
-
-        return $this;
-    }
-
-    /**
-     * Gets overlay_property
-     *
-     * @return \Volcengine\Acep\Model\OverlayPropertyForCreatePodInput[]
-     */
-    public function getOverlayProperty()
-    {
-        return $this->container['overlay_property'];
-    }
-
-    /**
-     * Sets overlay_property
-     *
-     * @param \Volcengine\Acep\Model\OverlayPropertyForCreatePodInput[] $overlay_property overlay_property
-     *
-     * @return $this
-     */
-    public function setOverlayProperty($overlay_property)
-    {
-        $this->container['overlay_property'] = $overlay_property;
-
-        return $this;
-    }
-
-    /**
-     * Gets overlay_settings
-     *
-     * @return \Volcengine\Acep\Model\OverlaySettingForCreatePodInput[]
-     */
-    public function getOverlaySettings()
-    {
-        return $this->container['overlay_settings'];
-    }
-
-    /**
-     * Sets overlay_settings
-     *
-     * @param \Volcengine\Acep\Model\OverlaySettingForCreatePodInput[] $overlay_settings overlay_settings
-     *
-     * @return $this
-     */
-    public function setOverlaySettings($overlay_settings)
-    {
-        $this->container['overlay_settings'] = $overlay_settings;
-
-        return $this;
-    }
-
-    /**
-     * Gets phone_template_id
+     * Gets pod_id
      *
      * @return string
      */
-    public function getPhoneTemplateId()
+    public function getPodId()
     {
-        return $this->container['phone_template_id'];
+        return $this->container['pod_id'];
     }
 
     /**
-     * Sets phone_template_id
+     * Sets pod_id
      *
-     * @param string $phone_template_id phone_template_id
+     * @param string $pod_id pod_id
      *
      * @return $this
      */
-    public function setPhoneTemplateId($phone_template_id)
+    public function setPodId($pod_id)
     {
-        $this->container['phone_template_id'] = $phone_template_id;
+        $this->container['pod_id'] = $pod_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets pod_id_list
+     *
+     * @return string[]
+     */
+    public function getPodIdList()
+    {
+        return $this->container['pod_id_list'];
+    }
+
+    /**
+     * Sets pod_id_list
+     *
+     * @param string[] $pod_id_list pod_id_list
+     *
+     * @return $this
+     */
+    public function setPodIdList($pod_id_list)
+    {
+        $this->container['pod_id_list'] = $pod_id_list;
 
         return $this;
     }
@@ -696,30 +516,6 @@ class CreatePodRequest implements ModelInterface, ArrayAccess
     public function setPodName($pod_name)
     {
         $this->container['pod_name'] = $pod_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets pod_spec_list
-     *
-     * @return \Volcengine\Acep\Model\PodSpecListForCreatePodInput[]
-     */
-    public function getPodSpecList()
-    {
-        return $this->container['pod_spec_list'];
-    }
-
-    /**
-     * Sets pod_spec_list
-     *
-     * @param \Volcengine\Acep\Model\PodSpecListForCreatePodInput[] $pod_spec_list pod_spec_list
-     *
-     * @return $this
-     */
-    public function setPodSpecList($pod_spec_list)
-    {
-        $this->container['pod_spec_list'] = $pod_spec_list;
 
         return $this;
     }
@@ -773,78 +569,6 @@ class CreatePodRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets resource_type
-     *
-     * @return int
-     */
-    public function getResourceType()
-    {
-        return $this->container['resource_type'];
-    }
-
-    /**
-     * Sets resource_type
-     *
-     * @param int $resource_type resource_type
-     *
-     * @return $this
-     */
-    public function setResourceType($resource_type)
-    {
-        $this->container['resource_type'] = $resource_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets start
-     *
-     * @return bool
-     */
-    public function getStart()
-    {
-        return $this->container['start'];
-    }
-
-    /**
-     * Sets start
-     *
-     * @param bool $start start
-     *
-     * @return $this
-     */
-    public function setStart($start)
-    {
-        $this->container['start'] = $start;
-
-        return $this;
-    }
-
-    /**
-     * Gets tag_id
-     *
-     * @return string
-     */
-    public function getTagId()
-    {
-        return $this->container['tag_id'];
-    }
-
-    /**
-     * Sets tag_id
-     *
-     * @param string $tag_id tag_id
-     *
-     * @return $this
-     */
-    public function setTagId($tag_id)
-    {
-        $this->container['tag_id'] = $tag_id;
-
-        return $this;
-    }
-
-    /**
      * Gets up_bandwidth_limit
      *
      * @return int
@@ -864,30 +588,6 @@ class CreatePodRequest implements ModelInterface, ArrayAccess
     public function setUpBandwidthLimit($up_bandwidth_limit)
     {
         $this->container['up_bandwidth_limit'] = $up_bandwidth_limit;
-
-        return $this;
-    }
-
-    /**
-     * Gets use_phone_template
-     *
-     * @return int
-     */
-    public function getUsePhoneTemplate()
-    {
-        return $this->container['use_phone_template'];
-    }
-
-    /**
-     * Sets use_phone_template
-     *
-     * @param int $use_phone_template use_phone_template
-     *
-     * @return $this
-     */
-    public function setUsePhoneTemplate($use_phone_template)
-    {
-        $this->container['use_phone_template'] = $use_phone_template;
 
         return $this;
     }
