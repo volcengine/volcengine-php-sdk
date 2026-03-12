@@ -36,6 +36,7 @@ class DataForListOrderedHostsBasicInfosOutput implements ModelInterface, ArrayAc
         'group' => 'string',
         'group_path' => 'string',
         'last_heartbeat_time' => 'int',
+        'old_valid_code' => 'int',
         'online' => 'bool',
         'platform' => 'string',
         'plugins_status' => 'string',
@@ -44,7 +45,8 @@ class DataForListOrderedHostsBasicInfosOutput implements ModelInterface, ArrayAc
         'status' => 'string',
         'tags' => 'string[]',
         'user_status' => 'string',
-        'user_status_reason' => 'string'
+        'user_status_reason' => 'string',
+        'user_status_reason_code' => 'int'
     ];
 
     /**
@@ -61,6 +63,7 @@ class DataForListOrderedHostsBasicInfosOutput implements ModelInterface, ArrayAc
         'group' => null,
         'group_path' => null,
         'last_heartbeat_time' => 'int64',
+        'old_valid_code' => 'int64',
         'online' => null,
         'platform' => null,
         'plugins_status' => null,
@@ -69,7 +72,8 @@ class DataForListOrderedHostsBasicInfosOutput implements ModelInterface, ArrayAc
         'status' => null,
         'tags' => null,
         'user_status' => null,
-        'user_status_reason' => null
+        'user_status_reason' => null,
+        'user_status_reason_code' => 'int64'
     ];
 
     /**
@@ -107,6 +111,7 @@ class DataForListOrderedHostsBasicInfosOutput implements ModelInterface, ArrayAc
         'group' => 'Group',
         'group_path' => 'GroupPath',
         'last_heartbeat_time' => 'LastHeartbeatTime',
+        'old_valid_code' => 'OldValidCode',
         'online' => 'Online',
         'platform' => 'Platform',
         'plugins_status' => 'PluginsStatus',
@@ -115,7 +120,8 @@ class DataForListOrderedHostsBasicInfosOutput implements ModelInterface, ArrayAc
         'status' => 'Status',
         'tags' => 'Tags',
         'user_status' => 'UserStatus',
-        'user_status_reason' => 'UserStatusReason'
+        'user_status_reason' => 'UserStatusReason',
+        'user_status_reason_code' => 'UserStatusReasonCode'
     ];
 
     /**
@@ -132,6 +138,7 @@ class DataForListOrderedHostsBasicInfosOutput implements ModelInterface, ArrayAc
         'group' => 'setGroup',
         'group_path' => 'setGroupPath',
         'last_heartbeat_time' => 'setLastHeartbeatTime',
+        'old_valid_code' => 'setOldValidCode',
         'online' => 'setOnline',
         'platform' => 'setPlatform',
         'plugins_status' => 'setPluginsStatus',
@@ -140,7 +147,8 @@ class DataForListOrderedHostsBasicInfosOutput implements ModelInterface, ArrayAc
         'status' => 'setStatus',
         'tags' => 'setTags',
         'user_status' => 'setUserStatus',
-        'user_status_reason' => 'setUserStatusReason'
+        'user_status_reason' => 'setUserStatusReason',
+        'user_status_reason_code' => 'setUserStatusReasonCode'
     ];
 
     /**
@@ -157,6 +165,7 @@ class DataForListOrderedHostsBasicInfosOutput implements ModelInterface, ArrayAc
         'group' => 'getGroup',
         'group_path' => 'getGroupPath',
         'last_heartbeat_time' => 'getLastHeartbeatTime',
+        'old_valid_code' => 'getOldValidCode',
         'online' => 'getOnline',
         'platform' => 'getPlatform',
         'plugins_status' => 'getPluginsStatus',
@@ -165,7 +174,8 @@ class DataForListOrderedHostsBasicInfosOutput implements ModelInterface, ArrayAc
         'status' => 'getStatus',
         'tags' => 'getTags',
         'user_status' => 'getUserStatus',
-        'user_status_reason' => 'getUserStatusReason'
+        'user_status_reason' => 'getUserStatusReason',
+        'user_status_reason_code' => 'getUserStatusReasonCode'
     ];
 
     /**
@@ -236,6 +246,7 @@ class DataForListOrderedHostsBasicInfosOutput implements ModelInterface, ArrayAc
         $this->container['group'] = isset($data['group']) ? $data['group'] : null;
         $this->container['group_path'] = isset($data['group_path']) ? $data['group_path'] : null;
         $this->container['last_heartbeat_time'] = isset($data['last_heartbeat_time']) ? $data['last_heartbeat_time'] : null;
+        $this->container['old_valid_code'] = isset($data['old_valid_code']) ? $data['old_valid_code'] : null;
         $this->container['online'] = isset($data['online']) ? $data['online'] : null;
         $this->container['platform'] = isset($data['platform']) ? $data['platform'] : null;
         $this->container['plugins_status'] = isset($data['plugins_status']) ? $data['plugins_status'] : null;
@@ -245,6 +256,7 @@ class DataForListOrderedHostsBasicInfosOutput implements ModelInterface, ArrayAc
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['user_status'] = isset($data['user_status']) ? $data['user_status'] : null;
         $this->container['user_status_reason'] = isset($data['user_status_reason']) ? $data['user_status_reason'] : null;
+        $this->container['user_status_reason_code'] = isset($data['user_status_reason_code']) ? $data['user_status_reason_code'] : null;
     }
 
     /**
@@ -464,6 +476,30 @@ class DataForListOrderedHostsBasicInfosOutput implements ModelInterface, ArrayAc
     }
 
     /**
+     * Gets old_valid_code
+     *
+     * @return int
+     */
+    public function getOldValidCode()
+    {
+        return $this->container['old_valid_code'];
+    }
+
+    /**
+     * Sets old_valid_code
+     *
+     * @param int $old_valid_code old_valid_code
+     *
+     * @return $this
+     */
+    public function setOldValidCode($old_valid_code)
+    {
+        $this->container['old_valid_code'] = $old_valid_code;
+
+        return $this;
+    }
+
+    /**
      * Gets online
      *
      * @return bool
@@ -675,6 +711,30 @@ class DataForListOrderedHostsBasicInfosOutput implements ModelInterface, ArrayAc
     public function setUserStatusReason($user_status_reason)
     {
         $this->container['user_status_reason'] = $user_status_reason;
+
+        return $this;
+    }
+
+    /**
+     * Gets user_status_reason_code
+     *
+     * @return int
+     */
+    public function getUserStatusReasonCode()
+    {
+        return $this->container['user_status_reason_code'];
+    }
+
+    /**
+     * Sets user_status_reason_code
+     *
+     * @param int $user_status_reason_code user_status_reason_code
+     *
+     * @return $this
+     */
+    public function setUserStatusReasonCode($user_status_reason_code)
+    {
+        $this->container['user_status_reason_code'] = $user_status_reason_code;
 
         return $this;
     }

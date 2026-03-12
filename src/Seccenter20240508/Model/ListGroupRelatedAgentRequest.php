@@ -160,9 +160,6 @@ class ListGroupRelatedAgentRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['group'] === null) {
-            $invalidProperties[] = "'group' can't be null";
-        }
         return $invalidProperties;
     }
 

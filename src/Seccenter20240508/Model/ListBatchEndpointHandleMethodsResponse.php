@@ -28,6 +28,7 @@ class ListBatchEndpointHandleMethodsResponse implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'not_support_reason' => 'string',
         'operation_list' => '\Volcengine\Seccenter20240508\Model\OperationListForListBatchEndpointHandleMethodsOutput[]',
         'support' => 'bool'
     ];
@@ -38,6 +39,7 @@ class ListBatchEndpointHandleMethodsResponse implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'not_support_reason' => null,
         'operation_list' => null,
         'support' => null
     ];
@@ -69,6 +71,7 @@ class ListBatchEndpointHandleMethodsResponse implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $attributeMap = [
+        'not_support_reason' => 'NotSupportReason',
         'operation_list' => 'OperationList',
         'support' => 'Support'
     ];
@@ -79,6 +82,7 @@ class ListBatchEndpointHandleMethodsResponse implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $setters = [
+        'not_support_reason' => 'setNotSupportReason',
         'operation_list' => 'setOperationList',
         'support' => 'setSupport'
     ];
@@ -89,6 +93,7 @@ class ListBatchEndpointHandleMethodsResponse implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $getters = [
+        'not_support_reason' => 'getNotSupportReason',
         'operation_list' => 'getOperationList',
         'support' => 'getSupport'
     ];
@@ -153,6 +158,7 @@ class ListBatchEndpointHandleMethodsResponse implements ModelInterface, ArrayAcc
      */
     public function __construct(array $data = null)
     {
+        $this->container['not_support_reason'] = isset($data['not_support_reason']) ? $data['not_support_reason'] : null;
         $this->container['operation_list'] = isset($data['operation_list']) ? $data['operation_list'] : null;
         $this->container['support'] = isset($data['support']) ? $data['support'] : null;
     }
@@ -180,6 +186,30 @@ class ListBatchEndpointHandleMethodsResponse implements ModelInterface, ArrayAcc
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets not_support_reason
+     *
+     * @return string
+     */
+    public function getNotSupportReason()
+    {
+        return $this->container['not_support_reason'];
+    }
+
+    /**
+     * Sets not_support_reason
+     *
+     * @param string $not_support_reason not_support_reason
+     *
+     * @return $this
+     */
+    public function setNotSupportReason($not_support_reason)
+    {
+        $this->container['not_support_reason'] = $not_support_reason;
+
+        return $this;
+    }
 
     /**
      * Gets operation_list

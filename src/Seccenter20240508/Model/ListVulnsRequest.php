@@ -36,6 +36,7 @@ class ListVulnsRequest implements ModelInterface, ArrayAccess
         'create_time_start' => 'int',
         'cve_id' => 'string',
         'if_high_availability' => 'bool',
+        'is_real_risk_vul' => 'bool',
         'leaf_group_ids' => 'string[]',
         'level' => 'string[]',
         'page_number' => 'int',
@@ -63,6 +64,7 @@ class ListVulnsRequest implements ModelInterface, ArrayAccess
         'create_time_start' => 'int64',
         'cve_id' => null,
         'if_high_availability' => null,
+        'is_real_risk_vul' => null,
         'leaf_group_ids' => null,
         'level' => null,
         'page_number' => 'int64',
@@ -111,6 +113,7 @@ class ListVulnsRequest implements ModelInterface, ArrayAccess
         'create_time_start' => 'CreateTimeStart',
         'cve_id' => 'CveID',
         'if_high_availability' => 'IfHighAvailability',
+        'is_real_risk_vul' => 'IsRealRiskVul',
         'leaf_group_ids' => 'LeafGroupIDs',
         'level' => 'Level',
         'page_number' => 'PageNumber',
@@ -138,6 +141,7 @@ class ListVulnsRequest implements ModelInterface, ArrayAccess
         'create_time_start' => 'setCreateTimeStart',
         'cve_id' => 'setCveId',
         'if_high_availability' => 'setIfHighAvailability',
+        'is_real_risk_vul' => 'setIsRealRiskVul',
         'leaf_group_ids' => 'setLeafGroupIds',
         'level' => 'setLevel',
         'page_number' => 'setPageNumber',
@@ -165,6 +169,7 @@ class ListVulnsRequest implements ModelInterface, ArrayAccess
         'create_time_start' => 'getCreateTimeStart',
         'cve_id' => 'getCveId',
         'if_high_availability' => 'getIfHighAvailability',
+        'is_real_risk_vul' => 'getIsRealRiskVul',
         'leaf_group_ids' => 'getLeafGroupIds',
         'level' => 'getLevel',
         'page_number' => 'getPageNumber',
@@ -219,23 +224,8 @@ class ListVulnsRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const ASSET_TYPE_HOST = 'Host';
-    const ASSET_TYPE_DEV = 'Dev';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getAssetTypeAllowableValues()
-    {
-        return [
-            self::ASSET_TYPE_HOST,
-            self::ASSET_TYPE_DEV,
-        ];
-    }
     
 
     /**
@@ -261,6 +251,7 @@ class ListVulnsRequest implements ModelInterface, ArrayAccess
         $this->container['create_time_start'] = isset($data['create_time_start']) ? $data['create_time_start'] : null;
         $this->container['cve_id'] = isset($data['cve_id']) ? $data['cve_id'] : null;
         $this->container['if_high_availability'] = isset($data['if_high_availability']) ? $data['if_high_availability'] : null;
+        $this->container['is_real_risk_vul'] = isset($data['is_real_risk_vul']) ? $data['is_real_risk_vul'] : null;
         $this->container['leaf_group_ids'] = isset($data['leaf_group_ids']) ? $data['leaf_group_ids'] : null;
         $this->container['level'] = isset($data['level']) ? $data['level'] : null;
         $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
@@ -282,14 +273,6 @@ class ListVulnsRequest implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getAssetTypeAllowableValues();
-        if (!is_null($this->container['asset_type']) && !in_array($this->container['asset_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'asset_type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         if ($this->container['page_number'] === null) {
             $invalidProperties[] = "'page_number' can't be null";
@@ -379,15 +362,6 @@ class ListVulnsRequest implements ModelInterface, ArrayAccess
      */
     public function setAssetType($asset_type)
     {
-        $allowedValues = $this->getAssetTypeAllowableValues();
-        if (!is_null($asset_type) && !in_array($asset_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'asset_type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['asset_type'] = $asset_type;
 
         return $this;
@@ -509,6 +483,30 @@ class ListVulnsRequest implements ModelInterface, ArrayAccess
     public function setIfHighAvailability($if_high_availability)
     {
         $this->container['if_high_availability'] = $if_high_availability;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_real_risk_vul
+     *
+     * @return bool
+     */
+    public function getIsRealRiskVul()
+    {
+        return $this->container['is_real_risk_vul'];
+    }
+
+    /**
+     * Sets is_real_risk_vul
+     *
+     * @param bool $is_real_risk_vul is_real_risk_vul
+     *
+     * @return $this
+     */
+    public function setIsRealRiskVul($is_real_risk_vul)
+    {
+        $this->container['is_real_risk_vul'] = $is_real_risk_vul;
 
         return $this;
     }

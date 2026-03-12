@@ -34,7 +34,9 @@ class DataForGetDevFingerprintSoftwareOutput implements ModelInterface, ArrayAcc
         'id' => 'string',
         'name' => 'string',
         'private_ip' => 'string',
+        'protect_status' => 'string',
         'public_ip' => 'string',
+        'security_enhancement' => 'bool',
         'start_time' => 'int',
         'status' => 'string',
         'type' => 'string',
@@ -54,7 +56,9 @@ class DataForGetDevFingerprintSoftwareOutput implements ModelInterface, ArrayAcc
         'id' => null,
         'name' => null,
         'private_ip' => null,
+        'protect_status' => null,
         'public_ip' => null,
+        'security_enhancement' => null,
         'start_time' => 'int64',
         'status' => null,
         'type' => null,
@@ -95,7 +99,9 @@ class DataForGetDevFingerprintSoftwareOutput implements ModelInterface, ArrayAcc
         'id' => 'ID',
         'name' => 'Name',
         'private_ip' => 'PrivateIP',
+        'protect_status' => 'ProtectStatus',
         'public_ip' => 'PublicIP',
+        'security_enhancement' => 'SecurityEnhancement',
         'start_time' => 'StartTime',
         'status' => 'Status',
         'type' => 'Type',
@@ -115,7 +121,9 @@ class DataForGetDevFingerprintSoftwareOutput implements ModelInterface, ArrayAcc
         'id' => 'setId',
         'name' => 'setName',
         'private_ip' => 'setPrivateIp',
+        'protect_status' => 'setProtectStatus',
         'public_ip' => 'setPublicIp',
+        'security_enhancement' => 'setSecurityEnhancement',
         'start_time' => 'setStartTime',
         'status' => 'setStatus',
         'type' => 'setType',
@@ -135,7 +143,9 @@ class DataForGetDevFingerprintSoftwareOutput implements ModelInterface, ArrayAcc
         'id' => 'getId',
         'name' => 'getName',
         'private_ip' => 'getPrivateIp',
+        'protect_status' => 'getProtectStatus',
         'public_ip' => 'getPublicIp',
+        'security_enhancement' => 'getSecurityEnhancement',
         'start_time' => 'getStartTime',
         'status' => 'getStatus',
         'type' => 'getType',
@@ -209,7 +219,9 @@ class DataForGetDevFingerprintSoftwareOutput implements ModelInterface, ArrayAcc
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['private_ip'] = isset($data['private_ip']) ? $data['private_ip'] : null;
+        $this->container['protect_status'] = isset($data['protect_status']) ? $data['protect_status'] : null;
         $this->container['public_ip'] = isset($data['public_ip']) ? $data['public_ip'] : null;
+        $this->container['security_enhancement'] = isset($data['security_enhancement']) ? $data['security_enhancement'] : null;
         $this->container['start_time'] = isset($data['start_time']) ? $data['start_time'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
@@ -386,6 +398,30 @@ class DataForGetDevFingerprintSoftwareOutput implements ModelInterface, ArrayAcc
     }
 
     /**
+     * Gets protect_status
+     *
+     * @return string
+     */
+    public function getProtectStatus()
+    {
+        return $this->container['protect_status'];
+    }
+
+    /**
+     * Sets protect_status
+     *
+     * @param string $protect_status protect_status
+     *
+     * @return $this
+     */
+    public function setProtectStatus($protect_status)
+    {
+        $this->container['protect_status'] = $protect_status;
+
+        return $this;
+    }
+
+    /**
      * Gets public_ip
      *
      * @return string
@@ -405,6 +441,30 @@ class DataForGetDevFingerprintSoftwareOutput implements ModelInterface, ArrayAcc
     public function setPublicIp($public_ip)
     {
         $this->container['public_ip'] = $public_ip;
+
+        return $this;
+    }
+
+    /**
+     * Gets security_enhancement
+     *
+     * @return bool
+     */
+    public function getSecurityEnhancement()
+    {
+        return $this->container['security_enhancement'];
+    }
+
+    /**
+     * Sets security_enhancement
+     *
+     * @param bool $security_enhancement security_enhancement
+     *
+     * @return $this
+     */
+    public function setSecurityEnhancement($security_enhancement)
+    {
+        $this->container['security_enhancement'] = $security_enhancement;
 
         return $this;
     }

@@ -28,6 +28,7 @@ class ListHostPlatformRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'os' => 'string',
         'top_group_id' => 'string'
     ];
 
@@ -37,6 +38,7 @@ class ListHostPlatformRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'os' => null,
         'top_group_id' => null
     ];
 
@@ -67,6 +69,7 @@ class ListHostPlatformRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'os' => 'Os',
         'top_group_id' => 'TopGroupID'
     ];
 
@@ -76,6 +79,7 @@ class ListHostPlatformRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'os' => 'setOs',
         'top_group_id' => 'setTopGroupId'
     ];
 
@@ -85,6 +89,7 @@ class ListHostPlatformRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'os' => 'getOs',
         'top_group_id' => 'getTopGroupId'
     ];
 
@@ -148,6 +153,7 @@ class ListHostPlatformRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['os'] = isset($data['os']) ? $data['os'] : null;
         $this->container['top_group_id'] = isset($data['top_group_id']) ? $data['top_group_id'] : null;
     }
 
@@ -174,6 +180,30 @@ class ListHostPlatformRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets os
+     *
+     * @return string
+     */
+    public function getOs()
+    {
+        return $this->container['os'];
+    }
+
+    /**
+     * Sets os
+     *
+     * @param string $os os
+     *
+     * @return $this
+     */
+    public function setOs($os)
+    {
+        $this->container['os'] = $os;
+
+        return $this;
+    }
 
     /**
      * Gets top_group_id

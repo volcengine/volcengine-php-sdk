@@ -49,6 +49,7 @@ class GetAlarmBySmithKeyResponse implements ModelInterface, ArrayAccess
         'plus_alarm_info6003' => '\Volcengine\Seccenter20240508\Model\PlusAlarmInfo6003ForGetAlarmBySmithKeyOutput',
         'plus_alarm_info601' => '\Volcengine\Seccenter20240508\Model\PlusAlarmInfo601ForGetAlarmBySmithKeyOutput',
         'plus_alarm_info602' => '\Volcengine\Seccenter20240508\Model\PlusAlarmInfo602ForGetAlarmBySmithKeyOutput',
+        'plus_alarm_info602x' => '\Volcengine\Seccenter20240508\Model\PlusAlarmInfo602xForGetAlarmBySmithKeyOutput',
         'plus_alarm_info603' => '\Volcengine\Seccenter20240508\Model\PlusAlarmInfo603ForGetAlarmBySmithKeyOutput',
         'plus_alarm_info604' => '\Volcengine\Seccenter20240508\Model\PlusAlarmInfo604ForGetAlarmBySmithKeyOutput',
         'plus_alarm_info700' => '\Volcengine\Seccenter20240508\Model\PlusAlarmInfo700ForGetAlarmBySmithKeyOutput',
@@ -87,6 +88,7 @@ class GetAlarmBySmithKeyResponse implements ModelInterface, ArrayAccess
         'plus_alarm_info6003' => null,
         'plus_alarm_info601' => null,
         'plus_alarm_info602' => null,
+        'plus_alarm_info602x' => null,
         'plus_alarm_info603' => null,
         'plus_alarm_info604' => null,
         'plus_alarm_info700' => null,
@@ -146,6 +148,7 @@ class GetAlarmBySmithKeyResponse implements ModelInterface, ArrayAccess
         'plus_alarm_info6003' => 'PlusAlarmInfo6003',
         'plus_alarm_info601' => 'PlusAlarmInfo601',
         'plus_alarm_info602' => 'PlusAlarmInfo602',
+        'plus_alarm_info602x' => 'PlusAlarmInfo602x',
         'plus_alarm_info603' => 'PlusAlarmInfo603',
         'plus_alarm_info604' => 'PlusAlarmInfo604',
         'plus_alarm_info700' => 'PlusAlarmInfo700',
@@ -184,6 +187,7 @@ class GetAlarmBySmithKeyResponse implements ModelInterface, ArrayAccess
         'plus_alarm_info6003' => 'setPlusAlarmInfo6003',
         'plus_alarm_info601' => 'setPlusAlarmInfo601',
         'plus_alarm_info602' => 'setPlusAlarmInfo602',
+        'plus_alarm_info602x' => 'setPlusAlarmInfo602x',
         'plus_alarm_info603' => 'setPlusAlarmInfo603',
         'plus_alarm_info604' => 'setPlusAlarmInfo604',
         'plus_alarm_info700' => 'setPlusAlarmInfo700',
@@ -222,6 +226,7 @@ class GetAlarmBySmithKeyResponse implements ModelInterface, ArrayAccess
         'plus_alarm_info6003' => 'getPlusAlarmInfo6003',
         'plus_alarm_info601' => 'getPlusAlarmInfo601',
         'plus_alarm_info602' => 'getPlusAlarmInfo602',
+        'plus_alarm_info602x' => 'getPlusAlarmInfo602x',
         'plus_alarm_info603' => 'getPlusAlarmInfo603',
         'plus_alarm_info604' => 'getPlusAlarmInfo604',
         'plus_alarm_info700' => 'getPlusAlarmInfo700',
@@ -314,6 +319,7 @@ class GetAlarmBySmithKeyResponse implements ModelInterface, ArrayAccess
         $this->container['plus_alarm_info6003'] = isset($data['plus_alarm_info6003']) ? $data['plus_alarm_info6003'] : null;
         $this->container['plus_alarm_info601'] = isset($data['plus_alarm_info601']) ? $data['plus_alarm_info601'] : null;
         $this->container['plus_alarm_info602'] = isset($data['plus_alarm_info602']) ? $data['plus_alarm_info602'] : null;
+        $this->container['plus_alarm_info602x'] = isset($data['plus_alarm_info602x']) ? $data['plus_alarm_info602x'] : null;
         $this->container['plus_alarm_info603'] = isset($data['plus_alarm_info603']) ? $data['plus_alarm_info603'] : null;
         $this->container['plus_alarm_info604'] = isset($data['plus_alarm_info604']) ? $data['plus_alarm_info604'] : null;
         $this->container['plus_alarm_info700'] = isset($data['plus_alarm_info700']) ? $data['plus_alarm_info700'] : null;
@@ -849,6 +855,30 @@ class GetAlarmBySmithKeyResponse implements ModelInterface, ArrayAccess
     public function setPlusAlarmInfo602($plus_alarm_info602)
     {
         $this->container['plus_alarm_info602'] = $plus_alarm_info602;
+
+        return $this;
+    }
+
+    /**
+     * Gets plus_alarm_info602x
+     *
+     * @return \Volcengine\Seccenter20240508\Model\PlusAlarmInfo602xForGetAlarmBySmithKeyOutput
+     */
+    public function getPlusAlarmInfo602x()
+    {
+        return $this->container['plus_alarm_info602x'];
+    }
+
+    /**
+     * Sets plus_alarm_info602x
+     *
+     * @param \Volcengine\Seccenter20240508\Model\PlusAlarmInfo602xForGetAlarmBySmithKeyOutput $plus_alarm_info602x plus_alarm_info602x
+     *
+     * @return $this
+     */
+    public function setPlusAlarmInfo602x($plus_alarm_info602x)
+    {
+        $this->container['plus_alarm_info602x'] = $plus_alarm_info602x;
 
         return $this;
     }

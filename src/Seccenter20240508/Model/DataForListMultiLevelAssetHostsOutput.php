@@ -32,6 +32,7 @@ class DataForListMultiLevelAssetHostsOutput implements ModelInterface, ArrayAcce
         'account_id' => 'string',
         'agent_id' => 'string',
         'agent_status' => 'string',
+        'client_public_ip' => 'string',
         'cloud_provider' => 'string',
         'cpu_usage' => 'double',
         'dns' => 'string',
@@ -40,12 +41,15 @@ class DataForListMultiLevelAssetHostsOutput implements ModelInterface, ArrayAcce
         'gateway' => 'string',
         'group' => 'string',
         'group_path' => 'string',
+        'group_path_en' => 'string',
         'institution_id' => 'string',
         'kernel_version' => 'string',
         'last_heartbeat_time' => 'int',
         'mem_usage' => 'double',
+        'old_valid_code' => 'int',
         'online' => 'bool',
         'platform' => 'string',
+        'platform_version' => 'string',
         'plugins_brief_info' => 'string',
         'plugins_status' => 'string',
         'reason' => 'string',
@@ -57,7 +61,8 @@ class DataForListMultiLevelAssetHostsOutput implements ModelInterface, ArrayAcce
         'total_mem' => 'int',
         'update_time' => 'int',
         'user_status' => 'string',
-        'user_status_reason' => 'string'
+        'user_status_reason' => 'string',
+        'user_status_reason_code' => 'int'
     ];
 
     /**
@@ -70,6 +75,7 @@ class DataForListMultiLevelAssetHostsOutput implements ModelInterface, ArrayAcce
         'account_id' => null,
         'agent_id' => null,
         'agent_status' => null,
+        'client_public_ip' => null,
         'cloud_provider' => null,
         'cpu_usage' => 'double',
         'dns' => null,
@@ -78,12 +84,15 @@ class DataForListMultiLevelAssetHostsOutput implements ModelInterface, ArrayAcce
         'gateway' => null,
         'group' => null,
         'group_path' => null,
+        'group_path_en' => null,
         'institution_id' => null,
         'kernel_version' => null,
         'last_heartbeat_time' => 'int64',
         'mem_usage' => 'double',
+        'old_valid_code' => 'int64',
         'online' => null,
         'platform' => null,
+        'platform_version' => null,
         'plugins_brief_info' => null,
         'plugins_status' => null,
         'reason' => null,
@@ -95,7 +104,8 @@ class DataForListMultiLevelAssetHostsOutput implements ModelInterface, ArrayAcce
         'total_mem' => 'int64',
         'update_time' => 'int64',
         'user_status' => null,
-        'user_status_reason' => null
+        'user_status_reason' => null,
+        'user_status_reason_code' => 'int64'
     ];
 
     /**
@@ -129,6 +139,7 @@ class DataForListMultiLevelAssetHostsOutput implements ModelInterface, ArrayAcce
         'account_id' => 'AccountID',
         'agent_id' => 'AgentID',
         'agent_status' => 'AgentStatus',
+        'client_public_ip' => 'ClientPublicIP',
         'cloud_provider' => 'CloudProvider',
         'cpu_usage' => 'CpuUsage',
         'dns' => 'Dns',
@@ -137,12 +148,15 @@ class DataForListMultiLevelAssetHostsOutput implements ModelInterface, ArrayAcce
         'gateway' => 'Gateway',
         'group' => 'Group',
         'group_path' => 'GroupPath',
+        'group_path_en' => 'GroupPathEn',
         'institution_id' => 'InstitutionID',
         'kernel_version' => 'KernelVersion',
         'last_heartbeat_time' => 'LastHeartbeatTime',
         'mem_usage' => 'MemUsage',
+        'old_valid_code' => 'OldValidCode',
         'online' => 'Online',
         'platform' => 'Platform',
+        'platform_version' => 'PlatformVersion',
         'plugins_brief_info' => 'PluginsBriefInfo',
         'plugins_status' => 'PluginsStatus',
         'reason' => 'Reason',
@@ -154,7 +168,8 @@ class DataForListMultiLevelAssetHostsOutput implements ModelInterface, ArrayAcce
         'total_mem' => 'TotalMem',
         'update_time' => 'UpdateTime',
         'user_status' => 'UserStatus',
-        'user_status_reason' => 'UserStatusReason'
+        'user_status_reason' => 'UserStatusReason',
+        'user_status_reason_code' => 'UserStatusReasonCode'
     ];
 
     /**
@@ -167,6 +182,7 @@ class DataForListMultiLevelAssetHostsOutput implements ModelInterface, ArrayAcce
         'account_id' => 'setAccountId',
         'agent_id' => 'setAgentId',
         'agent_status' => 'setAgentStatus',
+        'client_public_ip' => 'setClientPublicIp',
         'cloud_provider' => 'setCloudProvider',
         'cpu_usage' => 'setCpuUsage',
         'dns' => 'setDns',
@@ -175,12 +191,15 @@ class DataForListMultiLevelAssetHostsOutput implements ModelInterface, ArrayAcce
         'gateway' => 'setGateway',
         'group' => 'setGroup',
         'group_path' => 'setGroupPath',
+        'group_path_en' => 'setGroupPathEn',
         'institution_id' => 'setInstitutionId',
         'kernel_version' => 'setKernelVersion',
         'last_heartbeat_time' => 'setLastHeartbeatTime',
         'mem_usage' => 'setMemUsage',
+        'old_valid_code' => 'setOldValidCode',
         'online' => 'setOnline',
         'platform' => 'setPlatform',
+        'platform_version' => 'setPlatformVersion',
         'plugins_brief_info' => 'setPluginsBriefInfo',
         'plugins_status' => 'setPluginsStatus',
         'reason' => 'setReason',
@@ -192,7 +211,8 @@ class DataForListMultiLevelAssetHostsOutput implements ModelInterface, ArrayAcce
         'total_mem' => 'setTotalMem',
         'update_time' => 'setUpdateTime',
         'user_status' => 'setUserStatus',
-        'user_status_reason' => 'setUserStatusReason'
+        'user_status_reason' => 'setUserStatusReason',
+        'user_status_reason_code' => 'setUserStatusReasonCode'
     ];
 
     /**
@@ -205,6 +225,7 @@ class DataForListMultiLevelAssetHostsOutput implements ModelInterface, ArrayAcce
         'account_id' => 'getAccountId',
         'agent_id' => 'getAgentId',
         'agent_status' => 'getAgentStatus',
+        'client_public_ip' => 'getClientPublicIp',
         'cloud_provider' => 'getCloudProvider',
         'cpu_usage' => 'getCpuUsage',
         'dns' => 'getDns',
@@ -213,12 +234,15 @@ class DataForListMultiLevelAssetHostsOutput implements ModelInterface, ArrayAcce
         'gateway' => 'getGateway',
         'group' => 'getGroup',
         'group_path' => 'getGroupPath',
+        'group_path_en' => 'getGroupPathEn',
         'institution_id' => 'getInstitutionId',
         'kernel_version' => 'getKernelVersion',
         'last_heartbeat_time' => 'getLastHeartbeatTime',
         'mem_usage' => 'getMemUsage',
+        'old_valid_code' => 'getOldValidCode',
         'online' => 'getOnline',
         'platform' => 'getPlatform',
+        'platform_version' => 'getPlatformVersion',
         'plugins_brief_info' => 'getPluginsBriefInfo',
         'plugins_status' => 'getPluginsStatus',
         'reason' => 'getReason',
@@ -230,7 +254,8 @@ class DataForListMultiLevelAssetHostsOutput implements ModelInterface, ArrayAcce
         'total_mem' => 'getTotalMem',
         'update_time' => 'getUpdateTime',
         'user_status' => 'getUserStatus',
-        'user_status_reason' => 'getUserStatusReason'
+        'user_status_reason' => 'getUserStatusReason',
+        'user_status_reason_code' => 'getUserStatusReasonCode'
     ];
 
     /**
@@ -297,6 +322,7 @@ class DataForListMultiLevelAssetHostsOutput implements ModelInterface, ArrayAcce
         $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
         $this->container['agent_id'] = isset($data['agent_id']) ? $data['agent_id'] : null;
         $this->container['agent_status'] = isset($data['agent_status']) ? $data['agent_status'] : null;
+        $this->container['client_public_ip'] = isset($data['client_public_ip']) ? $data['client_public_ip'] : null;
         $this->container['cloud_provider'] = isset($data['cloud_provider']) ? $data['cloud_provider'] : null;
         $this->container['cpu_usage'] = isset($data['cpu_usage']) ? $data['cpu_usage'] : null;
         $this->container['dns'] = isset($data['dns']) ? $data['dns'] : null;
@@ -305,12 +331,15 @@ class DataForListMultiLevelAssetHostsOutput implements ModelInterface, ArrayAcce
         $this->container['gateway'] = isset($data['gateway']) ? $data['gateway'] : null;
         $this->container['group'] = isset($data['group']) ? $data['group'] : null;
         $this->container['group_path'] = isset($data['group_path']) ? $data['group_path'] : null;
+        $this->container['group_path_en'] = isset($data['group_path_en']) ? $data['group_path_en'] : null;
         $this->container['institution_id'] = isset($data['institution_id']) ? $data['institution_id'] : null;
         $this->container['kernel_version'] = isset($data['kernel_version']) ? $data['kernel_version'] : null;
         $this->container['last_heartbeat_time'] = isset($data['last_heartbeat_time']) ? $data['last_heartbeat_time'] : null;
         $this->container['mem_usage'] = isset($data['mem_usage']) ? $data['mem_usage'] : null;
+        $this->container['old_valid_code'] = isset($data['old_valid_code']) ? $data['old_valid_code'] : null;
         $this->container['online'] = isset($data['online']) ? $data['online'] : null;
         $this->container['platform'] = isset($data['platform']) ? $data['platform'] : null;
+        $this->container['platform_version'] = isset($data['platform_version']) ? $data['platform_version'] : null;
         $this->container['plugins_brief_info'] = isset($data['plugins_brief_info']) ? $data['plugins_brief_info'] : null;
         $this->container['plugins_status'] = isset($data['plugins_status']) ? $data['plugins_status'] : null;
         $this->container['reason'] = isset($data['reason']) ? $data['reason'] : null;
@@ -323,6 +352,7 @@ class DataForListMultiLevelAssetHostsOutput implements ModelInterface, ArrayAcce
         $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
         $this->container['user_status'] = isset($data['user_status']) ? $data['user_status'] : null;
         $this->container['user_status_reason'] = isset($data['user_status_reason']) ? $data['user_status_reason'] : null;
+        $this->container['user_status_reason_code'] = isset($data['user_status_reason_code']) ? $data['user_status_reason_code'] : null;
     }
 
     /**
@@ -441,6 +471,30 @@ class DataForListMultiLevelAssetHostsOutput implements ModelInterface, ArrayAcce
     public function setAgentStatus($agent_status)
     {
         $this->container['agent_status'] = $agent_status;
+
+        return $this;
+    }
+
+    /**
+     * Gets client_public_ip
+     *
+     * @return string
+     */
+    public function getClientPublicIp()
+    {
+        return $this->container['client_public_ip'];
+    }
+
+    /**
+     * Sets client_public_ip
+     *
+     * @param string $client_public_ip client_public_ip
+     *
+     * @return $this
+     */
+    public function setClientPublicIp($client_public_ip)
+    {
+        $this->container['client_public_ip'] = $client_public_ip;
 
         return $this;
     }
@@ -638,6 +692,30 @@ class DataForListMultiLevelAssetHostsOutput implements ModelInterface, ArrayAcce
     }
 
     /**
+     * Gets group_path_en
+     *
+     * @return string
+     */
+    public function getGroupPathEn()
+    {
+        return $this->container['group_path_en'];
+    }
+
+    /**
+     * Sets group_path_en
+     *
+     * @param string $group_path_en group_path_en
+     *
+     * @return $this
+     */
+    public function setGroupPathEn($group_path_en)
+    {
+        $this->container['group_path_en'] = $group_path_en;
+
+        return $this;
+    }
+
+    /**
      * Gets institution_id
      *
      * @return string
@@ -734,6 +812,30 @@ class DataForListMultiLevelAssetHostsOutput implements ModelInterface, ArrayAcce
     }
 
     /**
+     * Gets old_valid_code
+     *
+     * @return int
+     */
+    public function getOldValidCode()
+    {
+        return $this->container['old_valid_code'];
+    }
+
+    /**
+     * Sets old_valid_code
+     *
+     * @param int $old_valid_code old_valid_code
+     *
+     * @return $this
+     */
+    public function setOldValidCode($old_valid_code)
+    {
+        $this->container['old_valid_code'] = $old_valid_code;
+
+        return $this;
+    }
+
+    /**
      * Gets online
      *
      * @return bool
@@ -777,6 +879,30 @@ class DataForListMultiLevelAssetHostsOutput implements ModelInterface, ArrayAcce
     public function setPlatform($platform)
     {
         $this->container['platform'] = $platform;
+
+        return $this;
+    }
+
+    /**
+     * Gets platform_version
+     *
+     * @return string
+     */
+    public function getPlatformVersion()
+    {
+        return $this->container['platform_version'];
+    }
+
+    /**
+     * Sets platform_version
+     *
+     * @param string $platform_version platform_version
+     *
+     * @return $this
+     */
+    public function setPlatformVersion($platform_version)
+    {
+        $this->container['platform_version'] = $platform_version;
 
         return $this;
     }
@@ -1065,6 +1191,30 @@ class DataForListMultiLevelAssetHostsOutput implements ModelInterface, ArrayAcce
     public function setUserStatusReason($user_status_reason)
     {
         $this->container['user_status_reason'] = $user_status_reason;
+
+        return $this;
+    }
+
+    /**
+     * Gets user_status_reason_code
+     *
+     * @return int
+     */
+    public function getUserStatusReasonCode()
+    {
+        return $this->container['user_status_reason_code'];
+    }
+
+    /**
+     * Sets user_status_reason_code
+     *
+     * @param int $user_status_reason_code user_status_reason_code
+     *
+     * @return $this
+     */
+    public function setUserStatusReasonCode($user_status_reason_code)
+    {
+        $this->container['user_status_reason_code'] = $user_status_reason_code;
 
         return $this;
     }

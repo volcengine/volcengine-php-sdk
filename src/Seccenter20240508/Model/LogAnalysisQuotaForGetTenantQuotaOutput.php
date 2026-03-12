@@ -28,7 +28,10 @@ class LogAnalysisQuotaForGetTenantQuotaOutput implements ModelInterface, ArrayAc
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'action' => 'string',
         'expire_time' => 'int',
+        'need_remove' => 'bool',
+        'paid_type' => 'string',
         'total_count' => 'int',
         'used_count' => 'int',
         'version' => 'int'
@@ -40,7 +43,10 @@ class LogAnalysisQuotaForGetTenantQuotaOutput implements ModelInterface, ArrayAc
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'action' => null,
         'expire_time' => 'int64',
+        'need_remove' => null,
+        'paid_type' => null,
         'total_count' => 'int64',
         'used_count' => 'int64',
         'version' => 'int64'
@@ -73,7 +79,10 @@ class LogAnalysisQuotaForGetTenantQuotaOutput implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $attributeMap = [
+        'action' => 'Action',
         'expire_time' => 'ExpireTime',
+        'need_remove' => 'NeedRemove',
+        'paid_type' => 'PaidType',
         'total_count' => 'TotalCount',
         'used_count' => 'UsedCount',
         'version' => 'Version'
@@ -85,7 +94,10 @@ class LogAnalysisQuotaForGetTenantQuotaOutput implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $setters = [
+        'action' => 'setAction',
         'expire_time' => 'setExpireTime',
+        'need_remove' => 'setNeedRemove',
+        'paid_type' => 'setPaidType',
         'total_count' => 'setTotalCount',
         'used_count' => 'setUsedCount',
         'version' => 'setVersion'
@@ -97,7 +109,10 @@ class LogAnalysisQuotaForGetTenantQuotaOutput implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $getters = [
+        'action' => 'getAction',
         'expire_time' => 'getExpireTime',
+        'need_remove' => 'getNeedRemove',
+        'paid_type' => 'getPaidType',
         'total_count' => 'getTotalCount',
         'used_count' => 'getUsedCount',
         'version' => 'getVersion'
@@ -163,7 +178,10 @@ class LogAnalysisQuotaForGetTenantQuotaOutput implements ModelInterface, ArrayAc
      */
     public function __construct(array $data = null)
     {
+        $this->container['action'] = isset($data['action']) ? $data['action'] : null;
         $this->container['expire_time'] = isset($data['expire_time']) ? $data['expire_time'] : null;
+        $this->container['need_remove'] = isset($data['need_remove']) ? $data['need_remove'] : null;
+        $this->container['paid_type'] = isset($data['paid_type']) ? $data['paid_type'] : null;
         $this->container['total_count'] = isset($data['total_count']) ? $data['total_count'] : null;
         $this->container['used_count'] = isset($data['used_count']) ? $data['used_count'] : null;
         $this->container['version'] = isset($data['version']) ? $data['version'] : null;
@@ -194,6 +212,30 @@ class LogAnalysisQuotaForGetTenantQuotaOutput implements ModelInterface, ArrayAc
 
 
     /**
+     * Gets action
+     *
+     * @return string
+     */
+    public function getAction()
+    {
+        return $this->container['action'];
+    }
+
+    /**
+     * Sets action
+     *
+     * @param string $action action
+     *
+     * @return $this
+     */
+    public function setAction($action)
+    {
+        $this->container['action'] = $action;
+
+        return $this;
+    }
+
+    /**
      * Gets expire_time
      *
      * @return int
@@ -213,6 +255,54 @@ class LogAnalysisQuotaForGetTenantQuotaOutput implements ModelInterface, ArrayAc
     public function setExpireTime($expire_time)
     {
         $this->container['expire_time'] = $expire_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets need_remove
+     *
+     * @return bool
+     */
+    public function getNeedRemove()
+    {
+        return $this->container['need_remove'];
+    }
+
+    /**
+     * Sets need_remove
+     *
+     * @param bool $need_remove need_remove
+     *
+     * @return $this
+     */
+    public function setNeedRemove($need_remove)
+    {
+        $this->container['need_remove'] = $need_remove;
+
+        return $this;
+    }
+
+    /**
+     * Gets paid_type
+     *
+     * @return string
+     */
+    public function getPaidType()
+    {
+        return $this->container['paid_type'];
+    }
+
+    /**
+     * Sets paid_type
+     *
+     * @param string $paid_type paid_type
+     *
+     * @return $this
+     */
+    public function setPaidType($paid_type)
+    {
+        $this->container['paid_type'] = $paid_type;
 
         return $this;
     }

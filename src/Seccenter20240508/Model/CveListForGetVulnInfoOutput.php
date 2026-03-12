@@ -28,11 +28,15 @@ class CveListForGetVulnInfoOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'action' => 'string',
         'cve_detail_url' => 'string',
         'cve_id' => 'string',
         'cvss' => 'string',
         'descript' => 'string',
+        'exploit_link' => 'string',
         'has_exploit' => 'bool',
+        'has_payload' => 'bool',
+        'payload_link' => 'string',
         'tag' => 'string[]',
         'vuln_name' => 'string'
     ];
@@ -43,11 +47,15 @@ class CveListForGetVulnInfoOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'action' => null,
         'cve_detail_url' => null,
         'cve_id' => null,
         'cvss' => null,
         'descript' => null,
+        'exploit_link' => null,
         'has_exploit' => null,
+        'has_payload' => null,
+        'payload_link' => null,
         'tag' => null,
         'vuln_name' => null
     ];
@@ -79,11 +87,15 @@ class CveListForGetVulnInfoOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'action' => 'Action',
         'cve_detail_url' => 'CveDetailUrl',
         'cve_id' => 'CveID',
         'cvss' => 'Cvss',
         'descript' => 'Descript',
+        'exploit_link' => 'ExploitLink',
         'has_exploit' => 'HasExploit',
+        'has_payload' => 'HasPayload',
+        'payload_link' => 'PayloadLink',
         'tag' => 'Tag',
         'vuln_name' => 'VulnName'
     ];
@@ -94,11 +106,15 @@ class CveListForGetVulnInfoOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'action' => 'setAction',
         'cve_detail_url' => 'setCveDetailUrl',
         'cve_id' => 'setCveId',
         'cvss' => 'setCvss',
         'descript' => 'setDescript',
+        'exploit_link' => 'setExploitLink',
         'has_exploit' => 'setHasExploit',
+        'has_payload' => 'setHasPayload',
+        'payload_link' => 'setPayloadLink',
         'tag' => 'setTag',
         'vuln_name' => 'setVulnName'
     ];
@@ -109,11 +125,15 @@ class CveListForGetVulnInfoOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'action' => 'getAction',
         'cve_detail_url' => 'getCveDetailUrl',
         'cve_id' => 'getCveId',
         'cvss' => 'getCvss',
         'descript' => 'getDescript',
+        'exploit_link' => 'getExploitLink',
         'has_exploit' => 'getHasExploit',
+        'has_payload' => 'getHasPayload',
+        'payload_link' => 'getPayloadLink',
         'tag' => 'getTag',
         'vuln_name' => 'getVulnName'
     ];
@@ -178,11 +198,15 @@ class CveListForGetVulnInfoOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['action'] = isset($data['action']) ? $data['action'] : null;
         $this->container['cve_detail_url'] = isset($data['cve_detail_url']) ? $data['cve_detail_url'] : null;
         $this->container['cve_id'] = isset($data['cve_id']) ? $data['cve_id'] : null;
         $this->container['cvss'] = isset($data['cvss']) ? $data['cvss'] : null;
         $this->container['descript'] = isset($data['descript']) ? $data['descript'] : null;
+        $this->container['exploit_link'] = isset($data['exploit_link']) ? $data['exploit_link'] : null;
         $this->container['has_exploit'] = isset($data['has_exploit']) ? $data['has_exploit'] : null;
+        $this->container['has_payload'] = isset($data['has_payload']) ? $data['has_payload'] : null;
+        $this->container['payload_link'] = isset($data['payload_link']) ? $data['payload_link'] : null;
         $this->container['tag'] = isset($data['tag']) ? $data['tag'] : null;
         $this->container['vuln_name'] = isset($data['vuln_name']) ? $data['vuln_name'] : null;
     }
@@ -210,6 +234,30 @@ class CveListForGetVulnInfoOutput implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets action
+     *
+     * @return string
+     */
+    public function getAction()
+    {
+        return $this->container['action'];
+    }
+
+    /**
+     * Sets action
+     *
+     * @param string $action action
+     *
+     * @return $this
+     */
+    public function setAction($action)
+    {
+        $this->container['action'] = $action;
+
+        return $this;
+    }
 
     /**
      * Gets cve_detail_url
@@ -308,6 +356,30 @@ class CveListForGetVulnInfoOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets exploit_link
+     *
+     * @return string
+     */
+    public function getExploitLink()
+    {
+        return $this->container['exploit_link'];
+    }
+
+    /**
+     * Sets exploit_link
+     *
+     * @param string $exploit_link exploit_link
+     *
+     * @return $this
+     */
+    public function setExploitLink($exploit_link)
+    {
+        $this->container['exploit_link'] = $exploit_link;
+
+        return $this;
+    }
+
+    /**
      * Gets has_exploit
      *
      * @return bool
@@ -327,6 +399,54 @@ class CveListForGetVulnInfoOutput implements ModelInterface, ArrayAccess
     public function setHasExploit($has_exploit)
     {
         $this->container['has_exploit'] = $has_exploit;
+
+        return $this;
+    }
+
+    /**
+     * Gets has_payload
+     *
+     * @return bool
+     */
+    public function getHasPayload()
+    {
+        return $this->container['has_payload'];
+    }
+
+    /**
+     * Sets has_payload
+     *
+     * @param bool $has_payload has_payload
+     *
+     * @return $this
+     */
+    public function setHasPayload($has_payload)
+    {
+        $this->container['has_payload'] = $has_payload;
+
+        return $this;
+    }
+
+    /**
+     * Gets payload_link
+     *
+     * @return string
+     */
+    public function getPayloadLink()
+    {
+        return $this->container['payload_link'];
+    }
+
+    /**
+     * Sets payload_link
+     *
+     * @param string $payload_link payload_link
+     *
+     * @return $this
+     */
+    public function setPayloadLink($payload_link)
+    {
+        $this->container['payload_link'] = $payload_link;
 
         return $this;
     }

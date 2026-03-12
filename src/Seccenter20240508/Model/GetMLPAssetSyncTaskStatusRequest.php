@@ -160,9 +160,6 @@ class GetMLPAssetSyncTaskStatusRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['asset_type'] === null) {
-            $invalidProperties[] = "'asset_type' can't be null";
-        }
         return $invalidProperties;
     }
 

@@ -30,12 +30,14 @@ class DataForListLoginConfigsOutput implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'agent_id_list' => 'string[]',
         'description' => 'string',
+        'description_en' => 'string',
         'id' => 'string',
         'ip_list' => 'string[]',
         'if_all_host' => 'bool',
         'leaf_group_ids' => 'string[]',
         'legal_user' => 'string[]',
         'login_config_rules' => 'string[]',
+        'login_locations' => '\Volcengine\Seccenter20240508\Model\LoginLocationForListLoginConfigsOutput[]',
         'single_group_path' => 'string',
         'single_hostname' => 'string',
         'time_intervals' => 'string[]',
@@ -52,12 +54,14 @@ class DataForListLoginConfigsOutput implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'agent_id_list' => null,
         'description' => null,
+        'description_en' => null,
         'id' => null,
         'ip_list' => null,
         'if_all_host' => null,
         'leaf_group_ids' => null,
         'legal_user' => null,
         'login_config_rules' => null,
+        'login_locations' => null,
         'single_group_path' => null,
         'single_hostname' => null,
         'time_intervals' => null,
@@ -95,12 +99,14 @@ class DataForListLoginConfigsOutput implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'agent_id_list' => 'AgentIDList',
         'description' => 'Description',
+        'description_en' => 'DescriptionEn',
         'id' => 'ID',
         'ip_list' => 'IPList',
         'if_all_host' => 'IfAllHost',
         'leaf_group_ids' => 'LeafGroupIDs',
         'legal_user' => 'LegalUser',
         'login_config_rules' => 'LoginConfigRules',
+        'login_locations' => 'LoginLocations',
         'single_group_path' => 'SingleGroupPath',
         'single_hostname' => 'SingleHostname',
         'time_intervals' => 'TimeIntervals',
@@ -117,12 +123,14 @@ class DataForListLoginConfigsOutput implements ModelInterface, ArrayAccess
     protected static $setters = [
         'agent_id_list' => 'setAgentIdList',
         'description' => 'setDescription',
+        'description_en' => 'setDescriptionEn',
         'id' => 'setId',
         'ip_list' => 'setIpList',
         'if_all_host' => 'setIfAllHost',
         'leaf_group_ids' => 'setLeafGroupIds',
         'legal_user' => 'setLegalUser',
         'login_config_rules' => 'setLoginConfigRules',
+        'login_locations' => 'setLoginLocations',
         'single_group_path' => 'setSingleGroupPath',
         'single_hostname' => 'setSingleHostname',
         'time_intervals' => 'setTimeIntervals',
@@ -139,12 +147,14 @@ class DataForListLoginConfigsOutput implements ModelInterface, ArrayAccess
     protected static $getters = [
         'agent_id_list' => 'getAgentIdList',
         'description' => 'getDescription',
+        'description_en' => 'getDescriptionEn',
         'id' => 'getId',
         'ip_list' => 'getIpList',
         'if_all_host' => 'getIfAllHost',
         'leaf_group_ids' => 'getLeafGroupIds',
         'legal_user' => 'getLegalUser',
         'login_config_rules' => 'getLoginConfigRules',
+        'login_locations' => 'getLoginLocations',
         'single_group_path' => 'getSingleGroupPath',
         'single_hostname' => 'getSingleHostname',
         'time_intervals' => 'getTimeIntervals',
@@ -215,12 +225,14 @@ class DataForListLoginConfigsOutput implements ModelInterface, ArrayAccess
     {
         $this->container['agent_id_list'] = isset($data['agent_id_list']) ? $data['agent_id_list'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['description_en'] = isset($data['description_en']) ? $data['description_en'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['ip_list'] = isset($data['ip_list']) ? $data['ip_list'] : null;
         $this->container['if_all_host'] = isset($data['if_all_host']) ? $data['if_all_host'] : null;
         $this->container['leaf_group_ids'] = isset($data['leaf_group_ids']) ? $data['leaf_group_ids'] : null;
         $this->container['legal_user'] = isset($data['legal_user']) ? $data['legal_user'] : null;
         $this->container['login_config_rules'] = isset($data['login_config_rules']) ? $data['login_config_rules'] : null;
+        $this->container['login_locations'] = isset($data['login_locations']) ? $data['login_locations'] : null;
         $this->container['single_group_path'] = isset($data['single_group_path']) ? $data['single_group_path'] : null;
         $this->container['single_hostname'] = isset($data['single_hostname']) ? $data['single_hostname'] : null;
         $this->container['time_intervals'] = isset($data['time_intervals']) ? $data['time_intervals'] : null;
@@ -297,6 +309,30 @@ class DataForListLoginConfigsOutput implements ModelInterface, ArrayAccess
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets description_en
+     *
+     * @return string
+     */
+    public function getDescriptionEn()
+    {
+        return $this->container['description_en'];
+    }
+
+    /**
+     * Sets description_en
+     *
+     * @param string $description_en description_en
+     *
+     * @return $this
+     */
+    public function setDescriptionEn($description_en)
+    {
+        $this->container['description_en'] = $description_en;
 
         return $this;
     }
@@ -441,6 +477,30 @@ class DataForListLoginConfigsOutput implements ModelInterface, ArrayAccess
     public function setLoginConfigRules($login_config_rules)
     {
         $this->container['login_config_rules'] = $login_config_rules;
+
+        return $this;
+    }
+
+    /**
+     * Gets login_locations
+     *
+     * @return \Volcengine\Seccenter20240508\Model\LoginLocationForListLoginConfigsOutput[]
+     */
+    public function getLoginLocations()
+    {
+        return $this->container['login_locations'];
+    }
+
+    /**
+     * Sets login_locations
+     *
+     * @param \Volcengine\Seccenter20240508\Model\LoginLocationForListLoginConfigsOutput[] $login_locations login_locations
+     *
+     * @return $this
+     */
+    public function setLoginLocations($login_locations)
+    {
+        $this->container['login_locations'] = $login_locations;
 
         return $this;
     }

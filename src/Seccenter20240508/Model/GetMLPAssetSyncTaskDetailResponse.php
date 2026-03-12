@@ -28,7 +28,15 @@ class GetMLPAssetSyncTaskDetailResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'data' => '\Volcengine\Seccenter20240508\Model\DataForGetMLPAssetSyncTaskDetailOutput'
+        'account_id' => 'string',
+        'asset_count' => 'int',
+        'creator' => 'string',
+        'data' => '\Volcengine\Seccenter20240508\Model\DataForGetMLPAssetSyncTaskDetailOutput',
+        'end_time' => 'int',
+        'start_time' => 'int',
+        'status' => 'string',
+        'task_id' => 'string',
+        'task_type' => 'string'
     ];
 
     /**
@@ -37,7 +45,15 @@ class GetMLPAssetSyncTaskDetailResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'data' => null
+        'account_id' => null,
+        'asset_count' => 'int64',
+        'creator' => null,
+        'data' => null,
+        'end_time' => 'int64',
+        'start_time' => 'int64',
+        'status' => null,
+        'task_id' => null,
+        'task_type' => null
     ];
 
     /**
@@ -67,7 +83,15 @@ class GetMLPAssetSyncTaskDetailResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'data' => 'Data'
+        'account_id' => 'AccountID',
+        'asset_count' => 'AssetCount',
+        'creator' => 'Creator',
+        'data' => 'Data',
+        'end_time' => 'EndTime',
+        'start_time' => 'StartTime',
+        'status' => 'Status',
+        'task_id' => 'TaskID',
+        'task_type' => 'TaskType'
     ];
 
     /**
@@ -76,7 +100,15 @@ class GetMLPAssetSyncTaskDetailResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'data' => 'setData'
+        'account_id' => 'setAccountId',
+        'asset_count' => 'setAssetCount',
+        'creator' => 'setCreator',
+        'data' => 'setData',
+        'end_time' => 'setEndTime',
+        'start_time' => 'setStartTime',
+        'status' => 'setStatus',
+        'task_id' => 'setTaskId',
+        'task_type' => 'setTaskType'
     ];
 
     /**
@@ -85,7 +117,15 @@ class GetMLPAssetSyncTaskDetailResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'data' => 'getData'
+        'account_id' => 'getAccountId',
+        'asset_count' => 'getAssetCount',
+        'creator' => 'getCreator',
+        'data' => 'getData',
+        'end_time' => 'getEndTime',
+        'start_time' => 'getStartTime',
+        'status' => 'getStatus',
+        'task_id' => 'getTaskId',
+        'task_type' => 'getTaskType'
     ];
 
     /**
@@ -148,7 +188,15 @@ class GetMLPAssetSyncTaskDetailResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
+        $this->container['asset_count'] = isset($data['asset_count']) ? $data['asset_count'] : null;
+        $this->container['creator'] = isset($data['creator']) ? $data['creator'] : null;
         $this->container['data'] = isset($data['data']) ? $data['data'] : null;
+        $this->container['end_time'] = isset($data['end_time']) ? $data['end_time'] : null;
+        $this->container['start_time'] = isset($data['start_time']) ? $data['start_time'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['task_id'] = isset($data['task_id']) ? $data['task_id'] : null;
+        $this->container['task_type'] = isset($data['task_type']) ? $data['task_type'] : null;
     }
 
     /**
@@ -176,6 +224,78 @@ class GetMLPAssetSyncTaskDetailResponse implements ModelInterface, ArrayAccess
 
 
     /**
+     * Gets account_id
+     *
+     * @return string
+     */
+    public function getAccountId()
+    {
+        return $this->container['account_id'];
+    }
+
+    /**
+     * Sets account_id
+     *
+     * @param string $account_id account_id
+     *
+     * @return $this
+     */
+    public function setAccountId($account_id)
+    {
+        $this->container['account_id'] = $account_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets asset_count
+     *
+     * @return int
+     */
+    public function getAssetCount()
+    {
+        return $this->container['asset_count'];
+    }
+
+    /**
+     * Sets asset_count
+     *
+     * @param int $asset_count asset_count
+     *
+     * @return $this
+     */
+    public function setAssetCount($asset_count)
+    {
+        $this->container['asset_count'] = $asset_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets creator
+     *
+     * @return string
+     */
+    public function getCreator()
+    {
+        return $this->container['creator'];
+    }
+
+    /**
+     * Sets creator
+     *
+     * @param string $creator creator
+     *
+     * @return $this
+     */
+    public function setCreator($creator)
+    {
+        $this->container['creator'] = $creator;
+
+        return $this;
+    }
+
+    /**
      * Gets data
      *
      * @return \Volcengine\Seccenter20240508\Model\DataForGetMLPAssetSyncTaskDetailOutput
@@ -195,6 +315,126 @@ class GetMLPAssetSyncTaskDetailResponse implements ModelInterface, ArrayAccess
     public function setData($data)
     {
         $this->container['data'] = $data;
+
+        return $this;
+    }
+
+    /**
+     * Gets end_time
+     *
+     * @return int
+     */
+    public function getEndTime()
+    {
+        return $this->container['end_time'];
+    }
+
+    /**
+     * Sets end_time
+     *
+     * @param int $end_time end_time
+     *
+     * @return $this
+     */
+    public function setEndTime($end_time)
+    {
+        $this->container['end_time'] = $end_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets start_time
+     *
+     * @return int
+     */
+    public function getStartTime()
+    {
+        return $this->container['start_time'];
+    }
+
+    /**
+     * Sets start_time
+     *
+     * @param int $start_time start_time
+     *
+     * @return $this
+     */
+    public function setStartTime($start_time)
+    {
+        $this->container['start_time'] = $start_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param string $status status
+     *
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets task_id
+     *
+     * @return string
+     */
+    public function getTaskId()
+    {
+        return $this->container['task_id'];
+    }
+
+    /**
+     * Sets task_id
+     *
+     * @param string $task_id task_id
+     *
+     * @return $this
+     */
+    public function setTaskId($task_id)
+    {
+        $this->container['task_id'] = $task_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets task_type
+     *
+     * @return string
+     */
+    public function getTaskType()
+    {
+        return $this->container['task_type'];
+    }
+
+    /**
+     * Sets task_type
+     *
+     * @param string $task_type task_type
+     *
+     * @return $this
+     */
+    public function setTaskType($task_type)
+    {
+        $this->container['task_type'] = $task_type;
 
         return $this;
     }

@@ -35,6 +35,10 @@ class GetAlarmVirusStatisticsResponse implements ModelInterface, ArrayAccess
         'alarm_processed_count' => 'int',
         'alarm_total' => 'int',
         'alarm_white_count' => 'int',
+        'auto_ban_count' => 'int',
+        'auto_ban_today_count' => 'int',
+        'ban_ip_count' => 'int',
+        'ban_ip_today_count' => 'int',
         'isolate_file_count' => 'int',
         'isolate_today_count' => 'int',
         'precision_defense_count' => 'int',
@@ -55,6 +59,10 @@ class GetAlarmVirusStatisticsResponse implements ModelInterface, ArrayAccess
         'alarm_processed_count' => 'int64',
         'alarm_total' => 'int64',
         'alarm_white_count' => 'int64',
+        'auto_ban_count' => 'int64',
+        'auto_ban_today_count' => 'int64',
+        'ban_ip_count' => 'int64',
+        'ban_ip_today_count' => 'int64',
         'isolate_file_count' => 'int64',
         'isolate_today_count' => 'int64',
         'precision_defense_count' => 'int64',
@@ -96,6 +104,10 @@ class GetAlarmVirusStatisticsResponse implements ModelInterface, ArrayAccess
         'alarm_processed_count' => 'AlarmProcessedCount',
         'alarm_total' => 'AlarmTotal',
         'alarm_white_count' => 'AlarmWhiteCount',
+        'auto_ban_count' => 'AutoBanCount',
+        'auto_ban_today_count' => 'AutoBanTodayCount',
+        'ban_ip_count' => 'BanIPCount',
+        'ban_ip_today_count' => 'BanIPTodayCount',
         'isolate_file_count' => 'IsolateFileCount',
         'isolate_today_count' => 'IsolateTodayCount',
         'precision_defense_count' => 'PrecisionDefenseCount',
@@ -116,6 +128,10 @@ class GetAlarmVirusStatisticsResponse implements ModelInterface, ArrayAccess
         'alarm_processed_count' => 'setAlarmProcessedCount',
         'alarm_total' => 'setAlarmTotal',
         'alarm_white_count' => 'setAlarmWhiteCount',
+        'auto_ban_count' => 'setAutoBanCount',
+        'auto_ban_today_count' => 'setAutoBanTodayCount',
+        'ban_ip_count' => 'setBanIpCount',
+        'ban_ip_today_count' => 'setBanIpTodayCount',
         'isolate_file_count' => 'setIsolateFileCount',
         'isolate_today_count' => 'setIsolateTodayCount',
         'precision_defense_count' => 'setPrecisionDefenseCount',
@@ -136,6 +152,10 @@ class GetAlarmVirusStatisticsResponse implements ModelInterface, ArrayAccess
         'alarm_processed_count' => 'getAlarmProcessedCount',
         'alarm_total' => 'getAlarmTotal',
         'alarm_white_count' => 'getAlarmWhiteCount',
+        'auto_ban_count' => 'getAutoBanCount',
+        'auto_ban_today_count' => 'getAutoBanTodayCount',
+        'ban_ip_count' => 'getBanIpCount',
+        'ban_ip_today_count' => 'getBanIpTodayCount',
         'isolate_file_count' => 'getIsolateFileCount',
         'isolate_today_count' => 'getIsolateTodayCount',
         'precision_defense_count' => 'getPrecisionDefenseCount',
@@ -210,6 +230,10 @@ class GetAlarmVirusStatisticsResponse implements ModelInterface, ArrayAccess
         $this->container['alarm_processed_count'] = isset($data['alarm_processed_count']) ? $data['alarm_processed_count'] : null;
         $this->container['alarm_total'] = isset($data['alarm_total']) ? $data['alarm_total'] : null;
         $this->container['alarm_white_count'] = isset($data['alarm_white_count']) ? $data['alarm_white_count'] : null;
+        $this->container['auto_ban_count'] = isset($data['auto_ban_count']) ? $data['auto_ban_count'] : null;
+        $this->container['auto_ban_today_count'] = isset($data['auto_ban_today_count']) ? $data['auto_ban_today_count'] : null;
+        $this->container['ban_ip_count'] = isset($data['ban_ip_count']) ? $data['ban_ip_count'] : null;
+        $this->container['ban_ip_today_count'] = isset($data['ban_ip_today_count']) ? $data['ban_ip_today_count'] : null;
         $this->container['isolate_file_count'] = isset($data['isolate_file_count']) ? $data['isolate_file_count'] : null;
         $this->container['isolate_today_count'] = isset($data['isolate_today_count']) ? $data['isolate_today_count'] : null;
         $this->container['precision_defense_count'] = isset($data['precision_defense_count']) ? $data['precision_defense_count'] : null;
@@ -405,6 +429,102 @@ class GetAlarmVirusStatisticsResponse implements ModelInterface, ArrayAccess
     public function setAlarmWhiteCount($alarm_white_count)
     {
         $this->container['alarm_white_count'] = $alarm_white_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets auto_ban_count
+     *
+     * @return int
+     */
+    public function getAutoBanCount()
+    {
+        return $this->container['auto_ban_count'];
+    }
+
+    /**
+     * Sets auto_ban_count
+     *
+     * @param int $auto_ban_count auto_ban_count
+     *
+     * @return $this
+     */
+    public function setAutoBanCount($auto_ban_count)
+    {
+        $this->container['auto_ban_count'] = $auto_ban_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets auto_ban_today_count
+     *
+     * @return int
+     */
+    public function getAutoBanTodayCount()
+    {
+        return $this->container['auto_ban_today_count'];
+    }
+
+    /**
+     * Sets auto_ban_today_count
+     *
+     * @param int $auto_ban_today_count auto_ban_today_count
+     *
+     * @return $this
+     */
+    public function setAutoBanTodayCount($auto_ban_today_count)
+    {
+        $this->container['auto_ban_today_count'] = $auto_ban_today_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets ban_ip_count
+     *
+     * @return int
+     */
+    public function getBanIpCount()
+    {
+        return $this->container['ban_ip_count'];
+    }
+
+    /**
+     * Sets ban_ip_count
+     *
+     * @param int $ban_ip_count ban_ip_count
+     *
+     * @return $this
+     */
+    public function setBanIpCount($ban_ip_count)
+    {
+        $this->container['ban_ip_count'] = $ban_ip_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets ban_ip_today_count
+     *
+     * @return int
+     */
+    public function getBanIpTodayCount()
+    {
+        return $this->container['ban_ip_today_count'];
+    }
+
+    /**
+     * Sets ban_ip_today_count
+     *
+     * @param int $ban_ip_today_count ban_ip_today_count
+     *
+     * @return $this
+     */
+    public function setBanIpTodayCount($ban_ip_today_count)
+    {
+        $this->container['ban_ip_today_count'] = $ban_ip_today_count;
 
         return $this;
     }

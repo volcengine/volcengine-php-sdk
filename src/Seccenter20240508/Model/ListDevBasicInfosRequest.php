@@ -36,8 +36,10 @@ class ListDevBasicInfosRequest implements ModelInterface, ArrayAccess
         'page_number' => 'int',
         'page_size' => 'int',
         'platforms' => 'string[]',
+        'protect_status' => 'string',
         'regions' => 'string[]',
         'risk' => '\Volcengine\Seccenter20240508\Model\RiskForListDevBasicInfosInput',
+        'security_enhancement' => 'bool',
         'sort_by' => 'string',
         'sort_order' => 'string',
         'status' => 'string[]'
@@ -57,8 +59,10 @@ class ListDevBasicInfosRequest implements ModelInterface, ArrayAccess
         'page_number' => 'int64',
         'page_size' => 'int64',
         'platforms' => null,
+        'protect_status' => null,
         'regions' => null,
         'risk' => null,
+        'security_enhancement' => null,
         'sort_by' => null,
         'sort_order' => null,
         'status' => null
@@ -99,8 +103,10 @@ class ListDevBasicInfosRequest implements ModelInterface, ArrayAccess
         'page_number' => 'PageNumber',
         'page_size' => 'PageSize',
         'platforms' => 'Platforms',
+        'protect_status' => 'ProtectStatus',
         'regions' => 'Regions',
         'risk' => 'Risk',
+        'security_enhancement' => 'SecurityEnhancement',
         'sort_by' => 'SortBy',
         'sort_order' => 'SortOrder',
         'status' => 'Status'
@@ -120,8 +126,10 @@ class ListDevBasicInfosRequest implements ModelInterface, ArrayAccess
         'page_number' => 'setPageNumber',
         'page_size' => 'setPageSize',
         'platforms' => 'setPlatforms',
+        'protect_status' => 'setProtectStatus',
         'regions' => 'setRegions',
         'risk' => 'setRisk',
+        'security_enhancement' => 'setSecurityEnhancement',
         'sort_by' => 'setSortBy',
         'sort_order' => 'setSortOrder',
         'status' => 'setStatus'
@@ -141,8 +149,10 @@ class ListDevBasicInfosRequest implements ModelInterface, ArrayAccess
         'page_number' => 'getPageNumber',
         'page_size' => 'getPageSize',
         'platforms' => 'getPlatforms',
+        'protect_status' => 'getProtectStatus',
         'regions' => 'getRegions',
         'risk' => 'getRisk',
+        'security_enhancement' => 'getSecurityEnhancement',
         'sort_by' => 'getSortBy',
         'sort_order' => 'getSortOrder',
         'status' => 'getStatus'
@@ -216,8 +226,10 @@ class ListDevBasicInfosRequest implements ModelInterface, ArrayAccess
         $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
         $this->container['platforms'] = isset($data['platforms']) ? $data['platforms'] : null;
+        $this->container['protect_status'] = isset($data['protect_status']) ? $data['protect_status'] : null;
         $this->container['regions'] = isset($data['regions']) ? $data['regions'] : null;
         $this->container['risk'] = isset($data['risk']) ? $data['risk'] : null;
+        $this->container['security_enhancement'] = isset($data['security_enhancement']) ? $data['security_enhancement'] : null;
         $this->container['sort_by'] = isset($data['sort_by']) ? $data['sort_by'] : null;
         $this->container['sort_order'] = isset($data['sort_order']) ? $data['sort_order'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
@@ -446,6 +458,30 @@ class ListDevBasicInfosRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets protect_status
+     *
+     * @return string
+     */
+    public function getProtectStatus()
+    {
+        return $this->container['protect_status'];
+    }
+
+    /**
+     * Sets protect_status
+     *
+     * @param string $protect_status protect_status
+     *
+     * @return $this
+     */
+    public function setProtectStatus($protect_status)
+    {
+        $this->container['protect_status'] = $protect_status;
+
+        return $this;
+    }
+
+    /**
      * Gets regions
      *
      * @return string[]
@@ -489,6 +525,30 @@ class ListDevBasicInfosRequest implements ModelInterface, ArrayAccess
     public function setRisk($risk)
     {
         $this->container['risk'] = $risk;
+
+        return $this;
+    }
+
+    /**
+     * Gets security_enhancement
+     *
+     * @return bool
+     */
+    public function getSecurityEnhancement()
+    {
+        return $this->container['security_enhancement'];
+    }
+
+    /**
+     * Sets security_enhancement
+     *
+     * @param bool $security_enhancement security_enhancement
+     *
+     * @return $this
+     */
+    public function setSecurityEnhancement($security_enhancement)
+    {
+        $this->container['security_enhancement'] = $security_enhancement;
 
         return $this;
     }
