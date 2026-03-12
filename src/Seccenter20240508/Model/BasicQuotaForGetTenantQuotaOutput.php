@@ -28,7 +28,9 @@ class BasicQuotaForGetTenantQuotaOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'action' => 'string',
         'expire_time' => 'int',
+        'need_remove' => 'bool',
         'paid_type' => 'string',
         'total_count' => 'int',
         'used_count' => 'int',
@@ -41,7 +43,9 @@ class BasicQuotaForGetTenantQuotaOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'action' => null,
         'expire_time' => 'int64',
+        'need_remove' => null,
         'paid_type' => null,
         'total_count' => 'int64',
         'used_count' => 'int64',
@@ -75,7 +79,9 @@ class BasicQuotaForGetTenantQuotaOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'action' => 'Action',
         'expire_time' => 'ExpireTime',
+        'need_remove' => 'NeedRemove',
         'paid_type' => 'PaidType',
         'total_count' => 'TotalCount',
         'used_count' => 'UsedCount',
@@ -88,7 +94,9 @@ class BasicQuotaForGetTenantQuotaOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'action' => 'setAction',
         'expire_time' => 'setExpireTime',
+        'need_remove' => 'setNeedRemove',
         'paid_type' => 'setPaidType',
         'total_count' => 'setTotalCount',
         'used_count' => 'setUsedCount',
@@ -101,7 +109,9 @@ class BasicQuotaForGetTenantQuotaOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'action' => 'getAction',
         'expire_time' => 'getExpireTime',
+        'need_remove' => 'getNeedRemove',
         'paid_type' => 'getPaidType',
         'total_count' => 'getTotalCount',
         'used_count' => 'getUsedCount',
@@ -168,7 +178,9 @@ class BasicQuotaForGetTenantQuotaOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['action'] = isset($data['action']) ? $data['action'] : null;
         $this->container['expire_time'] = isset($data['expire_time']) ? $data['expire_time'] : null;
+        $this->container['need_remove'] = isset($data['need_remove']) ? $data['need_remove'] : null;
         $this->container['paid_type'] = isset($data['paid_type']) ? $data['paid_type'] : null;
         $this->container['total_count'] = isset($data['total_count']) ? $data['total_count'] : null;
         $this->container['used_count'] = isset($data['used_count']) ? $data['used_count'] : null;
@@ -200,6 +212,30 @@ class BasicQuotaForGetTenantQuotaOutput implements ModelInterface, ArrayAccess
 
 
     /**
+     * Gets action
+     *
+     * @return string
+     */
+    public function getAction()
+    {
+        return $this->container['action'];
+    }
+
+    /**
+     * Sets action
+     *
+     * @param string $action action
+     *
+     * @return $this
+     */
+    public function setAction($action)
+    {
+        $this->container['action'] = $action;
+
+        return $this;
+    }
+
+    /**
      * Gets expire_time
      *
      * @return int
@@ -219,6 +255,30 @@ class BasicQuotaForGetTenantQuotaOutput implements ModelInterface, ArrayAccess
     public function setExpireTime($expire_time)
     {
         $this->container['expire_time'] = $expire_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets need_remove
+     *
+     * @return bool
+     */
+    public function getNeedRemove()
+    {
+        return $this->container['need_remove'];
+    }
+
+    /**
+     * Sets need_remove
+     *
+     * @param bool $need_remove need_remove
+     *
+     * @return $this
+     */
+    public function setNeedRemove($need_remove)
+    {
+        $this->container['need_remove'] = $need_remove;
 
         return $this;
     }

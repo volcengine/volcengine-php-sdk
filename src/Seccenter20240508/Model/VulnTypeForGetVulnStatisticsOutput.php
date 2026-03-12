@@ -31,6 +31,7 @@ class VulnTypeForGetVulnStatisticsOutput implements ModelInterface, ArrayAccess
         'app' => 'int',
         'dev_linux' => 'int',
         'dev_py' => 'int',
+        'emg' => 'int',
         'linux' => 'int',
         'webcms' => 'int',
         'windows' => 'int'
@@ -45,6 +46,7 @@ class VulnTypeForGetVulnStatisticsOutput implements ModelInterface, ArrayAccess
         'app' => 'int64',
         'dev_linux' => 'int64',
         'dev_py' => 'int64',
+        'emg' => 'int64',
         'linux' => 'int64',
         'webcms' => 'int64',
         'windows' => 'int64'
@@ -80,6 +82,7 @@ class VulnTypeForGetVulnStatisticsOutput implements ModelInterface, ArrayAccess
         'app' => 'App',
         'dev_linux' => 'DevLinux',
         'dev_py' => 'DevPy',
+        'emg' => 'Emg',
         'linux' => 'Linux',
         'webcms' => 'Webcms',
         'windows' => 'Windows'
@@ -94,6 +97,7 @@ class VulnTypeForGetVulnStatisticsOutput implements ModelInterface, ArrayAccess
         'app' => 'setApp',
         'dev_linux' => 'setDevLinux',
         'dev_py' => 'setDevPy',
+        'emg' => 'setEmg',
         'linux' => 'setLinux',
         'webcms' => 'setWebcms',
         'windows' => 'setWindows'
@@ -108,6 +112,7 @@ class VulnTypeForGetVulnStatisticsOutput implements ModelInterface, ArrayAccess
         'app' => 'getApp',
         'dev_linux' => 'getDevLinux',
         'dev_py' => 'getDevPy',
+        'emg' => 'getEmg',
         'linux' => 'getLinux',
         'webcms' => 'getWebcms',
         'windows' => 'getWindows'
@@ -176,6 +181,7 @@ class VulnTypeForGetVulnStatisticsOutput implements ModelInterface, ArrayAccess
         $this->container['app'] = isset($data['app']) ? $data['app'] : null;
         $this->container['dev_linux'] = isset($data['dev_linux']) ? $data['dev_linux'] : null;
         $this->container['dev_py'] = isset($data['dev_py']) ? $data['dev_py'] : null;
+        $this->container['emg'] = isset($data['emg']) ? $data['emg'] : null;
         $this->container['linux'] = isset($data['linux']) ? $data['linux'] : null;
         $this->container['webcms'] = isset($data['webcms']) ? $data['webcms'] : null;
         $this->container['windows'] = isset($data['windows']) ? $data['windows'] : null;
@@ -273,6 +279,30 @@ class VulnTypeForGetVulnStatisticsOutput implements ModelInterface, ArrayAccess
     public function setDevPy($dev_py)
     {
         $this->container['dev_py'] = $dev_py;
+
+        return $this;
+    }
+
+    /**
+     * Gets emg
+     *
+     * @return int
+     */
+    public function getEmg()
+    {
+        return $this->container['emg'];
+    }
+
+    /**
+     * Sets emg
+     *
+     * @param int $emg emg
+     *
+     * @return $this
+     */
+    public function setEmg($emg)
+    {
+        $this->container['emg'] = $emg;
 
         return $this;
     }

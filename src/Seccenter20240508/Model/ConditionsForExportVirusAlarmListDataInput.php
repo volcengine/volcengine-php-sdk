@@ -52,10 +52,13 @@ class ConditionsForExportVirusAlarmListDataInput implements ModelInterface, Arra
         'hostname' => 'string',
         'ip' => 'string',
         'image_name' => 'string',
+        'last_alarm_time_end' => 'int',
+        'last_alarm_time_start' => 'int',
         'leaf_group_ids' => 'string[]',
         'level' => 'string[]',
         'mlp_instance_id' => 'string',
         'name' => 'string',
+        'operation_list' => 'string[]',
         'probe_hook' => 'string',
         'rasp_argv' => 'string',
         'status' => 'int[]',
@@ -67,7 +70,8 @@ class ConditionsForExportVirusAlarmListDataInput implements ModelInterface, Arra
         'type' => 'string[]',
         'virus_type' => 'string',
         'white_list_id' => 'string',
-        'white_list_name' => 'string'
+        'white_list_name' => 'string',
+        'security_intelligence_results' => 'string[]'
     ];
 
     /**
@@ -100,10 +104,13 @@ class ConditionsForExportVirusAlarmListDataInput implements ModelInterface, Arra
         'hostname' => null,
         'ip' => null,
         'image_name' => null,
+        'last_alarm_time_end' => 'int64',
+        'last_alarm_time_start' => 'int64',
         'leaf_group_ids' => null,
         'level' => null,
         'mlp_instance_id' => null,
         'name' => null,
+        'operation_list' => null,
         'probe_hook' => null,
         'rasp_argv' => null,
         'status' => 'int64',
@@ -115,7 +122,8 @@ class ConditionsForExportVirusAlarmListDataInput implements ModelInterface, Arra
         'type' => null,
         'virus_type' => null,
         'white_list_id' => null,
-        'white_list_name' => null
+        'white_list_name' => null,
+        'security_intelligence_results' => null
     ];
 
     /**
@@ -169,10 +177,13 @@ class ConditionsForExportVirusAlarmListDataInput implements ModelInterface, Arra
         'hostname' => 'Hostname',
         'ip' => 'IP',
         'image_name' => 'ImageName',
+        'last_alarm_time_end' => 'LastAlarmTimeEnd',
+        'last_alarm_time_start' => 'LastAlarmTimeStart',
         'leaf_group_ids' => 'LeafGroupIDs',
         'level' => 'Level',
         'mlp_instance_id' => 'MlpInstanceID',
         'name' => 'Name',
+        'operation_list' => 'OperationList',
         'probe_hook' => 'ProbeHook',
         'rasp_argv' => 'RaspArgv',
         'status' => 'Status',
@@ -184,7 +195,8 @@ class ConditionsForExportVirusAlarmListDataInput implements ModelInterface, Arra
         'type' => 'Type',
         'virus_type' => 'VirusType',
         'white_list_id' => 'WhiteListID',
-        'white_list_name' => 'WhiteListName'
+        'white_list_name' => 'WhiteListName',
+        'security_intelligence_results' => 'security_intelligence_results'
     ];
 
     /**
@@ -217,10 +229,13 @@ class ConditionsForExportVirusAlarmListDataInput implements ModelInterface, Arra
         'hostname' => 'setHostname',
         'ip' => 'setIp',
         'image_name' => 'setImageName',
+        'last_alarm_time_end' => 'setLastAlarmTimeEnd',
+        'last_alarm_time_start' => 'setLastAlarmTimeStart',
         'leaf_group_ids' => 'setLeafGroupIds',
         'level' => 'setLevel',
         'mlp_instance_id' => 'setMlpInstanceId',
         'name' => 'setName',
+        'operation_list' => 'setOperationList',
         'probe_hook' => 'setProbeHook',
         'rasp_argv' => 'setRaspArgv',
         'status' => 'setStatus',
@@ -232,7 +247,8 @@ class ConditionsForExportVirusAlarmListDataInput implements ModelInterface, Arra
         'type' => 'setType',
         'virus_type' => 'setVirusType',
         'white_list_id' => 'setWhiteListId',
-        'white_list_name' => 'setWhiteListName'
+        'white_list_name' => 'setWhiteListName',
+        'security_intelligence_results' => 'setSecurityIntelligenceResults'
     ];
 
     /**
@@ -265,10 +281,13 @@ class ConditionsForExportVirusAlarmListDataInput implements ModelInterface, Arra
         'hostname' => 'getHostname',
         'ip' => 'getIp',
         'image_name' => 'getImageName',
+        'last_alarm_time_end' => 'getLastAlarmTimeEnd',
+        'last_alarm_time_start' => 'getLastAlarmTimeStart',
         'leaf_group_ids' => 'getLeafGroupIds',
         'level' => 'getLevel',
         'mlp_instance_id' => 'getMlpInstanceId',
         'name' => 'getName',
+        'operation_list' => 'getOperationList',
         'probe_hook' => 'getProbeHook',
         'rasp_argv' => 'getRaspArgv',
         'status' => 'getStatus',
@@ -280,7 +299,8 @@ class ConditionsForExportVirusAlarmListDataInput implements ModelInterface, Arra
         'type' => 'getType',
         'virus_type' => 'getVirusType',
         'white_list_id' => 'getWhiteListId',
-        'white_list_name' => 'getWhiteListName'
+        'white_list_name' => 'getWhiteListName',
+        'security_intelligence_results' => 'getSecurityIntelligenceResults'
     ];
 
     /**
@@ -367,10 +387,13 @@ class ConditionsForExportVirusAlarmListDataInput implements ModelInterface, Arra
         $this->container['hostname'] = isset($data['hostname']) ? $data['hostname'] : null;
         $this->container['ip'] = isset($data['ip']) ? $data['ip'] : null;
         $this->container['image_name'] = isset($data['image_name']) ? $data['image_name'] : null;
+        $this->container['last_alarm_time_end'] = isset($data['last_alarm_time_end']) ? $data['last_alarm_time_end'] : null;
+        $this->container['last_alarm_time_start'] = isset($data['last_alarm_time_start']) ? $data['last_alarm_time_start'] : null;
         $this->container['leaf_group_ids'] = isset($data['leaf_group_ids']) ? $data['leaf_group_ids'] : null;
         $this->container['level'] = isset($data['level']) ? $data['level'] : null;
         $this->container['mlp_instance_id'] = isset($data['mlp_instance_id']) ? $data['mlp_instance_id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['operation_list'] = isset($data['operation_list']) ? $data['operation_list'] : null;
         $this->container['probe_hook'] = isset($data['probe_hook']) ? $data['probe_hook'] : null;
         $this->container['rasp_argv'] = isset($data['rasp_argv']) ? $data['rasp_argv'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
@@ -383,6 +406,7 @@ class ConditionsForExportVirusAlarmListDataInput implements ModelInterface, Arra
         $this->container['virus_type'] = isset($data['virus_type']) ? $data['virus_type'] : null;
         $this->container['white_list_id'] = isset($data['white_list_id']) ? $data['white_list_id'] : null;
         $this->container['white_list_name'] = isset($data['white_list_name']) ? $data['white_list_name'] : null;
+        $this->container['security_intelligence_results'] = isset($data['security_intelligence_results']) ? $data['security_intelligence_results'] : null;
     }
 
     /**
@@ -986,6 +1010,54 @@ class ConditionsForExportVirusAlarmListDataInput implements ModelInterface, Arra
     }
 
     /**
+     * Gets last_alarm_time_end
+     *
+     * @return int
+     */
+    public function getLastAlarmTimeEnd()
+    {
+        return $this->container['last_alarm_time_end'];
+    }
+
+    /**
+     * Sets last_alarm_time_end
+     *
+     * @param int $last_alarm_time_end last_alarm_time_end
+     *
+     * @return $this
+     */
+    public function setLastAlarmTimeEnd($last_alarm_time_end)
+    {
+        $this->container['last_alarm_time_end'] = $last_alarm_time_end;
+
+        return $this;
+    }
+
+    /**
+     * Gets last_alarm_time_start
+     *
+     * @return int
+     */
+    public function getLastAlarmTimeStart()
+    {
+        return $this->container['last_alarm_time_start'];
+    }
+
+    /**
+     * Sets last_alarm_time_start
+     *
+     * @param int $last_alarm_time_start last_alarm_time_start
+     *
+     * @return $this
+     */
+    public function setLastAlarmTimeStart($last_alarm_time_start)
+    {
+        $this->container['last_alarm_time_start'] = $last_alarm_time_start;
+
+        return $this;
+    }
+
+    /**
      * Gets leaf_group_ids
      *
      * @return string[]
@@ -1077,6 +1149,30 @@ class ConditionsForExportVirusAlarmListDataInput implements ModelInterface, Arra
     public function setName($name)
     {
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets operation_list
+     *
+     * @return string[]
+     */
+    public function getOperationList()
+    {
+        return $this->container['operation_list'];
+    }
+
+    /**
+     * Sets operation_list
+     *
+     * @param string[] $operation_list operation_list
+     *
+     * @return $this
+     */
+    public function setOperationList($operation_list)
+    {
+        $this->container['operation_list'] = $operation_list;
 
         return $this;
     }
@@ -1365,6 +1461,30 @@ class ConditionsForExportVirusAlarmListDataInput implements ModelInterface, Arra
     public function setWhiteListName($white_list_name)
     {
         $this->container['white_list_name'] = $white_list_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets security_intelligence_results
+     *
+     * @return string[]
+     */
+    public function getSecurityIntelligenceResults()
+    {
+        return $this->container['security_intelligence_results'];
+    }
+
+    /**
+     * Sets security_intelligence_results
+     *
+     * @param string[] $security_intelligence_results security_intelligence_results
+     *
+     * @return $this
+     */
+    public function setSecurityIntelligenceResults($security_intelligence_results)
+    {
+        $this->container['security_intelligence_results'] = $security_intelligence_results;
 
         return $this;
     }

@@ -29,6 +29,7 @@ class ModifyTLSConfigRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'alarm_topic_config' => '\Volcengine\Seccenter20240508\Model\AlarmTopicConfigForModifyTLSConfigInput',
+        'bash_audit_topic_config' => '\Volcengine\Seccenter20240508\Model\BashAuditTopicConfigForModifyTLSConfigInput',
         'login_topic_config' => '\Volcengine\Seccenter20240508\Model\LoginTopicConfigForModifyTLSConfigInput',
         'port_change_topic_config' => '\Volcengine\Seccenter20240508\Model\PortChangeTopicConfigForModifyTLSConfigInput',
         'process_start_topic_config' => '\Volcengine\Seccenter20240508\Model\ProcessStartTopicConfigForModifyTLSConfigInput',
@@ -44,6 +45,7 @@ class ModifyTLSConfigRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'alarm_topic_config' => null,
+        'bash_audit_topic_config' => null,
         'login_topic_config' => null,
         'port_change_topic_config' => null,
         'process_start_topic_config' => null,
@@ -80,6 +82,7 @@ class ModifyTLSConfigRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'alarm_topic_config' => 'AlarmTopicConfig',
+        'bash_audit_topic_config' => 'BashAuditTopicConfig',
         'login_topic_config' => 'LoginTopicConfig',
         'port_change_topic_config' => 'PortChangeTopicConfig',
         'process_start_topic_config' => 'ProcessStartTopicConfig',
@@ -95,6 +98,7 @@ class ModifyTLSConfigRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'alarm_topic_config' => 'setAlarmTopicConfig',
+        'bash_audit_topic_config' => 'setBashAuditTopicConfig',
         'login_topic_config' => 'setLoginTopicConfig',
         'port_change_topic_config' => 'setPortChangeTopicConfig',
         'process_start_topic_config' => 'setProcessStartTopicConfig',
@@ -110,6 +114,7 @@ class ModifyTLSConfigRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'alarm_topic_config' => 'getAlarmTopicConfig',
+        'bash_audit_topic_config' => 'getBashAuditTopicConfig',
         'login_topic_config' => 'getLoginTopicConfig',
         'port_change_topic_config' => 'getPortChangeTopicConfig',
         'process_start_topic_config' => 'getProcessStartTopicConfig',
@@ -179,6 +184,7 @@ class ModifyTLSConfigRequest implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['alarm_topic_config'] = isset($data['alarm_topic_config']) ? $data['alarm_topic_config'] : null;
+        $this->container['bash_audit_topic_config'] = isset($data['bash_audit_topic_config']) ? $data['bash_audit_topic_config'] : null;
         $this->container['login_topic_config'] = isset($data['login_topic_config']) ? $data['login_topic_config'] : null;
         $this->container['port_change_topic_config'] = isset($data['port_change_topic_config']) ? $data['port_change_topic_config'] : null;
         $this->container['process_start_topic_config'] = isset($data['process_start_topic_config']) ? $data['process_start_topic_config'] : null;
@@ -231,6 +237,30 @@ class ModifyTLSConfigRequest implements ModelInterface, ArrayAccess
     public function setAlarmTopicConfig($alarm_topic_config)
     {
         $this->container['alarm_topic_config'] = $alarm_topic_config;
+
+        return $this;
+    }
+
+    /**
+     * Gets bash_audit_topic_config
+     *
+     * @return \Volcengine\Seccenter20240508\Model\BashAuditTopicConfigForModifyTLSConfigInput
+     */
+    public function getBashAuditTopicConfig()
+    {
+        return $this->container['bash_audit_topic_config'];
+    }
+
+    /**
+     * Sets bash_audit_topic_config
+     *
+     * @param \Volcengine\Seccenter20240508\Model\BashAuditTopicConfigForModifyTLSConfigInput $bash_audit_topic_config bash_audit_topic_config
+     *
+     * @return $this
+     */
+    public function setBashAuditTopicConfig($bash_audit_topic_config)
+    {
+        $this->container['bash_audit_topic_config'] = $bash_audit_topic_config;
 
         return $this;
     }

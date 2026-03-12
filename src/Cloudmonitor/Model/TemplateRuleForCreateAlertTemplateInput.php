@@ -30,6 +30,7 @@ class TemplateRuleForCreateAlertTemplateInput implements ModelInterface, ArrayAc
     protected static $swaggerTypes = [
         'condition_operator' => 'string',
         'evaluation_count' => 'int',
+        'evaluation_interval' => 'int',
         'level_conditions' => '\Volcengine\Cloudmonitor\Model\LevelConditionForCreateAlertTemplateInput[]',
         'multiple_conditions' => 'bool',
         'name' => 'string',
@@ -45,6 +46,7 @@ class TemplateRuleForCreateAlertTemplateInput implements ModelInterface, ArrayAc
     protected static $swaggerFormats = [
         'condition_operator' => null,
         'evaluation_count' => 'int32',
+        'evaluation_interval' => 'int32',
         'level_conditions' => null,
         'multiple_conditions' => null,
         'name' => null,
@@ -81,6 +83,7 @@ class TemplateRuleForCreateAlertTemplateInput implements ModelInterface, ArrayAc
     protected static $attributeMap = [
         'condition_operator' => 'ConditionOperator',
         'evaluation_count' => 'EvaluationCount',
+        'evaluation_interval' => 'EvaluationInterval',
         'level_conditions' => 'LevelConditions',
         'multiple_conditions' => 'MultipleConditions',
         'name' => 'Name',
@@ -96,6 +99,7 @@ class TemplateRuleForCreateAlertTemplateInput implements ModelInterface, ArrayAc
     protected static $setters = [
         'condition_operator' => 'setConditionOperator',
         'evaluation_count' => 'setEvaluationCount',
+        'evaluation_interval' => 'setEvaluationInterval',
         'level_conditions' => 'setLevelConditions',
         'multiple_conditions' => 'setMultipleConditions',
         'name' => 'setName',
@@ -111,6 +115,7 @@ class TemplateRuleForCreateAlertTemplateInput implements ModelInterface, ArrayAc
     protected static $getters = [
         'condition_operator' => 'getConditionOperator',
         'evaluation_count' => 'getEvaluationCount',
+        'evaluation_interval' => 'getEvaluationInterval',
         'level_conditions' => 'getLevelConditions',
         'multiple_conditions' => 'getMultipleConditions',
         'name' => 'getName',
@@ -180,6 +185,7 @@ class TemplateRuleForCreateAlertTemplateInput implements ModelInterface, ArrayAc
     {
         $this->container['condition_operator'] = isset($data['condition_operator']) ? $data['condition_operator'] : null;
         $this->container['evaluation_count'] = isset($data['evaluation_count']) ? $data['evaluation_count'] : null;
+        $this->container['evaluation_interval'] = isset($data['evaluation_interval']) ? $data['evaluation_interval'] : null;
         $this->container['level_conditions'] = isset($data['level_conditions']) ? $data['level_conditions'] : null;
         $this->container['multiple_conditions'] = isset($data['multiple_conditions']) ? $data['multiple_conditions'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
@@ -255,6 +261,30 @@ class TemplateRuleForCreateAlertTemplateInput implements ModelInterface, ArrayAc
     public function setEvaluationCount($evaluation_count)
     {
         $this->container['evaluation_count'] = $evaluation_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets evaluation_interval
+     *
+     * @return int
+     */
+    public function getEvaluationInterval()
+    {
+        return $this->container['evaluation_interval'];
+    }
+
+    /**
+     * Sets evaluation_interval
+     *
+     * @param int $evaluation_interval evaluation_interval
+     *
+     * @return $this
+     */
+    public function setEvaluationInterval($evaluation_interval)
+    {
+        $this->container['evaluation_interval'] = $evaluation_interval;
 
         return $this;
     }

@@ -30,6 +30,7 @@ class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'comparison_operator' => 'string',
         'display_name' => 'string',
+        'evaluation_window' => 'int',
         'metric_name' => 'string',
         'metric_unit' => 'string',
         'period' => 'string',
@@ -45,6 +46,7 @@ class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'comparison_operator' => null,
         'display_name' => null,
+        'evaluation_window' => 'int32',
         'metric_name' => null,
         'metric_unit' => null,
         'period' => null,
@@ -81,6 +83,7 @@ class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'comparison_operator' => 'ComparisonOperator',
         'display_name' => 'DisplayName',
+        'evaluation_window' => 'EvaluationWindow',
         'metric_name' => 'MetricName',
         'metric_unit' => 'MetricUnit',
         'period' => 'Period',
@@ -96,6 +99,7 @@ class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
     protected static $setters = [
         'comparison_operator' => 'setComparisonOperator',
         'display_name' => 'setDisplayName',
+        'evaluation_window' => 'setEvaluationWindow',
         'metric_name' => 'setMetricName',
         'metric_unit' => 'setMetricUnit',
         'period' => 'setPeriod',
@@ -111,6 +115,7 @@ class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
     protected static $getters = [
         'comparison_operator' => 'getComparisonOperator',
         'display_name' => 'getDisplayName',
+        'evaluation_window' => 'getEvaluationWindow',
         'metric_name' => 'getMetricName',
         'metric_unit' => 'getMetricUnit',
         'period' => 'getPeriod',
@@ -180,6 +185,7 @@ class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
     {
         $this->container['comparison_operator'] = isset($data['comparison_operator']) ? $data['comparison_operator'] : null;
         $this->container['display_name'] = isset($data['display_name']) ? $data['display_name'] : null;
+        $this->container['evaluation_window'] = isset($data['evaluation_window']) ? $data['evaluation_window'] : null;
         $this->container['metric_name'] = isset($data['metric_name']) ? $data['metric_name'] : null;
         $this->container['metric_unit'] = isset($data['metric_unit']) ? $data['metric_unit'] : null;
         $this->container['period'] = isset($data['period']) ? $data['period'] : null;
@@ -255,6 +261,30 @@ class ConditionForListRulesByIdsOutput implements ModelInterface, ArrayAccess
     public function setDisplayName($display_name)
     {
         $this->container['display_name'] = $display_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets evaluation_window
+     *
+     * @return int
+     */
+    public function getEvaluationWindow()
+    {
+        return $this->container['evaluation_window'];
+    }
+
+    /**
+     * Sets evaluation_window
+     *
+     * @param int $evaluation_window evaluation_window
+     *
+     * @return $this
+     */
+    public function setEvaluationWindow($evaluation_window)
+    {
+        $this->container['evaluation_window'] = $evaluation_window;
 
         return $this;
     }

@@ -29,8 +29,10 @@ class DataForListHostsBasicInfosOutput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'abnormal_plugins_list' => 'string',
+        'account_id' => 'string',
         'agent_id' => 'string',
         'agent_status' => 'string',
+        'client_public_ip' => 'string',
         'cloud_provider' => 'string',
         'collect_status' => 'bool',
         'cpu_usage' => 'double',
@@ -40,11 +42,14 @@ class DataForListHostsBasicInfosOutput implements ModelInterface, ArrayAccess
         'gateway' => 'string',
         'group' => 'string',
         'group_path' => 'string',
+        'group_path_en' => 'string',
         'kernel_version' => 'string',
         'last_heartbeat_time' => 'int',
         'mem_usage' => 'double',
+        'old_valid_code' => 'int',
         'online' => 'bool',
         'platform' => 'string',
+        'platform_version' => 'string',
         'plugins_brief_info' => 'string',
         'plugins_status' => 'string',
         'reason' => 'string',
@@ -54,7 +59,8 @@ class DataForListHostsBasicInfosOutput implements ModelInterface, ArrayAccess
         'tags' => 'string[]',
         'total_mem' => 'int',
         'user_status' => 'string',
-        'user_status_reason' => 'string'
+        'user_status_reason' => 'string',
+        'user_status_reason_code' => 'int'
     ];
 
     /**
@@ -64,8 +70,10 @@ class DataForListHostsBasicInfosOutput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'abnormal_plugins_list' => null,
+        'account_id' => null,
         'agent_id' => null,
         'agent_status' => null,
+        'client_public_ip' => null,
         'cloud_provider' => null,
         'collect_status' => null,
         'cpu_usage' => 'double',
@@ -75,11 +83,14 @@ class DataForListHostsBasicInfosOutput implements ModelInterface, ArrayAccess
         'gateway' => null,
         'group' => null,
         'group_path' => null,
+        'group_path_en' => null,
         'kernel_version' => null,
         'last_heartbeat_time' => 'int64',
         'mem_usage' => 'double',
+        'old_valid_code' => 'int64',
         'online' => null,
         'platform' => null,
+        'platform_version' => null,
         'plugins_brief_info' => null,
         'plugins_status' => null,
         'reason' => null,
@@ -89,7 +100,8 @@ class DataForListHostsBasicInfosOutput implements ModelInterface, ArrayAccess
         'tags' => null,
         'total_mem' => 'int64',
         'user_status' => null,
-        'user_status_reason' => null
+        'user_status_reason' => null,
+        'user_status_reason_code' => 'int64'
     ];
 
     /**
@@ -120,8 +132,10 @@ class DataForListHostsBasicInfosOutput implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'abnormal_plugins_list' => 'AbnormalPluginsList',
+        'account_id' => 'AccountID',
         'agent_id' => 'AgentID',
         'agent_status' => 'AgentStatus',
+        'client_public_ip' => 'ClientPublicIP',
         'cloud_provider' => 'CloudProvider',
         'collect_status' => 'CollectStatus',
         'cpu_usage' => 'CpuUsage',
@@ -131,11 +145,14 @@ class DataForListHostsBasicInfosOutput implements ModelInterface, ArrayAccess
         'gateway' => 'Gateway',
         'group' => 'Group',
         'group_path' => 'GroupPath',
+        'group_path_en' => 'GroupPathEn',
         'kernel_version' => 'KernelVersion',
         'last_heartbeat_time' => 'LastHeartbeatTime',
         'mem_usage' => 'MemUsage',
+        'old_valid_code' => 'OldValidCode',
         'online' => 'Online',
         'platform' => 'Platform',
+        'platform_version' => 'PlatformVersion',
         'plugins_brief_info' => 'PluginsBriefInfo',
         'plugins_status' => 'PluginsStatus',
         'reason' => 'Reason',
@@ -145,7 +162,8 @@ class DataForListHostsBasicInfosOutput implements ModelInterface, ArrayAccess
         'tags' => 'Tags',
         'total_mem' => 'TotalMem',
         'user_status' => 'UserStatus',
-        'user_status_reason' => 'UserStatusReason'
+        'user_status_reason' => 'UserStatusReason',
+        'user_status_reason_code' => 'UserStatusReasonCode'
     ];
 
     /**
@@ -155,8 +173,10 @@ class DataForListHostsBasicInfosOutput implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'abnormal_plugins_list' => 'setAbnormalPluginsList',
+        'account_id' => 'setAccountId',
         'agent_id' => 'setAgentId',
         'agent_status' => 'setAgentStatus',
+        'client_public_ip' => 'setClientPublicIp',
         'cloud_provider' => 'setCloudProvider',
         'collect_status' => 'setCollectStatus',
         'cpu_usage' => 'setCpuUsage',
@@ -166,11 +186,14 @@ class DataForListHostsBasicInfosOutput implements ModelInterface, ArrayAccess
         'gateway' => 'setGateway',
         'group' => 'setGroup',
         'group_path' => 'setGroupPath',
+        'group_path_en' => 'setGroupPathEn',
         'kernel_version' => 'setKernelVersion',
         'last_heartbeat_time' => 'setLastHeartbeatTime',
         'mem_usage' => 'setMemUsage',
+        'old_valid_code' => 'setOldValidCode',
         'online' => 'setOnline',
         'platform' => 'setPlatform',
+        'platform_version' => 'setPlatformVersion',
         'plugins_brief_info' => 'setPluginsBriefInfo',
         'plugins_status' => 'setPluginsStatus',
         'reason' => 'setReason',
@@ -180,7 +203,8 @@ class DataForListHostsBasicInfosOutput implements ModelInterface, ArrayAccess
         'tags' => 'setTags',
         'total_mem' => 'setTotalMem',
         'user_status' => 'setUserStatus',
-        'user_status_reason' => 'setUserStatusReason'
+        'user_status_reason' => 'setUserStatusReason',
+        'user_status_reason_code' => 'setUserStatusReasonCode'
     ];
 
     /**
@@ -190,8 +214,10 @@ class DataForListHostsBasicInfosOutput implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'abnormal_plugins_list' => 'getAbnormalPluginsList',
+        'account_id' => 'getAccountId',
         'agent_id' => 'getAgentId',
         'agent_status' => 'getAgentStatus',
+        'client_public_ip' => 'getClientPublicIp',
         'cloud_provider' => 'getCloudProvider',
         'collect_status' => 'getCollectStatus',
         'cpu_usage' => 'getCpuUsage',
@@ -201,11 +227,14 @@ class DataForListHostsBasicInfosOutput implements ModelInterface, ArrayAccess
         'gateway' => 'getGateway',
         'group' => 'getGroup',
         'group_path' => 'getGroupPath',
+        'group_path_en' => 'getGroupPathEn',
         'kernel_version' => 'getKernelVersion',
         'last_heartbeat_time' => 'getLastHeartbeatTime',
         'mem_usage' => 'getMemUsage',
+        'old_valid_code' => 'getOldValidCode',
         'online' => 'getOnline',
         'platform' => 'getPlatform',
+        'platform_version' => 'getPlatformVersion',
         'plugins_brief_info' => 'getPluginsBriefInfo',
         'plugins_status' => 'getPluginsStatus',
         'reason' => 'getReason',
@@ -215,7 +244,8 @@ class DataForListHostsBasicInfosOutput implements ModelInterface, ArrayAccess
         'tags' => 'getTags',
         'total_mem' => 'getTotalMem',
         'user_status' => 'getUserStatus',
-        'user_status_reason' => 'getUserStatusReason'
+        'user_status_reason' => 'getUserStatusReason',
+        'user_status_reason_code' => 'getUserStatusReasonCode'
     ];
 
     /**
@@ -279,8 +309,10 @@ class DataForListHostsBasicInfosOutput implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['abnormal_plugins_list'] = isset($data['abnormal_plugins_list']) ? $data['abnormal_plugins_list'] : null;
+        $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
         $this->container['agent_id'] = isset($data['agent_id']) ? $data['agent_id'] : null;
         $this->container['agent_status'] = isset($data['agent_status']) ? $data['agent_status'] : null;
+        $this->container['client_public_ip'] = isset($data['client_public_ip']) ? $data['client_public_ip'] : null;
         $this->container['cloud_provider'] = isset($data['cloud_provider']) ? $data['cloud_provider'] : null;
         $this->container['collect_status'] = isset($data['collect_status']) ? $data['collect_status'] : null;
         $this->container['cpu_usage'] = isset($data['cpu_usage']) ? $data['cpu_usage'] : null;
@@ -290,11 +322,14 @@ class DataForListHostsBasicInfosOutput implements ModelInterface, ArrayAccess
         $this->container['gateway'] = isset($data['gateway']) ? $data['gateway'] : null;
         $this->container['group'] = isset($data['group']) ? $data['group'] : null;
         $this->container['group_path'] = isset($data['group_path']) ? $data['group_path'] : null;
+        $this->container['group_path_en'] = isset($data['group_path_en']) ? $data['group_path_en'] : null;
         $this->container['kernel_version'] = isset($data['kernel_version']) ? $data['kernel_version'] : null;
         $this->container['last_heartbeat_time'] = isset($data['last_heartbeat_time']) ? $data['last_heartbeat_time'] : null;
         $this->container['mem_usage'] = isset($data['mem_usage']) ? $data['mem_usage'] : null;
+        $this->container['old_valid_code'] = isset($data['old_valid_code']) ? $data['old_valid_code'] : null;
         $this->container['online'] = isset($data['online']) ? $data['online'] : null;
         $this->container['platform'] = isset($data['platform']) ? $data['platform'] : null;
+        $this->container['platform_version'] = isset($data['platform_version']) ? $data['platform_version'] : null;
         $this->container['plugins_brief_info'] = isset($data['plugins_brief_info']) ? $data['plugins_brief_info'] : null;
         $this->container['plugins_status'] = isset($data['plugins_status']) ? $data['plugins_status'] : null;
         $this->container['reason'] = isset($data['reason']) ? $data['reason'] : null;
@@ -305,6 +340,7 @@ class DataForListHostsBasicInfosOutput implements ModelInterface, ArrayAccess
         $this->container['total_mem'] = isset($data['total_mem']) ? $data['total_mem'] : null;
         $this->container['user_status'] = isset($data['user_status']) ? $data['user_status'] : null;
         $this->container['user_status_reason'] = isset($data['user_status_reason']) ? $data['user_status_reason'] : null;
+        $this->container['user_status_reason_code'] = isset($data['user_status_reason_code']) ? $data['user_status_reason_code'] : null;
     }
 
     /**
@@ -356,6 +392,30 @@ class DataForListHostsBasicInfosOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets account_id
+     *
+     * @return string
+     */
+    public function getAccountId()
+    {
+        return $this->container['account_id'];
+    }
+
+    /**
+     * Sets account_id
+     *
+     * @param string $account_id account_id
+     *
+     * @return $this
+     */
+    public function setAccountId($account_id)
+    {
+        $this->container['account_id'] = $account_id;
+
+        return $this;
+    }
+
+    /**
      * Gets agent_id
      *
      * @return string
@@ -399,6 +459,30 @@ class DataForListHostsBasicInfosOutput implements ModelInterface, ArrayAccess
     public function setAgentStatus($agent_status)
     {
         $this->container['agent_status'] = $agent_status;
+
+        return $this;
+    }
+
+    /**
+     * Gets client_public_ip
+     *
+     * @return string
+     */
+    public function getClientPublicIp()
+    {
+        return $this->container['client_public_ip'];
+    }
+
+    /**
+     * Sets client_public_ip
+     *
+     * @param string $client_public_ip client_public_ip
+     *
+     * @return $this
+     */
+    public function setClientPublicIp($client_public_ip)
+    {
+        $this->container['client_public_ip'] = $client_public_ip;
 
         return $this;
     }
@@ -620,6 +704,30 @@ class DataForListHostsBasicInfosOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets group_path_en
+     *
+     * @return string
+     */
+    public function getGroupPathEn()
+    {
+        return $this->container['group_path_en'];
+    }
+
+    /**
+     * Sets group_path_en
+     *
+     * @param string $group_path_en group_path_en
+     *
+     * @return $this
+     */
+    public function setGroupPathEn($group_path_en)
+    {
+        $this->container['group_path_en'] = $group_path_en;
+
+        return $this;
+    }
+
+    /**
      * Gets kernel_version
      *
      * @return string
@@ -692,6 +800,30 @@ class DataForListHostsBasicInfosOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets old_valid_code
+     *
+     * @return int
+     */
+    public function getOldValidCode()
+    {
+        return $this->container['old_valid_code'];
+    }
+
+    /**
+     * Sets old_valid_code
+     *
+     * @param int $old_valid_code old_valid_code
+     *
+     * @return $this
+     */
+    public function setOldValidCode($old_valid_code)
+    {
+        $this->container['old_valid_code'] = $old_valid_code;
+
+        return $this;
+    }
+
+    /**
      * Gets online
      *
      * @return bool
@@ -735,6 +867,30 @@ class DataForListHostsBasicInfosOutput implements ModelInterface, ArrayAccess
     public function setPlatform($platform)
     {
         $this->container['platform'] = $platform;
+
+        return $this;
+    }
+
+    /**
+     * Gets platform_version
+     *
+     * @return string
+     */
+    public function getPlatformVersion()
+    {
+        return $this->container['platform_version'];
+    }
+
+    /**
+     * Sets platform_version
+     *
+     * @param string $platform_version platform_version
+     *
+     * @return $this
+     */
+    public function setPlatformVersion($platform_version)
+    {
+        $this->container['platform_version'] = $platform_version;
 
         return $this;
     }
@@ -975,6 +1131,30 @@ class DataForListHostsBasicInfosOutput implements ModelInterface, ArrayAccess
     public function setUserStatusReason($user_status_reason)
     {
         $this->container['user_status_reason'] = $user_status_reason;
+
+        return $this;
+    }
+
+    /**
+     * Gets user_status_reason_code
+     *
+     * @return int
+     */
+    public function getUserStatusReasonCode()
+    {
+        return $this->container['user_status_reason_code'];
+    }
+
+    /**
+     * Sets user_status_reason_code
+     *
+     * @param int $user_status_reason_code user_status_reason_code
+     *
+     * @return $this
+     */
+    public function setUserStatusReasonCode($user_status_reason_code)
+    {
+        $this->container['user_status_reason_code'] = $user_status_reason_code;
 
         return $this;
     }

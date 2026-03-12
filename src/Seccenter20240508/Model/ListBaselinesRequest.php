@@ -32,6 +32,7 @@ class ListBaselinesRequest implements ModelInterface, ArrayAccess
         'asset_id' => 'string',
         'asset_type' => 'string',
         'baseline_name' => 'string',
+        'baseline_name_en' => 'string',
         'cloud_providers' => 'string[]',
         'cluster_id' => 'string',
         'group_id' => 'int',
@@ -56,6 +57,7 @@ class ListBaselinesRequest implements ModelInterface, ArrayAccess
         'asset_id' => null,
         'asset_type' => null,
         'baseline_name' => null,
+        'baseline_name_en' => null,
         'cloud_providers' => null,
         'cluster_id' => null,
         'group_id' => 'int64',
@@ -101,6 +103,7 @@ class ListBaselinesRequest implements ModelInterface, ArrayAccess
         'asset_id' => 'AssetID',
         'asset_type' => 'AssetType',
         'baseline_name' => 'BaselineName',
+        'baseline_name_en' => 'BaselineNameEn',
         'cloud_providers' => 'CloudProviders',
         'cluster_id' => 'ClusterID',
         'group_id' => 'GroupID',
@@ -125,6 +128,7 @@ class ListBaselinesRequest implements ModelInterface, ArrayAccess
         'asset_id' => 'setAssetId',
         'asset_type' => 'setAssetType',
         'baseline_name' => 'setBaselineName',
+        'baseline_name_en' => 'setBaselineNameEn',
         'cloud_providers' => 'setCloudProviders',
         'cluster_id' => 'setClusterId',
         'group_id' => 'setGroupId',
@@ -149,6 +153,7 @@ class ListBaselinesRequest implements ModelInterface, ArrayAccess
         'asset_id' => 'getAssetId',
         'asset_type' => 'getAssetType',
         'baseline_name' => 'getBaselineName',
+        'baseline_name_en' => 'getBaselineNameEn',
         'cloud_providers' => 'getCloudProviders',
         'cluster_id' => 'getClusterId',
         'group_id' => 'getGroupId',
@@ -204,23 +209,8 @@ class ListBaselinesRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const ASSET_TYPE_HOST = 'Host';
-    const ASSET_TYPE_DEV = 'Dev';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getAssetTypeAllowableValues()
-    {
-        return [
-            self::ASSET_TYPE_HOST,
-            self::ASSET_TYPE_DEV,
-        ];
-    }
     
 
     /**
@@ -242,6 +232,7 @@ class ListBaselinesRequest implements ModelInterface, ArrayAccess
         $this->container['asset_id'] = isset($data['asset_id']) ? $data['asset_id'] : null;
         $this->container['asset_type'] = isset($data['asset_type']) ? $data['asset_type'] : null;
         $this->container['baseline_name'] = isset($data['baseline_name']) ? $data['baseline_name'] : null;
+        $this->container['baseline_name_en'] = isset($data['baseline_name_en']) ? $data['baseline_name_en'] : null;
         $this->container['cloud_providers'] = isset($data['cloud_providers']) ? $data['cloud_providers'] : null;
         $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
         $this->container['group_id'] = isset($data['group_id']) ? $data['group_id'] : null;
@@ -264,14 +255,6 @@ class ListBaselinesRequest implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getAssetTypeAllowableValues();
-        if (!is_null($this->container['asset_type']) && !in_array($this->container['asset_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'asset_type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         if ($this->container['page_number'] === null) {
             $invalidProperties[] = "'page_number' can't be null";
@@ -361,15 +344,6 @@ class ListBaselinesRequest implements ModelInterface, ArrayAccess
      */
     public function setAssetType($asset_type)
     {
-        $allowedValues = $this->getAssetTypeAllowableValues();
-        if (!is_null($asset_type) && !in_array($asset_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'asset_type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['asset_type'] = $asset_type;
 
         return $this;
@@ -395,6 +369,30 @@ class ListBaselinesRequest implements ModelInterface, ArrayAccess
     public function setBaselineName($baseline_name)
     {
         $this->container['baseline_name'] = $baseline_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets baseline_name_en
+     *
+     * @return string
+     */
+    public function getBaselineNameEn()
+    {
+        return $this->container['baseline_name_en'];
+    }
+
+    /**
+     * Sets baseline_name_en
+     *
+     * @param string $baseline_name_en baseline_name_en
+     *
+     * @return $this
+     */
+    public function setBaselineNameEn($baseline_name_en)
+    {
+        $this->container['baseline_name_en'] = $baseline_name_en;
 
         return $this;
     }

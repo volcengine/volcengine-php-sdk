@@ -37,7 +37,7 @@ class GetFingerprintUserRequest implements ModelInterface, ArrayAccess
         'last_login_time_end' => 'int',
         'last_login_time_start' => 'int',
         'leaf_group_ids' => 'string[]',
-        'page_number' => 'string',
+        'page_number' => 'int',
         'page_size' => 'int',
         'sort_by' => 'string',
         'sort_order' => 'string',
@@ -61,7 +61,7 @@ class GetFingerprintUserRequest implements ModelInterface, ArrayAccess
         'last_login_time_end' => 'int64',
         'last_login_time_start' => 'int64',
         'leaf_group_ids' => null,
-        'page_number' => null,
+        'page_number' => 'int64',
         'page_size' => 'int64',
         'sort_by' => null,
         'sort_order' => null,
@@ -490,7 +490,7 @@ class GetFingerprintUserRequest implements ModelInterface, ArrayAccess
     /**
      * Gets page_number
      *
-     * @return string
+     * @return int
      */
     public function getPageNumber()
     {
@@ -500,7 +500,7 @@ class GetFingerprintUserRequest implements ModelInterface, ArrayAccess
     /**
      * Sets page_number
      *
-     * @param string $page_number page_number
+     * @param int $page_number page_number
      *
      * @return $this
      */

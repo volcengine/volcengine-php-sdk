@@ -190,15 +190,6 @@ class ListOrderedHostsBasicInfosRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['page_number'] === null) {
-            $invalidProperties[] = "'page_number' can't be null";
-        }
-        if ($this->container['page_size'] === null) {
-            $invalidProperties[] = "'page_size' can't be null";
-        }
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
-        }
         return $invalidProperties;
     }
 

@@ -28,11 +28,9 @@ class SegmentForGetExecutionOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'clip_fade' => 'bool',
-        'max_duration' => 'double',
-        'min_duration' => 'double',
-        'no_file' => 'bool',
-        'threshold' => 'double'
+        'duration' => 'int',
+        'format' => 'string',
+        'type' => 'string'
     ];
 
     /**
@@ -41,11 +39,9 @@ class SegmentForGetExecutionOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'clip_fade' => null,
-        'max_duration' => 'double',
-        'min_duration' => 'double',
-        'no_file' => null,
-        'threshold' => 'double'
+        'duration' => 'int32',
+        'format' => null,
+        'type' => null
     ];
 
     /**
@@ -75,11 +71,9 @@ class SegmentForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'clip_fade' => 'ClipFade',
-        'max_duration' => 'MaxDuration',
-        'min_duration' => 'MinDuration',
-        'no_file' => 'NoFile',
-        'threshold' => 'Threshold'
+        'duration' => 'Duration',
+        'format' => 'Format',
+        'type' => 'Type'
     ];
 
     /**
@@ -88,11 +82,9 @@ class SegmentForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'clip_fade' => 'setClipFade',
-        'max_duration' => 'setMaxDuration',
-        'min_duration' => 'setMinDuration',
-        'no_file' => 'setNoFile',
-        'threshold' => 'setThreshold'
+        'duration' => 'setDuration',
+        'format' => 'setFormat',
+        'type' => 'setType'
     ];
 
     /**
@@ -101,11 +93,9 @@ class SegmentForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'clip_fade' => 'getClipFade',
-        'max_duration' => 'getMaxDuration',
-        'min_duration' => 'getMinDuration',
-        'no_file' => 'getNoFile',
-        'threshold' => 'getThreshold'
+        'duration' => 'getDuration',
+        'format' => 'getFormat',
+        'type' => 'getType'
     ];
 
     /**
@@ -168,11 +158,9 @@ class SegmentForGetExecutionOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['clip_fade'] = isset($data['clip_fade']) ? $data['clip_fade'] : null;
-        $this->container['max_duration'] = isset($data['max_duration']) ? $data['max_duration'] : null;
-        $this->container['min_duration'] = isset($data['min_duration']) ? $data['min_duration'] : null;
-        $this->container['no_file'] = isset($data['no_file']) ? $data['no_file'] : null;
-        $this->container['threshold'] = isset($data['threshold']) ? $data['threshold'] : null;
+        $this->container['duration'] = isset($data['duration']) ? $data['duration'] : null;
+        $this->container['format'] = isset($data['format']) ? $data['format'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
     /**
@@ -200,121 +188,73 @@ class SegmentForGetExecutionOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets clip_fade
+     * Gets duration
      *
-     * @return bool
+     * @return int
      */
-    public function getClipFade()
+    public function getDuration()
     {
-        return $this->container['clip_fade'];
+        return $this->container['duration'];
     }
 
     /**
-     * Sets clip_fade
+     * Sets duration
      *
-     * @param bool $clip_fade clip_fade
+     * @param int $duration duration
      *
      * @return $this
      */
-    public function setClipFade($clip_fade)
+    public function setDuration($duration)
     {
-        $this->container['clip_fade'] = $clip_fade;
+        $this->container['duration'] = $duration;
 
         return $this;
     }
 
     /**
-     * Gets max_duration
+     * Gets format
      *
-     * @return double
+     * @return string
      */
-    public function getMaxDuration()
+    public function getFormat()
     {
-        return $this->container['max_duration'];
+        return $this->container['format'];
     }
 
     /**
-     * Sets max_duration
+     * Sets format
      *
-     * @param double $max_duration max_duration
+     * @param string $format format
      *
      * @return $this
      */
-    public function setMaxDuration($max_duration)
+    public function setFormat($format)
     {
-        $this->container['max_duration'] = $max_duration;
+        $this->container['format'] = $format;
 
         return $this;
     }
 
     /**
-     * Gets min_duration
+     * Gets type
      *
-     * @return double
+     * @return string
      */
-    public function getMinDuration()
+    public function getType()
     {
-        return $this->container['min_duration'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets min_duration
+     * Sets type
      *
-     * @param double $min_duration min_duration
+     * @param string $type type
      *
      * @return $this
      */
-    public function setMinDuration($min_duration)
+    public function setType($type)
     {
-        $this->container['min_duration'] = $min_duration;
-
-        return $this;
-    }
-
-    /**
-     * Gets no_file
-     *
-     * @return bool
-     */
-    public function getNoFile()
-    {
-        return $this->container['no_file'];
-    }
-
-    /**
-     * Sets no_file
-     *
-     * @param bool $no_file no_file
-     *
-     * @return $this
-     */
-    public function setNoFile($no_file)
-    {
-        $this->container['no_file'] = $no_file;
-
-        return $this;
-    }
-
-    /**
-     * Gets threshold
-     *
-     * @return double
-     */
-    public function getThreshold()
-    {
-        return $this->container['threshold'];
-    }
-
-    /**
-     * Sets threshold
-     *
-     * @param double $threshold threshold
-     *
-     * @return $this
-     */
-    public function setThreshold($threshold)
-    {
-        $this->container['threshold'] = $threshold;
+        $this->container['type'] = $type;
 
         return $this;
     }

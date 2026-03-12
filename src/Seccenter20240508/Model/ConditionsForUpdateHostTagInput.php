@@ -36,6 +36,7 @@ class ConditionsForUpdateHostTagInput implements ModelInterface, ArrayAccess
         'hostname' => 'string',
         'ip' => 'string',
         'leaf_group_ids' => 'string[]',
+        'os' => 'string',
         'platforms' => 'string[]',
         'proxy_name' => 'string',
         'proxy_server_name' => 'string',
@@ -64,6 +65,7 @@ class ConditionsForUpdateHostTagInput implements ModelInterface, ArrayAccess
         'hostname' => null,
         'ip' => null,
         'leaf_group_ids' => null,
+        'os' => null,
         'platforms' => null,
         'proxy_name' => null,
         'proxy_server_name' => null,
@@ -113,6 +115,7 @@ class ConditionsForUpdateHostTagInput implements ModelInterface, ArrayAccess
         'hostname' => 'Hostname',
         'ip' => 'Ip',
         'leaf_group_ids' => 'LeafGroupIDs',
+        'os' => 'Os',
         'platforms' => 'Platforms',
         'proxy_name' => 'ProxyName',
         'proxy_server_name' => 'ProxyServerName',
@@ -141,6 +144,7 @@ class ConditionsForUpdateHostTagInput implements ModelInterface, ArrayAccess
         'hostname' => 'setHostname',
         'ip' => 'setIp',
         'leaf_group_ids' => 'setLeafGroupIds',
+        'os' => 'setOs',
         'platforms' => 'setPlatforms',
         'proxy_name' => 'setProxyName',
         'proxy_server_name' => 'setProxyServerName',
@@ -169,6 +173,7 @@ class ConditionsForUpdateHostTagInput implements ModelInterface, ArrayAccess
         'hostname' => 'getHostname',
         'ip' => 'getIp',
         'leaf_group_ids' => 'getLeafGroupIds',
+        'os' => 'getOs',
         'platforms' => 'getPlatforms',
         'proxy_name' => 'getProxyName',
         'proxy_server_name' => 'getProxyServerName',
@@ -251,6 +256,7 @@ class ConditionsForUpdateHostTagInput implements ModelInterface, ArrayAccess
         $this->container['hostname'] = isset($data['hostname']) ? $data['hostname'] : null;
         $this->container['ip'] = isset($data['ip']) ? $data['ip'] : null;
         $this->container['leaf_group_ids'] = isset($data['leaf_group_ids']) ? $data['leaf_group_ids'] : null;
+        $this->container['os'] = isset($data['os']) ? $data['os'] : null;
         $this->container['platforms'] = isset($data['platforms']) ? $data['platforms'] : null;
         $this->container['proxy_name'] = isset($data['proxy_name']) ? $data['proxy_name'] : null;
         $this->container['proxy_server_name'] = isset($data['proxy_server_name']) ? $data['proxy_server_name'] : null;
@@ -477,6 +483,30 @@ class ConditionsForUpdateHostTagInput implements ModelInterface, ArrayAccess
     public function setLeafGroupIds($leaf_group_ids)
     {
         $this->container['leaf_group_ids'] = $leaf_group_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets os
+     *
+     * @return string
+     */
+    public function getOs()
+    {
+        return $this->container['os'];
+    }
+
+    /**
+     * Sets os
+     *
+     * @param string $os os
+     *
+     * @return $this
+     */
+    public function setOs($os)
+    {
+        $this->container['os'] = $os;
 
         return $this;
     }

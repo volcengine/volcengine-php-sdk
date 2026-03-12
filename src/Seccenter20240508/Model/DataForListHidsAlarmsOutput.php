@@ -30,17 +30,20 @@ class DataForListHidsAlarmsOutput implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'agent_group' => 'string',
         'agent_id' => 'string',
+        'alarm_count' => 'int',
         'alarm_handle_result' => 'int',
         'alarm_hostname' => 'string',
         'alarm_id' => 'string',
         'alarm_time' => 'int',
         'alert_tags' => 'string[]',
+        'analysis_record_uuid' => 'string',
         'args' => 'string[]',
         'args_list' => 'string[]',
         'argv_list' => 'string[]',
         'attribution_list' => '\Volcengine\Seccenter20240508\Model\AttributionListForListHidsAlarmsOutput[]',
         'class' => 'string',
         'cluster' => '\Volcengine\Seccenter20240508\Model\ClusterForListHidsAlarmsOutput',
+        'confidence' => 'string',
         'data_type' => 'string',
         'error_reason' => 'string',
         'event_id' => 'string',
@@ -50,21 +53,26 @@ class DataForListHidsAlarmsOutput implements ModelInterface, ArrayAccess
         'file_hash' => 'string',
         'file_path' => 'string',
         'group_path' => 'string',
+        'handle_fail_reason' => 'string',
         'handle_time' => 'int',
         'host' => '\Volcengine\Seccenter20240508\Model\HostForListHidsAlarmsOutput',
         'image_name' => 'string',
         'in_docker' => 'string',
         'llm_analysis_result' => 'string',
         'llm_processed' => 'bool',
+        'last_alarm_time' => 'int',
         'level' => 'string',
         'mlp_instance_id' => 'string',
         'mlp_private_ip' => 'string',
         'name' => 'string',
         'ns_pid' => 'string',
+        'operation_list' => 'string[]',
         'os_type' => 'string',
         'pid' => 'string',
         'probe_hook' => 'string',
         'region' => 'string',
+        'security_intelligence_complete' => 'bool',
+        'security_intelligence_result' => 'string',
         'sid' => 'string',
         'stack_trace_format' => 'string',
         'stack_trace_hash' => 'string',
@@ -81,17 +89,20 @@ class DataForListHidsAlarmsOutput implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'agent_group' => null,
         'agent_id' => null,
+        'alarm_count' => 'int64',
         'alarm_handle_result' => 'int64',
         'alarm_hostname' => null,
         'alarm_id' => null,
         'alarm_time' => 'int64',
         'alert_tags' => null,
+        'analysis_record_uuid' => null,
         'args' => null,
         'args_list' => null,
         'argv_list' => null,
         'attribution_list' => null,
         'class' => null,
         'cluster' => null,
+        'confidence' => null,
         'data_type' => null,
         'error_reason' => null,
         'event_id' => null,
@@ -101,21 +112,26 @@ class DataForListHidsAlarmsOutput implements ModelInterface, ArrayAccess
         'file_hash' => null,
         'file_path' => null,
         'group_path' => null,
+        'handle_fail_reason' => null,
         'handle_time' => 'int64',
         'host' => null,
         'image_name' => null,
         'in_docker' => null,
         'llm_analysis_result' => null,
         'llm_processed' => null,
+        'last_alarm_time' => 'int64',
         'level' => null,
         'mlp_instance_id' => null,
         'mlp_private_ip' => null,
         'name' => null,
         'ns_pid' => null,
+        'operation_list' => null,
         'os_type' => null,
         'pid' => null,
         'probe_hook' => null,
         'region' => null,
+        'security_intelligence_complete' => null,
+        'security_intelligence_result' => null,
         'sid' => null,
         'stack_trace_format' => null,
         'stack_trace_hash' => null,
@@ -153,17 +169,20 @@ class DataForListHidsAlarmsOutput implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'agent_group' => 'AgentGroup',
         'agent_id' => 'AgentID',
+        'alarm_count' => 'AlarmCount',
         'alarm_handle_result' => 'AlarmHandleResult',
         'alarm_hostname' => 'AlarmHostname',
         'alarm_id' => 'AlarmID',
         'alarm_time' => 'AlarmTime',
         'alert_tags' => 'AlertTags',
+        'analysis_record_uuid' => 'AnalysisRecordUUID',
         'args' => 'Args',
         'args_list' => 'ArgsList',
         'argv_list' => 'ArgvList',
         'attribution_list' => 'AttributionList',
         'class' => 'Class',
         'cluster' => 'Cluster',
+        'confidence' => 'Confidence',
         'data_type' => 'DataType',
         'error_reason' => 'ErrorReason',
         'event_id' => 'EventID',
@@ -173,21 +192,26 @@ class DataForListHidsAlarmsOutput implements ModelInterface, ArrayAccess
         'file_hash' => 'FileHash',
         'file_path' => 'FilePath',
         'group_path' => 'GroupPath',
+        'handle_fail_reason' => 'HandleFailReason',
         'handle_time' => 'HandleTime',
         'host' => 'Host',
         'image_name' => 'ImageName',
         'in_docker' => 'InDocker',
         'llm_analysis_result' => 'LLMAnalysisResult',
         'llm_processed' => 'LLMProcessed',
+        'last_alarm_time' => 'LastAlarmTime',
         'level' => 'Level',
         'mlp_instance_id' => 'MlpInstanceID',
         'mlp_private_ip' => 'MlpPrivateIP',
         'name' => 'Name',
         'ns_pid' => 'NsPid',
+        'operation_list' => 'OperationList',
         'os_type' => 'OsType',
         'pid' => 'Pid',
         'probe_hook' => 'ProbeHook',
         'region' => 'Region',
+        'security_intelligence_complete' => 'SecurityIntelligenceComplete',
+        'security_intelligence_result' => 'SecurityIntelligenceResult',
         'sid' => 'Sid',
         'stack_trace_format' => 'StackTraceFormat',
         'stack_trace_hash' => 'StackTraceHash',
@@ -204,17 +228,20 @@ class DataForListHidsAlarmsOutput implements ModelInterface, ArrayAccess
     protected static $setters = [
         'agent_group' => 'setAgentGroup',
         'agent_id' => 'setAgentId',
+        'alarm_count' => 'setAlarmCount',
         'alarm_handle_result' => 'setAlarmHandleResult',
         'alarm_hostname' => 'setAlarmHostname',
         'alarm_id' => 'setAlarmId',
         'alarm_time' => 'setAlarmTime',
         'alert_tags' => 'setAlertTags',
+        'analysis_record_uuid' => 'setAnalysisRecordUuid',
         'args' => 'setArgs',
         'args_list' => 'setArgsList',
         'argv_list' => 'setArgvList',
         'attribution_list' => 'setAttributionList',
         'class' => 'setClass',
         'cluster' => 'setCluster',
+        'confidence' => 'setConfidence',
         'data_type' => 'setDataType',
         'error_reason' => 'setErrorReason',
         'event_id' => 'setEventId',
@@ -224,21 +251,26 @@ class DataForListHidsAlarmsOutput implements ModelInterface, ArrayAccess
         'file_hash' => 'setFileHash',
         'file_path' => 'setFilePath',
         'group_path' => 'setGroupPath',
+        'handle_fail_reason' => 'setHandleFailReason',
         'handle_time' => 'setHandleTime',
         'host' => 'setHost',
         'image_name' => 'setImageName',
         'in_docker' => 'setInDocker',
         'llm_analysis_result' => 'setLlmAnalysisResult',
         'llm_processed' => 'setLlmProcessed',
+        'last_alarm_time' => 'setLastAlarmTime',
         'level' => 'setLevel',
         'mlp_instance_id' => 'setMlpInstanceId',
         'mlp_private_ip' => 'setMlpPrivateIp',
         'name' => 'setName',
         'ns_pid' => 'setNsPid',
+        'operation_list' => 'setOperationList',
         'os_type' => 'setOsType',
         'pid' => 'setPid',
         'probe_hook' => 'setProbeHook',
         'region' => 'setRegion',
+        'security_intelligence_complete' => 'setSecurityIntelligenceComplete',
+        'security_intelligence_result' => 'setSecurityIntelligenceResult',
         'sid' => 'setSid',
         'stack_trace_format' => 'setStackTraceFormat',
         'stack_trace_hash' => 'setStackTraceHash',
@@ -255,17 +287,20 @@ class DataForListHidsAlarmsOutput implements ModelInterface, ArrayAccess
     protected static $getters = [
         'agent_group' => 'getAgentGroup',
         'agent_id' => 'getAgentId',
+        'alarm_count' => 'getAlarmCount',
         'alarm_handle_result' => 'getAlarmHandleResult',
         'alarm_hostname' => 'getAlarmHostname',
         'alarm_id' => 'getAlarmId',
         'alarm_time' => 'getAlarmTime',
         'alert_tags' => 'getAlertTags',
+        'analysis_record_uuid' => 'getAnalysisRecordUuid',
         'args' => 'getArgs',
         'args_list' => 'getArgsList',
         'argv_list' => 'getArgvList',
         'attribution_list' => 'getAttributionList',
         'class' => 'getClass',
         'cluster' => 'getCluster',
+        'confidence' => 'getConfidence',
         'data_type' => 'getDataType',
         'error_reason' => 'getErrorReason',
         'event_id' => 'getEventId',
@@ -275,21 +310,26 @@ class DataForListHidsAlarmsOutput implements ModelInterface, ArrayAccess
         'file_hash' => 'getFileHash',
         'file_path' => 'getFilePath',
         'group_path' => 'getGroupPath',
+        'handle_fail_reason' => 'getHandleFailReason',
         'handle_time' => 'getHandleTime',
         'host' => 'getHost',
         'image_name' => 'getImageName',
         'in_docker' => 'getInDocker',
         'llm_analysis_result' => 'getLlmAnalysisResult',
         'llm_processed' => 'getLlmProcessed',
+        'last_alarm_time' => 'getLastAlarmTime',
         'level' => 'getLevel',
         'mlp_instance_id' => 'getMlpInstanceId',
         'mlp_private_ip' => 'getMlpPrivateIp',
         'name' => 'getName',
         'ns_pid' => 'getNsPid',
+        'operation_list' => 'getOperationList',
         'os_type' => 'getOsType',
         'pid' => 'getPid',
         'probe_hook' => 'getProbeHook',
         'region' => 'getRegion',
+        'security_intelligence_complete' => 'getSecurityIntelligenceComplete',
+        'security_intelligence_result' => 'getSecurityIntelligenceResult',
         'sid' => 'getSid',
         'stack_trace_format' => 'getStackTraceFormat',
         'stack_trace_hash' => 'getStackTraceHash',
@@ -360,17 +400,20 @@ class DataForListHidsAlarmsOutput implements ModelInterface, ArrayAccess
     {
         $this->container['agent_group'] = isset($data['agent_group']) ? $data['agent_group'] : null;
         $this->container['agent_id'] = isset($data['agent_id']) ? $data['agent_id'] : null;
+        $this->container['alarm_count'] = isset($data['alarm_count']) ? $data['alarm_count'] : null;
         $this->container['alarm_handle_result'] = isset($data['alarm_handle_result']) ? $data['alarm_handle_result'] : null;
         $this->container['alarm_hostname'] = isset($data['alarm_hostname']) ? $data['alarm_hostname'] : null;
         $this->container['alarm_id'] = isset($data['alarm_id']) ? $data['alarm_id'] : null;
         $this->container['alarm_time'] = isset($data['alarm_time']) ? $data['alarm_time'] : null;
         $this->container['alert_tags'] = isset($data['alert_tags']) ? $data['alert_tags'] : null;
+        $this->container['analysis_record_uuid'] = isset($data['analysis_record_uuid']) ? $data['analysis_record_uuid'] : null;
         $this->container['args'] = isset($data['args']) ? $data['args'] : null;
         $this->container['args_list'] = isset($data['args_list']) ? $data['args_list'] : null;
         $this->container['argv_list'] = isset($data['argv_list']) ? $data['argv_list'] : null;
         $this->container['attribution_list'] = isset($data['attribution_list']) ? $data['attribution_list'] : null;
         $this->container['class'] = isset($data['class']) ? $data['class'] : null;
         $this->container['cluster'] = isset($data['cluster']) ? $data['cluster'] : null;
+        $this->container['confidence'] = isset($data['confidence']) ? $data['confidence'] : null;
         $this->container['data_type'] = isset($data['data_type']) ? $data['data_type'] : null;
         $this->container['error_reason'] = isset($data['error_reason']) ? $data['error_reason'] : null;
         $this->container['event_id'] = isset($data['event_id']) ? $data['event_id'] : null;
@@ -380,21 +423,26 @@ class DataForListHidsAlarmsOutput implements ModelInterface, ArrayAccess
         $this->container['file_hash'] = isset($data['file_hash']) ? $data['file_hash'] : null;
         $this->container['file_path'] = isset($data['file_path']) ? $data['file_path'] : null;
         $this->container['group_path'] = isset($data['group_path']) ? $data['group_path'] : null;
+        $this->container['handle_fail_reason'] = isset($data['handle_fail_reason']) ? $data['handle_fail_reason'] : null;
         $this->container['handle_time'] = isset($data['handle_time']) ? $data['handle_time'] : null;
         $this->container['host'] = isset($data['host']) ? $data['host'] : null;
         $this->container['image_name'] = isset($data['image_name']) ? $data['image_name'] : null;
         $this->container['in_docker'] = isset($data['in_docker']) ? $data['in_docker'] : null;
         $this->container['llm_analysis_result'] = isset($data['llm_analysis_result']) ? $data['llm_analysis_result'] : null;
         $this->container['llm_processed'] = isset($data['llm_processed']) ? $data['llm_processed'] : null;
+        $this->container['last_alarm_time'] = isset($data['last_alarm_time']) ? $data['last_alarm_time'] : null;
         $this->container['level'] = isset($data['level']) ? $data['level'] : null;
         $this->container['mlp_instance_id'] = isset($data['mlp_instance_id']) ? $data['mlp_instance_id'] : null;
         $this->container['mlp_private_ip'] = isset($data['mlp_private_ip']) ? $data['mlp_private_ip'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['ns_pid'] = isset($data['ns_pid']) ? $data['ns_pid'] : null;
+        $this->container['operation_list'] = isset($data['operation_list']) ? $data['operation_list'] : null;
         $this->container['os_type'] = isset($data['os_type']) ? $data['os_type'] : null;
         $this->container['pid'] = isset($data['pid']) ? $data['pid'] : null;
         $this->container['probe_hook'] = isset($data['probe_hook']) ? $data['probe_hook'] : null;
         $this->container['region'] = isset($data['region']) ? $data['region'] : null;
+        $this->container['security_intelligence_complete'] = isset($data['security_intelligence_complete']) ? $data['security_intelligence_complete'] : null;
+        $this->container['security_intelligence_result'] = isset($data['security_intelligence_result']) ? $data['security_intelligence_result'] : null;
         $this->container['sid'] = isset($data['sid']) ? $data['sid'] : null;
         $this->container['stack_trace_format'] = isset($data['stack_trace_format']) ? $data['stack_trace_format'] : null;
         $this->container['stack_trace_hash'] = isset($data['stack_trace_hash']) ? $data['stack_trace_hash'] : null;
@@ -471,6 +519,30 @@ class DataForListHidsAlarmsOutput implements ModelInterface, ArrayAccess
     public function setAgentId($agent_id)
     {
         $this->container['agent_id'] = $agent_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets alarm_count
+     *
+     * @return int
+     */
+    public function getAlarmCount()
+    {
+        return $this->container['alarm_count'];
+    }
+
+    /**
+     * Sets alarm_count
+     *
+     * @param int $alarm_count alarm_count
+     *
+     * @return $this
+     */
+    public function setAlarmCount($alarm_count)
+    {
+        $this->container['alarm_count'] = $alarm_count;
 
         return $this;
     }
@@ -591,6 +663,30 @@ class DataForListHidsAlarmsOutput implements ModelInterface, ArrayAccess
     public function setAlertTags($alert_tags)
     {
         $this->container['alert_tags'] = $alert_tags;
+
+        return $this;
+    }
+
+    /**
+     * Gets analysis_record_uuid
+     *
+     * @return string
+     */
+    public function getAnalysisRecordUuid()
+    {
+        return $this->container['analysis_record_uuid'];
+    }
+
+    /**
+     * Sets analysis_record_uuid
+     *
+     * @param string $analysis_record_uuid analysis_record_uuid
+     *
+     * @return $this
+     */
+    public function setAnalysisRecordUuid($analysis_record_uuid)
+    {
+        $this->container['analysis_record_uuid'] = $analysis_record_uuid;
 
         return $this;
     }
@@ -735,6 +831,30 @@ class DataForListHidsAlarmsOutput implements ModelInterface, ArrayAccess
     public function setCluster($cluster)
     {
         $this->container['cluster'] = $cluster;
+
+        return $this;
+    }
+
+    /**
+     * Gets confidence
+     *
+     * @return string
+     */
+    public function getConfidence()
+    {
+        return $this->container['confidence'];
+    }
+
+    /**
+     * Sets confidence
+     *
+     * @param string $confidence confidence
+     *
+     * @return $this
+     */
+    public function setConfidence($confidence)
+    {
+        $this->container['confidence'] = $confidence;
 
         return $this;
     }
@@ -956,6 +1076,30 @@ class DataForListHidsAlarmsOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets handle_fail_reason
+     *
+     * @return string
+     */
+    public function getHandleFailReason()
+    {
+        return $this->container['handle_fail_reason'];
+    }
+
+    /**
+     * Sets handle_fail_reason
+     *
+     * @param string $handle_fail_reason handle_fail_reason
+     *
+     * @return $this
+     */
+    public function setHandleFailReason($handle_fail_reason)
+    {
+        $this->container['handle_fail_reason'] = $handle_fail_reason;
+
+        return $this;
+    }
+
+    /**
      * Gets handle_time
      *
      * @return int
@@ -1100,6 +1244,30 @@ class DataForListHidsAlarmsOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets last_alarm_time
+     *
+     * @return int
+     */
+    public function getLastAlarmTime()
+    {
+        return $this->container['last_alarm_time'];
+    }
+
+    /**
+     * Sets last_alarm_time
+     *
+     * @param int $last_alarm_time last_alarm_time
+     *
+     * @return $this
+     */
+    public function setLastAlarmTime($last_alarm_time)
+    {
+        $this->container['last_alarm_time'] = $last_alarm_time;
+
+        return $this;
+    }
+
+    /**
      * Gets level
      *
      * @return string
@@ -1220,6 +1388,30 @@ class DataForListHidsAlarmsOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets operation_list
+     *
+     * @return string[]
+     */
+    public function getOperationList()
+    {
+        return $this->container['operation_list'];
+    }
+
+    /**
+     * Sets operation_list
+     *
+     * @param string[] $operation_list operation_list
+     *
+     * @return $this
+     */
+    public function setOperationList($operation_list)
+    {
+        $this->container['operation_list'] = $operation_list;
+
+        return $this;
+    }
+
+    /**
      * Gets os_type
      *
      * @return string
@@ -1311,6 +1503,54 @@ class DataForListHidsAlarmsOutput implements ModelInterface, ArrayAccess
     public function setRegion($region)
     {
         $this->container['region'] = $region;
+
+        return $this;
+    }
+
+    /**
+     * Gets security_intelligence_complete
+     *
+     * @return bool
+     */
+    public function getSecurityIntelligenceComplete()
+    {
+        return $this->container['security_intelligence_complete'];
+    }
+
+    /**
+     * Sets security_intelligence_complete
+     *
+     * @param bool $security_intelligence_complete security_intelligence_complete
+     *
+     * @return $this
+     */
+    public function setSecurityIntelligenceComplete($security_intelligence_complete)
+    {
+        $this->container['security_intelligence_complete'] = $security_intelligence_complete;
+
+        return $this;
+    }
+
+    /**
+     * Gets security_intelligence_result
+     *
+     * @return string
+     */
+    public function getSecurityIntelligenceResult()
+    {
+        return $this->container['security_intelligence_result'];
+    }
+
+    /**
+     * Sets security_intelligence_result
+     *
+     * @param string $security_intelligence_result security_intelligence_result
+     *
+     * @return $this
+     */
+    public function setSecurityIntelligenceResult($security_intelligence_result)
+    {
+        $this->container['security_intelligence_result'] = $security_intelligence_result;
 
         return $this;
     }

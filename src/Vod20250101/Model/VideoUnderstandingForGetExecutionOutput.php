@@ -30,7 +30,7 @@ class VideoUnderstandingForGetExecutionOutput implements ModelInterface, ArrayAc
     protected static $swaggerTypes = [
         'model' => '\Volcengine\Vod20250101\Model\ModelForGetExecutionOutput',
         'prompt' => 'string',
-        'segment' => '\Volcengine\Vod20250101\Model\ConvertSegmentForGetExecutionOutput',
+        'segment' => '\Volcengine\Vod20250101\Model\ConvertConvertSegmentForGetExecutionOutput',
         'with_segment' => 'bool'
     ];
 
@@ -244,7 +244,7 @@ class VideoUnderstandingForGetExecutionOutput implements ModelInterface, ArrayAc
     /**
      * Gets segment
      *
-     * @return \Volcengine\Vod20250101\Model\ConvertSegmentForGetExecutionOutput
+     * @return \Volcengine\Vod20250101\Model\ConvertConvertSegmentForGetExecutionOutput
      */
     public function getSegment()
     {
@@ -254,7 +254,7 @@ class VideoUnderstandingForGetExecutionOutput implements ModelInterface, ArrayAc
     /**
      * Sets segment
      *
-     * @param \Volcengine\Vod20250101\Model\ConvertSegmentForGetExecutionOutput $segment segment
+     * @param \Volcengine\Vod20250101\Model\ConvertConvertSegmentForGetExecutionOutput $segment segment
      *
      * @return $this
      */

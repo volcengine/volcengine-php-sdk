@@ -29,6 +29,7 @@ class CreateWebhookRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'name' => 'string',
+        'token' => 'string',
         'type' => 'string',
         'url' => 'string'
     ];
@@ -40,6 +41,7 @@ class CreateWebhookRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'name' => null,
+        'token' => null,
         'type' => null,
         'url' => null
     ];
@@ -72,6 +74,7 @@ class CreateWebhookRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'name' => 'Name',
+        'token' => 'Token',
         'type' => 'Type',
         'url' => 'Url'
     ];
@@ -83,6 +86,7 @@ class CreateWebhookRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'name' => 'setName',
+        'token' => 'setToken',
         'type' => 'setType',
         'url' => 'setUrl'
     ];
@@ -94,6 +98,7 @@ class CreateWebhookRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'name' => 'getName',
+        'token' => 'getToken',
         'type' => 'getType',
         'url' => 'getUrl'
     ];
@@ -178,6 +183,7 @@ class CreateWebhookRequest implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['token'] = isset($data['token']) ? $data['token'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['url'] = isset($data['url']) ? $data['url'] : null;
     }
@@ -243,6 +249,30 @@ class CreateWebhookRequest implements ModelInterface, ArrayAccess
     public function setName($name)
     {
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets token
+     *
+     * @return string
+     */
+    public function getToken()
+    {
+        return $this->container['token'];
+    }
+
+    /**
+     * Sets token
+     *
+     * @param string $token token
+     *
+     * @return $this
+     */
+    public function setToken($token)
+    {
+        $this->container['token'] = $token;
 
         return $this;
     }

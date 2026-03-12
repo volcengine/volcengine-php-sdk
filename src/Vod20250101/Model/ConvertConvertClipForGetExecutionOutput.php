@@ -28,12 +28,8 @@ class ConvertConvertClipForGetExecutionOutput implements ModelInterface, ArrayAc
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'cut_end' => 'double',
-        'cut_start' => 'double',
         'end' => 'double',
-        'score' => 'double',
         'start' => 'double',
-        'type' => 'string',
         'video_index' => 'int'
     ];
 
@@ -43,12 +39,8 @@ class ConvertConvertClipForGetExecutionOutput implements ModelInterface, ArrayAc
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'cut_end' => 'double',
-        'cut_start' => 'double',
         'end' => 'double',
-        'score' => 'double',
         'start' => 'double',
-        'type' => null,
         'video_index' => 'int32'
     ];
 
@@ -79,12 +71,8 @@ class ConvertConvertClipForGetExecutionOutput implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $attributeMap = [
-        'cut_end' => 'CutEnd',
-        'cut_start' => 'CutStart',
         'end' => 'End',
-        'score' => 'Score',
         'start' => 'Start',
-        'type' => 'Type',
         'video_index' => 'VideoIndex'
     ];
 
@@ -94,12 +82,8 @@ class ConvertConvertClipForGetExecutionOutput implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $setters = [
-        'cut_end' => 'setCutEnd',
-        'cut_start' => 'setCutStart',
         'end' => 'setEnd',
-        'score' => 'setScore',
         'start' => 'setStart',
-        'type' => 'setType',
         'video_index' => 'setVideoIndex'
     ];
 
@@ -109,12 +93,8 @@ class ConvertConvertClipForGetExecutionOutput implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $getters = [
-        'cut_end' => 'getCutEnd',
-        'cut_start' => 'getCutStart',
         'end' => 'getEnd',
-        'score' => 'getScore',
         'start' => 'getStart',
-        'type' => 'getType',
         'video_index' => 'getVideoIndex'
     ];
 
@@ -178,12 +158,8 @@ class ConvertConvertClipForGetExecutionOutput implements ModelInterface, ArrayAc
      */
     public function __construct(array $data = null)
     {
-        $this->container['cut_end'] = isset($data['cut_end']) ? $data['cut_end'] : null;
-        $this->container['cut_start'] = isset($data['cut_start']) ? $data['cut_start'] : null;
         $this->container['end'] = isset($data['end']) ? $data['end'] : null;
-        $this->container['score'] = isset($data['score']) ? $data['score'] : null;
         $this->container['start'] = isset($data['start']) ? $data['start'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['video_index'] = isset($data['video_index']) ? $data['video_index'] : null;
     }
 
@@ -212,54 +188,6 @@ class ConvertConvertClipForGetExecutionOutput implements ModelInterface, ArrayAc
 
 
     /**
-     * Gets cut_end
-     *
-     * @return double
-     */
-    public function getCutEnd()
-    {
-        return $this->container['cut_end'];
-    }
-
-    /**
-     * Sets cut_end
-     *
-     * @param double $cut_end cut_end
-     *
-     * @return $this
-     */
-    public function setCutEnd($cut_end)
-    {
-        $this->container['cut_end'] = $cut_end;
-
-        return $this;
-    }
-
-    /**
-     * Gets cut_start
-     *
-     * @return double
-     */
-    public function getCutStart()
-    {
-        return $this->container['cut_start'];
-    }
-
-    /**
-     * Sets cut_start
-     *
-     * @param double $cut_start cut_start
-     *
-     * @return $this
-     */
-    public function setCutStart($cut_start)
-    {
-        $this->container['cut_start'] = $cut_start;
-
-        return $this;
-    }
-
-    /**
      * Gets end
      *
      * @return double
@@ -284,30 +212,6 @@ class ConvertConvertClipForGetExecutionOutput implements ModelInterface, ArrayAc
     }
 
     /**
-     * Gets score
-     *
-     * @return double
-     */
-    public function getScore()
-    {
-        return $this->container['score'];
-    }
-
-    /**
-     * Sets score
-     *
-     * @param double $score score
-     *
-     * @return $this
-     */
-    public function setScore($score)
-    {
-        $this->container['score'] = $score;
-
-        return $this;
-    }
-
-    /**
      * Gets start
      *
      * @return double
@@ -327,30 +231,6 @@ class ConvertConvertClipForGetExecutionOutput implements ModelInterface, ArrayAc
     public function setStart($start)
     {
         $this->container['start'] = $start;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     *
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param string $type type
-     *
-     * @return $this
-     */
-    public function setType($type)
-    {
-        $this->container['type'] = $type;
 
         return $this;
     }

@@ -29,12 +29,18 @@ class DataForListBanIPListOutput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'account_id' => 'string',
+        'agent_id' => 'string',
         'ban_end_time_unix' => 'int',
         'ban_ip' => 'string',
         'ban_start_time_unix' => 'int',
         'ban_type' => 'string',
+        'cloud_provider' => 'string',
+        'ecs_instance' => '\Volcengine\Seccenter20240508\Model\EcsInstanceForListBanIPListOutput',
+        'group_id' => 'string',
         'id' => 'string',
+        'i_ptables_id' => 'string',
         'insert_time' => 'int',
+        'platform' => 'string',
         'port_end' => 'int',
         'port_start' => 'int',
         'reason' => 'string',
@@ -42,7 +48,9 @@ class DataForListBanIPListOutput implements ModelInterface, ArrayAccess
         'relate_alarm_info' => '\Volcengine\Seccenter20240508\Model\RelateAlarmInfoForListBanIPListOutput',
         'security_group_id' => 'string',
         'status' => 'string',
-        'host_info' => '\Volcengine\Seccenter20240508\Model\HostInfoForListBanIPListOutput'
+        'tags' => 'string[]',
+        'top_group_id' => 'string',
+        'update_time' => 'int'
     ];
 
     /**
@@ -52,12 +60,18 @@ class DataForListBanIPListOutput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'account_id' => null,
+        'agent_id' => null,
         'ban_end_time_unix' => 'int64',
         'ban_ip' => null,
         'ban_start_time_unix' => 'int64',
         'ban_type' => null,
+        'cloud_provider' => null,
+        'ecs_instance' => null,
+        'group_id' => null,
         'id' => null,
+        'i_ptables_id' => null,
         'insert_time' => 'int64',
+        'platform' => null,
         'port_end' => 'int64',
         'port_start' => 'int64',
         'reason' => null,
@@ -65,7 +79,9 @@ class DataForListBanIPListOutput implements ModelInterface, ArrayAccess
         'relate_alarm_info' => null,
         'security_group_id' => null,
         'status' => null,
-        'host_info' => null
+        'tags' => null,
+        'top_group_id' => null,
+        'update_time' => 'int64'
     ];
 
     /**
@@ -96,12 +112,18 @@ class DataForListBanIPListOutput implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'account_id' => 'AccountID',
+        'agent_id' => 'AgentID',
         'ban_end_time_unix' => 'BanEndTimeUnix',
         'ban_ip' => 'BanIP',
         'ban_start_time_unix' => 'BanStartTimeUnix',
         'ban_type' => 'BanType',
+        'cloud_provider' => 'CloudProvider',
+        'ecs_instance' => 'EcsInstance',
+        'group_id' => 'GroupID',
         'id' => 'ID',
+        'i_ptables_id' => 'IPtablesID',
         'insert_time' => 'InsertTime',
+        'platform' => 'Platform',
         'port_end' => 'PortEnd',
         'port_start' => 'PortStart',
         'reason' => 'Reason',
@@ -109,7 +131,9 @@ class DataForListBanIPListOutput implements ModelInterface, ArrayAccess
         'relate_alarm_info' => 'RelateAlarmInfo',
         'security_group_id' => 'SecurityGroupID',
         'status' => 'Status',
-        'host_info' => 'hostInfo'
+        'tags' => 'Tags',
+        'top_group_id' => 'TopGroupID',
+        'update_time' => 'UpdateTime'
     ];
 
     /**
@@ -119,12 +143,18 @@ class DataForListBanIPListOutput implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'account_id' => 'setAccountId',
+        'agent_id' => 'setAgentId',
         'ban_end_time_unix' => 'setBanEndTimeUnix',
         'ban_ip' => 'setBanIp',
         'ban_start_time_unix' => 'setBanStartTimeUnix',
         'ban_type' => 'setBanType',
+        'cloud_provider' => 'setCloudProvider',
+        'ecs_instance' => 'setEcsInstance',
+        'group_id' => 'setGroupId',
         'id' => 'setId',
+        'i_ptables_id' => 'setIPtablesId',
         'insert_time' => 'setInsertTime',
+        'platform' => 'setPlatform',
         'port_end' => 'setPortEnd',
         'port_start' => 'setPortStart',
         'reason' => 'setReason',
@@ -132,7 +162,9 @@ class DataForListBanIPListOutput implements ModelInterface, ArrayAccess
         'relate_alarm_info' => 'setRelateAlarmInfo',
         'security_group_id' => 'setSecurityGroupId',
         'status' => 'setStatus',
-        'host_info' => 'setHostInfo'
+        'tags' => 'setTags',
+        'top_group_id' => 'setTopGroupId',
+        'update_time' => 'setUpdateTime'
     ];
 
     /**
@@ -142,12 +174,18 @@ class DataForListBanIPListOutput implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'account_id' => 'getAccountId',
+        'agent_id' => 'getAgentId',
         'ban_end_time_unix' => 'getBanEndTimeUnix',
         'ban_ip' => 'getBanIp',
         'ban_start_time_unix' => 'getBanStartTimeUnix',
         'ban_type' => 'getBanType',
+        'cloud_provider' => 'getCloudProvider',
+        'ecs_instance' => 'getEcsInstance',
+        'group_id' => 'getGroupId',
         'id' => 'getId',
+        'i_ptables_id' => 'getIPtablesId',
         'insert_time' => 'getInsertTime',
+        'platform' => 'getPlatform',
         'port_end' => 'getPortEnd',
         'port_start' => 'getPortStart',
         'reason' => 'getReason',
@@ -155,7 +193,9 @@ class DataForListBanIPListOutput implements ModelInterface, ArrayAccess
         'relate_alarm_info' => 'getRelateAlarmInfo',
         'security_group_id' => 'getSecurityGroupId',
         'status' => 'getStatus',
-        'host_info' => 'getHostInfo'
+        'tags' => 'getTags',
+        'top_group_id' => 'getTopGroupId',
+        'update_time' => 'getUpdateTime'
     ];
 
     /**
@@ -219,12 +259,18 @@ class DataForListBanIPListOutput implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
+        $this->container['agent_id'] = isset($data['agent_id']) ? $data['agent_id'] : null;
         $this->container['ban_end_time_unix'] = isset($data['ban_end_time_unix']) ? $data['ban_end_time_unix'] : null;
         $this->container['ban_ip'] = isset($data['ban_ip']) ? $data['ban_ip'] : null;
         $this->container['ban_start_time_unix'] = isset($data['ban_start_time_unix']) ? $data['ban_start_time_unix'] : null;
         $this->container['ban_type'] = isset($data['ban_type']) ? $data['ban_type'] : null;
+        $this->container['cloud_provider'] = isset($data['cloud_provider']) ? $data['cloud_provider'] : null;
+        $this->container['ecs_instance'] = isset($data['ecs_instance']) ? $data['ecs_instance'] : null;
+        $this->container['group_id'] = isset($data['group_id']) ? $data['group_id'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['i_ptables_id'] = isset($data['i_ptables_id']) ? $data['i_ptables_id'] : null;
         $this->container['insert_time'] = isset($data['insert_time']) ? $data['insert_time'] : null;
+        $this->container['platform'] = isset($data['platform']) ? $data['platform'] : null;
         $this->container['port_end'] = isset($data['port_end']) ? $data['port_end'] : null;
         $this->container['port_start'] = isset($data['port_start']) ? $data['port_start'] : null;
         $this->container['reason'] = isset($data['reason']) ? $data['reason'] : null;
@@ -232,7 +278,9 @@ class DataForListBanIPListOutput implements ModelInterface, ArrayAccess
         $this->container['relate_alarm_info'] = isset($data['relate_alarm_info']) ? $data['relate_alarm_info'] : null;
         $this->container['security_group_id'] = isset($data['security_group_id']) ? $data['security_group_id'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['host_info'] = isset($data['host_info']) ? $data['host_info'] : null;
+        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
+        $this->container['top_group_id'] = isset($data['top_group_id']) ? $data['top_group_id'] : null;
+        $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
     }
 
     /**
@@ -279,6 +327,30 @@ class DataForListBanIPListOutput implements ModelInterface, ArrayAccess
     public function setAccountId($account_id)
     {
         $this->container['account_id'] = $account_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets agent_id
+     *
+     * @return string
+     */
+    public function getAgentId()
+    {
+        return $this->container['agent_id'];
+    }
+
+    /**
+     * Sets agent_id
+     *
+     * @param string $agent_id agent_id
+     *
+     * @return $this
+     */
+    public function setAgentId($agent_id)
+    {
+        $this->container['agent_id'] = $agent_id;
 
         return $this;
     }
@@ -380,6 +452,78 @@ class DataForListBanIPListOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets cloud_provider
+     *
+     * @return string
+     */
+    public function getCloudProvider()
+    {
+        return $this->container['cloud_provider'];
+    }
+
+    /**
+     * Sets cloud_provider
+     *
+     * @param string $cloud_provider cloud_provider
+     *
+     * @return $this
+     */
+    public function setCloudProvider($cloud_provider)
+    {
+        $this->container['cloud_provider'] = $cloud_provider;
+
+        return $this;
+    }
+
+    /**
+     * Gets ecs_instance
+     *
+     * @return \Volcengine\Seccenter20240508\Model\EcsInstanceForListBanIPListOutput
+     */
+    public function getEcsInstance()
+    {
+        return $this->container['ecs_instance'];
+    }
+
+    /**
+     * Sets ecs_instance
+     *
+     * @param \Volcengine\Seccenter20240508\Model\EcsInstanceForListBanIPListOutput $ecs_instance ecs_instance
+     *
+     * @return $this
+     */
+    public function setEcsInstance($ecs_instance)
+    {
+        $this->container['ecs_instance'] = $ecs_instance;
+
+        return $this;
+    }
+
+    /**
+     * Gets group_id
+     *
+     * @return string
+     */
+    public function getGroupId()
+    {
+        return $this->container['group_id'];
+    }
+
+    /**
+     * Sets group_id
+     *
+     * @param string $group_id group_id
+     *
+     * @return $this
+     */
+    public function setGroupId($group_id)
+    {
+        $this->container['group_id'] = $group_id;
+
+        return $this;
+    }
+
+    /**
      * Gets id
      *
      * @return string
@@ -404,6 +548,30 @@ class DataForListBanIPListOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets i_ptables_id
+     *
+     * @return string
+     */
+    public function getIPtablesId()
+    {
+        return $this->container['i_ptables_id'];
+    }
+
+    /**
+     * Sets i_ptables_id
+     *
+     * @param string $i_ptables_id i_ptables_id
+     *
+     * @return $this
+     */
+    public function setIPtablesId($i_ptables_id)
+    {
+        $this->container['i_ptables_id'] = $i_ptables_id;
+
+        return $this;
+    }
+
+    /**
      * Gets insert_time
      *
      * @return int
@@ -423,6 +591,30 @@ class DataForListBanIPListOutput implements ModelInterface, ArrayAccess
     public function setInsertTime($insert_time)
     {
         $this->container['insert_time'] = $insert_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets platform
+     *
+     * @return string
+     */
+    public function getPlatform()
+    {
+        return $this->container['platform'];
+    }
+
+    /**
+     * Sets platform
+     *
+     * @param string $platform platform
+     *
+     * @return $this
+     */
+    public function setPlatform($platform)
+    {
+        $this->container['platform'] = $platform;
 
         return $this;
     }
@@ -596,25 +788,73 @@ class DataForListBanIPListOutput implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets host_info
+     * Gets tags
      *
-     * @return \Volcengine\Seccenter20240508\Model\HostInfoForListBanIPListOutput
+     * @return string[]
      */
-    public function getHostInfo()
+    public function getTags()
     {
-        return $this->container['host_info'];
+        return $this->container['tags'];
     }
 
     /**
-     * Sets host_info
+     * Sets tags
      *
-     * @param \Volcengine\Seccenter20240508\Model\HostInfoForListBanIPListOutput $host_info host_info
+     * @param string[] $tags tags
      *
      * @return $this
      */
-    public function setHostInfo($host_info)
+    public function setTags($tags)
     {
-        $this->container['host_info'] = $host_info;
+        $this->container['tags'] = $tags;
+
+        return $this;
+    }
+
+    /**
+     * Gets top_group_id
+     *
+     * @return string
+     */
+    public function getTopGroupId()
+    {
+        return $this->container['top_group_id'];
+    }
+
+    /**
+     * Sets top_group_id
+     *
+     * @param string $top_group_id top_group_id
+     *
+     * @return $this
+     */
+    public function setTopGroupId($top_group_id)
+    {
+        $this->container['top_group_id'] = $top_group_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets update_time
+     *
+     * @return int
+     */
+    public function getUpdateTime()
+    {
+        return $this->container['update_time'];
+    }
+
+    /**
+     * Sets update_time
+     *
+     * @param int $update_time update_time
+     *
+     * @return $this
+     */
+    public function setUpdateTime($update_time)
+    {
+        $this->container['update_time'] = $update_time;
 
         return $this;
     }

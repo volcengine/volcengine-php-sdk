@@ -35,6 +35,8 @@ class CreatFileScanTaskRequest implements ModelInterface, ArrayAccess
         'cpu_i_dle' => 'string',
         'file_path' => 'string',
         'leaf_group_ids' => 'string[]',
+        'scan_path_list' => '\Volcengine\Seccenter20240508\Model\ScanPathListForCreatFileScanTaskInput[]',
+        'scan_skip_list' => 'string[]',
         'task_name' => 'string',
         'timeout' => 'string',
         'top_group_id' => 'string'
@@ -53,6 +55,8 @@ class CreatFileScanTaskRequest implements ModelInterface, ArrayAccess
         'cpu_i_dle' => null,
         'file_path' => null,
         'leaf_group_ids' => null,
+        'scan_path_list' => null,
+        'scan_skip_list' => null,
         'task_name' => null,
         'timeout' => null,
         'top_group_id' => null
@@ -92,6 +96,8 @@ class CreatFileScanTaskRequest implements ModelInterface, ArrayAccess
         'cpu_i_dle' => 'CpuIDle',
         'file_path' => 'FilePath',
         'leaf_group_ids' => 'LeafGroupIDs',
+        'scan_path_list' => 'ScanPathList',
+        'scan_skip_list' => 'ScanSkipList',
         'task_name' => 'TaskName',
         'timeout' => 'Timeout',
         'top_group_id' => 'TopGroupID'
@@ -110,6 +116,8 @@ class CreatFileScanTaskRequest implements ModelInterface, ArrayAccess
         'cpu_i_dle' => 'setCpuIDle',
         'file_path' => 'setFilePath',
         'leaf_group_ids' => 'setLeafGroupIds',
+        'scan_path_list' => 'setScanPathList',
+        'scan_skip_list' => 'setScanSkipList',
         'task_name' => 'setTaskName',
         'timeout' => 'setTimeout',
         'top_group_id' => 'setTopGroupId'
@@ -128,6 +136,8 @@ class CreatFileScanTaskRequest implements ModelInterface, ArrayAccess
         'cpu_i_dle' => 'getCpuIDle',
         'file_path' => 'getFilePath',
         'leaf_group_ids' => 'getLeafGroupIds',
+        'scan_path_list' => 'getScanPathList',
+        'scan_skip_list' => 'getScanSkipList',
         'task_name' => 'getTaskName',
         'timeout' => 'getTimeout',
         'top_group_id' => 'getTopGroupId'
@@ -200,6 +210,8 @@ class CreatFileScanTaskRequest implements ModelInterface, ArrayAccess
         $this->container['cpu_i_dle'] = isset($data['cpu_i_dle']) ? $data['cpu_i_dle'] : null;
         $this->container['file_path'] = isset($data['file_path']) ? $data['file_path'] : null;
         $this->container['leaf_group_ids'] = isset($data['leaf_group_ids']) ? $data['leaf_group_ids'] : null;
+        $this->container['scan_path_list'] = isset($data['scan_path_list']) ? $data['scan_path_list'] : null;
+        $this->container['scan_skip_list'] = isset($data['scan_skip_list']) ? $data['scan_skip_list'] : null;
         $this->container['task_name'] = isset($data['task_name']) ? $data['task_name'] : null;
         $this->container['timeout'] = isset($data['timeout']) ? $data['timeout'] : null;
         $this->container['top_group_id'] = isset($data['top_group_id']) ? $data['top_group_id'] : null;
@@ -396,6 +408,54 @@ class CreatFileScanTaskRequest implements ModelInterface, ArrayAccess
     public function setLeafGroupIds($leaf_group_ids)
     {
         $this->container['leaf_group_ids'] = $leaf_group_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets scan_path_list
+     *
+     * @return \Volcengine\Seccenter20240508\Model\ScanPathListForCreatFileScanTaskInput[]
+     */
+    public function getScanPathList()
+    {
+        return $this->container['scan_path_list'];
+    }
+
+    /**
+     * Sets scan_path_list
+     *
+     * @param \Volcengine\Seccenter20240508\Model\ScanPathListForCreatFileScanTaskInput[] $scan_path_list scan_path_list
+     *
+     * @return $this
+     */
+    public function setScanPathList($scan_path_list)
+    {
+        $this->container['scan_path_list'] = $scan_path_list;
+
+        return $this;
+    }
+
+    /**
+     * Gets scan_skip_list
+     *
+     * @return string[]
+     */
+    public function getScanSkipList()
+    {
+        return $this->container['scan_skip_list'];
+    }
+
+    /**
+     * Sets scan_skip_list
+     *
+     * @param string[] $scan_skip_list scan_skip_list
+     *
+     * @return $this
+     */
+    public function setScanSkipList($scan_skip_list)
+    {
+        $this->container['scan_skip_list'] = $scan_skip_list;
 
         return $this;
     }

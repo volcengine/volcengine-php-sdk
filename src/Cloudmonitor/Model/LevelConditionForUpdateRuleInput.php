@@ -28,7 +28,7 @@ class LevelConditionForUpdateRuleInput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'conditions' => '\Volcengine\Cloudmonitor\Model\ConditionForUpdateRuleInput[]',
+        'conditions' => '\Volcengine\Cloudmonitor\Model\ConvertConditionForUpdateRuleInput[]',
         'level' => 'string'
     ];
 
@@ -184,7 +184,7 @@ class LevelConditionForUpdateRuleInput implements ModelInterface, ArrayAccess
     /**
      * Gets conditions
      *
-     * @return \Volcengine\Cloudmonitor\Model\ConditionForUpdateRuleInput[]
+     * @return \Volcengine\Cloudmonitor\Model\ConvertConditionForUpdateRuleInput[]
      */
     public function getConditions()
     {
@@ -194,7 +194,7 @@ class LevelConditionForUpdateRuleInput implements ModelInterface, ArrayAccess
     /**
      * Sets conditions
      *
-     * @param \Volcengine\Cloudmonitor\Model\ConditionForUpdateRuleInput[] $conditions conditions
+     * @param \Volcengine\Cloudmonitor\Model\ConvertConditionForUpdateRuleInput[] $conditions conditions
      *
      * @return $this
      */

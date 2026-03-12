@@ -29,6 +29,7 @@ class ConditionForUpdateAlertTemplateInput implements ModelInterface, ArrayAcces
       */
     protected static $swaggerTypes = [
         'comparison_operator' => 'string',
+        'evaluation_window' => 'int',
         'metric_name' => 'string',
         'metric_unit' => 'string',
         'statistics' => 'string',
@@ -42,6 +43,7 @@ class ConditionForUpdateAlertTemplateInput implements ModelInterface, ArrayAcces
       */
     protected static $swaggerFormats = [
         'comparison_operator' => null,
+        'evaluation_window' => 'int32',
         'metric_name' => null,
         'metric_unit' => null,
         'statistics' => null,
@@ -76,6 +78,7 @@ class ConditionForUpdateAlertTemplateInput implements ModelInterface, ArrayAcces
      */
     protected static $attributeMap = [
         'comparison_operator' => 'ComparisonOperator',
+        'evaluation_window' => 'EvaluationWindow',
         'metric_name' => 'MetricName',
         'metric_unit' => 'MetricUnit',
         'statistics' => 'Statistics',
@@ -89,6 +92,7 @@ class ConditionForUpdateAlertTemplateInput implements ModelInterface, ArrayAcces
      */
     protected static $setters = [
         'comparison_operator' => 'setComparisonOperator',
+        'evaluation_window' => 'setEvaluationWindow',
         'metric_name' => 'setMetricName',
         'metric_unit' => 'setMetricUnit',
         'statistics' => 'setStatistics',
@@ -102,6 +106,7 @@ class ConditionForUpdateAlertTemplateInput implements ModelInterface, ArrayAcces
      */
     protected static $getters = [
         'comparison_operator' => 'getComparisonOperator',
+        'evaluation_window' => 'getEvaluationWindow',
         'metric_name' => 'getMetricName',
         'metric_unit' => 'getMetricUnit',
         'statistics' => 'getStatistics',
@@ -169,6 +174,7 @@ class ConditionForUpdateAlertTemplateInput implements ModelInterface, ArrayAcces
     public function __construct(array $data = null)
     {
         $this->container['comparison_operator'] = isset($data['comparison_operator']) ? $data['comparison_operator'] : null;
+        $this->container['evaluation_window'] = isset($data['evaluation_window']) ? $data['evaluation_window'] : null;
         $this->container['metric_name'] = isset($data['metric_name']) ? $data['metric_name'] : null;
         $this->container['metric_unit'] = isset($data['metric_unit']) ? $data['metric_unit'] : null;
         $this->container['statistics'] = isset($data['statistics']) ? $data['statistics'] : null;
@@ -219,6 +225,30 @@ class ConditionForUpdateAlertTemplateInput implements ModelInterface, ArrayAcces
     public function setComparisonOperator($comparison_operator)
     {
         $this->container['comparison_operator'] = $comparison_operator;
+
+        return $this;
+    }
+
+    /**
+     * Gets evaluation_window
+     *
+     * @return int
+     */
+    public function getEvaluationWindow()
+    {
+        return $this->container['evaluation_window'];
+    }
+
+    /**
+     * Sets evaluation_window
+     *
+     * @param int $evaluation_window evaluation_window
+     *
+     * @return $this
+     */
+    public function setEvaluationWindow($evaluation_window)
+    {
+        $this->container['evaluation_window'] = $evaluation_window;
 
         return $this;
     }

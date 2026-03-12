@@ -28,9 +28,8 @@ class ConvertClipForGetExecutionOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'end' => 'double',
-        'start' => 'double',
-        'video_index' => 'int'
+        'end_time' => 'int',
+        'start_time' => 'int'
     ];
 
     /**
@@ -39,9 +38,8 @@ class ConvertClipForGetExecutionOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'end' => 'double',
-        'start' => 'double',
-        'video_index' => 'int32'
+        'end_time' => 'int32',
+        'start_time' => 'int32'
     ];
 
     /**
@@ -71,9 +69,8 @@ class ConvertClipForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'end' => 'End',
-        'start' => 'Start',
-        'video_index' => 'VideoIndex'
+        'end_time' => 'EndTime',
+        'start_time' => 'StartTime'
     ];
 
     /**
@@ -82,9 +79,8 @@ class ConvertClipForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'end' => 'setEnd',
-        'start' => 'setStart',
-        'video_index' => 'setVideoIndex'
+        'end_time' => 'setEndTime',
+        'start_time' => 'setStartTime'
     ];
 
     /**
@@ -93,9 +89,8 @@ class ConvertClipForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'end' => 'getEnd',
-        'start' => 'getStart',
-        'video_index' => 'getVideoIndex'
+        'end_time' => 'getEndTime',
+        'start_time' => 'getStartTime'
     ];
 
     /**
@@ -158,9 +153,8 @@ class ConvertClipForGetExecutionOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['end'] = isset($data['end']) ? $data['end'] : null;
-        $this->container['start'] = isset($data['start']) ? $data['start'] : null;
-        $this->container['video_index'] = isset($data['video_index']) ? $data['video_index'] : null;
+        $this->container['end_time'] = isset($data['end_time']) ? $data['end_time'] : null;
+        $this->container['start_time'] = isset($data['start_time']) ? $data['start_time'] : null;
     }
 
     /**
@@ -188,73 +182,49 @@ class ConvertClipForGetExecutionOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets end
-     *
-     * @return double
-     */
-    public function getEnd()
-    {
-        return $this->container['end'];
-    }
-
-    /**
-     * Sets end
-     *
-     * @param double $end end
-     *
-     * @return $this
-     */
-    public function setEnd($end)
-    {
-        $this->container['end'] = $end;
-
-        return $this;
-    }
-
-    /**
-     * Gets start
-     *
-     * @return double
-     */
-    public function getStart()
-    {
-        return $this->container['start'];
-    }
-
-    /**
-     * Sets start
-     *
-     * @param double $start start
-     *
-     * @return $this
-     */
-    public function setStart($start)
-    {
-        $this->container['start'] = $start;
-
-        return $this;
-    }
-
-    /**
-     * Gets video_index
+     * Gets end_time
      *
      * @return int
      */
-    public function getVideoIndex()
+    public function getEndTime()
     {
-        return $this->container['video_index'];
+        return $this->container['end_time'];
     }
 
     /**
-     * Sets video_index
+     * Sets end_time
      *
-     * @param int $video_index video_index
+     * @param int $end_time end_time
      *
      * @return $this
      */
-    public function setVideoIndex($video_index)
+    public function setEndTime($end_time)
     {
-        $this->container['video_index'] = $video_index;
+        $this->container['end_time'] = $end_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets start_time
+     *
+     * @return int
+     */
+    public function getStartTime()
+    {
+        return $this->container['start_time'];
+    }
+
+    /**
+     * Sets start_time
+     *
+     * @param int $start_time start_time
+     *
+     * @return $this
+     */
+    public function setStartTime($start_time)
+    {
+        $this->container['start_time'] = $start_time;
 
         return $this;
     }

@@ -5,13 +5,13 @@
  * Do not edit the class manually.
  */
 
-namespace Volcengine\Seccenter20240508\Model;
+namespace Volcengine\Vepfs\Model;
 
 use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class HostInfoForListBanIPListOutput implements ModelInterface, ArrayAccess
+class ZoneForDescribeZonesOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class HostInfoForListBanIPListOutput implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'hostInfoForListBanIPListOutput';
+    protected static $swaggerModelName = 'ZoneForDescribeZonesOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,13 +28,10 @@ class HostInfoForListBanIPListOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'agent_id' => 'string',
-        'cloud_provider' => 'string',
-        'ecs_instance' => '\Volcengine\Seccenter20240508\Model\EcsInstanceForListBanIPListOutput',
-        'leaf_group_id' => 'string',
-        'platform' => 'string',
-        'tags' => 'string[]',
-        'top_group_id' => 'string'
+        'region_id' => 'string',
+        'sale_infos' => '\Volcengine\Vepfs\Model\SaleInfoForDescribeZonesOutput[]',
+        'zone_id' => 'string',
+        'zone_name' => 'string'
     ];
 
     /**
@@ -43,13 +40,10 @@ class HostInfoForListBanIPListOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'agent_id' => null,
-        'cloud_provider' => null,
-        'ecs_instance' => null,
-        'leaf_group_id' => null,
-        'platform' => null,
-        'tags' => null,
-        'top_group_id' => null
+        'region_id' => null,
+        'sale_infos' => null,
+        'zone_id' => null,
+        'zone_name' => null
     ];
 
     /**
@@ -79,13 +73,10 @@ class HostInfoForListBanIPListOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'agent_id' => 'AgentID',
-        'cloud_provider' => 'CloudProvider',
-        'ecs_instance' => 'EcsInstance',
-        'leaf_group_id' => 'LeafGroupID',
-        'platform' => 'Platform',
-        'tags' => 'Tags',
-        'top_group_id' => 'TopGroupID'
+        'region_id' => 'RegionId',
+        'sale_infos' => 'SaleInfos',
+        'zone_id' => 'ZoneId',
+        'zone_name' => 'ZoneName'
     ];
 
     /**
@@ -94,13 +85,10 @@ class HostInfoForListBanIPListOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'agent_id' => 'setAgentId',
-        'cloud_provider' => 'setCloudProvider',
-        'ecs_instance' => 'setEcsInstance',
-        'leaf_group_id' => 'setLeafGroupId',
-        'platform' => 'setPlatform',
-        'tags' => 'setTags',
-        'top_group_id' => 'setTopGroupId'
+        'region_id' => 'setRegionId',
+        'sale_infos' => 'setSaleInfos',
+        'zone_id' => 'setZoneId',
+        'zone_name' => 'setZoneName'
     ];
 
     /**
@@ -109,13 +97,10 @@ class HostInfoForListBanIPListOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'agent_id' => 'getAgentId',
-        'cloud_provider' => 'getCloudProvider',
-        'ecs_instance' => 'getEcsInstance',
-        'leaf_group_id' => 'getLeafGroupId',
-        'platform' => 'getPlatform',
-        'tags' => 'getTags',
-        'top_group_id' => 'getTopGroupId'
+        'region_id' => 'getRegionId',
+        'sale_infos' => 'getSaleInfos',
+        'zone_id' => 'getZoneId',
+        'zone_name' => 'getZoneName'
     ];
 
     /**
@@ -178,13 +163,10 @@ class HostInfoForListBanIPListOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['agent_id'] = isset($data['agent_id']) ? $data['agent_id'] : null;
-        $this->container['cloud_provider'] = isset($data['cloud_provider']) ? $data['cloud_provider'] : null;
-        $this->container['ecs_instance'] = isset($data['ecs_instance']) ? $data['ecs_instance'] : null;
-        $this->container['leaf_group_id'] = isset($data['leaf_group_id']) ? $data['leaf_group_id'] : null;
-        $this->container['platform'] = isset($data['platform']) ? $data['platform'] : null;
-        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
-        $this->container['top_group_id'] = isset($data['top_group_id']) ? $data['top_group_id'] : null;
+        $this->container['region_id'] = isset($data['region_id']) ? $data['region_id'] : null;
+        $this->container['sale_infos'] = isset($data['sale_infos']) ? $data['sale_infos'] : null;
+        $this->container['zone_id'] = isset($data['zone_id']) ? $data['zone_id'] : null;
+        $this->container['zone_name'] = isset($data['zone_name']) ? $data['zone_name'] : null;
     }
 
     /**
@@ -212,169 +194,97 @@ class HostInfoForListBanIPListOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets agent_id
+     * Gets region_id
      *
      * @return string
      */
-    public function getAgentId()
+    public function getRegionId()
     {
-        return $this->container['agent_id'];
+        return $this->container['region_id'];
     }
 
     /**
-     * Sets agent_id
+     * Sets region_id
      *
-     * @param string $agent_id agent_id
+     * @param string $region_id region_id
      *
      * @return $this
      */
-    public function setAgentId($agent_id)
+    public function setRegionId($region_id)
     {
-        $this->container['agent_id'] = $agent_id;
+        $this->container['region_id'] = $region_id;
 
         return $this;
     }
 
     /**
-     * Gets cloud_provider
+     * Gets sale_infos
+     *
+     * @return \Volcengine\Vepfs\Model\SaleInfoForDescribeZonesOutput[]
+     */
+    public function getSaleInfos()
+    {
+        return $this->container['sale_infos'];
+    }
+
+    /**
+     * Sets sale_infos
+     *
+     * @param \Volcengine\Vepfs\Model\SaleInfoForDescribeZonesOutput[] $sale_infos sale_infos
+     *
+     * @return $this
+     */
+    public function setSaleInfos($sale_infos)
+    {
+        $this->container['sale_infos'] = $sale_infos;
+
+        return $this;
+    }
+
+    /**
+     * Gets zone_id
      *
      * @return string
      */
-    public function getCloudProvider()
+    public function getZoneId()
     {
-        return $this->container['cloud_provider'];
+        return $this->container['zone_id'];
     }
 
     /**
-     * Sets cloud_provider
+     * Sets zone_id
      *
-     * @param string $cloud_provider cloud_provider
+     * @param string $zone_id zone_id
      *
      * @return $this
      */
-    public function setCloudProvider($cloud_provider)
+    public function setZoneId($zone_id)
     {
-        $this->container['cloud_provider'] = $cloud_provider;
+        $this->container['zone_id'] = $zone_id;
 
         return $this;
     }
 
     /**
-     * Gets ecs_instance
-     *
-     * @return \Volcengine\Seccenter20240508\Model\EcsInstanceForListBanIPListOutput
-     */
-    public function getEcsInstance()
-    {
-        return $this->container['ecs_instance'];
-    }
-
-    /**
-     * Sets ecs_instance
-     *
-     * @param \Volcengine\Seccenter20240508\Model\EcsInstanceForListBanIPListOutput $ecs_instance ecs_instance
-     *
-     * @return $this
-     */
-    public function setEcsInstance($ecs_instance)
-    {
-        $this->container['ecs_instance'] = $ecs_instance;
-
-        return $this;
-    }
-
-    /**
-     * Gets leaf_group_id
+     * Gets zone_name
      *
      * @return string
      */
-    public function getLeafGroupId()
+    public function getZoneName()
     {
-        return $this->container['leaf_group_id'];
+        return $this->container['zone_name'];
     }
 
     /**
-     * Sets leaf_group_id
+     * Sets zone_name
      *
-     * @param string $leaf_group_id leaf_group_id
+     * @param string $zone_name zone_name
      *
      * @return $this
      */
-    public function setLeafGroupId($leaf_group_id)
+    public function setZoneName($zone_name)
     {
-        $this->container['leaf_group_id'] = $leaf_group_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets platform
-     *
-     * @return string
-     */
-    public function getPlatform()
-    {
-        return $this->container['platform'];
-    }
-
-    /**
-     * Sets platform
-     *
-     * @param string $platform platform
-     *
-     * @return $this
-     */
-    public function setPlatform($platform)
-    {
-        $this->container['platform'] = $platform;
-
-        return $this;
-    }
-
-    /**
-     * Gets tags
-     *
-     * @return string[]
-     */
-    public function getTags()
-    {
-        return $this->container['tags'];
-    }
-
-    /**
-     * Sets tags
-     *
-     * @param string[] $tags tags
-     *
-     * @return $this
-     */
-    public function setTags($tags)
-    {
-        $this->container['tags'] = $tags;
-
-        return $this;
-    }
-
-    /**
-     * Gets top_group_id
-     *
-     * @return string
-     */
-    public function getTopGroupId()
-    {
-        return $this->container['top_group_id'];
-    }
-
-    /**
-     * Sets top_group_id
-     *
-     * @param string $top_group_id top_group_id
-     *
-     * @return $this
-     */
-    public function setTopGroupId($top_group_id)
-    {
-        $this->container['top_group_id'] = $top_group_id;
+        $this->container['zone_name'] = $zone_name;
 
         return $this;
     }

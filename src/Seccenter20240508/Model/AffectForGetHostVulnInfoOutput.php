@@ -28,8 +28,11 @@ class AffectForGetHostVulnInfoOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'action' => 'string',
         'agent_id' => 'string',
         'asset_id' => 'string',
+        'cluster_id' => 'string',
+        'cluster_name' => 'string',
         'cmdline' => 'string',
         'container_create_time' => 'string',
         'container_host_name' => 'string',
@@ -40,9 +43,18 @@ class AffectForGetHostVulnInfoOutput implements ModelInterface, ArrayAccess
         'container_query_result' => 'string',
         'container_run_time' => 'string',
         'container_state' => 'string',
+        'control_time' => 'int',
+        'create_time' => 'int',
+        'cve_id' => 'string',
         'cves' => 'string[]',
+        'cwpp_id' => 'string',
+        'fix_command' => 'string',
+        'fix_version' => 'string',
         'image_id' => 'string',
         'image_name' => 'string',
+        'level' => 'string',
+        'namespace' => 'string',
+        'operate_reason' => 'string',
         'pid_list' => '\Volcengine\Seccenter20240508\Model\PidListForGetHostVulnInfoOutput[]',
         'pod_id' => 'string',
         'pod_name' => 'string',
@@ -51,23 +63,14 @@ class AffectForGetHostVulnInfoOutput implements ModelInterface, ArrayAccess
         'software_source' => 'string',
         'software_version' => 'string',
         'state' => 'string',
-        'type' => 'string',
-        'update_time' => 'int',
-        'action' => 'string',
-        'cluster_id' => 'string',
-        'cluster_name' => 'string',
-        'control_time' => 'int',
-        'create_time' => 'int',
-        'cve_id' => 'string',
-        'cwpp_id' => 'string',
-        'fix_version' => 'string',
-        'level' => 'string',
-        'namespace' => 'string',
-        'operate_reason' => 'string',
-        'pod_hash' => 'string',
         'status' => 'string',
         'tag' => 'string[]',
+        'tag_en' => 'string[]',
+        'type' => 'string',
+        'update_time' => 'int',
+        'vuln_affect_version' => 'string',
         'vuln_name' => 'string',
+        'vuln_name_en' => 'string',
         'vuln_type' => 'string',
         'workload_id' => 'string',
         'workload_name' => 'string'
@@ -79,8 +82,11 @@ class AffectForGetHostVulnInfoOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'action' => null,
         'agent_id' => null,
         'asset_id' => null,
+        'cluster_id' => null,
+        'cluster_name' => null,
         'cmdline' => null,
         'container_create_time' => null,
         'container_host_name' => null,
@@ -91,9 +97,18 @@ class AffectForGetHostVulnInfoOutput implements ModelInterface, ArrayAccess
         'container_query_result' => null,
         'container_run_time' => null,
         'container_state' => null,
+        'control_time' => 'int64',
+        'create_time' => 'int64',
+        'cve_id' => null,
         'cves' => null,
+        'cwpp_id' => null,
+        'fix_command' => null,
+        'fix_version' => null,
         'image_id' => null,
         'image_name' => null,
+        'level' => null,
+        'namespace' => null,
+        'operate_reason' => null,
         'pid_list' => null,
         'pod_id' => null,
         'pod_name' => null,
@@ -102,23 +117,14 @@ class AffectForGetHostVulnInfoOutput implements ModelInterface, ArrayAccess
         'software_source' => null,
         'software_version' => null,
         'state' => null,
-        'type' => null,
-        'update_time' => 'int64',
-        'action' => null,
-        'cluster_id' => null,
-        'cluster_name' => null,
-        'control_time' => 'int64',
-        'create_time' => 'int64',
-        'cve_id' => null,
-        'cwpp_id' => null,
-        'fix_version' => null,
-        'level' => null,
-        'namespace' => null,
-        'operate_reason' => null,
-        'pod_hash' => null,
         'status' => null,
         'tag' => null,
+        'tag_en' => null,
+        'type' => null,
+        'update_time' => 'int64',
+        'vuln_affect_version' => null,
         'vuln_name' => null,
+        'vuln_name_en' => null,
         'vuln_type' => null,
         'workload_id' => null,
         'workload_name' => null
@@ -151,8 +157,11 @@ class AffectForGetHostVulnInfoOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'action' => 'Action',
         'agent_id' => 'AgentID',
         'asset_id' => 'AssetID',
+        'cluster_id' => 'ClusterID',
+        'cluster_name' => 'ClusterName',
         'cmdline' => 'Cmdline',
         'container_create_time' => 'ContainerCreateTime',
         'container_host_name' => 'ContainerHostName',
@@ -163,9 +172,18 @@ class AffectForGetHostVulnInfoOutput implements ModelInterface, ArrayAccess
         'container_query_result' => 'ContainerQueryResult',
         'container_run_time' => 'ContainerRunTime',
         'container_state' => 'ContainerState',
+        'control_time' => 'ControlTime',
+        'create_time' => 'CreateTime',
+        'cve_id' => 'CveID',
         'cves' => 'Cves',
+        'cwpp_id' => 'CwppID',
+        'fix_command' => 'FixCommand',
+        'fix_version' => 'FixVersion',
         'image_id' => 'ImageID',
         'image_name' => 'ImageName',
+        'level' => 'Level',
+        'namespace' => 'Namespace',
+        'operate_reason' => 'OperateReason',
         'pid_list' => 'PidList',
         'pod_id' => 'PodID',
         'pod_name' => 'PodName',
@@ -174,26 +192,17 @@ class AffectForGetHostVulnInfoOutput implements ModelInterface, ArrayAccess
         'software_source' => 'SoftwareSource',
         'software_version' => 'SoftwareVersion',
         'state' => 'State',
+        'status' => 'Status',
+        'tag' => 'Tag',
+        'tag_en' => 'TagEn',
         'type' => 'Type',
         'update_time' => 'UpdateTime',
-        'action' => 'action',
-        'cluster_id' => 'cluster_id',
-        'cluster_name' => 'cluster_name',
-        'control_time' => 'control_time',
-        'create_time' => 'create_time',
-        'cve_id' => 'cve_id',
-        'cwpp_id' => 'cwpp_id',
-        'fix_version' => 'fix_version',
-        'level' => 'level',
-        'namespace' => 'namespace',
-        'operate_reason' => 'operate_reason',
-        'pod_hash' => 'pod_hash',
-        'status' => 'status',
-        'tag' => 'tag',
-        'vuln_name' => 'vuln_name',
-        'vuln_type' => 'vuln_type',
-        'workload_id' => 'workload_id',
-        'workload_name' => 'workload_name'
+        'vuln_affect_version' => 'VulnAffectVersion',
+        'vuln_name' => 'VulnName',
+        'vuln_name_en' => 'VulnNameEn',
+        'vuln_type' => 'VulnType',
+        'workload_id' => 'WorkloadID',
+        'workload_name' => 'WorkloadName'
     ];
 
     /**
@@ -202,8 +211,11 @@ class AffectForGetHostVulnInfoOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'action' => 'setAction',
         'agent_id' => 'setAgentId',
         'asset_id' => 'setAssetId',
+        'cluster_id' => 'setClusterId',
+        'cluster_name' => 'setClusterName',
         'cmdline' => 'setCmdline',
         'container_create_time' => 'setContainerCreateTime',
         'container_host_name' => 'setContainerHostName',
@@ -214,9 +226,18 @@ class AffectForGetHostVulnInfoOutput implements ModelInterface, ArrayAccess
         'container_query_result' => 'setContainerQueryResult',
         'container_run_time' => 'setContainerRunTime',
         'container_state' => 'setContainerState',
+        'control_time' => 'setControlTime',
+        'create_time' => 'setCreateTime',
+        'cve_id' => 'setCveId',
         'cves' => 'setCves',
+        'cwpp_id' => 'setCwppId',
+        'fix_command' => 'setFixCommand',
+        'fix_version' => 'setFixVersion',
         'image_id' => 'setImageId',
         'image_name' => 'setImageName',
+        'level' => 'setLevel',
+        'namespace' => 'setNamespace',
+        'operate_reason' => 'setOperateReason',
         'pid_list' => 'setPidList',
         'pod_id' => 'setPodId',
         'pod_name' => 'setPodName',
@@ -225,23 +246,14 @@ class AffectForGetHostVulnInfoOutput implements ModelInterface, ArrayAccess
         'software_source' => 'setSoftwareSource',
         'software_version' => 'setSoftwareVersion',
         'state' => 'setState',
-        'type' => 'setType',
-        'update_time' => 'setUpdateTime',
-        'action' => 'setAction',
-        'cluster_id' => 'setClusterId',
-        'cluster_name' => 'setClusterName',
-        'control_time' => 'setControlTime',
-        'create_time' => 'setCreateTime',
-        'cve_id' => 'setCveId',
-        'cwpp_id' => 'setCwppId',
-        'fix_version' => 'setFixVersion',
-        'level' => 'setLevel',
-        'namespace' => 'setNamespace',
-        'operate_reason' => 'setOperateReason',
-        'pod_hash' => 'setPodHash',
         'status' => 'setStatus',
         'tag' => 'setTag',
+        'tag_en' => 'setTagEn',
+        'type' => 'setType',
+        'update_time' => 'setUpdateTime',
+        'vuln_affect_version' => 'setVulnAffectVersion',
         'vuln_name' => 'setVulnName',
+        'vuln_name_en' => 'setVulnNameEn',
         'vuln_type' => 'setVulnType',
         'workload_id' => 'setWorkloadId',
         'workload_name' => 'setWorkloadName'
@@ -253,8 +265,11 @@ class AffectForGetHostVulnInfoOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'action' => 'getAction',
         'agent_id' => 'getAgentId',
         'asset_id' => 'getAssetId',
+        'cluster_id' => 'getClusterId',
+        'cluster_name' => 'getClusterName',
         'cmdline' => 'getCmdline',
         'container_create_time' => 'getContainerCreateTime',
         'container_host_name' => 'getContainerHostName',
@@ -265,9 +280,18 @@ class AffectForGetHostVulnInfoOutput implements ModelInterface, ArrayAccess
         'container_query_result' => 'getContainerQueryResult',
         'container_run_time' => 'getContainerRunTime',
         'container_state' => 'getContainerState',
+        'control_time' => 'getControlTime',
+        'create_time' => 'getCreateTime',
+        'cve_id' => 'getCveId',
         'cves' => 'getCves',
+        'cwpp_id' => 'getCwppId',
+        'fix_command' => 'getFixCommand',
+        'fix_version' => 'getFixVersion',
         'image_id' => 'getImageId',
         'image_name' => 'getImageName',
+        'level' => 'getLevel',
+        'namespace' => 'getNamespace',
+        'operate_reason' => 'getOperateReason',
         'pid_list' => 'getPidList',
         'pod_id' => 'getPodId',
         'pod_name' => 'getPodName',
@@ -276,23 +300,14 @@ class AffectForGetHostVulnInfoOutput implements ModelInterface, ArrayAccess
         'software_source' => 'getSoftwareSource',
         'software_version' => 'getSoftwareVersion',
         'state' => 'getState',
-        'type' => 'getType',
-        'update_time' => 'getUpdateTime',
-        'action' => 'getAction',
-        'cluster_id' => 'getClusterId',
-        'cluster_name' => 'getClusterName',
-        'control_time' => 'getControlTime',
-        'create_time' => 'getCreateTime',
-        'cve_id' => 'getCveId',
-        'cwpp_id' => 'getCwppId',
-        'fix_version' => 'getFixVersion',
-        'level' => 'getLevel',
-        'namespace' => 'getNamespace',
-        'operate_reason' => 'getOperateReason',
-        'pod_hash' => 'getPodHash',
         'status' => 'getStatus',
         'tag' => 'getTag',
+        'tag_en' => 'getTagEn',
+        'type' => 'getType',
+        'update_time' => 'getUpdateTime',
+        'vuln_affect_version' => 'getVulnAffectVersion',
         'vuln_name' => 'getVulnName',
+        'vuln_name_en' => 'getVulnNameEn',
         'vuln_type' => 'getVulnType',
         'workload_id' => 'getWorkloadId',
         'workload_name' => 'getWorkloadName'
@@ -358,8 +373,11 @@ class AffectForGetHostVulnInfoOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['action'] = isset($data['action']) ? $data['action'] : null;
         $this->container['agent_id'] = isset($data['agent_id']) ? $data['agent_id'] : null;
         $this->container['asset_id'] = isset($data['asset_id']) ? $data['asset_id'] : null;
+        $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
+        $this->container['cluster_name'] = isset($data['cluster_name']) ? $data['cluster_name'] : null;
         $this->container['cmdline'] = isset($data['cmdline']) ? $data['cmdline'] : null;
         $this->container['container_create_time'] = isset($data['container_create_time']) ? $data['container_create_time'] : null;
         $this->container['container_host_name'] = isset($data['container_host_name']) ? $data['container_host_name'] : null;
@@ -370,9 +388,18 @@ class AffectForGetHostVulnInfoOutput implements ModelInterface, ArrayAccess
         $this->container['container_query_result'] = isset($data['container_query_result']) ? $data['container_query_result'] : null;
         $this->container['container_run_time'] = isset($data['container_run_time']) ? $data['container_run_time'] : null;
         $this->container['container_state'] = isset($data['container_state']) ? $data['container_state'] : null;
+        $this->container['control_time'] = isset($data['control_time']) ? $data['control_time'] : null;
+        $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
+        $this->container['cve_id'] = isset($data['cve_id']) ? $data['cve_id'] : null;
         $this->container['cves'] = isset($data['cves']) ? $data['cves'] : null;
+        $this->container['cwpp_id'] = isset($data['cwpp_id']) ? $data['cwpp_id'] : null;
+        $this->container['fix_command'] = isset($data['fix_command']) ? $data['fix_command'] : null;
+        $this->container['fix_version'] = isset($data['fix_version']) ? $data['fix_version'] : null;
         $this->container['image_id'] = isset($data['image_id']) ? $data['image_id'] : null;
         $this->container['image_name'] = isset($data['image_name']) ? $data['image_name'] : null;
+        $this->container['level'] = isset($data['level']) ? $data['level'] : null;
+        $this->container['namespace'] = isset($data['namespace']) ? $data['namespace'] : null;
+        $this->container['operate_reason'] = isset($data['operate_reason']) ? $data['operate_reason'] : null;
         $this->container['pid_list'] = isset($data['pid_list']) ? $data['pid_list'] : null;
         $this->container['pod_id'] = isset($data['pod_id']) ? $data['pod_id'] : null;
         $this->container['pod_name'] = isset($data['pod_name']) ? $data['pod_name'] : null;
@@ -381,23 +408,14 @@ class AffectForGetHostVulnInfoOutput implements ModelInterface, ArrayAccess
         $this->container['software_source'] = isset($data['software_source']) ? $data['software_source'] : null;
         $this->container['software_version'] = isset($data['software_version']) ? $data['software_version'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
-        $this->container['action'] = isset($data['action']) ? $data['action'] : null;
-        $this->container['cluster_id'] = isset($data['cluster_id']) ? $data['cluster_id'] : null;
-        $this->container['cluster_name'] = isset($data['cluster_name']) ? $data['cluster_name'] : null;
-        $this->container['control_time'] = isset($data['control_time']) ? $data['control_time'] : null;
-        $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
-        $this->container['cve_id'] = isset($data['cve_id']) ? $data['cve_id'] : null;
-        $this->container['cwpp_id'] = isset($data['cwpp_id']) ? $data['cwpp_id'] : null;
-        $this->container['fix_version'] = isset($data['fix_version']) ? $data['fix_version'] : null;
-        $this->container['level'] = isset($data['level']) ? $data['level'] : null;
-        $this->container['namespace'] = isset($data['namespace']) ? $data['namespace'] : null;
-        $this->container['operate_reason'] = isset($data['operate_reason']) ? $data['operate_reason'] : null;
-        $this->container['pod_hash'] = isset($data['pod_hash']) ? $data['pod_hash'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['tag'] = isset($data['tag']) ? $data['tag'] : null;
+        $this->container['tag_en'] = isset($data['tag_en']) ? $data['tag_en'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
+        $this->container['vuln_affect_version'] = isset($data['vuln_affect_version']) ? $data['vuln_affect_version'] : null;
         $this->container['vuln_name'] = isset($data['vuln_name']) ? $data['vuln_name'] : null;
+        $this->container['vuln_name_en'] = isset($data['vuln_name_en']) ? $data['vuln_name_en'] : null;
         $this->container['vuln_type'] = isset($data['vuln_type']) ? $data['vuln_type'] : null;
         $this->container['workload_id'] = isset($data['workload_id']) ? $data['workload_id'] : null;
         $this->container['workload_name'] = isset($data['workload_name']) ? $data['workload_name'] : null;
@@ -426,6 +444,30 @@ class AffectForGetHostVulnInfoOutput implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets action
+     *
+     * @return string
+     */
+    public function getAction()
+    {
+        return $this->container['action'];
+    }
+
+    /**
+     * Sets action
+     *
+     * @param string $action action
+     *
+     * @return $this
+     */
+    public function setAction($action)
+    {
+        $this->container['action'] = $action;
+
+        return $this;
+    }
 
     /**
      * Gets agent_id
@@ -471,6 +513,54 @@ class AffectForGetHostVulnInfoOutput implements ModelInterface, ArrayAccess
     public function setAssetId($asset_id)
     {
         $this->container['asset_id'] = $asset_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets cluster_id
+     *
+     * @return string
+     */
+    public function getClusterId()
+    {
+        return $this->container['cluster_id'];
+    }
+
+    /**
+     * Sets cluster_id
+     *
+     * @param string $cluster_id cluster_id
+     *
+     * @return $this
+     */
+    public function setClusterId($cluster_id)
+    {
+        $this->container['cluster_id'] = $cluster_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets cluster_name
+     *
+     * @return string
+     */
+    public function getClusterName()
+    {
+        return $this->container['cluster_name'];
+    }
+
+    /**
+     * Sets cluster_name
+     *
+     * @param string $cluster_name cluster_name
+     *
+     * @return $this
+     */
+    public function setClusterName($cluster_name)
+    {
+        $this->container['cluster_name'] = $cluster_name;
 
         return $this;
     }
@@ -716,6 +806,78 @@ class AffectForGetHostVulnInfoOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets control_time
+     *
+     * @return int
+     */
+    public function getControlTime()
+    {
+        return $this->container['control_time'];
+    }
+
+    /**
+     * Sets control_time
+     *
+     * @param int $control_time control_time
+     *
+     * @return $this
+     */
+    public function setControlTime($control_time)
+    {
+        $this->container['control_time'] = $control_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets create_time
+     *
+     * @return int
+     */
+    public function getCreateTime()
+    {
+        return $this->container['create_time'];
+    }
+
+    /**
+     * Sets create_time
+     *
+     * @param int $create_time create_time
+     *
+     * @return $this
+     */
+    public function setCreateTime($create_time)
+    {
+        $this->container['create_time'] = $create_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets cve_id
+     *
+     * @return string
+     */
+    public function getCveId()
+    {
+        return $this->container['cve_id'];
+    }
+
+    /**
+     * Sets cve_id
+     *
+     * @param string $cve_id cve_id
+     *
+     * @return $this
+     */
+    public function setCveId($cve_id)
+    {
+        $this->container['cve_id'] = $cve_id;
+
+        return $this;
+    }
+
+    /**
      * Gets cves
      *
      * @return string[]
@@ -735,6 +897,78 @@ class AffectForGetHostVulnInfoOutput implements ModelInterface, ArrayAccess
     public function setCves($cves)
     {
         $this->container['cves'] = $cves;
+
+        return $this;
+    }
+
+    /**
+     * Gets cwpp_id
+     *
+     * @return string
+     */
+    public function getCwppId()
+    {
+        return $this->container['cwpp_id'];
+    }
+
+    /**
+     * Sets cwpp_id
+     *
+     * @param string $cwpp_id cwpp_id
+     *
+     * @return $this
+     */
+    public function setCwppId($cwpp_id)
+    {
+        $this->container['cwpp_id'] = $cwpp_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets fix_command
+     *
+     * @return string
+     */
+    public function getFixCommand()
+    {
+        return $this->container['fix_command'];
+    }
+
+    /**
+     * Sets fix_command
+     *
+     * @param string $fix_command fix_command
+     *
+     * @return $this
+     */
+    public function setFixCommand($fix_command)
+    {
+        $this->container['fix_command'] = $fix_command;
+
+        return $this;
+    }
+
+    /**
+     * Gets fix_version
+     *
+     * @return string
+     */
+    public function getFixVersion()
+    {
+        return $this->container['fix_version'];
+    }
+
+    /**
+     * Sets fix_version
+     *
+     * @param string $fix_version fix_version
+     *
+     * @return $this
+     */
+    public function setFixVersion($fix_version)
+    {
+        $this->container['fix_version'] = $fix_version;
 
         return $this;
     }
@@ -783,6 +1017,78 @@ class AffectForGetHostVulnInfoOutput implements ModelInterface, ArrayAccess
     public function setImageName($image_name)
     {
         $this->container['image_name'] = $image_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets level
+     *
+     * @return string
+     */
+    public function getLevel()
+    {
+        return $this->container['level'];
+    }
+
+    /**
+     * Sets level
+     *
+     * @param string $level level
+     *
+     * @return $this
+     */
+    public function setLevel($level)
+    {
+        $this->container['level'] = $level;
+
+        return $this;
+    }
+
+    /**
+     * Gets namespace
+     *
+     * @return string
+     */
+    public function getNamespace()
+    {
+        return $this->container['namespace'];
+    }
+
+    /**
+     * Sets namespace
+     *
+     * @param string $namespace namespace
+     *
+     * @return $this
+     */
+    public function setNamespace($namespace)
+    {
+        $this->container['namespace'] = $namespace;
+
+        return $this;
+    }
+
+    /**
+     * Gets operate_reason
+     *
+     * @return string
+     */
+    public function getOperateReason()
+    {
+        return $this->container['operate_reason'];
+    }
+
+    /**
+     * Sets operate_reason
+     *
+     * @param string $operate_reason operate_reason
+     *
+     * @return $this
+     */
+    public function setOperateReason($operate_reason)
+    {
+        $this->container['operate_reason'] = $operate_reason;
 
         return $this;
     }
@@ -980,342 +1286,6 @@ class AffectForGetHostVulnInfoOutput implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets type
-     *
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param string $type type
-     *
-     * @return $this
-     */
-    public function setType($type)
-    {
-        $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets update_time
-     *
-     * @return int
-     */
-    public function getUpdateTime()
-    {
-        return $this->container['update_time'];
-    }
-
-    /**
-     * Sets update_time
-     *
-     * @param int $update_time update_time
-     *
-     * @return $this
-     */
-    public function setUpdateTime($update_time)
-    {
-        $this->container['update_time'] = $update_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets action
-     *
-     * @return string
-     */
-    public function getAction()
-    {
-        return $this->container['action'];
-    }
-
-    /**
-     * Sets action
-     *
-     * @param string $action action
-     *
-     * @return $this
-     */
-    public function setAction($action)
-    {
-        $this->container['action'] = $action;
-
-        return $this;
-    }
-
-    /**
-     * Gets cluster_id
-     *
-     * @return string
-     */
-    public function getClusterId()
-    {
-        return $this->container['cluster_id'];
-    }
-
-    /**
-     * Sets cluster_id
-     *
-     * @param string $cluster_id cluster_id
-     *
-     * @return $this
-     */
-    public function setClusterId($cluster_id)
-    {
-        $this->container['cluster_id'] = $cluster_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets cluster_name
-     *
-     * @return string
-     */
-    public function getClusterName()
-    {
-        return $this->container['cluster_name'];
-    }
-
-    /**
-     * Sets cluster_name
-     *
-     * @param string $cluster_name cluster_name
-     *
-     * @return $this
-     */
-    public function setClusterName($cluster_name)
-    {
-        $this->container['cluster_name'] = $cluster_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets control_time
-     *
-     * @return int
-     */
-    public function getControlTime()
-    {
-        return $this->container['control_time'];
-    }
-
-    /**
-     * Sets control_time
-     *
-     * @param int $control_time control_time
-     *
-     * @return $this
-     */
-    public function setControlTime($control_time)
-    {
-        $this->container['control_time'] = $control_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets create_time
-     *
-     * @return int
-     */
-    public function getCreateTime()
-    {
-        return $this->container['create_time'];
-    }
-
-    /**
-     * Sets create_time
-     *
-     * @param int $create_time create_time
-     *
-     * @return $this
-     */
-    public function setCreateTime($create_time)
-    {
-        $this->container['create_time'] = $create_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets cve_id
-     *
-     * @return string
-     */
-    public function getCveId()
-    {
-        return $this->container['cve_id'];
-    }
-
-    /**
-     * Sets cve_id
-     *
-     * @param string $cve_id cve_id
-     *
-     * @return $this
-     */
-    public function setCveId($cve_id)
-    {
-        $this->container['cve_id'] = $cve_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets cwpp_id
-     *
-     * @return string
-     */
-    public function getCwppId()
-    {
-        return $this->container['cwpp_id'];
-    }
-
-    /**
-     * Sets cwpp_id
-     *
-     * @param string $cwpp_id cwpp_id
-     *
-     * @return $this
-     */
-    public function setCwppId($cwpp_id)
-    {
-        $this->container['cwpp_id'] = $cwpp_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets fix_version
-     *
-     * @return string
-     */
-    public function getFixVersion()
-    {
-        return $this->container['fix_version'];
-    }
-
-    /**
-     * Sets fix_version
-     *
-     * @param string $fix_version fix_version
-     *
-     * @return $this
-     */
-    public function setFixVersion($fix_version)
-    {
-        $this->container['fix_version'] = $fix_version;
-
-        return $this;
-    }
-
-    /**
-     * Gets level
-     *
-     * @return string
-     */
-    public function getLevel()
-    {
-        return $this->container['level'];
-    }
-
-    /**
-     * Sets level
-     *
-     * @param string $level level
-     *
-     * @return $this
-     */
-    public function setLevel($level)
-    {
-        $this->container['level'] = $level;
-
-        return $this;
-    }
-
-    /**
-     * Gets namespace
-     *
-     * @return string
-     */
-    public function getNamespace()
-    {
-        return $this->container['namespace'];
-    }
-
-    /**
-     * Sets namespace
-     *
-     * @param string $namespace namespace
-     *
-     * @return $this
-     */
-    public function setNamespace($namespace)
-    {
-        $this->container['namespace'] = $namespace;
-
-        return $this;
-    }
-
-    /**
-     * Gets operate_reason
-     *
-     * @return string
-     */
-    public function getOperateReason()
-    {
-        return $this->container['operate_reason'];
-    }
-
-    /**
-     * Sets operate_reason
-     *
-     * @param string $operate_reason operate_reason
-     *
-     * @return $this
-     */
-    public function setOperateReason($operate_reason)
-    {
-        $this->container['operate_reason'] = $operate_reason;
-
-        return $this;
-    }
-
-    /**
-     * Gets pod_hash
-     *
-     * @return string
-     */
-    public function getPodHash()
-    {
-        return $this->container['pod_hash'];
-    }
-
-    /**
-     * Sets pod_hash
-     *
-     * @param string $pod_hash pod_hash
-     *
-     * @return $this
-     */
-    public function setPodHash($pod_hash)
-    {
-        $this->container['pod_hash'] = $pod_hash;
-
-        return $this;
-    }
-
-    /**
      * Gets status
      *
      * @return string
@@ -1364,6 +1334,102 @@ class AffectForGetHostVulnInfoOutput implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets tag_en
+     *
+     * @return string[]
+     */
+    public function getTagEn()
+    {
+        return $this->container['tag_en'];
+    }
+
+    /**
+     * Sets tag_en
+     *
+     * @param string[] $tag_en tag_en
+     *
+     * @return $this
+     */
+    public function setTagEn($tag_en)
+    {
+        $this->container['tag_en'] = $tag_en;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string $type type
+     *
+     * @return $this
+     */
+    public function setType($type)
+    {
+        $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets update_time
+     *
+     * @return int
+     */
+    public function getUpdateTime()
+    {
+        return $this->container['update_time'];
+    }
+
+    /**
+     * Sets update_time
+     *
+     * @param int $update_time update_time
+     *
+     * @return $this
+     */
+    public function setUpdateTime($update_time)
+    {
+        $this->container['update_time'] = $update_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets vuln_affect_version
+     *
+     * @return string
+     */
+    public function getVulnAffectVersion()
+    {
+        return $this->container['vuln_affect_version'];
+    }
+
+    /**
+     * Sets vuln_affect_version
+     *
+     * @param string $vuln_affect_version vuln_affect_version
+     *
+     * @return $this
+     */
+    public function setVulnAffectVersion($vuln_affect_version)
+    {
+        $this->container['vuln_affect_version'] = $vuln_affect_version;
+
+        return $this;
+    }
+
+    /**
      * Gets vuln_name
      *
      * @return string
@@ -1383,6 +1449,30 @@ class AffectForGetHostVulnInfoOutput implements ModelInterface, ArrayAccess
     public function setVulnName($vuln_name)
     {
         $this->container['vuln_name'] = $vuln_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets vuln_name_en
+     *
+     * @return string
+     */
+    public function getVulnNameEn()
+    {
+        return $this->container['vuln_name_en'];
+    }
+
+    /**
+     * Sets vuln_name_en
+     *
+     * @param string $vuln_name_en vuln_name_en
+     *
+     * @return $this
+     */
+    public function setVulnNameEn($vuln_name_en)
+    {
+        $this->container['vuln_name_en'] = $vuln_name_en;
 
         return $this;
     }
