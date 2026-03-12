@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ConditionForCreateAlertTemplateInput implements ModelInterface, ArrayAccess
+class ConvertConditionForUpdateRuleInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ConditionForCreateAlertTemplateInput implements ModelInterface, ArrayAcces
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ConditionForCreateAlertTemplateInput';
+    protected static $swaggerModelName = 'ConvertConditionForUpdateRuleInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -32,6 +32,7 @@ class ConditionForCreateAlertTemplateInput implements ModelInterface, ArrayAcces
         'evaluation_window' => 'int',
         'metric_name' => 'string',
         'metric_unit' => 'string',
+        'period' => 'string',
         'statistics' => 'string',
         'threshold' => 'string'
     ];
@@ -46,6 +47,7 @@ class ConditionForCreateAlertTemplateInput implements ModelInterface, ArrayAcces
         'evaluation_window' => 'int32',
         'metric_name' => null,
         'metric_unit' => null,
+        'period' => null,
         'statistics' => null,
         'threshold' => null
     ];
@@ -81,6 +83,7 @@ class ConditionForCreateAlertTemplateInput implements ModelInterface, ArrayAcces
         'evaluation_window' => 'EvaluationWindow',
         'metric_name' => 'MetricName',
         'metric_unit' => 'MetricUnit',
+        'period' => 'Period',
         'statistics' => 'Statistics',
         'threshold' => 'Threshold'
     ];
@@ -95,6 +98,7 @@ class ConditionForCreateAlertTemplateInput implements ModelInterface, ArrayAcces
         'evaluation_window' => 'setEvaluationWindow',
         'metric_name' => 'setMetricName',
         'metric_unit' => 'setMetricUnit',
+        'period' => 'setPeriod',
         'statistics' => 'setStatistics',
         'threshold' => 'setThreshold'
     ];
@@ -109,6 +113,7 @@ class ConditionForCreateAlertTemplateInput implements ModelInterface, ArrayAcces
         'evaluation_window' => 'getEvaluationWindow',
         'metric_name' => 'getMetricName',
         'metric_unit' => 'getMetricUnit',
+        'period' => 'getPeriod',
         'statistics' => 'getStatistics',
         'threshold' => 'getThreshold'
     ];
@@ -177,6 +182,7 @@ class ConditionForCreateAlertTemplateInput implements ModelInterface, ArrayAcces
         $this->container['evaluation_window'] = isset($data['evaluation_window']) ? $data['evaluation_window'] : null;
         $this->container['metric_name'] = isset($data['metric_name']) ? $data['metric_name'] : null;
         $this->container['metric_unit'] = isset($data['metric_unit']) ? $data['metric_unit'] : null;
+        $this->container['period'] = isset($data['period']) ? $data['period'] : null;
         $this->container['statistics'] = isset($data['statistics']) ? $data['statistics'] : null;
         $this->container['threshold'] = isset($data['threshold']) ? $data['threshold'] : null;
     }
@@ -297,6 +303,30 @@ class ConditionForCreateAlertTemplateInput implements ModelInterface, ArrayAcces
     public function setMetricUnit($metric_unit)
     {
         $this->container['metric_unit'] = $metric_unit;
+
+        return $this;
+    }
+
+    /**
+     * Gets period
+     *
+     * @return string
+     */
+    public function getPeriod()
+    {
+        return $this->container['period'];
+    }
+
+    /**
+     * Sets period
+     *
+     * @param string $period period
+     *
+     * @return $this
+     */
+    public function setPeriod($period)
+    {
+        $this->container['period'] = $period;
 
         return $this;
     }

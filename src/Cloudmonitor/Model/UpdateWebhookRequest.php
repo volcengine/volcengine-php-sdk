@@ -30,8 +30,10 @@ class UpdateWebhookRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'id' => 'string',
         'name' => 'string',
+        'token' => 'string',
         'type' => 'string',
-        'url' => 'string'
+        'url' => 'string',
+        'with_token' => 'bool'
     ];
 
     /**
@@ -42,8 +44,10 @@ class UpdateWebhookRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'id' => null,
         'name' => null,
+        'token' => null,
         'type' => null,
-        'url' => null
+        'url' => null,
+        'with_token' => null
     ];
 
     /**
@@ -75,8 +79,10 @@ class UpdateWebhookRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'id' => 'Id',
         'name' => 'Name',
+        'token' => 'Token',
         'type' => 'Type',
-        'url' => 'Url'
+        'url' => 'Url',
+        'with_token' => 'WithToken'
     ];
 
     /**
@@ -87,8 +93,10 @@ class UpdateWebhookRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'id' => 'setId',
         'name' => 'setName',
+        'token' => 'setToken',
         'type' => 'setType',
-        'url' => 'setUrl'
+        'url' => 'setUrl',
+        'with_token' => 'setWithToken'
     ];
 
     /**
@@ -99,8 +107,10 @@ class UpdateWebhookRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'id' => 'getId',
         'name' => 'getName',
+        'token' => 'getToken',
         'type' => 'getType',
-        'url' => 'getUrl'
+        'url' => 'getUrl',
+        'with_token' => 'getWithToken'
     ];
 
     /**
@@ -165,8 +175,10 @@ class UpdateWebhookRequest implements ModelInterface, ArrayAccess
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['token'] = isset($data['token']) ? $data['token'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['url'] = isset($data['url']) ? $data['url'] : null;
+        $this->container['with_token'] = isset($data['with_token']) ? $data['with_token'] : null;
     }
 
     /**
@@ -254,6 +266,30 @@ class UpdateWebhookRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets token
+     *
+     * @return string
+     */
+    public function getToken()
+    {
+        return $this->container['token'];
+    }
+
+    /**
+     * Sets token
+     *
+     * @param string $token token
+     *
+     * @return $this
+     */
+    public function setToken($token)
+    {
+        $this->container['token'] = $token;
+
+        return $this;
+    }
+
+    /**
      * Gets type
      *
      * @return string
@@ -297,6 +333,30 @@ class UpdateWebhookRequest implements ModelInterface, ArrayAccess
     public function setUrl($url)
     {
         $this->container['url'] = $url;
+
+        return $this;
+    }
+
+    /**
+     * Gets with_token
+     *
+     * @return bool
+     */
+    public function getWithToken()
+    {
+        return $this->container['with_token'];
+    }
+
+    /**
+     * Sets with_token
+     *
+     * @param bool $with_token with_token
+     *
+     * @return $this
+     */
+    public function setWithToken($with_token)
+    {
+        $this->container['with_token'] = $with_token;
 
         return $this;
     }
