@@ -30,7 +30,7 @@ class ConvertNodeForGetExecutionOutput implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'code' => 'string',
         'name' => 'string',
-        'output' => '\Volcengine\Vod20250101\Model\ConvertOutputForGetExecutionOutput',
+        'output' => '\Volcengine\Vod20250101\Model\ConvertConvertOutputForGetExecutionOutput',
         'status' => 'string'
     ];
 
@@ -244,7 +244,7 @@ class ConvertNodeForGetExecutionOutput implements ModelInterface, ArrayAccess
     /**
      * Gets output
      *
-     * @return \Volcengine\Vod20250101\Model\ConvertOutputForGetExecutionOutput
+     * @return \Volcengine\Vod20250101\Model\ConvertConvertOutputForGetExecutionOutput
      */
     public function getOutput()
     {
@@ -254,7 +254,7 @@ class ConvertNodeForGetExecutionOutput implements ModelInterface, ArrayAccess
     /**
      * Sets output
      *
-     * @param \Volcengine\Vod20250101\Model\ConvertOutputForGetExecutionOutput $output output
+     * @param \Volcengine\Vod20250101\Model\ConvertConvertOutputForGetExecutionOutput $output output
      *
      * @return $this
      */

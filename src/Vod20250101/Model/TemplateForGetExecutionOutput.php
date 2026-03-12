@@ -29,7 +29,7 @@ class TemplateForGetExecutionOutput implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'byte_hd' => '\Volcengine\Vod20250101\Model\ByteHDForGetExecutionOutput',
-        'enhance' => '\Volcengine\Vod20250101\Model\ConvertEnhanceForGetExecutionOutput',
+        'enhance' => '\Volcengine\Vod20250101\Model\ConvertConvertEnhanceForGetExecutionOutput',
         'transcode_audio' => '\Volcengine\Vod20250101\Model\TranscodeAudioForGetExecutionOutput',
         'transcode_video' => '\Volcengine\Vod20250101\Model\TranscodeVideoForGetExecutionOutput',
         'type' => 'string'
@@ -226,7 +226,7 @@ class TemplateForGetExecutionOutput implements ModelInterface, ArrayAccess
     /**
      * Gets enhance
      *
-     * @return \Volcengine\Vod20250101\Model\ConvertEnhanceForGetExecutionOutput
+     * @return \Volcengine\Vod20250101\Model\ConvertConvertEnhanceForGetExecutionOutput
      */
     public function getEnhance()
     {
@@ -236,7 +236,7 @@ class TemplateForGetExecutionOutput implements ModelInterface, ArrayAccess
     /**
      * Sets enhance
      *
-     * @param \Volcengine\Vod20250101\Model\ConvertEnhanceForGetExecutionOutput $enhance enhance
+     * @param \Volcengine\Vod20250101\Model\ConvertConvertEnhanceForGetExecutionOutput $enhance enhance
      *
      * @return $this
      */

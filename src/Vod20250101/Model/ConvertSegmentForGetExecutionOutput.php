@@ -28,8 +28,10 @@ class ConvertSegmentForGetExecutionOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'clip_fade' => 'bool',
         'max_duration' => 'double',
         'min_duration' => 'double',
+        'no_file' => 'bool',
         'threshold' => 'double'
     ];
 
@@ -39,8 +41,10 @@ class ConvertSegmentForGetExecutionOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'clip_fade' => null,
         'max_duration' => 'double',
         'min_duration' => 'double',
+        'no_file' => null,
         'threshold' => 'double'
     ];
 
@@ -71,8 +75,10 @@ class ConvertSegmentForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'clip_fade' => 'ClipFade',
         'max_duration' => 'MaxDuration',
         'min_duration' => 'MinDuration',
+        'no_file' => 'NoFile',
         'threshold' => 'Threshold'
     ];
 
@@ -82,8 +88,10 @@ class ConvertSegmentForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'clip_fade' => 'setClipFade',
         'max_duration' => 'setMaxDuration',
         'min_duration' => 'setMinDuration',
+        'no_file' => 'setNoFile',
         'threshold' => 'setThreshold'
     ];
 
@@ -93,8 +101,10 @@ class ConvertSegmentForGetExecutionOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'clip_fade' => 'getClipFade',
         'max_duration' => 'getMaxDuration',
         'min_duration' => 'getMinDuration',
+        'no_file' => 'getNoFile',
         'threshold' => 'getThreshold'
     ];
 
@@ -158,8 +168,10 @@ class ConvertSegmentForGetExecutionOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['clip_fade'] = isset($data['clip_fade']) ? $data['clip_fade'] : null;
         $this->container['max_duration'] = isset($data['max_duration']) ? $data['max_duration'] : null;
         $this->container['min_duration'] = isset($data['min_duration']) ? $data['min_duration'] : null;
+        $this->container['no_file'] = isset($data['no_file']) ? $data['no_file'] : null;
         $this->container['threshold'] = isset($data['threshold']) ? $data['threshold'] : null;
     }
 
@@ -186,6 +198,30 @@ class ConvertSegmentForGetExecutionOutput implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets clip_fade
+     *
+     * @return bool
+     */
+    public function getClipFade()
+    {
+        return $this->container['clip_fade'];
+    }
+
+    /**
+     * Sets clip_fade
+     *
+     * @param bool $clip_fade clip_fade
+     *
+     * @return $this
+     */
+    public function setClipFade($clip_fade)
+    {
+        $this->container['clip_fade'] = $clip_fade;
+
+        return $this;
+    }
 
     /**
      * Gets max_duration
@@ -231,6 +267,30 @@ class ConvertSegmentForGetExecutionOutput implements ModelInterface, ArrayAccess
     public function setMinDuration($min_duration)
     {
         $this->container['min_duration'] = $min_duration;
+
+        return $this;
+    }
+
+    /**
+     * Gets no_file
+     *
+     * @return bool
+     */
+    public function getNoFile()
+    {
+        return $this->container['no_file'];
+    }
+
+    /**
+     * Sets no_file
+     *
+     * @param bool $no_file no_file
+     *
+     * @return $this
+     */
+    public function setNoFile($no_file)
+    {
+        $this->container['no_file'] = $no_file;
 
         return $this;
     }

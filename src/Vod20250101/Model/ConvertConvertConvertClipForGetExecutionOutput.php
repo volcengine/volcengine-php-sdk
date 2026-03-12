@@ -28,14 +28,12 @@ class ConvertConvertConvertClipForGetExecutionOutput implements ModelInterface, 
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'dialogue' => 'string',
+        'cut_end' => 'double',
+        'cut_start' => 'double',
         'end' => 'double',
-        'offset' => 'int',
         'score' => 'double',
-        'snapshot' => 'string',
         'start' => 'double',
-        'summary' => 'string',
-        'title' => 'string',
+        'type' => 'string',
         'video_index' => 'int'
     ];
 
@@ -45,14 +43,12 @@ class ConvertConvertConvertClipForGetExecutionOutput implements ModelInterface, 
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'dialogue' => null,
+        'cut_end' => 'double',
+        'cut_start' => 'double',
         'end' => 'double',
-        'offset' => 'int32',
         'score' => 'double',
-        'snapshot' => null,
         'start' => 'double',
-        'summary' => null,
-        'title' => null,
+        'type' => null,
         'video_index' => 'int32'
     ];
 
@@ -83,14 +79,12 @@ class ConvertConvertConvertClipForGetExecutionOutput implements ModelInterface, 
      * @var string[]
      */
     protected static $attributeMap = [
-        'dialogue' => 'Dialogue',
+        'cut_end' => 'CutEnd',
+        'cut_start' => 'CutStart',
         'end' => 'End',
-        'offset' => 'Offset',
         'score' => 'Score',
-        'snapshot' => 'Snapshot',
         'start' => 'Start',
-        'summary' => 'Summary',
-        'title' => 'Title',
+        'type' => 'Type',
         'video_index' => 'VideoIndex'
     ];
 
@@ -100,14 +94,12 @@ class ConvertConvertConvertClipForGetExecutionOutput implements ModelInterface, 
      * @var string[]
      */
     protected static $setters = [
-        'dialogue' => 'setDialogue',
+        'cut_end' => 'setCutEnd',
+        'cut_start' => 'setCutStart',
         'end' => 'setEnd',
-        'offset' => 'setOffset',
         'score' => 'setScore',
-        'snapshot' => 'setSnapshot',
         'start' => 'setStart',
-        'summary' => 'setSummary',
-        'title' => 'setTitle',
+        'type' => 'setType',
         'video_index' => 'setVideoIndex'
     ];
 
@@ -117,14 +109,12 @@ class ConvertConvertConvertClipForGetExecutionOutput implements ModelInterface, 
      * @var string[]
      */
     protected static $getters = [
-        'dialogue' => 'getDialogue',
+        'cut_end' => 'getCutEnd',
+        'cut_start' => 'getCutStart',
         'end' => 'getEnd',
-        'offset' => 'getOffset',
         'score' => 'getScore',
-        'snapshot' => 'getSnapshot',
         'start' => 'getStart',
-        'summary' => 'getSummary',
-        'title' => 'getTitle',
+        'type' => 'getType',
         'video_index' => 'getVideoIndex'
     ];
 
@@ -188,14 +178,12 @@ class ConvertConvertConvertClipForGetExecutionOutput implements ModelInterface, 
      */
     public function __construct(array $data = null)
     {
-        $this->container['dialogue'] = isset($data['dialogue']) ? $data['dialogue'] : null;
+        $this->container['cut_end'] = isset($data['cut_end']) ? $data['cut_end'] : null;
+        $this->container['cut_start'] = isset($data['cut_start']) ? $data['cut_start'] : null;
         $this->container['end'] = isset($data['end']) ? $data['end'] : null;
-        $this->container['offset'] = isset($data['offset']) ? $data['offset'] : null;
         $this->container['score'] = isset($data['score']) ? $data['score'] : null;
-        $this->container['snapshot'] = isset($data['snapshot']) ? $data['snapshot'] : null;
         $this->container['start'] = isset($data['start']) ? $data['start'] : null;
-        $this->container['summary'] = isset($data['summary']) ? $data['summary'] : null;
-        $this->container['title'] = isset($data['title']) ? $data['title'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['video_index'] = isset($data['video_index']) ? $data['video_index'] : null;
     }
 
@@ -224,25 +212,49 @@ class ConvertConvertConvertClipForGetExecutionOutput implements ModelInterface, 
 
 
     /**
-     * Gets dialogue
+     * Gets cut_end
      *
-     * @return string
+     * @return double
      */
-    public function getDialogue()
+    public function getCutEnd()
     {
-        return $this->container['dialogue'];
+        return $this->container['cut_end'];
     }
 
     /**
-     * Sets dialogue
+     * Sets cut_end
      *
-     * @param string $dialogue dialogue
+     * @param double $cut_end cut_end
      *
      * @return $this
      */
-    public function setDialogue($dialogue)
+    public function setCutEnd($cut_end)
     {
-        $this->container['dialogue'] = $dialogue;
+        $this->container['cut_end'] = $cut_end;
+
+        return $this;
+    }
+
+    /**
+     * Gets cut_start
+     *
+     * @return double
+     */
+    public function getCutStart()
+    {
+        return $this->container['cut_start'];
+    }
+
+    /**
+     * Sets cut_start
+     *
+     * @param double $cut_start cut_start
+     *
+     * @return $this
+     */
+    public function setCutStart($cut_start)
+    {
+        $this->container['cut_start'] = $cut_start;
 
         return $this;
     }
@@ -272,30 +284,6 @@ class ConvertConvertConvertClipForGetExecutionOutput implements ModelInterface, 
     }
 
     /**
-     * Gets offset
-     *
-     * @return int
-     */
-    public function getOffset()
-    {
-        return $this->container['offset'];
-    }
-
-    /**
-     * Sets offset
-     *
-     * @param int $offset offset
-     *
-     * @return $this
-     */
-    public function setOffset($offset)
-    {
-        $this->container['offset'] = $offset;
-
-        return $this;
-    }
-
-    /**
      * Gets score
      *
      * @return double
@@ -315,30 +303,6 @@ class ConvertConvertConvertClipForGetExecutionOutput implements ModelInterface, 
     public function setScore($score)
     {
         $this->container['score'] = $score;
-
-        return $this;
-    }
-
-    /**
-     * Gets snapshot
-     *
-     * @return string
-     */
-    public function getSnapshot()
-    {
-        return $this->container['snapshot'];
-    }
-
-    /**
-     * Sets snapshot
-     *
-     * @param string $snapshot snapshot
-     *
-     * @return $this
-     */
-    public function setSnapshot($snapshot)
-    {
-        $this->container['snapshot'] = $snapshot;
 
         return $this;
     }
@@ -368,49 +332,25 @@ class ConvertConvertConvertClipForGetExecutionOutput implements ModelInterface, 
     }
 
     /**
-     * Gets summary
+     * Gets type
      *
      * @return string
      */
-    public function getSummary()
+    public function getType()
     {
-        return $this->container['summary'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets summary
+     * Sets type
      *
-     * @param string $summary summary
+     * @param string $type type
      *
      * @return $this
      */
-    public function setSummary($summary)
+    public function setType($type)
     {
-        $this->container['summary'] = $summary;
-
-        return $this;
-    }
-
-    /**
-     * Gets title
-     *
-     * @return string
-     */
-    public function getTitle()
-    {
-        return $this->container['title'];
-    }
-
-    /**
-     * Sets title
-     *
-     * @param string $title title
-     *
-     * @return $this
-     */
-    public function setTitle($title)
-    {
-        $this->container['title'] = $title;
+        $this->container['type'] = $type;
 
         return $this;
     }

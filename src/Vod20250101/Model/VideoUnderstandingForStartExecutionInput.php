@@ -30,7 +30,7 @@ class VideoUnderstandingForStartExecutionInput implements ModelInterface, ArrayA
     protected static $swaggerTypes = [
         'model' => '\Volcengine\Vod20250101\Model\ModelForStartExecutionInput',
         'prompt' => 'string',
-        'segment' => '\Volcengine\Vod20250101\Model\ConvertSegmentForStartExecutionInput',
+        'segment' => '\Volcengine\Vod20250101\Model\ConvertConvertSegmentForStartExecutionInput',
         'with_segment' => 'bool'
     ];
 
@@ -244,7 +244,7 @@ class VideoUnderstandingForStartExecutionInput implements ModelInterface, ArrayA
     /**
      * Gets segment
      *
-     * @return \Volcengine\Vod20250101\Model\ConvertSegmentForStartExecutionInput
+     * @return \Volcengine\Vod20250101\Model\ConvertConvertSegmentForStartExecutionInput
      */
     public function getSegment()
     {
@@ -254,7 +254,7 @@ class VideoUnderstandingForStartExecutionInput implements ModelInterface, ArrayA
     /**
      * Sets segment
      *
-     * @param \Volcengine\Vod20250101\Model\ConvertSegmentForStartExecutionInput $segment segment
+     * @param \Volcengine\Vod20250101\Model\ConvertConvertSegmentForStartExecutionInput $segment segment
      *
      * @return $this
      */

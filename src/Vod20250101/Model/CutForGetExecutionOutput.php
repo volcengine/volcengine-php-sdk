@@ -28,7 +28,7 @@ class CutForGetExecutionOutput implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'clips' => '\Volcengine\Vod20250101\Model\ConvertConvertClipForGetExecutionOutput[]'
+        'clips' => '\Volcengine\Vod20250101\Model\ConvertConvertConvertClipForGetExecutionOutput[]'
     ];
 
     /**
@@ -178,7 +178,7 @@ class CutForGetExecutionOutput implements ModelInterface, ArrayAccess
     /**
      * Gets clips
      *
-     * @return \Volcengine\Vod20250101\Model\ConvertConvertClipForGetExecutionOutput[]
+     * @return \Volcengine\Vod20250101\Model\ConvertConvertConvertClipForGetExecutionOutput[]
      */
     public function getClips()
     {
@@ -188,7 +188,7 @@ class CutForGetExecutionOutput implements ModelInterface, ArrayAccess
     /**
      * Sets clips
      *
-     * @param \Volcengine\Vod20250101\Model\ConvertConvertClipForGetExecutionOutput[] $clips clips
+     * @param \Volcengine\Vod20250101\Model\ConvertConvertConvertClipForGetExecutionOutput[] $clips clips
      *
      * @return $this
      */
