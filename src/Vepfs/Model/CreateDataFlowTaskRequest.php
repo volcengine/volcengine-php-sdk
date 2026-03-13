@@ -32,6 +32,7 @@ class CreateDataFlowTaskRequest implements ModelInterface, ArrayAccess
         'data_storage_path' => 'string',
         'data_type' => 'string',
         'delete_policy' => '\Volcengine\Vepfs\Model\DeletePolicyForCreateDataFlowTaskInput',
+        'enable_tls_log' => 'bool',
         'entry_list_file_info' => '\Volcengine\Vepfs\Model\EntryListFileInfoForCreateDataFlowTaskInput',
         'export_symlink_policy' => 'string',
         'file_system_id' => 'string',
@@ -51,6 +52,7 @@ class CreateDataFlowTaskRequest implements ModelInterface, ArrayAccess
         'data_storage_path' => null,
         'data_type' => null,
         'delete_policy' => null,
+        'enable_tls_log' => null,
         'entry_list_file_info' => null,
         'export_symlink_policy' => null,
         'file_system_id' => null,
@@ -91,6 +93,7 @@ class CreateDataFlowTaskRequest implements ModelInterface, ArrayAccess
         'data_storage_path' => 'DataStoragePath',
         'data_type' => 'DataType',
         'delete_policy' => 'DeletePolicy',
+        'enable_tls_log' => 'EnableTlsLog',
         'entry_list_file_info' => 'EntryListFileInfo',
         'export_symlink_policy' => 'ExportSymlinkPolicy',
         'file_system_id' => 'FileSystemId',
@@ -110,6 +113,7 @@ class CreateDataFlowTaskRequest implements ModelInterface, ArrayAccess
         'data_storage_path' => 'setDataStoragePath',
         'data_type' => 'setDataType',
         'delete_policy' => 'setDeletePolicy',
+        'enable_tls_log' => 'setEnableTlsLog',
         'entry_list_file_info' => 'setEntryListFileInfo',
         'export_symlink_policy' => 'setExportSymlinkPolicy',
         'file_system_id' => 'setFileSystemId',
@@ -129,6 +133,7 @@ class CreateDataFlowTaskRequest implements ModelInterface, ArrayAccess
         'data_storage_path' => 'getDataStoragePath',
         'data_type' => 'getDataType',
         'delete_policy' => 'getDeletePolicy',
+        'enable_tls_log' => 'getEnableTlsLog',
         'entry_list_file_info' => 'getEntryListFileInfo',
         'export_symlink_policy' => 'getExportSymlinkPolicy',
         'file_system_id' => 'getFileSystemId',
@@ -268,6 +273,7 @@ class CreateDataFlowTaskRequest implements ModelInterface, ArrayAccess
         $this->container['data_storage_path'] = isset($data['data_storage_path']) ? $data['data_storage_path'] : null;
         $this->container['data_type'] = isset($data['data_type']) ? $data['data_type'] : null;
         $this->container['delete_policy'] = isset($data['delete_policy']) ? $data['delete_policy'] : null;
+        $this->container['enable_tls_log'] = isset($data['enable_tls_log']) ? $data['enable_tls_log'] : null;
         $this->container['entry_list_file_info'] = isset($data['entry_list_file_info']) ? $data['entry_list_file_info'] : null;
         $this->container['export_symlink_policy'] = isset($data['export_symlink_policy']) ? $data['export_symlink_policy'] : null;
         $this->container['file_system_id'] = isset($data['file_system_id']) ? $data['file_system_id'] : null;
@@ -443,6 +449,30 @@ class CreateDataFlowTaskRequest implements ModelInterface, ArrayAccess
     public function setDeletePolicy($delete_policy)
     {
         $this->container['delete_policy'] = $delete_policy;
+
+        return $this;
+    }
+
+    /**
+     * Gets enable_tls_log
+     *
+     * @return bool
+     */
+    public function getEnableTlsLog()
+    {
+        return $this->container['enable_tls_log'];
+    }
+
+    /**
+     * Sets enable_tls_log
+     *
+     * @param bool $enable_tls_log enable_tls_log
+     *
+     * @return $this
+     */
+    public function setEnableTlsLog($enable_tls_log)
+    {
+        $this->container['enable_tls_log'] = $enable_tls_log;
 
         return $this;
     }
