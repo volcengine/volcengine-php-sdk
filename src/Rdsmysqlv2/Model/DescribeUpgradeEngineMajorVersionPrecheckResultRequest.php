@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class CheckDetailForDescribeTaskDetailOutput implements ModelInterface, ArrayAccess
+class DescribeUpgradeEngineMajorVersionPrecheckResultRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CheckDetailForDescribeTaskDetailOutput implements ModelInterface, ArrayAcc
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CheckDetailForDescribeTaskDetailOutput';
+    protected static $swaggerModelName = 'DescribeUpgradeEngineMajorVersionPrecheckResultRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,8 @@ class CheckDetailForDescribeTaskDetailOutput implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'impact' => 'string',
-        'issue' => 'string'
+        'event_id' => 'string',
+        'instance_id' => 'string'
     ];
 
     /**
@@ -38,8 +38,8 @@ class CheckDetailForDescribeTaskDetailOutput implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'impact' => null,
-        'issue' => null
+        'event_id' => null,
+        'instance_id' => null
     ];
 
     /**
@@ -69,8 +69,8 @@ class CheckDetailForDescribeTaskDetailOutput implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $attributeMap = [
-        'impact' => 'Impact',
-        'issue' => 'Issue'
+        'event_id' => 'EventId',
+        'instance_id' => 'InstanceId'
     ];
 
     /**
@@ -79,8 +79,8 @@ class CheckDetailForDescribeTaskDetailOutput implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $setters = [
-        'impact' => 'setImpact',
-        'issue' => 'setIssue'
+        'event_id' => 'setEventId',
+        'instance_id' => 'setInstanceId'
     ];
 
     /**
@@ -89,8 +89,8 @@ class CheckDetailForDescribeTaskDetailOutput implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $getters = [
-        'impact' => 'getImpact',
-        'issue' => 'getIssue'
+        'event_id' => 'getEventId',
+        'instance_id' => 'getInstanceId'
     ];
 
     /**
@@ -153,8 +153,8 @@ class CheckDetailForDescribeTaskDetailOutput implements ModelInterface, ArrayAcc
      */
     public function __construct(array $data = null)
     {
-        $this->container['impact'] = isset($data['impact']) ? $data['impact'] : null;
-        $this->container['issue'] = isset($data['issue']) ? $data['issue'] : null;
+        $this->container['event_id'] = isset($data['event_id']) ? $data['event_id'] : null;
+        $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
     }
 
     /**
@@ -166,6 +166,9 @@ class CheckDetailForDescribeTaskDetailOutput implements ModelInterface, ArrayAcc
     {
         $invalidProperties = [];
 
+        if ($this->container['instance_id'] === null) {
+            $invalidProperties[] = "'instance_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -182,49 +185,49 @@ class CheckDetailForDescribeTaskDetailOutput implements ModelInterface, ArrayAcc
 
 
     /**
-     * Gets impact
+     * Gets event_id
      *
      * @return string
      */
-    public function getImpact()
+    public function getEventId()
     {
-        return $this->container['impact'];
+        return $this->container['event_id'];
     }
 
     /**
-     * Sets impact
+     * Sets event_id
      *
-     * @param string $impact impact
+     * @param string $event_id event_id
      *
      * @return $this
      */
-    public function setImpact($impact)
+    public function setEventId($event_id)
     {
-        $this->container['impact'] = $impact;
+        $this->container['event_id'] = $event_id;
 
         return $this;
     }
 
     /**
-     * Gets issue
+     * Gets instance_id
      *
      * @return string
      */
-    public function getIssue()
+    public function getInstanceId()
     {
-        return $this->container['issue'];
+        return $this->container['instance_id'];
     }
 
     /**
-     * Sets issue
+     * Sets instance_id
      *
-     * @param string $issue issue
+     * @param string $instance_id instance_id
      *
      * @return $this
      */
-    public function setIssue($issue)
+    public function setInstanceId($instance_id)
     {
-        $this->container['issue'] = $issue;
+        $this->container['instance_id'] = $instance_id;
 
         return $this;
     }

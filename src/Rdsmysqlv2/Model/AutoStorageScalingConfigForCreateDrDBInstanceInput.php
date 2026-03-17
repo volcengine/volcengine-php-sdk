@@ -29,6 +29,7 @@ class AutoStorageScalingConfigForCreateDrDBInstanceInput implements ModelInterfa
       */
     protected static $swaggerTypes = [
         'enable_storage_auto_scale' => 'bool',
+        'scaling_detect_node' => 'string',
         'storage_threshold' => 'int',
         'storage_upper_bound' => 'int'
     ];
@@ -40,6 +41,7 @@ class AutoStorageScalingConfigForCreateDrDBInstanceInput implements ModelInterfa
       */
     protected static $swaggerFormats = [
         'enable_storage_auto_scale' => null,
+        'scaling_detect_node' => null,
         'storage_threshold' => 'int32',
         'storage_upper_bound' => 'int32'
     ];
@@ -72,6 +74,7 @@ class AutoStorageScalingConfigForCreateDrDBInstanceInput implements ModelInterfa
      */
     protected static $attributeMap = [
         'enable_storage_auto_scale' => 'EnableStorageAutoScale',
+        'scaling_detect_node' => 'ScalingDetectNode',
         'storage_threshold' => 'StorageThreshold',
         'storage_upper_bound' => 'StorageUpperBound'
     ];
@@ -83,6 +86,7 @@ class AutoStorageScalingConfigForCreateDrDBInstanceInput implements ModelInterfa
      */
     protected static $setters = [
         'enable_storage_auto_scale' => 'setEnableStorageAutoScale',
+        'scaling_detect_node' => 'setScalingDetectNode',
         'storage_threshold' => 'setStorageThreshold',
         'storage_upper_bound' => 'setStorageUpperBound'
     ];
@@ -94,6 +98,7 @@ class AutoStorageScalingConfigForCreateDrDBInstanceInput implements ModelInterfa
      */
     protected static $getters = [
         'enable_storage_auto_scale' => 'getEnableStorageAutoScale',
+        'scaling_detect_node' => 'getScalingDetectNode',
         'storage_threshold' => 'getStorageThreshold',
         'storage_upper_bound' => 'getStorageUpperBound'
     ];
@@ -159,6 +164,7 @@ class AutoStorageScalingConfigForCreateDrDBInstanceInput implements ModelInterfa
     public function __construct(array $data = null)
     {
         $this->container['enable_storage_auto_scale'] = isset($data['enable_storage_auto_scale']) ? $data['enable_storage_auto_scale'] : null;
+        $this->container['scaling_detect_node'] = isset($data['scaling_detect_node']) ? $data['scaling_detect_node'] : null;
         $this->container['storage_threshold'] = isset($data['storage_threshold']) ? $data['storage_threshold'] : null;
         $this->container['storage_upper_bound'] = isset($data['storage_upper_bound']) ? $data['storage_upper_bound'] : null;
     }
@@ -207,6 +213,30 @@ class AutoStorageScalingConfigForCreateDrDBInstanceInput implements ModelInterfa
     public function setEnableStorageAutoScale($enable_storage_auto_scale)
     {
         $this->container['enable_storage_auto_scale'] = $enable_storage_auto_scale;
+
+        return $this;
+    }
+
+    /**
+     * Gets scaling_detect_node
+     *
+     * @return string
+     */
+    public function getScalingDetectNode()
+    {
+        return $this->container['scaling_detect_node'];
+    }
+
+    /**
+     * Sets scaling_detect_node
+     *
+     * @param string $scaling_detect_node scaling_detect_node
+     *
+     * @return $this
+     */
+    public function setScalingDetectNode($scaling_detect_node)
+    {
+        $this->container['scaling_detect_node'] = $scaling_detect_node;
 
         return $this;
     }

@@ -34,6 +34,7 @@ class AccountForDescribeDBAccountsOutput implements ModelInterface, ArrayAccess
         'account_privileges_sql' => 'string[]',
         'account_status' => 'string',
         'account_type' => 'string',
+        'authentication_type' => 'string',
         'global_account_privileges' => 'string[]',
         'has_table_column_privilege_db_names' => 'string[]',
         'host' => 'string'
@@ -51,6 +52,7 @@ class AccountForDescribeDBAccountsOutput implements ModelInterface, ArrayAccess
         'account_privileges_sql' => null,
         'account_status' => null,
         'account_type' => null,
+        'authentication_type' => null,
         'global_account_privileges' => null,
         'has_table_column_privilege_db_names' => null,
         'host' => null
@@ -89,6 +91,7 @@ class AccountForDescribeDBAccountsOutput implements ModelInterface, ArrayAccess
         'account_privileges_sql' => 'AccountPrivilegesSQL',
         'account_status' => 'AccountStatus',
         'account_type' => 'AccountType',
+        'authentication_type' => 'AuthenticationType',
         'global_account_privileges' => 'GlobalAccountPrivileges',
         'has_table_column_privilege_db_names' => 'HasTableColumnPrivilegeDBNames',
         'host' => 'Host'
@@ -106,6 +109,7 @@ class AccountForDescribeDBAccountsOutput implements ModelInterface, ArrayAccess
         'account_privileges_sql' => 'setAccountPrivilegesSql',
         'account_status' => 'setAccountStatus',
         'account_type' => 'setAccountType',
+        'authentication_type' => 'setAuthenticationType',
         'global_account_privileges' => 'setGlobalAccountPrivileges',
         'has_table_column_privilege_db_names' => 'setHasTableColumnPrivilegeDbNames',
         'host' => 'setHost'
@@ -123,6 +127,7 @@ class AccountForDescribeDBAccountsOutput implements ModelInterface, ArrayAccess
         'account_privileges_sql' => 'getAccountPrivilegesSql',
         'account_status' => 'getAccountStatus',
         'account_type' => 'getAccountType',
+        'authentication_type' => 'getAuthenticationType',
         'global_account_privileges' => 'getGlobalAccountPrivileges',
         'has_table_column_privilege_db_names' => 'getHasTableColumnPrivilegeDbNames',
         'host' => 'getHost'
@@ -194,6 +199,7 @@ class AccountForDescribeDBAccountsOutput implements ModelInterface, ArrayAccess
         $this->container['account_privileges_sql'] = isset($data['account_privileges_sql']) ? $data['account_privileges_sql'] : null;
         $this->container['account_status'] = isset($data['account_status']) ? $data['account_status'] : null;
         $this->container['account_type'] = isset($data['account_type']) ? $data['account_type'] : null;
+        $this->container['authentication_type'] = isset($data['authentication_type']) ? $data['authentication_type'] : null;
         $this->container['global_account_privileges'] = isset($data['global_account_privileges']) ? $data['global_account_privileges'] : null;
         $this->container['has_table_column_privilege_db_names'] = isset($data['has_table_column_privilege_db_names']) ? $data['has_table_column_privilege_db_names'] : null;
         $this->container['host'] = isset($data['host']) ? $data['host'] : null;
@@ -363,6 +369,30 @@ class AccountForDescribeDBAccountsOutput implements ModelInterface, ArrayAccess
     public function setAccountType($account_type)
     {
         $this->container['account_type'] = $account_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets authentication_type
+     *
+     * @return string
+     */
+    public function getAuthenticationType()
+    {
+        return $this->container['authentication_type'];
+    }
+
+    /**
+     * Sets authentication_type
+     *
+     * @param string $authentication_type authentication_type
+     *
+     * @return $this
+     */
+    public function setAuthenticationType($authentication_type)
+    {
+        $this->container['authentication_type'] = $authentication_type;
 
         return $this;
     }

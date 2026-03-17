@@ -28,6 +28,7 @@ class DescribeDBInstanceHAConfigResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'auto_storage_scaling_config' => '\Volcengine\Rdsmysqlv2\Model\AutoStorageScalingConfigForDescribeDBInstanceHAConfigOutput',
         'data_sync_mode' => 'string',
         'nodes' => '\Volcengine\Rdsmysqlv2\Model\NodeForDescribeDBInstanceHAConfigOutput[]'
     ];
@@ -38,6 +39,7 @@ class DescribeDBInstanceHAConfigResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'auto_storage_scaling_config' => null,
         'data_sync_mode' => null,
         'nodes' => null
     ];
@@ -69,6 +71,7 @@ class DescribeDBInstanceHAConfigResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'auto_storage_scaling_config' => 'AutoStorageScalingConfig',
         'data_sync_mode' => 'DataSyncMode',
         'nodes' => 'Nodes'
     ];
@@ -79,6 +82,7 @@ class DescribeDBInstanceHAConfigResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'auto_storage_scaling_config' => 'setAutoStorageScalingConfig',
         'data_sync_mode' => 'setDataSyncMode',
         'nodes' => 'setNodes'
     ];
@@ -89,6 +93,7 @@ class DescribeDBInstanceHAConfigResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'auto_storage_scaling_config' => 'getAutoStorageScalingConfig',
         'data_sync_mode' => 'getDataSyncMode',
         'nodes' => 'getNodes'
     ];
@@ -153,6 +158,7 @@ class DescribeDBInstanceHAConfigResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['auto_storage_scaling_config'] = isset($data['auto_storage_scaling_config']) ? $data['auto_storage_scaling_config'] : null;
         $this->container['data_sync_mode'] = isset($data['data_sync_mode']) ? $data['data_sync_mode'] : null;
         $this->container['nodes'] = isset($data['nodes']) ? $data['nodes'] : null;
     }
@@ -180,6 +186,30 @@ class DescribeDBInstanceHAConfigResponse implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets auto_storage_scaling_config
+     *
+     * @return \Volcengine\Rdsmysqlv2\Model\AutoStorageScalingConfigForDescribeDBInstanceHAConfigOutput
+     */
+    public function getAutoStorageScalingConfig()
+    {
+        return $this->container['auto_storage_scaling_config'];
+    }
+
+    /**
+     * Sets auto_storage_scaling_config
+     *
+     * @param \Volcengine\Rdsmysqlv2\Model\AutoStorageScalingConfigForDescribeDBInstanceHAConfigOutput $auto_storage_scaling_config auto_storage_scaling_config
+     *
+     * @return $this
+     */
+    public function setAutoStorageScalingConfig($auto_storage_scaling_config)
+    {
+        $this->container['auto_storage_scaling_config'] = $auto_storage_scaling_config;
+
+        return $this;
+    }
 
     /**
      * Gets data_sync_mode
