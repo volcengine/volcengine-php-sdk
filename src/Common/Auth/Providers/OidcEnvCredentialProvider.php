@@ -153,6 +153,14 @@ class OidcEnvCredentialProvider extends Provider
             'SessionToken' => isset($creds['SessionToken']) ? $creds['SessionToken'] : '',
             'ProviderName' => self::PROVIDER_NAME,
         ];
-        $this->expirationTime = time() + $this->durationSeconds - $this->expireBufferSeconds;
+        // Prefer server-side Expiration; fallback to local duration estimate
+        $expiration = time() + $this->durationSeconds;
+        if (isset($creds['Expiration'])) {
+            $ts = strtotime($creds['Expiration']);
+            if ($ts !== false) {
+                $expiration = $ts;
+            }
+        }
+        $this->expirationTime = $expiration - $this->expireBufferSeconds;
     }
 }

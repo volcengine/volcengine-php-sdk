@@ -156,15 +156,16 @@ class EcsRoleCredentialProvider extends Provider
 
     private function doGetWithRetry($url)
     {
+        $retries = max($this->maxRetries, 1);
         $lastError = null;
         $timeout = $this->connectTimeout + $this->readTimeout;
 
-        for ($attempt = 0; $attempt < $this->maxRetries; $attempt++) {
+        for ($attempt = 0; $attempt < $retries; $attempt++) {
             try {
                 return $this->doGet($url, $timeout);
             } catch (\RuntimeException $e) {
                 $lastError = $e;
-                if ($attempt < $this->maxRetries - 1) {
+                if ($attempt < $retries - 1) {
                     sleep($this->retryInterval);
                 }
             }

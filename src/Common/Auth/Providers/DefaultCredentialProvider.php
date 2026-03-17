@@ -37,7 +37,7 @@ class DefaultCredentialProvider extends Provider
                 if ($creds !== null) {
                     return $creds;
                 }
-            } catch (\Exception $e) {
+            } catch (\Throwable $e) {
                 // Clear cached provider and fall through to full chain
                 $this->lastProvider = null;
             }
@@ -54,7 +54,7 @@ class DefaultCredentialProvider extends Provider
                     }
                     return $creds;
                 }
-            } catch (\Exception $e) {
+            } catch (\Throwable $e) {
                 $errors[] = get_class($provider) . ': ' . $e->getMessage();
             }
         }
@@ -115,7 +115,7 @@ class LazyProvider extends Provider
         if (!$this->initialized) {
             try {
                 $this->delegate = call_user_func($this->factory);
-            } catch (\Exception $e) {
+            } catch (\Throwable $e) {
                 $this->initError = $e->getMessage();
             }
             $this->initialized = true;
