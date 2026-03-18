@@ -130,6 +130,440 @@ class I18NOPENAPIApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function documentCreate($body = null)
+    {
+        list($response) = $this->documentCreateWithHttpInfo($body);
+        return $response;
+    }
+
+    public function documentCreateWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\DocumentCreateResponse';
+        $request = $this->documentCreateRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function documentCreateAsync($body = null)
+    {
+        return $this->documentCreateAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function documentCreateAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\DocumentCreateResponse';
+        $request = $this->documentCreateRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function documentCreateRequest($body)
+    {
+        $resourcePath = '/DocumentCreate/2021-05-21/i18n_openapi/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function documentTaskCreate($body = null)
+    {
+        list($response) = $this->documentTaskCreateWithHttpInfo($body);
+        return $response;
+    }
+
+    public function documentTaskCreateWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\DocumentTaskCreateResponse';
+        $request = $this->documentTaskCreateRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function documentTaskCreateAsync($body = null)
+    {
+        return $this->documentTaskCreateAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function documentTaskCreateAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\DocumentTaskCreateResponse';
+        $request = $this->documentTaskCreateRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function documentTaskCreateRequest($body)
+    {
+        $resourcePath = '/DocumentTaskCreate/2021-05-21/i18n_openapi/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function documentTaskDelete($body = null)
+    {
+        list($response) = $this->documentTaskDeleteWithHttpInfo($body);
+        return $response;
+    }
+
+    public function documentTaskDeleteWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\DocumentTaskDeleteResponse';
+        $request = $this->documentTaskDeleteRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function documentTaskDeleteAsync($body = null)
+    {
+        return $this->documentTaskDeleteAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function documentTaskDeleteAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\DocumentTaskDeleteResponse';
+        $request = $this->documentTaskDeleteRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function documentTaskDeleteRequest($body)
+    {
+        $resourcePath = '/DocumentTaskDelete/2021-05-21/i18n_openapi/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function documentTaskDetail($body = null)
+    {
+        list($response) = $this->documentTaskDetailWithHttpInfo($body);
+        return $response;
+    }
+
+    public function documentTaskDetailWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\DocumentTaskDetailResponse';
+        $request = $this->documentTaskDetailRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function documentTaskDetailAsync($body = null)
+    {
+        return $this->documentTaskDetailAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function documentTaskDetailAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\DocumentTaskDetailResponse';
+        $request = $this->documentTaskDetailRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function documentTaskDetailRequest($body)
+    {
+        $resourcePath = '/DocumentTaskDetail/2021-05-21/i18n_openapi/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function documentTaskStop($body = null)
+    {
+        list($response) = $this->documentTaskStopWithHttpInfo($body);
+        return $response;
+    }
+
+    public function documentTaskStopWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\DocumentTaskStopResponse';
+        $request = $this->documentTaskStopRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function documentTaskStopAsync($body = null)
+    {
+        return $this->documentTaskStopAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function documentTaskStopAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\DocumentTaskStopResponse';
+        $request = $this->documentTaskStopRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function documentTaskStopRequest($body)
+    {
+        $resourcePath = '/DocumentTaskStop/2021-05-21/i18n_openapi/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function languages($body = null)
+    {
+        list($response) = $this->languagesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function languagesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\LanguagesResponse';
+        $request = $this->languagesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function languagesAsync($body = null)
+    {
+        return $this->languagesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function languagesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\LanguagesResponse';
+        $request = $this->languagesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function languagesRequest($body)
+    {
+        $resourcePath = '/Languages/2021-05-21/i18n_openapi/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function mtSupportLang($body = null)
+    {
+        list($response) = $this->mtSupportLangWithHttpInfo($body);
+        return $response;
+    }
+
+    public function mtSupportLangWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\MtSupportLangResponse';
+        $request = $this->mtSupportLangRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function mtSupportLangAsync($body = null)
+    {
+        return $this->mtSupportLangAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function mtSupportLangAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\MtSupportLangResponse';
+        $request = $this->mtSupportLangRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function mtSupportLangRequest($body)
+    {
+        $resourcePath = '/MtSupportLang/2021-05-21/i18n_openapi/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function projectDetail($body = null)
     {
         list($response) = $this->projectDetailWithHttpInfo($body);
@@ -170,6 +604,254 @@ class I18NOPENAPIApi
         $headers = $this->headerSelector->selectHeaders(
             ['application/json'],
             ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function projectDownloadProgressQuery($body = null)
+    {
+        list($response) = $this->projectDownloadProgressQueryWithHttpInfo($body);
+        return $response;
+    }
+
+    public function projectDownloadProgressQueryWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectDownloadProgressQueryResponse';
+        $request = $this->projectDownloadProgressQueryRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function projectDownloadProgressQueryAsync($body = null)
+    {
+        return $this->projectDownloadProgressQueryAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function projectDownloadProgressQueryAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectDownloadProgressQueryResponse';
+        $request = $this->projectDownloadProgressQueryRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function projectDownloadProgressQueryRequest($body)
+    {
+        $resourcePath = '/ProjectDownloadProgressQuery/2021-05-21/i18n_openapi/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function projectDownloadTaskDelete($body = null)
+    {
+        list($response) = $this->projectDownloadTaskDeleteWithHttpInfo($body);
+        return $response;
+    }
+
+    public function projectDownloadTaskDeleteWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectDownloadTaskDeleteResponse';
+        $request = $this->projectDownloadTaskDeleteRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function projectDownloadTaskDeleteAsync($body = null)
+    {
+        return $this->projectDownloadTaskDeleteAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function projectDownloadTaskDeleteAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectDownloadTaskDeleteResponse';
+        $request = $this->projectDownloadTaskDeleteRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function projectDownloadTaskDeleteRequest($body)
+    {
+        $resourcePath = '/ProjectDownloadTaskDelete/2021-05-21/i18n_openapi/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function projectMtDetect($body = null)
+    {
+        list($response) = $this->projectMtDetectWithHttpInfo($body);
+        return $response;
+    }
+
+    public function projectMtDetectWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectMtDetectResponse';
+        $request = $this->projectMtDetectRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function projectMtDetectAsync($body = null)
+    {
+        return $this->projectMtDetectAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function projectMtDetectAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectMtDetectResponse';
+        $request = $this->projectMtDetectRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function projectMtDetectRequest($body)
+    {
+        $resourcePath = '/ProjectMtDetect/2021-05-21/i18n_openapi/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function projectMtTranslate($body = null)
+    {
+        list($response) = $this->projectMtTranslateWithHttpInfo($body);
+        return $response;
+    }
+
+    public function projectMtTranslateWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectMtTranslateResponse';
+        $request = $this->projectMtTranslateRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function projectMtTranslateAsync($body = null)
+    {
+        return $this->projectMtTranslateAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function projectMtTranslateAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectMtTranslateResponse';
+        $request = $this->projectMtTranslateRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function projectMtTranslateRequest($body)
+    {
+        $resourcePath = '/ProjectMtTranslate/2021-05-21/i18n_openapi/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
         );
 
         $defaultHeaders = [];
@@ -316,6 +998,936 @@ class I18NOPENAPIApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function projectNamespaceSourceAdd($body = null)
+    {
+        list($response) = $this->projectNamespaceSourceAddWithHttpInfo($body);
+        return $response;
+    }
+
+    public function projectNamespaceSourceAddWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectNamespaceSourceAddResponse';
+        $request = $this->projectNamespaceSourceAddRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function projectNamespaceSourceAddAsync($body = null)
+    {
+        return $this->projectNamespaceSourceAddAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function projectNamespaceSourceAddAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectNamespaceSourceAddResponse';
+        $request = $this->projectNamespaceSourceAddRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function projectNamespaceSourceAddRequest($body)
+    {
+        $resourcePath = '/ProjectNamespaceSourceAdd/2021-05-21/i18n_openapi/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function projectNamespaceSourceDeleteByIds($body = null)
+    {
+        list($response) = $this->projectNamespaceSourceDeleteByIdsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function projectNamespaceSourceDeleteByIdsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectNamespaceSourceDeleteByIdsResponse';
+        $request = $this->projectNamespaceSourceDeleteByIdsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function projectNamespaceSourceDeleteByIdsAsync($body = null)
+    {
+        return $this->projectNamespaceSourceDeleteByIdsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function projectNamespaceSourceDeleteByIdsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectNamespaceSourceDeleteByIdsResponse';
+        $request = $this->projectNamespaceSourceDeleteByIdsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function projectNamespaceSourceDeleteByIdsRequest($body)
+    {
+        $resourcePath = '/ProjectNamespaceSourceDeleteByIds/2021-05-21/i18n_openapi/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function projectNamespaceSourceDeleteByKeys($body = null)
+    {
+        list($response) = $this->projectNamespaceSourceDeleteByKeysWithHttpInfo($body);
+        return $response;
+    }
+
+    public function projectNamespaceSourceDeleteByKeysWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectNamespaceSourceDeleteByKeysResponse';
+        $request = $this->projectNamespaceSourceDeleteByKeysRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function projectNamespaceSourceDeleteByKeysAsync($body = null)
+    {
+        return $this->projectNamespaceSourceDeleteByKeysAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function projectNamespaceSourceDeleteByKeysAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectNamespaceSourceDeleteByKeysResponse';
+        $request = $this->projectNamespaceSourceDeleteByKeysRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function projectNamespaceSourceDeleteByKeysRequest($body)
+    {
+        $resourcePath = '/ProjectNamespaceSourceDeleteByKeys/2021-05-21/i18n_openapi/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function projectNamespaceSourceDetail($body = null)
+    {
+        list($response) = $this->projectNamespaceSourceDetailWithHttpInfo($body);
+        return $response;
+    }
+
+    public function projectNamespaceSourceDetailWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectNamespaceSourceDetailResponse';
+        $request = $this->projectNamespaceSourceDetailRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function projectNamespaceSourceDetailAsync($body = null)
+    {
+        return $this->projectNamespaceSourceDetailAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function projectNamespaceSourceDetailAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectNamespaceSourceDetailResponse';
+        $request = $this->projectNamespaceSourceDetailRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function projectNamespaceSourceDetailRequest($body)
+    {
+        $resourcePath = '/ProjectNamespaceSourceDetail/2021-05-21/i18n_openapi/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function projectNamespaceSourceDownload($body = null)
+    {
+        list($response) = $this->projectNamespaceSourceDownloadWithHttpInfo($body);
+        return $response;
+    }
+
+    public function projectNamespaceSourceDownloadWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectNamespaceSourceDownloadResponse';
+        $request = $this->projectNamespaceSourceDownloadRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function projectNamespaceSourceDownloadAsync($body = null)
+    {
+        return $this->projectNamespaceSourceDownloadAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function projectNamespaceSourceDownloadAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectNamespaceSourceDownloadResponse';
+        $request = $this->projectNamespaceSourceDownloadRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function projectNamespaceSourceDownloadRequest($body)
+    {
+        $resourcePath = '/ProjectNamespaceSourceDownload/2021-05-21/i18n_openapi/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function projectNamespaceSourceMultiUpdate($body = null)
+    {
+        list($response) = $this->projectNamespaceSourceMultiUpdateWithHttpInfo($body);
+        return $response;
+    }
+
+    public function projectNamespaceSourceMultiUpdateWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectNamespaceSourceMultiUpdateResponse';
+        $request = $this->projectNamespaceSourceMultiUpdateRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function projectNamespaceSourceMultiUpdateAsync($body = null)
+    {
+        return $this->projectNamespaceSourceMultiUpdateAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function projectNamespaceSourceMultiUpdateAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectNamespaceSourceMultiUpdateResponse';
+        $request = $this->projectNamespaceSourceMultiUpdateRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function projectNamespaceSourceMultiUpdateRequest($body)
+    {
+        $resourcePath = '/ProjectNamespaceSourceMultiUpdate/2021-05-21/i18n_openapi/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function projectNamespaceSourceUpdate($body = null)
+    {
+        list($response) = $this->projectNamespaceSourceUpdateWithHttpInfo($body);
+        return $response;
+    }
+
+    public function projectNamespaceSourceUpdateWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectNamespaceSourceUpdateResponse';
+        $request = $this->projectNamespaceSourceUpdateRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function projectNamespaceSourceUpdateAsync($body = null)
+    {
+        return $this->projectNamespaceSourceUpdateAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function projectNamespaceSourceUpdateAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectNamespaceSourceUpdateResponse';
+        $request = $this->projectNamespaceSourceUpdateRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function projectNamespaceSourceUpdateRequest($body)
+    {
+        $resourcePath = '/ProjectNamespaceSourceUpdate/2021-05-21/i18n_openapi/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function projectNamespaceTargetDeleteById($body = null)
+    {
+        list($response) = $this->projectNamespaceTargetDeleteByIdWithHttpInfo($body);
+        return $response;
+    }
+
+    public function projectNamespaceTargetDeleteByIdWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectNamespaceTargetDeleteByIdResponse';
+        $request = $this->projectNamespaceTargetDeleteByIdRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function projectNamespaceTargetDeleteByIdAsync($body = null)
+    {
+        return $this->projectNamespaceTargetDeleteByIdAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function projectNamespaceTargetDeleteByIdAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectNamespaceTargetDeleteByIdResponse';
+        $request = $this->projectNamespaceTargetDeleteByIdRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function projectNamespaceTargetDeleteByIdRequest($body)
+    {
+        $resourcePath = '/ProjectNamespaceTargetDeleteById/2021-05-21/i18n_openapi/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function projectNamespaceTargetDeleteByIds($body = null)
+    {
+        list($response) = $this->projectNamespaceTargetDeleteByIdsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function projectNamespaceTargetDeleteByIdsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectNamespaceTargetDeleteByIdsResponse';
+        $request = $this->projectNamespaceTargetDeleteByIdsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function projectNamespaceTargetDeleteByIdsAsync($body = null)
+    {
+        return $this->projectNamespaceTargetDeleteByIdsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function projectNamespaceTargetDeleteByIdsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectNamespaceTargetDeleteByIdsResponse';
+        $request = $this->projectNamespaceTargetDeleteByIdsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function projectNamespaceTargetDeleteByIdsRequest($body)
+    {
+        $resourcePath = '/ProjectNamespaceTargetDeleteByIds/2021-05-21/i18n_openapi/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function projectNamespaceTargetDeleteByKeys($body = null)
+    {
+        list($response) = $this->projectNamespaceTargetDeleteByKeysWithHttpInfo($body);
+        return $response;
+    }
+
+    public function projectNamespaceTargetDeleteByKeysWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectNamespaceTargetDeleteByKeysResponse';
+        $request = $this->projectNamespaceTargetDeleteByKeysRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function projectNamespaceTargetDeleteByKeysAsync($body = null)
+    {
+        return $this->projectNamespaceTargetDeleteByKeysAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function projectNamespaceTargetDeleteByKeysAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectNamespaceTargetDeleteByKeysResponse';
+        $request = $this->projectNamespaceTargetDeleteByKeysRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function projectNamespaceTargetDeleteByKeysRequest($body)
+    {
+        $resourcePath = '/ProjectNamespaceTargetDeleteByKeys/2021-05-21/i18n_openapi/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function projectNamespaceTargetDownload($body = null)
+    {
+        list($response) = $this->projectNamespaceTargetDownloadWithHttpInfo($body);
+        return $response;
+    }
+
+    public function projectNamespaceTargetDownloadWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectNamespaceTargetDownloadResponse';
+        $request = $this->projectNamespaceTargetDownloadRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function projectNamespaceTargetDownloadAsync($body = null)
+    {
+        return $this->projectNamespaceTargetDownloadAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function projectNamespaceTargetDownloadAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectNamespaceTargetDownloadResponse';
+        $request = $this->projectNamespaceTargetDownloadRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function projectNamespaceTargetDownloadRequest($body)
+    {
+        $resourcePath = '/ProjectNamespaceTargetDownload/2021-05-21/i18n_openapi/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function projectNamespaceTargetUpdate($body = null)
+    {
+        list($response) = $this->projectNamespaceTargetUpdateWithHttpInfo($body);
+        return $response;
+    }
+
+    public function projectNamespaceTargetUpdateWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectNamespaceTargetUpdateResponse';
+        $request = $this->projectNamespaceTargetUpdateRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function projectNamespaceTargetUpdateAsync($body = null)
+    {
+        return $this->projectNamespaceTargetUpdateAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function projectNamespaceTargetUpdateAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectNamespaceTargetUpdateResponse';
+        $request = $this->projectNamespaceTargetUpdateRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function projectNamespaceTargetUpdateRequest($body)
+    {
+        $resourcePath = '/ProjectNamespaceTargetUpdate/2021-05-21/i18n_openapi/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function projectNamespaceTargets($body = null)
+    {
+        list($response) = $this->projectNamespaceTargetsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function projectNamespaceTargetsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectNamespaceTargetsResponse';
+        $request = $this->projectNamespaceTargetsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function projectNamespaceTargetsAsync($body = null)
+    {
+        return $this->projectNamespaceTargetsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function projectNamespaceTargetsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectNamespaceTargetsResponse';
+        $request = $this->projectNamespaceTargetsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function projectNamespaceTargetsRequest($body)
+    {
+        $resourcePath = '/ProjectNamespaceTargets/2021-05-21/i18n_openapi/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function projectNamespaceTextImport($body = null)
+    {
+        list($response) = $this->projectNamespaceTextImportWithHttpInfo($body);
+        return $response;
+    }
+
+    public function projectNamespaceTextImportWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectNamespaceTextImportResponse';
+        $request = $this->projectNamespaceTextImportRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function projectNamespaceTextImportAsync($body = null)
+    {
+        return $this->projectNamespaceTextImportAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function projectNamespaceTextImportAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectNamespaceTextImportResponse';
+        $request = $this->projectNamespaceTextImportRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function projectNamespaceTextImportRequest($body)
+    {
+        $resourcePath = '/ProjectNamespaceTextImport/2021-05-21/i18n_openapi/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function projectNamespaceUpdate($body = null)
+    {
+        list($response) = $this->projectNamespaceUpdateWithHttpInfo($body);
+        return $response;
+    }
+
+    public function projectNamespaceUpdateWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectNamespaceUpdateResponse';
+        $request = $this->projectNamespaceUpdateRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function projectNamespaceUpdateAsync($body = null)
+    {
+        return $this->projectNamespaceUpdateAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function projectNamespaceUpdateAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectNamespaceUpdateResponse';
+        $request = $this->projectNamespaceUpdateRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function projectNamespaceUpdateRequest($body)
+    {
+        $resourcePath = '/ProjectNamespaceUpdate/2021-05-21/i18n_openapi/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function projectNamespaces($body = null)
     {
         list($response) = $this->projectNamespacesWithHttpInfo($body);
@@ -356,6 +1968,2238 @@ class I18NOPENAPIApi
         $headers = $this->headerSelector->selectHeaders(
             ['application/json'],
             ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function projectNamespacesTargetTexts($body = null)
+    {
+        list($response) = $this->projectNamespacesTargetTextsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function projectNamespacesTargetTextsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectNamespacesTargetTextsResponse';
+        $request = $this->projectNamespacesTargetTextsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function projectNamespacesTargetTextsAsync($body = null)
+    {
+        return $this->projectNamespacesTargetTextsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function projectNamespacesTargetTextsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectNamespacesTargetTextsResponse';
+        $request = $this->projectNamespacesTargetTextsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function projectNamespacesTargetTextsRequest($body)
+    {
+        $resourcePath = '/ProjectNamespacesTargetTexts/2021-05-21/i18n_openapi/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function projectOperableList($body = null)
+    {
+        list($response) = $this->projectOperableListWithHttpInfo($body);
+        return $response;
+    }
+
+    public function projectOperableListWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectOperableListResponse';
+        $request = $this->projectOperableListRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function projectOperableListAsync($body = null)
+    {
+        return $this->projectOperableListAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function projectOperableListAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectOperableListResponse';
+        $request = $this->projectOperableListRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function projectOperableListRequest($body)
+    {
+        $resourcePath = '/ProjectOperableList/2021-05-21/i18n_openapi/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function projectScreenshotsAdd($body = null)
+    {
+        list($response) = $this->projectScreenshotsAddWithHttpInfo($body);
+        return $response;
+    }
+
+    public function projectScreenshotsAddWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectScreenshotsAddResponse';
+        $request = $this->projectScreenshotsAddRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function projectScreenshotsAddAsync($body = null)
+    {
+        return $this->projectScreenshotsAddAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function projectScreenshotsAddAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectScreenshotsAddResponse';
+        $request = $this->projectScreenshotsAddRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function projectScreenshotsAddRequest($body)
+    {
+        $resourcePath = '/ProjectScreenshotsAdd/2021-05-21/i18n_openapi/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function projectScreenshotsIdentify($body = null)
+    {
+        list($response) = $this->projectScreenshotsIdentifyWithHttpInfo($body);
+        return $response;
+    }
+
+    public function projectScreenshotsIdentifyWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectScreenshotsIdentifyResponse';
+        $request = $this->projectScreenshotsIdentifyRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function projectScreenshotsIdentifyAsync($body = null)
+    {
+        return $this->projectScreenshotsIdentifyAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function projectScreenshotsIdentifyAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectScreenshotsIdentifyResponse';
+        $request = $this->projectScreenshotsIdentifyRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function projectScreenshotsIdentifyRequest($body)
+    {
+        $resourcePath = '/ProjectScreenshotsIdentify/2021-05-21/i18n_openapi/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function projectScreenshotsRelationsDelete($body = null)
+    {
+        list($response) = $this->projectScreenshotsRelationsDeleteWithHttpInfo($body);
+        return $response;
+    }
+
+    public function projectScreenshotsRelationsDeleteWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectScreenshotsRelationsDeleteResponse';
+        $request = $this->projectScreenshotsRelationsDeleteRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function projectScreenshotsRelationsDeleteAsync($body = null)
+    {
+        return $this->projectScreenshotsRelationsDeleteAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function projectScreenshotsRelationsDeleteAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectScreenshotsRelationsDeleteResponse';
+        $request = $this->projectScreenshotsRelationsDeleteRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function projectScreenshotsRelationsDeleteRequest($body)
+    {
+        $resourcePath = '/ProjectScreenshotsRelationsDelete/2021-05-21/i18n_openapi/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function projectTargetTextStatusUpdate($body = null)
+    {
+        list($response) = $this->projectTargetTextStatusUpdateWithHttpInfo($body);
+        return $response;
+    }
+
+    public function projectTargetTextStatusUpdateWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectTargetTextStatusUpdateResponse';
+        $request = $this->projectTargetTextStatusUpdateRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function projectTargetTextStatusUpdateAsync($body = null)
+    {
+        return $this->projectTargetTextStatusUpdateAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function projectTargetTextStatusUpdateAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectTargetTextStatusUpdateResponse';
+        $request = $this->projectTargetTextStatusUpdateRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function projectTargetTextStatusUpdateRequest($body)
+    {
+        $resourcePath = '/ProjectTargetTextStatusUpdate/2021-05-21/i18n_openapi/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function projectTaskCreate($body = null)
+    {
+        list($response) = $this->projectTaskCreateWithHttpInfo($body);
+        return $response;
+    }
+
+    public function projectTaskCreateWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectTaskCreateResponse';
+        $request = $this->projectTaskCreateRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function projectTaskCreateAsync($body = null)
+    {
+        return $this->projectTaskCreateAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function projectTaskCreateAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectTaskCreateResponse';
+        $request = $this->projectTaskCreateRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function projectTaskCreateRequest($body)
+    {
+        $resourcePath = '/ProjectTaskCreate/2021-05-21/i18n_openapi/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function projectTaskDetail($body = null)
+    {
+        list($response) = $this->projectTaskDetailWithHttpInfo($body);
+        return $response;
+    }
+
+    public function projectTaskDetailWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectTaskDetailResponse';
+        $request = $this->projectTaskDetailRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function projectTaskDetailAsync($body = null)
+    {
+        return $this->projectTaskDetailAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function projectTaskDetailAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectTaskDetailResponse';
+        $request = $this->projectTaskDetailRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function projectTaskDetailRequest($body)
+    {
+        $resourcePath = '/ProjectTaskDetail/2021-05-21/i18n_openapi/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function projectTaskSourceAdd($body = null)
+    {
+        list($response) = $this->projectTaskSourceAddWithHttpInfo($body);
+        return $response;
+    }
+
+    public function projectTaskSourceAddWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectTaskSourceAddResponse';
+        $request = $this->projectTaskSourceAddRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function projectTaskSourceAddAsync($body = null)
+    {
+        return $this->projectTaskSourceAddAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function projectTaskSourceAddAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectTaskSourceAddResponse';
+        $request = $this->projectTaskSourceAddRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function projectTaskSourceAddRequest($body)
+    {
+        $resourcePath = '/ProjectTaskSourceAdd/2021-05-21/i18n_openapi/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function projectTaskSourceDeleteByIds($body = null)
+    {
+        list($response) = $this->projectTaskSourceDeleteByIdsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function projectTaskSourceDeleteByIdsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectTaskSourceDeleteByIdsResponse';
+        $request = $this->projectTaskSourceDeleteByIdsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function projectTaskSourceDeleteByIdsAsync($body = null)
+    {
+        return $this->projectTaskSourceDeleteByIdsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function projectTaskSourceDeleteByIdsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectTaskSourceDeleteByIdsResponse';
+        $request = $this->projectTaskSourceDeleteByIdsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function projectTaskSourceDeleteByIdsRequest($body)
+    {
+        $resourcePath = '/ProjectTaskSourceDeleteByIds/2021-05-21/i18n_openapi/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function projectTaskSourceDeleteByKeys($body = null)
+    {
+        list($response) = $this->projectTaskSourceDeleteByKeysWithHttpInfo($body);
+        return $response;
+    }
+
+    public function projectTaskSourceDeleteByKeysWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectTaskSourceDeleteByKeysResponse';
+        $request = $this->projectTaskSourceDeleteByKeysRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function projectTaskSourceDeleteByKeysAsync($body = null)
+    {
+        return $this->projectTaskSourceDeleteByKeysAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function projectTaskSourceDeleteByKeysAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectTaskSourceDeleteByKeysResponse';
+        $request = $this->projectTaskSourceDeleteByKeysRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function projectTaskSourceDeleteByKeysRequest($body)
+    {
+        $resourcePath = '/ProjectTaskSourceDeleteByKeys/2021-05-21/i18n_openapi/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function projectTaskSourceDetail($body = null)
+    {
+        list($response) = $this->projectTaskSourceDetailWithHttpInfo($body);
+        return $response;
+    }
+
+    public function projectTaskSourceDetailWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectTaskSourceDetailResponse';
+        $request = $this->projectTaskSourceDetailRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function projectTaskSourceDetailAsync($body = null)
+    {
+        return $this->projectTaskSourceDetailAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function projectTaskSourceDetailAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectTaskSourceDetailResponse';
+        $request = $this->projectTaskSourceDetailRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function projectTaskSourceDetailRequest($body)
+    {
+        $resourcePath = '/ProjectTaskSourceDetail/2021-05-21/i18n_openapi/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function projectTaskSourceDownload($body = null)
+    {
+        list($response) = $this->projectTaskSourceDownloadWithHttpInfo($body);
+        return $response;
+    }
+
+    public function projectTaskSourceDownloadWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectTaskSourceDownloadResponse';
+        $request = $this->projectTaskSourceDownloadRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function projectTaskSourceDownloadAsync($body = null)
+    {
+        return $this->projectTaskSourceDownloadAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function projectTaskSourceDownloadAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectTaskSourceDownloadResponse';
+        $request = $this->projectTaskSourceDownloadRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function projectTaskSourceDownloadRequest($body)
+    {
+        $resourcePath = '/ProjectTaskSourceDownload/2021-05-21/i18n_openapi/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function projectTaskSourceMultiUpdate($body = null)
+    {
+        list($response) = $this->projectTaskSourceMultiUpdateWithHttpInfo($body);
+        return $response;
+    }
+
+    public function projectTaskSourceMultiUpdateWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectTaskSourceMultiUpdateResponse';
+        $request = $this->projectTaskSourceMultiUpdateRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function projectTaskSourceMultiUpdateAsync($body = null)
+    {
+        return $this->projectTaskSourceMultiUpdateAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function projectTaskSourceMultiUpdateAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectTaskSourceMultiUpdateResponse';
+        $request = $this->projectTaskSourceMultiUpdateRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function projectTaskSourceMultiUpdateRequest($body)
+    {
+        $resourcePath = '/ProjectTaskSourceMultiUpdate/2021-05-21/i18n_openapi/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function projectTaskSourceUpdate($body = null)
+    {
+        list($response) = $this->projectTaskSourceUpdateWithHttpInfo($body);
+        return $response;
+    }
+
+    public function projectTaskSourceUpdateWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectTaskSourceUpdateResponse';
+        $request = $this->projectTaskSourceUpdateRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function projectTaskSourceUpdateAsync($body = null)
+    {
+        return $this->projectTaskSourceUpdateAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function projectTaskSourceUpdateAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectTaskSourceUpdateResponse';
+        $request = $this->projectTaskSourceUpdateRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function projectTaskSourceUpdateRequest($body)
+    {
+        $resourcePath = '/ProjectTaskSourceUpdate/2021-05-21/i18n_openapi/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function projectTaskSources($body = null)
+    {
+        list($response) = $this->projectTaskSourcesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function projectTaskSourcesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectTaskSourcesResponse';
+        $request = $this->projectTaskSourcesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function projectTaskSourcesAsync($body = null)
+    {
+        return $this->projectTaskSourcesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function projectTaskSourcesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectTaskSourcesResponse';
+        $request = $this->projectTaskSourcesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function projectTaskSourcesRequest($body)
+    {
+        $resourcePath = '/ProjectTaskSources/2021-05-21/i18n_openapi/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function projectTaskTargetDeleteById($body = null)
+    {
+        list($response) = $this->projectTaskTargetDeleteByIdWithHttpInfo($body);
+        return $response;
+    }
+
+    public function projectTaskTargetDeleteByIdWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectTaskTargetDeleteByIdResponse';
+        $request = $this->projectTaskTargetDeleteByIdRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function projectTaskTargetDeleteByIdAsync($body = null)
+    {
+        return $this->projectTaskTargetDeleteByIdAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function projectTaskTargetDeleteByIdAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectTaskTargetDeleteByIdResponse';
+        $request = $this->projectTaskTargetDeleteByIdRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function projectTaskTargetDeleteByIdRequest($body)
+    {
+        $resourcePath = '/ProjectTaskTargetDeleteById/2021-05-21/i18n_openapi/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function projectTaskTargetDeleteByIds($body = null)
+    {
+        list($response) = $this->projectTaskTargetDeleteByIdsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function projectTaskTargetDeleteByIdsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectTaskTargetDeleteByIdsResponse';
+        $request = $this->projectTaskTargetDeleteByIdsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function projectTaskTargetDeleteByIdsAsync($body = null)
+    {
+        return $this->projectTaskTargetDeleteByIdsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function projectTaskTargetDeleteByIdsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectTaskTargetDeleteByIdsResponse';
+        $request = $this->projectTaskTargetDeleteByIdsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function projectTaskTargetDeleteByIdsRequest($body)
+    {
+        $resourcePath = '/ProjectTaskTargetDeleteByIds/2021-05-21/i18n_openapi/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function projectTaskTargetDeleteByKeys($body = null)
+    {
+        list($response) = $this->projectTaskTargetDeleteByKeysWithHttpInfo($body);
+        return $response;
+    }
+
+    public function projectTaskTargetDeleteByKeysWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectTaskTargetDeleteByKeysResponse';
+        $request = $this->projectTaskTargetDeleteByKeysRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function projectTaskTargetDeleteByKeysAsync($body = null)
+    {
+        return $this->projectTaskTargetDeleteByKeysAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function projectTaskTargetDeleteByKeysAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectTaskTargetDeleteByKeysResponse';
+        $request = $this->projectTaskTargetDeleteByKeysRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function projectTaskTargetDeleteByKeysRequest($body)
+    {
+        $resourcePath = '/ProjectTaskTargetDeleteByKeys/2021-05-21/i18n_openapi/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function projectTaskTargetUpdate($body = null)
+    {
+        list($response) = $this->projectTaskTargetUpdateWithHttpInfo($body);
+        return $response;
+    }
+
+    public function projectTaskTargetUpdateWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectTaskTargetUpdateResponse';
+        $request = $this->projectTaskTargetUpdateRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function projectTaskTargetUpdateAsync($body = null)
+    {
+        return $this->projectTaskTargetUpdateAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function projectTaskTargetUpdateAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectTaskTargetUpdateResponse';
+        $request = $this->projectTaskTargetUpdateRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function projectTaskTargetUpdateRequest($body)
+    {
+        $resourcePath = '/ProjectTaskTargetUpdate/2021-05-21/i18n_openapi/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function projectTaskTargets($body = null)
+    {
+        list($response) = $this->projectTaskTargetsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function projectTaskTargetsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectTaskTargetsResponse';
+        $request = $this->projectTaskTargetsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function projectTaskTargetsAsync($body = null)
+    {
+        return $this->projectTaskTargetsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function projectTaskTargetsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectTaskTargetsResponse';
+        $request = $this->projectTaskTargetsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function projectTaskTargetsRequest($body)
+    {
+        $resourcePath = '/ProjectTaskTargets/2021-05-21/i18n_openapi/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function projectTaskTextCount($body = null)
+    {
+        list($response) = $this->projectTaskTextCountWithHttpInfo($body);
+        return $response;
+    }
+
+    public function projectTaskTextCountWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectTaskTextCountResponse';
+        $request = $this->projectTaskTextCountRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function projectTaskTextCountAsync($body = null)
+    {
+        return $this->projectTaskTextCountAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function projectTaskTextCountAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectTaskTextCountResponse';
+        $request = $this->projectTaskTextCountRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function projectTaskTextCountRequest($body)
+    {
+        $resourcePath = '/ProjectTaskTextCount/2021-05-21/i18n_openapi/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function projectTaskTextDownload($body = null)
+    {
+        list($response) = $this->projectTaskTextDownloadWithHttpInfo($body);
+        return $response;
+    }
+
+    public function projectTaskTextDownloadWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectTaskTextDownloadResponse';
+        $request = $this->projectTaskTextDownloadRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function projectTaskTextDownloadAsync($body = null)
+    {
+        return $this->projectTaskTextDownloadAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function projectTaskTextDownloadAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectTaskTextDownloadResponse';
+        $request = $this->projectTaskTextDownloadRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function projectTaskTextDownloadRequest($body)
+    {
+        $resourcePath = '/ProjectTaskTextDownload/2021-05-21/i18n_openapi/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function projectTaskTextImport($body = null)
+    {
+        list($response) = $this->projectTaskTextImportWithHttpInfo($body);
+        return $response;
+    }
+
+    public function projectTaskTextImportWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectTaskTextImportResponse';
+        $request = $this->projectTaskTextImportRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function projectTaskTextImportAsync($body = null)
+    {
+        return $this->projectTaskTextImportAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function projectTaskTextImportAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectTaskTextImportResponse';
+        $request = $this->projectTaskTextImportRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function projectTaskTextImportRequest($body)
+    {
+        $resourcePath = '/ProjectTaskTextImport/2021-05-21/i18n_openapi/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function projectTasks($body = null)
+    {
+        list($response) = $this->projectTasksWithHttpInfo($body);
+        return $response;
+    }
+
+    public function projectTasksWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectTasksResponse';
+        $request = $this->projectTasksRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function projectTasksAsync($body = null)
+    {
+        return $this->projectTasksAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function projectTasksAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectTasksResponse';
+        $request = $this->projectTasksRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function projectTasksRequest($body)
+    {
+        $resourcePath = '/ProjectTasks/2021-05-21/i18n_openapi/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function projectTermDetail($body = null)
+    {
+        list($response) = $this->projectTermDetailWithHttpInfo($body);
+        return $response;
+    }
+
+    public function projectTermDetailWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectTermDetailResponse';
+        $request = $this->projectTermDetailRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function projectTermDetailAsync($body = null)
+    {
+        return $this->projectTermDetailAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function projectTermDetailAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectTermDetailResponse';
+        $request = $this->projectTermDetailRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function projectTermDetailRequest($body)
+    {
+        $resourcePath = '/ProjectTermDetail/2021-05-21/i18n_openapi/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function projectTermSourceDelete($body = null)
+    {
+        list($response) = $this->projectTermSourceDeleteWithHttpInfo($body);
+        return $response;
+    }
+
+    public function projectTermSourceDeleteWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectTermSourceDeleteResponse';
+        $request = $this->projectTermSourceDeleteRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function projectTermSourceDeleteAsync($body = null)
+    {
+        return $this->projectTermSourceDeleteAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function projectTermSourceDeleteAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectTermSourceDeleteResponse';
+        $request = $this->projectTermSourceDeleteRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function projectTermSourceDeleteRequest($body)
+    {
+        $resourcePath = '/ProjectTermSourceDelete/2021-05-21/i18n_openapi/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function projectTermSourceUpdate($body = null)
+    {
+        list($response) = $this->projectTermSourceUpdateWithHttpInfo($body);
+        return $response;
+    }
+
+    public function projectTermSourceUpdateWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectTermSourceUpdateResponse';
+        $request = $this->projectTermSourceUpdateRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function projectTermSourceUpdateAsync($body = null)
+    {
+        return $this->projectTermSourceUpdateAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function projectTermSourceUpdateAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectTermSourceUpdateResponse';
+        $request = $this->projectTermSourceUpdateRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function projectTermSourceUpdateRequest($body)
+    {
+        $resourcePath = '/ProjectTermSourceUpdate/2021-05-21/i18n_openapi/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function projectTermTargetAdd($body = null)
+    {
+        list($response) = $this->projectTermTargetAddWithHttpInfo($body);
+        return $response;
+    }
+
+    public function projectTermTargetAddWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectTermTargetAddResponse';
+        $request = $this->projectTermTargetAddRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function projectTermTargetAddAsync($body = null)
+    {
+        return $this->projectTermTargetAddAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function projectTermTargetAddAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectTermTargetAddResponse';
+        $request = $this->projectTermTargetAddRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function projectTermTargetAddRequest($body)
+    {
+        $resourcePath = '/ProjectTermTargetAdd/2021-05-21/i18n_openapi/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function projectTermTargetDelete($body = null)
+    {
+        list($response) = $this->projectTermTargetDeleteWithHttpInfo($body);
+        return $response;
+    }
+
+    public function projectTermTargetDeleteWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectTermTargetDeleteResponse';
+        $request = $this->projectTermTargetDeleteRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function projectTermTargetDeleteAsync($body = null)
+    {
+        return $this->projectTermTargetDeleteAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function projectTermTargetDeleteAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectTermTargetDeleteResponse';
+        $request = $this->projectTermTargetDeleteRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function projectTermTargetDeleteRequest($body)
+    {
+        $resourcePath = '/ProjectTermTargetDelete/2021-05-21/i18n_openapi/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function projectTermTargetUpdate($body = null)
+    {
+        list($response) = $this->projectTermTargetUpdateWithHttpInfo($body);
+        return $response;
+    }
+
+    public function projectTermTargetUpdateWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectTermTargetUpdateResponse';
+        $request = $this->projectTermTargetUpdateRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function projectTermTargetUpdateAsync($body = null)
+    {
+        return $this->projectTermTargetUpdateAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function projectTermTargetUpdateAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectTermTargetUpdateResponse';
+        $request = $this->projectTermTargetUpdateRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function projectTermTargetUpdateRequest($body)
+    {
+        $resourcePath = '/ProjectTermTargetUpdate/2021-05-21/i18n_openapi/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function projectTerms($body = null)
+    {
+        list($response) = $this->projectTermsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function projectTermsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectTermsResponse';
+        $request = $this->projectTermsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function projectTermsAsync($body = null)
+    {
+        return $this->projectTermsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function projectTermsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectTermsResponse';
+        $request = $this->projectTermsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function projectTermsRequest($body)
+    {
+        $resourcePath = '/ProjectTerms/2021-05-21/i18n_openapi/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function projectTextAcrossImport($body = null)
+    {
+        list($response) = $this->projectTextAcrossImportWithHttpInfo($body);
+        return $response;
+    }
+
+    public function projectTextAcrossImportWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectTextAcrossImportResponse';
+        $request = $this->projectTextAcrossImportRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function projectTextAcrossImportAsync($body = null)
+    {
+        return $this->projectTextAcrossImportAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function projectTextAcrossImportAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectTextAcrossImportResponse';
+        $request = $this->projectTextAcrossImportRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function projectTextAcrossImportRequest($body)
+    {
+        $resourcePath = '/ProjectTextAcrossImport/2021-05-21/i18n_openapi/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function projectTextAcrossImportCheck($body = null)
+    {
+        list($response) = $this->projectTextAcrossImportCheckWithHttpInfo($body);
+        return $response;
+    }
+
+    public function projectTextAcrossImportCheckWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectTextAcrossImportCheckResponse';
+        $request = $this->projectTextAcrossImportCheckRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function projectTextAcrossImportCheckAsync($body = null)
+    {
+        return $this->projectTextAcrossImportCheckAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function projectTextAcrossImportCheckAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectTextAcrossImportCheckResponse';
+        $request = $this->projectTextAcrossImportCheckRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function projectTextAcrossImportCheckRequest($body)
+    {
+        $resourcePath = '/ProjectTextAcrossImportCheck/2021-05-21/i18n_openapi/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function projectTextImportConfirm($body = null)
+    {
+        list($response) = $this->projectTextImportConfirmWithHttpInfo($body);
+        return $response;
+    }
+
+    public function projectTextImportConfirmWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectTextImportConfirmResponse';
+        $request = $this->projectTextImportConfirmRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function projectTextImportConfirmAsync($body = null)
+    {
+        return $this->projectTextImportConfirmAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function projectTextImportConfirmAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectTextImportConfirmResponse';
+        $request = $this->projectTextImportConfirmRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function projectTextImportConfirmRequest($body)
+    {
+        $resourcePath = '/ProjectTextImportConfirm/2021-05-21/i18n_openapi/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function projectTextImportStatusQuery($body = null)
+    {
+        list($response) = $this->projectTextImportStatusQueryWithHttpInfo($body);
+        return $response;
+    }
+
+    public function projectTextImportStatusQueryWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectTextImportStatusQueryResponse';
+        $request = $this->projectTextImportStatusQueryRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function projectTextImportStatusQueryAsync($body = null)
+    {
+        return $this->projectTextImportStatusQueryAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function projectTextImportStatusQueryAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\ProjectTextImportStatusQueryResponse';
+        $request = $this->projectTextImportStatusQueryRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function projectTextImportStatusQueryRequest($body)
+    {
+        $resourcePath = '/ProjectTextImportStatusQuery/2021-05-21/i18n_openapi/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
         );
 
         $defaultHeaders = [];
@@ -542,6 +4386,254 @@ class I18NOPENAPIApi
         $headers = $this->headerSelector->selectHeaders(
             ['application/json'],
             ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function termBaseTermGroupImport($body = null)
+    {
+        list($response) = $this->termBaseTermGroupImportWithHttpInfo($body);
+        return $response;
+    }
+
+    public function termBaseTermGroupImportWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\TermBaseTermGroupImportResponse';
+        $request = $this->termBaseTermGroupImportRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function termBaseTermGroupImportAsync($body = null)
+    {
+        return $this->termBaseTermGroupImportAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function termBaseTermGroupImportAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\TermBaseTermGroupImportResponse';
+        $request = $this->termBaseTermGroupImportRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function termBaseTermGroupImportRequest($body)
+    {
+        $resourcePath = '/TermBaseTermGroupImport/2021-05-21/i18n_openapi/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function termBaseTermGroupImportTask($body = null)
+    {
+        list($response) = $this->termBaseTermGroupImportTaskWithHttpInfo($body);
+        return $response;
+    }
+
+    public function termBaseTermGroupImportTaskWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\TermBaseTermGroupImportTaskResponse';
+        $request = $this->termBaseTermGroupImportTaskRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function termBaseTermGroupImportTaskAsync($body = null)
+    {
+        return $this->termBaseTermGroupImportTaskAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function termBaseTermGroupImportTaskAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\TermBaseTermGroupImportTaskResponse';
+        $request = $this->termBaseTermGroupImportTaskRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function termBaseTermGroupImportTaskRequest($body)
+    {
+        $resourcePath = '/TermBaseTermGroupImportTask/2021-05-21/i18n_openapi/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function termBaseTermGroups($body = null)
+    {
+        list($response) = $this->termBaseTermGroupsWithHttpInfo($body);
+        return $response;
+    }
+
+    public function termBaseTermGroupsWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\TermBaseTermGroupsResponse';
+        $request = $this->termBaseTermGroupsRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function termBaseTermGroupsAsync($body = null)
+    {
+        return $this->termBaseTermGroupsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function termBaseTermGroupsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\TermBaseTermGroupsResponse';
+        $request = $this->termBaseTermGroupsRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function termBaseTermGroupsRequest($body)
+    {
+        $resourcePath = '/TermBaseTermGroups/2021-05-21/i18n_openapi/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function textGetTextListWithKeyOrSource($body = null)
+    {
+        list($response) = $this->textGetTextListWithKeyOrSourceWithHttpInfo($body);
+        return $response;
+    }
+
+    public function textGetTextListWithKeyOrSourceWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\TextGetTextListWithKeyOrSourceResponse';
+        $request = $this->textGetTextListWithKeyOrSourceRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function textGetTextListWithKeyOrSourceAsync($body = null)
+    {
+        return $this->textGetTextListWithKeyOrSourceAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function textGetTextListWithKeyOrSourceAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\TextGetTextListWithKeyOrSourceResponse';
+        $request = $this->textGetTextListWithKeyOrSourceRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function textGetTextListWithKeyOrSourceRequest($body)
+    {
+        $resourcePath = '/TextGetTextListWithKeyOrSource/2021-05-21/i18n_openapi/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
         );
 
         $defaultHeaders = [];
@@ -874,6 +4966,68 @@ class I18NOPENAPIApi
         return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
     }
 
+    public function videoProjectTaskBatchStartAIFlow($body = null)
+    {
+        list($response) = $this->videoProjectTaskBatchStartAIFlowWithHttpInfo($body);
+        return $response;
+    }
+
+    public function videoProjectTaskBatchStartAIFlowWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\VideoProjectTaskBatchStartAIFlowResponse';
+        $request = $this->videoProjectTaskBatchStartAIFlowRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function videoProjectTaskBatchStartAIFlowAsync($body = null)
+    {
+        return $this->videoProjectTaskBatchStartAIFlowAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function videoProjectTaskBatchStartAIFlowAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\VideoProjectTaskBatchStartAIFlowResponse';
+        $request = $this->videoProjectTaskBatchStartAIFlowRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function videoProjectTaskBatchStartAIFlowRequest($body)
+    {
+        $resourcePath = '/VideoProjectTaskBatchStartAIFlow/2021-05-21/i18n_openapi/post/application_json/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
     public function videoProjectTaskDetail($body = null)
     {
         list($response) = $this->videoProjectTaskDetailWithHttpInfo($body);
@@ -1037,6 +5191,68 @@ class I18NOPENAPIApi
         $headers = $this->headerSelector->selectHeaders(
             ['application/json'],
             ['application/x-www-form-urlencoded']
+        );
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+        if ($this->config->getHost()) {
+            $defaultHeaders['Host'] = $this->config->getHost();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headers
+        );
+
+        $paths = explode("/", $resourcePath);
+        $service = $paths[3];
+        $method = strtoupper($paths[4]);
+
+        return ['resourcePath' => $resourcePath, 'headers' => $headers, 'method' => $method];
+    }
+
+    public function videoTermBases($body = null)
+    {
+        list($response) = $this->videoTermBasesWithHttpInfo($body);
+        return $response;
+    }
+
+    public function videoTermBasesWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\VideoTermBasesResponse';
+        $request = $this->videoTermBasesRequest($body);
+
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType);
+    }
+
+    public function videoTermBasesAsync($body = null)
+    {
+        return $this->videoTermBasesAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    public function videoTermBasesAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Volcengine\I18nopenapi\Model\VideoTermBasesResponse';
+        $request = $this->videoTermBasesRequest($body);
+        return $this->apiClient->callApi($body, $request['resourcePath'], $request['method'], $request['headers'], $returnType, true);
+    }
+
+    protected function videoTermBasesRequest($body)
+    {
+        $resourcePath = '/VideoTermBases/2021-05-21/i18n_openapi/get/text_plain/';
+        $queryParams = [];
+        $httpBody = $body;
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['text/plain']
         );
 
         $defaultHeaders = [];
