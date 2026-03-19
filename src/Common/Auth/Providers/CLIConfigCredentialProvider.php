@@ -80,9 +80,10 @@ class CLIConfigCredentialProvider extends Provider
 
     private function loadByMode($mode, $profileData, $profile, $config = [])
     {
+        $mode = strtolower(trim($mode));
         switch ($mode) {
             case '':
-            case 'AK':
+            case 'ak':
                 $ak = isset($profileData['access-key']) ? trim($profileData['access-key']) : '';
                 $sk = isset($profileData['secret-key']) ? trim($profileData['secret-key']) : '';
                 $sessionToken = isset($profileData['session-token']) ? trim($profileData['session-token']) : '';
@@ -100,7 +101,7 @@ class CLIConfigCredentialProvider extends Provider
                     'ProviderName' => self::PROVIDER_NAME,
                 ];
 
-            case 'StsToken':
+            case 'ststoken':
                 $ak = isset($profileData['access-key']) ? trim($profileData['access-key']) : '';
                 $sk = isset($profileData['secret-key']) ? trim($profileData['secret-key']) : '';
                 $sessionToken = isset($profileData['session-token']) ? trim($profileData['session-token']) : '';
@@ -118,7 +119,7 @@ class CLIConfigCredentialProvider extends Provider
                     'ProviderName' => self::PROVIDER_NAME,
                 ];
 
-            case 'RamRoleArn':
+            case 'ramrolearn':
                 $ak = isset($profileData['access-key']) ? trim($profileData['access-key']) : '';
                 $sk = isset($profileData['secret-key']) ? trim($profileData['secret-key']) : '';
                 $roleName = isset($profileData['role-name']) ? trim($profileData['role-name']) : '';
@@ -133,7 +134,7 @@ class CLIConfigCredentialProvider extends Provider
                 $this->delegate = new StsProvider($ak, $sk, $roleName, $accountId);
                 return null;
 
-            case 'OIDC':
+            case 'oidc':
                 $oidcTokenFile = isset($profileData['oidc-token-file']) ? trim($profileData['oidc-token-file']) : '';
                 $roleTrn = isset($profileData['role-trn']) ? trim($profileData['role-trn']) : '';
 
@@ -146,7 +147,7 @@ class CLIConfigCredentialProvider extends Provider
                 $this->delegate = new OidcEnvCredentialProvider($roleTrn, $oidcTokenFile);
                 return null;
 
-            case 'EcsRole':
+            case 'ecsrole':
                 $roleName = isset($profileData['role-name']) ? trim($profileData['role-name']) : '';
 
                 if (empty($roleName)) {
@@ -158,7 +159,7 @@ class CLIConfigCredentialProvider extends Provider
                 $this->delegate = EcsRoleCredentialProvider::create($roleName);
                 return null;
 
-            case 'SSO':
+            case 'sso':
                 $cacheDir = $this->resolveSsoCacheDir();
                 $this->delegate = new SsoCredentialProvider($profileData, $profile, $config, $cacheDir);
                 return null;
