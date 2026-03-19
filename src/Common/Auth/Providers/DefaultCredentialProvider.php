@@ -3,13 +3,12 @@
 namespace Volcengine\Common\Auth\Providers;
 
 /**
- * 5-step default credential chain:
+ * 4-step default credential chain:
  *
  * 1. EnvironmentVariableCredentialProvider  (env AK/SK/STS)
  * 2. OidcEnvCredentialProvider              (env OIDC)
  * 3. CLIConfigCredentialProvider            (CLI config.json)
- * 4. SharedCredentialsProvider              (~/.volcengine/credentials INI)
- * 5. EcsRoleCredentialProvider              (IMDS)
+ * 4. EcsRoleCredentialProvider              (IMDS)
  *
  * When reuseLastProviderEnabled is true (default), the chain caches the
  * last successful provider and tries it first on subsequent calls.
@@ -22,10 +21,10 @@ class DefaultCredentialProvider extends Provider
     private $reuseLastProviderEnabled;
     private $lastProvider;
 
-    public function __construct($roleName = null, $profileName = null, $reuseLastProviderEnabled = true)
+    public function __construct($roleName = null, $reuseLastProviderEnabled = true)
     {
         $this->reuseLastProviderEnabled = $reuseLastProviderEnabled;
-        $this->providers = $this->buildProviderChain($roleName, $profileName);
+        $this->providers = $this->buildProviderChain($roleName);
     }
 
     public function getCredentials()
@@ -66,7 +65,7 @@ class DefaultCredentialProvider extends Provider
         );
     }
 
-    private function buildProviderChain($roleName, $profileName)
+    private function buildProviderChain($roleName)
     {
         $chain = [];
 
@@ -79,12 +78,9 @@ class DefaultCredentialProvider extends Provider
         });
 
         // Step 3: CLI config.json
-        $chain[] = new CLIConfigCredentialProvider($profileName);
+        $chain[] = new CLIConfigCredentialProvider();
 
-        // Step 4: Shared credentials file (~/.volcengine/credentials)
-        $chain[] = new SharedCredentialsProvider($profileName);
-
-        // Step 5: ECS Role (IMDS) (lazy - may throw if disabled)
+        // Step 4: ECS Role (IMDS) (lazy - may throw if disabled)
         $chain[] = new LazyProvider(function () use ($roleName) {
             return EcsRoleCredentialProvider::create($roleName);
         });

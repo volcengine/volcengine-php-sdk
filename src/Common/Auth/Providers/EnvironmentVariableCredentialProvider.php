@@ -8,14 +8,14 @@ class EnvironmentVariableCredentialProvider extends Provider
 
     public function getCredentials()
     {
-        $ak = $this->getEnvWithFallback('VOLCSTACK_ACCESS_KEY_ID', 'VOLCENGINE_ACCESS_KEY', 'VOLCSTACK_ACCESS_KEY');
-        $sk = $this->getEnvWithFallback('VOLCSTACK_SECRET_ACCESS_KEY', 'VOLCENGINE_SECRET_KEY', 'VOLCSTACK_SECRET_KEY');
-        $token = $this->getEnvWithFallback('VOLCSTACK_SESSION_TOKEN', 'VOLCENGINE_SESSION_TOKEN');
+        $ak = $this->getEnvWithFallback('VOLCENGINE_ACCESS_KEY', 'VOLCSTACK_ACCESS_KEY_ID', 'VOLCSTACK_ACCESS_KEY');
+        $sk = $this->getEnvWithFallback('VOLCENGINE_SECRET_KEY', 'VOLCSTACK_SECRET_ACCESS_KEY', 'VOLCSTACK_SECRET_KEY');
+        $token = $this->getEnvWithFallback('VOLCENGINE_SESSION_TOKEN', 'VOLCSTACK_SESSION_TOKEN');
 
         if (empty($ak) || empty($sk)) {
             throw new \RuntimeException(
-                self::PROVIDER_NAME . ': required environment variables VOLCSTACK_ACCESS_KEY_ID and '
-                . 'VOLCSTACK_SECRET_ACCESS_KEY are not set'
+                self::PROVIDER_NAME . ': required environment variables VOLCENGINE_ACCESS_KEY and '
+                . 'VOLCENGINE_SECRET_KEY are not set'
             );
         }
 

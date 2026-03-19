@@ -63,22 +63,56 @@ class CLIConfigCredentialProvider extends Provider
         }
 
         $profileData = $config['profiles'][$profile];
-        $ak = isset($profileData['access-key']) ? trim($profileData['access-key']) : '';
-        $sk = isset($profileData['secret-key']) ? trim($profileData['secret-key']) : '';
-        $sessionToken = isset($profileData['session-token']) ? trim($profileData['session-token']) : '';
+        $mode = isset($profileData['mode']) ? $profileData['mode'] : '';
 
-        if (empty($ak) || empty($sk)) {
-            throw new \RuntimeException(
-                self::PROVIDER_NAME . ": access-key and secret-key not found in profile '{$profile}'"
-            );
+        return $this->loadByMode($mode, $profileData, $profile);
+    }
+
+    private function loadByMode($mode, $profileData, $profile)
+    {
+        switch ($mode) {
+            case '':
+            case 'AK':
+                $ak = isset($profileData['access-key']) ? trim($profileData['access-key']) : '';
+                $sk = isset($profileData['secret-key']) ? trim($profileData['secret-key']) : '';
+                $sessionToken = isset($profileData['session-token']) ? trim($profileData['session-token']) : '';
+
+                if (empty($ak) || empty($sk)) {
+                    throw new \RuntimeException(
+                        self::PROVIDER_NAME . ": access-key and secret-key not found in profile '{$profile}'"
+                    );
+                }
+
+                return [
+                    'AccessKeyId' => $ak,
+                    'SecretAccessKey' => $sk,
+                    'SessionToken' => $sessionToken,
+                    'ProviderName' => self::PROVIDER_NAME,
+                ];
+
+            case 'StsToken':
+                $ak = isset($profileData['access-key']) ? trim($profileData['access-key']) : '';
+                $sk = isset($profileData['secret-key']) ? trim($profileData['secret-key']) : '';
+                $sessionToken = isset($profileData['session-token']) ? trim($profileData['session-token']) : '';
+
+                if (empty($ak) || empty($sk) || empty($sessionToken)) {
+                    throw new \RuntimeException(
+                        self::PROVIDER_NAME . ": access-key, secret-key, and session-token are all required for StsToken mode in profile '{$profile}'"
+                    );
+                }
+
+                return [
+                    'AccessKeyId' => $ak,
+                    'SecretAccessKey' => $sk,
+                    'SessionToken' => $sessionToken,
+                    'ProviderName' => self::PROVIDER_NAME,
+                ];
+
+            default:
+                throw new \RuntimeException(
+                    self::PROVIDER_NAME . ': unsupported mode: ' . $mode
+                );
         }
-
-        return [
-            'AccessKeyId' => $ak,
-            'SecretAccessKey' => $sk,
-            'SessionToken' => $sessionToken,
-            'ProviderName' => self::PROVIDER_NAME,
-        ];
     }
 
     private function resolveConfigPath()
@@ -99,7 +133,12 @@ class CLIConfigCredentialProvider extends Provider
             return $this->profileName;
         }
 
-        $envProfile = getenv('VOLCENGINE_CLI_PROFILE');
+        $envProfile = getenv('VOLCENGINE_PROFILE');
+        if ($envProfile !== false && $envProfile !== '') {
+            return $envProfile;
+        }
+
+        $envProfile = getenv('VOLCSTACK_PROFILE');
         if ($envProfile !== false && $envProfile !== '') {
             return $envProfile;
         }

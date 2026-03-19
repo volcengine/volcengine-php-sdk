@@ -9,7 +9,6 @@ class EcsRoleCredentialProvider extends Provider
     // TODO: IMDS endpoint to be confirmed by ECS team
     const IMDS_ENDPOINT = 'http://100.96.0.96';
     // TODO: IMDS paths to be confirmed
-    const IMDS_ROLE_LIST_PATH = '/volcstack/latest/iam/security_credentials/';
     const IMDS_CREDENTIALS_PATH = '/volcstack/latest/iam/security_credentials/';
     // TODO: IMDSv2 token support to be confirmed
     // const IMDS_TOKEN_PATH = '/volcstack/latest/api/token';
@@ -20,7 +19,7 @@ class EcsRoleCredentialProvider extends Provider
     const FIELD_ACCESS_KEY_ID = 'AccessKeyId';
     const FIELD_SECRET_ACCESS_KEY = 'SecretAccessKey';
     const FIELD_SESSION_TOKEN = 'SessionToken';
-    const FIELD_EXPIRATION = 'Expiration';
+    const FIELD_EXPIRATION = 'ExpiredTime';
 
     const DEFAULT_CONNECT_TIMEOUT = 1;
     const DEFAULT_READ_TIMEOUT = 1;
@@ -71,6 +70,12 @@ class EcsRoleCredentialProvider extends Provider
             }
         }
 
+        if (empty($resolvedRoleName)) {
+            throw new \RuntimeException(
+                self::PROVIDER_NAME . ': roleName is required. Set VOLCENGINE_ECS_METADATA env var or pass roleName explicitly'
+            );
+        }
+
         return new self($resolvedRoleName);
     }
 
@@ -86,7 +91,7 @@ class EcsRoleCredentialProvider extends Provider
 
     private function refresh()
     {
-        $roleName = $this->resolveRoleName();
+        $roleName = $this->roleName;
         $url = self::IMDS_ENDPOINT . self::IMDS_CREDENTIALS_PATH . $roleName;
         $body = $this->doGetWithRetry($url);
 
@@ -123,35 +128,6 @@ class EcsRoleCredentialProvider extends Provider
             'ProviderName' => self::PROVIDER_NAME,
         ];
         $this->expirationTime = $expiration - $this->expireBufferSeconds;
-    }
-
-    private function resolveRoleName()
-    {
-        if (!empty($this->roleName)) {
-            return $this->roleName;
-        }
-
-        // Auto-detect: query IMDS role list
-        $url = self::IMDS_ENDPOINT . self::IMDS_ROLE_LIST_PATH;
-        $body = $this->doGetWithRetry($url);
-
-        $roles = array_filter(array_map('trim', explode("\n", trim($body))));
-        if (empty($roles)) {
-            throw new \RuntimeException(
-                self::PROVIDER_NAME . ': no IAM roles found via IMDS'
-            );
-        }
-
-        $roles = array_values($roles);
-        if (count($roles) > 1) {
-            error_log(
-                self::PROVIDER_NAME . ': multiple IAM roles found via IMDS: '
-                . implode(', ', $roles) . ". Using the first one '{$roles[0]}'. "
-                . 'Set VOLCENGINE_ECS_METADATA or pass role_name explicitly to avoid ambiguity.'
-            );
-        }
-
-        return $roles[0];
     }
 
     private function doGetWithRetry($url)

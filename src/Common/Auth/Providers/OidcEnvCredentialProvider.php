@@ -27,15 +27,17 @@ class OidcEnvCredentialProvider extends Provider
 
     public function __construct(
         $roleTrn,
-        $roleSessionName,
         $oidcTokenFile,
+        $roleSessionName = null,
         $rolePolicy = null,
         $stsEndpoint = null,
         $durationSeconds = self::DEFAULT_DURATION_SECONDS,
         $expireBufferSeconds = self::DEFAULT_EXPIRE_BUFFER_SECONDS
     ) {
         $this->roleTrn = $roleTrn;
-        $this->roleSessionName = $roleSessionName;
+        $this->roleSessionName = !empty($roleSessionName)
+            ? $roleSessionName
+            : 'credentials-php-' . ((int)(microtime(true) * 1000000));
         $this->oidcTokenFile = $oidcTokenFile;
         $this->rolePolicy = $rolePolicy;
         $this->stsEndpoint = $stsEndpoint ?: self::DEFAULT_STS_ENDPOINT;
@@ -46,20 +48,20 @@ class OidcEnvCredentialProvider extends Provider
     public static function fromEnvironment()
     {
         $roleTrn = getenv('VOLCENGINE_OIDC_ROLE_TRN');
-        $roleSessionName = getenv('VOLCENGINE_OIDC_ROLE_SESSION_NAME');
+        $roleSessionName = getenv('VOLCENGINE_OIDC_ROLE_SESSION_NAME') ?: null;
         $oidcTokenFile = getenv('VOLCENGINE_OIDC_TOKEN_FILE');
         $rolePolicy = getenv('VOLCENGINE_OIDC_ROLE_POLICY') ?: null;
         $stsEndpoint = getenv('VOLCENGINE_OIDC_STS_ENDPOINT') ?: null;
 
-        if (empty($roleTrn) || empty($roleSessionName) || empty($oidcTokenFile)) {
+        if (empty($roleTrn) || empty($oidcTokenFile)) {
             throw new \RuntimeException(
                 self::PROVIDER_NAME . ': required environment variables '
-                . 'VOLCENGINE_OIDC_ROLE_TRN, VOLCENGINE_OIDC_ROLE_SESSION_NAME, '
+                . 'VOLCENGINE_OIDC_ROLE_TRN and '
                 . 'VOLCENGINE_OIDC_TOKEN_FILE are not all set'
             );
         }
 
-        return new self($roleTrn, $roleSessionName, $oidcTokenFile, $rolePolicy, $stsEndpoint);
+        return new self($roleTrn, $oidcTokenFile, $roleSessionName, $rolePolicy, $stsEndpoint);
     }
 
     public function getCredentials()
