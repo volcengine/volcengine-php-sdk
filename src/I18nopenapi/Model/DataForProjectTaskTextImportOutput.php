@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
+class DataForProjectTaskTextImportOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ProjectNamespaceDetailRequest';
+    protected static $swaggerModelName = 'dataForProjectTaskTextImportOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,13 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'namespace_id' => 'int',
-        'project_id' => 'int'
+        'add' => 'int',
+        'fail' => 'int',
+        'no_diff' => 'int',
+        'record_id' => 'int',
+        'task_id' => 'int',
+        'tos_url' => 'string',
+        'update' => 'int'
     ];
 
     /**
@@ -38,8 +43,13 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'namespace_id' => 'int32',
-        'project_id' => 'int32'
+        'add' => 'int64',
+        'fail' => 'int64',
+        'no_diff' => 'int64',
+        'record_id' => 'int64',
+        'task_id' => 'int64',
+        'tos_url' => null,
+        'update' => 'int64'
     ];
 
     /**
@@ -69,8 +79,13 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'namespace_id' => 'namespaceId',
-        'project_id' => 'projectId'
+        'add' => 'add',
+        'fail' => 'fail',
+        'no_diff' => 'noDiff',
+        'record_id' => 'recordId',
+        'task_id' => 'taskId',
+        'tos_url' => 'tosUrl',
+        'update' => 'update'
     ];
 
     /**
@@ -79,8 +94,13 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'namespace_id' => 'setNamespaceId',
-        'project_id' => 'setProjectId'
+        'add' => 'setAdd',
+        'fail' => 'setFail',
+        'no_diff' => 'setNoDiff',
+        'record_id' => 'setRecordId',
+        'task_id' => 'setTaskId',
+        'tos_url' => 'setTosUrl',
+        'update' => 'setUpdate'
     ];
 
     /**
@@ -89,8 +109,13 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'namespace_id' => 'getNamespaceId',
-        'project_id' => 'getProjectId'
+        'add' => 'getAdd',
+        'fail' => 'getFail',
+        'no_diff' => 'getNoDiff',
+        'record_id' => 'getRecordId',
+        'task_id' => 'getTaskId',
+        'tos_url' => 'getTosUrl',
+        'update' => 'getUpdate'
     ];
 
     /**
@@ -153,8 +178,13 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['namespace_id'] = isset($data['namespace_id']) ? $data['namespace_id'] : null;
-        $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
+        $this->container['add'] = isset($data['add']) ? $data['add'] : null;
+        $this->container['fail'] = isset($data['fail']) ? $data['fail'] : null;
+        $this->container['no_diff'] = isset($data['no_diff']) ? $data['no_diff'] : null;
+        $this->container['record_id'] = isset($data['record_id']) ? $data['record_id'] : null;
+        $this->container['task_id'] = isset($data['task_id']) ? $data['task_id'] : null;
+        $this->container['tos_url'] = isset($data['tos_url']) ? $data['tos_url'] : null;
+        $this->container['update'] = isset($data['update']) ? $data['update'] : null;
     }
 
     /**
@@ -166,12 +196,6 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['namespace_id'] === null) {
-            $invalidProperties[] = "'namespace_id' can't be null";
-        }
-        if ($this->container['project_id'] === null) {
-            $invalidProperties[] = "'project_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -188,49 +212,169 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets namespace_id
+     * Gets add
      *
      * @return int
      */
-    public function getNamespaceId()
+    public function getAdd()
     {
-        return $this->container['namespace_id'];
+        return $this->container['add'];
     }
 
     /**
-     * Sets namespace_id
+     * Sets add
      *
-     * @param int $namespace_id namespace_id
+     * @param int $add add
      *
      * @return $this
      */
-    public function setNamespaceId($namespace_id)
+    public function setAdd($add)
     {
-        $this->container['namespace_id'] = $namespace_id;
+        $this->container['add'] = $add;
 
         return $this;
     }
 
     /**
-     * Gets project_id
+     * Gets fail
      *
      * @return int
      */
-    public function getProjectId()
+    public function getFail()
     {
-        return $this->container['project_id'];
+        return $this->container['fail'];
     }
 
     /**
-     * Sets project_id
+     * Sets fail
      *
-     * @param int $project_id project_id
+     * @param int $fail fail
      *
      * @return $this
      */
-    public function setProjectId($project_id)
+    public function setFail($fail)
     {
-        $this->container['project_id'] = $project_id;
+        $this->container['fail'] = $fail;
+
+        return $this;
+    }
+
+    /**
+     * Gets no_diff
+     *
+     * @return int
+     */
+    public function getNoDiff()
+    {
+        return $this->container['no_diff'];
+    }
+
+    /**
+     * Sets no_diff
+     *
+     * @param int $no_diff no_diff
+     *
+     * @return $this
+     */
+    public function setNoDiff($no_diff)
+    {
+        $this->container['no_diff'] = $no_diff;
+
+        return $this;
+    }
+
+    /**
+     * Gets record_id
+     *
+     * @return int
+     */
+    public function getRecordId()
+    {
+        return $this->container['record_id'];
+    }
+
+    /**
+     * Sets record_id
+     *
+     * @param int $record_id record_id
+     *
+     * @return $this
+     */
+    public function setRecordId($record_id)
+    {
+        $this->container['record_id'] = $record_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets task_id
+     *
+     * @return int
+     */
+    public function getTaskId()
+    {
+        return $this->container['task_id'];
+    }
+
+    /**
+     * Sets task_id
+     *
+     * @param int $task_id task_id
+     *
+     * @return $this
+     */
+    public function setTaskId($task_id)
+    {
+        $this->container['task_id'] = $task_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets tos_url
+     *
+     * @return string
+     */
+    public function getTosUrl()
+    {
+        return $this->container['tos_url'];
+    }
+
+    /**
+     * Sets tos_url
+     *
+     * @param string $tos_url tos_url
+     *
+     * @return $this
+     */
+    public function setTosUrl($tos_url)
+    {
+        $this->container['tos_url'] = $tos_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets update
+     *
+     * @return int
+     */
+    public function getUpdate()
+    {
+        return $this->container['update'];
+    }
+
+    /**
+     * Sets update
+     *
+     * @param int $update update
+     *
+     * @return $this
+     */
+    public function setUpdate($update)
+    {
+        $this->container['update'] = $update;
 
         return $this;
     }

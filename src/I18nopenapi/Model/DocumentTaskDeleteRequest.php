@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
+class DocumentTaskDeleteRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ProjectNamespaceDetailRequest';
+    protected static $swaggerModelName = 'DocumentTaskDeleteRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,8 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'namespace_id' => 'int',
-        'project_id' => 'int'
+        'delete_doc' => 'int',
+        'task_id' => 'int'
     ];
 
     /**
@@ -38,8 +38,8 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'namespace_id' => 'int32',
-        'project_id' => 'int32'
+        'delete_doc' => 'int64',
+        'task_id' => 'int64'
     ];
 
     /**
@@ -69,8 +69,8 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'namespace_id' => 'namespaceId',
-        'project_id' => 'projectId'
+        'delete_doc' => 'deleteDoc',
+        'task_id' => 'taskId'
     ];
 
     /**
@@ -79,8 +79,8 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'namespace_id' => 'setNamespaceId',
-        'project_id' => 'setProjectId'
+        'delete_doc' => 'setDeleteDoc',
+        'task_id' => 'setTaskId'
     ];
 
     /**
@@ -89,8 +89,8 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'namespace_id' => 'getNamespaceId',
-        'project_id' => 'getProjectId'
+        'delete_doc' => 'getDeleteDoc',
+        'task_id' => 'getTaskId'
     ];
 
     /**
@@ -153,8 +153,8 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['namespace_id'] = isset($data['namespace_id']) ? $data['namespace_id'] : null;
-        $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
+        $this->container['delete_doc'] = isset($data['delete_doc']) ? $data['delete_doc'] : null;
+        $this->container['task_id'] = isset($data['task_id']) ? $data['task_id'] : null;
     }
 
     /**
@@ -166,11 +166,8 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['namespace_id'] === null) {
-            $invalidProperties[] = "'namespace_id' can't be null";
-        }
-        if ($this->container['project_id'] === null) {
-            $invalidProperties[] = "'project_id' can't be null";
+        if ($this->container['task_id'] === null) {
+            $invalidProperties[] = "'task_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -188,49 +185,49 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets namespace_id
+     * Gets delete_doc
      *
      * @return int
      */
-    public function getNamespaceId()
+    public function getDeleteDoc()
     {
-        return $this->container['namespace_id'];
+        return $this->container['delete_doc'];
     }
 
     /**
-     * Sets namespace_id
+     * Sets delete_doc
      *
-     * @param int $namespace_id namespace_id
+     * @param int $delete_doc delete_doc
      *
      * @return $this
      */
-    public function setNamespaceId($namespace_id)
+    public function setDeleteDoc($delete_doc)
     {
-        $this->container['namespace_id'] = $namespace_id;
+        $this->container['delete_doc'] = $delete_doc;
 
         return $this;
     }
 
     /**
-     * Gets project_id
+     * Gets task_id
      *
      * @return int
      */
-    public function getProjectId()
+    public function getTaskId()
     {
-        return $this->container['project_id'];
+        return $this->container['task_id'];
     }
 
     /**
-     * Sets project_id
+     * Sets task_id
      *
-     * @param int $project_id project_id
+     * @param int $task_id task_id
      *
      * @return $this
      */
-    public function setProjectId($project_id)
+    public function setTaskId($task_id)
     {
-        $this->container['project_id'] = $project_id;
+        $this->container['task_id'] = $task_id;
 
         return $this;
     }

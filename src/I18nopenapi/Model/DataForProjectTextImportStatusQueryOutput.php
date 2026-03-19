@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
+class DataForProjectTextImportStatusQueryOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ProjectNamespaceDetailRequest';
+    protected static $swaggerModelName = 'dataForProjectTextImportStatusQueryOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,8 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'namespace_id' => 'int',
-        'project_id' => 'int'
+        'message' => 'string',
+        'status' => 'int'
     ];
 
     /**
@@ -38,8 +38,8 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'namespace_id' => 'int32',
-        'project_id' => 'int32'
+        'message' => null,
+        'status' => 'int64'
     ];
 
     /**
@@ -69,8 +69,8 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'namespace_id' => 'namespaceId',
-        'project_id' => 'projectId'
+        'message' => 'message',
+        'status' => 'status'
     ];
 
     /**
@@ -79,8 +79,8 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'namespace_id' => 'setNamespaceId',
-        'project_id' => 'setProjectId'
+        'message' => 'setMessage',
+        'status' => 'setStatus'
     ];
 
     /**
@@ -89,8 +89,8 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'namespace_id' => 'getNamespaceId',
-        'project_id' => 'getProjectId'
+        'message' => 'getMessage',
+        'status' => 'getStatus'
     ];
 
     /**
@@ -153,8 +153,8 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['namespace_id'] = isset($data['namespace_id']) ? $data['namespace_id'] : null;
-        $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
+        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }
 
     /**
@@ -166,12 +166,6 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['namespace_id'] === null) {
-            $invalidProperties[] = "'namespace_id' can't be null";
-        }
-        if ($this->container['project_id'] === null) {
-            $invalidProperties[] = "'project_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -188,49 +182,49 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets namespace_id
+     * Gets message
      *
-     * @return int
+     * @return string
      */
-    public function getNamespaceId()
+    public function getMessage()
     {
-        return $this->container['namespace_id'];
+        return $this->container['message'];
     }
 
     /**
-     * Sets namespace_id
+     * Sets message
      *
-     * @param int $namespace_id namespace_id
+     * @param string $message message
      *
      * @return $this
      */
-    public function setNamespaceId($namespace_id)
+    public function setMessage($message)
     {
-        $this->container['namespace_id'] = $namespace_id;
+        $this->container['message'] = $message;
 
         return $this;
     }
 
     /**
-     * Gets project_id
+     * Gets status
      *
      * @return int
      */
-    public function getProjectId()
+    public function getStatus()
     {
-        return $this->container['project_id'];
+        return $this->container['status'];
     }
 
     /**
-     * Sets project_id
+     * Sets status
      *
-     * @param int $project_id project_id
+     * @param int $status status
      *
      * @return $this
      */
-    public function setProjectId($project_id)
+    public function setStatus($status)
     {
-        $this->container['project_id'] = $project_id;
+        $this->container['status'] = $status;
 
         return $this;
     }

@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
+class DocForDocumentTaskDetailOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ProjectNamespaceDetailRequest';
+    protected static $swaggerModelName = 'docForDocumentTaskDetailOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,12 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'namespace_id' => 'int',
-        'project_id' => 'int'
+        'doc_id' => 'int',
+        'doc_name' => 'string',
+        'doc_type' => 'int',
+        'locale' => 'string',
+        'url' => 'string',
+        'word_count' => 'int'
     ];
 
     /**
@@ -38,8 +42,12 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'namespace_id' => 'int32',
-        'project_id' => 'int32'
+        'doc_id' => 'int32',
+        'doc_name' => null,
+        'doc_type' => 'int32',
+        'locale' => null,
+        'url' => null,
+        'word_count' => 'int32'
     ];
 
     /**
@@ -69,8 +77,12 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'namespace_id' => 'namespaceId',
-        'project_id' => 'projectId'
+        'doc_id' => 'docId',
+        'doc_name' => 'docName',
+        'doc_type' => 'docType',
+        'locale' => 'locale',
+        'url' => 'url',
+        'word_count' => 'wordCount'
     ];
 
     /**
@@ -79,8 +91,12 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'namespace_id' => 'setNamespaceId',
-        'project_id' => 'setProjectId'
+        'doc_id' => 'setDocId',
+        'doc_name' => 'setDocName',
+        'doc_type' => 'setDocType',
+        'locale' => 'setLocale',
+        'url' => 'setUrl',
+        'word_count' => 'setWordCount'
     ];
 
     /**
@@ -89,8 +105,12 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'namespace_id' => 'getNamespaceId',
-        'project_id' => 'getProjectId'
+        'doc_id' => 'getDocId',
+        'doc_name' => 'getDocName',
+        'doc_type' => 'getDocType',
+        'locale' => 'getLocale',
+        'url' => 'getUrl',
+        'word_count' => 'getWordCount'
     ];
 
     /**
@@ -153,8 +173,12 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['namespace_id'] = isset($data['namespace_id']) ? $data['namespace_id'] : null;
-        $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
+        $this->container['doc_id'] = isset($data['doc_id']) ? $data['doc_id'] : null;
+        $this->container['doc_name'] = isset($data['doc_name']) ? $data['doc_name'] : null;
+        $this->container['doc_type'] = isset($data['doc_type']) ? $data['doc_type'] : null;
+        $this->container['locale'] = isset($data['locale']) ? $data['locale'] : null;
+        $this->container['url'] = isset($data['url']) ? $data['url'] : null;
+        $this->container['word_count'] = isset($data['word_count']) ? $data['word_count'] : null;
     }
 
     /**
@@ -166,12 +190,6 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['namespace_id'] === null) {
-            $invalidProperties[] = "'namespace_id' can't be null";
-        }
-        if ($this->container['project_id'] === null) {
-            $invalidProperties[] = "'project_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -188,49 +206,145 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets namespace_id
+     * Gets doc_id
      *
      * @return int
      */
-    public function getNamespaceId()
+    public function getDocId()
     {
-        return $this->container['namespace_id'];
+        return $this->container['doc_id'];
     }
 
     /**
-     * Sets namespace_id
+     * Sets doc_id
      *
-     * @param int $namespace_id namespace_id
+     * @param int $doc_id doc_id
      *
      * @return $this
      */
-    public function setNamespaceId($namespace_id)
+    public function setDocId($doc_id)
     {
-        $this->container['namespace_id'] = $namespace_id;
+        $this->container['doc_id'] = $doc_id;
 
         return $this;
     }
 
     /**
-     * Gets project_id
+     * Gets doc_name
      *
-     * @return int
+     * @return string
      */
-    public function getProjectId()
+    public function getDocName()
     {
-        return $this->container['project_id'];
+        return $this->container['doc_name'];
     }
 
     /**
-     * Sets project_id
+     * Sets doc_name
      *
-     * @param int $project_id project_id
+     * @param string $doc_name doc_name
      *
      * @return $this
      */
-    public function setProjectId($project_id)
+    public function setDocName($doc_name)
     {
-        $this->container['project_id'] = $project_id;
+        $this->container['doc_name'] = $doc_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets doc_type
+     *
+     * @return int
+     */
+    public function getDocType()
+    {
+        return $this->container['doc_type'];
+    }
+
+    /**
+     * Sets doc_type
+     *
+     * @param int $doc_type doc_type
+     *
+     * @return $this
+     */
+    public function setDocType($doc_type)
+    {
+        $this->container['doc_type'] = $doc_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets locale
+     *
+     * @return string
+     */
+    public function getLocale()
+    {
+        return $this->container['locale'];
+    }
+
+    /**
+     * Sets locale
+     *
+     * @param string $locale locale
+     *
+     * @return $this
+     */
+    public function setLocale($locale)
+    {
+        $this->container['locale'] = $locale;
+
+        return $this;
+    }
+
+    /**
+     * Gets url
+     *
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->container['url'];
+    }
+
+    /**
+     * Sets url
+     *
+     * @param string $url url
+     *
+     * @return $this
+     */
+    public function setUrl($url)
+    {
+        $this->container['url'] = $url;
+
+        return $this;
+    }
+
+    /**
+     * Gets word_count
+     *
+     * @return int
+     */
+    public function getWordCount()
+    {
+        return $this->container['word_count'];
+    }
+
+    /**
+     * Sets word_count
+     *
+     * @param int $word_count word_count
+     *
+     * @return $this
+     */
+    public function setWordCount($word_count)
+    {
+        $this->container['word_count'] = $word_count;
 
         return $this;
     }

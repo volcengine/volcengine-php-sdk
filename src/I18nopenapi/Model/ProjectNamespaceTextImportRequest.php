@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
+class ProjectNamespaceTextImportRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ProjectNamespaceDetailRequest';
+    protected static $swaggerModelName = 'ProjectNamespaceTextImportRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,8 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'namespace_id' => 'int',
-        'project_id' => 'int'
+        'auto_sync' => 'int',
+        'namespace_id' => 'int'
     ];
 
     /**
@@ -38,8 +38,8 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'namespace_id' => 'int32',
-        'project_id' => 'int32'
+        'auto_sync' => 'int64',
+        'namespace_id' => 'int64'
     ];
 
     /**
@@ -69,8 +69,8 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'namespace_id' => 'namespaceId',
-        'project_id' => 'projectId'
+        'auto_sync' => 'autoSync',
+        'namespace_id' => 'namespaceId'
     ];
 
     /**
@@ -79,8 +79,8 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'namespace_id' => 'setNamespaceId',
-        'project_id' => 'setProjectId'
+        'auto_sync' => 'setAutoSync',
+        'namespace_id' => 'setNamespaceId'
     ];
 
     /**
@@ -89,8 +89,8 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'namespace_id' => 'getNamespaceId',
-        'project_id' => 'getProjectId'
+        'auto_sync' => 'getAutoSync',
+        'namespace_id' => 'getNamespaceId'
     ];
 
     /**
@@ -153,8 +153,8 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['auto_sync'] = isset($data['auto_sync']) ? $data['auto_sync'] : null;
         $this->container['namespace_id'] = isset($data['namespace_id']) ? $data['namespace_id'] : null;
-        $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
     }
 
     /**
@@ -168,9 +168,6 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
 
         if ($this->container['namespace_id'] === null) {
             $invalidProperties[] = "'namespace_id' can't be null";
-        }
-        if ($this->container['project_id'] === null) {
-            $invalidProperties[] = "'project_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -186,6 +183,30 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets auto_sync
+     *
+     * @return int
+     */
+    public function getAutoSync()
+    {
+        return $this->container['auto_sync'];
+    }
+
+    /**
+     * Sets auto_sync
+     *
+     * @param int $auto_sync auto_sync
+     *
+     * @return $this
+     */
+    public function setAutoSync($auto_sync)
+    {
+        $this->container['auto_sync'] = $auto_sync;
+
+        return $this;
+    }
 
     /**
      * Gets namespace_id
@@ -207,30 +228,6 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
     public function setNamespaceId($namespace_id)
     {
         $this->container['namespace_id'] = $namespace_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets project_id
-     *
-     * @return int
-     */
-    public function getProjectId()
-    {
-        return $this->container['project_id'];
-    }
-
-    /**
-     * Sets project_id
-     *
-     * @param int $project_id project_id
-     *
-     * @return $this
-     */
-    public function setProjectId($project_id)
-    {
-        $this->container['project_id'] = $project_id;
 
         return $this;
     }

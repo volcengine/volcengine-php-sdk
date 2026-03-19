@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
+class ProjectNamespaceUpdateRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ProjectNamespaceDetailRequest';
+    protected static $swaggerModelName = 'ProjectNamespaceUpdateRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,7 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'namespace_id' => 'int',
-        'project_id' => 'int'
+        'projectd' => 'string'
     ];
 
     /**
@@ -38,8 +37,7 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'namespace_id' => 'int32',
-        'project_id' => 'int32'
+        'projectd' => null
     ];
 
     /**
@@ -69,8 +67,7 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'namespace_id' => 'namespaceId',
-        'project_id' => 'projectId'
+        'projectd' => 'projectd'
     ];
 
     /**
@@ -79,8 +76,7 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'namespace_id' => 'setNamespaceId',
-        'project_id' => 'setProjectId'
+        'projectd' => 'setProjectd'
     ];
 
     /**
@@ -89,8 +85,7 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'namespace_id' => 'getNamespaceId',
-        'project_id' => 'getProjectId'
+        'projectd' => 'getProjectd'
     ];
 
     /**
@@ -153,8 +148,7 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['namespace_id'] = isset($data['namespace_id']) ? $data['namespace_id'] : null;
-        $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
+        $this->container['projectd'] = isset($data['projectd']) ? $data['projectd'] : null;
     }
 
     /**
@@ -166,11 +160,8 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['namespace_id'] === null) {
-            $invalidProperties[] = "'namespace_id' can't be null";
-        }
-        if ($this->container['project_id'] === null) {
-            $invalidProperties[] = "'project_id' can't be null";
+        if ($this->container['projectd'] === null) {
+            $invalidProperties[] = "'projectd' can't be null";
         }
         return $invalidProperties;
     }
@@ -188,49 +179,25 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets namespace_id
+     * Gets projectd
      *
-     * @return int
+     * @return string
      */
-    public function getNamespaceId()
+    public function getProjectd()
     {
-        return $this->container['namespace_id'];
+        return $this->container['projectd'];
     }
 
     /**
-     * Sets namespace_id
+     * Sets projectd
      *
-     * @param int $namespace_id namespace_id
+     * @param string $projectd projectd
      *
      * @return $this
      */
-    public function setNamespaceId($namespace_id)
+    public function setProjectd($projectd)
     {
-        $this->container['namespace_id'] = $namespace_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets project_id
-     *
-     * @return int
-     */
-    public function getProjectId()
-    {
-        return $this->container['project_id'];
-    }
-
-    /**
-     * Sets project_id
-     *
-     * @param int $project_id project_id
-     *
-     * @return $this
-     */
-    public function setProjectId($project_id)
-    {
-        $this->container['project_id'] = $project_id;
+        $this->container['projectd'] = $projectd;
 
         return $this;
     }

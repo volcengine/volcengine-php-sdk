@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
+class TermBaseTermGroupsRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ProjectNamespaceDetailRequest';
+    protected static $swaggerModelName = 'TermBaseTermGroupsRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,12 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'namespace_id' => 'int',
-        'project_id' => 'int'
+        'case_sensitive' => 'int',
+        'limit' => 'int',
+        'offset' => 'int',
+        'sort_type' => 'int',
+        'sorting' => 'int',
+        'term_base_id' => 'int'
     ];
 
     /**
@@ -38,8 +42,12 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'namespace_id' => 'int32',
-        'project_id' => 'int32'
+        'case_sensitive' => 'int32',
+        'limit' => 'int32',
+        'offset' => 'int32',
+        'sort_type' => 'int32',
+        'sorting' => 'int32',
+        'term_base_id' => 'int32'
     ];
 
     /**
@@ -69,8 +77,12 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'namespace_id' => 'namespaceId',
-        'project_id' => 'projectId'
+        'case_sensitive' => 'caseSensitive',
+        'limit' => 'limit',
+        'offset' => 'offset',
+        'sort_type' => 'sortType',
+        'sorting' => 'sorting',
+        'term_base_id' => 'termBaseId'
     ];
 
     /**
@@ -79,8 +91,12 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'namespace_id' => 'setNamespaceId',
-        'project_id' => 'setProjectId'
+        'case_sensitive' => 'setCaseSensitive',
+        'limit' => 'setLimit',
+        'offset' => 'setOffset',
+        'sort_type' => 'setSortType',
+        'sorting' => 'setSorting',
+        'term_base_id' => 'setTermBaseId'
     ];
 
     /**
@@ -89,8 +105,12 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'namespace_id' => 'getNamespaceId',
-        'project_id' => 'getProjectId'
+        'case_sensitive' => 'getCaseSensitive',
+        'limit' => 'getLimit',
+        'offset' => 'getOffset',
+        'sort_type' => 'getSortType',
+        'sorting' => 'getSorting',
+        'term_base_id' => 'getTermBaseId'
     ];
 
     /**
@@ -153,8 +173,12 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['namespace_id'] = isset($data['namespace_id']) ? $data['namespace_id'] : null;
-        $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
+        $this->container['case_sensitive'] = isset($data['case_sensitive']) ? $data['case_sensitive'] : null;
+        $this->container['limit'] = isset($data['limit']) ? $data['limit'] : null;
+        $this->container['offset'] = isset($data['offset']) ? $data['offset'] : null;
+        $this->container['sort_type'] = isset($data['sort_type']) ? $data['sort_type'] : null;
+        $this->container['sorting'] = isset($data['sorting']) ? $data['sorting'] : null;
+        $this->container['term_base_id'] = isset($data['term_base_id']) ? $data['term_base_id'] : null;
     }
 
     /**
@@ -166,11 +190,14 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['namespace_id'] === null) {
-            $invalidProperties[] = "'namespace_id' can't be null";
+        if ($this->container['limit'] === null) {
+            $invalidProperties[] = "'limit' can't be null";
         }
-        if ($this->container['project_id'] === null) {
-            $invalidProperties[] = "'project_id' can't be null";
+        if ($this->container['offset'] === null) {
+            $invalidProperties[] = "'offset' can't be null";
+        }
+        if ($this->container['term_base_id'] === null) {
+            $invalidProperties[] = "'term_base_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -188,49 +215,145 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets namespace_id
+     * Gets case_sensitive
      *
      * @return int
      */
-    public function getNamespaceId()
+    public function getCaseSensitive()
     {
-        return $this->container['namespace_id'];
+        return $this->container['case_sensitive'];
     }
 
     /**
-     * Sets namespace_id
+     * Sets case_sensitive
      *
-     * @param int $namespace_id namespace_id
+     * @param int $case_sensitive case_sensitive
      *
      * @return $this
      */
-    public function setNamespaceId($namespace_id)
+    public function setCaseSensitive($case_sensitive)
     {
-        $this->container['namespace_id'] = $namespace_id;
+        $this->container['case_sensitive'] = $case_sensitive;
 
         return $this;
     }
 
     /**
-     * Gets project_id
+     * Gets limit
      *
      * @return int
      */
-    public function getProjectId()
+    public function getLimit()
     {
-        return $this->container['project_id'];
+        return $this->container['limit'];
     }
 
     /**
-     * Sets project_id
+     * Sets limit
      *
-     * @param int $project_id project_id
+     * @param int $limit limit
      *
      * @return $this
      */
-    public function setProjectId($project_id)
+    public function setLimit($limit)
     {
-        $this->container['project_id'] = $project_id;
+        $this->container['limit'] = $limit;
+
+        return $this;
+    }
+
+    /**
+     * Gets offset
+     *
+     * @return int
+     */
+    public function getOffset()
+    {
+        return $this->container['offset'];
+    }
+
+    /**
+     * Sets offset
+     *
+     * @param int $offset offset
+     *
+     * @return $this
+     */
+    public function setOffset($offset)
+    {
+        $this->container['offset'] = $offset;
+
+        return $this;
+    }
+
+    /**
+     * Gets sort_type
+     *
+     * @return int
+     */
+    public function getSortType()
+    {
+        return $this->container['sort_type'];
+    }
+
+    /**
+     * Sets sort_type
+     *
+     * @param int $sort_type sort_type
+     *
+     * @return $this
+     */
+    public function setSortType($sort_type)
+    {
+        $this->container['sort_type'] = $sort_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets sorting
+     *
+     * @return int
+     */
+    public function getSorting()
+    {
+        return $this->container['sorting'];
+    }
+
+    /**
+     * Sets sorting
+     *
+     * @param int $sorting sorting
+     *
+     * @return $this
+     */
+    public function setSorting($sorting)
+    {
+        $this->container['sorting'] = $sorting;
+
+        return $this;
+    }
+
+    /**
+     * Gets term_base_id
+     *
+     * @return int
+     */
+    public function getTermBaseId()
+    {
+        return $this->container['term_base_id'];
+    }
+
+    /**
+     * Sets term_base_id
+     *
+     * @param int $term_base_id term_base_id
+     *
+     * @return $this
+     */
+    public function setTermBaseId($term_base_id)
+    {
+        $this->container['term_base_id'] = $term_base_id;
 
         return $this;
     }

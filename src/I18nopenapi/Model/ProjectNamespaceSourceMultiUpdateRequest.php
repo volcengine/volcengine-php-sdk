@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
+class ProjectNamespaceSourceMultiUpdateRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ProjectNamespaceDetailRequest';
+    protected static $swaggerModelName = 'ProjectNamespaceSourceMultiUpdateRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,10 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'ignore_exist' => 'bool',
         'namespace_id' => 'int',
-        'project_id' => 'int'
+        'project_id' => 'int',
+        'texts' => '\Volcengine\I18nopenapi\Model\TextForProjectNamespaceSourceMultiUpdateInput[]'
     ];
 
     /**
@@ -38,8 +40,10 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'ignore_exist' => null,
         'namespace_id' => 'int32',
-        'project_id' => 'int32'
+        'project_id' => 'int32',
+        'texts' => null
     ];
 
     /**
@@ -69,8 +73,10 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'ignore_exist' => 'ignoreExist',
         'namespace_id' => 'namespaceId',
-        'project_id' => 'projectId'
+        'project_id' => 'projectId',
+        'texts' => 'texts'
     ];
 
     /**
@@ -79,8 +85,10 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'ignore_exist' => 'setIgnoreExist',
         'namespace_id' => 'setNamespaceId',
-        'project_id' => 'setProjectId'
+        'project_id' => 'setProjectId',
+        'texts' => 'setTexts'
     ];
 
     /**
@@ -89,8 +97,10 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'ignore_exist' => 'getIgnoreExist',
         'namespace_id' => 'getNamespaceId',
-        'project_id' => 'getProjectId'
+        'project_id' => 'getProjectId',
+        'texts' => 'getTexts'
     ];
 
     /**
@@ -153,8 +163,10 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['ignore_exist'] = isset($data['ignore_exist']) ? $data['ignore_exist'] : null;
         $this->container['namespace_id'] = isset($data['namespace_id']) ? $data['namespace_id'] : null;
         $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
+        $this->container['texts'] = isset($data['texts']) ? $data['texts'] : null;
     }
 
     /**
@@ -186,6 +198,30 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets ignore_exist
+     *
+     * @return bool
+     */
+    public function getIgnoreExist()
+    {
+        return $this->container['ignore_exist'];
+    }
+
+    /**
+     * Sets ignore_exist
+     *
+     * @param bool $ignore_exist ignore_exist
+     *
+     * @return $this
+     */
+    public function setIgnoreExist($ignore_exist)
+    {
+        $this->container['ignore_exist'] = $ignore_exist;
+
+        return $this;
+    }
 
     /**
      * Gets namespace_id
@@ -231,6 +267,30 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
     public function setProjectId($project_id)
     {
         $this->container['project_id'] = $project_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets texts
+     *
+     * @return \Volcengine\I18nopenapi\Model\TextForProjectNamespaceSourceMultiUpdateInput[]
+     */
+    public function getTexts()
+    {
+        return $this->container['texts'];
+    }
+
+    /**
+     * Sets texts
+     *
+     * @param \Volcengine\I18nopenapi\Model\TextForProjectNamespaceSourceMultiUpdateInput[] $texts texts
+     *
+     * @return $this
+     */
+    public function setTexts($texts)
+    {
+        $this->container['texts'] = $texts;
 
         return $this;
     }

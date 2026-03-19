@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
+class ProjectTargetTextStatusUpdateRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ProjectNamespaceDetailRequest';
+    protected static $swaggerModelName = 'ProjectTargetTextStatusUpdateRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,11 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'langs' => 'string[]',
         'namespace_id' => 'int',
-        'project_id' => 'int'
+        'only_count' => 'bool',
+        'task_id' => 'int',
+        'translated_status' => 'int'
     ];
 
     /**
@@ -38,8 +41,11 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'namespace_id' => 'int32',
-        'project_id' => 'int32'
+        'langs' => null,
+        'namespace_id' => 'int64',
+        'only_count' => null,
+        'task_id' => 'int64',
+        'translated_status' => 'int64'
     ];
 
     /**
@@ -69,8 +75,11 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'langs' => 'langs',
         'namespace_id' => 'namespaceId',
-        'project_id' => 'projectId'
+        'only_count' => 'onlyCount',
+        'task_id' => 'taskId',
+        'translated_status' => 'translatedStatus'
     ];
 
     /**
@@ -79,8 +88,11 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'langs' => 'setLangs',
         'namespace_id' => 'setNamespaceId',
-        'project_id' => 'setProjectId'
+        'only_count' => 'setOnlyCount',
+        'task_id' => 'setTaskId',
+        'translated_status' => 'setTranslatedStatus'
     ];
 
     /**
@@ -89,8 +101,11 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'langs' => 'getLangs',
         'namespace_id' => 'getNamespaceId',
-        'project_id' => 'getProjectId'
+        'only_count' => 'getOnlyCount',
+        'task_id' => 'getTaskId',
+        'translated_status' => 'getTranslatedStatus'
     ];
 
     /**
@@ -153,8 +168,11 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['langs'] = isset($data['langs']) ? $data['langs'] : null;
         $this->container['namespace_id'] = isset($data['namespace_id']) ? $data['namespace_id'] : null;
-        $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
+        $this->container['only_count'] = isset($data['only_count']) ? $data['only_count'] : null;
+        $this->container['task_id'] = isset($data['task_id']) ? $data['task_id'] : null;
+        $this->container['translated_status'] = isset($data['translated_status']) ? $data['translated_status'] : null;
     }
 
     /**
@@ -166,11 +184,11 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['namespace_id'] === null) {
-            $invalidProperties[] = "'namespace_id' can't be null";
+        if ($this->container['only_count'] === null) {
+            $invalidProperties[] = "'only_count' can't be null";
         }
-        if ($this->container['project_id'] === null) {
-            $invalidProperties[] = "'project_id' can't be null";
+        if ($this->container['translated_status'] === null) {
+            $invalidProperties[] = "'translated_status' can't be null";
         }
         return $invalidProperties;
     }
@@ -186,6 +204,30 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets langs
+     *
+     * @return string[]
+     */
+    public function getLangs()
+    {
+        return $this->container['langs'];
+    }
+
+    /**
+     * Sets langs
+     *
+     * @param string[] $langs langs
+     *
+     * @return $this
+     */
+    public function setLangs($langs)
+    {
+        $this->container['langs'] = $langs;
+
+        return $this;
+    }
 
     /**
      * Gets namespace_id
@@ -212,25 +254,73 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets project_id
+     * Gets only_count
      *
-     * @return int
+     * @return bool
      */
-    public function getProjectId()
+    public function getOnlyCount()
     {
-        return $this->container['project_id'];
+        return $this->container['only_count'];
     }
 
     /**
-     * Sets project_id
+     * Sets only_count
      *
-     * @param int $project_id project_id
+     * @param bool $only_count only_count
      *
      * @return $this
      */
-    public function setProjectId($project_id)
+    public function setOnlyCount($only_count)
     {
-        $this->container['project_id'] = $project_id;
+        $this->container['only_count'] = $only_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets task_id
+     *
+     * @return int
+     */
+    public function getTaskId()
+    {
+        return $this->container['task_id'];
+    }
+
+    /**
+     * Sets task_id
+     *
+     * @param int $task_id task_id
+     *
+     * @return $this
+     */
+    public function setTaskId($task_id)
+    {
+        $this->container['task_id'] = $task_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets translated_status
+     *
+     * @return int
+     */
+    public function getTranslatedStatus()
+    {
+        return $this->container['translated_status'];
+    }
+
+    /**
+     * Sets translated_status
+     *
+     * @param int $translated_status translated_status
+     *
+     * @return $this
+     */
+    public function setTranslatedStatus($translated_status)
+    {
+        $this->container['translated_status'] = $translated_status;
 
         return $this;
     }

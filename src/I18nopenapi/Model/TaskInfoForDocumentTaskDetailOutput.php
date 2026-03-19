@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class TaskInfoForVideoProjectSerialDubTaskCreateInput implements ModelInterface, ArrayAccess
+class TaskInfoForDocumentTaskDetailOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class TaskInfoForVideoProjectSerialDubTaskCreateInput implements ModelInterface,
       *
       * @var string
       */
-    protected static $swaggerModelName = 'taskInfoForVideoProjectSerialDubTaskCreateInput';
+    protected static $swaggerModelName = 'taskInfoForDocumentTaskDetailOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -45,15 +45,15 @@ class TaskInfoForVideoProjectSerialDubTaskCreateInput implements ModelInterface,
         'need_translate_title_and_desc' => 'bool',
         'need_video_speed' => 'bool',
         'procedures' => 'int',
-        'reference_doc' => '\Volcengine\I18nopenapi\Model\ReferenceDocForVideoProjectSerialDubTaskCreateInput',
+        'reference_doc' => '\Volcengine\I18nopenapi\Model\ReferenceDocForDocumentTaskDetailOutput',
         'serial_number' => 'int',
         'source_lang' => 'string',
         'source_locale' => 'string',
         'state' => 'int',
-        'suppression_params' => '\Volcengine\I18nopenapi\Model\SuppressionParamsForVideoProjectSerialDubTaskCreateInput',
+        'suppression_params' => '\Volcengine\I18nopenapi\Model\SuppressionParamsForDocumentTaskDetailOutput',
         'target_langs' => 'string[]',
         'target_locale' => 'string[]',
-        'target_style_map' => '\Volcengine\I18nopenapi\Model\TargetStyleMapForVideoProjectSerialDubTaskCreateInput',
+        'target_style_map' => '\Volcengine\I18nopenapi\Model\TargetStyleMapForDocumentTaskDetailOutput',
         'task_id' => 'int',
         'task_name' => 'string',
         'use_mt' => 'bool'
@@ -754,7 +754,7 @@ class TaskInfoForVideoProjectSerialDubTaskCreateInput implements ModelInterface,
     /**
      * Gets reference_doc
      *
-     * @return \Volcengine\I18nopenapi\Model\ReferenceDocForVideoProjectSerialDubTaskCreateInput
+     * @return \Volcengine\I18nopenapi\Model\ReferenceDocForDocumentTaskDetailOutput
      */
     public function getReferenceDoc()
     {
@@ -764,7 +764,7 @@ class TaskInfoForVideoProjectSerialDubTaskCreateInput implements ModelInterface,
     /**
      * Sets reference_doc
      *
-     * @param \Volcengine\I18nopenapi\Model\ReferenceDocForVideoProjectSerialDubTaskCreateInput $reference_doc reference_doc
+     * @param \Volcengine\I18nopenapi\Model\ReferenceDocForDocumentTaskDetailOutput $reference_doc reference_doc
      *
      * @return $this
      */
@@ -874,7 +874,7 @@ class TaskInfoForVideoProjectSerialDubTaskCreateInput implements ModelInterface,
     /**
      * Gets suppression_params
      *
-     * @return \Volcengine\I18nopenapi\Model\SuppressionParamsForVideoProjectSerialDubTaskCreateInput
+     * @return \Volcengine\I18nopenapi\Model\SuppressionParamsForDocumentTaskDetailOutput
      */
     public function getSuppressionParams()
     {
@@ -884,7 +884,7 @@ class TaskInfoForVideoProjectSerialDubTaskCreateInput implements ModelInterface,
     /**
      * Sets suppression_params
      *
-     * @param \Volcengine\I18nopenapi\Model\SuppressionParamsForVideoProjectSerialDubTaskCreateInput $suppression_params suppression_params
+     * @param \Volcengine\I18nopenapi\Model\SuppressionParamsForDocumentTaskDetailOutput $suppression_params suppression_params
      *
      * @return $this
      */
@@ -946,7 +946,7 @@ class TaskInfoForVideoProjectSerialDubTaskCreateInput implements ModelInterface,
     /**
      * Gets target_style_map
      *
-     * @return \Volcengine\I18nopenapi\Model\TargetStyleMapForVideoProjectSerialDubTaskCreateInput
+     * @return \Volcengine\I18nopenapi\Model\TargetStyleMapForDocumentTaskDetailOutput
      */
     public function getTargetStyleMap()
     {
@@ -956,7 +956,7 @@ class TaskInfoForVideoProjectSerialDubTaskCreateInput implements ModelInterface,
     /**
      * Sets target_style_map
      *
-     * @param \Volcengine\I18nopenapi\Model\TargetStyleMapForVideoProjectSerialDubTaskCreateInput $target_style_map target_style_map
+     * @param \Volcengine\I18nopenapi\Model\TargetStyleMapForDocumentTaskDetailOutput $target_style_map target_style_map
      *
      * @return $this
      */

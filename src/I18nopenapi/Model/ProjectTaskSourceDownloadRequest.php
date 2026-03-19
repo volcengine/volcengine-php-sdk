@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
+class ProjectTaskSourceDownloadRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ProjectNamespaceDetailRequest';
+    protected static $swaggerModelName = 'ProjectTaskSourceDownloadRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,11 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'namespace_id' => 'int',
-        'project_id' => 'int'
+        'dir_type' => 'string',
+        'file_name' => 'string',
+        'format' => 'string',
+        'project_id' => 'int',
+        'task_id' => 'int'
     ];
 
     /**
@@ -38,8 +41,11 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'namespace_id' => 'int32',
-        'project_id' => 'int32'
+        'dir_type' => null,
+        'file_name' => null,
+        'format' => null,
+        'project_id' => 'int32',
+        'task_id' => 'int32'
     ];
 
     /**
@@ -69,8 +75,11 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'namespace_id' => 'namespaceId',
-        'project_id' => 'projectId'
+        'dir_type' => 'dirType',
+        'file_name' => 'fileName',
+        'format' => 'format',
+        'project_id' => 'projectId',
+        'task_id' => 'taskId'
     ];
 
     /**
@@ -79,8 +88,11 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'namespace_id' => 'setNamespaceId',
-        'project_id' => 'setProjectId'
+        'dir_type' => 'setDirType',
+        'file_name' => 'setFileName',
+        'format' => 'setFormat',
+        'project_id' => 'setProjectId',
+        'task_id' => 'setTaskId'
     ];
 
     /**
@@ -89,8 +101,11 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'namespace_id' => 'getNamespaceId',
-        'project_id' => 'getProjectId'
+        'dir_type' => 'getDirType',
+        'file_name' => 'getFileName',
+        'format' => 'getFormat',
+        'project_id' => 'getProjectId',
+        'task_id' => 'getTaskId'
     ];
 
     /**
@@ -134,8 +149,46 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const DIR_TYPE_LOCALE = 'locale';
+    const DIR_TYPE_PRIMARY = 'primary';
+    const FORMAT_XML = 'xml';
+    const FORMAT_JSON = 'json';
+    const FORMAT_TS = 'ts';
+    const FORMAT_STRINGS = 'strings';
+    const FORMAT_STRINGSDICT = 'stringsdict';
+    const FORMAT_PO = 'po';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getDirTypeAllowableValues()
+    {
+        return [
+            self::DIR_TYPE_LOCALE,
+            self::DIR_TYPE_PRIMARY,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getFormatAllowableValues()
+    {
+        return [
+            self::FORMAT_XML,
+            self::FORMAT_JSON,
+            self::FORMAT_TS,
+            self::FORMAT_STRINGS,
+            self::FORMAT_STRINGSDICT,
+            self::FORMAT_PO,
+        ];
+    }
     
 
     /**
@@ -153,8 +206,11 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['namespace_id'] = isset($data['namespace_id']) ? $data['namespace_id'] : null;
+        $this->container['dir_type'] = isset($data['dir_type']) ? $data['dir_type'] : null;
+        $this->container['file_name'] = isset($data['file_name']) ? $data['file_name'] : null;
+        $this->container['format'] = isset($data['format']) ? $data['format'] : null;
         $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
+        $this->container['task_id'] = isset($data['task_id']) ? $data['task_id'] : null;
     }
 
     /**
@@ -166,11 +222,27 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['namespace_id'] === null) {
-            $invalidProperties[] = "'namespace_id' can't be null";
+        $allowedValues = $this->getDirTypeAllowableValues();
+        if (!is_null($this->container['dir_type']) && !in_array($this->container['dir_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'dir_type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
         }
+
+        $allowedValues = $this->getFormatAllowableValues();
+        if (!is_null($this->container['format']) && !in_array($this->container['format'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'format', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['project_id'] === null) {
             $invalidProperties[] = "'project_id' can't be null";
+        }
+        if ($this->container['task_id'] === null) {
+            $invalidProperties[] = "'task_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -188,25 +260,91 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets namespace_id
+     * Gets dir_type
      *
-     * @return int
+     * @return string
      */
-    public function getNamespaceId()
+    public function getDirType()
     {
-        return $this->container['namespace_id'];
+        return $this->container['dir_type'];
     }
 
     /**
-     * Sets namespace_id
+     * Sets dir_type
      *
-     * @param int $namespace_id namespace_id
+     * @param string $dir_type dir_type
      *
      * @return $this
      */
-    public function setNamespaceId($namespace_id)
+    public function setDirType($dir_type)
     {
-        $this->container['namespace_id'] = $namespace_id;
+        $allowedValues = $this->getDirTypeAllowableValues();
+        if (!is_null($dir_type) && !in_array($dir_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'dir_type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['dir_type'] = $dir_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets file_name
+     *
+     * @return string
+     */
+    public function getFileName()
+    {
+        return $this->container['file_name'];
+    }
+
+    /**
+     * Sets file_name
+     *
+     * @param string $file_name file_name
+     *
+     * @return $this
+     */
+    public function setFileName($file_name)
+    {
+        $this->container['file_name'] = $file_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets format
+     *
+     * @return string
+     */
+    public function getFormat()
+    {
+        return $this->container['format'];
+    }
+
+    /**
+     * Sets format
+     *
+     * @param string $format format
+     *
+     * @return $this
+     */
+    public function setFormat($format)
+    {
+        $allowedValues = $this->getFormatAllowableValues();
+        if (!is_null($format) && !in_array($format, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'format', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['format'] = $format;
 
         return $this;
     }
@@ -231,6 +369,30 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
     public function setProjectId($project_id)
     {
         $this->container['project_id'] = $project_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets task_id
+     *
+     * @return int
+     */
+    public function getTaskId()
+    {
+        return $this->container['task_id'];
+    }
+
+    /**
+     * Sets task_id
+     *
+     * @param int $task_id task_id
+     *
+     * @return $this
+     */
+    public function setTaskId($task_id)
+    {
+        $this->container['task_id'] = $task_id;
 
         return $this;
     }

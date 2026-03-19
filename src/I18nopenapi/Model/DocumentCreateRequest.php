@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
+class DocumentCreateRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ProjectNamespaceDetailRequest';
+    protected static $swaggerModelName = 'DocumentCreateRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,10 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'namespace_id' => 'int',
-        'project_id' => 'int'
+        'comment' => 'string',
+        'members' => 'string[]',
+        'project_name' => 'string',
+        'role' => 'string'
     ];
 
     /**
@@ -38,8 +40,10 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'namespace_id' => 'int32',
-        'project_id' => 'int32'
+        'comment' => null,
+        'members' => null,
+        'project_name' => null,
+        'role' => null
     ];
 
     /**
@@ -69,8 +73,10 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'namespace_id' => 'namespaceId',
-        'project_id' => 'projectId'
+        'comment' => 'comment',
+        'members' => 'members',
+        'project_name' => 'projectName',
+        'role' => 'role'
     ];
 
     /**
@@ -79,8 +85,10 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'namespace_id' => 'setNamespaceId',
-        'project_id' => 'setProjectId'
+        'comment' => 'setComment',
+        'members' => 'setMembers',
+        'project_name' => 'setProjectName',
+        'role' => 'setRole'
     ];
 
     /**
@@ -89,8 +97,10 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'namespace_id' => 'getNamespaceId',
-        'project_id' => 'getProjectId'
+        'comment' => 'getComment',
+        'members' => 'getMembers',
+        'project_name' => 'getProjectName',
+        'role' => 'getRole'
     ];
 
     /**
@@ -134,8 +144,23 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const ROLE_USER = 'user';
+    const ROLE_MANAGER = 'manager';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getRoleAllowableValues()
+    {
+        return [
+            self::ROLE_USER,
+            self::ROLE_MANAGER,
+        ];
+    }
     
 
     /**
@@ -153,8 +178,10 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['namespace_id'] = isset($data['namespace_id']) ? $data['namespace_id'] : null;
-        $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
+        $this->container['comment'] = isset($data['comment']) ? $data['comment'] : null;
+        $this->container['members'] = isset($data['members']) ? $data['members'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
+        $this->container['role'] = isset($data['role']) ? $data['role'] : null;
     }
 
     /**
@@ -166,12 +193,17 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['namespace_id'] === null) {
-            $invalidProperties[] = "'namespace_id' can't be null";
+        if ($this->container['project_name'] === null) {
+            $invalidProperties[] = "'project_name' can't be null";
         }
-        if ($this->container['project_id'] === null) {
-            $invalidProperties[] = "'project_id' can't be null";
+        $allowedValues = $this->getRoleAllowableValues();
+        if (!is_null($this->container['role']) && !in_array($this->container['role'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'role', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
         }
+
         return $invalidProperties;
     }
 
@@ -188,49 +220,106 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets namespace_id
+     * Gets comment
      *
-     * @return int
+     * @return string
      */
-    public function getNamespaceId()
+    public function getComment()
     {
-        return $this->container['namespace_id'];
+        return $this->container['comment'];
     }
 
     /**
-     * Sets namespace_id
+     * Sets comment
      *
-     * @param int $namespace_id namespace_id
+     * @param string $comment comment
      *
      * @return $this
      */
-    public function setNamespaceId($namespace_id)
+    public function setComment($comment)
     {
-        $this->container['namespace_id'] = $namespace_id;
+        $this->container['comment'] = $comment;
 
         return $this;
     }
 
     /**
-     * Gets project_id
+     * Gets members
      *
-     * @return int
+     * @return string[]
      */
-    public function getProjectId()
+    public function getMembers()
     {
-        return $this->container['project_id'];
+        return $this->container['members'];
     }
 
     /**
-     * Sets project_id
+     * Sets members
      *
-     * @param int $project_id project_id
+     * @param string[] $members members
      *
      * @return $this
      */
-    public function setProjectId($project_id)
+    public function setMembers($members)
     {
-        $this->container['project_id'] = $project_id;
+        $this->container['members'] = $members;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     *
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     *
+     * @param string $project_name project_name
+     *
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets role
+     *
+     * @return string
+     */
+    public function getRole()
+    {
+        return $this->container['role'];
+    }
+
+    /**
+     * Sets role
+     *
+     * @param string $role role
+     *
+     * @return $this
+     */
+    public function setRole($role)
+    {
+        $allowedValues = $this->getRoleAllowableValues();
+        if (!is_null($role) && !in_array($role, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'role', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['role'] = $role;
 
         return $this;
     }

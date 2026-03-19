@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
+class TargetForProjectNamespaceTargetUpdateInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ProjectNamespaceDetailRequest';
+    protected static $swaggerModelName = 'targetForProjectNamespaceTargetUpdateInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,15 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'namespace_id' => 'int',
-        'project_id' => 'int'
+        'content' => 'string',
+        'few' => 'string',
+        'key' => 'string',
+        'locale' => 'string',
+        'many' => 'string',
+        'one' => 'string',
+        'other' => 'string',
+        'two' => 'string',
+        'zero' => 'string'
     ];
 
     /**
@@ -38,8 +45,15 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'namespace_id' => 'int32',
-        'project_id' => 'int32'
+        'content' => null,
+        'few' => null,
+        'key' => null,
+        'locale' => null,
+        'many' => null,
+        'one' => null,
+        'other' => null,
+        'two' => null,
+        'zero' => null
     ];
 
     /**
@@ -69,8 +83,15 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'namespace_id' => 'namespaceId',
-        'project_id' => 'projectId'
+        'content' => 'content',
+        'few' => 'few',
+        'key' => 'key',
+        'locale' => 'locale',
+        'many' => 'many',
+        'one' => 'one',
+        'other' => 'other',
+        'two' => 'two',
+        'zero' => 'zero'
     ];
 
     /**
@@ -79,8 +100,15 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'namespace_id' => 'setNamespaceId',
-        'project_id' => 'setProjectId'
+        'content' => 'setContent',
+        'few' => 'setFew',
+        'key' => 'setKey',
+        'locale' => 'setLocale',
+        'many' => 'setMany',
+        'one' => 'setOne',
+        'other' => 'setOther',
+        'two' => 'setTwo',
+        'zero' => 'setZero'
     ];
 
     /**
@@ -89,8 +117,15 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'namespace_id' => 'getNamespaceId',
-        'project_id' => 'getProjectId'
+        'content' => 'getContent',
+        'few' => 'getFew',
+        'key' => 'getKey',
+        'locale' => 'getLocale',
+        'many' => 'getMany',
+        'one' => 'getOne',
+        'other' => 'getOther',
+        'two' => 'getTwo',
+        'zero' => 'getZero'
     ];
 
     /**
@@ -153,8 +188,15 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['namespace_id'] = isset($data['namespace_id']) ? $data['namespace_id'] : null;
-        $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
+        $this->container['content'] = isset($data['content']) ? $data['content'] : null;
+        $this->container['few'] = isset($data['few']) ? $data['few'] : null;
+        $this->container['key'] = isset($data['key']) ? $data['key'] : null;
+        $this->container['locale'] = isset($data['locale']) ? $data['locale'] : null;
+        $this->container['many'] = isset($data['many']) ? $data['many'] : null;
+        $this->container['one'] = isset($data['one']) ? $data['one'] : null;
+        $this->container['other'] = isset($data['other']) ? $data['other'] : null;
+        $this->container['two'] = isset($data['two']) ? $data['two'] : null;
+        $this->container['zero'] = isset($data['zero']) ? $data['zero'] : null;
     }
 
     /**
@@ -166,12 +208,6 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['namespace_id'] === null) {
-            $invalidProperties[] = "'namespace_id' can't be null";
-        }
-        if ($this->container['project_id'] === null) {
-            $invalidProperties[] = "'project_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -188,49 +224,217 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets namespace_id
+     * Gets content
      *
-     * @return int
+     * @return string
      */
-    public function getNamespaceId()
+    public function getContent()
     {
-        return $this->container['namespace_id'];
+        return $this->container['content'];
     }
 
     /**
-     * Sets namespace_id
+     * Sets content
      *
-     * @param int $namespace_id namespace_id
+     * @param string $content content
      *
      * @return $this
      */
-    public function setNamespaceId($namespace_id)
+    public function setContent($content)
     {
-        $this->container['namespace_id'] = $namespace_id;
+        $this->container['content'] = $content;
 
         return $this;
     }
 
     /**
-     * Gets project_id
+     * Gets few
      *
-     * @return int
+     * @return string
      */
-    public function getProjectId()
+    public function getFew()
     {
-        return $this->container['project_id'];
+        return $this->container['few'];
     }
 
     /**
-     * Sets project_id
+     * Sets few
      *
-     * @param int $project_id project_id
+     * @param string $few few
      *
      * @return $this
      */
-    public function setProjectId($project_id)
+    public function setFew($few)
     {
-        $this->container['project_id'] = $project_id;
+        $this->container['few'] = $few;
+
+        return $this;
+    }
+
+    /**
+     * Gets key
+     *
+     * @return string
+     */
+    public function getKey()
+    {
+        return $this->container['key'];
+    }
+
+    /**
+     * Sets key
+     *
+     * @param string $key key
+     *
+     * @return $this
+     */
+    public function setKey($key)
+    {
+        $this->container['key'] = $key;
+
+        return $this;
+    }
+
+    /**
+     * Gets locale
+     *
+     * @return string
+     */
+    public function getLocale()
+    {
+        return $this->container['locale'];
+    }
+
+    /**
+     * Sets locale
+     *
+     * @param string $locale locale
+     *
+     * @return $this
+     */
+    public function setLocale($locale)
+    {
+        $this->container['locale'] = $locale;
+
+        return $this;
+    }
+
+    /**
+     * Gets many
+     *
+     * @return string
+     */
+    public function getMany()
+    {
+        return $this->container['many'];
+    }
+
+    /**
+     * Sets many
+     *
+     * @param string $many many
+     *
+     * @return $this
+     */
+    public function setMany($many)
+    {
+        $this->container['many'] = $many;
+
+        return $this;
+    }
+
+    /**
+     * Gets one
+     *
+     * @return string
+     */
+    public function getOne()
+    {
+        return $this->container['one'];
+    }
+
+    /**
+     * Sets one
+     *
+     * @param string $one one
+     *
+     * @return $this
+     */
+    public function setOne($one)
+    {
+        $this->container['one'] = $one;
+
+        return $this;
+    }
+
+    /**
+     * Gets other
+     *
+     * @return string
+     */
+    public function getOther()
+    {
+        return $this->container['other'];
+    }
+
+    /**
+     * Sets other
+     *
+     * @param string $other other
+     *
+     * @return $this
+     */
+    public function setOther($other)
+    {
+        $this->container['other'] = $other;
+
+        return $this;
+    }
+
+    /**
+     * Gets two
+     *
+     * @return string
+     */
+    public function getTwo()
+    {
+        return $this->container['two'];
+    }
+
+    /**
+     * Sets two
+     *
+     * @param string $two two
+     *
+     * @return $this
+     */
+    public function setTwo($two)
+    {
+        $this->container['two'] = $two;
+
+        return $this;
+    }
+
+    /**
+     * Gets zero
+     *
+     * @return string
+     */
+    public function getZero()
+    {
+        return $this->container['zero'];
+    }
+
+    /**
+     * Sets zero
+     *
+     * @param string $zero zero
+     *
+     * @return $this
+     */
+    public function setZero($zero)
+    {
+        $this->container['zero'] = $zero;
 
         return $this;
     }

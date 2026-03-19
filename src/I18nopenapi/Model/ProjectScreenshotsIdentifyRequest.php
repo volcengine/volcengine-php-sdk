@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
+class ProjectScreenshotsIdentifyRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ProjectNamespaceDetailRequest';
+    protected static $swaggerModelName = 'ProjectScreenshotsIdentifyRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,14 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'namespace_id' => 'int',
-        'project_id' => 'int'
+        'description' => 'string',
+        'ignore_namespace' => 'int',
+        'ignore_task' => 'int',
+        'namespace_ids' => 'string',
+        'project_id' => 'int',
+        'task_ids' => 'string',
+        'text' => 'string',
+        'url' => 'string'
     ];
 
     /**
@@ -38,8 +44,14 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'namespace_id' => 'int32',
-        'project_id' => 'int32'
+        'description' => null,
+        'ignore_namespace' => 'int64',
+        'ignore_task' => 'int64',
+        'namespace_ids' => null,
+        'project_id' => 'int64',
+        'task_ids' => null,
+        'text' => null,
+        'url' => null
     ];
 
     /**
@@ -69,8 +81,14 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'namespace_id' => 'namespaceId',
-        'project_id' => 'projectId'
+        'description' => 'description',
+        'ignore_namespace' => 'ignoreNamespace',
+        'ignore_task' => 'ignoreTask',
+        'namespace_ids' => 'namespaceIds',
+        'project_id' => 'projectId',
+        'task_ids' => 'taskIds',
+        'text' => 'text',
+        'url' => 'url'
     ];
 
     /**
@@ -79,8 +97,14 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'namespace_id' => 'setNamespaceId',
-        'project_id' => 'setProjectId'
+        'description' => 'setDescription',
+        'ignore_namespace' => 'setIgnoreNamespace',
+        'ignore_task' => 'setIgnoreTask',
+        'namespace_ids' => 'setNamespaceIds',
+        'project_id' => 'setProjectId',
+        'task_ids' => 'setTaskIds',
+        'text' => 'setText',
+        'url' => 'setUrl'
     ];
 
     /**
@@ -89,8 +113,14 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'namespace_id' => 'getNamespaceId',
-        'project_id' => 'getProjectId'
+        'description' => 'getDescription',
+        'ignore_namespace' => 'getIgnoreNamespace',
+        'ignore_task' => 'getIgnoreTask',
+        'namespace_ids' => 'getNamespaceIds',
+        'project_id' => 'getProjectId',
+        'task_ids' => 'getTaskIds',
+        'text' => 'getText',
+        'url' => 'getUrl'
     ];
 
     /**
@@ -153,8 +183,14 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['namespace_id'] = isset($data['namespace_id']) ? $data['namespace_id'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['ignore_namespace'] = isset($data['ignore_namespace']) ? $data['ignore_namespace'] : null;
+        $this->container['ignore_task'] = isset($data['ignore_task']) ? $data['ignore_task'] : null;
+        $this->container['namespace_ids'] = isset($data['namespace_ids']) ? $data['namespace_ids'] : null;
         $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
+        $this->container['task_ids'] = isset($data['task_ids']) ? $data['task_ids'] : null;
+        $this->container['text'] = isset($data['text']) ? $data['text'] : null;
+        $this->container['url'] = isset($data['url']) ? $data['url'] : null;
     }
 
     /**
@@ -166,11 +202,11 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['namespace_id'] === null) {
-            $invalidProperties[] = "'namespace_id' can't be null";
-        }
         if ($this->container['project_id'] === null) {
             $invalidProperties[] = "'project_id' can't be null";
+        }
+        if ($this->container['text'] === null) {
+            $invalidProperties[] = "'text' can't be null";
         }
         return $invalidProperties;
     }
@@ -188,25 +224,97 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets namespace_id
+     * Gets description
      *
-     * @return int
+     * @return string
      */
-    public function getNamespaceId()
+    public function getDescription()
     {
-        return $this->container['namespace_id'];
+        return $this->container['description'];
     }
 
     /**
-     * Sets namespace_id
+     * Sets description
      *
-     * @param int $namespace_id namespace_id
+     * @param string $description description
      *
      * @return $this
      */
-    public function setNamespaceId($namespace_id)
+    public function setDescription($description)
     {
-        $this->container['namespace_id'] = $namespace_id;
+        $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets ignore_namespace
+     *
+     * @return int
+     */
+    public function getIgnoreNamespace()
+    {
+        return $this->container['ignore_namespace'];
+    }
+
+    /**
+     * Sets ignore_namespace
+     *
+     * @param int $ignore_namespace ignore_namespace
+     *
+     * @return $this
+     */
+    public function setIgnoreNamespace($ignore_namespace)
+    {
+        $this->container['ignore_namespace'] = $ignore_namespace;
+
+        return $this;
+    }
+
+    /**
+     * Gets ignore_task
+     *
+     * @return int
+     */
+    public function getIgnoreTask()
+    {
+        return $this->container['ignore_task'];
+    }
+
+    /**
+     * Sets ignore_task
+     *
+     * @param int $ignore_task ignore_task
+     *
+     * @return $this
+     */
+    public function setIgnoreTask($ignore_task)
+    {
+        $this->container['ignore_task'] = $ignore_task;
+
+        return $this;
+    }
+
+    /**
+     * Gets namespace_ids
+     *
+     * @return string
+     */
+    public function getNamespaceIds()
+    {
+        return $this->container['namespace_ids'];
+    }
+
+    /**
+     * Sets namespace_ids
+     *
+     * @param string $namespace_ids namespace_ids
+     *
+     * @return $this
+     */
+    public function setNamespaceIds($namespace_ids)
+    {
+        $this->container['namespace_ids'] = $namespace_ids;
 
         return $this;
     }
@@ -231,6 +339,78 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
     public function setProjectId($project_id)
     {
         $this->container['project_id'] = $project_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets task_ids
+     *
+     * @return string
+     */
+    public function getTaskIds()
+    {
+        return $this->container['task_ids'];
+    }
+
+    /**
+     * Sets task_ids
+     *
+     * @param string $task_ids task_ids
+     *
+     * @return $this
+     */
+    public function setTaskIds($task_ids)
+    {
+        $this->container['task_ids'] = $task_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets text
+     *
+     * @return string
+     */
+    public function getText()
+    {
+        return $this->container['text'];
+    }
+
+    /**
+     * Sets text
+     *
+     * @param string $text text
+     *
+     * @return $this
+     */
+    public function setText($text)
+    {
+        $this->container['text'] = $text;
+
+        return $this;
+    }
+
+    /**
+     * Gets url
+     *
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->container['url'];
+    }
+
+    /**
+     * Sets url
+     *
+     * @param string $url url
+     *
+     * @return $this
+     */
+    public function setUrl($url)
+    {
+        $this->container['url'] = $url;
 
         return $this;
     }

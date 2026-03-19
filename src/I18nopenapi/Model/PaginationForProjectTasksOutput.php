@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
+class PaginationForProjectTasksOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ProjectNamespaceDetailRequest';
+    protected static $swaggerModelName = 'paginationForProjectTasksOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,8 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'namespace_id' => 'int',
-        'project_id' => 'int'
+        'limit' => 'int',
+        'offset' => 'int'
     ];
 
     /**
@@ -38,8 +38,8 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'namespace_id' => 'int32',
-        'project_id' => 'int32'
+        'limit' => 'int32',
+        'offset' => 'int32'
     ];
 
     /**
@@ -69,8 +69,8 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'namespace_id' => 'namespaceId',
-        'project_id' => 'projectId'
+        'limit' => 'limit',
+        'offset' => 'offset'
     ];
 
     /**
@@ -79,8 +79,8 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'namespace_id' => 'setNamespaceId',
-        'project_id' => 'setProjectId'
+        'limit' => 'setLimit',
+        'offset' => 'setOffset'
     ];
 
     /**
@@ -89,8 +89,8 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'namespace_id' => 'getNamespaceId',
-        'project_id' => 'getProjectId'
+        'limit' => 'getLimit',
+        'offset' => 'getOffset'
     ];
 
     /**
@@ -153,8 +153,8 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['namespace_id'] = isset($data['namespace_id']) ? $data['namespace_id'] : null;
-        $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
+        $this->container['limit'] = isset($data['limit']) ? $data['limit'] : null;
+        $this->container['offset'] = isset($data['offset']) ? $data['offset'] : null;
     }
 
     /**
@@ -166,12 +166,6 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['namespace_id'] === null) {
-            $invalidProperties[] = "'namespace_id' can't be null";
-        }
-        if ($this->container['project_id'] === null) {
-            $invalidProperties[] = "'project_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -188,49 +182,49 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets namespace_id
+     * Gets limit
      *
      * @return int
      */
-    public function getNamespaceId()
+    public function getLimit()
     {
-        return $this->container['namespace_id'];
+        return $this->container['limit'];
     }
 
     /**
-     * Sets namespace_id
+     * Sets limit
      *
-     * @param int $namespace_id namespace_id
+     * @param int $limit limit
      *
      * @return $this
      */
-    public function setNamespaceId($namespace_id)
+    public function setLimit($limit)
     {
-        $this->container['namespace_id'] = $namespace_id;
+        $this->container['limit'] = $limit;
 
         return $this;
     }
 
     /**
-     * Gets project_id
+     * Gets offset
      *
      * @return int
      */
-    public function getProjectId()
+    public function getOffset()
     {
-        return $this->container['project_id'];
+        return $this->container['offset'];
     }
 
     /**
-     * Sets project_id
+     * Sets offset
      *
-     * @param int $project_id project_id
+     * @param int $offset offset
      *
      * @return $this
      */
-    public function setProjectId($project_id)
+    public function setOffset($offset)
     {
-        $this->container['project_id'] = $project_id;
+        $this->container['offset'] = $offset;
 
         return $this;
     }

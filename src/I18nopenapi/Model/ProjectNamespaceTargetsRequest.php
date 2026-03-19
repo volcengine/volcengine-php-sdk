@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
+class ProjectNamespaceTargetsRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ProjectNamespaceDetailRequest';
+    protected static $swaggerModelName = 'ProjectNamespaceTargetsRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,9 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'limit' => 'int',
         'namespace_id' => 'int',
+        'offset' => 'int',
         'project_id' => 'int'
     ];
 
@@ -38,7 +40,9 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'limit' => 'int32',
         'namespace_id' => 'int32',
+        'offset' => 'int32',
         'project_id' => 'int32'
     ];
 
@@ -69,7 +73,9 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'limit' => 'limit',
         'namespace_id' => 'namespaceId',
+        'offset' => 'offset',
         'project_id' => 'projectId'
     ];
 
@@ -79,7 +85,9 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'limit' => 'setLimit',
         'namespace_id' => 'setNamespaceId',
+        'offset' => 'setOffset',
         'project_id' => 'setProjectId'
     ];
 
@@ -89,7 +97,9 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'limit' => 'getLimit',
         'namespace_id' => 'getNamespaceId',
+        'offset' => 'getOffset',
         'project_id' => 'getProjectId'
     ];
 
@@ -153,7 +163,9 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['limit'] = isset($data['limit']) ? $data['limit'] : null;
         $this->container['namespace_id'] = isset($data['namespace_id']) ? $data['namespace_id'] : null;
+        $this->container['offset'] = isset($data['offset']) ? $data['offset'] : null;
         $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
     }
 
@@ -188,6 +200,30 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
 
 
     /**
+     * Gets limit
+     *
+     * @return int
+     */
+    public function getLimit()
+    {
+        return $this->container['limit'];
+    }
+
+    /**
+     * Sets limit
+     *
+     * @param int $limit limit
+     *
+     * @return $this
+     */
+    public function setLimit($limit)
+    {
+        $this->container['limit'] = $limit;
+
+        return $this;
+    }
+
+    /**
      * Gets namespace_id
      *
      * @return int
@@ -207,6 +243,30 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
     public function setNamespaceId($namespace_id)
     {
         $this->container['namespace_id'] = $namespace_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets offset
+     *
+     * @return int
+     */
+    public function getOffset()
+    {
+        return $this->container['offset'];
+    }
+
+    /**
+     * Sets offset
+     *
+     * @param int $offset offset
+     *
+     * @return $this
+     */
+    public function setOffset($offset)
+    {
+        $this->container['offset'] = $offset;
 
         return $this;
     }

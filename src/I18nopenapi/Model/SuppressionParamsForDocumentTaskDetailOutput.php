@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
+class SuppressionParamsForDocumentTaskDetailOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ProjectNamespaceDetailRequest';
+    protected static $swaggerModelName = 'suppressionParamsForDocumentTaskDetailOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,7 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'namespace_id' => 'int',
-        'project_id' => 'int'
+        'exclude_subtitle' => 'bool'
     ];
 
     /**
@@ -38,8 +37,7 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'namespace_id' => 'int32',
-        'project_id' => 'int32'
+        'exclude_subtitle' => null
     ];
 
     /**
@@ -69,8 +67,7 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'namespace_id' => 'namespaceId',
-        'project_id' => 'projectId'
+        'exclude_subtitle' => 'excludeSubtitle'
     ];
 
     /**
@@ -79,8 +76,7 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'namespace_id' => 'setNamespaceId',
-        'project_id' => 'setProjectId'
+        'exclude_subtitle' => 'setExcludeSubtitle'
     ];
 
     /**
@@ -89,8 +85,7 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'namespace_id' => 'getNamespaceId',
-        'project_id' => 'getProjectId'
+        'exclude_subtitle' => 'getExcludeSubtitle'
     ];
 
     /**
@@ -153,8 +148,7 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['namespace_id'] = isset($data['namespace_id']) ? $data['namespace_id'] : null;
-        $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
+        $this->container['exclude_subtitle'] = isset($data['exclude_subtitle']) ? $data['exclude_subtitle'] : null;
     }
 
     /**
@@ -166,12 +160,6 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['namespace_id'] === null) {
-            $invalidProperties[] = "'namespace_id' can't be null";
-        }
-        if ($this->container['project_id'] === null) {
-            $invalidProperties[] = "'project_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -188,49 +176,25 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets namespace_id
+     * Gets exclude_subtitle
      *
-     * @return int
+     * @return bool
      */
-    public function getNamespaceId()
+    public function getExcludeSubtitle()
     {
-        return $this->container['namespace_id'];
+        return $this->container['exclude_subtitle'];
     }
 
     /**
-     * Sets namespace_id
+     * Sets exclude_subtitle
      *
-     * @param int $namespace_id namespace_id
+     * @param bool $exclude_subtitle exclude_subtitle
      *
      * @return $this
      */
-    public function setNamespaceId($namespace_id)
+    public function setExcludeSubtitle($exclude_subtitle)
     {
-        $this->container['namespace_id'] = $namespace_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets project_id
-     *
-     * @return int
-     */
-    public function getProjectId()
-    {
-        return $this->container['project_id'];
-    }
-
-    /**
-     * Sets project_id
-     *
-     * @param int $project_id project_id
-     *
-     * @return $this
-     */
-    public function setProjectId($project_id)
-    {
-        $this->container['project_id'] = $project_id;
+        $this->container['exclude_subtitle'] = $exclude_subtitle;
 
         return $this;
     }

@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
+class ProjectNamespaceTargetDownloadRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ProjectNamespaceDetailRequest';
+    protected static $swaggerModelName = 'ProjectNamespaceTargetDownloadRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,6 +28,9 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'convert_plural' => 'float',
+        'file_format' => 'string',
+        'locale' => 'string',
         'namespace_id' => 'int',
         'project_id' => 'int'
     ];
@@ -38,6 +41,9 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'convert_plural' => 'float',
+        'file_format' => null,
+        'locale' => null,
         'namespace_id' => 'int32',
         'project_id' => 'int32'
     ];
@@ -69,6 +75,9 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'convert_plural' => 'convertPlural',
+        'file_format' => 'fileFormat',
+        'locale' => 'locale',
         'namespace_id' => 'namespaceId',
         'project_id' => 'projectId'
     ];
@@ -79,6 +88,9 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'convert_plural' => 'setConvertPlural',
+        'file_format' => 'setFileFormat',
+        'locale' => 'setLocale',
         'namespace_id' => 'setNamespaceId',
         'project_id' => 'setProjectId'
     ];
@@ -89,6 +101,9 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'convert_plural' => 'getConvertPlural',
+        'file_format' => 'getFileFormat',
+        'locale' => 'getLocale',
         'namespace_id' => 'getNamespaceId',
         'project_id' => 'getProjectId'
     ];
@@ -153,6 +168,9 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['convert_plural'] = isset($data['convert_plural']) ? $data['convert_plural'] : null;
+        $this->container['file_format'] = isset($data['file_format']) ? $data['file_format'] : null;
+        $this->container['locale'] = isset($data['locale']) ? $data['locale'] : null;
         $this->container['namespace_id'] = isset($data['namespace_id']) ? $data['namespace_id'] : null;
         $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
     }
@@ -186,6 +204,78 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets convert_plural
+     *
+     * @return float
+     */
+    public function getConvertPlural()
+    {
+        return $this->container['convert_plural'];
+    }
+
+    /**
+     * Sets convert_plural
+     *
+     * @param float $convert_plural convert_plural
+     *
+     * @return $this
+     */
+    public function setConvertPlural($convert_plural)
+    {
+        $this->container['convert_plural'] = $convert_plural;
+
+        return $this;
+    }
+
+    /**
+     * Gets file_format
+     *
+     * @return string
+     */
+    public function getFileFormat()
+    {
+        return $this->container['file_format'];
+    }
+
+    /**
+     * Sets file_format
+     *
+     * @param string $file_format file_format
+     *
+     * @return $this
+     */
+    public function setFileFormat($file_format)
+    {
+        $this->container['file_format'] = $file_format;
+
+        return $this;
+    }
+
+    /**
+     * Gets locale
+     *
+     * @return string
+     */
+    public function getLocale()
+    {
+        return $this->container['locale'];
+    }
+
+    /**
+     * Sets locale
+     *
+     * @param string $locale locale
+     *
+     * @return $this
+     */
+    public function setLocale($locale)
+    {
+        $this->container['locale'] = $locale;
+
+        return $this;
+    }
 
     /**
      * Gets namespace_id

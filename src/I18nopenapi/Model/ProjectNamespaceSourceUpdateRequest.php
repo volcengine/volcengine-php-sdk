@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
+class ProjectNamespaceSourceUpdateRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ProjectNamespaceDetailRequest';
+    protected static $swaggerModelName = 'ProjectNamespaceSourceUpdateRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,12 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'commentary' => 'string',
+        'content' => 'string',
+        'length_limit' => 'int',
         'namespace_id' => 'int',
-        'project_id' => 'int'
+        'project_id' => 'int',
+        'source_id' => 'int'
     ];
 
     /**
@@ -38,8 +42,12 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'commentary' => null,
+        'content' => null,
+        'length_limit' => 'int32',
         'namespace_id' => 'int32',
-        'project_id' => 'int32'
+        'project_id' => 'int64',
+        'source_id' => 'int32'
     ];
 
     /**
@@ -69,8 +77,12 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'commentary' => 'commentary',
+        'content' => 'content',
+        'length_limit' => 'lengthLimit',
         'namespace_id' => 'namespaceId',
-        'project_id' => 'projectId'
+        'project_id' => 'projectId',
+        'source_id' => 'sourceId'
     ];
 
     /**
@@ -79,8 +91,12 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'commentary' => 'setCommentary',
+        'content' => 'setContent',
+        'length_limit' => 'setLengthLimit',
         'namespace_id' => 'setNamespaceId',
-        'project_id' => 'setProjectId'
+        'project_id' => 'setProjectId',
+        'source_id' => 'setSourceId'
     ];
 
     /**
@@ -89,8 +105,12 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'commentary' => 'getCommentary',
+        'content' => 'getContent',
+        'length_limit' => 'getLengthLimit',
         'namespace_id' => 'getNamespaceId',
-        'project_id' => 'getProjectId'
+        'project_id' => 'getProjectId',
+        'source_id' => 'getSourceId'
     ];
 
     /**
@@ -153,8 +173,12 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['commentary'] = isset($data['commentary']) ? $data['commentary'] : null;
+        $this->container['content'] = isset($data['content']) ? $data['content'] : null;
+        $this->container['length_limit'] = isset($data['length_limit']) ? $data['length_limit'] : null;
         $this->container['namespace_id'] = isset($data['namespace_id']) ? $data['namespace_id'] : null;
         $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
+        $this->container['source_id'] = isset($data['source_id']) ? $data['source_id'] : null;
     }
 
     /**
@@ -172,6 +196,9 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
         if ($this->container['project_id'] === null) {
             $invalidProperties[] = "'project_id' can't be null";
         }
+        if ($this->container['source_id'] === null) {
+            $invalidProperties[] = "'source_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -186,6 +213,78 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets commentary
+     *
+     * @return string
+     */
+    public function getCommentary()
+    {
+        return $this->container['commentary'];
+    }
+
+    /**
+     * Sets commentary
+     *
+     * @param string $commentary commentary
+     *
+     * @return $this
+     */
+    public function setCommentary($commentary)
+    {
+        $this->container['commentary'] = $commentary;
+
+        return $this;
+    }
+
+    /**
+     * Gets content
+     *
+     * @return string
+     */
+    public function getContent()
+    {
+        return $this->container['content'];
+    }
+
+    /**
+     * Sets content
+     *
+     * @param string $content content
+     *
+     * @return $this
+     */
+    public function setContent($content)
+    {
+        $this->container['content'] = $content;
+
+        return $this;
+    }
+
+    /**
+     * Gets length_limit
+     *
+     * @return int
+     */
+    public function getLengthLimit()
+    {
+        return $this->container['length_limit'];
+    }
+
+    /**
+     * Sets length_limit
+     *
+     * @param int $length_limit length_limit
+     *
+     * @return $this
+     */
+    public function setLengthLimit($length_limit)
+    {
+        $this->container['length_limit'] = $length_limit;
+
+        return $this;
+    }
 
     /**
      * Gets namespace_id
@@ -231,6 +330,30 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
     public function setProjectId($project_id)
     {
         $this->container['project_id'] = $project_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets source_id
+     *
+     * @return int
+     */
+    public function getSourceId()
+    {
+        return $this->container['source_id'];
+    }
+
+    /**
+     * Sets source_id
+     *
+     * @param int $source_id source_id
+     *
+     * @return $this
+     */
+    public function setSourceId($source_id)
+    {
+        $this->container['source_id'] = $source_id;
 
         return $this;
     }

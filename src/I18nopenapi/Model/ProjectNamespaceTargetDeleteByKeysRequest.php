@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
+class ProjectNamespaceTargetDeleteByKeysRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ProjectNamespaceDetailRequest';
+    protected static $swaggerModelName = 'ProjectNamespaceTargetDeleteByKeysRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,10 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'locale' => 'string',
         'namespace_id' => 'int',
-        'project_id' => 'int'
+        'project_id' => 'int',
+        'text_keys' => 'string[]'
     ];
 
     /**
@@ -38,8 +40,10 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'locale' => null,
         'namespace_id' => 'int32',
-        'project_id' => 'int32'
+        'project_id' => 'int32',
+        'text_keys' => null
     ];
 
     /**
@@ -69,8 +73,10 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'locale' => 'locale',
         'namespace_id' => 'namespaceId',
-        'project_id' => 'projectId'
+        'project_id' => 'projectId',
+        'text_keys' => 'textKeys'
     ];
 
     /**
@@ -79,8 +85,10 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'locale' => 'setLocale',
         'namespace_id' => 'setNamespaceId',
-        'project_id' => 'setProjectId'
+        'project_id' => 'setProjectId',
+        'text_keys' => 'setTextKeys'
     ];
 
     /**
@@ -89,8 +97,10 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'locale' => 'getLocale',
         'namespace_id' => 'getNamespaceId',
-        'project_id' => 'getProjectId'
+        'project_id' => 'getProjectId',
+        'text_keys' => 'getTextKeys'
     ];
 
     /**
@@ -153,8 +163,10 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['locale'] = isset($data['locale']) ? $data['locale'] : null;
         $this->container['namespace_id'] = isset($data['namespace_id']) ? $data['namespace_id'] : null;
         $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
+        $this->container['text_keys'] = isset($data['text_keys']) ? $data['text_keys'] : null;
     }
 
     /**
@@ -166,6 +178,9 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['locale'] === null) {
+            $invalidProperties[] = "'locale' can't be null";
+        }
         if ($this->container['namespace_id'] === null) {
             $invalidProperties[] = "'namespace_id' can't be null";
         }
@@ -186,6 +201,30 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets locale
+     *
+     * @return string
+     */
+    public function getLocale()
+    {
+        return $this->container['locale'];
+    }
+
+    /**
+     * Sets locale
+     *
+     * @param string $locale locale
+     *
+     * @return $this
+     */
+    public function setLocale($locale)
+    {
+        $this->container['locale'] = $locale;
+
+        return $this;
+    }
 
     /**
      * Gets namespace_id
@@ -231,6 +270,30 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
     public function setProjectId($project_id)
     {
         $this->container['project_id'] = $project_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets text_keys
+     *
+     * @return string[]
+     */
+    public function getTextKeys()
+    {
+        return $this->container['text_keys'];
+    }
+
+    /**
+     * Sets text_keys
+     *
+     * @param string[] $text_keys text_keys
+     *
+     * @return $this
+     */
+    public function setTextKeys($text_keys)
+    {
+        $this->container['text_keys'] = $text_keys;
 
         return $this;
     }

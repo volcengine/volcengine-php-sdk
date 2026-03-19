@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
+class ProjectNamespaceSourceDownloadRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ProjectNamespaceDetailRequest';
+    protected static $swaggerModelName = 'ProjectNamespaceSourceDownloadRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,11 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'dir_type' => 'string',
+        'file_name' => 'string',
+        'format' => 'string',
         'namespace_id' => 'int',
+        'place_holder' => 'int',
         'project_id' => 'int'
     ];
 
@@ -38,7 +42,11 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'dir_type' => null,
+        'file_name' => null,
+        'format' => null,
         'namespace_id' => 'int32',
+        'place_holder' => 'int32',
         'project_id' => 'int32'
     ];
 
@@ -69,7 +77,11 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'dir_type' => 'dirType',
+        'file_name' => 'fileName',
+        'format' => 'format',
         'namespace_id' => 'namespaceId',
+        'place_holder' => 'placeHolder',
         'project_id' => 'projectId'
     ];
 
@@ -79,7 +91,11 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'dir_type' => 'setDirType',
+        'file_name' => 'setFileName',
+        'format' => 'setFormat',
         'namespace_id' => 'setNamespaceId',
+        'place_holder' => 'setPlaceHolder',
         'project_id' => 'setProjectId'
     ];
 
@@ -89,7 +105,11 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'dir_type' => 'getDirType',
+        'file_name' => 'getFileName',
+        'format' => 'getFormat',
         'namespace_id' => 'getNamespaceId',
+        'place_holder' => 'getPlaceHolder',
         'project_id' => 'getProjectId'
     ];
 
@@ -153,7 +173,11 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['dir_type'] = isset($data['dir_type']) ? $data['dir_type'] : null;
+        $this->container['file_name'] = isset($data['file_name']) ? $data['file_name'] : null;
+        $this->container['format'] = isset($data['format']) ? $data['format'] : null;
         $this->container['namespace_id'] = isset($data['namespace_id']) ? $data['namespace_id'] : null;
+        $this->container['place_holder'] = isset($data['place_holder']) ? $data['place_holder'] : null;
         $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
     }
 
@@ -188,6 +212,78 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
 
 
     /**
+     * Gets dir_type
+     *
+     * @return string
+     */
+    public function getDirType()
+    {
+        return $this->container['dir_type'];
+    }
+
+    /**
+     * Sets dir_type
+     *
+     * @param string $dir_type dir_type
+     *
+     * @return $this
+     */
+    public function setDirType($dir_type)
+    {
+        $this->container['dir_type'] = $dir_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets file_name
+     *
+     * @return string
+     */
+    public function getFileName()
+    {
+        return $this->container['file_name'];
+    }
+
+    /**
+     * Sets file_name
+     *
+     * @param string $file_name file_name
+     *
+     * @return $this
+     */
+    public function setFileName($file_name)
+    {
+        $this->container['file_name'] = $file_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets format
+     *
+     * @return string
+     */
+    public function getFormat()
+    {
+        return $this->container['format'];
+    }
+
+    /**
+     * Sets format
+     *
+     * @param string $format format
+     *
+     * @return $this
+     */
+    public function setFormat($format)
+    {
+        $this->container['format'] = $format;
+
+        return $this;
+    }
+
+    /**
      * Gets namespace_id
      *
      * @return int
@@ -207,6 +303,30 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
     public function setNamespaceId($namespace_id)
     {
         $this->container['namespace_id'] = $namespace_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets place_holder
+     *
+     * @return int
+     */
+    public function getPlaceHolder()
+    {
+        return $this->container['place_holder'];
+    }
+
+    /**
+     * Sets place_holder
+     *
+     * @param int $place_holder place_holder
+     *
+     * @return $this
+     */
+    public function setPlaceHolder($place_holder)
+    {
+        $this->container['place_holder'] = $place_holder;
 
         return $this;
     }

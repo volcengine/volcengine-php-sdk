@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
+class ListForDocumentTaskDetailOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ProjectNamespaceDetailRequest';
+    protected static $swaggerModelName = 'listForDocumentTaskDetailOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,8 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'namespace_id' => 'int',
-        'project_id' => 'int'
+        'doc' => '\Volcengine\I18nopenapi\Model\DocForDocumentTaskDetailOutput',
+        'subtasks' => '\Volcengine\I18nopenapi\Model\SubtaskForDocumentTaskDetailOutput[]'
     ];
 
     /**
@@ -38,8 +38,8 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'namespace_id' => 'int32',
-        'project_id' => 'int32'
+        'doc' => null,
+        'subtasks' => null
     ];
 
     /**
@@ -69,8 +69,8 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'namespace_id' => 'namespaceId',
-        'project_id' => 'projectId'
+        'doc' => 'doc',
+        'subtasks' => 'subtasks'
     ];
 
     /**
@@ -79,8 +79,8 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'namespace_id' => 'setNamespaceId',
-        'project_id' => 'setProjectId'
+        'doc' => 'setDoc',
+        'subtasks' => 'setSubtasks'
     ];
 
     /**
@@ -89,8 +89,8 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'namespace_id' => 'getNamespaceId',
-        'project_id' => 'getProjectId'
+        'doc' => 'getDoc',
+        'subtasks' => 'getSubtasks'
     ];
 
     /**
@@ -153,8 +153,8 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['namespace_id'] = isset($data['namespace_id']) ? $data['namespace_id'] : null;
-        $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
+        $this->container['doc'] = isset($data['doc']) ? $data['doc'] : null;
+        $this->container['subtasks'] = isset($data['subtasks']) ? $data['subtasks'] : null;
     }
 
     /**
@@ -166,12 +166,6 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['namespace_id'] === null) {
-            $invalidProperties[] = "'namespace_id' can't be null";
-        }
-        if ($this->container['project_id'] === null) {
-            $invalidProperties[] = "'project_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -188,49 +182,49 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets namespace_id
+     * Gets doc
      *
-     * @return int
+     * @return \Volcengine\I18nopenapi\Model\DocForDocumentTaskDetailOutput
      */
-    public function getNamespaceId()
+    public function getDoc()
     {
-        return $this->container['namespace_id'];
+        return $this->container['doc'];
     }
 
     /**
-     * Sets namespace_id
+     * Sets doc
      *
-     * @param int $namespace_id namespace_id
+     * @param \Volcengine\I18nopenapi\Model\DocForDocumentTaskDetailOutput $doc doc
      *
      * @return $this
      */
-    public function setNamespaceId($namespace_id)
+    public function setDoc($doc)
     {
-        $this->container['namespace_id'] = $namespace_id;
+        $this->container['doc'] = $doc;
 
         return $this;
     }
 
     /**
-     * Gets project_id
+     * Gets subtasks
      *
-     * @return int
+     * @return \Volcengine\I18nopenapi\Model\SubtaskForDocumentTaskDetailOutput[]
      */
-    public function getProjectId()
+    public function getSubtasks()
     {
-        return $this->container['project_id'];
+        return $this->container['subtasks'];
     }
 
     /**
-     * Sets project_id
+     * Sets subtasks
      *
-     * @param int $project_id project_id
+     * @param \Volcengine\I18nopenapi\Model\SubtaskForDocumentTaskDetailOutput[] $subtasks subtasks
      *
      * @return $this
      */
-    public function setProjectId($project_id)
+    public function setSubtasks($subtasks)
     {
-        $this->container['project_id'] = $project_id;
+        $this->container['subtasks'] = $subtasks;
 
         return $this;
     }

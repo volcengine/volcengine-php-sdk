@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
+class ReferenceDocForVideoProjectSerialTaskCreateInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ProjectNamespaceDetailRequest';
+    protected static $swaggerModelName = 'referenceDocForVideoProjectSerialTaskCreateInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,9 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'namespace_id' => 'int',
-        'project_id' => 'int'
+        'reference_doc_name' => 'string',
+        'reference_doc_type' => 'int',
+        'reference_doc_url' => 'string'
     ];
 
     /**
@@ -38,8 +39,9 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'namespace_id' => 'int32',
-        'project_id' => 'int32'
+        'reference_doc_name' => null,
+        'reference_doc_type' => 'int32',
+        'reference_doc_url' => null
     ];
 
     /**
@@ -69,8 +71,9 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'namespace_id' => 'namespaceId',
-        'project_id' => 'projectId'
+        'reference_doc_name' => 'referenceDocName',
+        'reference_doc_type' => 'referenceDocType',
+        'reference_doc_url' => 'referenceDocUrl'
     ];
 
     /**
@@ -79,8 +82,9 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'namespace_id' => 'setNamespaceId',
-        'project_id' => 'setProjectId'
+        'reference_doc_name' => 'setReferenceDocName',
+        'reference_doc_type' => 'setReferenceDocType',
+        'reference_doc_url' => 'setReferenceDocUrl'
     ];
 
     /**
@@ -89,8 +93,9 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'namespace_id' => 'getNamespaceId',
-        'project_id' => 'getProjectId'
+        'reference_doc_name' => 'getReferenceDocName',
+        'reference_doc_type' => 'getReferenceDocType',
+        'reference_doc_url' => 'getReferenceDocUrl'
     ];
 
     /**
@@ -153,8 +158,9 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['namespace_id'] = isset($data['namespace_id']) ? $data['namespace_id'] : null;
-        $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
+        $this->container['reference_doc_name'] = isset($data['reference_doc_name']) ? $data['reference_doc_name'] : null;
+        $this->container['reference_doc_type'] = isset($data['reference_doc_type']) ? $data['reference_doc_type'] : null;
+        $this->container['reference_doc_url'] = isset($data['reference_doc_url']) ? $data['reference_doc_url'] : null;
     }
 
     /**
@@ -166,12 +172,6 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['namespace_id'] === null) {
-            $invalidProperties[] = "'namespace_id' can't be null";
-        }
-        if ($this->container['project_id'] === null) {
-            $invalidProperties[] = "'project_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -188,49 +188,73 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets namespace_id
+     * Gets reference_doc_name
      *
-     * @return int
+     * @return string
      */
-    public function getNamespaceId()
+    public function getReferenceDocName()
     {
-        return $this->container['namespace_id'];
+        return $this->container['reference_doc_name'];
     }
 
     /**
-     * Sets namespace_id
+     * Sets reference_doc_name
      *
-     * @param int $namespace_id namespace_id
+     * @param string $reference_doc_name reference_doc_name
      *
      * @return $this
      */
-    public function setNamespaceId($namespace_id)
+    public function setReferenceDocName($reference_doc_name)
     {
-        $this->container['namespace_id'] = $namespace_id;
+        $this->container['reference_doc_name'] = $reference_doc_name;
 
         return $this;
     }
 
     /**
-     * Gets project_id
+     * Gets reference_doc_type
      *
      * @return int
      */
-    public function getProjectId()
+    public function getReferenceDocType()
     {
-        return $this->container['project_id'];
+        return $this->container['reference_doc_type'];
     }
 
     /**
-     * Sets project_id
+     * Sets reference_doc_type
      *
-     * @param int $project_id project_id
+     * @param int $reference_doc_type reference_doc_type
      *
      * @return $this
      */
-    public function setProjectId($project_id)
+    public function setReferenceDocType($reference_doc_type)
     {
-        $this->container['project_id'] = $project_id;
+        $this->container['reference_doc_type'] = $reference_doc_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets reference_doc_url
+     *
+     * @return string
+     */
+    public function getReferenceDocUrl()
+    {
+        return $this->container['reference_doc_url'];
+    }
+
+    /**
+     * Sets reference_doc_url
+     *
+     * @param string $reference_doc_url reference_doc_url
+     *
+     * @return $this
+     */
+    public function setReferenceDocUrl($reference_doc_url)
+    {
+        $this->container['reference_doc_url'] = $reference_doc_url;
 
         return $this;
     }

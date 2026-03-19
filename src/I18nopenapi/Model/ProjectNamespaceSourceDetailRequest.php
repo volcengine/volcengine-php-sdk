@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
+class ProjectNamespaceSourceDetailRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ProjectNamespaceDetailRequest';
+    protected static $swaggerModelName = 'ProjectNamespaceSourceDetailRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,6 +28,8 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'key_text' => 'string',
+        'locale' => 'string',
         'namespace_id' => 'int',
         'project_id' => 'int'
     ];
@@ -38,6 +40,8 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'key_text' => null,
+        'locale' => null,
         'namespace_id' => 'int32',
         'project_id' => 'int32'
     ];
@@ -69,6 +73,8 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'key_text' => 'keyText',
+        'locale' => 'locale',
         'namespace_id' => 'namespaceId',
         'project_id' => 'projectId'
     ];
@@ -79,6 +85,8 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'key_text' => 'setKeyText',
+        'locale' => 'setLocale',
         'namespace_id' => 'setNamespaceId',
         'project_id' => 'setProjectId'
     ];
@@ -89,6 +97,8 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'key_text' => 'getKeyText',
+        'locale' => 'getLocale',
         'namespace_id' => 'getNamespaceId',
         'project_id' => 'getProjectId'
     ];
@@ -153,6 +163,8 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['key_text'] = isset($data['key_text']) ? $data['key_text'] : null;
+        $this->container['locale'] = isset($data['locale']) ? $data['locale'] : null;
         $this->container['namespace_id'] = isset($data['namespace_id']) ? $data['namespace_id'] : null;
         $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
     }
@@ -166,6 +178,9 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['key_text'] === null) {
+            $invalidProperties[] = "'key_text' can't be null";
+        }
         if ($this->container['namespace_id'] === null) {
             $invalidProperties[] = "'namespace_id' can't be null";
         }
@@ -186,6 +201,54 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets key_text
+     *
+     * @return string
+     */
+    public function getKeyText()
+    {
+        return $this->container['key_text'];
+    }
+
+    /**
+     * Sets key_text
+     *
+     * @param string $key_text key_text
+     *
+     * @return $this
+     */
+    public function setKeyText($key_text)
+    {
+        $this->container['key_text'] = $key_text;
+
+        return $this;
+    }
+
+    /**
+     * Gets locale
+     *
+     * @return string
+     */
+    public function getLocale()
+    {
+        return $this->container['locale'];
+    }
+
+    /**
+     * Sets locale
+     *
+     * @param string $locale locale
+     *
+     * @return $this
+     */
+    public function setLocale($locale)
+    {
+        $this->container['locale'] = $locale;
+
+        return $this;
+    }
 
     /**
      * Gets namespace_id

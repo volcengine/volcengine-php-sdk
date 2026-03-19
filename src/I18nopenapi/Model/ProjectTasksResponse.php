@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
+class ProjectTasksResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ProjectNamespaceDetailRequest';
+    protected static $swaggerModelName = 'ProjectTasksResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,10 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'namespace_id' => 'int',
-        'project_id' => 'int'
+        'data' => '\Volcengine\I18nopenapi\Model\DataForProjectTasksOutput[]',
+        'message' => 'string',
+        'pagination' => '\Volcengine\I18nopenapi\Model\PaginationForProjectTasksOutput',
+        'total' => 'int'
     ];
 
     /**
@@ -38,8 +40,10 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'namespace_id' => 'int32',
-        'project_id' => 'int32'
+        'data' => null,
+        'message' => null,
+        'pagination' => null,
+        'total' => 'int32'
     ];
 
     /**
@@ -69,8 +73,10 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'namespace_id' => 'namespaceId',
-        'project_id' => 'projectId'
+        'data' => 'data',
+        'message' => 'message',
+        'pagination' => 'pagination',
+        'total' => 'total'
     ];
 
     /**
@@ -79,8 +85,10 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'namespace_id' => 'setNamespaceId',
-        'project_id' => 'setProjectId'
+        'data' => 'setData',
+        'message' => 'setMessage',
+        'pagination' => 'setPagination',
+        'total' => 'setTotal'
     ];
 
     /**
@@ -89,8 +97,10 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'namespace_id' => 'getNamespaceId',
-        'project_id' => 'getProjectId'
+        'data' => 'getData',
+        'message' => 'getMessage',
+        'pagination' => 'getPagination',
+        'total' => 'getTotal'
     ];
 
     /**
@@ -153,8 +163,10 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['namespace_id'] = isset($data['namespace_id']) ? $data['namespace_id'] : null;
-        $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
+        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
+        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
+        $this->container['pagination'] = isset($data['pagination']) ? $data['pagination'] : null;
+        $this->container['total'] = isset($data['total']) ? $data['total'] : null;
     }
 
     /**
@@ -166,12 +178,6 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['namespace_id'] === null) {
-            $invalidProperties[] = "'namespace_id' can't be null";
-        }
-        if ($this->container['project_id'] === null) {
-            $invalidProperties[] = "'project_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -188,49 +194,97 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets namespace_id
+     * Gets data
      *
-     * @return int
+     * @return \Volcengine\I18nopenapi\Model\DataForProjectTasksOutput[]
      */
-    public function getNamespaceId()
+    public function getData()
     {
-        return $this->container['namespace_id'];
+        return $this->container['data'];
     }
 
     /**
-     * Sets namespace_id
+     * Sets data
      *
-     * @param int $namespace_id namespace_id
+     * @param \Volcengine\I18nopenapi\Model\DataForProjectTasksOutput[] $data data
      *
      * @return $this
      */
-    public function setNamespaceId($namespace_id)
+    public function setData($data)
     {
-        $this->container['namespace_id'] = $namespace_id;
+        $this->container['data'] = $data;
 
         return $this;
     }
 
     /**
-     * Gets project_id
+     * Gets message
      *
-     * @return int
+     * @return string
      */
-    public function getProjectId()
+    public function getMessage()
     {
-        return $this->container['project_id'];
+        return $this->container['message'];
     }
 
     /**
-     * Sets project_id
+     * Sets message
      *
-     * @param int $project_id project_id
+     * @param string $message message
      *
      * @return $this
      */
-    public function setProjectId($project_id)
+    public function setMessage($message)
     {
-        $this->container['project_id'] = $project_id;
+        $this->container['message'] = $message;
+
+        return $this;
+    }
+
+    /**
+     * Gets pagination
+     *
+     * @return \Volcengine\I18nopenapi\Model\PaginationForProjectTasksOutput
+     */
+    public function getPagination()
+    {
+        return $this->container['pagination'];
+    }
+
+    /**
+     * Sets pagination
+     *
+     * @param \Volcengine\I18nopenapi\Model\PaginationForProjectTasksOutput $pagination pagination
+     *
+     * @return $this
+     */
+    public function setPagination($pagination)
+    {
+        $this->container['pagination'] = $pagination;
+
+        return $this;
+    }
+
+    /**
+     * Gets total
+     *
+     * @return int
+     */
+    public function getTotal()
+    {
+        return $this->container['total'];
+    }
+
+    /**
+     * Sets total
+     *
+     * @param int $total total
+     *
+     * @return $this
+     */
+    public function setTotal($total)
+    {
+        $this->container['total'] = $total;
 
         return $this;
     }

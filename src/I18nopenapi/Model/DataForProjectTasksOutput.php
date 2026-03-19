@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
+class DataForProjectTasksOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ProjectNamespaceDetailRequest';
+    protected static $swaggerModelName = 'dataForProjectTasksOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,13 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'namespace_id' => 'int',
-        'project_id' => 'int'
+        'comment' => 'string',
+        'created_at' => 'string',
+        'creator_id' => 'int',
+        'sync_namespaces' => 'int[]',
+        'task_id' => 'int',
+        'task_name' => 'string',
+        'updated_at' => 'string'
     ];
 
     /**
@@ -38,8 +43,13 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'namespace_id' => 'int32',
-        'project_id' => 'int32'
+        'comment' => null,
+        'created_at' => null,
+        'creator_id' => 'int32',
+        'sync_namespaces' => 'int32',
+        'task_id' => 'int32',
+        'task_name' => null,
+        'updated_at' => null
     ];
 
     /**
@@ -69,8 +79,13 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'namespace_id' => 'namespaceId',
-        'project_id' => 'projectId'
+        'comment' => 'comment',
+        'created_at' => 'createdAt',
+        'creator_id' => 'creatorId',
+        'sync_namespaces' => 'syncNamespaces',
+        'task_id' => 'taskId',
+        'task_name' => 'taskName',
+        'updated_at' => 'updatedAt'
     ];
 
     /**
@@ -79,8 +94,13 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'namespace_id' => 'setNamespaceId',
-        'project_id' => 'setProjectId'
+        'comment' => 'setComment',
+        'created_at' => 'setCreatedAt',
+        'creator_id' => 'setCreatorId',
+        'sync_namespaces' => 'setSyncNamespaces',
+        'task_id' => 'setTaskId',
+        'task_name' => 'setTaskName',
+        'updated_at' => 'setUpdatedAt'
     ];
 
     /**
@@ -89,8 +109,13 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'namespace_id' => 'getNamespaceId',
-        'project_id' => 'getProjectId'
+        'comment' => 'getComment',
+        'created_at' => 'getCreatedAt',
+        'creator_id' => 'getCreatorId',
+        'sync_namespaces' => 'getSyncNamespaces',
+        'task_id' => 'getTaskId',
+        'task_name' => 'getTaskName',
+        'updated_at' => 'getUpdatedAt'
     ];
 
     /**
@@ -153,8 +178,13 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['namespace_id'] = isset($data['namespace_id']) ? $data['namespace_id'] : null;
-        $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
+        $this->container['comment'] = isset($data['comment']) ? $data['comment'] : null;
+        $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
+        $this->container['creator_id'] = isset($data['creator_id']) ? $data['creator_id'] : null;
+        $this->container['sync_namespaces'] = isset($data['sync_namespaces']) ? $data['sync_namespaces'] : null;
+        $this->container['task_id'] = isset($data['task_id']) ? $data['task_id'] : null;
+        $this->container['task_name'] = isset($data['task_name']) ? $data['task_name'] : null;
+        $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
     }
 
     /**
@@ -166,12 +196,6 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['namespace_id'] === null) {
-            $invalidProperties[] = "'namespace_id' can't be null";
-        }
-        if ($this->container['project_id'] === null) {
-            $invalidProperties[] = "'project_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -188,49 +212,169 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets namespace_id
+     * Gets comment
      *
-     * @return int
+     * @return string
      */
-    public function getNamespaceId()
+    public function getComment()
     {
-        return $this->container['namespace_id'];
+        return $this->container['comment'];
     }
 
     /**
-     * Sets namespace_id
+     * Sets comment
      *
-     * @param int $namespace_id namespace_id
+     * @param string $comment comment
      *
      * @return $this
      */
-    public function setNamespaceId($namespace_id)
+    public function setComment($comment)
     {
-        $this->container['namespace_id'] = $namespace_id;
+        $this->container['comment'] = $comment;
 
         return $this;
     }
 
     /**
-     * Gets project_id
+     * Gets created_at
      *
-     * @return int
+     * @return string
      */
-    public function getProjectId()
+    public function getCreatedAt()
     {
-        return $this->container['project_id'];
+        return $this->container['created_at'];
     }
 
     /**
-     * Sets project_id
+     * Sets created_at
      *
-     * @param int $project_id project_id
+     * @param string $created_at created_at
      *
      * @return $this
      */
-    public function setProjectId($project_id)
+    public function setCreatedAt($created_at)
     {
-        $this->container['project_id'] = $project_id;
+        $this->container['created_at'] = $created_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets creator_id
+     *
+     * @return int
+     */
+    public function getCreatorId()
+    {
+        return $this->container['creator_id'];
+    }
+
+    /**
+     * Sets creator_id
+     *
+     * @param int $creator_id creator_id
+     *
+     * @return $this
+     */
+    public function setCreatorId($creator_id)
+    {
+        $this->container['creator_id'] = $creator_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets sync_namespaces
+     *
+     * @return int[]
+     */
+    public function getSyncNamespaces()
+    {
+        return $this->container['sync_namespaces'];
+    }
+
+    /**
+     * Sets sync_namespaces
+     *
+     * @param int[] $sync_namespaces sync_namespaces
+     *
+     * @return $this
+     */
+    public function setSyncNamespaces($sync_namespaces)
+    {
+        $this->container['sync_namespaces'] = $sync_namespaces;
+
+        return $this;
+    }
+
+    /**
+     * Gets task_id
+     *
+     * @return int
+     */
+    public function getTaskId()
+    {
+        return $this->container['task_id'];
+    }
+
+    /**
+     * Sets task_id
+     *
+     * @param int $task_id task_id
+     *
+     * @return $this
+     */
+    public function setTaskId($task_id)
+    {
+        $this->container['task_id'] = $task_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets task_name
+     *
+     * @return string
+     */
+    public function getTaskName()
+    {
+        return $this->container['task_name'];
+    }
+
+    /**
+     * Sets task_name
+     *
+     * @param string $task_name task_name
+     *
+     * @return $this
+     */
+    public function setTaskName($task_name)
+    {
+        $this->container['task_name'] = $task_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets updated_at
+     *
+     * @return string
+     */
+    public function getUpdatedAt()
+    {
+        return $this->container['updated_at'];
+    }
+
+    /**
+     * Sets updated_at
+     *
+     * @param string $updated_at updated_at
+     *
+     * @return $this
+     */
+    public function setUpdatedAt($updated_at)
+    {
+        $this->container['updated_at'] = $updated_at;
 
         return $this;
     }

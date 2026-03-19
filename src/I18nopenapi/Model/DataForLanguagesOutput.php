@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
+class DataForLanguagesOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ProjectNamespaceDetailRequest';
+    protected static $swaggerModelName = 'dataForLanguagesOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,8 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'namespace_id' => 'int',
-        'project_id' => 'int'
+        'source_locale' => 'string',
+        'target_locales' => 'string[]'
     ];
 
     /**
@@ -38,8 +38,8 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'namespace_id' => 'int32',
-        'project_id' => 'int32'
+        'source_locale' => null,
+        'target_locales' => null
     ];
 
     /**
@@ -69,8 +69,8 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'namespace_id' => 'namespaceId',
-        'project_id' => 'projectId'
+        'source_locale' => 'sourceLocale',
+        'target_locales' => 'targetLocales'
     ];
 
     /**
@@ -79,8 +79,8 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'namespace_id' => 'setNamespaceId',
-        'project_id' => 'setProjectId'
+        'source_locale' => 'setSourceLocale',
+        'target_locales' => 'setTargetLocales'
     ];
 
     /**
@@ -89,8 +89,8 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'namespace_id' => 'getNamespaceId',
-        'project_id' => 'getProjectId'
+        'source_locale' => 'getSourceLocale',
+        'target_locales' => 'getTargetLocales'
     ];
 
     /**
@@ -153,8 +153,8 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['namespace_id'] = isset($data['namespace_id']) ? $data['namespace_id'] : null;
-        $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
+        $this->container['source_locale'] = isset($data['source_locale']) ? $data['source_locale'] : null;
+        $this->container['target_locales'] = isset($data['target_locales']) ? $data['target_locales'] : null;
     }
 
     /**
@@ -166,12 +166,6 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['namespace_id'] === null) {
-            $invalidProperties[] = "'namespace_id' can't be null";
-        }
-        if ($this->container['project_id'] === null) {
-            $invalidProperties[] = "'project_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -188,49 +182,49 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets namespace_id
+     * Gets source_locale
      *
-     * @return int
+     * @return string
      */
-    public function getNamespaceId()
+    public function getSourceLocale()
     {
-        return $this->container['namespace_id'];
+        return $this->container['source_locale'];
     }
 
     /**
-     * Sets namespace_id
+     * Sets source_locale
      *
-     * @param int $namespace_id namespace_id
+     * @param string $source_locale source_locale
      *
      * @return $this
      */
-    public function setNamespaceId($namespace_id)
+    public function setSourceLocale($source_locale)
     {
-        $this->container['namespace_id'] = $namespace_id;
+        $this->container['source_locale'] = $source_locale;
 
         return $this;
     }
 
     /**
-     * Gets project_id
+     * Gets target_locales
      *
-     * @return int
+     * @return string[]
      */
-    public function getProjectId()
+    public function getTargetLocales()
     {
-        return $this->container['project_id'];
+        return $this->container['target_locales'];
     }
 
     /**
-     * Sets project_id
+     * Sets target_locales
      *
-     * @param int $project_id project_id
+     * @param string[] $target_locales target_locales
      *
      * @return $this
      */
-    public function setProjectId($project_id)
+    public function setTargetLocales($target_locales)
     {
-        $this->container['project_id'] = $project_id;
+        $this->container['target_locales'] = $target_locales;
 
         return $this;
     }

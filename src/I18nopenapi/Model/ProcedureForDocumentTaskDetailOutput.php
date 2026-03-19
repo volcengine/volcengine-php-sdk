@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
+class ProcedureForDocumentTaskDetailOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ProjectNamespaceDetailRequest';
+    protected static $swaggerModelName = 'procedureForDocumentTaskDetailOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,14 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'namespace_id' => 'int',
-        'project_id' => 'int'
+        'comment' => 'string',
+        'created_at' => 'string',
+        'deadline' => 'string',
+        'procedure' => 'int',
+        'progress' => 'int',
+        'state' => 'int',
+        'target_doc_id' => 'int',
+        'updated_at' => 'string'
     ];
 
     /**
@@ -38,8 +44,14 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'namespace_id' => 'int32',
-        'project_id' => 'int32'
+        'comment' => null,
+        'created_at' => null,
+        'deadline' => null,
+        'procedure' => 'int32',
+        'progress' => 'int32',
+        'state' => 'int32',
+        'target_doc_id' => 'int32',
+        'updated_at' => null
     ];
 
     /**
@@ -69,8 +81,14 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'namespace_id' => 'namespaceId',
-        'project_id' => 'projectId'
+        'comment' => 'comment',
+        'created_at' => 'createdAt',
+        'deadline' => 'deadline',
+        'procedure' => 'procedure',
+        'progress' => 'progress',
+        'state' => 'state',
+        'target_doc_id' => 'targetDocId',
+        'updated_at' => 'updatedAt'
     ];
 
     /**
@@ -79,8 +97,14 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'namespace_id' => 'setNamespaceId',
-        'project_id' => 'setProjectId'
+        'comment' => 'setComment',
+        'created_at' => 'setCreatedAt',
+        'deadline' => 'setDeadline',
+        'procedure' => 'setProcedure',
+        'progress' => 'setProgress',
+        'state' => 'setState',
+        'target_doc_id' => 'setTargetDocId',
+        'updated_at' => 'setUpdatedAt'
     ];
 
     /**
@@ -89,8 +113,14 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'namespace_id' => 'getNamespaceId',
-        'project_id' => 'getProjectId'
+        'comment' => 'getComment',
+        'created_at' => 'getCreatedAt',
+        'deadline' => 'getDeadline',
+        'procedure' => 'getProcedure',
+        'progress' => 'getProgress',
+        'state' => 'getState',
+        'target_doc_id' => 'getTargetDocId',
+        'updated_at' => 'getUpdatedAt'
     ];
 
     /**
@@ -153,8 +183,14 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['namespace_id'] = isset($data['namespace_id']) ? $data['namespace_id'] : null;
-        $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
+        $this->container['comment'] = isset($data['comment']) ? $data['comment'] : null;
+        $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
+        $this->container['deadline'] = isset($data['deadline']) ? $data['deadline'] : null;
+        $this->container['procedure'] = isset($data['procedure']) ? $data['procedure'] : null;
+        $this->container['progress'] = isset($data['progress']) ? $data['progress'] : null;
+        $this->container['state'] = isset($data['state']) ? $data['state'] : null;
+        $this->container['target_doc_id'] = isset($data['target_doc_id']) ? $data['target_doc_id'] : null;
+        $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
     }
 
     /**
@@ -166,12 +202,6 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['namespace_id'] === null) {
-            $invalidProperties[] = "'namespace_id' can't be null";
-        }
-        if ($this->container['project_id'] === null) {
-            $invalidProperties[] = "'project_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -188,49 +218,193 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets namespace_id
+     * Gets comment
      *
-     * @return int
+     * @return string
      */
-    public function getNamespaceId()
+    public function getComment()
     {
-        return $this->container['namespace_id'];
+        return $this->container['comment'];
     }
 
     /**
-     * Sets namespace_id
+     * Sets comment
      *
-     * @param int $namespace_id namespace_id
+     * @param string $comment comment
      *
      * @return $this
      */
-    public function setNamespaceId($namespace_id)
+    public function setComment($comment)
     {
-        $this->container['namespace_id'] = $namespace_id;
+        $this->container['comment'] = $comment;
 
         return $this;
     }
 
     /**
-     * Gets project_id
+     * Gets created_at
      *
-     * @return int
+     * @return string
      */
-    public function getProjectId()
+    public function getCreatedAt()
     {
-        return $this->container['project_id'];
+        return $this->container['created_at'];
     }
 
     /**
-     * Sets project_id
+     * Sets created_at
      *
-     * @param int $project_id project_id
+     * @param string $created_at created_at
      *
      * @return $this
      */
-    public function setProjectId($project_id)
+    public function setCreatedAt($created_at)
     {
-        $this->container['project_id'] = $project_id;
+        $this->container['created_at'] = $created_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets deadline
+     *
+     * @return string
+     */
+    public function getDeadline()
+    {
+        return $this->container['deadline'];
+    }
+
+    /**
+     * Sets deadline
+     *
+     * @param string $deadline deadline
+     *
+     * @return $this
+     */
+    public function setDeadline($deadline)
+    {
+        $this->container['deadline'] = $deadline;
+
+        return $this;
+    }
+
+    /**
+     * Gets procedure
+     *
+     * @return int
+     */
+    public function getProcedure()
+    {
+        return $this->container['procedure'];
+    }
+
+    /**
+     * Sets procedure
+     *
+     * @param int $procedure procedure
+     *
+     * @return $this
+     */
+    public function setProcedure($procedure)
+    {
+        $this->container['procedure'] = $procedure;
+
+        return $this;
+    }
+
+    /**
+     * Gets progress
+     *
+     * @return int
+     */
+    public function getProgress()
+    {
+        return $this->container['progress'];
+    }
+
+    /**
+     * Sets progress
+     *
+     * @param int $progress progress
+     *
+     * @return $this
+     */
+    public function setProgress($progress)
+    {
+        $this->container['progress'] = $progress;
+
+        return $this;
+    }
+
+    /**
+     * Gets state
+     *
+     * @return int
+     */
+    public function getState()
+    {
+        return $this->container['state'];
+    }
+
+    /**
+     * Sets state
+     *
+     * @param int $state state
+     *
+     * @return $this
+     */
+    public function setState($state)
+    {
+        $this->container['state'] = $state;
+
+        return $this;
+    }
+
+    /**
+     * Gets target_doc_id
+     *
+     * @return int
+     */
+    public function getTargetDocId()
+    {
+        return $this->container['target_doc_id'];
+    }
+
+    /**
+     * Sets target_doc_id
+     *
+     * @param int $target_doc_id target_doc_id
+     *
+     * @return $this
+     */
+    public function setTargetDocId($target_doc_id)
+    {
+        $this->container['target_doc_id'] = $target_doc_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets updated_at
+     *
+     * @return string
+     */
+    public function getUpdatedAt()
+    {
+        return $this->container['updated_at'];
+    }
+
+    /**
+     * Sets updated_at
+     *
+     * @param string $updated_at updated_at
+     *
+     * @return $this
+     */
+    public function setUpdatedAt($updated_at)
+    {
+        $this->container['updated_at'] = $updated_at;
 
         return $this;
     }

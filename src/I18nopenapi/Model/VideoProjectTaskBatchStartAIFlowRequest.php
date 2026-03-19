@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
+class VideoProjectTaskBatchStartAIFlowRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ProjectNamespaceDetailRequest';
+    protected static $swaggerModelName = 'VideoProjectTaskBatchStartAIFlowRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,9 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'namespace_id' => 'int',
-        'project_id' => 'int'
+        'operate_type' => 'int',
+        'project_id' => 'string',
+        'subtask_ids' => 'string[]'
     ];
 
     /**
@@ -38,8 +39,9 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'namespace_id' => 'int32',
-        'project_id' => 'int32'
+        'operate_type' => 'int32',
+        'project_id' => null,
+        'subtask_ids' => null
     ];
 
     /**
@@ -69,8 +71,9 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'namespace_id' => 'namespaceId',
-        'project_id' => 'projectId'
+        'operate_type' => 'operateType',
+        'project_id' => 'projectId',
+        'subtask_ids' => 'subtaskIds'
     ];
 
     /**
@@ -79,8 +82,9 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'namespace_id' => 'setNamespaceId',
-        'project_id' => 'setProjectId'
+        'operate_type' => 'setOperateType',
+        'project_id' => 'setProjectId',
+        'subtask_ids' => 'setSubtaskIds'
     ];
 
     /**
@@ -89,8 +93,9 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'namespace_id' => 'getNamespaceId',
-        'project_id' => 'getProjectId'
+        'operate_type' => 'getOperateType',
+        'project_id' => 'getProjectId',
+        'subtask_ids' => 'getSubtaskIds'
     ];
 
     /**
@@ -153,8 +158,9 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['namespace_id'] = isset($data['namespace_id']) ? $data['namespace_id'] : null;
+        $this->container['operate_type'] = isset($data['operate_type']) ? $data['operate_type'] : null;
         $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
+        $this->container['subtask_ids'] = isset($data['subtask_ids']) ? $data['subtask_ids'] : null;
     }
 
     /**
@@ -166,8 +172,8 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['namespace_id'] === null) {
-            $invalidProperties[] = "'namespace_id' can't be null";
+        if ($this->container['operate_type'] === null) {
+            $invalidProperties[] = "'operate_type' can't be null";
         }
         if ($this->container['project_id'] === null) {
             $invalidProperties[] = "'project_id' can't be null";
@@ -188,25 +194,25 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets namespace_id
+     * Gets operate_type
      *
      * @return int
      */
-    public function getNamespaceId()
+    public function getOperateType()
     {
-        return $this->container['namespace_id'];
+        return $this->container['operate_type'];
     }
 
     /**
-     * Sets namespace_id
+     * Sets operate_type
      *
-     * @param int $namespace_id namespace_id
+     * @param int $operate_type operate_type
      *
      * @return $this
      */
-    public function setNamespaceId($namespace_id)
+    public function setOperateType($operate_type)
     {
-        $this->container['namespace_id'] = $namespace_id;
+        $this->container['operate_type'] = $operate_type;
 
         return $this;
     }
@@ -214,7 +220,7 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
     /**
      * Gets project_id
      *
-     * @return int
+     * @return string
      */
     public function getProjectId()
     {
@@ -224,13 +230,37 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
     /**
      * Sets project_id
      *
-     * @param int $project_id project_id
+     * @param string $project_id project_id
      *
      * @return $this
      */
     public function setProjectId($project_id)
     {
         $this->container['project_id'] = $project_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets subtask_ids
+     *
+     * @return string[]
+     */
+    public function getSubtaskIds()
+    {
+        return $this->container['subtask_ids'];
+    }
+
+    /**
+     * Sets subtask_ids
+     *
+     * @param string[] $subtask_ids subtask_ids
+     *
+     * @return $this
+     */
+    public function setSubtaskIds($subtask_ids)
+    {
+        $this->container['subtask_ids'] = $subtask_ids;
 
         return $this;
     }

@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
+class DataForProjectMtDetectOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ProjectNamespaceDetailRequest';
+    protected static $swaggerModelName = 'dataForProjectMtDetectOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,9 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'namespace_id' => 'int',
-        'project_id' => 'int'
+        'lang_code' => 'string',
+        'lang_name' => 'string',
+        'probability' => 'int'
     ];
 
     /**
@@ -38,8 +39,9 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'namespace_id' => 'int32',
-        'project_id' => 'int32'
+        'lang_code' => null,
+        'lang_name' => null,
+        'probability' => 'int64'
     ];
 
     /**
@@ -69,8 +71,9 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'namespace_id' => 'namespaceId',
-        'project_id' => 'projectId'
+        'lang_code' => 'langCode',
+        'lang_name' => 'langName',
+        'probability' => 'probability'
     ];
 
     /**
@@ -79,8 +82,9 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'namespace_id' => 'setNamespaceId',
-        'project_id' => 'setProjectId'
+        'lang_code' => 'setLangCode',
+        'lang_name' => 'setLangName',
+        'probability' => 'setProbability'
     ];
 
     /**
@@ -89,8 +93,9 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'namespace_id' => 'getNamespaceId',
-        'project_id' => 'getProjectId'
+        'lang_code' => 'getLangCode',
+        'lang_name' => 'getLangName',
+        'probability' => 'getProbability'
     ];
 
     /**
@@ -153,8 +158,9 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['namespace_id'] = isset($data['namespace_id']) ? $data['namespace_id'] : null;
-        $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
+        $this->container['lang_code'] = isset($data['lang_code']) ? $data['lang_code'] : null;
+        $this->container['lang_name'] = isset($data['lang_name']) ? $data['lang_name'] : null;
+        $this->container['probability'] = isset($data['probability']) ? $data['probability'] : null;
     }
 
     /**
@@ -166,12 +172,6 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['namespace_id'] === null) {
-            $invalidProperties[] = "'namespace_id' can't be null";
-        }
-        if ($this->container['project_id'] === null) {
-            $invalidProperties[] = "'project_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -188,49 +188,73 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets namespace_id
+     * Gets lang_code
      *
-     * @return int
+     * @return string
      */
-    public function getNamespaceId()
+    public function getLangCode()
     {
-        return $this->container['namespace_id'];
+        return $this->container['lang_code'];
     }
 
     /**
-     * Sets namespace_id
+     * Sets lang_code
      *
-     * @param int $namespace_id namespace_id
+     * @param string $lang_code lang_code
      *
      * @return $this
      */
-    public function setNamespaceId($namespace_id)
+    public function setLangCode($lang_code)
     {
-        $this->container['namespace_id'] = $namespace_id;
+        $this->container['lang_code'] = $lang_code;
 
         return $this;
     }
 
     /**
-     * Gets project_id
+     * Gets lang_name
      *
-     * @return int
+     * @return string
      */
-    public function getProjectId()
+    public function getLangName()
     {
-        return $this->container['project_id'];
+        return $this->container['lang_name'];
     }
 
     /**
-     * Sets project_id
+     * Sets lang_name
      *
-     * @param int $project_id project_id
+     * @param string $lang_name lang_name
      *
      * @return $this
      */
-    public function setProjectId($project_id)
+    public function setLangName($lang_name)
     {
-        $this->container['project_id'] = $project_id;
+        $this->container['lang_name'] = $lang_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets probability
+     *
+     * @return int
+     */
+    public function getProbability()
+    {
+        return $this->container['probability'];
+    }
+
+    /**
+     * Sets probability
+     *
+     * @param int $probability probability
+     *
+     * @return $this
+     */
+    public function setProbability($probability)
+    {
+        $this->container['probability'] = $probability;
 
         return $this;
     }

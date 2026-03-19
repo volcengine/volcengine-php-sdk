@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
+class DataForMtSupportLangOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ProjectNamespaceDetailRequest';
+    protected static $swaggerModelName = 'dataForMtSupportLangOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,8 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'namespace_id' => 'int',
-        'project_id' => 'int'
+        'count' => 'int',
+        'langs' => 'string[]'
     ];
 
     /**
@@ -38,8 +38,8 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'namespace_id' => 'int32',
-        'project_id' => 'int32'
+        'count' => 'int64',
+        'langs' => null
     ];
 
     /**
@@ -69,8 +69,8 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'namespace_id' => 'namespaceId',
-        'project_id' => 'projectId'
+        'count' => 'count',
+        'langs' => 'langs'
     ];
 
     /**
@@ -79,8 +79,8 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'namespace_id' => 'setNamespaceId',
-        'project_id' => 'setProjectId'
+        'count' => 'setCount',
+        'langs' => 'setLangs'
     ];
 
     /**
@@ -89,8 +89,8 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'namespace_id' => 'getNamespaceId',
-        'project_id' => 'getProjectId'
+        'count' => 'getCount',
+        'langs' => 'getLangs'
     ];
 
     /**
@@ -153,8 +153,8 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['namespace_id'] = isset($data['namespace_id']) ? $data['namespace_id'] : null;
-        $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
+        $this->container['count'] = isset($data['count']) ? $data['count'] : null;
+        $this->container['langs'] = isset($data['langs']) ? $data['langs'] : null;
     }
 
     /**
@@ -166,12 +166,6 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['namespace_id'] === null) {
-            $invalidProperties[] = "'namespace_id' can't be null";
-        }
-        if ($this->container['project_id'] === null) {
-            $invalidProperties[] = "'project_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -188,49 +182,49 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets namespace_id
+     * Gets count
      *
      * @return int
      */
-    public function getNamespaceId()
+    public function getCount()
     {
-        return $this->container['namespace_id'];
+        return $this->container['count'];
     }
 
     /**
-     * Sets namespace_id
+     * Sets count
      *
-     * @param int $namespace_id namespace_id
+     * @param int $count count
      *
      * @return $this
      */
-    public function setNamespaceId($namespace_id)
+    public function setCount($count)
     {
-        $this->container['namespace_id'] = $namespace_id;
+        $this->container['count'] = $count;
 
         return $this;
     }
 
     /**
-     * Gets project_id
+     * Gets langs
      *
-     * @return int
+     * @return string[]
      */
-    public function getProjectId()
+    public function getLangs()
     {
-        return $this->container['project_id'];
+        return $this->container['langs'];
     }
 
     /**
-     * Sets project_id
+     * Sets langs
      *
-     * @param int $project_id project_id
+     * @param string[] $langs langs
      *
      * @return $this
      */
-    public function setProjectId($project_id)
+    public function setLangs($langs)
     {
-        $this->container['project_id'] = $project_id;
+        $this->container['langs'] = $langs;
 
         return $this;
     }

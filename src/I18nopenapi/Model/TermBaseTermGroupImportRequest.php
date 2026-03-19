@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
+class TermBaseTermGroupImportRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ProjectNamespaceDetailRequest';
+    protected static $swaggerModelName = 'TermBaseTermGroupImportRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,10 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'namespace_id' => 'int',
-        'project_id' => 'int'
+        'file_name' => 'string',
+        'file_tos_key' => 'string',
+        'file_type' => 'int',
+        'term_base_id' => 'string'
     ];
 
     /**
@@ -38,8 +40,10 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'namespace_id' => 'int32',
-        'project_id' => 'int32'
+        'file_name' => null,
+        'file_tos_key' => null,
+        'file_type' => 'int32',
+        'term_base_id' => null
     ];
 
     /**
@@ -69,8 +73,10 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'namespace_id' => 'namespaceId',
-        'project_id' => 'projectId'
+        'file_name' => 'fileName',
+        'file_tos_key' => 'fileTosKey',
+        'file_type' => 'fileType',
+        'term_base_id' => 'termBaseId'
     ];
 
     /**
@@ -79,8 +85,10 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'namespace_id' => 'setNamespaceId',
-        'project_id' => 'setProjectId'
+        'file_name' => 'setFileName',
+        'file_tos_key' => 'setFileTosKey',
+        'file_type' => 'setFileType',
+        'term_base_id' => 'setTermBaseId'
     ];
 
     /**
@@ -89,8 +97,10 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'namespace_id' => 'getNamespaceId',
-        'project_id' => 'getProjectId'
+        'file_name' => 'getFileName',
+        'file_tos_key' => 'getFileTosKey',
+        'file_type' => 'getFileType',
+        'term_base_id' => 'getTermBaseId'
     ];
 
     /**
@@ -153,8 +163,10 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['namespace_id'] = isset($data['namespace_id']) ? $data['namespace_id'] : null;
-        $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
+        $this->container['file_name'] = isset($data['file_name']) ? $data['file_name'] : null;
+        $this->container['file_tos_key'] = isset($data['file_tos_key']) ? $data['file_tos_key'] : null;
+        $this->container['file_type'] = isset($data['file_type']) ? $data['file_type'] : null;
+        $this->container['term_base_id'] = isset($data['term_base_id']) ? $data['term_base_id'] : null;
     }
 
     /**
@@ -166,11 +178,17 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['namespace_id'] === null) {
-            $invalidProperties[] = "'namespace_id' can't be null";
+        if ($this->container['file_name'] === null) {
+            $invalidProperties[] = "'file_name' can't be null";
         }
-        if ($this->container['project_id'] === null) {
-            $invalidProperties[] = "'project_id' can't be null";
+        if ($this->container['file_tos_key'] === null) {
+            $invalidProperties[] = "'file_tos_key' can't be null";
+        }
+        if ($this->container['file_type'] === null) {
+            $invalidProperties[] = "'file_type' can't be null";
+        }
+        if ($this->container['term_base_id'] === null) {
+            $invalidProperties[] = "'term_base_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -188,49 +206,97 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets namespace_id
+     * Gets file_name
      *
-     * @return int
+     * @return string
      */
-    public function getNamespaceId()
+    public function getFileName()
     {
-        return $this->container['namespace_id'];
+        return $this->container['file_name'];
     }
 
     /**
-     * Sets namespace_id
+     * Sets file_name
      *
-     * @param int $namespace_id namespace_id
+     * @param string $file_name file_name
      *
      * @return $this
      */
-    public function setNamespaceId($namespace_id)
+    public function setFileName($file_name)
     {
-        $this->container['namespace_id'] = $namespace_id;
+        $this->container['file_name'] = $file_name;
 
         return $this;
     }
 
     /**
-     * Gets project_id
+     * Gets file_tos_key
      *
-     * @return int
+     * @return string
      */
-    public function getProjectId()
+    public function getFileTosKey()
     {
-        return $this->container['project_id'];
+        return $this->container['file_tos_key'];
     }
 
     /**
-     * Sets project_id
+     * Sets file_tos_key
      *
-     * @param int $project_id project_id
+     * @param string $file_tos_key file_tos_key
      *
      * @return $this
      */
-    public function setProjectId($project_id)
+    public function setFileTosKey($file_tos_key)
     {
-        $this->container['project_id'] = $project_id;
+        $this->container['file_tos_key'] = $file_tos_key;
+
+        return $this;
+    }
+
+    /**
+     * Gets file_type
+     *
+     * @return int
+     */
+    public function getFileType()
+    {
+        return $this->container['file_type'];
+    }
+
+    /**
+     * Sets file_type
+     *
+     * @param int $file_type file_type
+     *
+     * @return $this
+     */
+    public function setFileType($file_type)
+    {
+        $this->container['file_type'] = $file_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets term_base_id
+     *
+     * @return string
+     */
+    public function getTermBaseId()
+    {
+        return $this->container['term_base_id'];
+    }
+
+    /**
+     * Sets term_base_id
+     *
+     * @param string $term_base_id term_base_id
+     *
+     * @return $this
+     */
+    public function setTermBaseId($term_base_id)
+    {
+        $this->container['term_base_id'] = $term_base_id;
 
         return $this;
     }

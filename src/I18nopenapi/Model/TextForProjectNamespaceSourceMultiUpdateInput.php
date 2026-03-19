@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
+class TextForProjectNamespaceSourceMultiUpdateInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ProjectNamespaceDetailRequest';
+    protected static $swaggerModelName = 'textForProjectNamespaceSourceMultiUpdateInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,9 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'namespace_id' => 'int',
-        'project_id' => 'int'
+        'commentary' => 'string',
+        'content' => 'string',
+        'key_text' => 'string'
     ];
 
     /**
@@ -38,8 +39,9 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'namespace_id' => 'int32',
-        'project_id' => 'int32'
+        'commentary' => null,
+        'content' => null,
+        'key_text' => null
     ];
 
     /**
@@ -69,8 +71,9 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'namespace_id' => 'namespaceId',
-        'project_id' => 'projectId'
+        'commentary' => 'commentary',
+        'content' => 'content',
+        'key_text' => 'keyText'
     ];
 
     /**
@@ -79,8 +82,9 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'namespace_id' => 'setNamespaceId',
-        'project_id' => 'setProjectId'
+        'commentary' => 'setCommentary',
+        'content' => 'setContent',
+        'key_text' => 'setKeyText'
     ];
 
     /**
@@ -89,8 +93,9 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'namespace_id' => 'getNamespaceId',
-        'project_id' => 'getProjectId'
+        'commentary' => 'getCommentary',
+        'content' => 'getContent',
+        'key_text' => 'getKeyText'
     ];
 
     /**
@@ -153,8 +158,9 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['namespace_id'] = isset($data['namespace_id']) ? $data['namespace_id'] : null;
-        $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
+        $this->container['commentary'] = isset($data['commentary']) ? $data['commentary'] : null;
+        $this->container['content'] = isset($data['content']) ? $data['content'] : null;
+        $this->container['key_text'] = isset($data['key_text']) ? $data['key_text'] : null;
     }
 
     /**
@@ -166,12 +172,6 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['namespace_id'] === null) {
-            $invalidProperties[] = "'namespace_id' can't be null";
-        }
-        if ($this->container['project_id'] === null) {
-            $invalidProperties[] = "'project_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -188,49 +188,73 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets namespace_id
+     * Gets commentary
      *
-     * @return int
+     * @return string
      */
-    public function getNamespaceId()
+    public function getCommentary()
     {
-        return $this->container['namespace_id'];
+        return $this->container['commentary'];
     }
 
     /**
-     * Sets namespace_id
+     * Sets commentary
      *
-     * @param int $namespace_id namespace_id
+     * @param string $commentary commentary
      *
      * @return $this
      */
-    public function setNamespaceId($namespace_id)
+    public function setCommentary($commentary)
     {
-        $this->container['namespace_id'] = $namespace_id;
+        $this->container['commentary'] = $commentary;
 
         return $this;
     }
 
     /**
-     * Gets project_id
+     * Gets content
      *
-     * @return int
+     * @return string
      */
-    public function getProjectId()
+    public function getContent()
     {
-        return $this->container['project_id'];
+        return $this->container['content'];
     }
 
     /**
-     * Sets project_id
+     * Sets content
      *
-     * @param int $project_id project_id
+     * @param string $content content
      *
      * @return $this
      */
-    public function setProjectId($project_id)
+    public function setContent($content)
     {
-        $this->container['project_id'] = $project_id;
+        $this->container['content'] = $content;
+
+        return $this;
+    }
+
+    /**
+     * Gets key_text
+     *
+     * @return string
+     */
+    public function getKeyText()
+    {
+        return $this->container['key_text'];
+    }
+
+    /**
+     * Sets key_text
+     *
+     * @param string $key_text key_text
+     *
+     * @return $this
+     */
+    public function setKeyText($key_text)
+    {
+        $this->container['key_text'] = $key_text;
 
         return $this;
     }

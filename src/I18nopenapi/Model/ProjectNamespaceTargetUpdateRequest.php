@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
+class ProjectNamespaceTargetUpdateRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ProjectNamespaceDetailRequest';
+    protected static $swaggerModelName = 'ProjectNamespaceTargetUpdateRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -29,7 +29,8 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'namespace_id' => 'int',
-        'project_id' => 'int'
+        'project_id' => 'int',
+        'targets' => '\Volcengine\I18nopenapi\Model\TargetForProjectNamespaceTargetUpdateInput[]'
     ];
 
     /**
@@ -39,7 +40,8 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'namespace_id' => 'int32',
-        'project_id' => 'int32'
+        'project_id' => 'int32',
+        'targets' => null
     ];
 
     /**
@@ -70,7 +72,8 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'namespace_id' => 'namespaceId',
-        'project_id' => 'projectId'
+        'project_id' => 'projectId',
+        'targets' => 'targets'
     ];
 
     /**
@@ -80,7 +83,8 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'namespace_id' => 'setNamespaceId',
-        'project_id' => 'setProjectId'
+        'project_id' => 'setProjectId',
+        'targets' => 'setTargets'
     ];
 
     /**
@@ -90,7 +94,8 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'namespace_id' => 'getNamespaceId',
-        'project_id' => 'getProjectId'
+        'project_id' => 'getProjectId',
+        'targets' => 'getTargets'
     ];
 
     /**
@@ -155,6 +160,7 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
     {
         $this->container['namespace_id'] = isset($data['namespace_id']) ? $data['namespace_id'] : null;
         $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
+        $this->container['targets'] = isset($data['targets']) ? $data['targets'] : null;
     }
 
     /**
@@ -231,6 +237,30 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
     public function setProjectId($project_id)
     {
         $this->container['project_id'] = $project_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets targets
+     *
+     * @return \Volcengine\I18nopenapi\Model\TargetForProjectNamespaceTargetUpdateInput[]
+     */
+    public function getTargets()
+    {
+        return $this->container['targets'];
+    }
+
+    /**
+     * Sets targets
+     *
+     * @param \Volcengine\I18nopenapi\Model\TargetForProjectNamespaceTargetUpdateInput[] $targets targets
+     *
+     * @return $this
+     */
+    public function setTargets($targets)
+    {
+        $this->container['targets'] = $targets;
 
         return $this;
     }

@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
+class ProjectTaskSourceDetailResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ProjectNamespaceDetailRequest';
+    protected static $swaggerModelName = 'ProjectTaskSourceDetailResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,8 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'namespace_id' => 'int',
-        'project_id' => 'int'
+        'data' => '\Volcengine\I18nopenapi\Model\DataForProjectTaskSourceDetailOutput',
+        'message' => 'string'
     ];
 
     /**
@@ -38,8 +38,8 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'namespace_id' => 'int32',
-        'project_id' => 'int32'
+        'data' => null,
+        'message' => null
     ];
 
     /**
@@ -69,8 +69,8 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'namespace_id' => 'namespaceId',
-        'project_id' => 'projectId'
+        'data' => 'data',
+        'message' => 'message'
     ];
 
     /**
@@ -79,8 +79,8 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'namespace_id' => 'setNamespaceId',
-        'project_id' => 'setProjectId'
+        'data' => 'setData',
+        'message' => 'setMessage'
     ];
 
     /**
@@ -89,8 +89,8 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'namespace_id' => 'getNamespaceId',
-        'project_id' => 'getProjectId'
+        'data' => 'getData',
+        'message' => 'getMessage'
     ];
 
     /**
@@ -153,8 +153,8 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['namespace_id'] = isset($data['namespace_id']) ? $data['namespace_id'] : null;
-        $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
+        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
+        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
     }
 
     /**
@@ -166,12 +166,6 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['namespace_id'] === null) {
-            $invalidProperties[] = "'namespace_id' can't be null";
-        }
-        if ($this->container['project_id'] === null) {
-            $invalidProperties[] = "'project_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -188,49 +182,49 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets namespace_id
+     * Gets data
      *
-     * @return int
+     * @return \Volcengine\I18nopenapi\Model\DataForProjectTaskSourceDetailOutput
      */
-    public function getNamespaceId()
+    public function getData()
     {
-        return $this->container['namespace_id'];
+        return $this->container['data'];
     }
 
     /**
-     * Sets namespace_id
+     * Sets data
      *
-     * @param int $namespace_id namespace_id
+     * @param \Volcengine\I18nopenapi\Model\DataForProjectTaskSourceDetailOutput $data data
      *
      * @return $this
      */
-    public function setNamespaceId($namespace_id)
+    public function setData($data)
     {
-        $this->container['namespace_id'] = $namespace_id;
+        $this->container['data'] = $data;
 
         return $this;
     }
 
     /**
-     * Gets project_id
+     * Gets message
      *
-     * @return int
+     * @return string
      */
-    public function getProjectId()
+    public function getMessage()
     {
-        return $this->container['project_id'];
+        return $this->container['message'];
     }
 
     /**
-     * Sets project_id
+     * Sets message
      *
-     * @param int $project_id project_id
+     * @param string $message message
      *
      * @return $this
      */
-    public function setProjectId($project_id)
+    public function setMessage($message)
     {
-        $this->container['project_id'] = $project_id;
+        $this->container['message'] = $message;
 
         return $this;
     }

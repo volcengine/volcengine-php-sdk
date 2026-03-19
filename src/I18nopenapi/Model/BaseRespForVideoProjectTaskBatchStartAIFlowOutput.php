@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
+class BaseRespForVideoProjectTaskBatchStartAIFlowOutput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ProjectNamespaceDetailRequest';
+    protected static $swaggerModelName = 'BaseRespForVideoProjectTaskBatchStartAIFlowOutput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,8 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'namespace_id' => 'int',
-        'project_id' => 'int'
+        'status_code' => 'int',
+        'status_message' => 'string'
     ];
 
     /**
@@ -38,8 +38,8 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'namespace_id' => 'int32',
-        'project_id' => 'int32'
+        'status_code' => 'int32',
+        'status_message' => null
     ];
 
     /**
@@ -69,8 +69,8 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'namespace_id' => 'namespaceId',
-        'project_id' => 'projectId'
+        'status_code' => 'StatusCode',
+        'status_message' => 'StatusMessage'
     ];
 
     /**
@@ -79,8 +79,8 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'namespace_id' => 'setNamespaceId',
-        'project_id' => 'setProjectId'
+        'status_code' => 'setStatusCode',
+        'status_message' => 'setStatusMessage'
     ];
 
     /**
@@ -89,8 +89,8 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'namespace_id' => 'getNamespaceId',
-        'project_id' => 'getProjectId'
+        'status_code' => 'getStatusCode',
+        'status_message' => 'getStatusMessage'
     ];
 
     /**
@@ -153,8 +153,8 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['namespace_id'] = isset($data['namespace_id']) ? $data['namespace_id'] : null;
-        $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
+        $this->container['status_code'] = isset($data['status_code']) ? $data['status_code'] : null;
+        $this->container['status_message'] = isset($data['status_message']) ? $data['status_message'] : null;
     }
 
     /**
@@ -166,12 +166,6 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['namespace_id'] === null) {
-            $invalidProperties[] = "'namespace_id' can't be null";
-        }
-        if ($this->container['project_id'] === null) {
-            $invalidProperties[] = "'project_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -188,49 +182,49 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets namespace_id
+     * Gets status_code
      *
      * @return int
      */
-    public function getNamespaceId()
+    public function getStatusCode()
     {
-        return $this->container['namespace_id'];
+        return $this->container['status_code'];
     }
 
     /**
-     * Sets namespace_id
+     * Sets status_code
      *
-     * @param int $namespace_id namespace_id
+     * @param int $status_code status_code
      *
      * @return $this
      */
-    public function setNamespaceId($namespace_id)
+    public function setStatusCode($status_code)
     {
-        $this->container['namespace_id'] = $namespace_id;
+        $this->container['status_code'] = $status_code;
 
         return $this;
     }
 
     /**
-     * Gets project_id
+     * Gets status_message
      *
-     * @return int
+     * @return string
      */
-    public function getProjectId()
+    public function getStatusMessage()
     {
-        return $this->container['project_id'];
+        return $this->container['status_message'];
     }
 
     /**
-     * Sets project_id
+     * Sets status_message
      *
-     * @param int $project_id project_id
+     * @param string $status_message status_message
      *
      * @return $this
      */
-    public function setProjectId($project_id)
+    public function setStatusMessage($status_message)
     {
-        $this->container['project_id'] = $project_id;
+        $this->container['status_message'] = $status_message;
 
         return $this;
     }

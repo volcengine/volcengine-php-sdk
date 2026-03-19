@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
+class DocUrlListForDocumentTaskCreateInput implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ProjectNamespaceDetailRequest';
+    protected static $swaggerModelName = 'docUrlListForDocumentTaskCreateInput';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,11 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'namespace_id' => 'int',
-        'project_id' => 'int'
+        'content' => 'string',
+        'doc_type' => 'int',
+        'name' => 'string',
+        'url' => 'string',
+        'word_count' => 'string'
     ];
 
     /**
@@ -38,8 +41,11 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'namespace_id' => 'int32',
-        'project_id' => 'int32'
+        'content' => null,
+        'doc_type' => 'int32',
+        'name' => null,
+        'url' => null,
+        'word_count' => null
     ];
 
     /**
@@ -69,8 +75,11 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'namespace_id' => 'namespaceId',
-        'project_id' => 'projectId'
+        'content' => 'content',
+        'doc_type' => 'docType',
+        'name' => 'name',
+        'url' => 'url',
+        'word_count' => 'wordCount'
     ];
 
     /**
@@ -79,8 +88,11 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'namespace_id' => 'setNamespaceId',
-        'project_id' => 'setProjectId'
+        'content' => 'setContent',
+        'doc_type' => 'setDocType',
+        'name' => 'setName',
+        'url' => 'setUrl',
+        'word_count' => 'setWordCount'
     ];
 
     /**
@@ -89,8 +101,11 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'namespace_id' => 'getNamespaceId',
-        'project_id' => 'getProjectId'
+        'content' => 'getContent',
+        'doc_type' => 'getDocType',
+        'name' => 'getName',
+        'url' => 'getUrl',
+        'word_count' => 'getWordCount'
     ];
 
     /**
@@ -153,8 +168,11 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['namespace_id'] = isset($data['namespace_id']) ? $data['namespace_id'] : null;
-        $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
+        $this->container['content'] = isset($data['content']) ? $data['content'] : null;
+        $this->container['doc_type'] = isset($data['doc_type']) ? $data['doc_type'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['url'] = isset($data['url']) ? $data['url'] : null;
+        $this->container['word_count'] = isset($data['word_count']) ? $data['word_count'] : null;
     }
 
     /**
@@ -166,12 +184,6 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['namespace_id'] === null) {
-            $invalidProperties[] = "'namespace_id' can't be null";
-        }
-        if ($this->container['project_id'] === null) {
-            $invalidProperties[] = "'project_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -188,49 +200,121 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets namespace_id
+     * Gets content
      *
-     * @return int
+     * @return string
      */
-    public function getNamespaceId()
+    public function getContent()
     {
-        return $this->container['namespace_id'];
+        return $this->container['content'];
     }
 
     /**
-     * Sets namespace_id
+     * Sets content
      *
-     * @param int $namespace_id namespace_id
+     * @param string $content content
      *
      * @return $this
      */
-    public function setNamespaceId($namespace_id)
+    public function setContent($content)
     {
-        $this->container['namespace_id'] = $namespace_id;
+        $this->container['content'] = $content;
 
         return $this;
     }
 
     /**
-     * Gets project_id
+     * Gets doc_type
      *
      * @return int
      */
-    public function getProjectId()
+    public function getDocType()
     {
-        return $this->container['project_id'];
+        return $this->container['doc_type'];
     }
 
     /**
-     * Sets project_id
+     * Sets doc_type
      *
-     * @param int $project_id project_id
+     * @param int $doc_type doc_type
      *
      * @return $this
      */
-    public function setProjectId($project_id)
+    public function setDocType($doc_type)
     {
-        $this->container['project_id'] = $project_id;
+        $this->container['doc_type'] = $doc_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name name
+     *
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets url
+     *
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->container['url'];
+    }
+
+    /**
+     * Sets url
+     *
+     * @param string $url url
+     *
+     * @return $this
+     */
+    public function setUrl($url)
+    {
+        $this->container['url'] = $url;
+
+        return $this;
+    }
+
+    /**
+     * Gets word_count
+     *
+     * @return string
+     */
+    public function getWordCount()
+    {
+        return $this->container['word_count'];
+    }
+
+    /**
+     * Sets word_count
+     *
+     * @param string $word_count word_count
+     *
+     * @return $this
+     */
+    public function setWordCount($word_count)
+    {
+        $this->container['word_count'] = $word_count;
 
         return $this;
     }

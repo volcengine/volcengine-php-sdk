@@ -11,7 +11,7 @@ use ArrayAccess;
 use Volcengine\Common\ObjectSerializer;
 use Volcengine\Common\ModelInterface;
 
-class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
+class ProjectTextAcrossImportRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ProjectNamespaceDetailRequest';
+    protected static $swaggerModelName = 'ProjectTextAcrossImportRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,8 +28,10 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'namespace_id' => 'int',
-        'project_id' => 'int'
+        'async' => 'int',
+        'project_id' => 'int',
+        'task_id' => 'int',
+        'wait' => 'int'
     ];
 
     /**
@@ -38,8 +40,10 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'namespace_id' => 'int32',
-        'project_id' => 'int32'
+        'async' => 'int64',
+        'project_id' => 'int64',
+        'task_id' => 'int64',
+        'wait' => 'int64'
     ];
 
     /**
@@ -69,8 +73,10 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'namespace_id' => 'namespaceId',
-        'project_id' => 'projectId'
+        'async' => 'async',
+        'project_id' => 'projectId',
+        'task_id' => 'taskId',
+        'wait' => 'wait'
     ];
 
     /**
@@ -79,8 +85,10 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'namespace_id' => 'setNamespaceId',
-        'project_id' => 'setProjectId'
+        'async' => 'setAsync',
+        'project_id' => 'setProjectId',
+        'task_id' => 'setTaskId',
+        'wait' => 'setWait'
     ];
 
     /**
@@ -89,8 +97,10 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'namespace_id' => 'getNamespaceId',
-        'project_id' => 'getProjectId'
+        'async' => 'getAsync',
+        'project_id' => 'getProjectId',
+        'task_id' => 'getTaskId',
+        'wait' => 'getWait'
     ];
 
     /**
@@ -153,8 +163,10 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['namespace_id'] = isset($data['namespace_id']) ? $data['namespace_id'] : null;
+        $this->container['async'] = isset($data['async']) ? $data['async'] : null;
         $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
+        $this->container['task_id'] = isset($data['task_id']) ? $data['task_id'] : null;
+        $this->container['wait'] = isset($data['wait']) ? $data['wait'] : null;
     }
 
     /**
@@ -166,11 +178,11 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['namespace_id'] === null) {
-            $invalidProperties[] = "'namespace_id' can't be null";
-        }
         if ($this->container['project_id'] === null) {
             $invalidProperties[] = "'project_id' can't be null";
+        }
+        if ($this->container['task_id'] === null) {
+            $invalidProperties[] = "'task_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -188,25 +200,25 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets namespace_id
+     * Gets async
      *
      * @return int
      */
-    public function getNamespaceId()
+    public function getAsync()
     {
-        return $this->container['namespace_id'];
+        return $this->container['async'];
     }
 
     /**
-     * Sets namespace_id
+     * Sets async
      *
-     * @param int $namespace_id namespace_id
+     * @param int $async async
      *
      * @return $this
      */
-    public function setNamespaceId($namespace_id)
+    public function setAsync($async)
     {
-        $this->container['namespace_id'] = $namespace_id;
+        $this->container['async'] = $async;
 
         return $this;
     }
@@ -231,6 +243,54 @@ class ProjectNamespaceDetailRequest implements ModelInterface, ArrayAccess
     public function setProjectId($project_id)
     {
         $this->container['project_id'] = $project_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets task_id
+     *
+     * @return int
+     */
+    public function getTaskId()
+    {
+        return $this->container['task_id'];
+    }
+
+    /**
+     * Sets task_id
+     *
+     * @param int $task_id task_id
+     *
+     * @return $this
+     */
+    public function setTaskId($task_id)
+    {
+        $this->container['task_id'] = $task_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets wait
+     *
+     * @return int
+     */
+    public function getWait()
+    {
+        return $this->container['wait'];
+    }
+
+    /**
+     * Sets wait
+     *
+     * @param int $wait wait
+     *
+     * @return $this
+     */
+    public function setWait($wait)
+    {
+        $this->container['wait'] = $wait;
 
         return $this;
     }
