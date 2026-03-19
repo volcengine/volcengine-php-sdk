@@ -75,10 +75,10 @@ class CLIConfigCredentialProvider extends Provider
         $profileData = $config['profiles'][$profile];
         $mode = isset($profileData['mode']) ? $profileData['mode'] : '';
 
-        return $this->loadByMode($mode, $profileData, $profile);
+        return $this->loadByMode($mode, $profileData, $profile, $config);
     }
 
-    private function loadByMode($mode, $profileData, $profile)
+    private function loadByMode($mode, $profileData, $profile, $config = [])
     {
         switch ($mode) {
             case '':
@@ -158,6 +158,11 @@ class CLIConfigCredentialProvider extends Provider
                 $this->delegate = EcsRoleCredentialProvider::create($roleName);
                 return null;
 
+            case 'SSO':
+                $cacheDir = $this->resolveSsoCacheDir();
+                $this->delegate = new SsoCredentialProvider($profileData, $profile, $config, $cacheDir);
+                return null;
+
             default:
                 throw new \RuntimeException(
                     self::PROVIDER_NAME . ': unsupported mode: ' . $mode
@@ -198,6 +203,13 @@ class CLIConfigCredentialProvider extends Provider
         }
 
         return 'default';
+    }
+
+    private function resolveSsoCacheDir()
+    {
+        $configPath = $this->resolveConfigPath();
+        $configDir = dirname($configPath);
+        return $configDir . DIRECTORY_SEPARATOR . 'sso' . DIRECTORY_SEPARATOR . 'cache';
     }
 
     private function getHomeDir()
