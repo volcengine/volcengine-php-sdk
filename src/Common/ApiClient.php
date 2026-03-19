@@ -89,6 +89,19 @@ class ApiClient
         $request->sk = $this->configuration->getSk();
         $request->sessionToken = $this->configuration->getSessionToken();
 
+        // No explicit credentials set — use default credential chain
+        if (empty($request->ak) && empty($request->sk)) {
+            $credentialProvider = $this->configuration->getCredentialProvider();
+            if ($credentialProvider === null) {
+                $credentialProvider = new \Volcengine\Common\Auth\Providers\DefaultCredentialProvider();
+                $this->configuration->setCredentialProvider($credentialProvider);
+            }
+            $creds = $credentialProvider->getCredentials();
+            $request->ak = $creds['AccessKeyId'];
+            $request->sk = $creds['SecretAccessKey'];
+            $request->sessionToken = isset($creds['SessionToken']) ? $creds['SessionToken'] : '';
+        }
+
         $request->region = $this->configuration->getRegion();
         $request->schema = $this->configuration->getSchema();
         $request->endpointProvider = $this->configuration->getEndpointProvider();
