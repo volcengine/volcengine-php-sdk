@@ -8,6 +8,7 @@ class CLIConfigCredentialProvider extends Provider
 
     private $profileName;
     private $cachedCredentials;
+    private $delegate = null;
 
     public function __construct($profileName = null)
     {
@@ -16,11 +17,20 @@ class CLIConfigCredentialProvider extends Provider
 
     public function getCredentials()
     {
+        if ($this->delegate !== null) {
+            return $this->delegate->getCredentials();
+        }
+
         if ($this->cachedCredentials !== null) {
             return $this->cachedCredentials;
         }
 
         $this->cachedCredentials = $this->loadFromConfig();
+
+        if ($this->delegate !== null) {
+            return $this->delegate->getCredentials();
+        }
+
         return $this->cachedCredentials;
     }
 
@@ -107,6 +117,46 @@ class CLIConfigCredentialProvider extends Provider
                     'SessionToken' => $sessionToken,
                     'ProviderName' => self::PROVIDER_NAME,
                 ];
+
+            case 'RamRoleArn':
+                $ak = isset($profileData['access-key']) ? trim($profileData['access-key']) : '';
+                $sk = isset($profileData['secret-key']) ? trim($profileData['secret-key']) : '';
+                $roleName = isset($profileData['role-name']) ? trim($profileData['role-name']) : '';
+                $accountId = isset($profileData['account-id']) ? trim($profileData['account-id']) : '';
+
+                if (empty($ak) || empty($sk) || empty($roleName) || empty($accountId)) {
+                    throw new \RuntimeException(
+                        self::PROVIDER_NAME . ": access-key, secret-key, role-name, and account-id are all required for RamRoleArn mode in profile '{$profile}'"
+                    );
+                }
+
+                $this->delegate = new StsProvider($ak, $sk, $roleName, $accountId);
+                return null;
+
+            case 'OIDC':
+                $oidcTokenFile = isset($profileData['oidc-token-file']) ? trim($profileData['oidc-token-file']) : '';
+                $roleTrn = isset($profileData['role-trn']) ? trim($profileData['role-trn']) : '';
+
+                if (empty($oidcTokenFile) || empty($roleTrn)) {
+                    throw new \RuntimeException(
+                        self::PROVIDER_NAME . ": oidc-token-file and role-trn are required for OIDC mode in profile '{$profile}'"
+                    );
+                }
+
+                $this->delegate = new OidcEnvCredentialProvider($roleTrn, $oidcTokenFile);
+                return null;
+
+            case 'EcsRole':
+                $roleName = isset($profileData['role-name']) ? trim($profileData['role-name']) : '';
+
+                if (empty($roleName)) {
+                    throw new \RuntimeException(
+                        self::PROVIDER_NAME . ": role-name is required for EcsRole mode in profile '{$profile}'"
+                    );
+                }
+
+                $this->delegate = EcsRoleCredentialProvider::create($roleName);
+                return null;
 
             default:
                 throw new \RuntimeException(
