@@ -33,6 +33,7 @@ class CreateDBAccountRequest implements ModelInterface, ArrayAccess
         'account_password' => 'string',
         'account_privileges' => '\Volcengine\Rdsmysqlv2\Model\AccountPrivilegeForCreateDBAccountInput[]',
         'account_type' => 'string',
+        'authentication_type' => 'string',
         'dry_run' => 'bool',
         'host' => 'string',
         'instance_id' => 'string',
@@ -50,6 +51,7 @@ class CreateDBAccountRequest implements ModelInterface, ArrayAccess
         'account_password' => null,
         'account_privileges' => null,
         'account_type' => null,
+        'authentication_type' => null,
         'dry_run' => null,
         'host' => null,
         'instance_id' => null,
@@ -88,6 +90,7 @@ class CreateDBAccountRequest implements ModelInterface, ArrayAccess
         'account_password' => 'AccountPassword',
         'account_privileges' => 'AccountPrivileges',
         'account_type' => 'AccountType',
+        'authentication_type' => 'AuthenticationType',
         'dry_run' => 'DryRun',
         'host' => 'Host',
         'instance_id' => 'InstanceId',
@@ -105,6 +108,7 @@ class CreateDBAccountRequest implements ModelInterface, ArrayAccess
         'account_password' => 'setAccountPassword',
         'account_privileges' => 'setAccountPrivileges',
         'account_type' => 'setAccountType',
+        'authentication_type' => 'setAuthenticationType',
         'dry_run' => 'setDryRun',
         'host' => 'setHost',
         'instance_id' => 'setInstanceId',
@@ -122,6 +126,7 @@ class CreateDBAccountRequest implements ModelInterface, ArrayAccess
         'account_password' => 'getAccountPassword',
         'account_privileges' => 'getAccountPrivileges',
         'account_type' => 'getAccountType',
+        'authentication_type' => 'getAuthenticationType',
         'dry_run' => 'getDryRun',
         'host' => 'getHost',
         'instance_id' => 'getInstanceId',
@@ -193,6 +198,7 @@ class CreateDBAccountRequest implements ModelInterface, ArrayAccess
         $this->container['account_password'] = isset($data['account_password']) ? $data['account_password'] : null;
         $this->container['account_privileges'] = isset($data['account_privileges']) ? $data['account_privileges'] : null;
         $this->container['account_type'] = isset($data['account_type']) ? $data['account_type'] : null;
+        $this->container['authentication_type'] = isset($data['authentication_type']) ? $data['authentication_type'] : null;
         $this->container['dry_run'] = isset($data['dry_run']) ? $data['dry_run'] : null;
         $this->container['host'] = isset($data['host']) ? $data['host'] : null;
         $this->container['instance_id'] = isset($data['instance_id']) ? $data['instance_id'] : null;
@@ -351,6 +357,30 @@ class CreateDBAccountRequest implements ModelInterface, ArrayAccess
     public function setAccountType($account_type)
     {
         $this->container['account_type'] = $account_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets authentication_type
+     *
+     * @return string
+     */
+    public function getAuthenticationType()
+    {
+        return $this->container['authentication_type'];
+    }
+
+    /**
+     * Sets authentication_type
+     *
+     * @param string $authentication_type authentication_type
+     *
+     * @return $this
+     */
+    public function setAuthenticationType($authentication_type)
+    {
+        $this->container['authentication_type'] = $authentication_type;
 
         return $this;
     }

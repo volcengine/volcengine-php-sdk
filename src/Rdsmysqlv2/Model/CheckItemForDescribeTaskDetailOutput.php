@@ -28,7 +28,6 @@ class CheckItemForDescribeTaskDetailOutput implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'check_detail' => '\Volcengine\Rdsmysqlv2\Model\CheckDetailForDescribeTaskDetailOutput',
         'description' => 'string',
         'item_name' => 'string',
         'risk_level' => 'string'
@@ -40,7 +39,6 @@ class CheckItemForDescribeTaskDetailOutput implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'check_detail' => null,
         'description' => null,
         'item_name' => null,
         'risk_level' => null
@@ -73,7 +71,6 @@ class CheckItemForDescribeTaskDetailOutput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $attributeMap = [
-        'check_detail' => 'CheckDetail',
         'description' => 'Description',
         'item_name' => 'ItemName',
         'risk_level' => 'RiskLevel'
@@ -85,7 +82,6 @@ class CheckItemForDescribeTaskDetailOutput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $setters = [
-        'check_detail' => 'setCheckDetail',
         'description' => 'setDescription',
         'item_name' => 'setItemName',
         'risk_level' => 'setRiskLevel'
@@ -97,7 +93,6 @@ class CheckItemForDescribeTaskDetailOutput implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $getters = [
-        'check_detail' => 'getCheckDetail',
         'description' => 'getDescription',
         'item_name' => 'getItemName',
         'risk_level' => 'getRiskLevel'
@@ -163,7 +158,6 @@ class CheckItemForDescribeTaskDetailOutput implements ModelInterface, ArrayAcces
      */
     public function __construct(array $data = null)
     {
-        $this->container['check_detail'] = isset($data['check_detail']) ? $data['check_detail'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['item_name'] = isset($data['item_name']) ? $data['item_name'] : null;
         $this->container['risk_level'] = isset($data['risk_level']) ? $data['risk_level'] : null;
@@ -192,30 +186,6 @@ class CheckItemForDescribeTaskDetailOutput implements ModelInterface, ArrayAcces
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets check_detail
-     *
-     * @return \Volcengine\Rdsmysqlv2\Model\CheckDetailForDescribeTaskDetailOutput
-     */
-    public function getCheckDetail()
-    {
-        return $this->container['check_detail'];
-    }
-
-    /**
-     * Sets check_detail
-     *
-     * @param \Volcengine\Rdsmysqlv2\Model\CheckDetailForDescribeTaskDetailOutput $check_detail check_detail
-     *
-     * @return $this
-     */
-    public function setCheckDetail($check_detail)
-    {
-        $this->container['check_detail'] = $check_detail;
-
-        return $this;
-    }
 
     /**
      * Gets description
